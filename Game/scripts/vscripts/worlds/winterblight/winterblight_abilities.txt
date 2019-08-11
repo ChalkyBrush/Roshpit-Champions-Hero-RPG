@@ -13699,7 +13699,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"3"
+		"AbilityCooldown"				"5"
 
 		// Cost
 		//-------------------------------------------------------
@@ -13739,6 +13739,10 @@
 						"Function"		"tiamat_charge_think"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-400" 
+				}
 			}
 			"modifier_dinath_scorch_charge_slide"
 			{
@@ -13756,9 +13760,106 @@
 		}
 	}
 
+	"tiamat_fire_breath"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"dinath/wyvern_fire"
+		"AbilityCastPoint"	"0.3"
+		"AbilityCooldown"	"5"
+		"AbilityCastRange"				"2500"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Dinath.FireBomb.InhaleVO"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"tiamat_fire_finish_channel"
+				"target"		"POINT"
+				"radius"		"%radius"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_arctic_passive_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_fire_passive_thinker"
+					}
+				}
+			}
+			"modifier_tiamat_fire_bomb"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_fire_orb_thinking"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_tiamat_fire_fire_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_fire_thinker"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"2000 24000 250000"
+			}
+		}
+	}
+
 	"tiamat_boss_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/azalea_boss"
 		"MaxLevel"	"3"
@@ -13878,6 +13979,82 @@
 				}
 				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
 				"StatusEffectPriority"  "150"
+			}
+			"modifier_boss_between_phase"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_fly_out_phase"
+					}
+				}
+			}
+		}
+
+	}
+
+	"winterblight_tiamat_frost_attack"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1200 5000 50000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-60 -100 -180"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_tiamat_frost_attack"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_ice_attack_land"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_frostburn_gauntlets_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
+            	"StatusEffectPriority"  "10"
+            	"TextureName"		"crystal_maiden_crystal_nova"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
 			}
 		}
 

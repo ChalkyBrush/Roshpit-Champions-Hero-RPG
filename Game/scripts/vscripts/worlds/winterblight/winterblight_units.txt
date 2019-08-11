@@ -13857,6 +13857,7 @@
         {
             "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+            "particle"  "particles/roshpit/winterblight/tiamat_fire.vpcf"
         }
 
         "ArmorPhysical" "3"
@@ -13869,7 +13870,7 @@
         "AttackDamageMax"   "35188"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.42"
-        "AttackAcquisitionRange"    "0"
+        "AttackAcquisitionRange"    "5000"
         "AttackRange"   "1240"
         "BountyGoldMin" "50"
         "BountyGoldMax" "60"
@@ -13913,8 +13914,11 @@
             }
 
         }
-        "Ability1"  "tiamat_scorch_charge"
-        "Ability2"  "tiamat_boss_passive"
-        "Ability3"  "winterblight_stun_regen"
-        "Ability4"  "boss_health"
+        "Ability1"  "tiamat_fire_breath"
+        "Ability2"  "tiamat_scorch_charge"
+        "Ability3"  "tiamat_boss_passive"
+        "Ability4"  "winterblight_tiamat_frost_attack"
+        "Ability5"  "creature_pure_strike"
+        "Ability6"  "mega_steadfast"
+        "Ability7"  "boss_health"
     }
