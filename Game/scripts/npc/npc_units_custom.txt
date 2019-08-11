@@ -93349,6 +93349,7 @@
             "particle"      "particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
             "particle"      "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_totem_buff_rocks.vpcf"
             "particle"      "particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf"
+            "particle"      "particles/roshpit/winterblight/cavern_guide_travel_ball_lightning.vpcf"
         }
         "ArmorPhysical" "7"
         "MagicalResistance" "35"
@@ -93430,7 +93431,7 @@
             }
 
         }
-
+        "DrawParticlesWhileHidden" "1"
     }
 
     "winterblight_cavern_centaur"
@@ -97318,9 +97319,9 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-            "particle"  "particles/items_fx/immunity_sphere.vpcf"
-            "particle"  "particles/econ/items/earthshaker/earthshaker_gravelmaw/earthshaker_fissure_flash_b_gravelmaw.vpcf"
-            "particle"  "particles/units/heroes/hero_earthshaker/earthshaker_fissure.vpcf"
+            "particle"  "particles/roshpit/seafortress/alt_big_dust.vpcf"
+            "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start.vpcf"
+            "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start_dust.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"
@@ -97405,6 +97406,83 @@
 
             }
         }
+    }
+
+    "winterblight_cavern_boss_tiamat"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/dragon_knight/aurora_warrior_set_dragon_style2_aurora_warrior_set/aurora_warrior_set_dragon_style2_aurora_warrior_set.vmdl"
+        "ModelScale"    "2.2"
+        "Level" "1"
+        "HealthBarOffset"   "540"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Winter_Wyvern"
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+        }
+
+        "ArmorPhysical" "3"
+        "MagicalResistance" "30"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
+        "ProjectileSpeed"   "1000"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "32148"
+        "AttackDamageMax"   "35188"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.42"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "1240"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "25234850"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "tiamat_scorch_charge"
+        "Ability2"  "tiamat_boss_passive"
+        "Ability3"  "winterblight_stun_regen"
+        "Ability4"  "boss_health"
     }
     
 

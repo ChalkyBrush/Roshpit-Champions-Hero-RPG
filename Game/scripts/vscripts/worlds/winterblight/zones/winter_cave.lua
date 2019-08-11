@@ -69,10 +69,12 @@ function Winterblight:InitCavernData()
 	Winterblight.CavernData = {}
 	Winterblight.CavernData.Chambers = {}
 	Winterblight.CavernData.RelicsFragments = 0
+	Winterblight.CavernData.tiamat_status = 0
 	for i = 1, 4, 1 do
 		Winterblight.CavernData.Chambers[i] = {}
 		Winterblight.CavernData.Chambers[i]["status"] = 0
 		Winterblight.CavernData.Chambers[i]["boss_status"] = 0
+		Winterblight.CavernData.Chambers[i]["boss_level_defeated"] = 0
 		-- Winterblight.CavernData.Chambers[i]["relic_fragments_reward"] = 100
 		Winterblight.CavernData.Chambers[i]["events"] = {}
 		for j = 1, 4, 1 do
@@ -4204,6 +4206,10 @@ end
 
 function Winterblight:CavernBossSummon(msg)
 	local chamber = tonumber(msg.chamber)
+	if chamber == 5 then
+		Winterblight:TiamatSequence(msg)
+		return false
+	end
 	if Winterblight.CavernData.Chambers[chamber]["boss_status"] ~= 0 then
 		return false
 	end
@@ -4237,7 +4243,7 @@ function Winterblight:CavernBossSummon(msg)
 	end
 
 	EmitSoundOnLocationWithCaster(boss:GetAbsOrigin(), "Winterblight.BossOut", boss)
-	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/alt_big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
 	ParticleManager:SetParticleControl(pfx, 0, boss:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
 	ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
@@ -4316,7 +4322,208 @@ function Winterblight:SpawnGigarraun(position)
 	Events:ColorWearablesAndBase(boss, Vector(100, 120, 255))
 	boss.reduc = 0.08
 	EmitSoundOn("Winterblight.Gigarraun.Spawn", boss)
-	Winterblight:SetPositionCastArgs(boss, 2000, 300, 1, FIND_ANY_ORDER)
 	return boss
 end
 
+function Winterblight:tiamat_boss_level()
+	local level = 0
+	local bosses_killed = 0
+	local total_boss_level = 0
+	for i = 1, 4, 1 do
+		if Winterblight.CavernData.Chambers[i]["boss_level_defeated"] > 0 then
+			bosses_killed = bosses_killed + 1
+			total_boss_level = total_boss_level + Winterblight.CavernData.Chambers[i]["boss_level_defeated"]
+		end
+	end
+	if bosses_killed == 4 then
+		level = math.ceil(total_boss_level/4)
+	end
+	return level
+end
+
+function Winterblight:TiamatSequence(msg)
+	local chamber = 5
+	if Winterblight.CavernData.tiamat_status ~= 0 then
+		return false
+	end
+	Winterblight.CavernData.tiamat_status = 1
+	local cost = 4000
+	if Winterblight.CavernData.RelicsFragments < cost then
+		return false
+	end
+	local boss_level = Winterblight:tiamat_boss_level()
+	if boss_level < 1 then
+		return false
+	end
+	Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments - cost
+
+
+	local player = PlayerResource:GetPlayer(msg.PlayerID)
+	local hero = player:GetAssignedHero()
+	
+	local guide = Winterblight.CavernGuide
+	Dungeons:LockCameraToUnitForPlayers(guide, 13, {hero})
+	local ability = guide:FindAbilityByName("winterblight_cave_guide_ability")
+	ability:ApplyDataDrivenModifier(guide, guide, "modifier_guide_tiamat_thinking", {})
+	CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/aegis_lvl_1000_ambient_ti9.vpcf", guide:GetAbsOrigin(), 6)
+	StartAnimation(guide, {duration=4, activity=ACT_DOTA_VERSUS, rate=1.3, translate="surge"})
+	guide.tiamat_interval = 0
+	guide.tiamat_phase = -1
+	guide.goSpeed = 10
+	guide.liftSpeed = 1
+	guide.sequence_hero = hero
+	CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/tornado_ambient.vpcf", guide:GetAbsOrigin(), 7)
+	Timers:CreateTimer(0.06, function()
+		EmitSoundOn("Winterblight.CaveGuide.StartTiamat.Land.VO", guide)
+		EmitSoundOn("Winterblight.CavernGuide.Tornado2", guide)
+		EmitSoundOnLocationWithCaster(guide:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", guide, 4)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", guide, 4)
+	end)
+end
+
+function Winterblight:SpawnTiamat(position)
+	local boss = Events:SpawnBoss("winterblight_cavern_boss_tiamat", position)
+	boss.reduc = 0.02
+	boss:SetSkin(2)
+	return boss
+end
+
+function Winterblight:MainTiamatSpawn(hero)
+	ParticleManager:DestroyParticle(Winterblight.tiamat_sequence_orb.pfx, false)
+	local position = Winterblight.tiamat_sequence_orb.final_pos
+	Winterblight.tiamat_sequence_orb = nil
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
+	local boss = Winterblight:SpawnTiamat(position)
+	local boss_level = Winterblight:tiamat_boss_level()
+	EmitGlobalSound("Winterblight.Tiamat.FirstSpawn")
+	EmitSoundOnLocationWithCaster(boss:GetAbsOrigin(), "Winterblight.BossOut", boss)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/alt_big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
+	local pfx2 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, boss)
+	ParticleManager:SetParticleControl(pfx2, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx2, 1, Vector(600, 2, 2))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+		ParticleManager:DestroyParticle(pfx2, false)
+		ParticleManager:ReleaseParticleIndex(pfx2)
+	end)
+	Dungeons:LockCameraToUnitForPlayers(boss, 2, {hero})
+	ScreenShake(boss:GetAbsOrigin(), 5000, 2.0, 2.0, 9000, 0, true)
+	-- local player = PlayerResource:GetPlayer(msg.PlayerID)
+	EmitSoundOn("Winterblight.CavernBoss.Spawn", boss)
+	Timers:CreateTimer(0.7, function()
+		EmitSoundOn("Winterblight.Tiamat.Die.VO", boss)
+	end)
+
+	boss.boss_level = boss_level
+	boss.boss_chamber = 0
+	boss.chamber = 0
+	Winterblight:SetCavernUnit(boss, boss:GetAbsOrigin(), false, false, 0)
+	StartAnimation(boss, {duration=2, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.3})
+end
+
+function Winterblight:TiamatBossDie(boss)
+	boss.dying = true
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 2400, 60, false)
+	local ability = boss:FindAbilityByName("tiamat_boss_passive")
+
+	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_dying", {})
+	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_disarmed", {})
+	-- EmitSoundOn("Winterblight.AzaleaBoss.Death1.VO", boss)
+	Timers:CreateTimer(1.5, function()
+		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
+		local luck = RandomInt(1, 3)
+	end)
+	EmitSoundOn("Winterblight.Tiamat.Die.VO", boss)
+	local position = boss:GetAbsOrigin()
+	for i = 1, 18, 1 do
+		Timers:CreateTimer(0.3 * i, function()
+			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 0)
+		end)
+	end
+	Timers:CreateTimer(1, function()
+		local arcanaLuck = RandomInt(1, 195 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.Stones * 25)
+		if arcanaLuck == 1 then
+			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
+		end
+		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 1)
+		if luck2 == 1 then
+			Winterblight:DropBorealGraniteChunk(boss:GetAbsOrigin())
+		end
+	end)
+	Timers:CreateTimer(3, function()
+		local luck = RandomInt(1, 5)
+		if luck == 1 then
+			RPCItems:RollIceFloeSlippers(boss:GetAbsOrigin())
+		end
+	end)
+	Timers:CreateTimer(5, function()
+		local luck = RandomInt(1, 5)
+		if luck == 1 then
+			RPCItems:RollIronTreadsOfDestruction(boss:GetAbsOrigin())
+		end
+	end)
+	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
+		Timers:CreateTimer(j * 0.3, function()
+			Winterblight:DropGlacierStone(boss:GetAbsOrigin())
+		end)
+	end
+	Timers:CreateTimer(6, function()
+		for j = 1, Winterblight.Stones, 1 do
+			Timers:CreateTimer(j, function()
+				RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
+			end)
+		end
+	end)
+	Timers:CreateTimer(8, function()
+
+		-- EmitSoundOn("Winterblight.AzaleaBoss.Death2.VO", boss)
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(boss)})
+		boss:RemoveModifierByName("modifier_boss_dying")
+		-- Timers:CreateTimer(0.03, function()
+		-- 	StartAnimation(boss, {duration = 10, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.24})
+		-- end)
+		Timers:CreateTimer(0.8, function()
+			local position = boss:GetAbsOrigin()
+			ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_frozen", {})
+			Timers:CreateTimer(6.5, function()
+				Winterblight:objectShake(boss, 48, 15, true, true, true, "Winterblight.AzaleaBoss.DeathShaking", 24)
+				-- Events:smoothSizeChange(boss, boss:GetModelScale(), boss:GetModelScale()-0.5, 5)
+			end)
+			Timers:CreateTimer(8, function()
+				for i = 0, 3, 1 do
+					Timers:CreateTimer(0.1 * i, function()
+						local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, position + Vector(0, 0, 80 + i * 120))
+						ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+						ParticleManager:SetParticleControl(pfx, 2, Vector(0.8, 0.8, 0.8))
+						Timers:CreateTimer(10, function()
+							ParticleManager:DestroyParticle(pfx, false)
+							ParticleManager:ReleaseParticleIndex(pfx)
+						end)
+					end)
+				end
+				EmitSoundOn("Winterblight.Tiamat.Ice.Explode", boss)
+				local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+				local radius = 800
+				local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(particle1, 0, boss:GetAbsOrigin())
+				ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 1, 1000))
+				ParticleManager:SetParticleControl(particle1, 3, Vector(radius, radius, radius))
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(particle1, false)
+				end)
+				UTIL_Remove(boss)
+			end)
+		end)
+	end)
+	Timers:CreateTimer(13, function()
+		Winterblight:MithrilReward(position, "tiamat")
+	end)
+
+end

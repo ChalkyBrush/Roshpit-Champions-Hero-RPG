@@ -847,3 +847,16 @@
 .cavern_boss_button_level_active{
 	color:white;
 }
+
+#boss_menu_separator{
+	height:4px;
+	width:100%;
+	background-color: #DDDDDD;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+#final_boss_button_attacher{
+	width:100%;
+	flow-children:down;
+}

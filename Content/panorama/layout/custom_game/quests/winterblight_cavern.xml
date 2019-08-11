@@ -213,6 +213,9 @@
 					</Panel>
 					<Panel id="boss_button_attacher" hittest="false">
 					</Panel>
+					<Panel id="boss_menu_separator"/>
+					<Panel id="final_boss_button_attacher" hittest="false">
+					</Panel>
 				</Panel>
 				<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
 					<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>

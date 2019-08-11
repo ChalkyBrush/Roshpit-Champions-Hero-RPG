@@ -760,6 +760,9 @@
 		"winterblight_cavern_boss_summary"							"@boss_name's level is determined by the average clear level for @chamber_name events. At least 1 event in this chamber must be cleared to summon the boss."
 
 		"winterblight_cavern_gigarraun"								"Gigarraun"
+		"winterblight_cavern_boss_tiamat"							"Tiamat"
+
+		"winterblight_cavern_final_boss_summary"					"Tiamat's level is determined by the average levels of the other 4 bosses. Tiamat can only be summoned after all 4 bosses have been slain.<br><br>This is the final summon and the Cavern Guide departs afterwards."
 
 		"winterblight_boss_status1"									"Summoned"
 		"winterblight_boss_status2"									"Defeated"

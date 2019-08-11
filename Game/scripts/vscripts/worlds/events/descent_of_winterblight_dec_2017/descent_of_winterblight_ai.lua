@@ -353,6 +353,9 @@ function ozubu_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local iceLoops = (1 - (caster:GetHealth() / caster:GetMaxHealth())) * 6 + 1
+	if caster.total_lock then
+		return false
+	end
 	if caster.aggro then
 		caster.maxSummons = (1 - (caster:GetHealth() / caster:GetMaxHealth())) * 23 + 2
 		if not caster.interval then
@@ -658,6 +661,7 @@ end
 function winterblight_boss_final_death_animation(caster)
 	print("ANIMATION")
 	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2
+	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_level_defeated"] = caster.boss_level
 	EndAnimation(caster)
 	StartAnimation(caster, {duration = 1.9, activity = ACT_DOTA_DIE, rate = 1.9})
 	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.2, 60)
@@ -672,7 +676,7 @@ function winterblight_boss_final_death_animation(caster)
 	end
 	Timers:CreateTimer(1.9, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/alt_big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
@@ -691,7 +695,7 @@ function winterblight_boss_final_death_animation(caster)
 		UTIL_Remove(caster)
 		if gigarraun_death then
 			Timers:CreateTimer(1, function()
-				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Aggro", Events.GameMaster)
+				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Death", Events.GameMaster)
 			end)
 		end
 	end)

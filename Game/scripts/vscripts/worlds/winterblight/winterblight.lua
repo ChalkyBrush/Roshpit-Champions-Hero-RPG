@@ -189,9 +189,30 @@ function Winterblight:DropGlacierStone(position)
 end
 
 function Winterblight:Debug2()
+  if not Winterblight.GuideBasePos then
+    Winterblight.GuideBasePos = Winterblight.CavernGuide:GetAbsOrigin()
+  end
+  Winterblight.CavernGuide:RemoveModifierByName("modifier_guide_tiamat_thinking")
+  Winterblight.CavernGuide:SetAbsOrigin(Winterblight.GuideBasePos)
+  if Winterblight.CavernGuide.boss_table then
+    for i = 1, #Winterblight.CavernGuide.boss_table, 1 do
+      UTIL_Remove(Winterblight.CavernGuide.boss_table[i])
+    end
+  end
+  if Winterblight.CavernGuide.relic_table then
+    for i = 1, #Winterblight.CavernGuide.relic_table, 1 do
+      UTIL_Remove(Winterblight.CavernGuide.relic_table[i])
+    end
+  end
+  if Winterblight.tiamat_sequence_orb then
+    ParticleManager:DestroyParticle(Winterblight.tiamat_sequence_orb.pfx, false)
+  end
+  local msg = {}
+  msg.PlayerID = MAIN_HERO_TABLE[1]:GetPlayerOwnerID()
+  Winterblight:TiamatSequence(msg)
   Winterblight.CavernData.Chambers[1]["events"][1]["level"] = 20
   Winterblight.CavernData.Chambers[1]["events"][2]["level"] = 15
-  Winterblight.CavernData.Chambers[1]["boss_status"] = 0
+  
   Winterblight.CavernData.Chambers[2]["events"][1]["level"] = 10
   Winterblight.CavernData.Chambers[2]["events"][2]["level"] = 15
   Winterblight.CavernData.Chambers[3]["events"][1]["level"] = 18
@@ -200,9 +221,17 @@ function Winterblight:Debug2()
   Winterblight.CavernData.Chambers[4]["events"][1]["level"] = 18
   Winterblight.CavernData.Chambers[4]["events"][2]["level"] = 15
 
-  Winterblight.CavernData.Chambers[2]["boss_status"] = 0
-  Winterblight.CavernData.Chambers[3]["boss_status"] = 0
-  Winterblight.CavernData.Chambers[4]["boss_status"] = 0
+  Winterblight.CavernData.Chambers[1]["boss_status"] = 2
+  Winterblight.CavernData.Chambers[2]["boss_status"] = 2
+  Winterblight.CavernData.Chambers[3]["boss_status"] = 2
+  Winterblight.CavernData.Chambers[4]["boss_status"] = 2
+
+   Winterblight.CavernData.Chambers[1]["boss_level_defeated"] = 2
+   Winterblight.CavernData.Chambers[2]["boss_level_defeated"] = 2
+   Winterblight.CavernData.Chambers[3]["boss_level_defeated"] = 2
+   Winterblight.CavernData.Chambers[4]["boss_level_defeated"] = 2
+
+   Winterblight.CavernData.tiamat_status = 0
   Winterblight.CavernData.RelicsFragments = 10000
  -- Winterblight:FinishCaveWaves()
  -- Winterblight:InitializeAzaleaSwords()
@@ -772,6 +801,14 @@ function Winterblight:MithrilReward(position, code)
               Stars:StarEventPlayer("azalea", MAIN_HERO_TABLE[i])
             end
           end)
+        elseif code == "tiamat" then
+          Timers:CreateTimer(4, function()
+            for i = 1, #MAIN_HERO_TABLE, 1 do
+              Stars:StarEventPlayer("tiamat", MAIN_HERO_TABLE[i])
+            end
+          end)
+          reward = reward*1.3
+          stonesReward = stonesReward*1.3
         end
 
         local mithrilReward = reward*Events.ResourceBonus+(stonesReward*(Winterblight.Stones))

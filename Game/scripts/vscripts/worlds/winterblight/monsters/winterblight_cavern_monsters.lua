@@ -1076,18 +1076,20 @@ function cavern_relic_fragment_think(event)
 			end)
 		end
 	elseif target.phase == 2 then
-		local targetPosition = target.hero:GetAbsOrigin()
-		local direction = (targetPosition - target:GetAbsOrigin()):Normalized()
-		target:SetAbsOrigin(target:GetAbsOrigin() + direction*60)
-		if WallPhysics:GetDistance2d(target:GetAbsOrigin(), targetPosition) < 50 then
-			local relics_gain = target.relics
-			EmitSoundOn("Winterblight.Cavern.RelicCollect", target)
-			CustomAbilities:QuickParticleAtPoint("particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_anim_goldbreath.vpcf", target:GetAbsOrigin()+Vector(0,0,150), 4)
+		if not target.tiamat_sequence then
+			local targetPosition = target.hero:GetAbsOrigin()
+			local direction = (targetPosition - target:GetAbsOrigin()):Normalized()
+			target:SetAbsOrigin(target:GetAbsOrigin() + direction*60)
+			if WallPhysics:GetDistance2d(target:GetAbsOrigin(), targetPosition) < 50 then
+				local relics_gain = target.relics
+				EmitSoundOn("Winterblight.Cavern.RelicCollect", target)
+				CustomAbilities:QuickParticleAtPoint("particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_anim_goldbreath.vpcf", target:GetAbsOrigin()+Vector(0,0,150), 4)
 
-			Winterblight.CavernData.Chambers[target.chamber]["events"][target.event_index]["relic_fragments_rewarded"] = Winterblight.CavernData.Chambers[target.chamber]["events"][target.event_index]["relic_fragments_rewarded"] + relics_gain
-			Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments + relics_gain
-			CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {fragments = Winterblight.CavernData.RelicsFragments})
-			UTIL_Remove(target)
+				Winterblight.CavernData.Chambers[target.chamber]["events"][target.event_index]["relic_fragments_rewarded"] = Winterblight.CavernData.Chambers[target.chamber]["events"][target.event_index]["relic_fragments_rewarded"] + relics_gain
+				Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments + relics_gain
+				CustomGameEventManager:Send_ServerToAllClients("cavern_summary_update", {fragments = Winterblight.CavernData.RelicsFragments})
+				UTIL_Remove(target)
+			end
 		end
 	end
 		-- crystal.phase = 0
@@ -2447,6 +2449,9 @@ function gigarraun_passive_think(event)
 	local fissure_ability = caster:FindAbilityByName("gigarraun_fissure")
 	local soulstorm = caster:FindAbilityByName("winterblight_soulfire_storm")
 	soulstorm:SetOverrideCastPoint(0)
+	if caster.total_lock then
+		return false
+	end
 	if not caster.silence_counter then
 		caster.silence_counter = 0
 	end
@@ -2610,9 +2615,398 @@ function gigarraun_jumping_think(event)
 				Timers:CreateTimer(0.06, function()
 					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 					caster.jumpForward = false
-					
 				end)
 			end
 		end
+	end
+end
+
+function guide_tiamat_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.tiamat_interval then
+		caster.tiamat_interval = 0
+	end
+	caster.tiamat_interval = caster.tiamat_interval + 1
+	if caster.tiamat_interval%10 == 0 then
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 500, 2, false)
+	end
+	if caster.tiamat_phase == -1 then
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/waterheart_weapon_buff_tornado.vpcf", caster, 2)
+		caster.liftSpeed = caster.liftSpeed + 0.05
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.liftSpeed))
+		if caster.liftSpeed > 8 then
+			EmitSoundOn("Winterblight.CavernGuide.Tornado", caster)
+			EmitSoundOn("Winterblight.CaveGuide.StartTiamat.VO", caster)
+			caster.tiamat_phase = 0
+			StartAnimation(caster, {duration=7, activity=ACT_DOTA_RUN, rate=1.3, translate="surge"})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_guide_travelling", {})
+			caster:AddNoDraw()
+		end
+	elseif caster.tiamat_phase == 0 then
+		if caster.tiamat_interval%30 == 0 then
+			-- EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+			-- CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", caster, 4)
+			-- CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", caster, 4)
+		end
+		caster.goSpeed = math.min(caster.goSpeed + 0.5, 60)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/waterheart_weapon_buff_tornado.vpcf", caster, 2)
+		local divisor = math.max(100-caster.goSpeed, 10)
+		local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/divisor)
+		caster:SetForwardVector(fv)
+		local target_point = GetGroundPosition(Vector(-13056, 256), caster)
+		local direction = ((target_point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local up_vector = Vector(0,0,0)
+		if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin()+direction*50, caster) < 300 then
+			up_vector = Vector(0,0,15)
+		end
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target_point)
+		if distance < 1500 then
+			up_vector = Vector(0,0,25)
+		end
+		up_vector = up_vector + Vector(0,0,math.cos(2*math.pi*caster.tiamat_interval))*2
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+direction*caster.goSpeed+up_vector)
+		if distance < 100 then
+			StartAnimation(caster, {duration=1.2, activity=ACT_DOTA_RUN, rate=2.0})
+			caster:RemoveNoDraw()
+			caster:RemoveModifierByName("modifier_guide_travelling")
+			caster.tiamat_phase = 1
+			caster.fallSpeed = 5
+			caster:SetForwardVector(Vector(0,1))
+			EmitSoundOn("Winterblight.GuideCave.Magical", caster)
+			caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,0))
+		end
+	elseif caster.tiamat_phase == 1 then
+		caster.fallSpeed = caster.fallSpeed + 0.3
+		caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0,0,caster.fallSpeed))
+		if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 30 then
+			StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.GuideCaveIntro", Events.GameMaster)
+			CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", caster, 4)
+			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", caster:GetAbsOrigin(), 4)
+			caster.tiamat_phase = 2
+			ScreenShake(caster:GetAbsOrigin(), 360, 0.5, 0.5, 2000, 0, true)
+			Timers:CreateTimer(0.3, function()
+				EmitSoundOn("Winterblight.CaveGuide.StartTiamat.Land.VO", caster)
+			end)
+			Timers:CreateTimer(2, function()
+				caster.boss_table = {}
+				local icePos = caster:GetAbsOrigin()
+				EmitSoundOnLocationWithCaster(icePos, "Winterblight.Ozubu.Passive", caster)
+				local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+				local pfx2 = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+				local radius = 900
+				ParticleManager:SetParticleControl(pfx2, 0, icePos)
+				ParticleManager:SetParticleControl(pfx2, 1, Vector(radius, 2, radius * 2))
+				Timers:CreateTimer(2.5, function()
+					ParticleManager:DestroyParticle(pfx2, false)
+				end)
+
+				StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+				CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", caster, 4)
+				CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", caster:GetAbsOrigin(), 4)
+
+				local unitTable = {"descent_of_winterblight_torturok", "descent_of_winterblight_aertega", "descent_of_winterblight_ozubu", "winterblight_cavern_gigarraun"}
+				for i = 1, #unitTable, 1 do
+					local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/4)
+					fv = WallPhysics:rotateVector(fv, 2*math.pi/8)
+					local position = caster:GetAbsOrigin() + fv*300
+					local boss = CreateUnitByName(unitTable[i], position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+					boss.castLock = true
+					boss.total_lock = true
+					ability:ApplyDataDrivenModifier(caster, boss, "modifier_boss_disable_effect", {})
+					CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", boss:GetAbsOrigin(), 4)
+					boss:SetModelScale(0.6)
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_blue_base.vpcf", boss:GetAbsOrigin(), 4)
+					boss:SetForwardVector(Vector(0,-1))
+
+					local icePos = caster:GetAbsOrigin()
+					EmitSoundOnLocationWithCaster(icePos, "Winterblight.Ozubu.Passive", caster)
+					local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+					local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+					local radius = 400
+					ParticleManager:SetParticleControl(pfx, 0, icePos)
+					ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+					Timers:CreateTimer(2.5, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+
+					table.insert(caster.boss_table, boss)
+				end
+				
+			end)
+			Timers:CreateTimer(3.5, function()
+				local relic_dummy_count = 20
+				caster.relic_table = {}
+				StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.0})
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Cavern.RelicPop", caster)
+				CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", caster, 4)
+				CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", caster:GetAbsOrigin(), 4)
+				for i = 1, relic_dummy_count, 1 do
+					local crystal = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
+					crystal:SetModelScale(0.9)
+					crystal:SetOriginalModel("models/props_gameplay/rune_illusion01.vmdl")
+					crystal:SetModel("models/props_gameplay/rune_illusion01.vmdl")
+					local displacementVector = WallPhysics:rotateVector(Vector(1,1), 2*math.pi*i/relic_dummy_count)
+					crystal:SetAbsOrigin(caster:GetAbsOrigin()+displacementVector*20)
+
+					Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, crystal, "modifier_relic_fragment_think", {})
+					crystal:FindAbilityByName("dummy_unit"):SetLevel(1)	
+					local targetDirection = ((crystal:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					-- targetDirection = (targetDirection*24 + RandomVector(1)):Normalized()
+					CustomAbilities:QuickParticleAtPoint("particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_anim_goldbreath.vpcf", crystal:GetAbsOrigin()+Vector(0,0,30), 4)
+					crystal.phase = 0
+					crystal.direction = targetDirection
+					crystal.pushForce = 9
+					crystal.liftForce = 18
+					crystal.hero = caster
+					crystal.relics = 0
+					crystal.chamber = 0
+					crystal.event_index = 0
+					crystal.tiamat_sequence = true
+					StartAnimation(crystal, {duration=100, activity=ACT_DOTA_IDLE, rate=1})
+					table.insert(caster.relic_table, crystal)
+				end
+				Timers:CreateTimer(2, function()
+					caster.tiamat_phase = 3
+					StartAnimation(caster, {duration=4.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.24})
+					EmitSoundOn("Winterblight.CaveGuide.PullingRelics", caster)
+					Timers:CreateTimer(4, function()
+						caster.tiamat_phase = 4
+					end)
+				end)
+			end)
+		end
+	elseif caster.tiamat_phase == 3 then
+		for i = 1, #caster.boss_table, 1 do
+			local unit = caster.boss_table[i]
+			local current_displacement = ((unit:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local new_displacement = WallPhysics:rotateVector(current_displacement, 2*math.pi/50)
+			local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), unit:GetAbsOrigin())
+			local new_distance = math.max(0, distance-1.5)
+			unit:SetAbsOrigin(caster:GetAbsOrigin() + new_displacement*new_distance + Vector(0,0,2))
+		end
+		for i = 1, #caster.relic_table, 1 do
+			local unit = caster.relic_table[i]
+			local current_displacement = ((unit:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local new_displacement = WallPhysics:rotateVector(current_displacement, -2*math.pi/70)
+			local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), unit:GetAbsOrigin())
+			local new_distance = math.max(0, distance-1)
+			unit:SetAbsOrigin(caster:GetAbsOrigin() + new_displacement*new_distance + Vector(0,0,2))
+		end
+
+	elseif caster.tiamat_phase == 4 then
+		caster.tiamat_phase = 5
+		for j = 0, 3, 1 do
+			Timers:CreateTimer(j*0.3, function()
+				local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+				local radius = 600
+				local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+				local origin = caster:GetAbsOrigin()
+				ParticleManager:SetParticleControl(particle1, 0, origin + Vector(0, 0, 20))
+				ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 1, 1000))
+				ParticleManager:SetParticleControl(particle1, 3, Vector(500, 500, 500))
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(particle1, false)
+				end)
+			end)
+		end
+		for i = 1, #caster.boss_table, 1 do
+			local unit = caster.boss_table[i]
+			-- CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 1)
+			UTIL_Remove(unit)
+		end
+		for i = 1, #caster.relic_table, 1 do
+			local unit = caster.relic_table[i]
+			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 1)
+			UTIL_Remove(unit)
+		end
+		caster.boss_table = nil
+		caster.relic_table = nil
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
+		ScreenShake(caster:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
+	elseif caster.tiamat_phase == 5 then
+		caster.tiamat_phase = 6
+		local particleName = "particles/roshpit/winterblight/azalea_orb.vpcf"
+		local orbPos = caster:GetAbsOrigin()+Vector(0,0,400)
+		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(pfx, 0, orbPos)
+		ParticleManager:SetParticleControl(pfx, 1, orbPos)
+		ParticleManager:SetParticleControl(pfx, 2, Vector(700, 700, 700))
+		ParticleManager:SetParticleControl(pfx, 3, Vector(700, 700, 700))
+		Winterblight.tiamat_sequence_orb = {}
+		Winterblight.tiamat_sequence_orb.pfx = pfx
+		Winterblight.tiamat_sequence_orb.final_pos = orbPos+Vector(0,5000,-800)
+		Timers:CreateTimer(3, function()
+			ParticleManager:SetParticleControl(Winterblight.tiamat_sequence_orb.pfx, 1, orbPos+Vector(0,5000,-800))
+		end)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_guide_travelling", {})
+		caster:AddNoDraw()
+		Timers:CreateTimer(2, function()
+			caster.liftSpeed = 1
+			caster.tiamat_phase = 7
+			Timers:CreateTimer(4, function()
+				local hero = caster.sequence_hero
+				caster.tiamat_phase = 8
+				caster:RemoveModifierByName("modifier_guide_travelling")
+				caster:RemoveNoDraw()
+				-- UTIL_Remove(caster)
+				Timers:CreateTimer(5.5, function()
+					Winterblight:MainTiamatSpawn(hero)
+				end)
+			end)
+		end)
+		-- UTIL_Remove(caster)
+	elseif caster.tiamat_phase == 7 then
+		caster.liftSpeed = caster.liftSpeed + 0.3
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,caster.liftSpeed))
+	end
+end
+
+function tiamat_charge_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	ability.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	ability.perpFV = WallPhysics:rotateVector(ability.fv, 2 * math.pi / 4)
+	ability.targetPoint = target
+	local warpDuration = 3.0
+	ability.fallVelocity = 1
+	ability.forwardVelocity = 42
+
+	local max_distance = 2000
+	ability.max_distance = max_distance
+	ability.distance_travelled = 0
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_scorch_charge_flying", {duration = warpDuration})
+
+	local totalFlyDistance = math.min(WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target), max_distance)
+	EmitSoundOn("Dinath.DiveStart", caster)
+	EmitSoundOn("Dinath.ChargeVO", caster)
+	local charge_duration = totalFlyDistance / 30
+	ability.fly_distance = totalFlyDistance
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_buff.vpcf", caster, charge_duration)
+	StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.4})
+	-- local fireThinker = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+	-- fireThinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+	-- local fireDuration = get_arctic_burn_fire_duration(caster)
+	-- local arctic_burn = caster:FindAbilityByName("dinath_arctic_burn")
+	-- fireThinker.line = true
+	-- fireThinker.fv = ability.fv
+	-- fireThinker.distance = 0
+	ability.interval = 0
+	-- ability.current_fire_thinker = fireThinker
+	-- arctic_burn:ApplyDataDrivenModifier(caster, fireThinker, "modifier_arctic_burn_fire_thinker", {duration = fireDuration})
+	-- ability.fireDuration = fireDuration
+	-- Timers:CreateTimer(fireDuration, function()
+	-- 	UTIL_Remove(fireThinker)
+	-- end)
+end
+
+function tiamat_charge_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	ability.forwardVelocity = math.max(ability.forwardVelocity - 0.5, 32)
+
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * 45), caster)
+	local forwardSpeed = ability.forwardVelocity
+	if blockUnit then
+		forwardSpeed = 0
+	end
+	ability.distance_travelled = ability.distance_travelled + ability.forwardVelocity
+	-- ability.current_fire_thinker.distance = ability.current_fire_thinker.distance + ability.forwardVelocity
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv * forwardSpeed)
+
+	ability.interval = ability.interval + 1
+	if ability.interval % 3 == 0 then
+		for i = 1, 2, 1 do
+			local perpMult = 60
+			if i == 2 then
+				perpMult = -60
+			end
+			local position = caster:GetAbsOrigin() + ability.perpFV * perpMult
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/dinath/fire_bomb.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, position)
+			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
+			Timers:CreateTimer(3, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end
+	end
+	if ability.distance_travelled >= (ability.fly_distance - 5) then
+		caster:RemoveModifierByName("modifier_dinath_scorch_charge_flying")
+		local slideDuration = ability.forwardVelocity * 0.03
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_scorch_charge_slide", {duration = slideDuration})
+	end
+end
+
+function tiamat_charge_sliding(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	ability.forwardVelocity = math.max(ability.forwardVelocity - 1, 0)
+
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * 45), caster)
+	local forwardSpeed = ability.forwardVelocity
+	if blockUnit then
+		forwardSpeed = 0
+	end
+	ability.distance_travelled = ability.distance_travelled + ability.forwardVelocity
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv * forwardSpeed)
+	if ability.forwardVelocity <= 3 then
+		caster:RemoveModifierByName("modifier_dinath_scorch_charge_slide")
+	end
+end
+
+function tiamat_boss_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.phase then
+		caster.phase = 0
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if caster.dying and ability.interval%10 == 0 then
+		StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.4})
+	end
+	if caster.dying then
+		return false
+	end
+	if caster:GetHealth() < 1000 and not caster.phaseLock then
+		Winterblight:TiamatBossDie(caster)
+	end
+	if not caster.castLock then
+		local charge_ability = caster:FindAbilityByName("tiamat_scorch_charge")
+		if charge_ability:IsFullyCastable() then
+		    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+		    if #enemies > 0 then
+		    	local targetDirection = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		    	local target_point = caster:GetAbsOrigin()+targetDirection*RandomInt(700, 2000)
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = charge_ability:entindex(),
+					Position = target_point,
+					Queue = true
+				}
+				caster:Stop()
+				ExecuteOrderFromTable(order)
+				caster.castLock = true
+				Timers:CreateTimer(0.8, function()
+					caster.castLock = false
+				end)
+		    end
+		end
+	end	
+	if ability.interval >= 80 then
+		ability.interval = 0
 	end
 end

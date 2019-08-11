@@ -80750,6 +80750,48 @@
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_guide_tiamat_thinking"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"EffectName"	"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"guide_tiamat_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_guide_travelling"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/winterblight/cavern_guide_travel_ball_lightning.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+			"modifier_boss_disable_effect"
+			{
+				"IsPurgable"	"0"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "150"
+			}
 		}
 	}
 
@@ -84052,7 +84094,224 @@
 
 	}
 
+	"tiamat_scorch_charge"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"dinath/dinath_rune_q_3"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"3000"
 
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"			"3000"
+			}
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.26"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"tiamat_charge_start"
+				"target"		"POINT"
+				"range"			"%range"
+			}
+
+		}
+		"Modifiers"
+		{
+			"modifier_dinath_scorch_charge_flying"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/dinath/dive_rush.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_charge_think"
+					}
+				}
+			}
+			"modifier_dinath_scorch_charge_slide"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_charge_sliding"
+					}
+				}
+			}
+		}
+	}
+
+	"tiamat_boss_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/azalea_boss"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_attack_power"			"10 50 100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-60 -140 -240"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"nova_damage"			"2000 30000 500000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_tiamat_boss_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"tiamat_boss_think"
+					}
+				}
+			}
+			"modifier_azalea_boss_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
+            	"StatusEffectPriority"  "10"
+            	"TextureName"		"crystal_maiden_crystal_nova"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"0"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "120"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"azalea_boss_frozen_think"
+					}
+				}
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_boss_dying"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
+						"Function"		"boss_death_effect_think"
+					}
+				}
+			}
+			"modifier_boss_disarmed"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_boss_frozen"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_l2_radiant.vpcf"
+				"StatusEffectPriority"  "150"
+			}
+		}
+
+	}
 
 
 	"soul_ferrier_passive"

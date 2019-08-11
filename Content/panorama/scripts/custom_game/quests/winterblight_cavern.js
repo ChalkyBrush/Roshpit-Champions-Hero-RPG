@@ -63,6 +63,8 @@ function init_boss_menu(msg){
 	Game.EmitSound("Winterblight.UI.ChamberSelect")
 	var fragments = parseInt(msg.winterblight_cavern.RelicsFragments)
 	cavern_ui_panel.FindChildTraverse('winterblight_chamber_event_fragments').text = $.Localize("winterblight_cavern_fragments") + " " + fragments
+	var total_boss_kills = 0
+	var total_boss_level_killed = 0
 	for (var i = 1; i <= 4; i++) {
 		var boss_button_attacher = cavern_ui_panel.FindChildTraverse('boss_button_attacher')
 		var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "cavern_boss_button_"+i)
@@ -74,6 +76,11 @@ function init_boss_menu(msg){
 		// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
 		var cavern_button = cavern_event_button_panel.FindChildTraverse('winterblight_inner_cavern_boss_button')
 		var boss_level = calculate_boss_level(msg.winterblight_cavern, i)
+		if (msg.winterblight_cavern.Chambers[i]["boss_level_defeated"] > 0){
+			boss_level = msg.winterblight_cavern.Chambers[i]["boss_level_defeated"]
+			total_boss_kills = total_boss_kills + 1
+			total_boss_level_killed = total_boss_level_killed + msg.winterblight_cavern.Chambers[i]["boss_level_defeated"]
+		}
 		var boss_status = msg.winterblight_cavern.Chambers[i]["boss_status"]
 		if (boss_level > 0){
 			cavern_button.AddClass('winterblight_cavern_boss_button_active')
@@ -98,8 +105,48 @@ function init_boss_menu(msg){
 			cavern_button.AddClass('winterblight_cavern_boss_button_slain')			
 		}
 		set_boss_button_events(cavern_button, msg, i)
-		
 	}
+
+
+	var boss_button_attacher = cavern_ui_panel.FindChildTraverse('final_boss_button_attacher')
+	var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "tiamat_boss_button")
+	cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
+	cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize("winterblight_cavern_boss_tiamat")
+	cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = "4,000"
+	// var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+	// cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
+	// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
+	var tiamat_cavern_button = cavern_event_button_panel.FindChildTraverse('winterblight_inner_cavern_boss_button')
+	var boss_level = 0
+	if (total_boss_kills == 4){
+		boss_level = total_boss_level_killed/4
+		boss_level = Math.round(boss_level)
+	}
+	var boss_status = msg.winterblight_cavern.tiamat_status
+	if (boss_level > 0){
+		tiamat_cavern_button.AddClass('winterblight_cavern_boss_button_active')
+		tiamat_cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').AddClass('cavern_boss_button_level_active')
+		tiamat_cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').text = "LV "+boss_level
+	}else{
+		tiamat_cavern_button.AddClass('winterblight_cavern_boss_button_inactive')
+		tiamat_cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').AddClass('cavern_boss_button_level_inactive')
+	}
+	tiamat_cavern_button.boss_level = boss_level
+	tiamat_cavern_button.boss_status = boss_status
+	tiamat_cavern_button.boss_cost = 4000
+	if (boss_status > 0){
+		tiamat_cavern_button.FindChildTraverse('fragments_cost_icon').AddClass("invisible")
+		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('winterblight_boss_status'+boss_status)
+	}
+	if (boss_status == 1){
+		tiamat_cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
+		tiamat_cavern_button.AddClass('winterblight_cavern_boss_button_summoned')
+	}else if(boss_status == 2){
+		tiamat_cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
+		tiamat_cavern_button.AddClass('winterblight_cavern_boss_button_slain')			
+	}
+	set_boss_button_events(tiamat_cavern_button, msg, 5)
+	// Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"]
 
 	backBtn.SetPanelEvent('onactivate', function Back() {
 		CavernBack(msg)
@@ -158,8 +205,16 @@ function calculate_boss_level(winterblight_cavern, index){
 }
 
 function button_mouse_over_tooltip(cavern_button, msg, i){
-	var title = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
-	var tooltip = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+	var title = ""
+	var tooltip = ""
+	if (i == 5){
+		title = $.Localize("winterblight_cavern_boss_tiamat")
+		tooltip = $.Localize("winterblight_cavern_final_boss_summary")
+	}else{
+		title = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
+		tooltip = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+
+	}
 	$.DispatchEvent("DOTAShowTitleTextTooltip", cavern_button, title, tooltip);
 }
 
