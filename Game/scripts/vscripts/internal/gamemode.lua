@@ -149,7 +149,7 @@ function GameMode:_InitGameMode()
 
   CustomGameEventManager:RegisterListener("accept_item", Dynamic_Wrap(RPCItems, "AcceptNewItem"))
   CustomGameEventManager:RegisterListener("reject_item", Dynamic_Wrap(RPCItems, "RejectNewItem"))
-  CustomGameEventManager:RegisterListener("buy_item", Dynamic_Wrap(RPCItems, "BuyItem"))
+  -- CustomGameEventManager:RegisterListener("buy_item", Dynamic_Wrap(RPCItems, "BuyItem"))
 
   CustomGameEventManager:RegisterListener("weapon_upgrade", Dynamic_Wrap(Weapons, "WeaponUpgrade"))
 

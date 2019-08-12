@@ -45625,6 +45625,7 @@
             {
                 "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
                 "Function"      "remove_modifier_channel_start"
+                "TARGET"        "POINT"
             }
 
         }
@@ -45635,6 +45636,7 @@
             {
                 "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
                 "Function"      "remove_modifier_channel_start"
+                "TARGET"        "POINT"
             }
 
         }
@@ -45702,6 +45704,7 @@
                     {
                         "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
                         "Function"      "crystal_arrow_channel_end"
+                        "TARGET"        "POINT"
                     }
                 }
                 "ThinkInterval"  "0.03"
