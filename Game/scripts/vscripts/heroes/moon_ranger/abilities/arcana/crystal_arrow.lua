@@ -4,7 +4,9 @@ function crystal_arrow_channel_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not caster:HasModifier("modifier_astral_glyph_5_1") then
-		StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_ATTACK, rate = 0.75})
+		if not caster:HasModifier("modifier_iron_treads_of_destruction") then
+			StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_ATTACK, rate = 0.75})
+		end
 	else
 		Timers:CreateTimer(0.03, function() caster:InterruptChannel() end)
 	end
@@ -200,6 +202,10 @@ end
 
 function remove_modifier_channel_start(event)
 	local caster = event.caster
+	if caster:HasModifier("modifier_iron_treads_of_destruction") then
+		crystal_arrow_channel_start(event)
+		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_ATTACK, rate = 5.5})
+	end
 	if not caster:HasModifier("modifier_astral_glyph_5_1") then
 		caster:RemoveModifierByName("modifier_channel_start")
 	end
