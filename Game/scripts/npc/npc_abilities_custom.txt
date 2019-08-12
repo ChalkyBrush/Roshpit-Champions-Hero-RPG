@@ -33037,7 +33037,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -33077,7 +33077,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"200"
 			}
 		}
 	}
@@ -33507,7 +33507,7 @@
         		"Properties"
         		{
         			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"0.5"
-        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"8"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"16"
         		}
         	}
         	"modifier_seinaru_q_2_speed"
@@ -33583,7 +33583,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal"					"220 480 950 1800 4200 8500 15000"
+				"heal"					"220 480 950 3800 8200 17500 30000"
 			}
 			"02"
 			{
@@ -34040,7 +34040,7 @@
             	"IsHidden"	"1"
             	"Properties"
             	{
-            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "40"
             	}
             }
             "modifier_seinaru_b_c_wakizashi"
@@ -34332,7 +34332,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"att_per_agi"		"3 5 7 9 11 13 15"
+				"att_per_agi"		"30 40 50 60 70 80 90"
 			}
 		}
 	}
@@ -34356,7 +34356,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"8"
+				"property_one"			"16"
 			}
 			"02"
 			{
@@ -34474,7 +34474,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"10000"
 			}
 			"02"
 			{
@@ -34510,7 +34510,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.6"
 			}
 		}
 		"Modifiers"
@@ -34536,12 +34536,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.07"
+				"property_one"			"0.14"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.07"
+				"property_two"			"0.14"
 			}
 		}
 	}
@@ -34563,7 +34563,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"40"
 			}
 			"02"
 			{
@@ -34594,7 +34594,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"8"
+				"property_one"			"16"
 			}
 		}
 	}
@@ -34617,7 +34617,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -34725,7 +34725,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"30"
 			}
 			"02"
 			{

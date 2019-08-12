@@ -13343,7 +13343,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"155"
+				"property_one"			"255"
 			}
 		}
 	}

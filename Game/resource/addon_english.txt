@@ -8655,7 +8655,7 @@
     	"property_seinaru_arcana1_description"								"Replaces @Ability1 and all of its runes with Blade Dash."
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"Adds a <font color='#ccff66'>40</font>% chance on attack to deal a massive critical strike."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"Adds a <font color='#ccff66'>60</font>% chance on attack to deal a massive critical strike."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Bonus Crit Damage"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
@@ -8737,7 +8737,7 @@
 		"item_rpc_seinaru_glyph_2_1_description" 				"Every point in [Q2] increases movespeed cap by <font color='#ccff66'>1.2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"Glyph of Resonance"
-		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage to all other enemies in a <font color='#ccff66'>155</font> radius around the primary target."
+		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage to all other enemies in a <font color='#ccff66'>255</font> radius around the primary target."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"Glyph of Yang"
 		"item_rpc_seinaru_glyph_4_1_description" 				"Runes that increase Seinaru's damage threshold against targets with Steadfast work even alongside post-mitigation amplification effects, but the power of these runes are reduced to 1/<font color='#ccff66'>10</font>th of their full values."
