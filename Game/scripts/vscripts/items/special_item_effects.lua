@@ -5,6 +5,7 @@ require('items/constants/chest')
 require('items/constants/gloves')
 require('items/constants/helm')
 require('items/constants/trinket')
+require('util')
 
 function astral_glyph_4_1_apply(event)
 	local target = event.target
@@ -3599,7 +3600,8 @@ function gravekeeper_attack(event)
 		EmitSoundOn("Item.GraveKeeper", target)
 	end
 	if ability.targetIndex == target:GetEntityIndex() then
-		Util.Common:LimitPerTime(GRAVEKEEPER_MAX_STACKS_PER_SEC, 1, function()
+		local limitKey = caster:GetPlayerOwnerID() .. '_gravekeeper_gauntlet'
+		Util.Common:LimitPerTime(GRAVEKEEPER_MAX_STACKS_PER_SEC, 1, limitKey, function()
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
 			local newTargetStacks = target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + 1

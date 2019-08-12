@@ -8127,7 +8127,7 @@
     	"property_seinaru_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на Blade Dash."
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С <font color='#ccff66'>40</font>% шансом при атаке герой нанесёт критический урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С <font color='#ccff66'>60</font>% шансом при атаке герой нанесёт критический урон."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Доп. урон крита"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
@@ -8212,7 +8212,7 @@
 		"item_rpc_seinaru_glyph_2_1_description" 				"Каждое очко руны [Q2] увеличивает верхнюю границу скорости перемещения на <font color='#ccff66'>1.2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"(T3) Glyph of Resonance"
-		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] наносит урон противникам в радиусе <font color='#ccff66'>155</font> от первичной цели."
+		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] наносит урон противникам в радиусе <font color='#ccff66'>255</font> от первичной цели."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"(T4) Glyph of Yang"
 		"item_rpc_seinaru_glyph_4_1_description" 				"Руны, увеличивающие порог Стойкости позволяют Пост-Резистным эффектам тоже усиливать урон, но только 1/<font color='#ccff66'>10</font>от своих значений."

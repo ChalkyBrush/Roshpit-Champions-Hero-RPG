@@ -62,9 +62,6 @@
 
     ##ARENA_UNITS##
 
-    ##CHAOS_LORDS_SUMMONS##
-
-
 	"npc_dummy_unit"
 	{
 		"BaseClass"	"npc_dota_base_additive"
