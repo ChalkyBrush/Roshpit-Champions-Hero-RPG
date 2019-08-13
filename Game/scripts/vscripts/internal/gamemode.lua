@@ -147,8 +147,9 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener("DungeonsvoteYesJS", Dynamic_Wrap(Dungeons, "voteYesLua"))
   CustomGameEventManager:RegisterListener("DungeonsvoteNoJS", Dynamic_Wrap(Dungeons, "voteNoLua"))
 
-  CustomGameEventManager:RegisterListener("accept_item", Dynamic_Wrap(RPCItems, "AcceptNewItem"))
-  CustomGameEventManager:RegisterListener("reject_item", Dynamic_Wrap(RPCItems, "RejectNewItem"))
+  -- CustomGameEventManager:RegisterListener("accept_item", Dynamic_Wrap(RPCItems, "AcceptNewItem"))
+  -- CustomGameEventManager:RegisterListener("reject_item", Dynamic_Wrap(RPCItems, "RejectNewItem"))
+  CustomGameEventManager:RegisterListener("item_swap_input", Dynamic_Wrap(RPCItems, "ItemSwapInput"))
   -- CustomGameEventManager:RegisterListener("buy_item", Dynamic_Wrap(RPCItems, "BuyItem"))
 
   CustomGameEventManager:RegisterListener("weapon_upgrade", Dynamic_Wrap(Weapons, "WeaponUpgrade"))

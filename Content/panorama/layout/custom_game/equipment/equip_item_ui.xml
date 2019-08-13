@@ -24,11 +24,16 @@
 		</snippet>
 		<snippet name="equip_item_button_options">
 			<Panel class="equip_item_button_options_root" hittest="false">
-				<Label id="buttons-title"/>
-				<Button class="equip_item_button" id="button-option-1">
+				<Panel id="button-title-container">
+					<Label id="buttons-title"/>
+						<Image id="extra-equip-info" src="file://{images}/custom_game/ui/information-button.png"
+						onmouseover="EquipTooltip()"
+						onmouseout="HideEquipTooltip()"/>
+				</Panel>
+				<Button class="equip_item_button" id="button-option-1" hittest="true">
 					<Label id="button-option-1-text" class="button-option-text" html="true"/>
 				</Button>
-				<Button class="equip_item_button" id="button-option-2">
+				<Button class="equip_item_button" id="button-option-2" hittest="true">
 					<Label id="button-option-2-text" class="button-option-text" html="true"/>
 				</Button>
 			</Panel>

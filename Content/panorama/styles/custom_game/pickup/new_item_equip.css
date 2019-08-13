@@ -2,7 +2,7 @@
 	vertical-align: center;
 	horizontal-align:center;
 
-	width:650px;
+	width:0px;
 	flow-children:right;
 	margin-bottom:240px;
 	border-radius:12px;
@@ -75,6 +75,7 @@
 #buttons_attacher{
 	width:100%;
 	horizontal-align:center;
+	min-height:170px;
 
 }
 
@@ -82,7 +83,7 @@
 	width:100%;
 	flow-children:down;
 	margin-bottom:30px;
-	vertical-align: bottom;
+	vertical-align: top;
 }
 
 .buttons_old_colors{
@@ -125,9 +126,18 @@
 }
 
 #buttons-title{
-	horizontal-align:center;
 	text-align: center;
-	margin-top:15px;
 }
 
+#button-title-container{
+	flow-children:right;
+	margin-top:15px;
+	horizontal-align:center;
+	text-align: center;
+}
 
+#extra-equip-info{
+	margin-left:10px;
+	width:20px;
+	height:20px;
+}

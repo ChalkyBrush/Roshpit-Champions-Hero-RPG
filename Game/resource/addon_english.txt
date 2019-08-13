@@ -542,7 +542,10 @@
 		"ui_new_item_main_option" "Equip new item and"
 		"ui_new_item_option_1"	"Save Hero"
 		"ui_new_item_option_2"	"Don't Save"
+		"ui_new_item_option_no_save_slot"	"Discard Old Item"
 		"ui_new_item_extra_help"	"Both of these options will destroy the currently equipped item."
+		"ui_new_item_equip_tooltip_title"	"New Item Equip"
+		"ui_new_item_equip_tooltip_text"	"Both of the following options will destroy your already equipped gear. Visit the blacksmith and chisel your current gear in order to preserve it."
 
 		"ui_trade"				"Trade"
 

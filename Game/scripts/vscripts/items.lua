@@ -1092,6 +1092,82 @@ function RPCItems:GetRarityParticle(rarityName)
 	return color
 end
 
+function RPCItems:ItemSwapInput(msg)
+	local playerID = msg.PlayerID
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	local inventory_unit = hero.InventoryUnit
+	local input = tonumber(msg.input_msg)
+	if not hero.gear_equip_new then
+		return false
+	end
+	if input == 1 then
+		local newGear = hero.gear_equip_new
+		print(newGear:GetEntityIndex())
+		print(newGear:GetAbilityName())
+		if IsValidEntity(newGear) then
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, newGear)
+		end
+		hero.gear_equip_new = false
+	elseif input == 2 then
+		local newGear = hero.gear_equip_new
+		if IsValidEntity(newGear) then
+			UTIL_Remove(newGear)
+		end
+		hero.gear_equip_new = false
+	elseif input == 3 or input == 4 then
+
+		local newGear = hero.gear_equip_new
+		local slot = RPCItems:getGearSlot(newGear.newItemTable.item_slot)
+		local oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot))
+		local oldGear = false
+		if oldGearTable then
+			if oldGearTable.itemIndex == -1 then
+				oldGear = false
+			else
+				oldGear = EntIndexToHScript(oldGearTable.itemIndex)
+			end
+		end
+
+		hero.cant_use_items = true
+		Timers:CreateTimer(0.75, function()
+			hero.cant_use_items = false
+		end)
+		CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = newGear:GetEntityIndex()})
+		
+
+		if oldGear then
+			UTIL_Remove(oldGear)
+		end
+		hero:RemoveModifierByName("modifier_equip_ui_open")
+		EmitGlobalSound("RPC.EquipItem")
+		local player = hero:GetPlayerOwner()
+		local heroId = hero:GetClassname()
+		if newGear then
+			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newGear:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newGear.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newGear.newItemTable.rarity)})
+			RPCItems:EquipItem(slot, hero, inventory_unit, newGear)
+		end
+		if slot == 1 then
+			hero.weapon = newGear
+			Weapons:SetWeaponTable(newGear)
+			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = newGear.xp, level = newGear.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newGear.level], maxLevel = newGear.maxLevel, requiredHero = newGear.requiredHero})
+		end
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
+		if input == 3 then
+			local save_message = {}
+			save_message.playerID = playerID
+			save_message.slot = hero.saveSlot
+			if hero.saveSlot and hero.saveSlot > 0 then
+				save_message.heroIndex = hero:GetEntityIndex()
+				save_message.ignore_callback = true
+				SaveLoad:SaveCharacter(save_message)
+			end
+		end
+
+		hero.gear_equip_new = false
+	end
+	hero.gear_equip_new = false
+end
+
 function RPCItems:GearPickup(heroEntity, itemEntity)
 	print("[RPCItems:GearPickup] start")
 	local player = heroEntity:GetPlayerOwner()
@@ -1109,15 +1185,28 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 		end
 	end
 	if oldGear then
-		print("[RPCItems:GearPickup] oldGear")
-		heroEntity:TakeItem(itemEntity)
-		if IsValidEntity(itemEntity:GetContainer()) then
-			UTIL_Remove(itemEntity:GetContainer())
+		if Challenges:CheckIfHeroHasItemByItemIndex(heroEntity, itemEntity:GetEntityIndex()) then
+			print("[RPCItems:GearPickup] oldGear")
+			heroEntity:TakeItem(itemEntity)
+			if IsValidEntity(itemEntity:GetContainer()) then
+				UTIL_Remove(itemEntity:GetContainer())
+			end
+			if heroEntity.gear_equip_new then
+				if IsValidEntity(heroEntity.gear_equip_new) then
+					UTIL_Remove(heroEntity.gear_equip_new)
+				end
+			end
+			local save_slot = heroEntity.saveSlot
+			if not save_slot then
+				save_slot = 0
+			end
+
+			heroEntity.gear_equip_new = itemEntity
+			CustomGameEventManager:Send_ServerToPlayer(player, "close_blacksmith", {})
+			-- CustomGameEventManager:Send_ServerToPlayer(player, "new_item_with_slot", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex()})
+			CustomGameEventManager:Send_ServerToPlayer(player, "new_item_equip", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex(), slot = slot, hero_slot = save_slot})
+			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_equip_ui_open", {})
 		end
-		CustomGameEventManager:Send_ServerToPlayer(player, "close_blacksmith", {})
-		-- CustomGameEventManager:Send_ServerToPlayer(player, "new_item_with_slot", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex()})
-		CustomGameEventManager:Send_ServerToPlayer(player, "new_item_equip", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex(), slot = slot})
-		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_equip_ui_open", {})
 	else
 		print("[RPCItems:GearPickup] NO oldGear")
 		local playerID = heroEntity:GetPlayerID()

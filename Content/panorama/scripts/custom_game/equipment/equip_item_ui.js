@@ -1,6 +1,7 @@
 function NewItemEquip(msg)
 {
 	var root_attach = $.GetContextPanel()
+	root_attach.style.width = '650px';
 	root_attach.RemoveAndDeleteChildren()
 	root_attach.RemoveClass('equip_fade_in')
 	root_attach.AddClass('equip_fade_in')
@@ -22,6 +23,12 @@ function NewItemEquip(msg)
 	buttons_container.FindChildTraverse('buttons-title').style.color="#6eb1db"
 	buttons_container.FindChildTraverse('button-option-1').AddClass('buttons_old_colors')
 	buttons_container.FindChildTraverse('button-option-2').AddClass('buttons_old_colors')
+	buttons_container.FindChildTraverse('extra-equip-info').DeleteAsync(0)
+	var button1 = buttons_container.FindChildTraverse('button-option-1')
+	var button2 = buttons_container.FindChildTraverse('button-option-2')
+
+	set_swap_button_event(button1, 1)
+	set_swap_button_event(button2, 2)
 
 	var new_item_panel = $.CreatePanel("Panel", root_attach, "new_item_panel")
 	new_item_panel.BLoadLayoutSnippet("equip_item_container")
@@ -43,9 +50,44 @@ function NewItemEquip(msg)
 	buttons_container.FindChildTraverse('button-option-1').AddClass('buttons_new_colors')
 	buttons_container.FindChildTraverse('button-option-2').AddClass('buttons_new_colors')
 
+	var button1 = buttons_container.FindChildTraverse('button-option-1')
+	var button2 = buttons_container.FindChildTraverse('button-option-2')
+
+	set_swap_button_event(button1, 3)
+	set_swap_button_event(button2, 4)
+
+	if (msg.hero_slot == 0){
+		buttons_container.FindChildTraverse('button-option-1-text').text = $.Localize("ui_new_item_option_no_save_slot")
+		button2.AddClass('invisible')
+	}
+
 	Game.EmitSound("UI.EquipItemSwap.Popup")
 }
 
+function set_swap_button_event(button, index){
+	button.SetPanelEvent('onactivate', function Activate(){
+		item_swap_input(index)
+	});	
+}
+
+function EquipTooltip()
+{
+	var panel = $.GetContextPanel().FindChildTraverse('extra-equip-info')
+	var title = "<font color='yellow'>"+$.Localize("ui_new_item_equip_tooltip_title")
+	var tooltip = $.Localize("ui_new_item_equip_tooltip_text")
+	tooltip = breakUpTooltip(tooltip)
+	$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
+}
+
+function HideEquipTooltip(){
+	var panel = $.GetContextPanel().FindChildTraverse('extra-equip-info')
+	$.DispatchEvent( "DOTAHideTitleTextTooltip", panel );
+}
+
+function item_swap_input(index){
+	GameEvents.SendCustomGameEventToServer( "item_swap_input", {input_msg: index} );
+	CloseItemEquip()
+}
 // "ui_old_item"			"Old"
 // "ui_new_item"			"New"
 // "ui_old_item_main_option" "Keep old item equipped"
@@ -58,7 +100,9 @@ function NewItemEquip(msg)
 
 function CloseItemEquip()
 {
-
+	var root_attach = $.GetContextPanel()
+	root_attach.style.width = '0px';
+	root_attach.RemoveAndDeleteChildren()
 }
 
 function initializeTooltip(main_panel, item){
