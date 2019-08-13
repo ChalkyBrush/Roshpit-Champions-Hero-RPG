@@ -79,7 +79,7 @@
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "add_duration"          "4"
+                "add_duration"          "2"
             }
         }
         "OnAbilityPhaseStart"
