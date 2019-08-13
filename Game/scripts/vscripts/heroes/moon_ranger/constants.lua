@@ -17,14 +17,15 @@ W4_MAX_STACKS_COUNT = 20
 
 E_PARTICLE1 = "particles/units/heroes/hero_wisp/wisp_relocate_marker_endpoint.vpcf"
 E_PARTICLE2 = "particles/units/heroes/hero_dark_seer/dark_seer_surge_start.vpcf"
-E_DELAY = 2
+E_DELAY = 1
 E1_START_DURATION = 1
 E1_ADD_DURATION = 0.07
 E1_MAX_STACKS_COUNT = 10
 E1_PARTICLE = "particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear_destruction.vpcf"
 E1_RADIUS = 350
-E1_SPEED_FROM_RANGE = 14 / 10
+E1_SPEED_FROM_RANGE = 7 / 10
 E1_TRAVELS_COUNT = 1
+ASTRAL_E1_POSTMIT_PCT = 3
 E2_PARTICLE = "particles/roshpit/astral_ranger/e2_flash.vpcf"
 E2_FIND_RADUIS = 1000
 E2_DURATION = 6
