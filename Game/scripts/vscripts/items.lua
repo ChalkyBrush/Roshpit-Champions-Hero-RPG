@@ -696,7 +696,7 @@ function RPCItems:GetExpiryTime(item)
 end
 
 function RPCItems:DropItem(item, position)
-	if not LootFilter:CanSpawnItem(item.newItemTable) then
+	if not LootFilter:CanSpawnItem(item.newItemTable) and not Events.reroll then
 		UTIL_Remove(item:GetContainer())
 		RPCItems:ItemUTIL_Remove(item)
 		return
