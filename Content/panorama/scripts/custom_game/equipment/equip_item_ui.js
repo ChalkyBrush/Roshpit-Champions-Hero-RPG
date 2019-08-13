@@ -86,6 +86,9 @@ function HideEquipTooltip(){
 
 function item_swap_input(index){
 	GameEvents.SendCustomGameEventToServer( "item_swap_input", {input_msg: index} );
+	if (index == 1){
+		Game.EmitSound("UI.Roshpit.ItemReturn")
+	}
 	CloseItemEquip()
 }
 // "ui_old_item"			"Old"
