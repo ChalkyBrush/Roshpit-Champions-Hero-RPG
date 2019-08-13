@@ -534,6 +534,15 @@
 		"ui_picked_up"			"Picked Up"
 		"ui_equip_new"			"Equipped!"
 		"ui_close_panel"		"Close"
+		"ui_old_item"			"Old"
+		"ui_new_item"			"New"
+		"ui_old_item_main_option" "Keep old item equipped and"
+		"ui_old_item_option_1"	"Return new item to inventory"
+		"ui_old_item_option_2"	"Discard new item"
+		"ui_new_item_main_option" "Equip new item and"
+		"ui_new_item_option_1"	"Save Hero"
+		"ui_new_item_option_2"	"Don't Save"
+		"ui_new_item_extra_help"	"Both of these options will destroy the currently equipped item."
 
 		"ui_trade"				"Trade"
 

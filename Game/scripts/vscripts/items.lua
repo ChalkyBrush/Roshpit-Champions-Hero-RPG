@@ -1115,7 +1115,8 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 			UTIL_Remove(itemEntity:GetContainer())
 		end
 		CustomGameEventManager:Send_ServerToPlayer(player, "close_blacksmith", {})
-		CustomGameEventManager:Send_ServerToPlayer(player, "new_item_with_slot", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex()})
+		-- CustomGameEventManager:Send_ServerToPlayer(player, "new_item_with_slot", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex()})
+		CustomGameEventManager:Send_ServerToPlayer(player, "new_item_equip", {newItem = itemIndexNew, oldItem = oldGear:GetEntityIndex(), slot = slot})
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_equip_ui_open", {})
 	else
 		print("[RPCItems:GearPickup] NO oldGear")

@@ -67,7 +67,7 @@
     <CustomUIElement type="HudTopBar"       layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/inventory.xml" />
     
-    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/swap_ui.xml" />
+    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/equipment/equip_item_ui.xml" />
 
     <CustomUIElement type="HudTopBar"       layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml" /> 
 
