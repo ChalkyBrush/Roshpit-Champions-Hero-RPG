@@ -390,7 +390,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% ASTRAL_R3_ATTACK_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{
