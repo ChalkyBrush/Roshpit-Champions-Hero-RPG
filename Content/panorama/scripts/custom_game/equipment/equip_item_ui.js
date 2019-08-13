@@ -225,16 +225,16 @@ function initializeTooltip(main_panel, item){
 			main_panel.FindChildTraverse('tooltip_requirements_left').AddClass('invisible')
 		}
 		//REQUIRED HERO
-		if (itemValues.requiredHero === undefined){
-			main_panel.FindChildTraverse('tooltip_requirements_right').AddClass('invisible')
-		}else{
-			var requiredHeroText = $.Localize(itemValues.requiredHero)
-			main_panel.FindChildTraverse('tooltip_requirements_right').RemoveClass('invisible')
-			main_panel.FindChildTraverse('tooltip_requirements_right').text = requiredHeroText
+		// if (itemValues.requiredHero === undefined){
+		// 	main_panel.FindChildTraverse('tooltip_requirements_right').AddClass('invisible')
+		// }else{
+		// 	var requiredHeroText = $.Localize(itemValues.requiredHero)
+		// 	main_panel.FindChildTraverse('tooltip_requirements_right').RemoveClass('invisible')
+		// 	main_panel.FindChildTraverse('tooltip_requirements_right').text = requiredHeroText
 
-			$.Msg(requiredHeroText)
-			bHideReqLines = false
-		}
+		// 	$.Msg(requiredHeroText)
+		// 	bHideReqLines = false
+		// }
 		$.Msg("BHIDEREQ")
 		$.Msg(bHideReqLines)
 		if(bHideReqLines){

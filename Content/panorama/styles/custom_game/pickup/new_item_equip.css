@@ -1,7 +1,7 @@
 .equip_item_root{
 	vertical-align: center;
 	horizontal-align:center;
-	height:620px;
+
 	width:650px;
 	flow-children:right;
 	margin-bottom:240px;
@@ -11,28 +11,29 @@
 
 .equip_item_container{
 	width:325px;
-	height:100%;
+
 	
 	
 }
 
 .main_item_container{
 	width:100%;
-	height:100%;
+
 	flow-children:down;
 
 }
 
 #item_attacher{
 	width:90%;
-	height:440px;
+/*	height:460px;*/
 	horizontal-align:center;
 	margin-top:10px;
+	height:460px;
 }
 
 .equip_item_display_root{
 	width:100%;
-	height:100%;
+/*	height:100%;*/
 	flow-children:down;
 }
 
@@ -72,16 +73,16 @@
 }
 
 #buttons_attacher{
-	height:20%;
 	width:100%;
 	horizontal-align:center;
 
 }
 
 .equip_item_button_options_root{
-	height:100%;
 	width:100%;
 	flow-children:down;
+	margin-bottom:30px;
+	vertical-align: bottom;
 }
 
 .buttons_old_colors{
@@ -126,7 +127,7 @@
 #buttons-title{
 	horizontal-align:center;
 	text-align: center;
-
+	margin-top:15px;
 }
 
 
