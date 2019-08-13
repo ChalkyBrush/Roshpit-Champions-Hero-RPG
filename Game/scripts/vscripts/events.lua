@@ -13,6 +13,7 @@ require('glyphs')
 require('paragon')
 require('elements')
 require('spawning')
+require('lootfilter')
 
 Beacons.cheats = false
 
@@ -179,6 +180,7 @@ function GameMode:OnGameRulesStateChange(keys)
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i]:RemoveModifierByName("modifier_command_restric_player")
 		end
+		LootFilter:Load()
 	end
 end
 

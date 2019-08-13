@@ -1,3 +1,4 @@
+require('lootfilter')
 if RPCItems == nil then
 	RPCItems = class({})
 end
@@ -695,6 +696,11 @@ function RPCItems:GetExpiryTime(item)
 end
 
 function RPCItems:DropItem(item, position)
+	if not LootFilter:CanSpawnItem(item.newItemTable) then
+		UTIL_Remove(item:GetContainer())
+		RPCItems:ItemUTIL_Remove(item)
+		return
+	end
 	RPCItems:ItemUpdateCustomNetTables(item)
 	local origPosition = position
 	local basePosition = position
