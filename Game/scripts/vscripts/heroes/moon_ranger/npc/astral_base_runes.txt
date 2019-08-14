@@ -216,7 +216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"<% ASTRAL_E1_POSTMIT_PCT/100 %>"
 			}
 			"02"
 			{
@@ -390,7 +390,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% ASTRAL_R3_ATTACK_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{

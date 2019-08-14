@@ -2282,7 +2282,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_astral_rune_e_1_visible") then
 		local modifier = victim:FindModifierByName("modifier_astral_rune_e_1_invisible")
 		local stacks = modifier:GetStackCount()
-		local multIncrease = 0.006 * stacks
+		local multIncrease = ASTRAL_E1_POSTMIT_PCT/100 * stacks
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_voltex_static_field_post_mitigation") then

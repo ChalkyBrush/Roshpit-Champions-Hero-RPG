@@ -275,7 +275,7 @@ function RPCItems:RollBodyProperty1(item, xpBounty, randomHelm)
         RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_physical_block", "#B02020", 1)
     elseif luck >= 60 and luck < 70 then
         local bonus = 0
-        value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 20 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
+        value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 70 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
         item.newItemTable.property1 = value
         item.newItemTable.property1name = "magic_block"
         suffix = SUFFIX_MAGIC_BLOCK_TABLE[suffixLevel]
@@ -360,7 +360,7 @@ function RPCItems:RollBodyProperty2(item, xpBounty)
         RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_physical_block", "#B02020", 2)
     elseif luck >= 60 and luck < 70 then
         local bonus = 0
-        value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 20 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
+        value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 70 + bonus, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "magic_block"
         prefix = PREFIX_MAGIC_BLOCK_TABLE[prefixLevel]
@@ -429,7 +429,7 @@ function RPCItems:RollBodyProperty3(item, xpBounty)
         item.newItemTable.property3name = "physical_block"
         RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_physical_block", "#B02020", 3)
     elseif luck >= 60 and luck < 70 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 20, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 70, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
         item.newItemTable.property3 = value
         item.newItemTable.property3name = "magic_block"
         RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_magic_block", "#343EC9", 3)
@@ -497,7 +497,7 @@ function RPCItems:RollBodyProperty4(item, xpBounty)
         item.newItemTable.property4name = "physical_block"
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_physical_block", "#B02020", 4)
     elseif luck >= 60 and luck < 70 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 20, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 70, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
         item.newItemTable.property4 = value
         item.newItemTable.property4name = "magic_block"
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_magic_block", "#343EC9", 4)
