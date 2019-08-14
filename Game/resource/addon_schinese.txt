@@ -8508,7 +8508,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"鬼丸"
 		"item_property_seinaru_immortal_weapon"								"穿刺攻击"
-		"property_seinaru_immortal_weapon_description"						"每次攻击造成 <font color='#ccff66'>250</font>-码范围的旋风, 伤害量为 <font color='#ccff66'>100</font>% 剑圣的总攻击力的物理 <font color=\"#7AE2A7\">风</font> 元素伤害并且施加 [R1]."
+		"property_seinaru_immortal_weapon_description"						"每次攻击造成 <font color='#ccff66'>250</font>-码范围的旋风, 伤害量为 <font color='#ccff66'>150</font>% 剑圣的总攻击力的物理 <font color=\"#7AE2A7\">风</font> 元素伤害并且施加 [R1]."
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "武藏的藏刀"
         "item_property_seinaru_immortal_weapon2"                             "忍者之心"
