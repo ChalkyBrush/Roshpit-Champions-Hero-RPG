@@ -211,8 +211,11 @@ function ancient_die(event)
 	local stringToShow = "The Ancient has been destroyed. Serengaard waits for a new protector."
 	Notifications:TopToAll({text = stringToShow, duration = 5.0})
 
-	Timers:CreateTimer(6, function()
+	Timers:CreateTimer(10, function()
 		Serengaard:SubmitStats()
+	end)
+	Timers:CreateTimer(40, function()
+		CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard_hide", {})
 	end)
 	Timers:CreateTimer(80, function()
 		GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS)
