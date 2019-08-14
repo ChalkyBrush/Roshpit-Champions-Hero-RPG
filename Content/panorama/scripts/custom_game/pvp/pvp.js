@@ -569,6 +569,13 @@ function serengaardLeaderboard(msg){
     // board.FindChildTraverse('serengaard_wave_spawn_label').text = $.Localize("wave_spawning")
 }
 
+function serengaardLeaderboardHide(){
+	$.Msg("Hiding serengaard leaderboard...")
+	var parent = $('#pvp_container')
+	parent.FindChildTraverse('serengaard_leaderboard').AddClass('invisible')
+	$.Msg("Serengaard leaderboard became invisible!")
+}
+
 function serengaardLeaderboardCategoryActivate(index, results, leaderContentsContainer)
 {
 	leaderContentsContainer.RemoveAndDeleteChildren(0)
@@ -717,6 +724,8 @@ function destroySerengaardVoteSkip(){
   GameEvents.Subscribe( "serengaardInfiniteWaves", serengaardInfiniteWaves );
 
   GameEvents.Subscribe( "serengaard_leaderboard", serengaardLeaderboard );
+  GameEvents.Subscribe( "serengaard_leaderboard_hide", serengaardLeaderboardHide );
+
   // serengaardLeaderboard();
 })();
 

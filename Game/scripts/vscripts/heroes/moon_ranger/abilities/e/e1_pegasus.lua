@@ -36,7 +36,7 @@ function createPegasusProjectile(caster, ability, startPoint, endPoint)
     if forwardVector == Vector(0, 0) then
         forwardVector = caster:GetForwardVector()
     end
-    local speed = math.max(range * E1_SPEED_FROM_RANGE, 300)
+    local speed = math.max(range * E1_SPEED_FROM_RANGE, 600)
     local info =
     {
         Ability = ability,
