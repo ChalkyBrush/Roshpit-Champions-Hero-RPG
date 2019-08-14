@@ -8258,7 +8258,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
 		"item_property_seinaru_immortal_weapon"								"Piercing Attacks"
-		"property_seinaru_immortal_weapon_description"						"Атаки наносят дополнительно <font color='#ccff66'>100</font>% физического урона <font color=\"#7AE2A7\">Ветра</font> от показателя общей атаки в радиусе <font color='#ccff66'>250</font> и наложат на пораженных противников эффект [R1]."
+		"property_seinaru_immortal_weapon_description"						"Атаки наносят дополнительно <font color='#ccff66'>150</font>% физического урона <font color=\"#7AE2A7\">Ветра</font> от показателя общей атаки в радиусе <font color='#ccff66'>250</font> и наложат на пораженных противников эффект [R1]."
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "Musashi Swiftblade"
         "item_property_seinaru_immortal_weapon2"                             "Five Rings Insight"
