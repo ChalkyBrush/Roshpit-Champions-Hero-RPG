@@ -728,7 +728,9 @@ function GameMode:OnPlayerChat(keys)
 			Events:LootDisableJunk(playerid)
 		end
 		if Serengaard and Serengaard.mainAncient and string.match(text, "-forfeit") and not GameMode.VoteSystem.serengaard_forfeit_complete then
-			Events:SerengaardForfeit(playerid)
+			if Serengaard.InfiniteWaveCount then
+				Events:SerengaardForfeit(playerid)
+			end
 		end
 	end
 end
