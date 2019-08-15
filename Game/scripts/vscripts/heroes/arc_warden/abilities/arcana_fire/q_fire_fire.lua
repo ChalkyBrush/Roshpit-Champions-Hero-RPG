@@ -4,6 +4,8 @@ require('heroes/arc_warden/jex_constants')
 function jex_activate_q_fire_fire(event)
 	local caster = event.caster
 	local ability = event.ability
+	ability.unique_ring_index_last = ability.unique_ring_index_last or 0
+	ability.unique_ring_index_last = ability.unique_ring_index_last + 1
 
 	local attack_damage_per_tech = event.attack_damage_per_tech
 	local radius = event.radius
@@ -23,6 +25,7 @@ function jex_activate_q_fire_fire(event)
 	local new_ring = {}
 	new_ring.active = true
 	new_ring.pfx = ParticleManager:CreateParticle("particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	new_ring.uid = ability.unique_ring_index_last
 	table.insert(ability.ring_table, new_ring)
 	local ringDuration = 0
 	local speed = radius * 1
@@ -73,6 +76,8 @@ function jex_fire_fire_ring_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	local w_4_level = caster:GetRuneValue("w", 4)
+	local limitKey = caster:GetPlayerOwnerID() .. '_jex_fire_fire_ring'
+	local hitAtLeastOneTarget = false
 	for i = 1, #ability.ring_table, 1 do
 		local ring = ability.ring_table[i]
 		if ring.active then
@@ -84,26 +89,49 @@ function jex_fire_fire_ring_thinker(event)
 			end
 			ring.interval = ring.interval + 1
 			if ring.interval % 3 == 0 then
-				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ring.distance_from_center + 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-				local enemies_exclude = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ring.distance_from_center - 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+				local excluded_enemies = {}
+				if ring.retracing then
+					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ring.distance_from_center -  ability.speed * 0.09, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+					for _,enemy in pairs(enemies) do
+						excluded_enemies[enemy:GetEntityIndex()] = true
+					end
+				end
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ring.distance_from_center, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
-						if WallPhysics:DoesTableHaveValue(enemies_exclude, enemy) then
+						local ringKey = 'jex_fire_fire_' .. ring.uid
+						if ring.retracing then
+							ringKey = ringKey .. '_retracing'
+						end
+						if enemy[ringKey] or (ring.retracing and excluded_enemies[enemy:GetEntityIndex()]) then
 						else
+							enemy[ringKey] = true
+							hitAtLeastOneTarget = true
 							local damage = ability.damage
 							if w_4_level > 0 then
 								local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
 								local distance_percentage = distance / ability.radius
 								damage = damage + damage * distance_percentage * (event.w_4_damage_increase_pct_edges / 100) * w_4_level
 							end
-							EmitSoundOn("Jex.RingOfFire.Hit", enemy)
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-							CustomAbilities:QuickAttachParticle("particles/econ/items/ogre_magi/ogre_ti8_immortal_weapon/ogre_ti8_immortal_bloodlust_buff_flash.vpcf", enemy, 2)
+
+							if not enemy.has_jex_fire_fire_ring_particle then
+								Util.Common:LimitPerTime(25, 1, limitKey, function()
+									CustomAbilities:QuickAttachParticle("particles/econ/items/ogre_magi/ogre_ti8_immortal_weapon/ogre_ti8_immortal_bloodlust_buff_flash.vpcf", enemy, 2)
+									enemy.has_jex_fire_fire_ring_particle = true
+									Timers:CreateTimer(1, function()
+										enemy.has_jex_fire_fire_ring_particle = false
+									end)
+								end)
+							end
 						end
 					end
 				end
 			end
 		end
+	end
+	if hitAtLeastOneTarget then
+		EmitSoundOn("Jex.RingOfFire.Hit", caster)
 	end
 end
 
