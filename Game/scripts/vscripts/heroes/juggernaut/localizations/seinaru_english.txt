@@ -235,7 +235,7 @@
 		"item_rpc_seinaru_glyph_2_1_description" 				"Every point in [Q2] increases movespeed cap by <% SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2 %>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"Glyph of Resonance"
-		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage to all other enemies in a <% SEINARU_GLYPH3_R3_RADIUS %> radius around the primary target."
+		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage and applies [R1] to all other enemies in a <% SEINARU_GLYPH3_R3_RADIUS %> radius around the primary target."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"Glyph of Yang"
 		"item_rpc_seinaru_glyph_4_1_description" 				"Runes that increase Seinaru's damage threshold against targets with Steadfast work even alongside post-mitigation amplification effects, but the power of these runes are reduced to 1/<% SEINARU_GLYPH4_THRESHOLD_RUNE_REDUCE %>th of their full values."
