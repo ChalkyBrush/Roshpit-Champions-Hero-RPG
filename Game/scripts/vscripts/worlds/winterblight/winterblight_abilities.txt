@@ -11925,7 +11925,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"	"700 750 800 850"
+				"cast_range_tooltip"	"1000"
 			}
 			"02"
 			{

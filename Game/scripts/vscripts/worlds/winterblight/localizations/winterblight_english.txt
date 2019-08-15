@@ -870,13 +870,92 @@
 		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Sprinkle an area with pyschotropic spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
 		"DOTA_Tooltip_ability_winterblight_confusional_spores_duration"		"DURATION:"
 
+		"DOTA_Tooltip_modifier_confusional_spores"					"Confusional Spores"
+		"DOTA_Tooltip_modifier_confusional_spores_Description"		"Move orders are inverted"
 
+		"DOTA_Tooltip_ability_winterblight_tweaking_arrow"			"Tweaking Arrow"
+		"DOTA_Tooltip_ability_winterblight_tweaking_arrow_Description"	"Enemies hit by Tweaking Arrow are forced to cast their 3rd Ability at the attacker's location, if it is off cooldown."
 
+		"DOTA_Tooltip_ability_winterblight_fungal_minion"			"Fungal Fog"
+		"DOTA_Tooltip_ability_winterblight_fungal_minion_Description"	"Create clouds of poisonous gas that slow enemies and deal damage."
+		"DOTA_Tooltip_ability_winterblight_fungal_minion_poison_damage"	"POISON DOT DAMAGE:"
 
-		
+		"DOTA_Tooltip_ability_winterblight_distance_cap_aura"		"Myopia Aura"
+		"DOTA_Tooltip_ability_winterblight_distance_cap_aura_Description"	"Enemies under the effect of this aura have their targetted abilities' cast range capped."
+		"DOTA_Tooltip_ability_winterblight_distance_cap_aura_range_cap"	"RANGE CAP:"
 
+		"DOTA_Tooltip_modifier_distance_cap_effect"					"Myopia Aura"
+		"DOTA_Tooltip_modifier_distance_cap_effect_Description"		"Targetted abilities have their cast range capped."
 
+		"DOTA_Tooltip_ability_winterblight_spirit_ring"				"Soul Lasher Circle"
+		"DOTA_Tooltip_ability_winterblight_spirit_ring_Description"	"A ring of energy originating from another plane expands and contracts from the caster. Enemies who are hit are slowed and silenced for a short duration."	
+		"DOTA_Tooltip_ability_winterblight_spirit_ring_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_spirit_ring_slow_and_silence_duration"	"SLOW AND SILENCE DURATION:"
 
+		"DOTA_Tooltip_modifier_spirit_ring_slow"					"Soul Lash"
+		"DOTA_Tooltip_modifier_spirit_ring_slow_Description"		"Slowed & Silenced"
+
+		"DOTA_Tooltip_ability_winterblight_aeon_shield"				"Aeon Shield"
+		"DOTA_Tooltip_ability_winterblight_aeon_shield_Description"	"When an instance of damage drops this unit's health below a threshold, cap that instance of damage to the threshold and apply a shield that applies full immunity."	
+		"DOTA_Tooltip_ability_winterblight_aeon_shield_threshold"	"% HEALTH THRESHOLD:"
+
+		"DOTA_Tooltip_modifier_aeon_shield_charges"					"Aeon Shield Charges"
+		"DOTA_Tooltip_modifier_aeon_shield_charges_Description"		"Aeon Shield can activate as long as charges are available."
+
+		"DOTA_Tooltip_modifier_aeon_shield_active"					"Aeon Shield"
+		"DOTA_Tooltip_modifier_aeon_shield_active_Description"		"Complete Immunity"
+
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike"			"Thunder Strike"
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_Description"	"Apply a debuff to the target enemy that grants vision to the caster and strikes them with damage on an interval."
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_strike_interval"	"STRIKE INTERVAL:"
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_strikes"			"STRIKE COUNT:"
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_strike_damage"		"DAMAGE PER STRIKE:"
+
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning"				"Chain Lightning"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_Description"	"Launch a lightning beam at the initial target and jumps to additional targets."
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_arc_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_radius"		"JUMP SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_jump_count"	"JUMP COUNT:"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_jump_delay"	"JUMP DELAY:"
+
+		"DOTA_Tooltip_ability_zect_rider_lightning_bolt"			"Lightning Bolt"
+		"DOTA_Tooltip_ability_zect_rider_lightning_bolt_Descriptions"	"Targets an enemy with a quick nuke and ministun."
+
+		"DOTA_Tooltip_ability_radium_spores"						"Radium Spores"
+		"DOTA_Tooltip_ability_radium_spores_Description"			"Apply a debuff to an enemy that causes their buffs to have reduced duration."
+		"DOTA_Tooltip_ability_radium_spores_modifier_duration_reduction"	"% FRIENDLY BUFF DURATION REDUCTION:"
+		"DOTA_Tooltip_ability_radium_spores_slow"							"SLOW DURATION ON BUFF APPLY:"
+		"DOTA_Tooltip_ability_radium_spores_curse_duration"					"SPORE DURATION:"
+
+		"DOTA_Tooltip_modifier_radium_spores"						"Radium Spores"
+		"DOTA_Tooltip_modifier_radium_spores_Description"			"Self Applied buffs have reduced duration"
+
+		"DOTA_Tooltip_radium_spores_slow"						"Radium Spores Slow"
+		"DOTA_Tooltip_radium_spores_slow_Description"			"Reduced attack damage, movespeed and attackspeed"
+
+		"DOTA_Tooltip_ability_icicle_barrage"					"Icicle Barrage"
+		"DOTA_Tooltip_ability_icicle_barrage_Description"		"Throws an icicle at the target that damages and applies a slow in a small AOE on impact. When an enemy is hit, they gain an icicle barrage stack, which makes subsequent icicle barrages throw additional projectiles."
+		"DOTA_Tooltip_ability_icicle_barrage_max_stacks"		"MAX ICICLE STACKS:"
+		"DOTA_Tooltip_ability_icicle_barrage_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_icicle_barrage_ms_loss"			"MOVESPEED LOSS:"
+		"DOTA_Tooltip_ability_icicle_barrage_as_loss"			"ATTACKSPEED LOSS:"
+
+		"DOTA_Tooltip_modifier_icicle_barrage_stacks"			"Icicle Barrage Stacks"
+		"DOTA_Tooltip_modifier_icicle_barrage_stacks_Description"	"Additional icicle projectiles are thrown at this target"
+
+		"DOTA_Tooltip_winterblight_shroom_procurement"			"Shroom Procurement"
+		"DOTA_Tooltip_winterblight_shroom_procurement_Description"	"Create unstable fungi around the caster in random locations. When a fungus reaches critical mass, it explodes and creates a cloud of slowing poison that also applies confusional spores and silences."
+		"DOTA_Tooltip_winterblight_shroom_procurement_damage_per_tick"	"DOT DAMAGE:"	
+
+		"DOTA_Tooltip_modifier_shroom_procure_aura"				"Fungal Spores"
+		"DOTA_Tooltip_modifier_shroom_procure_aura_Description"	"Slowed, Silenced, and move orders inverted."
+
+		"DOTA_Tooltip_ability_winterblight_demented_mushroom_passive"	"Unstable Mycosis"
+		"DOTA_Tooltip_ability_winterblight_demented_mushroom_passive_Description"	"Emit explosions of poisonous goo around the caster that slow enemies on impact."
+		"DOTA_Tooltip_ability_winterblight_demented_mushroom_passive_damage"		"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_demented_mushroom_slow"					"Unstable Mycosis"
+		"DOTA_Tooltip_modifier_demented_mushroom_slow_Description"		"Large movement slow"
 
 		"winterblight_cavern"										"Winterblight Cavern"
 		"winterblight_cavern_guide"									"Cavern Guide"
@@ -978,28 +1057,5 @@
 		"cavern_record_global_all"									"Global Record"
 		"cavern_ui_failed"											"Failed"		
 		"cavern_ui_completed"										"Complete"	
-		"cavern_ui_no_record"										"No Record"			
-
-
-
-
-		"DOTA_Tooltip_ability_radium_spores"						"Radium Spores"
-		"DOTA_Tooltip_ability_radium_spores_Description"			"Apply a debuff to an enemy that causes their buffs to have reduced duration."
-		"DOTA_Tooltip_ability_radium_spores_modifier_duration_reduction"	"% FRIENDLY BUFF DURATION REDUCTION:"
-		"DOTA_Tooltip_ability_radium_spores_slow"							"SLOW DURATION ON BUFF APPLY:"
-		"DOTA_Tooltip_ability_radium_spores_curse_duration"					"SPORE DURATION:"
-
-		"DOTA_Tooltip_modifier_radium_spores"						"Radium Spores"
-		"DOTA_Tooltip_modifier_radium_spores_Description"			"Self Applied buffs have reduced duration"
-
-		"DOTA_Tooltip_radium_spores_slow"						"Radium Spores Slow"
-		"DOTA_Tooltip_radium_spores_slow_Description"			"Reduced attack damage, movespeed and attackspeed"
-
-		"DOTA_Tooltip_ability_winterblight_tweaking_arrow"			"Tweaking Arrow"
-		"DOTA_Tooltip_ability_winterblight_tweaking_arrow_Description"	"Attacking an enemy whose E ability is off cooldown will force them to cast it."
-
-		"DOTA_Tooltip_modifier_confusional_spores"					"Confusional Spores"
-		"DOTA_Tooltip_modifier_confusional_spores_Description"		"Move orders are inverted"
-
-
+		"cavern_ui_no_record"										"No Record"	
 
