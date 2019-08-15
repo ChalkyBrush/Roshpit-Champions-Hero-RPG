@@ -156,7 +156,7 @@ function rock_guardian_attack_land(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_winterblight_rock_tower_stack", {duratio = 5})
 	target:ApplyAndIncrementStack(ability, nil, "modifier_winterblight_rock_tower_stack", 1, 5, 5)
 
-	if target:GetModifierStackCount("modifier_winterblight_rock_tower_stack", nil) == 5 then
+	if target:GetModifierStackCount("modifier_winterblight_rock_tower_stack", nil) >= event.stacks then
 		target:RemoveModifierByName("modifier_winterblight_rock_tower_stack")
 		ability.pushVector = false
 		ability.pushVelocity = 30
@@ -1112,7 +1112,7 @@ function cavern_spark_throw(event)
 	local base_damage = event.base_damage
 	ability.damage = base_damage * OverflowProtectedGetAverageTrueAttackDamage(caster)
 
-	ability.paralyze_duration = 0.1
+	ability.paralyze_duration = event.paralyze_duration
 	local particle = "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
 	local range = 1000
 	local divisor = 15
@@ -1300,7 +1300,7 @@ function disappearing_act_cast(event)
 	local ability = event.ability
 	local duration = event.duration
 
-	local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster, 3)
+	local pfx2 = CustomAbilities:QuickParticleAtPoint("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster:GetAbsOrigin, 3)
 	ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = duration})
 	caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = duration})

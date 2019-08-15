@@ -9734,55 +9734,6 @@
 	"winterblight_gang_up"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AOERadius"			"1300 1600 1900"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"meepo_divided_we_stand"
-		"MaxLevel"	"3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"				"10 300 1500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"				"10 50 100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"				"15 30 60"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_gang_up"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"  "1.0"
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
-						"Function"		"gang_up_think"
-					}
-				}
-			}
-			"modifier_gangup_stack"
-			{
-				"IsHidden"	"0"
-
-			}
-		}
-	}
-
-	"winterblight_gang_up"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"650"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"meepo_divided_we_stand"
@@ -10084,7 +10035,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"30 300 5000"
+				"stacks"			"8 7 5"
 			}
 			"02"
 			{
@@ -10121,6 +10072,7 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"rock_guardian_attack_land"
+						"stacks"		"%stacks"
 					}
 				}
 				"Properties"
@@ -10572,6 +10524,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"	"redfall/autumn_spawner"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -10759,6 +10712,14 @@
 						"pct_damage_on_spell_cast"	"%pct_damage_on_spell_cast"
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"curse_of_belial_attack_damage_reduce"
+					}
+				}
 			}
 			"curse_of_belial_attack_damage_reduce"
 			{
@@ -10904,7 +10865,7 @@
 			}
 			"modifier_ultra_ice_enraged"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -10956,7 +10917,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_blood_might_passive"
+			"modifier_drill_digger_passive"
 			{
 				"IsPurgable"	"0"
 				"Passive" 		"1"
@@ -11209,6 +11170,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"base_damage"			"1000 8000 90000"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"paralyze_duration"			"0.1"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -11225,6 +11191,7 @@
 				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 				"Function"		"cavern_spark_throw"
 				"base_damage"			"%base_damage"
+				"paralyze_duration"		"%paralyze_duration"
 			}
 		}
 		"OnProjectileHitUnit"
