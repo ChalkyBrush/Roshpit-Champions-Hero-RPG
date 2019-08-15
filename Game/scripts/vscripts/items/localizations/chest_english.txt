@@ -94,7 +94,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
 		"item_property_secret_temple"				"Refraction"
-		"property_secret_temple_description"		"After casting @Ability4, a temporary refraction shield envelops you, which will completely negate the next 7 instances of damage you receive. While the shield remains active, your Base Attack damage is multiplied by 2."
+		"property_secret_temple_description"		"After casting @Ability4, a temporary refraction shield envelops you, which will completely negate the next 7 instances of damage you receive. When the shield activates, your current Base Attack Damage is doubled, and will remain doubled until the shield expires or is broken. This effect does not stack with itself."
 		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
 		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Blocking damage instances. Base attack damage doubled."
 		
