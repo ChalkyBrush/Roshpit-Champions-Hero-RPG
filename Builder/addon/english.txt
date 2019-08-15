@@ -1796,6 +1796,12 @@
 		"star_azalea_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
 		"star_azalea_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
 
+		"star_wb_cavern_description"									"Defeat @bossname on @mapname as @heroname on Normal Difficulty."
+		"star_wb_cavern_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
+		"star_wb_cavern_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
+
+		"star_wb_cavern_master_description"									"Clear all @dungeon_name chambers with an average clear level of @level as @heroname"
+
 
 
 		//SERENGAARD

@@ -1796,6 +1796,12 @@
 		"star_azalea_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
 		"star_azalea_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
 
+		"star_wb_cavern_description"									"Defeat @bossname on @mapname as @heroname on Normal Difficulty."
+		"star_wb_cavern_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
+		"star_wb_cavern_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
+
+		"star_wb_cavern_master_description"									"Clear all @dungeon_name chambers with an average clear level of @level as @heroname"
+
 
 
 		//SERENGAARD
@@ -19021,6 +19027,7 @@
 
 		"winterblight_cavern"										"Winterblight Cavern"
 		"winterblight_cavern_guide"									"Cavern Guide"
+		"star_wb_master_title"										"Cavern Master"
 
 		"winterblight_cavern_help1"									"Select a chamber to view the list of challenges. Only 1 challenge can be active within each chamber at a time. Monsters can not leave their chamber and they cannot be damaged from outside."
 		"winterblight_cavern_help2"									"Select an Event from the list below. Completing an Event provides Relic Fragments. The final boss can be summoned once 10,000 relic fragments have been collected. Relic fragments reset for each game sesson."

@@ -57,6 +57,9 @@ function Winterblight:GetCaveMetaData()
 			print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Winterblight.CavernMetaData = resultTable
+			for i = 1, #MAIN_HERO_TABLE, 1 do
+				Stars:StarEventPlayer("cavern_master", MAIN_HERO_TABLE[i])
+			end
 			print(Winterblight.CavernMetaData)
 		end
 	end )
@@ -4520,4 +4523,50 @@ function Winterblight:TiamatBossDie(boss)
 		Winterblight:MithrilReward(position, "tiamat")
 	end)
 
+end
+
+function Winterblight:GetStarValueForCavernMaster(hero)
+	local star_value_to_return = 0
+	local playerID = hero:GetPlayerOwnerID()
+
+	local total_completion_level = 0
+	local total_chamber_count = 16
+	local total_chamber_clear_count = 0
+	local steam_id = tostring(PlayerResource:GetSteamAccountID(playerID))
+	
+	local event_index = tostring(event_index)
+	DeepPrintTable(Winterblight.CavernMetaData)
+	for i = 1, 4, 1 do
+		local chamber_index = tostring(i)
+		for j = 1, 4, 1 do
+			local event_index = tostring(j)
+			if Winterblight.CavernMetaData[chamber_index] then
+				if Winterblight.CavernMetaData[chamber_index][event_index] then
+					if Winterblight.CavernMetaData[chamber_index][event_index][steam_id] then
+						if Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] then
+							total_chamber_clear_count = total_chamber_clear_count + 1
+							total_completion_level = total_completion_level + Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"]
+						end
+					end
+				end
+			end
+		end
+	end
+	print(total_chamber_clear_count)
+	if total_chamber_clear_count >= total_chamber_count then
+		local average_clear_level = total_completion_level/total_chamber_clear_count
+		if average_clear_level >= 10 then
+			star_value_to_return = 1
+		end
+		if average_clear_level >= 20 then
+			star_value_to_return = 2
+		end
+		if average_clear_level >= 30 then
+			star_value_to_return = 3
+		end
+	end
+	print(total_completion_level)
+	print("RETURN STAR VALUE")
+	print(star_value_to_return)
+	return star_value_to_return
 end
