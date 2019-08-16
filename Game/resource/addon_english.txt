@@ -19004,6 +19004,54 @@
 		//WINTERBLIGHT PART 2
 
 		"winterblight_scouring_sherpa"							"Scouring Sherpa"
+		"winterblight_skating_zealot"							"Skating Zealot"
+		"winterblight_relict"									"Relict"
+		"ferocious_polar_bear"									"Polar Mauler"
+		"ice_haunter"											"Ice Haunter"
+		"winterblight_stone_guardian"							"Stone Guardian"
+		"winterblight_merkurio"									"Merkurio"
+		"winterblight_cavern_centaur"							"Winter Centaur"
+		"azalea_mana_null"										"Mana Null"
+		"winterblight_blood_wraith"								"Blood Wraith"
+		"winterblight_cavern_ultra_ice"							"Ultra Ice"
+		"drill_digger"											"Drill Digger"
+		"winter_cavern_bat"										"Winter Cavern Bat"
+		"cavern_pantheon_knight"								"Pantheon Knight"
+		"barbed_husker"											"Barbed Husker"
+		"winterblight_cloaked_phantasm"							"Cloaked Phantasm"
+		"winterblight_boar"										"Northern Boar"
+		"winterblight_fungal_shaman"							"Fungal Shaman"
+		"winterblight_cavern_beguiler"							"Beguiler"
+		"winterblight_corporeal_revenant"						"Corporeal Revenant"
+		"crystarium_heart_slayer"								"Heart Slayer"
+		"fungal_minion"											"Fungal Minion"
+		"winterblight_skull_hunter"								"Skull Hunter"
+		"reclusive_mundunugu"									"Reclusive Mundunugu"
+		"winterblight_crystalist"								"Crystalist"
+		"winterblight_zect_rider"								"Zect Rider"
+		"winterblight_mushroom_pixie"							"Mushroom Pixie"
+		"crystarium_brood_spider"								"Crystarium Brood Spider"
+		"winterblight_icixel"									"Icixel"
+		"winterblight_toki_toki"								"Toki Toki"
+		"winterblight_demented_mushroom"						"Demented Mushroom"
+		"winterblight_ghost_of_aurora"							"Ghost of Aurora"
+		"winterblight_cavern_bovaur"							"Cavern Bovaur"
+		"winterblight_icestealer"								"Icestealer"
+		"winterblight_cavern_overwhelmer"						"Zero Behemoth"
+		"winterblight_servant_of_saturn"						"Servant of Saturn"
+		"winterblight_zodiac_oracle"							"Zodiac Oracle"
+		"winterblight_cavern_thunderhide"						"Thunderhide"
+		"winterblight_aurora_boss_1"								"Osyrus"
+		"winterblight_aurora_boss_2"								"Gunnolf"
+		"winterblight_aurora_boss_3"								"Sweebern"
+		"winterblight_space_shark"								"Space Shark"
+		"winterblight_star_eater"								"Star Eater"
+		"winter_bone_blister"									"Bone Blister"
+		"winterblight_galaxy_knight"							"Galaxy Knight"
+		"winterblight_frozen_krow"								"Frozen Krow"
+		"winterblight_mind_chatterer"							"Mind Chatterer"
+		"winterblight_wintertide_monk"							"Wintertide Monk"
+		"winterblight_winters_chieftain"						"Winters Chieftain"
 
 		"DOTA_Tooltip_ability_winterblight_gang_up"				"Gang Up"
 		"DOTA_Tooltip_ability_winterblight_gang_up_Description"	"Gain a Gang Up stack for each nearby ally that also has the Gang Up ability."
@@ -19025,11 +19073,326 @@
 		"DOTA_Tooltip_modifier_damage_sap_stack_enemy"			"Damage Sap"
 		"DOTA_Tooltip_modifier_damage_sap_stack_enemy_Description"	"Reduced attack damage"
 
+		"DOTA_Tooltip_ability_relict_monkey_leap"				"Swindle Jump"
+		"DOTA_Tooltip_ability_relict_monkey_leap_Description"	"Jumps toward the target location"
+		"DOTA_Tooltip_ability_relict_monkey_leap_cast_range"	"CAST RANGE:"
+
+		"DOTA_Tooltip_ability_winterblight_ice_vortex_aoe"		"Spreading Cold"
+		"DOTA_Tooltip_ability_winterblight_ice_vortex_aoe_Description" "Creates several areas of frigid ice that greatly slow enemies who touch them."
+		"DOTA_Tooltip_ability_winterblight_ice_vortex_aoe_ms_slow"	"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_ice_vortex_aoe_as_slow"	"ATTACKSPEED SLOW:"
+
+		"DOTA_Tooltip_modifier_ice_vortex_aoe_slow"				"Spreading Cold"
+		"DOTA_Tooltip_modifier_ice_vortex_aoe_slow_Description"	"Grealty reduced move and attack speed"
+
+		"DOTA_Tooltip_ability_winterblight_rock_guardian_passive" "Stone Guardian"
+		"DOTA_Tooltip_ability_winterblight_rock_guardian_passive_Description"	"Attacks build up stacks that push and stun enemies after exceeding a threshold."
+		"DOTA_Tooltip_ability_winterblight_rock_guardian_passive_stacks"		"STACK THRESHOLD:"
+
+		"DOTA_Tooltip_modifier_winterblight_rock_tower_stack"	"Guardian's Repellant"
+		"DOTA_Tooltip_modifier_winterblight_rock_tower_stack_Description"	"Stunned and pushed after exceeding the stack threshold."
+
+		"DOTA_Tooltip_ability_winterblight_merkurio_passive"	"Trickster"
+		"DOTA_Tooltip_ability_winterblight_merkurio_passive_Description"	""
+
+		"DOTA_Tooltip_ability_winterblight_cave_guide_ability"	"Relic Summoning"
+		"DOTA_Tooltip_ability_winterblight_cave_guide_ability_Description"	"Can summon ancient beasts using the power of Relic Fragments."
+
+		"DOTA_Tooltip_ability_winter_centaur_stampede"			"Elder Stampede"
+		"DOTA_Tooltip_ability_winter_centaur_stampede_Description"	"A mighty roar strengthens the resolve and combat capability of nearby allies."	
+		"DOTA_Tooltip_ability_winter_centaur_stampede_duration"		"STAMPEDE DURATION:"
+		"DOTA_Tooltip_ability_winter_centaur_stampede_atk_pct"		"% ATTACK DAMAGE BONUS:"	
+		"DOTA_Tooltip_ability_winter_centaur_stampede_ms_bonus"		"MOVESPEED BONUS:"
+
+		"DOTA_Tooltip_ability_mana_null_spirit_warp"			"Spirit Warp"
+		"DOTA_Tooltip_ability_mana_null_spirit_warp_Description"	"Travel to the target location powered by an inner burst of spiritual strength."
+		"DOTA_Tooltip_ability_mana_null_spirit_warp_cast_range"	"CAST RANGE:"
+
+		"DOTA_Tooltip_ability_winterblight_mana_null_passive"	"Mana Daemon"
+		"DOTA_Tooltip_ability_winterblight_mana_null_passive_Description"	"Damage instances are nullified as long as mana is above 0. Each instance of damage removes 1 mana. Damage block does not work when owned by heros.<br>Additionally, attacks drain a percentage of the target's current mana and deal magic damage based on mana drained."
+		"DOTA_Tooltip_ability_winterblight_mana_null_passive_mana_drain_percent"	"% CURRENT MANA DRAIN:"
+
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive"		"Blood Might"
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive_Description"		"Gain attack damage for each missing point of health of nearby enemies. Gain % bonus attack damage for each % of current health of the nearby highest health enemy."
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive_attack_damage_pct_pct_of_current_health"	"% ATTACK DAMAGE FROM HIGHEST HEALTH NEARBY ENEMY:"
+		"DOTA_Tooltip_ability_winterblight_blood_might_passive_attack_damage_per_missing_health"			"ATTACK DAMAGE BONUS FOR EACH MISSING POINT OF HP OF ALL NEARBY ENEMIES:"
+		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus"			"Blood Might"
+		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus_Description"	"Gaining attack damage based on the health of nearby enemies."
+
+		"DOTA_Tooltip_ability_curse_of_belial"						"Curse of Belial"
+		"DOTA_Tooltip_ability_curse_of_belial_Description"			"A demonic curse is applied to the target which reduces their base attack damage and movespeed by a percentage. When a target affected by curse of belial uses an ability, they lose health based on a % of their max health."
+		"DOTA_Tooltip_ability_curse_of_belial_pct_damage_on_spell_cast"	"% MAX HEALTH REMOVAL ON SPELL CAST:"
+		"DOTA_Tooltip_ability_curse_of_belial_base_attack_damage_reduction"	"% BASE ATTACK DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_curse_of_belial_base_attack_damage_movement_slow"	"% MOVEMENT SPEED SLOW:"
+		"DOTA_Tooltip_ability_curse_of_belial_base_attack_damage_duration"	"CURSE DURATION:"
+
+		"DOTA_Tooltip_modifier_curse_of_belial"						"Curse of Belial"
+		"DOTA_Tooltip_modifier_curse_of_belial_Description"			"Casting abilities reduces health. Reduced movespeed and base attack damage."
+
+		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive"		"Ultra Ice Passive"
+		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive_Description"	"Fragments of loose ice are launched toward all nearby enemies. Impacted targets take damage and have reduced movespeed and attack speed."
+		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive_ms_loss"		"MOVESPEED LOSS:"
+		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive_as_loss"		"ATTACKSPEED LOSS:"
+
+		"DOTA_Tooltip_modifier_ultra_ice_enraged"					"Enraged"
+
+		"DOTA_Tooltip_ability_winterblight_drill_digger_passive"		"Drill Digger"
+		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_Description"	"Attacks build Drill Digger stacks. When the stacks reach 5, the next attack will trigger a quake beneath up to 5 nearby targets that damage based on attack power and stun.<br>Drill Digger stacks cannot be acquired against stunned targets."
+		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_damage_pct_attack_power"	"% DAMAGE AS A PERCENT OF ATTACK POWER:"
+		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_quake_radius"				"QUAKE RADIUS:"
+		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_radius"						"MAX QUAKE SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_attack_pwr_bonus_per_stack"	"% ATTACK POWER BONUS PER DRILL DIGGER STACK:"
+		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_max_quakes"					"MAXIMUM QUAKES:"
+
+		"DOTA_Tooltip_modifier_drill_digger_stack"					"Drill Digger Stack"
+		"DOTA_Tooltip_modifier_drill_digger_stack_Description"		"Attacking while at 5 stacks creates earthquakes under nearby enemies."
+
+		"DOTA_Tooltip_ability_drill_crusher"						"Drill Crusher"
+		"DOTA_Tooltip_ability_drill_crusher_Description"			"All physical damage ignores armor."
+
+		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
+		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Attacks have a 20% chance to engulf the target in blinding light, taking damage and disarming them."	
+		"DOTA_Tooltip_ability_pantheon_deceptive_light_disarm_duration"	"DISARM DURATION:"
+		"DOTA_Tooltip_ability_pantheon_deceptive_light_damage_atk_pwr_pct"	"% DAMAGE BASED ON ATTACK POWER:"
+
+		"DOTA_Tooltip_modifier_deceptive_light"						"Deceptive Light"
+		"DOTA_Tooltip_modifier_deceptive_light_Description"			"Disarmed."	
+
+		"DOTA_Tooltip_ability_husker_dig"							"Husker Dig"
+		"DOTA_Tooltip_ability_husker_dig_Description"				"Dig underground, becoming magic and attack immune. After 3.5-4.5 seconds, burrow up toward the target location."
+
+		"DOTA_Tooltip_modifier_husker_dig_thinker"					"Husker Dig"
+		"DOTA_Tooltip_modifier_husker_dig_thinker_Description"		"Can't act. Immune to attacks and magic."
+
+		"DOTA_Tooltip_ability_winterblight_tanky"					"Tanky"
+		"DOTA_Tooltip_ability_winterblight_tanky_Description"		"Greatly reduces all incoming damage."
+		"DOTA_Tooltip_ability_winterblight_tanky_damage_block"		"% DAMAGE REDUCTION:"
+
+		"DOTA_Tooltip_ability_winter_cavern_spark"					"Phantom Spark"
+		"DOTA_Tooltip_ability_winter_cavern_spark_Description"		"Launches 3 projectiles forward which briefly paralyze enemies who are hit. If hit 5 times in a row, become immune to the paralysis for 1 second."	
+		"DOTA_Tooltip_ability_winter_cavern_spark_base_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winter_cavern_spark_paralyze_duration"	"PARALYZE DURATION:"
+
+		"DOTA_Tooltip_modifier_cavern_spark_paralyze"				"Phantom Spark"
+		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"Paralyzed"
+
+		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"Red Crystal"
+		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Increases all Frozen Foyer monsters attack power by 500%%."
+
+		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"Blue Crystal"
+		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"Increases all Frozen Foyer monsters damage resistance by 90%%."
+
+		"DOTA_Tooltip_modifier_merkurio_crystal_green"				"Green Crystal"
+		"DOTA_Tooltip_modifier_merkurio_crystal_green_Description"	"Increases all Frozen Foyer monsters health regen by 10%%."
+
+		"DOTA_Tooltip_modifier_merkurio_crystal_yellow"				"Yellow Crystal"
+		"DOTA_Tooltip_modifier_merkurio_crystal_yellow_Description"	"Increases all Frozen Foyer monsters movespeed and attackspeed by 100%%."
+
+		"DOTA_Tooltip_modifier_merkurio_crystal_purple"				"Purple Crystal"
+		"DOTA_Tooltip_modifier_merkurio_crystal_purple_Description"	"Every 0.9 seconds, gain 3 stacks of a shield that reduce damage taken to 0."
+
+		"DOTA_Tooltip_ability_winterblight_disappearing_act"		"Disappearing Act"
+		"DOTA_Tooltip_ability_winterblight_disappearing_act_Description"	"Go invisible for a short time."
+		"DOTA_Tooltip_ability_winterblight_disappearing_act_duration"		"INVIS DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_confusional_spores"		"Confusional Spores"
+		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Sprinkle an area with pyschotropic spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
+		"DOTA_Tooltip_ability_winterblight_confusional_spores_duration"		"DURATION:"
+
+		"DOTA_Tooltip_modifier_confusional_spores"					"Confusional Spores"
+		"DOTA_Tooltip_modifier_confusional_spores_Description"		"Move orders are inverted"
+
+		"DOTA_Tooltip_ability_winterblight_tweaking_arrow"			"Tweaking Arrow"
+		"DOTA_Tooltip_ability_winterblight_tweaking_arrow_Description"	"Enemies hit by Tweaking Arrow are forced to cast their 3rd Ability at the attacker's location, if it is off cooldown."
+
+		"DOTA_Tooltip_ability_winterblight_fungal_minion"			"Fungal Fog"
+		"DOTA_Tooltip_ability_winterblight_fungal_minion_Description"	"Create clouds of poisonous gas that slow enemies and deal damage."
+		"DOTA_Tooltip_ability_winterblight_fungal_minion_poison_damage"	"POISON DOT DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_distance_cap_aura"		"Myopia Aura"
+		"DOTA_Tooltip_ability_winterblight_distance_cap_aura_Description"	"Enemies under the effect of this aura have their targetted abilities' cast range capped."
+		"DOTA_Tooltip_ability_winterblight_distance_cap_aura_range_cap"	"RANGE CAP:"
+
+		"DOTA_Tooltip_modifier_distance_cap_effect"					"Myopia Aura"
+		"DOTA_Tooltip_modifier_distance_cap_effect_Description"		"Targetted abilities have their cast range capped."
+
+		"DOTA_Tooltip_ability_winterblight_spirit_ring"				"Soul Lasher Circle"
+		"DOTA_Tooltip_ability_winterblight_spirit_ring_Description"	"A ring of energy originating from another plane expands and contracts from the caster. Enemies who are hit are slowed and silenced for a short duration."	
+		"DOTA_Tooltip_ability_winterblight_spirit_ring_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_spirit_ring_slow_and_silence_duration"	"SLOW AND SILENCE DURATION:"
+
+		"DOTA_Tooltip_modifier_spirit_ring_slow"					"Soul Lash"
+		"DOTA_Tooltip_modifier_spirit_ring_slow_Description"		"Slowed & Silenced"
+
+		"DOTA_Tooltip_ability_winterblight_aeon_shield"				"Aeon Shield"
+		"DOTA_Tooltip_ability_winterblight_aeon_shield_Description"	"When an instance of damage drops this unit's health below a threshold, cap that instance of damage to the threshold and apply a shield that applies full immunity."	
+		"DOTA_Tooltip_ability_winterblight_aeon_shield_threshold"	"% HEALTH THRESHOLD:"
+
+		"DOTA_Tooltip_modifier_aeon_shield_charges"					"Aeon Shield Charges"
+		"DOTA_Tooltip_modifier_aeon_shield_charges_Description"		"Aeon Shield can activate as long as charges are available."
+
+		"DOTA_Tooltip_modifier_aeon_shield_active"					"Aeon Shield"
+		"DOTA_Tooltip_modifier_aeon_shield_active_Description"		"Complete Immunity"
+
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike"			"Thunder Strike"
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_Description"	"Apply a debuff to the target enemy that grants vision to the caster and strikes them with damage on an interval."
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_strike_interval"	"STRIKE INTERVAL:"
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_strikes"			"STRIKE COUNT:"
+		"DOTA_Tooltip_ability_zect_rider_thunder_strike_strike_damage"		"DAMAGE PER STRIKE:"
+
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning"				"Chain Lightning"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_Description"	"Launch a lightning beam at the initial target and jumps to additional targets."
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_arc_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_radius"		"JUMP SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_jump_count"	"JUMP COUNT:"
+		"DOTA_Tooltip_ability_zect_rider_arc_lightning_jump_delay"	"JUMP DELAY:"
+
+		"DOTA_Tooltip_ability_zect_rider_lightning_bolt"			"Lightning Bolt"
+		"DOTA_Tooltip_ability_zect_rider_lightning_bolt_Descriptions"	"Targets an enemy with a quick nuke and ministun."
+
+		"DOTA_Tooltip_ability_radium_spores"						"Radium Spores"
+		"DOTA_Tooltip_ability_radium_spores_Description"			"Apply a debuff to an enemy that causes their buffs to have reduced duration."
+		"DOTA_Tooltip_ability_radium_spores_modifier_duration_reduction"	"% FRIENDLY BUFF DURATION REDUCTION:"
+		"DOTA_Tooltip_ability_radium_spores_slow"							"SLOW DURATION ON BUFF APPLY:"
+		"DOTA_Tooltip_ability_radium_spores_curse_duration"					"SPORE DURATION:"
+
+		"DOTA_Tooltip_modifier_radium_spores"						"Radium Spores"
+		"DOTA_Tooltip_modifier_radium_spores_Description"			"Self Applied buffs have reduced duration"
+
+		"DOTA_Tooltip_radium_spores_slow"						"Radium Spores Slow"
+		"DOTA_Tooltip_radium_spores_slow_Description"			"Reduced attack damage, movespeed and attackspeed"
+
+		"DOTA_Tooltip_ability_icicle_barrage"					"Icicle Barrage"
+		"DOTA_Tooltip_ability_icicle_barrage_Description"		"Throws an icicle at the target that damages and applies a slow in a small AOE on impact. When an enemy is hit, they gain an icicle barrage stack, which makes subsequent icicle barrages throw additional projectiles."
+		"DOTA_Tooltip_ability_icicle_barrage_max_stacks"		"MAX ICICLE STACKS:"
+		"DOTA_Tooltip_ability_icicle_barrage_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_icicle_barrage_ms_loss"			"MOVESPEED LOSS:"
+		"DOTA_Tooltip_ability_icicle_barrage_as_loss"			"ATTACKSPEED LOSS:"
+
+		"DOTA_Tooltip_modifier_icicle_barrage_stacks"			"Icicle Barrage Stacks"
+		"DOTA_Tooltip_modifier_icicle_barrage_stacks_Description"	"Additional icicle projectiles are thrown at this target"
+
+		"DOTA_Tooltip_winterblight_shroom_procurement"			"Shroom Procurement"
+		"DOTA_Tooltip_winterblight_shroom_procurement_Description"	"Create unstable fungi around the caster in random locations. When a fungus reaches critical mass, it explodes and creates a cloud of slowing poison that also applies confusional spores and silences."
+		"DOTA_Tooltip_winterblight_shroom_procurement_damage_per_tick"	"DOT DAMAGE:"	
+
+		"DOTA_Tooltip_modifier_shroom_procure_aura"				"Fungal Spores"
+		"DOTA_Tooltip_modifier_shroom_procure_aura_Description"	"Slowed, Silenced, and move orders inverted."
+
+		"DOTA_Tooltip_ability_winterblight_demented_mushroom_passive"	"Unstable Mycosis"
+		"DOTA_Tooltip_ability_winterblight_demented_mushroom_passive_Description"	"Emit explosions of poisonous goo around the caster that slow enemies on impact."
+		"DOTA_Tooltip_ability_winterblight_demented_mushroom_passive_damage"		"DAMAGE:"
+
+		"DOTA_Tooltip_modifier_demented_mushroom_slow"					"Unstable Mycosis"
+		"DOTA_Tooltip_modifier_demented_mushroom_slow_Description"		"Large movement slow"
+
+		"DOTA_Tooltip_ability_three_perceptions"						"Three Perceptions"
+		"DOTA_Tooltip_ability_three_perceptions_Description"			"A phantasmic glimpse of the future grants the ability to perform 3 attacks that displace the caster and apply a stun and pushback on the victims. During the attacks the caster is magic immune."
+		"DOTA_Tooltip_ability_three_perceptions_attacks"				"ATTACKS:"
+		"DOTA_Tooltip_ability_three_perceptions_bonus_damage"			"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_three_perceptions_stun_duration"			"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_gravekeeper"					"Gravekeeper"
+		"DOTA_Tooltip_ability_winterblight_gravekeeper_Description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by 10%, while also draining 3 movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <font color='#ccff66'>8</font> stacks can be applied per second, no matter how quickly you attack."
+		//same tooltip as gravekeeper gauntlet
+
+		"DOTA_Tooltip_ability_winterblight_frost_overwhelming"			"Frost Core"
+		"DOTA_Tooltip_ability_winterblight_frost_overwhelming_Description"	"On death, the chill from this unit's absolute freezing core is released. The energy vacuum freezes all nearby allies and makes them immune to damage and healing a % of max hp for a duration."
+		"DOTA_Tooltip_ability_winterblight_frost_overwhelming_radius"		"RADIUS:"	
+
+		"DOTA_Tooltip_ability_winterblight_giant_snow_crab_passive"		"Big Crab"
+		"DOTA_Tooltip_ability_winterblight_giant_snow_crab_passive_Description"	"This is a big crab."
+
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius"			"Dome of Aquarius"
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_Description"	"A flow of celestial knowledge shapes into a sphere. The caster and his allies are immune to attacks outside of the dome while they are standing inside."
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_duration"	"DOME DURATION:"
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_radius"		"RADIUS:"
+
+		"DOTA_Tooltip_ability_unshakable"								"Unshakeable"
+		"DOTA_Tooltip_ability_unshakable_Description"					"All debuffs applied by enemies have greatly reduced duration."
+		"DOTA_Tooltip_ability_unshakable_modifier_duration_reduction"	"% DEBUFF DURATION REDUCTION:"
+
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive"					"Ultimate Predator"
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_Description"		"Attacking an enemy applies a buff that gains more stacks on subsequent attacks. Once at 5 stacks, gain the ultimate predator buff that grants massive attack power and 1 shot kill ability. The instant kill only works on heroes."
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_damage_bonus_per_stack"	"% DAMGE BONUS PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_duration"				"BUFF DURATION:"	
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_damage_bonus_full_shark"	"% BONUS DAMAGE WHILE ULTIMATE PREDATOR ACTIVE:"
+
+		"DOTA_Tooltip_modifier_space_shark_stacks"									"Pedator Buildup"
+		"DOTA_Tooltip_modifier_space_shark_stacks_Description"						"Gaining attack damage. At 5 stacks gain Ultimate Predator."
+
+		"DOTA_Tooltip_modifier_space_shark_full"									"Ultimate Predator"
+		"DOTA_Tooltip_modifier_space_shark_full_Description"						"Massive attack power bonus. 1 shotting heroes."
+
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive"					"Diamond Disarray"
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_Description"		"On an interval, creates an ice blast at a random location near the caster. As this unit's health drops, the frequency of explosions increases."
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_ms_loss"			"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_as_loss"			"ATTACKSPEED SLOW:"
+	
+		"DOTA_Tooltip_ability_winterblight_astral_weapon"							"Astral Weapon"
+		"DOTA_Tooltip_ability_winterblight_astral_weapon_Description"				"Attacks deal additional pure damage based on target's max health."
+		"DOTA_Tooltip_ability_winterblight_astral_weapon_damage_pct_target_max_health"	"% DAMAGE AS PORTION OF MAX HEALTH:"
+
+		"DOTA_Tooltip_ability_winterblight_star_eater_passive"						"Satellite Beacon"
+		"DOTA_Tooltip_ability_winterblight_star_eater_passive_Description"			"A pinpoint laser travels around the caster. The laser's distance from the cast moves in and out based on the position of nearby enemies."
+		"DOTA_Tooltip_ability_winterblight_star_eater_passive_damage"				"DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive"					"Exo-Eidolon"
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_Description"		"Any damage taken returns damage and a freeze to the attacker."
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage_freeze_duration"	"FREEZE DURATION:"
+
+		"DOTA_Tooltip_modifier_galaxy_knight_freeze"								"Exo-Eidolon"
+		"DOTA_Tooltip_modifier_galaxy_knight_freeze_Description"					"Frozen"
+
+		"DOTA_Tooltip_ability_ellipsis_wave"										"Ellipsis Wave"
+		"DOTA_Tooltip_ability_ellipsis_wave_Description"							"A forward travelling wave damage and disarms enemies in a cone."
+		"DOTA_Tooltip_ability_ellipsis_wave_damage"									"DAMAGE:"
+		"DOTA_Tooltip_ability_ellipsis_wave_disarm_duration"						"DISARM DURATION:"
+
+		"DOTA_Tooltip_modifier_ellipsis_wave_disarm"								"Ellipsis Wave"
+		"DOTA_Tooltip_modifier_ellipsis_wave_disarm_Description"					"Disarmed"
+
+		"DOTA_Tooltip_ability_winterblight_brain_freeze"							"Brain Freeze"
+		"DOTA_Tooltip_ability_winterblight_brain_freeze_Description"				"Creates a small area that silences enemies who step inside."
+		"DOTA_Tooltip_ability_winterblight_brain_freeze_duration"					"DURATION:"
+
+		"DOTA_Tooltip_modifier_brain_freeze"										"Brain Freeze"
+		"DOTA_Tooltip_modifier_brain_freeze_Description"							"Silenced"
+
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base"					"Wintertide Totem"
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_Description"		"Creates a totem at the target location that heals enemies in its radius. Takes 3 hits to kill."
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_heal_percent"		"% HEAL EVERY 0.5 SECONDS:"
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_duration"			"TOTEM DURATION:"
+
+		"DOTA_Tooltip_ability_gigarraun_fissure"									"Gigarruan Fissue"
+		"DOTA_Tooltip_ability_gigarraun_fissure_Description"						"A long range fissure creates an immovable wall in a line. Enemies hit by the initial fissure take damage and are stunned."	
+		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_range"						"RANGE:"
+		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_duration"					"FISSURE DURATION:"
+		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_radius"						"STUN RADIUS:"
+		"DOTA_Tooltip_ability_gigarraun_fissure_stun_duration"						"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_tiamat_scorch_charge"									"Dragon Sweep"
+		"DOTA_Tooltip_ability_tiamat_scorch_charge_Description"						"Charge toward the target location, leaving a path of Ultima Fire."
+
+		"DOTA_Tooltip_ability_tiamat_fire_breath"									"Ultima Fire"
+		"DOTA_Tooltip_ability_tiamat_fire_breath_Description"						"Tiamat's prismatic breath creates pools of fire at the target positions."
+		"DOTA_Tooltip_ability_tiamat_fire_breath_damage"							"DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack"						"Crystal Breath"
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Tiamat's attacks do icy aoe damage around the target, dealing pure damage and slowing movespeed."
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_ms_loss"				"MOVESPEED REDUCTION:"
+
+
+
 		"winterblight_cavern"										"Winterblight Cavern"
 		"winterblight_cavern_guide"									"Cavern Guide"
 		"star_wb_master_title"										"Cavern Master"
 
-		"winterblight_cavern_help1"									"Select a chamber to view the list of challenges. Only 1 challenge can be active within each chamber at a time. Monsters can not leave their chamber and they cannot be damaged from outside."
+		"winterblight_cavern_help1"									"Select a chamber to view the list of challenges. Only 1 challenge can be active within each chamber at a time. Monsters can not leave their chamber and they cannot be damaged from outside. Only the player who initiates the challenge can damage units here."
 		"winterblight_cavern_help2"									"Select an Event from the list below. Completing an Event provides Relic Fragments. The final boss can be summoned once 10,000 relic fragments have been collected. Relic fragments reset for each game sesson."
 		"winterblight_cavern_help3"									"Select an Event Level. You can only select a level that is equal to or less than 1 + This Hero's highest completed level for this event. Higher event levels reward more mithril and gain access to some rarer items."
 		"winterblight_cavern_help4"									"Your relic fragments can be used to summon ancient beasts that once ruled the mountain in past eons."
@@ -19073,10 +19436,6 @@
 
 		"winterblight_cavern_room2_event4"							"Raging Giants"
 		"winterblight_cavern_room2_event4_description"				"Osyrus, Gunnolf, and Sweebern patrol the chamber."
-
-		"winterblight_aurora_boss_1"								"Osyrus"
-		"winterblight_aurora_boss_2"								"Gunnolf"
-		"winterblight_aurora_boss_3"								"Sweebern"
 
 		"winterblight_cavern_room3_event1"							"Standard"
 		"winterblight_cavern_room3_event1_description"				"The chamber is populated with non aggro mobs."
@@ -19125,51 +19484,7 @@
 		"cavern_record_global_all"									"Global Record"
 		"cavern_ui_failed"											"Failed"		
 		"cavern_ui_completed"										"Complete"	
-		"cavern_ui_no_record"										"No Record"			
-
-		"DOTA_Tooltip_ability_winterblight_blood_might_passive"		"Blood Might"
-		"DOTA_Tooltip_ability_winterblight_blood_might_passive_Description"		"Gain attack damage for each missing point of health of nearby enemies. Gain % bonus attack damage for each % of current health of the nearby highest health enemy."
-		"DOTA_Tooltip_ability_winterblight_blood_might_passive_attack_damage_pct_pct_of_current_health"	"% ATTACK DAMAGE FROM HIGHEST HEALTH NEARBY ENEMY:"
-		"DOTA_Tooltip_ability_winterblight_blood_might_passive_attack_damage_per_missing_health"			"ATTACK DAMAGE BONUS FOR EACH MISSING POINT OF HP OF ALL NEARBY ENEMIES:"
-		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus"			"Blood Might"
-		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus_Description"	"Gaining attack damage based on the health of nearby enemies."
-
-		"DOTA_Tooltip_ability_winterblight_confusional_spores"		"Confusional Spores"
-		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Cover an area with pyschotropic spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
-		"DOTA_Tooltip_ability_winterblight_confusional_spores_duration"		"DURATION:"
-
-		"DOTA_Tooltip_ability_radium_spores"						"Radium Spores"
-		"DOTA_Tooltip_ability_radium_spores_Description"			"Apply a debuff to an enemy that causes their buffs to have reduced duration."
-		"DOTA_Tooltip_ability_radium_spores_modifier_duration_reduction"	"% FRIENDLY BUFF DURATION REDUCTION:"
-		"DOTA_Tooltip_ability_radium_spores_slow"							"SLOW DURATION ON BUFF APPLY:"
-		"DOTA_Tooltip_ability_radium_spores_curse_duration"					"SPORE DURATION:"
-
-		"DOTA_Tooltip_modifier_radium_spores"						"Radium Spores"
-		"DOTA_Tooltip_modifier_radium_spores_Description"			"Self Applied buffs have reduced duration"
-
-		"DOTA_Tooltip_radium_spores_slow"						"Radium Spores Slow"
-		"DOTA_Tooltip_radium_spores_slow_Description"			"Reduced attack damage, movespeed and attackspeed"
-
-		"DOTA_Tooltip_ability_winterblight_tweaking_arrow"			"Tweaking Arrow"
-		"DOTA_Tooltip_ability_winterblight_tweaking_arrow_Description"	"Attacking an enemy whose E ability is off cooldown will force them to cast it."
-
-		"DOTA_Tooltip_modifier_confusional_spores"					"Confusional Spores"
-		"DOTA_Tooltip_modifier_confusional_spores_Description"		"Move orders are inverted"
-
-		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"Red Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Increases all Frozen Foyer monsters attack power by 500%%."
-
-		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"Blue Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"Increases all Frozen Foyer monsters damage resistance by 90%%."
-
-		"DOTA_Tooltip_modifier_merkurio_crystal_green"				"Green Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_green_Description"	"Increases all Frozen Foyer monsters health regen by 10%%."
-
-		"DOTA_Tooltip_modifier_merkurio_crystal_yellow"				"Yellow Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_yellow_Description"	"Increases all Frozen Foyer monsters movespeed and attackspeed by 100%%."
-
-		"DOTA_Tooltip_modifier_merkurio_crystal_purple"				"Purple Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_purple_Description"	"Every 0.9 seconds, gain 3 stacks of a shield that reduce damage taken to 0."
+		"cavern_ui_no_record"										"No Record"	
 
 
 	}	

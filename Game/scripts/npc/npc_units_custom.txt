@@ -96140,7 +96140,7 @@
 
         "Ability1"  "creature_pure_strike"
         "Ability2"  "winterblight_raxxus_passive"
-        "Ability3"  "normal_steadfast"
+        "Ability3"  "mega_steadfast"
         "Ability4"  "luna_taskmaster_shield"
         "Ability5"  "seafortress_fragmenter_aura"
         "Ability6"  "dungeon_creep"
@@ -97295,7 +97295,7 @@
         "Ability2"      "winterblight_soulfire_storm"
         "Ability3"      "gigarraun_passive"
         "Ability4"      "winterblight_distance_cap_aura"
-        "Ability5"      "ability_stun_immunity"
+        "Ability5"      "ability_unshakable"
         "Ability6"      "mega_steadfast"
         "Ability7"      "creature_black_king_bar"
         "Ability8"      "dungeon_creep"
