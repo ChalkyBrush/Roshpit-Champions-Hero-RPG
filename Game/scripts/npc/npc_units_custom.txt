@@ -97255,6 +97255,7 @@
             "particle"  "particles/roshpit/seafortress/alt_big_dust.vpcf"
             "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start.vpcf"
             "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start_dust.vpcf"
+            "particle"  "particles/units/heroes/hero_earthshaker/earthshaker_fissure.vpcf"
         }
         "HasInventory"  "0"
         "SelectionGroup"    "Dark_Fighter"
