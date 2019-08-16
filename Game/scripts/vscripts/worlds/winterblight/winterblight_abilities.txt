@@ -13164,6 +13164,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"100 500 2000"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"freeze_duration"			"0.1 0.15 0.2"
+			}
 		}
 		"Modifiers"
 		{
@@ -13183,6 +13188,7 @@
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"galaxy_knight_take_damage"
 						"damage"		"%damage"
+						"freeze_duration"	"%freeze_duration"
 					}
 				}
 			}
@@ -13559,7 +13565,7 @@
 
 	"gigarraun_passive"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
 		"MaxLevel"	"3"

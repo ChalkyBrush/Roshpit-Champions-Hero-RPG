@@ -957,11 +957,112 @@
 		"DOTA_Tooltip_modifier_demented_mushroom_slow"					"Unstable Mycosis"
 		"DOTA_Tooltip_modifier_demented_mushroom_slow_Description"		"Large movement slow"
 
+		"DOTA_Tooltip_ability_three_perceptions"						"Three Perceptions"
+		"DOTA_Tooltip_ability_three_perceptions_Description"			"A phantasmic glimpse of the future grants the ability to perform 3 attacks that displace the caster and apply a stun and pushback on the victims. During the attacks the caster is magic immune."
+		"DOTA_Tooltip_ability_three_perceptions_attacks"				"ATTACKS:"
+		"DOTA_Tooltip_ability_three_perceptions_bonus_damage"			"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_three_perceptions_stun_duration"			"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_winterblight_gravekeeper"					"Gravekeeper"
+		"DOTA_Tooltip_ability_winterblight_gravekeeper_Description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by 10%, while also draining 3 movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <font color='#ccff66'>8</font> stacks can be applied per second, no matter how quickly you attack."
+		//same tooltip as gravekeeper gauntlet
+
+		"DOTA_Tooltip_ability_winterblight_frost_overwhelming"			"Frost Core"
+		"DOTA_Tooltip_ability_winterblight_frost_overwhelming_Description"	"On death, the chill from this unit's absolute freezing core is released. The energy vacuum freezes all nearby allies and makes them immune to damage and healing a % of max hp for a duration."
+		"DOTA_Tooltip_ability_winterblight_frost_overwhelming_radius"		"RADIUS:"	
+
+		"DOTA_Tooltip_ability_winterblight_giant_snow_crab_passive"		"Big Crab"
+		"DOTA_Tooltip_ability_winterblight_giant_snow_crab_passive_Description"	"This is a big crab."
+
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius"			"Dome of Aquarius"
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_Description"	"A flow of celestial knowledge shapes into a sphere. The caster and his allies are immune to attacks outside of the dome while they are standing inside."
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_duration"	"DOME DURATION:"
+		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_radius"		"RADIUS:"
+
+		"DOTA_Tooltip_ability_unshakable"								"Unshakeable"
+		"DOTA_Tooltip_ability_unshakable_Description"					"All debuffs applied by enemies have greatly reduced duration."
+		"DOTA_Tooltip_ability_unshakable_modifier_duration_reduction"	"% DEBUFF DURATION REDUCTION:"
+
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive"					"Ultimate Predator"
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_Description"		"Attacking an enemy applies a buff that gains more stacks on subsequent attacks. Once at 5 stacks, gain the ultimate predator buff that grants massive attack power and 1 shot kill ability. The instant kill only works on heroes."
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_damage_bonus_per_stack"	"% DAMGE BONUS PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_duration"				"BUFF DURATION:"	
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_damage_bonus_full_shark"	"% BONUS DAMAGE WHILE ULTIMATE PREDATOR ACTIVE:"
+
+		"DOTA_Tooltip_modifier_space_shark_stacks"									"Pedator Buildup"
+		"DOTA_Tooltip_modifier_space_shark_stacks_Description"						"Gaining attack damage. At 5 stacks gain Ultimate Predator."
+
+		"DOTA_Tooltip_modifier_space_shark_full"									"Ultimate Predator"
+		"DOTA_Tooltip_modifier_space_shark_full_Description"						"Massive attack power bonus. 1 shotting heroes."
+
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive"					"Diamond Disarray"
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_Description"		"On an interval, creates an ice blast at a random location near the caster. As this unit's health drops, the frequency of explosions increases."
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_ms_loss"			"MOVESPEED SLOW:"
+		"DOTA_Tooltip_ability_winterblight_bone_blister_passive_as_loss"			"ATTACKSPEED SLOW:"
+	
+		"DOTA_Tooltip_ability_winterblight_astral_weapon"							"Astral Weapon"
+		"DOTA_Tooltip_ability_winterblight_astral_weapon_Description"				"Attacks deal additional pure damage based on target's max health."
+		"DOTA_Tooltip_ability_winterblight_astral_weapon_damage_pct_target_max_health"	"% DAMAGE AS PORTION OF MAX HEALTH:"
+
+		"DOTA_Tooltip_ability_winterblight_star_eater_passive"						"Satellite Beacon"
+		"DOTA_Tooltip_ability_winterblight_star_eater_passive_Description"			"A pinpoint laser travels around the caster. The laser's distance from the cast moves in and out based on the position of nearby enemies."
+		"DOTA_Tooltip_ability_winterblight_star_eater_passive_damage"				"DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive"					"Exo-Eidolon"
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_Description"		"Any damage taken returns damage and a freeze to the attacker."
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage_freeze_duration"	"FREEZE DURATION:"
+
+		"DOTA_Tooltip_modifier_galaxy_knight_freeze"								"Exo-Eidolon"
+		"DOTA_Tooltip_modifier_galaxy_knight_freeze_Description"					"Frozen"
+
+		"DOTA_Tooltip_ability_ellipsis_wave"										"Ellipsis Wave"
+		"DOTA_Tooltip_ability_ellipsis_wave_Description"							"A forward travelling wave damage and disarms enemies in a cone."
+		"DOTA_Tooltip_ability_ellipsis_wave_damage"									"DAMAGE:"
+		"DOTA_Tooltip_ability_ellipsis_wave_disarm_duration"						"DISARM DURATION:"
+
+		"DOTA_Tooltip_modifier_ellipsis_wave_disarm"								"Ellipsis Wave"
+		"DOTA_Tooltip_modifier_ellipsis_wave_disarm_Description"					"Disarmed"
+
+		"DOTA_Tooltip_ability_winterblight_brain_freeze"							"Brain Freeze"
+		"DOTA_Tooltip_ability_winterblight_brain_freeze_Description"				"Creates a small area that silences enemies who step inside."
+		"DOTA_Tooltip_ability_winterblight_brain_freeze_duration"					"DURATION:"
+
+		"DOTA_Tooltip_modifier_brain_freeze"										"Brain Freeze"
+		"DOTA_Tooltip_modifier_brain_freeze_Description"							"Silenced"
+
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base"					"Wintertide Totem"
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_Description"		"Creates a totem at the target location that heals enemies in its radius. Takes 3 hits to kill."
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_heal_percent"		"% HEAL EVERY 0.5 SECONDS:"
+		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_duration"			"TOTEM DURATION:"
+
+		"DOTA_Tooltip_ability_gigarraun_fissure"									"Gigarruan Fissue"
+		"DOTA_Tooltip_ability_gigarraun_fissure_Description"						"A long range fissure creates an immovable wall in a line. Enemies hit by the initial fissure take damage and are stunned."	
+		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_range"						"RANGE:"
+		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_duration"					"FISSURE DURATION:"
+		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_radius"						"STUN RADIUS:"
+		"DOTA_Tooltip_ability_gigarraun_fissure_stun_duration"						"STUN DURATION:"
+
+		"DOTA_Tooltip_ability_tiamat_scorch_charge"									"Dragon Sweep"
+		"DOTA_Tooltip_ability_tiamat_scorch_charge_Description"						"Charge toward the target location, leaving a path of Ultima Fire."
+
+		"DOTA_Tooltip_ability_tiamat_fire_breath"									"Ultima Fire"
+		"DOTA_Tooltip_ability_tiamat_fire_breath_Description"						"Tiamat's prismatic breath creates pools of fire at the target positions."
+		"DOTA_Tooltip_ability_tiamat_fire_breath_damage"							"DAMAGE:"
+
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack"						"Crystal Breath"
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Tiamat's attacks do icy aoe damage around the target, dealing pure damage and slowing movespeed."
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_ms_loss"				"MOVESPEED REDUCTION:"
+
+
+
 		"winterblight_cavern"										"Winterblight Cavern"
 		"winterblight_cavern_guide"									"Cavern Guide"
 		"star_wb_master_title"										"Cavern Master"
 
-		"winterblight_cavern_help1"									"Select a chamber to view the list of challenges. Only 1 challenge can be active within each chamber at a time. Monsters can not leave their chamber and they cannot be damaged from outside."
+		"winterblight_cavern_help1"									"Select a chamber to view the list of challenges. Only 1 challenge can be active within each chamber at a time. Monsters can not leave their chamber and they cannot be damaged from outside. Only the player who initiates the challenge can damage units here."
 		"winterblight_cavern_help2"									"Select an Event from the list below. Completing an Event provides Relic Fragments. The final boss can be summoned once 10,000 relic fragments have been collected. Relic fragments reset for each game sesson."
 		"winterblight_cavern_help3"									"Select an Event Level. You can only select a level that is equal to or less than 1 + This Hero's highest completed level for this event. Higher event levels reward more mithril and gain access to some rarer items."
 		"winterblight_cavern_help4"									"Your relic fragments can be used to summon ancient beasts that once ruled the mountain in past eons."
