@@ -16,6 +16,13 @@ function general_hero_think(event)
 	if target:HasModifier("modifier_diamond_claws_of_tiamat") then
 		tiamat = 1
 	end
+	-- if target:HasModifier("modifier_frozen_heart") then
+	-- 	healthRegen = 0
+	-- 	if target:HasModifier("modifier_frozen_heart_regen") then
+	-- 		healthRegen = 10
+	-- 	end
+	-- end
+	-- problem with frozen heart is that health regen still exists as a value in background, and any numbers that interact with health regen still work
 	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), tiamat = tiamat})
 	for i = 0, 5, 1 do
 		local playerID = target:GetPlayerOwnerID()

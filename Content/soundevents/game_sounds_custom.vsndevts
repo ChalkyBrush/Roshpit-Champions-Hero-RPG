@@ -5821,7 +5821,7 @@ Env.LavaHit
                               "value0"        "sounds/ui/menu/keybind_set.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.917000"  }
+                    "volume"            {   "value"     "0.387000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.200000"  }
@@ -5853,7 +5853,7 @@ Env.LavaHit
                               "value0"        "sounds/ui/item_drop_shop.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.917000"  }
+                    "volume"            {   "value"     "1.617000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.200000"  }
