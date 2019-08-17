@@ -38,7 +38,7 @@ function arcana1_b_b_spin(caster, ability, amp)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hydroxis.Arcana.SpinWoosh", caster)
 		StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_TELEPORT_END, rate = 1.0})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/hydroxis/arcana_spin_blade.vpcf", caster, 2)
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		local damage = w_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * HYDROXIS_ARCANA_W2_ATTACK_TO_DMG * amp
 		if #enemies > 0 then
 			increment_d_b_stacks(caster, #enemies, ability)

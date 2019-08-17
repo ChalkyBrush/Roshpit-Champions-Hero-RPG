@@ -8,6 +8,7 @@ function cipher_bolt_start(event)
 	if ability.lockPoint then
 	else
 		ability.point = event.target_points[1]
+		ability.point = WallPhysics:WallSearch(caster:GetAbsOrigin(), ability.point, caster)
 	end
 	local tech_level = onibi_get_total_tech_level(caster, "fire", "cosmic", "E")
 	local clamp_distance = event.clamp_distance_base + event.clamp_distance_per_tech*tech_level
