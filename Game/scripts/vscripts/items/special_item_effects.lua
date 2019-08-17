@@ -5707,3 +5707,119 @@ end
 
 function tiamat_claw_initialize(event)
 end
+
+function razor_band_take_damage(event)
+	local target = event.unit
+	local ability = event.ability
+	local caster = event.caster
+	local attacker = event.attacker
+	if target == attacker then
+		return false
+	end
+	if not ability.buff_table then
+		ability.buff_table = {}
+	end
+	local new_buff = GameRules:GetGameTime()
+	if #ability.buff_table < 100 then
+		table.insert(ability.buff_table, new_buff)
+	end
+	ability:ApplyDataDrivenModifier(caster, target, "modfier_razor_band_stacks", {duration = RAZOR_BAND_STACK_DURATION})
+	local stacks = #ability.buff_table
+	target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
+	local self_damage = target:GetMaxHealth()*(RAZOR_BAND_MAX_HEALTH_DAMAGE/100)
+	ApplyDamage({victim = target, attacker = target, damage = self_damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+end
+
+function razor_band_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local new_buff_table = {}
+	for i = 1, #ability.buff_table, 1 do
+		if GameRules:GetGameTime() - ability.buff_table[i] > RAZOR_BAND_STACK_DURATION then
+		else
+			table.insert(new_buff_table, ability.buff_table[i])
+		end
+	end
+	ability.buff_table = new_buff_table
+
+	local stacks = #ability.buff_table
+	target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
+
+	razor_band_update_pfx(ability, target)
+	if not ability.particles then
+		ability.particles = 0
+	end
+	if #ability.buff_table > 0 then
+		local stacks = #ability.buff_table
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 340, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(stacks*RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER/100)
+				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+				if ability.particles < 10 then
+					ability.particles = ability.particles + 1
+					local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					local attach_unit_1 = target
+					ParticleManager:SetParticleControl(pfx, 0, attach_unit_1:GetAbsOrigin() + Vector(0, 0, attach_unit_1:GetBoundingMaxs().z + 80))
+					ParticleManager:SetParticleControl(pfx, 1, enemy:GetAbsOrigin() + Vector(0, 0, enemy:GetBoundingMaxs().z + 100))
+					Timers:CreateTimer(0.3, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+				end
+			end
+			if #enemies > 5 then
+				EmitSoundOn("Items.RazorBandHit", enemies[1])
+				EmitSoundOn("Items.RazorBandHit", enemies[2])
+				EmitSoundOn("Items.RazorBandHit", enemies[3])
+			elseif #enemies > 3 then
+				EmitSoundOn("Items.RazorBandHit", enemies[1])
+				EmitSoundOn("Items.RazorBandHit", enemies[2])
+			else
+				EmitSoundOn("Items.RazorBandHit", enemies[1])
+			end
+		end
+	end
+	ability.particles = math.max(ability.particles - 1, 0)
+end
+
+function razor_band_update_pfx(ability, hero)
+	if not ability.razor_pfx and #ability.buff_table > 0 then
+		ability.razor_pfx = ParticleManager:CreateParticle("particles/roshpit/items/galvanized_razor_band.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
+		ParticleManager:SetParticleControlEnt(ability.razor_pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+	end
+	if #ability.buff_table == 0 then
+		if ability.razor_pfx then
+			ParticleManager:DestroyParticle(ability.razor_pfx, false)
+			ParticleManager:ReleaseParticleIndex(ability.razor_pfx)
+			ability.razor_pfx = nil
+		end
+	end
+	if ability.razor_pfx then
+		local stacks = #ability.buff_table
+		ParticleManager:SetParticleControl(ability.razor_pfx, 1, Vector(stacks/100, stacks/100, stacks/100))
+		ParticleManager:SetParticleControl(ability.razor_pfx, 9, Vector(stacks/100, stacks/100, stacks/100))
+	end
+end
+
+function razor_band_start(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if not ability.buff_table then
+		ability.buff_table = {}
+	end
+	razor_band_update_pfx(ability, target)
+end
+
+function razor_band_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	ability.buff_table = {}
+	EmitSoundOn("Items.RazorBandEnd", target)
+	target:RemoveModifierByName("modfier_razor_band_stacks")
+	razor_band_update_pfx(ability, target)
+end

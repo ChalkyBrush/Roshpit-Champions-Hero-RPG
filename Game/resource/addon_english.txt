@@ -13219,6 +13219,9 @@
 		"item_property_puzzler"										"Anagram"
 		"property_puzzler_description"								"Tier 2 Rune Bonuses provided by equipment are swapped with Tier 3 Rune Bonuses"
 
+		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"Galvanized Razor Band"
+		"item_property_razor_band"										"Whirling Blade"
+		"property_razor_band_description"								"Taking damage from an enemy deals an additional instance of damage equal to <font color='#ccff66'>1</font>% of the wearer's max health and applies a Whirling Blade stack. Each whirling blade stack adds <font color='#ccff66'>24</font>% bonus attack damage and <font color='#ccff66'>4</font>% increased post-mitigation damage. Nearby enemies take damage equal to <font color='#ccff66'>10</font>% of attack power every 0.3 seconds. Each stack has an independant <font color='#ccff66'>8</font> second duration and stacks cannot build past <font color='#ccff66'>100</font>."
 
 
 		

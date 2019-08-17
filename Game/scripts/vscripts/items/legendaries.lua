@@ -6737,6 +6737,39 @@ function RPCItems:RollPuzzlersLocket(deathLocation)
     return item
 end
 
+function RPCItems:RollGalvanizedRazorBand(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_galvanized_razor_band", "immortal", "Galvanized Razor Band", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    item.newItemTable.property1name = "razor_band"
+    item.newItemTable.property1 = 1
+
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_razor_band", "#DDDDDD", 1, "#property_razor_band_description")
+
+    local maxFactor = RPCItems:GetMaxFactor()
+    local value = RandomInt(maxFactor * 100, maxFactor * 350)
+    item.newItemTable.property2 = value
+    item.newItemTable.property2name = "attack_damage"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.newItemTable.property3 = value
+    item.newItemTable.property3name = propertyName
+    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.newItemTable.property4 = math.floor(value * 1.3)
+    item.newItemTable.property4name = propertyName
+    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
+
 function RPCItems:RollVolcanoOrb(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_volcano_orb", "immortal", "Volcano Orb", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8249,6 +8282,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollPuzzlersLocket(deathLocation)
     elseif itemName == "item_rpc_diamond_claws_of_tiamat" then
         newItem = RPCItems:RollDiamondClawsOfTiamat(deathLocation, 1)
+    elseif itemName == "item_rpc_galvanized_razor_band" then
+        newItem = RPCItems:RollGalvanizedRazorBand(deathLocation)
     end
     return newItem
 end

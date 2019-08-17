@@ -53,7 +53,8 @@ function target_dummy_attack_think(event)
 			modulos = math.floor(dummy.attack_input / 0.03)
 		end
 		dummy.attackInterval = dummy.attackInterval + 1
-		if dummy.attackInterval % modulos == 0 then
+		local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), hero:GetAbsOrigin())
+		if dummy.attackInterval % modulos == 0 and distance <= 2000 then
 			Filters:PerformAttackSpecial(dummy, hero, true, true, true, false, true, false, false)
 		end
 		if dummy.attackInterval >= 1000 then

@@ -2499,6 +2499,11 @@ function GameState:FilterDamage(filterTable)
 		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
 		mult = mult + immortalOrArcanaCount * 2.4
 	end
+	if attacker:HasModifier("modfier_razor_band_stacks") then
+		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
+		local stacks = modifier:GetStackCount()
+		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100)
+	end
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
 		if waterheart then
