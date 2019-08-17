@@ -311,3 +311,6 @@
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"Galvanized Razor Band"
 		"item_property_razor_band"										"Whirling Blade"
 		"property_razor_band_description"								"Taking damage from an enemy deals an additional instance of damage equal to <% RAZOR_BAND_MAX_HEALTH_DAMAGE %>% of the wearer's max health and applies a Whirling Blade stack. Each whirling blade stack adds <% RAZOR_BAND_ATTACK_POWER_PER_STACK %>% bonus attack damage and <% RAZOR_BAND_POST_MITIGATION_PER_STACK %>% increased post-mitigation damage. Nearby enemies take damage equal to <% RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% of attack power every 0.3 seconds. Each stack has an independant <% RAZOR_BAND_STACK_DURATION %> second duration and stacks cannot build past <% RAZOR_BAND_MAX_STACKS %>."
+
+		"DOTA_Tooltip_modfier_razor_band_stacks"					"Whirling Blade"
+		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Increased attack power and postmitigation damage. Damaging nearby enemies."

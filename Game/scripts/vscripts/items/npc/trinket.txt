@@ -262,12 +262,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_NORMAL %>"
+				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_two"			"<% RPC_ELEMENT_LIGHTNING %>"
+				"element_two"			"<% RPC_ELEMENT_NORMAL %>"
 			}
 		}
 		"Modifiers"

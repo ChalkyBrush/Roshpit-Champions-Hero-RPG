@@ -5757,7 +5757,7 @@ function razor_band_think(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(stacks*RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER/100)
-				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NORMAL)
 				if ability.particles < 10 then
 					ability.particles = ability.particles + 1
 					local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
@@ -5822,4 +5822,13 @@ function razor_band_end(event)
 	EmitSoundOn("Items.RazorBandEnd", target)
 	target:RemoveModifierByName("modfier_razor_band_stacks")
 	razor_band_update_pfx(ability, target)
+end
+
+function goldbreaker_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local attacker = event.attacker
+	Filters:MagicImmuneBreak(attacker, target)
+	ability:ApplyDataDrivenModifier(attacker, target, "modifier_goldbreaker_effect", {duration = GOLDBREAKER_DEBUFF_DURATION})
 end

@@ -12551,6 +12551,13 @@
 		"item_property_tiamat_claw"							"Prismatic Grip"
 		"property_tiamat_claw_description"					"All attributes are fixed at this property's value and cannot be changed by any means."
 
+		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
+		"item_property_gold_breaker"							"Gold Breaker"
+		"property_gold_breaker_description"					"Attacks break magic immunity. Attacking also applies the Gold Breaker debuff onto the enemy for <font color='#ccff66'>7</font> seconds. If an enemy tries to go magic immune while gold breaker is active, the magic immunity is cancelled and instead they are stunned for the same duration."
+
+		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Gold Breaker"
+		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Attempting to go magic immune will instead stun for the same duration"
+
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
 		"item_property_basilisk_plague"					"Depth Rot"
@@ -13222,6 +13229,9 @@
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"Galvanized Razor Band"
 		"item_property_razor_band"										"Whirling Blade"
 		"property_razor_band_description"								"Taking damage from an enemy deals an additional instance of damage equal to <font color='#ccff66'>1</font>% of the wearer's max health and applies a Whirling Blade stack. Each whirling blade stack adds <font color='#ccff66'>24</font>% bonus attack damage and <font color='#ccff66'>4</font>% increased post-mitigation damage. Nearby enemies take damage equal to <font color='#ccff66'>10</font>% of attack power every 0.3 seconds. Each stack has an independant <font color='#ccff66'>8</font> second duration and stacks cannot build past <font color='#ccff66'>100</font>."
+
+		"DOTA_Tooltip_modfier_razor_band_stacks"					"Whirling Blade"
+		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Increased attack power and postmitigation damage. Damaging nearby enemies."
 
 
 		
