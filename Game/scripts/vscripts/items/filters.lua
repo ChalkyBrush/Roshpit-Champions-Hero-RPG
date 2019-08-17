@@ -4636,6 +4636,9 @@ function Filters:IsNonExtendableBuff(modifier)
     self.nonExtendableBuffs = self.nonExtendableBuffs or {
         modifier_gravelfoot_buff = true,
         modifier_animation = true,
+        modifier_burnout = true,
+        modifier_recently_respawned = true,
+        modifier_animation_translate = true,
     }
     return self.nonExtendableBuffs[modifier:GetName()] or isDebuff or false
 end

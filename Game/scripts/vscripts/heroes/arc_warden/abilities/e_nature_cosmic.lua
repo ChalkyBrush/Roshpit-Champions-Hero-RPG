@@ -5,6 +5,8 @@ function jex_cast_portal(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 
+	ability.radius = ability:GetSpecialValueFor('radius')
+
 	local tech_level = onibi_get_total_tech_level(caster, "nature", "cosmic", "E")
 	ability.tech_level = tech_level
 
@@ -83,8 +85,16 @@ function jex_portal_teleport_effect_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local resultPosition = ability.teleporting_to
+	-- bad way, but getAuraOwner has bug if you save modifier but the modifier has other caster
+	for _,portal in pairs(ability.portalTable) do
+		if WallPhysics:GetDistance2d(portal.aura_dummy:GetAbsOrigin(), resultPosition) <= ability.radius then
+			resultPosition = WallPhysics:WallSearch(portal.aura_dummy:GetAbsOrigin(), resultPosition, portal.aura_dummy)
+		end
+	end
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_meepo/meepo_poof_end.vpcf", target:GetAbsOrigin(), 3)
-	FindClearSpaceForUnit(target, ability.teleporting_to, false)
+	FindClearSpaceForUnit(target, resultPosition, false)
+
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_meepo/meepo_poof_end.vpcf", target:GetAbsOrigin(), 3)
 	EmitSoundOn("Jex.ThunderBlossom.Land", target)
 	StartAnimation(target, {duration = 0.6, activity = ACT_DOTA_TELEPORT_END, rate = 1.1})
