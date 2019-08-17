@@ -7112,7 +7112,7 @@
 	"DOTA_Tooltip_ability_thunder_blossom_teleport_Description"	"Grabs Jex and pulls him toward the Thunder Blossom. Jex can right click on a thunder blossom to activate this ability automatically."
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e"				"Earth's Gate"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"Jex creates a dimensional portal at the target location. While standing in a portal, Jex gain health regen and he can issue a move order to any other portal and teleport to it after a 0.5 second delay. Only Jex may use the portals."
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"Jex creates a dimensional portal at the target location. While standing in a portal, Jex gain health regen and he can issue a move order to any other portal and teleport to it after a 5.5 second delay. Only Jex may use the portals."
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_per_tech"	"<font color=\"#f4b942\">MAX PORTALS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_health_regen_per_tech"	"<font color=\"#f4b942\">HEALTH REGEN PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_radius"				"RADIUS:"
@@ -8561,7 +8561,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] Four Winds"
-		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"After casting <font color='#CCFF66'>Hands of Hikari</font>, Seinaru and nearby allies are protected by a temporary shield lasting <font color='#ccff66'>3</font> seconds. The shield absorbs damage based on Seinaru's Agility."
+		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"After casting <font color='#CCFF66'>Hands of Hikari</font>, Seinaru and nearby allies are protected by a temporary shield lasting <font color='#ccff66'>6</font> seconds. The shield absorbs damage based on Seinaru's Agility."
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_property_one"			"Shield capacity"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"x Agility"
 
@@ -8737,7 +8737,7 @@
 		"item_rpc_seinaru_glyph_2_1_description" 				"Every point in [Q2] increases movespeed cap by <font color='#ccff66'>1.2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"Glyph of Resonance"
-		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage to all other enemies in a <font color='#ccff66'>255</font> radius around the primary target."
+		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage and applies [R1] to all other enemies in a <font color='#ccff66'>255</font> radius around the primary target."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"Glyph of Yang"
 		"item_rpc_seinaru_glyph_4_1_description" 				"Runes that increase Seinaru's damage threshold against targets with Steadfast work even alongside post-mitigation amplification effects, but the power of these runes are reduced to 1/<font color='#ccff66'>10</font>th of their full values."

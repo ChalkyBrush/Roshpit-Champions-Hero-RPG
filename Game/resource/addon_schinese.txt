@@ -11427,7 +11427,7 @@
 	"DOTA_Tooltip_ability_thunder_blossom_teleport_Description"	"将杰克斯拉向雷霆之花。杰克斯能够右键一个雷霆之花来使该技能切换为自动释放。"
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e"				"大地之门"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"杰克斯在目标地点创造一个维度之门。站在门中时杰克斯的生命回复将会增加并且他能使用移动指令来传送至其他门口，传送延迟0.5秒。只有杰克斯能使用这个门。"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"杰克斯在目标地点创造一个维度之门。站在门中时杰克斯的生命回复将会增加并且他能使用移动指令来传送至其他门口，传送延迟5.5秒。只有杰克斯能使用这个门。"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_per_tech"	"<font color=\"#f4b942\">每点科技点提供的门的最大数量</font>："
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_health_regen_per_tech"	"<font color=\"#f4b942\">每点科技点提供的生命回复加成</font>："
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_radius"				"范围："

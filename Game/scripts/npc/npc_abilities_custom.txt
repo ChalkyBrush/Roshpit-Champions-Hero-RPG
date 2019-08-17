@@ -6223,7 +6223,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityManaCost"				"100 200 400 600 1000 2400 4200"
+		"AbilityManaCost"				"100 200 400 600 2300 4500 10000"
 		"precache"
 		{
 
@@ -6670,7 +6670,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"6.0"
+		"AbilityCooldown"				"6.5"
 
 		// Cost
 		//-------------------------------------------------------
@@ -6683,7 +6683,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"clamp_distance_per_tech"	"35 50 65 80 95 110 125"
+				"clamp_distance_per_tech"	"60"
 			}
 			"02"
 			{
@@ -33574,7 +33574,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 400 800 1200 1600 2000"
+		"AbilityManaCost"				"100 200 300 500 1000 1200 1600"
 
 		// Special
 		//-------------------------------------------------------
@@ -53654,12 +53654,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1.5"
+				"property_one_base"		"5"
 			}
 			"03"
 			{
