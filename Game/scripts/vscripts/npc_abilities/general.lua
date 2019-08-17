@@ -12,7 +12,11 @@ function general_hero_think(event)
 
 	local movespeedBase = target:GetBaseMoveSpeed()
 	local movespeed = target:GetMoveSpeedModifier(movespeedBase, false)
-	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed)})
+	local tiamat = 0
+	if target:HasModifier("modifier_diamond_claws_of_tiamat") then
+		tiamat = 1
+	end
+	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), tiamat = tiamat})
 	for i = 0, 5, 1 do
 		local playerID = target:GetPlayerOwnerID()
 		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))

@@ -655,6 +655,38 @@ function RPCItems:RollSwiftspikeBracer(deathLocation)
     return item
 end
 
+function RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level)
+    local item = RPCItems:CreateVariant("item_rpc_diamond_claws_of_tiamat", "immortal", "Diamond Claws of Tiamat", "hands", true, "Slot: Hands")
+    local tiamat_roll, suffix = RPCItems:RollAttribute(300, 8 + boss_level, 16 + boss_level*4, 0, 0, item.newItemTable.rarity, false, boss_level*400)
+    tiamat_roll = math.min(tiamat_roll, 15000)
+    item.newItemTable.property1 = tiamat_roll
+    item.newItemTable.property1name = "tiamat"
+    RPCItems:SetPropertyValuesSpecial(item, tiamat_roll, "#item_property_tiamat_claw", "#FAFAFF", 1, "#property_tiamat_claw_description")
+
+    local value = RandomInt(boss_level * 300, boss_level * 1500)
+    value = math.min(value, 140000)
+    item.newItemTable.property2 = value
+    item.newItemTable.property2name = "attack_damage"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+
+    local value, nameLevel = RPCItems:RollAttribute(100, 2, boss_level/2, 0, 0, item.newItemTable.rarity, false, boss_level*30)
+    value = math.min(value, 900)
+    item.newItemTable.property3 = value
+    item.newItemTable.property3name = "base_ability"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_base_ability", "#7AB4CC", 3)
+
+    local value, nameLevel = RPCItems:RollAttribute(100, 1, boss_level+3, 0, 1, item.newItemTable.rarity, false, boss_level * 20)
+    value = math.min(value, 700)
+    item.newItemTable.property4 = value
+    item.newItemTable.property4name = "all_elements"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#property_all_elements", "#BED5E5", 4)
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollDivinePurityGauntlets(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_divine_purity", "immortal", "Gauntlets of Divine Purity", "hands", true, "Slot: Hands")
     item.newItemTable.property1 = 1
@@ -8215,6 +8247,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollChainsOfOrthok(deathLocation)
     elseif itemName == "item_rpc_puzzlers_locket" then
         newItem = RPCItems:RollPuzzlersLocket(deathLocation)
+    elseif itemName == "item_rpc_diamond_claws_of_tiamat" then
+        newItem = RPCItems:RollDiamondClawsOfTiamat(deathLocation, 1)
     end
     return newItem
 end

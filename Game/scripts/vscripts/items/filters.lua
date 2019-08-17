@@ -1778,6 +1778,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_helm_all_elements", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
+        if attacker:HasModifier("modifier_hand_all_elements") then
+            local stacks = attacker:GetModifierStackCount("modifier_hand_all_elements", attacker.InventoryUnit)
+            mult = mult + stacks / 100
+        end
         if attacker:HasModifier("modifier_trinket_all_elements") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_all_elements", attacker.InventoryUnit)
             mult = mult + stacks / 100

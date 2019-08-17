@@ -5701,3 +5701,9 @@ function puzzlers_locket_recalculate(event)
 		end)
 	end
 end
+
+function tiamat_claw_initialize(event)
+end
+
+function tiamat_claw_initialize(event)
+end
