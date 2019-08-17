@@ -217,7 +217,7 @@
 	"DOTA_Tooltip_ability_thunder_blossom_teleport_Description"	"Grabs Jex and pulls him toward the Thunder Blossom. Jex can right click on a thunder blossom to activate this ability automatically."
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e"				"Earth's Gate"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"Jex creates a dimensional portal at the target location. While standing in a portal, Jex gain health regen and he can issue a move order to any other portal and teleport to it after a 0.5 second delay. Only Jex may use the portals."
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_Description"	"Jex creates a dimensional portal at the target location. While standing in a portal, Jex gain health regen and he can issue a move order to any other portal and teleport to it after a 5.5 second delay. Only Jex may use the portals."
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_per_tech"	"<font color=\"#f4b942\">MAX PORTALS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_health_regen_per_tech"	"<font color=\"#f4b942\">HEALTH REGEN PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_radius"				"RADIUS:"

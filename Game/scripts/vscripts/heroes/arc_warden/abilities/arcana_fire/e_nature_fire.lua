@@ -5,6 +5,9 @@ function jex_activate_cinderbark(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 
+
+	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
+
 	ability.tech_level = onibi_get_total_tech_level(caster, "fire", "nature", "Q")
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", point, 3)

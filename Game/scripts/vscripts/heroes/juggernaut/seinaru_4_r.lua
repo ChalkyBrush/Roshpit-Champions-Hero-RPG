@@ -178,6 +178,7 @@ function gorudo_attack_land(event)
 				local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, SEINARU_GLYPH3_R3_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				for _, enemy in pairs(enemies) do
 					if not enemy.dummy then
+						Seinaru_Apply_E4(attacker, enemy, ability)
 						Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 					end
 				end
