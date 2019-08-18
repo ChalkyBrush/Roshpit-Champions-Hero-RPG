@@ -20,6 +20,7 @@ function monkey_jump_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_monkey_jump", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance / 20
+	ability.jumpVelocity = Filters:GetAdjustedESpeed(caster, ability.jumpVelocity, false)
 	ability.liftVelocity = 20
 	local heightDiff = caster:GetAbsOrigin().z - ability.targetPoint.z
 	if heightDiff > 300 then
@@ -88,7 +89,9 @@ function jump_think(event)
 		fv = Vector(0, 0)
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + fv * ability.jumpVelocity + Vector(0, 0, ability.liftVelocity))
-	ability.liftVelocity = ability.liftVelocity - 2
+	local acceleration = 2
+	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
+	ability.liftVelocity = ability.liftVelocity - acceleration
 	if ability.liftVelocity <= 0 then
 		ability.rising = false
 	end

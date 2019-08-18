@@ -18,6 +18,7 @@ function begin_dinath_dive(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	ability.dashSpeed = 22
+	ability.dashSpeed = Filters:GetAdjustedESpeed(caster, ability.dashSpeed, false)
 	caster:RemoveModifierByName("modifier_dinath_dive_precast")
 	local totalFlyDistance = WallPhysics:GetDistance2d(ability.target_point, caster:GetAbsOrigin())
 	local ticksToReachPoint = 0
@@ -29,7 +30,8 @@ function begin_dinath_dive(event)
 		ticksToReachPoint = ticksToReachPoint + 1
 		--print(testDistanceMoved)
 	end
-	ability.distanceChecker = math.max(90, totalFlyDistance / 100)
+	ability.distanceChecker = math.max(120, totalFlyDistance / 90)
+	ability.distanceChecker = Filters:GetAdjustedESpeed(caster, ability.distanceChecker, false)
 	ability.straightVector = caster:GetAbsOrigin()
 	local divingDuration = ticksToReachPoint * 0.03
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_diving", {duration = divingDuration})
@@ -74,7 +76,11 @@ end
 function dinath_diving_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.dashSpeed = math.min(ability.dashSpeed + 1, 40)
+	local acceleration = 1
+	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
+	local max_speed = 40
+	max_speed = Filters:GetAdjustedESpeed(caster, max_speed, false)
+	ability.dashSpeed = math.min(ability.dashSpeed + acceleration, max_speed)
 	local moveVelocity = ability.dashSpeed
 	ability.curveVector = WallPhysics:rotateVector(ability.curveVector, 2 * math.pi *- 1 / ability.curveTicks)
 	local newPosition = caster:GetAbsOrigin() + ability.fv * moveVelocity + ability.curveVector * 24

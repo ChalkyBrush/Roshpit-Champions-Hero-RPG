@@ -40,7 +40,7 @@ function voltex_azure_leap_jumping_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local forwardSpeed = ability.distance / 60 + 15
-	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed)
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.jumpFV * 35), caster)
@@ -49,7 +49,7 @@ function voltex_azure_leap_jumping_think(event)
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity) + ability.jumpFV * forwardSpeed)
 	local vertical_deceleration = 3.3
-	vertical_deceleration = Filters:GetAdjustedESpeed(caster, vertical_deceleration)
+	vertical_deceleration = Filters:GetAdjustedESpeed(caster, vertical_deceleration, false)
 	ability.jump_velocity = ability.jump_velocity - vertical_deceleration
 	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
@@ -296,6 +296,8 @@ function voltex_rune_e_3_heavens_charge_falling_think(event)
 			caster.chargeActive = false
 		end
 	else
-		caster:SetAbsOrigin(currentPosition + Vector(0, 0, -150))
+		local fall_speed = -150
+		fall_speed = Filters:GetAdjustedESpeed(caster, fall_speed, false)
+		caster:SetAbsOrigin(currentPosition + Vector(0, 0, fall_speed))
 	end
 end

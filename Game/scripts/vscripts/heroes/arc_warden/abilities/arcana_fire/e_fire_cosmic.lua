@@ -66,7 +66,7 @@ function cipher_bolt_dash_think(event)
     	forwardSpeed = 38
     end
 
-
+    forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	if blockUnit then
 		forwardSpeed = 0
 		caster:RemoveModifierByName("modifier_jex_cipher_bolt")

@@ -307,9 +307,13 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
     end
 end
 
-function Filters:GetAdjustedESpeed(caster, speed)
+function Filters:GetAdjustedESpeed(caster, speed, bDelay)
     if caster:HasModifier("modifier_pegasus_boots") then
-        speed = speed + speed*(PEGASUS_E_SPEED_PCT/100)
+        if bDelay then
+            speed = speed*0.5
+        else
+            speed = speed + speed*(PEGASUS_E_SPEED_PCT/100)
+        end
     end
     return speed
 end

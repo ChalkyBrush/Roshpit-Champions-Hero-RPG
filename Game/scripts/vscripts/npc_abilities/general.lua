@@ -593,7 +593,7 @@ function ms_thinker(event)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + (max_ms-550)*(PEGASUS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + (max_ms)*(PEGASUS_MAX_MS_AMP_PCT/100)
 	end
 
 	if max_ms > 550 and actual_movespeed > 550 then

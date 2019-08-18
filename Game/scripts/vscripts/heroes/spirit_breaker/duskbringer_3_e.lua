@@ -43,6 +43,7 @@ function specter_rush_thinking(event)
 	local ability = event.ability
 	local caster = event.caster
 	local movement = 1000 * 0.03
+	movement = Filters:GetAdjustedESpeed(caster, movement, false)
 	caster.EFV = ability.fv
 	local e_3_level = caster:GetRuneValue("e", 3)
 	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv * movement, caster)

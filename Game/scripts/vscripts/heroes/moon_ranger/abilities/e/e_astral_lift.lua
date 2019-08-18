@@ -31,6 +31,7 @@ function cast(event)
     if caster:HasModifier("modifier_astral_glyph_4_1") then
         delay = delay / 2
     end
+    delay = Filters:GetAdjustedESpeed(caster, delay, true)
     EmitSoundOn("Astral.StarBlink.SpellStart", caster)
     local particleName = E_PARTICLE1
     local particleLocation = target
