@@ -1271,6 +1271,9 @@ function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
 		Amulet:remove_modifiers(hero)
 		Amulet:add_modifiers(hero, inventory_unit, itemEntity)
 	end
+	if itemEntity.isLuaItem then
+		itemEntity:AddSpecialModifiers(hero)
+	end
 	Timers:CreateTimer(1.5, function()
 		CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
 	end)

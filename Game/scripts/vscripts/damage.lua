@@ -131,6 +131,8 @@ function Damage:Apply(data)
     local element1 = data.elements[1] or RPC_ELEMENT_NONE
     local element2 = data.elements[2] or RPC_ELEMENT_NONE
 
+    data.attacker._damage_data = data
+
     if data.sourceType == BASE_ITEM then
         Filters:ApplyItemDamage(data.victim, data.attacker, data.damage, data.damageType, data.source, element1, element2)
     elseif data.isDot then
@@ -143,6 +145,7 @@ function Damage:Apply(data)
         Filters:TakeArgumentsAndApplyDamage(data.victim, data.attacker, data.damage, data.damageType, data.sourceType, element1, element2)
     end
 
+    data.attacker._damage_data = {}
 end
 
 local sourceTypeBaseAbility = {
