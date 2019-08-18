@@ -52278,14 +52278,15 @@
 			}
 		}
 	}
-	"item_rpc_pace_of_storm"
+
+	"item_rpc_storm_pacer_sabatons"
     {
         "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
         "BaseClass"	"item_lua"
-        "ScriptFile" "items/lua/foot/pace_of_storm.lua"
-        "AbilityTextureName"	"rpc/rpc_ghost_slippers"
+        "ScriptFile" "items/lua/foot/storm_pacer_sabatons.lua"
+        "AbilityTextureName"	"winterblight/storm_pacer_sabatons"
         "AbilityCastRange"	"900"
         "AbilityCastPoint"	"0"
         "AbilityCooldown"	"0"
@@ -52301,9 +52302,10 @@
 
         "precache"
         {
-            "particle"		"particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf"
+            "particle"		"particles/roshpit/items/storm_pace_reduced_flash.vpcf"
         }
     }
+
 	"item_rpc_pegasus_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

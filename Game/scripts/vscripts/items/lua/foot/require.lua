@@ -1,2 +1,2 @@
 local prefix = 'items/lua/foot/'
-require(prefix..'pace_of_storm')
+require(prefix..'storm_pacer_sabatons')

@@ -11884,9 +11884,10 @@
 		"item_property_iron_treads_of_destruction"					"Dissolution"
 		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
 
-    	"DOTA_Tooltip_ability_item_rpc_pace_of_storm"        "Storm Guard Sabatons"
-        "item_property_pace_of_storm"                        "Eye of the Storm"
-        "property_pace_of_storm_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius ring of static electricity expands outward from you, damaging enemies once while expanding and again while contracting back toward you. The damage is based on the last pre-mitigation damage instance you dealt before activating this effect, and then the damage is modified by the target's distance from the center of the corona, scaling from <font color='#ccff66'>0.4</font>x damage at close range, to <font color='#ccff66'>4</font>x damage at the edge. No other effects or modifiers can further increase this instance of damage, but it is very effective at penetrating Steadfast defenses, raising their damage truncation threshold to <font color='#ccff66'>10</font>x the normal value (or <font color='#ccff66'>30</font>x for Mega Steadfast). This corona takes <font color='#ccff66'>1</font> second to recharge."
+    	"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
+        "item_property_storm_pacer_sabatons"                        "Storm Pacer"
+        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius ring of elemental essence expands outward from you, damaging enemies once while expanding and again while contracting back toward you. The damage is based on the last pre-mitigation damage instance you dealt before activating this effect, and then the damage is modified by the target's distance from the center of the ring, scaling from <font color='#ccff66'>0.4</font>x damage at close range, to <font color='#ccff66'>4</font>x damage at the edge. No other effects or modifiers can further increase this instance of damage. Damage also pierces steadfast, raising their damage truncation threshold to <font color='#ccff66'>10</font>x the normal value (or <font color='#ccff66'>30</font>x for Mega Steadfast). 1 second cooldown on ring effect."
+
 		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
 		"item_property_pegasus"					"Wing Jump"
 		"property_pegasus_description"			"@Ability3 travels <font color='#ccff66'>100</font>% faster if it has a motion component. Max Movespeed is increased by <font color='#ccff66'>30</font>%."
