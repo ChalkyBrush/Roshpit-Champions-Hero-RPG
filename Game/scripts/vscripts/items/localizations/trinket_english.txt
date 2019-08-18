@@ -314,3 +314,7 @@
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"Whirling Blade"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Increased attack power and postmitigation damage. Damaging nearby enemies."
+
+		"DOTA_Tooltip_ability_item_rpc_guardian_stone"					"Guardian Stone"
+		"property_guardian_stone"										"Silver Heart"
+		"property_guardian_stone_description"								"Debuffs applied by enemies have <% GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% reduced duration. When a debuff duration is reduced, heal <% GUARDIAN_STONE_HEAL_PCT %>% of max health."

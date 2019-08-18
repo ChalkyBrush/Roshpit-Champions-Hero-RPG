@@ -552,7 +552,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			local ability = target:FindModifierByName("ability_unshakable"):GetAbility()
 			if IsValidEntity(ability) then
 				local duration_modifier = ability:GetSpecialValueFor("modifier_duration_reduction")
-				if target == caster and modifierGainedTable["duration"] > 0 then
+				if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
 					modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
 				end
 			end
@@ -567,6 +567,18 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			EmitSoundOn("RPC.MagicImmuneBreakTarget", target)
 			return false
 		end
+	elseif target:HasModifier("modifier_guadian_stone") then
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if modifierGainedTable["entindex_ability_const"] then
+			local duration_modifier = GUARDIAN_STONE_DEBUFF_REDUCTION_PCT
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+				local heal = target:GetMaxHealth()*(GUARDIAN_STONE_HEAL_PCT/100)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", target, 1)
+				Filters:ApplyHeal(target, target, heal, true, true)
+				EmitSoundOn("Items.GuardianStone.Trigger", target)
+			end
+		end			
 	end
    return true
 end

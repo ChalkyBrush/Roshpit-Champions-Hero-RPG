@@ -6070,6 +6070,46 @@ function RPCItems:RollTokenOfOceanis(deathLocation, bBossDrop)
     return item
 end
 
+function RPCItems:RollGuardianStone(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_guardian_stone", "immortal", "Guardian Stone", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    item.newItemTable.property1name = "guardian_stone"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_guardian_stone", "#BFD4F5", 1, "#property_guardian_stone_description")
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        local value, nameLevel = RPCItems:RollAttribute(0, 6, 30, 0, 0, item.newItemTable.rarity, false, 5600)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "all_attributes"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
+    else
+        local value, nameLevel = RPCItems:RollAttribute(0, 4, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "armor"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
+    end
+
+    local tier, value, propertyName = RPCItems:RollSkillProperty()
+    if tier > 0 then
+        item.newItemTable.property3 = value
+        item.newItemTable.property3name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+    end
+
+    local tier, value, propertyName = RPCItems:RollSkillProperty()
+    if tier > 0 then
+        item.newItemTable.property4 = value
+        item.newItemTable.property4name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+    end
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollAncientTanariWaterstone(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_ancient_tanari_waterstone", "immortal", "Ancient Tanari Waterstone", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8406,6 +8446,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollGoldbreakerGauntlet(deathLocation)
     elseif itemName == "item_rpc_pegasus_boots" then
         newItem = RPCItems:RollPegasusBoots(deathLocation)
+    elseif itemName == "item_rpc_guardian_stone" then
+        newItem = RPCItems:RollGuardianStone(deathLocation)
     end
     return newItem
 end
