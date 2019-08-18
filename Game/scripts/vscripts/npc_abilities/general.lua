@@ -596,7 +596,7 @@ function ms_thinker(event)
 		max_ms = max_ms + (max_ms-550)*(PEGASUS_MAX_MS_AMP_PCT/100)
 	end
 
-	if max_ms > 550 then
+	if max_ms > 550 and actual_movespeed > 550 then
 		unit.master_move_speed = math.min(max_ms, actual_movespeed)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else
