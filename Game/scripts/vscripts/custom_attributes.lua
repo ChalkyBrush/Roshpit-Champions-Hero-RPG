@@ -1105,5 +1105,8 @@ function CustomAttributes:MSCap(unit)
 		end
 	end
 	max_ms = math.max(local_max_ms, max_ms)
+	if unit:HasModifier("modifier_knight_hawk_helm") then
+		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
+	end
 	return max_ms
 end

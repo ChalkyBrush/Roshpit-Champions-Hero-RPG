@@ -612,3 +612,84 @@
 			}
 		}
 	}
+
+	"item_rpc_helm_of_the_knight_hawk"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/helm_of_the_knight_hawk" //"helm_of_the_knight_hawk"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/knight_hawk_buff.vpcf"
+			"particle"	"particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_knight_hawk_helm"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"knight_hawk_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_knight_hawk_helm_speed"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"EffectName"		"particles/roshpit/items/knight_hawk_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% KNIGHT_HAWK_MS_GAIN %>" 
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Items.KnightHawk.Init"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"knight_hawk_bonus_speed_init"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}

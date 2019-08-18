@@ -1507,7 +1507,7 @@ function RPCItems:RollGoldbreakerGauntlet(deathLocation)
     local value, nameLevel = RPCItems:RollAttribute(0, 260, 620, 0, 0, item.newItemTable.rarity, false, maxFactor * 600)
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "gold_breaker"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_breaker", "#cdfc23", 1, "#property_gold_breaker_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_breaker", "#fff42b", 1, "#property_gold_breaker_description")
 
     local luck = RandomInt(1, 3)
     if luck < 3 then
@@ -3184,6 +3184,43 @@ function RPCItems:RollBasiliskPlagueHelm(deathLocation, isShop)
         Elements:RollElementAttribute(item, RPC_ELEMENT_POISON, 3, 2, 30, 2)
     else
         RPCItems:RollHoodProperty2(item, 0)
+    end
+
+    RPCItems:RollHoodProperty3(item, 0)
+    RPCItems:RollHoodProperty4(item, 0)
+    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
+    return item
+end
+
+function RPCItems:RollHelmOfKnightHawk(deathLocation, isShop)
+    local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "knight_hawk"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_knight_hawk", "#3dd1a7", 1, "#property_knight_hawk_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "strength"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
+    elseif luck == 2 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "agility"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
+    elseif luck == 3 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "intelligence"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
+    elseif luck == 4 then
+        local maxFactor = RPCItems:GetMaxFactor()
+        local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor / 2.5), 0, 0, 0, 0)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "movespeed"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_movespeed", "#B02020", 2)
     end
 
     RPCItems:RollHoodProperty3(item, 0)

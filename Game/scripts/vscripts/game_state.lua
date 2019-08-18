@@ -1568,6 +1568,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * (1 - (reduction / 100))
 		end
 	end
+	if victim:HasModifier("modifier_knight_hawk_helm") then
+		local movespeed = victim:GetBaseMoveSpeed()
+		local movespeedModifier = victim:GetMoveSpeedModifier(movespeed, false)
+		if movespeedModifier > 550 then
+			damage = damage * (1-(KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX/100))
+		end
+	end
 	if victim:HasModifier("modifier_stonewall_aura_friendly_effect") then
 		local reduction = victim:FindModifierByName("modifier_stonewall_aura_friendly_effect"):GetAbility():GetSpecialValueFor("damage_reduction")
 		damage = damage * (1 - (reduction / 100))

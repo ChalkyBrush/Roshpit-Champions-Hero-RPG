@@ -12916,6 +12916,13 @@
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"
 
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
+		"item_property_knight_hawk" 								"Haste Blade"
+		"property_knight_hawk_description"						"Increases max movespeed limit by an additional <font color='#ccff66'>350</font>. While above 550 movespeed, damage taken is reduced by <font color='#ccff66'>90</font>%. If movespeed falls below 300, gain a <font color='#ccff66'>350</font> movespeed buff for <font color='#ccff66'>10</font> seconds."
+
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Haste Blade"
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased Movespeed"
+
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_property_blacksmiths_tablet"			"Refined Weaponry"

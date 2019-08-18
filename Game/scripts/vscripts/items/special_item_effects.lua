@@ -5832,3 +5832,19 @@ function goldbreaker_attack_land(event)
 	Filters:MagicImmuneBreak(attacker, target)
 	ability:ApplyDataDrivenModifier(attacker, target, "modifier_goldbreaker_effect", {duration = GOLDBREAKER_DEBUFF_DURATION})
 end
+
+function knight_hawk_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	local movespeed = hero:GetBaseMoveSpeed()
+	local movespeedModifier = hero:GetMoveSpeedModifier(movespeed, false)
+	if movespeedModifier <= 300 then
+		event.ability:ApplyDataDrivenModifier(event.caster, hero, "modifier_knight_hawk_helm_speed", {duration = KNIGHT_HAWK_MS_BUFF_DURATION})
+	end	
+end
+
+function knight_hawk_bonus_speed_init(event)
+	local target = event.target
+	CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit.vpcf", target, 3)
+end
