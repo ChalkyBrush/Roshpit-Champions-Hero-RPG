@@ -37,7 +37,7 @@ function modifierClass:OnCreated()
 
     self.currentRadius = 0
     self.maxRadius = PACE_OF_STORM_RADIUS
-    self.radiusStep = PACE_OF_STORM_RADIUS/7
+    self.radiusStep = PACE_OF_STORM_RADIUS/5
     self.thinkInterval = 0.1
 
     self.retracing = false
@@ -61,15 +61,15 @@ function modifierClass:PlayEffectsCast()
 
     EmitSoundOn("Jex.RingOfFire.Start", caster)
 
-    self.pfx = ParticleManager:CreateParticle("particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+    local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+    self.pfx = pfx
     ParticleManager:SetParticleControl(self.pfx, 0, caster:GetAbsOrigin())
     local speed = self.radiusStep/self.thinkInterval
     ParticleManager:SetParticleControl(self.pfx, 1, Vector(speed, self.maxRadius, 600))
 
     Timers:CreateTimer(2 * self.maxRadius/speed, function ()
-        ParticleManager:DestroyParticle(self.pfx, false)
-        ParticleManager:ReleaseParticleIndex(self.pfx)
-        self.pfx = nil
+        ParticleManager:DestroyParticle(pfx, false)
+        ParticleManager:ReleaseParticleIndex(pfx)
     end)
 end
 function modifierClass:OnIntervalThink()
@@ -98,6 +98,7 @@ function modifierClass:OnIntervalThink()
     for _,enemy in pairs(enemies) do
         if enemy[self.localKey] or excluded_enemies[enemy:GetEntityIndex()] then
         else
+            enemy[self.localKey] = true
             local distanceMult = (PACE_OF_STORM_MAX_AMP - PACE_OF_STORM_MIN_AMP) * WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())/self.maxRadius
             local mult = PACE_OF_STORM_MIN_AMP + distanceMult
             Damage:Apply({
