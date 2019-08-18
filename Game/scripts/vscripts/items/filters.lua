@@ -1690,7 +1690,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
     if slot == BASE_ITEM or slot == BASE_NONE then
         if not Is_solunia_b_d then
-            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or 0)
+            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or slot or 0)
         else
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
         end
@@ -1738,8 +1738,13 @@ end
 
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
     local ability = nil
-    if type(slot) == "number" then
+
+    local damageData = attacker._damage_data
+
+    if type(slot) == "number" and slot ~= -1 then
         ability = attacker:GetAbilityByIndex(slot)
+    elseif damageData.source then
+        ability = damageData.source
     else
         ability = slot
     end
@@ -1755,6 +1760,10 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
         end
     end
 
+    if slot == BASE_NONE then
+        instances = 1
+    end
+
     for i = 1, instances do
         ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
     end
@@ -1764,6 +1773,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     local unitName = attacker:GetUnitName()
     local mult = 1
     local divisor = 1
+    local damageData = attacker._damage_data or {}
 
     if bIsRealDamage then
         if attacker:HasModifier("modifier_depth_demon_claw") then
@@ -1849,6 +1859,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element2 ~= RPC_ELEMENT_NONE then
         table.insert(elements, element2)
     end
+
     local newDamageCalculatorData = {
         victim = victim,
         attacker = attacker,
@@ -2704,10 +2715,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
-    if bIsRealDamage then
+    if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then
         Filters:PostElementalDamage(victim, attacker, damage * mult, damage_type, slot, element1, element2, bIsRealDamage)
     end
-    damage = damage * mult/divisor
+    if not damageData.ignoreMultipliers and not damageData.ignoreElements then
+        damage = damage * mult/divisor
+    end
     return damage, element1, element2
 end
 
