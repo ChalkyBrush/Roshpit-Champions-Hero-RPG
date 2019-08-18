@@ -245,6 +245,12 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_swiftspike_bracer", item)
 	elseif propertyName == "movespeed" then
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_movespeed", hand_ability)
+	elseif propertyName == "all_elements" then
+		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_all_elements", hand_ability)
+	elseif propertyName == "tiamat" then
+		Hand:addItemModifier(0, hero, inventory_unit, "modifier_diamond_claws_of_tiamat", item)
+	elseif propertyName == "gold_breaker" then
+		Hand:addItemModifier(0, hero, inventory_unit, "modifier_goldbreaker_gauntlet", item)
 	end
 	hero.handItem = item
 end
@@ -433,6 +439,8 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_conjuror_arcana2")
 	hero:RemoveModifierByName("modifier_axe_arcana2")
 	hero:RemoveModifierByName("modifier_jex_arcana1")
+	hero:RemoveModifierByName("modifier_diamond_claws_of_tiamat")
+	hero:RemoveModifierByName("modifier_goldbreaker_gauntlet")
 	hero.stormcloth = false
 	Hand:remove_rune_bonuses(hero)
 end

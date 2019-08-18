@@ -258,6 +258,8 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_green_divinex_amulet", item)
 	elseif propertyName == "puzzler" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_puzzlers_locket", item)
+	elseif propertyName == "razor_band" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_galvanized_razor_band", item)
 	end
 	hero.amulet = item
 end
@@ -436,6 +438,7 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_green_divinex_amulet")
 	hero:RemoveModifierByName("modifier_blue_divinex_amulet")
 	hero:RemoveModifierByName("modifier_puzzlers_locket")
+	hero:RemoveModifierByName("modifier_galvanized_razor_band")
 	hero.monkey_paw = false
 	hero.birdTable = false
 	hero.eternal_frost_gem = false

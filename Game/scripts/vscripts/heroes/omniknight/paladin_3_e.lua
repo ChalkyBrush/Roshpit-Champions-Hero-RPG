@@ -49,8 +49,9 @@ function paladin_e_dash_think(event)
 	local caster = event.caster
 	local position = caster:GetAbsOrigin()
 	local obstruction = WallPhysics:FindNearestObstruction(position)
-
-	local newPosition = position + ability.forwardVec * 55
+	local pushSpeed = 55
+	pushSpeed = Filters:GetAdjustedESpeed(caster, pushSpeed, false)
+	local newPosition = position + ability.forwardVec * pushSpeed
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + ability.forwardVec * 72), caster)
 	if not blockUnit then
 		caster:SetOrigin(newPosition)

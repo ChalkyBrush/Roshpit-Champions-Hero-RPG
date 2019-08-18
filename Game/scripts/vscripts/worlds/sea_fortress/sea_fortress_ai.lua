@@ -1130,14 +1130,14 @@ end
 
 function carnivore_die(event)
 	local caster = event.caster
-
-	local position = caster:GetAbsOrigin()
-	local spawns = RandomInt(3, 7)
-	for i = 1, spawns, 1 do
-		local fv = WallPhysics:rotateVector(Vector(1, 0), 2 * math.pi * i / spawns)
-		Seafortress:SpawnLakeCheepWithBlocking(position, fv, false)
+	if Seafortress then
+		local position = caster:GetAbsOrigin()
+		local spawns = RandomInt(3, 7)
+		for i = 1, spawns, 1 do
+			local fv = WallPhysics:rotateVector(Vector(1, 0), 2 * math.pi * i / spawns)
+			Seafortress:SpawnLakeCheepWithBlocking(position, fv, false)
+		end
 	end
-
 end
 
 function sea_dragon_regen_think(event)
@@ -4125,14 +4125,16 @@ function curse_of_deep_take_damage(event)
 	local ability = event.ability
 	local target = event.unit
 	local damage = target:GetMaxHealth() * 0.05
-	if not ability.lock then
-		ability.lock = true
-		CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/deep_maledict_j.vpcf", target, 1)
-		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Seafortress.Seafarer.CurseOfTheDeepTick", caster)
-		ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
-		Timers:CreateTimer(0.1, function()
-			ability.lock = false
-		end)
+	if IsValidEntity(ability) then
+		if not ability.lock then
+			ability.lock = true
+			CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/deep_maledict_j.vpcf", target, 1)
+			EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Seafortress.Seafarer.CurseOfTheDeepTick", caster)
+			ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+			Timers:CreateTimer(0.1, function()
+				ability.lock = false
+			end)
+		end
 	end
 end
 

@@ -302,3 +302,13 @@
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by @special_property1%"
 		
+		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
+		"item_property_tiamat_claw"							"Prismatic Grip"
+		"property_tiamat_claw_description"					"All attributes are fixed at this property's value and cannot be changed by any means."
+
+		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
+		"item_property_gold_breaker"							"Gold Breaker"
+		"property_gold_breaker_description"					"Attacks break magic immunity. Attacking also applies the Gold Breaker debuff onto the enemy for <% GOLDBREAKER_DEBUFF_DURATION %> seconds. If an enemy tries to go magic immune while gold breaker is active, the magic immunity is cancelled and instead they are stunned for the same duration."
+
+		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Gold Breaker"
+		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Attempting to go magic immune will instead stun for the same duration"

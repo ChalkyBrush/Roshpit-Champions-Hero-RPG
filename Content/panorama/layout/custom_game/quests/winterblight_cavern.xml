@@ -1,0 +1,248 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/winterblight_cavern.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/winterblight_cavern.js" />
+	</scripts>
+	<snippets>
+		<snippet name="winter_cavern_main_snippet">
+			<Panel class="winter_cavern_main_root">		
+				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
+				<Panel id="winterblight_cavern_main_ui_container">
+					<Label id="winterblight_cavern_title" text="winterblight_cavern"/>
+					<Label id="winterblight_help_1" text="winterblight_cavern_help1"/>
+					<Panel class="winterblight_chamber_row" id="chamber-row-1">
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-1">
+								<Image class="chamber-button-image" id="chamber-button-image-1" src="file://{images}/custom_game/ui/winterblight/frozen_foyer.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room1"/>
+								<Label class="chamber-button-number-label" text="1."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-1'/>
+						</Panel>
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-2">
+								<Image class="chamber-button-image" id="chamber-button-image-2" src="file://{images}/custom_game/ui/winterblight/aurora_passage.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room2"/>
+								<Label class="chamber-button-number-label" text="2."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-2'/>
+						</Panel>
+					</Panel>	
+					<Panel class="winterblight_chamber_row" id="chamber-row-2">
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-3">
+								<Image class="chamber-button-image" id="chamber-button-image-3" src="file://{images}/custom_game/ui/winterblight/crystarium.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room3"/>
+								<Label class="chamber-button-number-label" text="3."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-3'/>
+						</Panel>
+						<Panel class="chamber-button-container">
+							<Button class="winterblight_chamber_button" id="chamber-button-4">
+								<Image class="chamber-button-image" id="chamber-button-image-4" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
+								<Label class="chamber-button-label" text="winterblight_cavern_room4"/>
+								<Label class="chamber-button-number-label" text="4."/>
+							</Button>
+							<Label class="chamber-button-status-label" id='chamber-status-label-4'/>
+						</Panel>
+					</Panel>	
+					<Button id="winterblight_cavern_boss_button" hittest="true">
+						<Label id="winterblight_cavern_boss_button_label" text="winterblight_cavern_boss_button_label"/>
+					</Button>
+					<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
+						<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
+					</Button>
+				</Panel>				
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_chamber">
+			<Panel class="winter_cavern_chamber_root">
+				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
+				<Button id="winterblight_cavern_back_button" hittest="true">
+					<Label id="back_button_label" text="←"/>
+				</Button>
+				<Panel id="winterblight_cavern_main_ui_container" hittest="false">
+					<Label id="winterblight_cavern_title" text="winterblight_cavern"/>
+					<Image id="chamber_main_image" src="file://{images}/custom_game/ui/winterblight/edge_of_winter.jpg"/>
+					<Label id="winterblight_help_1" text="winterblight_cavern_help2"/>
+					<Panel id="winter_cavern_event_buttons_container">
+					</Panel>
+					<Panel id="winter_cavern_event_details_container" class="invisible">
+						<Label id="winterblight_chamber_event_title"/>
+						<Label id="winterblight_chamber_event_description"/>
+						<Panel id="chamber_event_fragments_container">
+							<Image class="chamber_event_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+							<Label id="winterblight_chamber_event_fragments" text="winterblight_cavern_fragments"/>
+						</Panel>
+					</Panel>
+					<Panel id="chamber_event_start_container" class="invisible">
+						<Panel id="chamber_event_start_container1" class="chamber_event_start_container">
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="ui_normal"/>
+								<Label class="max_level_row_right" text="1"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="ui_elite"/>
+								<Label class="max_level_row_right" text="3"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="ui_legend"/>
+								<Label class="max_level_row_right" text="5"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="winterblight_1_stone"/>
+								<Label class="max_level_row_right" text="10"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="winterblight_2_stone"/>
+								<Label class="max_level_row_right" text="15"/>
+							</Panel>
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" text="winterblight_3_stone"/>
+								<Label class="max_level_row_right" text="winterblight_no_max"/>
+							</Panel>				
+							<Panel class="chamber_event_max_level_row">
+								<Label class="max_level_row_left" id="your-max-level-title" text="winterblight_event_max_yours"/>
+								<Label class="max_level_row_right" id="your-max-level-label" text="ui_loading"/>
+							</Panel>				
+						</Panel>
+						<Panel id="chamber_event_start_container2" class="chamber_event_start_container invisible">
+							<Label id="event_max_main_label" text="winterblight_event_max"/>
+							<NumberEntry id="max_level_input" min="1" onmouseover="DOTAShowTextTooltip('#event_level_input')" onmouseout="DOTAHideTextTooltip()"/>
+							<Button id="start_event_button" hittest="true">
+								<Label id="start_event_button_label" text="start_chamber_event"/>
+							</Button>
+						</Panel>
+					</Panel>
+					<Panel id="chamber_event_records_container" class="invisible">
+						<Panel id="chamber_event_records_container1" class="chamber_event_records_container">
+							<Label text="ui_Loading" class="loading_records_text" id="loading-records-left"/>
+							<Label class="records_title_top" id="records-title-top-left"/>
+							<Panel id="chamber-record-top1"/>
+							<Label class="records_title_bottom" id="records-title-bottom-left"/>
+							<Panel id="chamber-record-bottom1"/>
+						</Panel>
+						<Panel id="chamber_event_records_container2" class="chamber_event_records_container">
+							<Label text="ui_Loading" class="loading_records_text" id="loading-records-right"/>
+							<Label class="records_title_top" id="records-title-top-right"/>
+							<Panel id="chamber-record-top2"/>
+							<Label class="records_title_bottom" id="records-title-bottom-right"/>
+							<Panel id="chamber-record-bottom2"/>
+						</Panel>
+					</Panel>
+					<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
+						<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_individual_record">
+			<Panel class="winter_cavern_record_left">
+				<DOTAAvatarImage id="player_avatar"></DOTAAvatarImage>
+				<Panel id="hero_other_data_container">
+					<Image id="hero_portrait" heroid="5" />
+					<DOTAUserName class="dota_player_name" id="dota_player_name" text="playername"/>
+					<Label id="record_label" />
+				</Panel>						
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_no_record">
+			<Panel class="winter_cavern_no_record_container">
+					<Label id="no_record_label" text="cavern_ui_no_record" />
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_event">
+			<Panel class="winter_cavern_event_root">
+					<Button id="winter_cavern_event_button" class="winter_cavern_button_not_highlighted">
+						<Label id="winter_event_button_label" />
+					</Button>
+			</Panel>
+		</snippet>
+		<snippet name="cavern_summary">
+			<Panel class="cavern_summary_root" hittest="false">
+				<Panel id="cavern_summary_header">
+					<Label id="cavern_summary_title" text="winterblight_cavern"/>
+					<Button id="cavern_summary_expander">
+						<Label id="cavern_expander_label" text="-" />
+					</Button>
+					<Panel id="cavern_summary_header_relics_container">
+						<Image class="chamber_event_fragments_icon_summary" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+						<Label id="winterblight_summary_fragments" text="0"/>
+					</Panel>
+				</Panel>
+				<Panel id="cavern_summary_contents" hittest="false">
+					<Panel id="cavern_summary_bg" hittest="false"/>
+					<Panel id="cavern_summary_items_attacher" hittest="false"/>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="cavern_summary_item">
+			<Panel class="cavern_summary_item_root" hittest="false">
+				<Panel id="summary-top-row" hittest="false">
+					<Label id="winter_event_chamber_name" />
+					<DOTAUserName class="dota_player_name" id="event_player_name" text="playername"/>
+					<Image id="event_hero_portrait" heroid="5" />
+					<Panel id="event-name-and-level">
+						<Label id="winter_event_event_name" />
+						<Label id="winter_event_event_level" />
+					</Panel>
+				</Panel>
+				<Panel id="summary-bottom-row" hittest="false">
+					<Panel id="event-progress-bar" hittest="false">
+						<Panel id="event-progress-bar-fill" class="event-progress-bar-fill-class" hittest="false"/>
+						<Label id="event-progress-bar-label" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_boss_menu">
+			<Panel class="winter_cavern_boss_menu_root">
+				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
+				<Button id="winterblight_cavern_back_button" hittest="true">
+					<Label id="back_button_label" text="←"/>
+				</Button>
+				<Panel id="winterblight_cavern_main_ui_container" hittest="false">
+					<Label id="winterblight_cavern_title" text="winterblight_cavern_boss_button_label"/>
+					<Label id="winterblight_help_1" text="winterblight_cavern_help4"/>
+					<Panel id="chamber_event_fragments_container">
+						<Image class="chamber_event_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+						<Label id="winterblight_chamber_event_fragments" text="winterblight_cavern_fragments"/>
+					</Panel>
+					<Panel id="boss_button_attacher" hittest="false">
+					</Panel>
+					<Panel id="boss_menu_separator"/>
+					<Panel id="final_boss_button_attacher" hittest="false">
+					</Panel>
+				</Panel>
+				<Button class="main_menu_button" id="winterblight_cavern_close_button" hittest="true" onactivate='CloseWinterCavern()'>
+					<Label id="winterblight_cavern_exit_label" text="arena_training_button_3"/>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="winter_cavern_boss_button">
+			<Panel class="winter_cavern_boss_button_root" hittest="false">
+				<Button id="winterblight_inner_cavern_boss_button" hittest="true">
+					<Image class="wb_boss_skull" src="file://{images}/custom_game/ui/pargagon-skull.png"/>
+					<Label id="winterblight_cavern_boss_button_level" text="LV 0"/>
+					<Label id="winterblight_cavern_boss_button_label" text="winterblight_cavern_boss_button_label"/>
+					<Panel class="boss_fragments_cost_container">
+						<Image id="fragments_cost_icon" class="winter_boss_fragments_icon" src="file://{images}/custom_game/ui/winterblight/relic_fragments.png"/>
+						<Label id="winterblight_boss_fragments_cost" text="0"/>
+					</Panel>
+				</Button>
+<!-- 				<Label id="winterblight_cavern_boss_summary" text="winterblight_cavern_boss_summary"/> -->
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="winterblight_cavern_root" hittest="false">
+		<Panel id="winterblight_cavern_main_ui" class="invisible" hittest="false">
+		</Panel>
+		<Panel id="winterblight_cavern_summary_container" class="invisible" hittest="false">
+		</Panel>
+	</Panel>
+
+
+</root>

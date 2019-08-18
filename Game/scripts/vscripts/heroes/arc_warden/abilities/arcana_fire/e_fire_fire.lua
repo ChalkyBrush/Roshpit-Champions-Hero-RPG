@@ -5,6 +5,7 @@ function jex_e_fire_fire_push_thinker(event)
 	local fv = ability.pushDirection
 	local searchPos = target:GetAbsOrigin()
 
+	ability.pushSpeed = Filters:GetAdjustedESpeed(caster, ability.pushSpeed, false)
 	local obstruction = WallPhysics:FindNearestObstruction(searchPos+(fv*60))
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, searchPos+(fv*60), target)
 	if blockUnit then

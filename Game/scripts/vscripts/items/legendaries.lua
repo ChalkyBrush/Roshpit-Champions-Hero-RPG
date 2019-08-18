@@ -655,6 +655,38 @@ function RPCItems:RollSwiftspikeBracer(deathLocation)
     return item
 end
 
+function RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level)
+    local item = RPCItems:CreateVariant("item_rpc_diamond_claws_of_tiamat", "immortal", "Diamond Claws of Tiamat", "hands", true, "Slot: Hands")
+    local tiamat_roll, suffix = RPCItems:RollAttribute(300, 8 + boss_level, 16 + boss_level*4, 0, 0, item.newItemTable.rarity, false, boss_level*400)
+    tiamat_roll = math.min(tiamat_roll, 15000)
+    item.newItemTable.property1 = tiamat_roll
+    item.newItemTable.property1name = "tiamat"
+    RPCItems:SetPropertyValuesSpecial(item, tiamat_roll, "#item_property_tiamat_claw", "#FAFAFF", 1, "#property_tiamat_claw_description")
+
+    local value = RandomInt(boss_level * 300, boss_level * 1500)
+    value = math.min(value, 140000)
+    item.newItemTable.property2 = value
+    item.newItemTable.property2name = "attack_damage"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+
+    local value, nameLevel = RPCItems:RollAttribute(100, 2, boss_level/2, 0, 0, item.newItemTable.rarity, false, boss_level*30)
+    value = math.min(value, 900)
+    item.newItemTable.property3 = value
+    item.newItemTable.property3name = "base_ability"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_base_ability", "#7AB4CC", 3)
+
+    local value, nameLevel = RPCItems:RollAttribute(100, 1, boss_level+3, 0, 1, item.newItemTable.rarity, false, boss_level * 20)
+    value = math.min(value, 700)
+    item.newItemTable.property4 = value
+    item.newItemTable.property4name = "all_elements"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#property_all_elements", "#BED5E5", 4)
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollDivinePurityGauntlets(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_divine_purity", "immortal", "Gauntlets of Divine Purity", "hands", true, "Slot: Hands")
     item.newItemTable.property1 = 1
@@ -1459,6 +1491,53 @@ function RPCItems:RollCytopianLaserGloves(deathLocation)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "mana_regen"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_mana_regen", "#649FA3", 2)
+
+    RPCItems:RollHandProperty3(item, 0)
+    RPCItems:RollHandProperty4(item, 0)
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
+function RPCItems:RollGoldbreakerGauntlet(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_goldbreaker_gauntlet", "immortal", "Goldshatter Gauntlet", "hands", true, "Slot: Hands")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    local value, nameLevel = RPCItems:RollAttribute(0, 260, 620, 0, 0, item.newItemTable.rarity, false, maxFactor * 600)
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "gold_breaker"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_breaker", "#fff42b", 1, "#property_gold_breaker_description")
+
+    local luck = RandomInt(1, 3)
+    if luck < 3 then
+        value, nameLevel = RPCItems:RollAttribute(0, 10, 30, 0, 0, item.newItemTable.rarity, false, maxFactor * 22)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "strength"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
+    else
+        item.newItemTable.hasRunePoints = true
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.newItemTable.property2 = math.floor(value * 1.5)
+        local luck = RandomInt(1, 10)
+        if luck <= 4 then
+            propertyName = "rune_r_1"
+        elseif luck <= 7 then
+            propertyName = "rune_r_2"
+        elseif luck <= 9 then
+            item.newItemTable.property2 = math.ceil(item.newItemTable.property2 / 2)
+            propertyName = "rune_r_3"
+        else
+            if GameState:GetDifficultyFactor() > 2 then
+                item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(10, 0, 0, 0, 0)
+                propertyName = "rune_r_4"
+            else
+                propertyName = "rune_r_1"
+            end
+        end
+        item.newItemTable.property2name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    end
 
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)
@@ -3113,6 +3192,43 @@ function RPCItems:RollBasiliskPlagueHelm(deathLocation, isShop)
     return item
 end
 
+function RPCItems:RollHelmOfKnightHawk(deathLocation, isShop)
+    local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "knight_hawk"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_knight_hawk", "#3dd1a7", 1, "#property_knight_hawk_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "strength"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
+    elseif luck == 2 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "agility"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
+    elseif luck == 3 then
+        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "intelligence"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
+    elseif luck == 4 then
+        local maxFactor = RPCItems:GetMaxFactor()
+        local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor / 2.5), 0, 0, 0, 0)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "movespeed"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_movespeed", "#B02020", 2)
+    end
+
+    RPCItems:RollHoodProperty3(item, 0)
+    RPCItems:RollHoodProperty4(item, 0)
+    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
+    return item
+end
+
 function RPCItems:RollHoodOfTheSeaOracle(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_the_sea_oracle", "immortal", "Hood of the Sea Oracle", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4471,6 +4587,38 @@ function RPCItems:RollAlaranaIceBoot(deathLocation)
         else
             local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
             item.newItemTable.property2 = math.floor(value * 1.4)
+            item.newItemTable.property2name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+        end
+    end
+    RPCItems:RollFootProperty3(item, 0)
+    RPCItems:RollFootProperty4(item, 0)
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
+function RPCItems:RollPegasusBoots(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_pegasus_boots", "immortal", "Pegasus Boots", "feet", true, "Slot: Feet")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "pegasus"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pegasus", "#cdd1b0", 1, "#property_pegasus_description")
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollFootProperty2(item, 0)
+    else
+        local luck = RandomInt(1, 6)
+        item.newItemTable.hasRunePoints = true
+        if luck == 1 then
+            local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+            item.newItemTable.property2 = math.floor(value * 0.9)
+            item.newItemTable.property2name = "rune_e_3"
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+        else
+            local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+            item.newItemTable.property2 = math.floor(value * 1.5)
             item.newItemTable.property2name = propertyName
             RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
         end
@@ -6705,6 +6853,39 @@ function RPCItems:RollPuzzlersLocket(deathLocation)
     return item
 end
 
+function RPCItems:RollGalvanizedRazorBand(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_galvanized_razor_band", "immortal", "Galvanized Razor Band", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    item.newItemTable.property1name = "razor_band"
+    item.newItemTable.property1 = 1
+
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_razor_band", "#DDDDDD", 1, "#property_razor_band_description")
+
+    local maxFactor = RPCItems:GetMaxFactor()
+    local value = RandomInt(maxFactor * 100, maxFactor * 350)
+    item.newItemTable.property2 = value
+    item.newItemTable.property2name = "attack_damage"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.newItemTable.property3 = value
+    item.newItemTable.property3name = propertyName
+    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.newItemTable.property4 = math.floor(value * 1.3)
+    item.newItemTable.property4name = propertyName
+    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
+
 function RPCItems:RollVolcanoOrb(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_volcano_orb", "immortal", "Volcano Orb", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8177,8 +8358,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollArcaneCharm(deathLocation)
     elseif itemName == "item_rpc_skulldigger_gauntlet" then
         newItem = RPCItems:RollSkulldiggerGloves(deathLocation)
-    elseif itemName == "item_rpc_winterblight_skull_ring" then
-        newItem = RPCItems:RollWinterblightSkullRing(deathLocation)
+    -- elseif itemName == "item_rpc_winterblight_skull_ring" then
+    --     newItem = RPCItems:RollWinterblightSkullRing(deathLocation)
     elseif itemName == "item_rpc_heavy_echo_gauntlet" then
         newItem = RPCItems:RollHeavyEchoGauntlet(deathLocation)
     elseif itemName == "item_rpc_frostmaw_hunters_hood" then
@@ -8217,6 +8398,14 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollChainsOfOrthok(deathLocation)
     elseif itemName == "item_rpc_puzzlers_locket" then
         newItem = RPCItems:RollPuzzlersLocket(deathLocation)
+    elseif itemName == "item_rpc_diamond_claws_of_tiamat" then
+        newItem = RPCItems:RollDiamondClawsOfTiamat(deathLocation, 1)
+    elseif itemName == "item_rpc_galvanized_razor_band" then
+        newItem = RPCItems:RollGalvanizedRazorBand(deathLocation)
+    elseif itemName == "item_rpc_goldbreaker_gauntlet" then
+        newItem = RPCItems:RollGoldbreakerGauntlet(deathLocation)
+    elseif itemName == "item_rpc_pegasus_boots" then
+        newItem = RPCItems:RollPegasusBoots(deathLocation)
     end
     return newItem
 end

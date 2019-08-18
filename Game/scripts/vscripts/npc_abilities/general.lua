@@ -12,7 +12,18 @@ function general_hero_think(event)
 
 	local movespeedBase = target:GetBaseMoveSpeed()
 	local movespeed = target:GetMoveSpeedModifier(movespeedBase, false)
-	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed)})
+	local tiamat = 0
+	if target:HasModifier("modifier_diamond_claws_of_tiamat") then
+		tiamat = 1
+	end
+	-- if target:HasModifier("modifier_frozen_heart") then
+	-- 	healthRegen = 0
+	-- 	if target:HasModifier("modifier_frozen_heart_regen") then
+	-- 		healthRegen = 10
+	-- 	end
+	-- end
+	-- problem with frozen heart is that health regen still exists as a value in background, and any numbers that interact with health regen still work
+	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), tiamat = tiamat})
 	for i = 0, 5, 1 do
 		local playerID = target:GetPlayerOwnerID()
 		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
@@ -262,6 +273,12 @@ function ability_1_position_think(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 940, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			local castPoint = enemies[1]:GetAbsOrigin()
+			if caster.position_cast_self then
+				castPoint = caster:GetAbsOrigin()
+			end
+			if caster.cast_offset then
+				castPoint = castPoint + RandomVector(caster.cast_offset)
+			end
 			local newOrder = {
 				UnitIndex = caster:entindex(),
 				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
@@ -556,41 +573,76 @@ end
 
 function ms_thinker(event)
 	local unit = event.target
+	local max_ms = 550
 	unit:RemoveModifierByName("modifier_master_movespeed")
-	local baseSpeed = unit:GetBaseMoveSpeed()
-	local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
-	local modifier2 = unit:GetMoveSpeedModifier(0, false)
-
 	local buffs = unit:FindAllModifiers()
-	local speed = baseSpeed
-	local mult = 1
 	for _,modifier in pairs(buffs) do
-
-		if modifier['GetModifierMoveSpeedBonus_Constant'] then
-			local localSpeed =  modifier['GetModifierMoveSpeedBonus_Constant'](modifier, {}) or 0
-			if localSpeed ~=  nil then
-				speed = speed + localSpeed
-			end
-		end
-		if modifier['GetModifierMoveSpeedBonus_Percentage'] then
-			local localMult = modifier['GetModifierMoveSpeedBonus_Percentage'](modifier, {})
-			if localMult ~= nil then
-				mult = mult + localMult/100
+		if modifier['GetModifierMoveSpeed_Max'] then
+			-- Some GetModifierMoveSpeed_Max has errors now, it is for preven crash on calculate
+			local status, local_max_ms = pcall(modifier['GetModifierMoveSpeed_Max'], modifier, {})
+			if status and local_max_ms ~= nil then
+				max_ms = math.max(max_ms,local_max_ms)
 			end
 		end
 	end
-	speed = math.max(speed * mult, baseSpeed + modifier2)
-	local movespeedMult = 1;
+	unit:AddNewModifier(unit, nil, "modifier_ignore_ms_cap", {})
+	local movespeed = unit:GetBaseMoveSpeed()
+	local actual_movespeed = unit:GetMoveSpeedModifier(movespeed, false)
 
-	local ideal = unit:GetIdealSpeed()
-	local max_ms = CustomAttributes:MSCap(unit)
-	--speed = math.max(modifier2 + baseSpeed, speed)
-	if speed > 100 and max_ms > 550 then
-		unit.master_move_speed = math.min(speed, max_ms)
+	if unit:HasModifier("modifier_knight_hawk_helm") then
+		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
+	end
+	if unit:HasModifier("modifier_pegasus_boots") then
+		max_ms = max_ms + (max_ms)*(PEGASUS_MAX_MS_AMP_PCT/100)
+	end
+
+	if max_ms > 550 and actual_movespeed > 550 then
+		unit.master_move_speed = math.min(max_ms, actual_movespeed)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else
 		unit.master_move_speed = nil
 		unit:RemoveModifierByName("modifier_master_movespeed")
-	end
+	end	
+	unit:RemoveModifierByName("modifier_ignore_ms_cap")
+
+	-- unit:RemoveModifierByName("modifier_master_movespeed")
+	-- local baseSpeed = unit:GetBaseMoveSpeed()
+	-- local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
+	-- local modifier2 = unit:GetMoveSpeedModifier(0, false)
+
+	-- local buffs = unit:FindAllModifiers()
+	-- local speed = baseSpeed
+	-- local mult = 1
+	-- for _,modifier in pairs(buffs) do
+
+	-- 	if modifier['GetModifierMoveSpeedBonus_Constant'] then
+	-- 		local localSpeed =  modifier['GetModifierMoveSpeedBonus_Constant'](modifier, {}) or 0
+	-- 		if localSpeed ~=  nil then
+	-- 			speed = speed + localSpeed
+	-- 		end
+	-- 	end
+	-- 	if modifier['GetModifierMoveSpeedBonus_Percentage'] then
+	-- 		local localMult = modifier['GetModifierMoveSpeedBonus_Percentage'](modifier, {})
+	-- 		if localMult ~= nil then
+	-- 			mult = mult + localMult/100
+	-- 		end
+	-- 	end
+	-- end
+
+	-- modifier2 = math.max(modifier2 - 100, 0)
+	-- speed = math.max(speed * mult, baseSpeed + modifier2)
+
+	-- local movespeedMult = 1;
+
+	-- local ideal = unit:GetIdealSpeed()
+	-- local max_ms = CustomAttributes:MSCap(unit)
+	-- --speed = math.max(modifier2 + baseSpeed, speed)
+	-- if speed > 100 and max_ms > 550 then
+	-- 	unit.master_move_speed = math.min(speed, max_ms)
+	-- 	unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
+	-- else
+	-- 	unit.master_move_speed = nil
+	-- 	unit:RemoveModifierByName("modifier_master_movespeed")
+	-- end
 end
 

@@ -2,7 +2,7 @@ modifier_disciple_bonus_movespeed = class({})
 local class = modifier_disciple_bonus_movespeed
 
 function class:DeclareFunctions()
-	local funcs = {MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+	local funcs = {MODIFIER_PROPERTY_MOVESPEED_MAX,
 		MODIFIER_PROPERTY_MOVESPEED_MAX,
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 	}
@@ -13,7 +13,7 @@ function class:OnCreated(event)
 	self.movespeed = event.movespeed
 end
 
-function class:GetModifierMoveSpeed_Limit()
+function class:GetModifierMoveSpeed_Max()
 	--print(self.movespeed)
 	return self.movespeed
 end

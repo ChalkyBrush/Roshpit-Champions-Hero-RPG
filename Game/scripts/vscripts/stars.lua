@@ -318,6 +318,27 @@ function Stars:StarEventPlayer(starEventName, hero)
 					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
 				end
 				Stars:StarEventSolo(starEventName, hero)
+			elseif starEventName == "wb_cavern" then
+				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
+				starAmount = 1
+				if GameState:GetDifficultyFactor() >= 3 then
+					starAmount = 2
+				end
+				if GameState:GetDifficultyFactor() >= 3 and Winterblight.Stones >= 3 then
+					starAmount = 3
+				end
+				if categoryData.wb_cavern < starAmount then
+					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
+					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
+				end
+			elseif starEventName == "cavern_master" then
+				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
+				starAmount = 0
+				starAmount = Winterblight:GetStarValueForCavernMaster(hero)
+				if categoryData.cavern_master < starAmount then
+					CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "star_popout", {playerID = playerID, starAmount = starAmount, starTitle = starEventName, heroName = hero:GetUnitName()})
+					Stars:UpdateStarsOnServer(hero:GetUnitName(), starEventName, starAmount, hero:GetPlayerOwnerID())
+				end
 			elseif starEventName == "valdun" then
 				local categoryData = starData[HerosCustom:GetHeroIndex(hero:GetUnitName())]
 				starAmount = 1
@@ -392,12 +413,12 @@ function Stars:parseHeroData(player, resultTable)
 		for i = 1, #resultTable, 1 do
 			if herosTable[j] == resultTable[i].hero_name then
 				gotHero = true
-				table.insert(starsData, {hero_name = herosTable[j], power_up = resultTable[i].power_up, autumnmist = resultTable[i].autumnmist, shipyard = resultTable[i].shipyard, castle = resultTable[i].castle, wind = resultTable[i].wind, water = resultTable[i].water, fire = resultTable[i].fire, champleague = resultTable[i].champleague, pitoftrials = resultTable[i].pitoftrials, weapon = resultTable[i].weapon, serengaard = tonumber(resultTable[i].serengaard), serengaard_infinite = tonumber(resultTable[i].serengaard_infinite), valdun = resultTable[i].valdun, azalea = resultTable[i].azalea})
+				table.insert(starsData, {hero_name = herosTable[j], power_up = resultTable[i].power_up, autumnmist = resultTable[i].autumnmist, shipyard = resultTable[i].shipyard, castle = resultTable[i].castle, wind = resultTable[i].wind, water = resultTable[i].water, fire = resultTable[i].fire, champleague = resultTable[i].champleague, pitoftrials = resultTable[i].pitoftrials, weapon = resultTable[i].weapon, serengaard = tonumber(resultTable[i].serengaard), serengaard_infinite = tonumber(resultTable[i].serengaard_infinite), valdun = resultTable[i].valdun, azalea = resultTable[i].azalea, wb_cavern = resultTable[i].wb_cavern, cavern_master = resultTable[i].cavern_master})
 				grandTotalStars = grandTotalStars + resultTable[i].power_up + resultTable[i].autumnmist + resultTable[i].shipyard + resultTable[i].castle + resultTable[i].wind + resultTable[i].water + resultTable[i].fire + resultTable[i].champleague + resultTable[i].pitoftrials + resultTable[i].weapon + tonumber(resultTable[i].serengaard) + tonumber(resultTable[i].serengaard_infinite) + resultTable[i].valdun + resultTable[i].azalea
 			end
 		end
 		if not gotHero then
-			table.insert(starsData, {hero_name = herosTable[j], power_up = 0, autumnmist = 0, shipyard = 0, castle = 0, wind = 0, water = 0, fire = 0, champleague = 0, pitoftrials = 0, weapon = 0, serengaard = 0, serengaard_infinite = 0, valdun = 0, azalea = 0})
+			table.insert(starsData, {hero_name = herosTable[j], power_up = 0, autumnmist = 0, shipyard = 0, castle = 0, wind = 0, water = 0, fire = 0, champleague = 0, pitoftrials = 0, weapon = 0, serengaard = 0, serengaard_infinite = 0, valdun = 0, azalea = 0, wb_cavern = 0, cavern_master = 0})
 		end
 	end
 	local hero = GameState:GetHeroByPlayerID(player:GetPlayerID())

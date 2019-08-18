@@ -83,18 +83,30 @@ CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
 	local strength = hero.strength_custom + hero.str_bonus
+	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
+		local item = self.handItem
+		strength = item.newItemTable.property1
+	end
 	return tonumber(strength)
 end
 
 function CDOTA_BaseNPC_Hero:GetAgility()
 	local hero = self
 	local agility = hero.agility_custom + hero.agi_bonus
+	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
+		local item = self.handItem
+		agility = item.newItemTable.property1
+	end
 	return tonumber(agility)
 end
 
 function CDOTA_BaseNPC_Hero:GetIntellect()
 	local hero = self
 	local intelligence = hero.intellect_custom + hero.int_bonus
+	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
+		local item = self.handItem
+		intelligence = item.newItemTable.property1
+	end
 	return tonumber(intelligence)
 end
 
@@ -688,6 +700,7 @@ function CustomAttributes:SetAttributes(hero)
 	hero.str_bonus = str_bonus
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus
+
 	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence)})
 end
 
@@ -1092,5 +1105,11 @@ function CustomAttributes:MSCap(unit)
 		end
 	end
 	max_ms = math.max(local_max_ms, max_ms)
+	if unit:HasModifier("modifier_knight_hawk_helm") then
+		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
+	end
+	if unit:HasModifier("modifier_pegasus_boots") then
+		max_ms = max_ms + max_ms*(PEGASUS_MAX_MS_AMP_PCT/100)
+	end
 	return max_ms
 end

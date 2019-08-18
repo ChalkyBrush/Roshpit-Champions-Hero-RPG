@@ -50,7 +50,21 @@ function UpdateHeroStats(){
 			parent.FindChildTraverse("AgilityModifierLabel").style.visibility = "collapse"
 			parent.FindChildTraverse("IntelligenceLabel").text = heroAttributes.intelligence
 			parent.FindChildTraverse("IntelligenceModifierLabel").style.visibility = "collapse"
-
+			if (!(heroAttributes.tiamat === undefined) && heroAttributes.tiamat == 1){
+				parent.FindChildTraverse("StrengthLabel").style.color = '#6bdcff'
+				parent.FindChildTraverse("AgilityLabel").style.color = '#6bdcff'
+				parent.FindChildTraverse("IntelligenceLabel").style.color = '#6bdcff'
+				parent.FindChildTraverse("StrengthLabel").style.textShadow = '1px 1px 1px #262869'
+				parent.FindChildTraverse("AgilityLabel").style.textShadow = '1px 1px 1px #262869'
+				parent.FindChildTraverse("IntelligenceLabel").style.textShadow = '1px 1px 1px #262869'
+			}else{
+				parent.FindChildTraverse("StrengthLabel").style.color = '#cccccc'
+				parent.FindChildTraverse("AgilityLabel").style.color = '#cccccc'
+				parent.FindChildTraverse("IntelligenceLabel").style.color = '#cccccc'
+				parent.FindChildTraverse("StrengthLabel").style.textShadow = '0px 0px 4px 4 #00000088'
+				parent.FindChildTraverse("AgilityLabel").style.textShadow = '0px 0px 4px 4 #00000088'
+				parent.FindChildTraverse("IntelligenceLabel").style.textShadow = '0px 0px 4px 4 #00000088'
+			}
 			// var primaryAttribute = parseInt(heroAttributes.primaryAttribute)
 			// if (primaryAttribute == 0){
 			// 	$('#Hero_Strength_Icon').SetHasClass('primary_attribute', true)

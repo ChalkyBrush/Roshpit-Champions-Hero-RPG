@@ -74376,6 +74376,7 @@
             "particle"  "particles/units/heroes/hero_puck/puck_illusory_orb.vpcf"
             "particle"  "particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
             "particle"  "particles/units/heroes/hero_puck/puck_illusory_orb_main.vpcf"
+            "particle"  "particles/units/heroes/hero_puck/puck_illusory_orb_blink_out.vpcf"
         }
         "HealthBarOffset"   "220"
         "HasInventory"  "0"
@@ -83918,7 +83919,7 @@
         "Ability1"              "winterblight_raxxus_passive"
         "Ability2"              "fire_temple_frenzy"
         "Ability3"              "ability_stun_immunity"
-        "Ability3"              "dungeon_creep"  
+        "Ability4"              "dungeon_creep"  
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
@@ -84083,7 +84084,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "240000"
+        "StatusHealth"  "14000000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -87652,7 +87653,7 @@
         "SoundSet"  "Hero_DoomBringer"
         "precache"
         {
-            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevt"
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
             "particle"      "particles/units/heroes/hero_monkey_king/monkey_king_jump_stomp.vpcf"
             "particle"      "particles/roshpit/winterblight/zefnar_hit.vpcf"
             "particle"      "particles/roshpit/winterblight/zefnar_root_debuff.vpcf"
@@ -90684,7 +90685,7 @@
         "AttackRange"   "180"
         "BountyGoldMin" "60"
         "BountyGoldMax" "80"
-        "BountyXP" "9440"
+        "BountyXP" "1440"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -92667,6 +92668,4760 @@
 
     }
 
+    "winterblight_scouring_sherpa"
+    {
+
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/meepo/meepo.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "little_meepo"
+        "precache"
+        {
+            "soundfile" "soundevents/voscripts/game_sounds_vo_meepo.vsndevts"
+
+        }
+        
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1070"
+        "AttackDamageMax"   "1090"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"  "0"
+        "AttackRange"   "80"
+        "BountyGoldMin" "14"
+        "BountyGoldMax" "18"
+        "BountyXP" "14"
+        "BoundsHullName"  "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "30"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "228200"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "winterblight_gang_up"
+        "Ability2"  "winterblight_damage_sap"
+        "Ability3"  "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //weapon
+                "Wearable1"
+                {
+                    "ItemDef"   "4423"
+                }
+                //back
+                "Wearable2"
+                {
+                    "ItemDef"   "4911"
+                }
+                //shoulder
+                "Wearable3"
+                {
+                    "ItemDef"   "4421"
+                }
+                //head
+                "Wearable4"
+                {
+                    "ItemDef"   "7203"
+                }
+                //arms
+                "Wearable5"
+                {
+                    "ItemDef"   "7202"
+                }
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
+    "winterblight_skating_zealot"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/leshrac/leshrac.vmdl"
+        "ModelScale"    "0.75"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+            "particle"      "particles/units/heroes/hero_silencer/silencer_last_word_trigger.vpcf"
+            "particle"  "particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"
+        }
+        "SoundSet"      "Hero_Leshrac"
+        "ArmorPhysical" "10"
+        "MagicalResistance" "65"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "2000"
+        "AttackDamageMax"   "3000"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_base_attack_tormented.vpcf"
+        "AttackRange"   "460"
+        "BountyGoldMin" "250"
+        "BountyGoldMax" "250"
+        "BountyXP" "1100"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "60"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "220000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "creature_pure_strike"
+        "Ability2"  "armor_break"
+        "Ability3"  "winterblight_skating_passive"
+        "Ability4"  "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "5576"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "7730"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "347"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
+    "winterblight_relict"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/ice_biome/relict/relict.vmdl"
+        "ModelScale"    "0.84"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "precache"
+        {
+
+        }
+
+        "ArmorPhysical" "1"
+        "MagicalResistance" "40"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1568"
+        "AttackDamageMax"   "1700"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.42"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "170"
+        "BountyGoldMin" "70"
+        "BountyGoldMax" "90"
+        "BountyXP" "90"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "26"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "448400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+        }
+        "Ability1"  "relict_monkey_leap"
+        "Ability2"  "seafortress_ghost_seal_ability"
+        "Ability3"  "normal_steadfast"
+        "Ability4"  "dungeon_creep"
+        "Ability5"  "use_ability_1_position_ai"
+
+    }
+
+    "ferocious_polar_bear"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/ursa/ursa.vmdl"
+        "ModelScale"    "1.03"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Hook_Flinger"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet" "Hero_Ursa"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
+        }
+        "ArmorPhysical" "6"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "2500000"
+        "AttackDamageMax"   "2600000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "260"
+        "BountyGoldMin" "580"
+        "BountyGoldMax" "720"
+        "BountyXP" "2400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "18000000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "1000"
+        "StatusManaRegen"   "25"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_raxxus_passive"
+        "Ability2"              "normal_steadfast"
+        "Ability3"              "ursa_overpower"
+        "Ability4"              "winterblight_damage_sap"
+        "Ability5"              "dungeon_creep"  
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"           "584"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"           "5665"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"           "5667"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"           "5666"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"           "5668"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                    "Name"                "ursa_overpower"
+                }             
+            }
+        }
+    }
+
+    "ice_haunter"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/shadow_fiend/shadow_fiend.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "HasInventory"  "0"
+        "SelectionGroup"    "forest_boss"
+        "DefaultState"  "Invade"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "2000"
+        "AttackDamageMax"   "4000"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.25"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "450"
+        "ProjectileModel"   "particles/roshpit/chernobog/demon_form_attack.vpcf"
+        "ProjectileSpeed"   "1600"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP"  "300"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "40"
+        "CollisionSize" "100"
+        "SoundSet"      "Hero_Nevermore"
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+        }
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "460000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "torphet_cold_feet" 
+        "Ability2"              "winterblight_raxxus_passive"
+        "Ability3"              "winterblight_ice_vortex_aoe"
+        "Ability4"              "creature_pure_strike"
+        "Ability5"              "dungeon_creep"  
+        "Ability6"              "use_ability_1_target_ai"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //shoulders
+                "Wearable1"
+                {
+                    "ItemDef"   "486"
+                }
+                //arms
+                "Wearable2"
+                {
+                    "ItemDef"   "488"
+                }
+                //haed
+                "Wearable3"
+                {
+                    "ItemDef"   "6996"
+                }
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                    "Name"                "winterblight_ice_vortex_aoe"
+                }             
+            }
+        }
+ 
+    }
+
+    "winterblight_stone_guardian"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/props_structures/rock_golem/tower_radiant_rock_golem.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "particle"  "particles/radiant_fx/tower_good3_destroy_lvl3.vpcf"
+        }
+        "ArmorPhysical" "12"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "140"
+        "AttackDamageMax"   "180"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.1"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "1150"
+        "ProjectileModel" "particles/econ/events/ti9/rock_golem_tower/radiant_tower_attack.vpcf"
+        "ProjectileSpeed"   "800"
+        "BountyGoldMin" "60"
+        "BountyGoldMax" "80"
+        "BountyXP" "140"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "410"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "100"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "Ability1"          "winterblight_rock_guardian_passive"
+        "Ability2"          "armor_break_ultra"
+        "Ability3"          "dungeon_creep"
+    }
+
+    "winterblight_merkurio"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/monkey_king/monkey_king.vmdl"
+        "ModelScale"    "1.7"
+        "Level" "1"
+        "HealthBarOffset"   "290"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_MonkeyKing"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_monkey_king.vsndevts"
+            "soundfile" "soundevents/game_sounds_draghor.vsndevts"
+        }
+        "ArmorPhysical" "30"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "28000"
+        "AttackDamageMax"   "32000"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "240"
+        "BountyGoldMin" "1000"
+        "BountyGoldMax" "2000"
+        "BountyXP" "2000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "2400000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "monkey_king_boundless_strike"
+        "Ability2"      "winterblight_azalea_dragoon_passive"
+        "Ability3"      "winterblight_merkurio_passive"
+        "Ability4"      "mega_steadfast"
+        "Ability5"      "draghor_monkey_leap"
+        "Ability6"      "dungeon_creep"
+        "Ability7"      "cast_ability_1_position_ai"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9212"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9400"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12694"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12695"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_cavern_guide"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/dark_seer/dark_seer.vmdl"
+        "ModelScale"    "0.01"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"      "Hero_DarkSeer"
+        "precache"
+        {
+            "particle"      "particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf"
+            "particle"      "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf"
+            "particle"      "particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+            "particle"      "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_totem_buff_rocks.vpcf"
+            "particle"      "particles/units/heroes/hero_lone_druid/lone_druid_loadout.vpcf"
+            "particle"      "particles/roshpit/winterblight/cavern_guide_travel_ball_lightning.vpcf"
+        }
+        "ArmorPhysical" "7"
+        "MagicalResistance" "35"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "800"
+        "AttackDamageMax"   "900"
+        "AttackRate"    "0.3"
+        "AttackAnimationPoint"  "0.6"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP" "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "80000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "winterblight_cave_guide_ability"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "8874"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "8875"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8876"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8877"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "348"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "524"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "DrawParticlesWhileHidden" "1"
+    }
+
+    "winterblight_cavern_centaur"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/centaur/centaur.vmdl"
+        "ModelScale"    "0.95"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Centaur"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+            "particle"  "particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+            "particle"  "particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_track_haste.vpcf"
+            "particle"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf"
+        }
+        "ArmorPhysical" "60"
+        "MagicalResistance" "20"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "50000"
+        "AttackDamageMax"   "50200"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "210"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "900"
+        "BountyXP" "3600"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1200000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12608"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12610"
+                }   
+                "Wearable3"
+                {
+                    "ItemDef"   "9753"
+                }  
+                "Wearable4"
+                {
+                    "ItemDef"   "12607"
+                }    
+                "Wearable5"
+                {
+                    "ItemDef"   "12609"
+                }     
+                "Wearable6"
+                {
+                    "ItemDef"   "12606"
+                }     
+                "Wearable7"
+                {
+                    "ItemDef"   "9754"
+                }                 
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winter_centaur_stampede"
+                }         
+            }
+        }
+        "Ability1"  "seafortress_hoof_stomp"
+        "Ability2"  "seafortress_stun_regen"
+        "Ability3"  "winter_centaur_stampede"
+        "Ability4"  "normal_steadfast"
+        "Ability5"  "dungeon_creep"
+        "Ability6"  "use_ability_1_no_target_ai"
+    }
+
+    "azalea_mana_null"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/enigma/enigma.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "precache"
+        {
+            "particle"       "particles/roshpit/winterblight/mana_null_flare.vpcf"
+            "particle"      "particles/roshpit/winterblight/float_particle_.vpcf"
+        }
+        "HasInventory"  "0"
+        "SoundSet"              "Hero_Enigma"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "1"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "113600"
+        "AttackDamageMax"   "116000" 
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "800"
+        "ProjectileModel"   "particles/winterblight/mana_null_projectile.vpcf"
+        "ProjectileSpeed"   "1200"
+        "BountyXP" "620"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "290"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1804820"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "0"
+        "VisionDaytimeRange"    "2400"
+        "VisionNighttimeRange"  "2400"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12332"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12329"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12330"
+                }
+            }
+        }
+        "Ability1"      "mana_null_spirit_warp"
+        "Ability2"      "winterblight_mana_null_passive"
+        "Ability3"      "winterblight_crystal_meditation"
+        "Ability3"      "use_ability_1_position_ai"
+        "Ability4"      "dungeon_creep"
+    }
+
+    "winterblight_blood_wraith"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/grimstroke/grimstroke.vmdl"
+        "ModelScale"    "0.87"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts"
+        }
+        "HasInventory"  "0"
+        "SoundSet"              "Hero_Grimstroke"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "1"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100200"
+        "AttackDamageMax"   "200200" 
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "750"
+        "ProjectileModel"   "particles/units/heroes/hero_grimstroke/grimstroke_base_attack.vpcf"
+        "ProjectileSpeed"   "1200"
+        "BountyXP" "620"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1300000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "0"
+        "VisionDaytimeRange"    "2400"
+        "VisionNighttimeRange"  "2400"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "664"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "667"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "668"
+                }
+            }
+        }
+        "Ability1"      "curse_of_belial"
+        "Ability2"      "winterblight_blood_might_passive"
+        "Ability3"      "normal_steadfast"
+        "Ability4"      "use_ability_1_target_ai"
+        "Ability5"      "dungeon_creep"
+    }
+
+    "winterblight_cavern_ultra_ice"
+    {
+        "BaseClass"                 "npc_dota_creature" 
+        "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl"
+        "SoundSet"                  "Ancient_apparition"
+        "ModelScale"                "1.5"
+        "Level"                     "1"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/blue_beam_attack_light_ti_5.vpcf"
+            "particle"  "particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+        }
+        // Abilities
+        //--------------------------------
+        
+        "Ability1"                  "winterblight_ultra_ice_passive" 
+        "Ability2"                  "creature_pure_strike"      
+        "Ability3"                  "winterblight_crystal_meditation"         
+        "Ability4"                  "mega_steadfast"  
+        "Ability5"                  "armor_break"      
+        "Ability6"                  "dungeon_creep"         
+
+        // Armor
+        //--------------------------------
+        "ArmorPhysical"             "5"         // Physical protection.
+        "MagicalResistance"         "30"        // Magical protection.
+
+        // Attack
+        //--------------------------------
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "20"
+        "AttackDamageMax"   "30"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.37"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
+        "ProjectileSpeed"   "900"
+
+
+        // Bounty
+        //--------------------------------
+        "BountyXP"                  "30"   
+        "BountyGoldMin"             "30"     
+        "BountyGoldMax"             "40"    
+
+        // Bounds
+        //--------------------------------
+        "RingRadius"                "60"
+        "HealthBarOffset"           "200"
+        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"  
+        "CollisionSize"             "120"
+
+        // Movement
+        //--------------------------------
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
+        "MovementSpeed"             "340"        // Speed
+        "MovementTurnRate"          "0.4"       // Turning rate.
+
+        // Status
+        //--------------------------------
+        "StatusHealth"              "3024400"       // Base health.
+        "StatusHealthRegen"         "1"      // Health regeneration rate.
+        "StatusMana"                "500"         // Base mana.
+        "StatusManaRegen"           "50"         // Mana regeneration rate.
+
+        // Team
+        //--------------------------------
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"         // Team name.
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        // Vision
+        //--------------------------------
+        "VisionDaytimeRange"        "1400"      // Range of vision during day light.
+        "VisionNighttimeRange"      "1400"      // Range of vision at night time.
+
+        // Creature Data
+        //------------------------------------------------------------
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12572"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "12571"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12570"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "12569"
+                }
+            }
+        }
+    }
+
+    "drill_digger"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/magnataur/magnataur.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+            "particle"  "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
+            "particle"  "particles/roshpit/winterblight/drill_digger_counter.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Magnatuar"
+        "ArmorPhysical" "35"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "865000"
+        "AttackDamageMax"   "955000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "215"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "2500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1600400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "drill_digger_passive" //quake on every 3rd attack
+        "Ability2"      "drill_crusher"        //attacks ignore armor
+        "Ability3"      "winterblight_azalea_dragoon_passive" //cant be damaged from distance
+        "Ability4"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8675"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "9971"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "9972"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "9974"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9973"
+                }
+            }
+        }
+    }
+
+    "winter_cavern_bat"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/neutral_creeps/n_creep_gargoyle/n_creep_gargoyle.vmdl"
+        "ModelScale"    "0.88"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_Visage"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+        }
+        "ArmorPhysical" "1"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "400400"
+        "AttackDamageMax"   "500400"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "500"
+        "ProjectileModel"           "particles/units/heroes/hero_rubick/rubick_base_attack.vpcf"
+        "AttackRange"   "500"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "945000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "creature_heart_spike"
+        "Ability2"              "armor_break"     
+        "Ability3"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "cavern_pantheon_knight"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/phantom_lancer/phantom_lancer.vmdl"
+        "ModelScale"    "1.04"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "soundfile"       "soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"   
+        }
+        "ArmorPhysical" "120"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "150000"
+        "AttackDamageMax"   "200000"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "70"
+        "BountyXP" "220"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1600000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9299"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9301"
+                }   
+                "Wearable3"
+                {
+                    "ItemDef"   "9300"
+                }  
+                "Wearable4"
+                {
+                    "ItemDef"   "12909"
+                } 
+                "Wearable5"
+                {
+                    "ItemDef"   "9302"
+                }  
+                "Wearable6"
+                {
+                    //head
+                    "ItemDef"   "127"
+                }               
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "600.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+             
+            }
+
+        }
+        "Ability1"  "pantheon_deceptive_light"
+        "Ability2"  "winterblight_armor_softening"
+        "Ability3"  "dungeon_creep"
+    }
+
+    "barbed_mole"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/bristleback/bristleback.vmdl"
+        "ModelScale"    "1.1"
+        "Level" "1"
+        "HealthBarOffset"   "150"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Hook_Flinger"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet" "Hero_Bristleback"
+        "precache"
+        {
+            "particle"      "particles/roshpit/arena/drill_spike.vpcf"
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_bristleback.vsndevts"
+        }
+
+        "ArmorPhysical" "45"
+        "MagicalResistance" "10"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "600000"
+        "AttackDamageMax"   "600000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "90"
+        "BountyGoldMin" "580"
+        "BountyGoldMax" "720"
+        "BountyXP" "300"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "82000"
+        "StatusHealthRegen" "10"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "husker_dig"
+        "Ability2"              "drill_crusher"
+        "Ability3"              "use_ability_1_position_ai"
+        "Ability4"              "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"           "5766"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"           "9150"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"           "8391"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"           "5765"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"           "5762"
+                }
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                    "Name"                "husker_dig"
+                }       
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_cloaked_phantasm"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/razor/razor.vmdl"
+        "ModelScale"    "1.12"
+        "Level" "1"
+        "HealthBarOffset"   "210"
+        "HasInventory"  "0"
+        "SelectionGroup"    "mines_boss"
+        "DefaultState"  "Invade"
+        "ConsideredHero"   "0"
+        "SoundSet"          "Hero_Enigma"
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_razor/razor_static_link.vpcf"
+        }
+        "ArmorPhysical" "100"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "200000"
+        "AttackDamageMax"   "300000"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "550"
+        "ProjectileModel"   "particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf"
+        "ProjectileSpeed"   "1000"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP"  "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "40"
+        "CollisionSize" "100"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "8065000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12812"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12814"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12813"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12810"
+                }
+            }
+            "OffensiveAbilities"
+            {
+                      
+            }
+
+        }
+        "Ability1"  "heartfreezer_blink"
+        "Ability2"  "armor_break"
+        "Ability3"  "orthok_split_attack"
+        "Ability4"  "normal_steadfast"
+        "Ability5"  "use_ability_1_position_ai"
+        "Ability6"  "dungeon_creep"
+    }
+
+    "winterblight_boar"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/beastmaster/boar/legacy_of_the_nords_battle_boar/legacy_of_the_nords_battle_boar.vmdl"
+        "ModelScale"    "0.8"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
+        }
+
+        "ArmorPhysical" "3"
+        "MagicalResistance" "30"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "32148"
+        "AttackDamageMax"   "35188"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "1"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "234850"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "dungeon_creep"
+        "Ability2"  "winterblight_tanky"
+        "Ability3"  "winterblight_stun_regen"
+
+    }
+
+    "winterblight_corporeal_revenant"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/lycan/lycan.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Lycan"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+            "particle"  "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
+        }
+        "ArmorPhysical" "6"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "132000"
+        "AttackDamageMax"   "140000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "115"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "40"
+        "BountyXP" "700"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "1280000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "500"
+        "StatusManaRegen"   "100"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "heartfreezer_blink"
+        "Ability2"      "winter_cavern_spark"
+        "Ability3"      "normal_steadfast"
+        "Ability4"      "use_ability_1_position_ai"
+        "Ability5"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12895"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12898"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12894"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12897"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "12575"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winter_cavern_spark"
+                }         
+            }
+
+        }
+    }
+
+    "winterblight_cavern_beguiler"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/rikimaru/rikimaru.vmdl"
+        "ModelScale"    "1.08"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Riki"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
+            "particle"  "particles/units/heroes/hero_siren/siren_net.vpcf"
+            "particle"  "particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+            "particle"  "particles/roshpit/auriun/heavens_shield_shadow_oval_highlight.vpcf"
+        }
+        "ArmorPhysical" "4"
+        "MagicalResistance" "20"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "32500"
+        "AttackDamageMax"   "38620"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "160"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP" "920"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "800000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "561"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "322"
+                }   
+                "Wearable3"
+                {
+                    "ItemDef"   "5327"
+                }  
+                "Wearable4"
+                {
+                    "ItemDef"   "7976"
+                }    
+                "Wearable5"
+                {
+                    "ItemDef"   "7332"
+                }     
+                "Wearable6"
+                {
+                    "ItemDef"   "7331"
+                }                
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "600.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winterblight_disappearing_act"
+                }          
+            }
+
+        }
+        "Ability1"  "winterblight_ensnare"
+        "Ability2"  "winterblight_disappearing_act"
+        "Ability3"  "use_ability_1_target_ai"
+        "Ability4"  "dungeon_creep"
+    }
+
+    "winterblight_fungal_shaman"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/shadowshaman/shadowshaman.vmdl"
+        "ModelScale"    "1.1"
+        "Level" "1"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+        }
+        "SoundSet"                  "Hero_ShadowShaman"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "17500"
+        "AttackDamageMax"   "19000"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf"
+        "AttackRange"   "450"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "70"
+        "BountyXP" "1100"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "70"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "330"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "975000"
+        "StatusHealthRegen" "10"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "winterblight_confusional_spores"
+        "Ability2"      "armor_break"
+        "Ability3"      "use_ability_1_no_target_ai"
+        "Ability4"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9907"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9909"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9908"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "251"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
+    "crystarium_heart_slayer"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/medusa/medusa.vmdl"
+        "ModelScale"    "1.04"
+        "Level" "1"
+        "HealthBarOffset"   "270"
+        "SoundSet"          "Hero_Medusa"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "26000"
+        "AttackDamageMax"   "28000"
+        "AttackRate"    "1.12"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1200"
+        "ProjectileModel"           "particles/units/heroes/hero_medusa/medusa_base_attack.vpcf"
+        "AttackRange"   "940"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "170"
+        "BountyXP" "405"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "70"
+        "FormationRank" "2"
+
+        "BuildTime" "26"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "520"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "926000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "winterblight_tweaking_arrow"
+        "Ability2"      "tanari_soul_arrows"
+        "Ability3"      "drill_crusher"
+        "Ability4"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "5097"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8196"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12623"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8194"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "7911"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "531"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+    }
+
+    "fungal_minion"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/furion/treant/fungal_lord_shroomthing/fungal_lord_shroomthing.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "SoundSet"  "Hero_Slardar"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+            "particle"      "particles/units/heroes/hero_riki/bog_monster_poison_cloud.vpcf"
+        }
+        "ArmorPhysical" "3"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "288"
+        "AttackDamageMax"   "398"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "70"
+        "BountyGoldMax" "90"
+        "BountyXP" "200"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "26"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "355200"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "winterblight_fungal_minion"
+        "Ability2"  "dungeon_creep"
+
+    }
+
+    "winterblight_skull_hunter"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/bounty_hunter/bounty_hunter.vmdl"
+        "ModelScale"    "1.1"
+        "Level" "1"
+        "HealthBarOffset"   "190"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_BountyHunter"
+        "precache"
+        {
+           "soundfile" "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+        }
+        "ArmorPhysical" "3"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100000"
+        "AttackDamageMax"   "400000"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "100"
+        "BountyGoldMin" "80"
+        "BountyGoldMax" "90"
+        "BountyXP" "42"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "560000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "relict_monkey_leap"
+        "Ability2"      "juggernaut_blade_dance"
+        "Ability3"          "ability_magic_immune_break"
+        "Ability4"      "use_ability_1_position_ai"
+        "Ability5"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12641"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8950"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "5687"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "6693"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_syphist"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/faceless_void/faceless_void.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "precache"
+        {
+
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ArcWarden"
+        "ArmorPhysical" "12"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "3555"
+        "AttackDamageMax"   "4555"
+        "AttackRate"    "1.7"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "150"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "BountyXP" "3400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1300000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7377"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "6282"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "7378"
+                }
+
+            }
+        }
+        "Ability1"          "winterblight_syphon"
+        "Ability2"          "dungeon_creep"
+    }
+
+    "reclusive_mundunugu"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/huskar/huskar.vmdl"
+        "ModelScale"    "1.5"
+        "Level" "1"
+        "HealthBarOffset"   "210"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ShadowShaman"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+            "particle"  "particles/roshpit/winterblight/spirit_ring_reduced_flash.vpcf"
+            "particle"  "particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_flash_light.vpcf"
+        }
+        
+        "ArmorPhysical" "15"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "140000"
+        "AttackDamageMax"   "160000"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "220"
+        "AttackRange"               "720"
+        "ProjectileModel"           "particles/units/heroes/hero_shadowshaman/shadowshaman_base_attack.vpcf"
+        "ProjectileSpeed"           "1400"  
+        "BountyGoldMin" "2300"
+        "BountyGoldMax" "3400"
+        "BountyXP" "3100"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "6160000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"       
+        "Ability1"              "winterblight_spirit_ring"
+        "Ability2"              "winterblight_distance_cap_aura"
+        "Ability3"              "winterblight_armor_softening"
+        "Ability4"              "luna_taskmaster_shield"
+        "Ability5"              "mega_steadfast"
+        "Ability6"              "dungeon_creep"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9295"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12756"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "4299"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12755"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                    "Name"                "winterblight_spirit_ring"
+                }       
+            }
+
+        }
+    }
+
+    "winterblight_crystalist"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
+        "ModelScale"    "1.15"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "SoundSet"          "Hero_NyxAssassin"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+             "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "MagicalResistance" "65"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "24000"
+        "AttackDamageMax"   "28000"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.6"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "140"
+        "BountyGoldMax" "150"
+        "BountyXP" "270"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "327260"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "arena_conquest_impale"
+        "Ability2"              "use_ability_1_position_ai"
+        "Ability3"              "winterblight_aeon_shield"
+        "Ability4"              "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "12245"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "5926"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12957"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8832"
+                }
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+    }
+
+    "winterblight_zect_rider"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/disruptor/disruptor.vmdl"
+        "ModelScale"    "0.95"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+            "particle"  "particles/units/heroes/hero_disruptor/disruptor_thunder_strike_buff.vpcf"
+            "particle"  "particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
+            "particle"  "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
+            "particle"  "particles/units/heroes/hero_zuus/zuus_lightning_bolt_start.vpcf"
+            "particle"  "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Disruptor"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/units/heroes/hero_disruptor/disruptor_base_attack.vpcf"
+        "ProjectileSpeed"   "600"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1200.0"
+        "AttackDamageMax"   "1500.0"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "400"
+        "BountyGoldMin" "60"
+        "BountyGoldMax" "80"
+        "BountyXP" "2440"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "395"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "340000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "80"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7779"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9381"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8055"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "6948"
+                }
+            }
+        }
+        "Ability1"          "zect_rider_thunder_strike"
+        "Ability2"          "zect_rider_arc_lightning"
+        "Ability3"          "zect_rider_lightning_bolt"
+        "Ability4"          "zect_rider_passive"
+        "Ability5"          "dungeon_creep"
+    }
+
+    "winterblight_mushroom_pixie"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/dark_willow/dark_willow.vmdl"
+        "ModelScale"    "0.95"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_dark_willow.vsndevts"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_DarkWillow"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/units/heroes/hero_dark_willow/dark_willow_base_attack.vpcf"
+        "ProjectileSpeed"   "600"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "4200.0"
+        "AttackDamageMax"   "4500.0"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "600"
+        "BountyGoldMin" "60"
+        "BountyGoldMax" "80"
+        "BountyXP" "2440"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "425"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "520000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "80"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12470"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "13088"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "13089"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12467"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "13087"
+                }
+            }
+        }
+        "Ability1"          "radium_spores"
+        "Ability2"          "redfall_hell_bandit_ability"
+        "Ability3"          "use_ability_1_target_ai"
+        "Ability4"          "dungeon_creep"
+    }
+
+    "crystarium_brood_spider"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/broodmother/broodmother.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+            "particle"  "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Broodmother"
+        "ArmorPhysical" "25"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "116500"
+        "AttackDamageMax"   "132500"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "165"
+        "BountyGoldMin" "15"
+        "BountyGoldMax" "20"
+        "BountyXP" "2500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1600400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "arena_pit_spider_gale"
+        "Ability2"      "winterblight_frostbite_attack"
+        "Ability3"      "normal_steadfast"
+        "Ability4"      "use_ability_1_position_ai"
+        "Ability5"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8859"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9090"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8858"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8860"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "566"
+                }
+            }
+        }
+    }
+
+    "winterblight_icixel"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/sand_king/sand_king.vmdl"
+        "ModelScale"    "0.89"
+        "Level" "4"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_SandKing"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+            "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf"
+        }
+        "ArmorPhysical" "10"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "130040"
+        "AttackDamageMax"   "150080"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "80"
+        "BountyXP" "1200"
+        "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
+        "RingRadius"    "50"
+        "CollisionSize" "32"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "310"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3215670"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12820"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12816"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12818"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12819"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "12817"
+                }
+
+            }
+
+        }
+        "Ability1"  "icicle_barrage"
+        "Ability2"  "winterblight_frost_colossus_passive"
+        "Ability3"  "use_ability_1_target_ai"
+        "Ability4"  "dungeon_creep"
+    }
+
+    "winterblight_toki_toki"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/witchdoctor/witchdoctor.vmdl"
+        "ModelScale"    "0.97"
+        "SoundSet"              "Hero_WitchDoctor"
+        "precache"
+        {
+            "particle"        "particles/roshpit/winterblight/shroom_procure.vpcf"
+            "model"           "maps/cavern_assets/models/spores/spores_cavern_01.vmdl"
+        }
+        "Level" "1"
+        "HealthBarOffset"   "160"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "7"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "14000"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.25"
+        "AttackAcquisitionRange"    "0"
+        "AttackRate"    "1.3"
+        "AttackRange"   "550"
+        "ProjectileModel"   "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf"
+        "ProjectileSpeed"   "860"
+        "BountyGoldMin" "140"
+        "BountyGoldMax" "160"
+        "BountyXP" "2200"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "390"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "3250000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "1000"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "9937"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9934"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9935"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9933"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9936"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "Ability1"          "winterblight_shroom_procurement"
+        "Ability2"          "luna_taskmaster_shield"
+        "Ability3"          "dungeon_creep"
+    }
+
+    "winterblight_demented_mushroom"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model"  "models/items/witchdoctor/wd_ward/ti8_wd_spore_gardener_spore_abomination_ti8/ti8_wd_spore_gardener_spore_abomination_ti8.vmdl"
+        "SoundSet"  "Creep_Good_Range"
+        "Level" "1"
+        "UnitLabel" "healing_ward"
+        "ModelScale"    "1.26"
+        "HealthBarOffset"   "340"
+        "Ability1"  "winterblight_demented_mushroom_passive"
+        "Ability2"  "winterblight_shroom_procurement"
+        "Ability3"  ""
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/demented_shroom_proj.vpcf"
+            "particle"  "particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf"
+        }
+        "ArmorPhysical" "4"
+        "MagicalResistance" "95"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageMin"   "0"
+        "AttackDamageMax"   "0"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "3"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "1000"
+        "ProjectileSpeed"   "900"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "220"
+        "MovementTurnRate"  "2"
+        "FollowRange"   "0"
+        "StatusHealth"  "1000000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "AttackDesire"  "1.5"
+    }
+
+    "winterblight_ghost_of_aurora"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/vengeful/vengeful.vmdl"
+        "ModelScale"    "1.1"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+
+        "SoundSet"              "Hero_Winter_Wyvern"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+        }
+        "ArmorPhysical" "15"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
+        "ProjectileSpeed"   "1000"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "15001"
+        "AttackDamageMax"   "17001"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.33"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "1250"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP" "4900"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "2310000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"  "heartfreezer_blink"
+        "Ability2"              "winterblight_dimension_spear"
+        "Ability3"              "luna_taskmaster_shield"
+        "Ability4"              "use_ability_1_position_ai"
+        "Ability5"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9891"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8919"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8918"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "7796"
+                }
+            }
+        }
+    }
+
+    "winterblight_cavern_bovaur"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/spirit_breaker/spirit_breaker.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "290"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_spirit_breaker"
+        "precache"
+        {
+            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+        }
+        "ArmorPhysical" "6"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "8000"
+        "AttackDamageMax"   "10200"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "200"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "400"
+        "BountyXP" "1150"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "340000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "three_perceptions"
+        "Ability2"      "redfall_ghost_mace"
+        "Ability3"      "use_ability_1_no_target_ai"
+        "Ability4"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "106"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12827"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12831"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12830"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "12828"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "12829"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_icestealer"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/life_stealer/life_stealer.vmdl"
+        "ModelScale"    "1.37"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"      "Hero_LifeStealer"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+            "particle"  "particles/units/heroes/hero_life_stealer/life_stealer_rage_cast.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1400"
+        "AttackDamageMax"   "1800"
+        "AttackRate"    "2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "1500"
+        "AttackRange"   "90"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "40"
+        "BountyXP" "110"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "13000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                //head
+                "Wearable1"
+                {
+                    "ItemDef"   "7395"
+                }
+                //belt
+                "Wearable2"
+                {
+                    "ItemDef"   "7394"
+                }
+                //back
+                "Wearable3"
+                {
+                    "ItemDef"   "7393"
+                }
+                //arms
+                "Wearable4"
+                {
+                    "ItemDef"   "7392"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                    "Name"                "life_stealer_rage"
+                    "AOE"                "1"
+                    "Radius"             "300"
+                    "MinimumTargets"     "1"
+                }             
+            }
+
+        }
+        "Ability1"  "life_stealer_rage"
+        "Ability2"  "winterblight_fencer_opportunity"
+        "Ability3"  "winterblight_gravekeeper"
+        "Ability4"  "normal_steadfast"  
+        "Ability5"  "dungeon_creep"
+    }
+
+    "winterblight_cavern_overwhelmer"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/abyssal_underlord/abyssal_underlord_v2.vmdl"
+        "ModelScale"    "1.08"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"      "Hero_AbyssalUnderlord"
+        "IdleExpression"        "scenes/abyssal_underlord/abyssal_underlord_exp_idle_01.vcd"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
+            "particle"      "particles/roshpit/chernobog/demon_hunter.vpcf"
+        }
+        "ArmorPhysical" "2"
+        "MagicalResistance" "5"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "5540000"
+        "AttackDamageMax"   "6540000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "180"
+        "BountyGoldMin" "1680"
+        "BountyGoldMax" "2970"
+        "BountyXP" "1500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "90"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "8730000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+                "Wearable1"
+                {
+                    "ItemDef"   "622"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12295"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12293"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12294"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "winterblight_frost_overwhelming"
+        "Ability2"  "winterblight_raxxus_passive"
+        "Ability3"  "normal_steadfast"
+        "Ability4"  "winterblight_tanky"
+        "Ability5"  "dungeon_creep"
+        
+    }
+
+    "winterblight_giant_snow_crab"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/darkreef/prisoner_crab/darkreef_prisoner_crab.vmdl"
+        "ModelScale"    "1.34"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "precache"
+        {
+
+        }
+
+        "ArmorPhysical" "1"
+        "MagicalResistance" "40"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "3488"
+        "AttackDamageMax"   "4098"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "1"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "150"
+        "BountyGoldMin" "70"
+        "BountyGoldMax" "90"
+        "BountyXP" "90"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "26"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "9004400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "winterblight_giant_snow_crab_passive"
+        "Ability2"  "dungeon_creep"
+
+    }
+
+    "winterblight_servant_of_saturn"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/terrorblade/terrorblade.vmdl"
+        "ModelScale"    "1.37"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Terrorblade"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
+            "particle"      "particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_cast.vpcf"
+            "particle"      "particles/econ/items/batrider/burning_jack_bomber/burning_jack_bomber_lower.vpcf"
+        }
+        "ArmorPhysical" "20"
+        "MagicalResistance" "10"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "150000"
+        "AttackDamageMax"   "180000"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "900"
+        "BountyXP" "2020"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "470"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3500000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7035"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9499"
+                }   
+                "Wearable3"
+                {
+                    "ItemDef"   "8176"
+                }  
+                "Wearable4"
+                {
+                    "ItemDef"   "8178"
+                }             
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "600.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+         
+            }
+
+        }
+
+        "Ability1"  "creature_pure_strike"
+        "Ability2"  "winterblight_raxxus_passive"
+        "Ability3"  "mega_steadfast"
+        "Ability4"  "luna_taskmaster_shield"
+        "Ability5"  "seafortress_fragmenter_aura"
+        "Ability6"  "dungeon_creep"
+    }
+
+    "winterblight_zodiac_oracle"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/storm_spirit/storm_spirit.vmdl"
+        "ModelScale"    "1.15"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "champion"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"  "Hero_StormSpirit"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+            "particle"  "particles/roshpit/omniro/chrono_path_sphere.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100000"
+        "AttackDamageMax"   "100000"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.29"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
+        "ProjectileSpeed"   "1400"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "500"
+        "BountyXP"  "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "32"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "2175000"
+        "StatusHealthRegen" "3"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_dome_of_aquarius"
+        "Ability2"              "creature_pure_strike"
+        "Ability3"              "use_ability_1_position_ai"
+        "Ability4"              "dungeon_creep"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8247"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "9799"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12415"
+                }
+            }
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+        }
+    }
+
+    "winterblight_cavern_thunderhide"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_big.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "SoundSet"                  "n_creep_Ranged"
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
+            "model"     "models/props_winter/egg.vmdl"
+            "model"     "models/props_winter/egg_shatter_01.vmdl"
+            "model"     "models/props_winter/egg_shatter_02.vmdl"
+            "model"     "models/props_winter/egg_shatter_03.vmdl"
+            "model"     "models/props_winter/egg_shatter_04.vmdl"
+            "model"     "models/custom_egg.vmdl"
+            "model"     "models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl"
+        }
+
+        "ArmorPhysical" "125"
+        "MagicalResistance" "90"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"       "particles/neutral_fx/thunderlizard_base_attack.vpcf"
+        "ProjectileSpeed"       "1500"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "32148"
+        "AttackDamageMax"   "35188"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "440"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "330"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "12345000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "dungeon_creep"
+        "Ability2"  "winterblight_tanky"
+
+    }
+
+    "winterblight_aurora_boss_1"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/ice_biome/ogreseal/ogreseal_undead.vmdl"
+        "ModelScale"    "2.75"
+        "Level" "1"
+        "SoundSet"       "Hero_Undying"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+        }
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "55"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "404000"
+        "AttackDamageMax"   "504000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "350"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "6450000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_aurora_4_boss_passive"
+        "Ability2"              "three_perceptions"
+        "Ability3"              "winterblight_spirit_ring"
+        "Ability4"              "winterblight_ice_vortex_aoe"
+        "Ability5"              "normal_steadfast"
+        "Ability6"              "armor_break_ultra"
+        "Ability7"              "dungeon_creep"  
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_aurora_boss_2"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/knoll_1/werewolf_boss.vmdl"
+        "ModelScale"    "4.25"
+        "Level" "1"
+        "SoundSet"                  "Hero_Bloodseeker"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
+        }
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "15"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "4040000"
+        "AttackDamageMax"   "5040000"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "220"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "4950000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_aurora_4_boss_passive"
+        "Ability2"              "winterblight_mountain_god_passive"
+        "Ability3"              "curse_of_belial"
+        "Ability4"              "winterblight_blood_might_passive"
+        "Ability5"              "ability_mega_haste"
+        "Ability6"              "mega_steadfast"
+        "Ability7"              "dungeon_creep"  
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_aurora_boss_3"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/ice_biome/giant/ice_giant01.vmdl"
+        "ModelScale"    "4.00"
+        "Level" "1"
+        "precache"
+        {
+
+        }
+        "SoundSet"              "hero_Crystal"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "15"
+        "MagicalResistance" "80"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "204000"
+        "AttackDamageMax"   "304000"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "1050"
+        "ProjectileModel" "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
+        "ProjectileSpeed"   "700"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "6150000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_aurora_4_boss_passive"
+        "Ability2"              "icicle_barrage"
+        "Ability3"              "winterblight_dome_of_aquarius"
+        "Ability4"              "creature_pure_strike"
+        "Ability5"              "mega_steadfast"
+        "Ability6"              "dungeon_creep"  
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_space_shark"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/nightstalker/nightstalker.vmdl"
+        "ModelScale"    "1.1"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "mountain_destroyer"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_NightStalker"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
+            "particle"  "particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf"
+        }
+        "DrawParticlesWhileHidden" "1"
+        "ArmorPhysical" "18"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "40000"
+        "AttackDamageMax"   "50000"
+        "AttackRate"    "0.6"
+        "AttackAnimationPoint"  "0.7"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "180"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "80"
+        "BountyXP" "2300"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "80"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3800000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "50"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12280"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12284"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12283"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12281"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "5087"
+                }
+            }
+        }
+        "Ability1"          "winterblight_space_shark_passive"
+        "Ability2"          "normal_steadfast"
+        "Ability3"          "magic_immune_break"
+        "Ability4"          "dungeon_creep"
+    }
+
+    "winterblight_star_eater"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/obsidian_destroyer/obsidian_destroyer.vmdl"
+        "ModelScale"    "0.9"
+        "Level" "1"
+        "HealthBarOffset"   "320"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_ObsidianDestroyer"
+        "precache"
+        {
+            "particle"          "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+        }
+        "ArmorPhysical" "5"
+        "MagicalResistance" "25"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "200400"
+        "AttackDamageMax"   "300400"
+        "AttackRate"    "1.44"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "700"
+        "ProjectileModel"           "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf"
+        "AttackRange"   "800"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "380"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "3250000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_astral_weapon"
+        "Ability2"              "winterblight_star_eater_passive"
+        "Ability3"              "winterblight_aeon_shield"
+        "Ability4"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7069"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9765"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9367"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9370"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "90"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winter_bone_blister"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/lich/lich.vmdl"
+        "ModelScale"    "1.1"
+        "Level" "4"
+        "HealthBarOffset"   "190"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Lich"
+        "precache"
+        {
+            "particle"  "particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "300100"
+        "AttackDamageMax"   "300400"
+        "ProjectileSpeed"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_lich/lich_base_attack.vpcf"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "450"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP" "400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "5800000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "heartfreezer_blink"
+        "Ability2"      "winterblight_bone_blister_passive"
+        "Ability3"      "luna_taskmaster_shield"
+        "Ability4"      "creature_pure_strike"
+        "Ability4"      "use_ability_1_position_ai"
+        "Ability5"      "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7576"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12636"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12796"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9560"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "7063"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_galaxy_knight"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/sven/sven.vmdl"
+        "ModelScale"    "1.16"
+        "Level" "1"
+        "HealthBarOffset"   "290"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_Sven"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+            "particle"  "particles/econ/items/enigma/enigma_absolute_armour/enigma_absolute_armour_body_ambient.vpcf"
+            "particle"  "particles/status_fx/status_effect_enigma_malefice.vpcf"
+        }
+        "ArmorPhysical" "35"
+        "MagicalResistance" "50"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "35000"
+        "AttackDamageMax"   "45000"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "260"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP" "240"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "4400000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "Ability1"          "winterblight_galaxy_knight_passive"
+        "Ability2"          "winterblight_armor_softening"
+        "Ability3"          "normal_steadfast"
+        "Ability4"          "dungeon_creep"
+        "TeamName"           "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12987"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12991"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12989"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12988"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "12992"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "12990"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+
+            }
+        }
+    }
+
+    "winterblight_frozen_krow"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/visage/visage.vmdl"
+        "ModelScale"    "0.95"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_Visage"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+            "particle"  "particles/roshpit/winterblight/ellipsis_wave.vpcf"
+        }
+        "ArmorPhysical" "3"
+        "MagicalResistance" "90"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "400400"
+        "AttackDamageMax"   "500400"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "600"
+        "ProjectileModel"           "particles/units/heroes/hero_visage/visage_base_attack.vpcf"
+        "AttackRange"   "500"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "310"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "9450000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "ellipsis_wave"
+        "Ability2"              "winterblight_crystal_meditation"
+        "Ability3"              "use_ability_1_position_ai"
+        "Ability4"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12864"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12863"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "543"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+    }
+
+    "winterblight_mind_chatterer"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/rubick/rubick.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "300"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts"
+            "particle"      "particles/roshpit/seafortress/ghost_tyrant_area_portrait.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Rubick"
+        "ArmorPhysical" "4"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf"
+        "ProjectileSpeed"   "700"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "100650"
+        "AttackDamageMax"   "100850"
+        "AttackRate"    "1.3"
+        "AttackAnimationPoint"  "0.48"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "545"
+        "BountyGoldMin" "15"
+        "BountyGoldMax" "20"
+        "BountyXP" "285"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1020000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_brain_freeze"
+        "Ability2"              "winterblight_raxxus_passive"
+        "Ability3"              "normal_steadfast"
+        "Ability4"              "use_ability_1_position_ai"
+        "Ability5"              "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8710"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9715"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "7026"
+                }
+            }
+        }
+    }
+
+    "winterblight_wintertide_monk"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/zuus/zuus.vmdl"
+        "ModelScale"    "1.16"
+        "Level" "1"
+        "HealthBarOffset"   "260"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Hook_Flinger"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"      "Hero_DarkSeer"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
+            "particle"  "particles/roshpit/winterblight/wintertide_totem.vpcf"
+            "particle"  "particles/units/heroes/hero_arc_warden/arc_warden_death.vpcf"
+            "model"     "models/heroes/juggernaut/jugg_healing_ward.vmdl"
+        }
+        "ArmorPhysical" "10"
+        "MagicalResistance" "35"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "ProjectileSpeed"       "840"
+        "ProjectileModel"       "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "85000"
+        "AttackDamageMax"   "94000"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.6"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "130"
+        "BountyGoldMin" "200"
+        "BountyGoldMax" "300"
+        "BountyXP" "3400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "380"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "1024000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "0"
+        "VisionDaytimeRange"    "1000"
+        "VisionNighttimeRange"  "1000"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "winterblight_wintertide_totem_base"
+        "Ability2"      "winterblight_raxxus_passive"
+        "Ability3"      "winterblight_stun_regen"
+        "Ability4"      "fire_temple_frenzy"
+        "Ability5"      "use_ability_1_position_ai"
+        "Ability6"      "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"           "593"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"           "605"
+                }
+            }
+        }
+
+    }
+
+    "winterblight_winters_chieftain"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/alchemist/alchemist.vmdl"
+        "ModelScale"    "1.4"
+        "Level" "1"
+        "HealthBarOffset"   "190"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2" 
+        "SoundSet"              "Hero_Alchemist"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+        }
+
+        "ArmorPhysical" "15"
+        "MagicalResistance" "15"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "200000"
+        "AttackDamageMax"   "300000"
+        "AttackRate"    "1.7"
+        "AttackAnimationPoint"  "0.35"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "140"
+        "BountyGoldMin" "500"
+        "BountyGoldMax" "600"
+        "BountyXP" "3000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "375"
+        "MovementTurnRate"  "0.2"
+        "StatusHealth"  "8000000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "seafortress_golden_shell"
+        "Ability2"  "winterblight_ogre_armor"
+        "Ability3"  "normal_steadfast"
+        "Ability4"  "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12703"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12702"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12699"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12698"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9315"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "124"
+                }
+                "Wearable7"
+                {
+                    "ItemDef"   "12697"
+                }
+                "Wearable8"
+                {
+                    "ItemDef"   "123"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+   
+            }
+
+        }
+    }
+
+    "winterblight_cavern_gigarraun"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/earthshaker/earthshaker.vmdl"
+        "ModelScale"    "2.45"
+        "Level" "1"
+        "HealthBarOffset"   "265"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+            "particle"  "particles/roshpit/seafortress/alt_big_dust.vpcf"
+            "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start.vpcf"
+            "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_echoslam_start_dust.vpcf"
+            "particle"  "particles/units/heroes/hero_earthshaker/earthshaker_fissure.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_Earthshaker"
+        "ArmorPhysical" "25"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "66500"
+        "AttackDamageMax"   "72500"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "155"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1550"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3040000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "gigarraun_fissure"
+        "Ability2"      "winterblight_soulfire_storm"
+        "Ability3"      "gigarraun_passive"
+        "Ability4"      "winterblight_distance_cap_aura"
+        "Ability5"      "ability_unshakable"
+        "Ability6"      "mega_steadfast"
+        "Ability7"      "creature_black_king_bar"
+        "Ability8"      "dungeon_creep"
+        "Ability9"      "winterblight_descent_boss_ability"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12747"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "12745"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12746"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "12744"
+                }
+
+            }
+        }
+    }
+
+    "winterblight_cavern_boss_tiamat"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/dragon_knight/aurora_warrior_set_dragon_style2_aurora_warrior_set/aurora_warrior_set_dragon_style2_aurora_warrior_set.vmdl"
+        "ModelScale"    "2.2"
+        "Level" "1"
+        "HealthBarOffset"   "540"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Winter_Wyvern"
+        "precache"
+        {
+            "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+            "particle"  "particles/roshpit/winterblight/tiamat_fire.vpcf"
+        }
+
+        "ArmorPhysical" "3"
+        "MagicalResistance" "30"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
+        "ProjectileSpeed"   "1000"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "32148"
+        "AttackDamageMax"   "35188"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.42"
+        "AttackAcquisitionRange"    "5000"
+        "AttackRange"   "1240"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "25234850"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "tiamat_fire_breath"
+        "Ability2"  "tiamat_scorch_charge"
+        "Ability3"  "tiamat_boss_passive"
+        "Ability4"  "winterblight_tiamat_frost_attack"
+        "Ability5"  "creature_pure_strike"
+        "Ability6"  "mega_steadfast"
+        "Ability7"  "boss_health"
+    }
     
 
     "tutorial_master"

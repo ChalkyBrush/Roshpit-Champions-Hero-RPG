@@ -307,8 +307,31 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
     end
 end
 
-function Filters:MagicImmuneBreak(attacker, target)
+function Filters:GetAdjustedESpeed(caster, speed, bDelay)
+    if caster:HasModifier("modifier_pegasus_boots") then
+        if bDelay then
+            speed = speed*0.5
+        else
+            speed = speed + speed*(PEGASUS_E_SPEED_PCT/100)
+        end
+    end
+    return speed
+end
+
+function Filters:GetAdjustedMaxMovespeed(max_ms, caster)
+    if caster:HasModifier("modifier_pegasus_boots") then
+        max_ms = max_ms + (max_ms-550)*(PEGASUS_MAX_MS_AMP_PCT/100)
+    end
+    return max_ms
+end
+
+function Filters:GetMagicImmuneModifierNames()
     local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_seinaru_gorudo_magic_immunity", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity", "modifier_magic_immune_breakable_ability"}
+    return magic_immunity_buffs
+end
+
+function Filters:MagicImmuneBreak(attacker, target)
+    local magic_immunity_buffs = Filters:GetMagicImmuneModifierNames()
     local immuneBreak = false
     for i = 1, #magic_immunity_buffs, 1 do
         if target:HasModifier(magic_immunity_buffs[i]) then
@@ -1783,6 +1806,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_helm_all_elements", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
+        if attacker:HasModifier("modifier_hand_all_elements") then
+            local stacks = attacker:GetModifierStackCount("modifier_hand_all_elements", attacker.InventoryUnit)
+            mult = mult + stacks / 100
+        end
         if attacker:HasModifier("modifier_trinket_all_elements") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_all_elements", attacker.InventoryUnit)
             mult = mult + stacks / 100
@@ -2969,7 +2996,7 @@ function Filters:WitchHat(caster)
     local fv = caster:GetForwardVector()
     local ability = caster.witchHat
     ability.caster = caster
-    local projectileParticle = "particles/econ/items/death_prophet/death_prophet_acherontia/death_prophet_acher_swarm.vpcf"
+    local projectileParticle = "particles/roshpit/winterblight/ellipsis_wave.vpcf"
     local projectileOrigin = caster:GetAbsOrigin() + fv * 10
     local start_radius = 120
     local end_radius = 400
