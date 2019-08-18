@@ -1920,6 +1920,13 @@ function GameState:FilterDamage(filterTable)
 	local victim = EntIndexToHScript(victim_index)
 	local attacker = EntIndexToHScript(attacker_index)
 	local damageData = attacker._damage_data or {}
+	local elements = {}
+	if attacker.element1 ~= RPC_ELEMENT_NONE then
+		table.insert(elements,attacker.element1)
+	end
+	if attacker.element2 ~= RPC_ELEMENT_NONE then
+		table.insert(elements,attacker.element2)
+	end
 
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
@@ -3493,7 +3500,8 @@ function GameState:FilterDamage(filterTable)
 		attacker = attacker,
 		victim = victim,
 		source = damageData['source'],
-		damage = filterTable['damage']
+		damage = filterTable['damage'],
+		elements = elements
 	}, nil)
 
 

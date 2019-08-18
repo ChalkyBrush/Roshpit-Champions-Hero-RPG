@@ -34,6 +34,7 @@ function modifierClass:OnCreated()
     })
     self.damage = 0
     self.cooldownUntil = 0
+    self.elements = {}
 
     self.currentRadius = 0
     self.maxRadius = PACE_OF_STORM_RADIUS
@@ -108,6 +109,7 @@ function modifierClass:OnIntervalThink()
                 victim = enemy,
                 damage = mult * self.damage,
                 damageType = DAMAGE_TYPE_MAGICAL,
+                elements = self.elements,
                 ignoreMultipliers = true,
                 steadfastThresholdMult = PACE_OF_STORM_STEADFAST_THRESHOLD,
                 megaSteadfastThresholdMult = PACE_OF_STORM_MEGASTEADFAST_THRESHOLD,
@@ -118,5 +120,6 @@ end
 function modifierClass:OnAfterPreMitigationReduce(data)
     if data.source ~= self:GetAbility() then
         self.damage = data.damage
+        self.elements = data.elements
     end
 end
