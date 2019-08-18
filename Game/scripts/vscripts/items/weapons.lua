@@ -198,6 +198,10 @@ function Weapons:UnequipItem(hero, item, slot)
 	else
 		print("[Weapons:UnequipItem] missing parameters")
 	end
+
+	if item.isLuaItem then
+		item:RemoveSpecialModifiers(hero)
+	end
 	RPCItems:RemoveItemStats(slot, hero)
 
 	CustomNetTables:SetTableValue("equipment", tostring(hero:GetPlayerOwnerID()) .. "-"..tostring(slot), {itemIndex = -1})

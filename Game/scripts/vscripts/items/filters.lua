@@ -653,12 +653,17 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if slot == 1 then
         Filters:ApplyQskills(caster)
+        Util.Modifier:SimpleEvent(caster, 'OnCastQAbility', { MODIFIER_SPECIAL_TYPE_CAST_Q_ABILITY }, {}, nil)
     elseif slot == 2 then
         Filters:ApplyWskills(caster)
+        Util.Modifier:SimpleEvent(caster, 'OnCastWAbility', { MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY }, {}, nil)
     elseif slot == 3 then
         Filters:ApplyEskills(caster)
+        Util.Modifier:SimpleEvent(caster, 'OnCastEAbility', { MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY }, {}, nil)
     elseif slot == 4 then
         Filters:ApplyRskills(caster)
+        Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
+
     end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)

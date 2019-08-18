@@ -7668,7 +7668,9 @@ function RPCItems:RollImmortalByName(itemName, position)
     local deathLocation = position
     local newItem = nil
     --print(immortalName)
-    if itemName == "item_rpc_magebane_gloves" then
+    if _G[itemName] then
+        newItem = _G[itemName]:Create(position)
+    elseif itemName == "item_rpc_magebane_gloves" then
         newItem = RPCItems:RollMageBaneGloves(deathLocation)
     elseif itemName == "item_rpc_berserker_gloves" then
         newItem = RPCItems:RollBerserkerGloves(deathLocation)
@@ -8232,7 +8234,11 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         Events.SpiritRealm = true
     end
     RPCItems.LevelRoll = itemLevel
-    newItem = RPCItems:RollImmortalByName(itemName, deathLocation)
+    if item.isLuaItem then
+        newItem = item:Create(deathLocation)
+    else
+        newItem = RPCItems:RollImmortalByName(itemName, deathLocation)
+    end
     --print(newItem)
     if newItem then
     else

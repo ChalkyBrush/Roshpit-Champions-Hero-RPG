@@ -138,3 +138,29 @@
 			}
 		}
 	}
+	"item_rpc_pace_of_storm"
+    {
+        "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+        "BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/pace_of_storm.lua"
+        "AbilityTextureName"	"rpc/rpc_ghost_slippers"
+        "AbilityCastRange"	"900"
+        "AbilityCastPoint"	"0"
+        "AbilityCooldown"	"0"
+        "AbilityManaCost"	"0"
+        "ItemPermanent"			"0"
+        "ItemQuality"			"common"
+        "ItemDroppable"	"1"
+        "ItemShareability"	"ITEM_FULLY_SHAREABLE"
+        "ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "MaxUpgradeLevel"	"1"
+        "ItemBaseLevel"	"1"
+        "Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+
+        "precache"
+        {
+            "particle"		"particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf"
+        }
+    }

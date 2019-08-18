@@ -27,6 +27,8 @@ require('/items/constants/gloves')
 require('/items/constants/helm')
 require('/items/constants/trinket')
 
+require('/items/lua/require')
+
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales'),
 mountain_protector = require('/heroes/legion_commander/mountain_protector_constants')}
@@ -1820,6 +1822,7 @@ function GameState:FilterDamage(filterTable)
 	local difficultyDamageReduce = 1
 	local victim = EntIndexToHScript(victim_index)
 	local attacker = EntIndexToHScript(attacker_index)
+	local damageData = attacker._damage_data or {}
 
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
@@ -2515,11 +2518,11 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") then
+	if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		local stacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", attacker.InventoryUnit)
 		filterTable["damage"] = filterTable["damage"] * (1 + (stacks * 0.1))
 	end
-	if attacker:HasModifier("modifier_neutral_glyph_5_3") then
+	if attacker:HasModifier("modifier_neutral_glyph_5_3") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
 			filterTable["damage"] = filterTable["damage"] * 1.5
 		end
@@ -2855,7 +2858,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_neutral_glyph_5_1") then
 		filterTable["damage"] = filterTable["damage"] * 0.5
 	end
-	if attacker:HasModifier("modifier_neutral_glyph_5_2") then
+	if attacker:HasModifier("modifier_neutral_glyph_5_2") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		filterTable["damage"] = filterTable["damage"] * 1.35
 	end
 
@@ -2965,7 +2968,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 	end
-	if victim:HasModifier("modifier_ethereal_revenant_link") then
+	if victim:HasModifier("modifier_ethereal_revenant_link") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if victim.revenantData then
 			if victim.revenantData[1] == attacker:GetEntityIndex() then
 				filterTable["damage"] = filterTable["damage"] * 3
@@ -2993,14 +2996,14 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if victim:HasModifier("modifier_gorudo_b_d_inside_ring") then
+	if victim:HasModifier("modifier_gorudo_b_d_inside_ring") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		modifier = victim:FindModifierByName("modifier_gorudo_b_d_inside_ring")
 		if attacker:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
 			local r_4_level = attacker:FindAbilityByName("seinaru_gorudo").r_4_level
 			filterTable["damage"] = filterTable["damage"] * (1 + r_4_level * SEINARU_R4_POSTMIT_MULT)
 		end
 	end
-	if filterTable.entindex_inflictor_const then
+	if filterTable.entindex_inflictor_const and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		local ability = attacker:FindAbilityByName(EntIndexToHScript(filterTable.entindex_inflictor_const):GetName())
 		if ability then
 			if attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
@@ -3128,7 +3131,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if attacker:HasModifier("modifier_crystalline_slippers") then
+	if attacker:HasModifier("modifier_crystalline_slippers") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if victim:IsRooted() then
 			filterTable["damage"] = filterTable["damage"] * 5
 		end
@@ -3202,6 +3205,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+
 	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
 		filterTable["damage"] = filterTable["damage"] * 0.8
 	end
@@ -3333,6 +3337,14 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
+	Util.Modifier:SimpleEvent(attacker, 'OnAfterPreMitigationReduce', { MODIFIER_SPECIAL_TYPE_PREMITIGATION }, {
+		attacker = attacker,
+		victim = victim,
+		source = damageData['source'],
+		damage = filterTable['damage']
+	}, nil)
+
+
 	if victim:HasModifier("modifier_steadfast") then
 		local threshold_abil = {
 			moon_shroud = ASTRAL_Q2_STEADFAST_THRESHOLD,
@@ -3343,6 +3355,9 @@ function GameState:FilterDamage(filterTable)
 			thresholdMult = 10
 			mult = mult + thresholdMult - 1
 			divisor = divisor + thresholdMult - 1
+		end
+		if damageData.steadfastThresholdMult then
+			thresholdMult = thresholdMult + damageData.steadfastThresholdMult
 		end
 		if filterTable.entindex_inflictor_const then
 			for ability_name, thresh in pairs(threshold_abil) do
@@ -3392,6 +3407,10 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + thresholdMult - 1
 			divisor = divisor + thresholdMult - 1
 		end
+
+		if damageData.megaSteadfastThresholdMult then
+			thresholdMult = thresholdMult + damageData.megaSteadfastThresholdMult
+		end
 		if filterTable.entindex_inflictor_const then
 			for ability_name, thresh in pairs(threshold_abil) do
 				if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == ability_name then
@@ -3427,12 +3446,12 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--APPLY MULT
-	if applyEffects then
+	if applyEffects and not damageData.ignoreMultipliers and not damageData.ignorePostmitigation then
 		filterTable["damage"] = filterTable["damage"] * mult / divisor
 	end
 	--AFTER POSTMITIGATION MULTIPLIERS
 
-	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") then
+	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		if victim:HasModifier("modifier_fulminating_burn_effect") or victim:HasModifier("modifier_poison_trap_effect") or victim:HasModifier("modifier_net_trap_netted_effect") or victim:HasModifier("modifier_torrent_trap_slowed_effect") then
 			filterTable["damage"] = filterTable["damage"] * 1.3
 		end
@@ -3446,10 +3465,10 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	modifier = victim:FindModifierByName('modifier_chernobog_1_q_path_enemy_effect_q1')
-	if modifier then
+	if modifier and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		filterTable["damage"] = filterTable["damage"] * (1 + modifier:GetExtraPostmitigationAmplify())
 	end
-	if attacker:HasModifier("modifier_helm_odin") then
+	if attacker:HasModifier("modifier_helm_odin") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		local proc = Filters:GetProc(attacker, 10)
 		if proc then
 			filterTable["damage"] = filterTable["damage"] * 7
@@ -3468,7 +3487,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_volcano_orb") then
+	if attacker:HasModifier("modifier_volcano_orb") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
 			filterTable["damage"] = filterTable["damage"] * 2.5
 		end
