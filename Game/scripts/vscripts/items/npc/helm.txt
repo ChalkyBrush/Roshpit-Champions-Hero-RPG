@@ -663,6 +663,24 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"knight_hawk_base_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"knight_hawk_base_end"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_knight_hawk_helm_speed"
 			{

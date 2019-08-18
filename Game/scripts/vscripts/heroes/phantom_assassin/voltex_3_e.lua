@@ -40,6 +40,7 @@ function voltex_azure_leap_jumping_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local forwardSpeed = ability.distance / 60 + 15
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed)
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.jumpFV * 35), caster)
@@ -47,7 +48,9 @@ function voltex_azure_leap_jumping_think(event)
 		forwardSpeed = 0
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity) + ability.jumpFV * forwardSpeed)
-	ability.jump_velocity = ability.jump_velocity - 3.3
+	local vertical_deceleration = 3.3
+	vertical_deceleration = Filters:GetAdjustedESpeed(caster, vertical_deceleration)
+	ability.jump_velocity = ability.jump_velocity - vertical_deceleration
 	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modfier_voltex_jumping")

@@ -307,6 +307,20 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
     end
 end
 
+function Filters:GetAdjustedESpeed(caster, speed)
+    if caster:HasModifier("modifier_pegasus_boots") then
+        speed = speed + speed*(PEGASUS_E_SPEED_PCT/100)
+    end
+    return speed
+end
+
+function Filters:GetAdjustedMaxMovespeed(max_ms, caster)
+    if caster:HasModifier("modifier_pegasus_boots") then
+        max_ms = max_ms + (max_ms-550)*(PEGASUS_MAX_MS_AMP_PCT/100)
+    end
+    return max_ms
+end
+
 function Filters:GetMagicImmuneModifierNames()
     local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_seinaru_gorudo_magic_immunity", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity", "modifier_magic_immune_breakable_ability"}
     return magic_immunity_buffs

@@ -573,41 +573,76 @@ end
 
 function ms_thinker(event)
 	local unit = event.target
+	local max_ms = 550
 	unit:RemoveModifierByName("modifier_master_movespeed")
-	local baseSpeed = unit:GetBaseMoveSpeed()
-	local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
-	local modifier2 = unit:GetMoveSpeedModifier(0, false)
-
 	local buffs = unit:FindAllModifiers()
-	local speed = baseSpeed
-	local mult = 1
 	for _,modifier in pairs(buffs) do
-
-		if modifier['GetModifierMoveSpeedBonus_Constant'] then
-			local localSpeed =  modifier['GetModifierMoveSpeedBonus_Constant'](modifier, {}) or 0
-			if localSpeed ~=  nil then
-				speed = speed + localSpeed
-			end
-		end
-		if modifier['GetModifierMoveSpeedBonus_Percentage'] then
-			local localMult = modifier['GetModifierMoveSpeedBonus_Percentage'](modifier, {})
-			if localMult ~= nil then
-				mult = mult + localMult/100
+		if modifier['GetModifierMoveSpeed_Max'] then
+			-- Some GetModifierMoveSpeed_Max has errors now, it is for preven crash on calculate
+			local status, local_max_ms = pcall(modifier['GetModifierMoveSpeed_Max'], modifier, {})
+			if status and local_max_ms ~= nil then
+				max_ms = math.max(max_ms,local_max_ms)
 			end
 		end
 	end
-	speed = math.max(speed * mult, baseSpeed + modifier2)
-	local movespeedMult = 1;
+	unit:AddNewModifier(unit, nil, "modifier_ignore_ms_cap", {})
+	local movespeed = unit:GetBaseMoveSpeed()
+	local actual_movespeed = unit:GetMoveSpeedModifier(movespeed, false)
 
-	local ideal = unit:GetIdealSpeed()
-	local max_ms = CustomAttributes:MSCap(unit)
-	--speed = math.max(modifier2 + baseSpeed, speed)
-	if speed > 100 and max_ms > 550 then
-		unit.master_move_speed = math.min(speed, max_ms)
+	if unit:HasModifier("modifier_knight_hawk_helm") then
+		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
+	end
+	if unit:HasModifier("modifier_pegasus_boots") then
+		max_ms = max_ms + (max_ms-550)*(PEGASUS_MAX_MS_AMP_PCT/100)
+	end
+
+	if max_ms > 550 then
+		unit.master_move_speed = math.min(max_ms, actual_movespeed)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else
 		unit.master_move_speed = nil
 		unit:RemoveModifierByName("modifier_master_movespeed")
-	end
+	end	
+	unit:RemoveModifierByName("modifier_ignore_ms_cap")
+
+	-- unit:RemoveModifierByName("modifier_master_movespeed")
+	-- local baseSpeed = unit:GetBaseMoveSpeed()
+	-- local modifier = unit:GetMoveSpeedModifier(baseSpeed, false)
+	-- local modifier2 = unit:GetMoveSpeedModifier(0, false)
+
+	-- local buffs = unit:FindAllModifiers()
+	-- local speed = baseSpeed
+	-- local mult = 1
+	-- for _,modifier in pairs(buffs) do
+
+	-- 	if modifier['GetModifierMoveSpeedBonus_Constant'] then
+	-- 		local localSpeed =  modifier['GetModifierMoveSpeedBonus_Constant'](modifier, {}) or 0
+	-- 		if localSpeed ~=  nil then
+	-- 			speed = speed + localSpeed
+	-- 		end
+	-- 	end
+	-- 	if modifier['GetModifierMoveSpeedBonus_Percentage'] then
+	-- 		local localMult = modifier['GetModifierMoveSpeedBonus_Percentage'](modifier, {})
+	-- 		if localMult ~= nil then
+	-- 			mult = mult + localMult/100
+	-- 		end
+	-- 	end
+	-- end
+
+	-- modifier2 = math.max(modifier2 - 100, 0)
+	-- speed = math.max(speed * mult, baseSpeed + modifier2)
+
+	-- local movespeedMult = 1;
+
+	-- local ideal = unit:GetIdealSpeed()
+	-- local max_ms = CustomAttributes:MSCap(unit)
+	-- --speed = math.max(modifier2 + baseSpeed, speed)
+	-- if speed > 100 and max_ms > 550 then
+	-- 	unit.master_move_speed = math.min(speed, max_ms)
+	-- 	unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
+	-- else
+	-- 	unit.master_move_speed = nil
+	-- 	unit:RemoveModifierByName("modifier_master_movespeed")
+	-- end
 end
 

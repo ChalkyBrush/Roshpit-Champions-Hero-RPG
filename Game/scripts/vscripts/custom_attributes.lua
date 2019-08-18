@@ -1108,5 +1108,8 @@ function CustomAttributes:MSCap(unit)
 	if unit:HasModifier("modifier_knight_hawk_helm") then
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
+	if unit:HasModifier("modifier_pegasus_boots") then
+		max_ms = max_ms + max_ms*(PEGASUS_MAX_MS_AMP_PCT/100)
+	end
 	return max_ms
 end

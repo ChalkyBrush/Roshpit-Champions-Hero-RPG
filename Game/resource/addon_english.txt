@@ -11884,6 +11884,9 @@
 		"item_property_iron_treads_of_destruction"					"Dissolution"
 		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
 
+		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
+		"item_property_pegasus"					"Wing Jump"
+		"property_pegasus_description"			"@Ability3 travels <font color='#ccff66'>100</font>% faster if it has a motion component. Max Movespeed is increased by <font color='#ccff66'>40</font>%."
 
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
@@ -12918,7 +12921,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
 		"item_property_knight_hawk" 								"Haste Blade"
-		"property_knight_hawk_description"						"Increases max movespeed limit by an additional <font color='#ccff66'>350</font>. While above 550 movespeed, damage taken is reduced by <font color='#ccff66'>90</font>%. If movespeed falls below 300, gain a <font color='#ccff66'>350</font> movespeed buff for <font color='#ccff66'>10</font> seconds."
+		"property_knight_hawk_description"						"Increases max movespeed limit by an additional <font color='#ccff66'>300</font>. While above 550 movespeed, damage taken is reduced by <font color='#ccff66'>90</font>%. If movespeed falls below 300, gain a <font color='#ccff66'>350</font> movespeed buff for <font color='#ccff66'>10</font> seconds."
 
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Haste Blade"
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased Movespeed"

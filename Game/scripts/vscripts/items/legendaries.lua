@@ -4599,6 +4599,38 @@ function RPCItems:RollAlaranaIceBoot(deathLocation)
     return item
 end
 
+function RPCItems:RollPegasusBoots(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_pegasus_boots", "immortal", "Pegasus Boots", "feet", true, "Slot: Feet")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "pegasus"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pegasus", "#cdd1b0", 1, "#property_pegasus_description")
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollFootProperty2(item, 0)
+    else
+        local luck = RandomInt(1, 6)
+        item.newItemTable.hasRunePoints = true
+        if luck == 1 then
+            local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+            item.newItemTable.property2 = math.floor(value * 0.9)
+            item.newItemTable.property2name = "rune_e_3"
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+        else
+            local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+            item.newItemTable.property2 = math.floor(value * 1.5)
+            item.newItemTable.property2name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+        end
+    end
+    RPCItems:RollFootProperty3(item, 0)
+    RPCItems:RollFootProperty4(item, 0)
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollGiantHunterBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_giant_hunters_boots_of_resilience", "immortal", "Giant Hunters Boots of Resilience", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8370,6 +8402,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollGalvanizedRazorBand(deathLocation)
     elseif itemName == "item_rpc_goldbreaker_gauntlet" then
         newItem = RPCItems:RollGoldbreakerGauntlet(deathLocation)
+    elseif itemName == "item_rpc_pegasus_boots" then
+        newItem = RPCItems:RollPegasusBoots(deathLocation)
     end
     return newItem
 end

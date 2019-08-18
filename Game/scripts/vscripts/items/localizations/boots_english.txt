@@ -248,3 +248,7 @@
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
 		"item_property_iron_treads_of_destruction"					"Dissolution"
 		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
+
+		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
+		"item_property_pegasus"					"Wing Jump"
+		"property_pegasus_description"			"@Ability3 travels <% PEGASUS_E_SPEED_PCT %>% faster if it has a motion component. Max Movespeed is increased by <% PEGASUS_MAX_MS_AMP_PCT %>%."

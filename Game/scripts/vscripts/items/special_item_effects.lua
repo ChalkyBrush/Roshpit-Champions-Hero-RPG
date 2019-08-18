@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_super_ascendency_lua", "modifiers/modifier_super_ascendency", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_knight_hawk_lua", "modifiers/modifier_knight_hawk_lua", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -5846,5 +5847,18 @@ end
 
 function knight_hawk_bonus_speed_init(event)
 	local target = event.target
-	CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit.vpcf", target, 3)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit.vpcf", target, 3)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(140, 140, 140))
+end
+
+function knight_hawk_base_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	-- target:AddNewModifier( caster, ability, "modifier_knight_hawk_lua", {} )
+end
+
+function knight_hawk_base_end(event)
+	local target = event.target
+	target:RemoveModifierByName("modifier_knight_hawk_lua")
 end
