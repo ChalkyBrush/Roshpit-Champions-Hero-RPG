@@ -437,6 +437,8 @@ function hero_summon_think(event)
 		jex_thundershroom_think(caster)
 	elseif caster:GetUnitName() == "jex_cinderbark_treant" then
 		jex_thundershroom_think(caster)
+	elseif caster:GetUnitName() == "rubick_apprentice" then
+		rubick_apprentice_think(caster)
 	end
 end
 
@@ -460,6 +462,92 @@ function jex_thundershroom_think(caster)
 		return false
 	end
 	if WallPhysics:GetDistance(sorcPosition, aspectPosition) > 1000 then
+		caster:MoveToPosition(position)
+	else
+		caster:MoveToPositionAggressive(position)
+	end
+end
+
+function rubick_apprentice_think(caster)
+	local hero_position = caster.hero:GetAbsOrigin()
+	local apprentice_position = caster:GetAbsOrigin()
+	local position = hero_position + caster.hero:GetForwardVector() * 300 + RandomVector(RandomInt(0, 80))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+	for i = 0, 2, 1 do
+		local cast_ability = caster:GetAbilityByIndex(i)
+		if cast_ability and cast_ability:IsFullyCastable() then
+			if string.match(cast_ability:GetAbilityName(), "apprentice_spell_steal_") then
+			else
+				local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				local behavior = cast_ability:GetBehavior()
+				if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+					local order =
+					{
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+						AbilityIndex = cast_ability:entindex(),
+						Queue = true
+					}
+					caster:Stop()
+					ExecuteOrderFromTable(order)
+					local delay = cast_ability:GetCastPoint() + 1
+					caster.castLock = true
+					Timers:CreateTimer(delay, function()
+						caster.castLock = false
+					end)
+					--print("IN HERE")
+				elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET and #enemies > 0 then
+					local order = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+						TargetIndex = enemies[1]:entindex(),
+						AbilityIndex = cast_ability:entindex(),
+						Queue = true
+					}
+					caster:Stop()
+					ExecuteOrderFromTable(order)
+
+					local delay = cast_ability:GetCastPoint() + 0.3
+					caster.castLock = true
+					Timers:CreateTimer(delay, function()
+						caster.castLock = false
+					end)
+				elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
+					local point = caster:GetAbsOrigin()
+					if #enemies > 0 then
+						point = enemies[1]:GetAbsOrigin()
+					end
+					local order =
+					{
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+						AbilityIndex = cast_ability:entindex(),
+						Position = point,
+						Queue = true
+					}
+					caster:Stop()
+					ExecuteOrderFromTable(order)
+
+					local delay = cast_ability:GetCastPoint() + 0.3
+					caster.castLock = true
+					Timers:CreateTimer(delay, function()
+						caster.castLock = false
+					end)
+				end		
+			end
+		end
+	end
+		return false
+	end
+	if WallPhysics:GetDistance(hero_position, apprentice_position) > 2000 then
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", caster:GetAbsOrigin(), 3)
+		EmitSoundOn("Items.RubickApprentice.Spawn", caster)
+		local newPos = GetGroundPosition(caster.hero:GetAbsOrigin()+RandomVector(120), caster)
+		caster:SetAbsOrigin(newPos)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", caster:GetAbsOrigin(), 3)
+		EmitSoundOn("Items.RubickApprentice.Spawn", caster)
+	elseif WallPhysics:GetDistance(hero_position, apprentice_position) > 1000 then
 		caster:MoveToPosition(position)
 	else
 		caster:MoveToPositionAggressive(position)

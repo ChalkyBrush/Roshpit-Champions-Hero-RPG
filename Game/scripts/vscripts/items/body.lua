@@ -274,6 +274,9 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_captains_vest", item)
 	elseif propertyName == "tattered_novice" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_tattered_novice_armor", item)
+	elseif propertyName == "erudite_teacher" then
+		Body:addItemModifier(0, hero, inventory_unit, "modifier_erudite_teacher", item)
+		RPCItems:PreacheArcanaResources(item)
 	end
 	hero.body = item
 	item.hero = hero
@@ -502,6 +505,7 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_tattered_novice_armor")
 	hero:RemoveModifierByName("modifier_hydroxis_arcana2")
 	hero:RemoveModifierByName("modifier_astral_arcana3")
+	hero:RemoveModifierByName("modifier_erudite_teacher")
 	hero.ocean_tempest = nil
 
 	hero.space_tech = nil

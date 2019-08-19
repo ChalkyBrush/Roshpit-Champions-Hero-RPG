@@ -1739,7 +1739,7 @@ end
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
     local ability = nil
 
-    local damageData = attacker._damage_data
+    local damageData = attacker._damage_data or {}
 
     if type(slot) == "number" and slot ~= -1 then
         ability = attacker:GetAbilityByIndex(slot)

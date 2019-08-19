@@ -3103,6 +3103,47 @@ function RPCItems:VermillionDreamRobes(deathLocation)
     return item
 end
 
+function RPCItems:RollRobesOfEruditeTeacher(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_robe_of_the_erudite_teacher", "immortal", "Robes of the Erudite Teacher", "body", true, "Slot: Body")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "erudite_teacher"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_robe_of_the_erudite_teacher", "#D14268", 1, "#property_robe_of_the_erudite_teacher_description")
+    local luck = RandomInt(1, 4)
+    if luck == 3 and maxFactor > 160 then
+        local letter = RPCItems:GetRandomRuneLetter(1, 4)
+        runeName = "rune_"..letter.."_3"
+        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 20, 0, 0, 0, 0)
+
+        item.newItemTable.property2name = runeName
+        item.newItemTable.property2 = math.floor(runeValue)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)        
+    elseif luck == 4 and maxFactor >= 240 then
+        local letter = RPCItems:GetRandomRuneLetter(1, 4)
+        runeName = "rune_"..letter.."_4"
+        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 30, 0, 0, 0, 0)
+
+        item.newItemTable.property2name = runeName
+        item.newItemTable.property2 = math.floor(runeValue)
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    else
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.newItemTable.property2 = math.ceil(value * 1.15)
+        item.newItemTable.property2name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    end
+    item.newItemTable.hasRunePoints = true
+
+    RPCItems:RollBodyProperty3(item, 0)
+    RPCItems:RollBodyProperty4(item, 0)
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
+
 function RPCItems:RollLightSeersRobes(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_templar_light_seers_robe", "immortal", "Templar Light Seer's Robe", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8448,6 +8489,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollPegasusBoots(deathLocation)
     elseif itemName == "item_rpc_guardian_stone" then
         newItem = RPCItems:RollGuardianStone(deathLocation)
+    elseif itemName == "item_rpc_robe_of_the_erudite_teacher" then
+        newItem = RPCItems:RollRobesOfEruditeTeacher(deathLocation)
     end
     return newItem
 end

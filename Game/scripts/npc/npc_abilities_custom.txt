@@ -84466,6 +84466,228 @@
 
 	}
 
+	"apprentice_spell_steal_1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubick_spell_steal"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation"			"ACT_DOTA_VICTORY"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.5"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Damage.
+		//-------------------------------------------------------
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"apprentice_spell_steal_phase"
+				"target"		"TARGET"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"apprentice_spell_steal_cast"
+				"target"		"TARGET"
+				"index"			"1"
+			}
+
+		}
+
+		"Modifiers"
+		{
+
+		}
+
+	}
+
+	"apprentice_spell_steal_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubick_spell_steal"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation"			"ACT_DOTA_VICTORY"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.5"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Damage.
+		//-------------------------------------------------------
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"apprentice_spell_steal_phase"
+				"target"		"TARGET"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"apprentice_spell_steal_cast"
+				"target"		"TARGET"
+				"index"			"2"
+			}
+
+		}
+
+		"Modifiers"
+		{
+
+		}
+
+	}
+
+	"apprentice_spell_steal_3"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubick_spell_steal"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation"			"ACT_DOTA_VICTORY"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.5"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Damage.
+		//-------------------------------------------------------
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"apprentice_spell_steal_phase"
+				"target"		"TARGET"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"apprentice_spell_steal_cast"
+				"target"		"TARGET"
+				"index"			"3"
+			}
+
+		}
+
+		"Modifiers"
+		{
+
+		}
+
+	}
+
+	"rubick_apprentice_reset"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"conjuror/cloak_of_shadows"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastPoint"				"1"
+
+		// Precache
+		//-------------------------------------------------------
+
+		"AbilityCooldown"				"10"
+		"AbilityDuration"				"%duration"
+
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"rubick_apprentice_reset"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"rubick_apprentice_reset_phase"
+			}
+		}
+	}
+
+
 
 	"soul_ferrier_passive"
 	{

@@ -5862,3 +5862,203 @@ function knight_hawk_base_end(event)
 	local target = event.target
 	target:RemoveModifierByName("modifier_knight_hawk_lua")
 end
+
+function erudite_teacher_start(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	if not ability.rubick_apprentice then
+		local spawnPos = hero:GetAbsOrigin() + RandomVector(160)
+		ability.rubick_apprentice = CreateUnitByName("rubick_apprentice", spawnPos, true, nil, nil, hero:GetTeamNumber())
+		ability.rubick_apprentice.summoner = hero
+		ability.rubick_apprentice:SetOwner(hero)
+		ability.rubick_apprentice:SetControllableByPlayer(hero:GetPlayerID(), true)
+	    ability.rubick_apprentice.hero = hero
+
+		local apprentice_hp = Filters:AdjustItemDamage(hero, hero:GetMaxHealth()*ERUDITE_TEACHER_HEALTH_MULT, nil)
+		local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(hero)
+		local apprentice_damage = Filters:AdjustItemDamage(hero, attack_damage*ERUDITE_TEACHER_ATTACK_MULT, nil)
+		local apprentice_armor = Filters:AdjustItemDamage(hero, hero:GetPhysicalArmorValue(false)*ERUDITE_TEACHER_ARMOR_MULT, nil)
+		ability.rubick_apprentice:SetMaxHealth(apprentice_hp)
+		ability.rubick_apprentice:SetBaseMaxHealth(apprentice_hp)
+		ability.rubick_apprentice:SetHealth(apprentice_hp)
+		ability.rubick_apprentice.robes = ability
+		ability.rubick_apprentice:SetPhysicalArmorBaseValue(apprentice_armor)
+		Filters:SetAttackDamage(ability.rubick_apprentice, apprentice_damage)
+
+		ability:ApplyDataDrivenModifier(caster, ability.rubick_apprentice, "modifier_apprentice_ai", {})
+		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force.vpcf", ability.rubick_apprentice, 3)
+		ParticleManager:SetParticleControl(pfx, 1, ability.rubick_apprentice:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx, 2, Vector(3,3,3))
+		ParticleManager:SetParticleControl(pfx, 3, ability.rubick_apprentice:GetAbsOrigin())
+		EmitSoundOn("Items.RubickApprentice.Spawn", ability.rubick_apprentice)
+
+		local apprentice = ability.rubick_apprentice
+
+		Timers:CreateTimer(0.5, function()
+			EmitSoundOn("Items.RubickApprentice.Spawn.VO", apprentice)
+		end)
+		Timers:CreateTimer(0.03, function()
+			Events:smoothSizeChange(apprentice, 0.1, 1, 33)
+			StartAnimation(apprentice, {duration = 1.3, activity = ACT_DOTA_ATTACK, rate = 1.0})
+		end)
+
+		if event.abilities_table then
+			Timers:CreateTimer(0.03, function()
+				DeepPrintTable(event.abilities_table)
+				for i = 1, #event.abilities_table, 1 do
+					local ability_check_name = event.abilities_table[i]
+					local steal_index = i - 1
+					if not string.match(ability_check_name, "apprentice_spell_steal_") then
+						CustomAbilities:AddAndOrSwapSkill(apprentice, "apprentice_spell_steal_"..i, ability_check_name, steal_index)
+					end
+				end
+			end)
+		end
+		apprentice:FindAbilityByName("hero_summon_ai"):ToggleAbility()
+	end
+end
+
+function erudite_teacher_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	if ability.rubick_apprentice and IsValidEntity(ability.rubick_apprentice) then
+		ability.rubick_apprentice:ForceKill(false)
+		local rubick = ability.rubick_apprentice
+		ability.rubick_apprentice = false
+		Timers:CreateTimer(5, function()
+			if IsValidEntity(rubick) then
+				UTIL_Remove(rubick)
+			end
+		end)
+	end
+end
+
+function apprentice_spell_steal_phase(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	EmitSoundOn("Items.RubickApprentice.Spellsteal.Phase", caster)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force.vpcf", caster, 1)
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 2, Vector(3,3,3))
+	ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin())
+	CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", caster, 3)
+end
+
+function apprentice_spell_steal_cast(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local index = event.index
+	local steal_index = index - 1
+	local success = true
+	if not target.dominion then
+		Notifications:Top(caster:GetPlayerOwnerID(), {text = "notification_no_dominion", duration = 5, style = {color = "#FF1111"}, continue = true})
+		success = false
+	end
+	local abilitiesTable = {}
+	--print(target:GetAbilityCount())
+	for i = 0, 12, 1 do
+		local abilityCheck = target:GetAbilityByIndex(i)
+		if abilityCheck then
+			if abilityCheck:IsHidden() then
+			else
+				table.insert(abilitiesTable, abilityCheck)
+			end
+		end
+	end
+	local new_ability = nil
+	local new_ability_name = nil
+	if #abilitiesTable > 0 then
+		new_ability = abilitiesTable[RandomInt(1, #abilitiesTable)]
+		new_ability_name = new_ability:GetAbilityName()
+		if caster:HasAbility(new_ability_name) then
+			success = false
+		end
+	else
+		success = false
+	end
+	if success then
+		CustomAbilities:AddAndOrSwapSkill(caster, ability:GetAbilityName(), new_ability_name, steal_index)
+		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_rubick/rubick_spell_steal.vpcf", target, 3)
+		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
+		EmitSoundOn("Items.RubickApprentice.Spellsteal.Success", caster)
+	else
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/axe/red_general_ulti_cast_assassin_trap_explode_beam.vpcf", caster:GetAbsOrigin(), 1.5)
+		EmitSoundOn("Items.RubickApprentice.Spellsteal.Fail", caster)
+	end
+end
+
+function rubick_apprentice_reset_phase(event)
+	local caster = event.caster
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/axe/red_general_ulti_cast_assassin_trap_explode_beam.vpcf", caster:GetAbsOrigin(), 1.5)
+	EmitSoundOn("Items.RubickApprentice.Reset.VO", caster)
+end
+
+
+function rubick_apprentice_reset(event)
+	local caster = event.caster
+
+	local modifiers = caster:FindAllModifiers()
+	for i = 0, 2, 1 do
+		for j = 1, #modifiers, 1 do
+			local modifier = modifiers[j]
+			if modifier:GetRemainingTime() < 5 then
+				if modifier:GetAbility() == caster:GetAbilityByIndex(i) then
+					caster:RemoveModifierByName(modifier:GetName())
+				end
+			end
+		end
+	end
+
+
+	for i = 0, 2, 1 do
+		local stolen_ability = caster:GetAbilityByIndex(i)
+		local spell_steal_index = i + 1
+		local stolen_ability_name = stolen_ability:GetAbilityName()
+		print(stolen_ability_name)
+		if not string.match(stolen_ability_name, "apprentice_spell_steal_") then
+			CustomAbilities:AddAndOrSwapSkill(caster, stolen_ability:GetAbilityName(), "apprentice_spell_steal_"..spell_steal_index, i)
+			if IsValidEntity(stolen_ability) then
+				UTIL_Remove(stolen_ability)
+			end
+		end
+	end
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/axe/red_general_ulti_cast_assassin_trap_explode_beam.vpcf", caster:GetAbsOrigin(), 1.5)
+	EmitSoundOn("Items.RubickApprentice.Die.VO", caster)
+	EmitSoundOn("Items.RubickApprentice.Spellsteal.Reset", caster)
+	CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", caster, 3)
+	StartAnimation(caster, {duration = 1.3, activity = ACT_DOTA_ATTACK, rate = 1.3})
+end
+
+function dead_apprentice(event)
+	local apprentice = event.unit
+	local hero = apprentice.hero
+	local ability = event.ability
+	local apprentice_abilities_table = {}
+	for i = 0, 2, 1 do
+		local ability_check = apprentice:GetAbilityByIndex(i)
+		local ability_name = ability_check:GetAbilityName()
+		table.insert(apprentice_abilities_table, ability_name)
+	end
+	CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", apprentice:GetAbsOrigin(), 3)
+	EmitSoundOn("Items.RubickApprentice.Die.VO", apprentice)
+	ability.rubick_apprentice = nil
+	Timers:CreateTimer(10, function()
+		if hero:HasModifier("modifier_erudite_teacher") then
+			print("IN TIMER :)")
+			if IsValidEntity(ability) then
+				print("SUMMON ANOTHER")
+				local eventTable = {}
+				eventTable.ability = ability
+				eventTable.caster = hero.InventoryUnit
+				eventTable.target = hero
+				eventTable.abilities_table = apprentice_abilities_table
+				erudite_teacher_start(eventTable)
+
+			end
+		end
+	end)
+end

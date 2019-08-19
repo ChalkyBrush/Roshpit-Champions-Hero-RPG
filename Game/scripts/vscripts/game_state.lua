@@ -1928,6 +1928,10 @@ function GameState:FilterDamage(filterTable)
 		table.insert(elements,attacker.element2)
 	end
 
+	if attacker:HasModifier("modifier_apprentice_ai") then
+		Filters:ApplyItemDamage(victim, attacker.hero, filterTable.damage, filterTable.damagetype_const, attacker.hero.body, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		return false
+	end
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue(false)
@@ -4183,6 +4187,9 @@ function GameState:FilterDamage(filterTable)
 			if victim:IsHero() then
 				print("TAKE DAMAGE: "..filterTable["damage"])
 				filterTable["damage"] = 0
+			end
+			if victim:GetUnitName() == "rubick_apprentice" then
+				filterTable["damage"] = 1000
 			end
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then

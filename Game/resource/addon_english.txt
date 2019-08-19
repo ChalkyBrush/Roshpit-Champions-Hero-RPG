@@ -12250,6 +12250,21 @@
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
 
+		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
+		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
+		"property_robe_of_the_erudite_teacher_description"				"When equipped, a Rubick Apprentice follows you. The apprentice can copy up to 3 spells from enemy creatures. It spawns with <font color='#ccff66'>5</font>x the wearer's health, <font color='#ccff66'>10</font>x the wearer's attack power, <font color='#ccff66'>10</font>x the wearer's armor and 2000 mana. If the apprentice dies, it respawns after 10 seconds with its same ability configuration as before death. All damage dealt by the apprentice is considered as item damage from the hero."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+
+		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
+		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the apprentice's copied abilities."
 
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_property_blue_rain"								"Rain Lance"
