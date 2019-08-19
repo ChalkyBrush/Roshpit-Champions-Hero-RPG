@@ -5902,7 +5902,7 @@ function erudite_teacher_start(event)
 			Events:smoothSizeChange(apprentice, 0.1, 1, 33)
 			StartAnimation(apprentice, {duration = 1.3, activity = ACT_DOTA_ATTACK, rate = 1.0})
 		end)
-
+		DeepPrintTable(event.abilities_table)
 		if event.abilities_table then
 			Timers:CreateTimer(0.03, function()
 				DeepPrintTable(event.abilities_table)
@@ -6046,19 +6046,41 @@ function dead_apprentice(event)
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", apprentice:GetAbsOrigin(), 3)
 	EmitSoundOn("Items.RubickApprentice.Die.VO", apprentice)
 	ability.rubick_apprentice = nil
-	Timers:CreateTimer(10, function()
-		if hero:HasModifier("modifier_erudite_teacher") then
-			print("IN TIMER :)")
-			if IsValidEntity(ability) then
-				print("SUMMON ANOTHER")
-				local eventTable = {}
-				eventTable.ability = ability
-				eventTable.caster = hero.InventoryUnit
-				eventTable.target = hero
-				eventTable.abilities_table = apprentice_abilities_table
-				erudite_teacher_start(eventTable)
+	ability.apprentice_abilities_table = apprentice_abilities_table
+	ability.apprentice_death_time = GameRules:GetGameTime()
+	-- Timers:CreateTimer(10, function()
+	-- 	if hero:HasModifier("modifier_erudite_teacher") then
+	-- 		print("IN TIMER :)")
+	-- 		if IsValidEntity(ability) then
+	-- 			print("SUMMON ANOTHER")
+	-- 			local eventTable = {}
+	-- 			eventTable.ability = ability
+	-- 			eventTable.caster = hero.InventoryUnit
+	-- 			eventTable.target = hero
+	-- 			eventTable.abilities_table = apprentice_abilities_table
+	-- 			erudite_teacher_start(eventTable)
 
-			end
+	-- 		end
+	-- 	end
+	-- end)
+end
+
+function erudite_teacher_robes_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	if ability.apprentice_abilities_table and ability.apprentice_death_time then
+		if GameRules:GetGameTime() - ability.apprentice_death_time > 10 then
+			local abilities_table = ability.apprentice_abilities_table
+
+			local eventTable = {}
+			eventTable.ability = ability
+			eventTable.caster = caster
+			eventTable.target = hero
+			eventTable.abilities_table = ability.apprentice_abilities_table
+			erudite_teacher_start(eventTable)
+
+			ability.apprentice_abilities_table = nil
 		end
-	end)
+	end
 end

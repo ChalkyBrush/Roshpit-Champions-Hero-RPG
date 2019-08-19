@@ -52582,6 +52582,16 @@
 						"target"		"TARGET"
 					}
 				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"erudite_teacher_robes_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_apprentice_ai"
 			{
