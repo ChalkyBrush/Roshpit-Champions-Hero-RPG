@@ -11892,6 +11892,12 @@
 		"item_property_pegasus"					"Wing Jump"
 		"property_pegasus_description"			"@Ability3 travels <font color='#ccff66'>100</font>% faster if it has a motion component. Max Movespeed is increased by <font color='#ccff66'>30</font>%."
 
+		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
+		"item_property_pivotal"					"Pivot Burst"
+		"property_pivotal_description"			"Turning becomes immediate. When making a quick turn, gain a burst of speed that increases max movement speed to <font color='#ccff66'>850</font>, and gain <font color='#ccff66'>400</font> movespeed that decays over 4 seconds."
+
+		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
+		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap and decaying movespeed"
 
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"

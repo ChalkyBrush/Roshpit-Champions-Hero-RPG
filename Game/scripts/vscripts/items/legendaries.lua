@@ -4709,6 +4709,30 @@ function RPCItems:RollPegasusBoots(deathLocation)
     return item
 end
 
+function RPCItems:RollPivotalSwiftboots(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_pivotal_swiftboots", "immortal", "Pivotal Swiftboots", "feet", true, "Slot: Feet")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "pivotal"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pivotal", "#4fd9f7", 1, "#property_pivotal_description")
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollFootProperty2(item, 0)
+    else
+        item.newItemTable.hasRunePoints = true
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.newItemTable.property2 = math.floor(value * 1.5)
+        item.newItemTable.property2name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    end
+    RPCItems:RollFootProperty3(item, 0)
+    RPCItems:RollFootProperty4(item, 0)
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollGiantHunterBoots(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_giant_hunters_boots_of_resilience", "immortal", "Giant Hunters Boots of Resilience", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()

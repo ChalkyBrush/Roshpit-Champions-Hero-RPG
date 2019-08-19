@@ -256,3 +256,10 @@
 		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
 		"item_property_pegasus"					"Wing Jump"
 		"property_pegasus_description"			"@Ability3 travels <% PEGASUS_E_SPEED_PCT %>% faster if it has a motion component. Max Movespeed is increased by <% PEGASUS_MAX_MS_AMP_PCT %>%."
+
+		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
+		"item_property_pivotal"					"Pivot Burst"
+		"property_pivotal_description"			"Turning becomes immediate. When making a quick turn, gain a burst of speed that increases max movement speed to <% PIVOT_BOOT_MAX_MS %>, and gain <% PIVOT_BOOT_MS %> movespeed that decays over 4 seconds."
+
+		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
+		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap and decaying movespeed"

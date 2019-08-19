@@ -6084,3 +6084,17 @@ function erudite_teacher_robes_think(event)
 		end
 	end
 end
+
+function pivotal_swift_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+
+	if hero:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+		local current_stacks = hero:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster)
+		local new_stacks = current_stacks - (PIVOT_BOOT_MS/(PIVOT_BURST_DURATION*10))
+		hero:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster, new_stacks)
+		print(current_stacks)
+	end
+		
+end

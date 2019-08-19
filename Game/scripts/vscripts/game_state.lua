@@ -627,6 +627,28 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_pivotal_swiftboots") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				if unit:IsStunned() or unit:IsFrozen() then
+				else
+					local movePos = Vector(orderTable.position_x, orderTable.position_y)
+					local currentPos = unit:GetAbsOrigin()
+					local fv = ((movePos - currentPos)*Vector(1,1,0)):Normalized()
+
+					local current_fv = unit:GetForwardVector()
+					local angle_between = WallPhysics:angle_between_vectors(current_fv, fv)
+					print(angle_between)
+					if angle_between >= 160 and angle_between <= 200 then
+						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
+						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = PIVOT_BURST_DURATION})
+						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, PIVOT_BOOT_MS)
+						unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
+						EmitSoundOn("Items.PivotalSwift", unit)
+					end
+					unit:SetForwardVector(fv)
+				end
+			end
+		end
 		if unit:GetUnitName() == "npc_dota_hero_arc_warden" then
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				if orderTable.entindex_target then

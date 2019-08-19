@@ -33,6 +33,8 @@ require('/items/constants/helm')
 require('/items/constants/trinket')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pivotal_swift", "modifiers/modifier_pivotal_swift", LUA_MODIFIER_MOTION_NONE)
+
 
 function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
     damage = Filters:AdjustItemDamage(attacker, damage, victim)
@@ -4702,6 +4704,7 @@ function Filters:AlienArmor(caster)
             end
         end
     end
+    illusion:SetRenderColor(0, 0, 0)
 end
 
 
