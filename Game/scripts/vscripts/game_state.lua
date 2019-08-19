@@ -1928,7 +1928,7 @@ function GameState:FilterDamage(filterTable)
 		table.insert(elements,attacker.element2)
 	end
 
-	if attacker:HasModifier("modifier_apprentice_ai") then
+	if attacker:HasModifier("modifier_apprentice_ai") or attacker:HasModifier("modifier_alien_armor_illusion") then
 		Filters:ApplyItemDamage(victim, attacker.hero, filterTable.damage, filterTable.damagetype_const, attacker.hero.body, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		return false
 	end

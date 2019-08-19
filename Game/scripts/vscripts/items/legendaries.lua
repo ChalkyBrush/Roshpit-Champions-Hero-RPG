@@ -1825,6 +1825,43 @@ function RPCItems:RollSeaGiantsPlate(deathLocation)
     return item
 end
 
+function RPCItems:RollAlienArmor(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_alien_armor", "immortal", "Sea Giant's Plate", "body", true, "Slot: Body")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 0
+    item.newItemTable.property1name = "alien"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_alien_armor", "#47471b", 1, "#property_alien_armor_Description")
+
+    item.newItemTable.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.newItemTable.property2 = math.floor(value * 1.5)
+    local luck = RandomInt(1, 10)
+    if luck <= 4 then
+        propertyName = "rune_r_1"
+    elseif luck <= 7 then
+        propertyName = "rune_r_2"
+    elseif luck <= 9 then
+        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 / 2)
+        propertyName = "rune_r_3"
+    else
+        if GameState:GetDifficultyFactor() > 2 then
+            item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(12, 0, 0, 0, 0)
+            propertyName = "rune_r_4"
+        else
+            propertyName = "rune_r_1"
+        end
+    end
+    item.newItemTable.property2name = propertyName
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+    RPCItems:RollBodyProperty3(item, 0)
+    RPCItems:RollBodyProperty4(item, 0)
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollKnightCrusherArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_staggering_knight_crusher_armor", "immortal", "Staggering Knight Crusher Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -3108,7 +3145,7 @@ function RPCItems:RollRobesOfEruditeTeacher(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "erudite_teacher"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_robe_of_the_erudite_teacher", "#D14268", 1, "#property_robe_of_the_erudite_teacher_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_robe_of_the_erudite_teacher", "#32a852", 1, "#property_robe_of_the_erudite_teacher_description")
     local luck = RandomInt(1, 4)
     if luck == 3 and maxFactor > 160 then
         local letter = RPCItems:GetRandomRuneLetter(1, 4)

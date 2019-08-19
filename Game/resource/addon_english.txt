@@ -12266,6 +12266,10 @@
 		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
 		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the apprentice's copied abilities."
 
+		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
+		"property_alien_armor"							"Carbon Forge"
+		"property_alien_armor_description"				"Casting @Ability4 creates an illusion with <font color='#ccff66'>1000</font> bonus attack speed whose damage is attributed to the caster as item damage. The illusion inherits some modifiers from the caster and deals <font color='#ccff66'>10</font>x damage, takes <font color='#ccff66'>90</font>% reduced damage and lasts <font color='#ccff66'>10</font> seconds."
+
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_property_blue_rain"								"Rain Lance"
 		"property_blue_rain_description"						"Attacks cannot miss. <font color='#ccff66'>15</font>% chance on attack to create massive wave of water that damages enemies in a line in front of you for <font color='#ccff66'>75</font>x your total attack power."

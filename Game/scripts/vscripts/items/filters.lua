@@ -1142,6 +1142,9 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_doomplate") then
         Filters:DoomplateSummon(caster)
     end
+    if caster:HasModifier("modifier_alien_armor") then
+        Filters:AlienArmor(caster)
+    end
     if caster:HasModifier("modifier_guard_of_feronia") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = 3.5})
     end
@@ -4643,6 +4646,48 @@ function Filters:JexNatureCostmicW(caster)
     end
     caster:ReduceMana(mana_usage)
 end
+
+function Filters:AlienArmor(caster)
+    local modifierKeys = {}
+
+    modifierKeys.outgoing_damage = ALIEN_ARMOR_OUTGOING_DAMAGE_MULT*100
+    modifierKeys.incoming_damage = 1 - (ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION/100)
+    modifierKeys.duration = ALIEN_ARMOR_ILLUSION_DURATION
+    local illusions = CreateIllusions( caster, caster, modifierKeys, 1, 20, true, true)
+    local illusion = illusions[1]
+    illusion.owner = caster
+    local body = caster.body
+    body:ApplyDataDrivenModifier(caster.InventoryUnit, illusion, "modifier_alien_armor_illusion", {})
+    illusion:SetRenderColor(0, 0, 0)
+    illusion.hero = caster
+    StartAnimation(illusion, {duration = 2, activity = ACT_DOTA_SPAWN, rate = 1.2})
+    local newPos = caster:GetAbsOrigin()+RandomVector(200)
+    newPos = GetGroundPosition(newPos, illusion)
+    illusion:SetAbsOrigin(newPos)
+    CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", newPos+Vector(0,0,60), 4)
+
+    illusion.strength_custom = caster.strength_custom
+    illusion.agility_custom = caster.agility_custom
+    illusion.intellect_custom = caster.intellect_custom
+    illusion.str_bonus = caster.str_bonus
+    illusion.agi_bonus = caster.agi_bonus
+    illusion.int_bonus = caster.int_bonus
+    local modifiers = caster:FindAllModifiers()
+    for j = 1, #modifiers, 1 do
+        local modifier = modifiers[j]
+        if modifier then
+            local modifier_caster = modifier:GetCaster()
+            if IsValidEntity(modifier_caster) and modifier_caster:GetTeamNumber() == caster:GetTeamNumber() then
+                local modifier_ability = modifier:GetAbility()
+                if IsValidEntity(modifier_ability) then
+                    modifier_ability:ApplyDataDrivenModifier(modifier:GetCaster(), illusion, modifier:GetName(), {duration = modifier:GetRemainingTime()})
+                end
+            end
+        end
+    end
+end
+
+
 function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, increase, checkFunc)
     if target:IsRooted() or target:IsStunned() then
         return
