@@ -4672,6 +4672,17 @@ function Filters:AlienArmor(caster)
     illusion.str_bonus = caster.str_bonus
     illusion.agi_bonus = caster.agi_bonus
     illusion.int_bonus = caster.int_bonus
+    illusion:SetBaseDamageMax(OverflowProtectedGetAverageTrueAttackDamage(caster))
+    illusion:SetBaseDamageMin(OverflowProtectedGetAverageTrueAttackDamage(caster))
+    local modifiers = illusion:FindAllModifiers()
+    for j = 1, #modifiers, 1 do
+        local modifier = modifiers[j]  
+        local modifier_name = modifier:GetName()
+        if modifier_name == "modifier_attack_land_basic" or modifier_name == "modifier_illusion" or modifier_name == "modifier_animation" or modifier_name == "modifier_alien_armor_illusion" then
+        else
+            illusion:RemoveModifierByName(modifier:GetName())
+        end
+    end  
     local modifiers = caster:FindAllModifiers()
     for j = 1, #modifiers, 1 do
         local modifier = modifiers[j]
@@ -4680,7 +4691,13 @@ function Filters:AlienArmor(caster)
             if IsValidEntity(modifier_caster) and modifier_caster:GetTeamNumber() == caster:GetTeamNumber() then
                 local modifier_ability = modifier:GetAbility()
                 if IsValidEntity(modifier_ability) then
-                    modifier_ability:ApplyDataDrivenModifier(modifier:GetCaster(), illusion, modifier:GetName(), {duration = modifier:GetRemainingTime()})
+                    local duration = modifier:GetRemainingTime()
+                    local modifier_name = modifier:GetName()
+                    print(modifier_name)
+                    if modifier_name == "modifier_shapeshift_cat" or modifier_name == "modifier_shapeshift_crow" or modifier_name == "modifier_shapeshift_year_beast" or modifier_name == "modifier_shapeshift_bear" or modifier_name == "modifier_draghor_shapeshift_bear_lua" or modifier_name == "modifier_draghor_shapeshift_hawk_lua" or modifier_name == "modifier_draghor_shapeshift_cat_lua" then
+                        modifier_ability:ApplyDataDrivenModifier(modifier:GetCaster(), illusion, modifier:GetName(), {duration = duration})
+                        illusion:SetModifierStackCount(modifier:GetName(), modifier:GetCaster(), modifier:GetStackCount())
+                    end
                 end
             end
         end
