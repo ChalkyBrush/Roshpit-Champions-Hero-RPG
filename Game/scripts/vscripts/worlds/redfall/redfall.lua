@@ -919,6 +919,7 @@ function Redfall:SpawnAncientTree()
       Events:ColorWearables(unit, Vector(255, 170, 170))
       unit:SetModelScale(0.05)
       unit.summonCount = 0
+	  unit.type = ENEMY_TYPE_MAJOR_BOSS
       local unitAbility = unit:FindAbilityByName("ancient_tree_passive")
       unitAbility:ApplyDataDrivenModifier(unit, unit, "modifier_ancient_tree_cinematic", {duration = 6.5})
       for i = 1, 120, 1 do

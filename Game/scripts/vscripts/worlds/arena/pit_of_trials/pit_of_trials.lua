@@ -678,6 +678,7 @@ function Arena:SpawnKarhzun(stackLevel)
 	local position = Vector(-11904, 14848)
 	ScreenShake(position, 500, 1, 1, 9000, 0, true)
 	local gardiner = Arena:SpawnDungeonUnit("arena_conquest_gift_of_kharzun", position, 2, 5, nil, RandomVector(1), true)
+	gardiner.type = ENEMY_TYPE_MINI_BOSS
 	gardiner.itemLevel = 125 + stackLevel
 	gardiner.stackLevel = stackLevel
 	EmitSoundOn("Arena.Karzhun.Entry", gardiner)
@@ -1055,6 +1056,7 @@ function Arena:SpawnConquestBoss()
 	 	return
 	 end
      local boss = CreateUnitByName("pit_conquest_boss", Vector(-14826, -16121, 950), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	 boss.type = ENEMY_TYPE_BOSS
      boss:SetAbsOrigin(Vector(-14826, -16121, 950))
      local bossAbility = boss:FindAbilityByName("conquest_boss_ai")
      bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_conquest_boss_entering", {duration = 10})
@@ -1694,6 +1696,7 @@ function Arena:SpawnLiesBoss(position)
 	 	return
 	 end
 	local boss = CreateUnitByName("arena_lies_boss", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	boss.type = ENEMY_TYPE_BOSS
 	Arena:AddPitToUnit(boss)
 	-- boss:SetAbsOrigin(Vector(-14826, -16121, 950))
 	Events:AdjustDeathXP(boss)
@@ -2155,6 +2158,7 @@ function Arena:SpawnDescentBoss()
 		return
 	end
 	local boss = CreateUnitByName("arena_descent_boss", Vector(12468, -13417,-2700), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	boss.type = ENEMY_TYPE_BOSS
 	boss.jumpLock = true
 	local bossAbility = boss:FindAbilityByName("descent_boss_ai")
 	bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_descent_boss_entering", {duration = 4.5})
@@ -2196,6 +2200,7 @@ end
 
 function Arena:SpawnPitGuardian()
 	local stone = Arena:SpawnDungeonUnit("arena_pit_pit_guardian", Vector(-1088, 8064), 3, 6, "Arena.PitGuardian.Aggro", Vector(-1,0.5), false)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	if Arena.PitColor == "red" then
 		stone:SetRenderColor(255,0,0)
 	elseif Arena.PitColor == "blue" then
@@ -2212,6 +2217,7 @@ end
 
 function Arena:SpawnPitFinalBoss()
 	local boss = CreateUnitByName("arena_pit_of_trials_final_boss", Vector(4318, -13923), true, nil, nil, DOTA_TEAM_NEUTRALS)
+	boss.type = ENEMY_TYPE_BOSS
 	boss:SetForwardVector(Vector(0,1))
 	Arena:AddPitToUnit(boss)
 	-- boss:SetAbsOrigin(Vector(-14826, -16121, 950))
@@ -2344,6 +2350,7 @@ end
 
 function Arena:SpawnSoulFerrier(position, fv)
 	local stone = Arena:SpawnDungeonUnit("pit_of_trials_secret_soul_ferrier", position, 2, 4, "Arena.FerrierIntro2", fv, false)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	stone.cantAggro = true
 	-- stone:SetRenderColor(150,150,150)
 	-- Arena:ColorWearables(stone, Vector(150,150,150))
