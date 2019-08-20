@@ -4174,6 +4174,8 @@ function RPCItems:RollCeruleanHighguard(deathLocation, isShop)
     return item
 end
 
+
+
 function RPCItems:RollBlackfeatherCrown(deathLocation, isShop)
     local item = RPCItems:CreateVariant("item_rpc_blackfeather_crown", "immortal", "Blackfeather Crown", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4190,6 +4192,34 @@ function RPCItems:RollBlackfeatherCrown(deathLocation, isShop)
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
+    return item
+end
+
+function RPCItems:RollMagistratesHood(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_magistrates_hood", "immortal", "Magistrate's Hood", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "magistrate"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_magistrate", "#fab60a", 1, "#property_magistrate_description")
+
+    item.newItemTable.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.newItemTable.property2 = math.ceil(value * 2)
+    item.newItemTable.property2name = propertyName
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
+        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        item.newItemTable.property3 = math.floor(value*0.5)
+        item.newItemTable.property3name = runeName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+    else
+        RPCItems:RollHoodProperty3(item, 0)
+    end
+    RPCItems:RollHoodProperty4(item, 0)
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
     return item
 end
 
@@ -8552,6 +8582,12 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollGuardianStone(deathLocation)
     elseif itemName == "item_rpc_robe_of_the_erudite_teacher" then
         newItem = RPCItems:RollRobesOfEruditeTeacher(deathLocation)
+    elseif itemName == "item_rpc_pivotal_swiftboots" then
+        newItem = RPCItems:RollPivotalSwiftboots(deathLocation)
+    elseif itemName == "item_rpc_alien_armor" then
+        newItem = RPCItems:RollAlienArmor(deathLocation)
+    elseif itemName == "item_rpc_magistrates_hood" then
+        newItem = RPCItems:RollMagistratesHood(deathLocation)
     end
     return newItem
 end

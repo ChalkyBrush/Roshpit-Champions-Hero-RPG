@@ -259,7 +259,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
 		"item_property_pivotal"					"Pivot Burst"
-		"property_pivotal_description"			"Turning becomes immediate. When making a quick turn, gain a burst of speed that increases max movement speed to <% PIVOT_BOOT_MAX_MS %>, and gain <% PIVOT_BOOT_MS %> movespeed that decays over 4 seconds."
+		"property_pivotal_description"			"Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed to <% PIVOT_BOOT_MAX_MS %>, and gain <% PIVOT_BOOT_MS %> movespeed that decays over 4 seconds."
 
 		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
 		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap and decaying movespeed"

@@ -11894,7 +11894,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
 		"item_property_pivotal"					"Pivot Burst"
-		"property_pivotal_description"			"Turning becomes immediate. When making a quick turn, gain a burst of speed that increases max movement speed to <font color='#ccff66'>850</font>, and gain <font color='#ccff66'>400</font> movespeed that decays over 4 seconds."
+		"property_pivotal_description"			"Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed to <font color='#ccff66'>850</font>, and gain <font color='#ccff66'>400</font> movespeed that decays over 4 seconds."
 
 		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
 		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap and decaying movespeed"
@@ -12955,6 +12955,13 @@
 
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Haste Blade"
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
+		"item_property_magistrate"											"Spell Spreader"
+		"property_magistrate_description"								"All Magical and Pure damage deal their damage in a <font color='#ccff66'>300</font> AOE. AOE effect has <font color='#ccff66'>8</font> charges that replenish every <font color='#ccff66'>1</font> second. All damage AOE damage is reduced by <font color='#ccff66'>50</font>%."
+
+		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Spell Spreader Charges"
+		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Magic and Pure damage effects an AOE as long as charges are above 0"
 
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"

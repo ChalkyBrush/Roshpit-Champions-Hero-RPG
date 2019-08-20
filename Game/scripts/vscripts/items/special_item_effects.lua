@@ -6098,3 +6098,12 @@ function pivotal_swift_think(event)
 	end
 		
 end
+
+function magistrates_hood_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_magistrates_hood_charges", {})
+	hero:SetModifierStackCount("modifier_magistrates_hood_charges", caster, MAGISTRATE_HOOD_MAX_CHARGES)
+end
