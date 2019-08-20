@@ -670,6 +670,16 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_nethergrasp_palisade") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				if orderTable.entindex_target then
+					local target = EntIndexToHScript(orderTable.entindex_target)
+					if target:GetClassname() ~= "dota_item_drop" then
+						Filters:NetergraspPalisade(unit, target)
+					end
+				end
+			end
+		end
 		if unit:HasModifier("modifier_jex_portal_aura_inside") then
 			if unit:HasModifier("modifier_jex_portal_aura_inside") then
 				if not unit:HasModifier("modifier_jex_portal_teleporting") then
@@ -4278,7 +4288,7 @@ function GameState:FilterDamage(filterTable)
 				if not victim:HasModifier("modifier_disable_player") then
 					if not victim:HasModifier("modifier_aeon_shield_passive") then
 						if filterTable["damage"] > 0 then
-							filterTable["damage"] = 0
+							-- filterTable["damage"] = 0
 						end
 					end
 				end

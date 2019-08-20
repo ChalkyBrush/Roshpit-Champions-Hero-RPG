@@ -280,6 +280,9 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 	elseif propertyName == "alien" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_alien_armor", item)
 		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "nethergrasp" then
+		Body:addItemModifier(0, hero, inventory_unit, "modifier_nethergrasp_palisade", item)
+		RPCItems:PreacheArcanaResources(item)
 	end
 	hero.body = item
 	item.hero = hero

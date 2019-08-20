@@ -6107,3 +6107,103 @@ function magistrates_hood_init(event)
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_magistrates_hood_charges", {})
 	hero:SetModifierStackCount("modifier_magistrates_hood_charges", caster, MAGISTRATE_HOOD_MAX_CHARGES)
 end
+
+function nethergrasp_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+
+	if not ability.nethergrasp_table then
+		ability.nethergrasp_table = {}
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	local grasp_break_table = {}
+	if #ability.nethergrasp_table > 0 then
+	    for i = 1, #ability.nethergrasp_table, 1 do
+	        local nether = ability.nethergrasp_table[i]
+	        if nether then
+		        local target = EntIndexToHScript(nether.entindex)
+		        local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), hero:GetAbsOrigin())
+		        nether.distance = distance
+		       	if i%#ability.nethergrasp_table == ability.interval then
+		       		Filters:PerformAttackSpecial(hero, target, true, true, true, false, true, false, false)
+		       		if hero:Script_GetAttackRange() + 240 >= distance then
+		       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
+		       		end
+		       	end
+		        if distance > NETHERGRASP_BREAK_DISTANCE then
+		        	table.insert(grasp_break_table, nether.entindex)
+		        end
+		        if not target:IsAlive() then
+		        	table.insert(grasp_break_table, nether.entindex)
+		        end
+		    end
+	    end
+	end
+    for i = 1, #grasp_break_table, 1 do
+    	local target = EntIndexToHScript(grasp_break_table[i])
+    	target:RemoveModifierByName("modifier_nethergrasp_linked")
+    end
+	ability.interval = ability.interval + 1
+	if ability.interval >= #ability.nethergrasp_table then
+		ability.interval = 0
+	end
+end
+
+function nethergrasp_grip_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+    local new_nethergrasp_table = {}
+    for i = 1, #ability.nethergrasp_table, 1 do
+        local nether = ability.nethergrasp_table[i]
+        if nether.entindex == target:GetEntityIndex() then
+            ParticleManager:DestroyParticle(nether.pfx, false)
+            ParticleManager:ReleaseParticleIndex(nether.pfx)
+        else
+            table.insert(new_nethergrasp_table, nether)
+        end
+    end
+
+    ability.nethergrasp_table = new_nethergrasp_table
+    Timers:CreateTimer(0.03, function()
+    	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+    end)
+end
+
+function nethergrasp_grip_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+	local nether = nil
+    for i = 1, #ability.nethergrasp_table, 1 do
+        if ability.nethergrasp_table[i].entindex == target:GetEntityIndex() then
+            nether = ability.nethergrasp_table[i]
+            break
+        end
+    end
+	if nether and nether.distance then
+		if target.pushLock then
+			return false
+		end
+		if target.jumpLock then
+			return false
+		end
+		local range = hero:Script_GetAttackRange()
+
+		if nether.distance > range then
+			local pullSpeed = math.min(15, GameRules:GetGameTime() - nether.create_time + 5)
+			pullSpeed = math.max(pullSpeed, 5)
+			if target.mainBoss then
+				pullSpeed = pullSpeed*0.3
+			end
+			local pullDirection = (hero:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()
+			target:SetAbsOrigin(target:GetAbsOrigin()+pullDirection*pullSpeed)
+		end
+	end
+end

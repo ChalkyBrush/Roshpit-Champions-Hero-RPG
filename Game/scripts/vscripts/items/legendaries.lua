@@ -2090,6 +2090,39 @@ function RPCItems:RollBladestormVest(deathLocation)
     return item
 end
 
+function RPCItems:NethergraspPalisade(deathLocation)
+    local item = RPCItems:CreateVariant("item_rpc_nethergrasp_palisade", "immortal", "nethergrasp Palisade", "body", true, "Slot: Body")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "nethergrasp"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nethergrasp", "#78f0ec", 1, "#property_nethergrasp_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        local value = RandomInt(maxFactor * 30, maxFactor * 330)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "attack_damage"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+    elseif luck == 2 then
+        local value, nameLevel = RPCItems:RollAttribute(0, 9, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 14)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "intelligence"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
+    end
+
+    item.newItemTable.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    item.newItemTable.property3 = math.floor(value*1.5)
+    item.newItemTable.property3name = propertyName
+    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+
+    RPCItems:RollBodyProperty4(item, 0)
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollSacredTrialsArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_sacred_trials_armor", "immortal", "Sacred Trials Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -2235,7 +2268,7 @@ function RPCItems:RollMageplate(deathLocation)
     item.newItemTable.property1name = "mageplate"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mageplate", "#B05CFF", 1, "#property_mageplate_description")
 
-    local value, nameLevel = RPCItems:RollAttribute(0, 9, 13, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
+    local value, nameLevel = RPCItems:RollAttribute(0, 9, 16, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "intelligence"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
@@ -8588,6 +8621,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollAlienArmor(deathLocation)
     elseif itemName == "item_rpc_magistrates_hood" then
         newItem = RPCItems:RollMagistratesHood(deathLocation)
+    elseif itemName == "item_rpc_nethergrasp_palisade" then
+        newItem = RPCItems:NethergraspPalisade(deathLocation)
     end
     return newItem
 end

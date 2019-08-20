@@ -4748,3 +4748,42 @@ function Filters:IsNonExtendableBuff(modifier)
     }
     return self.nonExtendableBuffs[modifier:GetName()] or isDebuff or false
 end
+
+function Filters:NetergraspPalisade(hero, target)
+    local ability = hero.body
+    local caster = hero.InventoryUnit
+    if target:HasModifier("modifier_nethergrasp_linked") then
+        return false
+    end
+    local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), target:GetAbsOrigin())
+    if distance > NETHERGRASP_LINK_RANGE then
+        return false
+    end
+    if target.dummy then
+        return false
+    end
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_nethergrasp_linked", {})
+
+    local nethergrasp = {}
+    nethergrasp.entindex = target:GetEntityIndex()
+    nethergrasp.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster)
+    ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 80), true)
+    ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0, 0, 80), true)
+    nethergrasp.create_time = GameRules:GetGameTime()
+    table.insert(ability.nethergrasp_table, nethergrasp)
+    EmitSoundOn("Items.Nethergrip.Link", target)
+    if #ability.nethergrasp_table > NETHERGRASP_MAX_LINKS then
+        local new_nethergrasp_table = {}
+        for i = 1, #ability.nethergrasp_table, 1 do
+            local nether = ability.nethergrasp_table[i]
+            if i == 1 then
+                target:RemoveModifierByName("modifier_nethergrasp_linked")
+                ParticleManager:DestroyParticle(nether.pfx, false)
+                ParticleManager:ReleaseParticleIndex(nether.pfx)
+            else
+                table.insert(new_nethergrasp_table, nether)
+            end
+        end
+        ability.nethergrasp_table = new_nethergrasp_table
+    end
+end
