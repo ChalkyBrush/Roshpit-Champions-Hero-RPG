@@ -35,7 +35,14 @@ require('/items/constants/trinket')
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 
 function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
+    local damageData = attacker._damage_data or {}
+
     damage = Filters:AdjustItemDamage(attacker, damage, victim)
+
+    if damageData.skipItemDamageEffectsApply then
+        Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2, false, item)
+        return
+    end
     local mult = 1
     if attacker:HasModifier("modifier_trapper_glyph_6_1") then
         element2 = RPC_ELEMENT_NORMAL
@@ -74,6 +81,10 @@ end
 function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_type, item, element1, element2)
     if attacker:HasModifier("modifier_depth_demon_claw") then
         damage = damage * 0.3
+    end
+    if damageData.skipItemDamageEffectsApply then
+        Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)
+        return
     end
     if attacker:HasModifier("modifier_solunia_arcana2") then
         local b_d_level = attacker:GetRuneValue("r", 2)
@@ -1212,6 +1223,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         slot = 0
         Is_solunia_b_d = true
     end
+
+    local damageData = attacker._damage_data or {}
+
     local attackerName = attacker:GetUnitName()
     if not ignore_effects then
         if attackerName == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
@@ -1465,6 +1479,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
             if not indirectProcQ then
                 Filters:ApplyQdamage(victim, attacker, damage, damage_type)
+            else
+                damageData.isAugmented = true
             end
         end
     elseif slot == 2 then
@@ -1544,6 +1560,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
             if not indirectProcW then
                 Filters:ApplyWdamage(victim, attacker, damage, damage_type)
+            else
+                damageData.isAugmented = true
             end
         end
 
@@ -1632,6 +1650,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
             if not indirectProcR then
                 Filters:ApplyRdamage(victim, attacker, damage, damage_type)
+            else
+                damageData.isAugmented = true
             end
         end
     end
@@ -1715,6 +1735,7 @@ end
 
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
     local ability = nil
+    local damageData = attacker._damage_data or {}
     if type(slot) == "number" then
         ability = attacker:GetAbilityByIndex(slot)
     else
@@ -1731,7 +1752,9 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
             instances = instances + procs
         end
     end
-
+    if damageData.skipItemDamageEffectsApply then
+        instances = 1
+    end
     for i = 1, instances do
         ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
     end

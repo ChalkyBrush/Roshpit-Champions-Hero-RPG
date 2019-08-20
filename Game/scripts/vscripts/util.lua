@@ -100,9 +100,6 @@ Util.Modifier = Util.Modifier or {}
 function Util.Modifier:SimpleEvent(creature, eventName, specialTypes, data, aggregateFunc)
     local modifiers = Util.Creature:GetModifiersWithClassAndTypes(creature, npc_base_modifier, specialTypes)
     for _,modifier in pairs(modifiers) do
-        print('modifier ' .. modifier:GetName() .. ' event ' .. eventName)
-        print('has modifier?')
-        print(modifier[eventName])
         if modifier[eventName] then
             local result = modifier[eventName](modifier, data)
             if aggregateFunc ~= nil then
