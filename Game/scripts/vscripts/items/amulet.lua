@@ -262,6 +262,12 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_galvanized_razor_band", item)
 	elseif propertyName == "guardian_stone" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_guadian_stone", item)
+	elseif propertyName == "beryl_intuition" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_beryl_ring_of_intuiton", item)
+		RPCItems:PreacheArcanaResources(item)
+	elseif propertyName == "auric_inspiration" then
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_auric_ring_of_inspiration", item)
+		RPCItems:PreacheArcanaResources(item)
 	end
 	hero.amulet = item
 end
@@ -442,6 +448,8 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_puzzlers_locket")
 	hero:RemoveModifierByName("modifier_galvanized_razor_band")
 	hero:RemoveModifierByName("modifier_guadian_stone")
+	hero:RemoveModifierByName("modifier_beryl_ring_of_intuiton")
+	hero:RemoveModifierByName("modifier_auric_ring_of_inspiration")
 	hero.monkey_paw = false
 	hero.birdTable = false
 	hero.eternal_frost_gem = false

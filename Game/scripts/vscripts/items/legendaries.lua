@@ -6313,6 +6313,90 @@ function RPCItems:RollAncientTanariWaterstone(deathLocation)
     return item
 end
 
+function RPCItems:RollAuricRingOfInspiration(deathLocation, boss_level)
+    local item = RPCItems:CreateVariant("item_rpc_auric_ring_of_inspiration", "immortal", "Auric Ring of Inspiration", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    item.newItemTable.property1name = "auric_inspiration"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_auric_ring_of_inspiration", "#edf056", 1, "#property_auric_ring_of_inspiration_description")
+
+    local max_attributes_roll = math.ceil(maxFactor*(math.min(boss_level/2, 16))) + 1000
+    local value, nameLevel = RPCItems:RollAttribute(0, 6, 11+boss_level/2, 0, 0, item.newItemTable.rarity, false, max_attributes_roll)
+    item.newItemTable.property2 = value
+    item.newItemTable.property2name = "all_attributes"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
+
+    local luck = RandomInt(1, 3)
+    if luck == 3 then
+        local value, nameLevel = RPCItems:RollAttribute(0, 6, 11, 0, 0, item.newItemTable.rarity, false, maxFactor * 13)
+        item.newItemTable.property3 = value
+        item.newItemTable.property3name = "all_attributes"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_all_attributes", "#FFFFFF", 3)
+    else
+        local tier, value, propertyName = RPCItems:RollSkillProperty()
+        if tier > 0 then
+            item.newItemTable.property3 = value
+            item.newItemTable.property3name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+        end
+    end
+
+    local tier, value, propertyName = RPCItems:RollSkillProperty()
+    if tier > 0 then
+        item.newItemTable.property4 = value
+        item.newItemTable.property4name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+    end
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
+function RPCItems:RollBerylRingOfIntuition(deathLocation, boss_level)
+    local item = RPCItems:CreateVariant("item_rpc_beryl_ring_of_intuition", "immortal", "Beryl Ring of Intuition", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    item.newItemTable.property1name = "beryl_intuition"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_beryl_ring_of_intuition", "#5cadff", 1, "#property_beryl_ring_of_intuition_description")
+
+    local max_attributes_roll = math.ceil(maxFactor*(math.min(boss_level/2, 16))) + 1000
+    local value, nameLevel = RPCItems:RollAttribute(0, 6, 10+boss_level/2, 0, 0, item.newItemTable.rarity, false, max_attributes_roll)
+    item.newItemTable.property2 = value
+    item.newItemTable.property2name = "all_attributes"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
+
+    local luck = RandomInt(1, 3)
+    if luck == 3 then
+        local value, nameLevel = RPCItems:RollAttribute(0, 6, 11, 0, 0, item.newItemTable.rarity, false, maxFactor * 13)
+        item.newItemTable.property3 = value
+        item.newItemTable.property3name = "all_attributes"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_all_attributes", "#FFFFFF", 3)
+    else
+        local tier, value, propertyName = RPCItems:RollSkillProperty()
+        if tier > 0 then
+            item.newItemTable.property3 = value
+            item.newItemTable.property3name = propertyName
+            RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+        end
+    end
+
+    local tier, value, propertyName = RPCItems:RollSkillProperty()
+    if tier > 0 then
+        item.newItemTable.property4 = value
+        item.newItemTable.property4name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+    end
+
+    local drop = CreateItemOnPositionSync(deathLocation, item)
+    local position = deathLocation
+    RPCItems:DropItem(item, position)
+    return item
+end
+
 function RPCItems:RollAntiqueManaRelic(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_antique_mana_relic", "immortal", "Antique Mana Relic", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8623,6 +8707,10 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollMagistratesHood(deathLocation)
     elseif itemName == "item_rpc_nethergrasp_palisade" then
         newItem = RPCItems:NethergraspPalisade(deathLocation)
+    elseif itemName == "item_rpc_beryl_ring_of_intuition" then
+        newItem = RPCItems:RollBerylRingOfIntuition(deathLocation, 1)
+    elseif itemName == "item_rpc_auric_ring_of_inspiration" then
+        newItem = RPCItems:RollAuricRingOfInspiration(deathLocation, 1)
     end
     return newItem
 end

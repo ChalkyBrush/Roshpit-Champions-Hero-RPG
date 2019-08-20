@@ -6210,3 +6210,9 @@ function nethergrasp_grip_thinker(event)
 		end
 	end
 end
+
+function unequip_inspiration_ring(event)
+	local target = event.target
+	local ability = event.ability
+	CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "inspiration_ring", {abilities_cast = {false, false, false, false}, ring_name = ability:GetAbilityName(), clear = 1, color = "none"})
+end

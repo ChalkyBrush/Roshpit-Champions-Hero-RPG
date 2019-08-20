@@ -13291,6 +13291,17 @@
 		"property_guardian_stone"										"Silver Heart"
 		"property_guardian_stone_description"								"Debuffs applied by enemies have <font color='#ccff66'>75</font>% reduced duration. When a debuff duration is reduced, heal <font color='#ccff66'>20</font>% of max health."
 
+		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
+		"item_property_beryl_ring_of_intuition"						"Intuitive Coalescence"
+		"property_beryl_ring_of_intuition_description"				"After casting all 4 base abilities, restore full health and refresh all cooldowns."
+
+		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
+		"item_property_auric_ring_of_inspiration"						"Inspired Coalescence"
+		"property_auric_ring_of_inspiration_description"				"After casting all 4 base abilities, restore full health and gain <font color='#ccff66'>5</font> seconds of magic immunity."
+
+		"DOTA_Tooltip_modifier_auric_ring_bkb"						"Inspiration"
+		"DOTA_Tooltip_modifier_auric_ring_bkb_Description"			"Magic Immune"
+
 
 		
 		

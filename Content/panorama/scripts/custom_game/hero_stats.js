@@ -113,11 +113,33 @@ function UpdateHeroStats(){
 	}
 }
 
+function InspirationRing(msg)
+{
+	// if (Players.GetLocalPlayerPortraitUnit() == msg.caster){
+		var parent = GameUI.DotaHUD.FindChildTraverse("AbilitiesAndStatBranch")
+		var abilities_cast = msg.abilities_cast
+		var color = msg.border_color
+		$.Msg(abilities_cast)
+		for (var j = 1; j <= 4; j++) {
+			var panel_index = j-1
+			$.Msg(abilities_cast[j])
+			if (abilities_cast[j] == 1){
+				var ability_panel = parent.FindChildTraverse("Ability"+panel_index).FindChildTraverse("AbilityButton")
+				ability_panel.style.border = "3px solid "+color
+			}else{
+				var ability_panel = parent.FindChildTraverse("Ability"+panel_index).FindChildTraverse("AbilityButton")
+				ability_panel.style.border = "0px solid black"
+			}
+		}
+	// }
+}
+
 (function()
 {
 	InitializeHeroStatsOnce()
 	GameEvents.Subscribe( "update_hero_stats", UpdateHeroStats );
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateHeroStats );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateHeroStats );
+	GameEvents.Subscribe( "inspiration_ring", InspirationRing);
 })();
 

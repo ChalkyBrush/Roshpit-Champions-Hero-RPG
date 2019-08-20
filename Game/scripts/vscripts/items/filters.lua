@@ -328,7 +328,7 @@ function Filters:GetAdjustedMaxMovespeed(max_ms, caster)
 end
 
 function Filters:GetMagicImmuneModifierNames()
-    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_seinaru_gorudo_magic_immunity", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity", "modifier_magic_immune_breakable_ability"}
+    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_seinaru_gorudo_magic_immunity", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity", "modifier_magic_immune_breakable_ability", "modifier_auric_ring_bkb"}
     return magic_immunity_buffs
 end
 
@@ -689,6 +689,9 @@ function Filters:CastSkillArguments(slot, caster)
         Filters:ApplyRskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
 
+    end
+    if caster:HasModifier("modifier_beryl_ring_of_intuiton") or caster:HasModifier("modifier_auric_ring_of_inspiration") then
+        Filters:InpsirationRing(caster, slot)
     end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
@@ -4786,4 +4789,50 @@ function Filters:NetergraspPalisade(hero, target)
         end
         ability.nethergrasp_table = new_nethergrasp_table
     end
+end
+
+function Filters:InpsirationRing(caster, skillIndex)
+    local ring = caster.amulet
+    if not ring.abilities_cast then
+        ring.abilities_cast = {false, false, false, false}
+    end
+    local particleName = "particles/roshpit/items/inspiration_ring/inspiration_gold.vpcf"
+    if ring:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
+        particleName = "particles/roshpit/items/inspiration_ring/inspiration_blue.vpcf"
+    end
+    ring.abilities_cast[skillIndex] = true
+    local condition_met = true
+
+    for i = 1, #ring.abilities_cast, 1 do
+        if not ring.abilities_cast[i] then
+            condition_met = false
+            break
+        end
+    end
+    DeepPrintTable(ring.abilities_cast)
+    if condition_met then
+        ring.abilities_cast = {false, false, false, false}
+        EmitSoundOn("Items.InspirationRing.Activate", caster)
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, caster)
+        ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+        -- ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControl(pfx, 5, Vector(1,1,1))
+        local heal = caster:GetMaxHealth()
+        Filters:ApplyHeal(caster, caster, heal, true, true)
+
+        if ring:GetAbilityName() == "item_rpc_auric_ring_of_inspiration" then
+            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = INSPIRATION_MAGIC_IMMUNITY_TIME})
+        elseif ring:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
+            for i = 0, 8, 1 do
+                local ability = caster:GetAbilityByIndex(i)
+                if ability and IsValidEntity(ability) then
+                    ability:EndCooldown()
+                end
+            end
+        end
+        Timers:CreateTimer(2, function()
+            ParticleManager:DestroyParticle(pfx, false)
+        end)
+    end
+    CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "inspiration_ring", {abilities_cast = ring.abilities_cast, ring_name = ring:GetAbilityName(), clear = 0, caster = caster:GetEntityIndex(), border_color = ring.newItemTable.property1color})
 end
