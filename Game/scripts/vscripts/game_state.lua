@@ -1974,7 +1974,7 @@ function GameState:FilterDamage(filterTable)
 				                victim = enemy,
 				                damage = magistrate_damage,
 				                damageType = DAMAGE_TYPE_MAGICAL,
-				                elements = {},
+				                elements = elements,
 				                ignoreMultipliers = true
 				            })
 						end
