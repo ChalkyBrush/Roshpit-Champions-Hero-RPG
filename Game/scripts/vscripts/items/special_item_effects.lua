@@ -6128,8 +6128,8 @@ function nethergrasp_thinker(event)
 		        local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), hero:GetAbsOrigin())
 		        nether.distance = distance
 		       	if i%#ability.nethergrasp_table == ability.interval then
-		       		Filters:PerformAttackSpecial(hero, target, true, true, true, false, true, false, false)
-		       		if hero:Script_GetAttackRange() + 240 >= distance then
+		       		if hero:Script_GetAttackRange() + 100 >= distance then
+		       			Filters:PerformAttackSpecial(hero, target, true, true, true, false, true, false, false)
 		       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
 		       		end
 		       	end
@@ -6199,11 +6199,14 @@ function nethergrasp_grip_thinker(event)
 		if nether.distance > range then
 			local pullSpeed = math.min(15, GameRules:GetGameTime() - nether.create_time + 5)
 			pullSpeed = math.max(pullSpeed, 5)
-			if target.mainBoss then
+			if target.type and target.type == ENEMY_TYPE_MINI_BOSS then
+				pullSpeed = pullSpeed*0.6
+			elseif target.type and target.type == ENEMY_TYPE_BOSS then
 				pullSpeed = pullSpeed*0.3
 			end
 			local pullDirection = (hero:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()
 			target:SetAbsOrigin(target:GetAbsOrigin()+pullDirection*pullSpeed)
+			print(pullSpeed)
 		end
 	end
 end

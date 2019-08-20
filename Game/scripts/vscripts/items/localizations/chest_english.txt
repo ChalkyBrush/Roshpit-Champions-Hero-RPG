@@ -378,3 +378,6 @@
 		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
 		"item_property_nethergrasp"							"Outworld Grip"
 		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an outworld grip on the target. Gripped enemies are attacked by the caster on a <% NETHERGRASP_ATTACK_INTERVAL %> second interval. Enemies who are outside the caster's attack range are pulled towards the grip source. Can link up to <% NETHERGRASP_MAX_LINKS %> enemies at a time but attacks are divided equally amongst all linked targets. Can create links from <% NETHERGRASP_LINK_RANGE %> range, and break if the distance between the caster and the target exceeds <% NETHERGRASP_BREAK_DISTANCE %>."
+
+		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
+		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	

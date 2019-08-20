@@ -12280,6 +12280,9 @@
 		"item_property_nethergrasp"							"Outworld Grip"
 		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an outworld grip on the target. Gripped enemies are attacked by the caster on a <font color='#ccff66'>0.15</font> second interval. Enemies who are outside the caster's attack range are pulled towards the grip source. Can link up to <font color='#ccff66'>5</font> enemies at a time but attacks are divided equally amongst all linked targets. Can create links from <font color='#ccff66'>1200</font> range, and break if the distance between the caster and the target exceeds <font color='#ccff66'>1600</font>."
 
+		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
+		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	
+
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_property_blue_rain"								"Rain Lance"
 		"property_blue_rain_description"						"Attacks cannot miss. <font color='#ccff66'>15</font>% chance on attack to create massive wave of water that damages enemies in a line in front of you for <font color='#ccff66'>75</font>x your total attack power."

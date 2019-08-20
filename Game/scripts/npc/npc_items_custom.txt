@@ -52761,7 +52761,7 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"precache"
 		{
-			"particle"	"particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf"
+			"particle"	"particles/roshpit/items/nethergrasp_electric_vortex.vpcf"
 		}
 		"OnSpellStart"
 		{

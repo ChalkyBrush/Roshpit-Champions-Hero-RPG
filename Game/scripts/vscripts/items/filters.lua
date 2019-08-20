@@ -4766,7 +4766,7 @@ function Filters:NetergraspPalisade(hero, target)
 
     local nethergrasp = {}
     nethergrasp.entindex = target:GetEntityIndex()
-    nethergrasp.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster)
+    nethergrasp.pfx = ParticleManager:CreateParticle("particles/roshpit/items/nethergrasp_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 80), true)
     ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0, 0, 80), true)
     nethergrasp.create_time = GameRules:GetGameTime()

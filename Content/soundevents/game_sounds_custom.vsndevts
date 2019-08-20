@@ -6339,11 +6339,43 @@ Env.LavaHit
                               "value0"        "sounds/weapons/hero/grimstroke/soul_chain_target.vsnd"
                         }
                     }
+                    "volume"            {   "value"     "0.527000"  }
+                    "pitch_rand_min"    {   "value"     "-0.05000"  }
+                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "pitch"             {   "value"     "1.150000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }   
+}
+
+"Items.Nethergrip.LinkBreak"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/grimstroke/phantom_attack04.vsnd"
+                        }
+                    }
                     "volume"            {   "value"     "1.357000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.150000"  }
-                    "soundlevel"        {   "value"     "88.00000" }
+                    "soundlevel"        {   "value"     "89.00000" }
                     "distance_max"      {   "value"     "2800.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
