@@ -4826,7 +4826,11 @@ function Filters:InpsirationRing(caster, skillIndex)
             for i = 0, 8, 1 do
                 local ability = caster:GetAbilityByIndex(i)
                 if ability and IsValidEntity(ability) then
+                    local cd = ability:GetCooldownTimeRemaining()
                     ability:EndCooldown()
+                    if i == DOTA_R_SLOT and cd > INTUITION_ULTIMATE_MIN_CD then
+                        ability:StartCooldown(INTUITION_ULTIMATE_MIN_CD)
+                    end
                 end
             end
         end

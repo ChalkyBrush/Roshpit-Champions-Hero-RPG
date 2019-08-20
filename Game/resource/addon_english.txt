@@ -13293,7 +13293,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
 		"item_property_beryl_ring_of_intuition"						"Intuitive Coalescence"
-		"property_beryl_ring_of_intuition_description"				"After casting all 4 base abilities, restore full health and refresh all cooldowns."
+		"property_beryl_ring_of_intuition_description"				"After casting all 4 base abilities, restore full health and refresh all cooldowns. If @Ability4 cooldown is greater than <font color='#ccff66'>10</font> seconds, only reduce its cooldown to <font color='#ccff66'>10</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
 		"item_property_auric_ring_of_inspiration"						"Inspired Coalescence"
