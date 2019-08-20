@@ -689,6 +689,7 @@ end
 
 function Redfall:SpawnAutumnMageBoss(position, fv)
 	local creepFunction = function(unit)
+		unit.type = ENEMY_TYPE_MINI_BOSS
 		Events:AdjustBossPower(unit, 6, 6, false)
 		unit:SetRenderColor(255, 180, 80)
 		Redfall:ColorWearables(unit, Vector(255, 180, 80))
@@ -719,6 +720,7 @@ function Redfall:SpawnCanyonBoss()
 	Events:AdjustBossPower(boss, 6, 6, false)
 	boss:SetModelScale(0.01)
 	boss:SetRenderColor(255, 255, 0)
+	boss.type = ENEMY_TYPE_BOSS
 	boss.actualBoss = 3
 	boss.threshold = 0.9
 	boss.baseSize = 1.6

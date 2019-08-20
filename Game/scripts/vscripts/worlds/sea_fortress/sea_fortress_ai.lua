@@ -6461,6 +6461,7 @@ function tyrant_ghost_think(event)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 30)
 		local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, "Seafortress.TyrantGhost.Aggro", Vector(0, -1), false)
 		new_beast.reduc = 0.0000018
+		new_beast.type = ENEMY_TYPE_MAJOR_BOSS
 		new_beast.isBossFFS = true
 		new_beast:SetAbsOrigin(statuePos)
 		local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")

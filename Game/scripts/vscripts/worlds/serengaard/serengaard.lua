@@ -950,6 +950,7 @@ function Serengaard:SpawnBossUnit(unitName, spawnPoint, quantity, itemLevel, del
 			Serengaard:AdjustUnit(unit)
 			Events:AdjustBossPower(unit, adjustFactor, adjustFactor, false)
 			unit.serengaardBoss = true
+			unit.type = ENEMY_TYPE_BOSS
 		end)
 	end
 end

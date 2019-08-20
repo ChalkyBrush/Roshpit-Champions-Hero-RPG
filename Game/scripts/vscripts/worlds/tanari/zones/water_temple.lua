@@ -1589,6 +1589,7 @@ function Tanari:BeginBossSpawnSequence()
 	end)
 	Timers:CreateTimer(10, function()
 		local boss = Events:SpawnBoss("water_temple_boss", Vector(-5056, 10650, 78))
+		boss.type = ENEMY_TYPE_BOSS
 		boss:SetRenderColor(150, 150, 255)
 		Events:AdjustBossPower(boss, 8, 8, true)
 		boss:SetAbsOrigin(Vector(-5056, 10650, -400))
@@ -2809,6 +2810,7 @@ function Tanari:SpawnWaterSpiritFinalBoss()
 	local guardian = Events:SpawnBoss("tanari_water_spirit_boss", Vector(12992, -1024))
 	guardian.pushLock = true
 	guardian.jumpLock = true
+	guardian.type = ENEMY_TYPE_BOSS
 	guardian:SetAbsOrigin(guardian:GetAbsOrigin() - Vector(0, 0, 1400))
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)

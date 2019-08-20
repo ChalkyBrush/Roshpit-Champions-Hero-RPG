@@ -1154,6 +1154,7 @@ end
 
 function Tanari:SpawnFinalBoss(position, fv)
     local ancient = Tanari:SpawnDungeonUnit("tanari_ancient_hero", position, 2, 4, "Tanari.AncientHeroAggro", fv, false)
+	ancient.type = ENEMY_TYPE_MAJOR_BOSS
     ancient.element = 1
     EmitSoundOn("Tanari.AncientHeroAggro", ancient)
     Events:AdjustBossPower(ancient, 16, 16, true)
