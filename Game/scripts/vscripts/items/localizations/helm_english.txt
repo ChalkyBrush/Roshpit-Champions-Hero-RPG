@@ -365,7 +365,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Spell Spreader"
-		"property_magistrate_description"								"All Magical and Pure damage deal their damage in a <% MAGISTRATE_HOOD_AOE %> AOE. AOE effect has <% MAGISTRATE_HOOD_MAX_CHARGES %> charges that replenish every <% MAGISTRATE_HOOD_REPLENISH_TIME %> second. All damage AOE damage is reduced by <% MAGISTRATE_HOOD_DAMAGE_REDUCTION_PCT %>%."
+		"property_magistrate_description"								"All Magical and Pure damage deal their damage in a <% MAGISTRATE_HOOD_AOE %> AOE. AOE effect has <% MAGISTRATE_HOOD_MAX_CHARGES %> charges that replenish every <% MAGISTRATE_HOOD_REPLENISH_TIME %> second. All damage AOE damage is increased by <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>%."
 
 		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Spell Spreader Charges"
 		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Magic and Pure damage effects an AOE as long as charges are above 0"
