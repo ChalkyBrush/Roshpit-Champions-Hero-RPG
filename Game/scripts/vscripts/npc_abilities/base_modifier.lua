@@ -1,4 +1,4 @@
-npc_base_modifier = class({})
+npc_base_modifier = npc_base_modifier or class({})
 
 local class = npc_base_modifier
 
