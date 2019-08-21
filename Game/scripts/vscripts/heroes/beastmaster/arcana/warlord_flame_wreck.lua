@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_warlord_in_flame_wreck", "modifiers/warlord/modifier_warlord_in_flame_wreck", LUA_MODIFIER_MOTION_NONE)
+
 function flame_wreck_start(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -32,11 +34,13 @@ function flame_wreck_thinker(event)
 	local target = event.target
 
 	local damage = event.base_damage
-	damage = damage = event.agi_mult*caster:GetAgility()
+	damage = damage + event.agi_mult*caster:GetAgility()
 	local units_in_fire = FindUnitsInLine(caster:GetTeamNumber(), target.position, target.endPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0)
 	for _, unit in pairs(units_in_fire) do
 		if unit:GetTeamNumber() ~= caster:GetTeamNumber() then
 			Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, RPC_ELEMENT_FIRE, RPC_ELEMENT_DRAGON, 1)
+		elseif unit == caster then
+			caster:AddNewModifier(caster, ability, "modifier_warlord_in_flame_wreck", {duration = 0.5})
 		end
 		Timers:CreateTimer(0.03, function()
 			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)

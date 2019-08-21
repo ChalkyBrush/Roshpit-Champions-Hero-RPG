@@ -175,6 +175,26 @@
 		}
 		"Modifiers"
 		{
+			"modifier_ice_scathe_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"ThinkInterval"  "3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+		        		"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+		        		"Function"		"ice_scathe_passive_thinker"
+					}
+				}
+			}
+			"modifier_ice_scathe_freecast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
 			"modifier_ice_scathe_thinker"
 			{
 				"Passive"			"0"
@@ -315,6 +335,16 @@
 				"var_type"					"FIELD_INTEGER"
 				"agi_mult"					"50 100 150 200 250 300 350"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_bonus"			"200 230 260 290 320 350 380"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_cap"			"700 720 740 760 780 800 820"
+			}			
 		}
 		"precache"
 		{

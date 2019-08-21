@@ -24,6 +24,16 @@ function ice_scathe_start(event)
 
 	
 	Filters:CastSkillArguments(1, caster)
+	if caster:HasModifier("modifier_ice_scathe_freecast") then
+		ability:EndCooldown()
+		local stacks = caster:GetModifierStackCount("modifier_ice_scathe_freecast", caster)
+		local new_stacks = stacks -1
+		if new_stacks > 0 then
+			caster:SetModifierStackCount("modifier_ice_scathe_freecast", caster, new_stacks)
+		else
+			caster:RemoveModifierByName("modifier_ice_scathe_freecast")
+		end
+	end
 end
 
 function ice_scathe_thinker_end(event)
@@ -88,7 +98,7 @@ function ice_scathe_pop(event)
 	end)
 
 	local damage = event.base_damage
-	damage = damage = event.int_mult*caster:GetIntellect()
+	damage = damage + event.int_mult*caster:GetIntellect()
 	local freeze_duration = event.freeze_duration
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
@@ -98,4 +108,12 @@ function ice_scathe_pop(event)
 		end
 	end
 	EmitSoundOnLocationWithCaster(origin, "Warlord.IceScathe.Pop", caster)
+end
+
+function ice_scathe_passive_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_ice_scathe_freecast", 1, 2, 0)
+	
 end
