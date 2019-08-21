@@ -13771,6 +13771,113 @@
 		}
 	}
 
+	"warlord_frost_scathe"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"sandking_epicenter"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1300"
+		"AOERadius"						"360"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"2.5"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"1300"
+			}
+		}
+		"precache"
+		{
+			
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/warlord_jump"
+        		"Function"		"jumpStart"
+        		"type"			"earth"
+        		"target"		"POINT"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_warlord_jumping"
+				"Target" 		"CASTER"
+				"Duration"		"0.4"
+			}
+			"FireSound"
+			{
+				"EffectName"	"beastmaster_beas_anger_04"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+        "Modifiers"
+        {
+            "modifier_warlord_jumping"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"new_jumping_think"
+            		}
+            	}
+            	"States"
+            	{
+            		"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            	"OnDestroy"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/beastmaster/warlord_jump"
+            			"Function"		"warlordLand"
+            			"damage"		"%damage"
+            			"radius"		"%radius"
+            			"stun_duration"	"%stun_duration"
+            		}
+            	}
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "100"
+            	}
+            }
+        }
+	}
+
+
 	"warlord_rune_q_1_arcana2"
 	{
 		// General

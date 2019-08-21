@@ -22,19 +22,21 @@ function warlord_cataclysm_shaker:OnSpellStart()
 	local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, point_of_cast)
 	ParticleManager:SetParticleControl(pfx, 1, endPoint)
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
+	ParticleManager:SetParticleControl(pfx, 2, Vector(7,7,7))
 
 	local distance_between_rocks = 128
-	local num_obstructions = math.ceil(distance/distance_between_rocks)
+	local num_obstructions = math.ceil(distance_of_cast/distance_between_rocks) - 1
 
 	local blockers = {}
 	for i = 0, num_obstructions, 1 do
 		local pso_origin = point_of_cast + fv*distance_between_rocks*i
-		local blocker = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = pso_origin, Name ="wallObstruction"})
-		print(blocker:GetAbsOrigin())
-		table.insert(blockers, blocker)
+		-- local blocker = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = pso_origin, Name ="wallObstruction"})
+	 	local dummy = CreateUnitByName("npc_dummy_unit", pso_origin, false, nil, nil, caster:GetTeamNumber())
+		dummy:RemoveAbility("dummy_unit")
+		dummy:SetHullRadius(64)
+		dummy:AddAbility("dummy_unit_with_collision"):SetLevel(1)
+		-- "dummy_unit_with_collision"
+		table.insert(blockers, dummy)
 	end
 
 	ScreenShake(point_of_cast, 260, 0.2, 0.2, 2500, 0, true)
@@ -45,16 +47,22 @@ function warlord_cataclysm_shaker:OnSpellStart()
 	EmitSoundOnLocationWithCaster(point_of_cast, "Warlord.Cataclysm.Impact", caster) 
 	EmitSoundOnLocationWithCaster(endPoint, "Warlord.Cataclysm.Highlight", caster)
 	EmitSoundOn("Warlord.Cataclysm.VO", caster)
-	Timers:CreateTimer(4, function()
+	Timers:CreateTimer(7, function()
 		print("REMOVE BLOCKERS")
 		for i = 1, #blockers, 1 do
 			UTIL_Remove(blockers[i])
 		end
+		ParticleManager:DestroyParticle(pfx, false)
 	end)
 
-	local enemies = FindUnitsInLine(caster:GetTeamNumber(), point_of_cast, endPoint, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
-	for _, enemy in pairs(enemies) do
-		Filters:ApplyStun(caster, stun_duration, enemy)
-		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1)
+	local units_in_fissure = FindUnitsInLine(caster:GetTeamNumber(), point_of_cast, endPoint, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0)
+	for _, unit in pairs(units_in_fissure) do
+		if unit:GetTeamNumber() ~= caster:GetTeamNumber() then
+			Filters:ApplyStun(caster, stun_duration, enemy)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1)
+		end
+		Timers:CreateTimer(0.06, function()
+			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
+		end)
 	end
 end
