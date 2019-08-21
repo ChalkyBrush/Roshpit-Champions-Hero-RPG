@@ -4476,7 +4476,7 @@ function Filters:AlaranaFrostNova(caster)
 end
 
 function Filters:IsIceFrozen(target)
-    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") or target:HasModifier("modifier_hyperbeam_freeze") then
+    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") or target:HasModifier("modifier_hyperbeam_freeze") or target:HasModifier("modifier_ice_scathe_freeze") then
         return true
     else
         return false

@@ -10,6 +10,9 @@ function warlord_cataclysm_shaker:OnSpellStart()
 
 	local stun_duration = ability:GetSpecialValueFor("stun_duration")
 	local damage = ability:GetSpecialValueFor("damage")
+	local str_mult = ability:GetSpecialValueFor("str_mult")
+
+	damage = damage + caster:GetStrength()*str_mult
 
 	local endPoint = ability:GetTerminalPosition()
 
@@ -29,9 +32,10 @@ function warlord_cataclysm_shaker:OnSpellStart()
 
 	local blockers = {}
 	for i = 0, num_obstructions, 1 do
-		local pso_origin = point_of_cast + fv*distance_between_rocks*i
+		local pso_origin = GetGroundPosition(point_of_cast + fv*distance_between_rocks*i, caster)
 		-- local blocker = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = pso_origin, Name ="wallObstruction"})
 	 	local dummy = CreateUnitByName("npc_dummy_unit", pso_origin, false, nil, nil, caster:GetTeamNumber())
+	 	dummy:SetAbsOrigin(pso_origin)
 		dummy:RemoveAbility("dummy_unit")
 		dummy:SetHullRadius(64)
 		dummy:AddAbility("dummy_unit_with_collision"):SetLevel(1)
@@ -42,7 +46,7 @@ function warlord_cataclysm_shaker:OnSpellStart()
 	ScreenShake(point_of_cast, 260, 0.2, 0.2, 2500, 0, true)
 
 	EmitSoundOn("Warlord.Cataclysm.Swoop", caster)
-	Filters:CastSkillArguments(1, caster)	   
+	   
 
 	EmitSoundOnLocationWithCaster(point_of_cast, "Warlord.Cataclysm.Impact", caster) 
 	EmitSoundOnLocationWithCaster(endPoint, "Warlord.Cataclysm.Highlight", caster)
@@ -54,15 +58,15 @@ function warlord_cataclysm_shaker:OnSpellStart()
 		end
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-
 	local units_in_fissure = FindUnitsInLine(caster:GetTeamNumber(), point_of_cast, endPoint, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0)
 	for _, unit in pairs(units_in_fissure) do
 		if unit:GetTeamNumber() ~= caster:GetTeamNumber() then
-			Filters:ApplyStun(caster, stun_duration, enemy)
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, 1)
+			Filters:ApplyStun(caster, stun_duration, unit)
+			Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, RPC_ELEMENT_EARTH, RPC_ELEMENT_DRAGON, 1)
 		end
-		Timers:CreateTimer(0.06, function()
+		Timers:CreateTimer(0.03, function()
 			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
 		end)
 	end
+	Filters:CastSkillArguments(1, caster)
 end
