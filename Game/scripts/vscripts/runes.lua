@@ -931,6 +931,19 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "elemental_overload_2", "enhchant_tomahawk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+			if abilityCheck:GetAbilityName() ~= "warlord_stone_form" then
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "warlord_stone_form", 0)
+			end
+			local abilities_to_remove_table = {"warlord_ice_shell", "warlord_flame_rush"}
+			for i = 1, #abilities_to_remove_table, 1 do
+				local ability_name = abilities_to_remove_table[i]
+				if hero:HasAbility(ability_name) then
+					hero:RemoveAbility(ability_name)
+				end
+			end
+			Runes:EasySwapArcanaSkills(hero, 0, "warlord_stone_form", "warlord_cataclysm_shaker", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
 		if index == 1 then
@@ -1616,6 +1629,19 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "elemental_overload_2", "enhchant_tomahawk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+			if abilityCheck:GetAbilityName() ~= "warlord_cataclysm_shaker" then
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "warlord_cataclysm_shaker", 0)
+			end
+			-- local abilities_to_remove_table = {"warlord_ice_shell", "warlord_flame_rush"}
+			-- for i = 1, #abilities_to_remove_table, 1 do
+			-- 	local ability_name = abilities_to_remove_table[i]
+			-- 	if hero:HasAbility(ability_name) then
+			-- 		hero:RemoveAbility(ability_name)
+			-- 	end
+			-- end
+			Runes:EasyRevertArcanaSkills(hero, 0, "warlord_cataclysm_shaker", "warlord_stone_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
 		local dominionAbility = hero:FindAbilityByName("ekkan_arcana_black_dominion")

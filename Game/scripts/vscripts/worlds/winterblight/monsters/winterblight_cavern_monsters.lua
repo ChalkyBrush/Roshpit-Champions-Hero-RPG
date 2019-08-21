@@ -1300,7 +1300,7 @@ function disappearing_act_cast(event)
 	local ability = event.ability
 	local duration = event.duration
 
-	local pfx2 = CustomAbilities:QuickParticleAtPoint("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster:GetAbsOrigin, 3)
+	local pfx2 = CustomAbilities:QuickParticleAtPoint("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster:GetAbsOrigin(), 3)
 	ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = duration})
 	caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = duration})
@@ -2500,6 +2500,7 @@ function gigarraun_passive_think(event)
 				caster:Stop()
 				ExecuteOrderFromTable(order)
 				caster.castLock = true
+				caster.fissure_point = enemies[1]:GetAbsOrigin()
 				Timers:CreateTimer(2, function()
 					caster.castLock = false
 				end)
@@ -2541,6 +2542,20 @@ function gigarraun_spell_cast(event)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gigarraun_jumping", {duration = 4})
 		EmitSoundOn("Winterblight.Gigarraun.BackJump", caster)
+
+		local particle = "particles/econ/items/earthshaker/earthshaker_ti9/earthshaker_fissure_ti9.vpcf"
+		local fissure_fv = ((caster.fissure_point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + fissure_fv*1500)
+
+		local pfx2 = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin() + fissure_fv*3000)
+		ParticleManager:SetParticleControl(pfx2, 1, caster:GetAbsOrigin() + fissure_fv*1500)
+		Timers:CreateTimer(5, function()
+			ParticleManager:DestroyParticle(pfx, false)
+			ParticleManager:DestroyParticle(pfx2, false)
+		end)
 	elseif executedAbility:GetAbilityName() == "winterblight_soulfire_storm" then
 		if not caster:HasModifier("modifier_gigarraun_jumping") then
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=1.2})

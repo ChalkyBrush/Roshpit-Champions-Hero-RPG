@@ -549,11 +549,13 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 	elseif target:HasModifier("modifier_unshakable") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if modifierGainedTable["entindex_ability_const"] then
-			local ability = target:FindModifierByName("ability_unshakable"):GetAbility()
-			if IsValidEntity(ability) then
-				local duration_modifier = ability:GetSpecialValueFor("modifier_duration_reduction")
-				if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
-					modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+			if target:FindModifierByName("ability_unshakable") then
+				local ability = target:FindModifierByName("ability_unshakable"):GetAbility()
+				if IsValidEntity(ability) then
+					local duration_modifier = ability:GetSpecialValueFor("modifier_duration_reduction")
+					if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+						modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+					end
 				end
 			end
 		end	
@@ -1411,6 +1413,17 @@ function GameState:OrderFilter(orderTable)
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then
 					if orderAbility:GetAbilityName() == "jex_fire_fire_e" then
+						return VectorTarget:OrderFilter(orderTable)
+					else
+						return true
+					end
+				else
+					return true
+				end
+			elseif unit:HasModifier("modifier_warlord_arcana2") then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "warlord_cataclysm_shaker" then
 						return VectorTarget:OrderFilter(orderTable)
 					else
 						return true

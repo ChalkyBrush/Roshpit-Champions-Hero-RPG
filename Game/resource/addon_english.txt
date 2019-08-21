@@ -5935,8 +5935,14 @@
 
     	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect"						"Warlord"
     	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect_Description"			"Increased attack damage based on active Fire Charges"
-		
 
+        //ARCANA 2
+
+        "DOTA_Tooltip_ability_item_rpc_warlord_arcana2"                              "Dragonborne Helm"
+        "item_property_warlord_arcana2"                                     "Elemental Catastrophe"
+        "property_warlord_arcana2_description"                              "Replaces @Ability1 with Cataclysm Shaker, Frost Scathe, and Flame Wreck."
+		
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "Cataclysm Shaker"
 
 		//Glyphs
 		

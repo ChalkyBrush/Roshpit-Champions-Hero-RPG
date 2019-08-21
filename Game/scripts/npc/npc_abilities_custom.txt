@@ -13704,6 +13704,201 @@
 
 
 
+	"warlord_cataclysm_shaker"
+	{
+		// General
+		//-------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"warlord/warlord_enchant_tomahawk"
+		"LevelsBetweenUpgrades" 		"0"
+		"MaxLevel"				 		"7"
+		"BaseClass"                     "ability_lua"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"AbilityCastRange"				"1400"
+		"ScriptFile"                    "heroes/beastmaster/arcana/warlord_cataclysm_shaker_lua.lua"
+		"VectorTarget"      			"1"
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"distance"					"1000 1100 1200 1300 1400 1500 1600"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"					"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"10000 30000 100000 200000 500000 1000000 2000000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_cataclysm_shaker_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			}
+		}
+	}
+
+	"warlord_rune_q_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/warlord_rune_r_1_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"3"
+			}
+		}
+	}
+
+	"warlord_rune_q_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/warlord_rune_r_2_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"9"
+			}
+		}
+	}
+
+	"warlord_rune_q_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/warlord_rune_r_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"2"
+			}
+		}
+	}
+
+	"warlord_rune_q_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/warlord_rune_r_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"1"
+			}
+		}
+	}
+
+
+
 
 	"elemental_axe_earth"
 	{
