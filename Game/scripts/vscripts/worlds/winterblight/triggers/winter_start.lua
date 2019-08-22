@@ -276,3 +276,22 @@ function Villager3(trigger)
 	StartAnimation(villager, {duration = 3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.0})
 	EmitSoundOn("Winterblight.Villager.Speak", villager)
 end
+
+function ForestZoneTrigger(trigger)
+	local hero = trigger.activator
+	if hero.actual_game_hero then
+		if not Winterblight.ForestAreaInitialized then
+			Winterblight.ForestAreaInitialized = true
+			Winterblight:InitWinterForest()
+		end
+	end
+end
+
+function OutsideCaveTrigger(trigger)
+	Winterblight:OutsideCaveSpawn()
+end
+
+function CaveGuideSpawn(trigger)
+	print("TRIGGERED1")
+	Winterblight:CaveGuideSpawn()
+end

@@ -85,6 +85,7 @@ function begin_bear_charge(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	local chargeSpeed = 1000
+	chargeSpeed = Filters:GetAdjustedESpeed(caster, chargeSpeed, false)
 	local distance = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin())
 	local duration = distance / chargeSpeed
 	StartAnimation(caster, {duration = duration + 0.39, activity = ACT_DOTA_RUN, rate = 1.4, translate = "charge"})
@@ -126,6 +127,7 @@ function bear_charge_thinking(event)
 	local ability = event.ability
 	local caster = event.caster
 	local movement = 1000 * 0.03
+	movement = Filters:GetAdjustedESpeed(caster, movement, false)
 	caster.EFV = ability.fv
 	local newPos = GetGroundPosition(caster:GetAbsOrigin() + ability.fv * movement, caster)
 	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin() * Vector(1, 1, 0))

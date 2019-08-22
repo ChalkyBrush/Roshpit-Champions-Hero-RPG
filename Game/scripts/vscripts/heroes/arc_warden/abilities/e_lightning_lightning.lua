@@ -12,6 +12,7 @@ function jex_lightning_lightning_e_start(event)
 	local directon = ((point - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	ability.strafe_direction = directon
 	ability.strafe_speed = event.travel_speed_base + event.travel_speed_per_tech * tech_level
+	ability.strafe_speed = Filters:GetAdjustedESpeed(caster, ability.strafe_speed, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_lightning_lightning_e_movement", {duration = 1})
 	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_SPAWN, rate = 1.5})
 	ability.point = point

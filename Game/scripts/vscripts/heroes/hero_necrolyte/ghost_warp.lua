@@ -37,7 +37,9 @@ function ghost_warping_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	ability.forwardVelocity = ability.forwardVelocity + 0.5
+	local acceleration = 0.5
+	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
+	ability.forwardVelocity = ability.forwardVelocity + acceleration
 
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
@@ -62,7 +64,9 @@ function after_warp_falling(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))
-	ability.fallVelocity = ability.fallVelocity + 2
+	local fallSpeed = 2
+	fallSpeed = Filters:GetAdjustedESpeed(caster, fallSpeed, false)
+	ability.fallVelocity = ability.fallVelocity + fallSpeed
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity / 2 then
 		caster:RemoveModifierByName("modifier_end_ghost_warp_falling")

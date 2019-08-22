@@ -362,7 +362,8 @@ local _CODE_TO_ANIMATION_TRANSLATE = {
   [358] = "rope",
   [359] = "gyroshell",
   [360] = "assassin",
-  [361] = "walk_gesture"
+  [361] = "walk_gesture",
+  [362] = "surge"
 }
 
 function modifier_animation:OnCreated(keys)

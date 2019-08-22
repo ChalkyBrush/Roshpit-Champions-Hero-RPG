@@ -273,7 +273,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
     ---------MAX CURATION----------
-    --Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Timers:CreateTimer(40, function()
     --     Curator:CurateAllGlyphsForHero("neutral")
     -- end)
@@ -1154,6 +1154,7 @@ end
 
 function Tanari:SpawnFinalBoss(position, fv)
     local ancient = Tanari:SpawnDungeonUnit("tanari_ancient_hero", position, 2, 4, "Tanari.AncientHeroAggro", fv, false)
+	ancient.type = ENEMY_TYPE_MAJOR_BOSS
     ancient.element = 1
     EmitSoundOn("Tanari.AncientHeroAggro", ancient)
     Events:AdjustBossPower(ancient, 16, 16, true)

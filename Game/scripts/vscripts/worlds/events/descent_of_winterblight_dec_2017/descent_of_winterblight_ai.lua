@@ -173,7 +173,7 @@ function torturok_think(event)
 
 		local nova = caster:FindAbilityByName("torturok_comet")
 		if nova:IsFullyCastable() then
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local fv = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 				local order =
@@ -187,7 +187,7 @@ function torturok_think(event)
 			end
 		end
 		if caster:GetHealth() < caster:GetMaxHealth() * 0.5 then
-			local bloodlust = caster:FindAbilityByName(ogre_magi_bloodlust)
+			local bloodlust = caster:FindAbilityByName('ogre_magi_bloodlust')
 			if bloodlust:IsFullyCastable() then
 				local order =
 				{
@@ -291,7 +291,7 @@ function comet_storm_end(event)
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
 	EmitSoundOn("Torturok.Jump.Land", caster)
-
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 300, 3, false)
 	local damage = event.damage + 100
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), landPoint, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
@@ -353,6 +353,9 @@ function ozubu_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local iceLoops = (1 - (caster:GetHealth() / caster:GetMaxHealth())) * 6 + 1
+	if caster.total_lock then
+		return false
+	end
 	if caster.aggro then
 		caster.maxSummons = (1 - (caster:GetHealth() / caster:GetMaxHealth())) * 23 + 2
 		if not caster.interval then
@@ -429,7 +432,7 @@ function ozubu_take_damage(event)
 		return false
 	end
 	local attacker = event.attacker
-	local distance = WallPhysics:GetDistance2d(caster, attacker)
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), attacker:GetAbsOrigin())
 	if distance > 1000 then
 		CustomAbilities:QuickAttachParticle("particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf", caster, 3)
 		caster:SetAbsOrigin(attacker:GetAbsOrigin() + RandomVector(RandomInt(100, 400)))
@@ -503,11 +506,13 @@ function winterblight_summon_ability(event)
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf", spider, 2)
 				Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, spider, "modifier_sea_fortress_ai", {})
 				if GameState:GetDifficultyFactor() == 3 then
-					spider.reduc = 0.00001
+					spider.reduc = 0.1
 				end
+				Winterblight:SetCavernUnit(spider, spider:GetAbsOrigin(), false, false, 0)
 			end
 			Events:CreateLightningBeamWithParticle(caster:GetAbsOrigin() + Vector(0, 0, 80), spider:GetAbsOrigin(), "particles/units/heroes/hero_wisp/tether_green.vpcf", 0.9)
 			spider.origCaster = caster
+			spider.boss_level = caster.boss_level
 			caster.summonCount = caster.summonCount + 1
 			spider:AddAbility("seafortress_enemy_summon"):SetLevel(1)
 			StartAnimation(spider, {duration = 0.5, activity = ACT_DOTA_DISABLED, rate = 1.1})
@@ -543,51 +548,54 @@ function winterblight_boss_think(event)
 			bossName = "torturok"
 		elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
 			EmitSoundOn("Ozubu.Death", caster)
+		elseif caster:GetUnitName() == "winterblight_cavern_gigarraun" then
+			bossName = "gigarraun"
+			EmitSoundOn("Winterblight.Gigarraun.Death1", caster)
 		end
 		Dungeons.itemLevel = math.max(Dungeons.itemLevel, 150)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_boss_dying", {})
-		local url = ROSHPIT_URL.."/champions/winterblight_update?"
-		url = url.."boss="..bossName
-		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-		url = url.."&mapname="..GetMapName()
-		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-			if result.StatusCode == 200 then
-				local resultTable = JSON:decode(result.Body)
-				--DeepPrintTable(resultTable)
-				caster.rewardMult = 1
-				caster.rewardsGranted = 0
-				if bossName == "ozubu" then
-					Events.OzubuSlain = true
-					if resultTable.ozubu_discovered == 1 then
-						caster.rewardMult = 4
-					elseif resultTable.ozubu_discovered < resultTable.torturok_discovered and resultTable.ozubu_discovered < resultTable.aertega_discovered then
-						caster.rewardMult = 2
-					end
-				elseif bossName == "torturok" then
-					Events.TorturokSlain = true
-					if resultTable.torturok_discovered == 1 then
-						caster.rewardMult = 4
-					elseif resultTable.torturok_discovered < resultTable.ozubu_discovered and resultTable.torturok_discovered < resultTable.aertega_discovered then
-						caster.rewardMult = 2
-					end
-				elseif bossName == "aertega" then
-					Events.AertegaSlain = true
-					if resultTable.aertega_discovered == 1 then
-						caster.rewardMult = 4
-					elseif resultTable.aertega_discovered < resultTable.ozubu_discovered and resultTable.aertega_discovered < resultTable.torturok_discovered then
-						caster.rewardMult = 2
-					end
-				end
-				if GameState:GetDifficultyFactor() == 2 then
-					caster.rewardMult = caster.rewardMult / 2
-				end
-				local max = 58 - GameState:GetPlayerPremiumStatusCount() * 2 - 15 * (caster.rewardMult - 1)
-				local luck = RandomInt(1, max)
-				if luck <= 1 then
-					RPCItems:RollVenomortArcana2(caster:GetAbsOrigin())
-				end
-			end
-		end)
+		-- local url = ROSHPIT_URL.."/champions/winterblight_update?"
+		-- url = url.."boss="..bossName
+		-- url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+		-- url = url.."&mapname="..GetMapName()
+		-- CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+		-- 	if result.StatusCode == 200 then
+		-- 		local resultTable = JSON:decode(result.Body)
+		-- 		--DeepPrintTable(resultTable)
+		-- 		caster.rewardMult = 1
+		-- 		caster.rewardsGranted = 0
+		-- 		if bossName == "ozubu" then
+		-- 			Events.OzubuSlain = true
+		-- 			if resultTable.ozubu_discovered == 1 then
+		-- 				caster.rewardMult = 4
+		-- 			elseif resultTable.ozubu_discovered < resultTable.torturok_discovered and resultTable.ozubu_discovered < resultTable.aertega_discovered then
+		-- 				caster.rewardMult = 2
+		-- 			end
+		-- 		elseif bossName == "torturok" then
+		-- 			Events.TorturokSlain = true
+		-- 			if resultTable.torturok_discovered == 1 then
+		-- 				caster.rewardMult = 4
+		-- 			elseif resultTable.torturok_discovered < resultTable.ozubu_discovered and resultTable.torturok_discovered < resultTable.aertega_discovered then
+		-- 				caster.rewardMult = 2
+		-- 			end
+		-- 		elseif bossName == "aertega" then
+		-- 			Events.AertegaSlain = true
+		-- 			if resultTable.aertega_discovered == 1 then
+		-- 				caster.rewardMult = 4
+		-- 			elseif resultTable.aertega_discovered < resultTable.ozubu_discovered and resultTable.aertega_discovered < resultTable.torturok_discovered then
+		-- 				caster.rewardMult = 2
+		-- 			end
+		-- 		end
+		-- 		if GameState:GetDifficultyFactor() == 2 then
+		-- 			caster.rewardMult = caster.rewardMult / 2
+		-- 		end
+		-- 		local max = 58 - GameState:GetPlayerPremiumStatusCount() * 2 - 15 * (caster.rewardMult - 1)
+		-- 		local luck = RandomInt(1, max)
+		-- 		if luck <= 1 then
+		-- 			RPCItems:RollVenomortArcana2(caster:GetAbsOrigin())
+		-- 		end
+		-- 	end
+		-- end)
 	end
 end
 
@@ -601,71 +609,94 @@ function winterblight_boss_dying_particle(event)
 	if caster.deathLock then
 		return false
 	end
-	if not caster.rewardMult then
-		return false
-	end
-	if caster:GetUnitName() == "descent_of_winterblight_aertega" then
-		if caster.rewardsGranted < 11 * caster.rewardMult then
-			if caster.rewardMult > 0 then
-				caster.rewardsGranted = caster.rewardsGranted + 1
-				for i = 1, caster.rewardMult, 1 do
-					RPCItems:RollItemtype(400, caster:GetAbsOrigin(), 5, 300)
-				end
-			end
-		else
-			caster.deathLock = true
-			winterblight_boss_final_death_animation(caster)
-		end
-	elseif caster:GetUnitName() == "descent_of_winterblight_torturok" then
-		if caster.rewardsGranted < 1 then
-			if caster.rewardMult > 0 then
-				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Torturok.Death", caster)
-				caster.rewardsGranted = 1
-				Events:MithrilReward(caster:GetAbsOrigin(), 12000 * caster.rewardMult)
-				Timers:CreateTimer(8, function()
-					caster.deathLock = true
-					winterblight_boss_final_death_animation(caster)
-				end)
-			end
-		end
-	elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
-		if caster.rewardsGranted < 5 then
-			if caster.rewardMult > 0 then
-				caster.rewardsGranted = caster.rewardsGranted + 1
-				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 11 * caster.rewardMult)
-			end
-		else
-			caster.deathLock = true
-			winterblight_boss_final_death_animation(caster)
-		end
-	end
-	if caster.rewardMult > 0 then
-		local skullReward = math.ceil(GameState:GetPlayerPremiumStatusCount() / 3) + 1
-		if caster.skullRings < skullReward * caster.rewardMult then
-			caster.skullRings = caster.skullRings + 1
-			RPCItems:RollWinterblightSkullRing(caster:GetAbsOrigin())
-		end
-	end
+	-- if caster:GetUnitName() == "descent_of_winterblight_aertega" then
+	-- 	if caster.rewardsGranted < 11 * caster.rewardMult then
+	-- 		if caster.rewardMult > 0 then
+	-- 			caster.rewardsGranted = caster.rewardsGranted + 1
+	-- 			for i = 1, caster.rewardMult, 1 do
+	-- 				RPCItems:RollItemtype(400, caster:GetAbsOrigin(), 5, 300)
+	-- 			end
+	-- 		end
+	-- 	else
+	-- 		caster.deathLock = true
+	-- 		winterblight_boss_final_death_animation(caster)
+	-- 	end
+	-- elseif caster:GetUnitName() == "descent_of_winterblight_torturok" then
+	-- 	if caster.rewardsGranted < 1 then
+	-- 		if caster.rewardMult > 0 then
+	-- 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Torturok.Death", caster)
+	-- 			-- caster.rewardsGranted = 1
+	-- 			-- Events:MithrilReward(caster:GetAbsOrigin(), 12000 * caster.rewardMult)
+	-- 			Timers:CreateTimer(8, function()
+	-- 				caster.deathLock = true
+	-- 				winterblight_boss_final_death_animation(caster)
+	-- 			end)
+	-- 		end
+	-- 	end
+	-- elseif caster:GetUnitName() == "descent_of_winterblight_ozubu" then
+	-- 	if caster.rewardsGranted < 5 then
+	-- 		if caster.rewardMult > 0 then
+	-- 			caster.rewardsGranted = caster.rewardsGranted + 1
+	-- 			Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), 11 * caster.rewardMult)
+	-- 		end
+	-- 	else
+	-- 		caster.deathLock = true
+	-- 		winterblight_boss_final_death_animation(caster)
+	-- 	end
+	-- end
+	-- if caster.rewardMult > 0 then
+	-- 	local skullReward = math.ceil(GameState:GetPlayerPremiumStatusCount() / 3) + 1
+	-- 	if caster.skullRings < skullReward * caster.rewardMult then
+	-- 		caster.skullRings = caster.skullRings + 1
+	-- 		RPCItems:RollWinterblightSkullRing(caster:GetAbsOrigin())
+	-- 	end
+	-- end
+	StartAnimation(caster, {duration = 3.4, activity = ACT_DOTA_FLAIL, rate = 0.4})
+	caster.deathLock = true
+	Timers:CreateTimer(3.5, function()
+		winterblight_boss_final_death_animation(caster)		
+	end)
 end
 
 function winterblight_boss_final_death_animation(caster)
-	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.5, 60)
+	print("ANIMATION")
+	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2
+	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_level_defeated"] = caster.boss_level
+	EndAnimation(caster)
+	StartAnimation(caster, {duration = 1.9, activity = ACT_DOTA_DIE, rate = 1.9})
+	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.2, 60)
 	for i = 1, 60, 1 do
-		Timers:CreateTimer(0.03, function()
-			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 6))
+		Timers:CreateTimer(0.03*i, function()
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 10))
 		end)
+	end
+	local gigarraun_death = false
+	if caster:GetUnitName() == "winterblight_cavern_gigarraun" then
+		gigarraun_death = true
 	end
 	Timers:CreateTimer(1.9, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/alt_big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.8, 0.7))
+		ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
+
+		local pfx2 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx2, 1, Vector(600, 2, 2))
 		Timers:CreateTimer(10, function()
 			ParticleManager:DestroyParticle(pfx, false)
 			ParticleManager:ReleaseParticleIndex(pfx)
+			ParticleManager:DestroyParticle(pfx2, false)
+			ParticleManager:ReleaseParticleIndex(pfx2)
 		end)
+		local position = caster:GetAbsOrigin()
 		ScreenShake(caster:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
 		UTIL_Remove(caster)
+		if gigarraun_death then
+			Timers:CreateTimer(1, function()
+				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Death", Events.GameMaster)
+			end)
+		end
 	end)
 end

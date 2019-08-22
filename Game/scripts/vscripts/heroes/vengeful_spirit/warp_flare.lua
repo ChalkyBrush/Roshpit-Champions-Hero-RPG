@@ -83,8 +83,12 @@ function warp_flare_flying_think(event)
 	local ability = event.ability
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * 45), caster)
+
 	local forwardSpeed = 80
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
+
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * forwardSpeed), caster)
+
 	if blockUnit then
 		forwardSpeed = 0
 		end_warp_phase(caster, ability)
@@ -102,7 +106,7 @@ function warp_flare_flying_think(event)
 		ParticleManager:SetParticleControl(ability.bandTable[ability.currentBand], 1, caster:GetAbsOrigin() + Vector(0, 0, 30) + ability.fv * 60)
 	end
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
-	if distance < 85 or ability.distance_travelled > ability.total_distance_to_travel then
+	if distance < forwardSpeed+5 or ability.distance_travelled > ability.total_distance_to_travel then
 		if not ability.lock then
 			end_warp_phase(caster, ability)
 		end
@@ -239,7 +243,9 @@ function after_flare_falling(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))
-	ability.fallVelocity = ability.fallVelocity + 2
+	local acceleration = 2
+	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
+	ability.fallVelocity = ability.fallVelocity + acceleration
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity / 2 then
 		caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")

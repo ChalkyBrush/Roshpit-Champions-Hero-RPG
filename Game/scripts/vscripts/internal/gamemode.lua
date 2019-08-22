@@ -147,8 +147,9 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener("DungeonsvoteYesJS", Dynamic_Wrap(Dungeons, "voteYesLua"))
   CustomGameEventManager:RegisterListener("DungeonsvoteNoJS", Dynamic_Wrap(Dungeons, "voteNoLua"))
 
-  CustomGameEventManager:RegisterListener("accept_item", Dynamic_Wrap(RPCItems, "AcceptNewItem"))
-  CustomGameEventManager:RegisterListener("reject_item", Dynamic_Wrap(RPCItems, "RejectNewItem"))
+  -- CustomGameEventManager:RegisterListener("accept_item", Dynamic_Wrap(RPCItems, "AcceptNewItem"))
+  -- CustomGameEventManager:RegisterListener("reject_item", Dynamic_Wrap(RPCItems, "RejectNewItem"))
+  CustomGameEventManager:RegisterListener("item_swap_input", Dynamic_Wrap(RPCItems, "ItemSwapInput"))
   -- CustomGameEventManager:RegisterListener("buy_item", Dynamic_Wrap(RPCItems, "BuyItem"))
 
   CustomGameEventManager:RegisterListener("weapon_upgrade", Dynamic_Wrap(Weapons, "WeaponUpgrade"))
@@ -328,6 +329,8 @@ function GameMode:_CaptureGameMode()
     mode:SetDamageFilter(Dynamic_Wrap(GameState, "FilterDamage"), self)
     mode:SetExecuteOrderFilter(Dynamic_Wrap(GameState, "OrderFilter"), self)
     mode:SetModifyGoldFilter(Dynamic_Wrap(GameState, "GoldEarnFilter"), self)
+    mode:SetModifierGainedFilter(Dynamic_Wrap(GameState, "ModifierGainedFilter"), self)
+    mode:SetAbilityTuningValueFilter(Dynamic_Wrap(GameState, "AbilityTuningValueFilter"), self)
     for rune, spawn in pairs(ENABLED_RUNES) do
       mode:SetRuneEnabled(rune, spawn)
     end

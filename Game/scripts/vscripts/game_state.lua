@@ -20,6 +20,7 @@ require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
+require("/heroes/beastmaster/warlord_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -524,6 +525,75 @@ function GameState:GoldEarnFilter(goldEarnTable)
 	return true
 end
 
+function GameState:ModifierGainedFilter(modifierGainedTable)
+   -- entindex_parent_const           	= 796 (number)
+   -- entindex_ability_const          	= 607 (number)
+   -- duration                        	= -1 (number)
+   -- entindex_caster_const           	= 606 (number)
+   -- name_const                      	= "modifier_name" (string)
+	local target = EntIndexToHScript(modifierGainedTable["entindex_parent_const"])
+	if target:HasModifier("modifier_radium_spores") then
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if modifierGainedTable["entindex_ability_const"] then
+			local ability = target:FindModifierByName("modifier_radium_spores"):GetAbility()
+			if IsValidEntity(ability) then
+				local duration_modifier = ability:GetSpecialValueFor("modifier_duration_reduction")
+				local slow_duration = ability:GetSpecialValueFor("slow")
+				if target == caster and modifierGainedTable["duration"] > 0 then
+					modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+					local modifier_caster = ability:GetCaster()
+					ability:ApplyDataDrivenModifier(modifier_caster, target, "radium_spores_slow", {duration = slow_duration})
+					EmitSoundOn("Winterblight.RadiumSpores.Trigger", target)
+				end
+			end
+		end
+	elseif target:HasModifier("modifier_unshakable") then
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if modifierGainedTable["entindex_ability_const"] then
+			if target:FindModifierByName("ability_unshakable") then
+				local ability = target:FindModifierByName("ability_unshakable"):GetAbility()
+				if IsValidEntity(ability) then
+					local duration_modifier = ability:GetSpecialValueFor("modifier_duration_reduction")
+					if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+						modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+					end
+				end
+			end
+		end	
+	elseif target:HasModifier("modifier_goldbreaker_effect") then
+		local modifierName = modifierGainedTable["name_const"]
+		local magic_immune_names = Filters:GetMagicImmuneModifierNames()
+		if WallPhysics:DoesTableHaveValue(magic_immune_names, modifierName) then
+			local hero = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+			CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/antimage_manavoid_ti_5_gold.vpcf", target, 3)
+			Filters:ApplyStun(hero, modifierGainedTable["duration"], target)
+			EmitSoundOn("RPC.MagicImmuneBreakTarget", target)
+			return false
+		end
+	elseif target:HasModifier("modifier_guadian_stone") then
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if modifierGainedTable["entindex_ability_const"] then
+			local duration_modifier = GUARDIAN_STONE_DEBUFF_REDUCTION_PCT
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+				local heal = target:GetMaxHealth()*(GUARDIAN_STONE_HEAL_PCT/100)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", target, 1)
+				Filters:ApplyHeal(target, target, heal, true, true)
+				EmitSoundOn("Items.GuardianStone.Trigger", target)
+			end
+		end			
+	end
+   return true
+end
+
+function GameState:AbilityTuningValueFilter(abilityTuneTable)
+   -- value                           	= 300 (number)
+   -- entindex_ability_const          	= 821 (number)
+   -- value_name_const                	= "attack_damage_base" (string)
+   -- entindex_caster_const           	= 820 (number)
+	return true
+end
+
 function GameState:OrderFilter(orderTable)
 	local unitNumber = -1
 	for _, unitNum in pairs(orderTable.units) do
@@ -540,7 +610,7 @@ function GameState:OrderFilter(orderTable)
 			return false
 		end
 		if GameState:IsWinterblight() then
-			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET and EntIndexToHScript(orderTable.entindex_target).prop_id == 2 then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET and EntIndexToHScript(orderTable.entindex_target).prop_id and EntIndexToHScript(orderTable.entindex_target).prop_id == 2 then
 				unit.Attacking_a_Cup = true
 			else
 				unit.Attacking_a_Cup = false
@@ -557,6 +627,28 @@ function GameState:OrderFilter(orderTable)
 					unit.foot.movementPosition = Vector(orderTable.position_x, orderTable.position_y)
 					local movementForward = ((unit.foot.movementPosition - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 					unit.foot.movementForward = movementForward
+				end
+			end
+		end
+		if unit:HasModifier("modifier_pivotal_swiftboots") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				if unit:IsStunned() or unit:IsFrozen() then
+				else
+					local movePos = Vector(orderTable.position_x, orderTable.position_y)
+					local currentPos = unit:GetAbsOrigin()
+					local fv = ((movePos - currentPos)*Vector(1,1,0)):Normalized()
+
+					local current_fv = unit:GetForwardVector()
+					local angle_between = WallPhysics:angle_between_vectors(current_fv, fv)
+					print(angle_between)
+					if angle_between >= 160 and angle_between <= 200 then
+						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
+						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = PIVOT_BURST_DURATION})
+						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, PIVOT_BOOT_MS)
+						unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
+						EmitSoundOn("Items.PivotalSwift", unit)
+					end
+					unit:SetForwardVector(fv)
 				end
 			end
 		end
@@ -577,6 +669,16 @@ function GameState:OrderFilter(orderTable)
 								ExecuteOrderFromTable(order)
 							end
 						end
+					end
+				end
+			end
+		end
+		if unit:HasModifier("modifier_nethergrasp_palisade") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+				if orderTable.entindex_target then
+					local target = EntIndexToHScript(orderTable.entindex_target)
+					if target:GetClassname() ~= "dota_item_drop" then
+						Filters:NetergraspPalisade(unit, target)
 					end
 				end
 			end
@@ -646,6 +748,16 @@ function GameState:OrderFilter(orderTable)
 				else
 					unit:RemoveModifierByName("modifier_astral_arcana_on_platform")
 				end
+			end
+		end
+		if unit:HasModifier("modifier_confusional_spores") or unit:HasModifier("modifier_shroom_procure_aura") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
+				local target_point = Vector(orderTable.position_x, orderTable.position_y)
+				local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), target_point)
+				local forward_vector = ((target_point - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				local newPos = unit:GetAbsOrigin() - forward_vector*distance
+				orderTable.position_x = newPos.x
+				orderTable.position_y = newPos.y
 			end
 		end
 		if unit:HasModifier("modifier_stormcloth_bracer") then
@@ -1041,6 +1153,19 @@ function GameState:OrderFilter(orderTable)
 					end
 				end
 			end
+			if unit:HasModifier("modifier_distance_cap_effect") then
+				if orderTable.order_type == DOTA_UNIT_ORDER_CAST_POSITION then
+					local target_point = Vector(orderTable.position_x, orderTable.position_y)
+					local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), target_point)
+					local forward_vector = ((target_point - unit:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+					local newPos = target_point
+					if distance > 400 then
+						newPos = unit:GetAbsOrigin() + forward_vector*400
+					end
+					orderTable.position_x = newPos.x
+					orderTable.position_y = newPos.y
+				end
+			end
 			if unit:GetUnitName() == "npc_dota_hero_beastmaster" then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then
@@ -1203,6 +1328,17 @@ function GameState:OrderFilter(orderTable)
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then
 					if orderAbility:GetAbilityName() == "jex_fire_fire_e" then
+						return VectorTarget:OrderFilter(orderTable)
+					else
+						return true
+					end
+				else
+					return true
+				end
+			elseif unit:HasModifier("modifier_warlord_arcana2") then
+				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
+				if IsValidEntity(orderAbility) then
+					if orderAbility:GetAbilityName() == "warlord_cataclysm_shaker" then
 						return VectorTarget:OrderFilter(orderTable)
 					else
 						return true
@@ -1406,6 +1542,13 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * (1 - (reduction / 100))
 		end
 	end
+	if victim:HasModifier("modifier_knight_hawk_helm") then
+		local movespeed = victim:GetBaseMoveSpeed()
+		local movespeedModifier = victim:GetMoveSpeedModifier(movespeed, false)
+		if movespeedModifier > 550 then
+			damage = damage * (1-(KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX/100))
+		end
+	end
 	if victim:HasModifier("modifier_stonewall_aura_friendly_effect") then
 		local reduction = victim:FindModifierByName("modifier_stonewall_aura_friendly_effect"):GetAbility():GetSpecialValueFor("damage_reduction")
 		damage = damage * (1 - (reduction / 100))
@@ -1462,6 +1605,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
 		damage = damage * 0.5
+	end
+	if victim:HasModifier("modifier_ice_scathe_q2_shield") then
+		damage = damage * (1-(WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT/100))
 	end
 	if victim:HasModifier("modifier_ogre_armor") then
 		local ogreArmor = victim:FindAbilityByName("winterblight_ogre_armor")
@@ -1737,16 +1883,85 @@ function GameState:FilterDamage(filterTable)
 	local victim = EntIndexToHScript(victim_index)
 	local attacker = EntIndexToHScript(attacker_index)
 	local damageData = attacker._damage_data or {}
-
+	local elements = {}
+	if attacker.element1 ~= RPC_ELEMENT_NONE then
+		table.insert(elements,attacker.element1)
+	end
+	if attacker.element2 ~= RPC_ELEMENT_NONE then
+		table.insert(elements,attacker.element2)
+	end
 
 	if damageData.maxPremitigationDamage then
 		filterTable['damage'] = math.min(filterTable['damage'], damageData.maxPremitigationDamage)
 	end
 
+	if attacker:HasModifier("modifier_apprentice_ai") or attacker:HasModifier("modifier_alien_armor_illusion") then
+		Filters:ApplyItemDamage(victim, attacker.hero, filterTable.damage, filterTable.damagetype_const, attacker.hero.body, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+		return false
+	end
+	if attacker:HasModifier("modifier_magistrates_hood") then
+		if filterTable.damagetype_const == DAMAGE_TYPE_MAGICAL or filterTable.damagetype_const == DAMAGE_TYPE_PURE then
+			local inflictor = nil
+			if filterTable.entindex_inflictor_const then
+				inflictor = EntIndexToHScript(filterTable.entindex_inflictor_const)
+			end
+			if inflictor ~= attacker.headItem then
+				local stacks = attacker:GetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit)
+				if stacks > 0 then
+					local magistrate_damage = filterTable.damage*(1 + (MAGISTRATE_HOOD_DAMAGE_AMP_PCT/100))
+					local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), victim:GetAbsOrigin(), nil, MAGISTRATE_HOOD_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+					if #enemies > 0 then
+						for _, enemy in pairs(enemies) do
+				            Damage:Apply({
+				                source = attacker.headItem,
+				                sourceType = BASE_NONE,
+				                attacker = attacker,
+				                victim = enemy,
+				                damage = magistrate_damage,
+				                damageType = DAMAGE_TYPE_MAGICAL,
+				                elements = elements,
+				                ignoreMultipliers = true
+				            })
+						end
+					end
+					if not attacker.headItem.particles then
+						attacker.headItem.particles = 0
+					end
+					if attacker.headItem.particles < 6 then
+						attacker.headItem.particles = attacker.headItem.particles + 1
+						local colorVector = Vector(0.5, 0.5, 0.5)
+						if #elements > 0 then
+					    	colorVector = Elements:RGBVectorFromElementIndex(elements[1])
+					    end
+					    print(colorVector)
+					    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/magistrate_hood_gold.vpcf", victim:GetAbsOrigin(), 3)
+					    ParticleManager:SetParticleControl(pfx, 12, colorVector)
+						Timers:CreateTimer(1, function()
+							attacker.headItem.particles = attacker.headItem.particles - 1
+						end)
+					end
+					local new_stacks = math.max(stacks - 1, 0)
+					if new_stacks == 0 then
+						attacker:RemoveModifierByName("modifier_magistrates_hood_charges")
+					else
+						print(new_stacks)
+						attacker:SetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit, new_stacks)
+					end
+					Timers:CreateTimer(MAGISTRATE_HOOD_REPLENISH_TIME, function()
+						local current_stacks = attacker:GetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit)
+						local refreshed_stacks = math.min(current_stacks + 1, MAGISTRATE_HOOD_MAX_CHARGES)
+						attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_magistrates_hood_charges", {})
+						attacker:SetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit, refreshed_stacks)
+					end)
+				end
+				return false
+			end
+		end
+	end
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue(false)
-		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
+		if (attacker:HasModifier("modifier_hand_marauder") or attacker:HasModifier("modifier_drill_crusher")) and armor >= 0 then
 			armor = 0
 		end
 		if victim:HasModifier("modifier_omniro_shadow_debuff") and armor >= 0 then
@@ -2344,6 +2559,12 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 2
 		end
 	end
+	if attacker:HasModifier("modifier_warlord_arcana2") then
+		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
+			local mult_bonus = attacker:GetRuneValue("q", 3)*(WARLORD_ARCANA2_Q1_POST_MIT/100)
+			mult = mult + mult_bonus
+		end
+	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + heroes.mountain_protector.ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
@@ -2352,6 +2573,11 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
 		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
 		mult = mult + immortalOrArcanaCount * 2.4
+	end
+	if attacker:HasModifier("modfier_razor_band_stacks") then
+		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
+		local stacks = modifier:GetStackCount()
+		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100)
 	end
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
@@ -2402,12 +2628,8 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] * 1.2
 	end
 	if victim:HasModifier("modifier_water_jailer_passive") then
-		local reduc = 0.1
-		if GameState:GetDifficultyFactor() == 2 then
-			reduc = 0.5
-		elseif GameState:GetDifficultyFactor() == 3 then
-			reduc = 0.98
-		end
+		local abil = victim:FindModifierByName("modifier_water_jailer_passive"):GetAbility()
+		local reduc = abil:GetSpecialValueFor("damage_block")/100
 		filterTable["damage"] = filterTable["damage"] * (1 - reduc)
 	end
 	if victim:HasModifier("modifier_wind_temple_key_stone_form") then
@@ -2486,7 +2708,11 @@ function GameState:FilterDamage(filterTable)
 		local distanceCompare = passive:GetSpecialValueFor("distance")
 		local damageReduce = passive:GetSpecialValueFor("damage_block")
 		if distance > distanceCompare then
-			StartAnimation(victim, {duration = 0.5, activity = ACT_DOTA_THUNDER_STRIKE, rate = 1.8})
+			if victim:GetUnitName() == "azalea_dragoon" then
+				StartAnimation(victim, {duration=0.5, activity=ACT_DOTA_THUNDER_STRIKE, rate=1.8})
+			else
+				StartAnimation(victim, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.1})
+			end
 			EmitSoundOn("Winterblight.Dragoon.Block", victim)
 			if not passive.particleLock then
 				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/dragoon_block.vpcf", victim, 1)
@@ -3114,6 +3340,56 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * victim.reduc
 		end
 	end
+	if victim:HasModifier("modifier_winterblight_cavern_unit") then
+		local chamber_level = 1
+		if victim.chamber == 0 then
+			chamber_level = victim.boss_level
+		else
+			chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
+		end
+		local reduction = 0.6^chamber_level
+		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
+		else
+			filterTable["damage"] = 0
+		end
+		if victim.chamber > 0 then
+			if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
+				filterTable["damage"] = 0
+			end
+		end
+		if victim:HasModifier("modifier_merkurio_crystal_blue") then
+			filterTable["damage"] =	filterTable["damage"]*0.1
+		end
+		if victim:HasModifier("modifier_aurora_4_boss_passive") then
+			filterTable["damage"] =	filterTable["damage"]*0.01
+		end
+		filterTable["damage"] = filterTable["damage"]*reduction
+		if victim.chamber > 0 then
+			local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
+			if attacker:GetPlayerOwnerID() ~= allowed_player then
+				filterTable["damage"] = 0
+			end
+		end
+		if victim:HasModifier("modifier_merkurio_crystal_purple") and filterTable["damage"] > 0 then
+			local caster = victim:FindModifierByName("modifier_merkurio_crystal_purple"):GetCaster()
+			local stacks = victim:GetModifierStackCount("modifier_merkurio_crystal_purple", caster) - 1
+			if stacks > 0 then
+				victim:SetModifierStackCount("modifier_merkurio_crystal_purple", caster, stacks)
+			else
+				victim:RemoveModifierByName("modifier_merkurio_crystal_purple")
+			end
+			filterTable["damage"] = 0
+		end
+	elseif attacker:HasModifier("modifier_winterblight_cavern_unit") then
+		local chamber_level = 1
+		if attacker.chamber == 0 then
+			chamber_level = attacker.boss_level
+		else
+			chamber_level = Winterblight.CavernData.Chambers[attacker.chamber]["level"]
+		end
+		local damage_amp = 0.2*chamber_level
+		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp
+	end
 	if attacker:HasModifier("modifier_Winterblight_unit") then
 		filterTable["damage"] = filterTable["damage"] * (1 + Winterblight.Stones)
 	end
@@ -3268,6 +3544,7 @@ function GameState:FilterDamage(filterTable)
 		source = damageData.source,
 		sourceType = damageData.sourceType,
 		damage = filterTable['damage'],
+		elements = elements,
 	}, nil)
 	Util.Modifier:SimpleEvent(victim, 'OnAfterPreMitigationReduce', { MODIFIER_SPECIAL_TYPE_PREMITIGATION }, {
 		attacker = attacker,
@@ -3275,6 +3552,7 @@ function GameState:FilterDamage(filterTable)
 		source = damageData.source,
 		sourceType = damageData.sourceType,
 		damage = filterTable['damage'],
+		elements = elements,
 	}, nil)
 
 
@@ -3574,8 +3852,38 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_disable_player") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_inside_aquarius_dome") then
+		local aquarius_caster = victim:FindModifierByName("modifier_inside_aquarius_dome"):GetCaster()
+		if IsValidEntity(aquarius_caster) then
+			if victim:GetTeamNumber() == aquarius_caster:GetTeamNumber() then
+				if not attacker:HasModifier("modifier_inside_aquarius_dome") then
+					filterTable["damage"] = 0
+				end
+			end
+		end
+	end
 	if victim:HasModifier("modifier_damage_immunity") then
 		filterTable["damage"] = 0
+	end
+	if victim:HasModifier("modifier_aeon_shield_passive") then
+		if victim:HasModifier("modifier_aeon_shield_active") then
+			filterTable["damage"] = 0
+		else
+			if victim:HasModifier("modifier_aeon_shield_charges") then
+				local charges = victim:FindModifierByName("modifier_aeon_shield_charges"):GetStackCount()
+				if (victim:GetHealth()-filterTable["damage"])/victim:GetMaxHealth() < charges*0.195 then
+					local new_charges = charges - 1
+					filterTable["damage"] = victim:GetHealth() - victim:GetMaxHealth()*charges*0.195
+					if new_charges > 0 then
+						victim:SetModifierStackCount("modifier_aeon_shield_charges", victim, new_charges)
+					else
+						victim:RemoveModifierByName("modifier_aeon_shield_charges")
+					end
+					local ability = victim:FindModifierByName("modifier_aeon_shield_passive"):GetAbility()
+					ability:ApplyDataDrivenModifier(victim, victim, "modifier_aeon_shield_active", {duration = 2.5})
+				end
+			end
+		end
 	end
 	if victim:HasModifier("modifier_beast_tyrant_combat_ai") then
 		if attacker:HasModifier("modifier_beast_tyrant_in_blue") and damagetype == DAMAGE_TYPE_MAGICAL then
@@ -3823,6 +4131,14 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = Winterblight:ZefnarTakeDamage(victim, filterTable["damage"])
 	end
 
+	if victim:HasModifier("modifier_mana_null") then
+		if victim:GetMana() > 0 then
+			if not victim:IsHero() then
+				filterTable["damage"] = 0
+				victim:SetMana(victim:GetMana() - 1)
+			end
+		end
+	end
 	if victim:HasModifier("modifier_dummy_active") and applyEffects then
 		if attacker == Events.GameMaster then
 		else
@@ -3896,20 +4212,26 @@ function GameState:FilterDamage(filterTable)
 	-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- if victim:IsHero() then
-		-- filterTable["damage"] = 0
-		-- end
-		-- end
-		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- if attacker:IsHero() then
-		-- if not victim:HasModifier("modifier_disable_player") then
-		-- if filterTable["damage"] > 0 then
-		-- filterTable["damage"] = 9999999999
-		-- end
-		-- end
-		-- end
-		-- end
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				-- print("TAKE DAMAGE: "..filterTable["damage"])
+				filterTable["damage"] = 0
+			end
+			if victim:GetUnitName() == "rubick_apprentice" then
+				filterTable["damage"] = 1000
+			end
+		end
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				if not victim:HasModifier("modifier_disable_player") then
+					if not victim:HasModifier("modifier_aeon_shield_passive") then
+						if filterTable["damage"] > 0 then
+							-- filterTable["damage"] = 999999999999999
+						end
+					end
+				end
+			end
+		end
 		-- filterTable["damage"] = 0
 	end
 

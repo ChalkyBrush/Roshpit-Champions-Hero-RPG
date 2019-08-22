@@ -585,6 +585,7 @@ end
 
 function Redfall:SpawnShipyardGatekeeper(position, fv, bAggro)
 	local creepFunction = function(unit)
+		unit.type = ENEMY_TYPE_MINI_BOSS
 		unit:SetRenderColor(255, 130, 130)
 		Redfall:ColorWearables(unit, Vector(255, 130, 130))
 		Events:AdjustBossPower(unit, 6, 6, false)
@@ -1506,6 +1507,7 @@ end
 
 function Redfall:ShipyardBossReadyForBattle()
 	local boss = Redfall.Shipyard.boss
+	boss.type = ENEMY_TYPE_BOSS
 
 	Timers:CreateTimer(1, function()
 		boss:RemoveModifierByName("modifier_disable_player")

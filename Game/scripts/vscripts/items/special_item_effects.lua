@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_super_ascendency_lua", "modifiers/modifier_super_ascendency", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_knight_hawk_lua", "modifiers/modifier_knight_hawk_lua", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -5401,7 +5402,9 @@ function boreal_granite_vest_take_damage(event)
 			local castPointSave = hero.castPointQ
 			ability.boreal_cast_point = castPointSave
 			ability:SetOverrideCastPoint(0)
-			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+			if ability:GetAbilityName() == "warlord_cataclysm_shaker" then
+				ability:OnSpellStart()
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
 				local order =
 				{
 					UnitIndex = hero:entindex(),
@@ -5675,4 +5678,541 @@ function puzzlers_locket_recalculate(event)
 			end)
 		end)
 	end
+end
+
+function tiamat_claw_initialize(event)
+end
+
+function tiamat_claw_initialize(event)
+end
+
+function razor_band_take_damage(event)
+	local target = event.unit
+	local ability = event.ability
+	local caster = event.caster
+	local attacker = event.attacker
+	if target == attacker then
+		return false
+	end
+	if not ability.buff_table then
+		ability.buff_table = {}
+	end
+	local new_buff = GameRules:GetGameTime()
+	if #ability.buff_table < 100 then
+		table.insert(ability.buff_table, new_buff)
+	end
+	ability:ApplyDataDrivenModifier(caster, target, "modfier_razor_band_stacks", {duration = RAZOR_BAND_STACK_DURATION})
+	local stacks = #ability.buff_table
+	target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
+	local self_damage = target:GetMaxHealth()*(RAZOR_BAND_MAX_HEALTH_DAMAGE/100)
+	ApplyDamage({victim = target, attacker = target, damage = self_damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+end
+
+function razor_band_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local new_buff_table = {}
+	for i = 1, #ability.buff_table, 1 do
+		if GameRules:GetGameTime() - ability.buff_table[i] > RAZOR_BAND_STACK_DURATION then
+		else
+			table.insert(new_buff_table, ability.buff_table[i])
+		end
+	end
+	ability.buff_table = new_buff_table
+
+	local stacks = #ability.buff_table
+	target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
+
+	razor_band_update_pfx(ability, target)
+	if not ability.particles then
+		ability.particles = 0
+	end
+	if #ability.buff_table > 0 then
+		local stacks = #ability.buff_table
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 340, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(stacks*RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER/100)
+				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NORMAL)
+				if ability.particles < 10 then
+					ability.particles = ability.particles + 1
+					local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					local attach_unit_1 = target
+					ParticleManager:SetParticleControl(pfx, 0, attach_unit_1:GetAbsOrigin() + Vector(0, 0, attach_unit_1:GetBoundingMaxs().z + 80))
+					ParticleManager:SetParticleControl(pfx, 1, enemy:GetAbsOrigin() + Vector(0, 0, enemy:GetBoundingMaxs().z + 100))
+					Timers:CreateTimer(0.3, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+				end
+			end
+			if #enemies > 5 then
+				EmitSoundOn("Items.RazorBandHit", enemies[1])
+				EmitSoundOn("Items.RazorBandHit", enemies[2])
+				EmitSoundOn("Items.RazorBandHit", enemies[3])
+			elseif #enemies > 3 then
+				EmitSoundOn("Items.RazorBandHit", enemies[1])
+				EmitSoundOn("Items.RazorBandHit", enemies[2])
+			else
+				EmitSoundOn("Items.RazorBandHit", enemies[1])
+			end
+		end
+	end
+	ability.particles = math.max(ability.particles - 1, 0)
+end
+
+function razor_band_update_pfx(ability, hero)
+	if not ability.razor_pfx and #ability.buff_table > 0 then
+		ability.razor_pfx = ParticleManager:CreateParticle("particles/roshpit/items/galvanized_razor_band.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
+		ParticleManager:SetParticleControlEnt(ability.razor_pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+	end
+	if #ability.buff_table == 0 then
+		if ability.razor_pfx then
+			ParticleManager:DestroyParticle(ability.razor_pfx, false)
+			ParticleManager:ReleaseParticleIndex(ability.razor_pfx)
+			ability.razor_pfx = nil
+		end
+	end
+	if ability.razor_pfx then
+		local stacks = #ability.buff_table
+		ParticleManager:SetParticleControl(ability.razor_pfx, 1, Vector(stacks/100, stacks/100, stacks/100))
+		ParticleManager:SetParticleControl(ability.razor_pfx, 9, Vector(stacks/100, stacks/100, stacks/100))
+	end
+end
+
+function razor_band_start(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if not ability.buff_table then
+		ability.buff_table = {}
+	end
+	razor_band_update_pfx(ability, target)
+end
+
+function razor_band_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	ability.buff_table = {}
+	EmitSoundOn("Items.RazorBandEnd", target)
+	target:RemoveModifierByName("modfier_razor_band_stacks")
+	razor_band_update_pfx(ability, target)
+end
+
+function goldbreaker_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local attacker = event.attacker
+	Filters:MagicImmuneBreak(attacker, target)
+	ability:ApplyDataDrivenModifier(attacker, target, "modifier_goldbreaker_effect", {duration = GOLDBREAKER_DEBUFF_DURATION})
+end
+
+function knight_hawk_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	local movespeed = hero:GetBaseMoveSpeed()
+	local movespeedModifier = hero:GetMoveSpeedModifier(movespeed, false)
+	if movespeedModifier <= 300 then
+		event.ability:ApplyDataDrivenModifier(event.caster, hero, "modifier_knight_hawk_helm_speed", {duration = KNIGHT_HAWK_MS_BUFF_DURATION})
+	end	
+end
+
+function knight_hawk_bonus_speed_init(event)
+	local target = event.target
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit.vpcf", target, 3)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(140, 140, 140))
+end
+
+function knight_hawk_base_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	-- target:AddNewModifier( caster, ability, "modifier_knight_hawk_lua", {} )
+end
+
+function knight_hawk_base_end(event)
+	local target = event.target
+	target:RemoveModifierByName("modifier_knight_hawk_lua")
+end
+
+function erudite_teacher_start(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	if not ability.rubick_apprentice then
+		local spawnPos = hero:GetAbsOrigin() + RandomVector(160)
+		ability.rubick_apprentice = CreateUnitByName("rubick_apprentice", spawnPos, true, nil, nil, hero:GetTeamNumber())
+		ability.rubick_apprentice.summoner = hero
+		ability.rubick_apprentice:SetOwner(hero)
+		ability.rubick_apprentice:SetControllableByPlayer(hero:GetPlayerID(), true)
+	    ability.rubick_apprentice.hero = hero
+
+		local apprentice_hp = Filters:AdjustItemDamage(hero, hero:GetMaxHealth()*ERUDITE_TEACHER_HEALTH_MULT, nil)
+		local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(hero)
+		local apprentice_damage = Filters:AdjustItemDamage(hero, attack_damage*ERUDITE_TEACHER_ATTACK_MULT, nil)
+		local apprentice_armor = Filters:AdjustItemDamage(hero, hero:GetPhysicalArmorValue(false)*ERUDITE_TEACHER_ARMOR_MULT, nil)
+		ability.rubick_apprentice:SetMaxHealth(apprentice_hp)
+		ability.rubick_apprentice:SetBaseMaxHealth(apprentice_hp)
+		ability.rubick_apprentice:SetHealth(apprentice_hp)
+		ability.rubick_apprentice.robes = ability
+		ability.rubick_apprentice:SetPhysicalArmorBaseValue(apprentice_armor)
+		Filters:SetAttackDamage(ability.rubick_apprentice, apprentice_damage)
+
+		ability:ApplyDataDrivenModifier(caster, ability.rubick_apprentice, "modifier_apprentice_ai", {})
+		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force.vpcf", ability.rubick_apprentice, 3)
+		ParticleManager:SetParticleControl(pfx, 1, ability.rubick_apprentice:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx, 2, Vector(3,3,3))
+		ParticleManager:SetParticleControl(pfx, 3, ability.rubick_apprentice:GetAbsOrigin())
+		EmitSoundOn("Items.RubickApprentice.Spawn", ability.rubick_apprentice)
+
+		local apprentice = ability.rubick_apprentice
+
+		Timers:CreateTimer(0.5, function()
+			EmitSoundOn("Items.RubickApprentice.Spawn.VO", apprentice)
+		end)
+		Timers:CreateTimer(0.03, function()
+			Events:smoothSizeChange(apprentice, 0.1, 1, 33)
+			StartAnimation(apprentice, {duration = 1.3, activity = ACT_DOTA_ATTACK, rate = 1.0})
+		end)
+		DeepPrintTable(event.abilities_table)
+		if event.abilities_table then
+			Timers:CreateTimer(0.03, function()
+				DeepPrintTable(event.abilities_table)
+				for i = 1, #event.abilities_table, 1 do
+					local ability_check_name = event.abilities_table[i]
+					local steal_index = i - 1
+					if not string.match(ability_check_name, "apprentice_spell_steal_") then
+						CustomAbilities:AddAndOrSwapSkill(apprentice, "apprentice_spell_steal_"..i, ability_check_name, steal_index)
+					end
+				end
+			end)
+		end
+		apprentice:FindAbilityByName("hero_summon_ai"):ToggleAbility()
+	end
+end
+
+function erudite_teacher_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	if ability.rubick_apprentice and IsValidEntity(ability.rubick_apprentice) then
+		ability.rubick_apprentice:ForceKill(false)
+		local rubick = ability.rubick_apprentice
+		ability.rubick_apprentice = false
+		Timers:CreateTimer(5, function()
+			if IsValidEntity(rubick) then
+				UTIL_Remove(rubick)
+			end
+		end)
+	end
+end
+
+function apprentice_spell_steal_phase(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	EmitSoundOn("Items.RubickApprentice.Spellsteal.Phase", caster)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force.vpcf", caster, 1)
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 2, Vector(3,3,3))
+	ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin())
+	CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", caster, 3)
+end
+
+function apprentice_spell_steal_cast(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local index = event.index
+	local steal_index = index - 1
+	local success = true
+	if not target.dominion then
+		Notifications:Top(caster:GetPlayerOwnerID(), {text = "notification_no_dominion", duration = 5, style = {color = "#FF1111"}, continue = true})
+		success = false
+	end
+	local abilitiesTable = {}
+	--print(target:GetAbilityCount())
+	for i = 0, 12, 1 do
+		local abilityCheck = target:GetAbilityByIndex(i)
+		if abilityCheck then
+			if abilityCheck:IsHidden() then
+			else
+				table.insert(abilitiesTable, abilityCheck)
+			end
+		end
+	end
+	local new_ability = nil
+	local new_ability_name = nil
+	if #abilitiesTable > 0 then
+		new_ability = abilitiesTable[RandomInt(1, #abilitiesTable)]
+		new_ability_name = new_ability:GetAbilityName()
+		if caster:HasAbility(new_ability_name) then
+			success = false
+		end
+	else
+		success = false
+	end
+	if success then
+		CustomAbilities:AddAndOrSwapSkill(caster, ability:GetAbilityName(), new_ability_name, steal_index)
+		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_rubick/rubick_spell_steal.vpcf", target, 3)
+		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
+		EmitSoundOn("Items.RubickApprentice.Spellsteal.Success", caster)
+	else
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/axe/red_general_ulti_cast_assassin_trap_explode_beam.vpcf", caster:GetAbsOrigin(), 1.5)
+		EmitSoundOn("Items.RubickApprentice.Spellsteal.Fail", caster)
+	end
+end
+
+function rubick_apprentice_reset_phase(event)
+	local caster = event.caster
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/axe/red_general_ulti_cast_assassin_trap_explode_beam.vpcf", caster:GetAbsOrigin(), 1.5)
+	EmitSoundOn("Items.RubickApprentice.Reset.VO", caster)
+end
+
+
+function rubick_apprentice_reset(event)
+	local caster = event.caster
+
+	local modifiers = caster:FindAllModifiers()
+	for i = 0, 2, 1 do
+		for j = 1, #modifiers, 1 do
+			local modifier = modifiers[j]
+			if modifier:GetRemainingTime() < 5 then
+				if modifier:GetAbility() == caster:GetAbilityByIndex(i) then
+					caster:RemoveModifierByName(modifier:GetName())
+				end
+			end
+		end
+	end
+
+
+	for i = 0, 2, 1 do
+		local stolen_ability = caster:GetAbilityByIndex(i)
+		local spell_steal_index = i + 1
+		local stolen_ability_name = stolen_ability:GetAbilityName()
+		print(stolen_ability_name)
+		if not string.match(stolen_ability_name, "apprentice_spell_steal_") then
+			CustomAbilities:AddAndOrSwapSkill(caster, stolen_ability:GetAbilityName(), "apprentice_spell_steal_"..spell_steal_index, i)
+			if IsValidEntity(stolen_ability) then
+				UTIL_Remove(stolen_ability)
+			end
+		end
+	end
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/axe/red_general_ulti_cast_assassin_trap_explode_beam.vpcf", caster:GetAbsOrigin(), 1.5)
+	EmitSoundOn("Items.RubickApprentice.Die.VO", caster)
+	EmitSoundOn("Items.RubickApprentice.Spellsteal.Reset", caster)
+	CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", caster, 3)
+	StartAnimation(caster, {duration = 1.3, activity = ACT_DOTA_ATTACK, rate = 1.3})
+end
+
+function dead_apprentice(event)
+	local apprentice = event.unit
+	local hero = apprentice.hero
+	local ability = event.ability
+	local apprentice_abilities_table = {}
+	for i = 0, 2, 1 do
+		local ability_check = apprentice:GetAbilityByIndex(i)
+		local ability_name = ability_check:GetAbilityName()
+		table.insert(apprentice_abilities_table, ability_name)
+	end
+	CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", apprentice:GetAbsOrigin(), 3)
+	EmitSoundOn("Items.RubickApprentice.Die.VO", apprentice)
+	ability.rubick_apprentice = nil
+	ability.apprentice_abilities_table = apprentice_abilities_table
+	ability.apprentice_death_time = GameRules:GetGameTime()
+	-- Timers:CreateTimer(10, function()
+	-- 	if hero:HasModifier("modifier_erudite_teacher") then
+	-- 		print("IN TIMER :)")
+	-- 		if IsValidEntity(ability) then
+	-- 			print("SUMMON ANOTHER")
+	-- 			local eventTable = {}
+	-- 			eventTable.ability = ability
+	-- 			eventTable.caster = hero.InventoryUnit
+	-- 			eventTable.target = hero
+	-- 			eventTable.abilities_table = apprentice_abilities_table
+	-- 			erudite_teacher_start(eventTable)
+
+	-- 		end
+	-- 	end
+	-- end)
+end
+
+function erudite_teacher_robes_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	if ability.apprentice_abilities_table and ability.apprentice_death_time then
+		if GameRules:GetGameTime() - ability.apprentice_death_time > 10 then
+			local abilities_table = ability.apprentice_abilities_table
+
+			local eventTable = {}
+			eventTable.ability = ability
+			eventTable.caster = caster
+			eventTable.target = hero
+			eventTable.abilities_table = ability.apprentice_abilities_table
+			erudite_teacher_start(eventTable)
+
+			ability.apprentice_abilities_table = nil
+		end
+	end
+end
+
+function pivotal_swift_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+
+	if hero:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+		local current_stacks = hero:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster)
+		local new_stacks = current_stacks - (PIVOT_BOOT_MS/(PIVOT_BURST_DURATION*10))
+		hero:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster, new_stacks)
+		print(current_stacks)
+	end
+		
+end
+
+function magistrates_hood_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_magistrates_hood_charges", {})
+	hero:SetModifierStackCount("modifier_magistrates_hood_charges", caster, MAGISTRATE_HOOD_MAX_CHARGES)
+end
+
+function nethergrasp_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+
+	if not ability.nethergrasp_table then
+		ability.nethergrasp_table = {}
+		ability.pfx_table = {}
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	local grasp_break_table = {}
+	local new_grasp_table = {}
+	if #ability.nethergrasp_table > 0 then
+	    for i = 1, #ability.nethergrasp_table, 1 do
+	        local nether = ability.nethergrasp_table[i]
+	        if nether then
+		        local target = EntIndexToHScript(nether.entindex)
+		        if IsValidEntity(target) and target:IsAlive() and nether.active then
+			        local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), hero:GetAbsOrigin())
+			        nether.distance = distance
+			       	if i%#ability.nethergrasp_table == ability.interval then
+			       		if hero:Script_GetAttackRange() + 100 >= distance then
+			       			Filters:PerformAttackSpecial(hero, target, true, true, true, false, true, false, false)
+			       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
+			       		end
+			       	end
+			        if distance > NETHERGRASP_BREAK_DISTANCE then
+			        	table.insert(grasp_break_table, nether.entindex)
+			        end
+			        if not target:IsAlive() then
+			        	table.insert(grasp_break_table, nether.entindex)
+			        end
+			        table.insert(new_grasp_table, nether)
+			    else	
+		            ParticleManager:DestroyParticle(nether.pfx, false)
+		            ParticleManager:ReleaseParticleIndex(nether.pfx)	    	
+			    end
+		    end
+	    end
+	end
+	ability.nethergrasp_table = new_grasp_table
+    for i = 1, #grasp_break_table, 1 do
+    	local target = EntIndexToHScript(grasp_break_table[i])
+    	target:RemoveModifierByName("modifier_nethergrasp_linked")
+    end
+	ability.interval = ability.interval + 1
+	if ability.interval >= #ability.nethergrasp_table then
+		ability.interval = 0
+	end
+end
+
+function nethergrasp_owner_die(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.unit
+	for i = 1, #ability.pfx_table, 1 do
+		ParticleManager:DestroyParticle(ability.pfx_table[i], false)
+	end
+	ability.nethergrasp_table = {}	
+end
+
+function nethergrasp_grip_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+    -- local new_nethergrasp_table = {}
+    for i = 1, #ability.nethergrasp_table, 1 do
+        local nether = ability.nethergrasp_table[i]
+        if nether.entindex == target:GetEntityIndex() then
+            nether.active = false
+        else
+            -- table.insert(new_nethergrasp_table, nether)
+        end
+    end
+
+    -- ability.nethergrasp_table = new_nethergrasp_table
+    Timers:CreateTimer(0.03, function()
+    	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+    end)
+end
+
+function nethergrasp_owner_end2(event)
+	event.target = event.unit
+	-- nethergrasp_grip_end(event)
+end
+
+function nethergrasp_grip_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+	local nether = nil
+    for i = 1, #ability.nethergrasp_table, 1 do
+        if ability.nethergrasp_table[i].entindex == target:GetEntityIndex() then
+            nether = ability.nethergrasp_table[i]
+            break
+        end
+    end
+	if nether and nether.distance then
+		if target.pushLock then
+			return false
+		end
+		if target.jumpLock then
+			return false
+		end
+		local range = hero:Script_GetAttackRange()
+
+		if nether.distance > range then
+			local pullSpeed = math.min(15, GameRules:GetGameTime() - nether.create_time + 5)
+			pullSpeed = math.max(pullSpeed, 5)
+			if target.type and target.type == ENEMY_TYPE_MINI_BOSS then
+				pullSpeed = pullSpeed*0.6
+			elseif target.type and target.type == ENEMY_TYPE_BOSS then
+				pullSpeed = pullSpeed*0.3
+			end
+			local pullDirection = (hero:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()
+			target:SetAbsOrigin(target:GetAbsOrigin()+pullDirection*pullSpeed)
+			print(pullSpeed)
+		end
+	end
+end
+
+function unequip_inspiration_ring(event)
+	local target = event.target
+	local ability = event.ability
+	CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "inspiration_ring", {abilities_cast = {false, false, false, false}, ring_name = ability:GetAbilityName(), clear = 1, color = "none"})
 end

@@ -526,6 +526,7 @@ function Seafortress:SpawnRoom2()
     local positionTable = {Vector(-5504, -11392), Vector(-5696, -10176), Vector(-6595, -8827), Vector(-3318, -8071)}
     Seafortress:AddPatrolArguments(tree, 0, 6, 140, positionTable)
     Seafortress.treeBoss = tree
+	tree.type = ENEMY_TYPE_MINI_BOSS
     tree.deathCode = 3
     tree.reduc = 0.3
   end)
@@ -884,6 +885,7 @@ end
 function Seafortress:SpawnSwampMedusa(position, fv)
   local lord = Seafortress:SpawnDungeonUnit("seafortress_swamp_lady", position, 2, 5, "Seafortress.SwampLady.Aggro", fv, false)
   Events:AdjustBossPower(lord, 10, 10, false)
+  lord.type = ENEMY_TYPE_MINI_BOSS
   lord:SetRenderColor(120, 180, 255)
   lord.deathCode = 6
   lord.pushLock = true
@@ -1479,6 +1481,7 @@ function Seafortress:SpawnLordZarkhaz(position, fv)
   queen:SetRenderColor(100, 165, 255)
   Events:ColorWearables(queen, Vector(100, 165, 255))
   Events:AdjustBossPower(queen, 8, 8, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen.reduc = 0.01
   return queen
 
@@ -1789,6 +1792,7 @@ end
 
 function Seafortress:SpawnJailer(position, fv)
   local mage = Seafortress:SpawnDungeonUnit("seafortress_jailer", position, 0, 3, nil, fv, true)
+  mage.type = ENEMY_TYPE_MINI_BOSS
   mage:SetRenderColor(40, 190, 255)
   Events:AdjustBossPower(mage, 10, 10, false)
   mage.patrolImmunity = true
@@ -2731,6 +2735,7 @@ end
 
 function Seafortress:SpawnSeaMaiden(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_sea_maiden", position, 1, 4, "Seafortress.SeaMaiden.Aggro", fv, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen:SetRenderColor(120, 255, 165)
   Events:ColorWearables(queen, Vector(120, 255, 165))
   Events:AdjustBossPower(queen, 8, 10, false)
@@ -2773,6 +2778,7 @@ end
 
 function Seafortress:SpawnOlaf(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seabinder_olaf", position, 1, 4, "Seafortress.Olaf.Aggro", fv, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen:SetRenderColor(120, 120, 255)
   Events:AdjustBossPower(queen, 8, 10, false)
   queen.dominion = true
@@ -3844,6 +3850,7 @@ function Seafortress:SpawnBarnacleColossus(position, fv)
   queen.cantAggro = true
   -- queen:SetRenderColor(100, 230, 245)
   queen.reduc = 0.005
+  queen.type = ENEMY_TYPE_MINI_BOSS
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier(queen, nil, "modifier_movespeed_cap_super", {})
   Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
@@ -3998,6 +4005,7 @@ end
 
 function Seafortress:SpawnBigBlueFurbolg(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_big_blue_furbolg", position, 2, 4, "Seafortress.Furbolg.Aggro", fv, false)
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen.dominion = true
   -- queen:SetRenderColor(100, 230, 245)
   queen.reduc = 0.07
@@ -4079,6 +4087,7 @@ function Seafortress:SpawnSkultoth(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("dark_reef_skhultoth", position, 4, 6, nil, fv, false)
   queen.state = 0
   queen.reduc = 0.02
+  queen.type = ENEMY_TYPE_MINI_BOSS
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 255)
   Seafortress:smoothSizeChange(queen, 0.3, 3.5, 45)
@@ -4257,6 +4266,7 @@ function Seafortress:SpawnSiltbreakerBoss(position, fv)
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_boss_siltbreaker", position, 7, 9, nil, fv, true)
 
   queen.reduc = 0.002
+  queen.type = ENEMY_TYPE_BOSS
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier(queen, nil, 'modifier_movespeed_cap_sonic', {})
@@ -4298,6 +4308,7 @@ function Seafortress:SpawnOceanCentaurMaster(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_oceanrunner_arkguil", position, 1, 1, "Seafortress.OceanRunner.Aggro", fv, false)
   queen:SetRenderColor(100, 230, 245)
   queen.reduc = 0.1
+  queen.type = ENEMY_TYPE_MINI_BOSS
   Events:AdjustBossPower(queen, 8, 8, false)
   Seafortress:SetTargetCastArgs(queen, 900, 0, 2, FIND_ANY_ORDER)
   queen:AddNewModifier(queen, nil, 'modifier_movespeed_cap_sonic', {})
@@ -4309,6 +4320,7 @@ function Seafortress:SpawnOceanGiantBoss(position, fv)
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_boss_silver_sea_giant", position, 7, 9, nil, fv, true)
   queen:SetRenderColor(0, 255, 240)
   queen.reduc = 0.001
+  queen.type = ENEMY_TYPE_BOSS
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier(queen, nil, 'modifier_movespeed_cap_sonic', {})
@@ -4319,6 +4331,7 @@ end
 function Seafortress:SpawnOracleOfSea(position, fv)
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_oracle_of_the_sea", position, 7, 9, nil, fv, true)
   queen.reduc = 0.002
+  queen.type = ENEMY_TYPE_BOSS
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier(queen, nil, 'modifier_movespeed_cap_sonic', {})
@@ -4435,6 +4448,7 @@ end
 function Seafortress:SpawnFinalBoss()
   local queen = Seafortress:SpawnUnitNoParagon("seafortress_final_boss", Vector(-14272, 13696), 7, 9, nil, Vector(-1, 1), false)
   queen.reduc = 0.00125
+  queen.type = ENEMY_TYPE_MAJOR_BOSS
   queen.isBossFFS = true
   queen.mainBoss = true
   Events:AdjustBossPower(queen, 8, 8, false)
@@ -4531,6 +4545,7 @@ end
 function Seafortress:SpawnAhnQhir(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_ahn_qhir", position, 3, 4, "Seafortress.Ahnqhir.Aggro", fv, false)
   queen.reduc = 0.05
+  queen.type = ENEMY_TYPE_MINI_BOSS
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:AddNewModifier(queen, nil, 'modifier_movespeed_cap_sonic', {})
   Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, queen, "modifier_ms_thinker", {})
@@ -4571,6 +4586,7 @@ end
 function Seafortress:SpawnShadowOfBahamutMonster(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_shadow_of_bahamut", position, 3, 4, "Seafortress.ShadowOfBahamut.Aggro", fv, false)
   queen.reduc = 0.00001
+  queen.type = ENEMY_TYPE_MAJOR_BOSS
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
@@ -4585,6 +4601,7 @@ end
 function Seafortress:SpawnArchonWizard(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_archon_wizard", position, 3, 4, "Seafortress.ArchonWizard.Aggro", fv, false)
   queen.reduc = 0.00001
+  queen.type = ENEMY_TYPE_MAJOR_BOSS
   queen.golemsSpawned = 0
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
@@ -4596,6 +4613,7 @@ end
 function Seafortress:SpawnArchonGolem(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_archon_golem", position, 5, 6, "Seafortress.ArchonGolemSpawn", fv, true)
   queen.reduc = 0.00005
+  queen.type = ENEMY_TYPE_MINI_BOSS
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(207, 94, 255)
@@ -4614,6 +4632,7 @@ end
 function Seafortress:SpawnPaladinGolem(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("sea_fortress_paladin_golem", position, 5, 6, "Seafortress.ArchonGolemSpawn", fv, false)
   queen.reduc = 0.00005
+  queen.type = ENEMY_TYPE_MAJOR_BOSS
   queen.isBossFFS = true
   Events:AdjustBossPower(queen, 8, 8, false)
   queen:SetRenderColor(0, 0, 0)
@@ -4625,6 +4644,7 @@ function Seafortress:SpawnOlSpiny(position, fv)
   local queen = Seafortress:SpawnDungeonUnit("seafortress_ol_spiny", position, 7, 8, "Seafortress.OlSpiny.Aggro", fv, false)
   queen.reduc = 0.000002
   queen.isBossFFS = true
+  queen.type = ENEMY_TYPE_MAJOR_BOSS
   Events:AdjustBossPower(queen, 8, 8, false)
   Events:ColorWearablesAndBase(queen, Vector(30, 70, 255))
   queen:SetModelScale(0.03)

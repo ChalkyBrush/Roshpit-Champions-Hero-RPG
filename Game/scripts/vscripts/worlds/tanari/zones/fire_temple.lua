@@ -815,6 +815,7 @@ end
 
 function Tanari:SpawnKelthas()
 	local boss = CreateUnitByName("flame_worshipper_kolthun", Vector(8354, -9283), false, nil, nil, DOTA_TEAM_NEUTRALS)
+	boss.type = ENEMY_TYPE_BOSS
 	Events:AdjustDeathXP(boss)
 	boss:SetRenderColor(255, 30, 0)
 	Events:AdjustBossPower(boss, 8, 8)
@@ -830,6 +831,7 @@ function Tanari:FireTempleFinalBossSpawn()
 		return
 	end
 	local boss = Tanari:SpawnKelthas()
+	boss.type = ENEMY_TYPE_BOSS
 	boss.phase = 0
 	boss.fallVelocity = 0
 	boss:SetAcquisitionRange(8000)
@@ -877,6 +879,7 @@ function Tanari:SpawnFireLord(kolthun)
 	boss:SetForwardVector(Vector(-1, 0))
 	boss.kolthun = kolthun
 	boss.fallVelocity = 0
+	boss.type = ENEMY_TYPE_BOSS
 	kolthun.phase3active = true
 	kolthun.boss = boss
 	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
@@ -1460,6 +1463,7 @@ function Tanari:SpawnFireSpiritFinalBoss()
 	local guardian = Events:SpawnBoss("tanari_fire_spirit_boss", Vector(-14375, -2126))
 	guardian.pushLock = true
 	guardian.jumpLock = true
+	guardian.type = ENEMY_TYPE_BOSS
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})
 	-- local guardian = CreateUnitByName("wind_temple_spirit_boss", Vector(12992, 1536), false, nil, nil, DOTA_TEAM_NEUTRALS)
 	guardian:SetForwardVector(Vector(0, -1))

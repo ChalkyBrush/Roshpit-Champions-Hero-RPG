@@ -98,6 +98,15 @@ function WallPhysics:angleToVector(angle)
 	return Vector(x, y)
 end
 
+function WallPhysics:angle_between_vectors(v1, v2)
+	local dot = v1.x*v2.x + v1.y*v2.y
+	local det = v1.x*v2.y - v1.y*v2.x
+	angle = math.atan2(det, dot)
+	angle = math.abs(angle/(0.5*math.pi))
+	angle = angle*90
+	return angle
+end
+
 function WallPhysics:ShouldBlockUnit(obstruction, point, unit, isDistanceSearch)
 	if unit:HasModifier("modifier_mobility_blocked") then
 		return true

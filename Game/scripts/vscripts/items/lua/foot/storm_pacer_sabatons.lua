@@ -1,14 +1,14 @@
 require('items/lua/foot/base')
 require('npc_abilities/base_modifier')
 
-item_rpc_pace_of_storm = class(BaseFoot, nil, BaseFoot)
-modifier_pace_of_storm = class(npc_base_modifier, nil, npc_base_modifier)
-local class = item_rpc_pace_of_storm
-local className = 'item_rpc_pace_of_storm'
+item_rpc_storm_pacer_sabatons = class(BaseFoot, nil, BaseFoot)
+modifier_storm_pacer_sabatons = class(npc_base_modifier, nil, npc_base_modifier)
+local class = item_rpc_storm_pacer_sabatons
+local className = 'item_rpc_storm_pacer_sabatons'
 
-local modifierClass = modifier_pace_of_storm
-local modifierName = 'modifier_pace_of_storm'
-LinkLuaModifier(modifierName, "items/lua/foot/pace_of_storm", LUA_MODIFIER_MOTION_NONE)
+local modifierClass = modifier_storm_pacer_sabatons
+local modifierName = 'modifier_storm_pacer_sabatons'
+LinkLuaModifier(modifierName, "items/lua/foot/storm_pacer_sabatons", LUA_MODIFIER_MOTION_NONE)
 
 function class:GetClassName()
     return className
@@ -21,8 +21,8 @@ function class:GetModifierName()
 end
 function class:RollProperty1()
     self.newItemTable.property1 = 1
-    self.newItemTable.property1name = "pace_of_storm"
-    self:SetSpecialValue(self.newItemTable.property1name, "#CC1104")
+    self.newItemTable.property1name = "storm_pacer_sabatons"
+    self:SetSpecialValue(self.newItemTable.property1name, "#8fd8f7")
 end
 function modifierClass:OnCreated()
     if not IsServer() then
@@ -34,6 +34,7 @@ function modifierClass:OnCreated()
     })
     self.damage = 0
     self.cooldownUntil = 0
+    self.elements = {}
 
     self.currentRadius = 0
     self.maxRadius = PACE_OF_STORM_RADIUS
@@ -52,21 +53,28 @@ function modifierClass:OnCastEAbility()
     self.cooldownUntil = GameRules:GetGameTime() + PACE_OF_STORM_COOLDOWN
     self.retracing = false
     self.currentRadius = 0
-    self.localKey = 'item_pace_of_storm_' .. ability:GetEntityIndex() .. '_' .. ability.uid
+    self.localKey = 'item_storm_pacer_sabatons_' .. ability:GetEntityIndex() .. '_' .. ability.uid
     self:PlayEffectsCast()
     self:StartIntervalThink(self.thinkInterval)
 end
 function modifierClass:PlayEffectsCast()
     local caster = self:GetCaster()
 
-    EmitSoundOn("Jex.RingOfFire.Start", caster)
+    EmitSoundOn("Items.Stormpace.Activate", caster)
 
-    local pfx = ParticleManager:CreateParticle("particles/roshpit/jex/ring_of_fire_reduced_flash.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+    local pfx = ParticleManager:CreateParticle("particles/roshpit/items/storm_pace_reduced_flash.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
     self.pfx = pfx
     ParticleManager:SetParticleControl(self.pfx, 0, caster:GetAbsOrigin())
     local speed = self.radiusStep/self.thinkInterval
     ParticleManager:SetParticleControl(self.pfx, 1, Vector(speed, self.maxRadius, 600))
-
+    local colorVector = Vector(150, 150, 150)
+    if #self.elements > 0 then
+        local elementName, elementColor = Elements:GetElementNameAndColorByCode(self.elements[1])
+        local r, g, b = Elements:hex2rgb(elementColor)
+        colorVector = Vector(r,g,b)
+    end
+    colorVector = colorVector/255
+    ParticleManager:SetParticleControl(self.pfx, 12, colorVector)
     Timers:CreateTimer(2 * self.maxRadius/speed, function ()
         ParticleManager:DestroyParticle(pfx, false)
         ParticleManager:ReleaseParticleIndex(pfx)
@@ -108,6 +116,7 @@ function modifierClass:OnIntervalThink()
                 victim = enemy,
                 damage = mult * self.damage,
                 damageType = DAMAGE_TYPE_MAGICAL,
+                elements = self.elements,
                 ignoreMultipliers = true,
                 steadfastThresholdMult = PACE_OF_STORM_STEADFAST_THRESHOLD,
                 megaSteadfastThresholdMult = PACE_OF_STORM_MEGASTEADFAST_THRESHOLD,
@@ -118,5 +127,6 @@ end
 function modifierClass:OnAfterPreMitigationReduce(data)
     if data.source ~= self:GetAbility() then
         self.damage = data.damage
+        self.elements = data.elements
     end
 end

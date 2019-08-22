@@ -140,6 +140,7 @@
 	height:0px;
 	width:100%;
 	margin-top:20px;
+	overflow: scroll;
 }
 
 .stars_detail_box{

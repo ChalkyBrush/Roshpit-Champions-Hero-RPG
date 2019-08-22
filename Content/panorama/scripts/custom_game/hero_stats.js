@@ -50,7 +50,21 @@ function UpdateHeroStats(){
 			parent.FindChildTraverse("AgilityModifierLabel").style.visibility = "collapse"
 			parent.FindChildTraverse("IntelligenceLabel").text = heroAttributes.intelligence
 			parent.FindChildTraverse("IntelligenceModifierLabel").style.visibility = "collapse"
-
+			if (!(heroAttributes.tiamat === undefined) && heroAttributes.tiamat == 1){
+				parent.FindChildTraverse("StrengthLabel").style.color = '#6bdcff'
+				parent.FindChildTraverse("AgilityLabel").style.color = '#6bdcff'
+				parent.FindChildTraverse("IntelligenceLabel").style.color = '#6bdcff'
+				parent.FindChildTraverse("StrengthLabel").style.textShadow = '1px 1px 1px #262869'
+				parent.FindChildTraverse("AgilityLabel").style.textShadow = '1px 1px 1px #262869'
+				parent.FindChildTraverse("IntelligenceLabel").style.textShadow = '1px 1px 1px #262869'
+			}else{
+				parent.FindChildTraverse("StrengthLabel").style.color = '#cccccc'
+				parent.FindChildTraverse("AgilityLabel").style.color = '#cccccc'
+				parent.FindChildTraverse("IntelligenceLabel").style.color = '#cccccc'
+				parent.FindChildTraverse("StrengthLabel").style.textShadow = '0px 0px 4px 4 #00000088'
+				parent.FindChildTraverse("AgilityLabel").style.textShadow = '0px 0px 4px 4 #00000088'
+				parent.FindChildTraverse("IntelligenceLabel").style.textShadow = '0px 0px 4px 4 #00000088'
+			}
 			// var primaryAttribute = parseInt(heroAttributes.primaryAttribute)
 			// if (primaryAttribute == 0){
 			// 	$('#Hero_Strength_Icon').SetHasClass('primary_attribute', true)
@@ -99,11 +113,33 @@ function UpdateHeroStats(){
 	}
 }
 
+function InspirationRing(msg)
+{
+	// if (Players.GetLocalPlayerPortraitUnit() == msg.caster){
+		var parent = GameUI.DotaHUD.FindChildTraverse("AbilitiesAndStatBranch")
+		var abilities_cast = msg.abilities_cast
+		var color = msg.border_color
+		$.Msg(abilities_cast)
+		for (var j = 1; j <= 4; j++) {
+			var panel_index = j-1
+			$.Msg(abilities_cast[j])
+			if (abilities_cast[j] == 1){
+				var ability_panel = parent.FindChildTraverse("Ability"+panel_index).FindChildTraverse("AbilityButton")
+				ability_panel.style.border = "3px solid "+color
+			}else{
+				var ability_panel = parent.FindChildTraverse("Ability"+panel_index).FindChildTraverse("AbilityButton")
+				ability_panel.style.border = "0px solid black"
+			}
+		}
+	// }
+}
+
 (function()
 {
 	InitializeHeroStatsOnce()
 	GameEvents.Subscribe( "update_hero_stats", UpdateHeroStats );
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateHeroStats );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateHeroStats );
+	GameEvents.Subscribe( "inspiration_ring", InspirationRing);
 })();
 

@@ -931,6 +931,27 @@ function Runes:EquipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "elemental_overload_2", "enhchant_tomahawk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+			local abilities_to_remove_table = {}
+			local new_ability_name = ""
+			if abilityCheck:GetAbilityName() == "warlord_stone_form" then
+				new_ability_name = "warlord_cataclysm_shaker"
+				abilities_to_remove_table = {"warlord_ice_shell", "warlord_flame_rush"}
+			elseif abilityCheck:GetAbilityName() == "warlord_ice_shell" then
+				new_ability_name = "warlord_frost_scathe"
+				abilities_to_remove_table = {"warlord_stone_form", "warlord_flame_rush"}
+			elseif abilityCheck:GetAbilityName() == "warlord_flame_rush" then
+				new_ability_name = "warlord_flame_wreck"
+				abilities_to_remove_table = {"warlord_stone_form", "warlord_ice_shell"}
+			end
+			for i = 1, #abilities_to_remove_table, 1 do
+				local ability_name = abilities_to_remove_table[i]
+				if hero:HasAbility(ability_name) then
+					hero:RemoveAbility(ability_name)
+				end
+			end
+			Runes:EasySwapArcanaSkills(hero, 0, abilityCheck:GetAbilityName(), new_ability_name, HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
 		if index == 1 then
@@ -1616,6 +1637,29 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "elemental_overload_2", "enhchant_tomahawk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+			local abilities_to_remove_table = {}
+			local new_ability_name = ""
+			if abilityCheck:GetAbilityName() == "warlord_cataclysm_shaker" then
+				new_ability_name = "warlord_stone_form"
+				abilities_to_remove_table = {"warlord_frost_scathe", "warlord_flame_wreck"}
+			elseif abilityCheck:GetAbilityName() == "warlord_frost_scathe" then
+				new_ability_name = "warlord_ice_shell"
+				abilities_to_remove_table = {"warlord_cataclysm_shaker", "warlord_flame_wreck"}
+			elseif abilityCheck:GetAbilityName() == "warlord_flame_wreck" then
+				new_ability_name = "warlord_flame_rush"
+				abilities_to_remove_table = {"warlord_frost_scathe", "warlord_cataclysm_shaker"}
+			end
+			for i = 1, #abilities_to_remove_table, 1 do
+				local ability_name = abilities_to_remove_table[i]
+				if hero:HasAbility(ability_name) then
+					hero:RemoveAbility(ability_name)
+				end
+			end
+			hero:RemoveModifierByName("modifier_ice_scathe_passive")
+			hero:RemoveModifierByName("modifier_ice_scathe_q2_shield")
+			Runes:EasyRevertArcanaSkills(hero, 0, abilityCheck:GetAbilityName(), new_ability_name, HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
 		local dominionAbility = hero:FindAbilityByName("ekkan_arcana_black_dominion")

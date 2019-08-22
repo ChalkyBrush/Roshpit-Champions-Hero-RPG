@@ -1358,6 +1358,7 @@ function Redfall:SpawnAshara(position, fv)
 		Events:AdjustBossPower(unit, 7, 7, false)
 		unit.jumpEnd = "basic_dust"
 		unit:SetAbsOrigin(unit:GetAbsOrigin() + Vector(0, 0, 2000))
+		unit.type = ENEMY_TYPE_BOSS
 		WallPhysics:Jump(unit, Vector(1, 1), 0, 0, 0, 1)
 		Timers:CreateTimer(1, function()
 			EmitSoundOn("Redfall.Ashara.Taunt", unit)
