@@ -5942,7 +5942,7 @@
         "item_property_warlord_arcana2"                                     "Elemental Catastrophe"
         "property_warlord_arcana2_description"                              "Replaces @Ability1 with Cataclysm Shaker, Frost Scathe, and Flame Wreck."
 		
-        "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "Cataclysm Shaker"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "Catastrophe Shaker"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#3289C7\">Dragon</font><br>An earth breaking fissure breaks upon the chosen vector start point and end point. The wall's length scales with the cast vector chosen, up to a maximum wall length. The fissure has collision and damage and stuns enemies who are hit by its initial crash. Damage is increased by Strength."
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_distance"            "MAX WALL DISTANCE:"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_stun_duration"       "STUN DURATION:"
@@ -5980,7 +5980,7 @@
         "DOTA_Tooltip_ability_warlord_flame_wreck_ms_cap"              "WARLORD MOVESPEED CAP:"
 
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2"                     "[Q1] Mountain Breaker"
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Warlord gains increased post-mitigation damage against stunned and frozen enemies."
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Warlord gains increased post-mitigation damage against enemies who are stunned or frozen."
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_property_one"        "Post-mitigation Damage"
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              "% against stunned enemies"
 
