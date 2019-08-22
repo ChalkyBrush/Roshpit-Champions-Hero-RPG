@@ -4781,6 +4781,7 @@ function Filters:NetergraspPalisade(hero, target)
     nethergrasp.create_time = GameRules:GetGameTime()
     table.insert(ability.nethergrasp_table, nethergrasp)
     EmitSoundOn("Items.Nethergrip.Link", target)
+    nethergrasp.active = true
     if #ability.nethergrasp_table > NETHERGRASP_MAX_LINKS then
         local new_nethergrasp_table = {}
         for i = 1, #ability.nethergrasp_table, 1 do

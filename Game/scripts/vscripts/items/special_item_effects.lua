@@ -6129,7 +6129,7 @@ function nethergrasp_thinker(event)
 	        local nether = ability.nethergrasp_table[i]
 	        if nether then
 		        local target = EntIndexToHScript(nether.entindex)
-		        if IsValidEntity(target) and target:IsAlive() then
+		        if IsValidEntity(target) and target:IsAlive() and nether.active then
 			        local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), hero:GetAbsOrigin())
 			        nether.distance = distance
 			       	if i%#ability.nethergrasp_table == ability.interval then
@@ -6179,18 +6179,17 @@ function nethergrasp_grip_end(event)
 	local hero = caster.hero
 	local target = event.target
 
-    local new_nethergrasp_table = {}
+    -- local new_nethergrasp_table = {}
     for i = 1, #ability.nethergrasp_table, 1 do
         local nether = ability.nethergrasp_table[i]
         if nether.entindex == target:GetEntityIndex() then
-            ParticleManager:DestroyParticle(nether.pfx, false)
-            ParticleManager:ReleaseParticleIndex(nether.pfx)
+            nether.active = false
         else
-            table.insert(new_nethergrasp_table, nether)
+            -- table.insert(new_nethergrasp_table, nether)
         end
     end
 
-    ability.nethergrasp_table = new_nethergrasp_table
+    -- ability.nethergrasp_table = new_nethergrasp_table
     Timers:CreateTimer(0.03, function()
     	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
     end)
@@ -6198,7 +6197,7 @@ end
 
 function nethergrasp_owner_end2(event)
 	event.target = event.unit
-	nethergrasp_grip_end(event)
+	-- nethergrasp_grip_end(event)
 end
 
 function nethergrasp_grip_thinker(event)
