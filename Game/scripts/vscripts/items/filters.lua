@@ -13,7 +13,7 @@ require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
-require('/heroes/lanaya/trapper_constants')
+require('/heroes/lanaya/constants')
 require('/heroes/leshrac/bahamut_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
@@ -79,6 +79,8 @@ function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, el
 end
 
 function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_type, item, element1, element2)
+    local damageData = attacker._damage_data or {}
+
     if attacker:HasModifier("modifier_depth_demon_claw") then
         damage = damage * 0.3
     end
@@ -1908,8 +1910,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)
             normalMult = normalMult + stacks / 100
         end
-        if attacker:HasModifier('modifier_trapper_glyph_6_1') then
-            normalMult = normalMult * 0.7
+        if attacker:HasModifier('modifier_trapper_glyph_6_1') and slot == BASE_ITEM then
+            normalMult = normalMult * TRAPPER_T61_NORMAL_ITEM_AMPLIFY
         end
         mult = mult + normalMult
     end

@@ -13,6 +13,9 @@ function channel_succeed(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_stealth", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisible", {duration = duration})
+	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+	end
 	switchIntoStealth(caster)
 end
 
@@ -266,6 +269,9 @@ function backstab_channel_succeed(event)
 	local ability = event.ability
 	local target = event.target
 	local damageMult = event.damage_mult
+	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+	end
 	local damage = math.floor(OverflowProtectedGetAverageTrueAttackDamage(caster) * damageMult)
 	if caster:HasModifier("modifier_trapper_glyph_4_1") and target.paragon then
 		damage = damage * 10
@@ -283,7 +289,8 @@ function backstab_channel_succeed(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_backstab_flailing", {duration = 4})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.7})
 	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "trapper")
-	ability.r_1_damage = math.floor(a_d_level * 0.03 * damage)
+	ability.r_1_damage = math.floor(a_d_level * TRAPPER_R1_DMG_PCT_NEAREST/100 * damage)
+	ability.main_target = target
 	ability.bSound = true
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOn("Hero_Pudge.Attack", caster)
@@ -313,7 +320,7 @@ function backstab_channel_succeed(event)
 end
 
 function rune_r_1(caster, ability, position)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, TRAPPER_R1_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			a_d_projectile_fire(caster, ability, enemy)
@@ -348,7 +355,20 @@ function trapper_a_d_projectile_strike(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = ability.r_1_damage
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	if ability.main_target == target then
+		damage = damage * TRAPPER_R1_DMG_TARGET_MORE_TIMES_BASE
+	end
+	Damage:Apply({
+		victim = target,
+		attacker = caster,
+		damage = damage,
+		damageType = DAMAGE_TYPE_PURE,
+		source = event.ability,
+		sourceType = BASE_ABILITY_R,
+		elements = {
+			RPC_ELEMENT_NORMAL
+		}
+	})
 
 	local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)

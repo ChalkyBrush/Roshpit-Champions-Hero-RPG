@@ -102,8 +102,8 @@ function Util.Modifier:SimpleEvent(creature, eventName, specialTypes, data, aggr
     for _,modifier in pairs(modifiers) do
         if modifier[eventName] then
             local result = modifier[eventName](modifier, data)
-            if aggregateFunc ~= nil then
-                aggregateFunc(result)
+            if aggregateFunc ~= nil and result ~= nil then
+                aggregateFunc(result, data)
             end
         end
     end

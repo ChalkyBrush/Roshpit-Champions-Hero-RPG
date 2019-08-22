@@ -55,7 +55,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% for each 10 points of Intelligence"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"Explosive Bomb"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Tosses a volatile bomb at the target location. The explosion damages and stuns enemies in the blast radius."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"#EF4126\">Fire</font><br>Tosses <% TRAPPER_W_BOMBS_COUNT %> volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"DAMAGE:"
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"STUN DURATION:"
@@ -76,9 +76,11 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				""
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Shrapnel Bomb"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Explosive Bombs explode into 3 other bombs that fly in random directions."
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"Shrapnel Bomb Damage"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"% of Explosive Bomb"
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Every bomb has chance for save part of charge and explode again after <% TRAPPER_W3_DELAY %> second. Every next explode deal only <%TRAPPER_W3_DMG_PROC * 100 %>% damage of previous. Increase Nerve Gas damage."
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"Chance for save part of charge"
+        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
+        "DOTA_Tooltip_ability_trapper_rune_w_3_property_two"		"Nerve gas amplify"
+        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] Explosives Expert"
     	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"Trapper's Attributes increases the damage of Explosive Bombs and Nerve Gas."
@@ -89,7 +91,9 @@
     	"DOTA_Tooltip_ability_trapper_vanish_Description"			"Trapper immediately disappears in a cloud of smoke. While Vanished, Trapper is invisible and cannot be detected by any means."
     	"DOTA_Tooltip_ability_trapper_vanish_Lore"					""
     	"DOTA_Tooltip_ability_trapper_vanish_duration"				"DURATION:"
-		
+    	"DOTA_Tooltip_ability_trapper_vanish_movespeed_bonus"	    "Bonus Movespeed:"
+    	"DOTA_Tooltip_ability_trapper_vanish_movespeed_cap"	    "Bonus max movespeed:"
+
 		"DOTA_Tooltip_ability_trapper_rune_e_1"						"[E1] Veiled Assault"
     	"DOTA_Tooltip_ability_trapper_rune_e_1_Description"			"Trapper gains increased attack damage when Vanished."
     	"DOTA_Tooltip_ability_trapper_rune_e_1_property_one"		"Damage Bonus"
@@ -99,7 +103,7 @@
     	"DOTA_Tooltip_modifier_trapper_rune_e_1_effect_Description"	"Gaining Attack Damage while Vanished"
 		
       	"DOTA_Tooltip_ability_trapper_rune_e_2"						"[E2] Decoy"
-    	"DOTA_Tooltip_ability_trapper_rune_e_2_Description"			"When Trapper enters Vanish, she creates an uncontrollable illusion that lasts 10 seconds. This Decoy does not act, but it is immune to all Magic and Pure damage. After taking 10 attacks or expiring, it will explode."
+    	"DOTA_Tooltip_ability_trapper_rune_e_2_Description"			"When Trapper enters Vanish, she creates an uncontrollable illusion that lasts <% E2_DECOY_DURATION %> seconds. This Decoy does not act, but it is immune to all Magic and Pure damage. Deal damage in <% E2_EXPLODE_RADIUS %> radius. Ignore steadfast. After taking <% E2_DECOY_HEALTH %> attacks or expiring, it will explode."
         "DOTA_Tooltip_ability_trapper_rune_e_2_property_one"        "Damage"
         "DOTA_Tooltip_ability_trapper_rune_e_2_suffix"              "x All Attributes"		
 
@@ -143,7 +147,7 @@
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"DAMAGE MULTIPLIER:"
 		
 		"DOTA_Tooltip_ability_trapper_rune_r_1"						"[R1] Lethal Blades"
-    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Backstab splits the Trapper's psi blades - a fragment strikes each surrounding enemy for a portion of Backstab's damage."
+    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Backstab splits the Trapper's psi blades - a fragment strikes each surrounding enemy for a portion of Backstab's damage. Ignore steadfast"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_property_one"		"Split Damage"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_suffix"				"%"	
 		
@@ -216,31 +220,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "Glyph of Sneaking"
-        "item_rpc_trapper_glyph_1_1_description"                "Reduces enemies' stealth detection radius by @glyph_property1%."
+        "item_rpc_trapper_glyph_1_1_description"                "Reduces enemies' stealth detection radius by @glyph_property1% and apply [E2] with action leap cast."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "Glyph of First Aid"
         "item_rpc_trapper_glyph_2_1_description"                "While vanished, restore @glyph_property1% of your max health every 0.1 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "Glyph of Paralyzing Dust"
-        "item_rpc_trapper_glyph_3_1_description"                "Casting Vanish paralyzes nearby enemies for @glyph_property1 seconds, preventing them from acting"
-
-		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
-		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Losing Attack Damage"
+        "item_rpc_trapper_glyph_3_1_description"                "increase AOE from @Ability2 by <% TRAPPER_T31_ADD_RADIUS %> and add <% TRAPPER_T31_ADD_BOMBS %> bombs. Ignore first <% TRAPPER_T31_SHIELDS %> instances of damage from each enemy damaged by @Ability2(new bomb explode refresh the count of instances)"
 
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "Glyph of Assassination"
         "item_rpc_trapper_glyph_4_1_description"                "Backstab deals @glyph_property1x damage to Paragon creatures."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "Glyph of the Grenadier"
-        "item_rpc_trapper_glyph_5_1_description"                "The radius of Explosive Bomb increases by @glyph_property1% every second, to a maximum of 100% after @glyph_property2 seconds. Casting Explosive Bomb consumes all stacks."
+        "item_rpc_trapper_glyph_5_1_description"                "Every <% TRAPPER_T51_DISTANCE %> units moved cast @Ability2. Invisible @Ability2 last <% TRAPPER_T51_INVISIBLE_W_DURATION_AMPLIFY %> times longer and has x<% TRAPPER_T51_INVISIBLE_W_RADIUS_AMPLIFY %> radius."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "Glyph of Craftsmanship"
-        "item_rpc_trapper_glyph_6_1_description"                "All damage dealt directly by items has Normal added as an additional element. In exchange, your Normal damage output is reduced by @glyph_property1%"
+        "item_rpc_trapper_glyph_6_1_description"                "All damage dealt directly by items has Normal added as an additional element. Normal element amplify for items increase <% TRAPPER_T61_NORMAL_ITEM_AMPLIFY %> times"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "Glyph of Trapping"
-        "item_rpc_trapper_glyph_7_1_description"                "You can have 2 fulminating and 2 poison traps active at a time."
+        "item_rpc_trapper_glyph_7_1_description"                "You can have 2 traps of each type active at a time."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "Glyph of Lethal Traps"
-        "item_rpc_trapper_glyph_5_a_description"                "Fulminating, Poison, and Torrent trap deal @glyph_property1x damage."
+        "item_rpc_trapper_glyph_5_a_description"                "Upgrade @Ability1. Fulminating trap deals <% TRAPPER_T5A_FULMINATING_AMP * 100 - 100 %>% more damage, Poison trap has maximum <% TRAPPER_T5A_POISON_STACKS %> stacks, Net trap has x<% TRAPPER_T5A_NET_DUR_AMP %> duration, Torrent trap needs only <% TRAPPER_T5A_TORRENT_DUR_UNTIL %> seconds for apply effect."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "The effect of Elemental Pit is doubled."
@@ -249,11 +250,11 @@
         "item_rpc_trapper_glyph_2_2_description"                "The damage from Psi Blades is applied to the primary target of your attacks."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "Glyph of Undertow"
-        "item_rpc_trapper_glyph_3_2_description"                "Enemies damaged by Torrent Trap have their damage output reduced by @glyph_property1% for 1 second"
+        "item_rpc_trapper_glyph_3_2_description"                "Enemies damaged by @Ability1 have their damage output reduced by @glyph_property1% for <% TRAPPER_T32_DURATION %> seconds"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "Glyph of the Orchid"
-        "item_rpc_trapper_glyph_4_2_description"                "Enemies affected by Net Trap are additionally silenced"
- 
+        "item_rpc_trapper_glyph_4_2_description"                "Enemies affected by Net Trap are additionally silenced and disarmed"
+
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "Glyph of the Prowler"
         "item_rpc_trapper_glyph_5_2_description"                "Increase the maximum number of Ambush stacks by @glyph_property1."
  

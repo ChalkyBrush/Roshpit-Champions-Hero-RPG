@@ -135,6 +135,23 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/lanaya/glyphs.lua"
+						"Function"		"t31_add_main"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/lanaya/glyphs.lua"
+						"Function"		"t31_destroy_main"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -142,7 +159,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_T31_DURATION %>"
+				"property_one"			"<% TRAPPER_T31_ADD_BOMBS %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% TRAPPER_T31_ADD_RADIUS %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"			"<% TRAPPER_T31_SHIELDS %>"
 			}
 		}
 	}
@@ -214,7 +241,7 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.12"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -451,6 +478,22 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/lanaya/glyphs.lua"
+                        "Function"		"t32_add_main"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/lanaya/glyphs.lua"
+                        "Function"		"t32_destroy_main"
+                    }
+                }
 			}
 		}
 		"AbilitySpecial"
@@ -458,7 +501,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T32_DAMAGE_REDUCTION_PERCENT %>"
+				"property_one"			"<% TRAPPER_T32_DAMAGE_RED * 100 %>"
 			}
 		}
 	}

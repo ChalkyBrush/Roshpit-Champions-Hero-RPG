@@ -34,7 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA1_W2_AMP_PERCENT %>"
+				"property_one"			"<% TRAPPER_ARCANA_W2_NORMAL_PCT * 100 %>"
 			}
 		}
 	}
@@ -54,7 +54,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARCANA1_W3_AGI_DAMAGE %>"
+				"property_one"			"<% TRAPPER_ARCANA1_W3_AGI_DAMAGE %>"
 			}
 			"02"
 			{

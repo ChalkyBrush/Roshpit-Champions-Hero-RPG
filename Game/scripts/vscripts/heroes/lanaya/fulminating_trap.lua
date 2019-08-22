@@ -4,6 +4,9 @@ function trap_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
+	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+	end
 	EmitSoundOn("Trapper.FulminatingPlacement", caster)
 	Filters:CastSkillArguments(1, caster)
 	if ability.current_traps == nil then
@@ -22,9 +25,9 @@ function trap_start(event)
 	trap.origAbility = ability
 	trap.damage = event.damage / 2
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	trap.damage = trap.damage + 0.004 * caster:GetIntellect() / 10 * q_4_level * trap.damage
+	trap.damage = trap.damage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trap.damage
 	if caster:HasModifier("modifier_trapper_glyph_5_a") then
-		trap.damage = trap.damage * T5A_DAMAGE_AMPLIFY
+		trap.damage = trap.damage * TRAPPER_T5A_FULMINATING_AMP
 	end
 	trap.origCaster = caster
 
@@ -83,6 +86,9 @@ function trap_start_poison(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
+	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+	end
 	StartSoundEvent("Trapper.PoisonTrapPlacement", caster)
 	Timers:CreateTimer(3, function()
 		StopSoundEvent("Trapper.PoisonTrapPlacement", caster)
@@ -128,11 +134,8 @@ function trap_start_poison(event)
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "trapper")
 	trapAbility.poisonDamage = q_1_level * TRAPPER_Q1_DAMAGE
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	trapAbility.poisonDamage = trapAbility.poisonDamage + 0.004 * caster:GetIntellect() / 10 * q_4_level * trapAbility.poisonDamage
+	trapAbility.poisonDamage = trapAbility.poisonDamage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.poisonDamage
 	--print("poison damage " .. trapAbility.poisonDamage)
-	if caster:HasModifier("modifier_trapper_glyph_5_a") then
-		trapAbility.poisonDamage = trapAbility.poisonDamage * T5A_DAMAGE_AMPLIFY
-	end
 	-- Plays the sounds
 	-- EmitSoundOn(keys.sound, caster)
 	-- EmitSoundOn(keys.sound2, trap)
@@ -196,12 +199,18 @@ function trap_start_net(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
+	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+	end
 	EmitSoundOn("Trapper.NetTrapPlacement", caster)
 	if ability.current_traps == nil then
 		ability.current_traps = 0
 		ability.traps = {}
 	end
 	local max_traps = 1
+	if caster:HasModifier("modifier_trapper_glyph_7_1") then
+		max_traps = 2
+	end
 	if ability.current_traps >= max_traps then
 		ability.traps[1]:RemoveModifierByName("lanaya_net_passive")
 		ability.traps = reindexTraps(ability)
@@ -273,6 +282,9 @@ function net_trap_think(event)
 	local damage = trap.damage
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local q_3_level = trap.q_3_level
+	if caster:HasModifier("modifier_trapper_glyph_7_a") then
+		root_duration = root_duration * TRAPPER_T5A_NET_DUR_AMP
+	end
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			if not enemy:HasModifier("modifier_net_trap_immunity") then
@@ -307,18 +319,17 @@ function poison_trap_think(event)
 	local q_3_level = trap.q_3_level
 
 	ability.origCaster = caster
-
+	local maxStacks = Q1_MAX_STACKS_COUNT
+	if caster:HasModifier('modifier_trapper_glyph_5_a') then
+		maxStacks = TRAPPER_T5A_POISON_STACKS
+	end
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			ability:ApplyDataDrivenModifier(trap, enemy, "modifier_poison_trap_effect", {duration = 6})
 			local currentStacks = enemy:GetModifierStackCount("modifier_poison_trap_effect", ability)
-			local newStacks = math.min(currentStacks + 1, Q1_MAX_STACKS_COUNT)
+			local newStacks = math.min(currentStacks + 1, maxStacks)
 			enemy:SetModifierStackCount("modifier_poison_trap_effect", ability, newStacks)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/poison_trap_effect.vpcf", enemy, 0.5)
-			if caster:HasModifier("modifier_trapper_glyph_3_1") then
-				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_poison_trap_glyph_3_1", {duration = 6})
-				enemy:SetModifierStackCount("modifier_poison_trap_glyph_3_1", ability, newStacks)
-			end
 			if q_3_level > 0 then
 				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
 				enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
@@ -343,6 +354,9 @@ function trap_start_torrent(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
+	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+	end
 	StartSoundEvent("Trapper.TorrentTrapPlacement", caster)
 	Timers:CreateTimer(3, function()
 		StopSoundEvent("Trapper.TorrentTrapPlacement", caster)
@@ -353,6 +367,9 @@ function trap_start_torrent(event)
 		ability.traps = {}
 	end
 	local max_traps = 1
+	if caster:HasModifier("modifier_trapper_glyph_7_1") then
+		max_traps = 2
+	end
 	if ability.current_traps >= max_traps then
 		ability.traps[1]:RemoveModifierByName("lanaya_torrent_passive")
 		ability.traps = reindexTraps(ability)
@@ -387,10 +404,7 @@ function trap_start_torrent(event)
 	trapAbility.q_2_level = q_2_level
 	trapAbility.q_2_damage = q_2_level * Q2_DAMAGE
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	trapAbility.q_2_damage = trapAbility.q_2_damage + 0.004 * caster:GetIntellect() / 10 * q_4_level * trapAbility.q_2_damage
-	if caster:HasModifier("modifier_trapper_glyph_5_a") then
-		trapAbility.q_2_damage = trapAbility.q_2_damage * T5A_DAMAGE_AMPLIFY
-	end
+	trapAbility.q_2_damage = trapAbility.q_2_damage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.q_2_damage
 	-- Plays the sounds
 	-- EmitSoundOn(keys.sound, caster)
 	-- EmitSoundOn(keys.sound2, trap)
@@ -424,8 +438,12 @@ function torrent_trap_think(event)
 			if not enemy:HasModifier("modifier_torrent_trap_immunity") then
 				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_building_up", {duration = 0.6})
 				local currentStacks = enemy:GetModifierStackCount("modifier_torrent_trap_building_up", ability)
+				local stacks = 5
+				if caster:HasModifier("modifier_trapper_glyph_5_a") then
+					stacks = TRAPPER_T5A_TORRENT_DUR_UNTIL * 2
+				end
 				enemy:SetModifierStackCount("modifier_torrent_trap_building_up", ability, currentStacks + 1)
-				if (currentStacks + 1) == 5 then
+				if (currentStacks + 1) == stacks then
 					local point = enemy:GetAbsOrigin()
 					if not enemy:HasModifier("modifier_lasso_pull") then
 						local modifierKnockback =

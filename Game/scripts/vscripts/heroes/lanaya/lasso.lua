@@ -1,11 +1,13 @@
 require('heroes/lanaya/constants')
-local glyphs = require('heroes/lanaya/glyphs')
 
 function trapper_lasso_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
 	local radius = event.radius
+	if caster:HasModifier('modifier_trapper_glyph_5_1') then
+		radius = radius * TRAPPER_T51_INVISIBLE_W_RADIUS_AMPLIFY
+	end
 	local pullToPoint = caster:GetAbsOrigin() + caster:GetForwardVector() * 90
 
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -74,7 +76,7 @@ function trapper_lasso_think(event)
 	target:SetAbsOrigin(newTargetPosition)
 	target.lassoLiftSpeed = target.lassoLiftSpeed - 2.4
 	if ability.w_3_level > 0 then
-		local damage = ability.w_3_level * travelDistance / 100 * ARCANA1_W3_AGI_DAMAGE * caster:GetAgility()
+		local damage = ability.w_3_level * travelDistance / 100 * TRAPPER_ARCANA1_W3_AGI_DAMAGE * caster:GetAgility()
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	end
 	if not ability.lifting then
@@ -90,7 +92,10 @@ function trapper_poison_whip_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
-	local radius = event.radius * glyphs.t51_get_radius_amplify(caster)
+	local radius = event.radius
+	if caster:HasModifier('modifier_trapper_glyph_3_1') then
+		radius = radius + TRAPPER_T31_ADD_RADIUS
+	end
 
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	Filters:CastSkillArguments(2, caster)
@@ -111,7 +116,7 @@ function trapper_poison_whip_start(event)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_poison_whip", {duration = 5})
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_poison_whip", {duration = 20})
 			local newStacks = enemy:GetModifierStackCount("modifier_poison_whip", caster) + 1
 			enemy:SetModifierStackCount("modifier_poison_whip", caster, newStacks)
 			EmitSoundOn("Trapper.Venomwhip.Impact", enemy)

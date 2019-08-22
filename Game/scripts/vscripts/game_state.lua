@@ -3228,10 +3228,6 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 0.01 * w_1_level * stacks
 	end
 
-	if attacker:HasModifier("modifier_torrent_trap_immunity") and victim:HasModifier("modifier_trapper_glyph_3_2") then
-		filterTable["damage"] = filterTable["damage"] * 0.05
-	end
-
 	--SEINARU
 
 	modifier = victim:FindModifierByName("modifier_seinaru_rune_w_1_invisible")
@@ -3255,18 +3251,30 @@ function GameState:FilterDamage(filterTable)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/sephyr/glyph_6_damage.vpcf", victim, 0.5)
 		end
 	end
+	Util.Modifier:SimpleEvent(attacker, 'GetPreMitigationReduce', { MODIFIER_SPECIAL_TYPE_PREMITIGATION }, {
+		attacker = attacker,
+		victim = victim,
+		source = damageData.source,
+		sourceType = damageData.sourceType,
+		damage = filterTable['damage'],
+	}, function(result, data)
+		filterTable['damage'] = filterTable['damage'] * (1 - result)
+		data.damage = filterTable['damage']
+	end)
 
 	Util.Modifier:SimpleEvent(attacker, 'OnAfterPreMitigationReduce', { MODIFIER_SPECIAL_TYPE_PREMITIGATION }, {
 		attacker = attacker,
 		victim = victim,
-		source = damageData['source'],
-		damage = filterTable['damage']
+		source = damageData.source,
+		sourceType = damageData.sourceType,
+		damage = filterTable['damage'],
 	}, nil)
 	Util.Modifier:SimpleEvent(victim, 'OnAfterPreMitigationReduce', { MODIFIER_SPECIAL_TYPE_PREMITIGATION }, {
 		attacker = attacker,
 		victim = victim,
-		source = damageData['source'],
-		damage = filterTable['damage']
+		source = damageData.source,
+		sourceType = damageData.sourceType,
+		damage = filterTable['damage'],
 	}, nil)
 
 
@@ -3309,14 +3317,14 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			if not attacker.ignore_steadfast then
+			if not attacker.ignore_steadfast and not damageData.ignoreSteadfast then
 				filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
 			end
 		end
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			if not attacker.ignore_steadfast then
+			if not attacker.ignore_steadfast and not damageData.ignoreSteadfast then
 				filterTable["damage"] = CustomAbilities:AncientSteadfast(filterTable["damage"], victim)
 			end
 		end
@@ -3361,7 +3369,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			if not attacker.ignore_steadfast then
+			if not attacker.ignore_steadfast and not damageData.ignoreSteadfast then
 				filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
 			end
 		end
