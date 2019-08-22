@@ -393,7 +393,7 @@ function CustomAttributes:SetAttributes(hero)
 		end
 	end
 	if hero:HasModifier("modifier_warlord_arcana2") then
-		local q_4_level = attacker:GetRuneValue("q", 4)
+		local q_4_level = hero:GetRuneValue("q", 4)
 		str_bonus = str_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		agi_bonus = agi_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		int_bonus = int_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
