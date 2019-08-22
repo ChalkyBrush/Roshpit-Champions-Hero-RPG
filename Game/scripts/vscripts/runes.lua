@@ -1657,6 +1657,8 @@ function Runes:UnequipArcana(hero, index)
 					hero:RemoveAbility(ability_name)
 				end
 			end
+			hero:RemoveModifierByName("modifier_ice_scathe_passive")
+			hero:RemoveModifierByName("modifier_ice_scathe_q2_shield")
 			Runes:EasyRevertArcanaSkills(hero, 0, abilityCheck:GetAbilityName(), new_ability_name, HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
