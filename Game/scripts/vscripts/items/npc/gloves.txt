@@ -438,6 +438,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"winterblight/p2/goldbreaker"
 			}
 		}
 	}

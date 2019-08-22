@@ -384,6 +384,7 @@
 			"modifier_nethergrasp_linked"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/outworld_grip"
 				"IsDebuff"	"1"
 				"OnDestroy"
 				{

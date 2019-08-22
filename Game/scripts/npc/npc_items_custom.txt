@@ -52864,6 +52864,7 @@
 			"modifier_nethergrasp_linked"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/outworld_grip"
 				"IsDebuff"	"1"
 				"OnDestroy"
 				{
@@ -53343,6 +53344,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"	"winterblight/p2/goldbreaker"
 			}
 		}
 	}
@@ -54036,7 +54038,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-			
+				"TextureName"	"winterblight/p2/haste_blade"
 				"EffectName"		"particles/roshpit/items/knight_hawk_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
@@ -54120,6 +54122,7 @@
 			"modifier_magistrates_hood_charges"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/spell_spreader"
 			}
 		}
 	}

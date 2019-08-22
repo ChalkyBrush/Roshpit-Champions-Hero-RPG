@@ -10027,7 +10027,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityTextureName"	"winterblight/p2/stone_guardian"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -10151,7 +10151,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityTextureName"	"winterblight/p2/merokuro_passive"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -10325,7 +10325,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"						"500"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"centaur_stampede"
+		"AbilityTextureName"			"winterblight/p2/elder_stampede"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -10414,7 +10414,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"AbilityTextureName"			"winterblight/p2/spirit_warp"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -10525,7 +10525,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/p2/mana_null_passive"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -10561,7 +10561,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/p2/blood_might"
 		"AOERadius"				"1000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -10631,7 +10631,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/winter_quake"
+		"AbilityTextureName"			"winterblight/p2/curse_of_belial"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
@@ -10738,7 +10738,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"AbilityTextureName"	"winterblight/p2/ultra_ice_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -10883,7 +10883,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"winterblight/p2/drill_crusher"
 		"AOERadius"				"1000"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
@@ -10960,7 +10960,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"redfall/autumn_spawner"
+		"AbilityTextureName"	"juggernaut/bladekeeper/juggernaut_blade_dance"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -10981,7 +10981,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sephyr/sephyr_rune_e_1"
+		"AbilityTextureName"	"winterblight/p2/deceptive_light"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -11036,7 +11036,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/summoner_blink"
+		"AbilityTextureName"			"winterblight/p2/husker_dig"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -11109,7 +11109,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"hydroxis/hydroxis_q_2"
+		"AbilityTextureName"	"winterblight/p2/tanky"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -11137,7 +11137,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoked_abilities/cavern_spark"
+		"AbilityTextureName"			"winterblight/p2/phantom_spark"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -11263,6 +11263,7 @@
 			"modifier_merkurio_crystal_red"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/crystal_red"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "500"
@@ -11271,10 +11272,12 @@
 			"modifier_merkurio_crystal_blue"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/crystal_blue"
 			}
 			"modifier_merkurio_crystal_yellow"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/crystal_yellow"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"100"
@@ -11284,6 +11287,7 @@
 			"modifier_merkurio_crystal_green"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/crystal_green"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "10"
@@ -11292,6 +11296,7 @@
 			"modifier_merkurio_crystal_purple"
 			{
 				"IsHidden"	"0"
+				"TextureName"	"winterblight/p2/crystal_purple"
 				"EffectName"	"particles/roshpit/auriun/heavens_shield_shadow_oval_highlight.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 			}
@@ -11322,7 +11327,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/cloak_of_shadows"
+		"AbilityTextureName"			"winterblight/p2/disappearing_act"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -11399,7 +11404,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/cloak_of_shadows"
+		"AbilityTextureName"			"winterblight/p2/confusional_spores"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -11448,7 +11453,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"medusa_split_shot"
+		"AbilityTextureName"	"winterblight/p2/tweaking_arrow"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -11473,7 +11478,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"treant_eyes_in_the_forest"
+		"AbilityTextureName"	"winterblight/p2/fungal_minion"
 		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
@@ -11558,7 +11563,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"2000"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"medusa_split_shot"
+		"AbilityTextureName"	"winterblight/p2/myopia_aura"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -11597,7 +11602,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/fire/fire_fire_q"
+		"AbilityTextureName"			"winterblight/p2/spirit_ring"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
@@ -11681,7 +11686,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AOERadius"			"2000"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"medusa_split_shot"
+		"AbilityTextureName"	"winterblight/p2/aeon_shield"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -11966,7 +11971,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/winter_quake"
+		"AbilityTextureName"			"winterblight/p2/radium_spores"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
@@ -12054,7 +12059,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"winterblight/winter_quake"
+		"AbilityTextureName"			"winterblight/p2/icicle_barrage"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
@@ -12149,7 +12154,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tiny_craggy_exterior"
+		"AbilityTextureName"	"winterblight/p2/shroom_procurement"
 		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
@@ -12253,7 +12258,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"tiny_craggy_exterior"
+		"AbilityTextureName"	"winterblight/p2/demented_mushroom_passive"
 		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
@@ -12315,7 +12320,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/seven_visions"
+		"AbilityTextureName"	"winterblight/p2/three_perceptions"
 
 		"AbilityCastRange"	"700"
 		"AbilityCastPoint"	"0.85"
@@ -12521,7 +12526,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/gravekeepers_gauntlet" //"gravekeepers_gauntlet"
+		"AbilityTextureName"	"winterblight/p2/gravekeeper"
 		"MaxLevel"				 "3"
 		"precache"
 		{
@@ -12610,7 +12615,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AOERadius"			"500 700 900"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winter_wyvern_cold_embrace"
+		"AbilityTextureName"	"winterblight/p2/frost_core"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -12665,7 +12670,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winter_wyvern_cold_embrace"
+		"AbilityTextureName"	"winterblight/p2/big_crab"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -12716,7 +12721,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"omniro/chrono_path"
+		"AbilityTextureName"			"winterblight/p2/dome_of_aquarius"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_2"
@@ -12801,7 +12806,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winter_wyvern_cold_embrace"
+		"AbilityTextureName"	"winterblight/p2/unshakeable"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -12918,7 +12923,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"axe_battle_hunger"
+		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -13014,7 +13019,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"AbilityTextureName"	"winterblight/p2/diamond_disarray"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
@@ -13073,7 +13078,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"AbilityTextureName"	"winterblight/p2/astral_weapon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -13116,7 +13121,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"AbilityTextureName"	"winterblight/p2/satellite_beacon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -13154,7 +13159,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"sorceress/sorceress_rune_r_2_arcana1"
+		"AbilityTextureName"	"winterblight/p2/galaxy_knight_passive"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -13215,7 +13220,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"ancient_apparition_cold_feet"
+		"AbilityTextureName"			"winterblight/p2/ellipsis_wave"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -13295,7 +13300,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"ancient_apparition_cold_feet"
+		"AbilityTextureName"			"winterblight/p2/brain_freeze"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -13384,7 +13389,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"ancient_apparition_cold_feet"
+		"AbilityTextureName"			"winterblight/p2/wintertide_totem"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
@@ -13644,7 +13649,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"dinath/dinath_rune_q_3"
+		"AbilityTextureName"			"winterblight/p2/tiamat_dragon_sweep"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"7"
@@ -13737,7 +13742,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"dinath/wyvern_fire"
+		"AbilityTextureName"	"winterblight/p2/tiamat_ultima_fire"
 		"AbilityCastPoint"	"0.3"
 		"AbilityCooldown"	"5"
 		"AbilityCastRange"				"2500"
@@ -13980,7 +13985,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
@@ -14220,7 +14225,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"conjuror/cloak_of_shadows"
+		"AbilityTextureName"			"winterblight/p2/apprentice_reset"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
