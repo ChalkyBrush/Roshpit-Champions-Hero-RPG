@@ -6117,33 +6117,42 @@ function nethergrasp_thinker(event)
 
 	if not ability.nethergrasp_table then
 		ability.nethergrasp_table = {}
+		ability.pfx_table = {}
 	end
 	if not ability.interval then
 		ability.interval = 0
 	end
 	local grasp_break_table = {}
+	local new_grasp_table = {}
 	if #ability.nethergrasp_table > 0 then
 	    for i = 1, #ability.nethergrasp_table, 1 do
 	        local nether = ability.nethergrasp_table[i]
 	        if nether then
 		        local target = EntIndexToHScript(nether.entindex)
-		        local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), hero:GetAbsOrigin())
-		        nether.distance = distance
-		       	if i%#ability.nethergrasp_table == ability.interval then
-		       		if hero:Script_GetAttackRange() + 100 >= distance then
-		       			Filters:PerformAttackSpecial(hero, target, true, true, true, false, true, false, false)
-		       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
-		       		end
-		       	end
-		        if distance > NETHERGRASP_BREAK_DISTANCE then
-		        	table.insert(grasp_break_table, nether.entindex)
-		        end
-		        if not target:IsAlive() then
-		        	table.insert(grasp_break_table, nether.entindex)
-		        end
+		        if IsValidEntity(target) and target:IsAlive() then
+			        local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), hero:GetAbsOrigin())
+			        nether.distance = distance
+			       	if i%#ability.nethergrasp_table == ability.interval then
+			       		if hero:Script_GetAttackRange() + 100 >= distance then
+			       			Filters:PerformAttackSpecial(hero, target, true, true, true, false, true, false, false)
+			       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
+			       		end
+			       	end
+			        if distance > NETHERGRASP_BREAK_DISTANCE then
+			        	table.insert(grasp_break_table, nether.entindex)
+			        end
+			        if not target:IsAlive() then
+			        	table.insert(grasp_break_table, nether.entindex)
+			        end
+			        table.insert(new_grasp_table, nether)
+			    else	
+		            ParticleManager:DestroyParticle(nether.pfx, false)
+		            ParticleManager:ReleaseParticleIndex(nether.pfx)	    	
+			    end
 		    end
 	    end
 	end
+	ability.nethergrasp_table = new_grasp_table
     for i = 1, #grasp_break_table, 1 do
     	local target = EntIndexToHScript(grasp_break_table[i])
     	target:RemoveModifierByName("modifier_nethergrasp_linked")
@@ -6152,6 +6161,16 @@ function nethergrasp_thinker(event)
 	if ability.interval >= #ability.nethergrasp_table then
 		ability.interval = 0
 	end
+end
+
+function nethergrasp_owner_die(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.unit
+	for i = 1, #ability.pfx_table, 1 do
+		ParticleManager:DestroyParticle(ability.pfx_table[i], false)
+	end
+	ability.nethergrasp_table = {}	
 end
 
 function nethergrasp_grip_end(event)
@@ -6175,6 +6194,11 @@ function nethergrasp_grip_end(event)
     Timers:CreateTimer(0.03, function()
     	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
     end)
+end
+
+function nethergrasp_owner_end2(event)
+	event.target = event.unit
+	nethergrasp_grip_end(event)
 end
 
 function nethergrasp_grip_thinker(event)

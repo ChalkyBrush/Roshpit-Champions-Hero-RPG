@@ -371,6 +371,15 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"nethergrasp_owner_die"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_nethergrasp_linked"
 			{
@@ -382,6 +391,15 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"nethergrasp_grip_end"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"nethergrasp_owner_end2"
 						"target"		"TARGET"
 					}
 				}

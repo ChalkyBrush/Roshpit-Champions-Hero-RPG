@@ -167,7 +167,7 @@ function Winterblight:SpawnMerkurio(position, fv)
 	stone:SetRenderColor(170, 200, 255)
 	stone.state = 0
 	Winterblight:SetPositionCastArgs(stone, 1000, 0, 1, FIND_ANY_ORDER)
-
+	stone.pushLock = true
 	stone:SetAbsOrigin(stone:GetAbsOrigin()+Vector(0,0,2000))
 
 	local ability = stone:FindAbilityByName("winterblight_merkurio_passive")

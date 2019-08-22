@@ -302,8 +302,10 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
     end
     local currentStacks = caster:GetModifierStackCount("modifier_perform_attack_limiter", Events.GameMaster)
     if currentStacks < 20 then
-        caster:PerformAttack(target, b1, b2, b3, b4, b5, b6, b7)
-        caster:SetModifierStackCount("modifier_perform_attack_limiter", Events.GameMaster, currentStacks + 1)
+        if not target:IsAttackImmune() then
+            caster:PerformAttack(target, b1, b2, b3, b4, b5, b6, b7)
+            caster:SetModifierStackCount("modifier_perform_attack_limiter", Events.GameMaster, currentStacks + 1)
+        end
     else
 
     end
@@ -4768,13 +4770,14 @@ function Filters:NetergraspPalisade(hero, target)
     if target.dummy then
         return false
     end
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_nethergrasp_linked", {})
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_nethergrasp_linked", {duration = 30})
 
     local nethergrasp = {}
     nethergrasp.entindex = target:GetEntityIndex()
     nethergrasp.pfx = ParticleManager:CreateParticle("particles/roshpit/items/nethergrasp_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 80), true)
     ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0, 0, 80), true)
+    table.insert(ability.pfx_table, nethergrasp.pfx)
     nethergrasp.create_time = GameRules:GetGameTime()
     table.insert(ability.nethergrasp_table, nethergrasp)
     EmitSoundOn("Items.Nethergrip.Link", target)

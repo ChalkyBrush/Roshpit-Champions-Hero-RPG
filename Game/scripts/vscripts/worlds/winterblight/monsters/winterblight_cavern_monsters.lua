@@ -141,6 +141,7 @@ end
 
 function rock_guardian_attack_start(event)
 	local caster = event.caster
+	-- caster:StartGestureWithPlaybackRate( ACT_DOTA_CUSTOM_TOWER_ATTACK, 1.7 )
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CUSTOM_TOWER_ATTACK, rate=1.7})
 	EmitSoundOn("Winterblight.StoneGuardian.Attack", caster)
 end
@@ -153,14 +154,14 @@ function rock_guardian_attack_land(event)
 		return false
 	end
 	EmitSoundOn("Winterblight.StoneGuardian.AttackLand", target)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_winterblight_rock_tower_stack", {duratio = 5})
-	target:ApplyAndIncrementStack(ability, nil, "modifier_winterblight_rock_tower_stack", 1, 5, 5)
-
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_winterblight_rock_tower_stack", {duration = 5})
+	target:ApplyAndIncrementStack(ability, nil, "modifier_winterblight_rock_tower_stack", 1, event.stacks, 5)
 	if target:GetModifierStackCount("modifier_winterblight_rock_tower_stack", nil) >= event.stacks then
 		target:RemoveModifierByName("modifier_winterblight_rock_tower_stack")
 		ability.pushVector = false
 		ability.pushVelocity = 30
 		ability.tossPosition = caster:GetAbsOrigin()
+		print("PUSH?")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_heavy_boulder_pushback", {duration = 0.6})
 	end
 end
