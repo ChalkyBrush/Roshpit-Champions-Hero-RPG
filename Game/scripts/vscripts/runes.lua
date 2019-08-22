@@ -1648,7 +1648,7 @@ function Runes:UnequipArcana(hero, index)
 				new_ability_name = "warlord_ice_shell"
 				abilities_to_remove_table = {"warlord_cataclysm_shaker", "warlord_flame_wreck"}
 			elseif abilityCheck:GetAbilityName() == "warlord_flame_wreck" then
-				new_ability_name = "warlord_flame_wreck"
+				new_ability_name = "warlord_flame_rush"
 				abilities_to_remove_table = {"warlord_frost_scathe", "warlord_cataclysm_shaker"}
 			end
 			for i = 1, #abilities_to_remove_table, 1 do
