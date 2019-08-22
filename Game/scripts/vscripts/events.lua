@@ -14,7 +14,7 @@ require('paragon')
 require('elements')
 require('spawning')
 
-Beacons.cheats = false
+Beacons.cheats = true
 
 if Events == nil then
 	Events = class({})
@@ -4051,8 +4051,11 @@ function Events:TutorialEvent(msg)
 end
 
 function Events:TutorialServerEvent(hero, code1, code2)
-	if GameState:IsTutorial() then
-		Tutorial:TutorialServerEvent(hero, code1, code2)
-	end
+  if GameState:IsTutorial() then
+    Tutorial:TutorialServerEvent(hero, code1, code2)
+  end
 end
+
+require('worlds/winterblight/winterblight')
+
 

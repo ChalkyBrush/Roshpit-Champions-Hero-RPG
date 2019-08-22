@@ -62,13 +62,23 @@ end
 
 function swapSkillsToIce(caster, swingAbility, swingCooldown)
 	--Q
-	local stoneForm = caster:FindAbilityByName("warlord_stone_form")
-	local iceShield = caster:FindAbilityByName("warlord_ice_shell")
-	if not iceShield then
-		iceShield = caster:AddAbility("warlord_ice_shell")
+	if caster:HasModifier("modifier_warlord_arcana2") then
+		local earth_ability = caster:FindAbilityByName("warlord_cataclysm_shaker")
+		local ice_ability = caster:FindAbilityByName("warlord_frost_scathe")
+		if not ice_ability then
+			ice_ability = caster:AddAbility("warlord_frost_scathe")
+		end
+		ice_ability:SetLevel(earth_ability:GetLevel())
+		caster:SwapAbilities("warlord_cataclysm_shaker", "warlord_frost_scathe", false, true)
+	else
+		local stoneForm = caster:FindAbilityByName("warlord_stone_form")
+		local iceShield = caster:FindAbilityByName("warlord_ice_shell")
+		if not iceShield then
+			iceShield = caster:AddAbility("warlord_ice_shell")
+		end
+		iceShield:SetLevel(stoneForm:GetLevel())
+		caster:SwapAbilities("warlord_stone_form", "warlord_ice_shell", false, true)
 	end
-	iceShield:SetLevel(stoneForm:GetLevel())
-	caster:SwapAbilities("warlord_stone_form", "warlord_ice_shell", false, true)
 
 	--JUMP
 	local iceJump = caster:FindAbilityByName("warlord_jump_ice")
@@ -94,13 +104,23 @@ end
 function swapSkillsToFire(caster, swingAbility, swingCooldown)
 	local manaPercentage = caster:GetMana() / caster:GetMaxMana()
 
-	local iceShield = caster:FindAbilityByName("warlord_ice_shell")
-	local flameRush = caster:FindAbilityByName("warlord_flame_rush")
-	if not flameRush then
-		flameRush = caster:AddAbility("warlord_flame_rush")
+	if caster:HasModifier("modifier_warlord_arcana2") then
+		local ice_ability = caster:FindAbilityByName("warlord_frost_scathe")
+		local fire_ability = caster:FindAbilityByName("warlord_flame_wreck")
+		if not fire_ability then
+			fire_ability = caster:AddAbility("warlord_flame_wreck")
+		end
+		fire_ability:SetLevel(ice_ability:GetLevel())
+		caster:SwapAbilities("warlord_frost_scathe", "warlord_flame_wreck", false, true)
+	else
+		local iceShield = caster:FindAbilityByName("warlord_ice_shell")
+		local flameRush = caster:FindAbilityByName("warlord_flame_rush")
+		if not flameRush then
+			flameRush = caster:AddAbility("warlord_flame_rush")
+		end
+		flameRush:SetLevel(iceShield:GetLevel())
+		caster:SwapAbilities("warlord_ice_shell", "warlord_flame_rush", false, true)
 	end
-	flameRush:SetLevel(iceShield:GetLevel())
-	caster:SwapAbilities("warlord_ice_shell", "warlord_flame_rush", false, true)
 
 	--JUMP
 	local fireJump = caster:FindAbilityByName("warlord_jump_fire")
@@ -128,10 +148,20 @@ function swapSkillsToFire(caster, swingAbility, swingCooldown)
 end
 
 function swapSkillsToEarth(caster, swingAbility, swingCooldown)
-	local flameRush = caster:FindAbilityByName("warlord_flame_rush")
-	local stoneForm = caster:FindAbilityByName("warlord_stone_form")
-	stoneForm:SetLevel(flameRush:GetLevel())
-	caster:SwapAbilities("warlord_flame_rush", "warlord_stone_form", false, true)
+	if caster:HasModifier("modifier_warlord_arcana2") then
+		local fire_ability = caster:FindAbilityByName("warlord_flame_wreck")
+		local earth_ability = caster:FindAbilityByName("warlord_cataclysm_shaker")
+		if not earth_ability then
+			earth_ability = caster:AddAbility("warlord_cataclysm_shaker")
+		end
+		earth_ability:SetLevel(fire_ability:GetLevel())
+		caster:SwapAbilities("warlord_flame_wreck", "warlord_cataclysm_shaker", false, true)
+	else
+		local flameRush = caster:FindAbilityByName("warlord_flame_rush")
+		local stoneForm = caster:FindAbilityByName("warlord_stone_form")
+		stoneForm:SetLevel(flameRush:GetLevel())
+		caster:SwapAbilities("warlord_flame_rush", "warlord_stone_form", false, true)
+	end
 
 	--JUMP
 	local earthJump = caster:FindAbilityByName("warlord_jump_earth")

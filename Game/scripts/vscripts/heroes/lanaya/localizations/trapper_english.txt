@@ -73,7 +73,7 @@
 		"DOTA_Tooltip_ability_trapper_rune_w_2"						"[W2] Nerve Gas"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_Description"			"Enemies standing within a Smoke Bomb take damage."
     	"DOTA_Tooltip_ability_trapper_rune_w_2_property_one"		"Damage Per 0.3 seconds"
-    	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				""
+    	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				" per hero level"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Shrapnel Bomb"
     	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Every bomb has chance for save part of charge and explode again after <% TRAPPER_W3_DELAY %> second. Every next explode deal only <%TRAPPER_W3_DMG_PROC * 100 %>% damage of previous. Increase Nerve Gas damage."

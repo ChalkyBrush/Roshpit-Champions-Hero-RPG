@@ -191,7 +191,7 @@ function CorrectDotaUI(){
 	// parent.FindChildTraverse("xpBacker").style.visibility = "collapse"
 	// parent.FindChildTraverse("AbilityInsetShadowLeft").style.marginLeft = '212px';
 	parent.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("abilities").style.horizontalAlign = 'center';
-
+	parent.FindChildTraverse("AbilitiesAndStatBranch").GetChild(0).style.horizontalAlign = 'center';
 	parent.FindChildTraverse("inventory").style.visibility = "collapse";
 	parent.FindChildTraverse("right_flare").style.horizontalAlign = "center";
 	parent.FindChildTraverse("right_flare").style.marginLeft = "345px";

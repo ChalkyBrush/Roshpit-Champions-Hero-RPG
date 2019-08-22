@@ -85,7 +85,9 @@ end
 
 function wolf_sprint_think(event)
 	local caster = event.caster
-	local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 70
+	local speed = 70
+	speed = Filters:GetAdjustedESpeed(caster, speed, false)
+	local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * speed
 	local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 	if blockUnit then

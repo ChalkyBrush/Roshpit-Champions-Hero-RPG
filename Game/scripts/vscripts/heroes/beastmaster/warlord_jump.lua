@@ -18,6 +18,7 @@ function jumpStart(event)
 	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	--print(jumpFV)
 	ability.jump_velocity = distance / 30 + 15
+	-- ability.jump_velocity = Filters:GetAdjustedESpeed(caster, ability.jump_velocity, false)
 	ability.jumpFV = jumpFV
 	ability.distance = distance
 	ability.targetPoint = targetPoint
@@ -29,7 +30,8 @@ function jumpStart(event)
 	Timers:CreateTimer(0.3, function()
 		ability.lifting = false
 	end)
-
+	local rock_speed = 25
+	rock_speed = Filters:GetAdjustedESpeed(caster, rock_speed, false)
 	local info =
 	{
 		Ability = ability,
@@ -47,7 +49,7 @@ function jumpStart(event)
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
-		vVelocity = ability.jumpFV * ability.jump_velocity * 25,
+		vVelocity = ability.jumpFV * ability.jump_velocity * rock_speed,
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
@@ -69,7 +71,9 @@ function fireJumpStart(event)
 	local distance = WallPhysics:GetDistance(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	--print(jumpFV)
-	ability.jump_velocity = distance / 20 + 10
+	local jump_velocity = distance/20 + 10
+	jump_velocity = Filters:GetAdjustedESpeed(caster, jump_velocity, false)
+	ability.jump_velocity = jump_velocity
 	ability.jumpFV = jumpFV
 	ability.distance = distance
 	ability.targetPoint = targetPoint
@@ -88,14 +92,17 @@ function new_jumping_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local forwardSpeed = ability.distance / 60 + 15
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.jumpFV * 35), caster)
 	if blockUnit then
 		forwardSpeed = 0
 	end
+	local acceleration = 3.3
+	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity) + ability.jumpFV * forwardSpeed)
-	ability.jump_velocity = ability.jump_velocity - 3.3
+	ability.jump_velocity = ability.jump_velocity - acceleration
 	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modifier_warlord_jumping")
@@ -222,10 +229,11 @@ function fireDashThink(event)
 	if blockUnit then
 		fv = 0
 	end
-
+	local acceleration = 6
+	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
 	caster:SetAbsOrigin(position - Vector(0, 0, ability.fallVelocity) + fv * ability.jump_velocity)
-	ability.fallVelocity = ability.fallVelocity + 6
-	if position.z - GetGroundPosition(position, caster).z < 5 then
+	ability.fallVelocity = ability.fallVelocity + acceleration
+	if position.z - GetGroundPosition(position, caster).z < ability.fallVelocity then
 		caster:RemoveModifierByName("modifier_warlord_falling_fire")
 	end
 end
@@ -291,7 +299,9 @@ function iceSprintThink(event)
 	position = GetGroundPosition(position, caster)
 
 	local obstruction = WallPhysics:FindNearestObstruction(position)
-	local newPosition = position + caster:GetForwardVector() * 25
+	local forwardSpeed = 25
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
+	local newPosition = position + caster:GetForwardVector() * forwardSpeed
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + caster:GetForwardVector() * 95), caster)
 	if ability.interval % 3 == 0 then
 		local baseDamage = event.damage

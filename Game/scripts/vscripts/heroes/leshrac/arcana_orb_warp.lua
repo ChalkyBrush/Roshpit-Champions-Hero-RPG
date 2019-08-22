@@ -73,6 +73,7 @@ function dash_think(event)
 			end
 		end
 	end
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	if w_4_level > 0 then
 		local stacks = forwardSpeed * 33 * BAHAMUT_ARCANA_W4_AMP_BASE_PCT * w_4_level * ability:GetLevel()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp", {})

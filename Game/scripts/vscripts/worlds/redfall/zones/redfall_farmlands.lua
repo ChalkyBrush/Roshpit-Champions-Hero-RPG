@@ -936,6 +936,7 @@ end
 
 function Redfall:SpawnDemonFarmer(position, fv)
 	local stone = Redfall:SpawnDungeonUnit("redfall_demon_farmer", position, 3, 6, "Redfall.DemonFarmer.Aggro", fv, true)
+	stone.type = ENEMY_TYPE_MINI_BOSS
 	stone:SetRenderColor(234, 111, 111)
 	Events:AdjustBossPower(stone, 5, 5, false)
 	stone.itemLevel = 68

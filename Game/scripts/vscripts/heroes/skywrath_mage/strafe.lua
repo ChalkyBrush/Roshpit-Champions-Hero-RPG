@@ -34,6 +34,7 @@ function strafe_thinking(event)
 	if ability.e_4_level > 0 then
 		forwardSpeed = forwardSpeed + SEPHYR_E4_STRAFE_SPEED * ability.e_4_level
 	end
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	if caster:HasModifier("modifier_nefali_c_d_speed") then
 		local stacks = caster:GetModifierStackCount("modifier_nefali_c_d_speed", caster)
 		forwardSpeed = forwardSpeed + SEPHYR_R3_STRAFE_SPEED * stacks

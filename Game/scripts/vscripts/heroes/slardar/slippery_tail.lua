@@ -18,6 +18,7 @@ function slippery_tail_start(event)
 	local warpDuration = 2.0
 	ability.fallVelocity = 1
 	ability.forwardVelocity = 12
+	ability.forwardVelocity = Filters:GetAdjustedESpeed(caster, ability.forwardVelocity, false)
 	caster.e_4_Level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "hydroxis")
 	ability.distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slippery_tail_flying", {duration = warpDuration})

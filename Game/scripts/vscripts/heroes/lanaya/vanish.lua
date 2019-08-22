@@ -68,7 +68,9 @@ function action_leap_cast(event)
     end
     distance = math.min(distance, max_distance)
     caster:SetForwardVector(fv)
-    action_leap_jump(caster, fv, distance, 35, 40, 1, 1)
+    local forwardSpeed = 40
+    forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
+    action_leap_jump(caster, fv, distance, 35, forwardSpeed, 1, 1)
     local animationTime = math.min(500 / distance, 1)
     EmitSoundOn("Trapper.ActionLeap"..RandomInt(1, 2), caster)
     StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK, rate = animationTime, translate = "meld"})

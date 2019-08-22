@@ -9,7 +9,7 @@ mActiveCategoryButton = false
 mButtonRows = 3
 mButtonsPerRow = 10
 TOTAL_HERO_CATEGORIES = 12
-MAX_STARS = 1242
+MAX_STARS = 1425
 
 function openStarsFromServer(msg){
 	$('#stars_container').RemoveClass('invisible')
@@ -119,7 +119,7 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 	}
 	for (var i = 1; i <= herosStarsArray.length; i++) {
 		var sidePanel = $.GetContextPanel().FindChildTraverse("stars_details_left_side")
-		if (i > 7){
+		if (i > 8){
 			sidePanel = $.GetContextPanel().FindChildTraverse("stars_details_right_side")
 		}
 		var newChildPanel = $.CreatePanel( "Panel", sidePanel, "starDetail"+i );
@@ -379,6 +379,30 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 		}else if (starAmount >= 2){
 			starDescription = $.Localize("star_azalea_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("azalea_boss")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
 		}
+	}else if (star_title == "winterblight_cavern"){
+		starAmount = categoryData.wb_cavern
+		if (starOverride > 0){
+			starAmount = starOverride - 1
+		}
+		if (starAmount == 0){
+			starDescription = $.Localize("star_wb_cavern_description").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+		}else if (starAmount == 1){
+			starDescription = $.Localize("star_wb_cavern_description2").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+		}else if (starAmount >= 2){
+			starDescription = $.Localize("star_wb_cavern_description3").replace("@heroname", localizeWithColor(heroName)).replace("@bossname", localizeWithColor("winterblight_cavern_boss_tiamat")).replace("@mapname", $.Localize("rpc_winterblight_mountain"))
+		}
+	}else if (star_title == "star_wb_master_title"){
+		starAmount = categoryData.cavern_master
+		if (starOverride > 0){
+			starAmount = starOverride - 1
+		}
+		if (starAmount == 0){
+			starDescription = $.Localize("star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 10)
+		}else if (starAmount == 1){
+			starDescription = $.Localize("star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 20)
+		}else if (starAmount >= 2){
+			starDescription = $.Localize("star_wb_cavern_master_description").replace("@heroname", localizeWithColor(heroName)).replace("@dungeon_name", localizeWithColor("winterblight_cavern")).replace("@level", 30)
+		}
 	}else if (star_title == "star_valdun_title_solo"){
 		starAmount = categoryData.valdun
 		if (starOverride > 0){
@@ -465,7 +489,7 @@ function buttonMouseOut(buttonParent){
 }
 
 function getHeroStarsArray(heroName){
-	var newTable = ["stars_hero_level_title", "autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "star_serengaard_title", "star_serengaard_infinite_title", "arena_left_leaderboard_title", "tooltip_pit_of_trials", "immortal_weapon_title", "star_valdun_title", "star_azalea_title"]
+	var newTable = ["stars_hero_level_title", "autumn_mist_canyon", "abandoned_shipyard", "redfall_crimsyth_castle", "zone_tanari_wind_temple", "zone_tanari_water_temple", "zone_tanari_fire_temple", "star_serengaard_title", "star_serengaard_infinite_title", "arena_left_leaderboard_title", "tooltip_pit_of_trials", "immortal_weapon_title", "star_valdun_title", "star_azalea_title", "winterblight_cavern"	, "star_wb_master_title"]
 	return newTable
 }
 
@@ -505,6 +529,10 @@ function convertStarNameToTitle(starName)
 		title = "star_valdun_title"
 	}else if (starName == "azalea"){
 		title = "star_azalea_title"
+	}else if (starName == "wb_cavern"){
+		title = "winterblight_cavern"
+	}else if (starName == "cavern_master"){
+		title = "star_wb_master_title"
 	}
 	return title
 }

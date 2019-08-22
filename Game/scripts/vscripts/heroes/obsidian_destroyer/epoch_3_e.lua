@@ -72,6 +72,7 @@ function fire_main_orb(event)
 		speed = speed * 1.6
 		range = range * 1.6
 	end
+	speed = Filters:GetAdjustedESpeed(origCaster, speed, false)
 	local info =
 	{
 		Ability = ability,
@@ -140,6 +141,7 @@ function getProjectilePosition(event)
 	if caster:HasModifier("modifier_epoch_glyph_2_1") then
 		distanceAmount = distanceAmount * 1.6
 	end
+	distanceAmount = Filters:GetAdjustedESpeed(caster, distanceAmount, false)
 	if ability.orb_distance then
 		ability.orb_distance = ability.orb_distance + distanceAmount
 	else

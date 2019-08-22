@@ -112,6 +112,17 @@ function Elements:hex2rgb(hex)
 	return tonumber("0x"..hex:sub(1, 2)), tonumber("0x"..hex:sub(3, 4)), tonumber("0x"..hex:sub(5, 6))
 end
 
+function Elements:RGBVectorFromElementIndex(element_index)
+    local colorVector = Vector(150, 150, 150)
+    if element_index and element_index > 0 then
+        local elementName, elementColor = Elements:GetElementNameAndColorByCode(element_index)
+        local r, g, b = Elements:hex2rgb(elementColor)
+        colorVector = Vector(r,g,b)
+    end
+    colorVector = colorVector/255
+    return colorVector
+end
+
 function Elements:RollElementAttribute(item, element_code, rollMult, minRoll, maxRoll, attributeSlot)
 	local luck = RandomInt(0, 110)
 	local maxFactor = RPCItems:GetMaxFactor()

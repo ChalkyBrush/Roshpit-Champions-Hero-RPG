@@ -90,3 +90,16 @@
 .invisible{
   visibility: collapse;
 }
+
+.stat_tiamat{
+/*	color:#CCCCCC;
+	text-shadow: 0px 0px 4px 4 #00000088;*/
+}
+
+.inspiration_gold{
+	border:2px solid yellow;
+}
+
+.inspiration_blue{
+	border:2px solid blue;
+}

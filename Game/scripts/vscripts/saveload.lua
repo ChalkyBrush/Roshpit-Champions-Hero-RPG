@@ -209,30 +209,46 @@ function SaveLoad:SaveCharacter(msg)
 		for i = 0, 5, 1 do
 			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, 0)
 		end
-		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-			--print( "POST response:\n" )
-			for k, v in pairs(result) do
-				--print( string.format( "%s : %s\n", k, v ) )
-			end
-			--print( "Done." )
-			--SaveLoad:NewKey()
-			local resultTable = JSON:decode(result.Body)
-			-- SaveLoad:GetCharacterDataFromJSON(resultTable)
-			CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {})
-			local premium = 0
-			if GameState:GetPlayerPremiumStatus(playerID) then
-				premium = 1
-			end
-			Weapons:ValidateGear(hero)
-			CustomGameEventManager:Send_ServerToPlayer(player, "save_characters_loaded", {result = resultTable, message = "save_success", heroSlot = hero.saveSlot, premium = premium})
-			Events:TutorialServerEvent(hero, "2_3", 0)
-			Statistics.dispatch('hero:oracle:save')
-			hero.roshpitID = resultTable.id
-			if hero:GetUnitName() == "npc_dota_hero_arc_warden" then
-				SaveLoad:SaveJex(hero)
-			end
-		end)
+		if msg.ignore_callback then
+			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+				for k, v in pairs(result) do
+
+				end
+				local resultTable = JSON:decode(result.Body)
+				SaveLoad:HeroSaveParticle(hero)
+			end)
+		else
+			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+				--print( "POST response:\n" )
+				for k, v in pairs(result) do
+					--print( string.format( "%s : %s\n", k, v ) )
+				end
+				--print( "Done." )
+				--SaveLoad:NewKey()
+				local resultTable = JSON:decode(result.Body)
+				-- SaveLoad:GetCharacterDataFromJSON(resultTable)
+				CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {})
+				local premium = 0
+				if GameState:GetPlayerPremiumStatus(playerID) then
+					premium = 1
+				end
+				Weapons:ValidateGear(hero)
+				CustomGameEventManager:Send_ServerToPlayer(player, "save_characters_loaded", {result = resultTable, message = "save_success", heroSlot = hero.saveSlot, premium = premium})
+				Events:TutorialServerEvent(hero, "2_3", 0)
+				Statistics.dispatch('hero:oracle:save')
+				hero.roshpitID = resultTable.id
+				if hero:GetUnitName() == "npc_dota_hero_arc_warden" then
+					SaveLoad:SaveJex(hero)
+				end
+				SaveLoad:HeroSaveParticle(hero)
+			end)
+		end
 	end
+end
+
+function SaveLoad:HeroSaveParticle(hero)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/save_game/save_hero/shovel_baby_roshan_spawn.vpcf", hero, 4)
+	EmitSoundOn("ui.trophy_new", hero)
 end
 
 function escape(s)
@@ -1645,7 +1661,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 							PlayerResource:ReplaceHeroWith(playerID, heroName, 0, 0)
 							Timers:CreateTimer(1, function()
 								local hero = GameState:GetHeroByPlayerID(playerID)
-
+								hero.actual_game_hero = true
 								-- hero = EntIndexToHScript(hero)
 								hero.muteMusic = msg.muteMusic
 							end)

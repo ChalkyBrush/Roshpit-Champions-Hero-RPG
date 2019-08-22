@@ -33,6 +33,8 @@ require('/items/constants/helm')
 require('/items/constants/trinket')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pivotal_swift", "modifiers/modifier_pivotal_swift", LUA_MODIFIER_MOTION_NONE)
+
 
 function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
     local damageData = attacker._damage_data or {}
@@ -313,15 +315,40 @@ function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7
     end
     local currentStacks = caster:GetModifierStackCount("modifier_perform_attack_limiter", Events.GameMaster)
     if currentStacks < 20 then
-        caster:PerformAttack(target, b1, b2, b3, b4, b5, b6, b7)
-        caster:SetModifierStackCount("modifier_perform_attack_limiter", Events.GameMaster, currentStacks + 1)
+        if not target:IsAttackImmune() then
+            caster:PerformAttack(target, b1, b2, b3, b4, b5, b6, b7)
+            caster:SetModifierStackCount("modifier_perform_attack_limiter", Events.GameMaster, currentStacks + 1)
+        end
     else
 
     end
 end
 
+function Filters:GetAdjustedESpeed(caster, speed, bDelay)
+    if caster:HasModifier("modifier_pegasus_boots") then
+        if bDelay then
+            speed = speed*0.5
+        else
+            speed = speed + speed*(PEGASUS_E_SPEED_PCT/100)
+        end
+    end
+    return speed
+end
+
+function Filters:GetAdjustedMaxMovespeed(max_ms, caster)
+    if caster:HasModifier("modifier_pegasus_boots") then
+        max_ms = max_ms + (max_ms-550)*(PEGASUS_MAX_MS_AMP_PCT/100)
+    end
+    return max_ms
+end
+
+function Filters:GetMagicImmuneModifierNames()
+    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_seinaru_gorudo_magic_immunity", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity", "modifier_magic_immune_breakable_ability", "modifier_auric_ring_bkb"}
+    return magic_immunity_buffs
+end
+
 function Filters:MagicImmuneBreak(attacker, target)
-    local magic_immunity_buffs = {"modifier_hope_of_saytaru_effect", "modifier_seinaru_gorudo_magic_immunity", "modifier_black_widow", "modifier_warlord_stone_form", "modifier_gilded_soul_immunity", "modifier_auriun_immortal_weapon_3_effect", "modifier_black_King_bar_immunity", "modifier_jex_magic_immunity", "modifier_magic_immune_breakable_ability"}
+    local magic_immunity_buffs = Filters:GetMagicImmuneModifierNames()
     local immuneBreak = false
     for i = 1, #magic_immunity_buffs, 1 do
         if target:HasModifier(magic_immunity_buffs[i]) then
@@ -677,6 +704,9 @@ function Filters:CastSkillArguments(slot, caster)
         Filters:ApplyRskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
 
+    end
+    if caster:HasModifier("modifier_beryl_ring_of_intuiton") or caster:HasModifier("modifier_auric_ring_of_inspiration") then
+        Filters:InpsirationRing(caster, slot)
     end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
@@ -1131,6 +1161,9 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_doomplate") then
         Filters:DoomplateSummon(caster)
+    end
+    if caster:HasModifier("modifier_alien_armor") then
+        Filters:AlienArmor(caster)
     end
     if caster:HasModifier("modifier_guard_of_feronia") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = 3.5})
@@ -1689,7 +1722,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
     if slot == BASE_ITEM or slot == BASE_NONE then
         if not Is_solunia_b_d then
-            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or 0)
+            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or slot or 0)
         else
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
         end
@@ -1738,8 +1771,11 @@ end
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
     local ability = nil
     local damageData = attacker._damage_data or {}
-    if type(slot) == "number" then
+
+    if type(slot) == "number" and slot ~= -1 then
         ability = attacker:GetAbilityByIndex(slot)
+    elseif damageData.source then
+        ability = damageData.source
     else
         ability = slot
     end
@@ -1754,9 +1790,15 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
             instances = instances + procs
         end
     end
+
     if damageData.skipItemDamageEffectsApply then
         instances = 1
     end
+
+    if slot == BASE_NONE then
+        instances = 1
+    end
+
     for i = 1, instances do
         ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
     end
@@ -1766,6 +1808,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     local unitName = attacker:GetUnitName()
     local mult = 1
     local divisor = 1
+    local damageData = attacker._damage_data or {}
 
     if bIsRealDamage then
         if attacker:HasModifier("modifier_depth_demon_claw") then
@@ -1808,6 +1851,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_helm_all_elements", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
+        if attacker:HasModifier("modifier_hand_all_elements") then
+            local stacks = attacker:GetModifierStackCount("modifier_hand_all_elements", attacker.InventoryUnit)
+            mult = mult + stacks / 100
+        end
         if attacker:HasModifier("modifier_trinket_all_elements") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_all_elements", attacker.InventoryUnit)
             mult = mult + stacks / 100
@@ -1847,6 +1894,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element2 ~= RPC_ELEMENT_NONE then
         table.insert(elements, element2)
     end
+
     local newDamageCalculatorData = {
         victim = victim,
         attacker = attacker,
@@ -2700,12 +2748,17 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
                 end
             end
+        elseif unitName == "npc_dota_hero_beastmaster" and attacker:HasModifier("modifier_warlord_arcana2") then
+            local q_4_level = attacker:GetRuneValue("q", 4)
+            mult = mult + WARLORD_ARCANA2_Q4_DRAGON_AMP_PER_ATTRIBUTES * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level        
         end
     end
-    if bIsRealDamage then
+    if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then
         Filters:PostElementalDamage(victim, attacker, damage * mult, damage_type, slot, element1, element2, bIsRealDamage)
     end
-    damage = damage * mult/divisor
+    if not damageData.ignoreMultipliers and not damageData.ignoreElements then
+        damage = damage * mult/divisor
+    end
     return damage, element1, element2
 end
 
@@ -2994,7 +3047,7 @@ function Filters:WitchHat(caster)
     local fv = caster:GetForwardVector()
     local ability = caster.witchHat
     ability.caster = caster
-    local projectileParticle = "particles/econ/items/death_prophet/death_prophet_acherontia/death_prophet_acher_swarm.vpcf"
+    local projectileParticle = "particles/roshpit/winterblight/ellipsis_wave.vpcf"
     local projectileOrigin = caster:GetAbsOrigin() + fv * 10
     local start_radius = 120
     local end_radius = 400
@@ -4453,7 +4506,7 @@ function Filters:AlaranaFrostNova(caster)
 end
 
 function Filters:IsIceFrozen(target)
-    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") or target:HasModifier("modifier_hyperbeam_freeze") then
+    if target:HasModifier("modifier_ice_lance_frozen") or target:HasModifier("modifier_frost_nova") or target:HasModifier("modifier_eternal_frost_nova") or target:HasModifier("modifier_ice_throw_b_b_frozen") or target:HasModifier("modifier_elemental_overload_frozen") or target:HasModifier("modifier_alarana_frost_nova") or target:HasModifier("modifier_solunia_cryoshock") or target:HasModifier("modifier_elemental_freeze") or target:HasModifier("modifier_sorceress_arcana_b_d_visible") or target:HasModifier("modifier_hyperbeam_freeze") or target:HasModifier("modifier_ice_scathe_freeze") then
         return true
     else
         return false
@@ -4628,6 +4681,66 @@ function Filters:JexNatureCostmicW(caster)
     end
     caster:ReduceMana(mana_usage)
 end
+
+function Filters:AlienArmor(caster)
+    local modifierKeys = {}
+
+    modifierKeys.outgoing_damage = ALIEN_ARMOR_OUTGOING_DAMAGE_MULT*100
+    modifierKeys.incoming_damage = 1 - (ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION/100)
+    modifierKeys.duration = ALIEN_ARMOR_ILLUSION_DURATION
+    local illusions = CreateIllusions( caster, caster, modifierKeys, 1, 20, true, true)
+    local illusion = illusions[1]
+    illusion.owner = caster
+    local body = caster.body
+    body:ApplyDataDrivenModifier(caster.InventoryUnit, illusion, "modifier_alien_armor_illusion", {})
+    illusion:SetRenderColor(0, 0, 0)
+    illusion.hero = caster
+    StartAnimation(illusion, {duration = 2, activity = ACT_DOTA_SPAWN, rate = 1.2})
+    local newPos = caster:GetAbsOrigin()+RandomVector(200)
+    newPos = GetGroundPosition(newPos, illusion)
+    illusion:SetAbsOrigin(newPos)
+    CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", newPos+Vector(0,0,60), 4)
+
+    illusion.strength_custom = caster.strength_custom
+    illusion.agility_custom = caster.agility_custom
+    illusion.intellect_custom = caster.intellect_custom
+    illusion.str_bonus = caster.str_bonus
+    illusion.agi_bonus = caster.agi_bonus
+    illusion.int_bonus = caster.int_bonus
+    illusion:SetBaseDamageMax(OverflowProtectedGetAverageTrueAttackDamage(caster))
+    illusion:SetBaseDamageMin(OverflowProtectedGetAverageTrueAttackDamage(caster))
+    local modifiers = illusion:FindAllModifiers()
+    for j = 1, #modifiers, 1 do
+        local modifier = modifiers[j]  
+        local modifier_name = modifier:GetName()
+        if modifier_name == "modifier_attack_land_basic" or modifier_name == "modifier_illusion" or modifier_name == "modifier_animation" or modifier_name == "modifier_alien_armor_illusion" then
+        else
+            illusion:RemoveModifierByName(modifier:GetName())
+        end
+    end  
+    local modifiers = caster:FindAllModifiers()
+    for j = 1, #modifiers, 1 do
+        local modifier = modifiers[j]
+        if modifier then
+            local modifier_caster = modifier:GetCaster()
+            if IsValidEntity(modifier_caster) and modifier_caster:GetTeamNumber() == caster:GetTeamNumber() then
+                local modifier_ability = modifier:GetAbility()
+                if IsValidEntity(modifier_ability) then
+                    local duration = modifier:GetRemainingTime()
+                    local modifier_name = modifier:GetName()
+                    print(modifier_name)
+                    if modifier_name == "modifier_shapeshift_cat" or modifier_name == "modifier_shapeshift_crow" or modifier_name == "modifier_shapeshift_year_beast" or modifier_name == "modifier_shapeshift_bear" or modifier_name == "modifier_draghor_shapeshift_bear_lua" or modifier_name == "modifier_draghor_shapeshift_hawk_lua" or modifier_name == "modifier_draghor_shapeshift_cat_lua" then
+                        modifier_ability:ApplyDataDrivenModifier(modifier:GetCaster(), illusion, modifier:GetName(), {duration = duration})
+                        illusion:SetModifierStackCount(modifier:GetName(), modifier:GetCaster(), modifier:GetStackCount())
+                    end
+                end
+            end
+        end
+    end
+    illusion:SetRenderColor(0, 0, 0)
+end
+
+
 function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, increase, checkFunc)
     if target:IsRooted() or target:IsStunned() then
         return
@@ -4667,4 +4780,95 @@ function Filters:IsNonExtendableBuff(modifier)
         modifier_animation_translate = true,
     }
     return self.nonExtendableBuffs[modifier:GetName()] or isDebuff or false
+end
+
+function Filters:NetergraspPalisade(hero, target)
+    local ability = hero.body
+    local caster = hero.InventoryUnit
+    if target:HasModifier("modifier_nethergrasp_linked") then
+        return false
+    end
+    local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), target:GetAbsOrigin())
+    if distance > NETHERGRASP_LINK_RANGE then
+        return false
+    end
+    if target.dummy then
+        return false
+    end
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_nethergrasp_linked", {duration = 30})
+
+    local nethergrasp = {}
+    nethergrasp.entindex = target:GetEntityIndex()
+    nethergrasp.pfx = ParticleManager:CreateParticle("particles/roshpit/items/nethergrasp_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster)
+    ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 80), true)
+    ParticleManager:SetParticleControlEnt(nethergrasp.pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin() + Vector(0, 0, 80), true)
+    table.insert(ability.pfx_table, nethergrasp.pfx)
+    nethergrasp.create_time = GameRules:GetGameTime()
+    table.insert(ability.nethergrasp_table, nethergrasp)
+    EmitSoundOn("Items.Nethergrip.Link", target)
+    nethergrasp.active = true
+    if #ability.nethergrasp_table > NETHERGRASP_MAX_LINKS then
+        local new_nethergrasp_table = {}
+        for i = 1, #ability.nethergrasp_table, 1 do
+            local nether = ability.nethergrasp_table[i]
+            if i == 1 then
+                target:RemoveModifierByName("modifier_nethergrasp_linked")
+                ParticleManager:DestroyParticle(nether.pfx, false)
+                ParticleManager:ReleaseParticleIndex(nether.pfx)
+            else
+                table.insert(new_nethergrasp_table, nether)
+            end
+        end
+        ability.nethergrasp_table = new_nethergrasp_table
+    end
+end
+
+function Filters:InpsirationRing(caster, skillIndex)
+    local ring = caster.amulet
+    if not ring.abilities_cast then
+        ring.abilities_cast = {false, false, false, false}
+    end
+    local particleName = "particles/roshpit/items/inspiration_ring/inspiration_gold.vpcf"
+    if ring:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
+        particleName = "particles/roshpit/items/inspiration_ring/inspiration_blue.vpcf"
+    end
+    ring.abilities_cast[skillIndex] = true
+    local condition_met = true
+
+    for i = 1, #ring.abilities_cast, 1 do
+        if not ring.abilities_cast[i] then
+            condition_met = false
+            break
+        end
+    end
+    DeepPrintTable(ring.abilities_cast)
+    if condition_met then
+        ring.abilities_cast = {false, false, false, false}
+        EmitSoundOn("Items.InspirationRing.Activate", caster)
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, caster)
+        ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+        -- ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControl(pfx, 5, Vector(1,1,1))
+        local heal = caster:GetMaxHealth()
+        Filters:ApplyHeal(caster, caster, heal, true, true)
+
+        if ring:GetAbilityName() == "item_rpc_auric_ring_of_inspiration" then
+            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = INSPIRATION_MAGIC_IMMUNITY_TIME})
+        elseif ring:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
+            for i = 0, 8, 1 do
+                local ability = caster:GetAbilityByIndex(i)
+                if ability and IsValidEntity(ability) then
+                    local cd = ability:GetCooldownTimeRemaining()
+                    ability:EndCooldown()
+                    if i == DOTA_R_SLOT and cd > INTUITION_ULTIMATE_MIN_CD then
+                        ability:StartCooldown(INTUITION_ULTIMATE_MIN_CD)
+                    end
+                end
+            end
+        end
+        Timers:CreateTimer(2, function()
+            ParticleManager:DestroyParticle(pfx, false)
+        end)
+    end
+    CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "inspiration_ring", {abilities_cast = ring.abilities_cast, ring_name = ring:GetAbilityName(), clear = 0, caster = caster:GetEntityIndex(), border_color = ring.newItemTable.property1color})
 end

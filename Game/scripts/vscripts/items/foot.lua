@@ -217,6 +217,11 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		RPCItems:PreacheArcanaResources(item)
 	elseif propertyName == "destruction" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_iron_treads_of_destruction", item)
+	elseif propertyName == "pegasus" then
+		Foot:addItemModifier(0, hero, inventory_unit, "modifier_pegasus_boots", item)
+	elseif propertyName == "pivotal" then
+		Foot:addItemModifier(0, hero, inventory_unit, "modifier_pivotal_swiftboots", item)
+		RPCItems:PreacheArcanaResources(item)
 	end
 	item.hero = hero
 	hero.foot = item
@@ -316,6 +321,8 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_iron_treads_of_destruction")
 	hero:RemoveModifierByName("modifier_conjuror_arcana4")
 	hero:RemoveModifierByName("modifier_slipfinn_arcana1")
+	hero:RemoveModifierByName("modifier_pegasus_boots")
+	hero:RemoveModifierByName("modifier_pivotal_swiftboots")
 	hero.arcanys = nil
 	hero.redrock = nil
 

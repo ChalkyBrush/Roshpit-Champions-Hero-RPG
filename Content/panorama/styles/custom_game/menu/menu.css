@@ -135,9 +135,20 @@
   100% { opacity: 0; }
 }
 
+@keyframes 'mainFadeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .animateFadeOut{
     animation-name: fadeOut;
     animation-duration: 2.1s;
+    animation-timing-function: linear;  
+}
+
+.animateMainFadeIn{
+    animation-name: mainFadeIn;
+    animation-duration: 0.85s;
     animation-timing-function: linear;  
 }
 
