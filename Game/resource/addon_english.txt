@@ -5940,7 +5940,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_arcana2"                              "Dragonborne Helm"
         "item_property_warlord_arcana2"                                     "Elemental Catastrophe"
-        "property_warlord_arcana2_description"                              "Replaces @Ability1 with Cataclysm Shaker, Frost Scathe, and Flame Wreck."
+        "property_warlord_arcana2_description"                              "Replaces @Ability1 with Catastrophe Shaker, Frost Scathe, and Flame Wreck."
 		
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "Catastrophe Shaker"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#3289C7\">Dragon</font><br>An earth breaking fissure breaks upon the chosen vector start point and end point. The wall's length scales with the cast vector chosen, up to a maximum wall length. The fissure has collision and damage and stuns enemies who are hit by its initial crash. Damage is increased by Strength."
@@ -12661,7 +12661,7 @@
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by @special_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
-		"item_property_tiamat_claw"							"Prismatic Grip"
+		"item_property_tiamat_claw"							"Prismatic Vise"
 		"property_tiamat_claw_description"					"All attributes are fixed at this property's value and cannot be changed by any means."
 
 		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"

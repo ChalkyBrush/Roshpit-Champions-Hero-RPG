@@ -303,7 +303,7 @@
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by @special_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
-		"item_property_tiamat_claw"							"Prismatic Grip"
+		"item_property_tiamat_claw"							"Prismatic Vise"
 		"property_tiamat_claw_description"					"All attributes are fixed at this property's value and cannot be changed by any means."
 
 		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
