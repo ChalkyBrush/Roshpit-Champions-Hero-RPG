@@ -116,7 +116,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"main_aoe_duration"				"10"
+				"main_aoe_duration"				"12"
 			}
 			"04"
 			{
@@ -178,7 +178,7 @@
 			"modifier_ice_scathe_passive"
 			{
 				"Passive"	"1"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"ThinkInterval"  "3"
 				"OnIntervalThink"
 				{
@@ -281,6 +281,13 @@
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_ice_scathe_q2_shield"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"EffectName"		"particles/roshpit/warlord/warlord_arcana2_q2_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
 		}
 	}
 
@@ -323,7 +330,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"wreck_duration"			"10"
+				"wreck_duration"			"12"
 			}
 			"03"
 			{
@@ -390,6 +397,25 @@
 					}
 				}
 			}
+			"modifier_flame_wreck_q3_atk_power"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_flame_wreck_q3_atk_power"
+						"Target" 		"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% WARLORD_ARCANA2_Q3_ATK_SPEED %>"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% WARLORD_ARCANA2_Q3_GREEN_DMG_PCT %>" 
+				}
+			}
 		}
 	}
 
@@ -404,24 +430,13 @@
 		"AbilityTextureName"	"warlord/warlord_rune_r_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
+				"property_one"			"<% WARLORD_ARCANA2_Q1_POST_MIT %>"
 			}
 		}
 	}
@@ -436,24 +451,23 @@
 		"AbilityTextureName"	"warlord/warlord_rune_r_2_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% WARLORD_ARCANA2_Q2_DURATION_BASE %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% WARLORD_ARCANA2_Q2_DURATION_PER_LEVEL %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"9"
+				"property_two"			"<% WARLORD_ARCANA2_Q2_INT_BONUS %>"
 			}
 		}
 	}
@@ -468,29 +482,18 @@
 		"AbilityTextureName"	"warlord/warlord_rune_r_3_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% WARLORD_ARCANA2_Q3_GREEN_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"property_two"			"<% WARLORD_ARCANA2_Q3_ATK_SPEED %>"
 			}
 		}
 	}
@@ -510,12 +513,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"<% WARLORD_ARCANA2_Q4_DRAGON_AMP_PER_ATTRIBUTES %>"
 			}
 		}
 	}

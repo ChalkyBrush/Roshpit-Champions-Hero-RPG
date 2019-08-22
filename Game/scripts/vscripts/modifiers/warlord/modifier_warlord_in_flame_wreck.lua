@@ -15,6 +15,14 @@ function modifier_warlord_in_flame_wreck:GetModifierMoveSpeed_Max(params)
     return cap
 end
 
+function modifier_warlord_in_flame_wreck:CheckState()
+	local state = {
+	[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+	}
+
+	return state
+end
+
 function modifier_warlord_in_flame_wreck:IsHidden()
     return true
 end

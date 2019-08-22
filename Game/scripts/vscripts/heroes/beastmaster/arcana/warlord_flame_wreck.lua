@@ -40,7 +40,12 @@ function flame_wreck_thinker(event)
 		if unit:GetTeamNumber() ~= caster:GetTeamNumber() then
 			Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, RPC_ELEMENT_FIRE, RPC_ELEMENT_DRAGON, 1)
 		elseif unit == caster then
-			caster:AddNewModifier(caster, ability, "modifier_warlord_in_flame_wreck", {duration = 0.5})
+			caster:AddNewModifier(caster, ability, "modifier_warlord_in_flame_wreck", {duration = 0.56})
+			local q_3_level = caster:GetRuneValue("q", 3)
+			if q_3_level > 0 then
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_flame_wreck_q3_atk_power", {})
+				caster:SetModifierStackCount("modifier_flame_wreck_q3_atk_power", caster, q_3_level)
+			end
 		end
 		Timers:CreateTimer(0.03, function()
 			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)

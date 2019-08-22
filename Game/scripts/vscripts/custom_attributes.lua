@@ -15,6 +15,7 @@ require('/heroes/skywrath_mage/constants')
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/winter_wyvern/dinath_constants")
+require("/heroes/beastmaster/warlord_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -391,6 +392,12 @@ function CustomAttributes:SetAttributes(hero)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 		end
 	end
+	if hero:HasModifier("modifier_warlord_arcana2") then
+		local q_4_level = attacker:GetRuneValue("q", 4)
+		str_bonus = str_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+		agi_bonus = agi_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+		int_bonus = int_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", SEINARU_ARCANA_Q3_AGI)
 	end
@@ -544,7 +551,9 @@ function CustomAttributes:SetAttributes(hero)
 		local ability = hero:FindAbilityByName("omniro_omni_mace")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_omnimace_wind_buff", ability:GetSpecialValueFor("wind_special_a"))
 	end
-
+	if hero:HasModifier("modifier_ice_scathe_q2_shield") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ice_scathe_q2_shield", WARLORD_ARCANA2_Q2_INT_BONUS)
+	end
 	-- BASIC ITEMS STATS --
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_agility", 1)

@@ -50,7 +50,13 @@ function walk_into_ice_scathe(event)
 	local ability = event.ability
 	local target = event.target
 
-	if target:GetTeamNumber() == caster:GetTeamNumber() then
+	if target == caster then
+		ability.q2_level = caster:GetRuneValue("q", 2)
+		if ability.q2_level > 0 then
+			target:RemoveModifierByName("modifier_ice_scathe_q2_shield")
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_scathe_q2_shield", {})
+			target:SetModifierStackCount("modifier_ice_scathe_q2_shield", caster, ability.q2_level)
+		end
 		-- hero effect
 	else
 		local delay = event.freeze_delay
@@ -64,7 +70,12 @@ function walk_out_of_ice_scathe(event)
 	local ability = event.ability
 	local target = event.target
 	target:RemoveModifierByName("modifier_in_ice_scathe_enemy")
-	if target:GetTeamNumber() == caster:GetTeamNumber() then
+	if target == caster then
+		local linger_duration = WARLORD_ARCANA2_Q2_DURATION_BASE + WARLORD_ARCANA2_Q2_DURATION_PER_LEVEL*ability.q2_level
+
+		target:RemoveModifierByName("modifier_ice_scathe_q2_shield")
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_scathe_q2_shield", {duration = linger_duration})
+		target:SetModifierStackCount("modifier_ice_scathe_q2_shield", caster, ability.q2_level)
 		-- hero effect
 	else
 		-- ability:ApplyDataDrivenModifier(handle source, handle target, string modifier_name, handle modifierArgs)
@@ -103,8 +114,8 @@ function ice_scathe_pop(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ICE, RPC_ELEMENT_DRAGON)
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ice_scathe_freeze", {duration = freeze_duration})
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ICE, RPC_ELEMENT_DRAGON)
 		end
 	end
 	EmitSoundOnLocationWithCaster(origin, "Warlord.IceScathe.Pop", caster)

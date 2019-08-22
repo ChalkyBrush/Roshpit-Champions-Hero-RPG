@@ -2721,6 +2721,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
                 end
             end
+        elseif unitName == "npc_dota_hero_beastmaster" and attacker:HasModifier("modifier_warlord_arcana2") then
+            local q_4_level = attacker:GetRuneValue("q", 4)
+            mult = mult + WARLORD_ARCANA2_Q4_DRAGON_AMP_PER_ATTRIBUTES * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level        
         end
     end
     if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then

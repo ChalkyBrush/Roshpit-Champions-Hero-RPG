@@ -5402,7 +5402,9 @@ function boreal_granite_vest_take_damage(event)
 			local castPointSave = hero.castPointQ
 			ability.boreal_cast_point = castPointSave
 			ability:SetOverrideCastPoint(0)
-			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+			if ability:GetAbilityName() == "warlord_cataclysm_shaker" then
+				ability:OnSpellStart()
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
 				local order =
 				{
 					UnitIndex = hero:entindex(),

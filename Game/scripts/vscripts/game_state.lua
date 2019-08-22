@@ -20,6 +20,7 @@ require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
+require("/heroes/beastmaster/warlord_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1691,6 +1692,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
 		damage = damage * 0.5
 	end
+	if victim:HasModifier("modifier_ice_scathe_q2_shield") then
+		damage = damage * (1-(WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT/100))
+	end
 	if victim:HasModifier("modifier_ogre_armor") then
 		local ogreArmor = victim:FindAbilityByName("winterblight_ogre_armor")
 		local reduction = ogreArmor:GetLevelSpecialValueFor("damage_resist", ogreArmor:GetLevel())
@@ -2635,6 +2639,12 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + 2
+		end
+	end
+	if attacker:HasModifier("modifier_warlord_arcana2") then
+		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
+			local mult_bonus = attacker:GetRuneValue("q", 3)*(WARLORD_ARCANA2_Q1_POST_MIT/100)
+			mult = mult + mult_bonus
 		end
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
