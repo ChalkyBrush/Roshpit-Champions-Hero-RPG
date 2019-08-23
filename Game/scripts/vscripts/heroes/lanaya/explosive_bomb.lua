@@ -11,7 +11,10 @@ function bomb_throw_start(event)
         EmitSoundOn("Trapper.BombThrow", caster)
 
     end)
-    local bombsCount = 5
+    local bombsCount = TRAPPER_T31_ADD_BOMBS
+    if caster:HasModifier('modifier_trapper_glyph_3_1') then
+        bombsCount = bombsCount + TRAPPER_T31_ADD_BOMBS
+    end
     for i = 1,bombsCount do
         local bomb = createBomb(event, caster, ability)
         local bombTarget = target
@@ -351,7 +354,7 @@ function smoke_bomb_think(event)
                     local damageBonusMult = 1 - (distance / radius)
                     damage = b_b_damage + b_b_damage * damageBonusMult * w_1_level * TRAPPER_W1_AMP_PERCENT / 100
                     if origCaster.w3_level > 0 then
-                        damage = damage * (1 + casterOrigin.w3_level * TRAPPER_W3_AMP_INVISIBLE_W)
+                        damage = damage * (1 + origCaster.w3_level * TRAPPER_W3_AMP_INVISIBLE_W)
                     end
                 end
                 Damage:Apply({
