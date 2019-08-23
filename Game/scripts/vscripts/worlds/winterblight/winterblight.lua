@@ -32,7 +32,8 @@ function Winterblight:Debug()
     RPCItems:RollBerylRingOfIntuition(Vector(-15424,-2560), 40)
     RPCItems:RollAuricRingOfInspiration(Vector(-15424,-2560), 40)
 
-    RPCItems:RollSoluniaArcana3(Vector(-15424,-2560))
+    -- RPCItems:RollSoluniaArcana3(Vector(-15424,-2560))
+    RPCItems:RollChernobogArcana1(Vector(-15424,-2560))
 
     -- RPCItems:RollWindDeityCrown(Vector(-15424,-2560), false, 4)
     -- RPCItems:RollBorealGraniteVest(Vector(-15424,-2560))
