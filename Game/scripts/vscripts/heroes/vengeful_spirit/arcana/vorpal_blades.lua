@@ -30,16 +30,16 @@ function start_vorpal_blades(event)
 	local vorpals_for_this_throw = math.min(3, total_max_blades-#ability.vorpals)
 
 	local damage = event.damage
-	local q_1_level = caster:GetRuneValue("q", 1)
-	damage = damage + q_1_level*(SOLUNIA_ARCANA_W1_ATK_DMG_ADDED_TO_VORPAL_PCT/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local w_1_level = caster:GetRuneValue("w", 1)
+	damage = damage + w_1_level*(SOLUNIA_ARCANA_W1_ATK_DMG_ADDED_TO_VORPAL_PCT/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
 
-	local q_2_level = caster:GetRuneValue("q", 2)
-	damage = damage + q_2_level*(SOLUNIA_ARCANA_W2_CURRENT_MANA_ADDED_TO_DAMAGE_PCT/100)*caster:GetMana()
-	local mana_restore = q_2_level*caster:GetMana()*(SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT/100)
-	local q_3_level = caster:GetRuneValue("q", 3)
+	local w_2_level = caster:GetRuneValue("w", 2)
+	damage = damage + w_2_level*(SOLUNIA_ARCANA_W2_CURRENT_MANA_ADDED_TO_DAMAGE_PCT/100)*caster:GetMana()
+	local mana_restore = w_2_level*caster:GetMana()*(SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT/100)
+	local w_3_level = caster:GetRuneValue("w", 3)
 
 	local bounces = event.base_bounces
-	local q_4_level = caster:GetRuneValue("q", 4)
+	local w_4_level = caster:GetRuneValue("w", 4)
 	
 	for i = 1, vorpals_for_this_throw do
 		local vorpal = {}
@@ -50,7 +50,7 @@ function start_vorpal_blades(event)
 		local vorpal_origin = caster:GetAbsOrigin() + Vector(0,0,160)
 
 		local bounces = event.base_bounces
-		bounces = bounces + Runes:Procs(q_4_level, SOLUNIA_ARCANA_W4_EXTRA_BOUNCE_CHANCE, 1)
+		bounces = bounces + Runes:Procs(w_4_level, SOLUNIA_ARCANA_W4_EXTRA_BOUNCE_CHANCE, 1)
 
 		vorpal.active = true
 		vorpal.speed = vorpal_speed
@@ -59,7 +59,7 @@ function start_vorpal_blades(event)
 		vorpal.interval = 0
 		vorpal.damage = damage
 		vorpal.mana_restore = mana_restore
-		vorpal.q_3_level = q_3_level
+		vorpal.w_3_level = w_3_level
 		vorpal.type = event.type
 		local pfx = ParticleManager:CreateParticle(vorpal_particle, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector())
@@ -145,10 +145,10 @@ function vorpal_blades_thinking(event)
 						EmitSoundOn("Solunia.Arcana3.Vorpal.Hit", vorpal.lock_entity)
 						EmitSoundOn("Solunia.Arcana3.Vorpal.Hit.Highlight", vorpal.lock_entity)
 						local damage = vorpal.damage
-						if q_3_level > 0 then
+						if vorpal.w_3_level > 0 then
 							local luck = RandomInt(1, 100)
 							if luck <= 20 then
-								damage = damage + damage*(SOLUNIA_ARCANA_W3_CRIT_DMG/100)
+								damage = damage + damage*(SOLUNIA_ARCANA_W3_CRIT_DMG/100)*vorpal.w_3_level
 								CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/vorpal_crit_blur.vpcf", vorpal.lock_entity, 3)
 								if caster:HasModifier("modifier_solunia_immortal_weapon_2") then
 									immo_weapon_2_effect(caster, vorpal.lock_entity)

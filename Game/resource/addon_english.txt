@@ -9646,6 +9646,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix_two"			""
 
         //ARCANA 3
+        "DOTA_Tooltip_ability_item_rpc_solunia_arcana3"                     "Tellurian Bracers"
 
         "item_property_solunia_arcana3"                                     "Vorpal Blades"
         "property_solunia_arcana3_description"                              "Replaces @Ability2 and all of its runes with Solar and Lunar Vorpal Blades."
@@ -9678,7 +9679,7 @@
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% of current mana" 
 
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Break"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a 20% chance to deal a critical strike that deals enhanced damage."
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Critical Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"

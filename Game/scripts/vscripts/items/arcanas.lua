@@ -1235,7 +1235,7 @@ function RPCItems:RollSoluniaArcana3(deathLocation)
     local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "!arcana!_solunia_arcana3"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_solunia_arcana3", "#42BCF4", 1, "#property_solunia_arcana3_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_solunia_arcana3", "#f542c5", 1, "#property_solunia_arcana3_description")
 
     item.newItemTable.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
