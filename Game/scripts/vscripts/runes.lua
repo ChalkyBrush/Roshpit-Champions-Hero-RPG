@@ -1016,6 +1016,20 @@ function Runes:EquipArcana(hero, index)
 				end
 				Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "solunia_supernova", "solunia_solar_alpha_spark", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			end
+		elseif index == 3 then
+			hero:RemoveModifierByName("modifier_outgoing_solarang")
+			hero:RemoveModifierByName("modifier_outgoing_lunarang")
+			if hero.sunMoon == "moon" then
+				if hero:HasAbility("solunia_solarang") then
+					hero:RemoveAbility("solunia_solarang")
+				end
+				Runes:EasySwapArcanaSkills(hero, 1, "solunia_lunarang", "solunia_lunar_vorpal_blades", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			else
+				if hero:HasAbility("solunia_lunarang") then
+					hero:RemoveAbility("solunia_lunarang")
+				end
+				Runes:EasySwapArcanaSkills(hero, 1, "solunia_solarang", "solunia_solar_vorpal_blades", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			end
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_monkey_king" then
 		if index == 1 then
@@ -1720,6 +1734,20 @@ function Runes:UnequipArcana(hero, index)
 					hero:RemoveAbility("solunia_lunar_alpha_spark")
 				end
 				Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "solunia_supernova", "solunia_solar_alpha_spark", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			end
+		elseif index == 3 then
+			hero:RemoveModifierByName("modifier_vorpal_blade_thinker_lunar")
+			hero:RemoveModifierByName("modifier_vorpal_blade_thinker_solar")
+			if hero.sunMoon == "moon" then
+				if hero:HasAbility("solunia_solar_vorpal_blades") then
+					hero:RemoveAbility("solunia_solar_vorpal_blades")
+				end
+				Runes:EasyRevertArcanaSkills(hero, 1, "solunia_lunarang", "solunia_lunar_vorpal_blades", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
+			else
+				if hero:HasAbility("solunia_lunar_vorpal_blades") then
+					hero:RemoveAbility("solunia_lunar_vorpal_blades")
+				end
+				Runes:EasyRevertArcanaSkills(hero, 1, "solunia_solarang", "solunia_solar_vorpal_blades", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana3")
 			end
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_monkey_king" then

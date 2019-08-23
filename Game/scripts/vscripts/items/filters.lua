@@ -2331,6 +2331,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_cosmos", attacker.InventoryUnit)
             cosmosMult = cosmosMult + stacks / 100
         end
+        if attacker:HasModifier("modifier_hand_cosmos") then
+            local stacks = attacker:GetModifierStackCount("modifier_hand_cosmos", attacker.InventoryUnit)
+            mult = mult + stacks / 100
+        end
         if victim:HasModifier("modifier_starfall_a_d_visible") then
             local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
             cosmosMult = cosmosMult + stacks * 0.1
@@ -2697,7 +2701,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks / 100
         end
         if attacker:HasModifier("modifier_hand_undead") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_undead", attacker.InventoryUnit)
+            local stacks = attacker:GetModifierStackCount("modifier_hand_undead", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
         if attacker:HasModifier("modifier_trinket_undead") then

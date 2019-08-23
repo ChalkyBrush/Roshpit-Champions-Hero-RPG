@@ -279,6 +279,51 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix"				"% per 10 attributes"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_two"		"Passive Stat Bonus"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix_two"			""
+
+        //ARCANA 3
+
+        "item_property_solunia_arcana3"                                     "Vorpal Blades"
+        "property_solunia_arcana3_description"                              "Replaces @Ability2 and all of its runes with Solar and Lunar Vorpal Blades."
+
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades"                    "Solar Vorpal Blades"             
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description"        "Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#EF4126\">Fire</font><br>Throws out 3 solar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_damage"             "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_base_bounces"         "BOUNCES:"
+
+        "DOTA_Tooltip_modifier_active_sun_vorpals"                           "Active Solar Vorpal Blades"
+
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades"                    "Lunar Vorpal Blades"             
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description"        "Element: <font color=\"#C25DFC\">Cosmic</font> / <font color=\"#87D9FF\">Ice</font><br>Throws out 3 lunar vorpal blades that seek out enemies within 1000 range of Solunia. The blades deal damage on hit and can bounce to other enemies if there are any nearby."
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_damage"             "DAMAGE:"
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_max_blades"           "MAXIMUM ACTIVE CONCURRENT BLADES:"
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_base_bounces"         "BOUNCES:"
+
+        "DOTA_Tooltip_modifier_active_moon_vorpals"                           "Active Lunar Vorpal Blades"
+
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3"                     "[W1] Aphelion Weapon"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_Description"         "Solunia's attack damage is added to Vorpal Blade's base damage."
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_property_one"            "Additional Damage"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_suffix"                  "% of attack power"
+
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3"                     "[W2] Blades of Neptune"
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Vorpal Blades restore mana on hit, and deal additional damage based on current mana."
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one"            "Mana Restore"
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  "per hit" 
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% of current mana" 
+
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Break"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a 20% chance to deal a critical strike that deals enhanced damage."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Critical Damage"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
+
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3"                     "[W4] Extended Orbit"
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_Description"         "Gives Vorpal Blades a chance to bounce additional times. Greater than 100% means they can gain multiple extra bounces."
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_property_one"        "Chance for additional bounce"
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_suffix"              "%"
+
+        
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"Glyph of Crescents"

@@ -203,6 +203,8 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_water", hand_ability)
 	elseif propertyName == "undead" then
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_undead", hand_ability)
+	elseif propertyName == "cosmos" then
+		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_cosmos", hand_ability)
 	elseif propertyName == "trapper_arcana1" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_trapper_arcana1", item)
 	elseif propertyName == "blue_rain" then
@@ -412,6 +414,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_hand_holy")
 	hero:RemoveModifierByName("modifier_hand_undead")
 	hero:RemoveModifierByName("modifier_hand_fire")
+	hero:RemoveModifierByName("modifier_hand_cosmos")
 	hero:RemoveModifierByName("modifier_trapper_arcana1")
 	hero:RemoveModifierByName("modifier_hand_water")
 	hero:RemoveModifierByName("modifier_blue_rain_gauntlet")
