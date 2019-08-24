@@ -92,7 +92,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Обездвижен и получает увеличенный пост-резистный урон"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] Astral Empowerment"
-    	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"Применение @Ability3 увеличит скорость атаки и урон на 6 секунд. Дополнительно цели в радиусе 1000 от места мадения звезды атакуются регулярным выстрелом."
+    	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"Применение @Ability3 увеличит скорость атаки и урон на 6 секунд. Дополнительно цели в радиусе 1000 от места падения звезды атакуются стандартным выстрелом."
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_one"				"Доп. скорость атаки"
     	"DOTA_Tooltip_ability_astral_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_two"				"Доп. урон"
