@@ -73,6 +73,7 @@ function Winterblight:InitCavernData()
 	Winterblight.CavernData.Chambers = {}
 	Winterblight.CavernData.RelicsFragments = 0
 	Winterblight.CavernData.tiamat_status = 0
+	Winterblight.CavernData.realm_breaker_status = -1
 	for i = 1, 4, 1 do
 		Winterblight.CavernData.Chambers[i] = {}
 		Winterblight.CavernData.Chambers[i]["status"] = 0
@@ -978,7 +979,11 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		-- if Beacons.cheats then
 		-- 	Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
 		-- end
-
+		local realm_breaker_level = Winterblight:realm_breaker_level()
+		if realm_breaker_level > 0 then
+			Winterblight.CavernData.realm_breaker_status = 0
+			Winterblight.CavernData.realm_breaker_level = realm_breaker_level
+		end
 		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
 
 		Winterblight:CavernEventWinItemDrop(level, position)
@@ -4207,18 +4212,28 @@ end
 
 function Winterblight:CavernBossSummon(msg)
 	local chamber = tonumber(msg.chamber)
+
+	local cost = 2000
+	if chamber == 5 then
+		cost = 4000
+	elseif chamber == 6 then
+		cost = 8000
+	end
+	if Winterblight.CavernData.RelicsFragments < cost then
+		return false
+	end
 	if chamber == 5 then
 		Winterblight:TiamatSequence(msg)
+		return false
+	elseif chamber == 6 then
+		Winterblight:RealmBreakerSequence(msg)
 		return false
 	end
 	if Winterblight.CavernData.Chambers[chamber]["boss_status"] ~= 0 then
 		return false
 	end
 	Winterblight.CavernData.Chambers[chamber]["boss_status"] = 1
-	local cost = 2000
-	if Winterblight.CavernData.RelicsFragments < cost then
-		return false
-	end
+
 	local boss_level = Winterblight:calculate_cavern_boss_level(chamber)
 	if boss_level < 1 then
 		return false
@@ -4275,6 +4290,91 @@ function Winterblight:CavernBossSummon(msg)
 	Winterblight:SetCavernUnit(boss, boss:GetAbsOrigin(), false, false, 0)
 end
 
+function Winterblight:realm_breaker_level()
+	local level = 0
+	local total_chamber_levels = 0
+	local total_chamber_clears = 0
+	for i = 1, 4, 1 do
+		for j = 1, 4, 1 do
+			if Winterblight.CavernData.Chambers[i]["events"][j]["status"] == 2 then
+				total_chamber_clears = total_chamber_clears + 1
+				total_chamber_levels = total_chamber_levels + Winterblight.CavernData.Chambers[i]["events"][j]["level"]
+			end
+		end
+	end
+	if total_chamber_clears == 16 then
+		level = total_chamber_levels/total_chamber_clears
+	end
+	return level
+end
+
+function Winterblight:RealmBreakerSequence(msg)
+	if not Winterblight:AreAllChambersCleared() then
+		return false
+	end
+	if Winterblight.CavernData.realm_breaker_status ~= 0 then
+		return false
+	end
+	Winterblight.CavernData.realm_breaker_status = 1
+	local cost = 8000
+	if Winterblight.CavernData.RelicsFragments < cost then
+		return false
+	end
+	local boss_level = Winterblight:realm_breaker_level()
+	if boss_level < 1 then
+		return false
+	end
+	Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments - cost
+	local position = Vector(-13440, 13584)
+	local boss = Winterblight:SpawnRealmBreaker(position)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
+
+	EmitSoundOnLocationWithCaster(boss:GetAbsOrigin(), "Winterblight.BossOut", boss)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/alt_big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
+	local pfx2 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, boss)
+	ParticleManager:SetParticleControl(pfx2, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx2, 1, Vector(600, 2, 2))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+		ParticleManager:DestroyParticle(pfx2, false)
+		ParticleManager:ReleaseParticleIndex(pfx2)
+	end)
+	ScreenShake(boss:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
+	local player = PlayerResource:GetPlayer(msg.PlayerID)
+	local hero = player:GetAssignedHero()
+	Dungeons:LockCameraToUnitForPlayers(boss, 2, {hero})
+	EmitSoundOn("Winterblight.CavernBoss.Spawn", boss)
+
+	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
+	Timers:CreateTimer(1.0, function()
+		EmitSoundOnLocationWithCaster(Winterblight.CavernGuide:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", Winterblight.CavernGuide, 4)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", Winterblight.CavernGuide:GetAbsOrigin(), 4)
+	end)
+	boss.boss_level = boss_level
+	boss.boss_chamber = 6
+	boss.chamber = 0
+	Winterblight:SetCavernUnit(boss, boss:GetAbsOrigin(), false, false, 0)
+end
+
+function Winterblight:AreAllChambersCleared()
+	local cleared = true
+	for i = 1, 4, 1 do
+		for j = 1, 4, 1 do
+			if Winterblight.CavernData.Chambers[i]["events"][j]["status"] == 2 then
+			else
+				cleared = false
+				break
+			end
+		end
+	end
+	return cleared
+end
+
 function Winterblight:calculate_cavern_boss_level(chamber)
 	local level = 0
 	local divisor = 0
@@ -4297,6 +4397,17 @@ function Winterblight:SpawnTorturok(position)
 	boss:SetRenderColor(100, 100, 255)
 	EmitSoundOn("Torturok.Spawn", boss)
 	boss.reduc = 0.1
+	return boss
+end
+
+function Winterblight:SpawnRealmBreaker(position)
+	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("winterblight_realm_breaker", position, 9, 12, "Winterblight.RealmBreaker.Aggro", RandomVector(1), false)
+	boss:SetRenderColor(100, 100, 255)
+	Winterblight:SetPositionCastArgs(boss, 1000, 300, 1, FIND_ANY_ORDER)
+	Timers:CreateTimer(1, function()
+		EmitSoundOn("Winterblight.RealmBreaker.Spawn", boss)
+	end)
+	boss.reduc = 0.01
 	return boss
 end
 

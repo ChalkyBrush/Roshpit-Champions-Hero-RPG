@@ -93498,8 +93498,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "113600"
-        "AttackDamageMax"   "116000" 
+        "AttackDamageMin"   "11360"
+        "AttackDamageMax"   "11600" 
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -93514,7 +93514,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "290"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1804820"
+        "StatusHealth"  "112358"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "100"
         "StatusManaRegen"   "0"
@@ -97498,6 +97498,92 @@
         "Ability4"          "hero_summon_ai"
         "Ability5"          "rubick_apprentice_reset"
 
+    }
+
+    "winterblight_realm_breaker"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/enigma/enigma.vmdl"
+        "ModelScale"    "2.5"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "precache"
+        {
+            "particle"      "particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+            "particle"      "particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+        }
+        "HasInventory"  "0"
+        "SoundSet"              "Hero_Enigma"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "ArmorPhysical" "1"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "213600"
+        "AttackDamageMax"   "216000" 
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "1100"
+        "ProjectileModel"   "particles/roshpit/winterblight/realm_breaker_attack.vpcf"
+        "ProjectileSpeed"   "1200"
+        "BountyXP" "620"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "450"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "3905920"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "0"
+        "VisionDaytimeRange"    "2400"
+        "VisionNighttimeRange"  "2400"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "13021"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8326"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "13023"
+                }
+            }
+        }
+        "Ability1"      "realm_breaker_midnight_pulse"
+        "Ability2"      "realm_breaker_radeon_orbit"
+        "Ability3"      "mega_steadfast"
+        "Ability4"      "winterblight_crystal_meditation"
+        "Ability5"      "creature_pure_strike"
+        "Ability6"      "winterblight_descent_boss_ability"
+        "Ability7"      "use_ability_1_position_ai"
+        "Ability8"      "dungeon_creep"
     }
     
 

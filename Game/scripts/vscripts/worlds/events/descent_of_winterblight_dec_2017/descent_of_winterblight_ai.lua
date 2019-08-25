@@ -660,8 +660,14 @@ end
 
 function winterblight_boss_final_death_animation(caster)
 	print("ANIMATION")
-	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2
-	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_level_defeated"] = caster.boss_level
+	local realm_breaker_death = false
+	if caster.boss_chamber <= 4 then
+		Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2
+		Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_level_defeated"] = caster.boss_level
+	elseif caster.boss_chamber == 6 then
+		Winterblight.CavernData.realm_breaker_status = 2
+		realm_breaker_death = true
+	end
 	EndAnimation(caster)
 	StartAnimation(caster, {duration = 1.9, activity = ACT_DOTA_DIE, rate = 1.9})
 	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.2, 60)
@@ -696,6 +702,11 @@ function winterblight_boss_final_death_animation(caster)
 		if gigarraun_death then
 			Timers:CreateTimer(1, function()
 				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Death", Events.GameMaster)
+			end)
+		end
+		if realm_breaker_death then
+			Timers:CreateTimer(1, function()
+				EmitSoundOnLocationWithCaster(position, "Winterblight.RealmBreaker.AfterDeath", Events.GameMaster)
 			end)
 		end
 	end)
