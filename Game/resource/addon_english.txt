@@ -19589,6 +19589,11 @@
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_ms_loss"				"MOVESPEED REDUCTION:"
 
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit"							"Radeon Orbit"
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_Description"				"Cosmic Sparks seek out nearby enemies and bounce between targets on impact."
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_base_bounces"				"MAX BOUNCES:"
+
 
 
 		"winterblight_cavern"										"Winterblight Cavern"
