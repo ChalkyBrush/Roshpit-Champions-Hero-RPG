@@ -373,7 +373,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Carbon Forge"
-		"property_alien_armor_description"				"Casting @Ability4 creates an illusion with <% ALIEN_ARMOR_ILLUSION_AS %> bonus attack speed whose damage is attributed to the caster as item damage. The illusion deals <% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x damage, takes <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% reduced damage and lasts <% ALIEN_ARMOR_ILLUSION_DURATION %> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <% ALIEN_ARMOR_RESPAWN_DELAY %> second delay."
+		"property_alien_armor_description"				"Casting @Ability4 creates an illusion with <% ALIEN_ARMOR_ILLUSION_AS %> bonus attack speed whose damage is attributed to the caster as item damage. The illusion deals <% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x damage, takes <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% reduced damage and lasts <% ALIEN_ARMOR_ILLUSION_DURATION %> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <% ALIEN_ARMOR_RESPAWN_DELAY %> second delay as long as the illusion is alive."
 
 		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
 		"item_property_nethergrasp"							"Outworld Grip"

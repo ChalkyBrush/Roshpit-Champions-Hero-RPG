@@ -6265,12 +6265,12 @@ function alien_armor_die(event)
 
     local randomIllusion = ability.illusion_table[RandomInt(1, #ability.illusion_table)]
     if IsValidEntity(randomIllusion) then
-    	ability:ApplyDataDrivenModifier(caster, randomIllusion, "modifier_disable_player", {})
+    	ability:ApplyDataDrivenModifier(caster, randomIllusion, "modifier_alien_illusion_respawning_effect", {})
 	    local modifier = randomIllusion:FindModifierByName("modifier_illusion")
 	    modifier:SetDuration(ALIEN_ARMOR_RESPAWN_DELAY+0.1, true)
 	    CustomAbilities:QuickAttachParticle("particles/econ/items/enigma/enigma_absolute_armour/enigma_absolute_armour_body_ambient.vpcf", randomIllusion, ALIEN_ARMOR_RESPAWN_DELAY)
 	    Timers:CreateTimer(ALIEN_ARMOR_RESPAWN_DELAY, function()
-	    	if not hero:IsAlive() then
+	    	if not hero:IsAlive() and randomIllusion:IsAlive() then
 	    		local respawnPoint = randomIllusion:GetAbsOrigin()
 	    		local fv = randomIllusion:GetForwardVector()
 				hero:RespawnHero(false, false)

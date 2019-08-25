@@ -326,7 +326,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ALIEN_ARMOR_ILLUSION_AS %>"
 				}
 			}
-			"modifier_disable_player"
+			"modifier_alien_illusion_respawning_effect"
 			{
 				"IsHidden"	"1"
 				"EffectName"	"particles/econ/items/terrorblade/terrorblade_horns_arcana/terrorblade_arcana_enemy_death.vpcf"
