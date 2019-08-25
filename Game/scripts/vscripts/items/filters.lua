@@ -4717,6 +4717,18 @@ function Filters:AlienArmor(caster)
         end
     end
     illusion:SetRenderColor(0, 0, 0)
+
+    if not body.illusion_table then
+        body.illusion_table = {}
+    end
+    local new_body_illusion_table = {}
+    for i = 1, #body.illusion_table, 1 do
+        if IsValidEntity(body.illusion_table[i]) then
+            table.insert(new_body_illusion_table, body.illusion_table[i])
+        end
+    end
+    table.insert(new_body_illusion_table, illusion)
+    body.illusion_table = new_body_illusion_table
 end
 
 
