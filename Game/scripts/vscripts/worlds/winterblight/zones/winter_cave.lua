@@ -1,6 +1,6 @@
 function Winterblight:CaveGuideSpawn()
 	if not Winterblight.CaveGuideSpawned then
-		if Winterblight.CaveGuideReady then
+		if Winterblight.CaveGuideReady or Beacons.cheats then
 			if not Winterblight.CavernPrecached then
 				Winterblight.CavernPrecached = true
 				Precache:WinterblightCavern()
@@ -4005,6 +4005,7 @@ end
 
 function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
 	if Winterblight:ShouldSpawnCaveUnit(4, black_hole.spawnphase) then
+		local position = black_hole:GetAbsOrigin()
 		local unit = nil
 		if black_hole_unit_index == 1 then
 			unit = Winterblight:SpawnMountainOgre(position, Vector(0,-1))

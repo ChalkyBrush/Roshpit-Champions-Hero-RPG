@@ -3432,7 +3432,10 @@ function GameState:FilterDamage(filterTable)
 		local reduction = 0.6^chamber_level
 		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
 		else
-			filterTable["damage"] = 0
+			if applyEffects then
+				print("damage = 0")
+				filterTable["damage"] = 0
+			end
 		end
 		if victim.chamber > 0 then
 			if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
@@ -3449,7 +3452,9 @@ function GameState:FilterDamage(filterTable)
 		if victim.chamber > 0 then
 			local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 			if attacker:GetPlayerOwnerID() ~= allowed_player then
-				filterTable["damage"] = 0
+				if applyEffects then
+					filterTable["damage"] = 0
+				end
 			end
 		end
 		if victim:HasModifier("modifier_merkurio_crystal_purple") and filterTable["damage"] > 0 then
@@ -4297,26 +4302,26 @@ function GameState:FilterDamage(filterTable)
 	-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if victim:IsHero() then
-		-- 		-- print("TAKE DAMAGE: "..filterTable["damage"])
-		-- 		filterTable["damage"] = 0
-		-- 	end
-		-- 	if victim:GetUnitName() == "rubick_apprentice" then
-		-- 		filterTable["damage"] = 1000
-		-- 	end
-		-- end
-		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-		-- 	if attacker:IsHero() then
-		-- 		if not victim:HasModifier("modifier_disable_player") then
-		-- 			if not victim:HasModifier("modifier_aeon_shield_passive") then
-		-- 				if filterTable["damage"] > 0 then
-		-- 					filterTable["damage"] = 999999999999999
-		-- 				end
-		-- 			end
-		-- 		end
-		-- 	end
-		-- end
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				-- print("TAKE DAMAGE: "..filterTable["damage"])
+				filterTable["damage"] = 0
+			end
+			if victim:GetUnitName() == "rubick_apprentice" then
+				filterTable["damage"] = 1000
+			end
+		end
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				if not victim:HasModifier("modifier_disable_player") then
+					if not victim:HasModifier("modifier_aeon_shield_passive") then
+						if filterTable["damage"] > 0 then
+							filterTable["damage"] = 999999999999999
+						end
+					end
+				end
+			end
+		end
 		-- filterTable["damage"] = 0
 	end
 
