@@ -2568,7 +2568,7 @@ end
 
 function Winterblight:SpawnShroomUnit(caster, position, shroom_unit_spawn_index)
 	local spawnphase = caster.spawnphase
-	if Winterblight:ShouldSpawnCaveUnit(3, spawnphase) then
+	if Winterblight:ShouldSpawnCaveUnit(3, spawnphase) and #Winterblight.CavernUnits[3] < 50 then
 		local unit = nil
 		if shroom_unit_spawn_index == 1 then
 			unit = Winterblight:SpawnZectRider(position, RandomVector(1))
