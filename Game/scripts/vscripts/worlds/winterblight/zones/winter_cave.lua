@@ -1,6 +1,6 @@
 function Winterblight:CaveGuideSpawn()
 	if not Winterblight.CaveGuideSpawned then
-	-- 	if Winterblight.CaveGuideReady then
+		if Winterblight.CaveGuideReady then
 			if not Winterblight.CavernPrecached then
 				Winterblight.CavernPrecached = true
 				Precache:WinterblightCavern()
@@ -31,7 +31,7 @@ function Winterblight:CaveGuideSpawn()
 			Timers:CreateTimer(3, function()
 				EmitSoundOnLocationWithCaster(spawnPos, "Winterblight.GuideCave.Magical", caster)
 			end)
-	-- 	end
+		end
 	-- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13952, 12800, 500), 10000, 10000, false)
 	end
 end
