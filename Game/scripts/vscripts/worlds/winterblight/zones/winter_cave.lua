@@ -3343,7 +3343,7 @@ end
 
 function Winterblight:EdgeOfWinter1(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 126
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 125
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
