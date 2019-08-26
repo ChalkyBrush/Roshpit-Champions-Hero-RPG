@@ -292,8 +292,8 @@ function Winterblight:FrozenFoyer1(msg)
 	end)
 	Timers:CreateTimer(1, function()
 		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
-			local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1))
-			Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id, 2)
+			local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1), 2)
+			Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id)
 		end
 	end)
 	Timers:CreateTimer(5, function()

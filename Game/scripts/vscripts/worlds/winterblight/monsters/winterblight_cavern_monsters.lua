@@ -907,16 +907,16 @@ function ultra_ice_spawn_unit_die(event)
 	end
 	caster.spawnUnitsSlain = caster.spawnUnitsSlain + 1
 	print(caster.spawnUnitsSlain)
-	if caster.spawnPhase == 2 and caster.spawnUnitsSlain == 16 then
+	if caster.spawnPhase == 2 and caster.spawnUnitsSlain == 8*caster.spawnMult then
 		caster.spawnPhase = 3
 		caster.spawnUnitsSlain = 0
-	elseif caster.spawnPhase == 4 and caster.spawnUnitsSlain == 16 then
+	elseif caster.spawnPhase == 4 and caster.spawnUnitsSlain == 8*caster.spawnMult then
 		caster.spawnPhase = 5
 		caster.spawnUnitsSlain = 0
-	elseif caster.spawnPhase == 6 and caster.spawnUnitsSlain == 32 then
+	elseif caster.spawnPhase == 6 and caster.spawnUnitsSlain == 16*caster.spawnMult then
 		caster.spawnPhase = 7
 		caster.spawnUnitsSlain = 0
-	elseif caster.spawnPhase == 8 and caster.spawnUnitsSlain == 12 then
+	elseif caster.spawnPhase == 8 and caster.spawnUnitsSlain == 6*caster.spawnMult then
 		caster.spawnPhase = 9
 		EmitSoundOn("Winterblight.Cavern.UltraIce.PhaseChange", caster)
 		Events:smoothSizeChange(caster, 1.0, 1.8, 40)
