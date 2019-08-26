@@ -295,6 +295,81 @@
     	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect"						"Warlord"
     	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect_Description"			"Увеличивает урон героя за каждый активный заряд Огня"
 		
+		//ARCANA 2
+
+        "DOTA_Tooltip_ability_item_rpc_warlord_arcana2"                              "Dragonborne Helm"
+        "item_property_warlord_arcana2"                                     "Elemental Catastrophe"
+        "property_warlord_arcana2_description"                              "Заменяет @Ability1 на Catastrophe Shaker, Frost Scathe, и Flame Wreck."
+		
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "Catastrophe Shaker"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "Элемент: <font color=\"#AF843D\">Земля</font> / <font color=\"#3289C7\">Дракон</font><br>Земля расщепляется по выбранному вектору и образует стену из камня. Длина стены зависит от выбранного вектора. Стена наносит урон по противникам, оглушает их и работает как физическое препятствие. Урон скалируется от Силы героя."
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_distance"            "МАКСИМАЛЬНАЯ ДЛИНА:"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_stun_duration"       "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_damage"              "БАЗОВЫЙ УРОН:"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "БОНУСНЫЙ УРОН ОТ СИЛЫ:"
+
+        "DOTA_Tooltip_ability_warlord_frost_scathe"                         "Frost Scathe"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Элемент: <font color=\"#87D9FF\">Лёд</font> / <font color=\"#3289C7\">Дракон</font><br>Ледяное дыхание замораживает выбранную зону. Противники, наступившие в нее, замедлены и прокляты, дополнительно замораживая и нанося урон по юнитам рядом с задержкой. Способность имеет 2 свободных заряда, перезаряжающихся каждые 3 секунды."
+        "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "РАДИУС:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "ЗАДЕРЖКА ВЗРЫВА ЗАМОРОЗКИ:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_pop_aoe"          "РАДИУС ВЗРЫВА ЗАМОРОЗКИ:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_in_thinker_slow"         "СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_duration"         "ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_base_damage"             "БАЗОВЫЙ УРОН:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_int_mult"                "БОНУСНЫЙ УРОН ОТ ИНТЕЛЛЕКТА:"
+
+        "DOTA_Tooltip_modifier_ice_scathe_freecast"                         "Свободный каст Frost Scathe"
+
+        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy"            "Frost Scathe"
+        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy_Description"    "Замедлен"
+
+        "DOTA_Tooltip_modifier_ice_scathe_countdown"                    "Frost Scathe Countdown"
+        "DOTA_Tooltip_modifier_ice_scathe_countdown_Description"        "Взорвется и заморозит всех вокруг по прошествии времени."
+
+        "DOTA_Tooltip_modifier_ice_scathe_freeze"                       "Заморозка Frost Scathe"
+
+        "DOTA_Tooltip_ability_warlord_flame_wreck"                     "Flame Wreck"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_Description"         "Элемент: <font color=\"#EF4126\">Огонь</font> / <font color=\"#3289C7\">Дракон</font><br>Герой высвобождает огненое цунами, поджигающее противников с интервалом 0.5 сек. Пока герой стоит в огне, он получает бонусные лимит и скорость передвижения."
+        "DOTA_Tooltip_ability_warlord_flame_wreck_range"               "ДИСТАНЦИЯ:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_wreck_duration"      "ДЛИТЕЛЬНОСТЬ ОГНЯ:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_base_damage"         "БАЗОВЫЙ УРОН:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_agi_mult"            "БОНУС УРОНА ОТ ЛОВКОСТИ:"      
+        "DOTA_Tooltip_ability_warlord_flame_wreck_ms_bonus"            "БОНУС СКОРОСТИ:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_ms_cap"              "БОНУС ЛИМИТА СКОРОСТИ:"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2"                     "[Q1] Mountain Breaker"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Герой наносит усиленный пост-резистный урон по противникам, которые оглушены или заморожены."
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_property_one"        "Пост-резистное усиление"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              "% против оглушенных/замороженных"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "Пока герой стоит в ледяной зоне от Frost Scathe, он получает прибавку к Интеллекту и весь получаемый урон снижается на <% WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT %>%. Щит имеет задержку исчезновения, после того как герой покинет ледяную зону."
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "Задержка:"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " сек"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "Бонус Интеллекта"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix_two"          ""
+
+        "DOTA_Tooltip_modifier_ice_scathe_q2_shield"                        "Enveloping Cold"
+        "DOTA_Tooltip_modifier_ice_scathe_q2_shield_Description"            "Снижает входящий урон, увеличивает Интеллект"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2"                     "[Q3] Raging Flame"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_Description"         "Герой получает бонусный урон атаки и скорость атаки при нахождении в Flame Wreck."
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_property_one"        "Бонусный Урон Атаки"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_suffix"              "%"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_property_two"        "Скорость атаки"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_suffix_two"          ""
+
+        "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power"                    "Raging Flame"
+        "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power_Description"        "Бонусная атака и скорость атаки увеличена"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2"                     "[Q4] Dragon Wrath"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Пассивно увеличивает все атрибуты. Атрибуты увеличивают урон элемента<font color=\"#3289C7\">Дракон</font>."
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_one"        "Бонус Атрибутов"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix"              ""
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_two"        "Бонус урона элемента"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix_two"          "% за 10 очков атрибутов"
+
 
 
 		//Glyphs

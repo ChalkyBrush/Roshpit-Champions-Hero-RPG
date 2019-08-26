@@ -248,3 +248,18 @@
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
 		"item_property_iron_treads_of_destruction"					"Dissolution"
 		"property_iron_treads_of_destruction_description"			"(R) @Ability4 не требует время на прочтение."
+		
+		"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
+        "item_property_storm_pacer_sabatons"                        "Storm Pacer"
+        "property_storm_pacer_sabatons_description"                 "При прочтении @Ability3 от персонажа высвобождается волна энергии (радиус <% PACE_OF_STORM_RADIUS %>), нанося урон при прикосновении. Урон волны базируется на последнем пре-резистном уроне (до начала самой волны), усиливаясь по мере движения от <% PACE_OF_STORM_MIN_AMP %>x до <% PACE_OF_STORM_MAX_AMP %>x. Эффекты или модификаторы урона не могут повлиять на урон волны. Волна увеличивает порог урона по мобам со Стойкостью/Мега-Стойкостью до <% PACE_OF_STORM_STEADFAST_THRESHOLD %>х / <% PACE_OF_STORM_MEGASTEADFAST_THRESHOLD %>х от изначального порога. Перезарядка 1 секунда."
+
+		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
+		"item_property_pegasus"					"Wing Jump"
+		"property_pegasus_description"			"@Ability3 становится <% PEGASUS_E_SPEED_PCT %>% быстрее, если оно имеет компонент движения. Лимит скорости передвижения увеличен на <% PEGASUS_MAX_MS_AMP_PCT %>%."
+
+		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
+		"item_property_pivotal"					"Pivot Burst"
+		"property_pivotal_description"			"Угловая скорость поворота становится максимальной. Быстрый поворот на 180° дает увеличивает лимит скорости передвижения на <% PIVOT_BOOT_MAX_MS %>, а скорость передвижения на <% PIVOT_BOOT_MS %> , бонус уменьшается постепенно в течение 4 секунд."
+
+		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
+		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Скорость передвижения и лимит скорости увеличены."

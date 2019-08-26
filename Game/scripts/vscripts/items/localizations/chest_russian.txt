@@ -94,7 +94,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
 		"item_property_secret_temple"				"Refraction"
-		"property_secret_temple_description"		"После прочтения (R) @Ability4 - герой получает 7 зарядов преломления. Каждый заряд полностью блокирует любой урон. Пока Преломление активно, Базовый Урон атаки удвоен."
+		"property_secret_temple_description"		"После прочтения (R) @Ability4 - герой получает 7 зарядов щитов преломления, полностью поглощающих входящий урон. В момент активации щитов Базовый урон атаки удваивается и сохраняется удвоенным, пока щиты активны. Эффект не складывается сам с собой."
 		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
 		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Блокирует любой входящий урон. Базовый урон увеличен вдвое."
 		
@@ -354,3 +354,30 @@
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Умение (Q) применяется без перезарядки"
+		
+		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
+		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
+		"property_robe_of_the_erudite_teacher_description"				"Вызывает Рубика-подмастерье, который может заимствовать до 3 заклинаний у вражеских существ. Он призывается с показателями <% ERUDITE_TEACHER_HEALTH_MULT %>x здоровья призывателя, <% ERUDITE_TEACHER_ATTACK_MULT %>x атаки призывателя, <% ERUDITE_TEACHER_ARMOR_MULT %>x брони призывателя и 2000 маны. Если он умирает, новый подмастерье появляется через 10 секунд, сохраняя заимствованные заклинания. Весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Копирует случайное заклинание у вражеского юнита. Заклинания не будут копированы, если у подмастерья уже имеется такое, или если юнит имеет защиту от воздействия (если нельзя приручить или захватить)."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2_Description"		"Копирует случайное заклинание у вражеского юнита. Заклинания не будут копированы, если у подмастерья уже имеется такое, или если юнит имеет защиту от воздействия (если нельзя приручить или захватить)."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3_Description"		"Копирует случайное заклинание у вражеского юнита. Заклинания не будут копированы, если у подмастерья уже имеется такое, или если юнит имеет защиту от воздействия (если нельзя приручить или захватить)."
+
+		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Сброс"
+		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Убирает все заимствованные заклинания."
+
+		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
+		"property_alien_armor"							"Carbon Forge"
+		"property_alien_armor_description"				"Прочтение @Ability4 создает иллюзию с <% ALIEN_ARMOR_ILLUSION_AS %> бонусом к скорости атаки, а урон учитывается как урон Предметов. Иллюзия наносит <% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x урона, получает <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% урона. Время жизни иллюзии <% ALIEN_ARMOR_ILLUSION_DURATION %> сек."
+
+		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
+		"item_property_nethergrasp"							"Outworld Grip"
+		"property_nethergrasp_description"				"Приказ атаки по вражескому юниту создает потустороннюю цепь между целью и героем. Пораженные цели атакуются с интервалом в <% NETHERGRASP_ATTACK_INTERVAL %> сек. Противники вне радиуса атаки будут притягиваться ближе к герою. Можно создать до <% NETHERGRASP_MAX_LINKS %> цепей на противниках одновременно, но атаки будут равномерно разделены между всеми целями. Цепи можно создавать на дистанции <% NETHERGRASP_LINK_RANGE %>, а разрываются они, если дистанция превысит <% NETHERGRASP_BREAK_DISTANCE %>."
+
+		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
+		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Привязан к герою и получает дополнительные атаки"	

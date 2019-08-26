@@ -277,6 +277,50 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_two"		"Бонус ко всем атрибутам"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix_two"			""
 		
+		//ARCANA 3
+        "DOTA_Tooltip_ability_item_rpc_solunia_arcana3"                     "Tellurian Bracers"
+
+        "item_property_solunia_arcana3"                                     "Vorpal Blades"
+        "property_solunia_arcana3_description"                              "Заменяет @Ability2 и её руны на Solar and Lunar Vorpal Blades."
+
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades"                    "Solar Vorpal Blades"             
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description"        "Элемент: <font color=\"#C25DFC\">Космос</font> / <font color=\"#EF4126\">Огонь</font><br>Выбрасывает 3 острых лезвия, преследующих противников в радиусе 1000 от героя. Лезвия наносят урон при ударе и отскакивают на рядомстоящих противников."
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_damage"             "УРОН:"
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_max_blades"           "МАКСИМУМ ЛЕЗВИЙ ОДНОВРЕМЕННО:"
+        "DOTA_Tooltip_ability_solunia_solar_vorpal_blades_base_bounces"         "ОТСКОКОВ:"
+
+        "DOTA_Tooltip_modifier_active_sun_vorpals"                           "Active Solar Vorpal Blades"
+
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades"                    "Lunar Vorpal Blades"             
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description"        "Элемент: <font color=\"#C25DFC\">Космос</font> / <font color=\"#87D9FF\">Лёд</font><br>Выбрасывает 3 острых лезвия, преследующих противников в радиусе 1000 от героя. Лезвия наносят урон при ударе и отскакивают на рядомстоящих противников."
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_damage"             "УРОН:"
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_max_blades"           "МАКСИМУМ ЛЕЗВИЙ ОДНОВРЕМЕННО:"
+        "DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_base_bounces"         "ОТСКОКОВ:"
+
+        "DOTA_Tooltip_modifier_active_moon_vorpals"                           "Active Lunar Vorpal Blades"
+
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3"                     "[W1] Aphelion Weapon"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_Description"         "Сила атаки Солунии добавляется к базовому урону @Ability2."
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_property_one"            "Дополнительный Урон"
+        "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_suffix"                  "% от силы атаки"
+
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3"                     "[W2] Blades of Neptune"
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Лезвия восстанавливают ману при попадании и наносят дополнительный урон от текущей маны."
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one"            "Восстановление Маны"
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  " за удар" 
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% от текущей маны" 
+
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Лезвия имеют 20% шанс нанести критический удар с увеличенным уроном."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Критический Урон"
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
+
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3"                     "[W4] Extended Orbit"
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_Description"         "Лезвия могут откакивать от целей несколько раз подряд. Шанс выше 100% означает возможность множественных отскоков."
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_property_one"        "Шанс на дополнительный отскок"
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_suffix"              "%"
+		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"(T1) Глиф полумесяца"
 		"item_rpc_solunia_glyph_1_1_description" 				"Увеличивает максимальное количество бросков бумерангов на @glyph_property1."
