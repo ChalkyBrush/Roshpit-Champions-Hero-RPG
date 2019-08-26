@@ -17,7 +17,7 @@ function Winterblight:Debug()
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
     -- RPCItems:RollFrozenHeart(Vector(-15424,-2560))
     -- RPCItems:RollEnergyWhipGlove(Vector(-15424,-2560))
-     RPCItems:RollDiamondClawsOfTiamat(Vector(-15424,-2560), 10)
+     -- RPCItems:RollDiamondClawsOfTiamat(Vector(-15424,-2560), 10)
     -- Weapons:RollLegendWeapon1(Vector(-15424,-2560), "flamewaker", 50, false)
     -- RPCItems:RollGalvanizedRazorBand(Vector(-15424,-2560))
     -- RPCItems:RollGoldbreakerGauntlet(Vector(-15424,-2560))
@@ -25,7 +25,7 @@ function Winterblight:Debug()
     -- RPCItems:RollPegasusBoots(Vector(-15424,-2560))
     -- RPCItems:RollGuardianStone(Vector(-15424,-2560))
     -- RPCItems:RollRobesOfEruditeTeacher(Vector(-15424,-2560))
-    RPCItems:RollAlienArmor(Vector(-15424,-2560))
+    -- RPCItems:RollAlienArmor(Vector(-15424,-2560))
     -- RPCItems:RollPivotalSwiftboots(Vector(-15424,-2560))
     -- RPCItems:RollMagistratesHood(Vector(-15424,-2560))
     -- RPCItems:NethergraspPalisade(Vector(-15424,-2560))
@@ -33,7 +33,7 @@ function Winterblight:Debug()
     -- RPCItems:RollAuricRingOfInspiration(Vector(-15424,-2560), 40)
 
     -- RPCItems:RollSoluniaArcana3(Vector(-15424,-2560))
-    RPCItems:RollChernobogArcana1(Vector(-15424,-2560))
+    -- RPCItems:RollChernobogArcana1(Vector(-15424,-2560))
 
     -- RPCItems:RollWindDeityCrown(Vector(-15424,-2560), false, 4)
     -- RPCItems:RollBorealGraniteVest(Vector(-15424,-2560))
@@ -249,19 +249,19 @@ function Winterblight:Debug2()
   --  Winterblight.CavernData.Chambers[3]["boss_level_defeated"] = 2
   --  Winterblight.CavernData.Chambers[4]["boss_level_defeated"] = 2
 
-    for i = 1, 4, 1 do
-      for j = 1, 4, 1 do
-        Winterblight.CavernData.Chambers[i]["events"][j]["status"] = 2
-        Winterblight.CavernData.Chambers[i]["events"][j]["level"] = 5
-      end
-    end
+    -- for i = 1, 4, 1 do
+    --   for j = 1, 4, 1 do
+    --     Winterblight.CavernData.Chambers[i]["events"][j]["status"] = 2
+    --     Winterblight.CavernData.Chambers[i]["events"][j]["level"] = 5
+    --   end
+    -- end
   --   print(Winterblight:realm_breaker_level())
   --   if Winterblight:realm_breaker_level() > 0 then
   --     Winterblight.CavernData.realm_breaker_status = 0
   --     Winterblight.CavernData.realm_breaker_level = Winterblight:realm_breaker_level()
   --   end
   --  Winterblight.CavernData.tiamat_status = 0
-  Winterblight.CavernData.RelicsFragments = 20000
+  -- Winterblight.CavernData.RelicsFragments = 20000
      -- Winterblight:GetStarValueForCavernMaster(MAIN_HERO_TABLE[1])
      -- Stars:StarEventPlayer("cavern_master", MAIN_HERO_TABLE[1])
  -- Winterblight:FinishCaveWaves()
