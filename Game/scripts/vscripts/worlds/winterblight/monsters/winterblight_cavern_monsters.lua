@@ -1691,6 +1691,12 @@ function cavern_player_hero_think(event)
 			end
 		end
 	end
+	if hero:HasModifier("modifier_confusional_spores") then
+		if Winterblight:IsWithinChamber(hero, 3) then
+		else
+			hero:RemoveModifierByName("modifier_confusional_spores")
+		end
+	end
 end
 
 function demented_mushroom_think(event)
