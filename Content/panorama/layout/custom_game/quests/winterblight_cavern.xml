@@ -8,10 +8,10 @@
 	</scripts>
 	<snippets>
 		<snippet name="winter_cavern_main_snippet">
-			<Panel class="winter_cavern_main_root">		
+			<Panel class="winter_cavern_main_root" hittest="false">		
 				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
-				<Panel id="winterblight_cavern_main_ui_container">
-					<Label id="winterblight_cavern_title" text="winterblight_cavern"/>
+				<Panel id="winterblight_cavern_main_ui_container" hittest="false">
+					<Label id="winterblight_cavern_title" text="winterblight_cavern" hittest="false"/>
 					<Label id="winterblight_help_1" text="winterblight_cavern_help1"/>
 					<Panel class="winterblight_chamber_row" id="chamber-row-1">
 						<Panel class="chamber-button-container">
@@ -22,7 +22,7 @@
 							</Button>
 							<Label class="chamber-button-status-label" id='chamber-status-label-1'/>
 						</Panel>
-						<Panel class="chamber-button-container">
+						<Panel class="chamber-button-container" hittest="false">
 							<Button class="winterblight_chamber_button" id="chamber-button-2">
 								<Image class="chamber-button-image" id="chamber-button-image-2" src="file://{images}/custom_game/ui/winterblight/aurora_passage.jpg"/>
 								<Label class="chamber-button-label" text="winterblight_cavern_room2"/>
@@ -31,7 +31,7 @@
 							<Label class="chamber-button-status-label" id='chamber-status-label-2'/>
 						</Panel>
 					</Panel>	
-					<Panel class="winterblight_chamber_row" id="chamber-row-2">
+					<Panel class="winterblight_chamber_row" id="chamber-row-2" hittest="false">
 						<Panel class="chamber-button-container">
 							<Button class="winterblight_chamber_button" id="chamber-button-3">
 								<Image class="chamber-button-image" id="chamber-button-image-3" src="file://{images}/custom_game/ui/winterblight/crystarium.jpg"/>
@@ -59,7 +59,7 @@
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_chamber">
-			<Panel class="winter_cavern_chamber_root">
+			<Panel class="winter_cavern_chamber_root" hittest="false">
 				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
 				<Button id="winterblight_cavern_back_button" hittest="true">
 					<Label id="back_button_label" text="←"/>
@@ -140,7 +140,7 @@
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_individual_record">
-			<Panel class="winter_cavern_record_left">
+			<Panel class="winter_cavern_record_left" hittest="false">
 				<DOTAAvatarImage id="player_avatar"></DOTAAvatarImage>
 				<Panel id="hero_other_data_container">
 					<Image id="hero_portrait" heroid="5" />
@@ -150,12 +150,12 @@
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_no_record">
-			<Panel class="winter_cavern_no_record_container">
+			<Panel class="winter_cavern_no_record_container" hittest="false">
 					<Label id="no_record_label" text="cavern_ui_no_record" />
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_event">
-			<Panel class="winter_cavern_event_root">
+			<Panel class="winter_cavern_event_root" hittest="false">
 					<Button id="winter_cavern_event_button" class="winter_cavern_button_not_highlighted">
 						<Label id="winter_event_button_label" />
 					</Button>
@@ -199,7 +199,7 @@
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_boss_menu">
-			<Panel class="winter_cavern_boss_menu_root">
+			<Panel class="winter_cavern_boss_menu_root" hittest="false">
 				<Panel id="winterblight_cavern_main_ui_bg" hittest="false"/>
 				<Button id="winterblight_cavern_back_button" hittest="true">
 					<Label id="back_button_label" text="←"/>

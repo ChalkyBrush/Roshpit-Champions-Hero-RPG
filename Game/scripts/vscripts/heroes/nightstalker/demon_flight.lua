@@ -37,8 +37,8 @@ function demon_flight_start(event)
 	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate = "hunter_night"})
 	caster.flight_target = nil
 	if not caster:HasModifier("modifier_chernobog_demon_form") then
-		caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
-		caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")
+		-- caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
+		-- caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")
 		Timers:CreateTimer(0.03, function()
 			StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1, translate = "hunter_night"})
 		end)
@@ -114,8 +114,8 @@ function demon_flight_end_thinking(event)
 			WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 		end
 		if not caster:HasModifier("modifier_chernobog_demon_form") then
-			caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
-			caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
+			-- caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
+			-- caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
 			if not caster:HasModifier("modifier_super_ascendency_trigger") then
 				caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 			end
