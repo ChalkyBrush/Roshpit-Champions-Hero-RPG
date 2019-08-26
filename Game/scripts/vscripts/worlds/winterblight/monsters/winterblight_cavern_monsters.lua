@@ -1997,6 +1997,8 @@ function thunderhide_egg_hit(event)
 				Timers:CreateTimer(60, function()
 					UTIL_Remove(eggShell)
 				end)
+			else
+				UTIL_Remove(caster)
 			end
 		end)
 	end
