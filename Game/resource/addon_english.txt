@@ -19512,9 +19512,9 @@
 		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_duration"	"DOME DURATION:"
 		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_radius"		"RADIUS:"
 
-		"DOTA_Tooltip_ability_unshakable"								"Unshakeable"
-		"DOTA_Tooltip_ability_unshakable_Description"					"All debuffs applied by enemies have greatly reduced duration."
-		"DOTA_Tooltip_ability_unshakable_modifier_duration_reduction"	"% DEBUFF DURATION REDUCTION:"
+		"DOTA_Tooltip_ability_ability_unshakable"								"Unshakeable"
+		"DOTA_Tooltip_ability_ability_unshakable_Description"					"All debuffs applied by enemies have greatly reduced duration."
+		"DOTA_Tooltip_ability_ability_unshakable_modifier_duration_reduction"	"% DEBUFF DURATION REDUCTION:"
 
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive"					"Ultimate Predator"
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive_Description"		"Attacking an enemy applies a buff that gains more stacks on subsequent attacks. Once at 5 stacks, gain the ultimate predator buff that grants massive attack power and 1 shot kill ability. The instant kill only works on heroes."

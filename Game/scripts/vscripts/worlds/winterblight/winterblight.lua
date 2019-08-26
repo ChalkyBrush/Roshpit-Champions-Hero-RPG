@@ -239,15 +239,15 @@ function Winterblight:Debug2()
   -- Winterblight.CavernData.Chambers[4]["events"][1]["level"] = 18
   -- Winterblight.CavernData.Chambers[4]["events"][2]["level"] = 15
 
-  Winterblight.CavernData.Chambers[1]["boss_status"] = 2
-  Winterblight.CavernData.Chambers[2]["boss_status"] = 2
-  Winterblight.CavernData.Chambers[3]["boss_status"] = 2
-  Winterblight.CavernData.Chambers[4]["boss_status"] = 2
+  -- Winterblight.CavernData.Chambers[1]["boss_status"] = 2
+  -- Winterblight.CavernData.Chambers[2]["boss_status"] = 2
+  -- Winterblight.CavernData.Chambers[3]["boss_status"] = 2
+  -- Winterblight.CavernData.Chambers[4]["boss_status"] = 2
 
-   Winterblight.CavernData.Chambers[1]["boss_level_defeated"] = 2
-   Winterblight.CavernData.Chambers[2]["boss_level_defeated"] = 2
-   Winterblight.CavernData.Chambers[3]["boss_level_defeated"] = 2
-   Winterblight.CavernData.Chambers[4]["boss_level_defeated"] = 2
+  --  Winterblight.CavernData.Chambers[1]["boss_level_defeated"] = 2
+  --  Winterblight.CavernData.Chambers[2]["boss_level_defeated"] = 2
+  --  Winterblight.CavernData.Chambers[3]["boss_level_defeated"] = 2
+  --  Winterblight.CavernData.Chambers[4]["boss_level_defeated"] = 2
 
     for i = 1, 4, 1 do
       for j = 1, 4, 1 do
@@ -255,11 +255,11 @@ function Winterblight:Debug2()
         Winterblight.CavernData.Chambers[i]["events"][j]["level"] = 5
       end
     end
-    print(Winterblight:realm_breaker_level())
-    if Winterblight:realm_breaker_level() > 0 then
-      Winterblight.CavernData.realm_breaker_status = 0
-      Winterblight.CavernData.realm_breaker_level = Winterblight:realm_breaker_level()
-    end
+  --   print(Winterblight:realm_breaker_level())
+  --   if Winterblight:realm_breaker_level() > 0 then
+  --     Winterblight.CavernData.realm_breaker_status = 0
+  --     Winterblight.CavernData.realm_breaker_level = Winterblight:realm_breaker_level()
+  --   end
   --  Winterblight.CavernData.tiamat_status = 0
   Winterblight.CavernData.RelicsFragments = 20000
      -- Winterblight:GetStarValueForCavernMaster(MAIN_HERO_TABLE[1])
@@ -842,6 +842,10 @@ function Winterblight:MithrilReward(position, code)
           stonesReward = stonesReward*1.3
           local bonus_mult = Winterblight.TiamatBossLevel*0.06
           reward = reward + reward*bonus_mult
+        elseif code == "realm_breaker" then
+          reward = reward*0.5
+          local bonus_mult = Winterblight.RealmBreakerLevel*0.06
+          reward = reward + reward*bonus_mult          
         end
 
         local mithrilReward = reward*Events.ResourceBonus+(stonesReward*(Winterblight.Stones))

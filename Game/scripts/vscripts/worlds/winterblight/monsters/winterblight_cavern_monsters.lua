@@ -670,6 +670,10 @@ function cavern_unit_die(event)
 			Winterblight.BlackHolesKills = Winterblight.BlackHolesKills + 1
 			Winterblight:GravityBlackHolesSpawns(Winterblight.BlackHolesKills)
 		end
+		local luck = RandomInt(1, 2000-GameState:GetPlayerPremiumStatusCount()*100)
+		if luck == 1 then
+			RPCItems:RollGuardianStone(unit:GetAbsOrigin())
+		end
 	end
 end
 

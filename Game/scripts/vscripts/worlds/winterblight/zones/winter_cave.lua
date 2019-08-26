@@ -4559,11 +4559,12 @@ function Winterblight:TiamatBossDie(boss)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local arcanaLuck = RandomInt(1, 195 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.Stones * 25)
+		local max_roll = math.max(150 - GameState:GetPlayerPremiumStatusCount() * 10 - TiamatBossLevel)
+		local arcanaLuck = RandomInt(1, max_roll)
 		if arcanaLuck == 1 then
-			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
+			RPCItems:RollWarlordArcana2(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
 		end
-		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 1)
+		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 3)
 		if luck2 == 1 then
 			Winterblight:DropBorealGraniteChunk(boss:GetAbsOrigin())
 		end
@@ -4571,13 +4572,24 @@ function Winterblight:TiamatBossDie(boss)
 	Timers:CreateTimer(3, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIceFloeSlippers(boss:GetAbsOrigin())
+			RPCItems:RollDiamondClawsOfTiamat(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+		end
+	end)
+	Timers:CreateTimer(4, function()
+		local luck = RandomInt(1, 5)
+		if luck == 1 then
+			local type_roll = RandomInt(1, 2)
+			if type_roll == 1 then
+				RPCItems:RollBerylRingOfIntuition(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+			elseif type_roll == 2 then
+				RPCItems:RollAuricRingOfInspiration(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+			end
 		end
 	end)
 	Timers:CreateTimer(5, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIronTreadsOfDestruction(boss:GetAbsOrigin())
+			RPCItems:RollMagistratesHood(boss:GetAbsOrigin())
 		end
 	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
