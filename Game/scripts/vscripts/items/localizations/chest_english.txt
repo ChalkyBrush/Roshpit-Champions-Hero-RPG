@@ -354,3 +354,30 @@
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
+
+		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
+		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
+		"property_robe_of_the_erudite_teacher_description"				"When equipped, a Rubick Apprentice follows you. The apprentice can copy up to 3 spells from enemy creatures. It spawns with <% ERUDITE_TEACHER_HEALTH_MULT %>x the wearer's health, <% ERUDITE_TEACHER_ATTACK_MULT %>x the wearer's attack power, <% ERUDITE_TEACHER_ARMOR_MULT %>x the wearer's armor and 2000 mana. If the apprentice dies, it respawns after 10 seconds with its same ability configuration as before death. All damage dealt by the apprentice is considered as item damage from the hero."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3"					"Spell Steal"
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+
+		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
+		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the apprentice's copied abilities."
+
+		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
+		"property_alien_armor"							"Carbon Forge"
+		"property_alien_armor_description"				"Casting @Ability4 creates an illusion with <% ALIEN_ARMOR_ILLUSION_AS %> bonus attack speed whose damage is attributed to the caster as item damage. The illusion deals <% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x damage, takes <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% reduced damage and lasts <% ALIEN_ARMOR_ILLUSION_DURATION %> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <% ALIEN_ARMOR_RESPAWN_DELAY %> second delay as long as the illusion is alive."
+
+		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
+		"item_property_nethergrasp"							"Outworld Grip"
+		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an outworld grip on the target. Gripped enemies are attacked by the caster on a <% NETHERGRASP_ATTACK_INTERVAL %> second interval. Enemies who are outside the caster's attack range are pulled towards the grip source. Can link up to <% NETHERGRASP_MAX_LINKS %> enemies at a time but attacks are divided equally amongst all linked targets. Can create links from <% NETHERGRASP_LINK_RANGE %> range, and break if the distance between the caster and the target exceeds <% NETHERGRASP_BREAK_DISTANCE %>."
+
+		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
+		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	

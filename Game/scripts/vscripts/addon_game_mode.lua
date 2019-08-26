@@ -62,6 +62,7 @@ function Precache(context)
   PrecacheResource("particle", "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf", context)
+  PrecacheResource("particle", "particles/roshpit/save_game/save_hero/shovel_baby_roshan_spawn.vpcf", context)
 
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts", context)
 

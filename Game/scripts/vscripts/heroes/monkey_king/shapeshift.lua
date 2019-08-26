@@ -253,6 +253,10 @@ end
 function monkey_form(event)
 	local caster = event.caster
 	local ability = event.ability
+	local unit = event.unit
+	if unit and unit:IsIllusion() then
+		return false
+	end
 	if caster.monkeyLock then
 		return false
 	end

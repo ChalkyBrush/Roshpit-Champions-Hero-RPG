@@ -48,10 +48,11 @@ function warp_flare_start(event)
 	EmitSoundOn("Solunia.WarpFlare", caster)
 	rune_e_2_galaxy_nitro(caster, ability)
 	c_c_pit(caster, ability, target)
-
-	caster:FindAbilityByName("solunia_solarang"):SetActivated(false)
-	if caster:HasAbility("solunia_lunarang") then
-		caster:FindAbilityByName("solunia_lunarang"):SetActivated(false)
+	if not caster:HasModifier("modifier_solunia_arcana3") then
+		caster:FindAbilityByName("solunia_solarang"):SetActivated(false)
+		if caster:HasAbility("solunia_lunarang") then
+			caster:FindAbilityByName("solunia_lunarang"):SetActivated(false)
+		end
 	end
 	if caster:HasAbility("solunia_solar_glow") then
 		caster:FindAbilityByName("solunia_solar_glow"):SetActivated(false)
@@ -83,8 +84,12 @@ function warp_flare_flying_think(event)
 	local ability = event.ability
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * 45), caster)
+
 	local forwardSpeed = 80
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
+
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * forwardSpeed), caster)
+
 	if blockUnit then
 		forwardSpeed = 0
 		end_warp_phase(caster, ability)
@@ -102,7 +107,7 @@ function warp_flare_flying_think(event)
 		ParticleManager:SetParticleControl(ability.bandTable[ability.currentBand], 1, caster:GetAbsOrigin() + Vector(0, 0, 30) + ability.fv * 60)
 	end
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), ability.targetPoint)
-	if distance < 85 or ability.distance_travelled > ability.total_distance_to_travel then
+	if distance < forwardSpeed+5 or ability.distance_travelled > ability.total_distance_to_travel then
 		if not ability.lock then
 			end_warp_phase(caster, ability)
 		end
@@ -199,8 +204,10 @@ function end_warp_flare(ability, caster)
 	if not caster:HasModifier("modifier_channel_start") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_warp_flare_falling", {duration = 4})
 	end
-	reactivateBoomerangAbility("solunia_solarang", caster)
-	reactivateBoomerangAbility("solunia_lunarang", caster)
+	if not caster:HasModifier("modifier_solunia_arcana3") then
+		reactivateBoomerangAbility("solunia_solarang", caster)
+		reactivateBoomerangAbility("solunia_lunarang", caster)
+	end
 	if caster:HasAbility("solunia_solar_glow") then
 		caster:FindAbilityByName("solunia_solar_glow"):SetActivated(true)
 	end
@@ -239,7 +246,9 @@ function after_flare_falling(event)
 	local caster = event.caster
 	local ability = event.ability
 	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity))
-	ability.fallVelocity = ability.fallVelocity + 2
+	local acceleration = 2
+	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
+	ability.fallVelocity = ability.fallVelocity + acceleration
 	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
 	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity / 2 then
 		caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
@@ -251,45 +260,92 @@ end
 function rune_e_2_galaxy_nitro(caster, ability)
 	local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "solunia")
 	if b_c_level > 0 then
-		local solarangAbility = caster:FindAbilityByName("solunia_solarang")
-		local lunarangAbility = caster:FindAbilityByName("solunia_lunarang")
-		local totalBoomerangTable = {}
-		if solarangAbility.boomerangTable then
-			for i = 1, #solarangAbility.boomerangTable, 1 do
-				table.insert(totalBoomerangTable, solarangAbility.boomerangTable[i])
-			end
-		end
-		if lunarangAbility then
-			if lunarangAbility.boomerangTable then
-				for i = 1, #lunarangAbility.boomerangTable, 1 do
-					table.insert(totalBoomerangTable, lunarangAbility.boomerangTable[i])
+		if caster:HasModifier("modifier_solunia_arcana3") then
+			local solar_ability = caster:FindAbilityByName("solunia_solar_vorpal_blades")
+			local lunar_ability = caster:FindAbilityByName("solunia_lunar_vorpal_blades")
+			local totalBoomerangTable = {}
+			if solar_ability then
+				for i = 1, #solar_ability.vorpals, 1 do
+					if solar_ability.vorpals[i].active then
+						table.insert(totalBoomerangTable, solar_ability.vorpals[i])
+					end
 				end
 			end
-		end
-		for i = 1, #totalBoomerangTable, 1 do
-			local boomerang = totalBoomerangTable[i]
-			AddFOWViewer(boomerang.origCaster:GetTeamNumber(), boomerang:GetAbsOrigin(), 200, 3, false)
-			local particleName = "particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
-			if boomerang:HasModifier("boomerang_passive_lunar") then
-				particleName = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+			if lunar_ability then
+				for i = 1, #lunar_ability.vorpals, 1 do
+					if lunar_ability.vorpals[i].active then
+						table.insert(totalBoomerangTable, lunar_ability.vorpals[i])
+					end
+				end
 			end
-			local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, boomerang.origCaster)
-			local origin = boomerang:GetAbsOrigin()
-			ParticleManager:SetParticleControl(particle1, 0, origin)
-			Timers:CreateTimer(3, function()
-				ParticleManager:DestroyParticle(particle1, false)
-			end)
-			EmitSoundOn("Solunia.SolarGlow.Impact", boomerang)
-			local damageType = DAMAGE_TYPE_MAGICAL
-			if caster:HasModifier("boomerang_passive_lunar") then
-				damageType = DAMAGE_TYPE_PURE
+			for i = 1, #totalBoomerangTable, 1 do
+				local vorpal = totalBoomerangTable[i]
+				AddFOWViewer(caster:GetTeamNumber(), vorpal.position, 200, 3, false)
+				local particleName = "particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+				if vorpal.type == "moon" then
+					particleName = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+				end
+				local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+				local origin = vorpal.position
+				ParticleManager:SetParticleControl(particle1, 0, origin)
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(particle1, false)
+				end)
+				EmitSoundOnLocationWithCaster(vorpal.position, "Solunia.SolarGlow.Impact", caster)
+				local damageType = DAMAGE_TYPE_MAGICAL
+				if vorpal.type == "moon" then
+					damageType = DAMAGE_TYPE_PURE
+				end
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), vorpal.position, nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					for _, enemy in pairs(enemies) do
+						--print(caster.damage)
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster, vorpal.damage * (1 + (b_c_level * SOLUNIA_E2_EXPLOSION_PCT/100)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+						Filters:ApplyStun(caster, b_c_level * SOLUNIA_E2_STUN_DUR/100, enemy)
+					end
+				end
 			end
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			if #enemies > 0 then
-				for _, enemy in pairs(enemies) do
-					--print(caster.damage)
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage * (1 + (b_c_level * SOLUNIA_E2_EXPLOSION_PCT/100)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-					Filters:ApplyStun(caster, b_c_level * SOLUNIA_E2_STUN_DUR/100, enemy)
+		else
+			local solarangAbility = caster:FindAbilityByName("solunia_solarang")
+			local lunarangAbility = caster:FindAbilityByName("solunia_lunarang")
+			local totalBoomerangTable = {}
+			if solarangAbility.boomerangTable then
+				for i = 1, #solarangAbility.boomerangTable, 1 do
+					table.insert(totalBoomerangTable, solarangAbility.boomerangTable[i])
+				end
+			end
+			if lunarangAbility then
+				if lunarangAbility.boomerangTable then
+					for i = 1, #lunarangAbility.boomerangTable, 1 do
+						table.insert(totalBoomerangTable, lunarangAbility.boomerangTable[i])
+					end
+				end
+			end
+			for i = 1, #totalBoomerangTable, 1 do
+				local boomerang = totalBoomerangTable[i]
+				AddFOWViewer(boomerang.origCaster:GetTeamNumber(), boomerang:GetAbsOrigin(), 200, 3, false)
+				local particleName = "particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+				if boomerang:HasModifier("boomerang_passive_lunar") then
+					particleName = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
+				end
+				local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, boomerang.origCaster)
+				local origin = boomerang:GetAbsOrigin()
+				ParticleManager:SetParticleControl(particle1, 0, origin)
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(particle1, false)
+				end)
+				EmitSoundOn("Solunia.SolarGlow.Impact", boomerang)
+				local damageType = DAMAGE_TYPE_MAGICAL
+				if caster:HasModifier("boomerang_passive_lunar") then
+					damageType = DAMAGE_TYPE_PURE
+				end
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					for _, enemy in pairs(enemies) do
+						--print(caster.damage)
+						Filters:TakeArgumentsAndApplyDamage(enemy, caster, boomerang.damage * (1 + (b_c_level * SOLUNIA_E2_EXPLOSION_PCT/100)), damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+						Filters:ApplyStun(caster, b_c_level * SOLUNIA_E2_STUN_DUR/100, enemy)
+					end
 				end
 			end
 		end

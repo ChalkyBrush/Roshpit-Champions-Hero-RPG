@@ -1591,7 +1591,9 @@ function Dungeons:DeaggroUnit(caster)
 	caster:Stop()
 	caster.aggro = false
 	caster:SetAcquisitionRange(0)
-	caster:AddAbility("dungeon_creep"):SetLevel(1)
+	if not caster:HasAbility("dungeon_creep") then
+		caster:AddAbility("dungeon_creep"):SetLevel(1)
+	end
 	caster:RemoveAbility("dungeon_creep_aggroed")
 	caster:FindAbilityByName("dungeon_creep"):ApplyDataDrivenModifier(caster, caster, "modifier_dungeon_thinker_creep", {})
 end
@@ -1606,9 +1608,6 @@ function Dungeons:AggroUnit(caster)
 	end
 	if caster.specialAggro then
 		Dungeons:SpecialAggro(caster)
-		--print("SHOULD AGGRO")
-		--print("SHOULD AGGRO")
-		--print("SHOULD AGGRO")
 	end
 	caster:SetAcquisitionRange(3500)
 	caster:RemoveModifierByName("modifier_dungeon_thinker_creep")

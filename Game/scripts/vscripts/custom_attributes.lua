@@ -15,6 +15,7 @@ require('/heroes/skywrath_mage/constants')
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/winter_wyvern/dinath_constants")
+require("/heroes/beastmaster/warlord_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -83,18 +84,30 @@ CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
 	local strength = hero.strength_custom + hero.str_bonus
+	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
+		local item = self.handItem
+		strength = item.newItemTable.property1
+	end
 	return tonumber(strength)
 end
 
 function CDOTA_BaseNPC_Hero:GetAgility()
 	local hero = self
 	local agility = hero.agility_custom + hero.agi_bonus
+	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
+		local item = self.handItem
+		agility = item.newItemTable.property1
+	end
 	return tonumber(agility)
 end
 
 function CDOTA_BaseNPC_Hero:GetIntellect()
 	local hero = self
 	local intelligence = hero.intellect_custom + hero.int_bonus
+	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
+		local item = self.handItem
+		intelligence = item.newItemTable.property1
+	end
 	return tonumber(intelligence)
 end
 
@@ -379,6 +392,12 @@ function CustomAttributes:SetAttributes(hero)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 		end
 	end
+	if hero:HasModifier("modifier_warlord_arcana2") then
+		local q_4_level = hero:GetRuneValue("q", 4)
+		str_bonus = str_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+		agi_bonus = agi_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+		int_bonus = int_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", SEINARU_ARCANA_Q3_AGI)
 	end
@@ -532,7 +551,9 @@ function CustomAttributes:SetAttributes(hero)
 		local ability = hero:FindAbilityByName("omniro_omni_mace")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_omnimace_wind_buff", ability:GetSpecialValueFor("wind_special_a"))
 	end
-
+	if hero:HasModifier("modifier_ice_scathe_q2_shield") then
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ice_scathe_q2_shield", WARLORD_ARCANA2_Q2_INT_BONUS)
+	end
 	-- BASIC ITEMS STATS --
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_agility", 1)
@@ -688,6 +709,7 @@ function CustomAttributes:SetAttributes(hero)
 	hero.str_bonus = str_bonus
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus
+
 	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence)})
 end
 
@@ -1092,5 +1114,11 @@ function CustomAttributes:MSCap(unit)
 		end
 	end
 	max_ms = math.max(local_max_ms, max_ms)
+	if unit:HasModifier("modifier_knight_hawk_helm") then
+		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
+	end
+	if unit:HasModifier("modifier_pegasus_boots") then
+		max_ms = max_ms + max_ms*(PEGASUS_MAX_MS_AMP_PCT/100)
+	end
 	return max_ms
 end

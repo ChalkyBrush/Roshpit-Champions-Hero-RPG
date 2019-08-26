@@ -1,0 +1,862 @@
+.winterblight_cavern_root{
+	width:100%;
+	height:100%;
+}
+
+#winterblight_cavern_main_ui{
+	border-radius:8px;
+	border:1px solid #DDDDDD;
+	width:600px;
+	height:760px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-bottom:160px;
+}
+
+#winterblight_cavern_main_ui_bg{
+	opacity: 0.99;
+	background-color: #111111;
+	width:100%;
+	height:100%;
+}
+
+#winterblight_cavern_main_ui_container{
+	width:100%;
+	height:100%;
+	flow-children:down;
+}
+
+#winterblight_cavern_title{
+	color:#FFFFFF;
+	font-size:24px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding-top:10px;	
+	horizontal-align:center;
+	text-decoration: underline;
+}
+
+#winterblight_cavern_close_button{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;
+	vertical-align: bottom;
+	width:100%;
+	height:40px;
+	line-height:32px;
+
+}
+
+#winterblight_cavern_exit_label{
+	color:#FFFFFF;
+	font-size:24px;
+	vertical-align: center;
+	horizontal-align:center;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;		
+}
+
+#cavern_ui{
+	width:100%;
+	height:100%;
+}
+
+#winterblight_help_1{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:20px;
+	padding-bottom:10px;
+	text-align: center;
+}
+
+.winterblight_chamber_row{
+	flow-children:right;
+	horizontal-align:center;
+	height:205px;
+	margin-bottom:5px;
+}
+
+.winterblight_chamber_button{
+	height:180px;
+	width:180px;
+	border-radius:6px;
+	margin-left:10px;
+	margin-right:10px;
+	border:3px solid black;
+}
+
+.winterblight_chamber_button:hover{
+	border:3px solid white;
+}
+
+.chamber-button-image{
+	width:100%;
+	height:100%;
+	opacity:0.9;
+}
+
+.chamber-button-label{
+	color:#FFFFFF;
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:20px;
+	text-align: center;
+	vertical-align: bottom;
+	horizontal-align:center;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+.chamber-button-number-label{
+	color:#FFFFFF;
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:10px;
+	vertical-align: top;
+	text-shadow: 1px 1px 1px #000000;	
+}
+
+.chamber-button-container{
+	flow-children:down;
+}
+
+.chamber-button-status-label{
+	color:#AAAAAA;
+	font-size:18px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	vertical-align: top;
+	horizontal-align:center;
+	width:80%;
+	background-color: #000;
+	border-radius:6px;
+	text-align: center;
+	padding-top:2px;
+	box-shadow:1px 1px 1px #000;
+}
+
+#winter_cavern_event_buttons_container{
+	horizontal-align:center;
+	height:60px;
+	flow-children:right;
+}
+
+#winter_cavern_event_button{
+	border-radius:100%;
+	
+	width:50px;
+	height:50px;
+	margin-right:12px;
+}
+
+.winter_cavern_button_not_highlighted{
+/*	border:1px solid #000;*/
+}
+
+.winter_cavern_button_not_highlighted:hover{
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #1C4FA0 ), to( #0d326d ) );
+}
+
+.winter_cavern_event_button_highlighted{
+	border:1px solid white;
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #1C4FA0 ), to( #0d326d ) );	
+}
+
+#winter_event_button_label{
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding:10px;
+	vertical-align: center;
+	text-shadow: 1px 1px 1px #000000;	
+	horizontal-align:center;
+}
+
+#chamber_main_image{
+	border-radius:10px;
+	border:1px solid black;
+	width:100px;
+	height:100px;
+	horizontal-align:center;
+	margin-top:10px;
+}
+
+#winter_cavern_event_details_container{
+	flow-children:down;
+	horizontal-align:center;
+	padding:12px;
+	width:90%;
+	border-radius:6px;
+	background-color: #111116;
+	border:1px solid black;
+}
+
+#winterblight_chamber_event_title{
+	color:#FFFFFF;
+	font-size:20px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	horizontal-align:center;	
+}
+
+#winterblight_chamber_event_description{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding-top:5px;	
+	horizontal-align:center;	
+}
+
+#winterblight_chamber_event_fragments{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;	
+}
+
+#chamber_event_fragments_container{
+	horizontal-align:center;
+	background-color: #080808;
+	border-radius:4px;
+	padding:5px;
+	margin-top:5px;
+	padding-left:120px;
+	padding-right:120px;
+}
+
+.chamber_event_fragments_icon{
+	horizontal-align:left;
+	margin-right:5px;
+}
+
+#chamber_event_fragments_container{
+	flow-children:right;
+}
+
+#winterblight_cavern_back_button{
+	margin-top:20px;
+	margin-left:20px;
+	height:45px;
+	width:80px;
+	border-radius:4px;
+	border:1px solid black;
+	background-color: #122d59;
+}
+
+#winterblight_cavern_back_button:hover{
+	background-color: #1e3f75;
+}
+
+#back_button_label{
+	color:#FFFFFF;
+	font-size:28px;
+	vertical-align: center;
+	horizontal-align:center;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;		
+}
+
+#chamber_event_records_container{
+	flow-children:right;
+	horizontal-align:center;
+	width:100%;
+	height:120px;
+	margin-top:10px;
+}
+
+.chamber_event_records_container{
+	horizontal-align:center;
+	border-radius:6px;
+	background-color: #111116;
+	border:1px solid black;
+	padding:5px;
+	width:45%;
+	height:120px;
+}
+
+#chamber_event_records_container1{
+	margin-left:5%;
+}
+
+#chamber_event_records_container2{
+	margin-right:5%;
+}
+
+#chamber_event_start_container{
+	flow-children:right;
+	horizontal-align:center;
+	width:100%;
+	height:120px;
+	border-radius:6px;
+	background-color: #111116;
+	border:1px solid black;
+	margin-left:30px;
+	margin-right:30px;
+	margin-top:10px;
+}
+
+.chamber_event_start_container{
+	horizontal-align:center;
+
+	padding:5px;
+	margin-top:5px;
+	width:270px;
+	height:120px;
+	flow-children:down;
+/*	border:1px solid black;*/
+}
+
+#chamber_event_start_container1{
+	margin-left:10px;
+}
+
+#chamber_event_start_container2{
+
+}
+
+.chamber_event_max_level_row{
+	flow-children:right;
+	height:14px;
+	width:100%;
+}
+
+.max_level_row_left{
+	height:14px;
+	horizontal-align:left;
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;		
+}
+
+.max_level_row_right{
+	height:14px;
+	horizontal-align:right;
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	margin-right:6px;	
+	text-align: center;
+	width:80px;
+}
+
+.event_max_level_left{
+	height:14px;
+	horizontal-align:left;
+	color:#FFFFFF;
+	font-size:14px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+}
+
+#event_max_id{
+	width:100%;
+	height:24px;
+}
+
+#max_level_input{
+	horizontal-align:center;
+}
+
+#event_max_main_label{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;	
+	font-weight:lighter;	
+}
+
+#start_event_button{
+	height:45px;
+	width:70%;
+	horizontal-align:center;
+	margin-top:10px;
+	border-radius:4px;
+	border:1px solid #FFFFFF;
+	background-color: #0d4427;	
+}
+
+#start_event_button:hover{
+	border:1px solid white;
+	box-shadow:0px 0px 1px white;
+	background-color: #308256;	
+}
+
+#start_event_button_label{
+	color:#FFFFFF;
+	font-size:16px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	horizontal-align:center;	
+	vertical-align: center;	
+	margin-top:1px;
+}
+
+.loading_records_text{
+	color:#FFFFFF;
+	font-size:24px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;	
+	vertical-align: center;
+	font-weight:lighter;		
+}
+
+#your-max-level-label{
+	color:#38f8ff;
+}
+
+#your-max-level-title{
+	color:#38f8ff;
+}
+
+.records_title_top{
+	color:#FFFFFF;
+	font-size:14px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;	
+	font-weight:lighter;	
+	text-decoration:underline;	
+}
+
+.records_title_bottom{
+	color:#FFFFFF;
+	font-size:14px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;	
+	font-weight:lighter;	
+	margin-top:52px;	
+	text-decoration:underline;	
+}
+
+#hero_portrait{
+	border-radius:4px;
+	width:54px;
+	height:32px;
+	margin-top:20px;
+	margin-left:50px;
+	border:1px solid black;
+}
+
+#player_avatar{
+	width:32px;
+	height:32px;
+	margin-top:20px;
+	margin-left:10px;
+}
+
+#dota_player_name{
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	margin-left:108px;
+	margin-top:20px;	
+}
+
+#record_label{
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	margin-left:108px;
+	margin-top:35px;		
+}
+
+#cavern_records_left2{
+	margin-top:50px;
+}
+
+#cavern_records_right2{
+	margin-top:50px;
+}
+
+.animate_red{
+    animation-name: redFade;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'redFade'{
+  0%   { background-color: #111116; }
+  100% { background-color: #962e2e; }
+}
+
+#cavern_summary_header{
+	height:30px;
+	width:400px;
+	background-color: gradient( linear, 0px 0%, 400px 0%, from( #11294f ), to( #021738) );
+	border-top-right-radius:8px;
+}
+
+.cavern_summary_root{
+	margin-top:160px;
+	flow-children:down;
+}
+
+#cavern_summary_title{
+	color:#FFFFFF;
+	font-size:16px;
+	horizontal-align:center;
+	vertical-align: center;
+	line-height:26px;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	text-transform:uppercase;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+#cavern_summary_contents{
+/*	height:100%;*/
+	width:100%;
+}
+
+#cavern_summary_bg{
+	height:100%;
+	width:100%;
+	background-color: #111111;
+	opacity:0.92;
+	border-top-right-radius:1px;
+}
+
+#cavern_summary_expander{
+	width:40px;
+	height:40px;
+	horizontal-align:right;
+}
+
+#cavern_summary_expander:hover{
+	background-color: #111111;
+}
+
+#cavern_expander_label{
+	horizontal-align:center;
+	color:#FFFFFF;
+	font-size:28px;
+	vertical-align: top;
+
+}
+
+#cavern_summary_header_relics_container{
+	horizontal-align:left;
+	flow-children:right;
+	height:100%;
+	margin-left:5px;
+}
+
+.chamber_event_fragments_icon_summary{
+	width:20px;
+	height:20px;
+	margin-top:5px;
+}
+
+#winterblight_summary_fragments{
+	color:#FFFFFF;
+	font-size:18px;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+	horizontal-align:center;
+	margin-top:4px;
+}
+
+@keyframes 'slideClosed'{
+  0%   { position: 0px 0px 0px; }
+  100% { position: -360px 0px 0px; }
+}
+
+.slide_closed{
+    animation-name: slideClosed;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.cavern_summary_closed{
+	position: -360px 0px 0px;
+}
+
+@keyframes 'slideOpen'{
+  0%   { position: -360px 0px 0px; }
+  100% { position: 0px 0px 0px; }
+}
+
+.slide_open{
+    animation-name: slideOpen;
+    animation-duration: .5s;
+    animation-timing-function: linear;	
+}
+
+.round-bottom-right{
+	border-bottom-right-radius:8px;
+}
+
+#cavern_summary_items_attacher{
+	width:100%;
+	flow-children:down;
+}
+
+.cavern_summary_item_root{
+	padding-top:8px;
+	flow-children:down;
+	width:100%;
+	padding-left:12px;
+	padding-right:12px;
+	box-shadow:0px 0px 1px #000000;
+	padding-bottom:4px;
+
+}
+
+#event-progress-bar{
+	height:20px;
+	width:90%;
+/*	border-radius:4px;*/
+	border:1px solid #333333;
+	margin-bottom:2px;
+	background-color: #111111;
+	horizontal-align:center;
+}
+
+#summary-bottom-row{
+	width:100%;
+}
+
+#summary-top-row{
+	flow-children:right;
+	horizontal-align:center;
+}
+
+#summary-mid-row{
+	flow-children:right;
+}
+
+#event_hero_portrait{
+	width:30px;
+	margin-right:4px;
+	height:16px;
+}
+
+#winter_event_chamber_name{
+	font-size:16px;
+	color:white;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+
+}
+
+#event_player_name{
+	font-size:16px;
+	color:#8eb9ff;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	max-width:110px;
+}
+
+#winter_event_event_name{
+	font-size:14px;
+	color:white;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	margin-top:1px;	
+}
+
+#winter_event_event_level{
+	font-size:14px;
+	color:yellow;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	margin-top:1px;
+}
+
+#event-name-and-level{
+	flow-children:right;
+	horizontal-align:right;
+}
+
+#event-progress-bar-label{
+	horizontal-align:center;
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
+	font-size:16px;
+}
+
+#event-progress-bar-fill{
+	height:100%;
+}
+
+.event-progress-bar-fill-class{
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #1C4FA0 ), to( #0d326d ) );
+}
+
+.active_chamber_label{
+	color: #21db55;
+}
+
+.chamber-main-button-active{
+	border:3px solid #21db55;
+}
+
+.chamber-main-button-active:hover{
+	border:3px solid #21db55;
+}
+
+.fill_fail{
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #a82c3a ), to( #78111c ) );
+}
+
+.fill_win{
+	background-color: gradient( linear, 0px 0%, 50px 0%, from( #2f9c63 ), to( #135934 ) );
+}
+
+.green_text{
+	color: #29b349;
+}
+
+.white_text{
+	color:#FFFFFF;
+}
+
+.chamber_event_fragments_container_completed{
+	border: 1px solid #29b349;
+}
+
+#no_record_label{
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	margin-top:25px;
+	horizontal-align:center;
+	text-align: center;
+	width:400px;
+}
+
+.winter_cavern_no_record_container{
+	horizontal-align:center;
+}
+
+#winterblight_cavern_boss_button{
+	horizontal-align:center;
+	height:40px;
+	border:1px solid #666666;
+	margin-top:30px;
+	width:80%;
+	border-radius:4px;
+	background-color: #060606;
+}
+
+#winterblight_cavern_boss_button_label{
+	vertical-align: center;
+	horizontal-align: center;
+	color:#FFFFFF;
+	font-size:16px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+}
+
+#winterblight_cavern_boss_button:hover{
+	border:1px solid #FFFFFF;
+	background-color: #111111;
+}
+
+#boss_button_attacher{
+	flow-children:down;
+	width:100%;
+/*	height:400px;*/
+}
+
+.winter_cavern_boss_menu_root{
+	width:100%;
+}
+
+.winter_cavern_boss_button_root{
+	width:100%;
+	flow-children:down;
+}
+
+#winterblight_inner_cavern_boss_button{
+	horizontal-align:center;
+	height:40px;
+	width:80%;
+	border-radius:4px;
+	margin-top:10px;
+}
+
+
+.winterblight_cavern_boss_button_active{
+	background-color: #060606;
+	border:1px solid #666666;
+}
+
+.winterblight_cavern_boss_button_active:hover{
+	border:1px solid #FFFFFF;
+	background-color: #111111;
+}
+
+.winterblight_cavern_boss_button_inactive{
+	background-color: #0d0605;
+	border:1px solid #333333;
+}
+
+.winterblight_cavern_boss_button_summoned{
+	background-color: #141408;
+	border:1px solid #333333;
+}
+
+.winterblight_cavern_boss_button_slain{
+	background-color: #081408;
+	border:1px solid #333333;
+}
+
+.wb_boss_skull{
+	vertical-align: center;
+	margin-left:10px;
+	width:18px;
+	height:18px;
+}
+
+.boss_fragments_cost_container{
+	horizontal-align:right;
+	flow-children:right;
+	vertical-align: center;
+	margin-right:10px;
+}
+
+.winter_boss_fragments_icon{
+	width:18px;
+	height:18px;
+	margin-right:6px;
+}
+
+#winterblight_boss_fragments_cost{
+	font-size:14px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
+	margin-top:4px;
+}
+
+#winterblight_cavern_boss_summary{
+	margin-top:4px;
+	font-size:14px;
+	max-height:45px;
+	width:80%;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	color:white;
+	horizontal-align:center;	
+}
+
+#winterblight_cavern_boss_button_level{
+	font-size:14px;
+	font-weight:lighter;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	vertical-align: center;
+	margin-left:32px;
+	margin-top:4px;
+}
+
+.cavern_boss_button_level_inactive{
+	color:red;
+}
+
+.cavern_boss_button_level_active{
+	color:white;
+}
+
+#boss_menu_separator{
+	height:4px;
+	width:100%;
+	background-color: #DDDDDD;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+#final_boss_button_attacher{
+	width:100%;
+	flow-children:down;
+}

@@ -330,7 +330,11 @@ function swap_sun_moon(currentType, caster)
 		else
 			swapAbility(caster, "solunia_solar_glow", "solunia_lunar_glow", 0)
 		end
-		swapAbility(caster, "solunia_solarang", "solunia_lunarang", 1)
+		if caster:HasModifier("modifier_solunia_arcana3") then
+			swapAbility(caster, "solunia_solar_vorpal_blades", "solunia_lunar_vorpal_blades", 1)
+		else
+			swapAbility(caster, "solunia_solarang", "solunia_lunarang", 1)
+		end
 		swapAbility(caster, "solunia_warp_flare", "solunia_lunar_warp_flare", 2)
 		if caster:HasModifier("modifier_solunia_arcana2") then
 			swapAbility(caster, "solunia_solar_alpha_spark", "solunia_lunar_alpha_spark", DOTA_R_SLOT)
@@ -351,7 +355,12 @@ function swap_sun_moon(currentType, caster)
 		else
 			swapAbility(caster, "solunia_lunar_glow", "solunia_solar_glow", 0)
 		end
-		swapAbility(caster, "solunia_lunarang", "solunia_solarang", 1)
+		if caster:HasModifier("modifier_solunia_arcana3") then
+			swapAbility(caster, "solunia_lunar_vorpal_blades", "solunia_solar_vorpal_blades", 1)
+		else
+			swapAbility(caster, "solunia_lunarang", "solunia_solarang", 1)
+		end
+		
 		swapAbility(caster, "solunia_lunar_warp_flare", "solunia_warp_flare", 2)
 		if caster:HasModifier("modifier_solunia_arcana2") then
 			swapAbility(caster, "solunia_lunar_alpha_spark", "solunia_solar_alpha_spark", DOTA_R_SLOT)
@@ -361,6 +370,9 @@ function swap_sun_moon(currentType, caster)
 		end
 
 		local wAbility = caster:FindAbilityByName("solunia_solarang")
+		if caster:HasModifier("modifier_solunia_arcana3") then
+			wAbility = caster:FindAbilityByName("solunia_solar_vorpal_blades")
+		end
 		wAbility:ApplyDataDrivenModifier(caster, caster, "modifier_selethas_sun_active", {})
 	end
 

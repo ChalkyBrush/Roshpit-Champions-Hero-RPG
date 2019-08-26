@@ -1,0 +1,527 @@
+	"warlord_cataclysm_shaker"
+	{
+		// General
+		//-------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"warlord/arcana2/cataclysm_shaker"
+		"LevelsBetweenUpgrades" 		"0"
+		"MaxLevel"				 		"7"
+		"BaseClass"                     "ability_lua"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		"AbilityCastRange"				"1400"
+		"ScriptFile"                    "heroes/beastmaster/arcana/warlord_cataclysm_shaker_lua.lua"
+		"VectorTarget"      			"1"
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"distance"					"1000 1100 1200 1300 1400 1500 1600"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"					"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"10000 30000 100000 200000 500000 1000000 2000000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"str_mult"					"500 1000 1500 2000 2500 3000 3500"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_cataclysm_shaker_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+			}
+		}
+	}
+
+	"warlord_frost_scathe"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"warlord/arcana2/frost_scathe"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1300"
+		"AOERadius"						"320"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"2.5"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"1300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"320"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"main_aoe_duration"				"12"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"freeze_delay"				"1.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"freeze_pop_aoe"				"250 260 270 280 290 300 310"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"in_thinker_slow"				"-100 -120 -140 -160 -180 -200 -220"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"1000 5000 20000 60000 120000 240000 400000"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"freeze_duration"				"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"int_mult"					"50 100 150 200 250 300 350"
+			}
+		}
+		"precache"
+		{
+
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+        		"Function"		"ice_scathe_pre"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+        		"Function"		"ice_scathe_start"
+        		"target"		"POINT"
+        		"main_aoe_duration"	"%main_aoe_duration"
+        		"radius"			"%radius"
+
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_scathe_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+		        		"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+		        		"Function"		"ice_scathe_passive_thinker"
+					}
+				}
+			}
+			"modifier_ice_scathe_freecast"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
+			"modifier_ice_scathe_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"          	"modifier_ice_scathe_effect_application"
+				"Aura_Radius"   	"%radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+						"Function"		"ice_scathe_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_ice_scathe_effect_application"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+						"Function"		"walk_into_ice_scathe"
+						"target"		"TARGET"
+						"freeze_delay"	"%freeze_delay"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+						"Function"		"walk_out_of_ice_scathe"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_in_ice_scathe_enemy"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%in_thinker_slow"
+				}
+			}
+			"modifier_ice_scathe_countdown"
+			{
+				"IsHidden" "0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/arcana/warlord_ice_scathe"
+						"Function"		"ice_scathe_countdown_end"
+						"target"		"TARGET"
+						"freeze_pop_aoe"	"%freeze_pop_aoe"
+						"base_damage"		"%base_damage"
+						"freeze_duration"	"%freeze_duration"
+						"int_mult"			"%int_mult"
+					}
+				}
+			}
+			"modifier_ice_scathe_freeze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"	   
+				"StatusEffectPriority"  "30"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_ice_scathe_q2_shield"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"warlord/arcana2/warlord_rune_q_2_arcana2"
+				"IsBuff"	"1"
+				"EffectName"		"particles/roshpit/warlord/warlord_arcana2_q2_shield.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+		}
+	}
+
+	"warlord_flame_wreck"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"warlord/arcana2/flame_wreck"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"			"1000 1100 1200 1300 1400 1500 1600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wreck_duration"			"12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"2000 6000 14000 32000 98000 248000 560000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"agi_mult"					"50 100 150 200 250 300 350"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_bonus"			"200 230 260 290 320 350 380"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_cap"			"700 720 740 760 780 800 820"
+			}			
+		}
+		"precache"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/beastmaster/arcana/warlord_flame_wreck"
+        		"Function"		"flame_wreck_start"
+        		"wreck_duration"	"%wreck_duration"
+        		"range"			"%range"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_flame_wreck_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+		
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/arcana/warlord_flame_wreck"
+						"Function"		"flame_wreck_thinker"
+						"target"		"TARGET"
+						"base_damage"	"%base_damage"
+						"agi_mult"		"%agi_mult"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/beastmaster/arcana/warlord_flame_wreck"
+						"Function"		"flame_wreck_dummy_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_flame_wreck_q3_atk_power"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.5"
+				"TextureName"	"warlord/arcana2/warlord_rune_q_3_arcana2"
+				"OnIntervalThink"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_flame_wreck_q3_atk_power"
+						"Target" 		"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% WARLORD_ARCANA2_Q3_ATK_SPEED %>"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% WARLORD_ARCANA2_Q3_GREEN_DMG_PCT %>" 
+				}
+			}
+		}
+	}
+
+
+	"warlord_rune_q_1_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/arcana2/warlord_rune_q_1_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% WARLORD_ARCANA2_Q1_POST_MIT %>"
+			}
+		}
+	}
+
+	"warlord_rune_q_2_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/arcana2/warlord_rune_q_2_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% WARLORD_ARCANA2_Q2_DURATION_BASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% WARLORD_ARCANA2_Q2_DURATION_PER_LEVEL %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% WARLORD_ARCANA2_Q2_INT_BONUS %>"
+			}
+		}
+	}
+
+	"warlord_rune_q_3_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/arcana2/warlord_rune_q_3_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% WARLORD_ARCANA2_Q3_GREEN_DMG_PCT %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% WARLORD_ARCANA2_Q3_ATK_SPEED %>"
+			}
+		}
+	}
+
+	"warlord_rune_q_4_arcana2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"warlord/arcana2/warlord_rune_q_4_arcana2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% WARLORD_ARCANA2_Q4_DRAGON_AMP_PER_ATTRIBUTES %>"
+			}
+		}
+	}
+

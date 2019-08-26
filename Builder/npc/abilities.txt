@@ -33,6 +33,7 @@
 
 	##ELEMENTAL_WARLORD_ARCANA_1_ABILITIES##
 	##ELEMENTAL_WARLORD_ARCANA_1_RUNES##
+	##ELEMENTAL_WARLORD_ARCANA_2##
 	##ELEMENTAL_WARLORD_BASE_ABILITIES##
 	##ELEMENTAL_WARLORD_BASE_RUNES##
 
@@ -171,6 +172,7 @@
 	##SOLUNIA_ARCANA_1_RUNES##
 	##SOLUNIA_ARCANA_2_ABILITIES##
 	##SOLUNIA_ARCANA_2_RUNES##
+	##SOLUNIA_ARCANA_3##
 	##SOLUNIA_BASE_ABILITIES##
 	##SOLUNIA_BASE_RUNES##
 
@@ -9657,6 +9659,18 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"1"
 				}
+			}
+			"modifier_hand_all_elements"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_hand_cosmos"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"			
 			}
 		}
 	}

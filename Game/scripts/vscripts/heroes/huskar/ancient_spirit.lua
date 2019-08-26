@@ -137,6 +137,7 @@ function spirit_dashing_think(event)
 		if caster:HasModifier("modifier_spirit_warrior_glyph_1_1") then
 			dashSpeed = math.floor(dashSpeed * 1.5)
 		end
+		dashSpeed = Filters:GetAdjustedESpeed(caster, dashSpeed, false)
 		local newPosition = casterOrigin + moveVector * dashSpeed
 		local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, spirit)
@@ -168,6 +169,7 @@ function spirit_moving_out(event)
 	local casterOrigin = spirit:GetAbsOrigin()
 	local moveVector = ((targetPoint - casterOrigin) * Vector(1, 1, 0)):Normalized()
 	local movespeed = 35
+	movespeed = Filters:GetAdjustedESpeed(spirit.origCaster, movespeed, false)
 	local newPosition = casterOrigin + moveVector * movespeed
 	local checkPosition = casterOrigin + moveVector * (movespeed + 5)
 	local obstruction = WallPhysics:FindNearestObstruction(checkPosition * Vector(1, 1, 0))

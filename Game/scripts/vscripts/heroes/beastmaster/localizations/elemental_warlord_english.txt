@@ -296,8 +296,81 @@
 
     	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect"						"Warlord"
     	"DOTA_Tooltip_modifier_warlord_rune_r_4_effect_Description"			"Increased attack damage based on active Fire Charges"
-		
 
+        //ARCANA 2
+
+        "DOTA_Tooltip_ability_item_rpc_warlord_arcana2"                              "Dragonborne Helm"
+        "item_property_warlord_arcana2"                                     "Elemental Catastrophe"
+        "property_warlord_arcana2_description"                              "Replaces @Ability1 with Catastrophe Shaker, Frost Scathe, and Flame Wreck."
+		
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "Catastrophe Shaker"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#3289C7\">Dragon</font><br>An earth breaking fissure breaks upon the chosen vector start point and end point. The wall's length scales with the cast vector chosen, up to a maximum wall length. The fissure has collision and damage and stuns enemies who are hit by its initial crash. Damage is increased by Strength."
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_distance"            "MAX WALL DISTANCE:"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_stun_duration"       "STUN DURATION:"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_damage"              "BASE DAMAGE:"
+        "DOTA_Tooltip_ability_warlord_cataclysm_shaker_str_mult"            "BONUS DAMAGE STRENGTH MULTIPLIER:"
+
+        "DOTA_Tooltip_ability_warlord_frost_scathe"                         "Frost Scathe"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_Description"             "Element: <font color=\"#87D9FF\">Ice</font> / <font color=\"#3289C7\">Dragon</font><br>A draconic chill flash freezes the target area. Enemies who step into the Frost Scathe area are slowed and additionally receive a debuff that freezes and damages enemies in an aoe after an activation delay. Ability has 2 free casts that recharge every 3 seconds."
+        "DOTA_Tooltip_ability_warlord_frost_scathe_radius"                  "FROST RADIUS:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_main_aoe_duration"       "FROST DURATION:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_delay"            "FREEZE EXPLOSION DELAY:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_pop_aoe"          "FREEZE EXPLOSION RADIUS:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_in_thinker_slow"         "ENEMY MOVEMENT SLOW:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_freeze_duration"         "FREEZE DURATION:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_base_damage"             "BASE DAMAGE:"
+        "DOTA_Tooltip_ability_warlord_frost_scathe_int_mult"                "BONUS DAMAGE INTELLIGENCE MULTIPLIER:"
+
+        "DOTA_Tooltip_modifier_ice_scathe_freecast"                         "Frost Scathe Freecast"
+
+        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy"            "Frost Scathe"
+        "DOTA_Tooltip_modifier_modifier_in_ice_scathe_enemy_Description"    "Slowed"
+
+        "DOTA_Tooltip_modifier_ice_scathe_countdown"                    "Frost Scathe Countdown"
+        "DOTA_Tooltip_modifier_ice_scathe_countdown_Description"        "Will explode and freeze nearby teammates on expiry."
+
+        "DOTA_Tooltip_modifier_ice_scathe_freeze"                       "Frost Scathe Freeze"
+
+        "DOTA_Tooltip_ability_warlord_flame_wreck"                     "Flame Wreck"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_Description"         "Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#3289C7\">Dragon</font><br>Warlord unleashes a tsunami of fire that burns enemies who stand inside every 0.5 seconds. While warlord stands in the flames, he gains bonus movespeed and movespeed cap."
+        "DOTA_Tooltip_ability_warlord_flame_wreck_range"               "DISTANCE:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_wreck_duration"      "FLAME DURATION:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_base_damage"         "BASE DAMAGE:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_agi_mult"            "BONUS DAMAGE AGILITY MULTIPLIER:"      
+        "DOTA_Tooltip_ability_warlord_flame_wreck_ms_bonus"            "WARLORD MOVESPEED BONUS:"
+        "DOTA_Tooltip_ability_warlord_flame_wreck_ms_cap"              "WARLORD MOVESPEED CAP:"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2"                     "[Q1] Mountain Breaker"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Warlord gains increased post-mitigation damage against enemies who are stunned or frozen."
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_property_one"        "Post-mitigation Damage"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              "% against stunned enemies"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "While Warlord is standing in an Ice Scathe area, gain a shield which increases intelligence and reduces damage taken by <% WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT %>%. The shield has a scaling linger duration after leaving an Ice Scathe area."
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "Linger Duration:"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " seconds"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "Bonus Intelligence"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix_two"          ""
+
+        "DOTA_Tooltip_modifier_ice_scathe_q2_shield"                        "Enveloping Cold"
+        "DOTA_Tooltip_modifier_ice_scathe_q2_shield_Description"            "Reducing incoming damage and gaining bonus intellect"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2"                     "[Q3] Raging Flame"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_Description"         "Gain bonus attack damage and attack speed while standing in Flame Wreck."
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_property_one"        "Bonus Attack Damage"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_suffix"              "%"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_property_two"        "Attack Speed"
+        "DOTA_Tooltip_ability_warlord_rune_q_3_arcana2_suffix_two"          ""
+
+        "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power"                    "Raging Flame"
+        "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power_Description"        "Increased attack power and attack speed"
+
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2"                     "[Q4] Dragon Wrath"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Passively increase all attributes. All attributes increase <font color=\"#3289C7\">Dragon</font> damage."
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_one"        "Bonus Attributes"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix"              ""
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_two"        "Damage Bonus"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix_two"          "% for each 10 points of attributes."
 
 		//Glyphs
 		

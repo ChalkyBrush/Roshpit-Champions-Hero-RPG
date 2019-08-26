@@ -774,6 +774,29 @@ function Precache:Winterblight()
 	PrecacheUnitByNameAsync(unitTable[i], precache_function)
 end
 
+function Precache:WinterblightCavern()
+	local unitTable = {"winterblight_scouring_sherpa", "winterblight_skating_zealot", "winterblight_relict", "ferocious_polar_bear", "ice_haunter", "winterblight_stone_guardian", "winterblight_merkurio", "winterblight_cavern_guide", "winterblight_cavern_centaur", "azalea_mana_null", "winterblight_blood_wraith", "winterblight_cavern_ultra_ice", "drill_digger", "winter_cavern_bat", "cavern_pantheon_knight", "barbed_husker", "winterblight_cloaked_phantasm", "winterblight_boar", "winterblight_fungal_shaman", "winterblight_cavern_beguiler", "winterblight_corporeal_revenant", "crystarium_heart_slayer", "fungal_minion", "winterblight_skull_hunter", "reclusive_mundunugu", "winterblight_crystalist", "winterblight_zect_rider", "winterblight_mushroom_pixie", "crystarium_brood_spider", "winterblight_icixel", "winterblight_toki_toki", "winterblight_demented_mushroom", "winterblight_ghost_of_aurora", "winterblight_cavern_bovaur", "winterblight_icestealer", "winterblight_cavern_overwhelmer", "winterblight_servant_of_saturn", "winterblight_zodiac_oracle", "winterblight_cavern_thunderhide", "winterblight_aurora_boss_1", "winterblight_aurora_boss_2", "winterblight_aurora_boss_3", "winterblight_space_shark", "winterblight_star_eater", "winter_bone_blister", "winterblight_galaxy_knight", "winterblight_frozen_krow", "winterblight_mind_chatterer", "winterblight_wintertide_monk", "sea_fortress_sea_portal", "winterblight_winters_chieftain", "descent_of_winterblight_torturok", "ozubu_spiderling", "descent_of_winterblight_ozubu", "descent_of_winterblight_aertega", "winterblight_cavern_gigarraun", "winterblight_cavern_boss_tiamat", "winterblight_realm_breaker"}
+	local i = 1 
+	local function precache_function()
+		--print("done precaching: "..unitTable[i])
+		i = i+1
+		if i > #unitTable then
+			--print("done precaching units")
+			Timers:CreateTimer(0, function()
+				CustomGameEventManager:Send_ServerToAllClients("finish_precache", {units = 1})
+				return 2
+			end)
+		else
+			--print("precaching "..unitTable[i])
+			local pct = math.floor(i/#unitTable*100)
+			CustomGameEventManager:Send_ServerToAllClients("update_precache", {units = 1, pct = tostring(pct)})
+			PrecacheUnitByNameAsync(unitTable[i], precache_function)
+		end
+	end
+	--print("precaching "..unitTable[i])
+	PrecacheUnitByNameAsync(unitTable[i], precache_function)	
+end
+
 function Precache:Tutorial()
 	local unitTable = {"tutorial_master", "tutorial_assistant", "tutorial_shroomling", "challens_elemental"}
 	local i = 1

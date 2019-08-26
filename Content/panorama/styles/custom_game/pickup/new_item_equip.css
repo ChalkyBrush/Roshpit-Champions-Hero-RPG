@@ -1,0 +1,143 @@
+.equip_item_root{
+	vertical-align: center;
+	horizontal-align:center;
+
+	width:0px;
+	flow-children:right;
+	margin-bottom:240px;
+	border-radius:12px;
+	border:1px solid white;
+}
+
+.equip_item_container{
+	width:325px;
+
+	
+	
+}
+
+.main_item_container{
+	width:100%;
+
+	flow-children:down;
+
+}
+
+#item_attacher{
+	width:90%;
+/*	height:460px;*/
+	horizontal-align:center;
+	margin-top:10px;
+	height:460px;
+}
+
+.equip_item_display_root{
+	width:100%;
+/*	height:100%;*/
+	flow-children:down;
+}
+
+.item-swap-bg{
+	width:100%;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 405px 50%, from( #212121 ), to( #090909 ) );
+	opacity:0.98;
+}
+
+@keyframes 'equipFadeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.equip_fade_in{
+    animation-name: equipFadeIn;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;  
+}
+
+#equip_item_image{
+	horizontal-align:center;
+	border-radius:4px;
+	box-shadow: 1px 1px 0px #000000;
+	margin-top:5px;
+}
+
+#new_or_old{
+	text-align:center;
+	text-transform: uppercase;
+	horizontal-align:center;
+}
+
+.new_item_color{
+	color:#d3d936;
+}
+
+#buttons_attacher{
+	width:100%;
+	horizontal-align:center;
+	min-height:170px;
+
+}
+
+.equip_item_button_options_root{
+	width:100%;
+	flow-children:down;
+	margin-bottom:30px;
+	vertical-align: top;
+}
+
+.buttons_old_colors{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #111111), to( #1D1D1D) );
+}
+
+.buttons_old_colors:hover{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #1D1D1D), to( #222222 ) );
+}
+
+.buttons_new_colors{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #1a243d), to( #253357 ) );
+}
+
+.buttons_new_colors:hover{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #182547 ), to( #24386b ) );
+}
+
+.equip_item_button{
+	width:80%;
+	horizontal-align:center;
+	height:34px;
+	box-shadow: 0px 0px 1px #FFFFFF;
+	border-radius:4px;
+	
+	margin-top:15px;
+}
+
+.equip_item_button:hover{
+	box-shadow: 0px 0px 2px #FFFFFF;
+	
+}
+
+.button-option-text{
+	vertical-align: center;
+	horizontal-align:center;
+	font-size:16px;
+	font-weight:lighter;
+	color:white;
+}
+
+#buttons-title{
+	text-align: center;
+}
+
+#button-title-container{
+	flow-children:right;
+	margin-top:15px;
+	horizontal-align:center;
+	text-align: center;
+}
+
+#extra-equip-info{
+	margin-left:10px;
+	width:20px;
+	height:20px;
+}

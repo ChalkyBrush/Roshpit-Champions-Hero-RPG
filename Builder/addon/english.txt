@@ -534,6 +534,18 @@
 		"ui_picked_up"			"Picked Up"
 		"ui_equip_new"			"Equipped!"
 		"ui_close_panel"		"Close"
+		"ui_old_item"			"Old"
+		"ui_new_item"			"New"
+		"ui_old_item_main_option" "Keep old item equipped and"
+		"ui_old_item_option_1"	"Return new item to inventory"
+		"ui_old_item_option_2"	"Discard new item"
+		"ui_new_item_main_option" "Equip new item and"
+		"ui_new_item_option_1"	"Save Hero"
+		"ui_new_item_option_2"	"Don't Save"
+		"ui_new_item_option_no_save_slot"	"Discard Old Item"
+		"ui_new_item_extra_help"	"Both of these options will destroy the currently equipped item."
+		"ui_new_item_equip_tooltip_title"	"New Item Equip"
+		"ui_new_item_equip_tooltip_text"	"Both of the following options will replace & destroy your currently equipped gear in this slot. Visit the blacksmith and chisel your current gear in order to preserve it."
 
 		"ui_trade"				"Trade"
 
@@ -1783,6 +1795,12 @@
 		"star_azalea_description"									"Defeat @bossname on @mapname as @heroname on Normal Difficulty."
 		"star_azalea_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
 		"star_azalea_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
+
+		"star_wb_cavern_description"									"Defeat @bossname on @mapname as @heroname on Normal Difficulty."
+		"star_wb_cavern_description2"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty."
+		"star_wb_cavern_description3"									"Defeat @bossname on @mapname as @heroname on Legend Difficulty with 3 active Glacier Stones."
+
+		"star_wb_cavern_master_description"									"Clear all @dungeon_name chambers with an average clear level of @level as @heroname"
 
 
 

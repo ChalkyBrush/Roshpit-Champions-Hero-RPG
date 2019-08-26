@@ -370,6 +370,8 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_client_setting", "modifiers/modifier_client_setting", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_attack_land_basic", "modifiers/modifier_attack_land_basic", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_master_movespeed", "modifiers/modifier_master_movespeed", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ignore_ms_cap", "modifiers/modifier_ignore_ms_cap", LUA_MODIFIER_MOTION_NONE)
+  
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end

@@ -22,6 +22,7 @@ function lightspeed_cast(event)
 	caster:AddNewModifier(caster, ability, "modifier_zonik_lightspeed_cap", {duration = duration})
 
 	local e_1_level = caster:GetRuneValue("e", 1)
+	e_1_level = 60
 	local zonik_glyph_5_1_speed = 0
 	if caster:HasModifier("modifier_zonik_glyph_5_1") then
 		zonik_glyph_5_1_speed = ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS

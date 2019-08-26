@@ -1051,6 +1051,56 @@ function RPCItems:RollWarlordArcana1(deathLocation)
     return item
 end
 
+function RPCItems:RollWarlordArcana2(deathLocation, boss_level)
+    local item = RPCItems:CreateVariantArcana("item_rpc_warlord_arcana2", "arcana", "Warlord Arcana 2", "head", true, "Slot: Head", "npc_dota_hero_beastmaster", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!arcana!_warlord_arcana2"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_warlord_arcana2", "#3289C7", 1, "#property_warlord_arcana2_description")
+
+    item.newItemTable.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    local bonus_luck = RandomInt(1, boss_level)
+    local rune_mult = 1
+    if bonus_luck > 35 then
+        rune_mult = 1.8
+    elseif bonus_luck > 30 then
+        rune_mult = 1.6
+    elseif bonus_luck > 25 then
+        rune_mult = 1.4
+    elseif bonus_luck > 20 then
+        rune_mult = 1.2
+    end
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.newItemTable.property2name = "rune_q_1"
+        item.newItemTable.property2 = math.ceil(value * 1.4 * rune_mult)
+    elseif luck <= 70 then
+        item.newItemTable.property2name = "rune_q_2"
+        item.newItemTable.property2 = math.ceil(value * 1.4 * rune_mult)
+    elseif luck <= 90 then
+        item.newItemTable.property2name = "rune_q_3"
+        item.newItemTable.property2 = math.ceil(value * 1.1 * rune_mult)
+    else
+        item.newItemTable.property2name = "rune_q_4"
+        item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(8, 13)*rune_mult, 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+    local max_attribute_roll = 1000 + RandomInt(0, boss_level*200)
+    max_attribute_roll = math.min(max_attribute_roll, 8800)
+    local high_roller = math.min(10 + math.ceil(boss_level/3), 40)
+    local value, prefixLevel = RPCItems:RollAttribute(100, 8, high_roller, 0, 0, item.newItemTable.rarity, false, max_attribute_roll)
+    item.newItemTable.property3 = value
+    item.newItemTable.property3name = "all_attributes"
+    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_all_attributes", "#FFFFFF", 3)
+
+    RPCItems:RollHoodProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
 function RPCItems:RollEkkanArcana1(deathLocation)
     local item = RPCItems:CreateVariantArcana("item_rpc_ekkan_arcana1", "arcana", "Ekkan Arcana 1", "head", true, "Slot: Head", "npc_dota_hero_visage", 0)
     local maxFactor = RPCItems:GetMaxFactor()
@@ -1175,6 +1225,40 @@ function RPCItems:RollSoluniaArcana2(deathLocation)
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_all_attributes", "#FFFFFF", 3)
 
     RPCItems:RollBodyProperty4(item, 0)
+
+    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
+    return item
+end
+
+function RPCItems:RollSoluniaArcana3(deathLocation)
+    local item = RPCItems:CreateVariantArcana("item_rpc_solunia_arcana3", "arcana", "Solunia Arcana 3", "hands", true, "Slot: Hands", "npc_dota_hero_vengefulspirit", 0)
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!arcana!_solunia_arcana3"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_solunia_arcana3", "#f542c5", 1, "#property_solunia_arcana3_description")
+
+    item.newItemTable.hasRunePoints = true
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+
+    local luck = RandomInt(1, 100)
+    if luck <= 35 then
+        item.newItemTable.property2name = "rune_w_1"
+        item.newItemTable.property2 = math.ceil(value * 1.5)
+    elseif luck <= 70 then
+        item.newItemTable.property2name = "rune_w_2"
+        item.newItemTable.property2 = math.ceil(value * 1.5)
+    elseif luck <= 90 then
+        item.newItemTable.property2name = "rune_w_3"
+        item.newItemTable.property2 = math.ceil(value * 1.1)
+    else
+        item.newItemTable.property2name = "rune_w_4"
+        item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(RandomInt(10, 15), 0, 0, 0, 0)
+    end
+    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+    Elements:RollElementAttribute(item, RPC_ELEMENT_COSMOS, 8, 4, 40, 3)
+
+    RPCItems:RollHandProperty4(item, 0)
 
     RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
     return item

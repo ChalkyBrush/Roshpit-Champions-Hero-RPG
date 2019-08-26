@@ -355,3 +355,17 @@
 		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases Base Ability damage by @special_property1%. Each stack lasts 10 seconds and has its own individual duration."
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"
+
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
+		"item_property_knight_hawk" 								"Haste Blade"
+		"property_knight_hawk_description"						"Increases max movespeed limit by an additional <% KNIGHT_HAWK_MAX_MOVESPEED_LIMIT %>. While above 550 movespeed, damage taken is reduced by <% KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX %>%. If movespeed falls below 300, gain a <% KNIGHT_HAWK_MS_GAIN %> movespeed buff for <% KNIGHT_HAWK_MS_BUFF_DURATION %> seconds."
+
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Haste Blade"
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
+		"item_property_magistrate"											"Spell Spreader"
+		"property_magistrate_description"								"All Magical and Pure damage deal their damage in a <% MAGISTRATE_HOOD_AOE %> AOE. AOE effect has <% MAGISTRATE_HOOD_MAX_CHARGES %> charges that replenish every <% MAGISTRATE_HOOD_REPLENISH_TIME %> second. All AOE damage is increased by <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>%."
+
+		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Spell Spreader Charges"
+		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Magic and Pure damage effects an AOE as long as charges are above 0"

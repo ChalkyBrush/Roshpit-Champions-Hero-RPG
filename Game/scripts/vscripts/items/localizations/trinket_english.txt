@@ -307,3 +307,25 @@
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
 		"item_property_puzzler"										"Anagram"
 		"property_puzzler_description"								"Tier 2 Rune Bonuses provided by equipment are swapped with Tier 3 Rune Bonuses"
+
+		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"Galvanized Razor Band"
+		"item_property_razor_band"										"Whirling Blade"
+		"property_razor_band_description"								"Taking damage from an enemy deals an additional instance of damage equal to <% RAZOR_BAND_MAX_HEALTH_DAMAGE %>% of the wearer's max health and applies a Whirling Blade stack. Each whirling blade stack adds <% RAZOR_BAND_ATTACK_POWER_PER_STACK %>% bonus attack damage and <% RAZOR_BAND_POST_MITIGATION_PER_STACK %>% increased post-mitigation damage. Nearby enemies take damage equal to <% RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% of attack power every 0.3 seconds. Each stack has an independant <% RAZOR_BAND_STACK_DURATION %> second duration and stacks cannot build past <% RAZOR_BAND_MAX_STACKS %>."
+
+		"DOTA_Tooltip_modfier_razor_band_stacks"					"Whirling Blade"
+		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Increased attack power and postmitigation damage. Damaging nearby enemies."
+
+		"DOTA_Tooltip_ability_item_rpc_guardian_stone"					"Guardian Stone"
+		"property_guardian_stone"										"Silver Heart"
+		"property_guardian_stone_description"								"Debuffs applied by enemies have <% GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% reduced duration. When a debuff duration is reduced, heal <% GUARDIAN_STONE_HEAL_PCT %>% of max health."
+
+		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
+		"item_property_beryl_ring_of_intuition"						"Intuitive Coalescence"
+		"property_beryl_ring_of_intuition_description"				"After casting all 4 base abilities, restore full health and refresh all cooldowns. If @Ability4 cooldown is greater than <% INTUITION_ULTIMATE_MIN_CD %> seconds, only reduce its cooldown to <% INTUITION_ULTIMATE_MIN_CD %> seconds."
+
+		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
+		"item_property_auric_ring_of_inspiration"						"Inspired Coalescence"
+		"property_auric_ring_of_inspiration_description"				"After casting all 4 base abilities, restore full health and gain <% INSPIRATION_MAGIC_IMMUNITY_TIME %> seconds of magic immunity."
+
+		"DOTA_Tooltip_modifier_auric_ring_bkb"						"Inspiration"
+		"DOTA_Tooltip_modifier_auric_ring_bkb_Description"			"Magic Immune"

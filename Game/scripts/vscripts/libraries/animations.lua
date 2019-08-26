@@ -332,6 +332,7 @@ local _ANIMATION_TRANSLATE_TO_CODE = {
   sugarrush = 276,
   suicide_squad = 18,
   summon = 210,
+  surge = 362,
   sven_shield = 256,
   sven_warcry = 257,
   swag_gesture = 287,

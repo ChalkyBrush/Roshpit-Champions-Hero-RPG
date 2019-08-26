@@ -254,6 +254,9 @@ end
 function dragon_wrath_jumping_think(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not ability.distance then
+		ability.distance = 500
+	end
 	local forwardSpeed = (ability.distance / 60 + 15) * 2
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)

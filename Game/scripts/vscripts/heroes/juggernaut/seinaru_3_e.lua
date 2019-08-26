@@ -161,11 +161,14 @@ end
 function slice_lifting(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.liftVelocity = ability.liftVelocity - 2
+	local fall_acceleration = 2
+	fall_acceleration = Filters:GetAdjustedESpeed(caster, fall_acceleration, false)
+	ability.liftVelocity = ability.liftVelocity - fall_acceleration
 	local position = caster:GetAbsOrigin() + Vector(0, 0, ability.liftVelocity)
 
-
-	newPosition = position + ability.forwardVector * 34
+	forwardSpeed = 34
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
+	newPosition = position + ability.forwardVector * forwardSpeed
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (newPosition + ability.forwardVector * 24), caster)
 	if not blockUnit and not caster:HasModifier("modifier_tornado_slashing") then
@@ -176,10 +179,16 @@ end
 function slice_falling(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability.fallVelocity = ability.fallVelocity + 2
+
+	local fall_acceleration = 2
+	fall_acceleration = Filters:GetAdjustedESpeed(caster, fall_acceleration, false)
+
+	ability.fallVelocity = ability.fallVelocity + fall_acceleration
 	local position = caster:GetAbsOrigin() - Vector(0, 0, ability.fallVelocity)
 
-	newPosition = position + ability.forwardVector * 34
+	forwardSpeed = 34
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
+	newPosition = position + ability.forwardVector * forwardSpeed
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
 
 
@@ -214,7 +223,7 @@ function falling_end(event)
 	end
 	if #ability.e_1_unit_table > 0 then
 		ability.e_1_particleTable = {}
-		ability.movespeed = 50
+		ability.movespeed = Filters:GetAdjustedESpeed(caster, 50, false)
 		ability.particle = true
 		-- "modifier_falcon_boots"
 		if caster:HasModifier("modifier_falcon_boots") then
@@ -317,7 +326,7 @@ function odachi_a_c_think(event)
 				caster:SetAbsOrigin(caster:GetAbsOrigin() + RandomVector(RandomInt(340, 500)) + Vector(0, 0, RandomInt(20, 280)))
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.ACStartDash", caster)
 				StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.2})
-				ability.movespeed = 65
+				ability.movespeed = Filters:GetAdjustedESpeed(caster, 65, false)
 			else
 				end_eagle_strike(ability, caster)
 			end
