@@ -2785,7 +2785,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_azalea_dragoon_passive") then
-		local distance = WallPhysics:GetDistance(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
+		local distance = WallPhysics:GetDistance2d(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
 		local passive = victim:FindAbilityByName("winterblight_azalea_dragoon_passive")
 		local distanceCompare = passive:GetSpecialValueFor("distance")
 		local damageReduce = passive:GetSpecialValueFor("damage_block")
@@ -4297,26 +4297,26 @@ function GameState:FilterDamage(filterTable)
 	-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	if Beacons.cheats then
-		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				-- print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
-			end
-			if victim:GetUnitName() == "rubick_apprentice" then
-				filterTable["damage"] = 1000
-			end
-		end
-		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if attacker:IsHero() then
-				if not victim:HasModifier("modifier_disable_player") then
-					if not victim:HasModifier("modifier_aeon_shield_passive") then
-						if filterTable["damage"] > 0 then
-							filterTable["damage"] = 999999999999999
-						end
-					end
-				end
-			end
-		end
+		-- if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if victim:IsHero() then
+		-- 		-- print("TAKE DAMAGE: "..filterTable["damage"])
+		-- 		filterTable["damage"] = 0
+		-- 	end
+		-- 	if victim:GetUnitName() == "rubick_apprentice" then
+		-- 		filterTable["damage"] = 1000
+		-- 	end
+		-- end
+		-- if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+		-- 	if attacker:IsHero() then
+		-- 		if not victim:HasModifier("modifier_disable_player") then
+		-- 			if not victim:HasModifier("modifier_aeon_shield_passive") then
+		-- 				if filterTable["damage"] > 0 then
+		-- 					filterTable["damage"] = 999999999999999
+		-- 				end
+		-- 			end
+		-- 		end
+		-- 	end
+		-- end
 		-- filterTable["damage"] = 0
 	end
 

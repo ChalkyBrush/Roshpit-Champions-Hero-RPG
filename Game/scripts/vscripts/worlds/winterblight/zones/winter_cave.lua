@@ -503,6 +503,9 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_cavern_unit", {})
 	unit.deaggro = bDeaggro
 	unit.original_position = original_position
+	if not unit.original_position then
+		unit.original_position = unit:GetAbsOrigin()
+	end
 	unit.chamber = chamber_index
 	if bParticle then
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
