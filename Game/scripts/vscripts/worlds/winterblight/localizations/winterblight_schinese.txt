@@ -891,7 +891,7 @@
 		"DOTA_Tooltip_ability_mana_null_spirit_warp_Description"	"通过精神力量的内在爆发，移动至目标地点."
 		"DOTA_Tooltip_ability_mana_null_spirit_warp_cast_range"	"施法距离:"
 
-		"DOTA_Tooltip_ability_winterblight_mana_null_passive"	"Mana Daemon"
+		"DOTA_Tooltip_ability_winterblight_mana_null_passive"	"法力加护"
 		"DOTA_Tooltip_ability_winterblight_mana_null_passive_Description"	"只要法力值高于0，便不会受到伤害.每次受到伤害法力值都会减少1. .<br>此外，普通攻击将会损毁目标当前法力值的一定百分比并附带基于损毁法力值的额外伤害."
 		"DOTA_Tooltip_ability_winterblight_mana_null_passive_mana_drain_percent"	"% 当前法力值损毁:"
 
