@@ -200,7 +200,6 @@ function bomb_explode(unit)
                 source = ability,
                 sourceType = BASE_ABILITY_W,
                 elements = {
-                    RPC_ELEMENT_FIRE,
                     RPC_ELEMENT_NORMAL,
                 }
             })
@@ -365,7 +364,6 @@ function smoke_bomb_think(event)
                     source = origAbility,
                     sourceType = BASE_ABILITY_W,
                     elements = {
-                        RPC_ELEMENT_POISON,
                         RPC_ELEMENT_NORMAL,
                     },
                     isDot = true,
