@@ -77,7 +77,7 @@ function ancient_rain_think(event)
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.RainLightning", caster)
 			local enemy = enemies[1]
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), enemy:GetAbsOrigin(), nil, SPIRIT_WARRIOR_ARCANA_R2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-			for enemy in pairs(enemies) do
+			for _,enemy in pairs(enemies) do
 				MaelstromBeam(caster:GetAbsOrigin() + Vector(0, 0, 500), enemy:GetAbsOrigin())
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_LIGHTNING)
 			end
