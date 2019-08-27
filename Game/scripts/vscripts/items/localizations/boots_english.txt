@@ -209,7 +209,7 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
-		"item_property_emerald_speed"							"Unbreakable Stride" \\AIN'T NOTHIN' GONNA BREAK MY STRIDE, NOBODY GONNA SLOOOOW MEEEE DOWN, WHOA NO, I GOT TO KEEP ON MOOO-VIN'
+		"item_property_emerald_speed"							"Unbreakable Stride" //AIN'T NOTHIN' GONNA BREAK MY STRIDE, NOBODY GONNA SLOOOOW MEEEE DOWN, WHOA NO, I GOT TO KEEP ON MOOO-VIN'
 		"property_emerald_speed_description"					"Movespeed can not fall below 550"
 		
 		

@@ -95,7 +95,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
-		"item_property_gengar"						"Shadow Tag" \\Mega Gengar's Ability
+		"item_property_gengar"						"Shadow Tag" //Mega Gengar's Ability
 		"property_gengar"                            "15% chance on taking damage to gain 75% evasion, unit walking and 300% increased Base Ability Damage for 6 seconds."
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"75%% evasion, unit walking and 300%% increased Ability Damage"
