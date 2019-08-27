@@ -2071,6 +2071,9 @@ function aurora_boss_think(event)
 				if cast_ability:GetAbilityName() == "winterblight_spirit_ring" then
 					delay = 1.0
 				end
+				if cast_ability:GetAbilityName() == "winterblight_ice_vortex_aoe" then
+					delay = 0.7
+				end
 				if cast_ability:GetAbilityName() =="three_perceptions" then
 					StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
 					delay = 1.5

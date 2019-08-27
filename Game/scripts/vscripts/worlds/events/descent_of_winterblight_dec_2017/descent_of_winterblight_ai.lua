@@ -729,7 +729,7 @@ function winterblight_boss_final_death_animation(caster)
 			end
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				item_rpc_pace_of_storm:Create(position)
+				item_rpc_storm_pacer_sabatons:Create(position)
 			elseif immortal_luck == 2 then
 				RPCItems:RollRobesOfEruditeTeacher(position)
 			end

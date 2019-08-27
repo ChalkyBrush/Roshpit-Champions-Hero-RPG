@@ -1,5 +1,4 @@
-﻿
-    	"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
+		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_property_slinger_boot"				"Bladeslinger"
 		"property_slinger_boots_description"		"Every <% BLADESLINGER_ATT_INTERVAL %> seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
 
@@ -209,7 +208,7 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
-		"item_property_emerald_speed"							"Unbreakable Stride" //AIN'T NOTHIN' GONNA BREAK MY STRIDE, NOBODY GONNA SLOOOOW MEEEE DOWN, WHOA NO, I GOT TO KEEP ON MOOO-VIN'
+		"item_property_emerald_speed"							"Unbreakable Stride"
 		"property_emerald_speed_description"					"Movespeed can not fall below 550"
 		
 		
