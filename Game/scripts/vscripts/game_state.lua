@@ -3805,7 +3805,6 @@ function GameState:FilterDamage(filterTable)
 		if applyEffects then
 			local luck = RandomInt(1, 2)
 			if luck == 1 then
-				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spectre/spectre_death.vpcf", victim, 1.2)
 				filterTable["damage"] = 0
 			end
 		end
