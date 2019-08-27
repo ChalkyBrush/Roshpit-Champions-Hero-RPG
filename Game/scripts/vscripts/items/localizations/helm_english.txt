@@ -365,7 +365,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Artillery Magus"
-		"property_magistrate_description"								"All instances of Magical and Pure damage deal their damage to all targets in a <% MAGISTRATE_HOOD_AOE %> radius. This effect relies on charges; there are <% MAGISTRATE_HOOD_MAX_CHARGES %> max charges, and one will be replenished every <% MAGISTRATE_HOOD_REPLENISH_TIME %> second. All area damage you deal is increased by <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>%."
+		"property_magistrate_description"								"All instances of Magical and Pure damage deal their damage to all targets in a <% MAGISTRATE_HOOD_AOE %> radius. This effect relies on charges; there are <% MAGISTRATE_HOOD_MAX_CHARGES %> max charges, and one will be replenished every <% MAGISTRATE_HOOD_REPLENISH_TIME %> second. All area damage you deal is increased by <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>% for each enemy in its radius."
 
 		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Artillery Magus Charges"
 		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Magical and Pure damage dealt affects an area as long as charges remain"

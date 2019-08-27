@@ -1990,8 +1990,8 @@ function GameState:FilterDamage(filterTable)
 			if inflictor ~= attacker.headItem then
 				local stacks = attacker:GetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit)
 				if stacks > 0 then
-					local magistrate_damage = filterTable.damage*(1 + (MAGISTRATE_HOOD_DAMAGE_AMP_PCT/100))
 					local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), victim:GetAbsOrigin(), nil, MAGISTRATE_HOOD_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+					local magistrate_damage = filterTable.damage*(1 + ((MAGISTRATE_HOOD_DAMAGE_AMP_PCT*#enemies)/100))
 					if #enemies > 0 then
 						for _, enemy in pairs(enemies) do
 				            Damage:Apply({
