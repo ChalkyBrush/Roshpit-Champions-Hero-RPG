@@ -308,18 +308,18 @@
         "DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_suffix"                  "% of attack power"
 
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3"                     "[W2] Blades of Neptune"
-        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Vorpal Blades restore mana on hit, and deal additional damage based on current mana."
-        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one"            "Mana Restore"
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Vorpal Blades restore mana to Solunia when striking an enemy, and deal additional damage based on her current mana."
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one"            "Mana Restored"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  "per hit" 
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% of current mana" 
 
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a 20% chance to deal a critical strike that deals enhanced damage."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a 20% chance to deal a critical strike."
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Critical Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
 
-        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3"                     "[W4] Extended Orbit"
+        "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3"                     "[W4] Eccentric Orbit"
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_Description"         "Gives Vorpal Blades a chance to bounce additional times. Greater than 100% means they can gain multiple extra bounces."
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_property_one"        "Chance for additional bounce"
         "DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_suffix"              "%"
@@ -358,7 +358,7 @@
 		"item_rpc_solunia_glyph_7_1_description" 				"Increases the max number of successive Warp Flares by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"Glyph of Protostar"
-		"item_rpc_solunia_glyph_5_a_description" 				"Taking lethal damage launches Solunia into the air refreshes her supernova or eclipse and casts it. @glyph_property1 cooldown."
+		"item_rpc_solunia_glyph_5_a_description" 				"Taking lethal damage first launches Solunia into the air, then refreshes her Supernova or Eclipse and casts it. @glyph_property1 cooldown."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"
 		
@@ -382,7 +382,7 @@
 		"property_solunia_immortal_weapon_description"					"While floating during Warp Flares, gain a shield that has magic and attack immunity."
 
 		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect"	"Nova Rift"
-		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect_Description"	"Magic and Attack Immune"
+		"DOTA_Tooltip_ability_modifier_solunia_warp_flare_immortal_weapon_effect_Description"	"Immunity to attacks and spells"
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
         "item_property_solunia_immortal_weapon2"                             "Cryoshock"
