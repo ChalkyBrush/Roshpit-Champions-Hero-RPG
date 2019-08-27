@@ -5553,31 +5553,6 @@ function ice_floe_think(event)
 	end
 end
 
-function in_stargazer_takedamage(event)
-	local caster = event.caster
-	local hero = caster.hero
-	local ability = event.ability
-	local target = event.unit
-	local damage = event.damage
-	if target:HasModifier("modifier_stargazer_immunity") then
-		return false
-	end
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_stargazer_immunity", {duration = 0.5})
-	local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-	Timers:CreateTimer(0.6, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	Timers:CreateTimer(0.45, function()
-		if target:IsAlive() then
-			Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-			EmitSoundOn("RPCItems.Stargazer.Starfall", target)
-		end
-	end)
-
-end
-
 function tattered_novice_stack_increase(event)
 	local caster = event.caster
 	local target = event.target

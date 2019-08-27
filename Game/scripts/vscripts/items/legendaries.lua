@@ -7415,40 +7415,6 @@ function RPCItems:RollFirelockPendant(deathLocation)
     return item
 end
 
-function RPCItems:RollStargazersSphere(deathLocation)
-    local item = RPCItems:CreateVariant("item_rpc_stargazers_sphere", "immortal", "Stargazer's Sphere", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "stargazer"
-    item.newItemTable.property1 = 1
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stargazer", "#7A5C8E", 1, "#property_stargazer_description")
-
-    local visionBonus = RPCItems:GetLogarithmicVarianceValue(RandomInt(500, 700), 0, 0, 0, 0)
-    item.newItemTable.property2 = visionBonus
-    item.newItemTable.property2name = "vision"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_vision_bonus", "#96D1D9", 2)
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_COSMOS, 2.6, 1, 30, 3)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollEmeraldNullificationRing(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_emerald_nullification_ring", "immortal", "Emerald Nullification Ring", "amulet", true, "Slot: Trinket")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8667,8 +8633,6 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollIceFloeSlippers(deathLocation)
     elseif itemName == "item_rpc_iron_treads_of_destruction" then
         newItem = RPCItems:RollIronTreadsOfDestruction(deathLocation)
-    elseif itemName == "item_rpc_stargazers_sphere" then
-        newItem = RPCItems:RollStargazersSphere(deathLocation)
     elseif itemName == "item_rpc_tattered_novice_armor" then
         newItem = RPCItems:RollTatteredNoviceArmor(deathLocation)
     elseif itemName == "item_rpc_buzukis_finger" then

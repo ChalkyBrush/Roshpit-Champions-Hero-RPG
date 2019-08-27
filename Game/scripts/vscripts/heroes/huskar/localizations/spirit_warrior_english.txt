@@ -183,7 +183,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_suffix"				"% of Max Health"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1"						"[R2] Rain Storm"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"While Ancient Rain is active, the closest enemy within 1000 radius is zapped by lightning every 0.5 seconds."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"While Ancient Rain is active, the closest group of enemies within 1000 radius is zapped by lightning every 0.5 seconds."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_property_one"			"Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_suffix"				"% of attack power"
 

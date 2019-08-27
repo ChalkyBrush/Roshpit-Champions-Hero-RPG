@@ -13,7 +13,7 @@ require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
-require('/heroes/lanaya/trapper_constants')
+require('/heroes/lanaya/constants')
 require('/heroes/leshrac/bahamut_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
@@ -37,7 +37,14 @@ LinkLuaModifier("modifier_pivotal_swift", "modifiers/modifier_pivotal_swift", LU
 
 
 function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
+    local damageData = attacker._damage_data or {}
+
     damage = Filters:AdjustItemDamage(attacker, damage, victim)
+
+    if damageData.skipItemDamageEffectsApply then
+        Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2, false, item)
+        return
+    end
     local mult = 1
     if attacker:HasModifier("modifier_trapper_glyph_6_1") then
         element2 = RPC_ELEMENT_NORMAL
@@ -74,8 +81,14 @@ function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, el
 end
 
 function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_type, item, element1, element2)
+    local damageData = attacker._damage_data or {}
+
     if attacker:HasModifier("modifier_depth_demon_claw") then
         damage = damage * 0.3
+    end
+    if damageData.skipItemDamageEffectsApply then
+        Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)
+        return
     end
     if attacker:HasModifier("modifier_solunia_arcana2") then
         local b_d_level = attacker:GetRuneValue("r", 2)
@@ -1245,6 +1258,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         slot = 0
         Is_solunia_b_d = true
     end
+
+    local damageData = attacker._damage_data or {}
+
     local attackerName = attacker:GetUnitName()
     if not ignore_effects then
         if attackerName == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
@@ -1498,6 +1514,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
             if not indirectProcQ then
                 Filters:ApplyQdamage(victim, attacker, damage, damage_type)
+            else
+                damageData.isAugmented = true
             end
         end
     elseif slot == 2 then
@@ -1577,6 +1595,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
             if not indirectProcW then
                 Filters:ApplyWdamage(victim, attacker, damage, damage_type)
+            else
+                damageData.isAugmented = true
             end
         end
 
@@ -1665,6 +1685,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
             if not indirectProcR then
                 Filters:ApplyRdamage(victim, attacker, damage, damage_type)
+            else
+                damageData.isAugmented = true
             end
         end
     end
@@ -1748,7 +1770,6 @@ end
 
 function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slot)
     local ability = nil
-
     local damageData = attacker._damage_data or {}
 
     if type(slot) == "number" and slot ~= -1 then
@@ -1768,6 +1789,10 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
             local procs = Runes:Procs(e_2_level, CONJUROR_ARCANA_E2_SHADOW_DAMAGE_INSTANCES, 1)
             instances = instances + procs
         end
+    end
+
+    if damageData.skipItemDamageEffectsApply then
+        instances = 1
     end
 
     if slot == BASE_NONE then
@@ -1933,8 +1958,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)
             normalMult = normalMult + stacks / 100
         end
-        if attacker:HasModifier('modifier_trapper_glyph_6_1') then
-            normalMult = normalMult * 0.7
+        if attacker:HasModifier('modifier_trapper_glyph_6_1') and slot == BASE_ITEM then
+            normalMult = normalMult * TRAPPER_T61_NORMAL_ITEM_AMPLIFY
         end
         mult = mult + normalMult
     end

@@ -1,17 +1,36 @@
 require('heroes/lanaya/constants')
-local glyphs = require('heroes/lanaya/glyphs')
-
+-- too much code that a bit hard to understand and to rewrite)
 function bomb_throw_start(event)
     local caster = event.caster
     local ability = event.ability
     local target = event.target_points[1]
     Filters:CastSkillArguments(2, caster)
-    local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
+
+    local localKey = caster:GetEntityIndex() .. '_trapper_w_start'
+    Util.Common:LimitPerTime(1, 1, localKey .. '_sound', function()
+        EmitSoundOn("Trapper.BombThrow", caster)
+
+    end)
+    local bombsCount = TRAPPER_W_BOMBS_COUNT
+    if caster:HasModifier('modifier_trapper_glyph_3_1') then
+        bombsCount = bombsCount + TRAPPER_T31_ADD_BOMBS
+    end
+    for i = 1,bombsCount do
+        local bomb = createBomb(event, caster, ability)
+        local bombTarget = target
+        if i ~= 1 then
+            bombTarget = bombTarget + RandomVector(RandomInt(200,400))
+        end
+        local fv = (bombTarget * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
+        bomb_start(bomb, ability, bombTarget, fv)
+    end
+end
+
+function createBomb(event, caster, ability, fv)
     local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())
     bomb.phase = 1
     bomb.stun_duration = event.stun_duration
     bomb.colorPhase = 0
-    bomb.fv = fv
     bomb:AddAbility("lanaya_bomb_ability"):SetLevel(1)
     local bombAbility = bomb:FindAbilityByName("lanaya_bomb_ability")
     bombAbility:ApplyDataDrivenModifier(bomb, bomb, "modifier_bomb_motion", {})
@@ -19,8 +38,7 @@ function bomb_throw_start(event)
     bomb.origCaster = caster
     bomb.origAbility = ability
     bomb.damage = event.damage
-    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "trapper")
-    bomb.damage = bomb.damage + TRAPPER_W4_AMPLIFY_PERCENT / 100 * (caster:GetIntellect() + caster:GetStrength() + caster:GetAgility()) / 10 * w_4_level * bomb.damage
+    bomb.damage = bomb.damage + TRAPPER_W4_AMPLIFY_PERCENT / 100 * (caster:GetIntellect() + caster:GetStrength() + caster:GetAgility()) / 10 * caster.w4_level * bomb.damage
     bomb.detonate = true
     if ability.total_bombs == nil then
         ability.total_bombs = 0
@@ -39,16 +57,14 @@ function bomb_throw_start(event)
     --        end
     --    end
 
-    bomb.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "trapper")
-    bomb.w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "trapper")
+    bomb.w_1_level = caster.w1_level
+    bomb.w_3_level = caster.w3_level
     if bomb.detonate then
         Timers:CreateTimer(0.1, function()
             StartSoundEvent("Trapper.BombTicking", bomb)
         end)
     end
-    EmitSoundOn("Trapper.BombThrow", caster)
-    bomb_start(bomb, ability, target)
-
+    return bomb
 end
 
 function detonateBombs(caster)
@@ -73,8 +89,8 @@ function reindexBombs(ability)
     return tempTable
 end
 
-function bomb_start(caster, ability, target_location)
-
+function bomb_start(caster, ability, target_location, fv)
+    caster.fv = fv
     local casterOrigin = caster:GetAbsOrigin()
     local targetOrigin = target_location
     local fv = (targetOrigin * Vector(1, 1, 0) - casterOrigin * Vector(1, 1, 0)):Normalized()
@@ -131,27 +147,28 @@ function bomb_jump_to_position(unit, forwardVector, distance, liftForce, propuls
 end
 
 function bomb_explode(unit)
-    EmitSoundOn("Trapper.BombImpactFinal", unit)
     local caster = unit.origCaster
-    local explosionRadius = 500 * glyphs.t51_get_radius_amplify(caster)
+    local explosionRadius = TRAPPER_W_RADIUS
     local ability = unit.origAbility
     local damage = unit.damage
     local stun_duration = unit.stun_duration
     local w_1_level = unit.w_1_level
     local w_3_level = unit.w_3_level
-    ability.total_bombs = ability.total_bombs - 1
     --print("BOMB EXPLODE??")
-    Timers:CreateTimer(0.05, function()
-        local position = unit:GetAbsOrigin()
-        StopSoundEvent("Trapper.BombTicking", unit)
-        StopSoundOn("Trapper.BombTicking", unit)
+    local position = unit:GetAbsOrigin()
+    local localKey = caster:GetEntityIndex() .. '_trapper_w'
+    Util.Common:LimitPerTime(1, 1, localKey .. '_sound', function()
+        EmitSoundOn("Trapper.BombImpactFinal", unit)
         EmitSoundOn("Trapper.BombExplode", unit)
+    end)
+    Util.Common:LimitPerTime(3, 0.2, localKey .. '_particles',function()
         local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
         local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
         ParticleManager:SetParticleControl(particle2, 0, position)
         ParticleManager:SetParticleControl(particle2, 1, Vector(explosionRadius, explosionRadius, explosionRadius))
         ParticleManager:SetParticleControl(particle2, 2, Vector(2.0, 2.0, 2.0))
         ParticleManager:SetParticleControl(particle2, 4, Vector(255, 90, 20))
+        GridNav:DestroyTreesAroundPoint(position, explosionRadius, false)
 
         Timers:CreateTimer(1.9, function()
             ParticleManager:DestroyParticle(particle2, false)
@@ -162,30 +179,54 @@ function bomb_explode(unit)
         Timers:CreateTimer(2, function()
             ParticleManager:DestroyParticle(particle1, false)
         end)
-        GridNav:DestroyTreesAroundPoint(position, explosionRadius, false)
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        if #enemies > 0 then
-            for _, enemy in pairs(enemies) do
-                local a_b_damage = damage
-                if w_1_level > 0 then
-                    local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
-                    local damageBonusMult = 1 - (distance / explosionRadius)
-                    a_b_damage = damage + damage * damageBonusMult * w_1_level * TRAPPER_W1_AMP_PERCENT / 100
-                end
-                Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
-                Filters:ApplyStun(caster, stun_duration, enemy)
-            end
-        end
-        if w_3_level > 0 then
-            for i = 1, 3, 1 do
-                shrapnel_bomb(caster, ability, stun_duration / 2, damage * (w_3_level * (TRAPPER_W3_CLUSTER_GROWTH / 100) + 0.1), unit:GetAbsOrigin())
-            end
-        end
     end)
-    Timers:CreateTimer(0.1, function()
-        UTIL_Remove(unit)
-        ability.bombs = reindexBombs(ability)
-    end)
+    StopSoundEvent("Trapper.BombTicking", unit)
+    StopSoundOn("Trapper.BombTicking", unit)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    if #enemies > 0 then
+        for _, enemy in pairs(enemies) do
+            local a_b_damage = damage
+            if w_1_level > 0 then
+                local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
+                local damageBonusMult = 1 - (distance / explosionRadius)
+                a_b_damage = damage + damage * damageBonusMult * w_1_level * TRAPPER_W1_AMP_PERCENT / 100
+            end
+            Filters:ApplyStun(caster, stun_duration, enemy)
+            Damage:Apply({
+                attacker = caster,
+                victim = enemy,
+                damage = a_b_damage,
+                damageType = DAMAGE_TYPE_MAGICAL,
+                source = ability,
+                sourceType = BASE_ABILITY_W,
+                elements = {
+                    RPC_ELEMENT_NORMAL,
+                }
+            })
+        end
+    end
+    if w_3_level > 0 then
+        if not unit.chance_for_additional_proc then
+            unit.chance_for_additional_proc = Runes:Procs(w_3_level, TRAPPER_W3_PROC_CHANCE, 1)
+        else
+            unit.chance_for_additional_proc = unit.chance_for_additional_proc - 1
+            unit.damage  = unit.damage * TRAPPER_W3_DMG_PROC
+        end
+    else
+        unit.chance_for_additional_proc = 0
+    end
+    if unit.chance_for_additional_proc > 0 then
+        Timers:CreateTimer(TRAPPER_W3_DELAY, function()
+            bomb_explode(unit)
+        end)
+    else
+        Timers:CreateTimer(0.1, function()
+            ability.total_bombs = ability.total_bombs - 1
+
+            UTIL_Remove(unit)
+            ability.bombs = reindexBombs(ability)
+        end)
+    end
 end
 
 function shrapnel_bomb(caster, ability, stun_duration, damage, origin)
@@ -195,7 +236,6 @@ function shrapnel_bomb(caster, ability, stun_duration, damage, origin)
     bomb.phase = 1
     bomb.stun_duration = stun_duration
     bomb.colorPhase = 0
-    bomb.fv = fv
     local target = origin + fv * RandomInt(200, 400)
     bomb:AddAbility("lanaya_bomb_ability"):SetLevel(1)
     local bombAbility = bomb:FindAbilityByName("lanaya_bomb_ability")
@@ -210,7 +250,7 @@ function shrapnel_bomb(caster, ability, stun_duration, damage, origin)
     Timers:CreateTimer(0.1, function()
         StartSoundEvent("Trapper.BombTicking", bomb)
     end)
-    bomb_start(bomb, ability, target)
+    bomb_start(bomb, ability, target, fv)
 
 end
 
@@ -222,11 +262,15 @@ function bomb_land(unit, propulsion)
         if randomDivisor == 0 then
             randomDivisor = 1
         end
-        if unit.phase == 2 then
-            EmitSoundOn("Trapper.BombImpact1", unit)
-        else
-            EmitSoundOn("Trapper.BombImpact2", unit)
-        end
+
+        local localKey = unit.origCaster:GetEntityIndex() .. '_trapper_w_land'
+        Util.Common:LimitPerTime(1, 0.2, localKey .. '_sound', function()
+            if unit.phase == 2 then
+                EmitSoundOn("Trapper.BombImpact1", unit)
+            else
+                EmitSoundOn("Trapper.BombImpact2", unit)
+            end
+        end)
         local fv = unit.fv
         local bombAbility = unit:FindAbilityByName("lanaya_bomb_ability")
         bombAbility:ApplyDataDrivenModifier(unit, unit, "modifier_bomb_motion", {})
@@ -269,7 +313,11 @@ function smoke_bomb_explode(unit)
     local ability = unit.origAbility
     local bombAbility = unit:FindAbilityByName("lanaya_bomb_ability")
     bombAbility:ApplyDataDrivenModifier(unit, unit, "modifier_smoke_bomb", {})
-    Timers:CreateTimer(10.0, function()
+    local duration = TRAPPER_W2_DURATION_BASE
+    if caster:HasModifier('modifier_trapper_glyph_5_1') then
+        duration = duration * TRAPPER_T51_INVISIBLE_W_DURATION_AMPLIFY
+    end
+    Timers:CreateTimer(duration, function()
         UTIL_Remove(unit)
     end)
 end
@@ -296,7 +344,6 @@ function smoke_bomb_think(event)
     local w_1_level = caster.w_1_level
 
     local damage = b_b_damage
-
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             origAbility:ApplyDataDrivenModifier(origCaster, enemy, "modifier_smoke_bomb_effect", {duration = 0.6})
@@ -305,8 +352,22 @@ function smoke_bomb_think(event)
                     local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
                     local damageBonusMult = 1 - (distance / radius)
                     damage = b_b_damage + b_b_damage * damageBonusMult * w_1_level * TRAPPER_W1_AMP_PERCENT / 100
+                    if origCaster.w3_level > 0 then
+                        damage = damage * (1 + origCaster.w3_level * TRAPPER_W3_AMP_INVISIBLE_W)
+                    end
                 end
-                Filters:ApplyDotDamage(origCaster, ability, enemy, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_POISON)
+                Damage:Apply({
+                    attacker = origCaster,
+                    victim = enemy,
+                    damage = damage,
+                    damageType = DAMAGE_TYPE_MAGICAL,
+                    source = origAbility,
+                    sourceType = BASE_ABILITY_W,
+                    elements = {
+                        RPC_ELEMENT_NORMAL,
+                    },
+                    isDot = true,
+                })
             end
         end
     end
@@ -337,8 +398,11 @@ function bomb_throw_start_smoke(event)
     bomb.phase = 1
     bomb.stun_duration = event.stun_duration
     bomb.colorPhase = 0
-    bomb.fv = fv
     bomb.radius = event.radius
+
+    if caster:HasModifier('modifier_trapper_glyph_5_1') then
+        bomb.radius = bomb.radius * TRAPPER_T51_INVISIBLE_W_RADIUS_AMPLIFY
+    end
     bomb:AddAbility("lanaya_bomb_ability"):SetLevel(1)
     local bombAbility = bomb:FindAbilityByName("lanaya_bomb_ability")
     bombAbility:ApplyDataDrivenModifier(bomb, bomb, "modifier_bomb_motion", {})
@@ -346,14 +410,13 @@ function bomb_throw_start_smoke(event)
     bomb.origCaster = caster
     bomb.origAbility = ability
     bomb.damage = event.damage
-    bomb.w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "trapper")
-    local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "trapper")
-    bomb.w_2_damage = w_2_level * TRAPPER_W2_DAMAGE
-    local w_3_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "trapper")
-    bomb.w_2_damage = bomb.w_2_damage + TRAPPER_W4_AMPLIFY_PERCENT / 100 * (caster:GetIntellect() + caster:GetStrength() + caster:GetAgility()) / 10 * w_3_level * bomb.w_2_damage
+    bomb.w_1_level = caster.w1_level
+    local w_2_level = caster.w2_level
+    bomb.w_2_damage = w_2_level * TRAPPER_W2_DAMAGE * caster:GetLevel()
+    bomb.w_2_damage = bomb.w_2_damage + TRAPPER_W4_AMPLIFY_PERCENT / 100 * (caster:GetIntellect() + caster:GetStrength() + caster:GetAgility()) / 10 * caster.w4_level * bomb.w_2_damage
 
     EmitSoundOn("Trapper.BombThrow", caster)
-    bomb_start(bomb, ability, target)
+    bomb_start(bomb, ability, target, fv)
     -- rune_r_3(caster)
 end
 

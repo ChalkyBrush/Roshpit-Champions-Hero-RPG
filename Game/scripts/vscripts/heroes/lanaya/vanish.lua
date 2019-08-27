@@ -1,12 +1,20 @@
 require('heroes/lanaya/explosive_bomb')
 require('heroes/lanaya/constants')
 
+local prefix = '3_e_'
+local modifiers = {
+    movespeed = 'modifier_trapper_3_e_movespeed'
+}
+for modifierPath, modifier in pairs(modifiers) do
+    LinkLuaModifier(modifier, "heroes/lanaya/modifiers/"..prefix..modifierPath, LUA_MODIFIER_MOTION_NONE)
+end
 function vanish_cast(event)
     local caster = event.caster
     local ability = event.ability
     local duration = event.duration
     duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
     EmitSoundOn("Trapper.Vanish", caster)
+    caster:AddNewModifier(caster, ability, modifiers.movespeed, { duration = duration})
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_vanish", {duration = duration})
     ProjectileManager:ProjectileDodge(caster)
     local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "trapper")
@@ -17,7 +25,7 @@ function vanish_cast(event)
     end
     local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "trapper")
     if b_c_level > 0 then
-        decoy(caster, b_c_level)
+        decoy(caster, ability, b_c_level)
     end
     local particleName = "particles/items2_fx/smoke_of_deceit.vpcf"
     local casterPos = caster:GetAbsOrigin()
@@ -28,7 +36,6 @@ function vanish_cast(event)
         ParticleManager:DestroyParticle(particle1, false)
     end)
     Filters:CastSkillArguments(3, caster)
-    vanish_paralize(caster, ability)
     --    if caster:HasModifier("modifier_trapper_glyph_6_1") then
     --        detonateBombs(caster)
     --    end
@@ -55,6 +62,9 @@ function action_leap_cast(event)
     local distance = WallPhysics:GetDistance(casterOrigin * Vector(1, 1, 0), targetOrigin * Vector(1, 1, 0))
     if caster:HasModifier("modifier_trapper_immo3_effect") then
         max_distance = max_distance + 400
+    end
+    if caster:HasModifier('modifier_trapper_glyph_1_1') then
+        decoy(caster, ability, caster.e2_level)
     end
     distance = math.min(distance, max_distance)
     caster:SetForwardVector(fv)
@@ -121,7 +131,7 @@ function action_leap_jump(unit, forwardVector, distance, liftForce, propulsion, 
     end)
 end
 
-function decoy(caster, runesCount)
+function decoy(caster, casterAbility, runesCount)
     local decoyPosition = caster:GetAbsOrigin() - 25 * caster:GetForwardVector()
     local decoy = CreateUnitByName("lanaya_decoy", decoyPosition, true, nil, nil, caster:GetTeamNumber())
 
@@ -129,6 +139,7 @@ function decoy(caster, runesCount)
     ability:SetLevel(1)
     decoy.owner = caster:GetPlayerOwnerID()
     decoy.summoner = caster
+    decoy.ability = casterAbility
     decoy:SetOwner(caster)
     decoy:SetControllableByPlayer(caster:GetPlayerID(), true)
     decoy.dieTime = E2_DECOY_DURATION
@@ -153,7 +164,10 @@ function decoy(caster, runesCount)
     local runeAbility = caster.runeUnit2:FindAbilityByName("trapper_rune_r_2")
     local decoyDuration = Filters:GetAdjustedBuffDuration(caster, 15, false)
     runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, decoy, "modifier_decoy_effect", {duration = E2_DECOY_DURATION - 0.5})
-
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), decoy:GetAbsOrigin(), nil, E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    for _,enemy in pairs(enemies) do
+        enemy:MoveToTargetToAttack(decoy)
+    end
 end
 
 function decoy_die(event)
@@ -171,7 +185,18 @@ function decoy_die(event)
     local enemies = FindUnitsInRadius(decoy:GetTeamNumber(), position, nil, E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
-            Filters:TakeArgumentsAndApplyDamage(enemy, decoy.summoner, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+            Damage:Apply({
+                attacker = decoy.summoner,
+                victim = enemy,
+                damage = damage,
+                damageType = DAMAGE_TYPE_PURE,
+                source = decoy.ability,
+                sourceType = BASE_ABILITY_E,
+                elements = {
+                    RPC_ELEMENT_NORMAL
+                },
+                ignoreSteadfast = true
+            })
         end
     end
 end
@@ -189,19 +214,6 @@ function invisible_think(event)
     end
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_d_c_post_amp", {duration = 0.6})
     caster:SetModifierStackCount("modifier_trapper_d_c_post_amp", caster, runesCount)
-end
-
-function vanish_paralize(caster, ability)
-    if not caster:HasModifier("modifier_trapper_glyph_3_1") then
-        return
-    end
-    local paralyzeDuration = TRAPPER_T31_DURATION
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, T31_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    if #enemies > 0 then
-        for _, enemy in pairs(enemies) do
-            ability:ApplyDataDrivenModifier(caster, enemy, "modifier_vanish_paralyze", {duration = paralyzeDuration})
-        end
-    end
 end
 
 function vanish_thinking(event)

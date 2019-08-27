@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"<% TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT * 100 %>"
 			}
 		}
 	}
@@ -160,11 +160,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"1"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"5"
-			}
 		}
 	}
 
@@ -185,12 +180,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_W3_CLUSTER_GROWTH %>"
+				"property_one"			"<% TRAPPER_W3_PROC_CHANCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"10"
+				"property_two"		    "<% TRAPPER_W3_AMP_INVISIBLE_W * 100 %>"
 			}
 			"03"
 			{
