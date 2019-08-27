@@ -19376,6 +19376,7 @@
 		"DOTA_Tooltip_ability_winter_cavern_spark_Description"		"Launches 3 projectiles forward which briefly paralyze enemies who are hit. If hit 5 times in a row, become immune to the paralysis for 1 second."	
 		"DOTA_Tooltip_ability_winter_cavern_spark_base_damage"		"DAMAGE:"
 		"DOTA_Tooltip_ability_winter_cavern_spark_paralyze_duration"	"PARALYZE DURATION:"
+		"DOTA_Tooltip_ability_winter_cavern_spark_percent_attack_power"		"% ADDITIONAL DAMAGE FROM ATTACK POWER:"
 
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze"				"Phantom Spark"
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"Paralyzed"

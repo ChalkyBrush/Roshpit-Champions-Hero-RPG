@@ -1115,7 +1115,7 @@ function cavern_spark_throw(event)
 	local spark_count = 3
 
 	local base_damage = event.base_damage
-	ability.damage = base_damage * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	ability.damage = base_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.percent_attack_power/100)
 
 	ability.paralyze_duration = event.paralyze_duration
 	local particle = "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"

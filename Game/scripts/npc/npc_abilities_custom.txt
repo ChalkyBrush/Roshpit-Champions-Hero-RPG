@@ -82442,6 +82442,7 @@
 				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 				"Function"		"cavern_spark_throw"
 				"base_damage"			"%base_damage"
+				"percent_attack_power"	"%percent_attack_power"
 				"paralyze_duration"		"%paralyze_duration"
 			}
 		}

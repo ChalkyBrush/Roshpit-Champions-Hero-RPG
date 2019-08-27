@@ -4168,14 +4168,19 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 		elseif black_hole_unit_index == 76 then
 			unit = Winterblight:SpawnSpectralWitch(position, Vector(0,-1))
 		end
-		print("SPAWN")
-		EmitSoundOn("Winterblight.BlackHoleUnit.Spawn", unit)
-		local colorVector = Vector(0.8, 0.1, 0.8)
-		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", unit, 4)
-		Winterblight:SetCavernUnit(unit, black_hole:GetAbsOrigin(), false, false, 4)
-		Dungeons:AggroUnit(unit)
-		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_wb_zero_g", {})
-		unit:SetAcquisitionRange(7000)
+		if IsValidEntity(unit) then
+			print("SPAWN")
+			EmitSoundOn("Winterblight.BlackHoleUnit.Spawn", unit)
+			local colorVector = Vector(0.8, 0.1, 0.8)
+			CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", unit, 4)
+			Winterblight:SetCavernUnit(unit, black_hole:GetAbsOrigin(), false, false, 4)
+			Dungeons:AggroUnit(unit)
+			Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_wb_zero_g", {})
+			unit:SetAcquisitionRange(7000)
+		else
+			local new_index = RandomInt(1, 76)
+			Winterblight:SpawnBlackHoleUnitByIndex(black_hole, new_index)
+		end
 	end
 end
 
@@ -4567,7 +4572,7 @@ function Winterblight:TiamatBossDie(boss)
 	local position = boss:GetAbsOrigin()
 	for i = 1, 18, 1 do
 		Timers:CreateTimer(0.3 * i, function()
-			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 0)
+			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 300)
 		end)
 	end
 	Timers:CreateTimer(1, function()
