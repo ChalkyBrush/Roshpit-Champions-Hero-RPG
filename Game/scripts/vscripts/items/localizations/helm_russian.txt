@@ -354,3 +354,17 @@
 		"property_chains_of_orthok_description"						"Атаки и активация умения (W) @Ability2 добавляют по 1 заряду этого предмета. Прочтение (Q) @Ability1 и (E) @Ability3 добавляет 5 зарядов. Прочтение (R) @Ability4 добавляет 12 зарядов. Каждый заряд увеличивает Базовый Урон Способностей на @special_property1%. Каждый заряд длится 10 секунд и имеет свой собственный таймер отсчета."
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Базовый Урон Способностей увеличен"
+		
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
+		"item_property_knight_hawk" 								"Haste Blade"
+		"property_knight_hawk_description"						"Увеличивает лимит скорости передвижения на <% KNIGHT_HAWK_MAX_MOVESPEED_LIMIT %>. Если скорость выше 550, то входящий урон снижается <% KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX %>%. Если скорость передвижения падает ниже 300, герой получает <% KNIGHT_HAWK_MS_GAIN %> прибавку к скорости на <% KNIGHT_HAWK_MS_BUFF_DURATION %> сек."
+
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Haste Blade"
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Скорость увеличена"
+
+		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
+		"item_property_magistrate"											"Spell Spreader"
+		"property_magistrate_description"								"Весь Магический и Чистый урон наносит урон по области <% MAGISTRATE_HOOD_AOE %> единиц. Эффект тратит заряды, максимальный запас которых <% MAGISTRATE_HOOD_MAX_CHARGES %>, время перезарядки <% MAGISTRATE_HOOD_REPLENISH_TIME %> сек. Весь урон по области увеличен на <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>%."
+
+		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Spell Spreader Charges"
+		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Весь Магический и Чистый урон наносит урон по области, если есть заряды предмета."

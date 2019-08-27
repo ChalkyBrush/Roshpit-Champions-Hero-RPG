@@ -106,7 +106,44 @@ function init_boss_menu(msg){
 		}
 		set_boss_button_events(cavern_button, msg, i)
 	}
-
+	$.Msg(msg.winterblight_cavern.realm_breaker_status)
+	if (msg.winterblight_cavern.realm_breaker_status > -1){
+		var boss_button_attacher = cavern_ui_panel.FindChildTraverse('final_boss_button_attacher')
+		var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "realm_breaker_boss_button")
+		cavern_event_button_panel.BLoadLayoutSnippet("winter_cavern_boss_button")
+		cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_button_label').text = $.Localize("winterblight_realm_breaker")
+		cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = "8,000"
+		// var boss_tip_text = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))
+		// cavern_event_button_panel.FindChildTraverse('winterblight_cavern_boss_summary').text = boss_tip_text
+		// var status = parseInt(msg.winterblight_cavern.Chambers[index]["events"][i]["status"])
+		var realm_breaker_cavern_button = cavern_event_button_panel.FindChildTraverse('winterblight_inner_cavern_boss_button')
+		var realm_breaker_level = msg.winterblight_cavern.realm_breaker_level
+		var boss_status = msg.winterblight_cavern.realm_breaker_status
+		if (realm_breaker_level > 0){
+			realm_breaker_cavern_button.AddClass('winterblight_cavern_boss_button_active')
+			realm_breaker_cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').AddClass('cavern_boss_button_level_active')
+			realm_breaker_cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').text = "LV "+realm_breaker_level
+		}else{
+			realm_breaker_cavern_button.AddClass('winterblight_cavern_boss_button_inactive')
+			realm_breaker_cavern_button.FindChildTraverse('winterblight_cavern_boss_button_level').AddClass('cavern_boss_button_level_inactive')
+		}
+		realm_breaker_cavern_button.realm_breaker_level = realm_breaker_level
+		realm_breaker_cavern_button.boss_status = boss_status
+		realm_breaker_cavern_button.boss_cost = 8000
+		realm_breaker_cavern_button.boss_level = realm_breaker_level
+		if (boss_status > 0){
+			realm_breaker_cavern_button.FindChildTraverse('fragments_cost_icon').AddClass("invisible")
+			cavern_event_button_panel.FindChildTraverse('winterblight_boss_fragments_cost').text = $.Localize('winterblight_boss_status'+boss_status)
+		}
+		if (boss_status == 1){
+			realm_breaker_cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
+			realm_breaker_cavern_button.AddClass('winterblight_cavern_boss_button_summoned')
+		}else if(boss_status == 2){
+			realm_breaker_cavern_button.RemoveClass('winterblight_cavern_boss_button_active')
+			realm_breaker_cavern_button.AddClass('winterblight_cavern_boss_button_slain')			
+		}
+		set_boss_button_events(realm_breaker_cavern_button, msg, 6)		
+	}
 
 	var boss_button_attacher = cavern_ui_panel.FindChildTraverse('final_boss_button_attacher')
 	var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "tiamat_boss_button")
@@ -210,6 +247,9 @@ function button_mouse_over_tooltip(cavern_button, msg, i){
 	if (i == 5){
 		title = $.Localize("winterblight_cavern_boss_tiamat")
 		tooltip = $.Localize("winterblight_cavern_final_boss_summary")
+	}else if(i == 6){
+		title = $.Localize("winterblight_realm_breaker")
+		tooltip = $.Localize("winterblight_realm_breaker_summary")		
 	}else{
 		title = $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])
 		tooltip = $.Localize("winterblight_cavern_boss_summary").replace('@boss_name', $.Localize(msg.winterblight_cavern.Chambers[i]["boss_name"])).replace('@chamber_name', $.Localize("winterblight_cavern_room"+i))

@@ -14,8 +14,8 @@
 
 		"villager_dialogue_1"										"The mountain air seems to be getting increasingly bitter. I sometimes wonder if the cold will finally consume us all."
 		"villager_dialogue_2"										"This trail marks the beginning of the long and harrowing path towards the peak of Winterblight Mountain."
-		"villager_dialogue_2a"										"What trail you say? Well, you might just have to wait for it to materialize."
-		"villager_dialogue_3"										"Beyond here is an alternate route that winds up the mountain. However, the bridge and the mountain appear to be lost in darkness..."
+		"villager_dialogue_2a"										"Desperate pilgrims head for the summit, risking everything for a chance at enlightenment."
+		"villager_dialogue_3"										"Beyond here is an alternate route that winds up the mountain."
 	
 		"winterblight_tuskar_villager"								"Villager"
 		
@@ -891,6 +891,7 @@
 		"DOTA_Tooltip_ability_winter_cavern_spark_Description"		"Launches 3 projectiles forward which briefly paralyze enemies who are hit. If hit 5 times in a row, become immune to the paralysis for 1 second."	
 		"DOTA_Tooltip_ability_winter_cavern_spark_base_damage"		"DAMAGE:"
 		"DOTA_Tooltip_ability_winter_cavern_spark_paralyze_duration"	"PARALYZE DURATION:"
+		"DOTA_Tooltip_ability_winter_cavern_spark_percent_attack_power"		"% ADDITIONAL DAMAGE FROM ATTACK POWER:"
 
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze"				"Phantom Spark"
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"Paralyzed"
@@ -914,11 +915,11 @@
 		"DOTA_Tooltip_ability_winterblight_disappearing_act_Description"	"Go invisible for a short time."
 		"DOTA_Tooltip_ability_winterblight_disappearing_act_duration"		"INVIS DURATION:"
 
-		"DOTA_Tooltip_ability_winterblight_confusional_spores"		"Confusional Spores"
-		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Sprinkle an area with pyschotropic spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
+		"DOTA_Tooltip_ability_winterblight_confusional_spores"		"Psychoactive Spores"
+		"DOTA_Tooltip_ability_winterblight_confusional_spores_Description"	"Sprinkle an area with hallucinatory spores that confuses all enemies that come into contact. Confused enemies have their move orders inverted."
 		"DOTA_Tooltip_ability_winterblight_confusional_spores_duration"		"DURATION:"
 
-		"DOTA_Tooltip_modifier_confusional_spores"					"Confusional Spores"
+		"DOTA_Tooltip_modifier_confusional_spores"					"Psychoactive Spores"
 		"DOTA_Tooltip_modifier_confusional_spores_Description"		"Move orders are inverted"
 
 		"DOTA_Tooltip_ability_winterblight_tweaking_arrow"			"Tweaking Arrow"
@@ -970,15 +971,15 @@
 		"DOTA_Tooltip_ability_zect_rider_lightning_bolt_Descriptions"	"Targets an enemy with a quick nuke and ministun."
 
 		"DOTA_Tooltip_ability_radium_spores"						"Radium Spores"
-		"DOTA_Tooltip_ability_radium_spores_Description"			"Apply a debuff to an enemy that causes their buffs to have reduced duration."
+		"DOTA_Tooltip_ability_radium_spores_Description"			"Apply a debuff to an enemy that causes buffs they apply to have reduced duration. Whenever they apply a buff to themselves, they will be slowed and their attack power will be reduced."
 		"DOTA_Tooltip_ability_radium_spores_modifier_duration_reduction"	"% FRIENDLY BUFF DURATION REDUCTION:"
-		"DOTA_Tooltip_ability_radium_spores_slow"							"SLOW DURATION ON BUFF APPLY:"
-		"DOTA_Tooltip_ability_radium_spores_curse_duration"					"SPORE DURATION:"
+		"DOTA_Tooltip_ability_radium_spores_slow"							"SLOW DURATION:"
+		"DOTA_Tooltip_ability_radium_spores_curse_duration"					"SPORE DEBUFF DURATION:"
 
 		"DOTA_Tooltip_modifier_radium_spores"						"Radium Spores"
-		"DOTA_Tooltip_modifier_radium_spores_Description"			"Self Applied buffs have reduced duration"
+		"DOTA_Tooltip_modifier_radium_spores_Description"			"Self-applied buffs have reduced duration and trigger a strong slow"
 
-		"DOTA_Tooltip_radium_spores_slow"						"Radium Spores Slow"
+		"DOTA_Tooltip_radium_spores_slow"						"Radium Spore Sickness"
 		"DOTA_Tooltip_radium_spores_slow_Description"			"Reduced attack damage, movespeed and attackspeed"
 
 		"DOTA_Tooltip_ability_icicle_barrage"					"Icicle Barrage"
@@ -1027,9 +1028,9 @@
 		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_duration"	"DOME DURATION:"
 		"DOTA_Tooltip_ability_winterblight_dome_of_aquarius_radius"		"RADIUS:"
 
-		"DOTA_Tooltip_ability_unshakable"								"Unshakeable"
-		"DOTA_Tooltip_ability_unshakable_Description"					"All debuffs applied by enemies have greatly reduced duration."
-		"DOTA_Tooltip_ability_unshakable_modifier_duration_reduction"	"% DEBUFF DURATION REDUCTION:"
+		"DOTA_Tooltip_ability_ability_unshakable"								"Unshakeable"
+		"DOTA_Tooltip_ability_ability_unshakable_Description"					"All debuffs applied by enemies have greatly reduced duration."
+		"DOTA_Tooltip_ability_ability_unshakable_modifier_duration_reduction"	"% DEBUFF DURATION REDUCTION:"
 
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive"					"Ultimate Predator"
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive_Description"		"Attacking an enemy applies a buff that gains more stacks on subsequent attacks. Once at 5 stacks, gain the ultimate predator buff that grants massive attack power and 1 shot kill ability. The instant kill only works on heroes."
@@ -1104,15 +1105,20 @@
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_ms_loss"				"MOVESPEED REDUCTION:"
 
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit"							"Radeon Orbit"
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_Description"				"Cosmic Sparks seek out nearby enemies and bounce between targets on impact."
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_base_bounces"				"MAX BOUNCES:"
+
 
 
 		"winterblight_cavern"										"Winterblight Cavern"
 		"winterblight_cavern_guide"									"Cavern Guide"
 		"star_wb_master_title"										"Cavern Master"
 
-		"winterblight_cavern_help1"									"Select a chamber to view the list of challenges. Only 1 challenge can be active within each chamber at a time. Monsters can not leave their chamber and they cannot be damaged from outside. Only the player who initiates the challenge can damage units here."
-		"winterblight_cavern_help2"									"Select an Event from the list below. Completing an Event provides Relic Fragments which can be used to summon bosses. Relic fragments reset for each game sesson."
-		"winterblight_cavern_help3"									"Select an Event Level. You can only select a level that is equal to or less than 1 + This Hero's highest completed level for this event. Higher event levels reward more mithril and gain access to some rarer items."
+		"winterblight_cavern_help1"									"Select a chamber to view the list of challenges. Only 1 challenge can be active within each chamber at a time. Monsters can not leave their chamber, and they cannot be damaged from sources outside the chamber. Only the player who initiates the challenge can damage units here, but allies can still provide other assistance."
+		"winterblight_cavern_help2"									"Select an Event from the list below. Completing an Event provides Relic Fragments which can be used to summon bosses. Relic fragments are unique to each game session and cannot be stored for later."
+		"winterblight_cavern_help3"									"Select an Event Level. You can only select a level that is equal to or less than 1 + this Hero's highest completed level for this event. Higher event levels reward more Mithril Shards and can yield items of greater rarity."
 		"winterblight_cavern_help4"									"Your relic fragments can be used to summon ancient beasts that once ruled the mountain in past eons."
 
 		"winterblight_cavern_room1"									"Frozen Foyer"
@@ -1121,18 +1127,21 @@
 		"winterblight_cavern_room4"									"Edge of Winter"
 
 		"winterblight_cavern_boss_button_label"						"Boss Summoning"
-		"winterblight_cavern_boss_summary"							"@boss_name's level is determined by the average clear level for @chamber_name events. At least 1 event in this chamber must be cleared to summon the boss."
+		"winterblight_cavern_boss_summary"							"@boss_name's level is determined by the average clear level for @chamber_name events. At least 1 event in this chamber must be cleared during this game session to summon the boss."
 
 		"winterblight_cavern_gigarraun"								"Gigarraun"
+		"winterblight_realm_breaker"								"Realm Breaker"
 		"winterblight_cavern_boss_tiamat"							"Tiamat"
 
-		"winterblight_cavern_final_boss_summary"					"Tiamat's level is determined by the average levels of the other 4 bosses. Tiamat can only be summoned after all 4 bosses have been slain.<br><br>This is the final summon and the Cavern Guide departs afterwards."
+		"winterblight_realm_breaker_summary"						"Realm Breaker's level is determined by the average clear level of all chamber events."
+
+		"winterblight_cavern_final_boss_summary"					"Tiamat's level is determined by the average levels of the other 4 bosses. Tiamat can only be summoned after all 4 other bosses have been slain in this game session.<br><br>Tiamat is the final adversary, and the Cavern Guide departs after summoning her."
 
 		"winterblight_boss_status1"									"Summoned"
 		"winterblight_boss_status2"									"Defeated"
 
 		"winterblight_cavern_room1_event1"							"Standard"
-		"winterblight_cavern_room1_event1_description"				"The chamber is populated with non aggro mobs."
+		"winterblight_cavern_room1_event1_description"				"The chamber is populated with many non-aggressive mobs."
 
 		"winterblight_cavern_room1_event2"							"Ultra Ice Showdown"
 		"winterblight_cavern_room1_event2_description"				"A dozen Ultra Ices patrol the chamber."
@@ -1144,40 +1153,40 @@
 		"winterblight_cavern_room1_event4_description"				"5 Crystals buff all minions summoned by Merkurio. Damaging a crystal deactives it for 20 seconds."
 
 		"winterblight_cavern_room2_event1"							"Standard"
-		"winterblight_cavern_room2_event1_description"				"The chamber is populated with non aggro mobs."
+		"winterblight_cavern_room2_event1_description"				"The chamber is populated with many non-aggressive mobs."
 
 		"winterblight_cavern_room2_event2"							"Dimensional Portals"
 		"winterblight_cavern_room2_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +10% movespeed and 5 attack speed per level."
 
 		"winterblight_cavern_room2_event3"							"Thunderhide Throwdown"
-		"winterblight_cavern_room2_event3_description"				"Large Thunderhide eggs fill the chamber. Hatched eggs reveal ultra-tanky Thunderhides with random passive abilities."
+		"winterblight_cavern_room2_event3_description"				"Large Thunderhide eggs fill the chamber. Hatched eggs reveal ultra-tanky Thunderhides, each with random passive abilities."
 
 		"winterblight_cavern_room2_event4"							"Raging Giants"
 		"winterblight_cavern_room2_event4_description"				"Osyrus, Gunnolf, and Sweebern patrol the chamber."
 
 		"winterblight_cavern_room3_event1"							"Standard"
-		"winterblight_cavern_room3_event1_description"				"The chamber is populated with non aggro mobs."
+		"winterblight_cavern_room3_event1_description"				"The chamber is populated with many non-aggressive mobs."
 
 		"winterblight_cavern_room3_event2"							"Dimensional Portals"
-		"winterblight_cavern_room3_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +10% attack damage per level."
+		"winterblight_cavern_room3_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +10% attack damage per event level."
 
 		"winterblight_cavern_room3_event3"							"Mushroom Madness"
-		"winterblight_cavern_room3_event3_description"				"Demented mushrooms spawn throughout the Crystarium. The entire chamber is polluted with Confusional Spores."
+		"winterblight_cavern_room3_event3_description"				"Demented mushrooms spawn throughout the Crystarium. The entire chamber is polluted with Psychoactive Spores."
 
 		"winterblight_cavern_room3_event4"							"Deep Ocean Onslaught"
-		"winterblight_cavern_room3_event4_description"				"The chamber is flooded and invaded by creatures from a distance Sea Fortress. When a monster dies, another one spawns immediately."
+		"winterblight_cavern_room3_event4_description"				"The chamber is flooded, and populated with creatures from a distant Sea Fortress. When a monster dies, another one spawns immediately."
 
 		"winterblight_cavern_room4_event1"							"Standard"
-		"winterblight_cavern_room4_event1_description"				"The chamber is populated with non aggro mobs."
+		"winterblight_cavern_room4_event1_description"				"The chamber is populated with many non-aggressive mobs."
 
 		"winterblight_cavern_room4_event2"							"Dimensional Portals"
-		"winterblight_cavern_room4_event2_description"				"Waves of enemies spawn from dimensional portals. All creatures have +100 armor and +2% evasion per level."
+		"winterblight_cavern_room4_event2_description"				"Waves of enemies spawn from dimensional portals. All enemies have +100 Armor and +2% evasion per event level."
 
 		"winterblight_cavern_room4_event3"							"Revenge of Chrolonus"
-		"winterblight_cavern_room4_event3_description"				"Hundreds of Chrolonus clones spawn from the chamber's black stars. The amount of concurrent enemies increases by 1 for every 2 chamber levels."
+		"winterblight_cavern_room4_event3_description"				"Hundreds of Chrolonus clones spawn from the chamber's black stars. The amount of concurrent enemies increases by 1 for every 2 event levels."
 
-		"winterblight_cavern_room4_event4"							"Anti Gravity"
-		"winterblight_cavern_room4_event4_description"				"Black holes spawn a wide variety of enemies and pull heroes toward them. All units and heroes have enforced 1 second cooldown on their abilities."
+		"winterblight_cavern_room4_event4"							"Anti-Gravity"
+		"winterblight_cavern_room4_event4_description"				"Black Holes spawn a wide variety of enemies while pulling heroes toward them. All units and heroes have an enforced 1-second minimum cooldown on their abilities."
 
 
 		"winterblight_cavern_status_prefix"								"Status:"
@@ -1191,7 +1200,7 @@
 		"winterblight_3_stone"										"Legend 3 Glacier Stones"
 
 		"winterblight_no_max"										"No Max"
-		"winterblight_event_max_yours"								"Your hero's maximum"
+		"winterblight_event_max_yours"								"Your Hero's Maximum"
 		"winterblight_event_max"									"Maximum Event Level"	
 		"event_level_input"											"Choose the Power Level of this Event"
 		"start_chamber_event"										"Start Chamber Event"

@@ -11175,6 +11175,12 @@
 				"var_type"			"FIELD_FLOAT"
 				"paralyze_duration"			"0.1"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"percent_attack_power"			"10"
+			}
+
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -11191,6 +11197,7 @@
 				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 				"Function"		"cavern_spark_throw"
 				"base_damage"			"%base_damage"
+				"percent_attack_power"	"%percent_attack_power"
 				"paralyze_duration"		"%paralyze_duration"
 			}
 		}
@@ -13315,7 +13322,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"10.0"
+		"AbilityCooldown"				"12.0"
 
 		// Cost
 		//-------------------------------------------------------
@@ -13327,7 +13334,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"10"
+				"duration"	"8"
 			}
 		}
 		"OnSpellStart"
@@ -13505,6 +13512,11 @@
 						"Function"		"wb_black_hole_think"
 					}
 				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
 			}
 		}
 	}
@@ -14255,6 +14267,154 @@
 			{
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"rubick_apprentice_reset_phase"
+			}
+		}
+	}
+
+	"realm_breaker_radeon_orbit"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"solunia/lunar_vorpal"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AOERadius"				"600"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.5"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"2000"
+
+		"precache"
+		{
+			"particle"  "particles/roshpit/omniro/chrono_path_sphere.vpcf"
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"4000 24000 225000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"search_radius"				"600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_blades"				"9 10 12"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_bounces"				"4"
+			}	
+		}
+		"Modifiers"
+		{
+			"modifier_radeon_breaker_passive"
+			{
+				"Passive"		"1"
+				"ThinkInterval"  "0.8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"radeon_orbit_thinker"
+						"search_radius"		"%search_radius"
+						"max_blades"			"%max_blades"
+						"damage"			"%damage"
+						"base_bounces"			"%base_bounces"
+					}
+				}
+			}
+			"modifier_radeon_orbin_projectile_thinker"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+						"Function"		"radeon_orbit_projectile_thinker"
+						"type"			"moon"
+					}
+				}
+			}
+			"modifier_active_moon_vorpals"
+			{
+				"IsHidden"	"0"
+			}
+		}
+	}
+
+	"realm_breaker_midnight_pulse"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5148"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Enigma.Midnight_Pulse"
+		"BaseClass"						"enigma_midnight_pulse"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_MIDNIGHT_PULSE"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"650"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_percent"			"25.0 50.0 75.00"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"10"
 			}
 		}
 	}

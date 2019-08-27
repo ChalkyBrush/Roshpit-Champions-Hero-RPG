@@ -6216,3 +6216,45 @@ function unequip_inspiration_ring(event)
 	local ability = event.ability
 	CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "inspiration_ring", {abilities_cast = {false, false, false, false}, ring_name = ability:GetAbilityName(), clear = 1, color = "none"})
 end
+
+function alien_armor_die(event)
+	local hero = event.unit
+	local caster = event.caster
+	local ability = event.ability
+	local particle = "particles/econ/items/enigma/enigma_absolute_armour/enigma_absolute_armour_body_ambient.vpcf"
+
+    if not ability.illusion_table then
+        ability.illusion_table = {}
+    end
+    local new_body_illusion_table = {}
+    for i = 1, #ability.illusion_table, 1 do
+        if IsValidEntity(ability.illusion_table[i]) and ability.illusion_table[i]:IsAlive() then
+        	local modifier = ability.illusion_table[i]:FindModifierByName("modifier_illusion")
+        	-- if modifier:GetRemainingTime() > 3 then
+            	table.insert(new_body_illusion_table, ability.illusion_table[i])
+            -- end
+        end
+    end
+    table.insert(new_body_illusion_table, illusion)
+    ability.illusion_table = new_body_illusion_table
+
+    local randomIllusion = ability.illusion_table[RandomInt(1, #ability.illusion_table)]
+    if IsValidEntity(randomIllusion) then
+    	ability:ApplyDataDrivenModifier(caster, randomIllusion, "modifier_alien_illusion_respawning_effect", {})
+	    local modifier = randomIllusion:FindModifierByName("modifier_illusion")
+	    modifier:SetDuration(ALIEN_ARMOR_RESPAWN_DELAY+0.1, true)
+	    CustomAbilities:QuickAttachParticle("particles/econ/items/enigma/enigma_absolute_armour/enigma_absolute_armour_body_ambient.vpcf", randomIllusion, ALIEN_ARMOR_RESPAWN_DELAY)
+	    Timers:CreateTimer(ALIEN_ARMOR_RESPAWN_DELAY, function()
+	    	if not hero:IsAlive() and randomIllusion:IsAlive() then
+	    		local respawnPoint = randomIllusion:GetAbsOrigin()
+	    		local fv = randomIllusion:GetForwardVector()
+				hero:RespawnHero(false, false)
+				hero:SetAbsOrigin(respawnPoint)
+				hero:SetForwardVector(fv)
+				local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike.vpcf", hero, 3)
+				ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin())
+				EmitSoundOn("Items.AlienArmor.Respawn", hero)
+	    	end
+	    end)
+	end
+end

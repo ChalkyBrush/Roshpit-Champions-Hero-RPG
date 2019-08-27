@@ -302,3 +302,15 @@
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
 		"property_swiftspike_bracer_description"					"Каждое очко текущей скорости передвижения увеличивает Базовый Урон Способностей на @special_property1%"
 		
+		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
+		"item_property_tiamat_claw"							"Prismatic Vise"
+		"property_tiamat_claw_description"					"Все атрибуты зафиксированы на значении этого параметра и не могут быть изменены ничем."
+
+		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
+		"item_property_gold_breaker"							"Gold Breaker"
+		"property_gold_breaker_description"					"Атаки разбивают иммунитет к заклинаниям. Атаки накладывают дебафф на цели на <% GOLDBREAKER_DEBUFF_DURATION %> секунд. Если противник попытается вновь получить иммунитет к заклинаниям, он будет оглушен на такое же время."
+
+		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Gold Breaker"
+		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Если противник попытается вновь получить иммунитет к заклинаниям, он будет оглушен на такое же время."
+
+		

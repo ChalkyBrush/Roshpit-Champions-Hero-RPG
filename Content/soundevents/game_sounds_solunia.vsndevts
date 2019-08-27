@@ -343,7 +343,7 @@
                               "value0"        "sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.9000"  }
+                    "volume"            {   "value"     "0.8600"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.150000"  }
@@ -605,6 +605,139 @@
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.000000"  }
                     "soundlevel"        {   "value"     "100.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Solunia.Arcana3.Vorpal.Cast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/silencer/glaives_attack01.vsnd"
+                              "value1"        "sounds/weapons/hero/silencer/glaives_attack02.vsnd"
+                              "value2"        "sounds/weapons/hero/silencer/glaives_attack03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.2200000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Solunia.Arcana3.Vorpal.Hit"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/shared/small_blade/attack_long01.vsnd"
+                              "value1"        "sounds/weapons/hero/shared/small_blade/attack_long02.vsnd"
+                              "value2"        "sounds/weapons/hero/shared/small_blade/attack_long03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.1000"  }
+                    "pitch_rand_max"    {   "value"     "0.10000"  }
+                    "pitch"             {   "value"     "0.800000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Solunia.Arcana3.Vorpal.Hit.Highlight"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/queenofpain/queenofpain_attack1.vsnd"
+                              "value1"        "sounds/weapons/hero/queenofpain/queenofpain_attack2.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.30000"  }
+                    "pitch_rand_min"    {   "value"     "-0.1000"  }
+                    "pitch_rand_max"    {   "value"     "0.10000"  }
+                    "pitch"             {   "value"     "1.1200000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "2800.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Solunia.Arcana3.Vorpal.CastNone"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/puck/preattack.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.1000"  }
+                    "pitch_rand_max"    {   "value"     "0.10000"  }
+                    "pitch"             {   "value"     "1.0200000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
                     "distance_max"      {   "value"     "2800.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

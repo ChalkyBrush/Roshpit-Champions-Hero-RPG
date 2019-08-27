@@ -81,7 +81,7 @@
 						</Label>
 					</Panel>
 				</Panel>
-				<Panel id="specials_container">
+				<Panel id="specials_container" hittest="false">
 					<Panel class="properties_special_container" id="properties_special1">
 						<Label id="properties_special_title1" class="special-property-title" html="true"/>
 						<Label id="properties_special_text1" class="special-property" html="true"/>
@@ -111,7 +111,7 @@
 						<Label id="properties_special_text4" class="special-property" html="true"/>
 					</Panel>
 				</Panel>
-				<Panel id="tooltip_weapons_data_container">
+				<Panel id="tooltip_weapons_data_container" hittest="false">
 					<Panel class="tooltip_special_element_horizontalcontainer">
 						<Label id="tooltip_weapon_left1" html="true" class="tooltip_weapon_left"/>
 						<Label id="tooltip_weapon_right1" html="true" class="tooltip_weapon_right"/>						
@@ -127,7 +127,7 @@
 					</Panel> 				
 				</Panel>
 				<Panel class="class-splitter" id="class-splitter3"/>
-				<Panel id="tooltip_requirements_container">
+				<Panel id="tooltip_requirements_container" hittest="false">
 					<Label id="tooltip_requirements_left" html="true"/>
 					<Label id="tooltip_requirements_right" html="true"/>
 				</Panel>

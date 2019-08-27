@@ -368,16 +368,20 @@ function merkurio_think(event)
 		    end)
 		end)
 	elseif caster.state == 7 then
-		caster:MoveToPosition(Vector(-4905, 7595))
+		caster:MoveToPosition(Vector(-4885, 7595))
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-4905, 7595))
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 500, 2, false)
 		if distance < 120 then
 			caster.state = 8
 		end
 	elseif caster.state == 8 then
-		caster:MoveToPosition(Vector(-5082, 7595))
+		caster:MoveToPosition(Vector(-5092, 7595))
 		caster.state = 9
 		Winterblight.CaveGuideReady = true
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+			Winterblight:CaveGuideSpawn()
+		end
 		caster.moveAdjust = true
 	elseif caster.state == 9 then
 		if Winterblight.CavernData and Winterblight.CavernData.Chambers[1] and Winterblight.CavernData.Chambers[1]["event"] == 4 and Winterblight.CavernData.Chambers[1]["status"] == 1 then
@@ -670,6 +674,10 @@ function cavern_unit_die(event)
 			Winterblight.BlackHolesKills = Winterblight.BlackHolesKills + 1
 			Winterblight:GravityBlackHolesSpawns(Winterblight.BlackHolesKills)
 		end
+		local luck = RandomInt(1, 2400-GameState:GetPlayerPremiumStatusCount()*100)
+		if luck == 1 then
+			RPCItems:RollGuardianStone(unit:GetAbsOrigin())
+		end
 	end
 end
 
@@ -903,16 +911,16 @@ function ultra_ice_spawn_unit_die(event)
 	end
 	caster.spawnUnitsSlain = caster.spawnUnitsSlain + 1
 	print(caster.spawnUnitsSlain)
-	if caster.spawnPhase == 2 and caster.spawnUnitsSlain == 16 then
+	if caster.spawnPhase == 2 and caster.spawnUnitsSlain == 8*caster.spawnMult then
 		caster.spawnPhase = 3
 		caster.spawnUnitsSlain = 0
-	elseif caster.spawnPhase == 4 and caster.spawnUnitsSlain == 16 then
+	elseif caster.spawnPhase == 4 and caster.spawnUnitsSlain == 8*caster.spawnMult then
 		caster.spawnPhase = 5
 		caster.spawnUnitsSlain = 0
-	elseif caster.spawnPhase == 6 and caster.spawnUnitsSlain == 32 then
+	elseif caster.spawnPhase == 6 and caster.spawnUnitsSlain == 16*caster.spawnMult then
 		caster.spawnPhase = 7
 		caster.spawnUnitsSlain = 0
-	elseif caster.spawnPhase == 8 and caster.spawnUnitsSlain == 12 then
+	elseif caster.spawnPhase == 8 and caster.spawnUnitsSlain == 6*caster.spawnMult then
 		caster.spawnPhase = 9
 		EmitSoundOn("Winterblight.Cavern.UltraIce.PhaseChange", caster)
 		Events:smoothSizeChange(caster, 1.0, 1.8, 40)
@@ -1111,7 +1119,7 @@ function cavern_spark_throw(event)
 	local spark_count = 3
 
 	local base_damage = event.base_damage
-	ability.damage = base_damage * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	ability.damage = base_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.percent_attack_power/100)
 
 	ability.paralyze_duration = event.paralyze_duration
 	local particle = "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
@@ -1687,6 +1695,12 @@ function cavern_player_hero_think(event)
 			end
 		end
 	end
+	if hero:HasModifier("modifier_confusional_spores") then
+		if Winterblight:IsWithinChamber(hero, 3) then
+		else
+			hero:RemoveModifierByName("modifier_confusional_spores")
+		end
+	end
 end
 
 function demented_mushroom_think(event)
@@ -1987,6 +2001,8 @@ function thunderhide_egg_hit(event)
 				Timers:CreateTimer(60, function()
 					UTIL_Remove(eggShell)
 				end)
+			else
+				UTIL_Remove(caster)
 			end
 		end)
 	end
@@ -2054,6 +2070,9 @@ function aurora_boss_think(event)
 				local delay = cast_ability:GetCastPoint() + 1
 				if cast_ability:GetAbilityName() == "winterblight_spirit_ring" then
 					delay = 1.0
+				end
+				if cast_ability:GetAbilityName() == "winterblight_ice_vortex_aoe" then
+					delay = 0.7
 				end
 				if cast_ability:GetAbilityName() =="three_perceptions" then
 					StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
@@ -2419,14 +2438,12 @@ function zero_g_spell_cast(event)
 		cd = cd + 1
 	end
 	executedAbility:StartCooldown(cd)
-	if target:IsRealHero() then
-		Timers:CreateTimer(0.03, function()
-			if executedAbility:GetCooldownTimeRemaining() > 0.97 then
-				executedAbility:EndCooldown()
-				executedAbility:StartCooldown(cd)
-			end
-		end)
-	end
+	Timers:CreateTimer(0.03, function()
+		if executedAbility:GetCooldownTimeRemaining() > 0.97 then
+			executedAbility:EndCooldown()
+			executedAbility:StartCooldown(cd)
+		end
+	end)
 end
 
 function wb_black_hole_think(event)
@@ -3342,5 +3359,168 @@ function tiamat_ice_attack_land(event)
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
 			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 		end
+	end
+end
+
+function radeon_orbit_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.lock then
+		return false
+	end
+	-- StartAnimation(caster, {duration = 0.2, activity = ACT_DOTA_CAST_ABILITY_1, rate = 2.2})
+
+	local vorpal_particle = "particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+
+	local baseFV = caster:GetForwardVector()
+	local search_area = caster:GetAbsOrigin()
+	local search_radius = event.search_radius
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), search_area, nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_radeon_orbin_projectile_thinker", {})
+
+	if not ability.vorpals then
+		ability.vorpals = {}
+	end
+	local total_max_blades = event.max_blades
+
+	local vorpals_for_this_throw = math.min(5, total_max_blades-#ability.vorpals)
+
+	local damage = event.damage
+
+	
+	for i = 1, vorpals_for_this_throw do
+		local vorpal = {}
+		local vorpal_distance = 1800
+		local vorpal_fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/5)
+		local vorpal_target = caster:GetAbsOrigin()+vorpal_fv*vorpal_distance + Vector(0,0,160)
+		local vorpal_speed = 1000
+		local vorpal_origin = caster:GetAbsOrigin() + Vector(0,0,460)
+
+		local bounces = event.base_bounces
+
+		vorpal.active = true
+		vorpal.speed = vorpal_speed
+		vorpal.position = vorpal_origin
+		vorpal.target = vorpal_target
+		vorpal.interval = 0
+		vorpal.damage = damage
+		vorpal.mana_restore = mana_restore
+
+		vorpal.type = event.type
+		local pfx = ParticleManager:CreateParticle(vorpal_particle, PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector())
+		ParticleManager:SetParticleControl(pfx, 1, vorpal_target)
+		ParticleManager:SetParticleControl(pfx, 2, Vector(vorpal_speed, vorpal_speed, vorpal_speed))
+		vorpal.pfx = pfx
+		vorpal.targets_hit = 0
+		vorpal.bounces = bounces
+		if #enemies > 0 then
+			local lock_target = enemies[RandomInt(1, #enemies)]
+			vorpal.lock_entity = lock_target
+		else
+			vorpal.lock_entity = nil
+		end
+		table.insert(ability.vorpals, vorpal)
+	end
+	if vorpals_for_this_throw > 0 then
+		EmitSoundOn("Winterblight.RealmBreaker.ProjectileShoot", caster)
+	end
+	local counter_modifier_name = "modifier_active_sun_vorpals"
+	if event.type == "moon" then
+		counter_modifier_name = "modifier_active_moon_vorpals"
+	end
+	ability:ApplyDataDrivenModifier(caster, caster, counter_modifier_name, {})
+	caster:SetModifierStackCount(counter_modifier_name, caster, #ability.vorpals)
+	Filters:CastSkillArguments(2, caster)
+end
+
+function radeon_orbit_projectile_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local new_vorpal_table = {}
+	local think_interval = 0.2
+
+	local damage = event.damage
+	local element2 = RPC_ELEMENT_FIRE
+	local damagetype = DAMAGE_TYPE_MAGICAL
+	if event.type == "moon" then
+		element2 = RPC_ELEMENT_ICE
+		damagetype = DAMAGE_TYPE_PURE
+	end
+	for i = 1, #ability.vorpals, 1 do
+		local vorpal = ability.vorpals[i]
+		if vorpal.active then
+			vorpal.speed = math.min(vorpal.speed + 70, 1300)
+			local direction = (vorpal.target - vorpal.position):Normalized()
+			vorpal.position = vorpal.position + vorpal.speed*think_interval*direction
+			vorpal.interval = vorpal.interval + 1
+
+			if vorpal.interval >= 4 then
+				if IsValidEntity(vorpal.lock_entity) and vorpal.lock_entity:IsAlive() then
+					vorpal.target = vorpal.lock_entity:GetAbsOrigin() + Vector(0,0,30)
+				end
+			end
+			if vorpal.interval >= 120 then
+				vorpal.active = false
+			end
+
+			local distance = WallPhysics:GetDistance2d(vorpal.position, vorpal.target)
+			
+			if distance <= (vorpal.speed*think_interval) then
+				-- CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf", vorpal.position, 3)
+				if vorpal.targets_hit < (vorpal.bounces - 1) then
+					vorpal.targets_hit = vorpal.targets_hit + 1
+					local nearby_enemies = FindUnitsInRadius(caster:GetTeamNumber(), vorpal.position, nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+					local new_target = nil
+					if #nearby_enemies > 0 then
+						if IsValidEntity(vorpal.lock_entity) then
+							for _, enemy in pairs(nearby_enemies) do
+								if enemy:GetEntityIndex() ~= vorpal.lock_entity:GetEntityIndex() then
+									new_target = enemy
+									break
+								end
+								-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+							end
+						else
+							new_target = nearby_enemies[1]
+						end
+					end
+					if IsValidEntity(vorpal.lock_entity) then
+						EmitSoundOn("Winterblight.RealmBreaker.ProjectileHit", vorpal.lock_entity)
+						local damage = vorpal.damage
+						ApplyDamage({ victim = vorpal.lock_entity, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+					end
+					if IsValidEntity(new_target) then
+						vorpal.lock_entity = new_target
+						vorpal.target = vorpal.lock_entity:GetAbsOrigin()
+					else
+						vorpal.active = false
+					end
+
+				else
+					vorpal.active = false
+				end
+			end
+			if vorpal.active then
+				ParticleManager:SetParticleControl(vorpal.pfx, 1, vorpal.target)
+				ParticleManager:SetParticleControl(vorpal.pfx, 2, Vector(vorpal.speed, vorpal.speed, vorpal.speed))
+				table.insert(new_vorpal_table, vorpal)
+			else
+				ParticleManager:DestroyParticle(vorpal.pfx, false)
+				ParticleManager:ReleaseParticleIndex(vorpal.pfx)	
+			end			
+		end
+	end
+	ability.vorpals = new_vorpal_table
+
+	local counter_modifier_name = "modifier_active_sun_vorpals"
+	if event.type == "moon" then
+		counter_modifier_name = "modifier_active_moon_vorpals"
+	end
+	if #ability.vorpals > 0 then
+		caster:SetModifierStackCount(counter_modifier_name, caster, #ability.vorpals)
+	else
+		caster:RemoveModifierByName(counter_modifier_name)
 	end
 end

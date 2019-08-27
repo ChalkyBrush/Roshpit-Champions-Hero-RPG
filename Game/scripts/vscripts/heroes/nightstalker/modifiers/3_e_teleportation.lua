@@ -8,6 +8,23 @@ local modifiers = {
     enemyEffectE3 = 'modifier_chernobog_3_e_teleportation_enemy_effect_e3'
 }
 
+function class:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
+    MODIFIER_PROPERTY_VISUAL_Z_DELTA
+  }
+
+  return funcs
+end
+
+function class:GetActivityTranslationModifiers()
+  return "haste"
+end
+
+function class:GetVisualZDelta()
+    return 30
+end
+
 function class:IsDebuff()
     return false
 end
@@ -153,8 +170,9 @@ function class:Teleport(position)
 
     FindClearSpaceForUnit(parent, position, false)
 
+    EmitSoundOn("Chernobog.TeleportMove", parent)
     local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-    ParticleManager:SetParticleControl(particle2, 0, parent:GetAbsOrigin() + Vector(0, 0, 40))
+    ParticleManager:SetParticleControl(particle2, 0, parent:GetAbsOrigin() + Vector(0, 0, 100))
     Timers:CreateTimer(3, function()
         ParticleManager:DestroyParticle(particle1, false)
         ParticleManager:ReleaseParticleIndex(particle1)

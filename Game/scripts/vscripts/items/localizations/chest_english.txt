@@ -18,40 +18,40 @@
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
 		"item_property_steelbark"			"Steelbark Protection"
-		"property_steelbark_description"	"While below 40% Health gain 100HP regen and +40 armor."
+		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
 		"item_property_flooding_3"					"Water Elemental"
-		"property_flooding_description_3"			"When you finish casting @Ability4 - summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Attacks deal AOE magic damage equal to 35x your Intelligence.<br>Also has a wave projectile that deals your attack power as magic damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
+		"property_flooding_description_3"			"When you finish casting @Ability4, summon a Water Elemental that restores 5% of your max mana on attack for 12 seconds. Its attacks deal AOE Magical damage equal to 35x your Intelligence.<br>Also has a wave projectile spell that deals your attack power as Magical damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"When you finish casting @Ability4 - summon an avalanche that deals @special_property1x your Strength every 0.2 seconds and stuns for 0.1 seconds in a 400 radius. Each enemy hit counts up to 20, at which point you create a massive earthquake that deals<br>@special_property2x Strength to enemies in a 600 radius and stuns for 1.6 seconds.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
+		"property_avalanche_description_2"			"When you finish casting @Ability4, release a 400-radius avalanche which deals @special_property1x your Strength every 0.2 seconds. Struck enemies are stunned for 0.1 seconds. Each enemy hit counts up to 20, at which point you create a massive earthquake that deals<br>@special_property2x Strength to enemies in a 600 radius and stuns them for 1.6 seconds.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Increases Base Ability damage of @Ability1 by 350%. 0.1% of the base ability damage of @Ability1 reduces the target's armor by 1 for 6 seconds. Cannot reduce a target's armor below 0."
+		"property_violet_guard_armor_description2"	"Increases Base Ability Damage of @Ability1 by 350%. 0.1% of the damage it deals reduces each target's Armor by 1 for 6 seconds. This cannot reduce a target's Armor below 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced armor."
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
 		"item_property_seraphic_soulvest"			"Seraphic Lance"
-		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a large radius, dealing 50% of your attack damage times @Ability2 level as pure damage."
+		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a large radius, dealing 50% of your attack damage times @Ability2 level as Pure damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
 		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Every cast of @Ability1 gives you a 25% chance to refresh the cooldown of @Ability4."
+		"property_watcher_one_description"			"Every cast of @Ability has a 25% chance to instantly refresh the cooldown of @Ability4."
 		"item_property_watcher_two"					"Watcher II"
 		"property_watcher_two_description"			"Increases the damage of all Base Abilities by 15%."
 		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Increases the Base Ability damage of @Ability2 by 35%."
+		"property_watcher_three_description"		"Increases the Base Ability Damage of @Ability2 by 35%."
 		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Increases the Base Ability damage of @Ability4 by 35%."
+		"property_watcher_four_description"			"Increases the Base Ability Damage of @Ability4 by 35%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"
@@ -61,35 +61,35 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
 		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"@Ability2 restores @special_property1% of its mana cost on use and Base Ability damage increased by 100%."
+		"property_spellslinger_coat_description"	"@Ability2 restores @special_property1% of its mana cost on use and its Base Ability Damage is increased by 100%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
 		"item_property_doomplate"					"Summon Doom"
-		"property_doomplate_description"			"Casting @Ability4 summons Doombringer. He immediately dooms you on summon, silencing and disarming you, and then proceeds to combat enemies with pyroblasts that deal 1x Doombringer's attack damage, which is @special_property1x the caster's.<br> Lasts 30 seconds and has a 30 second cooldown. Armor and health increases with caster's."
+		"property_doomplate_description"			"Casting @Ability4 summons Doombringer. He immediately Dooms you on summon, silencing and disarming you, and then proceeds to combat enemies with pyroblasts that deal 1x Doombringer's attack damage, which is @special_property1x the caster's.<br> Lasts 30 seconds and has a 30 second cooldown. Armor and health increases with caster's."
 		"doomplate_doom"							"Doom"
 		"DOTA_Tooltip_modifier_doomplate_cooldown"	"Doomplate Cooldown"
 		"DOTA_Tooltip_modifier_doomplate_doom_debuff"	"Doom"
-		"DOTA_Tooltip_modifier_doomplate_doom_debuff_Description"	"Can't attack and silenced."
+		"DOTA_Tooltip_modifier_doomplate_doom_debuff_Description"	"Disarmed and silenced"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
 		"item_property_ice_quill"					"Ice Quills"
-		"property_ice_quill_description"			"When you spend 600 mana, gain an ice quill stack. When you cast any ability or use an item, the stacks are released on a 0.1 second interval, restoring 1% of max mana and dealing 4x attack power in a 460 AOE with each strike. Will not trigger if a previous explosion of icicles is still resolving."
-		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill Stack"
+		"property_ice_quill_description"			"When you spend 600 mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on 0.1-second intervals, restoring 1% of max mana and dealing 4x your total attack power in a 460 radius with each blast. Will not trigger if a previous explosion of icicles is still resolving."
+		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"A gryphon follows you always - healing you and all surrounding units for @special_property1% of their max health per second and reducing magic and pure damage taken by @special_property2%. The gryphon also has flying vision."
+		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for @special_property1% of their max health per second while also reducing all Magic and Pure damage taken by @special_property2%. The gryphon also has its own flying vision."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by %property_two%%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
 		"item_property_dragon_ceremony"				"Beast of Ceremony"
-		"property_dragon_ceremony_description"		"A ceremonial beast follows you always - launching an attack every 0.8 seconds on up to 12 nearby enemies that deals damage equal to 12x your primary attribute"
+		"property_dragon_ceremony_description"		"A wyrmling follows you always, launching an attack every 0.8 seconds on up to 12 nearby enemies that deals damage equal to 12x your primary attribute."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
@@ -101,7 +101,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_property_vampiric_breastplate"		"Vampiric Core"
-		"property_varmpiric_breastplate_description" "30% lifesteal on @Ability1"
+		"property_varmpiric_breastplate_description" "Heal for 30% of all damage dealt by @Ability1."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
@@ -120,7 +120,7 @@
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt and increases <font color=\"#7F4F84\">Shadow</font> damage by 300%%."
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
-		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Losing Movespeed and Armor, and taking increased post-mitigation damage"
+		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Losing movespeed and Armor, and taking increased post-mitigation damage"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
@@ -132,15 +132,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
 		"item_property_stormshield"					"Storm Shield"
-		"property_stormshield_description"			"Reduces all physical damage taken by 50%."
+		"property_stormshield_description"			"Reduces all Physical damage taken by 50%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
 		"item_property_gilded_soul"					"Siphon Soul"
-		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies for 15% of their max health. They also increase your attack damage by @special_property1% and <font color=\"#F6FFB5\">Holy</font> damage by @special_property3% for 8 seconds, stacking up to 100 times. Stacks only lower by 1 at a time.<br>When an enemy's soul is collected, gain @special_property2 seconds of magic immunity."
+		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies for 15% of their max health. They also increase your attack damage by @special_property1% and <font color=\"#F6FFB5\">Holy</font> damage by @special_property3% for 8 seconds, stacking up to 100 times. Stacks only lower by 1 at a time.<br>When an enemy's soul is collected, gain @special_property2 seconds Spell Immunity."
 		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
-		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Gaining attack damage and holy damage."
-		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Magic Immunity"
+		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Gaining attack damage and Holy damage."
+		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bluestar_armor"									"Bluestar Armor"
@@ -150,7 +150,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"
-		"property_hermit_spike_shell_description"	"When you take a total of 15% of your max health as damage, release quills that deal 30x the damage taken as physical to all surrounding enemies."
+		"property_hermit_spike_shell_description"	"When you take a total of 15% of your max health as damage, release quills that deal 30x the damage taken as Physical to all surrounding enemies."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
@@ -160,21 +160,21 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Taking any magic or pure damage increases Base Ability damage and Elemental Damage by 400% for 15 seconds."
+		"property_enchanted_solar_description"		"Taking any Magical or Pure damage increases both Base Ability Damage and all Elemental Damage bonuses by 400% for 15 seconds."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"All Base Ability damage and Elemental damage increased by 400%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"
 		"item_property_ocean_tempest"				"Tidal Windstorm"
-		"property_ocean_tempest_description"		"Drain 40% of your max mana per second while channeling @Ability4. For every 100 mana drained, increase @Ability4 damage by 1.5%."
+		"property_ocean_tempest_description"		"Drain 40% of your max mana per second while channeling @Ability4. For every 100 mana drained, increase @Ability4 damage by 1.5%. This bonus resets when casting @Ability4 again."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"Radiant Ruins Leather"
 		"item_property_radiant_ruins"				"Endurance Aura"
-		"property_radiant_ruins_description"		"Increases the attack speed of you and all nearby allied units by 220 and movespeed by 120"
+		"property_radiant_ruins_description"		"Grants 220 attack speed and 120 movespeed to all nearby allied units."
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
-		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Gaining Attack Speed"
+		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Gaining attack and movement speed"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
@@ -203,7 +203,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
 		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Reduces all nearby enemies' damage output by 30%"
+		"property_skyforge_description"						"Reduces all nearby enemies' damage output by 30%."
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"25%% reduced damage output"
 		
@@ -241,7 +241,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
 		"item_property_gold_war_plate"						"Heroic Valor"
-		"property_gold_war_plate_description"				"Increases Post-Mitigation physical damage output by @special_property1%. Magical damage output reduced by 65%."
+		"property_gold_war_plate_description"				"Increases Post-Mitigation Physical damage output by @special_property1%. Magical damage output reduced by 65%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
@@ -251,29 +251,29 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
 		"item_property_knight_crusher"						"Overpower"
-		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by 50%, and stun durations are considered 50% shorter when added to creature stun immunity counter."
+		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by 50%, and stun durations are considered 50% shorter when added to an enemy's stun immunity counter."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by @special_property1 and armor by @special_property2"
+		"property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by @special_property1 and Armor by @special_property2"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Each point of Strength increases attack damage by @special_property1 and armor by @special_property2"
+		"property_ruby_dragon_armor_description"			"Each point of Strength increases attack damage by @special_property1 and Armor by @special_property2"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Each point of Agility increases attack damage by @special_property1 and armor by @special_property2"
+		"property_topaz_dragon_description"				"Each point of Agility increases attack damage by @special_property1 and Armor by @special_property2"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
 		"item_property_sacred_trials"						"Combat Trial"
-		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal @special_property1% damage as magic in an area."
+		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal @special_property1% bonus Magical damage in an area."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals %property_one%%% magic damage in a small AOE."
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals %property_one%%% Magical damage in a small area"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"Heroic Conqueror Vestments"
@@ -281,24 +281,24 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Applies a Shield for 1.5 seconds when casting @Ability3 and 3.5 seconds when casting @Ability4 that reduces all damage taken by 95%"
+		"property_guard_of_feronia_description"				"Applies a Shield for 1.5 seconds when casting @Ability3, or 3.5 seconds when casting @Ability4, that reduces all damage taken by 95%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by 95%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
 		"item_property_mystic_mana_wall"						"Magic Block"
-		"property_mystic_mana_wall_description"				"All magic or pure damage taken is reduced by 75% and taken from mana instead of health, if there is enough mana. Every 30 current mana points adds 1 armor."
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by 75% and taken from mana instead of health, if there is enough mana. Every 30 current mana points adds 1 Armor."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by @special_property1"
+		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by @special_property1."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
 		"item_property_tanari_wind_armor"						"Zephyr"
-		"property_tanari_wind_armor_description"				"Enemies within 500 radius have their movespeed reduced by 80%, have their attack slowed by 100 and have 30% miss chance."
+		"property_tanari_wind_armor_description"				"Enemies within 500 radius have their movespeed reduced by 80%, their attack speed slowed by 100, and have a 30% miss chance."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
@@ -308,12 +308,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
 		"item_property_outland_stone"							"Blast Fusion"
-		"property_outland_stone_description"					"Increases the Base Ability damage of @Ability1 by @special_property2%, but stuns self for @special_property1 seconds on cast."
+		"property_outland_stone_description"					"Increases the Base Ability Damage of @Ability1 by @special_property2%, but stuns self for @special_property1 seconds on cast."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 		"item_property_direwolf"						"Cerberus Core"
-		"property_direwolf_description"					"Each 10 points of your primary attribute increases Base Attack damage by @special_property1, Armor by @special_property2, and Base Ability damage by @special_property3%. This item cannot be reforged by the Blacksmith."
+		"property_direwolf_description"					"Each 10 points of your primary attribute increases Base Attack damage by @special_property1, Armor by @special_property2, and Base Ability Damage by @special_property3%. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
@@ -340,12 +340,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
 		"item_property_boreal_granite"						"Diametric Force"
-		"property_boreal_granite_description"				"When taking damage from an enemy, have a @special_property1% chance to cast @Ability1 immediately if they are within the ability's cast range. @Ability1's cooldown is refreshed on proc. Targeted abilities are targetted at the location of the attacker, if they are within cast range."
+		"property_boreal_granite_description"				"When taking damage from an enemy, there is a @special_property1% chance to cast @Ability1 for free immediately if the damage source is within the ability's cast range. @Ability1's cooldown is refreshed when this occurs. Targeted abilities are cast at the attacker or their location, if they are within the cast range."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
 		"item_property_captains_vest"						"Stalwart Champion"
-		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by 15/30/75/150. W1/2/3/4 Runes increase Int by 15/30/75/150. E1/2/3/4 Runes increase Agility by 15/30/75/150. R1/2/3/4 Runes increase all stats by 5/10/25/50."
+		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by 15/30/75/150. W1/2/3/4 Runes increase Intelligence by 15/30/75/150. E1/2/3/4 Runes increase Agility by 15/30/75/150. R1/2/3/4 Runes increase all attributes by 5/10/25/50."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
@@ -357,27 +357,27 @@
 
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
 		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
-		"property_robe_of_the_erudite_teacher_description"				"When equipped, a Rubick Apprentice follows you. The apprentice can copy up to 3 spells from enemy creatures. It spawns with <% ERUDITE_TEACHER_HEALTH_MULT %>x the wearer's health, <% ERUDITE_TEACHER_ATTACK_MULT %>x the wearer's attack power, <% ERUDITE_TEACHER_ARMOR_MULT %>x the wearer's armor and 2000 mana. If the apprentice dies, it respawns after 10 seconds with its same ability configuration as before death. All damage dealt by the apprentice is considered as item damage from the hero."
+		"property_robe_of_the_erudite_teacher_description"				"When equipped, a curious Rubick Apprentice adventures with you. The Apprentice can copy up to 3 spells from enemy creatures. It spawns with <% ERUDITE_TEACHER_HEALTH_MULT %>x the wearer's maximum health, <% ERUDITE_TEACHER_ATTACK_MULT %>x the wearer's total attack power, <% ERUDITE_TEACHER_ARMOR_MULT %>x the wearer's Armor, and 2000 mana. If the Apprentice dies, it respawns after 10 seconds, keeping all the same abilities it had before death. All damage dealt by the Apprentice is considered item damage from your hero."
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
-		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_2"					"Spell Steal"
-		"DOTA_Tooltip_ability_apprentice_spell_steal_2_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_3"					"Spell Steal"
-		"DOTA_Tooltip_ability_apprentice_spell_steal_3_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if their are no copyable abilities or the same ability that was copied is already owned."
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."
 
 		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
-		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the apprentice's copied abilities."
+		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the Apprentice's copied abilities, replacing them with Spell steal."
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
-		"property_alien_armor"							"Carbon Forge"
-		"property_alien_armor_description"				"Casting @Ability4 creates an illusion with <% ALIEN_ARMOR_ILLUSION_AS %> bonus attack speed whose damage is attributed to the caster as item damage. The illusion deals <% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x damage, takes <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% reduced damage and lasts <% ALIEN_ARMOR_ILLUSION_DURATION %> seconds."
+		"property_alien_armor"							"Simulacrum"
+		"property_alien_armor_description"				"Casting @Ability4 creates an illusory copy of you, with <% ALIEN_ARMOR_ILLUSION_AS %> bonus attack speed, whose damage is attributed to the caster and considered item damage. The illusion deals <% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x damage, takes <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% reduced damage, and lasts <% ALIEN_ARMOR_ILLUSION_DURATION %> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <% ALIEN_ARMOR_RESPAWN_DELAY %> second delay as long as the chosen illusion is still alive at that time."
 
 		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
 		"item_property_nethergrasp"							"Outworld Grip"
-		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an outworld grip on the target. Gripped enemies are attacked by the caster on a <% NETHERGRASP_ATTACK_INTERVAL %> second interval. Enemies who are outside the caster's attack range are pulled towards the grip source. Can link up to <% NETHERGRASP_MAX_LINKS %> enemies at a time but attacks are divided equally amongst all linked targets. Can create links from <% NETHERGRASP_LINK_RANGE %> range, and break if the distance between the caster and the target exceeds <% NETHERGRASP_BREAK_DISTANCE %>."
+		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an Outworld Grip link between the two of you. Gripped enemies are automatically attacked by the caster on <% NETHERGRASP_ATTACK_INTERVAL %>-second intervals. Enemies who are outside the caster's attack range are pulled back sharply towards you. Up to <% NETHERGRASP_MAX_LINKS %> links can exist at a time, but free Grip attacks will be divided equally amongst all linked targets. Must be within <% NETHERGRASP_LINK_RANGE %> range of the target to create a link, and links break if the distance between you ever exceeds <% NETHERGRASP_BREAK_DISTANCE %>."
 
 		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
 		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	

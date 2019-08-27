@@ -93,8 +93,8 @@ end
 function class:DoActiveVisualThings()
     local caster = self:GetCaster()
     if not caster:HasModifier("modifier_chernobog_demon_form") then
-        caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
-        caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")
+        -- caster:SetModel("models/heroes/nightstalker/nightstalker_night.vmdl")
+        -- caster:SetOriginalModel("models/heroes/nightstalker/nightstalker_night.vmdl")   
         StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_NIGHTSTALKER_TRANSITION, rate = 1})
     else
         StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_ATTACK, rate = 2})
@@ -105,8 +105,8 @@ end
 function class:DoInactiveVisualThings()
     local caster = self:GetCaster()
     if not caster:HasModifier("modifier_chernobog_demon_form") then
-        caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
-        caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
+        -- caster:SetModel("models/heroes/nightstalker/nightstalker.vmdl")
+        -- caster:SetOriginalModel("models/heroes/nightstalker/nightstalker.vmdl")
     end
     StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.5})
     EmitSoundOn("Chernobog.Untoggle", caster)

@@ -172,6 +172,7 @@
 	##SOLUNIA_ARCANA_1_RUNES##
 	##SOLUNIA_ARCANA_2_ABILITIES##
 	##SOLUNIA_ARCANA_2_RUNES##
+	##SOLUNIA_ARCANA_3##
 	##SOLUNIA_BASE_ABILITIES##
 	##SOLUNIA_BASE_RUNES##
 
@@ -9664,6 +9665,12 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_hand_cosmos"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"			
 			}
 		}
 	}

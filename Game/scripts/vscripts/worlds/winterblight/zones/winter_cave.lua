@@ -1,6 +1,6 @@
 function Winterblight:CaveGuideSpawn()
 	if not Winterblight.CaveGuideSpawned then
-	-- 	if Winterblight.CaveGuideReady then
+		if Winterblight.CaveGuideReady or Beacons.cheats then
 			if not Winterblight.CavernPrecached then
 				Winterblight.CavernPrecached = true
 				Precache:WinterblightCavern()
@@ -31,7 +31,7 @@ function Winterblight:CaveGuideSpawn()
 			Timers:CreateTimer(3, function()
 				EmitSoundOnLocationWithCaster(spawnPos, "Winterblight.GuideCave.Magical", caster)
 			end)
-	-- 	end
+		end
 	-- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13952, 12800, 500), 10000, 10000, false)
 	end
 end
@@ -73,6 +73,7 @@ function Winterblight:InitCavernData()
 	Winterblight.CavernData.Chambers = {}
 	Winterblight.CavernData.RelicsFragments = 0
 	Winterblight.CavernData.tiamat_status = 0
+	Winterblight.CavernData.realm_breaker_status = -1
 	for i = 1, 4, 1 do
 		Winterblight.CavernData.Chambers[i] = {}
 		Winterblight.CavernData.Chambers[i]["status"] = 0
@@ -291,8 +292,8 @@ function Winterblight:FrozenFoyer1(msg)
 	end)
 	Timers:CreateTimer(1, function()
 		if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
-			local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1))
-			Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id, 2)
+			local ultra_ice = Winterblight:SpawnUltraIce(Vector(-9033, 8320), RandomVector(1), 2)
+			Winterblight:SetCavernUnit(ultra_ice, ultra_ice:GetAbsOrigin(), true, true, chamber_id)
 		end
 	end)
 	Timers:CreateTimer(5, function()
@@ -502,6 +503,9 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_winterblight_cavern_unit", {})
 	unit.deaggro = bDeaggro
 	unit.original_position = original_position
+	if not unit.original_position then
+		unit.original_position = unit:GetAbsOrigin()
+	end
 	unit.chamber = chamber_index
 	if bParticle then
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", unit:GetAbsOrigin(), 4)
@@ -603,6 +607,21 @@ end
 
 function Winterblight:IsWithinChamber(unit, chamber_id)
 	local compare_position = unit:GetAbsOrigin()
+	local is_in_region = false
+	if chamber_id == 0 then
+		is_in_region = true
+	else
+		for i = 1, #Winterblight.CavernChamberVertices[chamber_id], 1 do
+			if WallPhysics:IsWithinRegionA(compare_position, Winterblight.CavernChamberVertices[chamber_id][i][1], Winterblight.CavernChamberVertices[chamber_id][i][2]) then
+				is_in_region = true
+				break
+			end
+		end
+	end
+	return is_in_region
+end
+
+function Winterblight:IsWithinChamberPos(compare_position, chamber_id)
 	local is_in_region = false
 	if chamber_id == 0 then
 		is_in_region = true
@@ -978,7 +997,11 @@ function Winterblight:CompleteChamberEvent(chamber, position)
 		-- if Beacons.cheats then
 		-- 	Winterblight.CavernData.Chambers[chamber]["events"][event_index]["status"] = 0
 		-- end
-
+		local realm_breaker_level = Winterblight:realm_breaker_level()
+		if realm_breaker_level > 0 then
+			Winterblight.CavernData.realm_breaker_status = 0
+			Winterblight.CavernData.realm_breaker_level = realm_breaker_level
+		end
 		Winterblight:DisperseRelicFragments(position, reward, hero, chamber, event_index)
 
 		Winterblight:CavernEventWinItemDrop(level, position)
@@ -2560,7 +2583,13 @@ end
 
 function Winterblight:SpawnShroomUnit(caster, position, shroom_unit_spawn_index)
 	local spawnphase = caster.spawnphase
-	if Winterblight:ShouldSpawnCaveUnit(3, spawnphase) then
+	local alive_cavern_units_count = 0
+	for i = 1, #Winterblight.CavernUnits[3], 1 do
+		if IsValidEntity(Winterblight.CavernUnits[3][i]) and Winterblight.CavernUnits[3][i]:IsAlive() then
+			alive_cavern_units_count = alive_cavern_units_count + 1
+		end
+	end
+	if Winterblight:ShouldSpawnCaveUnit(3, spawnphase) and alive_cavern_units_count < 50 then
 		local unit = nil
 		if shroom_unit_spawn_index == 1 then
 			unit = Winterblight:SpawnZectRider(position, RandomVector(1))
@@ -3245,13 +3274,15 @@ function Winterblight:AuroraPassage3(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 
-	for i = 1, 120, 1 do
+	for i = 1, 135, 1 do
 		Timers:CreateTimer(0.1*i, function()
-			local position = Winterblight:RandomAuroraPassagePos()
-			local egg = Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber_id)
-			CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", egg:GetAbsOrigin()+Vector(0,0,30), 4)
-			EmitSoundOn("Winterblight.GuideCaveIntro", egg)
-			table.insert(Winterblight.CavernUnits[chamber_id], egg)
+			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
+				local position = Winterblight:RandomAuroraPassagePos()
+				local egg = Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber_id)
+				CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", egg:GetAbsOrigin()+Vector(0,0,30), 4)
+				EmitSoundOn("Winterblight.GuideCaveIntro", egg)
+				table.insert(Winterblight.CavernUnits[chamber_id], egg)
+			end
 		end)
 	end
 end
@@ -3335,7 +3366,7 @@ end
 
 function Winterblight:EdgeOfWinter1(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 126
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 125
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
@@ -3949,6 +3980,7 @@ function Winterblight:EdgeOfWinter4(msg)
 	
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 220
+	Winterblight.EdgeOfWinterBlackHoles = nil
 	Winterblight.EdgeOfWinterBlackHoles = {}
 	Winterblight.BlackHolesKills = 0
 	local position = Winterblight:RandomPointInEdgeOfWinter()
@@ -3960,6 +3992,9 @@ function Winterblight:SpawnGravityBlackHole(position, spawnphase)
 	local black_hole = CreateUnitByName("npc_flying_dummy_vision", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	black_hole:FindAbilityByName("dummy_unit"):SetLevel(1)	
 	black_hole:AddAbility("winterblight_black_hole_ability"):SetLevel(1)
+	black_hole.dummy = true
+	black_hole.jumpLock = true
+	black_hole.pushLock = true
 	table.insert(Winterblight.CavernUnits[4], black_hole)
 	black_hole.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_blackhole.vpcf", PATTACH_ABSORIGIN_FOLLOW, black_hole)
 	ParticleManager:SetParticleControl(black_hole.pfx, 0, black_hole:GetAbsOrigin())
@@ -3969,6 +4004,7 @@ function Winterblight:SpawnGravityBlackHole(position, spawnphase)
 end
 
 function Winterblight:GravityBlackHolesSpawns(kills)
+	print(kills)
 	if kills == 0 then
 		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
 			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
@@ -3984,19 +4020,32 @@ function Winterblight:GravityBlackHolesSpawns(kills)
 		local position = Winterblight:RandomPointInEdgeOfWinter()
 		Winterblight:SpawnGravityBlackHole(position, Winterblight.CavernData.Chambers[4]["spawnphase"])
 		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
-			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
-			local black_hole_unit_index = RandomInt(1, 76)
-			for k = 1, 4, 1 do
-				Timers:CreateTimer(k*1, function()
-					Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
-				end)
-			end
+			local index = i
+			Timers:CreateTimer(index, function()
+				local black_hole = Winterblight.EdgeOfWinterBlackHoles[index]
+				local black_hole_unit_index = RandomInt(1, 76)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, black_hole:GetAbsOrigin(), 800, 5, false)
+				for k = 1, 4, 1 do
+					print("SPAWN - "..index.." : "..k .. "----" .. black_hole_unit_index)
+					local unit = Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
+					print(unit:GetAbsOrigin())
+					print(Winterblight:IsWithinChamber(unit, 4))
+				end
+			end)
 		end
 	end
 end
 
 function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
 	if Winterblight:ShouldSpawnCaveUnit(4, black_hole.spawnphase) then
+		local position = Vector(-14440, 12584) 
+		if IsValidEntity(black_hole) then
+			position = black_hole:GetAbsOrigin()
+		end
+		if Winterblight:IsWithinChamberPos(position, 4) then
+		else
+			position = Vector(-14440, 12584)
+		end
 		local unit = nil
 		if black_hole_unit_index == 1 then
 			unit = Winterblight:SpawnMountainOgre(position, Vector(0,-1))
@@ -4011,7 +4060,7 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 		elseif black_hole_unit_index == 6 then
 			unit = Winterblight:Snowshaker(position, Vector(0,-1))
 		elseif black_hole_unit_index == 7 then
-			unit = Winterblight:FrigidGrowth(position, Vector(0,-1))
+			unit = Winterblight:SpawnFrigidGrowth(position, Vector(0,-1))
 		elseif black_hole_unit_index == 8 then
 			unit = Winterblight:SpawnDashingSwordsman(position, Vector(0,-1))
 		elseif black_hole_unit_index == 9 then
@@ -4093,7 +4142,7 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 		elseif black_hole_unit_index == 47 then
 			unit = Winterblight:SpawnDrillDigger(position, Vector(0,-1))
 		elseif black_hole_unit_index == 48 then
-			unit = Winterblight:SpawnCloakedPhantasmh(position, Vector(0,-1))
+			unit = Winterblight:SpawnCloakedPhantasm(position, Vector(0,-1))
 		elseif black_hole_unit_index == 49 then
 			unit = Winterblight:SpawnBoar(position, Vector(0,-1))
 		elseif black_hole_unit_index == 50 then
@@ -4151,14 +4200,24 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 		elseif black_hole_unit_index == 76 then
 			unit = Winterblight:SpawnSpectralWitch(position, Vector(0,-1))
 		end
-		print("SPAWN")
-		EmitSoundOn("Winterblight.BlackHoleUnit.Spawn", unit)
-		local colorVector = Vector(0.8, 0.1, 0.8)
-		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", unit, 4)
-		Winterblight:SetCavernUnit(unit, black_hole:GetAbsOrigin(), false, false, 4)
-		Dungeons:AggroUnit(unit)
-		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_wb_zero_g", {})
-		unit:SetAcquisitionRange(7000)
+		if IsValidEntity(unit) then
+			print("SPAWN")
+			EmitSoundOn("Winterblight.BlackHoleUnit.Spawn", unit)
+			local colorVector = Vector(0.8, 0.1, 0.8)
+			CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", unit, 4)
+			Winterblight:SetCavernUnit(unit, black_hole:GetAbsOrigin(), false, false, 4)
+			Dungeons:AggroUnit(unit)
+			Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_wb_zero_g", {})
+			unit:SetAcquisitionRange(9000)
+			if Winterblight:IsWithinChamber(unit, 4) then
+			else
+				FindClearSpaceForUnit(unit, Vector(-14440, 12584), false)
+			end
+			return unit
+		else
+			local new_index = RandomInt(1, 76)
+			Winterblight:SpawnBlackHoleUnitByIndex(black_hole, new_index)
+		end
 	end
 end
 
@@ -4207,18 +4266,28 @@ end
 
 function Winterblight:CavernBossSummon(msg)
 	local chamber = tonumber(msg.chamber)
+
+	local cost = 2000
+	if chamber == 5 then
+		cost = 4000
+	elseif chamber == 6 then
+		cost = 8000
+	end
+	if Winterblight.CavernData.RelicsFragments < cost then
+		return false
+	end
 	if chamber == 5 then
 		Winterblight:TiamatSequence(msg)
+		return false
+	elseif chamber == 6 then
+		Winterblight:RealmBreakerSequence(msg)
 		return false
 	end
 	if Winterblight.CavernData.Chambers[chamber]["boss_status"] ~= 0 then
 		return false
 	end
 	Winterblight.CavernData.Chambers[chamber]["boss_status"] = 1
-	local cost = 2000
-	if Winterblight.CavernData.RelicsFragments < cost then
-		return false
-	end
+
 	local boss_level = Winterblight:calculate_cavern_boss_level(chamber)
 	if boss_level < 1 then
 		return false
@@ -4275,6 +4344,91 @@ function Winterblight:CavernBossSummon(msg)
 	Winterblight:SetCavernUnit(boss, boss:GetAbsOrigin(), false, false, 0)
 end
 
+function Winterblight:realm_breaker_level()
+	local level = 0
+	local total_chamber_levels = 0
+	local total_chamber_clears = 0
+	for i = 1, 4, 1 do
+		for j = 1, 4, 1 do
+			if Winterblight.CavernData.Chambers[i]["events"][j]["status"] == 2 then
+				total_chamber_clears = total_chamber_clears + 1
+				total_chamber_levels = total_chamber_levels + Winterblight.CavernData.Chambers[i]["events"][j]["level"]
+			end
+		end
+	end
+	if total_chamber_clears == 16 then
+		level = total_chamber_levels/total_chamber_clears
+	end
+	return level
+end
+
+function Winterblight:RealmBreakerSequence(msg)
+	if not Winterblight:AreAllChambersCleared() then
+		return false
+	end
+	if Winterblight.CavernData.realm_breaker_status ~= 0 then
+		return false
+	end
+	Winterblight.CavernData.realm_breaker_status = 1
+	local cost = 8000
+	if Winterblight.CavernData.RelicsFragments < cost then
+		return false
+	end
+	local boss_level = Winterblight:realm_breaker_level()
+	if boss_level < 1 then
+		return false
+	end
+	Winterblight.CavernData.RelicsFragments = Winterblight.CavernData.RelicsFragments - cost
+	local position = Vector(-13440, 13584)
+	local boss = Winterblight:SpawnRealmBreaker(position)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, 2000, 20, false)
+
+	EmitSoundOnLocationWithCaster(boss:GetAbsOrigin(), "Winterblight.BossOut", boss)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/alt_big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.6, 0.9))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.6, 0.6, 0.6))
+	local pfx2 = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, boss)
+	ParticleManager:SetParticleControl(pfx2, 0, boss:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx2, 1, Vector(600, 2, 2))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+		ParticleManager:DestroyParticle(pfx2, false)
+		ParticleManager:ReleaseParticleIndex(pfx2)
+	end)
+	ScreenShake(boss:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
+	local player = PlayerResource:GetPlayer(msg.PlayerID)
+	local hero = player:GetAssignedHero()
+	Dungeons:LockCameraToUnitForPlayers(boss, 2, {hero})
+	EmitSoundOn("Winterblight.CavernBoss.Spawn", boss)
+
+	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
+	Timers:CreateTimer(1.0, function()
+		EmitSoundOnLocationWithCaster(Winterblight.CavernGuide:GetAbsOrigin(), "Winterblight.GuideCaveIntro2", Events.GameMaster)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", Winterblight.CavernGuide, 4)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_spawn.vpcf", Winterblight.CavernGuide:GetAbsOrigin(), 4)
+	end)
+	boss.boss_level = boss_level
+	boss.boss_chamber = 6
+	boss.chamber = 0
+	Winterblight:SetCavernUnit(boss, boss:GetAbsOrigin(), false, false, 0)
+end
+
+function Winterblight:AreAllChambersCleared()
+	local cleared = true
+	for i = 1, 4, 1 do
+		for j = 1, 4, 1 do
+			if Winterblight.CavernData.Chambers[i]["events"][j]["status"] == 2 then
+			else
+				cleared = false
+				break
+			end
+		end
+	end
+	return cleared
+end
+
 function Winterblight:calculate_cavern_boss_level(chamber)
 	local level = 0
 	local divisor = 0
@@ -4297,6 +4451,17 @@ function Winterblight:SpawnTorturok(position)
 	boss:SetRenderColor(100, 100, 255)
 	EmitSoundOn("Torturok.Spawn", boss)
 	boss.reduc = 0.1
+	return boss
+end
+
+function Winterblight:SpawnRealmBreaker(position)
+	local boss = Events:SpawnDescentOfWinterblightDungeonUnit("winterblight_realm_breaker", position, 9, 12, "Winterblight.RealmBreaker.Aggro", RandomVector(1), false)
+	boss:SetRenderColor(100, 100, 255)
+	Winterblight:SetPositionCastArgs(boss, 1000, 300, 1, FIND_ANY_ORDER)
+	Timers:CreateTimer(1, function()
+		EmitSoundOn("Winterblight.RealmBreaker.Spawn", boss)
+	end)
+	boss.reduc = 0.01
 	return boss
 end
 
@@ -4444,15 +4609,16 @@ function Winterblight:TiamatBossDie(boss)
 	local position = boss:GetAbsOrigin()
 	for i = 1, 18, 1 do
 		Timers:CreateTimer(0.3 * i, function()
-			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 0)
+			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 300)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local arcanaLuck = RandomInt(1, 195 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.Stones * 25)
+		local max_roll = math.max(150 - GameState:GetPlayerPremiumStatusCount() * 10 - TiamatBossLevel)
+		local arcanaLuck = RandomInt(1, max_roll)
 		if arcanaLuck == 1 then
-			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
+			RPCItems:RollWarlordArcana2(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
 		end
-		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 1)
+		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 3)
 		if luck2 == 1 then
 			Winterblight:DropBorealGraniteChunk(boss:GetAbsOrigin())
 		end
@@ -4460,13 +4626,24 @@ function Winterblight:TiamatBossDie(boss)
 	Timers:CreateTimer(3, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIceFloeSlippers(boss:GetAbsOrigin())
+			RPCItems:RollDiamondClawsOfTiamat(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+		end
+	end)
+	Timers:CreateTimer(4, function()
+		local luck = RandomInt(1, 5)
+		if luck == 1 then
+			local type_roll = RandomInt(1, 2)
+			if type_roll == 1 then
+				RPCItems:RollBerylRingOfIntuition(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+			elseif type_roll == 2 then
+				RPCItems:RollAuricRingOfInspiration(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+			end
 		end
 	end)
 	Timers:CreateTimer(5, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIronTreadsOfDestruction(boss:GetAbsOrigin())
+			RPCItems:RollMagistratesHood(boss:GetAbsOrigin())
 		end
 	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do

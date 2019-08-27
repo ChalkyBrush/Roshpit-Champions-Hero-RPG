@@ -660,8 +660,16 @@ end
 
 function winterblight_boss_final_death_animation(caster)
 	print("ANIMATION")
-	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2
-	Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_level_defeated"] = caster.boss_level
+	local realm_breaker_death = false
+	if caster.boss_chamber <= 4 then
+		Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2
+		Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_level_defeated"] = caster.boss_level
+	elseif caster.boss_chamber == 6 then
+		Winterblight.CavernData.realm_breaker_status = 2
+		realm_breaker_death = true
+		Winterblight.RealmBreakerLevel = caster.boss_level
+	end
+	local dead_boss = caster:GetUnitName()
 	EndAnimation(caster)
 	StartAnimation(caster, {duration = 1.9, activity = ACT_DOTA_DIE, rate = 1.9})
 	Events:smoothSizeChange(caster, caster:GetModelScale(), 0.2, 60)
@@ -674,6 +682,8 @@ function winterblight_boss_final_death_animation(caster)
 	if caster:GetUnitName() == "winterblight_cavern_gigarraun" then
 		gigarraun_death = true
 	end
+	local immortals = RandomInt(1, 4)
+	local boss_level = caster.boss_level
 	Timers:CreateTimer(1.9, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/alt_big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
@@ -697,6 +707,76 @@ function winterblight_boss_final_death_animation(caster)
 			Timers:CreateTimer(1, function()
 				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Death", Events.GameMaster)
 			end)
+		end
+		if realm_breaker_death then
+			Timers:CreateTimer(1, function()
+				Winterblight:MithrilReward(position, "realm_breaker")
+				EmitSoundOnLocationWithCaster(position, "Winterblight.RealmBreaker.AfterDeath", Events.GameMaster)
+			end)
+		end
+		for i = 1, immortals, 1 do
+			RPCItems:RollItemtype(400, position, 5, 300)
+		end
+		local luck = RandomInt(1, 2)
+		if luck == 1 then
+			RPCItems:RollWinterblightSkullRing(position)
+		end
+		if dead_boss == "descent_of_winterblight_ozubu" then
+			local max_roll = math.max(10, 80-GameState:GetPlayerPremiumStatusCount()*2-boss_level)
+			local arcana_luck = RandomInt(1, max_roll)
+			if arcana_luck == 1 then
+				RPCItems:RollVenomortArcana2(position)
+			end
+			local immortal_luck = RandomInt(1, 4)
+			if immortal_luck == 1 then
+				item_rpc_storm_pacer_sabatons:Create(position)
+			elseif immortal_luck == 2 then
+				RPCItems:RollRobesOfEruditeTeacher(position)
+			end
+		elseif dead_boss == "descent_of_winterblight_torturok" then
+			local immortal_luck = RandomInt(1, 4)
+			if immortal_luck == 1 then
+				RPCItems:RollPivotalSwiftboots(position)
+			elseif immortal_luck == 2 then
+				RPCItems:RollGoldbreakerGauntlet(position)
+			end
+		elseif dead_boss == "descent_of_winterblight_aertega" then
+			local immortal_luck = RandomInt(1, 4)
+			if immortal_luck == 1 then
+				RPCItems:RollPegasusBoots(position)
+			elseif immortal_luck == 2 then
+				RPCItems:RollHelmOfKnightHawk(position, false)
+			end
+		elseif dead_boss == "winterblight_cavern_gigarraun" then
+			local immortal_luck = RandomInt(1, 4)
+			if immortal_luck == 1 then
+				RPCItems:NethergraspPalisade(position)
+			elseif immortal_luck == 2 then
+				RPCItems:RollGalvanizedRazorBand(position, false)
+			end
+		elseif dead_boss == "winterblight_realm_breaker" then
+			local max_chance = 4
+			local max_chance = math.max(2, 4 - GameState:GetPlayerPremiumStatusCount())
+			local immortal_luck = RandomInt(1, max_chance)
+			if immortal_luck == 1 then
+				RPCItems:RollAlienArmor(position)
+			end
+			local max_roll = math.max(10, 80-GameState:GetPlayerPremiumStatusCount()*2-boss_level)
+			local arcana_luck = RandomInt(1, max_roll)
+			if arcana_luck == 1 then
+				RPCItems:RollSoluniaArcana3(position)
+			end
+			local another_skull_ring_chance = RandomInt(1, 2)
+			if another_skull_ring_chance == 1 then
+				RPCItems:RollWinterblightSkullRing(position)
+			end
+		end
+		for j = 1, 2 + GameState:GetPlayerPremiumStatusCount(), 1 do
+			Winterblight:DropGlacierStone(position)
+		end
+		local synth_count = math.floor(boss_level/15 + 1)
+		for j = 1, synth_count, 1 do
+			RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
 		end
 	end)
 end

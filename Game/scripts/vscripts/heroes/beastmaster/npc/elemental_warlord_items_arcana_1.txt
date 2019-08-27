@@ -89,7 +89,13 @@
 		"ItemKillable" "0"
 		"precache"
 		{
-
+			"particle"	"particles/econ/items/earthshaker/earthshaker_ti9/earthshaker_fissure_ti9.vpcf"
+			"particle"	"particles/roshpit/warlord/flame_wreck.vpcf"
+			"particle"	"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+			"particle"	"particles/econ/items/ancient_apparition/ancient_apparation_ti8/ancient_ice_vortex_ti8.vpcf"
+			"particle"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet.vpcf"
+			"particle"	"particles/status_fx/status_effect_frost_lich.vpcf"	 
+			"particle"	"particles/roshpit/warlord/warlord_arcana2_q2_shield.vpcf"
 		}
 		"OnSpellStart"
 		{

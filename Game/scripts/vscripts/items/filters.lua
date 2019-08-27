@@ -2356,6 +2356,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_cosmos", attacker.InventoryUnit)
             cosmosMult = cosmosMult + stacks / 100
         end
+        if attacker:HasModifier("modifier_hand_cosmos") then
+            local stacks = attacker:GetModifierStackCount("modifier_hand_cosmos", attacker.InventoryUnit)
+            mult = mult + stacks / 100
+        end
         if victim:HasModifier("modifier_starfall_a_d_visible") then
             local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
             cosmosMult = cosmosMult + stacks * 0.1
@@ -2722,7 +2726,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + stacks / 100
         end
         if attacker:HasModifier("modifier_hand_undead") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_undead", attacker.InventoryUnit)
+            local stacks = attacker:GetModifierStackCount("modifier_hand_undead", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
         if attacker:HasModifier("modifier_trinket_undead") then
@@ -4738,6 +4742,18 @@ function Filters:AlienArmor(caster)
         end
     end
     illusion:SetRenderColor(0, 0, 0)
+
+    if not body.illusion_table then
+        body.illusion_table = {}
+    end
+    local new_body_illusion_table = {}
+    for i = 1, #body.illusion_table, 1 do
+        if IsValidEntity(body.illusion_table[i]) then
+            table.insert(new_body_illusion_table, body.illusion_table[i])
+        end
+    end
+    table.insert(new_body_illusion_table, illusion)
+    body.illusion_table = new_body_illusion_table
 end
 
 

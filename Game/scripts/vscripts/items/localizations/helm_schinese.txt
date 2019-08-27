@@ -347,3 +347,17 @@
 		"property_chains_of_orthok_description"						"普通攻击和释放 @Ability2 将叠加1层狂热。释放 @Ability1 和 @Ability3 将叠加5层狂热。释放 @Ability4 将叠加12层狂热。 每层狂热提高@special_property1%基础技能伤害。每层狂热持续10秒，并单独计算持续时间。"
 		"DOTA_Tooltip_modifier_orthok_zeal"							"狂热"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"提高基础技能伤害"
+		
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"苍鹰骑士头盔"
+		"item_property_knight_hawk" 								"极速之刃"
+		"property_knight_hawk_description"						"增加最大移动速度 <% KNIGHT_HAWK_MAX_MOVESPEED_LIMIT %>.。在移动速度高于550时，受到的伤害将会被降低<% KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX %>%。如果移动速度低于300时，获得 一个增加<% KNIGHT_HAWK_MS_GAIN %> 移动速度的buff持续 <% KNIGHT_HAWK_MS_BUFF_DURATION %> 秒。"
+
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"极速之刃"
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"增加移动速度"
+
+		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"审判者的兜帽"
+		"item_property_magistrate"											"技能扩散"
+		"property_magistrate_description"								"所有魔法和纯粹伤害将会对<% MAGISTRATE_HOOD_AOE %>范围内的敌人造成 AOE伤害。 AOE 效果拥有 <% MAGISTRATE_HOOD_MAX_CHARGES %> 点充能，每<% MAGISTRATE_HOOD_REPLENISH_TIME %> 秒获得一层充能。所有aoe伤害将会增加 <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>%。"
+
+		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"技能扩散充能"
+"DOTA_Tooltip_modifier_magistrates_hood_charges_Description" "只要充能层数大于0层，所有魔法和纯粹伤害都会造成aoe伤害。"

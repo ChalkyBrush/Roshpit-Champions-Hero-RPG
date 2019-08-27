@@ -2703,7 +2703,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_azalea_dragoon_passive") then
-		local distance = WallPhysics:GetDistance(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
+		local distance = WallPhysics:GetDistance2d(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
 		local passive = victim:FindAbilityByName("winterblight_azalea_dragoon_passive")
 		local distanceCompare = passive:GetSpecialValueFor("distance")
 		local damageReduce = passive:GetSpecialValueFor("damage_block")
@@ -3347,10 +3347,16 @@ function GameState:FilterDamage(filterTable)
 		else
 			chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
 		end
-		local reduction = 0.6^chamber_level
+		local reduction = 0.7^chamber_level
+		if victim.boss_level then
+			reduction = reduction*0.1
+		end
 		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
 		else
-			filterTable["damage"] = 0
+			if applyEffects then
+				print("damage = 0")
+				filterTable["damage"] = 0
+			end
 		end
 		if victim.chamber > 0 then
 			if Winterblight.CavernData.Chambers[victim.chamber]["status"] ~= 1 then
@@ -3367,7 +3373,9 @@ function GameState:FilterDamage(filterTable)
 		if victim.chamber > 0 then
 			local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 			if attacker:GetPlayerOwnerID() ~= allowed_player then
-				filterTable["damage"] = 0
+				if applyEffects then
+					filterTable["damage"] = 0
+				end
 			end
 		end
 		if victim:HasModifier("modifier_merkurio_crystal_purple") and filterTable["damage"] > 0 then
@@ -4224,11 +4232,11 @@ function GameState:FilterDamage(filterTable)
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then
-					if not victim:HasModifier("modifier_aeon_shield_passive") then
-						if filterTable["damage"] > 0 then
-							-- filterTable["damage"] = 999999999999999
-						end
-					end
+					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
+						-- if filterTable["damage"] > 0 then
+							filterTable["damage"] = 999999999999999
+						-- end
+					-- end
 				end
 			end
 		end

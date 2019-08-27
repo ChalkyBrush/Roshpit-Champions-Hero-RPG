@@ -618,7 +618,6 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"winterblight/helm_of_the_knight_hawk" //"helm_of_the_knight_hawk"
 		"AbilityCastRange"	"900"

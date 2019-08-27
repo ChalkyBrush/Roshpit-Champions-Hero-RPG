@@ -7,7 +7,8 @@ function class:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
     }
 
     return funcs
@@ -18,6 +19,11 @@ function class:OnCreated()
     end
     self.movespeed_bonus = self:GetAbility():GetSpecialValueFor('movespeed_bonus')
 end
+
+function class:GetActivityTranslationModifiers()
+  return "haste"
+end
+
 function class:GetBonusMoveSpeed()
     return self.movespeed_bonus
 end

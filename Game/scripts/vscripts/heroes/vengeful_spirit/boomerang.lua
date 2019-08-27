@@ -404,22 +404,7 @@ function boomerang_impact(caster, ability, target)
 				end)
 				PopupDamage(target, math.floor(damage))
 				if caster.origCaster:HasModifier("modifier_solunia_immortal_weapon_2") then
-					local particleName = "particles/units/heroes/hero_lich/lich_frost_nova.vpcf"
-					local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-					local origin = target:GetAbsOrigin()
-					ParticleManager:SetParticleControl(particle1, 0, origin)
-					ParticleManager:SetParticleControl(particle1, 1, origin)
-					Timers:CreateTimer(1, function()
-						ParticleManager:DestroyParticle(particle1, false)
-					end)
-					EmitSoundOn("Solunia.Cryoshock", target)
-					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-					if #enemies > 0 then
-						for _, enemy in pairs(enemies) do
-							caster.origCaster.weapon:ApplyDataDrivenModifier(caster.origCaster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = 1.5})
-						end
-					end
-
+					immo_weapon_2_effect(caster.origCaster, target)
 				end
 			end
 		end
@@ -438,6 +423,24 @@ function boomerang_impact(caster, ability, target)
 		Filters:TakeArgumentsAndApplyDamage(target, caster.origCaster, damage, damageType, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NORMAL)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/boomerang_impact.vpcf", target, 0.3)
 		EmitSoundOn("Solunia.BoomerangImpact", target)
+	end
+end
+
+function immo_weapon_2_effect(caster, target)
+	local particleName = "particles/units/heroes/hero_lich/lich_frost_nova.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+	local origin = target:GetAbsOrigin()
+	ParticleManager:SetParticleControl(particle1, 0, origin)
+	ParticleManager:SetParticleControl(particle1, 1, origin)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(particle1, false)
+	end)
+	EmitSoundOn("Solunia.Cryoshock", target)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			caster.origCaster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = 1.5})
+		end
 	end
 end
 
