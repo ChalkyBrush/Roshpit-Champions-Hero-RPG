@@ -348,3 +348,55 @@
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"初心者的决意"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q技能不进入冷却"
+
+		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"博学尊师长袍"
+
+		"item_property_robe_of_the_erudite_teacher"						"拉比克学徒"
+
+		"property_robe_of_the_erudite_teacher_description"				"当你装备该装备时，一个拉比克学徒将会跟随着你。这个学徒能够学习敌人的技能，最多能学习3个。他的生命值为你的<% ERUDITE_TEACHER_HEALTH_MULT %>x ，攻击力为你的 <% ERUDITE_TEACHER_ATTACK_MULT %>x ，护甲为你的 <% ERUDITE_TEACHER_ARMOR_MULT %>x ，以及2000魔法值。如果学徒死亡了，他会在10秒后复活并且仍然具有死前拥有的技能，这个学徒造成的任何伤害均视为英雄的物品伤害。"
+
+
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"技能窃取"
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"复制一个被控制的敌人的技能。如果敌人的技能无法复制或者窃取的是和已经具有的技能相同的技能时，这个技能会失败。"
+
+
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2"					"技能窃取"
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_2_Description"		"复制一个被控制的敌人的技能。如果敌人的技能无法复制或者窃取的是和已经具有的技能相同的技能时，这个技能会失败。"
+
+
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3"					"技能窃取"
+
+		"DOTA_Tooltip_ability_apprentice_spell_steal_3_Description"		"复制一个被控制的敌人的技能。如果敌人的技能无法复制或者窃取的是和已经具有的技能相同的技能时，这个技能会失败。"
+
+
+
+		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"重置"
+
+		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"移除学徒已学习的所有技能"
+
+
+
+		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"外星装甲"
+
+		"property_alien_armor"							"碳合"
+
+		"property_alien_armor_description"				"释放 @Ability4 后将会产生一个幻象，幻象具有额外<% ALIEN_ARMOR_ILLUSION_AS %> 攻击速度，并且视作物品伤害。这个幻象造成本体<% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x 的伤害，承受伤害降低 <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% 并且持续 <% ALIEN_ARMOR_ILLUSION_DURATION %> 秒。如果装备持有者在幻象存在时死亡，只要这段时间内幻象存在，那么装备持有者将会在<% ALIEN_ARMOR_RESPAWN_DELAY %>秒后在幻象附近随机位置重生。"
+
+
+
+		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"幽冥之握之甲"
+
+		"item_property_nethergrasp"							"彼世掌握"
+
+		"property_nethergrasp_description"				"对敌人发出攻击指令将会在目标周围产生一个彼世掌握。被抓取的敌人每 <% NETHERGRASP_ATTACK_INTERVAL %> 秒受到一次来自施法者的攻击，在施法者攻击距离以外的敌人将会被拉向彼世掌握的中心。最多可以同时连接<% NETHERGRASP_MAX_LINKS %>个敌人，但是攻击将会被所有敌人分摊。 产生连接的最大距离为 <% NETHERGRASP_LINK_RANGE %> ，并且如果施法者和敌人距离超出 a <% NETHERGRASP_BREAK_DISTANCE %>.码时，链接将会断开。"
+
+
+
+		"DOTA_Tooltip_modifier_nethergrasp_linked"		"彼世掌握"
+
+		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"被施法者的攻击吞噬"	

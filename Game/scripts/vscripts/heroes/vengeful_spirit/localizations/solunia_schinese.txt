@@ -305,6 +305,95 @@
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"原恆星冷却时间"
 		
+		//ARCANA 3
+
+		"DOTA_Tooltip_ability_item_rpc_solunia_arcana3" "特拉的护腕"
+
+
+
+		"item_property_solunia_arcana3" "斩首之刃"
+
+		"property_solunia_arcana3_description" "将@Ability2 和它的所有符文替换为赫利俄斯之刃和塞勒涅之刃。"
+
+
+
+		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades" "赫利俄斯之刃" 
+
+		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades_Description" "元素: <font color=\"#C25DFC\">宇宙</font> / <font color=\"#EF4126\">火</font><br>掷出3枚赫利俄斯之刃，这个飞刃将会自动寻找日夜女神周围1000码内的敌人。这个飞刃在击中敌人后会造成伤害，并且弹跳至被击中的敌人周围的敌人。"
+
+		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades_damage" "伤害:"
+
+		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades_max_blades" "飞刃最大同时存在数量:"
+
+		"DOTA_Tooltip_ability_solunia_solar_vorpal_blades_base_bounces" "弹跳次数:"
+
+
+
+		"DOTA_Tooltip_modifier_active_sun_vorpals" "激活赫利俄斯之刃"
+
+
+
+		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades" "塞勒涅之刃" 
+
+		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_Description" "元素: <font color=\"#C25DFC\">宇宙</font> / <font color=\"#87D9FF\">冰</font><br>掷出3枚塞勒涅之刃，这个飞刃将会自动寻找日夜女神周围1000码内的敌人。这个飞刃在击中敌人后会造成伤害，并且弹跳至被击中的敌人周围的敌人。"
+
+		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_damage" "伤害:"
+
+		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_max_blades" "飞刃最大同时存在数量:"
+
+		"DOTA_Tooltip_ability_solunia_lunar_vorpal_blades_base_bounces" "弹跳次数:"
+
+
+
+		"DOTA_Tooltip_modifier_active_moon_vorpals" "激活塞勒涅之刃"
+
+
+
+		"DOTA_Tooltip_ability_solunia_rune_w_1_arcana3" "[W1] 远日武器"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_Description" "日夜女神的攻击力的一部分将会加入到飞刃的基础伤害中。"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_property_one" "额外伤害"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_1_arcana3_suffix" "% 攻击力"
+
+
+
+		"DOTA_Tooltip_ability_solunia_rune_w_2_arcana3" "[W2] 涅普顿之刃"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description" "飞刃击中敌人后将会回复你的魔法值，并且造成基于当前魔法值的额外伤害。"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one" "魔法回复"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix" "每次击中" 
+
+		"DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two" "额外伤害"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two" "% 当前魔法值" 
+
+
+
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3" "[W3] 二元裂隙"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得20% 的概率造成致命一击。"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one" "致命一击伤害"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix" "%"
+
+
+
+		"DOTA_Tooltip_ability_solunia_rune_w_4_arcana3" "[W4] 轨道延伸"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_Description" "使你的飞刃获得一个额外弹跳的概率。大于100%意味着能够弹跳多次。"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_property_one" "额外弹跳概率"
+
+		"DOTA_Tooltip_ability_solunia_rune_w_4_arcana3_suffix" "%"
+
+
+
+		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_00"		"剃刀"
 		"DOTA_Tooltip_ability_item_rpc_solunia_weapon_01"		"新月剃刀"
