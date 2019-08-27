@@ -14393,6 +14393,23 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/lanaya/glyphs.lua"
+						"Function"		"t31_add_main"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/lanaya/glyphs.lua"
+						"Function"		"t31_destroy_main"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -14400,7 +14417,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"			"3"
 			}
 		}
 	}
@@ -14472,7 +14499,7 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.12"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -14709,6 +14736,22 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/lanaya/glyphs.lua"
+                        "Function"		"t32_add_main"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes/lanaya/glyphs.lua"
+                        "Function"		"t32_destroy_main"
+                    }
+                }
 			}
 		}
 		"AbilitySpecial"
@@ -14716,7 +14759,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"95"
+				"property_one"			"90"
 			}
 		}
 	}
@@ -14825,7 +14868,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -15431,7 +15474,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"600"
 			}
 		}
 	}
@@ -46878,102 +46921,6 @@
 		}
 	}
 
-	"item_rpc_stargazers_sphere"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"winterblight/stargazers_sphere"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"precache"
-		{
-			"particle"	"particles/roshpit/items/stargazer_ring_ring.vpcf"
-			"particle"	"particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-			"particle"	"particles/roshpit/items/stargazer_comet.vpcf"
-		}
-		"Modifiers"
-		{
-			"modifier_stargazers_sphere"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_stargazer_dummy_aura"
-			{
-				"IsHidden"	"1"
-				"Aura"          	"modifier_in_stargazer_area"
-				"Aura_Radius"   	"300"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster" "0"
-			}
-			"modifier_in_stargazer_area"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"mirana_starfall"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
-			}
-			"modifier_stargazer_immunity"
-			{
-				"IsHidden"	"1"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"100"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"			"500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
-	}
-
 	"item_rpc_fractional_enhancement_geode"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -54445,8 +54392,63 @@
 			}
 		}
 	}
-
-	"item_rpc_galvanized_razor_band"
+    "item_rpc_stargazers_sphere"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+		"ScriptFIle" "items/lua/trinket/stargazers_sphere"
+		"AbilityTextureName"	"winterblight/stargazers_sphere"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"precache"
+		{
+			"particle"	"particles/roshpit/items/stargazer_ring_ring.vpcf"
+			"particle"	"particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+			"particle"	"particles/roshpit/items/stargazer_comet.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"			"100"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_four"			"500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"8"
+			}
+		}
+	}
+    "item_rpc_galvanized_razor_band"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -54556,7 +54558,6 @@
 			}
 		}
 	}
-
 	"item_rpc_guardian_stone"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
