@@ -298,4 +298,14 @@
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"迅捷钉刺护腕"
 		"item_property_swiftspike_bracer"							"音爆"
 		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 @special_property1%"
-		
+
+	"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Tiamat的钻石之爪"
+		"item_property_tiamat_claw"							"七彩之钳"
+		"property_tiamat_claw_description"					"你的全属性被设定成固定数值并且无法被改变。"
+
+		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"鎏金粉碎者的手套"
+		"item_property_gold_breaker"							"鎏金粉碎"
+		"property_gold_breaker_description"					"你的攻击将会打破敌人的魔法免疫状态并且普通攻击也会施加一个debuff，这个debuff持续<% GOLDBREAKER_DEBUFF_DURATION %> 秒。如果一个敌人想要进入魔免状态时，他将会被眩晕。"
+
+		"DOTA_Tooltip_modifier_goldbreaker_effect"			"鎏金粉碎者"
+"DOTA_Tooltip_modifier_goldbreaker_effect_Description" "尝试进入魔免时将会被眩晕。"		
