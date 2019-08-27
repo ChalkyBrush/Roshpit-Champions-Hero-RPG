@@ -11,7 +11,7 @@ function bomb_throw_start(event)
         EmitSoundOn("Trapper.BombThrow", caster)
 
     end)
-    local bombsCount = TRAPPER_T31_ADD_BOMBS
+    local bombsCount = TRAPPER_W_BOMBS_COUNT
     if caster:HasModifier('modifier_trapper_glyph_3_1') then
         bombsCount = bombsCount + TRAPPER_T31_ADD_BOMBS
     end
