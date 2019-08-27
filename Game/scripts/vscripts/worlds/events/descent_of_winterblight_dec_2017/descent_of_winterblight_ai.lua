@@ -330,11 +330,11 @@ function torturok_aura_think(event)
 		target.torturokPos = target:GetAbsOrigin()
 		if distanceMoved > 10 and distanceMoved < 400 then
 			if not target.torturokParticleLock then
-				-- target.torturokParticleLock = true
+				target.torturokParticleLock = true
 				CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_frostbite_snow_explode.vpcf", target, 3)
-				-- Timers:CreateTimer(0.5, function()
-				-- target.torturokParticleLock = false
-				-- end)
+				Timers:CreateTimer(0.5, function()
+					target.torturokParticleLock = nil
+				end)
 			end
 			EmitSoundOn("Torturok.IceAura.Move", target)
 			ApplyDamage({victim = target, attacker = caster, damage = damage_per_distance * distanceMoved, damage_type = DAMAGE_TYPE_PURE})
