@@ -731,7 +731,7 @@
 		"winterblight_cavern_centaur"							"Winter Centaur"
 		"azalea_mana_null"										"Mana Null"
 		"winterblight_blood_wraith"								"Blood Wraith"
-		"winterblight_cavern_ultra_ice"							"Ultra Ice"
+		"winterblight_cavern_ultra_ice"							"Gelid Soultaker"
 		"drill_digger"											"Drill Digger"
 		"winter_cavern_bat"										"Winter Cavern Bat"
 		"cavern_pantheon_knight"								"Pantheon Knight"
@@ -827,7 +827,7 @@
 		"DOTA_Tooltip_ability_mana_null_spirit_warp_cast_range"	"CAST RANGE:"
 
 		"DOTA_Tooltip_ability_winterblight_mana_null_passive"	"Mana Daemon"
-		"DOTA_Tooltip_ability_winterblight_mana_null_passive_Description"	"Damage instances are nullified as long as mana is above 0. Each instance of damage removes 1 mana. Damage block does not work when owned by heros.<br>Additionally, attacks drain a percentage of the target's current mana and deal magic damage based on mana drained."
+		"DOTA_Tooltip_ability_winterblight_mana_null_passive_Description"	"Damage instances are nullified as long as mana is above 0. Each instance of damage removes 1 mana. (This effect does not work when the ability is owned by heroes.)<br>Additionally, attacks drain a percentage of the target's current mana and deal magic damage based on mana drained."
 		"DOTA_Tooltip_ability_winterblight_mana_null_passive_mana_drain_percent"	"% CURRENT MANA DRAIN:"
 
 		"DOTA_Tooltip_ability_winterblight_blood_might_passive"		"Blood Might"
@@ -847,7 +847,7 @@
 		"DOTA_Tooltip_modifier_curse_of_belial"						"Curse of Belial"
 		"DOTA_Tooltip_modifier_curse_of_belial_Description"			"Casting abilities reduces health. Reduced movespeed and base attack damage."
 
-		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive"		"Ultra Ice Passive"
+		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive"		"Hailstorm of Ocanthus"
 		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive_Description"	"Fragments of loose ice are launched toward all nearby enemies. Impacted targets take damage and have reduced movespeed and attack speed."
 		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive_damage"		"DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_ultra_ice_passive_ms_loss"		"MOVESPEED LOSS:"
@@ -1143,14 +1143,14 @@
 		"winterblight_cavern_room1_event1"							"Standard"
 		"winterblight_cavern_room1_event1_description"				"The chamber is populated with many non-aggressive mobs."
 
-		"winterblight_cavern_room1_event2"							"Ultra Ice Showdown"
-		"winterblight_cavern_room1_event2_description"				"A dozen Ultra Ices patrol the chamber."
+		"winterblight_cavern_room1_event2"							"Hell on Ice"
+		"winterblight_cavern_room1_event2_description"				"A dozen terrifying Gelid Soultakers patrol the chamber."
 
 		"winterblight_cavern_room1_event3"							"Dimensional Portals"
 		"winterblight_cavern_room1_event3_description"				"Waves of enemies spawn from dimensional portals. All creatures have 1% health regen per event level, up to a max of 20%."
 
 		"winterblight_cavern_room1_event4"							"Merkurio's Crystal Clash"
-		"winterblight_cavern_room1_event4_description"				"5 Crystals buff all minions summoned by Merkurio. Damaging a crystal deactives it for 20 seconds."
+		"winterblight_cavern_room1_event4_description"				"5 floating Crystals each buff all minions summoned by Merkurio. Damaging a crystal deactives it for 20 seconds."
 
 		"winterblight_cavern_room2_event1"							"Standard"
 		"winterblight_cavern_room2_event1_description"				"The chamber is populated with many non-aggressive mobs."
@@ -1186,7 +1186,7 @@
 		"winterblight_cavern_room4_event3_description"				"Hundreds of Chrolonus clones spawn from the chamber's black stars. The amount of concurrent enemies increases by 1 for every 2 event levels."
 
 		"winterblight_cavern_room4_event4"							"Anti-Gravity"
-		"winterblight_cavern_room4_event4_description"				"Black Holes spawn a wide variety of enemies while pulling heroes toward them. All units in the area have an enforced 1-second  cooldown on every ability."
+		"winterblight_cavern_room4_event4_description"				"Black Holes spawn a wide variety of enemies while pulling heroes toward them. All units in the area have an enforced 1-second cooldown on every ability."
 
 
 		"winterblight_cavern_status_prefix"								"Status:"
