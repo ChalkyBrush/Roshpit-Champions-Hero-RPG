@@ -82426,6 +82426,12 @@
 				"var_type"			"FIELD_FLOAT"
 				"paralyze_duration"			"0.1"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"percent_attack_power"			"10"
+			}
+
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -84567,7 +84573,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"10.0"
+		"AbilityCooldown"				"12.0"
 
 		// Cost
 		//-------------------------------------------------------
@@ -84579,7 +84585,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"10"
+				"duration"	"8"
 			}
 		}
 		"OnSpellStart"
@@ -84757,6 +84763,11 @@
 						"Function"		"wb_black_hole_think"
 					}
 				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
 			}
 		}
 	}

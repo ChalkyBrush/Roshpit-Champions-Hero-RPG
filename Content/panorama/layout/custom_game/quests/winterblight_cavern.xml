@@ -140,8 +140,8 @@
 			</Panel>
 		</snippet>
 		<snippet name="winter_cavern_individual_record">
-			<Panel class="winter_cavern_record_left" hittest="false">
-				<DOTAAvatarImage id="player_avatar"></DOTAAvatarImage>
+			<Panel class="winter_cavern_record_left">
+				<DOTAAvatarImage id="player_avatar" hittest="true"></DOTAAvatarImage>
 				<Panel id="hero_other_data_container">
 					<Image id="hero_portrait" heroid="5" />
 					<DOTAUserName class="dota_player_name" id="dota_player_name" text="playername"/>

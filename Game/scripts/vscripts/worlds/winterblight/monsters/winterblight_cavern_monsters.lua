@@ -368,16 +368,20 @@ function merkurio_think(event)
 		    end)
 		end)
 	elseif caster.state == 7 then
-		caster:MoveToPosition(Vector(-4905, 7595))
+		caster:MoveToPosition(Vector(-4885, 7595))
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(-4905, 7595))
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 500, 2, false)
 		if distance < 120 then
 			caster.state = 8
 		end
 	elseif caster.state == 8 then
-		caster:MoveToPosition(Vector(-5082, 7595))
+		caster:MoveToPosition(Vector(-5092, 7595))
 		caster.state = 9
 		Winterblight.CaveGuideReady = true
+	    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+	    if #enemies > 0 then    
+			Winterblight:CaveGuideSpawn()
+		end
 		caster.moveAdjust = true
 	elseif caster.state == 9 then
 		if Winterblight.CavernData and Winterblight.CavernData.Chambers[1] and Winterblight.CavernData.Chambers[1]["event"] == 4 and Winterblight.CavernData.Chambers[1]["status"] == 1 then
@@ -2431,14 +2435,12 @@ function zero_g_spell_cast(event)
 		cd = cd + 1
 	end
 	executedAbility:StartCooldown(cd)
-	if target:IsRealHero() then
-		Timers:CreateTimer(0.03, function()
-			if executedAbility:GetCooldownTimeRemaining() > 0.97 then
-				executedAbility:EndCooldown()
-				executedAbility:StartCooldown(cd)
-			end
-		end)
-	end
+	Timers:CreateTimer(0.03, function()
+		if executedAbility:GetCooldownTimeRemaining() > 0.97 then
+			executedAbility:EndCooldown()
+			executedAbility:StartCooldown(cd)
+		end
+	end)
 end
 
 function wb_black_hole_think(event)

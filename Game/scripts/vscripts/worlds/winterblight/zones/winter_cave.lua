@@ -621,6 +621,21 @@ function Winterblight:IsWithinChamber(unit, chamber_id)
 	return is_in_region
 end
 
+function Winterblight:IsWithinChamberPos(compare_position, chamber_id)
+	local is_in_region = false
+	if chamber_id == 0 then
+		is_in_region = true
+	else
+		for i = 1, #Winterblight.CavernChamberVertices[chamber_id], 1 do
+			if WallPhysics:IsWithinRegionA(compare_position, Winterblight.CavernChamberVertices[chamber_id][i][1], Winterblight.CavernChamberVertices[chamber_id][i][2]) then
+				is_in_region = true
+				break
+			end
+		end
+	end
+	return is_in_region
+end
+
 function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, level)
 	local playerID = hero:GetPlayerOwnerID()
 	local steam_id = PlayerResource:GetSteamAccountID(playerID)
@@ -3259,7 +3274,7 @@ function Winterblight:AuroraPassage3(msg)
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 
-	for i = 1, 120, 1 do
+	for i = 1, 135, 1 do
 		Timers:CreateTimer(0.1*i, function()
 			if Winterblight:ShouldSpawnCaveUnit(chamber_id, spawnphase) then
 				local position = Winterblight:RandomAuroraPassagePos()
@@ -3965,6 +3980,7 @@ function Winterblight:EdgeOfWinter4(msg)
 	
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 220
+	Winterblight.EdgeOfWinterBlackHoles = nil
 	Winterblight.EdgeOfWinterBlackHoles = {}
 	Winterblight.BlackHolesKills = 0
 	local position = Winterblight:RandomPointInEdgeOfWinter()
@@ -3976,6 +3992,9 @@ function Winterblight:SpawnGravityBlackHole(position, spawnphase)
 	local black_hole = CreateUnitByName("npc_flying_dummy_vision", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	black_hole:FindAbilityByName("dummy_unit"):SetLevel(1)	
 	black_hole:AddAbility("winterblight_black_hole_ability"):SetLevel(1)
+	black_hole.dummy = true
+	black_hole.jumpLock = true
+	black_hole.pushLock = true
 	table.insert(Winterblight.CavernUnits[4], black_hole)
 	black_hole.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_blackhole.vpcf", PATTACH_ABSORIGIN_FOLLOW, black_hole)
 	ParticleManager:SetParticleControl(black_hole.pfx, 0, black_hole:GetAbsOrigin())
@@ -3985,6 +4004,7 @@ function Winterblight:SpawnGravityBlackHole(position, spawnphase)
 end
 
 function Winterblight:GravityBlackHolesSpawns(kills)
+	print(kills)
 	if kills == 0 then
 		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
 			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
@@ -4000,20 +4020,32 @@ function Winterblight:GravityBlackHolesSpawns(kills)
 		local position = Winterblight:RandomPointInEdgeOfWinter()
 		Winterblight:SpawnGravityBlackHole(position, Winterblight.CavernData.Chambers[4]["spawnphase"])
 		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
-			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
-			local black_hole_unit_index = RandomInt(1, 76)
-			for k = 1, 4, 1 do
-				Timers:CreateTimer(k*1, function()
-					Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
-				end)
-			end
+			local index = i
+			Timers:CreateTimer(index, function()
+				local black_hole = Winterblight.EdgeOfWinterBlackHoles[index]
+				local black_hole_unit_index = RandomInt(1, 76)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, black_hole:GetAbsOrigin(), 800, 5, false)
+				for k = 1, 4, 1 do
+					print("SPAWN - "..index.." : "..k .. "----" .. black_hole_unit_index)
+					local unit = Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
+					print(unit:GetAbsOrigin())
+					print(Winterblight:IsWithinChamber(unit, 4))
+				end
+			end)
 		end
 	end
 end
 
 function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
 	if Winterblight:ShouldSpawnCaveUnit(4, black_hole.spawnphase) then
-		local position = black_hole:GetAbsOrigin()
+		local position = Vector(-14440, 12584) 
+		if IsValidEntity(black_hole) then
+			position = black_hole:GetAbsOrigin()
+		end
+		if Winterblight:IsWithinChamberPos(position, 4) then
+		else
+			position = Vector(-14440, 12584)
+		end
 		local unit = nil
 		if black_hole_unit_index == 1 then
 			unit = Winterblight:SpawnMountainOgre(position, Vector(0,-1))
@@ -4028,7 +4060,7 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 		elseif black_hole_unit_index == 6 then
 			unit = Winterblight:Snowshaker(position, Vector(0,-1))
 		elseif black_hole_unit_index == 7 then
-			unit = Winterblight:FrigidGrowth(position, Vector(0,-1))
+			unit = Winterblight:SpawnFrigidGrowth(position, Vector(0,-1))
 		elseif black_hole_unit_index == 8 then
 			unit = Winterblight:SpawnDashingSwordsman(position, Vector(0,-1))
 		elseif black_hole_unit_index == 9 then
@@ -4110,7 +4142,7 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 		elseif black_hole_unit_index == 47 then
 			unit = Winterblight:SpawnDrillDigger(position, Vector(0,-1))
 		elseif black_hole_unit_index == 48 then
-			unit = Winterblight:SpawnCloakedPhantasmh(position, Vector(0,-1))
+			unit = Winterblight:SpawnCloakedPhantasm(position, Vector(0,-1))
 		elseif black_hole_unit_index == 49 then
 			unit = Winterblight:SpawnBoar(position, Vector(0,-1))
 		elseif black_hole_unit_index == 50 then
@@ -4176,7 +4208,12 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 			Winterblight:SetCavernUnit(unit, black_hole:GetAbsOrigin(), false, false, 4)
 			Dungeons:AggroUnit(unit)
 			Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_wb_zero_g", {})
-			unit:SetAcquisitionRange(7000)
+			unit:SetAcquisitionRange(9000)
+			if Winterblight:IsWithinChamber(unit, 4) then
+			else
+				FindClearSpaceForUnit(unit, Vector(-14440, 12584), false)
+			end
+			return unit
 		else
 			local new_index = RandomInt(1, 76)
 			Winterblight:SpawnBlackHoleUnitByIndex(black_hole, new_index)

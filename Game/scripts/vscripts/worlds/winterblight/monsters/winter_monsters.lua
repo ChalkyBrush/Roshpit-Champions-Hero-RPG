@@ -657,6 +657,7 @@ function mountain_dweller_think(event)
 	local ability = event.ability
 	if not IsValidEntity(ability) then
 		caster:RemoveModifierByName("modifier_mountain_dweller_passive")
+		return false
 	end
 	if not caster.regenLock then
 		ability:ApplyDataDrivenModifier(caster, caster, event.modifierName, {})

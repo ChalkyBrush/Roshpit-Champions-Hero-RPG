@@ -3429,7 +3429,7 @@ function GameState:FilterDamage(filterTable)
 		else
 			chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
 		end
-		local reduction = 0.6^chamber_level
+		local reduction = 0.66^chamber_level
 		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
 		else
 			if applyEffects then
@@ -4314,11 +4314,11 @@ function GameState:FilterDamage(filterTable)
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then
-					if not victim:HasModifier("modifier_aeon_shield_passive") then
-						if filterTable["damage"] > 0 then
+					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
+						-- if filterTable["damage"] > 0 then
 							filterTable["damage"] = 999999999999999
-						end
-					end
+						-- end
+					-- end
 				end
 			end
 		end

@@ -435,12 +435,18 @@
 	margin-left:10px;
 }
 
+#player_avatar:hover{
+	border:1px solid white;
+	box-shadow: 1px 1px 2px solid white;
+}
+
 #dota_player_name{
 	color:#FFFFFF;
-	font-size:14px;
+	font-size:13px;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
 	margin-left:108px;
 	margin-top:20px;	
+	width:300px;
 }
 
 #record_label{
