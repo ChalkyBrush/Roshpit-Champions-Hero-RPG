@@ -294,7 +294,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_arcana2"                              "龙隐头盔"
         "item_property_warlord_arcana2"                                     "元素天灾"
-        "property_warlord_arcana2_description"                              "将@Ability1 替换为天灾震颤，霜结破损和火焰沉溺。"
+        "property_warlord_arcana2_description"                              "将@Ability1 及他的所有符文替换为天灾震颤，霜结破损和火焰沉溺。"
 		
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker"                     "天灾震颤"
         "DOTA_Tooltip_ability_warlord_cataclysm_shaker_Description"         "元素: <font color=\"#AF843D\">土</font> / <font color=\"#3289C7\">龙</font><br>选择一个起点和终点，产生一个巨大的裂隙。这个裂隙的长度基于选定的距离，并且有最大长度限制。这个裂隙有体积碰撞并且会对击中的敌人造成伤害和眩晕。"
