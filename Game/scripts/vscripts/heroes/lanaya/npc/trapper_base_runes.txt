@@ -160,11 +160,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"1"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_two"			"5"
-			}
 		}
 	}
 
