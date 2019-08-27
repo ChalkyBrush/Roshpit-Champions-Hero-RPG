@@ -1,4 +1,4 @@
-
+﻿
     	"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_property_slinger_boot"				"Bladeslinger"
 		"property_slinger_boots_description"		"Every <% BLADESLINGER_ATT_INTERVAL %> seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
@@ -16,13 +16,13 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
 		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"When you cast @Ability3, fire 3 Violet Projectiles behind you that deal 20x your Agility to each affected target. Deals 60x damage to paragon enemies. Can only trigger once every 1 second."
+		"property_violet_boot_description"			"When you cast @Ability3, fire 3 Violet Projectiles behind you that deal 20x your Agility to each target struck. Deals 60x damage to Paragon enemies. Can only trigger once every second."
 		
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
 		"item_property_guardian_greaves"			"Guardian's Stride"
-		"property_guardien_greaves_description"		"Every 2500 units of distance moved buffs you and nearby allied heroes. 5x your Strength is restored as health, 5x your Intelligence is restored as mana, and every 10 Agility adds 1 armor for 4 seconds."
+		"property_guardien_greaves_description"		"Every 2500 units of distance moved buffs you and nearby allied heroes. 5x your Strength is restored as health, 5x your Intelligence is restored as mana, and every 10 Agility adds 1 Armor for 4 seconds."
 		"DOTA_Tooltip_modifier_guardian_greaves_armor"					"Guardian Greaves"
-		"DOTA_Tooltip_modifier_guardian_greaves_armor_Description"		"Increased armor"
+		"DOTA_Tooltip_modifier_guardian_greaves_armor_Description"		"Increased Armor"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
@@ -32,7 +32,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
 		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Increase attack speed by 1 for every @special_property1 Strength. Sets Base Attack Time to @special_property2s"
+		"property_yasha_description"				"Increase attack speed by 1 for every @special_property1 Strength. Sets Base Attack Time to @special_property2 seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
@@ -47,19 +47,19 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"
 		"item_property_moon_techs"					"Moon Dust"
-		"property_moon_techs_description"			"When casting @Ability3, create a cloud of moon-dust that reduces enemies movespeed within by 50%. Enemies within the cloud take 1% increased damage for each point of movespeed below the caster's. Lasts 8 seconds."
+		"property_moon_techs_description"			"When casting @Ability3, create a cloud of moon dust that reduces enemies' movespeed by 50%. Enemies within the cloud also take 1% increased damage for each point of movespeed below the caster's. Lasts 8 seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"
 		"item_property_sonic_boots"					"Sonic Speed"
-		"property_sonic_boots_description"			"Casting @Ability3 increases attack speed by 200, movespeed by 25% and maximum movespeed to @special_property1 for 8 seconds. Additionally removes unit collision."
+		"property_sonic_boots_description"			"Casting @Ability3 increases attack speed by 200, movespeed by 25%, and maximum movespeed by @special_property1 for 8 seconds. Additionally removes unit collision."
 		"DOTA_Tooltip_modifier_sonic_boots_effect"			"Sonic Speed"
 		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"Increased attack speed, movespeed and max movespeed"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_falcon_boots"									"Falcon Boots"
 		"item_property_falcon_boot"					"Falcon Swoop"
-		"property_falcon_boot_description"			"5 falcons move with your @Ability3 and collect enemies in its path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for 4 seconds."
+		"property_falcon_boot_description"			"5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for 4 seconds."
 		"DOTA_Tooltip_modifier_falcon_freeze"		"Falcon Swoop"
 		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"Frozen"
 		
@@ -72,12 +72,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
 		"item_property_rooted_feet"					"Deep Earthen Grip"
-		"property_rooted_feet_description"			"While standing still you have 2x armor, 3x health regen and take 50% reduced damage."
+		"property_rooted_feet_description"			"While standing still you have 2x Armor, 3x health regen, and take 50% reduced damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
 		"item_property_crusader_boots"				"Devotion Aura"
-		"property_crusader_boots_description"		"Gives armor to you and nearby allied heroes equal to 10% of your Strength."
+		"property_crusader_boots_description"		"Gives Armor to you and nearby allied heroes equal to 10% of your Strength."
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
@@ -85,7 +85,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"Arcanys Slippers"
 		"item_property_arcanys_slipper"				"Arcane Rush"
-		"property_arcanys_slipper_description"		"After casting @Ability3 - release 3 poofs of arcane energy over 1.2 seconds. Each explosion drains @special_property1% of your max mana and adds base attack damage equal to @special_property2x the mana drained."
+		"property_arcanys_slipper_description"		"After casting @Ability3, release 3 poofs of arcane energy over 1.2 seconds. Each explosion drains @special_property1% of your max mana and adds base attack damage equal to @special_property2x the mana drained."
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Increased Attack Damage"
 		
@@ -95,12 +95,12 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
 		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"When you cast @Ability3 - reduce the cooldowns of all other base abilities by 30% of their base cooldown."
+		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by 30% of their base cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
 		"item_property_redrock"						"Fevering Footwork"
-		"property_redrock_description"				"When you cast @Ability3 - release 3 pulses of psychoactive heat over 1.5 seconds that force all nearby enemies to attack you for 5 seconds. Additionally increases your current health by 200% and reduces damage taken by 50%."
+		"property_redrock_description"				"When you cast @Ability3, release 3 pulses of psychoactive heat over 1.5 seconds that force all nearby enemies to attack you for 5 seconds. Also increases your current health by 200% and reduces damage taken by 50% while the effect lasts."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"
@@ -115,7 +115,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"For every 1200 units of distance moved, gain 85% evasion and 350% Bonus Attack damage for 6 seconds."
+		"property_dragon_greaves_description"		"For every 1200 units of distance moved, gain 85% evasion and 350% bonus attack damage for 6 seconds."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% evasion and 350%% increased attack damage"
 		
@@ -127,46 +127,46 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
 		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases Base Ability damage by @special_property1%. Using the same ability twice in a row removes this effect for 12 seconds."
+		"property_old_wisdom_description"						"Increases Base Ability Damage by @special_property1%. Using the same ability twice in a row removes this effect for 12 seconds."
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
 		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"When you cast @Ability3, restore 4% of your max mana and launch a trail of water that deals the greater of 10x your attack damage or 80x your Intelligence as pure damage. Also slows movespeed by 30% for 4 seconds.<br>Can only trigger once every 1 second."
+		"property_pure_waters_description"					"When you cast @Ability3, restore 4% of your max mana and launch a trail of water that deals the greater of 10x your attack damage or 80x your Intelligence as Pure damage. Also slows movespeed of targets struck by 30% for 4 seconds.<br>Can only trigger once every 1 second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
 		"item_property_terrasic_lava"						"Magma Tread"
-		"property_terrasic_lava_description"				"Allows you to freely walk on lava in Tanari Jungle. Touching lava increases attack damage by 100% and attack range by 150 for 7 seconds."
+		"property_terrasic_lava_description"				"Allows you to freely walk on lava. Touching lava increases attack damage by 100% and attack range by 150 for 7 seconds."
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"While movespeed is equal to or less than 300, incoming damage is reduced by 80% and outgoing Post-Mitigation damage is increased by 600%. The buff sticks for 6 seconds if your movespeed moves back above 300."
+		"property_ablecore_greaves_description"			"While movespeed is less than or equal to 300, incoming damage is reduced by 80% and outgoing Post-Mitigation damage is increased by 600%. The buff sticks for 6 seconds if your movespeed moves back above 300."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by 80%% and outgoing damage increased by 600%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
 		"item_property_giant_hunter_boot"					"Giant Hunter"
-		"property_giant_hunter_boot_description"			"When stunned or rooted, gain magic immunity for @special_property1 seconds."
-		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Magic Immunity"
+		"property_giant_hunter_boot_description"			"When stunned or rooted, gain Spell Immunity for @special_property1 seconds."
+		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Spell Immunity"
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
 		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 2400%. Lasts 7 seconds but works only for next damage instance of @Ability2."
+		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 2400%. Lasts 7 seconds but works only for your next damage instance from @Ability2."
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
 		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by 2400%%."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 gains @special_property1x increased Base Ability damage while health is less than or equal to @special_property2%"
+		 "property_boots_of_ashara_description"					"@Ability3 gains @special_property1x increased Base Ability Damage while health is less than or equal to @special_property2%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
@@ -178,7 +178,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
 		"item_property_crimsyth_elite_3"						"Crimsyth Elite"
-		 "property_crimsyth_elite_3_description"				"Increases armor by @special_property1x your hero level. Upon casting an ability, lose the armor and gain a @special_property2 magic resist shield for @special_property3 seconds."
+		 "property_crimsyth_elite_3_description"				"Increases Armor by @special_property1x your hero level. Upon casting an ability, lose the armor and gain a @special_property2 Magic Resistance shield for @special_property3 seconds."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
@@ -186,30 +186,30 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
 		"item_property_boots_of_great_fortune"					"Additional Luck"
-		 "property_boots_of_great_fortune_description"			"Adds a flat @special_property1% chance on your items to proc their special effect."
+		 "property_boots_of_great_fortune_description"			"Adds a flat @special_property1% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below @special_property1% health, @Ability3 has a 1 second cooldown."
+		 "property_bloodstone_boots_description"				"While below @special_property1% health, @Ability3 has a 1-second cooldown."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
 		"item_property_temporal_warp"						"Time Warp"
-		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were at 4 seconds ago."
+		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation magic damage by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
-		"item_property_emerald_speed"							"Stable Pace"
+		"item_property_emerald_speed"							"Unbreakable Stride" \\AIN'T NOTHIN' GONNA BREAK MY STRIDE, NOBODY GONNA SLOOOOW MEEEE DOWN, WHOA NO, I GOT TO KEEP ON MOOO-VIN'
 		"property_emerald_speed_description"					"Movespeed can not fall below 550"
 		
 		
@@ -230,36 +230,36 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you and take @special_property2x pre-mitigation damage."
+		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you, and take @special_property2x pre-mitigation damage from you."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
 		"item_property_gravelfoot"							"Gravelfoot"
-		"property_gravelfoot_description"					"Cleanse an enemy debuff every @special_property1 seconds. When a debuff is cleansed, turn to frosty stone for @special_property2 seconds which reduces movespeed by @special_property3 and damage taken by @special_property4%."
+		"property_gravelfoot_description"					"Cleanse an enemy debuff every @special_property1 seconds. When a debuff is cleansed, turn to frosty stone for @special_property2 seconds, reducing movespeed by @special_property3 and damage taken by @special_property4%."
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
 		"item_property_ice_floe_slippers"					"Ice Floe"
-		"property_ice_floe_slippers_description"			"Issue two move orders consecutively on the same location to glide on a trail of ice. While gliding you are rooted and all physical damage is reduced to 0. Max distance travelled is 1500 and cannot be activated while stunned or rooted."
+		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is 1500. This ability cannot be activated while stunned or rooted."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
-		"item_property_iron_treads_of_destruction"					"Dissolution"
+		"item_property_iron_treads_of_destruction"					"Improved Initiative"
 		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
 
     	"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
-        "item_property_storm_pacer_sabatons"                        "Storm Pacer"
-        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <% PACE_OF_STORM_RADIUS %>-radius ring of elemental essence expands outward from you, damaging enemies once while expanding and again while contracting back toward you. The damage is based on the last pre-mitigation damage instance you dealt before activating this effect, and then the damage is modified by the target's distance from the center of the ring, scaling from <% PACE_OF_STORM_MIN_AMP %>x damage at close range, to <% PACE_OF_STORM_MAX_AMP %>x damage at the edge. No other effects or modifiers can further increase this instance of damage. Damage also pierces steadfast, raising their damage truncation threshold to <% PACE_OF_STORM_STEADFAST_THRESHOLD %>x the normal value (or <% PACE_OF_STORM_MEGASTEADFAST_THRESHOLD %>x for Mega Steadfast). 1 second cooldown on ring effect."
+        "item_property_storm_pacer_sabatons"                        "Static Corona"
+        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <% PACE_OF_STORM_RADIUS %>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. The damage is based on the last pre-mitigation damage instance you dealt before activating this effect, and then the damage is modified by the target's distance from the center of the ring, scaling from <% PACE_OF_STORM_MIN_AMP %>x damage at close range, to <% PACE_OF_STORM_MAX_AMP %>x damage at the edge. No other effects or modifiers can further increase this instance of damage, but it pierces Steadfast defenses, raising their damage truncation thresholds to <% PACE_OF_STORM_STEADFAST_THRESHOLD %>x the normal value (or <% PACE_OF_STORM_MEGASTEADFAST_THRESHOLD %>x for Mega Steadfast). Ring emission has a 1 second cooldown."
 
 		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
 		"item_property_pegasus"					"Wing Jump"
-		"property_pegasus_description"			"@Ability3 travels <% PEGASUS_E_SPEED_PCT %>% faster if it has a motion component. Max Movespeed is increased by <% PEGASUS_MAX_MS_AMP_PCT %>%."
+		"property_pegasus_description"			"If your @Ability3 involves movement, it travels <% PEGASUS_E_SPEED_PCT %>% faster. Max movespeed is increased by <% PEGASUS_MAX_MS_AMP_PCT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
-		"item_property_pivotal"					"Pivot Burst"
-		"property_pivotal_description"			"Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed to <% PIVOT_BOOT_MAX_MS %>, and gain <% PIVOT_BOOT_MS %> movespeed that decays over 4 seconds."
+		"item_property_pivotal"					"Juke"
+		"property_pivotal_description"			"Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed to <% PIVOT_BOOT_MAX_MS %>, and gain <% PIVOT_BOOT_MS %> movespeed that gradually decays over 4 seconds. This effect has no cooldown."
 
-		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
-		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap and decaying movespeed"
+		"DOTA_Tooltip_modifier_pivotal_swift"	"Juke"
+		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap, with a decaying movespeed bonus"
