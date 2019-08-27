@@ -1186,7 +1186,7 @@
 		"winterblight_cavern_room4_event3_description"				"Hundreds of Chrolonus clones spawn from the chamber's black stars. The amount of concurrent enemies increases by 1 for every 2 event levels."
 
 		"winterblight_cavern_room4_event4"							"Anti-Gravity"
-		"winterblight_cavern_room4_event4_description"				"Black Holes spawn a wide variety of enemies while pulling heroes toward them. All units and heroes have an enforced 1-second minimum cooldown on their abilities."
+		"winterblight_cavern_room4_event4_description"				"Black Holes spawn a wide variety of enemies while pulling heroes toward them. All units in the area have an enforced 1-second  cooldown on every ability."
 
 
 		"winterblight_cavern_status_prefix"								"Status:"
