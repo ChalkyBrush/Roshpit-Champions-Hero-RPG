@@ -210,7 +210,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"翡翠速度赛跑者"
 		"item_property_emerald_speed"							"稳定步伐"
-		"property_emerald_speed_description"					"移动速度不会低于 520 。"
+		"property_emerald_speed_description"					"移动速度不会低于 @special_property1 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"腥红十月靴"

@@ -4649,22 +4649,6 @@ function shadowflame_fist_think(event)
 	end
 end
 
-function emerald_speed_runners_think(event)
-	local caster = event.target
-	local movespeed = caster:GetBaseMoveSpeed()
-	local movespeedModifier = math.ceil(caster:GetMoveSpeedModifier(movespeed, false))
-	if movespeedModifier < 550 then
-		local currentStacks = caster:GetModifierStackCount("modifier_emerald_speed_runners_speed", event.caster)
-		event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_emerald_speed_runners_speed", {})
-		local stacks = 550 - movespeedModifier + currentStacks
-		caster:SetModifierStackCount("modifier_emerald_speed_runners_speed", event.caster, stacks)
-	else
-		if movespeedModifier > 550 then
-			caster:RemoveModifierByName("modifier_emerald_speed_runners_speed")
-		end
-	end
-end
-
 function flamethrower_init(event)
 	local caster = event.caster
 	local target = event.target
