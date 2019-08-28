@@ -1175,4 +1175,102 @@
 		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_damage"					"伤害:"
 		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_base_bounces"				"最大反弹次数:"
 
+"winterblight_cavern"										"凛冬霜枯洞穴"
+		"winterblight_cavern_guide"									"洞穴指引者"
+		"star_wb_master_title"										"洞穴之主"
+
+		"winterblight_cavern_help1"									"选择一个密室查看挑战列表。一次只有一个挑战可以在每个密室中激活。怪物不能离开自己的密室，也不会受到来自外面的伤害。只有发起挑战的玩家才能在这里伤害怪物 ."
+		"winterblight_cavern_help2"									"从下面的列表中选择一个挑战。完成一个挑战提供可以用来召唤boss的遗物碎片。每局游戏的遗物碎片都会重置."
+		"winterblight_cavern_help3"									"选择一个挑战级别。您只能为此挑战选择一个等于或小于1+此英雄的最高通关级别。更高的挑战级别可以奖励更多的秘银水晶，并获得一些更稀有的物品."
+		"winterblight_cavern_help4"									"你的遗物碎片可以用来召唤曾在过去的几个世纪里统治过这座雪山的远古巨兽."
+
+		"winterblight_cavern_room1"									"寒霜大厅"
+		"winterblight_cavern_room2"									"极光长廊"
+		"winterblight_cavern_room3"									"水晶之地"
+		"winterblight_cavern_room4"									"凛冬边界"
+
+		"winterblight_cavern_boss_button_label"						"召唤Boss"
+		"winterblight_cavern_boss_summary"							"@boss_name's 的级别由@chamber_name 的平均通关级别决定. 在这个密室中至少完成一个事件才能召唤boss"
+		"winterblight_realm_breaker"								"王国破坏者"
+		"winterblight_cavern_boss_tiamat"							"提亚马特"
+
+		"winterblight_realm_breaker_summary"						"王国破坏者的等级由所有密室事件的平均通关等级决定."
+
+		"winterblight_cavern_final_boss_summary"					"提亚马特的等级由其他4个boss的平均等级决定。提亚马特只能在所有4个首领都被击败后才能被召唤。这是最后一次召唤，洞穴引导者随后会离开。 ."
+
+		"winterblight_boss_status1"									"已召唤"
+		"winterblight_boss_status2"									"已击败"
+
+		"winterblight_cavern_room1_event1"							"标准模式"
+		"winterblight_cavern_room1_event1_description"				"你将与大量普通的怪物交战."
+
+		"winterblight_cavern_room1_event2"							"极寒幽魂歼灭战"
+		"winterblight_cavern_room1_event2_description"				"密室中将会出现若干只极寒幽魂."
+
+		"winterblight_cavern_room1_event3"							"维度之门"
+		"winterblight_cavern_room1_event3_description"				"敌人的浪潮从维度之门产生。所有敌人根据事件等级获得每级1%每秒的生命回复，上限为20% ."
+
+		"winterblight_cavern_room1_event4"							"马库里奥的水晶争夺战"
+		"winterblight_cavern_room1_event4_description"				"5颗水晶将会增幅马库里奥召唤出的怪物的能力.对水晶造成伤害可使指定颜色的增幅暂时消失20秒."
+
+		"winterblight_cavern_room2_event1"							"标准模式"
+		"winterblight_cavern_room2_event1_description"				"你将与大量普通的怪物交战."
+
+		"winterblight_cavern_room2_event2"							"维度之门"
+		"winterblight_cavern_room2_event2_description"				"敌人的浪潮从维度之门产生. 所有敌人根据事件等级获得每级10% 移动速度和 5%攻击速度."
+
+		"winterblight_cavern_room2_event3"							"剿灭雷肤兽"
+		"winterblight_cavern_room2_event3_description"				"巨大的雷肤兽的蛋布满了整个密室. 蛋中孵化出的雷肤兽拥有随机且强大的被动技能."
+
+		"winterblight_cavern_room2_event4"							"巨兽之怒"
+		"winterblight_cavern_room2_event4_description"				"击败房间中的三只巨兽，奥西罗斯、古诺尔夫和斯威本."
+
+		"winterblight_cavern_room3_event1"							"标准模式"
+		"winterblight_cavern_room3_event1_description"				"你将与大量普通的怪物交战."
+
+		"winterblight_cavern_room3_event2"							"维度之门"
+		"winterblight_cavern_room3_event2_description"				"敌人的浪潮从维度之门产生. 所有敌人根据事件等级获得每级10% 的攻击力."
+
+		"winterblight_cavern_room3_event3"							"疯狂的蘑菇"
+		"winterblight_cavern_room3_event3_description"				"疯狂的蘑菇在整个水晶之地中繁殖。整个密室都被混乱的孢子污染了."
+
+		"winterblight_cavern_room3_event4"							"深海侵袭"
+		"winterblight_cavern_room3_event4_description"				"这个密室被洪水淹没，被来自遥远的失落深海要塞的生物入侵。当一个怪物死了，会立刻孵化出下一只."
+
+		"winterblight_cavern_room4_event1"							"标准模式"
+		"winterblight_cavern_room4_event1_description"				"你将与大量普通的怪物交战."
+
+		"winterblight_cavern_room4_event2"							"维度之门"
+		"winterblight_cavern_room4_event2_description"				"敌人的浪潮从维度之门产生. 所有敌人根据挑战等级获得每级100 护甲和 2% 闪避."
+
+		"winterblight_cavern_room4_event3"							"克洛诺斯的复仇 "
+		"winterblight_cavern_room4_event3_description"				"数以百计的克洛诺斯克隆体从密室的黑星中产生. 同时存在的敌人数量根据密室挑战等级提高，每2级增加1个."
+
+		"winterblight_cavern_room4_event4"							"反重力"
+		"winterblight_cavern_room4_event4_description"				"黑洞会产生各种各样的敌人，并把英雄拉向它. 所有单位和英雄的技能都只有1秒的冷却时间."
+
+
+		"winterblight_cavern_status_prefix"								"状态:"
+		"winterblight_cavern_status_inactive"								"未开启"
+		"winterblight_cavern_status_active"								"进行中"
+
+		"winterblight_cavern_fragments"								"遗物碎片:"
+
+		"winterblight_1_stone"										"传说 使用1个凛冬冰川"
+		"winterblight_2_stone"										"传说 使用2个凛冬冰川"
+		"winterblight_3_stone"										"传说 使用3个凛冬冰川"
+
+		"winterblight_no_max"										"无上限"
+		"winterblight_event_max_yours"								"你的英雄的挑战等级"
+		"winterblight_event_max"									"最大挑战等级"	
+		"event_level_input"											"选择这次挑战的强度级别"
+		"start_chamber_event"										"开始密室挑战"
+
+		"cavern_record_yours_hero"									"你的最高纪录 当使用"
+		"cavern_record_yours_all"									"你最高的全期纪录"
+		"cavern_record_global_hero"									"全球最高纪录 当使用"	
+		"cavern_record_global_all"									"全球最高纪录"
+		"cavern_ui_failed"											"失败"		
+		"cavern_ui_completed"										"完成"	
+		"cavern_ui_no_record"										"无纪录"	
 		
