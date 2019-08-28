@@ -317,7 +317,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"直觉翡翠之戒"
 		"item_property_beryl_ring_of_intuition"						"直觉"
-		"property_beryl_ring_of_intuition_description"				"在释放完所有技能后，你的生命值和魔法值以及技能的冷却时间都会被重置。如果 @Ability4的冷却时间大于 <% INTUITION_ULTIMATE_MIN_CD %>秒时，这个效果将会只是降低它的冷却时间<% INTUITION_ULTIMATE_MIN_CD %> 秒。"
+		"property_beryl_ring_of_intuition_description"				"在释放完所有技能后，你的生命值和魔法值以及技能的冷却时间都会被重置。如果 @Ability4的冷却时间大于 <% INTUITION_ULTIMATE_MIN_CD %>秒时，这个效果将会只是降低它的冷却时间至<% INTUITION_ULTIMATE_MIN_CD %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"灵感鎏金之戒"
 		"item_property_auric_ring_of_inspiration"						"振奋"
