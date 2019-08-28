@@ -85,6 +85,7 @@ end
 
 function class:OnSpellStart()
     local caster = self:GetCaster()
+    self.isLuaItem = true
     equip_item({
         ability = self,
         caster = caster,
