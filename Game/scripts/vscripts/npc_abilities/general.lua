@@ -682,7 +682,7 @@ function ms_thinker(event)
 		local msValue = modifier_emerald_speed_runners:GetAbility():GetSpecialValueFor("property_one")
 		--print("modifier_emerald_speed_runners "..tostring(msValue))
 		max_ms = msValue
-		actual_movespeed = msValue
+		actual_movespeed = math.max(msValue, actual_movespeed)
 	end
 	
 	if unit:HasModifier("modifier_knight_hawk_helm") then
