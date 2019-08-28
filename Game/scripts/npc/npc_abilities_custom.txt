@@ -14108,16 +14108,7 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"ThinkInterval"  "0.5"
 				"TextureName"	"warlord/arcana2/warlord_rune_q_3_arcana2"
-				"OnIntervalThink"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_flame_wreck_q3_atk_power"
-						"Target" 		"TARGET"
-					}
-				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
@@ -14226,7 +14217,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
+				"property_two"			"0.3"
 			}
 		}
 	}

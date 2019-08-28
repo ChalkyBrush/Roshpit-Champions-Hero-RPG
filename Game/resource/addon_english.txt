@@ -11964,7 +11964,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
 		"item_property_emerald_speed"							"Unbreakable Stride"
-		"property_emerald_speed_description"					"Movespeed can not fall below 550"
+		"property_emerald_speed_description"					"Movespeed can not fall below @special_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
