@@ -43,7 +43,7 @@ function flame_wreck_thinker(event)
 			caster:AddNewModifier(caster, ability, "modifier_warlord_in_flame_wreck", {duration = 0.56})
 			local q_3_level = caster:GetRuneValue("q", 3)
 			if q_3_level > 0 then
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_flame_wreck_q3_atk_power", {})
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_flame_wreck_q3_atk_power", {duration = 0.56})
 				caster:SetModifierStackCount("modifier_flame_wreck_q3_atk_power", caster, q_3_level)
 			end
 		end
