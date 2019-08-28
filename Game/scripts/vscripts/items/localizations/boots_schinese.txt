@@ -254,7 +254,7 @@
 
         	"item_property_storm_pacer_sabatons"                        "风暴漫步者"
 
-        	"property_storm_pacer_sabatons_description"                 "当你使用@Ability3时。你将会释放一个影响范围为 <% PACE_OF_STORM_RADIUS %>元素精华之环，对敌人造成伤害，一共造成2次伤害，一次在扩散时，一次在收缩时。伤害是基于你最近造成的税前伤害，并且这个伤害也会与目标和圆环中心的距离影响，在最近时为 <% PACE_OF_STORM_MIN_AMP %>x ，在边缘处为 <% PACE_OF_STORM_MAX_AMP %>x /没有任何效果能够增加这一次伤害。这个伤害穿透坚定，将坚定的阈值增加至 % PACE_OF_STORM_STEADFAST_THRESHOLD %>x  (或者 <% PACE_OF_STORM_MEGASTEADFAST_THRESHOLD %>x 对于高级坚定)。1 秒冷却时间。"
+        	"property_storm_pacer_sabatons_description"                 "当你使用@Ability3时。你将会释放一个影响范围为 <% PACE_OF_STORM_RADIUS %>元素精华之环，对敌人造成伤害，一共造成2次伤害，一次在扩散时，一次在收缩时。伤害是基于你最近造成的税前伤害，并且这个伤害也会与目标和圆环中心的距离影响，在最近时为 <% PACE_OF_STORM_MIN_AMP %>x ，在边缘处为 <% PACE_OF_STORM_MAX_AMP %>x /没有任何效果能够增加这一次伤害。这个伤害穿透坚定，将坚定的阈值增加至< % PACE_OF_STORM_STEADFAST_THRESHOLD %>x  (或者 <% PACE_OF_STORM_MEGASTEADFAST_THRESHOLD %>x 对于高级坚定)。1 秒冷却时间。"
 
 
 
@@ -262,7 +262,7 @@
 
 		"item_property_pegasus"					"风跃"
 
-		"property_pegasus_description"			"@Ability3 穿行速度增加 <% PEGASUS_E_SPEED_PCT %>% f。最大移动速度增加 <% PEGASUS_MAX_MS_AMP_PCT %>%。"
+		"property_pegasus_description"			"@Ability3 穿行速度增加 <% PEGASUS_E_SPEED_PCT %>% 。最大移动速度增加 <% PEGASUS_MAX_MS_AMP_PCT %>%。"
 
 
 
@@ -270,7 +270,7 @@
 
 		"item_property_pivotal"					"轴心爆发"
 
-		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至T<% PIVOT_BOOT_MAX_MS %>,并且获得 <% PIVOT_BOOT_MS %> 的移动速度加成，持续4秒。"
+		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至<% PIVOT_BOOT_MAX_MS %>,并且获得 <% PIVOT_BOOT_MS %> 的移动速度加成，持续4秒。"
 
 
 
