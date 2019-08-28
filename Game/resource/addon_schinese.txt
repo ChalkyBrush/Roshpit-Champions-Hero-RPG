@@ -10255,7 +10255,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% 每10点智力值"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"炸弹"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"元素： <font color=\"#EF4126\">火</font><br>向目标点扔炸弹，对爆炸范围内敌人造成伤害和眩晕。"
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"元素： <font color=\"#EF4126\">火</font><br>向目标点扔出 <font color='#ccff66'>3</font>个炸弹，对爆炸范围内敌人造成伤害和眩晕。"
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"伤害："
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"眩晕持续时间："
@@ -10276,9 +10276,15 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				""
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] 弹片"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"炸弹爆炸后向随机方向释放3个弹片。"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"弹片伤害"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"% 炸弹伤害"
+		"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"每个炸弹有一个概率使得他不会在第一次爆炸中毁灭并且在 <font color='#ccff66'>1</font> 秒后将会再次爆炸。每一个次级爆炸只会造成第一次伤害的<font color='#ccff66'>80</font>% 。概率大于100%意味着能够触发多次。此外也会增加 [W2]的伤害。"
+
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"多重爆炸概率："
+
+        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
+
+        "DOTA_Tooltip_ability_trapper_rune_w_3_property_two"		"瓦斯气体额外伤害："
+
+        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] 爆破专家"
     	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"猎人的属性值将提高炸弹和瓦斯毒气的伤害。"
@@ -10339,7 +10345,7 @@
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"伤害倍数："
 		
 		"DOTA_Tooltip_ability_trapper_rune_r_1"						"[R1] 致命刀锋"
-    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"背刺时猎人的刀光分裂 - 对附近敌人造成部分伤害。"
+    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"背刺时猎人的刀光分裂 - 对附近敌人造成部分伤害，这个伤害基于背刺的伤害，并且和背刺一样无视坚定。"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_property_one"		"分裂伤害"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_suffix"				"%"	
 		
@@ -10409,13 +10415,13 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "潜行雕文"
-        "item_rpc_trapper_glyph_1_1_description"                "降低敌人发觉潜行的范围 @glyph_property1%"
+        "item_rpc_trapper_glyph_1_1_description"                "降低敌人发觉潜行的范围 @glyph_property1%，此外释放@Ability3时也会留下一个[E2]。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "急救雕文"
         "item_rpc_trapper_glyph_2_1_description"                "隐身时，每 0.1秒回复 @glyph_property1% 的最大生命值。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "麻痹粉尘雕文"
-        "item_rpc_trapper_glyph_3_1_description"                "施放 @Ability3 将麻痹周围的敌人 @glyph_property1 秒，是敌人无法行动。"
+        "item_rpc_trapper_glyph_3_1_description"                "增加 @Ability2 的范围 <font color='#ccff66'>200</font>, 并且使得每次释放炸弹时额外多出 <font color='#ccff66'>2</font> 个炸弹，被伤害的敌人将会被麻痹，使得他们对猎人造成的 <font color='#ccff66'>3</font> 次伤害降低至0。再次被炸弹击中后将会重置层数。"
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"致残毒素"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"攻击力降低"
@@ -10424,16 +10430,16 @@
         "item_rpc_trapper_glyph_4_1_description"                "背刺对精英怪造成 @glyph_property1 倍伤害。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "榴弹雕文"
-        "item_rpc_trapper_glyph_5_1_description"                "@Ability2 的范围（不包括任何符文及潜行状态下的任一雕文）每秒提高 @glyph_property1% ，@glyph_property2 秒后达到上限 100%。施放 @Ability2 将消耗全部层数。"
+        "item_rpc_trapper_glyph_5_1_description"                "每当你移动 <font color='#ccff66'>1400</font> 码时将会自动释放@Ability2。烟幕弹的持续时间增加 <font color='#ccff66'>1.5</font> 并且范围增加 <font color='#ccff66'>2</font>。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "工匠雕文"
         "item_rpc_trapper_glyph_6_1_description"                "所有由装备直接造成的伤害都将拥有 普通 元素伤害，作为第二元素伤害。同时，猎人的普通元素输出降低 @glyph_property1%。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "陷阱雕文"
-        "item_rpc_trapper_glyph_7_1_description"                "同一时间可以拥有2个爆炸陷阱和2个毒蛇陷阱。"
+        "item_rpc_trapper_glyph_7_1_description"                "同一时间可以拥有2个同种陷阱。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "致命陷阱雕文"
-        "item_rpc_trapper_glyph_5_a_description"                "所有陷阱额外造成 @glyph_property1x 伤害。"
+        "item_rpc_trapper_glyph_5_a_description"                "升级 @Ability1。爆炸陷阱造成的伤害提高 <font color='#ccff66'>50</font>% 。毒液陷阱的最大层数增加至<font color='#ccff66'>15</font>。蛛网陷阱的缠绕时间增加 <font color='#ccff66'>2</font>x 。洪流陷阱只需要 <font color='#ccff66'>1</font>秒生效 。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "薪火雕文"
         "item_rpc_trapper_glyph_1_2_description"                "法力陷阱的效果变为双倍。"
