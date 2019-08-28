@@ -325,7 +325,7 @@ function ChamberEventButtonActivate(cavern_ui_panel, cavern_event_buttons_contai
 	GameEvents.SendCustomGameEventToServer( "units_special", {winterblight: 1, records: 1, chamber_index: chamber_index, event_index: index} );
 
 	var start_button = cavern_ui_panel.FindChildTraverse('start_event_button')
-
+	start_button.AddClass("invisible")
 	var level_selected = cavern_ui_panel.FindChildTraverse('max_level_input').value
 	if (fragments > 0){
 		start_button.AddClass('invisible')
@@ -414,7 +414,7 @@ function CavernRecordsLoaded(msg){
 	// number_entry.value(parseInt(overall_max))
 	cavern_ui_panel.FindChildTraverse('event_max_main_label').text = $.Localize("winterblight_event_max") + ": " + overall_max
 	cavern_ui_panel.FindChildTraverse('your-max-level-label').text = your_hero_max
-
+	cavern_ui_panel.FindChildTraverse('start_event_button').RemoveClass('invisible')
 	//FILL RECORDS
 	cavern_ui_panel.FindChildTraverse('chamber-record-top1').RemoveAndDeleteChildren()
 

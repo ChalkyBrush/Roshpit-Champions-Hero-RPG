@@ -207,6 +207,8 @@ function Winterblight:DropGlacierStone(position)
 end
 
 function Winterblight:Debug2()
+  Events.DifficultyFactor = 3
+  Winterblight.Stones = 3
   -- if not Winterblight.GuideBasePos then
   --   Winterblight.GuideBasePos = Winterblight.CavernGuide:GetAbsOrigin()
   -- end

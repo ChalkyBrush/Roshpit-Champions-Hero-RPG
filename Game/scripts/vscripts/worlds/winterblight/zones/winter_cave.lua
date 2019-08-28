@@ -643,9 +643,14 @@ function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, 
 	local your_hero_max = 1
 	local chamber_index = tostring(chamber_index)
 	local event_index = tostring(event_index)
+	steam_id = tostring(steam_id)
+	DeepPrintTable(Winterblight.CavernMetaData[chamber_index][event_index])
 	if Winterblight.CavernMetaData[chamber_index][event_index][steam_id] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] then
+		print("tuyuyu")
 		your_hero_max = Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] + 5
 	end
+	print("----")
+	print(your_hero_max)
 	local game_settings_max = 1
 	local difficulty = GameState:GetDifficultyFactor()
 	if difficulty == 2 then
