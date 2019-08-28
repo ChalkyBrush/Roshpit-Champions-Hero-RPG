@@ -677,6 +677,14 @@ function ms_thinker(event)
 	local movespeed = unit:GetBaseMoveSpeed()
 	local actual_movespeed = unit:GetMoveSpeedModifier(movespeed, false)
 
+	local modifier_emerald_speed_runners = unit:FindModifierByName("modifier_emerald_speed_runners")
+	if modifier_emerald_speed_runners then
+		local msValue = modifier_emerald_speed_runners:GetAbility():GetSpecialValueFor("property_one")
+		--print("modifier_emerald_speed_runners "..tostring(msValue))
+		max_ms = math.max(msValue, max_ms)
+		actual_movespeed = math.max(msValue, actual_movespeed)
+	end
+	
 	if unit:HasModifier("modifier_knight_hawk_helm") then
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end

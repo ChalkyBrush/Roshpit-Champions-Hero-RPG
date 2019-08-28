@@ -13665,24 +13665,14 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"emerald_speed_runners_think"
-						"target"		"TARGET"
-					}
-				}
 			}
-			"modifier_emerald_speed_runners_speed"
+		}
+		"AbilitySpecial"
+		{
+			"01"
 			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
-				}
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"600"
 			}
 		}
 	}

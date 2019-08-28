@@ -676,6 +676,27 @@ end
 
 function GameMode:OnPlayerChat(keys)
 	local text = string.lower(keys.text)
+	if string.match(text, "winterblight_cavern") then
+		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local deathLocation = position
+		local boss_level = 20
+		RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level)
+		RPCItems:RollGoldbreakerGauntlet(deathLocation)
+		RPCItems:RollAlienArmor(deathLocation)
+		RPCItems:NethergraspPalisade(deathLocation)
+		RPCItems:RollRobesOfEruditeTeacher(deathLocation)
+		RPCItems:RollHelmOfKnightHawk(deathLocation, isShop)
+		RPCItems:RollMagistratesHood(deathLocation)
+		RPCItems:RollPegasusBoots(deathLocation)
+		RPCItems:RollPivotalSwiftboots(deathLocation)
+		RPCItems:RollGuardianStone(deathLocation)
+		RPCItems:RollAuricRingOfInspiration(deathLocation, boss_level)
+		RPCItems:RollBerylRingOfIntuition(deathLocation, boss_level)
+		RPCItems:RollGalvanizedRazorBand(deathLocation)
+
+		RPCItems:RollWarlordArcana2(deathLocation, boss_level)
+		RPCItems:RollSoluniaArcana3(deathLocation)
+	end
 	if string.match(text, "dbg") then
 		local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 		for i = 1, 10 do
