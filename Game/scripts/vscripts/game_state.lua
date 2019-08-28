@@ -3347,7 +3347,7 @@ function GameState:FilterDamage(filterTable)
 		else
 			chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
 		end
-		local reduction = 0.7^chamber_level
+		local reduction = 0.75^chamber_level
 		if victim.boss_level then
 			reduction = reduction*0.1
 		end

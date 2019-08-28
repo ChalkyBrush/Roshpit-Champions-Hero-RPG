@@ -1100,6 +1100,7 @@ function RPCItems:ItemSwapInput(msg)
 	if not hero.gear_equip_new then
 		return false
 	end
+	hero:RemoveModifierByName("modifier_equip_ui_open")
 	if input == 1 then
 		local newGear = hero.gear_equip_new
 		print(newGear:GetEntityIndex())
