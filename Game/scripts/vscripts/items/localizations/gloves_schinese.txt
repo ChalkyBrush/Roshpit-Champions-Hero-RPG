@@ -299,7 +299,7 @@
 		"item_property_swiftspike_bracer"							"音爆"
 		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 @special_property1%"
 
-	"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Tiamat的钻石之爪"
+	"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"提亚马特的钻石之爪"
 		"item_property_tiamat_claw"							"七彩之钳"
 		"property_tiamat_claw_description"					"你的全属性被设定成固定数值并且无法被改变。"
 
