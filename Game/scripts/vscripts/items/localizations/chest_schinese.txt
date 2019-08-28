@@ -393,7 +393,7 @@
 
 		"item_property_nethergrasp"							"彼世掌握"
 
-		"property_nethergrasp_description"				"对敌人发出攻击指令将会在目标周围产生一个彼世掌握。被抓取的敌人每 <% NETHERGRASP_ATTACK_INTERVAL %> 秒受到一次来自施法者的攻击，在施法者攻击距离以外的敌人将会被拉向彼世掌握的中心。最多可以同时连接<% NETHERGRASP_MAX_LINKS %>个敌人，但是攻击将会被所有敌人分摊。 产生连接的最大距离为 <% NETHERGRASP_LINK_RANGE %> ，并且如果施法者和敌人距离超出 a <% NETHERGRASP_BREAK_DISTANCE %>.码时，链接将会断开。"
+		"property_nethergrasp_description"				"对敌人发出攻击指令将会在目标周围产生一个彼世掌握。被抓取的敌人每 <% NETHERGRASP_ATTACK_INTERVAL %> 秒受到一次来自施法者的攻击，在施法者攻击距离以外的敌人将会被拉向彼世掌握的中心。最多可以同时连接<% NETHERGRASP_MAX_LINKS %>个敌人，但是攻击将会被所有敌人分摊。 产生连接的最大距离为 <% NETHERGRASP_LINK_RANGE %> ，并且如果施法者和敌人距离超出 <% NETHERGRASP_BREAK_DISTANCE %>.码时，链接将会断开。"
 
 
 
