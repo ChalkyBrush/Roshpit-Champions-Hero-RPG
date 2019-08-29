@@ -579,10 +579,10 @@
 	"quest_6_challenge_1_desc"											"You can purchase a special Pass for Roshpit Champions, which increases your stash space and hero save slots while active. Passes last for 30 days from the date of purchase and are available from the game's page in the Dota 2 Arcade. Each Pass user in your game also grants every player a stacking +10% bonus to EXP and mithril shard rewards, and a +50% better chance of finding more powerful items!"
 	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
 
-	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
-	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 and lasts for 30 days. The button to purchase one is on the main game page."
+	"tutorial_master_dialogue_6_1a"										"Long ago, added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
+	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 USD and lasts for 30 days. The button to purchase one is on the main game page."
 	"tutorial_master_dialogue_6_1c"										"Along with supporting the game's development, the pass offers extra character save slots and extra stash space for its duration."
-	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase xp gain, mithril gain, and luck with items. These bonuses stack with all party members who also have a pass."
+	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase XP gain, mithril gain, and luck with item drops. These bonuses stack with all party members who also have a pass."
 	"tutorial_master_dialogue_6_1e"										"OK now tell me, how long does the Custom Game Pass last for?"
 
 	"tutorial_quiz_question_18"											"How many days does the Custom Game Pass last?"
