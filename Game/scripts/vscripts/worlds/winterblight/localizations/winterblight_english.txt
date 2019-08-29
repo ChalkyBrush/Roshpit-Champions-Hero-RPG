@@ -167,9 +167,10 @@
 		"DOTA_Tooltip_ability_winter_satyr_heal"						"Mystic Healing"
 		"DOTA_Tooltip_ability_winter_satyr_heal_Description"			"Heals an ally for a small amount of HP"
 
-		"DOTA_Tooltip_ability_winterblight_stun_regen"				"Endurance"
-		"DOTA_Tooltip_ability_winterblight_stun_regen_Description"	"Gain health regen while stunned."
-		"DOTA_Tooltip_ability_winterblight_stun_regen_regen_percent"	"HEALTH REGEN %:"
+		"DOTA_Tooltip_ability_winterblight_endurance"					"Endurance"
+		"DOTA_Tooltip_ability_winterblight_endurance_Description"		"Take less damage and deal more damage while stunned."
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_reduction"	"DAMAGE REDUCTION %:"
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_increase"	"DAMAGE INCREASE %:"
 
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack"		"Frostbite Attack"
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack_Description"	"Each attack adds a stack of frostbite. Frostbite deals damage every 0.03 seconds. Damage is calculated as the base x stacks^2."

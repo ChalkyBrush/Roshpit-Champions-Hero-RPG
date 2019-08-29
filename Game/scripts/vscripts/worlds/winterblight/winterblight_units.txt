@@ -2657,7 +2657,7 @@
 
             }
         }
-        "Ability1"  "winterblight_stun_regen"
+        "Ability1"  "winterblight_endurance"
         "Ability2"  "dungeon_creep"
     }
 
@@ -9971,7 +9971,7 @@
             }
         }
         "Ability1"  "seafortress_hoof_stomp"
-        "Ability2"  "seafortress_stun_regen"
+        "Ability2"  "winterblight_endurance"
         "Ability3"  "winter_centaur_stampede"
         "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
@@ -10768,7 +10768,7 @@
         }
         "Ability1"  "dungeon_creep"
         "Ability2"  "winterblight_tanky"
-        "Ability3"  "winterblight_stun_regen"
+        "Ability3"  "winterblight_endurance"
 
     }
 
@@ -13614,7 +13614,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"      "winterblight_wintertide_totem_base"
         "Ability2"      "winterblight_raxxus_passive"
-        "Ability3"      "winterblight_stun_regen"
+        "Ability3"      "winterblight_endurance"
         "Ability4"      "fire_temple_frenzy"
         "Ability5"      "use_ability_1_position_ai"
         "Ability6"      "dungeon_creep"

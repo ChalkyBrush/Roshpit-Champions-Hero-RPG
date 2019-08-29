@@ -1974,7 +1974,7 @@ function thunderhide_egg_hit(event)
 					lizard:SetModel("models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl")
 					lizard:SetOriginalModel("models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl")
 				end
-				local ability_list = {"winterblight_stun_regen", "creature_pure_strike", "ability_mega_haste", "ability_magic_immune_break", "fire_temple_frenzy", "winterblight_ogre_armor", "seafortress_ghost_seal_ability", "ability_stun_immunity", "ability_unshakable", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "armor_break_ultra", "luna_taskmaster_shield", "ice_hulk_passive", "winterblight_armor_softening", "normal_steadfast", "mega_steadfast"}
+				local ability_list = {"winterblight_endurance", "creature_pure_strike", "ability_mega_haste", "ability_magic_immune_break", "fire_temple_frenzy", "winterblight_ogre_armor", "seafortress_ghost_seal_ability", "ability_stun_immunity", "ability_unshakable", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "armor_break_ultra", "luna_taskmaster_shield", "ice_hulk_passive", "winterblight_armor_softening", "normal_steadfast", "mega_steadfast"}
 				lizard:SetModelScale(size)
 				lizard:SetHullRadius(size*55)
 				local ability_count = 1
