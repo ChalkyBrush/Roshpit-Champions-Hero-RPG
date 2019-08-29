@@ -684,6 +684,18 @@
 		"ui_picked_up"			"Подбирает"
 		"ui_equip_new"			"Надевает"
 		"ui_close_panel"		"Закрыть"
+		"ui_old_item"			"Старый"
+		"ui_new_item"			"Новый"
+		"ui_old_item_main_option" "Оставить старый надетым и"
+		"ui_old_item_option_1"	"Вернуть новый предмет"
+		"ui_old_item_option_2"	"Уничтожить новый предмет"
+		"ui_new_item_main_option" "Надеть новый предмет и"
+		"ui_new_item_option_1"	"Сохранить героя"
+		"ui_new_item_option_2"	"Не сохранять"
+		"ui_new_item_option_no_save_slot"	"Уничтожить старый предмет"
+		"ui_new_item_extra_help"	"Оба варианта уничтожат надетый предмет."
+		"ui_new_item_equip_tooltip_title"	"Надеть новый предмет"
+		"ui_new_item_equip_tooltip_text"	"Обе опции уничтожат текущий старый предмет и заменят его на новый. Чтобы сохранить старый премет, воспользуйтесь Кузнецом."
 
 		"ui_trade"				"Обмен"
 
