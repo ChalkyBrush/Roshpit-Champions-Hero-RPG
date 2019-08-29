@@ -1,4 +1,4 @@
-function RPCItems:RollNeverlordRingProperty()
+﻿function RPCItems:RollNeverlordRingProperty()
     local luck = RandomInt(0, 905)
     local luck2 = RandomInt(1, 100)
     local propertyName = ""
@@ -8613,8 +8613,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollArcaneCharm(deathLocation)
     elseif itemName == "item_rpc_skulldigger_gauntlet" then
         newItem = RPCItems:RollSkulldiggerGloves(deathLocation)
-    -- elseif itemName == "item_rpc_winterblight_skull_ring" then
-    --     newItem = RPCItems:RollWinterblightSkullRing(deathLocation)
+    elseif itemName == "item_rpc_winterblight_skull_ring" then
+        newItem = RPCItems:RollWinterblightSkullRing(deathLocation)
     elseif itemName == "item_rpc_heavy_echo_gauntlet" then
         newItem = RPCItems:RollHeavyEchoGauntlet(deathLocation)
     elseif itemName == "item_rpc_frostmaw_hunters_hood" then
@@ -8675,6 +8675,8 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollBerylRingOfIntuition(deathLocation, 1)
     elseif itemName == "item_rpc_auric_ring_of_inspiration" then
         newItem = RPCItems:RollAuricRingOfInspiration(deathLocation, 1)
+    elseif itemName == "item_rpc_helm_of_the_knight_hawk" then
+	newItem = RollHelm RPCItems:RollHelmOfKnightHawk(deathLocation)
     end
     return newItem
 end
