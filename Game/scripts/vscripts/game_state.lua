@@ -3509,7 +3509,7 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local ability = modifier:GetAbility()
 		local w_1_level = ability.w_1_level
-		mult = mult + 0.01 * w_1_level * stacks
+		mult = mult + TRAPPER_ARCANA1_W1_POST_AMP_PERCENT/100 * w_1_level * stacks
 	end
 
 	--SEINARU
