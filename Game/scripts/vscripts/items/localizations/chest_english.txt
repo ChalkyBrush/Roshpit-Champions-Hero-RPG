@@ -369,7 +369,7 @@
 		"DOTA_Tooltip_ability_apprentice_spell_steal_3_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."
 
 		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
-		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the Apprentice's copied abilities, replacing them with Spell steal."
+		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the Apprentice's copied abilities, replacing them with Spell Steal."
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulacrum"
