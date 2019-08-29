@@ -1101,7 +1101,7 @@
 		"DOTA_Tooltip_ability_tiamat_fire_breath_damage"							"DAMAGE:"
 
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack"						"Crystal Breath"
-		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Tiamat's attacks do icy aoe damage around the target, dealing pure damage and slowing movespeed."
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Tiamat's icy attacks deal Pure damage in an area around the target and slow victims' movespeed."
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_ms_loss"				"MOVESPEED REDUCTION:"
 
