@@ -134,11 +134,11 @@ function increase_w3_stacks(event)
     local modifier = caster:FindModifierByName('modifier_venomort_bonus_stats')
     local stacks = modifier:GetStackCount() + 1 * ability.w3_level
 
-    local bossesCountAs = BOSSES_COUNT_AS_ENEMIES
-    local paragonsCountAs = PARAGONS_COUNT_AS_ENEMIES
+    local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
+    local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
     if caster:HasModifier("modifier_venomort_glyph_2_1") then
-        bossesCountAs = T21_BOSSES_COUNT_AS_ENEMIES
-        paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
+        bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
+        paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
     end
 
     if target.mainBoss then
@@ -160,11 +160,11 @@ function decrease_w3_stacks(event)
     local modifier = caster:FindModifierByName('modifier_venomort_bonus_stats')
     local stacks = modifier:GetStackCount() - 1 * ability.w3_level
 
-    local bossesCountAs = BOSSES_COUNT_AS_ENEMIES
-    local paragonsCountAs = PARAGONS_COUNT_AS_ENEMIES
+    local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
+    local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
     if caster:HasModifier("modifier_venomort_glyph_2_1") then
-        bossesCountAs = T21_BOSSES_COUNT_AS_ENEMIES
-        paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
+        bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
+        paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
     end
 
     if target.mainBoss then

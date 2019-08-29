@@ -16,7 +16,7 @@
     	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"Taking damage over time"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] Mass Hysteria"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Increases Base Ability Damage based on the number of targets Venomort infected with his most recent casting of Plague Spreader. Paragon enemies count as 5 units, while bosses count as 20. Casting it again resets this bonus. Lasts 20 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Increases Base Ability Damage based on the number of targets Venomort infected with his most recent casting of Plague Spreader. Paragon enemies count as <% VENOMORT_PARAGONS_COUNT_AS_ENEMIES %> units, while bosses count as <% VENOMORT_BOSSES_COUNT_AS_ENEMIES %>. Casting it again resets this bonus. Maximum <% Q1_MAX_STACKS %> stacks. Lasts 20 seconds."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_property_one"				"Base Ability Damage"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_suffix"						"% per unit"
 
@@ -63,7 +63,7 @@
     	"DOTA_Tooltip_modifier_venomort_demoralize_Description"				"Confused"
 
     	"DOTA_Tooltip_ability_venomort_rune_w_3"							"[W3] Scourge Fervor"
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_Description"				"Tagging an enemy with Necrofusion at least once causes it to increase all of Venomort's attributes as long as it lives. Paragon enemies count as <% PARAGONS_COUNT_AS_ENEMIES %> units, while bosses count as 20."
+    	"DOTA_Tooltip_ability_venomort_rune_w_3_Description"				"Tagging an enemy with Necrofusion at least once causes it to increase all of Venomort's attributes as long as it lives. Paragon enemies count as <% VENOMORT_PARAGONS_COUNT_AS_ENEMIES %> units, while bosses count as 20."
     	"DOTA_Tooltip_ability_venomort_rune_w_3_property_one"				"Bonus Attributes"
     	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						" per affected enemy"
 		
@@ -116,7 +116,7 @@
     	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally_Description"	"Increased attack power %"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as 5 units, while bosses count as 20. Base duration - 1.5 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as <% VENOMORT_PARAGONS_COUNT_AS_ENEMIES %> units, while bosses count as <% VENOMORT_BOSSES_COUNT_AS_ENEMIES %>. Maximum <% VENOMORT_E4_MAX_STACKS %> stacks. Base duration - <% VENOMORT_E4_DURATION %> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Bonus Health"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" per enemy"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Bonus Evasion"
@@ -216,10 +216,10 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"Absorbing Damage"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] Disencumber"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Grants damage reduction, and increases base movement speed, while @Ability4 is toggled on. Damage reduction from this rune is capped at 90%."
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"Grants bonus armor, and increases base movement speed, while @Ability4 is toggled on."
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"Bonus Movespeed"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
-        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "Damage reduction"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"      "Bonus armor"
         "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix_two"                     ""
 
 
@@ -241,7 +241,7 @@
   		"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2"						"[Q1] Frostbite Venom"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Each time an enemy is damaged by Frostvenom Grasp they gain a stack of Frostbite Venom. Each stack deals damage on a 0.1 second interval."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					" every 0.1s"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					"per Hero Level every 0.1s"
 
   		"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2"						"[Q2] Icemeter"
     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_Description"			"Frostvenom Grasp's target search AOE expands, and the original burst sends Venomort sliding forward."
@@ -275,7 +275,7 @@
 		"item_rpc_venomort_glyph_2_1_description" 				"For each of Venomort's effects that gains power based on the number of affected targets, Paragon enemies count as @glyph_property2 units, while bosses count as @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"Glyph of Ghost Shroud"
-		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health."
+		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health. Reduce @Ability3 cooldown by <% VENOMORT_T31_E_CD_RED %> seconds and increase cast range <% VENOMORT_T31_E_CAST_RANGE_AMP %> times"
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"Glyph of Melancholy"
 		"item_rpc_venomort_glyph_4_1_description" 				"[E1] additionally increases <font color=\"#9ACCD1\">Ghost</font>, <font color=\"#5C776E\">Undead</font>, and <font color=\"#7F4F84\">Shadow</font> damage."
@@ -284,7 +284,7 @@
 		"item_rpc_venomort_glyph_5_1_description" 				"Multiplies the effectiveness of [W3] by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"Glyph of Enfeeblement"
-		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced Magical and Pure damage to Venomort."
+		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced taken damage to Venomort for <% VENOMORT_T61_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"Glyph of the Snake Charmer"
 		"item_rpc_venomort_glyph_7_1_description" 				"Increases the duration of all units summoned by any of Venomort's spells or runes (but not from other sources) by @glyph_property1 seconds, and increases their base attack speed by @glyph_property2."
@@ -357,4 +357,4 @@
 
     	"DOTA_Tooltip_ability_item_rpc_venomort_immortal_weapon_3"				"Hook of the Fetid Valley"
     	"item_property_venomort_immortal_weapon3"								"Mantle of Juiblex"
-    	"property_venomort_immortal_weapon3_description"						"[E2] no longer has a duration or a tick rate but instead applies a single instance of damage. The damage is still considered as a Damage Over Time effect. Each point of [E2] increases its damage by @special_property1% of Venomort's maximum health."
+    	"property_venomort_immortal_weapon3_description"						"Each point of [E2] increases its damage by @special_property1% of Venomort's maximum health."
