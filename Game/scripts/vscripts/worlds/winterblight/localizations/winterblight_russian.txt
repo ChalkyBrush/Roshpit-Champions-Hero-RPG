@@ -1119,7 +1119,7 @@
 		"winterblight_cavern_room3"									"Кристариум"
 		"winterblight_cavern_room4"									"Грань Зимы"
 
-		"winterblight_cavern_boss_button_label"						"Boss Summoning"
+		"winterblight_cavern_boss_button_label"						"Вызов босса"
 		"winterblight_cavern_boss_summary"							"Уровень @boss_name обусловлен средним уровнем зачистки для региона @chamber_name. По крайней мере 1 Испытание должно быть пройдено для вызова босса."
 
 		"winterblight_cavern_gigarraun"								"Gigarraun"
