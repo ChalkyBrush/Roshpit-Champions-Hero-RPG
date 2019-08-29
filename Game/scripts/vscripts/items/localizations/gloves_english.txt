@@ -256,7 +256,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by @special_property1%. When the buff ends, the 4 closest enemies within a 1000 radius are damaged by @special_property2% of Attack power times the number of stacks. Max @special_property3 stacks."
+		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by @special_property1%. When the buff ends, the 4 closest enemies within a 1000 radius are damaged by @special_property2% of attack power times the number of stacks. Max @special_property3 stacks."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
 		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Each stack increases Elemental damage by 30%%"
 		
@@ -304,11 +304,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
 		"item_property_tiamat_claw"							"Unyielding Vanity"
-		"property_tiamat_claw_description"					"All attributes are fixed at this property's value and cannot be changed by any means."
+		"property_tiamat_claw_description"					"While equipped, all attributes are fixed at this property's value and cannot be changed by any other means."
 
 		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
 		"item_property_gold_breaker"							"Touch of Abjuration"
-		"property_gold_breaker_description"					"Your attacks disrupt Spell Immunity effects on enemy units, instantly removing them from your target. This also applies the Abjuration debuff to them for <% GOLDBREAKER_DEBUFF_DURATION %> seconds. Spell Immunity effects on the target will be instantly purged, and they will instead be stunned for the same duration that effect would have lasted."
+		"property_gold_breaker_description"					"Your attacks disrupt Spell Immunity effects on enemy units, instantly removing them from your target, and also applying the Abjuration debuff to them for <% GOLDBREAKER_DEBUFF_DURATION %> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted."
 
 		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Abjuration"
 		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Attempting to become Spell Immune will instead stun for the same duration"
