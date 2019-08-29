@@ -176,7 +176,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_suffix"				"% от макс. здоровья"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1"						"[R2] Rain Storm"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"Пока активно умение (R) Ancient Rain, ближайший враг в радиусе 1000 будет поражен молнией каждые 0.5 секунды."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"Пока активно умение (R) Ancient Rain, ближайший враг в радиусе 1000 будет поражен молнией каждые 0.5 секунды, урон наносится по области."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_property_one"			"Урон"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_suffix"				"% от урона героя"
 
