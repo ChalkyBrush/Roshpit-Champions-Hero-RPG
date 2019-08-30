@@ -57,7 +57,7 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"纯净护腕"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"部位：手"
 		"item_property_divine_purity"				"纯净"
-		"property_divine_purity_description"		"攻击时额外造成1500%纯粹伤害。"
+		"property_divine_purity_description"		"攻击时额外造成<% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>00%纯粹伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"掠夺者护手"
