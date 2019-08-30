@@ -148,3 +148,15 @@ function Util.Common:LimitPerTime(limit, time, key, func)
         func()
     end
 end
+
+Util.BaseType = Util.BaseType or class({})
+function Util.BaseType:IsAbilityBaseType(baseType)
+    if baseType == BASE_ABILITY_Q 
+    or baseType == BASE_ABILITY_W 
+    or baseType == BASE_ABILITY_E 
+    or baseType == BASE_ABILITY_R then
+        return true
+    else
+        return false
+    end
+end
