@@ -23,9 +23,9 @@ function ghost_warp_start(event)
 	local invisible_duration = event.invisible_duration
 	ability.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	ability.targetPoint = target
-	local warpDuration = 1 * scale
-	ability.fallVelocity = 3
-	ability.forwardVelocity = 45
+	local warpDuration = 1.5 * scale
+	ability.fallVelocity = 2
+	ability.forwardVelocity = 30
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ghost_warp_flying", {duration = warpDuration})
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, true)
