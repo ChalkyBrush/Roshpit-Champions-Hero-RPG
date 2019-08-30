@@ -275,7 +275,7 @@
 		"item_rpc_venomort_glyph_2_1_description" 				"For each of Venomort's effects that gains power based on the number of affected targets, Paragon enemies count as @glyph_property2 units, while bosses count as @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"Glyph of Ghost Shroud"
-		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health."
+		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health. Additionally doubles the cast range of @Ability3 and reduces its base cooldown by 2 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"Glyph of Melancholy"
 		"item_rpc_venomort_glyph_4_1_description" 				"[E1] additionally increases <font color=\"#9ACCD1\">Ghost</font>, <font color=\"#5C776E\">Undead</font>, and <font color=\"#7F4F84\">Shadow</font> damage."
