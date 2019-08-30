@@ -60,7 +60,7 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Slot: Hands"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Attacks deal x15 Pure damage"
+		"property_divine_purity_description"		"Attacks deal x<% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %> Pure damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
