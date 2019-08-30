@@ -684,6 +684,18 @@
 		"ui_picked_up"			"Подбирает"
 		"ui_equip_new"			"Надевает"
 		"ui_close_panel"		"Закрыть"
+		"ui_old_item"			"Старый"
+		"ui_new_item"			"Новый"
+		"ui_old_item_main_option" "Оставить старый надетым и"
+		"ui_old_item_option_1"	"Вернуть новый предмет"
+		"ui_old_item_option_2"	"Уничтожить новый предмет"
+		"ui_new_item_main_option" "Надеть новый предмет и"
+		"ui_new_item_option_1"	"Сохранить героя"
+		"ui_new_item_option_2"	"Не сохранять"
+		"ui_new_item_option_no_save_slot"	"Уничтожить старый предмет"
+		"ui_new_item_extra_help"	"Оба варианта уничтожат надетый предмет."
+		"ui_new_item_equip_tooltip_title"	"Надеть новый предмет"
+		"ui_new_item_equip_tooltip_text"	"Обе опции уничтожат текущий старый предмет и заменят его на новый. Чтобы сохранить старый премет, воспользуйтесь Кузнецом."
 
 		"ui_trade"				"Обмен"
 
@@ -9785,7 +9797,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_suffix"				"% от макс. здоровья"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1"						"[R2] Rain Storm"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"Пока активно умение (R) Ancient Rain, ближайший враг в радиусе 1000 будет поражен молнией каждые 0.5 секунды."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"Пока активно умение (R) Ancient Rain, ближайший враг в радиусе 1000 будет поражен молнией каждые 0.5 секунды, урон наносится по области."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_property_one"			"Урон"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_suffix"				"% от урона героя"
 
@@ -9990,7 +10002,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% за каждые 10 очков Интеллекта"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"Explosive Bomb"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Стихия: <font color=\"#EF4126\">Огонь</font><br>Бросает бомбу в указанную точку. Взрываясь, бомба наносит урон и оглушает врагов в радиусе поражения."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Стихия: <font color=\"#C25DFC\">Нормальный</font><br>Бросает <font color='#ccff66'>3</font> бомбы в указанную точку. Взрыв наносит урон и оглушает цели."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"ВРЕМЯ ОГЛУШЕНИЯ:"
@@ -10010,10 +10022,12 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_2_property_one"		"Урон каждые 0.3 секунды"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				""
 		
-		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Shrapnel Bomb"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Каждая брошенная (W) Explosive Bombs после взрыва разделится на 3 маленьких бомбы, которые разлетятся в случайном направлении."
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"Урон малых бомб"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"% от (W) Explosive Bomb"
+		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Enhanced Munitions"
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Каждая бомба имеет шанс сохранить часть заряда и взорваться через <font color='#ccff66'>1</font> сек. Каждый взрыв наносит <font color='#ccff66'>80</font>% урона от предыдущего. Шанс выше 100% означает несколько взрывов. Дополнительно увеличивает урон от [W2]."
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"Шанс мультивзрыва"
+        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
+        "DOTA_Tooltip_ability_trapper_rune_w_3_property_two"		"Усиление урона [W2]"
+        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] Explosives Expert"
     	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"Значение атрибутов героя увеличивает урон (W) Explosive Bombs и [W2]."
@@ -10071,12 +10085,12 @@
     	"DOTA_Tooltip_ability_trapper_action_leap_max_distance"			"Макс. радиус:"
 		
 		"DOTA_Tooltip_ability_trapper_backstab"						"Backstab"
-    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>После 2 секундной подготовки, атакуя выбранную цель со спины наносит огромный урон, основанный на базовом уроне героя. Если враг обнаружит героя во время подготовки, прочтение будет отменено.<br><font color='#70EA72'>Прочтение этой способности на себя снимет невидимость.</font>"
+    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>После 2 секундной подготовки, атакуя выбранную цель со спины наносит огромный урон, основанный на базовом уроне героя. Если враг обнаружит героя во время подготовки, прочтение будет отменено.<br><font color='#70EA72'>Прочтение этой способности на себя снимет невидимость.</font> Игнорирует стойкость."
     	"DOTA_Tooltip_ability_trapper_backstab_Lore"				""
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"МНОЖИТЕЛЬ УРОНА:"
 		
-		"DOTA_Tooltip_ability_trapper_rune_r_1"						"[R1] Lethal Blades"
-    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Применение (R) Backstab разделяет атаку Trapper, позволяя задеть несколько целей рядом с основной. Разделённые атаки нанесут лишь часть урона от (R) Backstab"
+		"DOTA_Tooltip_ability_trapper_rune_r_1"						"[R1] Chrysanthemum"
+    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Применение (R) Backstab разделяет атаку Trapper, позволяя задеть несколько целей рядом с основной. Разделённые атаки нанесут лишь часть урона от (R) Backstab, игнорирует Стойкость."
     	"DOTA_Tooltip_ability_trapper_rune_r_1_property_one"		"Урон"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_suffix"				"%"	
 		
@@ -10089,7 +10103,7 @@
       	"DOTA_Tooltip_modifier_trapper_rune_r_2_visible_Description"	"Получает бонус к базовому урону, пока находится в невидимости"
 		
 		"DOTA_Tooltip_ability_trapper_rune_r_3"                     "[R3] Jinada"
-        "DOTA_Tooltip_ability_trapper_rune_r_3_Description"         "После успешного прочтения (R) Backstab, герой получает 40% шанс нанести критический удар в течении последующих 9 секунд."
+        "DOTA_Tooltip_ability_trapper_rune_r_3_Description"         "После успешного прочтения (R) Backstab, герой получает 40% шанс нанести критический удар в течение последующих 9 секунд."
         "DOTA_Tooltip_ability_trapper_rune_r_3_property_one"        "Критический урон"
         "DOTA_Tooltip_ability_trapper_rune_r_3_suffix"              "%"
 		
@@ -10148,52 +10162,52 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"% за каждые 10 очков атрибутов."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "(T1) Глиф скрытности"
-        "item_rpc_trapper_glyph_1_1_description"                "Сокращает радиус обнаружения врагов на @glyph_property1%."
+		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "(T1) Glyph of Sneaking"
+        "item_rpc_trapper_glyph_1_1_description"                "Сокращает радиус обнаружения врагов на @glyph_property1%. Action Leap создает [E2]."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "(T2) Глиф первой помощи"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "(T2) Glyph of First Aid"
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Глиф парализующей пыли"
-        "item_rpc_trapper_glyph_3_1_description"                "Прочтение (E) Vanish парализует ближайших врагов на @glyph_property1 сек., запрещая совершать любые действия."
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Glyph of Tinkering"
+        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <font color='#ccff66'>200</font>, и добавляет <font color='#ccff66'>2</font> бомбы за каст. Противники, задетые взрывом, будут контужены и не смогут нанести урон по Trapper следующими <font color='#ccff66'>3</font> порциями урона. Урон от бомб обновляет контузию."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"
 
-		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "(T4) Глиф убийства"
+		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "(T4) Glyph of Death Strike"
         "item_rpc_trapper_glyph_4_1_description"                "Применяя (R)Backstab на монстров парагона, будет нанесён увеличенный в @glyph_property1 раз(а) урон."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "(T5) Глиф гренадёра"
-        "item_rpc_trapper_glyph_5_1_description"                "Радиус действия (W) Explosive Bomb (Но не соответствующих рун или заменяемых умений) ежесекундно увеличивается на @glyph_property1%. Максимум 100%, который достигается спустя @glyph_property2 сек. Прочтение (W) Explosive Bomb потратит все накопленные заряды."
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "(T5) Glyph of the Mad Bomber"
+        "item_rpc_trapper_glyph_5_1_description"                "Бросает @Ability2 каждые <font color='#ccff66'>1400</font> пройденной дистанции. Smoke Bomb производит газ <font color='#ccff66'>1.5</font> раз дольше и имеет <font color='#ccff66'>2</font>x радиус газа."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "(T6) Глиф перековки"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "(T6) Glyph of Craftsmanship"
         "item_rpc_trapper_glyph_6_1_description"                "Весь урон, напрямую наносимый предметами получает дополнительную <font color=\"#DDDDDD\">Нормальную</font> стихию. В обмен на этот бонус, урон <font color=\"#DDDDDD\">Нормальной</font> стихии снижается на @glyph_property1%"
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "(T7) Глиф мастера ловушек"
-        "item_rpc_trapper_glyph_7_1_description"                "Одновременно может существовать 2 (Q) Fulminating trap и 2 [Q1]."
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "(T7) Glyph of Trapping"
+        "item_rpc_trapper_glyph_7_1_description"                "Одновременно может существовать 2 экземпляра каждой из ловушек @Ability1."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "(Immortal) Глиф смертельных ловушек"
-        "item_rpc_trapper_glyph_5_a_description"                "Все наносящие урон ловушки усилены в @glyph_property1 раз."
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "(Immortal) Glyph of Blueprints"
+        "item_rpc_trapper_glyph_5_a_description"                "Усиливает @Ability1. Fulminating Trap наносит <font color='#ccff66'>50</font>% больше урона. Poison Trap увеличивает максимальные заряды яда до <font color='#ccff66'>15</font>. Net Trap имеет <font color='#ccff66'>2</font>x увеличенную длительность связывания. Torrent Trap требует <font color='#ccff66'>1</font> секунд для обнаружения цели."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1-2) Глиф огненного лорда"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1-2) Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] удваивается."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2-2) Глиф когтей"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2-2) Glyph of Talons"
         "item_rpc_trapper_glyph_2_2_description"                "Урон от Psi Blades наносится и основной цели."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3-2) Глиф прибоя"
-        "item_rpc_trapper_glyph_3_2_description"                "Враги, поражённые потоком воды от Torrent Trap теряют @glyph_property1% своего исходящего урона на 1 секунду."
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "(T3-2) Glyph of Disorientation"
+        "item_rpc_trapper_glyph_3_2_description"                "Противники, получившие урон от @Ability1 снижают исходящий от них урон на @glyph_property1% в течение <font color='#ccff66'>5</font> сек."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4-2) Глиф орхидеи"
-        "item_rpc_trapper_glyph_4_2_description"                "Враги, на которых действует эффект (Q) Net Trap в дополнение к обездвиживанию получают безмолвие."
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "(T4-2) Glyph of the Orchid"
+        "item_rpc_trapper_glyph_4_2_description"                "Враги, на которых действует эффект (Q) Net Trap в дополнение к обездвиживанию получают безмолвие и обезоруживание."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5-2) Глиф засады"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "(T5-2) Glyph of the Prowler"
         "item_rpc_trapper_glyph_5_2_description"                "Увеличивает максимальное количество зарядов [R2] на @glyph_property1."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6-2) Глиф вспыльчивости"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "(T6-2) Glyph of Hair Trigger"
         "item_rpc_trapper_glyph_6_2_description"                "Иллюзия от руны Decoy уничтожается с @glyph_property1 удара(ов), но наносит на @glyph_property2% больше урона."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7-2) Глиф инстинктивного убийцы"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "(T7-2) Glyph of Killer Instinct"
         "item_rpc_trapper_glyph_7_2_description"                "[R3] становится пассивной способностью в невидимости."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Книга Глифов Trapper"
@@ -12474,7 +12488,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ:</font> Скорость передвижения врагов, задетых умением (W) @Ability2 снижается на 100 на 4 секунды. Дополнительно, с 20% шансом, пораженный умением (W) @Ability2 враг окажется в центре ледяного взрыва, который наносит полный урон способности в небольшой области вокруг."
+		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Скорость передвижения врагов, задетых умением (W) @Ability2 снижается на 100 на 4 секунды. Дополнительно, с 20% шансом, пораженный умением (W) @Ability2 враг окажется в центре ледяного взрыва, который наносит полный урон способности в небольшой области вокруг."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Замедлен"
 		
@@ -12754,7 +12768,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Moon Beams"
-		"property_luma_description"					 "<font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ:</font> Урон от умения (Q) @Ability1 с @special_property1% шансом может быть нанесен лунными лучами, которые наносят урон, равный @special_property2% от урона умения и даёт беспрепятственный обзор местности в месте над атакованной целью на 4 секунды. Этот предмет ограничивает ваш стихийный урон <font color=\"#C25DFC\">Космоса</font> на 5000%."
+		"property_luma_description"					 "<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Урон от умения (Q) @Ability1 с @special_property1% шансом может быть нанесен лунными лучами, которые наносят урон, равный @special_property2% от урона умения и даёт беспрепятственный обзор местности в месте над атакованной целью на 4 секунды. Этот предмет ограничивает ваш стихийный урон <font color=\"#C25DFC\">Космоса</font> на 5000%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
@@ -12873,7 +12887,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ:</font> С @special_property1% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет @special_property2x урона в большой области вокруг атакованной цели."
+		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С @special_property1% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет @special_property2x урона в большой области вокруг атакованной цели."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
@@ -12953,14 +12967,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит 100% от урона способности и замедляет задетых врагов на 60% на 6 секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на 5000%."
+		 "property_water_deity_description"						"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит 100% от урона способности и замедляет задетых врагов на 60% на 6 секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на 5000%."
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"60%% замедление, 100%% дополнительного чистого урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ:</font> С @special_property1% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный @special_property2% от урона способности и окружит ближайших врагов на 0.6 секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на 5000%."
+		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С @special_property1% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный @special_property2% от урона способности и окружит ближайших врагов на 0.6 секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на 5000%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
@@ -13340,7 +13354,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"Stargazer's Sphere"
 		"item_property_stargazer"									"Eye of the Stargazer"
-		"property_stargazer_description"							"Отдавая приказ на атаку на любом расстоянии позволяет раскрыть туман войны в области, радиусом @special_property1. Находящиеся в этой области враги при получении урона будут поражены падающей звездой, которая нанесет чистый урон, равный @special_property3% от изначального урона. Враги могут быть поражены звездой не чаще, чем раз в 0.5 секунды. Если отдать приказ на атаку в уже существующую область, то в это место упадёт метеор, который нанесет урон, равный @special_property4% от урона героя и оглушит находящихся там врагов на 1 секунду. Новое кольцо может быть установлено не раньше, чем через @special_property2 сек."
+		"property_stargazer_description"							"Приказ атаки вызовет область-кольцо, наполненную космической энергией. Врагов внутри при получении урона ударит звездой, урон которой рассчитан от <font color='#ccff66'>100</font>% наибольшей порции урона во время действия круга. <font color=\"#E4AE33\"> Аугментированный урон не может быть учитан </font>. Максимально возможный урон от звезды равен <font color='#ccff66'>10</font>x. Для Стойкости и Мега-Стойкости порог урона увеличен в <font color='#ccff66'>10</font>/<font color='#ccff66'>30</font>х соответственно. Интервал падения звезд <font color='#ccff66'>0.5</font> сек.<br>Повторный приказ атаки уничтожает кольцо и вызывает метеорит в эту область. Урон <font color='#ccff66'>20</font>x от силы атаки, длительность оглушения <font color='#ccff66'>1</font> сек. Перезарядка создания кольца <font color='#ccff66'>1.5</font> секунд."
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Поражает врагов падающими звездами при нанесении урона"
 		
@@ -19477,7 +19491,7 @@
 		"winterblight_cavern_guide"									"Cavern Guide"
 		"star_wb_master_title"										"Cavern Master"
 
-		"winterblight_cavern_help1"									"Выберите регион, чтобы увидеть список испытаний. Можно выполнять одновременно только одно испытание в каждом регионе одновременно. Монстры не могут покинуть регион и не могут получать урон от внешних источников. Только игрок, начавший испытание, может наносит урон и убивать монстров."
+		"winterblight_cavern_help1"									"Выберите регион, чтобы увидеть список испытаний. Можно выполнять одновременно только одно испытание в каждом регионе одновременно. Монстры не могут покинуть регион и не могут получать урон от внешних источников. Только игрок, начавший испытание, может наносить урон и убивать монстров."
 		"winterblight_cavern_help2"									"Выберите Испытание из списка ниже. Завершение Испытания даст Фрагменты Реликвии, которые могут быть использованы для призыва босса. Фрагменты сбрасываются каждую игру. Количество для призыва босса - 10,000."
 		"winterblight_cavern_help3"									"Выберите Уровень Испытания. Можно выбрать только текущий или следующий по силе от максимально пройденного уровня Вашим героем. Высокие уровни дают больше Мифрила и позволяют получить некоторые редкие предметы."
 		"winterblight_cavern_help4"									"Ваши Фрагменты Реликвии могут быть использованы для вызова древних существ, которые когда-то были повелителями этих гор в прошлые эпохи."
@@ -19487,7 +19501,7 @@
 		"winterblight_cavern_room3"									"Кристариум"
 		"winterblight_cavern_room4"									"Грань Зимы"
 
-		"winterblight_cavern_boss_button_label"						"Boss Summoning"
+		"winterblight_cavern_boss_button_label"						"Вызов босса"
 		"winterblight_cavern_boss_summary"							"Уровень @boss_name обусловлен средним уровнем зачистки для региона @chamber_name. По крайней мере 1 Испытание должно быть пройдено для вызова босса."
 
 		"winterblight_cavern_gigarraun"								"Gigarraun"

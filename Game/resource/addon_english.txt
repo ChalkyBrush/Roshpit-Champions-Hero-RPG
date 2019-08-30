@@ -13375,7 +13375,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
         "item_property_stargazer"                                    "Eye of the Stargazer"
-        "property_stargazer_description"                            "Issuing an attack-move order at any range creates a cosmic aperture with radius based on second property. Enemies inside the aperture who take damage will be struck by a star that deals Pure damage equal to <font color='#ccff66'>100</font>% of the max damage instance during circle(not count augmented damage). Maximum damage per star = <font color='#ccff66'>10</font>x of initial damage. The damage has <font color='#ccff66'>10</font> pierce steadfast and <font color='#ccff66'>30</font> pierce megasteadfast. Enemies can only be hit by a star once every <font color='#ccff66'>0.5</font> seconds. Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does <font color='#ccff66'>20</font>x of attack damage in the area and stuns enemies for <font color='#ccff66'>1</font> second. Stargazer aperture creation has a <font color='#ccff66'>1.5</font> second internal cooldown."
+        "property_stargazer_description"                            "Issuing an attack-move order anywhere will create a cosmic aperture there, with a radius equal to this item's Vision Increase property. Enemies inside the aperture who take damage will be struck by a star, which deals Pure damage equal to <font color='#ccff66'>100</font>% of the highest damage instance dealt to enemies during that ring's lifetime (excluding damage from Ability Augments and Stargazer's Sphere), further limited to <font color='#ccff66'>10</font>x that damage value. Stars pierce Steadfast more effectively, increasing its threshold to <font color='#ccff66'>10</font>x its normal value (<font color='#ccff66'>30</font>x versus Mega Steadfast). Enemies can only be hit by a star once every <font color='#ccff66'>0.5</font> seconds. Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does <font color='#ccff66'>20</font>x your attack power in the area and stuns enemies for <font color='#ccff66'>1</font> second. Stargazer aperture creation has a <font color='#ccff66'>1.5</font> second internal cooldown."
 
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Hit by stars when taking damage"
@@ -18404,10 +18404,10 @@
 	"quest_6_challenge_1_desc"											"You can purchase a special Pass for Roshpit Champions, which increases your stash space and hero save slots while active. Passes last for 30 days from the date of purchase and are available from the game's page in the Dota 2 Arcade. Each Pass user in your game also grants every player a stacking +10% bonus to EXP and mithril shard rewards, and a +50% better chance of finding more powerful items!"
 	"quest_6_challenge_1_sub_0_summary"									"Answer the question about the Custom Game Pass"
 
-	"tutorial_master_dialogue_6_1a"										"Valve had added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
-	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 and lasts for 30 days. The button to purchase one is on the main game page."
+	"tutorial_master_dialogue_6_1a"										"Long ago, added a mechanism to purchase a game pass within the Dota 2 client. We are truly fortunate."	
+	"tutorial_master_dialogue_6_1b"										"The Game Pass costs $0.99 USD and lasts for 30 days. The button to purchase one is on the main game page."
 	"tutorial_master_dialogue_6_1c"										"Along with supporting the game's development, the pass offers extra character save slots and extra stash space for its duration."
-	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase xp gain, mithril gain, and luck with items. These bonuses stack with all party members who also have a pass."
+	"tutorial_master_dialogue_6_1d"										"The pass also has small bonuses that increase XP gain, mithril gain, and luck with item drops. These bonuses stack with all party members who also have a pass."
 	"tutorial_master_dialogue_6_1e"										"OK now tell me, how long does the Custom Game Pass last for?"
 
 	"tutorial_quiz_question_18"											"How many days does the Custom Game Pass last?"
@@ -18449,7 +18449,7 @@
 
 	"tutorial_master_dialogue_6_3f"										"You got it! Feel free to browse the market some more to get a feel for it."
 
-	"quest_6_challenge_4_desc"											"The game's website offers a Web Premium feature, which adds 72 additional stash slots which can be managed through a convenient drag-and-drop interface on your profile! These features are activated by purchasing a consumable token, and last for 30 days after using it. The token itself can be sold on the game's Market just like any other item."
+	"quest_6_challenge_4_desc"											"The game's website offers a Web Premium feature, which adds 72 additional stash slots that can be managed through a convenient drag-and-drop interface on your profile! These features are activated by purchasing a consumable token, and last for 30 days after using it. The token itself can be sold on the game's Market just like any other item."
 	"quest_6_challenge_4_sub_0_summary"									"Click on cherebi at www.roshpit.ca/web-premium."
 
 	"tutorial_master_dialogue_6_4a"										"Roshpit.ca offers Web Premium for $5.00. It is entirely an optional feature that does not affect gameplay."
@@ -18458,18 +18458,18 @@
 
 	"tutorial_master_dialogue_6_4d"										"Good! You are welcome to purchase a token if you want to support development. That concludes this lesson."
 
-	"quest_6_challenge_5_desc"											"Roshpit Champions has an active chat channel for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
-	"quest_6_challenge_5_sub_0_summary"									"Go to the Curator's Library channel of the Roshpit Discord. Check the Pinned Messages for the password."
+	"quest_6_challenge_5_desc"											"Roshpit Champions has an active Discord server for discussing the game. The game's developers are present there if you wish to speak to them. The URL is discord.gg/ZUhfMZG"
+	"quest_6_challenge_5_sub_0_summary"									"Go to the channel 'curators-library' in the Roshpit Discord. Check the Pinned Messages for the password."
 
 	"tutorial_master_dialogue_6_5a"										"The Roshpit Champions Discord chat channel is a great way to meet fellow players and discuss the game."
-	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. You can click the link in the game description as well."
+	"tutorial_master_dialogue_6_5b"										"You can access the channel at discord.gg/ZUhfMZG. There is also clickable link to our Discord in the ABOUT tab of this game's page in the Dota 2 Arcade."
 	"tutorial_master_dialogue_6_5c"										"I want you to go visit! Go to the Discord chat channel."
 	"tutorial_master_dialogue_6_5d"										"To prove you've been there, tell me the password. You can find the password in the 'pinned messages' of the curators-library channel."
 
-	"tutorial_quiz_question_19"											"Go to curators-library sub channel of the Roshpit Champions Discord. What is the password found in the 'Pinned Messages'?"
+	"tutorial_quiz_question_19"											"Go to the curators-library channel of the Roshpit Champions Discord, and click the Pinned Messages icon at the top of the screen. What is the password?"
 
-	"tutorial_quiz_wrong_6_5_1"											"Check the pinned messages in curators-library."
-	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and go to the curators-library sub channel. Check the pinned messages there."
+	"tutorial_quiz_wrong_6_5_1"											"Check the Pinned Messages in the channel named curators-library. The button is located along the top-right of the Discord window."
+	"tutorial_quiz_wrong_6_5_2"											"That isn't it, go to discord.gg/ZUhfMZG and then view the curators-library channel. Check that channel's Pinned Messages."
 
 	"tutorial_master_dialogue_6_5e"										"That's right! Now feel free to introduce yourself to the other players if you'd like."
 	"tutorial_master_dialogue_6_5f"										"That ends the lesson."
@@ -19586,7 +19586,7 @@
 		"DOTA_Tooltip_ability_tiamat_fire_breath_damage"							"DAMAGE:"
 
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack"						"Crystal Breath"
-		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Tiamat's attacks do icy aoe damage around the target, dealing pure damage and slowing movespeed."
+		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Tiamat's icy attacks deal Pure damage in an area around the target and slow victims' movespeed."
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_ms_loss"				"MOVESPEED REDUCTION:"
 
