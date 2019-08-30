@@ -7082,6 +7082,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix"		"% от умения (R) Aeon Fracture"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_property_two"	"Доп. длительность оглушения"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix_two"		" сек."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_property_three"	"Radius"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix_three"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_e_2"				"[E2] Mountain Pyre"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_Description"	"После телепортации к камню от умения @Ability3, дарует герою дополнительные очки Силы на 15 секунд."

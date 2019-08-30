@@ -10071,7 +10071,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"90"
 			}
 		}
 	}
@@ -10900,7 +10900,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"5"
 			}
 		}
 	}

@@ -24862,6 +24862,15 @@
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "1"
 				}
 		    }
+		    "modifier_venomort_arcana2_armor" {
+				"IsHidden"	"1"
+				"EffectAttachType"	"attach_origin"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"120"
+				}
+		    }
 			"modifier_reaper_slice_shield"
 			{
 				"Passive"			"0"
@@ -24940,7 +24949,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"5"
 			}
 			"02"
 		        {
@@ -24971,7 +24980,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -24995,15 +25004,10 @@
 				"property_one"			"8"
 			}
 			"02"
-                        {
-                                "var_type"                             "FIELD_INTEGER"
-                                "property_two"                         "2"
-                        }
-                        "03"
-                        {
-                                                                     "var_type"           "FIELD_INTEGER"
-                                                                     "property_two_max"   "90"
-                        }
+            {
+                    "var_type"                             "FIELD_INTEGER"
+                    "property_two"                         "120"
+            }
 		}
 	}
 
@@ -25170,12 +25174,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45000"
+				"property_one"			"2000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"20000"
+				"property_one_base"		"0"
 			}
 			"03"
 			{
@@ -25441,7 +25445,7 @@
 				"IsStunDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-5"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-7"
 				}
 
 			}
@@ -25629,7 +25633,6 @@
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
 
 
 		// Precache
@@ -25684,6 +25687,7 @@
 				"target"		"POINT"
 				"range"			"%range"
 				"invisible_duration" "%invisible_duration"
+				"cast_range"    "%cast_range"
 			}
 
 		}
@@ -25772,7 +25776,7 @@
 			    "IsHidden"  "1"
 			    "EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 			    "EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -25980,7 +25984,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health"			    "1000 2000 10000 32000 140000 420000 1000000"
+				"health"			    "10000 20000 60000 132000 740000 1420000 6000000"
 			}
 			"03"
 			{
@@ -26037,7 +26041,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -26059,7 +26063,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
+				"property_one"			"7"
 			}
 		}
 	}
@@ -26101,7 +26105,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"300"
 			}
 		}
 	}
@@ -26144,7 +26148,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -26201,7 +26205,7 @@
 		"AbilityTextureName"	"venomancer_poison_sting"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		
 
 		"AbilitySpecial"
@@ -26209,7 +26213,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"100"
 			}
             "02"
             {
@@ -26289,7 +26293,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
+				"property_one"			"40"
 			}
 			"02"
 			{
@@ -26361,7 +26365,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50000"
+				"property_one"			"300000"
 			}
 			"02"
 			{
@@ -35569,7 +35573,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"60"
+				"property_one"			"350"
 			}
 			"02"
 			{
@@ -35656,7 +35660,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2400 8400 48000 430000 1655000 10000000 25000000"
+				"damage"				"2400 8400 48000 430000 4655000 20000000 35000000"
 			}
 			"02"
 			{
@@ -37438,7 +37442,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"4"
 			}
 		}
 	}
@@ -37460,7 +37464,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"100"
 			}
 			"02"
 			{
@@ -37492,7 +37496,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"		    "30"
+				"property_two"		    "10"
 			}
 			"03"
 			{
@@ -37523,7 +37527,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.4"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -38188,7 +38192,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"1400 6400 18000 45000 110000 240000 540000"
+		"AbilityDamage"				"5400 18000 45000 110000 240000 540000 900000"
 		"precache"
 		{
 
@@ -38458,24 +38462,19 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"5400 18000 45000 110000 240000 540000 900000"
+				"damage_from_strength"	"100 150 200 250 300 350 400"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_from_strength"	"100 150 200 250 300 350 400"
+				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
 				"attack_slow"	"-40 -50 -60 -70 -80 -90 -100"
 			}
-			"06"
+			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
 				"refresh_chance"	"1.0 2.0 3.0 4.0 5.0 6.0 7.0"
@@ -39475,7 +39474,7 @@
 				}
 
 			}
-			"modifier_protector_c_d_scorched_earth"
+			"modifier_protector_r_3"
 			{
 				"IsBuff"			"1"
 				"IsPurgable"		"0"
@@ -39495,12 +39494,12 @@
 					}
 				}
 
-				"Aura"					"modifier_protector_c_d_scorch_aura"
+				"Aura"					"modifier_protector_r_3_aura"
 				"Aura_Radius"			"650"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
 			}
-			"modifier_protector_c_d_scorch_aura"
+			"modifier_protector_r_3_aura"
 			{
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
@@ -39508,7 +39507,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/legion_commander/grand_fissure.lua"
-						"Function"		"c_d_thinker_take_damage"
+						"Function"		"mountain_protector_r_3_thinker"
 						"target"		"TARGET"
 					}
 				}
@@ -39525,14 +39524,9 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"1000 3400 18000 45000 110000 240000 540000"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
 				"explosions"	"24 26 28 30 32 34 36"
 			}
-			"04"
+			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"refresh_chance"	"2 4 6 8 10 12 14"
@@ -39768,15 +39762,25 @@
 			}
 			"04"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"		"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three_base"	"300"
+			}
+			"06"
+			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"4"
 			}
-			"05"
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"3"
 			}
-			"06"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"2"
@@ -95548,12 +95552,6 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnAttackLanded"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"purity_attack"
-						"attack_damage"	"%attack_damage"
-					}
 					"FireEffect"
 					{
 						"EffectName"        "particles/units/heroes/hero_terrorblade/terrorblade_loadout.vpcf"
