@@ -87,7 +87,7 @@ function frostvenom_chill_think(event)
 	local ability = event.ability
 	local target = event.target
 	if ability.q_1_level > 0 then
-		local damage = (ability.q_1_level * ARCANA2_Q1_DAMAGE + ARCANA2_Q1_DAMAGE_BASE) * target:GetModifierStackCount("modifier_chilled_stacking", caster)
+		local damage = (ability.q_1_level * VENOMORT_ARCANA2_Q1_DAMAGE_PER_HERO_LVL + VENOMORT_ARCANA2_Q1_DAMAGE_PER_HERO_LVL_BASE) * caster:GetLevel() * target:GetModifierStackCount("modifier_chilled_stacking", caster)
 		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_POISON, RPC_ELEMENT_ICE)
 	end
 end

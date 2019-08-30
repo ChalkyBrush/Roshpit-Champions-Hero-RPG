@@ -7,14 +7,17 @@ function toggle_on(event)
 	local r4_level = caster:GetRuneValue("r", 4)
 	Filters:CastSkillArguments(4, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_movespeed_set", nil)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_armor", nil)
 	StartSoundEvent("Venomort.ReaperToggle", caster)
 	caster:SetModifierStackCount("modifier_venomort_arcana2_movespeed_set", ability, ARCANA1_R_BASE_MOVESPEED + r4_level * ARCANA1_R4_BONUS_MOVESPEED)
+	caster:SetModifierStackCount("modifier_venomort_arcana2_armor", ability, r4_level)
 end
 
 function toggle_off(event)
 	local caster = event.caster
 	StopSoundEvent("Venomort.ReaperToggle", caster)
 	caster:RemoveModifierByName("modifier_venomort_arcana2_movespeed_set")
+	caster:RemoveModifierByName("modifier_venomort_arcana2_armor")
 end
 
 function slice_start(event)
@@ -26,6 +29,10 @@ function slice_start(event)
 	local r2_level = caster:GetRuneValue("r", 2)
 	local r3_level = caster:GetRuneValue("r", 3)
 	local target
+
+	if caster:IsFrozen() or caster:IsStunned() or caster:IsSilenced() then
+		return
+	end
 
 	if r2_level > 0 then
 		radius = radius + ARCANA1_R2_RADIUS * r2_level

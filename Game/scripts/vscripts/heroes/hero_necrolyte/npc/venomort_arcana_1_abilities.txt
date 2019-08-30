@@ -108,6 +108,15 @@
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "1"
 				}
 		    }
+		    "modifier_venomort_arcana2_armor" {
+				"IsHidden"	"1"
+				"EffectAttachType"	"attach_origin"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% VENOMORT_ARCANA1_R4_ARMOR_BONUS %>"
+				}
+		    }
 			"modifier_reaper_slice_shield"
 			{
 				"Passive"			"0"

@@ -4,13 +4,28 @@ function ghost_warp_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
+	local maxDistance = event.cast_range
+	if caster:HasModifier('modifier_venomort_glyph_3_1') then
+		maxDistance = maxDistance * VENOMORT_T31_E_CAST_RANGE_AMP
+	end
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target)
+	local scale = math.min(1, distance/maxDistance)
+
+	if caster:HasModifier('modifier_venomort_glyph_3_1') then
+		scale = scale * VENOMORT_T31_E_CAST_RANGE_AMP
+	end
+	if distance > maxDistance then
+		target = WallPhysics:ClampedVector(caster:GetAbsOrigin(), target, maxDistance)
+	end
+	target = WallPhysics:ClampedVector(caster:GetAbsOrigin(), target, maxDistance)
 	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
+
 	local invisible_duration = event.invisible_duration
 	ability.fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	ability.targetPoint = target
-	local warpDuration = 3.0
-	ability.fallVelocity = 1
-	ability.forwardVelocity = 15
+	local warpDuration = 1 * scale
+	ability.fallVelocity = 3
+	ability.forwardVelocity = 45
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ghost_warp_flying", {duration = warpDuration})
 	if ability.pfx then
 		ParticleManager:DestroyParticle(ability.pfx, true)
@@ -117,28 +132,32 @@ function ghost_warp_take_damage(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				apply_e2(caster, ability, enemy, duration, has_weapon3)
+				apply_e2(caster, ability, enemy, duration)
 			end
 		end
 	else
-		apply_e2(caster, ability, attacker, duration, has_weapon3)
+		apply_e2(caster, ability, attacker, duration)
 	end
 end
 
-function apply_e2(caster, ability, target, has_weapon3, duration)
-	if has_weapon3 then
-		Filters:ApplyDotDamage(caster, ability, target, ability.e2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
-	else
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_warp_return", {duration = duration})
-	end
+function apply_e2(caster, ability, target, duration)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_warp_return", {duration = duration})
 end
 
 function e2_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-
-	Filters:ApplyDotDamage(caster, ability, target, ability.e2_damage, DAMAGE_TYPE_MAGICAL, 3, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+	Damage:Apply({
+		attacker = caster,
+		victim = target,
+		source = ability,
+		sourceType = BASE_ABILITY_E,
+		damage = ability.e2_damage,
+		damageType = DAMAGE_TYPE_PURE,
+		elements = { RPC_ELEMENT_POISON },
+		isDot = true
+	})
 end
 function e3_think(event)
 	local caster = event.caster
@@ -164,11 +183,11 @@ function apply_e4_stacks(event)
 	local ability = event.ability
 	local target = event.target
 
-	local bossesCountAs = BOSSES_COUNT_AS_ENEMIES
-	local paragonsCountAs = PARAGONS_COUNT_AS_ENEMIES
+	local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
+	local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = T21_BOSSES_COUNT_AS_ENEMIES
-		paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
+		bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 
 	local duration = VENOMORT_E4_DURATION + E4_DELAY
@@ -243,6 +262,8 @@ function recalculate_e4_stacks(event)
 		end
 
 	end
+
+	totalStacks = math.min(totalStacks, VENOMORT_E4_MAX_STACKS)
 
 	caster:SetModifierStackCount("modifier_venomort_e4_hero_bonus_visible", caster, totalStacks)
 	caster:SetModifierStackCount("modifier_venomort_e4_hero_bonus_invisible", caster, totalStacks * runesCount)

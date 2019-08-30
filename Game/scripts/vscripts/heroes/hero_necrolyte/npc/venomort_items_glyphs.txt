@@ -103,12 +103,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T21_BOSSES_COUNT_AS_ENEMIES %>"
+				"property_one"			"<% VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% T21_PARAGONS_COUNT_AS_ENEMIES %>"
+				"property_two"			"<% VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES %>"
 			}
 		}
 	}
@@ -274,7 +274,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T61_MAGIC_AND_PURE_REDUCTION_PERCENT %>"
+				"property_one"			"<% VENOMORT_T61_DAMAGE_REDUCTION_PERCENT %>"
 			}
 		}
 	}

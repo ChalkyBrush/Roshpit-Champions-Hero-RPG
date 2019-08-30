@@ -50,11 +50,11 @@ function cast(event)
 
 	local bossesCount = 0
 	local paragonsCount = 0
-	local bossesCountAs = BOSSES_COUNT_AS_ENEMIES
-	local paragonsCountAs = PARAGONS_COUNT_AS_ENEMIES
+	local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
+	local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = T21_BOSSES_COUNT_AS_ENEMIES
-		paragonsCountAs = T21_PARAGONS_COUNT_AS_ENEMIES
+		bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 
 	local apply_demoralize = false

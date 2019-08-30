@@ -673,6 +673,14 @@ function ms_thinker(event)
 			end
 		end
 	end
+	for _,modifier in pairs(buffs) do -- New way for increase limit instead of set
+		if modifier['GetModifierMoveSpeed_Max_Increase'] then
+			local status, bonus_max_ms = pcall(modifier['GetModifierMoveSpeed_Max_Increase'], modifier, {})
+			if status and bonus_max_ms ~= nil then
+				max_ms = max_ms + bonus_max_ms
+			end
+		end
+	end
 	unit:AddNewModifier(unit, nil, "modifier_ignore_ms_cap", {})
 	local movespeed = unit:GetBaseMoveSpeed()
 	local actual_movespeed = unit:GetMoveSpeedModifier(movespeed, false)

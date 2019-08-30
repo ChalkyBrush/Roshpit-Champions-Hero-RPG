@@ -5,7 +5,7 @@ local module = {
         local mult = 0
         local modifier = caster:FindModifierByName("modifier_gale_nova_bad")
         if modifier then
-            mult = mult + modifier:GetStackCount() * Q1_BAD_PER_ENEMY_PERCENT / 100
+            mult = mult + math.min(modifier:GetStackCount(), Q1_MAX_STACKS) * Q1_BAD_PER_ENEMY_PERCENT / 100
         end
         modifier = caster:FindModifierByName("modifier_venomort_arcana2_q_4_invisible")
         if modifier then
@@ -55,7 +55,7 @@ local module = {
         local modifier = caster:FindModifierByName("modifier_venomort_glyph_6_1")
         if modifier then
             local glyphAbility = modifier:GetAbility()
-            glyphAbility:ApplyDataDrivenModifier(caster, target, "modifier_venomort_glyph_6_1_damage_reduction", {duration = T61_DURATION})
+            glyphAbility:ApplyDataDrivenModifier(caster, target, "modifier_venomort_glyph_6_1_damage_reduction", {duration = VENOMORT_T61_DURATION})
         end
     end,
     getDotAmplify = function(caster, target)
@@ -119,11 +119,9 @@ local module = {
             if modifier then
                 mult = mult * (1 - R3_DAMAGE_REDUCTION_PERCENT / 100) ^ modifier:GetStackCount();
             end
-            if damagetype == DAMAGE_TYPE_PURE or damagetype == DAMAGE_TYPE_MAGICAL then
-                modifier = attacker:FindModifierByName('modifier_venomort_glyph_6_1_damage_reduction')
-                if modifier then
-                    mult = mult * T61_MAGIC_AND_PURE_REDUCTION_PERCENT / 100;
-                end
+            modifier = attacker:FindModifierByName('modifier_venomort_glyph_6_1_damage_reduction')
+            if modifier then
+                mult = mult * VENOMORT_T61_DAMAGE_REDUCTION_PERCENT / 100;
             end
         end
         return mult

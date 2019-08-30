@@ -432,6 +432,9 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     if caster:HasModifier("modifier_neutral_glyph_3_3") then
         CDreduce = CDreduce + 1
     end
+    if caster:HasModifier('modifier_venomort_glyph_3_1') then
+        CDreduce = CDreduce + VENOMORT_T31_E_CD_RED
+    end
     if caster:HasModifier("modifier_bear_silencer") then
         CDreduce = CDreduce - 30
     end
@@ -446,7 +449,6 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     if caster:HasModifier("modifier_hood_of_lords_lua") then
         CDreduce = CDreduce - 1
     end
-
     local abilityCooldown = abilityCooldown - CDreduce
 
     if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
