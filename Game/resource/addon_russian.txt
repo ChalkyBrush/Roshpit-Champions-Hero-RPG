@@ -12443,7 +12443,7 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Слот: Наручи"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Базовые атаки дополнительно наносят x15 Чистого урона"
+		"property_divine_purity_description"		"Базовые атаки дополнительно наносят x<font color='#ccff66'>20</font> Чистого урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
