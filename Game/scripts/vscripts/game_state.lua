@@ -2577,7 +2577,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modfier_razor_band_stacks") then
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
 		local stacks = modifier:GetStackCount()
-		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100)
+		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100)*stacks
 	end
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
