@@ -99,7 +99,7 @@
 		"DOTA_Tooltip_modifier_venomort_rune_e_1_description" 				"Venomort's old E1 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] Acid Armor"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Enemies who damage Venomort are covered in corrosive acid, dealing damage every second for 5 seconds. The base damage is multiplied by Venomort's hero level."
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Enemies who damage Venomort are covered in corrosive acid, dealing damage every second for 5 seconds. The base damage is multiplied by Venomort's hero level. Pierces Spell Immunity."
     	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"x hero level"
 
