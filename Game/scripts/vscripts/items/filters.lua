@@ -673,9 +673,9 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
     end
 
     for index, dot_damage_type in ipairs(damage_types) do
-        if slot == -1 then
+        if slot == BASE_NONE then
             Filters:ApplyItemDamage(target, caster, damage, dot_damage_type, ability, element1, element2)
-        elseif slot == 0 then
+        elseif slot == BASE_ITEM then
             ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = dot_damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
         elseif slot == -2 then
             Filters:TakeArgumentsAndApplyDamage(target, caster, damage, dot_damage_type, -2, element1, element2)
@@ -692,16 +692,16 @@ function Filters:CastSkillArguments(slot, caster)
     if caster:GetUnitName() == "npc_dota_hero_legion_commander" then
         caster.r_4_level = caster:GetRuneValue("r", 4)
     end
-    if slot == 1 then
+    if slot == BASE_ABILITY_Q then
         Filters:ApplyQskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastQAbility', { MODIFIER_SPECIAL_TYPE_CAST_Q_ABILITY }, {}, nil)
-    elseif slot == 2 then
+    elseif slot == BASE_ABILITY_W then
         Filters:ApplyWskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastWAbility', { MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY }, {}, nil)
-    elseif slot == 3 then
+    elseif slot == BASE_ABILITY_E then
         Filters:ApplyEskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastEAbility', { MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY }, {}, nil)
-    elseif slot == 4 then
+    elseif slot == BASE_ABILITY_R then
         Filters:ApplyRskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
 
@@ -761,13 +761,13 @@ function Filters:CastSkillArguments(slot, caster)
         end
     end
     if caster:HasModifier("modifier_chains_of_orthok") then
-        if slot == 1 then
+        if slot == BASE_ABILITY_Q then
             Filters:OrthokStack(caster, 5)
-        elseif slot == 2 then
+        elseif slot == BASE_ABILITY_W then
             Filters:OrthokStack(caster, 1)
-        elseif slot == 3 then
+        elseif slot == BASE_ABILITY_E then
             Filters:OrthokStack(caster, 5)
-        elseif slot == 4 then
+        elseif slot == BASE_ABILITY_R then
             Filters:OrthokStack(caster, 12)
         end
     end
@@ -1265,12 +1265,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     local attackerName = attacker:GetUnitName()
     if not ignore_effects then
         if attackerName == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-            if slot > 0 then
+            if Util.BaseType:IsAbilityBaseType(slot) then
                 damage = Filters:Bahamut_DB_rune(attacker, damage, slot, victim)
             end
         end
         if attacker:HasModifier("modifier_shapeshift_year_beast") then
-            if slot > 0 then
+            if Util.BaseType:IsAbilityBaseType(slot) then
                 local c_d_level = attacker:GetRuneValue("r", 3)
                 if c_d_level > 0 then
                     local sumAttrs = attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()
@@ -1296,7 +1296,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
     if slot == BASE_AUTO_ATTACK then
         if attacker:HasModifier("modifier_divine_purity") then
-            damage = damage * 15
+            damage = damage * GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER
             element2 = RPC_ELEMENT_HOLY
             damage_type = DAMAGE_TYPE_PURE
         end
@@ -1313,10 +1313,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         attacker = attacker.origCaster
     end
 
-    if slot == BASE_ABILITY_Q 
-    or slot == BASE_ABILITY_W 
-    or slot == BASE_ABILITY_E 
-    or slot == BASE_ABILITY_R then
+    if Util.BaseType:IsAbilityBaseType(slot) then
         damageMult = damageMult + heroes.venomort.getBad(attacker)
         if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
             local q_2_level = attacker:GetRuneValue("q", 2)
@@ -1445,7 +1442,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.12 * current_stack
         end
         if attacker:HasModifier("modifier_rockfall_passive") then
-            if slot > 0 then
+            if Util.BaseType:IsAbilityBaseType(slot) then
                 local a_c_level = attacker:GetRuneValue("e", 1)
                 if a_c_level > 0 then
                     damageMult = damageMult + ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
@@ -1453,15 +1450,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
-            if slot == 3 then
+            if slot == BASE_ABILITY_E then
                 if attacker.r_1_level then
                     damageMult = damageMult + attacker.r_1_level * 0.08
                 end
-            elseif slot == 1 then
+            elseif slot == BASE_ABILITY_Q then
                 if attacker.r_2_level then
                     damageMult = damageMult + attacker.r_2_level * 0.08
                 end
-            elseif slot == 2 then
+            elseif slot == BASE_ABILITY_W then
                 if attacker.r_3_level then
                     damageMult = damageMult + attacker.r_3_level * 0.08
                 end
@@ -1705,10 +1702,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     end
     if not ignore_effects then
-        if slot == BASE_ABILITY_Q 
-        or slot == BASE_ABILITY_W 
-        or slot == BASE_ABILITY_E 
-        or slot == BASE_ABILITY_R
+        if Util.BaseType:IsAbilityBaseType(slot)
         or slot == BASE_AUTO_ATTACK then
             if attacker:HasModifier("modifier_mach_punch_passive") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
@@ -1738,7 +1732,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
     end
-    if slot == BASE_ITEM or slot == BASE_NONE or slot == BASE_AUTO_ATTACK then
+    if slot == BASE_ITEM 
+    or slot == BASE_NONE 
+    or slot == BASE_AUTO_ATTACK then
         if not Is_solunia_b_d then
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or slot or 0)
         else
@@ -1746,7 +1742,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(DOTA_Q_SLOT) })
     end
-    print("TakeArgumentsAndApplyDamage Returned damage: "..damage)
     return damage
 end
 
@@ -4598,7 +4593,7 @@ function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
             local property_two = ability:GetSpecialValueFor("property_two")
             if w_4_level > 0 then
                 local bonusDamage = caster:GetMaxMana() * (property_one / 100) * w_4_level
-                if slot == 2 then
+                if slot == BASE_ABILITY_W then
                     bonusDamage = bonusDamage * 10
                 end
                 damage = damage + bonusDamage
