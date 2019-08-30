@@ -13,7 +13,7 @@
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱"
 		 "item_property_shipyard_veil_3"					"灵魂支盾"
-		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。该装备无法重铸。"
+		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。"
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"灵魂之盾"
@@ -34,7 +34,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"长沿帽"
 		"item_property_hyper_visor2"				"超级闪电"
-		"property_hyper_visor2_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。减少第一次攻击抬手 @special_property3 秒。<br>每10点敏捷值提高 @special_property4% 的装备伤害。该装备无法重铸。"
+		"property_hyper_visor2_description"			"攻击时有 @special_property1% 几率向目标施放一道闪电，造成施法者 @special_property2x 倍数攻击力的AOE魔法伤害。减少第一次攻击抬手 @special_property3 秒。<br>每10点敏捷值提高 @special_property4% 的装备伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
@@ -225,7 +225,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"风暴裂痕之头"
 		 "item_property_stormcrack2"						"风暴裂痕"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X攻击力加<% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。该装备无法重铸。"
+		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X攻击力加<% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
