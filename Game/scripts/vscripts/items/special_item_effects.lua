@@ -5872,6 +5872,8 @@ function erudite_teacher_start(event)
 					local steal_index = i - 1
 					if not string.match(ability_check_name, "apprentice_spell_steal_") then
 						CustomAbilities:AddAndOrSwapSkill(apprentice, "apprentice_spell_steal_"..i, ability_check_name, steal_index)
+						local new_ability = apprentice:FindAbilityByName(ability_check_name)
+						new_ability:SetLevel(GameState:GetDifficultyFactor())
 					end
 				end
 			end)
@@ -5943,6 +5945,8 @@ function apprentice_spell_steal_cast(event)
 	end
 	if success then
 		CustomAbilities:AddAndOrSwapSkill(caster, ability:GetAbilityName(), new_ability_name, steal_index)
+		local new_ability = caster:FindAbilityByName(new_ability_name)
+		new_ability:SetLevel(GameState:GetDifficultyFactor())
 		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_rubick/rubick_spell_steal.vpcf", target, 3)
 		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
 		EmitSoundOn("Items.RubickApprentice.Spellsteal.Success", caster)
