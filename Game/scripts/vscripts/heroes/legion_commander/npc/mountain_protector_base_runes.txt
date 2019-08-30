@@ -109,7 +109,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% W1_HP_REGEN_PERCENT %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_W1_HP_REGEN_PERCENT %>"
 			}
 		}
 	}
@@ -224,18 +224,28 @@
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_three"		"<% MOUNTAIN_PROTECTOR_E1_RADIUS %>"
 			}
 			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"property_three_base"	"<% MOUNTAIN_PROTECTOR_E1_RADIUS_BASE %>"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_two"			"2"
+				"base_ability"			"<% BASE_ABILITY_R %>"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_EARTH %>"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_FIRE %>"
 			}
 		}
 	}
@@ -373,7 +383,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% R2_STRENGTH_PER_STACK %>"
+				"property_two"			"<% MOUNTAIN_PROTECTOR_R2_STRENGTH_PER_STACK %>"
 			}
 		}
 		"Modifiers"

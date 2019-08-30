@@ -1,6 +1,7 @@
-require("heroes/legion_commander/grand_fissure")
-require("heroes/legion_commander/hailstorm")
-local constants = require('/heroes/legion_commander/mountain_protector_constants')
+require("/heroes/legion_commander/grand_fissure")
+require("/heroes/legion_commander/hailstorm")
+require('/heroes/legion_commander/mountain_protector_constants')
+
 function begin_mystic_strike(event)
     local caster = event.caster
     local ability = event.ability
@@ -139,28 +140,18 @@ function bomb_land(bomb, caster, ability)
         teleportToPosition(caster, ability, bomb:GetAbsOrigin())
         UTIL_Remove(bomb)
     end)
-    local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "mountain_protector")
-    if a_c_level > 0 then
+    local e_1_level = caster:GetRuneValue("e", 1)
+    if e_1_level > 0 then
+        local amp = MOUNTAIN_PROTECTOR_E1_BASE/100 + (MOUNTAIN_PROTECTOR_E1_DMG_PCT/100 * e_1_level)
+        local stun_duration = MOUNTAIN_PROTECTOR_E1_STUN_DURATION * e_1_level
+        local explosionAOE = MOUNTAIN_PROTECTOR_E1_RADIUS_BASE + MOUNTAIN_PROTECTOR_E1_RADIUS * e_1_level
         if caster:HasAbility("mountain_protector_aeon_fracture") then
             local aeonFracture = caster:FindAbilityByName("mountain_protector_aeon_fracture")
-            aeonFracture.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
-            local damage = aeonFracture:GetSpecialValueFor("damage")
-            local amp = MOUNTAIN_PROTECTOR_E1_BASE/100 + (MOUNTAIN_PROTECTOR_E1_DMG_PCT/100 * a_c_level)
-            local stun_duration = MOUNTAIN_PROTECTOR_E1_STUN_DURATION * a_c_level
-            local explosionAOE = 300
-            if not aeonFracture.r_1_level then
-                aeonFracture.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "mountain_protector")
-            end
-            if not aeonFracture.r_2_level then
-                aeonFracture.r_2_level = Runes:GetTotalRuneLevel(caster, 2, "r_2", "mountain_protector")
-            end
+            local damage = aeonFracture:GetAbilityDamage()
             aeon_fracture_explosion(caster, bomb:GetAbsOrigin(), damage, amp, explosionAOE, aeonFracture, false, stun_duration)
         elseif caster:HasAbility("mountain_protector_hailstorm") then
             local aeonFracture = caster:FindAbilityByName("mountain_protector_hailstorm")
-            local damage = aeonFracture:GetSpecialValueFor("damage") + aeonFracture:GetSpecialValueFor("damage_from_strength") * caster:GetStrength()
-            local amp = constants.MOUNTAIN_PROTECTOR_E1_BASE/100 + (constants.MOUNTAIN_PROTECTOR_E1_DMG_PCT/100 * a_c_level)
-            local stun_duration = constants.MOUNTAIN_PROTECTOR_E1_STUN_DURATION * a_c_level
-            local explosionAOE = 300
+            local damage = aeonFracture:GetAbilityDamage() + aeonFracture:GetSpecialValueFor("damage_from_strength") * caster:GetStrength()
             hailstorm_explosion(caster, bomb:GetAbsOrigin(), damage, amp, explosionAOE, aeonFracture, false, stun_duration)
         end
     end

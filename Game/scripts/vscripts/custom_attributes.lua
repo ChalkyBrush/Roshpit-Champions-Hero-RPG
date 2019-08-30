@@ -2,9 +2,7 @@ if CustomAttributes == nil then
 	CustomAttributes = class({})
 end
 
-local hero_values = {
-	mountain_protector = require('/heroes/legion_commander/mountain_protector_constants'),
-}
+require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
@@ -54,7 +52,6 @@ CustomAttributes.BAHAMUT_R4_STATS = 7
 CustomAttributes.AURIUN_E2_INT = 120
 CustomAttributes.AURIUN_E3_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 180
-CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR = hero_values.mountain_protector.R2_STRENGTH_PER_STACK
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = 100
 CustomAttributes.SORCERESS_ARCANE_INT = 50
@@ -456,7 +453,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_e_2", CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR)
 	end
 	if hero:HasModifier("modifier_mountain_protector_rune_r_2_invisible") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_r_2_invisible", CustomAttributes.MOUNTAIN_PROTECTOR_R2_STR)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_rune_r_2_invisible", MOUNTAIN_PROTECTOR_R2_STRENGTH_PER_STACK)
 	end
 	if hero:HasModifier("modifier_trapper_rune_r_4_bonus_agi") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trapper_rune_r_4_bonus_agi", CustomAttributes.TRAPPER_R4_AGI)

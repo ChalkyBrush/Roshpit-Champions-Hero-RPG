@@ -1,4 +1,4 @@
-local constants = require('/heroes/legion_commander/mountain_protector_constants')
+require('/heroes/legion_commander/mountain_protector_constants')
 function start_channel(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -167,8 +167,8 @@ function frozen_stand_start(event)
 	caster:GetAbilityByIndex(DOTA_D_SLOT):SetActivated(false)
 	ability.r2_level = caster:GetRuneValue("r", 2)
 
-	local ability_duration = constants.ARCANA2_R2_DURATION_BASE + ability.r2_level * constants.ARCANA2_R2_DURATION
-	local cooldown = max(ability_duration * constants.ARCANA2_R2_COOLDOWN_PERCENT / 100, constants.ARCANA2_R2_MIN_COOLDOWN)
+	local ability_duration = ARCANA2_R2_DURATION_BASE + ability.r2_level * ARCANA2_R2_DURATION
+	local cooldown = max(ability_duration * ARCANA2_R2_COOLDOWN_PERCENT / 100, ARCANA2_R2_MIN_COOLDOWN)
 	StartAnimation(caster, {duration = ability_duration, activity = ACT_DOTA_IDLE, rate = 1, translate = "injured"})
 
 	local modifier = caster:FindModifierByName('modifier_frozen_stand')
@@ -187,8 +187,8 @@ function frozen_stand_end(event)
 	caster:GetAbilityByIndex(DOTA_W_SLOT):SetActivated(true)
 	caster:GetAbilityByIndex(DOTA_E_SLOT):SetActivated(true)
 	caster:GetAbilityByIndex(DOTA_D_SLOT):SetActivated(true)
-	local stun_duration = ability.r2_level * constants.ARCANA2_R2_STUN_DURATION
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, constants.ARCANA2_R2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local stun_duration = ability.r2_level * ARCANA2_R2_STUN_DURATION
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ARCANA2_R2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyStun(caster, stun_duration, enemy)
@@ -199,8 +199,8 @@ function frozen_stand_end(event)
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
 	local origin = caster:GetAbsOrigin()
 	ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin() + Vector(0, 0, 20))
-	ParticleManager:SetParticleControl(particle1, 1, Vector(constants.ARCANA2_R2_RADIUS, 1, constants.ARCANA2_R2_RADIUS))
-	ParticleManager:SetParticleControl(particle1, 3, Vector(constants.ARCANA2_R2_RADIUS, constants.ARCANA2_R2_RADIUS, constants.ARCANA2_R2_RADIUS))
+	ParticleManager:SetParticleControl(particle1, 1, Vector(ARCANA2_R2_RADIUS, 1, ARCANA2_R2_RADIUS))
+	ParticleManager:SetParticleControl(particle1, 3, Vector(ARCANA2_R2_RADIUS, ARCANA2_R2_RADIUS, ARCANA2_R2_RADIUS))
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(particle1, false)
 	end)

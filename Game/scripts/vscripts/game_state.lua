@@ -31,8 +31,8 @@ require('/items/constants/trinket')
 require('/items/lua/require')
 
 local heroes = {
-	venomort = require('/heroes/hero_necrolyte/scales'),
-mountain_protector = require('/heroes/legion_commander/mountain_protector_constants')}
+	venomort = require('/heroes/hero_necrolyte/scales')}
+require('/heroes/legion_commander/mountain_protector_constants')
 
 VectorTarget:Init({noOrderFilter = true})
 
@@ -1869,11 +1869,16 @@ function GameState:FilterDamage(filterTable)
 	if not victim_index or not attacker_index then
 		return true
 	end
+
+	--Only Auto attacks dont have filterTable.entindex_inflictor_const set
 	if not filterTable.entindex_inflictor_const then
 		if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 			return false
 		end
 	end
+
+	--Our faked Auto attack dmg to ignore armor on enemies
+	--Set filterTable.entindex_inflictor_const to nil to make it like normal auto attack
 	if filterTable.entindex_inflictor_const then
 		if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == "auto_attack_damage_ability" then
 			filterTable.entindex_inflictor_const = nil
@@ -2567,7 +2572,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + heroes.mountain_protector.ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
+			mult = mult + ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
 		end
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
@@ -3593,7 +3598,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * heroes.mountain_protector.ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
+			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
@@ -3645,7 +3650,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * heroes.mountain_protector.ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
+			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
