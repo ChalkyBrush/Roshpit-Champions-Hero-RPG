@@ -12,7 +12,6 @@ function energy_shield_create(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_steelforge_regen", {})
 	caster:SetModifierStackCount("modifier_protector_steelforge_regen", caster, regen_percent)
 
-	local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "mountain_protector")
 	ability.w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "mountain_protector")
 	if ability.w_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_rune_w_3_aura", {})
@@ -27,8 +26,6 @@ function energy_shield_create(event)
 	if bonus_damage then
 		caster:SetModifierStackCount("modifier_protector_rune_w4_bonus_damage", caster, bonus_damage)
 	end
-
-	caster.mountainGuardianMagic = 1 + (w_2_level * 0.04)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_animating", {duration = 6})
 	Timers:CreateTimer(0.05, function()
 		EmitSoundOn("MysticAssasin.ShieldYell"..RandomInt(1, 2), caster)

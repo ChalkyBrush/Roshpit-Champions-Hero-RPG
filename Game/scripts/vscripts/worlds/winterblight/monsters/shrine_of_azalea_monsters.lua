@@ -2178,7 +2178,7 @@ function tri_boss_death_sequence(event)
 			end)
 		elseif caster:GetUnitName() == "winterblight_azertia" then
 			delay = 2.5
-			local abilityTable = {"ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_stun_regen", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
+			local abilityTable = {"ability_mega_haste", "winterblight_generic_chill_attack_passive", "winterblight_wolf_ability", "winterblight_ogre_armor", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "winterblight_bear_passive", "winterblight_endurance", "winterblight_frostbite_attack", "luna_taskmaster_shield", "winterblight_dimension_spear", "winterblight_speed_softening", "winterblight_armor_softening"}
 			if GameState:GetDifficultyFactor() >= 2 then
 				table.insert(abilityTable, "seafortress_golden_shell")
 			end

@@ -48,8 +48,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"最大生命值%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] 守护者的愤怒"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"当开启山丘守卫时，所有魔法伤害输出增加。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"魔法伤害提高"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Post Mitigation damage is enhanced while in Mountain's Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Post Mitigation Damage Increase"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		"%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] 盛怒"

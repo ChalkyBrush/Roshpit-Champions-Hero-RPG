@@ -4634,7 +4634,7 @@
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				}
-				"ThinkInterval"  "1.0"
+				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"

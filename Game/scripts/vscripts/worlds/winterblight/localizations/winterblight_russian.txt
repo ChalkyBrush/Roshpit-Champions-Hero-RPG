@@ -167,9 +167,10 @@
 		"DOTA_Tooltip_ability_winter_satyr_heal"						"Mystic Healing"
 		"DOTA_Tooltip_ability_winter_satyr_heal_Description"			"Немного исцеляет союзника"
 
-		"DOTA_Tooltip_ability_winterblight_stun_regen"				"Endurance"
-		"DOTA_Tooltip_ability_winterblight_stun_regen_Description"	"При оглушении получает увеличенную регенерацию здоровья."
-		"DOTA_Tooltip_ability_winterblight_stun_regen_regen_percent"	"ДОП. РЕГЕН. ЗДОРОВЬЯ %:"
+		"DOTA_Tooltip_ability_winterblight_endurance"				"Endurance"
+		"DOTA_Tooltip_ability_winterblight_endurance_Description"		"Take less damage and deal more damage while stunned."
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_reduction"	"DAMAGE REDUCTION %:"
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_increase"	"DAMAGE INCREASE %:"
 
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack"		"Frostbite Attack"
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack_Description"	"С каждой атакой добавляет заряд этого умения. Снаряды наносят урон каждые 0.3 секунды. Формула урона: базовый урон, умноженный на количество зарядов в степени 2."
