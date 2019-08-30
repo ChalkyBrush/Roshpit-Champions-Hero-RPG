@@ -75,6 +75,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix"		"% 永世断裂爆炸伤害"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_property_two"	"眩晕持续时间"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix_two"		" 秒 延长"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_property_three"	"Radius"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix_three"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_e_2"				"[E2] 山丘柴堆"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_Description"	"施放余烬之石后，增加15秒的力量值。"

@@ -4,8 +4,7 @@ end
 
 require('/heroes/antimage/arkimus_constants')
 local heroes = {
-    venomort = require('/heroes/hero_necrolyte/scales'),
-mountain_protector = require('/heroes/legion_commander/mountain_protector_constants')}
+    venomort = require('/heroes/hero_necrolyte/scales')}
 
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/spirit_warrior_constants')
@@ -176,7 +175,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_rockfall_passive") then
         local a_c_level = caster:GetRuneValue("e", 1)
         if a_c_level > 0 then
-            mult = mult + heroes.mountain_protector.ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((caster:GetMaxHealth() - caster:GetHealth()) / 1000) * a_c_level
+            mult = mult + ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((caster:GetMaxHealth() - caster:GetHealth()) / 1000) * a_c_level
         end
     end
     if caster:HasModifier("modifier_depth_crest_armor") then
@@ -1282,7 +1281,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_rockfall_passive") then
             local b_c_level = attacker:GetRuneValue("e", 2)
             if b_c_level > 0 then
-                damage = damage + attacker:GetStrength() * b_c_level * heroes.mountain_protector.ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
+                damage = damage + attacker:GetStrength() * b_c_level * ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
             end
         end
         -- if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
@@ -1295,16 +1294,29 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         -- end
     end
 
+    if slot == BASE_AUTO_ATTACK then
+        if attacker:HasModifier("modifier_divine_purity") then
+            damage = damage * 15
+            element2 = RPC_ELEMENT_HOLY
+            damage_type = DAMAGE_TYPE_PURE
+        end
+    end
+
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, not ignore_effects)
     attacker.element1 = element1
     attacker.element2 = element2
     local damageMult = 0
-
+    print("Damage: "..damage)
+    print("Element1: "..element1)
+    print("Element2: "..element2)
     if attacker:HasModifier("modifier_sorceress_immortal_fire_avatar") or attacker:HasModifier("modifier_sorceress_immortal_ice_avatar") then
         attacker = attacker.origCaster
     end
 
-    if slot > 0 then
+    if slot == BASE_ABILITY_Q 
+    or slot == BASE_ABILITY_W 
+    or slot == BASE_ABILITY_E 
+    or slot == BASE_ABILITY_R then
         damageMult = damageMult + heroes.venomort.getBad(attacker)
         if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
             local q_2_level = attacker:GetRuneValue("q", 2)
@@ -1377,7 +1389,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
         if attacker:HasAbility("mountain_protector_emberstone") then
             local e_4_level = attacker:GetRuneValue("e", 4)
-            damageMult = damageMult + heroes.mountain_protector.MOUNTAIN_PROTECTOR_E4_BAD * e_4_level
+            damageMult = damageMult + MOUNTAIN_PROTECTOR_E4_BAD * e_4_level
         end
         if attacker:HasModifier("modifier_infused_mageplate_stack") then
             local mageplateStacks = attacker:GetModifierStackCount("modifier_infused_mageplate_stack", attacker.body)
@@ -1436,7 +1448,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if slot > 0 then
                 local a_c_level = attacker:GetRuneValue("e", 1)
                 if a_c_level > 0 then
-                    damageMult = damageMult + heroes.mountain_protector.ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
+                    damageMult = damageMult + ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
                 end
             end
         end
@@ -1457,7 +1469,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     end
 
-    if slot == 1 then
+    if slot == BASE_ABILITY_Q then
         if attacker:HasModifier("modifier_body_violet_guard") then
             damageMult = damageMult + 3
         elseif attacker:HasModifier("modifier_body_violet_guard2") then
@@ -1520,7 +1532,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageData.isAugmented = true
             end
         end
-    elseif slot == 2 then
+    elseif slot == BASE_ABILITY_W then
         if attacker:HasModifier("modifier_watcher_three") then
             damageMult = damageMult + 0.35
         end
@@ -1602,7 +1614,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
 
-    elseif slot == 3 then
+    elseif slot == BASE_ABILITY_E then
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + 1
         end
@@ -1648,7 +1660,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if not ignore_effects then
             Filters:ApplyEdamage(victim, attacker, damage, damage_type)
         end
-    elseif slot == 4 then
+    elseif slot == BASE_ABILITY_R then
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + 2
         end
@@ -1693,7 +1705,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     end
     if not ignore_effects then
-        if slot > 0 then
+        if slot == BASE_ABILITY_Q 
+        or slot == BASE_ABILITY_W 
+        or slot == BASE_ABILITY_E 
+        or slot == BASE_ABILITY_R
+        or slot == BASE_AUTO_ATTACK then
             if attacker:HasModifier("modifier_mach_punch_passive") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
@@ -1722,7 +1738,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
     end
-    if slot == BASE_ITEM or slot == BASE_NONE then
+    if slot == BASE_ITEM or slot == BASE_NONE or slot == BASE_AUTO_ATTACK then
         if not Is_solunia_b_d then
             Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or slot or 0)
         else
@@ -1730,7 +1746,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(DOTA_Q_SLOT) })
     end
-
+    print("TakeArgumentsAndApplyDamage Returned damage: "..damage)
     return damage
 end
 

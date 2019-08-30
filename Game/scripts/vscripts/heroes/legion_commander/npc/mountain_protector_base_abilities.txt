@@ -326,7 +326,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% W1_HP_REGEN_PERCENT %>"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% MOUNTAIN_PROTECTOR_W1_HP_REGEN_PERCENT %>"
 				}
 			}
 		}
@@ -602,7 +602,7 @@
 				}
 
 			}
-			"modifier_protector_c_d_scorched_earth"
+			"modifier_protector_r_3"
 			{
 				"IsBuff"			"1"
 				"IsPurgable"		"0"
@@ -622,12 +622,12 @@
 					}
 				}
 
-				"Aura"					"modifier_protector_c_d_scorch_aura"
+				"Aura"					"modifier_protector_r_3_aura"
 				"Aura_Radius"			"650"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
 			}
-			"modifier_protector_c_d_scorch_aura"
+			"modifier_protector_r_3_aura"
 			{
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
@@ -635,7 +635,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/legion_commander/grand_fissure.lua"
-						"Function"		"c_d_thinker_take_damage"
+						"Function"		"mountain_protector_r_3_thinker"
 						"target"		"TARGET"
 					}
 				}
@@ -652,14 +652,9 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"1000 3400 18000 45000 110000 240000 540000"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
 				"explosions"	"24 26 28 30 32 34 36"
 			}
-			"04"
+			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"refresh_chance"	"2 4 6 8 10 12 14"

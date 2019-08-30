@@ -15,7 +15,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"1400 6400 18000 45000 110000 240000 540000"
+		"AbilityDamage"				"5400 18000 45000 110000 240000 540000 900000"
 		"precache"
 		{
 
@@ -285,24 +285,19 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"5400 18000 45000 110000 240000 540000 900000"
+				"damage_from_strength"	"100 150 200 250 300 350 400"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_from_strength"	"100 150 200 250 300 350 400"
+				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"move_slow_percent"	"-24 -26 -28 -30 -32 -34 -36"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
 				"attack_slow"	"-40 -50 -60 -70 -80 -90 -100"
 			}
-			"06"
+			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
 				"refresh_chance"	"1.0 2.0 3.0 4.0 5.0 6.0 7.0"

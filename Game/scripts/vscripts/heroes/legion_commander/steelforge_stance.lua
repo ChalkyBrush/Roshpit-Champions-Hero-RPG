@@ -1,4 +1,4 @@
-local constants = require('/heroes/legion_commander/mountain_protector_constants')
+require('/heroes/legion_commander/mountain_protector_constants')
 
 function energy_shield_create(event)
 	local caster = event.caster
@@ -22,7 +22,7 @@ function energy_shield_create(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_protector_rune_w4_bonus_damage", {})
 	end
 
-	local bonus_damage = caster:GetStrength() * constants.ARCANA1_W4_ATTACK_PER_STR * ability.w_4_level
+	local bonus_damage = caster:GetStrength() * ARCANA1_W4_ATTACK_PER_STR * ability.w_4_level
 	if bonus_damage then
 		caster:SetModifierStackCount("modifier_protector_rune_w4_bonus_damage", caster, bonus_damage)
 	end
@@ -79,7 +79,7 @@ function energy_shield_think(event)
 	if not ability.w_4_level then
 		ability.w_4_level = caster:GetRuneValue("w", 4)
 	end
-	local bonus_damage = caster:GetStrength() * constants.ARCANA1_W4_ATTACK_PER_STR * ability.w_4_level
+	local bonus_damage = caster:GetStrength() * ARCANA1_W4_ATTACK_PER_STR * ability.w_4_level
 	if bonus_damage then
 		caster:SetModifierStackCount("modifier_protector_rune_w4_bonus_damage", caster, bonus_damage)
 	end
@@ -106,14 +106,14 @@ function steelforge_take_damage(event)
 			return false
 		end
 		if caster:HasModifier("modifier_steelforge_stance") then
-			Filters:ApplyStun(caster, constants.ARCANA1_W3_STUN_DURATION_CONST, target)
+			Filters:ApplyStun(caster, ARCANA1_W3_STUN_DURATION_CONST, target)
 			if ability.w_3_level > 0 then
 				if not ability.w_3_particles then
 					ability.w_3_particles = 0
 				end
 				if ability.w_3_particles < 10 then
 					ability.w_3_particles = ability.w_3_particles + 1
-					local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * constants.ARCANA1_W3_DAMAGE_PERCENT / 100 * ability.w_3_level
+					local c_b_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ARCANA1_W3_DAMAGE_PERCENT / 100 * ability.w_3_level
 					Filters:TakeArgumentsAndApplyDamage(target, caster, c_b_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
 					local pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, caster)
 					ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 80), true)

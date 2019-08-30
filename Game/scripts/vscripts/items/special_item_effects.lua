@@ -2721,16 +2721,6 @@ function wraith_phase_back(event)
 	caster:RemoveNoDraw()
 end
 
-function purity_attack(event)
-	local target = event.target
-	local attacker = event.attacker
-	local damage = event.attack_damage * 15
-	if target.dummy then
-		return false
-	end
-	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PURE, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
-end
-
 function windsteel_take_damage(event)
 	local target = event.unit
 	--print("WINDSTEEL HIT")

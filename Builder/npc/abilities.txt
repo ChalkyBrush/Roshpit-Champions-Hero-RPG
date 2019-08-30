@@ -9577,12 +9577,6 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnAttackLanded"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"purity_attack"
-						"attack_damage"	"%attack_damage"
-					}
 					"FireEffect"
 					{
 						"EffectName"        "particles/units/heroes/hero_terrorblade/terrorblade_loadout.vpcf"

@@ -78,6 +78,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix"		"% of Aeon Fracture"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_property_two"	"Stun Duration"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix_two"		" seconds over base"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_property_three"	"Radius"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_suffix_three"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_e_2"				"[E2] Mountain Pyre"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_Description"	"After teleporting to an Emberstone, gain bonus strength for 15 seconds."
