@@ -1827,6 +1827,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * reduction
 		end
 	end
+	if victim:HasModifier("modifier_winterblight_endurance_buff") then
+		local passive = victim:FindAbilityByName("winterblight_endurance")
+		local reduction = passive:GetSpecialValueFor("damage_reduction")
+		local dmgMultiplier = (100 - reduction) / 100
+		damage = damage * dmgMultiplier
+	end
 	if victim:HasModifier("modifier_syphist_passive") then
 		if victim:GetHealth() / victim:GetMaxHealth() >= 0.1 then
 			damage = 0
@@ -2253,9 +2259,7 @@ function GameState:FilterDamage(filterTable)
 		-- mult = mult + 0.04*stacks
 		-- end
 		-- end
-		if attacker:HasModifier("modifier_energy_channel") then
-			mult = mult + attacker.mountainGuardianMagic - 1
-		end
+
 		if victim:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
 			if not attacker:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
 				if not attacker:HasModifier("modifier_carbuncle_immunity") then
@@ -2575,6 +2579,10 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
 		end
 	end
+	if attacker:HasModifier("modifier_energy_channel") then
+		local w_2_level = attacker:GetRuneValue("w", 2)
+		mult = mult + heroes.mountain_protector.MOUNTAIN_PROTECTOR_W2_POSTMIT_PCT / 100 * w_2_level
+	end
 	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
 		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
 		mult = mult + immortalOrArcanaCount * 2.4
@@ -2582,7 +2590,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modfier_razor_band_stacks") then
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
 		local stacks = modifier:GetStackCount()
-		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100) * stacks
+		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100)*stacks
 	end
 	if attacker:HasModifier("modifier_waterheart_weapon") then
 		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()

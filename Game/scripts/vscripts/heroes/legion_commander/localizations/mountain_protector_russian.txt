@@ -45,8 +45,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% от макс. ХП"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] Guardian's Wrath"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Во время действия стойки @Ability2 весь исходящий магический урон героя увеличен."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Усиление магического урона"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Post Mitigation damage is enhanced while in Mountain's Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Post Mitigation Damage Increase"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		"%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"

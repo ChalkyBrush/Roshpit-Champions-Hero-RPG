@@ -2490,3 +2490,11 @@ function birch_shell_take_damage(event)
 		end
 	end
 end
+
+function winterblight_endurance_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:IsStunned() then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_winterblight_endurance_buff", {duration = 0.2})
+	end
+end

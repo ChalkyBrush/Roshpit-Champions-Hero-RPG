@@ -225,10 +225,12 @@
 		"DOTA_Tooltip_ability_winter_satyr_heal"						"神秘的治疗"
 		"DOTA_Tooltip_ability_winter_satyr_heal_Description"			"治疗一个盟友。"
 
-		"DOTA_Tooltip_ability_winterblight_stun_regen"				"耐久"
-		"DOTA_Tooltip_ability_winterblight_stun_regen_Description"	"晕眩时恢复生命."
-		"DOTA_Tooltip_ability_winterblight_stun_regen_regen_percent"	"生命回复 %:"
 
+		"DOTA_Tooltip_ability_winterblight_endurance"					"耐久"
+		"DOTA_Tooltip_ability_winterblight_endurance_Description"		"被眩晕时受到的伤害将会降低，并且造成的伤害将会提高"
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_reduction"	"伤害减免 %:"
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_increase"	"伤害提高 %:"
+		
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack"		"冰冻攻击"
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack_Description"	"每次攻击都会增加一层冰冻伤害。每0.03秒造成冰冻伤害。伤害为基础技能伤害x冰冻层数的平方."
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack_damage"			"基础伤害:"

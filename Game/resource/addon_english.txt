@@ -7587,8 +7587,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% of max health"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] Guardian's Wrath"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"All magic damage output is enhanced while in Mountain's Guardian stance."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Magic Damage Increase"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Post Mitigation damage is enhanced while in Mountain's Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Post Mitigation Damage Increase"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		"%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"
@@ -18652,9 +18652,10 @@
 		"DOTA_Tooltip_ability_winter_satyr_heal"						"Mystic Healing"
 		"DOTA_Tooltip_ability_winter_satyr_heal_Description"			"Heals an ally for a small amount of HP"
 
-		"DOTA_Tooltip_ability_winterblight_stun_regen"				"Endurance"
-		"DOTA_Tooltip_ability_winterblight_stun_regen_Description"	"Gain health regen while stunned."
-		"DOTA_Tooltip_ability_winterblight_stun_regen_regen_percent"	"HEALTH REGEN %:"
+		"DOTA_Tooltip_ability_winterblight_endurance"					"Endurance"
+		"DOTA_Tooltip_ability_winterblight_endurance_Description"		"Take less damage and deal more damage while stunned."
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_reduction"	"DAMAGE REDUCTION %:"
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_increase"	"DAMAGE INCREASE %:"
 
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack"		"Frostbite Attack"
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack_Description"	"Each attack adds a stack of frostbite. Frostbite deals damage every 0.03 seconds. Damage is calculated as the base x stacks^2."

@@ -7312,8 +7312,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"最大生命值%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] 守护者的愤怒"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"当开启山丘守卫时，所有魔法伤害输出增加。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"魔法伤害提高"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Post Mitigation damage is enhanced while in Mountain's Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Post Mitigation Damage Increase"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		"%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] 盛怒"
@@ -18399,9 +18399,10 @@
 		"DOTA_Tooltip_ability_winter_satyr_heal"						"神秘的治疗"
 		"DOTA_Tooltip_ability_winter_satyr_heal_Description"			"治疗一个盟友。"
 
-		"DOTA_Tooltip_ability_winterblight_stun_regen"				"耐久"
-		"DOTA_Tooltip_ability_winterblight_stun_regen_Description"	"晕眩时恢复生命."
-		"DOTA_Tooltip_ability_winterblight_stun_regen_regen_percent"	"生命回复 %:"
+		"DOTA_Tooltip_ability_winterblight_endurance"				"耐久"
+		"DOTA_Tooltip_ability_winterblight_endurance_Description"		"Take less damage and deal more damage while stunned."
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_reduction"	"DAMAGE REDUCTION %:"
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_increase"	"DAMAGE INCREASE %:"
 
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack"		"冰冻攻击"
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack_Description"	"每次攻击都会增加一层冰冻伤害。每0.03秒造成冰冻伤害。伤害为基础技能伤害x冰冻层数的平方."

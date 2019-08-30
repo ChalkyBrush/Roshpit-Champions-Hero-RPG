@@ -74514,7 +74514,7 @@
 
 	}
 
-	"winterblight_stun_regen"
+	"winterblight_endurance"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
@@ -74525,12 +74525,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"regen_percent"			"5 20 80"
+				"damage_reduction"			"90"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_increase"			"100 150 200"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_stun_regen_thinker"
+			"modifier_winterblight_endurance_thinker"
 			{
 				"Passive"		"1"
 				"ThinkInterval"  "0.1"
@@ -74539,15 +74544,15 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
-						"Function"		"stun_regen_thinker_think"
+						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
+						"Function"		"winterblight_endurance_think"
 					}
 				}
 			}
 
-			"modifier_stun_regen_applied"
+			"modifier_winterblight_endurance_buff"
 			{
-				"IsBuff"				"0"
+				"IsBuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
 				"OnCreated"
@@ -74564,7 +74569,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen_percent"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" 	"%damage_increase"
 				}
 			}
 		}
