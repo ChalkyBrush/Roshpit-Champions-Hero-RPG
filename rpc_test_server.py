@@ -56,7 +56,7 @@ def edit_file(fPath):
 						#print(str(nextLine) + " line edited")
 					readLines[nextLine] = comment_or_remove(readLines[nextLine], False)
 	with io.open(fPath, 'w', encoding='utf-8') as wFile:
-		wFile.write("\n")
+		#wFile.write("\n")
 		wFile.writelines(readLines)
 		for key,value in resFuncDict.items():
 			if fPath == "Game\\scripts\\vscripts\\events.lua":
