@@ -60,13 +60,13 @@
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Slot: Hands"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Attacks deal x<% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %> Pure damage"
+		"property_divine_purity_description"		"Your autoattacks now deal <% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>x Pure Normal/<font color=\"#F6FFB5\">Holy</font> damage, instead of 1x Normal damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves_Description"						"Slot: Hands"
 		"item_property_marauder"					"Hand of Marauder"
-		"property_marauder_description"				"Your Physical damage ignores enemies' positive armor."
+		"property_marauder_description"				"Your Physical damage ignores enemies' positive Armor."
 		"DOTA_Tooltip_modifier_hand_marauder_effect" 			"Marauder"
 		"DOTA_Tooltip_modifier_hand_marauder_effect_description" "You shouldn't be seeing this in the course of normal gameplay"
 		
