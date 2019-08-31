@@ -8676,7 +8676,7 @@ function RPCItems:RollImmortalByName(itemName, position)
     elseif itemName == "item_rpc_auric_ring_of_inspiration" then
         newItem = RPCItems:RollAuricRingOfInspiration(deathLocation, 1)
     elseif itemName == "item_rpc_helm_of_the_knight_hawk" then
-	newItem = RollHelm RPCItems:RollHelmOfKnightHawk(deathLocation)
+	   newItem = RPCItems:RollHelmOfKnightHawk(deathLocation, false)
     end
     return newItem
 end
