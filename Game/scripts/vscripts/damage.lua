@@ -142,7 +142,7 @@ function Damage:Apply(data)
 
         Filters:ApplyDotDamage(data.attacker, data.source, data.victim, data.damage, data.damageType, data.sourceType, element1, element2)
     else
-        Filters:TakeArgumentsAndApplyDamage(data.victim, data.attacker, data.damage, data.damageType, data.sourceType, element1, element2)
+        Filters:TakeArgumentsAndApplyDamage(data.victim, data.attacker, data.damage, data.damageType, data.sourceType, element1, element2, false, data.source)
     end
 
     data.attacker._damage_data = {}
