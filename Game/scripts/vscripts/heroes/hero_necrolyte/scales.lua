@@ -121,7 +121,7 @@ local module = {
             end
             modifier = attacker:FindModifierByName('modifier_venomort_glyph_6_1_damage_reduction')
             if modifier then
-                mult = mult * VENOMORT_T61_DAMAGE_REDUCTION_PERCENT / 100;
+                mult = mult * (1 - VENOMORT_T61_DAMAGE_REDUCTION_PERCENT / 100);
             end
         end
         return mult
