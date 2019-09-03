@@ -784,7 +784,10 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					gearTable.prefix,
 				gearTable.suffix)
 				if gearTable.required_hero and gearTable.item_variant == "item_rpc_winterblight_skull_ring" then
-					item.newItemTable.requiredHero = gearTable.required_hero
+					if type(gearTable.required_hero) == "string" and gearTable.required_hero == "0" then
+					else
+						item.newItemTable.requiredHero = gearTable.required_hero
+					end
 				end
 			end
 		end
