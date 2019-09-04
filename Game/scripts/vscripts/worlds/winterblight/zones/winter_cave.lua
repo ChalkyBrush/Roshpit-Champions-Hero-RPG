@@ -4362,7 +4362,7 @@ function Winterblight:realm_breaker_level()
 		end
 	end
 	if total_chamber_clears == 16 then
-		level = total_chamber_levels/total_chamber_clears
+		level = math.ceil(total_chamber_levels/total_chamber_clears)
 	end
 	return level
 end

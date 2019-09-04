@@ -658,7 +658,7 @@ end
 function RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level)
     local item = RPCItems:CreateVariant("item_rpc_diamond_claws_of_tiamat", "immortal", "Diamond Claws of Tiamat", "hands", true, "Slot: Hands")
     local tiamat_roll, suffix = RPCItems:RollAttribute(300, 8 + boss_level, 16 + boss_level*4, 0, 0, item.newItemTable.rarity, false, boss_level*400)
-    tiamat_roll = math.min(tiamat_roll, 15000)
+    tiamat_roll = math.min(tiamat_roll, 18000)
     item.newItemTable.property1 = tiamat_roll
     item.newItemTable.property1name = "tiamat"
     RPCItems:SetPropertyValuesSpecial(item, tiamat_roll, "#item_property_tiamat_claw", "#FAFAFF", 1, "#property_tiamat_claw_description")
@@ -669,14 +669,14 @@ function RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level)
     item.newItemTable.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
 
-    local value, nameLevel = RPCItems:RollAttribute(100, 2, boss_level/2, 0, 0, item.newItemTable.rarity, false, boss_level*30)
-    value = math.min(value, 900)
+    local value, nameLevel = RPCItems:RollAttribute(100, 2, math.floor(boss_level/2) + 4, 0, 0, item.newItemTable.rarity, false, boss_level*30)
+    value = math.min(value, 1000)
     item.newItemTable.property3 = value
     item.newItemTable.property3name = "base_ability"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_base_ability", "#7AB4CC", 3)
 
     local value, nameLevel = RPCItems:RollAttribute(100, 1, boss_level+3, 0, 1, item.newItemTable.rarity, false, boss_level * 20)
-    value = math.min(value, 700)
+    value = math.min(value, 900)
     item.newItemTable.property4 = value
     item.newItemTable.property4name = "all_elements"
     RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#property_all_elements", "#BED5E5", 4)

@@ -5853,12 +5853,11 @@ function erudite_teacher_start(event)
 			Events:smoothSizeChange(apprentice, 0.1, 1, 33)
 			StartAnimation(apprentice, {duration = 1.3, activity = ACT_DOTA_ATTACK, rate = 1.0})
 		end)
-		DeepPrintTable(event.abilities_table)
-		if event.abilities_table then
+		if ability.apprentice_abilities_table then
 			Timers:CreateTimer(0.03, function()
-				DeepPrintTable(event.abilities_table)
-				for i = 1, #event.abilities_table, 1 do
-					local ability_check_name = event.abilities_table[i]
+				DeepPrintTable(ability.apprentice_abilities_table)
+				for i = 1, #ability.apprentice_abilities_table, 1 do
+					local ability_check_name = ability.apprentice_abilities_table[i]
 					local steal_index = i - 1
 					if not string.match(ability_check_name, "apprentice_spell_steal_") then
 						CustomAbilities:AddAndOrSwapSkill(apprentice, "apprentice_spell_steal_"..i, ability_check_name, steal_index)
@@ -5940,6 +5939,14 @@ function apprentice_spell_steal_cast(event)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_rubick/rubick_spell_steal.vpcf", target, 3)
 		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,60))
 		EmitSoundOn("Items.RubickApprentice.Spellsteal.Success", caster)
+		local apprentice_abilities_table = {}
+		for i = 0, 2, 1 do
+			local ability_check = caster:GetAbilityByIndex(i)
+			local ability_name = ability_check:GetAbilityName()
+			table.insert(apprentice_abilities_table, ability_name)
+		end
+		local robe = caster.summoner.body
+		robe.apprentice_abilities_table = apprentice_abilities_table
 	else
 		CustomAbilities:QuickParticleAtPoint("particles/roshpit/axe/red_general_ulti_cast_assassin_trap_explode_beam.vpcf", caster:GetAbsOrigin(), 1.5)
 		EmitSoundOn("Items.RubickApprentice.Spellsteal.Fail", caster)
