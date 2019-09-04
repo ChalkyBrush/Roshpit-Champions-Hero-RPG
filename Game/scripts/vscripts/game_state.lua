@@ -2576,7 +2576,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_energy_channel") then
 		local w_2_level = attacker:GetRuneValue("w", 2)
-		mult = mult + heroes.mountain_protector.MOUNTAIN_PROTECTOR_W2_POSTMIT_PCT / 100 * w_2_level
+		mult = mult + MOUNTAIN_PROTECTOR_W2_POSTMIT_PCT / 100 * w_2_level
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
 		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
