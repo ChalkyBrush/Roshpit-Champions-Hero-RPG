@@ -6042,7 +6042,7 @@ function erudite_teacher_robes_think(event)
 			eventTable.abilities_table = ability.apprentice_abilities_table
 			erudite_teacher_start(eventTable)
 
-			ability.apprentice_abilities_table = nil
+			-- ability.apprentice_abilities_table = nil
 		end
 	end
 end
