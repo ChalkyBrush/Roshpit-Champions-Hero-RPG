@@ -91,6 +91,9 @@ function class:OnSpellStart()
         caster = caster,
     })
 end
+function class:OnLoadItem()
+    self.isLuaItem = true
+end
 function class:SetSpecialValue(name, color)
     RPCItems:SetPropertyValuesSpecial(self, "★", "#item_property_" .. name, color, 1, "#property_"..name.."_description")
 end

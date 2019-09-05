@@ -42,6 +42,9 @@ require('challenges')
 require('stars')
 require('custom_attributes')
 require('logger')
+require('/util')
+require('/damage')
+require('/items/lua/require')
 
 Statistics = require('statistic')
 

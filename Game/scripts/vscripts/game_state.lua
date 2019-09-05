@@ -1,8 +1,7 @@
 if GameState == nil then
 	GameState = class({})
 end
-require('/util')
-require('/damage')
+
 
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/huskar/spirit_warrior_constants')
@@ -27,8 +26,6 @@ require('/items/constants/chest')
 require('/items/constants/gloves')
 require('/items/constants/helm')
 require('/items/constants/trinket')
-
-require('/items/lua/require')
 
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales')}
