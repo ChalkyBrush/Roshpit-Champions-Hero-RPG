@@ -190,6 +190,9 @@ end
 
 function RPCItems:CreateVariantWithMin(variantName, rarityName, itemNameText, slot, gear, slotText, minLevel, prefix, suffix)
     local item = RPCItems:CreateItem(variantName, nil, nil)
+    if _G[variantName] then
+        item:OnLoadItem()
+    end
     item.newItemTable.qualityName = rarityName
     item.newItemTable.rarity = rarityName
     item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.newItemTable.rarity)
