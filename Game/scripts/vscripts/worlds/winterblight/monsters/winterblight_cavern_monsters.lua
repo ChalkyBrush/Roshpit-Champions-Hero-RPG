@@ -2244,10 +2244,11 @@ function galaxy_knight_take_damage(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local freeze_duration = event.freeze_duration
-	print("NOT HAPPENMOING?")
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_galaxy_knight_freeze", {duration = freeze_duration})
-	EmitSoundOn("Winterblight.GalaxyKnight.Freeze", attacker)
-	ApplyDamage({ victim = attacker, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+	if not attacker:HasModifier("modifier_galaxy_knight_freeze") then
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_galaxy_knight_freeze", {duration = freeze_duration})
+		EmitSoundOn("Winterblight.GalaxyKnight.Freeze", attacker)
+		ApplyDamage({ victim = attacker, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+	end
 end
 
 function ellipsis_wave_cast(event)
