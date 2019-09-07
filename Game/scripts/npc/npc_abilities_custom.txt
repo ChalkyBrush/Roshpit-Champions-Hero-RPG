@@ -86557,6 +86557,33 @@
 
 	}
 
+	"gem_forger_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_gem_forger_entering"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/friendly_npcs.lua"
+						"Function"		"gem_forger_entering_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+
+	}
+	
 	"wind_temple_staff_dummy"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"

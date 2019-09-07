@@ -55,6 +55,7 @@ function Precache(context)
   PrecacheUnitByNameSync("the_oracle", context)
   PrecacheUnitByNameSync("the_crusader", context)
   PrecacheUnitByNameSync("the_glyph_enchanter", context)
+  PrecacheUnitByNameSync("gem_forger", context)
   PrecacheUnitByNameSync("the_curator", context)
 
   -- PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts", context)

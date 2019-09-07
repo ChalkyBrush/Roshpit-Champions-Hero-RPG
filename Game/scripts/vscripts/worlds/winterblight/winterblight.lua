@@ -13,6 +13,7 @@ function Winterblight:Debug()
     local position = Vector(-15424,-2560)
     RPCItems:DropItem(item, Vector(-15424,-2560))
 
+    Gems:SpawnGemForger(Vector(-14424,-2560), Vector(-1,0))
   -- RPCItems:RollHoodOfLords(position, true)
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
     -- RPCItems:RollFrozenHeart(Vector(-15424,-2560))

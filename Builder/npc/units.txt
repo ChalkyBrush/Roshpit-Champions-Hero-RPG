@@ -81298,6 +81298,80 @@
         "MinimapIconSize" "600"
         "MinimapDisableTint" "0"
     }
+
+    "gem_forger"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/storm_spirit/storm_spirit.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "champion"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"  "Hero_StormSpirit"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1"
+        "AttackDamageMax"   "1"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.29"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+        "ProjectileSpeed"   "1400"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "500"
+        "BountyXP"  "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "32"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "300"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "175000"
+        "StatusHealthRegen" "3"
+        "StatusMana"    "100000"
+        "StatusManaRegen"   "-5000"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "town_unit"
+        "Ability2"  "npc_dialogue"
+        "Ability3"  "gem_forger_ability"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9557"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "12614"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "8180"
+                }
+            }
+        }
+    }
+
     ##WINTERBLIGHT_UNITS##
     
     ##TUTORIAL_UNITS##

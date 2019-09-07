@@ -45,6 +45,7 @@ require('logger')
 require('/util')
 require('/damage')
 require('/items/lua/require')
+require('gems')
 
 Statistics = require('statistic')
 
