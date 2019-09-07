@@ -13972,27 +13972,6 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "PathfindingSearchDepthScale" "0.2"
-        "Creature"
-        {
-            "DisableClumpingBehavior"   "1"
-            "States"
-            {
-                "Invade"
-                {
-                    "Name"  "Invade"
-                    "Aggression"    "50.0"
-                    "Avoidance" "0.0"
-                    "Support"   "0.0"
-                    "RoamDistance"  "1000.0"
-                }
-
-            }
-            "OffensiveAbilities"
-            {
-          
-            }
-
-        }
         "Ability1"          "apprentice_spell_steal_1"
         "Ability2"          "apprentice_spell_steal_2"
         "Ability3"          "apprentice_spell_steal_3"

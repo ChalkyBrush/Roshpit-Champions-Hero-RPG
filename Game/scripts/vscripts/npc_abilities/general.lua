@@ -570,7 +570,7 @@ end
 
 function hero_summon_off(event)
 	local caster = event.caster
-	caster:SetAcquisitionRange(500)
+	caster:SetAcquisitionRange(0)
 	if caster:GetUnitName() == "sorc_water_elemental" and caster:GetHealth() > 0 then
 		caster.creator.bIsAIon = false
 	elseif caster:GetUnitName() == "earth_aspect" and caster:GetHealth() > 0 then
