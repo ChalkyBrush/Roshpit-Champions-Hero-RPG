@@ -26,7 +26,6 @@ function UpdateInventoryItem( itemSlot, item, queryUnit, parentPanel, ownerID )
 	abilityPanel.SetAttributeInt( "ownerID", parseInt(ownerID))
 	//abilityPanel.SetAttributeInt( "queryUnit", queryUnit );
 	}
-
 }
 
 function UpdateInventory()

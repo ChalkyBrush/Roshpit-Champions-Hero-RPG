@@ -3,10 +3,12 @@
 		<include src="file://{resources}/styles/dotastyles.css" />
 		<include src="file://{resources}/styles/custom_game/pickup/new_item_equip.css" />
 		<include src="file://{resources}/styles/custom_game/item_tooltip.css" />
+		<include src="file://{resources}/styles/custom_game/gems.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/equipment/equip_item_ui.js" />
 		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
 	</scripts>
 	<snippets>
 		<snippet name="equip_item_container">
@@ -41,7 +43,17 @@
 		<snippet name="equip_item_display">
 			<Panel class="equip_item_display_root" hittest="false">
 				<Label id="new_or_old" text="test"/>
-				<DOTAItemImage hittest="false" id="equip_item_image"/>
+				<Panel id="equip_item_image_container">
+					<DOTAItemImage hittest="false" id="equip_item_image"/>
+					<Panel hittest="false" id="gems-small" class="invisible">
+						<Panel hittest="false" id="gems-small-socket1" class="gems-small-socket">
+							<Image class="placed-gem" id="placed-gem1"/>
+						</Panel>
+						<Panel hittest="false" id="gems-small-socket2" class="gems-small-socket">
+							<Image class="placed-gem" id="placed-gem2"/>
+						</Panel>
+					</Panel>
+				</Panel>
 				<Panel id="tooltip_title_container">
 					<Label id="tooltip_title" text="HIGH THIS IS CUSTOM" html="true">
 

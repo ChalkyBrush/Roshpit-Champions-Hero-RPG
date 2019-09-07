@@ -3,8 +3,10 @@
 		<include src="file://{resources}/styles/dotastyles.css" />
 		<include src="file://{resources}/styles/custom_game/pickup/pickup.css" />
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+		<include src="file://{resources}/styles/custom_game/gems.css" />
 	</styles>
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
 		<include src="file://{resources}/scripts/custom_game/pickup/item_roll_box.js" />
 		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
 		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
@@ -17,6 +19,14 @@
 					onmouseover="ItemShowTooltip('#roll-item-image')"
 					onmouseout="ItemHideTooltip('#roll-item-image')">
 				<DOTAItemImage hittest="true" class="roll-item-image" id="roll-item-image"/>
+				<Panel hittest="false" id="gems-small" class="invisible">
+					<Panel hittest="false" id="gems-small-socket1" class="gems-small-socket">
+						<Image class="placed-gem" id="placed-gem1"/>
+					</Panel>
+					<Panel hittest="false" id="gems-small-socket2" class="gems-small-socket">
+						<Image class="placed-gem" id="placed-gem2"/>
+					</Panel>
+				</Panel>
 			</Panel>
 			<Panel class="doubleHeroContainer">
 				<Panel class="player_portrait_container">

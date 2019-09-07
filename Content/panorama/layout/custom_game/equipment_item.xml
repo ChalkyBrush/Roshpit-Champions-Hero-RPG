@@ -2,12 +2,25 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/equipment.css" />
 		<include src="file://{resources}/styles/custom_game/tooltips.css" />
+		<include src="file://{resources}/styles/custom_game/gems.css" />
 	</styles>
 	<scripts>
 <!-- 		<include src="file://{resources}/scripts/custom_game/equipment_item.js" />
 		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
 		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" /> -->
 	</scripts>
+	<snippets>
+		<snippet name="gem_snippet">
+			<Panel hittest="false" class="invisible gems-root">
+				<Panel hittest="false" id="gems-small-socket1" class="gems-small-socket">
+					<Image class="placed-gem" id="placed-gem1"/>
+				</Panel>
+				<Panel hittest="false" id="gems-small-socket2" class="gems-small-socket">
+					<Image class="placed-gem" id="placed-gem2"/>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippet>
 	<Panel class="equipment_panel">
 		<Image class="equipment_panel_image" id="equipment_panel_image" src="file://{images}/custom_game/ui/narrow_panel.png" />
 		<Button id="open_equipment"
@@ -15,7 +28,6 @@
 			onload="InitializeEquipment()"
 			>
 			<Label id="equipment_button_label" text="Open Equipment" />
-<!-- 			<Image src="file://{images}/custom_game/ui/narrow_panel.png" /> -->
 		</Button>
 		<Panel class="large_equipment_panel" id="large_equipment_panel">
 			<Image class="equipment_panel_image_large" src="file://{images}/custom_game/ui/large_panel.png" />
@@ -24,36 +36,42 @@
 				onmouseout="ItemHideTooltipInit()">
 				<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
 				<Image class="slot_image_helm" src="file://{images}/custom_game/ui/helm.png" />
+				<Panel id="gems_container0"/>
 			</Panel>
 			<Panel class="weapon_container" id="weapon_container" draggable="true"
 				onmouseover="ItemShowTooltipEquipment()"
 				onmouseout="ItemHideTooltipInit()">
 				<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
 				<Image class="slot_image_weapon" src="file://{images}/custom_game/ui/weapon.png" />
+				<Panel id="gems_container1"/>
 			</Panel>
 			<Panel class="glove_container" id="glove_container" draggable="true"
 				onmouseover="ItemShowTooltipEquipment()"
 				onmouseout="ItemHideTooltipInit()">
 				<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
 				<Image class="slot_image_glove" src="file://{images}/custom_game/ui/gloves.png" />
+				<Panel id="gems_container2"/>
 			</Panel>
 			<Panel class="boot_container" id="boot_container" draggable="true"
 				onmouseover="ItemShowTooltipEquipment()"
 				onmouseout="ItemHideTooltipInit()">
 				<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
 				<Image class="slot_image_boot" src="file://{images}/custom_game/ui/feet.png" />
+				<Panel id="gems_container3"/>
 			</Panel>
 			<Panel class="armor_container" id="armor_container" draggable="true"
 				onmouseover="ItemShowTooltipEquipment()"
 				onmouseout="ItemHideTooltipInit()">
 				<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
 				<Image class="slot_image_armor" src="file://{images}/custom_game/ui/shirt.png" />
+				<Panel id="gems_container4"/>
 			</Panel>
 			<Panel class="amulet_container" id="amulet_container" draggable="true"
 				onmouseover="ItemShowTooltipEquipment()"
 				onmouseout="ItemHideTooltipInit()">
 				<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
 				<Image class="slot_image_amulet" src="file://{images}/custom_game/ui/amulet.png" />
+				<Panel id="gems_container5"/>
 			</Panel>
 		</Panel>
 	</Panel>

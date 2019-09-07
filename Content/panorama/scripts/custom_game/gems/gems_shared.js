@@ -1,0 +1,91 @@
+function manageSocketsEquipment(rootPanel, item, slot)
+{
+	if (rootPanel.gemsSnippet === undefined){
+		rootPanel.gemsSnippet = $.CreatePanel("Panel", rootPanel, "gems"+slot)
+		rootPanel.gemsSnippet.BLoadLayoutSnippet("gem_snippet")
+	}
+	if (item > -1){
+		var playerID = Players.GetLocalPlayer();
+		var item_table = CustomNetTables.GetTableValue( "item_basics", item.toString() );
+		if (!(item_table === undefined)){
+			if (!(item_table.socket1===undefined) && !(item_table.socket1=="none")){
+				rootPanel.gemsSnippet.RemoveClass('invisible')
+				var gem1image = "file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png"
+				$.Msg(gem1image)
+				rootPanel.gemsSnippet.FindChildTraverse('placed-gem1').SetImage(gem1image)
+				if (!(item_table.socket2 === undefined) && !(item_table.socket2=="none")){
+					rootPanel.gemsSnippet.FindChildTraverse('gems-small-socket2').RemoveClass('invisible')
+					var gem2image = "file://{images}/items/gems/"+item_table.socket2+item_table.socket2value+".png"
+					rootPanel.gemsSnippet.FindChildTraverse('placed-gem2').SetImage(gem2image)
+				}else{
+					rootPanel.gemsSnippet.FindChildTraverse('gems-small-socket2').AddClass('invisible')
+				}
+			}else{
+				rootPanel.gemsSnippet.AddClass('invisible')
+			}
+		}else{
+			rootPanel.gemsSnippet.AddClass('invisible')
+		}
+	}else{
+		rootPanel.gemsSnippet.AddClass('invisible')
+	}
+}
+
+function manageSocketsWithRoot(rootPanel, item)
+{
+	var gems_root = rootPanel.FindChildTraverse('gems-small')
+	if (item > -1){
+		var playerID = Players.GetLocalPlayer();
+		var item_table = CustomNetTables.GetTableValue( "item_basics", item.toString() );
+		if (!(item_table === undefined)){
+			if (!(item_table.socket1===undefined) && !(item_table.socket1=="none")){
+				gems_root.RemoveClass('invisible')
+				var gem1image = "file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png"
+				$.Msg(gem1image)
+				gems_root.FindChildTraverse('placed-gem1').SetImage(gem1image)
+				if (!(item_table.socket2 === undefined) && !(item_table.socket2=="none")){
+					gems_root.FindChildTraverse('gems-small-socket2').RemoveClass('invisible')
+					var gem2image = "file://{images}/items/gems/"+item_table.socket2+item_table.socket2value+".png"
+					gems_root.FindChildTraverse('placed-gem2').SetImage(gem2image)
+				}else{
+					gems_root.FindChildTraverse('gems-small-socket2').AddClass('invisible')
+				}
+			}else{
+				gems_root.AddClass('invisible')
+			}
+		}else{
+			gems_root.AddClass('invisible')
+		}
+	}else{
+		gems_root.AddClass('invisible')
+	}
+}
+
+
+function manageSockets(item)
+{
+	if (item > -1){
+		var playerID = Players.GetLocalPlayer();
+		var item_table = CustomNetTables.GetTableValue( "item_basics", item.toString() );
+		if (!(item_table === undefined)){
+			if (!(item_table.socket1===undefined) && !(item_table.socket1=="none")){
+				$('#gems-small').RemoveClass('invisible')
+				var gem1image = "file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png"
+				$('#placed-gem1').SetImage(gem1image)
+				if (!(item_table.socket2 === undefined) && !(item_table.socket2=="none")){
+					$('#gems-small-socket2').RemoveClass('invisible')
+					var gem2image = "file://{images}/items/gems/"+item_table.socket2+item_table.socket2value+".png"
+					$('#placed-gem2').SetImage(gem2image)
+				}else{
+					$('#gems-small-socket2').AddClass('invisible')
+				}
+			}else{
+				$('#gems-small').AddClass('invisible')
+			}
+		}else{
+			$('#gems-small').AddClass('invisible')
+		}
+	}else{
+		$('#gems-small').AddClass('invisible')
+	}
+}

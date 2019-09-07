@@ -6,6 +6,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/pickup/item_roll.js" />
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
 	</scripts>
 	<Panel class="itemroll_root" hittest="false">
 		<Panel id="item_roll_container" hittest="false">

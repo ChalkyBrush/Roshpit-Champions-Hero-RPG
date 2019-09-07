@@ -24,6 +24,30 @@
       <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_mini_boss.png"/>
       <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_boss.png"/>
       <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_major_boss.png"/>
+
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/ruby1.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/ruby2.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/ruby3.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/ruby4.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/ruby5.png"/>
+
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/sapphire1.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/sapphire2.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/sapphire3.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/sapphire4.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/sapphire5.png"/>
+
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/emerald1.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/emerald2.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/emerald3.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/emerald4.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/emerald5.png"/>
+
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/amethyst1.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/amethyst2.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/amethyst3.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/amethyst4.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/amethyst5.png"/>
 <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/items/winterblight/winterblight_glacier_stone.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc_ruby_ring.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraps_of_the_grand_arcanist.png"/>

@@ -85,36 +85,14 @@ function UpdateItem()
 		$("#gems-small-socket1").style.height='10px'
 		$("#gems-small-socket2").style.width='10px'
 		$("#gems-small-socket2").style.height='10px'
+	}else{
+		$("#gems-small-socket1").style.width='18px'
+		$("#gems-small-socket1").style.height='18px'
+		$("#gems-small-socket2").style.width='18px'
+		$("#gems-small-socket2").style.height='18px'		
 	}
 	
 	$.Schedule( 0.1, UpdateItem );
-}
-
-function manageSockets(item)
-{
-	if (item > -1){
-		var playerID = Players.GetLocalPlayer();
-		var item_table = CustomNetTables.GetTableValue( "item_basics", item.toString() );
-		if (!(item_table === undefined)){
-			$.Msg(item_table.socket1)
-			if (!(item_table.socket1===undefined) && !(item_table.socket1=="none")){
-				$('#gems-small').RemoveClass('invisible')
-				$('#placed-gem1').SetImage("file://{images}/custom_game/items/gems/"+item_table.socket1+item_table.socket1value+".png")
-				if (!(item_table.socket2 === undefined) && !(item_table.socket2=="none")){
-					$('#gems-small-socket2').RemoveClass('invisible')
-					$('#placed-gem2').SetImage("file://{images}/custom_game/items/gems/"+item_table.socket2+item_table.socket2value+".png")
-				}else{
-					$('#gems-small-socket2').AddClass('invisible')
-				}
-			}else{
-				$('#gems-small').AddClass('invisible')
-			}
-		}else{
-			$('#gems-small').AddClass('invisible')
-		}
-	}else{
-		$('#gems-small').AddClass('invisible')
-	}
 }
 
 function itemPropertyCheck(itemProperty){

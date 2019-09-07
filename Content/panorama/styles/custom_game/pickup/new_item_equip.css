@@ -55,11 +55,15 @@
     animation-timing-function: linear;  
 }
 
-#equip_item_image{
+#equip_item_image_container{
 	horizontal-align:center;
 	border-radius:4px;
 	box-shadow: 1px 1px 0px #000000;
-	margin-top:5px;
+	margin-top:5px;	
+}
+
+#equip_item_image{
+
 }
 
 #new_or_old{

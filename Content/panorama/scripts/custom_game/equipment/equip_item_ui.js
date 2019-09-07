@@ -129,6 +129,7 @@ function initializeTooltip(main_panel, item){
 		}
 	}
 	main_panel.FindChildTraverse('equip_item_image').contextEntityIndex = item;
+	manageSocketsWithRoot(main_panel, item)
 	//TITLE
 	var localizedItemName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName(item))
 	var itemPrefix = itemValues.itemPrefix

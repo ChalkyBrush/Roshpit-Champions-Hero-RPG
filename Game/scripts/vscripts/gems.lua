@@ -23,9 +23,11 @@ function Gems:SetSocket(item, socket_number, gem, value)
 	if socket_number == 1 then
 		item.newItemTable.socket1 = gem
 		item.newItemTable.socket1value = value
+		RPCItems:ItemUpdateCustomNetTables(item)
 	elseif socket_number == 2 then
 		item.newItemTable.socket2 = gem
 		item.newItemTable.socket2value = value
+		RPCItems:ItemUpdateCustomNetTables(item)
 	end
 end
 
