@@ -2,6 +2,33 @@ if Gems == nil then
 	Gems = class({})
 end
 
+function Gems:RandomlySetSocketsForItem(item)
+end
+
+function Gems:AddSocket(item)
+	if not item.newItemTable.socket1 then
+		item.newItemTable.socket1 = "open"
+		item.newItemTable.socket1value = 0
+		RPCItems:ItemUpdateCustomNetTables(item)
+		return true
+	elseif not item.newItemTable.socket2 then
+		item.newItemTable.socket2 = "open"
+		item.newItemTable.socket2value = 0
+		RPCItems:ItemUpdateCustomNetTables(item)
+		return true
+	end
+end
+
+function Gems:SetSocket(item, socket_number, gem, value)
+	if socket_number == 1 then
+		item.newItemTable.socket1 = gem
+		item.newItemTable.socket1value = value
+	elseif socket_number == 2 then
+		item.newItemTable.socket2 = gem
+		item.newItemTable.socket2value = value
+	end
+end
+
 function Gems:SpawnGemForger(position, endFV)
 	-- if not Gems.GemForgerSpawned then
 	 	if Gems.GemForger then

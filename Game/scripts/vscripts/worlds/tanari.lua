@@ -25,7 +25,7 @@ function Tanari:Debug()
         -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
 
-	Tanari:InitializeFireTemple()
+	-- Tanari:InitializeFireTemple()
 	--
     --Tanari:SpawnFireSpiritFinalBoss()
     --Tanari:SpawnWaterSpiritFinalBoss()
@@ -54,6 +54,10 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
+    local helm = RPCItems:RollSamuraiHelmet(Vector(-4928, 2048), false)
+    Gems:AddSocket(helm)
+    Gems:AddSocket(helm)
+    Gems:SetSocket(helm, 1, "ruby", 1)
     -- RPCItems:RollDuskbringerArcana1(Vector(-4928, 2048))
     -- RPCItems:RollDuskbringerArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_duskbringer_glyph_7_1", Vector(-4928, 2048), 0)
@@ -65,8 +69,10 @@ function Tanari:Debug()
     -- Glyphs:DebugRollHeroGlyphs("omniro", Vector(-4928, 2048))
     -- -- RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
     -- -- RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
-    -- RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
-    -- RPCItems:RollIceFloeSlippers(Vector(-4928, 2048))
+    local gloves = RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
+    Gems:AddSocket(gloves)
+    Gems:SetSocket(gloves, 1, "ruby", 5)
+    RPCItems:RollIceFloeSlippers(Vector(-4928, 2048))
     -- RPCItems:RollSlipfinnArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAerithsTear(Vector(-4928, 2048))
 
@@ -273,7 +279,7 @@ function Tanari:Debug()
     -- RPCItems:RollTrapperArcana1(Vector(-4928, 2048))
 
     ---------MAX CURATION----------
-    Curator:FullCurateHero(MAIN_HERO_TABLE[1])
+    -- Curator:FullCurateHero(MAIN_HERO_TABLE[1])
     -- Timers:CreateTimer(40, function()
     --     Curator:CurateAllGlyphsForHero("neutral")
     -- end)
@@ -288,10 +294,10 @@ function Tanari:Debug()
     -- end)
 
     -- Events.DifficultyFactor = 3
-    Events.SpiritRealm = true
-    -- Tanari.WaterTemple = {}
-    -- Tanari.FireTemple = {}
-    Tanari:AcquireTempleKey(Vector(-4928, 2048), "wind")
+    -- Events.SpiritRealm = true
+    -- -- Tanari.WaterTemple = {}
+    -- -- Tanari.FireTemple = {}
+    -- Tanari:AcquireTempleKey(Vector(-4928, 2048), "wind")
     -- RPCItems:RollShadowflameFist(position)
     -- Curator:CurateALLGlyphs()
     -- RPCItems:RollHelmOfSilentTemplar(Vector(-4928, 2048), false)

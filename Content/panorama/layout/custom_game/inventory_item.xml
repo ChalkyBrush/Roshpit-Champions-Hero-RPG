@@ -22,6 +22,14 @@
 				<Panel hittest="false" id="CooldownOverlay" />
 				<Label hittest="false" id="CooldownTimer" />
 			</Panel>
+			<Panel hittest="false" id="gems-small" class="invisible">
+				<Panel hittest="false" id="gems-small-socket1" class="gems-small-socket">
+					<Image class="placed-gem" id="placed-gem1"/>
+				</Panel>
+				<Panel hittest="false" id="gems-small-socket2" class="gems-small-socket">
+					<Image class="placed-gem" id="placed-gem2"/>
+				</Panel>
+			</Panel>
 			<Label hittest="false" class="Charges" id="ChargeCount" />
 			<Label hittest="false" class="Charges" id="AltChargeCount" />
 			<Panel hittest="false" id="DropTargetHighlight" />
