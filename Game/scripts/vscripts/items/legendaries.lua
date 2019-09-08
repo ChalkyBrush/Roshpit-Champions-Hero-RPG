@@ -8729,6 +8729,10 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem.pickedUp = true
         newItem.newItemTable.minLevel = itemLevel
         newItem.newItemTable.validator = oldItemProperties.validator
+        newItem.newItemTable.socket1 = oldItemProperties.socket1
+        newItem.newItemTable.socket1value = oldItemProperties.socket1value
+        newItem.newItemTable.socket2 = oldItemProperties.socket2
+        newItem.newItemTable.socket2value = oldItemProperties.socket2value
         -- local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
 
         -- CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()),

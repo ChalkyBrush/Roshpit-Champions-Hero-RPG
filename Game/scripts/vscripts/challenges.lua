@@ -133,6 +133,12 @@ function Challenges:FinalReroll(msg)
 		return false
 	end
 	if IsValidEntity(item) then
+		if item.newItemTable.socket1 and item.newItemTable.socket1 ~= "open" then
+			return false
+		end
+		if item.newItemTable.socket2 and item.newItemTable.socket2 ~= "open" then
+			return false
+		end
 		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, minLevel, itemProperties)
 		if newItem then
 			if IsValidEntity(newItem) then
