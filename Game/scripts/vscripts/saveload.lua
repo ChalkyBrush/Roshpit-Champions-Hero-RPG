@@ -1032,6 +1032,18 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				end
 				RPCItems:ItemUpdateCustomNetTables(item)
 				return item
+			elseif gearTable.item_variant == "item_rpc_socket_cutter" then
+				local item = RPCItems:CreateConsumable("item_rpc_socket_cutter", "immortal", "Socket Cutter", "consumable", false, "Consumable", "socket_cutter_desc")
+				SaveLoad:RemoveProperties(item)
+				SaveLoad:RemoveAdditionalData(item, false, false)
+				item.newItemTable.consumable = true
+				item.newItemTable.stashable = true
+				item.pickedUp = true
+				if gearTable.validator then
+					item.newItemTable.validator = gearTable.validator
+				end
+				RPCItems:ItemUpdateCustomNetTables(item)
+				return item
 			elseif string.match(gearTable.item_variant, "galactic_arcana_cache") then
 				local item = RPCItems:CreateConsumable(gearTable.item_variant, "arcana", "Arcana Cache Part", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
 				SaveLoad:RemoveProperties(item)

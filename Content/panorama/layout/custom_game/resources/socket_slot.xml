@@ -1,0 +1,22 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/resources/socket_slot.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="blacksmith_slot_root" hittest="false">
+			<Button id="item_tooltip_button" hittest="true"
+				onmouseover="ItemShowTooltipInit()"
+				onmouseout="ItemHideTooltipInit()"/>
+			<DOTAItemImage hittest="true" id="socket_item_slot"
+				onmouseover="ItemShowTooltipInit()"
+				onmouseout="ItemHideTooltipInit()"/>
+					
+	</Panel>
+
+
+</root>

@@ -801,6 +801,9 @@
 		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Ultraforger"
 		"item_rpc_currency_whetstone_desc"							"Use: Combine with a Weapon in a Synthesis Vessel to upgrade it to its max level."
 
+		"DOTA_Tooltip_ability_item_rpc_socket_cutter"				"Socket Cutter"
+		"socket_cutter_desc"										"Use at the blacksmith to add a socket to an item."
+
 		"cache_radiance"									"Radiance"
 
 		"item_row"					"Glyph Tier"
@@ -1140,6 +1143,9 @@
 		"reroll_name"												"Item Reroll"
 		"reroll_tooltip"											"A selected Immortal Item can have its properties rerolled. For an additional fee, you can lock specific slots from rerolling. Price of reroll depends on the item's internal level. Weapons can't be rerolled."
 
+		"socket_name"												"Socket Cutting"
+		"socket_tooltip"											"A selected non-weapon immortal item can have a socket added, at the cost of some mithril and a Socket Cutter. Items can have a maximum of 2 sockets."
+
 		"ui_cancel"													"Cancel"
 
 		"message_chisel_price"										"Cost to Chisel"
@@ -1156,6 +1162,18 @@
 		"property_lock_title"										"Lock Property"
 		"property_lock_tooltip"										"Click on this row to lock or unlock this property from rerolling."
 
+		"socket_item_select_help"									"Select an equipped item or drag an item from your inventory into the slot."
+		"cannot_be_socketed_slot"									"This item is not a Helm, Chest, Boots, Glove, or Trinket item."
+		"cannot_be_socketed_rarity"									"This item is not an immortal."
+		"cannot_be_socketed_full_socket"							"This item already has maximum sockets."
+
+		"next_socket_1"												"This item is valid for adding its first socket. The socketing process requires 1 Socket Cutter and mithril."
+		"next_socket_2"												"This item is valid for adding its second socket. The socketing process requires 1 Socket Cutter and mithril."
+
+		"item_forger_tip_for_socket"								"Drag a Socket Cutter into this slot"
+		"final_add_socket"											"Add Socket"
+
+		"socket_not_enough_mithril"									"You do not have enough mithril to proceed"
 	    //------------------------
 		// World
 		//------------------------

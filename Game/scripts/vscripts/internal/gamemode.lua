@@ -192,6 +192,8 @@ function GameMode:_InitGameMode()
   CustomGameEventManager:RegisterListener("collect_mithril_income", Dynamic_Wrap(Challenges, "CollectMithrilIncome"))
   CustomGameEventManager:RegisterListener("clicked_chisel_gear", Dynamic_Wrap(Challenges, "ChiselableGearClicked"))
   CustomGameEventManager:RegisterListener("final_chisel", Dynamic_Wrap(Challenges, "ChiselItem"))
+  CustomGameEventManager:RegisterListener("drag_item_socket_cutter", Dynamic_Wrap(Challenges, "SocketCutterInserted"))
+  CustomGameEventManager:RegisterListener("final_socket", Dynamic_Wrap(Challenges, "FinalSocket"))
 
   CustomGameEventManager:RegisterListener("drag_into_reroll_slot", Dynamic_Wrap(Challenges, "DragIntoRerollSlot"))
   CustomGameEventManager:RegisterListener("return_reroll", Dynamic_Wrap(Challenges, "ReturnReroll"))

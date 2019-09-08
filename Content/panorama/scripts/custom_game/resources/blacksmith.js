@@ -4,6 +4,7 @@ function CloseBlacksmith(msg) {
     GameUI.CustomUIConfig().mainDialog = 0;
     ToggleChiselState(false);
     ToggleRerollState(false);
+    ToggleSocketState(false);
     $('#item-display-content').RemoveAndDeleteChildren(0);
     if (msg !== 0) {
         if (!(msg === undefined)) {
@@ -15,10 +16,12 @@ function CloseBlacksmith(msg) {
 }
 
 function OpenBlacksmith() {
-    if (GameUI.CustomUIConfig().mainDialog === 0) {
+    // if (GameUI.CustomUIConfig().mainDialog === 0) {
         GameUI.CustomUIConfig().chisel = 0;
         GameUI.CustomUIConfig().reroll = 0;
+        GameUI.CustomUIConfig().socket = 0;
         GameUI.CustomUIConfig().rerollItem = 0;
+        $.GetContextPanel().style.visibility = "visible"
         $('#blacksmith_main_container').RemoveClass("invisible");
         $('#blacksmith_main_container').style.visibility = "visible";
         $('#upgrade-tiers-box').RemoveClass("invisible");
@@ -27,6 +30,7 @@ function OpenBlacksmith() {
 
         $('#chisel_button_label').text = $.Localize('#chisel_name');
         $('#reroll_button_label').text = $.Localize('#reroll_name');
+        $('#socket_button_label').text = $.Localize('#socket_name');
 
         var playerID = Game.GetLocalPlayerID();
         var shards = CustomNetTables.GetTableValue("player_stats", playerID.toString() + "-mithril").mithril;
@@ -45,7 +49,7 @@ function OpenBlacksmith() {
             $('#resources-box-row').AddClass("no_income");
         }
         $('#income_crystals_label_value').text = $.Localize('#tooltip_daily_income') + ": 1000";
-    }
+    // }
 }
 
 
@@ -90,6 +94,7 @@ function UnlockBlacksmith() {
     GameUI.CustomUIConfig().mainDialog = 0;
     ToggleChiselState(false);
     ToggleRerollState(false);
+    ToggleSocketState(false);
     $('#item-display-content').RemoveAndDeleteChildren(0);
     OpenBlacksmith();
 }
@@ -100,6 +105,7 @@ function UnlockBlacksmithAfterReroll(msg) {
     GameUI.CustomUIConfig().mainDialog = 0;
     ToggleChiselState(false);
     ToggleRerollState(false);
+    ToggleSocketState(false);
     var itemValues = CustomNetTables.GetTableValue("item_basics", itemIndex.toString());
     var rarity = itemValues.rarityFactor;
     if (itemValues.slot === "weapon") {
@@ -140,8 +146,11 @@ function ToggleChiselState(bTurnOn) {
     var weaponPanel = mainParent.FindChild("weapon_glove_main_container").FindChild("weapon_container");
     if (bTurnOn) {
         GameUI.CustomUIConfig().chisel = 1;
+        GameUI.CustomUIConfig().socket = 0;
         $('#chisel_button_label').text = $.Localize('#ui_cancel');
         $('#chisel_button').AddClass('active_button');
+        $('#socket_button_label').text = $.Localize('#socket_name');
+        $('#socket_button').RemoveClass('active_button');
         helmPanel.AddClass("chiselable_gear");
         chestPanel.AddClass("chiselable_gear");
         glovePanel.AddClass("chiselable_gear");
@@ -173,6 +182,7 @@ function ToggleRerollState(bTurnOn) {
         $('#reroll_button_label').text = $.Localize('#ui_cancel');
         $('#reroll_button').AddClass('active_button');
         ToggleChiselState(false);
+        ToggleSocketState(false);
     } else {
         GameUI.CustomUIConfig().reroll = 0;
         $('#reroll_button_label').text = $.Localize('#reroll_name');
@@ -199,6 +209,7 @@ function RerollButtonActivate() {
         return newChildPanel;
     } else {
         ToggleRerollState(false);
+
     }
 }
 
@@ -267,6 +278,12 @@ function FinalForgeActivate() {
             } else {
                 Game.EmitSound("General.Cancel");
             }
+        } else if (GameUI.CustomUIConfig().socket === 1) {
+            GameUI.CustomUIConfig().socket = 0;
+            var cutter = GameUI.CustomUIConfig().blacksmithCutterIndex
+            var socketingItem = GameUI.CustomUIConfig().blacksmithSocketItem
+            GameEvents.SendCustomGameEventToServer("final_socket", { cutter: cutter, socketingItem: socketingItem});
+            Game.EmitSound("ui.crafting_confirm_socket");
         }
     }
 }
@@ -301,6 +318,137 @@ function HideRerollTooltip() {
     $.DispatchEvent("DOTAHideTitleTextTooltip", panel);
 }
 
+function SocketTooltip() {
+    var panel = $('#socket_button_container');
+    var title = "<font color='yellow'>" + $.Localize('#socket_name');
+    var tooltip = $.Localize('#socket_tooltip');
+    tooltip = breakUpTooltip(tooltip);
+    $.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
+}
+
+function HideSocketTooltip() {
+    var panel = $('#socket_button_container');
+    $.DispatchEvent("DOTAHideTitleTextTooltip", panel);
+}
+
+function SocketButtonActivate() {
+    if (GameUI.CustomUIConfig().socket == 0) {
+        Game.EmitSound("ui.crafting_gem_drop");
+        ToggleSocketState(true);
+    } else {
+        ToggleSocketState(false);
+    }
+}
+
+function ToggleSocketState(bTurnOn) {
+    if (!GameUI.CustomUIConfig().equipmentContainer) {
+        return;
+    }
+
+    var mainParent = GameUI.CustomUIConfig().equipmentContainer;
+    var helmPanel = mainParent.FindChild("helm_main_container").FindChild("helm_container");
+    var chestPanel = mainParent.FindChild("armor_main_container").FindChild("armor_container");
+    var glovePanel = mainParent.FindChild("weapon_glove_main_container").FindChild("glove_container");
+    var bootPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("boot_container");
+    var amuletPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("amulet_container");
+    var weaponPanel = mainParent.FindChild("weapon_glove_main_container").FindChild("weapon_container");
+    if (bTurnOn) {
+        GameUI.CustomUIConfig().socket = 1;
+        GameUI.CustomUIConfig().chisel = 0;
+        $('#socket_button_label').text = $.Localize('#ui_cancel');
+        $('#socket_button').AddClass('active_button');
+
+        $('#chisel_button_label').text = $.Localize('#chisel_name');
+        $('#chisel_button').RemoveClass('active_button');
+        helmPanel.AddClass("chiselable_gear");
+        chestPanel.AddClass("chiselable_gear");
+        glovePanel.AddClass("chiselable_gear");
+        bootPanel.AddClass("chiselable_gear");
+        amuletPanel.AddClass("chiselable_gear");
+        weaponPanel.AddClass("chiselable_gear");
+        ToggleRerollState(false);
+        socketStep1()
+        // ToggleChiselState(false);
+    } else {
+        GameUI.CustomUIConfig().socket = 0;
+        $('#socket_button_label').text = $.Localize('#socket_name');
+        $('#socket_button').RemoveClass('active_button');
+        $('#item-display-content').RemoveAndDeleteChildren(0);
+        helmPanel.RemoveClass("chiselable_gear");
+        chestPanel.RemoveClass("chiselable_gear");
+        glovePanel.RemoveClass("chiselable_gear");
+        bootPanel.RemoveClass("chiselable_gear");
+        amuletPanel.RemoveClass("chiselable_gear");
+        weaponPanel.RemoveClass("chiselable_gear");
+        $('#final_forge_button_container').AddClass('invisible');
+    }
+}
+
+function socketStep1(){
+    $('#item-display-content').RemoveAndDeleteChildren(0);
+    var socket_panel = $.CreatePanel("Panel", $('#item-display-content'), "socket_panel")
+    socket_panel.BLoadLayoutSnippet("blacksmith_socket_item_select")
+    socket_panel.FindChildTraverse('blacksmith_socket_item_attacher').BLoadLayout( "file://{resources}/layout/custom_game/resources/socket_slot.xml", false, false );    
+}
+
+function socketStep2(msg){
+    var mainParent = GameUI.CustomUIConfig().equipmentContainer;
+    var helmPanel = mainParent.FindChild("helm_main_container").FindChild("helm_container");
+    var chestPanel = mainParent.FindChild("armor_main_container").FindChild("armor_container");
+    var glovePanel = mainParent.FindChild("weapon_glove_main_container").FindChild("glove_container");
+    var bootPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("boot_container");
+    var amuletPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("amulet_container");
+    var weaponPanel = mainParent.FindChild("weapon_glove_main_container").FindChild("weapon_container");
+    helmPanel.RemoveClass("chiselable_gear");
+    chestPanel.RemoveClass("chiselable_gear");
+    glovePanel.RemoveClass("chiselable_gear");
+    bootPanel.RemoveClass("chiselable_gear");
+    amuletPanel.RemoveClass("chiselable_gear");
+    weaponPanel.RemoveClass("chiselable_gear");
+
+    $('#item-display-content').RemoveAndDeleteChildren(0);
+    var socket_panel = $.CreatePanel("Panel", $('#item-display-content'), "socket_panel")
+    if (msg.validity == 0){
+        socket_panel.BLoadLayoutSnippet("blacksmith_socket_item_selected_fail") 
+        socket_panel.FindChildTraverse('blacksmith_socket_item_select_tip').text = $.Localize(msg.error_message)
+        Game.EmitSound("General.Cancel");
+    }else{
+        GameUI.CustomUIConfig().blacksmithSocketItem = msg.itemIndex
+        var mithril = CustomNetTables.GetTableValue("player_stats", Game.GetLocalPlayerID().toString() + "-mithril").mithril;
+        
+        socket_panel.BLoadLayoutSnippet("blacksmith_socket_item_selected_ok") 
+        socket_panel.FindChildTraverse('blacksmith_socket_item_select_tip').text = $.Localize(msg.ok_message)
+        Game.EmitSound("ui.crafting_pulse");
+
+        socket_panel.FindChildTraverse('blacksmith_socket_item_title').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( msg.itemIndex ))
+        socket_panel.FindChildTraverse('socket_item_image').contextEntityIndex = msg.itemIndex;
+        socket_panel.FindChildTraverse('socket_item_image').SetAttributeInt("item", msg.itemIndex)  
+
+        socket_panel.FindChildTraverse('blacksmith_socket_mithril_cost_text').text = msg.cost + "<br>" + $.Localize("ui_mithril_shards")
+        socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("item_forger_tip_for_socket")
+
+        if (mithril < msg.cost){
+            socket_panel.FindChildTraverse('blacksmith_socket_item_forger_attacher').AddClass('invisible')
+            socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("socket_not_enough_mithril")
+            socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').style.marginTop = "20px"
+            socket_panel.FindChildTraverse('plus_sign').AddClass('invisible')
+        }
+
+        socket_panel.FindChildTraverse('blacksmith_socket_item_forger_attacher').BLoadLayout( "file://{resources}/layout/custom_game/resources/socket_cutter_slot.xml", false, false );  
+        GameUI.CustomUIConfig().socket_panel = socket_panel
+    }   
+}
+
+function socket_cutter_inserted(msg){
+    $.Msg("INSERTED")
+    GameUI.CustomUIConfig().blacksmithCutterIndex = msg.itemIndex
+    GameUI.CustomUIConfig().socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("DOTA_Tooltip_ability_item_rpc_socket_cutter")
+    $('#final_forge_button_container').RemoveClass('invisible');
+    $('#final_forge_button_label').text = $.Localize("final_add_socket");
+    $('#final_forge_button').AddClass('forge_button_color_main');
+    $('#final_forge_button').RemoveClass('forge_button_deactivated');
+}
+
 function playerReceivedItem(){
 
 }
@@ -316,7 +464,9 @@ function playerReceivedItem(){
     GameEvents.Subscribe("unlock_blacksmith_after_reroll", UnlockBlacksmithAfterReroll);
 
     GameEvents.Subscribe("chiselable_gear_clicked", chiselGearSelected);
+    GameEvents.Subscribe("socket_gear_clicked", socketStep2);
     GameEvents.Subscribe("playerReceivedItem", playerReceivedItem);
+    GameEvents.Subscribe("socket_cutter_inserted", socket_cutter_inserted);
 })();
 
 //Previously
@@ -411,6 +561,7 @@ function LoadItemForReroll(msg) {
     newChildPanel.itemIndex = itemIndex
     mItemIndex = itemIndex
     GameUI.CustomUIConfig().chisel = 0
+    GameUI.CustomUIConfig().socket = 0
     GameUI.CustomUIConfig().reroll = 1
     newChildPanel.forgePriceContainer = forgePriceContainer
     newChildPanel.shards = CustomNetTables.GetTableValue("player_stats", Game.GetLocalPlayerID().toString() + "-mithril").mithril;
@@ -565,6 +716,7 @@ function createAttributeRow(itemProperty, parentPanel, i, detail_parent) {
         var newChildPanel = $.CreatePanel("Panel", parentPanel, "chisel-item-attribute" + i);
         newChildPanel.propertyTable = itemProperty
         GameUI.CustomUIConfig().chisel = 0
+        GameUI.CustomUIConfig().socket = 0
         GameUI.CustomUIConfig().reroll = 1
         newChildPanel.propertySlot = i
         newChildPanel.rerollParent = $("#reroll_prescreen_root");

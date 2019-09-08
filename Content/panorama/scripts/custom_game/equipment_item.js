@@ -55,7 +55,27 @@ function EquipmentClick(slot)
 			return			
 		}
 
-		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot});
+		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot, chisel: 1});
+	}
+	if (GameUI.CustomUIConfig().socket == 1){
+		var itemPanel = getSlot(slot)
+		var item = itemPanel.GetAttributeInt( "item", -1 );
+		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
+		if (!(Players.GetLocalPlayer() == ownerID)){
+			Game.EmitSound("General.Cancel")
+			$.Msg("YOU DONT MATCH PLAYER ID")
+			return			
+		}
+		if (item == -1){
+			Game.EmitSound("General.Cancel")
+			return
+		}
+		if (!(itemPanel.BHasClass('chiselable_gear'))){
+			Game.EmitSound("General.Cancel")
+			return			
+		}
+
+		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot, socket: 1});
 	}
 }
 

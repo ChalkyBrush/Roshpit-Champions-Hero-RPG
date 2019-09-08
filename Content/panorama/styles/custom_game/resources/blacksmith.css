@@ -9,7 +9,7 @@
 
 #blacksmith_main_container{
 
-	height:660px;
+	height:700px;
 	width:380px;
 	horizontal-align:center;
 	flow-children:right;
@@ -17,7 +17,7 @@
 
 .blacksmith_details_container{
 	width:300px;
-	height:660px;
+	height:700px;
 	border-top-right-radius:8px;
 	border-bottom-right-radius:8px;
 	box-shadow: 0px 0px 2px #6E482A;
@@ -72,7 +72,7 @@
 
 #blacksmith_content{
 	width:100%;
-	height:500px;
+	height:540px;
 	flow-children:down;
 }
 
@@ -242,6 +242,33 @@
 }
 
 #reroll_button_label{
+	vertical-align: center;
+}
+
+#socket_button_container{
+	width:100%;
+	height:40px;
+	margin-top:10px;
+}
+
+#socket_button{
+	width:80%;
+	height:100%;
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #333333 ), to( #222222 ) );
+	border: 1px solid #666666;
+	horizontal-align:center;
+	border-radius:6px;
+}
+
+#socket_button:hover{
+	width:80%;
+	height:100%;
+	background-color: #666666;
+	border: 1px solid white;
+	background-color: gradient( linear, 0px 0%, 140px 0%, from( #444444 ), to( #333333 ) );
+}
+
+#socket_button_label{
 	vertical-align: center;
 }
 
@@ -474,4 +501,93 @@
 
 .inactive{
 	background-color: #333333;
+}
+
+.blacksmith_socket_item_select_root{
+	width:300px;
+	height:400px;
+}
+
+#blacksmith_socket_item_select_tip{
+	width:80%;
+	text-align: center;
+	horizontal-align:center;
+	color: #cddb7b;
+	margin-top:10px;
+}
+
+.blacksmith_socket_item_select_root{
+	flow-children:down;
+}
+
+#blacksmith_socket_item_attacher{
+	horizontal-align:center;
+	margin-top:20px;
+}
+
+#blacksmith_socket_item_title{
+	margin-top:10px;
+	horizontal-align:center;
+	color: #E4AE33;
+	font-size:16px;
+}
+
+#socket_item_image{
+	margin-top:10px;
+	horizontal-align:center;
+	width:64px;
+}
+
+#blacksmith_socket_costs_container{
+	width:100%;
+	margin-left:10px;
+	margin-right:5px;
+	margin-top:10px;
+}
+
+#blacksmith_socket_costs_mithril{
+	width:50%;
+	horizontal-align:right;
+	height:80px;
+	flow-children:down;
+	vertical-align: center;
+}
+
+#blacksmith_socket_costs_mithril_image{
+	width:40px;
+	height:40px;
+	horizontal-align:center;
+}
+
+#blacksmith_socket_mithril_cost_text{
+	horizontal-align:center;
+	color:white;
+	text-align: center;
+}
+
+#blacksmith_socket_costs_forger{
+	width:50%;
+	horizontal-align:left;
+	height:80px;
+	flow-children:down;
+	vertical-align: center;	
+}
+
+#blacksmith_socket_item_forger_tip{
+	horizontal-align:center;
+	color:white;	
+	text-align: center;
+	margin-top:5px;
+}
+
+.socket_cutter_slot_root{
+	height:40px;
+	horizontal-align:center;
+}
+
+#plus_sign{
+	margin-top:0px;
+	font-size:32px;
+	color:white;
+	horizontal-align:center;
 }

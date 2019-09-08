@@ -38,16 +38,45 @@
 				</Button>								
 			</Panel>
 		</snippet>
-    <snippet name="blacksmith_reroll_prescreen">
-        <Panel class="reroll_prescreen_root" hittest="false">
-          <DOTAItemImage hittest="true" id="item_image" class="white_glow"/>
-          <Label id="item_placement_tip" text="item_name" html="true">
-          </Label>
-          <Panel id="reroll_tip_container">
-            <Label id="reroll_other_tip" text="reroll_tip" html="true"></Label>
-          </Panel>
-        </Panel>
-    </snippet>
+	    <snippet name="blacksmith_reroll_prescreen">
+	        <Panel class="reroll_prescreen_root" hittest="false">
+	          <DOTAItemImage hittest="true" id="item_image" class="white_glow"/>
+	          <Label id="item_placement_tip" text="item_name" html="true">
+	          </Label>
+	          <Panel id="reroll_tip_container">
+	            <Label id="reroll_other_tip" text="reroll_tip" html="true"></Label>
+	          </Panel>
+	        </Panel>
+	    </snippet>
+	    <snippet name="blacksmith_socket_item_select">
+	    	<Panel class="blacksmith_socket_item_select_root" hittest="false">
+	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="socket_item_select_help"/>
+				<Panel id="blacksmith_socket_item_attacher"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="blacksmith_socket_item_selected_fail">
+	    	<Panel class="blacksmith_socket_item_select_root" hittest="false">
+	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="socket_item_select_help"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="blacksmith_socket_item_selected_ok">
+	    	<Panel class="blacksmith_socket_item_select_root" hittest="false">
+	    		<Label id="blacksmith_socket_item_title" hittest="false" text="socket_item_select_help"/>
+	    		<DOTAItemImage hittest="true" id="socket_item_image" class="white_glow"/>
+	    		<Label id="blacksmith_socket_item_select_tip" hittest="false" text="socket_item_select_help"/>
+	    		<Panel id="blacksmith_socket_costs_container">
+	    			<Panel id="blacksmith_socket_costs_forger">
+	    				<Panel id="blacksmith_socket_item_forger_attacher"/>
+	    				<Label id="blacksmith_socket_item_forger_tip" hittest="false"/>
+	    			</Panel>
+	    			<Label id="plus_sign" text="+"/>
+	    			<Panel id="blacksmith_socket_costs_mithril">
+	    				<Image id="blacksmith_socket_costs_mithril_image" src="file://{images}/custom_game/ui/mithril_shard.png" />
+	    				<Label id="blacksmith_socket_mithril_cost_text" hittest="false" html="true"/>
+	    			</Panel>
+	    		</Panel>
+	    	</Panel>
+	    </snippet>
 	</snippets>
 	<Panel class="blacksmith_root" hittest="false">
 		<Panel id="blacksmith_main_container" hittest="false">
@@ -102,6 +131,16 @@
 							onmouseover="RerollTooltip()"
 							onmouseout="HideRerollTooltip()">
 							<Label id="reroll_button_label" class="menu_button_text" text="reroll_button">
+							</Label>			
+						</Button>						
+					</Panel>
+
+					<Panel id="socket_button_container">
+						<Button id="socket_button" hittest="true"
+							onactivate='SocketButtonActivate()'
+							onmouseover="SocketTooltip()"
+							onmouseout="HideSocketTooltip()">
+							<Label id="socket_button_label" class="menu_button_text" text="socket_name">
 							</Label>			
 						</Button>						
 					</Panel>

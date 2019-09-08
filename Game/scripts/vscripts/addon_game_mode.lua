@@ -104,6 +104,7 @@ function Precache(context)
   PrecacheResource("particle", "particles/roshpit/web/web_premium.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/keeper_of_the_light/kotl_weapon_arcane_staff/keeper_base_attack_arcane_staff.vpcf", context)
   PrecacheResource("particle", "particles/status_fx/status_effect_huskar_lifebreak_blue_2.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_luna/luna_eclipse.vpcf", context)
 
   PrecacheResource("model", "models/props_teams/banner_radiant.vmdl", context)
   PrecacheResource("model", "models/props_winter/present.vmdl", context)

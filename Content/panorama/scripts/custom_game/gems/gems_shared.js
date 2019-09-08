@@ -11,7 +11,6 @@ function manageSocketsEquipment(rootPanel, item, slot)
 			if (!(item_table.socket1===undefined) && !(item_table.socket1=="none")){
 				rootPanel.gemsSnippet.RemoveClass('invisible')
 				var gem1image = "file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png"
-				$.Msg(gem1image)
 				rootPanel.gemsSnippet.FindChildTraverse('placed-gem1').SetImage(gem1image)
 				if (!(item_table.socket2 === undefined) && !(item_table.socket2=="none")){
 					rootPanel.gemsSnippet.FindChildTraverse('gems-small-socket2').RemoveClass('invisible')
@@ -41,7 +40,6 @@ function manageSocketsWithRoot(rootPanel, item)
 			if (!(item_table.socket1===undefined) && !(item_table.socket1=="none")){
 				gems_root.RemoveClass('invisible')
 				var gem1image = "file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png"
-				$.Msg(gem1image)
 				gems_root.FindChildTraverse('placed-gem1').SetImage(gem1image)
 				if (!(item_table.socket2 === undefined) && !(item_table.socket2=="none")){
 					gems_root.FindChildTraverse('gems-small-socket2').RemoveClass('invisible')
