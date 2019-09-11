@@ -4618,7 +4618,7 @@ function Winterblight:TiamatBossDie(boss)
 		end)
 	end
 	Timers:CreateTimer(1, function()
-		local max_roll = math.max(150 - GameState:GetPlayerPremiumStatusCount() * 10 - TiamatBossLevel)
+		local max_roll = math.max(150 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.TiamatBossLevel)
 		local arcanaLuck = RandomInt(1, max_roll)
 		if arcanaLuck == 1 then
 			RPCItems:RollWarlordArcana2(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
