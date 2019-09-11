@@ -96,7 +96,8 @@ function cast(event)
 	end
 	if q1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_nova_bad", {duration = q1_duration})
-		caster:SetModifierStackCount("modifier_gale_nova_bad", caster, q1_level * (#enemies + bossesCount * (bossesCountAs - 1) + paragonsCount * (paragonsCountAs - 1)))
+		local stacks = math.min(#enemies + bossesCount * (bossesCountAs - 1) + paragonsCount * (paragonsCountAs - 1), Q1_MAX_STACKS)
+		caster:SetModifierStackCount("modifier_gale_nova_bad", caster, q1_level * stacks)
 	end
 
 end
