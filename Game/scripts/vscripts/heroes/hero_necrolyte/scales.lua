@@ -5,7 +5,7 @@ local module = {
         local mult = 0
         local modifier = caster:FindModifierByName("modifier_gale_nova_bad")
         if modifier then
-            mult = mult + math.min(modifier:GetStackCount(), Q1_MAX_STACKS) * Q1_BAD_PER_ENEMY_PERCENT / 100
+            mult = mult + modifier:GetStackCount() * Q1_BAD_PER_ENEMY_PERCENT / 100
         end
         modifier = caster:FindModifierByName("modifier_venomort_arcana2_q_4_invisible")
         if modifier then
