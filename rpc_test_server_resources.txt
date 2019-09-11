@@ -1236,6 +1236,12 @@ function GameMode:OnPlayerChat(keys)
 		if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
 			Events:LootDisableJunk(playerid)
 		end
+
+		if Serengaard and Serengaard.mainAncient and string.match(text, "-forfeit") and not GameMode.VoteSystem.serengaard_forfeit_complete then
+			if Serengaard.InfiniteWaveCount then
+				Events:SerengaardForfeit(playerid)
+			end
+		end
 	end
 end
 
