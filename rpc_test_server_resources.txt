@@ -1,3 +1,160 @@
+function RPCItems:RollHoodOfLords(deathLocation, spiritRealm)
+	local item = RPCItems:CreateVariant("item_rpc_hood_of_lords", "immortal", "Hood of Lords", "head", true, "Slot: Head")
+	local maxFactor = RPCItems:GetMaxFactor()
+	item.newItemTable.property1 = 1
+	item.newItemTable.property1name = "lords"
+	RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lords", "#FEFFC6", 1, "#property_lords_description")
+
+	item.newItemTable.hasRunePoints = true
+
+	local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
+	if GameState:GetDifficultyFactor() > 1 then
+		local luck = RandomInt(1, 5 - GameState:GetDifficultyFactor())
+		if luck == 1 then
+			runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_4"
+		end
+	end
+	local bonus = 0
+	if not spiritRealm then
+		if RandomInt(0, 1) == 1 then
+			spiritRealm = true
+		end
+	end
+	if spiritRealm then
+		bonus = 9
+	end
+	local runeValue = RPCItems:GetLogarithmicVarianceValue(15 + bonus, 0, 0, 0, 0)
+	item.newItemTable.property2name = runeName
+	item.newItemTable.property2 = runeValue
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+	RPCItems:RollHoodProperty3(item, 0)
+	RPCItems:RollHoodProperty4(item, 0)
+	local drop = CreateItemOnPositionSync(deathLocation, item)
+	local position = deathLocation
+	RPCItems:DropItem(item, position)
+	return item
+end
+
+function RPCItems:RollWindDeityCrown(deathLocation, isSpirit, paragonBonus)
+	isSpirit = true
+	paragonBonus = RandomInt(0, 4)
+	local item = RPCItems:CreateVariant("item_rpc_wind_deity_crown", "immortal", "Wind Deity Crown", "head", true, "Slot: Head")
+	local maxFactor = RPCItems:GetMaxFactor()
+	item.newItemTable.property1 = 1
+	item.newItemTable.property1name = "wind_deity"
+	RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wind_deity", "#92E8A6", 1, "#property_wind_deity_description")
+
+	item.newItemTable.hasRunePoints = true
+	local runeName = "rune_e_3"
+	local runeValue = 0
+	if isSpirit then
+		runeValue = RPCItems:GetLogarithmicVarianceValue(45 + (paragonBonus * 2), 0, 0, 0, 0)
+	else
+		runeValue = RPCItems:GetLogarithmicVarianceValue(25 + (paragonBonus * 2), 0, 0, 0, 0)
+	end
+	local luck = RandomInt(1, 3)
+	if luck == 3 then
+		runeName = "rune_e_4"
+		if isSpirit then
+			runeValue = RPCItems:GetLogarithmicVarianceValue(20 + paragonBonus, 0, 0, 0, 0)
+		else
+			runeValue = RPCItems:GetLogarithmicVarianceValue(13 + paragonBonus, 0, 0, 0, 0)
+		end
+	end
+	item.newItemTable.property2name = runeName
+	item.newItemTable.property2 = runeValue
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+	local luck = RandomInt(1, 3)
+	if luck == 1 then
+		Elements:RollElementAttribute(item, RPC_ELEMENT_WIND, 3, 1, 35, 3)
+	else
+		RPCItems:RollHoodProperty3(item, 0)
+	end
+	RPCItems:RollHoodProperty4(item, 0)
+	local drop = CreateItemOnPositionSync(deathLocation, item)
+	local position = deathLocation
+	RPCItems:DropItem(item, position)
+	return item
+end
+
+function RPCItems:RollWaterDeityCrown(deathLocation, isSpirit, paragonBonus)
+	isSpirit = true
+	paragonBonus = RandomInt(0, 4)
+	local item = RPCItems:CreateVariant("item_rpc_water_deity_crown", "immortal", "Water Deity Crown", "head", true, "Slot: Head")
+	local maxFactor = RPCItems:GetMaxFactor()
+	item.newItemTable.property1 = 1
+	item.newItemTable.property1name = "water_deity"
+	RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_water_deity", "#5D9AF0", 1, "#property_water_deity_description")
+
+	item.newItemTable.hasRunePoints = true
+	local runeName = "rune_r_3"
+	local runeValue = 0
+	if isSpirit then
+		runeValue = RPCItems:GetLogarithmicVarianceValue(45 + (paragonBonus * 2), 0, 0, 0, 0)
+	else
+		runeValue = RPCItems:GetLogarithmicVarianceValue(25 + (paragonBonus * 2), 0, 0, 0, 0)
+	end
+	local luck = RandomInt(1, 3)
+	if luck == 3 then
+		runeName = "rune_r_4"
+		if isSpirit then
+			runeValue = RPCItems:GetLogarithmicVarianceValue(20 + paragonBonus, 0, 0, 0, 0)
+		else
+			runeValue = RPCItems:GetLogarithmicVarianceValue(13 + paragonBonus, 0, 0, 0, 0)
+		end
+	end
+	item.newItemTable.property2name = runeName
+	item.newItemTable.property2 = runeValue
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+	RPCItems:RollHoodProperty3(item, 0)
+	RPCItems:RollHoodProperty4(item, 0)
+	local drop = CreateItemOnPositionSync(deathLocation, item)
+	local position = deathLocation
+	RPCItems:DropItem(item, position)
+	return item
+end
+
+function RPCItems:RollFireDeityCrown(deathLocation, isSpirit, paragonBonus)
+	isSpirit = true
+	paragonBonus = RandomInt(0, 4)
+	local item = RPCItems:CreateVariant("item_rpc_fire_deity_crown", "immortal", "Fire Deity Crown", "head", true, "Slot: Head")
+	local maxFactor = RPCItems:GetMaxFactor()
+	item.newItemTable.property1 = 1
+	item.newItemTable.property1name = "fire_deity"
+	RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_deity", "#E85A4A", 1, "#property_fire_deity_description")
+
+	item.newItemTable.hasRunePoints = true
+	local runeName = "rune_w_3"
+	local runeValue = 0
+	if isSpirit then
+		runeValue = RPCItems:GetLogarithmicVarianceValue(45 + (paragonBonus * 2), 0, 0, 0, 0)
+	else
+		runeValue = RPCItems:GetLogarithmicVarianceValue(25 + (paragonBonus * 2), 0, 0, 0, 0)
+	end
+	local luck = RandomInt(1, 3)
+	if luck == 3 then
+		runeName = "rune_w_4"
+		if isSpirit then
+			runeValue = RPCItems:GetLogarithmicVarianceValue(20 + paragonBonus, 0, 0, 0, 0)
+		else
+			runeValue = RPCItems:GetLogarithmicVarianceValue(13 + paragonBonus, 0, 0, 0, 0)
+		end
+	end
+	item.newItemTable.property2name = runeName
+	item.newItemTable.property2 = runeValue
+	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+
+	RPCItems:RollHoodProperty3(item, 0)
+	RPCItems:RollHoodProperty4(item, 0)
+	local drop = CreateItemOnPositionSync(deathLocation, item)
+	local position = deathLocation
+	RPCItems:DropItem(item, position)
+	return item
+end
+
 function Stars:GetPlayerStars(playerID)
 end
 
@@ -398,7 +555,7 @@ function ChatDropItems(keys)
 		RPCItems:RollWitchHat(vector)
 		RPCItems:RollExcavatorsFocusHat(vector)
 		RPCItems:RollTricksterMask(vector)
-		RPCItems:RollDemonMask(vector, false, 200)
+		RPCItems:RollDemonMask(vector, false, 0)
 		RPCItems:RollCrestOfTheUmbralSentinel(vector)
 		RPCItems:RollCarbuncleHelm(vector)
 		RPCItems:RollWraithHuntersSteelHelm(vector)
@@ -429,9 +586,9 @@ function ChatDropItems(keys)
 		RPCItems:RollRoknarEmperor(vector)
 		RPCItems:RollSwampDoctorMask(vector)
 		RPCItems:RollHoodOfLords(vector, true)
-		RPCItems:RollWindDeityCrown(vector, false, 0)
-		RPCItems:RollWaterDeityCrown(vector, false, 0)
-		RPCItems:RollFireDeityCrown(vector, false, 0)
+		RPCItems:RollWindDeityCrown(vector, true, 4)
+		RPCItems:RollWaterDeityCrown(vector, true, 4)
+		RPCItems:RollFireDeityCrown(vector, true, 4)
 	end
 
 	if string.match(text, "-legendaries4") or string.match(text, "-boots") then
@@ -694,6 +851,7 @@ function GameMode:OnPlayerChat(keys)
 		RPCItems:RollAuricRingOfInspiration(deathLocation, boss_level)
 		RPCItems:RollBerylRingOfIntuition(deathLocation, boss_level)
 		RPCItems:RollGalvanizedRazorBand(deathLocation)
+		item_rpc_storm_pacer_sabatons:Create(position)
 
 		RPCItems:RollWarlordArcana2(deathLocation, boss_level)
 		RPCItems:RollSoluniaArcana3(deathLocation)
@@ -833,7 +991,7 @@ function GameMode:OnPlayerChat(keys)
 	end
 
 	if GetMapName() == "rpc_sea_fortress" then
-		if string.match(text, "-sea swen") then
+		if string.match(text, "-sea sven") then
 			Seafortress:SpawnFinalBoss()
 		end
 		if string.match(text, "-sea archon") then
@@ -858,6 +1016,7 @@ function GameMode:OnPlayerChat(keys)
 			local new_beast = Seafortress:SpawnDungeonUnit("seafortress_beast_tyrant", statuePos, 10, 10, "Seafortress.TyrantGhost.Aggro", Vector(0, -1), false)
 			new_beast:SetModelScale(3)
 			new_beast.reduc = 0.0000018
+			new_beast.type = ENEMY_TYPE_MAJOR_BOSS
 			new_beast.isBossFFS = true
 			new_beast:SetAbsOrigin(statuePos)
 			local new_beast_ability = new_beast:FindAbilityByName("seafortress_beast_tryant_passive")
@@ -1076,6 +1235,12 @@ function GameMode:OnPlayerChat(keys)
 
 		if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
 			Events:LootDisableJunk(playerid)
+		end
+
+		if Serengaard and Serengaard.mainAncient and string.match(text, "-forfeit") and not GameMode.VoteSystem.serengaard_forfeit_complete then
+			if Serengaard.InfiniteWaveCount then
+				Events:SerengaardForfeit(playerid)
+			end
 		end
 	end
 end
@@ -1351,6 +1516,9 @@ end
 function nobility_kill(event)
 	local attacker = event.attacker
 	local ability = event.ability
+	if type(ability.newItemTable.property1) == "string" then
+		ability.newItemTable.property1 = 0
+	end
 	local nextValue = ability.newItemTable.property1 + 1
 	local upgradeThreshold = 1
 	if nextValue >= upgradeThreshold then
