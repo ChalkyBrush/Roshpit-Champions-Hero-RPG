@@ -16,7 +16,7 @@ function CloseBlacksmith(msg) {
 }
 
 function OpenBlacksmith() {
-    // if (GameUI.CustomUIConfig().mainDialog === 0) {
+    if (GameUI.CustomUIConfig().mainDialog === 0) {
         GameUI.CustomUIConfig().chisel = 0;
         GameUI.CustomUIConfig().reroll = 0;
         GameUI.CustomUIConfig().socket = 0;
@@ -49,7 +49,7 @@ function OpenBlacksmith() {
             $('#resources-box-row').AddClass("no_income");
         }
         $('#income_crystals_label_value').text = $.Localize('#tooltip_daily_income') + ": 1000";
-    // }
+    }
 }
 
 

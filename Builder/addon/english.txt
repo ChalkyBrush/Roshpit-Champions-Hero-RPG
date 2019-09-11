@@ -1174,6 +1174,15 @@
 		"final_add_socket"											"Add Socket"
 
 		"socket_not_enough_mithril"									"You do not have enough mithril to proceed"
+
+		//------------------------
+		// GEMS
+		//------------------------
+
+		"gem_forger"												"Gem Forger"
+
+		"gem_forger_fluff"											"I arrive in a thrilling spectacle of color!"
+
 	    //------------------------
 		// World
 		//------------------------

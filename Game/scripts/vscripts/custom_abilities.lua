@@ -916,6 +916,23 @@ function CustomAbilities:ClickOpenDialogue(msg)
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
 			end
 		end
+	elseif msg.unit_name == "gem_forger" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", queryUnit, 0.03)
+			if distance <= distance_cap then
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_gemforger", {player=playerID, gem_reward = hero.gem_reward} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
 	end
 end
 

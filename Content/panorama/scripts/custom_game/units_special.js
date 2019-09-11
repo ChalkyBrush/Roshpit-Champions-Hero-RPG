@@ -95,7 +95,7 @@ function units_special_check(msg){
 				set_onibi_element_click(onibi_element.FindChildTraverse('onibi_element_status_bg'), unit_container, i, element_data, elements[i], queryUnit, onibi_data)
 			}
 		}
-	}else if(unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator" || unitName == "arena_training_dummy" || unitName == "winterblight_cavern_guide"){
+	}else if(unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator" || unitName == "arena_training_dummy" || unitName == "winterblight_cavern_guide" || unitName == "gem_forger"){
 		dialogue_button(unit_container, unitName)
 	}else{
 		if (unit_container.BHasClass("active" ) || unit_container.BHasClass("dialogue" ))
@@ -137,7 +137,7 @@ function distance_test(unitName, queryUnit)
 {
     var playerID = Game.GetLocalPlayerID()
     var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
-	if (unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator" || unitName == "winterblight_cavern_guide")
+	if (unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator" || unitName == "winterblight_cavern_guide" || unitName == "gem_forger")
 	{
 		var position1 = Entities.GetAbsOrigin( queryUnit )
 		var position2 = Entities.GetAbsOrigin( heroIndex )

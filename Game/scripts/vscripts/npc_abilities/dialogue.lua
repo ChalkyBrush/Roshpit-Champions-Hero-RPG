@@ -174,6 +174,8 @@ function DialogueThink(event)
 								basic_dialogue(caster, units, "#champion_league_challenger_1_dialogue", 8, 5, -10)
 							end
 						end
+					elseif caster.dialogueName == "gem_forger" then
+						gem_forger(caster, units)
 					end
 				end
 			end
@@ -269,6 +271,24 @@ function blacksmith(caster, units)
 	local speechSlot = findEmptyDialogSlot()
 	if speechSlot < 4 then
 		Quests:ShowDialogueText(units, caster, "#dialogue_blacksmith_three", time, false)
+		disableSpeech(caster, time, speechSlot)
+	end
+	for _, unit in ipairs(units) do
+		local player = unit:GetPlayerOwner()
+		if player then
+			local playerId = player:GetPlayerID()
+
+		end
+	end
+end
+
+function gem_forger(caster, units)
+	--MERCHANT_OPEN_SOUND_TABLE = {"secretshop_secretshop_welcome_04", "secretshop_secretshop_whatyoubuying_01", "secretshop_secretshop_whatyoubuying_02"}
+	--print("call how many")
+	local time = 5
+	local speechSlot = findEmptyDialogSlot()
+	if speechSlot < 4 then
+		Quests:ShowDialogueText(units, caster, "#gem_forger_fluff", time, false)
 		disableSpeech(caster, time, speechSlot)
 	end
 	for _, unit in ipairs(units) do

@@ -1,0 +1,34 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/gems.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/gems/gemforger.js" />
+	</scripts>
+	<snippets>
+		<snippet name="gemforger_main">
+			<Panel class="gemforger_main" hittest="false">
+				<Panel id="gemforger_bg" hittest="false"/>
+				
+				<Panel class="gemforger_mega_container">	
+					<Image id="gemforger_header" hittest="false">
+						<Panel id="gemforger_header_container" hittest="false">
+							<Panel id="gemforger_header_container_bg" hittest="false"></Panel>
+							<Label id="gemforger_header_title" text="gem_forger" hittest="false"/>
+						</Panel>
+					</Image>
+					<Panel id="gemforger_categories_container">
+					</Panel>
+					<Button id="close_button">
+						<Label id="close_button_label" text="ui_close"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="gemforger_content" hittest="false">
+		<Panel id="gemforger_container" hittest="false">
+		</Panel>
+	</Panel>
+</root>

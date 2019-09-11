@@ -54,6 +54,8 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
+    Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1))
+
     local helm = RPCItems:RollSamuraiHelmet(Vector(-4928, 2048), false)
     Gems:AddSocket(helm)
     Gems:AddSocket(helm)

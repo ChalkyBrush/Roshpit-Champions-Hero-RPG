@@ -98,7 +98,7 @@ function Gems:GetErrorMessageForSocketing(item)
 	return error_message
 end
 
-function Gems:SpawnGemForger(position, endFV)
+function Gems:SpawnGemForger(position, endFV, gem_reward)
 	-- if not Gems.GemForgerSpawned then
 	 	if Gems.GemForger then
 	 		UTIL_Remove(Gems.GemForger)
@@ -107,6 +107,11 @@ function Gems:SpawnGemForger(position, endFV)
 		Gems.GemForger = CreateUnitByName("gem_forger", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		Gems.GemForger:SetAbsOrigin(Gems.GemForger:GetAbsOrigin()+Vector(0,0,1000))
 		Gems.GemForger.endFV = endFV
+
+		Gems.GemForger:FindAbilityByName("town_unit"):SetLevel(1)
+		Gems.GemForger:FindAbilityByName("npc_dialogue"):SetLevel(1)
+		Gems.GemForger.dialogueName = "gem_forger"
+
 		local startFV = WallPhysics:rotateVector(endFV, 2*math.pi*1/4)
 		Gems.GemForger:SetForwardVector(startFV)
 		local gem_ability = Gems.GemForger:FindAbilityByName("gem_forger_ability")
@@ -119,6 +124,11 @@ function Gems:SpawnGemForger(position, endFV)
 		Gems.GemForger.entering_pfx = pfx
 		StartAnimation(Gems.GemForger, {duration = 3, activity = ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1})
 		EmitSoundOn("NPC.Gemforger.Enter.Start", Gems.GemForger)
+
+		gem_reward = math.ceil(RPCItems:GetLogarithmicVarianceValue(gem_reward, 0, 0, 0, 0))
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			MAIN_HERO_TABLE[i].gem_reward = gem_reward
+		end
 	-- end
 end
 
