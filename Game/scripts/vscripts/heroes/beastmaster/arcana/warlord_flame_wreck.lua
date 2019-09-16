@@ -38,7 +38,7 @@ function flame_wreck_thinker(event)
 	local units_in_fire = FindUnitsInLine(caster:GetTeamNumber(), target.position, target.endPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY+DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0)
 	for _, unit in pairs(units_in_fire) do
 		if unit:GetTeamNumber() ~= caster:GetTeamNumber() then
-			Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, RPC_ELEMENT_FIRE, RPC_ELEMENT_DRAGON, 1)
+			Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_DRAGON)
 		elseif unit == caster then
 			caster:AddNewModifier(caster, ability, "modifier_warlord_in_flame_wreck", {duration = 0.56})
 			local q_3_level = caster:GetRuneValue("q", 3)
