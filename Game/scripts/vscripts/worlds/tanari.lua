@@ -25,7 +25,7 @@ function Tanari:Debug()
         -- Runes:EquipArcana(MAIN_HERO_TABLE[1], 2)
     end
 
-	Tanari:InitializeFireTemple()
+	-- Tanari:InitializeFireTemple()
 	--
     --Tanari:SpawnFireSpiritFinalBoss()
     --Tanari:SpawnWaterSpiritFinalBoss()
@@ -288,10 +288,10 @@ function Tanari:Debug()
     -- end)
 
     -- Events.DifficultyFactor = 3
-    Events.SpiritRealm = true
-    -- Tanari.WaterTemple = {}
-    -- Tanari.FireTemple = {}
-    Tanari:AcquireTempleKey(Vector(-4928, 2048), "wind")
+    -- Events.SpiritRealm = true
+    -- -- Tanari.WaterTemple = {}
+    -- -- Tanari.FireTemple = {}
+    -- Tanari:AcquireTempleKey(Vector(-4928, 2048), "wind")
     -- RPCItems:RollShadowflameFist(position)
     -- Curator:CurateALLGlyphs()
     -- RPCItems:RollHelmOfSilentTemplar(Vector(-4928, 2048), false)

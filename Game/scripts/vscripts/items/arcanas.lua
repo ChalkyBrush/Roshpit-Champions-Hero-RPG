@@ -2102,6 +2102,7 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {2, 2})
     elseif unitName == "npc_dota_hero_beastmaster" then
         table.insert(arcanaData, {1, 3})
+        table.insert(arcanaData, {2, 0})
     elseif unitName == "npc_dota_hero_leshrac" then
         table.insert(arcanaData, {1, 3})
         table.insert(arcanaData, {2, 1})
@@ -2138,6 +2139,7 @@ function RPCItems:GetAvailableArcanaData(hero)
     elseif unitName == "npc_dota_hero_vengefulspirit" then
         table.insert(arcanaData, {1, 0})
         table.insert(arcanaData, {2, 3})
+        table.insert(arcanaData, {3, 1})
     elseif unitName == "npc_dota_hero_monkey_king" then
         table.insert(arcanaData, {1, 3})
     elseif unitName == "npc_dota_hero_slark" then
