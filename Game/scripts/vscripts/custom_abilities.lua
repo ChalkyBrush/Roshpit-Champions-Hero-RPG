@@ -617,6 +617,9 @@ function CustomAbilities:AddAndOrSwapSkill(caster, originalSkillName, newSkillNa
 	end
 	local originalSkill = caster:FindAbilityByName(originalSkillName)
 	newAbility:SetLevel(originalSkill:GetLevel())
+	if newAbility:GetAbilityIndex() == index then
+		return
+	end
 	originalSkill:SetAbilityIndex(index)
 	newAbility:SetAbilityIndex(index)
 	caster:SwapAbilities(originalSkillName, newSkillName, false, true)
