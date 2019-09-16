@@ -35,7 +35,7 @@ function start_vorpal_blades(event)
 
 	local w_2_level = caster:GetRuneValue("w", 2)
 	damage = damage + w_2_level*(SOLUNIA_ARCANA_W2_CURRENT_MANA_ADDED_TO_DAMAGE_PCT/100)*caster:GetMana()
-	local mana_restore = w_2_level*caster:GetMana()*(SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT/100)
+	local mana_restore = w_2_level*(SOLUNIA_ARCANA_W2_MANA_RESTORE_PER_HIT/100)
 	local w_3_level = caster:GetRuneValue("w", 3)
 
 	local bounces = event.base_bounces

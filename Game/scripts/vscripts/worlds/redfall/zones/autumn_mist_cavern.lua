@@ -834,7 +834,11 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 		return damage
 	end
 	if victim.immortal == true then
-		return 0
+		if victim.immortalTime + 1 < GameRules:GetGameTime() then
+			victim.immortal = false
+		else
+			return 0
+		end
 	end
 	--Last generation takes less dmg
 	if victim.generation >= 2 + GameState:GetDifficultyFactor() then
@@ -850,6 +854,12 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 		if victim.currentThreshold > 0 then
 			--Cant damage below current Threshold
 			damage = math.max(victim:GetHealth() - victim:GetMaxHealth() * victim.currentThreshold, 0)
+			victim.currentSize = victim.baseSize * 1.7
+			victim.currentHullSize = victim.baseHullSize * victim.currentSize / victim.baseSize
+			victim:SetModelScale(victim.currentSize)
+			victim:SetHullRadius(victim.currentHullSize)
+			victim.render = 255
+			victim:SetRenderColor(255, 0, 0)
 		end
 	end
 	local percentOfHealth = damage / victim:GetMaxHealth()
@@ -858,7 +868,6 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 		victim.currentHullSize = victim.baseHullSize * victim.currentSize / victim.baseSize
 		victim:SetModelScale(victim.currentSize)
 		victim:SetHullRadius(victim.currentHullSize)
-		print("New Hull Radius: "..victim:GetHullRadius())
 	end
 	if victim.render < 255 then
 		victim.render = math.min(victim.render + math.ceil(255 * percentOfHealth / victim.threshold), 255)
@@ -866,6 +875,7 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 	end
 	if victim.render >= 255 then
 		victim.immortal = true
+		victim.immortalTime = GameRules:GetGameTime()
 		victim.render = 0
 		victim:SetRenderColor(255, 255, 0)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_g.vpcf", victim, 3)
@@ -878,7 +888,6 @@ function Redfall:CanyonBossTakeDamage(victim, damage)
 				victim.currentHullSize = victim.baseHullSize * victim.currentSize / victim.baseSize
 				victim:SetModelScale(victim.currentSize)
 				victim:SetHullRadius(victim.currentHullSize)
-				print("New Hull Radius: "..victim:GetHullRadius())
 			end)
 		end
 		local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
