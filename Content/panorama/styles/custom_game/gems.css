@@ -56,6 +56,7 @@
 	opacity:0.92;
 }
 
+
 .gemforger_mega_container{
 	height:100%;
 	width:100%;
@@ -145,4 +146,20 @@
 @keyframes 'easeOut'{
   0%   { opacity: 1; }
   100% { opacity: 0; }
+}
+
+.gemforger_reward_root{
+	width:100%;
+	height:60px;
+	border-radius:6px;
+	border:1px solid white;
+}
+
+.gemforger_reward_collect{
+	height:100%;
+	width:100%;
+}
+
+#gemforger_contents{
+	flow-children:down;
 }

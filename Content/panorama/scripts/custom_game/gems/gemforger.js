@@ -11,7 +11,14 @@ function OpenGemforger(msg){
     var imageName = "file://{images}/custom_game/ui/gem_forger_header.jpg"
     header.SetImage(imageName)
 
+    var attach_point = gemforger_main.FindChildTraverse('gemforger_contents')
+    var gemforger_reward_panel = $.CreatePanel("Panel", attach_point, "gemforger-reward")
+    gemforger_main.BLoadLayoutSnippet("gemforger_reward");
 
+    gemforger_reward_panel.FindChildTraverse("gemforger_reward_image").SetImage("file://{images}/custom_game/ui/prismatic_gemstone.png")
+
+
+    
     mCloseButton = gemforger_main.FindChildTraverse('close_button')
     mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
    
