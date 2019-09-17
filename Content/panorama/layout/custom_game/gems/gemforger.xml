@@ -17,7 +17,7 @@
 							<Label id="gemforger_header_title" text="gem_forger" hittest="false"/>
 						</Panel>
 					</Image>
-					<Panel id="gemforger_categories_container">
+					<Panel id="gemforger_attach_contents">
 					</Panel>
 					<Button id="close_button">
 						<Label id="close_button_label" text="ui_close"/>
@@ -25,6 +25,18 @@
 				</Panel>
 			</Panel>
 		</snippet>
+		<snippet name="gemforger_reward">
+			<Panel class="gemforger_reward_root" hittest="false">
+				<Button id="gemforger_reward_collect" hittest="true">
+					<Image id="gemforger_reward_image" hittest="false"/>
+					<Panel class="gemforger_reward_text_container" hittest="false">
+						<Label id="close_button_label" text="ui_close" hittest="false"/>
+						<Label id="close_button_label" text="ui_close" hittest="false"/>
+					</Panel>
+				</Button>
+			</Panel>
+		</snippet>
+
 	</snippets>
 
 	<Panel class="gemforger_content" hittest="false">
