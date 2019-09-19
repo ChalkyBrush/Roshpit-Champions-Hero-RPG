@@ -3614,12 +3614,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-40 -180 -360"
+				"as_loss"			"-40 -120 -200"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-80 -180 -320"
+				"ms_loss"			"-120"
 			}
 			"03"
 			{

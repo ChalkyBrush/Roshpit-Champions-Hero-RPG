@@ -127,16 +127,14 @@ function aoe_ice_vortex_cast(event)
 	EmitSoundOn("Winterblight.IceVortexAoe", caster)
 	local particleName = "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
 	local duration = event.duration
-	local radius = 300
+	local radius = 450
 	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_RAZE_2, rate=1})
-	for i = 1, 3, 1 do
 		local position = caster:GetAbsOrigin()+RandomVector(RandomInt(100, 1000))
 		local modifierName = "aoe_ice_vortex_thinker"
 		position = GetGroundPosition(position, caster) + Vector(0,0,20)
 		local pfx = CustomAbilities:QuickParticleAtPoint(particleName, position, duration)
 		ParticleManager:SetParticleControl(pfx, 5, Vector(radius*2, radius, radius))
 		CustomAbilities:QuickAttachThinker(ability, caster, position, modifierName, {duration = duration})
-	end
 end
 
 function rock_guardian_attack_start(event)
