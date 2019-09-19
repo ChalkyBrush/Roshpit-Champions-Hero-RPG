@@ -163,13 +163,14 @@
 	width:100%;
 	background-color: #111111;
 	border-radius:6px;
+	flow-children:right;
 }
 
 .gemforger_reward_active{
 	border:1px solid white;
 }
 
-.gemforger_reward_active:hover{
+#gemforger_reward_collect:hover{
 	background-color: #202020;
 
 }
@@ -185,4 +186,30 @@
 	width:40px;
 	margin-left:20px;
 	margin-top:15px;
+}
+
+#reward_available_label{
+	color:white;
+	font-size:20px;
+	text-decoration: underline;
+}
+
+.gemforger_reward_text_container{
+	flow-children:down;
+	margin-top:15px;
+	margin-left:20px;
+}
+
+#reward_amount_label{
+	color:white;
+	font-size:18px;	
+	margin-top:5px;
+	font-weight:bold;
+}
+
+#reward_click{
+	color:white;
+	font-size:18px;
+	margin-left:80px;
+	margin-top:30px;
 }

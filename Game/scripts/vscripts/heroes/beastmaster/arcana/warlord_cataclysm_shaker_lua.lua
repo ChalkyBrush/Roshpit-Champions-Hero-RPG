@@ -62,7 +62,7 @@ function warlord_cataclysm_shaker:OnSpellStart()
 	for _, unit in pairs(units_in_fissure) do
 		if unit:GetTeamNumber() ~= caster:GetTeamNumber() then
 			Filters:ApplyStun(caster, stun_duration, unit)
-			Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, RPC_ELEMENT_EARTH, RPC_ELEMENT_DRAGON, 1)
+			Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_EARTH, RPC_ELEMENT_DRAGON)
 		end
 		Timers:CreateTimer(0.03, function()
 			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)

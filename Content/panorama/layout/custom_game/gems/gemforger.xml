@@ -27,12 +27,13 @@
 		</snippet>
 		<snippet name="gemforger_reward">
 			<Panel class="gemforger_reward_root" hittest="false">
-				<Button id="gemforger_reward_collect" hittest="true">
+				<Button id="gemforger_reward_collect" class="gemforger_reward_active" hittest="true">
 					<Image id="gemforger_reward_image" hittest="false"/>
 					<Panel class="gemforger_reward_text_container" hittest="false">
-						<Label id="close_button_label" text="ui_close" hittest="false"/>
-						<Label id="close_button_label" text="ui_close" hittest="false"/>
+						<Label id="reward_available_label" text="gem_forger_reward_available" hittest="false"/>
+						<Label id="reward_amount_label" text="" hittest="false" html="true"/>
 					</Panel>
+					<Label id="reward_click" text="ui_click_to_collect" hittest="false" html="true"/>
 				</Button>
 			</Panel>
 		</snippet>

@@ -1322,6 +1322,7 @@ function Events:CreateRuneUnits(heroEntity, playerID)
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = -1})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-enchanter", {tier = -1})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = -1})
+	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {mithril = -1})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-income", {available = 0})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-challenge", {completed = -1})
 

@@ -139,3 +139,60 @@ function Gems:DropSocketForger(position)
 	RPCItems:ItemUpdateCustomNetTables(item)
 	RPCItems:BasicDropItem(position, item)
 end
+
+function Gems:PanoramaInput(msg)
+	if msg.event_type == "collect_reward" then
+		Gems:CollectReward(msg)
+	end
+end
+
+function Gems:CollectReward(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	if player then
+		local hero = GameState:GetHeroByPlayerID(playerID)
+		local steamID = PlayerResource:GetSteamAccountID(playerID)
+		if hero.gem_reward > 0 then
+
+			local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+			local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+
+			ParticleManager:SetParticleControl(particle1, 0, hero:GetAbsOrigin())
+			ParticleManager:SetParticleControl(particle1, 1, Vector(200, 2, 1000))
+			ParticleManager:SetParticleControl(particle1, 3, Vector(200, 550, 550))
+			Timers:CreateTimer(4, function()
+				ParticleManager:DestroyParticle(particle1, false)
+			end)
+			EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
+			local reward = hero.gem_reward
+			hero.gem_reward = 0
+			local url = ROSHPIT_URL.."/champions/modifyPrismaticGemstones?"
+			url = url.."steam_id="..steamID
+			url = url.."&amount="..reward
+			url = url.."&reason=" .. "gem_forger"
+			url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+
+			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+				--SaveLoad:NewKey()
+				local resultTable = {}
+				--print( "GET response:\n" )
+				for k, v in pairs(result) do
+					--print( string.format( "%s : %s\n", k, v ) )
+				end
+				--print( "Done." )
+				if result.StatusCode == 200 then
+					local resultTable = JSON:decode(result.Body)
+					local gemstones_from_json = resultTable.prismatic_gemstones
+					--print("[Challenges:FinalReroll] gemstones_from_json:"..tostring(gemstones_from_json))
+					CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {gemstones = gemstones_from_json})
+					CustomGameEventManager:Send_ServerToPlayer(player, "update_gemstones", {gemstones = gemstones_from_json, player = playerID})
+
+				else
+					for k, v in pairs(result) do
+						print( string.format( "%s : %s\n", k, v ) )
+					end
+				end
+			end)			
+		end
+	end
+end

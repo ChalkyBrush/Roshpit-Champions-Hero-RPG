@@ -63012,7 +63012,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"30"
 			}
 		}
 	}
@@ -63035,7 +63035,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"1000"
 			}
 		}
 	}
@@ -63053,7 +63053,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"200"
 			}
 		}
 	}

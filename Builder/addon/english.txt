@@ -1182,6 +1182,9 @@
 		"gem_forger"												"Gem Forger"
 
 		"gem_forger_fluff"											"I arrive in a thrilling spectacle of color!"
+		"gem_forger_reward_available"								"Reward Available"
+		"tooltip_prismatic_gemstones"								"Prismatic Gemstones"
+		"ui_click_to_collect"										"Click to Collect"
 
 	    //------------------------
 		// World

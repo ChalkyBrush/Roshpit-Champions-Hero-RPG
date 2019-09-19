@@ -78,7 +78,7 @@
 
 .resources_display_root{
 	width:280px;
-	height:75px;
+	height:100px;
 	margin-top:45px;
 	border-bottom-right-radius:6px;
 	box-shadow: 0px 0px 2px black;
@@ -170,4 +170,35 @@
 
 #mithril_shards_value{
 	color:#57B3FF;
+}
+
+#prismatic_gemstones_container{
+	flow-children:right;
+	width:100%;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+}
+
+#prismatic_gemstones_value_container{
+	horizontal-align:right;
+	flow-children:right;
+}
+
+#prismatic_gemstones_title_label{
+	color:white;
+	font-size:16px;
+	vertical-align: center;
+	margin-top:2px;
+
+	text-shadow: 1px 1px 2px 3 #00000066;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+#prismatic_gemstone_image_resources{
+	width:18px;
+	height:18px;
+}
+
+#prismatic_gemstones_value{
+	color:#DDDDDD;
 }
