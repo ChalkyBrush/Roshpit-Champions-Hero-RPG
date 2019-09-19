@@ -606,7 +606,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -240"
+				"ms_loss"			"-60 -80 -120"
 			}
 			"03"
 			{

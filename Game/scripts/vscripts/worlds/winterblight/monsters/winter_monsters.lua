@@ -166,12 +166,16 @@ function raxxus_attack_land(event)
 	local icePoint = victim:GetAbsOrigin()
 	local radius = 240
 	EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
-	local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
-	local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(pfx, 0, icePoint)
-	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
-	Timers:CreateTimer(2.5, function()
-		ParticleManager:DestroyParticle(pfx, false)
+	local key = victim:GetEntityIndex() .. '_raxxus_attack_land'
+	Util.Common:LimitPerTime(1, 1, key .. '_particles',function()
+		EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+		local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+		local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, icePoint)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+		Timers:CreateTimer(2.5, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
 	end)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
