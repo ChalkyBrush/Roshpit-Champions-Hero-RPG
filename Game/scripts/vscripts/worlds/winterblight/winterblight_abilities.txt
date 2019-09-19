@@ -477,27 +477,33 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/ogre_armor"
 		"MaxLevel"	"3"
+		"AbilityCooldown"	"2"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_resist"			"10 50 90"
+				"damage_resist"			"90"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 100000"
+				"damage"			"600 10000 150000"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_duration"			"0.2 0.7 1.2"
+				"stun_duration"			"1"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"hits_for_counter"			"9 7 5"
+				"instances_count"			"3 4 5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"min_distance"		"300"
 			}
 		}
 		"Modifiers"
@@ -514,7 +520,7 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_monsters.lua"
 						"Function"		"ogre_armor_take_damage"
-						"hits_for_counter"	"%hits_for_counter"
+						"min_distance"	"%min_distance"
 					}
 				}
 			}
@@ -529,6 +535,7 @@
 				"target"		"TARGET"
 				"damage"		"%damage"
 				"stun_duration"	"%stun_duration"
+                "instances_count"	"%instances_count"
 			}
 		}
 	}
