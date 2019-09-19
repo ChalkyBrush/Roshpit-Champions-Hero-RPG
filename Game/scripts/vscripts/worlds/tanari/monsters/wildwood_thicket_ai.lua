@@ -4,7 +4,11 @@ function pure_strike_attack_land(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 0.03
 	local ability = event.ability
 	ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
-	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", target, 1)
+	local key = target:GetEntityIndex() .. '_pure_strike_land'
+    Util.Common:LimitPerTime(1, 1, key .. '_particles',function()
+		CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf", target, 1)
+		EmitSoundOn("Creature.PureStrikeImpact", target)
+	end)
 end
 
 function ritual_healing(event)
