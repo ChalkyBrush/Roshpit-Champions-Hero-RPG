@@ -7288,12 +7288,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"60 80 100"
+				"damage_block"			"98"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"distance"			"800 500 300"
+				"distance"			"800 600 400"
 			}
 		}
 		"Modifiers"
