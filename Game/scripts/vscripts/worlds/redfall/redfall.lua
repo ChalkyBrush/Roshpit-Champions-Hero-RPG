@@ -765,32 +765,32 @@ function Redfall:DefeatDungeonBoss(dungeon, position)
     local mithrilReward = 0
     local starTitle = nil
     if dungeon == "canyon" then
-      mithrilReward = REDFALL_MITHRIL_CANYON
+      mithrilReward = 80
       starTitle = "autumnmist"
     elseif dungeon == "shipyard" then
-      mithrilReward = REDFALL_MITHRIL_SHIPYARD
+      mithrilReward = 260
       starTitle = "shipyard"
     elseif dungeon == "castle" then
-      mithrilReward = REDFALL_MITHRIL_CASTLE
+      mithrilReward = 520
       starTitle = "castle"
     elseif dungeon == "ancient_tree" then
-      mithrilReward = REDFALL_MITHRIL_WORLD_TREE
+      mithrilReward = 800
     elseif dungeon == "ashara" then
-      mithrilReward = REDFALL_MITHRIL_ASHARA
+      mithrilReward = 35
     end
     if starTitle then
       for i = 1, #MAIN_HERO_TABLE, 1 do
         Stars:StarEventPlayer(starTitle, MAIN_HERO_TABLE[i])
       end
     end
-    local mithrilMult = REDFALL_MITHRIL_NORMAL_MULT
+    local mithrilMult = 1
     if GameState:GetDifficultyFactor() == 2 then
-      mithrilMult = REDFALL_MITHRIL_ELITE_MULT
+      mithrilMult = 2
     elseif GameState:GetDifficultyFactor() == 3 then
-      mithrilMult = REDFALL_MITHRIL_LEGEND_MULT
+      mithrilMult = 6
     end
     if Events.SpiritRealm then
-      mithrilMult = mithrilMult * REDFALL_MITHRIL_EQUINOX_MULT
+      mithrilMult = mithrilMult * 3
     end
     mithrilReward = math.floor(mithrilReward * mithrilMult) * Events.ResourceBonus
     local crystal = CreateUnitByName("arcane_crystal", position + Vector(0, 0, 1000), false, nil, nil, DOTA_TEAM_GOODGUYS)

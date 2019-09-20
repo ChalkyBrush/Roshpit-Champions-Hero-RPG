@@ -777,7 +777,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				if shards < 50 then
 					delayUntil_b = 11
 					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_2a1", 5, false)
-					Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, TUTORIAL_MITHRIL_IF_BROKE)
+					Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 50)
 					Timers:CreateTimer(3, function()
 						Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 7.0)
 					end)
@@ -2719,7 +2719,7 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 			elseif section_index == 4 then
 				Tutorial:SpawnTrainingDummyForHero(hero)
 			elseif section_index == 5 then
-				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, TUTORIAL_MITHRIL_REWARD)
+				Tutorial:GetMithrilPrize(Tutorial.Master:GetAbsOrigin(), hero, 125000)
 			elseif section_index == 6 then
 				local particleName = "particles/roshpit/web/web_premium.vpcf"
 				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)

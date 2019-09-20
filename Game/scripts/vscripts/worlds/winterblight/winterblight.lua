@@ -819,14 +819,14 @@ end
 
 function Winterblight:MithrilReward(position, code)
   Timers:CreateTimer(5, function()
-        local reward = WINTERBLIGHT_MITHRIL_BASE_REWARD
-        local stonesReward = WINTERBLIGHT_MITHRIL_BASE_REWARD_STONE
+        local reward = 1000
+        local stonesReward = 1000
         if GameState:GetDifficultyFactor() == 2 then
-          reward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_ELITE
-          stonesReward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_ELITE_STONE
+          reward = 2000
+          stonesReward = 3000
         elseif GameState:GetDifficultyFactor() == 3 then
-          reward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_LEGEND
-          stonesReward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_LEGEND_STONE
+          reward = 5000
+          stonesReward = 6000
         end
         if code == "azalea" then
           Timers:CreateTimer(4, function()
@@ -840,13 +840,13 @@ function Winterblight:MithrilReward(position, code)
               Stars:StarEventPlayer("wb_cavern", MAIN_HERO_TABLE[i])
             end
           end)
-          reward = reward*WINTERBLIGHT_MITHRIL_MULT_TIAMAT
-          stonesReward = stonesReward*WINTERBLIGHT_MITHRIL_MULT_TIAMAT
-          local bonus_mult = Winterblight.TiamatBossLevel*WINTERBLIGHT_MITHRIL_MULT_TIAMAT_PER_LVL
+          reward = reward*1.3
+          stonesReward = stonesReward*1.3
+          local bonus_mult = Winterblight.TiamatBossLevel*0.06
           reward = reward + reward*bonus_mult
         elseif code == "realm_breaker" then
-          reward = reward*WINTERBLIGHT_MITHRIL_MULT_REALM_BR
-          local bonus_mult = Winterblight.RealmBreakerLevel*WINTERBLIGHT_MITHRIL_MULT_REALM_BR_PER_LVL
+          reward = reward*0.5
+          local bonus_mult = Winterblight.RealmBreakerLevel*0.06
           reward = reward + reward*bonus_mult          
         end
 
@@ -896,11 +896,11 @@ function Winterblight:MithrilRewardVariable(position, code, reward)
   Timers:CreateTimer(5, function()
         if code == "math" then
           if GameState:GetDifficultyFactor() == 1 then
-            reward = reward*WINTERBLIGHT_MITHRIL_PUZZLE_BASE*WINTERBLIGHT_MITHRIL_PUZZLE_NORMAL_MULT
+            reward = reward*120
           elseif GameState:GetDifficultyFactor() == 2 then
-            reward = reward*WINTERBLIGHT_MITHRIL_PUZZLE_BASE*WINTERBLIGHT_MITHRIL_PUZZLE_ELITE_MULT
+            reward = reward*160
           elseif GameState:GetDifficultyFactor() == 3 then
-            reward = reward*WINTERBLIGHT_MITHRIL_PUZZLE_BASE*WINTERBLIGHT_MITHRIL_PUZZLE_LEGEND_MULT
+            reward = reward*240
           end
         end
 

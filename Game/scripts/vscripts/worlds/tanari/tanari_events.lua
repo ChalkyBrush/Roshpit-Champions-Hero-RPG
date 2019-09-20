@@ -389,9 +389,9 @@ function ancient_boss_die_begin(event)
 				end)
 			end
 			Timers:CreateTimer(6, function()
-				local crystals = MITHRIL_ANCIENT_GOD
+				local crystals = 300
 				if caster.paragon then
-					crystals = MITHRIL_ANCIENT_GOD * MITHRIL_ANCIENT_GOD_PARAGON_MULT
+					crystals = 500
 				end
 				Tanari:GenericCrystal(crystals, casterOrigin)
 				UTIL_Remove(caster)
