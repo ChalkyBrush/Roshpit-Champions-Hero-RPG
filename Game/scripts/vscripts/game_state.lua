@@ -28,6 +28,7 @@ require('/items/constants/helm')
 require('/items/constants/trinket')
 
 require('/worlds/winterblight/constants/enemies_abilities')
+require('/worlds/winterblight/constants/mithril')
 require('/worlds/tanari/constants/mithril')
 
 local heroes = {
