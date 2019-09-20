@@ -2655,15 +2655,15 @@ end
 
 function raven_idol_think(event)
 	local target = event.target
-	if target:GetHealth() > target:GetMaxHealth() * 0.5 then
-		target:SetHealth(target:GetMaxHealth() * 0.5)
+	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100 then
+		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100)
 	end
 end
 
 function raven_idol_health_gained(event)
 	local target = event.unit
-	if target:GetHealth() > target:GetMaxHealth() * 0.5 then
-		target:SetHealth(target:GetMaxHealth() * 0.5)
+	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100 then
+		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100)
 	end
 end
 

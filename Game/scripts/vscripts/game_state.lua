@@ -1643,8 +1643,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 2
 	end
 
-	if victim:HasModifier("modifier_raven_idol2") then
-		damage = damage * 0.5
+	if victim:HasModifier("modifier_raven_idol") then
+		damage = damage * (1 - RAVEN_IDOL_DMG_RED_PCT / 100)
 	end
 
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
