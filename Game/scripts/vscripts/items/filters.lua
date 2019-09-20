@@ -454,7 +454,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         abilityCooldown = abilityCooldown * 0.6
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
-        if caster:GetHealth() <= caster:GetMaxHealth() * 0.3 then
+        if caster:GetHealth() <= caster:GetMaxHealth() * BLOODSTONE_BOOTS_TRESHOLD_PCT / 100 then
             abilityCooldown = 1
         end
     end

@@ -190,7 +190,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below @special_property1% health, @Ability3 has a 1-second cooldown."
+		 "property_bloodstone_boots_description"				"While below <% BLOODSTONE_BOOTS_TRESHOLD_PCT %>% health, @Ability3 has a 1-second cooldown."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
