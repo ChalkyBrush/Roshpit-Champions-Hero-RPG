@@ -108,7 +108,8 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "scorched_gauntlet" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_scorched_earth", item)
 	elseif propertyName == "pride" then
-		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_pride", hand_ability)
+		print("Applied Proud Gloves modifier")
+		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_proud_gloves", hand_ability)
 	elseif propertyName == "azinoth" then
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_azinoth", hand_ability)
 	elseif propertyName == "divine_purity" then
@@ -365,7 +366,7 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_shadow_armlet")
 	hero:RemoveModifierByName("modifier_hand_boneguard")
 	hero:RemoveModifierByName("modifier_hand_scorched_earth")
-	hero:RemoveModifierByName("modifier_hand_pride")
+	hero:RemoveModifierByName("modifier_hand_proud_gloves")
 	hero:RemoveModifierByName("modifier_hand_azinoth")
 	hero:RemoveModifierByName("modifier_divine_purity")
 	hero:RemoveModifierByName("modifier_hand_max_health")

@@ -4207,11 +4207,6 @@ function GameState:FilterDamage(filterTable)
 					local dmgReport = math.floor(filterTable["damage"])
 					local element1 = attacker.element1
 					local element2 = attacker.element2
-					local inflictor = filterTable["entindex_inflictor_const"]
-					if not inflictor then
-						element1 = RPC_ELEMENT_NONE
-						element2 = RPC_ELEMENT_NONE
-					end
 					CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {dmg = dmgReport, victim = victim:GetEntityIndex(), attacker = attacker:GetEntityIndex(), damagetype = damagetype, element1 = element1, element2 = element2})
 					if attacker:HasModifier("modifier_dummy_timer") then
 						victim.timerDamage = victim.timerDamage + dmgReport

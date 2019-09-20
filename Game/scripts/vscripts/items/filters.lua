@@ -1300,6 +1300,21 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             element2 = RPC_ELEMENT_HOLY
             damage_type = DAMAGE_TYPE_PURE
         end
+        if attacker:HasModifier("modifier_hand_proud_gloves") then
+            damage = Filters:AdjustItemDamage(attacker, damage, victim)
+            local highestElement = 1
+            local highestElementAmp = 100
+            local elements = CustomAttributes:CalculatedElementBonuses(victim, attacker)
+            for i,v in ipairs(elements) do
+                if v > highestElementAmp then
+                    highestElement = i
+                    highestElementAmp = v
+                end
+            end
+            element1 = highestElement
+            element2 = RPC_ELEMENT_NONE
+            damage_type = DAMAGE_TYPE_MAGICAL
+        end
     end
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, not ignore_effects)
