@@ -3064,7 +3064,7 @@ end
 function mordiggus_attack(event)
 	local attacker = event.attacker
 	local beginningHealth = attacker:GetHealth()
-	local newHealth = math.max(attacker:GetHealth() - attacker:GetMaxHealth() * MORDIGGUS_LIFE_DRAIN_ATTACK_PCT/100, 1)
+	local newHealth = math.max(attacker:GetHealth() - attacker:GetMaxHealth() * MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK / 100, attacker:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
 	attacker:SetHealth(newHealth)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", attacker, 0.7)
 	if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then

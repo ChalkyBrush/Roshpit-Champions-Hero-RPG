@@ -169,7 +169,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_LIFE_DRAIN_CAST_PCT %>% of max life, and each attack drains <% MORDIGGUS_LIFE_DRAIN_ATTACK_PCT %>% of max life. Health drained by this effect cannot be lethal."
+		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
