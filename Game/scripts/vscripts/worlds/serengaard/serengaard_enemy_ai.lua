@@ -436,7 +436,7 @@ function serengaard_never_die(event)
 	if luck == 3 then
 		RPCItems:RollNeverlordRing(caster:GetAbsOrigin())
 	end
-	Serengaard:Mithril("neverlord", Serengaard.mainAncient:GetAbsOrigin(), 60)
+	Serengaard:Mithril("neverlord", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_NEVERLORD)
 end
 
 function begin_dive(event)
@@ -747,7 +747,7 @@ function final_boss_die(event)
 		end)
 	end
 	local luck = RandomInt(1, 4)
-	Serengaard:Mithril("razormore", Serengaard.mainAncient:GetAbsOrigin(), 120)
+	Serengaard:Mithril("razormore", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_DEMON)
 	if luck == 1 then
 		RPCItems:RollDemonMask(caster:GetAbsOrigin(), false, 15)
 	end
@@ -832,5 +832,5 @@ function razor_boss_die(event)
 	if luck == 1 then
 		RPCItems:RollBaronsStormArmor(caster:GetAbsOrigin())
 	end
-	Serengaard:Mithril("baron", Serengaard.mainAncient:GetAbsOrigin(), 100)
+	Serengaard:Mithril("baron", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_RAZORMORE)
 end

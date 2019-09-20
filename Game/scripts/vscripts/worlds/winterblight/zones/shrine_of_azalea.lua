@@ -2332,23 +2332,23 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 				Timers:CreateTimer(3.5, function()
 					local reward = 0
 					if black_statue_count <= 1 then
-						reward = 200
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_1
 					elseif black_statue_count <= 2 then
-						reward = 90
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_2
 					elseif black_statue_count <= 3 then
-						reward = 50
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_3
 					elseif black_statue_count <= 4 then
-						reward = 35
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_4
 					elseif black_statue_count <= 5 then
-						reward = 30
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_5
 					elseif black_statue_count <= 6 then
-						reward = 25
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_6
 					elseif black_statue_count <= 7 then
-						reward = 20
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_7
 					elseif black_statue_count <= 8 then
-						reward = 8
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_8
 					else
-						reward = 7
+						reward = WINTERBLIGHT_MITHRIL_PUZZLE_STATUE_MORE
 					end
 					Winterblight:MithrilRewardVariable(Vector(2505, -14245, 560), "math", reward)
 					EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)
