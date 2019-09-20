@@ -199,8 +199,8 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + BLUE_DIVINEX_STR_TO_ITEM_DMG/100 * (caster:GetIntellect() / BLUE_DIVINEX_INT_DIVISOR)
     end
 
-    if caster:HasModifier("modifier_raven_idol2") then
-        local multIncrease = ((caster:GetMaxHealth() - caster:GetHealth()) / 100) * 0.001
+    if caster:HasModifier("modifier_raven_idol") then
+        local multIncrease = caster:GetHealth() / caster:GetMaxHealth() * RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT
         mult = mult + multIncrease
     end
 

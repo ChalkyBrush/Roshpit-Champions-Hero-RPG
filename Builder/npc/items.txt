@@ -17270,7 +17270,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_raven_idol2"
+			"modifier_raven_idol"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
