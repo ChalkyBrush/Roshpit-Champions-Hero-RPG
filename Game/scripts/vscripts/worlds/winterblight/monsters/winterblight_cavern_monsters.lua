@@ -959,32 +959,14 @@ function drill_digger_attack_land(event)
 	if caster:GetUnitName() == "drill_digger" then
 		EmitSoundOn("DrillDigger.Attacker", target)
 	end
-	if caster:GetModifierStackCount("modifier_drill_digger_stack", caster) == 3 then
-		caster:RemoveModifierByName("modifier_drill_digger_stack")
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-		if #enemies > 0 then
-			for i = 1, #enemies, 1 do
-				if i <= event.max_quakes then
-					drill_digger_quake(caster, ability, enemies[i], event.quake_radius, event.damage_pct_attack_power)
-				else
-					break
-				end
-			end
-		end
-		if caster.counter_pfx then
-			ParticleManager:DestroyParticle(caster.counter_pfx, false)
-			caster.counter_pfx = nil
-		end
-		return false
-	end
+	drill_digger_quake(caster, ability, target, event.quake_radius, event.damage_from_attack_power)
+
 	if not target:IsStunned() then
-		caster:ApplyAndIncrementStack(ability, caster, "modifier_drill_digger_stack", 1, 3, 6)
-		local stacks = caster:GetModifierStackCount("modifier_drill_digger_stack", caster)
 		if not caster.counter_pfx then
 			caster.counter_pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/drill_digger_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 			ParticleManager:SetParticleControlEnt(caster.counter_pfx, 0, caster, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", caster:GetAbsOrigin(), true)
 		end
-		ParticleManager:SetParticleControl(caster.counter_pfx, 1, Vector(0, stacks % 10, stacks))
+		ParticleManager:SetParticleControl(caster.counter_pfx, 1, Vector(0, 1, 10))
 	end
 end
 
@@ -996,22 +978,31 @@ function drill_digger_buff_end(event)
 	end
 end
 
-function drill_digger_quake(caster, ability, target, radius, damage_pct_attack_power)
+function drill_digger_quake(caster, ability, target, radius, damage_from_attack_power)
 	local position = target:GetAbsOrigin()
 	local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
 	local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, position)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
-	EmitSoundOn("DrillDigger.Quake", target)
 	-- FindClearSpaceForUnit(caster, position, false)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(damage_pct_attack_power/100)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(damage_from_attack_power)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
-			enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 2})
+			if target ~= enemy then
+				ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
+			end
 		end
 	end
+end
+
+function drill_crusher_attack_land(event)
+	local ability = event.ability
+	local target = event.target
+	local caster = event.caster
+	local stacks_count = event.stacks_count
+	local duration = event.duration
+	target:ApplyAndIncrementStack(ability, caster, 'modifier_drill_crusher_stack', 1, stacks_count, duration)
 end
 
 function pantheon_strike(event)
@@ -2243,12 +2234,28 @@ function galaxy_knight_take_damage(event)
 	local caster = event.caster
 	local attacker = event.attacker
 	local ability = event.ability
-	local freeze_duration = event.freeze_duration
-	if not attacker:HasModifier("modifier_galaxy_knight_freeze") then
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_galaxy_knight_freeze", {duration = freeze_duration})
-		EmitSoundOn("Winterblight.GalaxyKnight.Freeze", attacker)
-		ApplyDamage({ victim = attacker, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+	local dot_duration = event.dot_duration
+	if attacker:IsHero() then
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_galaxy_knight_dot", {duration = dot_duration})
 	end
+end
+function galaxy_knight_dot(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local hp_loss_percent = event.hp_loss_percent
+	EmitSoundOn("Winterblight.GalaxyKnight.Freeze", target)
+	Damage:Apply({
+		victim = target,
+		attacker = caster,
+		source = ability,
+		sourceType = BASE_NONE,
+		damage = target:GetMaxHealth()/100 * hp_loss_percent,
+		damageType = DAMAGE_TYPE_PURE,
+		postmitigationDamage = target:GetMaxHealth()/100 * hp_loss_percent,
+		ignoreExtraPostmitigation = true,
+		isDot = true
+	})
 end
 
 function ellipsis_wave_cast(event)

@@ -5496,7 +5496,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"50 90 99"
+				"damage_reduc"			"97"
 			}
 		}
 		"Modifiers"
@@ -10904,27 +10904,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_pct_attack_power"			"30 60 90"
+				"damage_from_attack_power"			"20"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"quake_radius"			"300"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_pwr_bonus_per_stack"			"90"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_quakes"			"5"
+				"quake_radius"			"500"
 			}
 		}
 		"Modifiers"
@@ -10942,9 +10927,8 @@
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"drill_digger_attack_land"
 						"radius"		"%radius"
-						"damage_pct_attack_power"	"%damage_pct_attack_power"
+						"damage_from_attack_power"	"%damage_from_attack_power"
 						"quake_radius"	"%quake_radius"
-						"max_quakes"	"%max_quakes"
 					}
 				}
 			}
@@ -10977,14 +10961,45 @@
 		"AbilitySpecial"
 		{
 
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stacks_count"			"<% DRILL_CRUSHER_MAX_STACKS_COUNT %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"postimitigation_buff"			"<% DRILL_CRUSHER_POSTMITIGATION * 100 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"<% DRILL_CRUSHER_DURATION %>"
+			}
 		}
 		"Modifiers"
 		{
-			"modifier_drill_crusher"
+			"modifier_drill_crusher_passive"
 			{
 				"IsPurgable"	"0"
-				"Passive" 		"1"
-				"IsHidden"		"1"
+                "Passive" 		"1"
+                "IsHidden"		"1"
+                "OnAttackLanded"
+                // "%attack_damage" is set to the damage value before mitigation
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+                        "Function"		"drill_crusher_attack_land"
+                        "stacks_count"	"%stacks_count"
+                        "duration"	"%duration"
+                    }
+                }
+			}
+			"modifier_drill_crusher_stack" {
+				"IsHidden"	"0"
+				"IsBuff"	"0"
+				"IsDebuff"  "1"
 			}
 		}
 	}
@@ -11128,7 +11143,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"50 80 99"
+				"damage_block"			"97"
 			}
 		}
 		"Modifiers"
@@ -13186,13 +13201,19 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 500 2000"
+				"ms_loss"			"-250 -300 -350"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"freeze_duration"			"0.1 0.15 0.2"
+				"var_type"			"FIELD_INTEGER"
+				"hp_loss_percent"	"4"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dot_duration"	"4"
+			}
+
 		}
 		"Modifiers"
 		{
@@ -13211,22 +13232,33 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"galaxy_knight_take_damage"
-						"damage"		"%damage"
-						"freeze_duration"	"%freeze_duration"
+						"dot_duration"		"%dot_duration"
 					}
 				}
 			}
-			"modifier_galaxy_knight_freeze"
+			"DOTA_Tooltip_modifier_galaxy_knight_freeze"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
 				"StatusEffectName" 		"particles/status_fx/status_effect_enigma_malefice.vpcf"   
 				"StatusEffectPriority"  "12"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+		        		"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+		        		"Function"		"galaxy_knight_dot"
+                        "hp_loss_percent"		"%hp_loss_percent"
+                        "Target"			"TARGET"
+
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
 			}
 		}
 
