@@ -10897,7 +10897,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/p2/drill_crusher"
 		"AOERadius"				"1000"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
