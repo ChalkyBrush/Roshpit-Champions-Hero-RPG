@@ -20564,11 +20564,6 @@
 						"ScriptFile"	"worlds/tanari/monsters/wildwood_thicket_ai"
 						"Function"		"pure_strike_attack_land"
 					}
-					"FireSound"
-					{
-						"EffectName"	"Creature.PureStrikeImpact"
-						"Target" 		"TARGET"
-					}
 				}
 				"States"
 				{
