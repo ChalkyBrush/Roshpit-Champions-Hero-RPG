@@ -36,7 +36,7 @@
         "DOTA_Tooltip_ability_winterblight_ogre_armor_damage_resist"    "PASSIVE DAMAGE RESIST:"
         "DOTA_Tooltip_ability_winterblight_ogre_armor_damage"        "PROJECTILE DAMAGE:"
         "DOTA_Tooltip_ability_winterblight_ogre_armor_stun_duration"    "PROJECTILE STUN DURATION:"
-        "DOTA_Tooltip_ability_winterblight_ogre_armor_instances_count"    "DAMAGE INSTANCES UNTIL STRIKE:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_instances_count"    "ORB DAMAGE INSTANCES:"
         "DOTA_Tooltip_ability_winterblight_ogre_armor_min_distance"    "SAFE DISTANCE:"
 
 		"DOTA_Tooltip_ability_winterblight_raxxus_passive"			"Frost Brawler"
