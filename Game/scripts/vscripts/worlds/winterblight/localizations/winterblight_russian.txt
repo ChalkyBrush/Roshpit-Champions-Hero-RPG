@@ -31,12 +31,13 @@
 		"DOTA_Tooltip_ability_winterblight_crab_spawner_ability"	"Snow Crab Spawner"
 		"DOTA_Tooltip_ability_winterblight_crab_spawner_ability_Description"	"Производит снежного краба за определенный интервал"
 
-		"DOTA_Tooltip_ability_winterblight_ogre_armor"				"Ogre Armor"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_Description"	"Снижает входящий урон и производит удар возмездия, будучи атакованным множество раз."
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_damage_resist"	"ПАССИВНОЕ СОПРОТИВЛЕНИЕ УРОНУ:"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_damage"		"УРОН ОТ УДАРА:"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ОТ УДАРА:"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_hits_for_counter"	"УДАРОВ ДО ВОЗМЕЗДИЯ:"
+		"DOTA_Tooltip_ability_winterblight_ogre_armor"                "Ogre Armor"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_Description"    "Снижает получаемый урон, а в ответ на любую атаку издалека выбрасывает в ответ темную сферу. Сфера наносит несколько порций урона.."
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_damage_resist"    "СНИЖЕНИЕ УРОНА:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_damage"        "УРОН СФЕРЫ:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_stun_duration"    "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ОТ СФЕРЫ:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_instances_count"    "КОЛИЧЕСТВО ПОРЦИЙ УРОНА:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_min_distance"    "БЕЗОПАСНАЯ ДИСТАНЦИЯ:"
 
 		"DOTA_Tooltip_ability_winterblight_raxxus_passive"			"Frost Brawler"
 		"DOTA_Tooltip_ability_winterblight_raxxus_passive_Description"	"Пассивно увеличивает скорость передвижения. Все атаки наносят урон в небольшой области и замедляют задетые цели."
@@ -168,9 +169,9 @@
 		"DOTA_Tooltip_ability_winter_satyr_heal_Description"			"Немного исцеляет союзника"
 
 		"DOTA_Tooltip_ability_winterblight_endurance"				"Endurance"
-		"DOTA_Tooltip_ability_winterblight_endurance_Description"		"Take less damage and deal more damage while stunned."
-		"DOTA_Tooltip_ability_winterblight_endurance_damage_reduction"	"DAMAGE REDUCTION %:"
-		"DOTA_Tooltip_ability_winterblight_endurance_damage_increase"	"DAMAGE INCREASE %:"
+		"DOTA_Tooltip_ability_winterblight_endurance_Description"		"Получает меньше урона и наносит больше урона, пока оглушен."
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_reduction"	"СНИЖЕНИЕ ВХОДЯЩЕГО УРОНА %:"
+		"DOTA_Tooltip_ability_winterblight_endurance_damage_increase"	"ПОВЫШЕНИЕ ИСХОДЯЩЕГО УРОНА %:"
 
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack"		"Frostbite Attack"
 		"DOTA_Tooltip_ability_winterblight_frostbite_attack_Description"	"С каждой атакой добавляет заряд этого умения. Снаряды наносят урон каждые 0.3 секунды. Формула урона: базовый урон, умноженный на количество зарядов в степени 2."
@@ -856,19 +857,13 @@
 
 		"DOTA_Tooltip_modifier_ultra_ice_enraged"					"Enraged"
 
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive"		"Drill Digger"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_Description"	"Атаки накапливают заряды Drill Digger. Когда число зарядов достигает 5, следующая атака расщепит землю под ногами у 5 ближайших противников. Урон способности базируется на силе атаки и оглушает.<br>Drill Digger не набирает заряды при ударах по уже оглушенным целям."
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_damage_pct_attack_power"	"% УРОН ОТ СИЛЫ АТАКИ:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_quake_radius"				"РАДИУС РАЗРЫВА ЗЕМЛИ:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_radius"						"ДАЛЬНОСТЬ ПОИСКА ЦЕЛИ:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_attack_pwr_bonus_per_stack"	"% БОНУС АТАКИ ЗА КАЖДЫЙ ЗАРЯД:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_max_quakes"					"МАКСИМУМ РАЗРЫВОВ:"
+		"DOTA_Tooltip_ability_drill_digger_passive"        "Tremors"
+        "DOTA_Tooltip_ability_drill_digger_passive_Description"    "Каждая атака создает раскол земли, наносящий Физический урон всем, кроме основной цели атаки в эпицентре. Урон зависит от силы атаки."
+        "DOTA_Tooltip_ability_drill_digger_passive_damage_from_attack_power"    "МНОЖИТЕЛЬ АТАКИ:"
+        "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "РАДИУС РАСКОЛА:"
 
-		"DOTA_Tooltip_modifier_drill_digger_stack"					"Drill Digger Stack"
-		"DOTA_Tooltip_modifier_drill_digger_stack_Description"		"Когда число зарядов достигает 5, следующая атака расщепит землю под ногами у 5 ближайших противников."
-
-		"DOTA_Tooltip_ability_drill_crusher"						"Drill Crusher"
-		"DOTA_Tooltip_ability_drill_crusher_Description"			"Весь физический урон игнорирует броню."
+        "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Каждая атака применяет дебафф на противника. Если счетчик дебаффа достигает <% DRILL_CRUSHER_MAX_STACKS_COUNT %>, то цель получает на <% DRILL_CRUSHER_POSTMITIGATION * 100%>% больше пост-резистного урона из всех источников. Дебафф длится <% DRILL_CRUSHER_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Атаки имеют 20% шанс затянуть цель в вспышку ослепительного света, нанося урон и обезоруживая её."	
@@ -1057,13 +1052,14 @@
 		"DOTA_Tooltip_ability_winterblight_star_eater_passive_Description"			"Точный лазер перемещается вокруг заклинателя. Лазер перемещается кнутри и кнаружи, в зависимости от позиции ближайших врагов."
 		"DOTA_Tooltip_ability_winterblight_star_eater_passive_damage"				"УРОН:"
 
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive"					"Exo-Eidolon"
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_Description"		"Любой полученный урон возвращается и замораживает атакующего."
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage_freeze_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive"                    "Vindicator Aura"
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_Description"        "Получение урона от героя применяет дебафф на атакующего, замедляя скорость передвижения и отключая все виды исцеления. Каждую секунду отнимает здоровье у атакующего, игнорируя сопротивления."
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_ms_loss"            "СНИЖЕНИЕ СКОРОСТИ:"
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_hp_loss_percent"            "ЗДОРОВЬЯ ОТНИМАЕТСЯ ЗА СЕКУНДУ:"
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_dot_duration"    "ДЛИТЕЛЬНОСТЬ:"
 
-		"DOTA_Tooltip_modifier_galaxy_knight_freeze"								"Exo-Eidolon"
-		"DOTA_Tooltip_modifier_galaxy_knight_freeze_Description"					"Заморожен"
+        "DOTA_Tooltip_modifier_galaxy_knight_dot"                                "Vindicator Aura"
+        "DOTA_Tooltip_modifier_galaxy_knight_dot_Description"                    "Замедлен, исцеление отключено, получает урона от максимального ХП."
 
 		"DOTA_Tooltip_ability_ellipsis_wave"										"Ellipsis Wave"
 		"DOTA_Tooltip_ability_ellipsis_wave_Description"							"Волна движется вперед, наносит урон и обезоруживает противников."
