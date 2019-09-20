@@ -31,12 +31,13 @@
 		"DOTA_Tooltip_ability_winterblight_crab_spawner_ability"	"Snow Crab Spawner"
 		"DOTA_Tooltip_ability_winterblight_crab_spawner_ability_Description"	"Spawns a Snow Crab on a fixed interval"
 
-		"DOTA_Tooltip_ability_winterblight_ogre_armor"				"Ogre Armor"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_Description"	"Reduces incoming damage and fires a retaliatory strike after taking damage multiple times."
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_damage_resist"	"PASSIVE DAMAGE RESIST:"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_damage"		"PROJECTILE DAMAGE:"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_stun_duration"	"PROJECTILE STUN DURATION:"
-		"DOTA_Tooltip_ability_winterblight_ogre_armor_hits_for_counter"	"HITS FOR RETALIATION:"
+	    "DOTA_Tooltip_ability_winterblight_ogre_armor"                "Ogre Armor"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_Description"    "Reduces incoming damage, and fires a retaliatory strike at the attacker after taking a certain number of damage instances. No retaliatory strike will be fired if the target is too close."
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_damage_resist"    "PASSIVE DAMAGE RESIST:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_damage"        "PROJECTILE DAMAGE:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_stun_duration"    "PROJECTILE STUN DURATION:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_instances_count"    "DAMAGE INSTANCES UNTIL STRIKE:"
+        "DOTA_Tooltip_ability_winterblight_ogre_armor_min_distance"    "SAFE DISTANCE:"
 
 		"DOTA_Tooltip_ability_winterblight_raxxus_passive"			"Frost Brawler"
 		"DOTA_Tooltip_ability_winterblight_raxxus_passive_Description"	"Provides a passive movespeed bonus. All attacks deal damage and slow in a small area."
@@ -856,22 +857,15 @@
 
 		"DOTA_Tooltip_modifier_ultra_ice_enraged"					"Enraged"
 
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive"		"Drill Digger"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_Description"	"Attacks build Drill Digger stacks. When the stacks reach 5, the next attack will trigger a quake beneath up to 5 nearby targets that damage based on attack power and stun.<br>Drill Digger stacks cannot be acquired against stunned targets."
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_damage_pct_attack_power"	"% DAMAGE AS A PERCENT OF ATTACK POWER:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_quake_radius"				"QUAKE RADIUS:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_radius"						"MAX QUAKE SEARCH RADIUS:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_attack_pwr_bonus_per_stack"	"% ATTACK POWER BONUS PER DRILL DIGGER STACK:"
-		"DOTA_Tooltip_ability_winterblight_drill_digger_passive_max_quakes"					"MAXIMUM QUAKES:"
+		"DOTA_Tooltip_ability_drill_digger_passive"        "Tremors"
+        "DOTA_Tooltip_ability_drill_digger_passive_Description"    "Each attack creates an earthquake that deals Physical damage to all nearby enemies except the primary target. Damage is based on attack power."
+        "DOTA_Tooltip_ability_drill_digger_passive_damage_from_attack_power"    "ATTACK POWER MULTIPLIER:"
+        "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "QUAKE RADIUS:"
 
-		"DOTA_Tooltip_modifier_drill_digger_stack"					"Drill Digger Stack"
-		"DOTA_Tooltip_modifier_drill_digger_stack_Description"		"Attacking while at 5 stacks creates earthquakes under nearby enemies."
-
-		"DOTA_Tooltip_ability_drill_crusher"						"Drill Crusher"
-		"DOTA_Tooltip_ability_drill_crusher_Description"			"All physical damage ignores armor."
-
+        "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Each attack applies a stackable debuff to the target. When the stack count reaches <% DRILL_CRUSHER_MAX_STACKS_COUNT %>, the victim receives <% DRILL_CRUSHER_POSTMITIGATION * 100%>% increased post-mitigation damage from all sources. Debuff lasts <% DRILL_CRUSHER_DURATION %> seconds."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
-		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Attacks have a 20% chance to engulf the target in blinding light, taking damage and disarming them."	
+		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Attacks have a 20% chance to engulf the target in blinding light, taking damage and disarming them."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_disarm_duration"	"DISARM DURATION:"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_damage_atk_pwr_pct"	"% DAMAGE BASED ON ATTACK POWER:"
 
@@ -1059,13 +1053,14 @@
 		"DOTA_Tooltip_ability_winterblight_star_eater_passive_Description"			"A pinpoint laser travels around the caster. The laser's distance from the cast moves in and out based on the position of nearby enemies."
 		"DOTA_Tooltip_ability_winterblight_star_eater_passive_damage"				"DAMAGE:"
 
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive"					"Exo-Eidolon"
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_Description"		"Any damage taken returns damage and a freeze to the attacker."
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage"			"DAMAGE:"
-		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_damage_freeze_duration"	"FREEZE DURATION:"
+		"DOTA_Tooltip_ability_winterblight_galaxy_knight_passive"                    "Vindicator Aura"
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_Description"        "Taking an instance of damage from a hero unit applies a debuff to the attacker, slowing their movespeed and preventing them from healing. The debuff will also remove health from them every second, ignoring resistances."
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_ms_loss"            "MOVESPEED CHANGE:"
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_hp_loss_percent"            "MAX HEALTH DRAINED PER TICK:"
+        "DOTA_Tooltip_ability_winterblight_galaxy_knight_passive_dot_duration"    "DURATION:"
 
-		"DOTA_Tooltip_modifier_galaxy_knight_freeze"								"Exo-Eidolon"
-		"DOTA_Tooltip_modifier_galaxy_knight_freeze_Description"					"Frozen"
+        "DOTA_Tooltip_modifier_galaxy_knight_dot"                                "Vindicator Aura"
+        "DOTA_Tooltip_modifier_galaxy_knight_dot_Description"                    "Slowed, healing disabled, taking damage based on max health."
 
 		"DOTA_Tooltip_ability_ellipsis_wave"										"Ellipsis Wave"
 		"DOTA_Tooltip_ability_ellipsis_wave_Description"							"A forward travelling wave damage and disarms enemies in a cone."
