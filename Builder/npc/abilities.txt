@@ -24540,7 +24540,7 @@
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
 				}
-				"OnTakeDamage"
+				"OnAttacked"
 				{
 					"RunScript"
 					{
