@@ -33,6 +33,8 @@ require('/worlds/winterblight/constants/mithril')
 require('/worlds/tanari/constants/mithril')
 require('/worlds/arena/constants/mithril')
 require('/worlds/tutorial/constants/mithril')
+require('/worlds/sea_fortress/constants/mithril')
+require('/worlds/serengaard/constants/mithril')
 
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales')}
