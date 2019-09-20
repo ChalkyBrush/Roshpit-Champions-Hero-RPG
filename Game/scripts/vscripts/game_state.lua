@@ -28,6 +28,7 @@ require('/items/constants/helm')
 require('/items/constants/trinket')
 
 require('/worlds/winterblight/constants/enemies_abilities')
+require('/worlds/tanari/constants/mithril')
 
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales')}

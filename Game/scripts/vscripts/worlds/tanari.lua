@@ -812,13 +812,13 @@ function Tanari:DefeatDungeonBoss(element, position)
         local mithrilReward = 0
         local starTitle = false
         if element == "wind" then
-            mithrilReward = 30
+            mithrilReward = TANARI_MITHRIL_WIND
             starTitle = element
         elseif element == "water" then
-            mithrilReward = 70
+            mithrilReward = TANARI_MITHRIL_WATER
             starTitle = element
         elseif element == "fire" then
-            mithrilReward = 100
+            mithrilReward = TANARI_MITHRIL_FIRE
             starTitle = element
         end
         if starTitle then
@@ -827,14 +827,14 @@ function Tanari:DefeatDungeonBoss(element, position)
                 Stars:StarEventPlayer(starTitle, MAIN_HERO_TABLE[i])
             end
         end
-        local mithrilMult = 1
+        local mithrilMult = TANARI_MITHRIL_NORMAL_MULT
         if GameState:GetDifficultyFactor() == 2 then
-            mithrilMult = 2
+            mithrilMult = TANARI_MITHRIL_ELITE_MULT
         elseif GameState:GetDifficultyFactor() == 3 then
-            mithrilMult = 6
+            mithrilMult = TANARI_MITHRIL_LEGEND_MULT
         end
         if Events.SpiritRealm then
-            mithrilMult = mithrilMult * 3
+            mithrilMult = mithrilMult * TANARI_MITHRIL_SPIRIT_REALM_MULT
         end
         mithrilReward = math.floor(mithrilReward * mithrilMult) * Events.ResourceBonus
         local crystal = CreateUnitByName("arcane_crystal", position + Vector(0, 0, 1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
@@ -878,23 +878,23 @@ function Tanari:DefeatSpiritBoss(element, position)
         local mithrilReward = 0
         local starTitle = false
         if element == "wind" then
-            mithrilReward = 160
+            mithrilReward = TANARI_MITHRIL_SPIRIT_WIND
             starTitle = element
         elseif element == "water" then
-            mithrilReward = 160
+            mithrilReward = TANARI_MITHRIL_SPIRIT_WATER
             starTitle = element
         elseif element == "fire" then
-            mithrilReward = 160
+            mithrilReward = TANARI_MITHRIL_SPIRIT_FIRE
             starTitle = element
         end
-        local mithrilMult = 1
+        local mithrilMult = TANARI_MITHRIL_NORMAL_MULT
         if GameState:GetDifficultyFactor() == 2 then
-            mithrilMult = 2
+            mithrilMult = TANARI_MITHRIL_ELITE_MULT
         elseif GameState:GetDifficultyFactor() == 3 then
-            mithrilMult = 6
+            mithrilMult = TANARI_MITHRIL_LEGEND_MULT
         end
         if Events.SpiritRealm then
-            mithrilMult = mithrilMult * 3
+            mithrilMult = mithrilMult * TANARI_MITHRIL_SPIRIT_REALM_MULT
         end
         mithrilReward = math.floor(mithrilReward * mithrilMult)
         local crystal = CreateUnitByName("arcane_crystal", position + Vector(0, 0, 1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
@@ -1180,14 +1180,14 @@ end
 
 function Tanari:GenericCrystal(mithrilReward, position)
     Timers:CreateTimer(5, function()
-        local mithrilMult = 1
+        local mithrilMult = TANARI_MITHRIL_NORMAL
         if GameState:GetDifficultyFactor() == 2 then
-            mithrilMult = 2
+            mithrilMult = TANARI_MITHRIL_ELITE
         elseif GameState:GetDifficultyFactor() == 3 then
-            mithrilMult = 6
+            mithrilMult = TANARI_MITHRIL_LEGEND
         end
         if Events.SpiritRealm then
-            mithrilMult = mithrilMult * 3
+            mithrilMult = mithrilMult * TANARI_MITHRIL_SPIRIT_REALM_MULT
         end
         mithrilReward = math.floor(mithrilReward * mithrilMult)
         local crystal = CreateUnitByName("arcane_crystal", position + Vector(0, 0, 1000), false, nil, nil, DOTA_TEAM_GOODGUYS)
