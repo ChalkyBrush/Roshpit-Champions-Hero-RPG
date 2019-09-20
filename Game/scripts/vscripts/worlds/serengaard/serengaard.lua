@@ -774,7 +774,7 @@ function Serengaard:NextWave()
 				Serengaard:LinewarIncomeFunction(60)
 				if Serengaard.InfiniteWaveCount % 10 == 0 then
 					Serengaard:KillAllNeutrals()
-					local mithril = 140 + math.min(Serengaard.InfiniteWaveCount * 10, 500)
+					local mithril = SERENGAARD_MITHRIL_INF_BASE + math.min(Serengaard.InfiniteWaveCount * SERENGAARD_MITHRIL_INF_PER_WAVE, SERENGAARD_MITHRIL_INF_PER_WAVE_MAX)
 					Serengaard:Mithril("infinite", Serengaard.mainAncient:GetAbsOrigin(), mithril)
 					for i = 1, #MAIN_HERO_TABLE, 1 do
 						Stars:StarEventPlayer("serengaard_infinite", MAIN_HERO_TABLE[i])
@@ -1299,11 +1299,11 @@ function Serengaard:Mithril(name, position, mithrilReward)
 		--     Stars:StarEventPlayer(starTitle, MAIN_HERO_TABLE[i])
 		--   end
 		-- end
-		local mithrilMult = 2
+		local mithrilMult = SERENGAARD_MITHRIL_MULT_NORMAL
 		if GameState:GetDifficultyFactor() == 2 then
-			mithrilMult = 4
+			mithrilMult = SERENGAARD_MITHRIL_MULT_ELITE
 		elseif GameState:GetDifficultyFactor() == 3 then
-			mithrilMult = 12
+			mithrilMult = SERENGAARD_MITHRIL_MULT_LEGEND
 		end
 		if Events.SpiritRealm then
 			mithrilMult = mithrilMult * 3
