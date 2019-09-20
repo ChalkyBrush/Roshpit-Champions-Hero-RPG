@@ -315,7 +315,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Vacant Hollow"
-        "property_chernobog_immortal_weapon2_description"                      "Each missing % of max health increases ALL post-mitigation damage by @special_property1%."
+        "property_chernobog_immortal_weapon2_description"                      "Each missing % of max health increases Base Ability Damage and Item Damage by <% CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT %>%"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"

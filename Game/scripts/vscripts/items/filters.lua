@@ -203,6 +203,10 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         local multIncrease = caster:GetHealth() / caster:GetMaxHealth() * RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT
         mult = mult + multIncrease
     end
+    if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
+		local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
+		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
+	end
 
     if caster:HasModifier("modifier_trinket_item_damage_inc") then
         local current_stack = caster:GetModifierStackCount("modifier_trinket_item_damage_inc", caster.InventoryUnit)
@@ -1381,6 +1385,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_flood_basin_a_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
             damageMult = damageMult + HYDROXIS_ARCANA_R1_BAD_PCT/100 * current_stack
+        end
+        if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
+            local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
+            damageMult = damageMult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
