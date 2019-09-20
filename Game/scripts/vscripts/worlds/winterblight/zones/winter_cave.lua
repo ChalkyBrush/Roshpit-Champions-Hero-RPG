@@ -34,6 +34,7 @@ function Winterblight:CaveGuideSpawn()
 		end
 	-- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13952, 12800, 500), 10000, 10000, false)
 	end
+	Dungeons.respawnPoint = Vector(-5252, 4200)
 end
 
 function Winterblight:GetCaveMetaData()
