@@ -14,7 +14,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
-		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на <% SAPPHIRE_LOTUS_HP_PER_INT %>."
+		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на <% SAPPHIRE_LOTUS_HP_PER_INT %> и показатель маны на <% SAPPHIRE_LOTUS_MP_PER_INT %>."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
