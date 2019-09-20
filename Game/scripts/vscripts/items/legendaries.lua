@@ -584,7 +584,7 @@ function RPCItems:RollProudGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_kappa_pride_gloves", "immortal", "Proud Gloves", "hands", true, "Slot: Hands")
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "pride"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pride", "#D950D6", 1, "#property_pride_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_proud_gloves", "#D950D6", 1, "#property_proud_gloves_description")
     RPCItems:RollHandProperty2(item, 0)
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)

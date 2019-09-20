@@ -45,10 +45,10 @@
 		"property_scorched_gauntlet_description_2"	"С 20% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный @special_property1% урона героя + @special_property2x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный @special_property3% от урона героя в небольшой области и оглушает задетые цели на @special_property4 сек, дополнительно поджигая землю под ними.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Слот: Наручи"
-		"item_property_pride"						"Rainbow Strike"
-		"property_pride_description"				"3% шанс при атаке наделить вас и находящихся рядом союзников неслыханной мощью - Даёт 50 брони - 20% сопротивление магии - 100 реген. здоровья - 100 реген. маны на 5 секунд."
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves"								"Proud Gloves"
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves_Description"					"Слот: Наручи"
+		"item_property_proud_gloves"						"Rainbow Strike"
+		"property_proud_gloves_description"				"3% шанс при атаке наделить вас и находящихся рядом союзников неслыханной мощью - Даёт 50 брони - 20% сопротивление магии - 100 реген. здоровья - 100 реген. маны на 5 секунд."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
