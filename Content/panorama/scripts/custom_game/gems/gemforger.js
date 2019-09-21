@@ -10,7 +10,7 @@ function OpenGemforger(msg){
     var header = gemforger_main.FindChildTraverse('gemforger_header')
     var imageName = "file://{images}/custom_game/ui/gem_forger_header.jpg"
     header.SetImage(imageName)
-
+    GameUI.CustomUIConfig().gemforge = 0
     if (msg.gem_reward > 0){
 	    var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
 	    var gemforger_reward_panel = $.CreatePanel("Panel", attach_point, "gemforger-reward")
@@ -32,6 +32,12 @@ function OpenGemforger(msg){
     var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
     var forge_start_panel= $.CreatePanel("Panel", attach_point, "gemforger-start")
     forge_start_panel.BLoadLayoutSnippet("gemforger_start_button");
+    forge_start_panel.FindChildTraverse("gemforger_start_image").SetImage("file://{images}/items/gems/ruby5.png")
+    forge_start_button = forge_start_panel.FindChildTraverse('gemforger_start_button_collect')
+	forge_start_button.SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("UI.Gemforger.Click")
+		forge_gem_step_1(gemforger_main)
+	})
 
     mCloseButton = gemforger_main.FindChildTraverse('close_button')
     mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
@@ -43,13 +49,84 @@ function OpenGemforger(msg){
 
 }
 
+function forge_gem_step_1(gemforger_main){
+	var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
+	attach_point.RemoveAndDeleteChildren(0)
+    var gemforger_item_start = $.CreatePanel("Panel", attach_point, "gemforger-item-start")
+    gemforger_item_start.BLoadLayoutSnippet("forge_gems_start");
+    gemforger_item_start.FindChildTraverse('forge_gems_item_attacher').BLoadLayout( "file://{resources}/layout/custom_game/gems/gemforger_item_slot.xml", false, false );    
+
+    var mainParent = GameUI.CustomUIConfig().equipmentContainer;
+    var helmPanel = mainParent.FindChild("helm_main_container").FindChild("helm_container");
+    var chestPanel = mainParent.FindChild("armor_main_container").FindChild("armor_container");
+    var glovePanel = mainParent.FindChild("weapon_glove_main_container").FindChild("glove_container");
+    var bootPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("boot_container");
+    var amuletPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("amulet_container");
+    var weaponPanel = mainParent.FindChild("weapon_glove_main_container").FindChild("weapon_container");
+
+    GameUI.CustomUIConfig().socket = 0;
+    GameUI.CustomUIConfig().chisel = 0;
+    GameUI.CustomUIConfig().gemforge = 1
+
+    helmPanel.AddClass("chiselable_gear");
+    chestPanel.AddClass("chiselable_gear");
+    glovePanel.AddClass("chiselable_gear");
+    bootPanel.AddClass("chiselable_gear");
+    amuletPanel.AddClass("chiselable_gear");
+    weaponPanel.AddClass("chiselable_gear");
+
+}
+
+function ItemGemforgeMenu(msg){
+	var item = msg.item_index
+	clearGearHighlighter()
+	if (msg.success == 0){
+		var parent = $('#gemforger_container')
+		var attach_point = parent.FindChildTraverse('gemforger_attach_contents')
+		attach_point.RemoveAndDeleteChildren(0)
+	    var gemforger_fail = $.CreatePanel("Panel", attach_point, "gemforger-item-start")
+	    gemforger_fail.BLoadLayoutSnippet("forge_gems_item_fail"); 
+
+	    var item_panel = gemforger_fail.FindChildTraverse('socket_item_fail')
+        item_panel.contextEntityIndex = item;
+        item_panel.SetAttributeInt("item", item)  
+
+        gemforger_fail.FindChildTraverse('socket_item_name').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ))
+	}else if(msg.success == 1){
+
+	}
+}
+
 function CloseGemforger(){
 	var parent = $('#gemforger_container')
 	parent.AddClass('invisible')
 	parent.RemoveAndDeleteChildren(0)
+	if (GameUI.CustomUIConfig().gemforge == 1){
+		clearGearHighlighter()
+	}
+}
+
+function clearGearHighlighter()
+{
+	var mainParent = GameUI.CustomUIConfig().equipmentContainer;
+    var helmPanel = mainParent.FindChild("helm_main_container").FindChild("helm_container");
+    var chestPanel = mainParent.FindChild("armor_main_container").FindChild("armor_container");
+    var glovePanel = mainParent.FindChild("weapon_glove_main_container").FindChild("glove_container");
+    var bootPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("boot_container");
+    var amuletPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("amulet_container");
+    var weaponPanel = mainParent.FindChild("weapon_glove_main_container").FindChild("weapon_container");
+
+    helmPanel.RemoveClass("chiselable_gear");
+    chestPanel.RemoveClass("chiselable_gear");
+    glovePanel.RemoveClass("chiselable_gear");
+    bootPanel.RemoveClass("chiselable_gear");
+    amuletPanel.RemoveClass("chiselable_gear");
+    weaponPanel.RemoveClass("chiselable_gear");
+    GameUI.CustomUIConfig().gemforge = 0
 }
 
 (function()
 {
 	GameEvents.Subscribe( "open_gemforger", OpenGemforger );
+	GameEvents.Subscribe( "item_gemforge_menu", ItemGemforgeMenu );
 })();

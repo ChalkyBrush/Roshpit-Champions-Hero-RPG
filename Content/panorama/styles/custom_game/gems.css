@@ -229,7 +229,6 @@
 	width:100%;
 	background-color: #111111;
 	border-radius:6px;
-	flow-children:right;
 }
 
 .gemforger_start_button_active{
@@ -242,8 +241,59 @@
 }
 
 #gem_forger_start_label{
+	color:white;	
+	font-weight:lighter;
+	vertical-align: center;
+	horizontal-align:center;
+	font-size:28px;
+}
+
+#gemforger_start_image{
+	height:44px;
+	width:44px;
+	vertical-align: center;
+	margin-left:16px;
+}
+
+#forge_gems_start_tip{
+	color:#e3cda1;
+	font-size:24px;
+	text-align: center;
+	horizontal-align:center;
+	margin-top:140px;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+}
+
+#forge_gems_item_attacher{
+	horizontal-align:center;
+	margin-top:260px;
+}
+
+.forge_gem_fail_root{
+	width:100%;
+}
+#socket_item_fail{
+	margin-top:140px;
+	horizontal-align:center;
+}
+
+#forge_gems_fail_tip{
+	color:#e3cda1;
+	font-size:24px;
+	text-align: center;
+	horizontal-align:center;
+	margin-top:240px;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+}
+
+#socket_item_name{
+	horizontal-align:center;
+	margin-top:70px;
+	text-align: center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:32px;
 	color:white;
-	font-size:18px;	
-	margin-top:5px;
-	font-weight:bold;
 }

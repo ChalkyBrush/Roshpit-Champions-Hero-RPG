@@ -40,11 +40,29 @@
 		<snippet name="gemforger_start_button">
 			<Panel class="gemforger_start_button_root" hittest="false">
 				<Button id="gemforger_start_button_collect" class="gemforger_reward_active" hittest="true">
+					<Image id="gemforger_start_image" hittest="false"/>
 					<Label id="gem_forger_start_label" text="gem_forger_start" hittest="false" html="true"/>
 				</Button>
 			</Panel>
 		</snippet>
-
+	    <snippet name="forge_gems_start">
+	    	<Panel class="forge_gems_start_root" hittest="false">
+	    		<Label id="forge_gems_start_tip" hittest="false" text="gemforge_item_select_help"/>
+				<Panel id="forge_gems_item_attacher"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="forge_gems_item_fail">
+	    	<Panel class="forge_gem_fail_root">
+		    	<Label id="socket_item_name" hittest="false" text="none"/>
+				<Button id="item_tooltip_button" hittest="true"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+				<DOTAItemImage hittest="true" id="socket_item_fail"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+		    	<Label id="forge_gems_fail_tip" hittest="false" text="gemforge_item_cannot_be_forged"/>
+	    	</Panel>
+	    </snippet>
 	</snippets>
 
 	<Panel class="gemforger_content" hittest="false">

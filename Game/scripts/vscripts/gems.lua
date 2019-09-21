@@ -141,8 +141,11 @@ function Gems:DropSocketForger(position)
 end
 
 function Gems:PanoramaInput(msg)
+	print("GEM PANORAMA INPUT")
 	if msg.event_type == "collect_reward" then
 		Gems:CollectReward(msg)
+	elseif msg.event_type == "item_up_for_forging" then
+		Gems:ItemUpForForging(msg)
 	end
 end
 
@@ -194,5 +197,34 @@ function Gems:CollectReward(msg)
 				end
 			end)			
 		end
+	end
+end
+
+function Gems:ItemUpForForging(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	print("UP FOR FORGING")
+	if player then
+		local item = EntIndexToHScript(msg.itemIndex)
+		print("GO")
+		if Gems:CanItemTakeGems(item) then
+			CustomGameEventManager:Send_ServerToPlayer(player, "item_gemforge_menu", {item_index = item:GetEntityIndex(), success = 1})
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "item_gemforge_menu", {item_index = item:GetEntityIndex(), success = 0})
+		end
+	end
+end
+
+function Gems:CanItemTakeGems(item)
+	if IsValidEntity(item) and Gems:CanItemBeSocketed(item) then
+		if item.newItemTable.socket1 and not item.newItemTable.socket1 == "none" then
+			return true
+		elseif item.newItemTable.socket2 and not item.newItemTable.socket2 == "none" then
+			return true
+		else
+			return false
+		end
+	else
+		return false
 	end
 end

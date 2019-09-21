@@ -932,7 +932,6 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			if not hero.gem_reward then
 				gem_reward = 0
 			end
-			if distance <= distance_cap then
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_gemforger", {player=playerID, gem_reward = gem_reward} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
