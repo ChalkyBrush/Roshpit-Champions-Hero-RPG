@@ -11877,7 +11877,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"Когда скорость героя ниже 300, весь входящий урон снижен на 80%, а исходящий урон увеличен на 150%. Эффект будет действовать еще 6 секунд после того, как скорость героя станет выше необходимого уровня."
+		"property_ablecore_greaves_description"			"Когда скорость героя ниже 300, весь входящий урон снижен на 80%, а исходящий урон увеличен на 600%. Эффект будет действовать еще 6 секунд после того, как скорость героя станет выше необходимого уровня."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на 80%%, исходящий повышен на 150%%"
 		 
@@ -12502,7 +12502,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный @special_property1x вашего интеллекта, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
+		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный @special_property1x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Получит увеличенный урон от лазера"
 		

@@ -71865,7 +71865,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -240"
+				"ms_loss"			"-60 -80 -120"
 			}
 			"03"
 			{
@@ -74873,12 +74873,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-40 -180 -360"
+				"as_loss"			"-40 -120 -200"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-80 -180 -320"
+				"ms_loss"			"-120"
 			}
 			"03"
 			{
@@ -106577,11 +106577,6 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/wildwood_thicket_ai"
 						"Function"		"pure_strike_attack_land"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Creature.PureStrikeImpact"
-						"Target" 		"TARGET"
 					}
 				}
 				"States"
