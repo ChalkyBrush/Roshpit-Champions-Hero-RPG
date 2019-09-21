@@ -215,11 +215,26 @@ function Gems:ItemUpForForging(msg)
 	end
 end
 
+function Gems:CanItemProceedToGemMenu(item)
+	local allowed = true
+	local slot = item.newItemTable.item_slot
+	if slot == "amulet" or slot == "body" or slot == "feet" or slot == "hands" or slot == "head" then
+	else
+		allowed = false
+	end
+	if item.newItemTable.rarity == "immortal" then
+	else
+		allowed = false
+	end
+	return allowed
+end
+
 function Gems:CanItemTakeGems(item)
-	if IsValidEntity(item) and Gems:CanItemBeSocketed(item) then
-		if item.newItemTable.socket1 and not item.newItemTable.socket1 == "none" then
+	if IsValidEntity(item) and Gems:CanItemProceedToGemMenu(item) then
+		print("VALID ENTITY")
+		if item.newItemTable.socket1 and item.newItemTable.socket1 ~= "none" then
 			return true
-		elseif item.newItemTable.socket2 and not item.newItemTable.socket2 == "none" then
+		elseif item.newItemTable.socket2 and item.newItemTable.socket2 ~= "none" then
 			return true
 		else
 			return false

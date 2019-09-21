@@ -94,7 +94,7 @@ function EquipmentClick(slot)
 			return			
 		}
 
-		GameEvents.SendCustomGameEventToServer( "gems", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot, socket: 1});		
+		GameEvents.SendCustomGameEventToServer( "gems", {itemIndex: item, slot: slot, event_type: "item_up_for_forging"});		
 	}
 }
 

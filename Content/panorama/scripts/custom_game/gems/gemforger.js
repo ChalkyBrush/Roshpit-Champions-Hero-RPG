@@ -80,6 +80,7 @@ function forge_gem_step_1(gemforger_main){
 function ItemGemforgeMenu(msg){
 	var item = msg.item_index
 	clearGearHighlighter()
+	Game.EmitSound("UI.Gemforger.Click")
 	if (msg.success == 0){
 		var parent = $('#gemforger_container')
 		var attach_point = parent.FindChildTraverse('gemforger_attach_contents')

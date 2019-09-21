@@ -63,6 +63,18 @@
 		    	<Label id="forge_gems_fail_tip" hittest="false" text="gemforge_item_cannot_be_forged"/>
 	    	</Panel>
 	    </snippet>
+	    <snippet name="forge_gems_item_main">
+	    	<Panel class="forge_gem_main_root">
+		    	<Label id="socket_item_name" hittest="false" text="none"/>
+				<Button id="item_tooltip_button" hittest="true"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+				<DOTAItemImage hittest="true" id="socket_item_fail"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+		    	<Label id="forge_gems_fail_tip" hittest="false" text="gemforge_item_cannot_be_forged"/>
+	    	</Panel>
+	    </snippet>
 	</snippets>
 
 	<Panel class="gemforger_content" hittest="false">
