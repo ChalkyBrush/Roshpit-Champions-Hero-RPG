@@ -45,6 +45,14 @@ def validate_content(content, file_path, warnings):
             print('Warning: Syntax parse error in ' + file_path)
             print(str(e))
 
+def colorText(text, colors):
+    result = ''
+    index = 0
+    for char in list(text):
+        result = result + '<font color=\\"' + colors[index] + '\\">' + char + '</font>'
+        if char != '':
+            index = (index + 1) % len(colors)
+    return result
 
 def parse(file_path, constants, settings, warnings, encoding="utf-8"):
     file = open(file_path, 'r', encoding=encoding)
@@ -71,6 +79,21 @@ def parse(file_path, constants, settings, warnings, encoding="utf-8"):
         except Exception as e:
             result = str(result)
         content = content.replace(settings['start'] + statement + settings['end'], result)
+    rainbow = {
+        "start": '<RAINBOW>',
+        "end": '</RAINBOW>',
+        'colors': [
+            '#9400D3',
+            '#4B0082',
+            '#0000FF',
+            '#00FF00',
+            '#FFFF00',
+            '#FF7F00',
+            '#FF0000',
+        ]
+    }
+    for statement in re.findall('(?<=' + re.escape(rainbow['start']) + ')(.*?)(?=' + re.escape(rainbow['end']) + ')', content):
+        content = content.replace(rainbow['start'] + statement + rainbow['end'], colorText(statement, rainbow['colors']))
     validate_content(content, file_path, warnings)
     return content
 

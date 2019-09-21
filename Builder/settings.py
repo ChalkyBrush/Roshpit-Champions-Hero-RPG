@@ -7,6 +7,7 @@ data = {
     "constants": [
         "heroes/.*/.*constants.*\.lua",
         "items/constants/.*\.lua",
+        "worlds/.*/constants/.*\.lua",
         "global_constants.lua",
     ],
     "replaces": [

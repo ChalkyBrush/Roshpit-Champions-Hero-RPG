@@ -62,56 +62,55 @@ function ogre_armor_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
-	if not caster.hits then
-		caster.hits = 0
+	local minDistance = event.min_distance
+	if WallPhysics:GetDistance2d(attacker:GetAbsOrigin(), caster:GetAbsOrigin()) < minDistance then
+		return
 	end
-	if not caster.pfxCount then
-		caster.pfxCount = 0
+	if ability:GetCooldownTimeRemaining() > 0.1 then
+		return
+	else
+		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
 	end
-	if caster.pfxCount < 6 then
-		caster.pfxCount = caster.pfxCount + 1
-		CustomAbilities:QuickAttachParticle("particles/neutral_fx/ogre_magi_frost_armor_b.vpcf", caster, 0.5)
-		Timers:CreateTimer(1, function()
-			caster.pfxCount = caster.pfxCount - 1
-		end)
+	CustomAbilities:QuickAttachParticle("particles/neutral_fx/ogre_magi_frost_armor_b.vpcf", caster, 0.5)
+	EmitSoundOn("Winterblight.OgreShield.Launch", caster)
+	local fv = ((attacker:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	local info =
+	{
+		Ability = ability,
+		EffectName = "particles/roshpit/winterblight/ogre_retaliation.vpcf",
+		vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 50),
+		fDistance = 2500,
+		fStartRadius = 300,
+		fEndRadius = 600,
+		Source = caster,
+		StartPosition = "attach_attack1",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 10.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * 330,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
 	end
-	caster.hits = caster.hits + 1
-	if caster.hits == event.hits_for_counter then
-		caster.hits = 0
-		EmitSoundOn("Winterblight.OgreShield.Launch", caster)
-		local fv = ((attacker:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-		local info =
-		{
-			Ability = ability,
-			EffectName = "particles/roshpit/winterblight/ogre_retaliation.vpcf",
-			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 50),
-			fDistance = 1500,
-			fStartRadius = 150,
-			fEndRadius = 300,
-			Source = caster,
-			StartPosition = "attach_attack1",
-			bHasFrontalCone = true,
-			bReplaceExisting = false,
-			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			fExpireTime = GameRules:GetGameTime() + 5.0,
-			bDeleteOnHit = false,
-			vVelocity = fv * 1000,
-			bProvidesVision = false,
-		}
-		projectile = ProjectileManager:CreateLinearProjectile(info)
-	end
-end
 
 function ogre_armor_impact(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
 	local damage = event.damage
-	EmitSoundOn("Winterblight.OgreArmorImpact", target)
-	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+	local instances_count = event.instances_count
+	local key = caster:GetEntityIndex() .. '_ogre_armor_impact'
+	Util.Common:LimitPerTime(1, 0.5, key, function()
+		EmitSoundOn("Winterblight.OgreArmorImpact", target)
+	end)
 	Filters:ApplyStun(caster, event.stun_duration, target)
+	for i = 1,instances_count do
+		ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+	end
 end
 
 function monolith_found_enemy(event)
@@ -166,12 +165,16 @@ function raxxus_attack_land(event)
 	local icePoint = victim:GetAbsOrigin()
 	local radius = 240
 	EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
-	local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
-	local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(pfx, 0, icePoint)
-	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
-	Timers:CreateTimer(2.5, function()
-		ParticleManager:DestroyParticle(pfx, false)
+	local key = victim:GetEntityIndex() .. '_raxxus_attack_land'
+	Util.Common:LimitPerTime(1, 1, key .. '_particles',function()
+		EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
+		local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+		local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, icePoint)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+		Timers:CreateTimer(2.5, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
 	end)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then

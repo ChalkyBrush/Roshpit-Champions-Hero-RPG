@@ -27,6 +27,15 @@ require('/items/constants/gloves')
 require('/items/constants/helm')
 require('/items/constants/trinket')
 
+require('/worlds/winterblight/constants/enemies_abilities')
+require('/worlds/redfall/constants/mithril')
+require('/worlds/winterblight/constants/mithril')
+require('/worlds/tanari/constants/mithril')
+require('/worlds/arena/constants/mithril')
+require('/worlds/tutorial/constants/mithril')
+require('/worlds/sea_fortress/constants/mithril')
+require('/worlds/serengaard/constants/mithril')
+
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales')}
 require('/heroes/legion_commander/mountain_protector_constants')
@@ -1964,7 +1973,7 @@ function GameState:FilterDamage(filterTable)
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue(false)
-		if (attacker:HasModifier("modifier_hand_marauder") or attacker:HasModifier("modifier_drill_crusher")) and armor >= 0 then
+		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
 			armor = 0
 		end
 		if victim:HasModifier("modifier_omniro_shadow_debuff") and armor >= 0 then
@@ -3532,6 +3541,10 @@ function GameState:FilterDamage(filterTable)
 		local movespeed_difference = math.max(attacker_movespeed - victim_movespeed, 0)
 		mult = mult + movespeed_difference * SEINARU_Q3_POSTMIT_PER_MOVESPEED_DIF * modifier:GetStackCount()
 	end
+	modifier = victim:FindModifierByName("modifier_drill_crusher_stack")
+	if modifier and modifier:GetStackCount() == DRILL_CRUSHER_MAX_STACKS_COUNT then
+		mult = mult + DRILL_CRUSHER_POSTMITIGATION
+	end
 
 	if victim:HasModifier("modifier_sephyr_glyph_6_1") then
 		local luck = RandomInt(1, 20)
@@ -3687,6 +3700,9 @@ function GameState:FilterDamage(filterTable)
 		else
 			Filters:EarthGuardian(victim, filterTable["damage"])
 		end
+	end
+	if damageData.postmitigationDamage then
+		filterTable["damage"] = damageData.postmitigationDamage
 	end
 	modifier = victim:FindModifierByName('modifier_chernobog_1_q_path_enemy_effect_q1')
 	if modifier and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then

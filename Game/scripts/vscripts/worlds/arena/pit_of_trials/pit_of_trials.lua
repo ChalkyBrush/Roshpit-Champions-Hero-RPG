@@ -2308,19 +2308,19 @@ function Arena:DefeatPitBoss(position)
 end
 
 function Arena:GetPitMithrilReward()
-	local mithrilReward = 1500
+	local mithrilReward = ARENA_MITHRIL_PIT_1
 	if Arena.PitLevel == 2 then
-		mithrilReward = 2000
+		mithrilReward = ARENA_MITHRIL_PIT_2
 	elseif Arena.PitLevel == 3 then
-		mithrilReward = 3000
+		mithrilReward = ARENA_MITHRIL_PIT_3
 	elseif Arena.PitLevel == 4 then
-		mithrilReward = 5000
+		mithrilReward = ARENA_MITHRIL_PIT_4
 	elseif Arena.PitLevel == 5 then
-		mithrilReward = 7000
+		mithrilReward = ARENA_MITHRIL_PIT_5
 	elseif Arena.PitLevel == 6 then
-		mithrilReward = 9000
+		mithrilReward = ARENA_MITHRIL_PIT_6
 	elseif Arena.PitLevel == 7 then
-		mithrilReward = 14000
+		mithrilReward = ARENA_MITHRIL_PIT_7
 	end
 	return mithrilReward
 end
