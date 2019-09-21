@@ -3015,8 +3015,8 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_emerald_douli") then
-		local reductionPercent = Filters:EmeraldDouliHit(victim, filterTable["damage"])
-		filterTable["damage"] = filterTable["damage"] - filterTable["damage"] * reductionPercent
+		local healthDamage = Filters:EmeraldDouliHit(victim, filterTable["damage"])
+		filterTable["damage"] = healthDamage
 	end
 
 	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and victim:GetUnitName() ~= "arena_training_dummy" then
@@ -4228,7 +4228,7 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
 				-- print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
+				--filterTable["damage"] = 0
 			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
@@ -4239,7 +4239,7 @@ function GameState:FilterDamage(filterTable)
 				if not victim:HasModifier("modifier_disable_player") then
 					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
 						-- if filterTable["damage"] > 0 then
-							filterTable["damage"] = 999999999999999
+							--filterTable["damage"] = 999999999999999
 						-- end
 					-- end
 				end

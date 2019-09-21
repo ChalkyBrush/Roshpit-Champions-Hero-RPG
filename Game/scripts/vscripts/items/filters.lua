@@ -3755,13 +3755,15 @@ end
 
 function Filters:EmeraldDouliHit(victim, damage)
     if damage > 0 then
-        local manaDamage = math.floor(damage * 0.5)
-        if victim:GetMana() < manaDamage / 3 then
-            manaDamage = victim:GetMana() * 3
+        local manaDamage = damage / EMERALD_DOULI_DMG_ABSORB_PER_MANA
+        local availableMana = victim:GetMana() - victim:GetMaxMana() * EMERALD_DOULI_MANA_THRESHOLD_PCT / 100
+        if availableMana > manaDamage then
+            victim:ReduceMana(manaDamage)
+            return 0
+        else
+            victim:ReduceMana(availableMana)
+            return (manaDamage - availableMana) * EMERALD_DOULI_DMG_ABSORB_PER_MANA
         end
-        victim:ReduceMana(manaDamage / 3)
-
-        return manaDamage / damage
     else
         return 0
     end
