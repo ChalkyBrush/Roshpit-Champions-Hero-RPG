@@ -29,6 +29,10 @@ function OpenGemforger(msg){
 
     }
 
+    var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
+    var forge_start_panel= $.CreatePanel("Panel", attach_point, "gemforger-start")
+    forge_start_panel.BLoadLayoutSnippet("gemforger_start_button");
+
     mCloseButton = gemforger_main.FindChildTraverse('close_button')
     mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
    

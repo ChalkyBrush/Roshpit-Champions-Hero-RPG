@@ -1185,6 +1185,7 @@
 		"gem_forger_reward_available"								"Reward Available"
 		"tooltip_prismatic_gemstones"								"Prismatic Gemstones"
 		"ui_click_to_collect"										"Click to Collect"
+		"gem_forger_start"											"Forge Gems"
 
 	    //------------------------
 		// World

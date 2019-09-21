@@ -37,6 +37,13 @@
 				</Button>
 			</Panel>
 		</snippet>
+		<snippet name="gemforger_start_button">
+			<Panel class="gemforger_start_button_root" hittest="false">
+				<Button id="gemforger_start_button_collect" class="gemforger_reward_active" hittest="true">
+					<Label id="gem_forger_start_label" text="gem_forger_start" hittest="false" html="true"/>
+				</Button>
+			</Panel>
+		</snippet>
 
 	</snippets>
 
