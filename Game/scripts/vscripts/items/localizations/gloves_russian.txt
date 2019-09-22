@@ -90,7 +90,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Увеличивает урон от (R) @Ability4 на 200%"
+		"property_master_gloves_description"		"Увеличивает Базовый Урон Способности от (R) @Ability4 на 200%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
@@ -131,7 +131,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Увеличивает Базовый Урон Способностей на 0.3% за каждые 10 очков Интеллекта."
+		"property_grand_arcanist_description"		"Увеличивает Базовый Урон Способностей на <%GRAND_ARCANIST_BAD_PER_INT *100 %>% за каждые 10 очков Интеллекта."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
