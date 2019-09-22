@@ -12668,7 +12668,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "3"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% GRAVEKEEPER_MOVESPEED_DRAIN %>"
 				}
 			}
 			"modifier_gravekeeper_gauntlet_target"
@@ -12694,7 +12694,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-3"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% GRAVEKEEPER_MOVESPEED_DRAIN %>"
 				}
 			}
 		}

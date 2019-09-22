@@ -2675,7 +2675,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		local stacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", attacker.InventoryUnit)
-		filterTable["damage"] = filterTable["damage"] * (1 + (stacks * 0.1))
+		filterTable["damage"] = filterTable["damage"] * (1 + (stacks * GRAVEKEEPER_PRE_MITI_DAMAGE_AMP_PER_STACK))
 	end
 	if attacker:HasModifier("modifier_neutral_glyph_5_3") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
