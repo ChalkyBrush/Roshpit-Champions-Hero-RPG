@@ -177,12 +177,22 @@ function attach_gems_list(parent, gem, gem_level, item, socket_number){
 		}else{
 			gem_panel.AddClass('socket_gem_hoverable')
 			set_gem_click(gem_panel, gem, i, item, socket_number)
+			set_gem_hover_events(gem_panel, gem, i, item, gem_level)
 		}
 	}
 }
 
+function set_gem_hover_events(gem_panel, gem, i, item, gem_level){
+	gem_panel.SetPanelEvent("onmouseover", function GemHover() {
+		gem_hover(gem_panel, item, gem, i, gem_level)
+	})
+	gem_panel.SetPanelEvent("onmouseout", function GemClick() {
+		gem_unhover(gem_panel)
+	})
+}
+
 function set_gem_click(gem_panel, gem, gem_level, item, socket_number){
-	gem_panel.SetPanelEvent("onactivate", function GemClick() {
+	gem_panel.SetPanelEvent("onmouseout", function GemClick() {
 		gem_click(gem, gem_level, item, socket_number)
 	})
 }
@@ -192,6 +202,58 @@ function gem_click(gem, gem_level, item, socket_number){
 	Game.EmitSound("Gemforger.UI.CollectReward")
 	CloseGemforger()
 }
+
+function gem_hover(panel, item, gem, gem_number, current_level){
+	var title_color = "#DDDDDD"
+	if (gem == "ruby"){
+		title_color = "#f02929"
+	}else if(gem == "emerald"){
+		title_color = "#36d63b"
+	}else if (gem == "sapphire"){
+		title_color = "#388af5"
+	}else if (gem == "amethyst"){
+		title_color = "#c744b8"
+	}
+	var item_name = Abilities.GetAbilityName(item)
+	var title = "<font color='"+title_color+"'>"+$.Localize("gems_"+gem+gem_number)+"</font>"
+	var tooltip = "<font color='"+'#E4AE33'+"'>"+$.Localize("DOTA_Tooltip_ability_"+item_name)+"</font>"+"<br><br>"
+
+	var base_gem_tooltip = $.Localize(item_name+"_"+gem+gem_number)
+	$.Msg(item_name+"_"+gem+gem_number)
+	for (i = gem_number; i >= 1; i--) {
+		var test_tooltip = $.Localize(item_name+"_"+gem+i)
+		if (test_tooltip.indexOf(item_name) > -1){
+
+		}else{
+			base_gem_tooltip = $.Localize(item_name+"_"+gem+i)
+			break
+		}
+	}
+	base_gem_tooltip = substituteGemDescriptions(base_gem_tooltip, gem, gem_number, item)
+	var cost = calculate_forge_cost(current_level, gem_number, gem)
+	tooltip = tooltip + base_gem_tooltip + "<br><br>"
+	tooltip = "<font color='"+'#FFFFFF'+"'>"+tooltip + "Cost: " + cost + " Prismatic Gemstones"+"</font>"
+	$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
+}
+
+function gem_unhover(panel){
+	$.DispatchEvent( "DOTAHideTitleTextTooltip", panel );
+}
+
+function calculate_forge_cost(current_level, highlighted_level, gem){
+	var gem_costs = [0, 30, 90, 270, 810, 2430]
+	var total_cost = 0
+	$.Msg("-----")
+	$.Msg(current_level)
+	$.Msg(highlighted_level)
+	$.Msg("@@@@@@")
+	for (i = current_level+1; i <= highlighted_level; i++){
+		$.Msg(i)
+		total_cost = total_cost + gem_costs[i]
+	} 
+	return total_cost
+}
+
 
 function CloseGemforger(){
 	var parent = $('#gemforger_container')

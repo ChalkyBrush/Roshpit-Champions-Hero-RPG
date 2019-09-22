@@ -87,3 +87,23 @@ function manageSockets(item)
 		$('#gems-small').AddClass('invisible')
 	}
 }
+
+function substituteGemDescriptions(description, gem, gem_level, item){
+	var substitution_color = "#DDDDDD"
+	if (gem == "ruby"){
+		substitution_color = "#f02929"
+	}else if(gem == "emerald"){
+		substitution_color = "#36d63b"
+	}else if (gem == "sapphire"){
+		substitution_color = "#388af5"
+	}else if (gem == "amethyst"){
+		substitution_color = "#c744b8"
+	}
+	for (i = 1; i <= 5; i++) {
+		var value_name = gem+i
+		var value = Abilities.GetLevelSpecialValueFor( item, value_name, gem_level - 1 )
+		$.Msg("@"+gem+"_property"+i)
+		description = description.replace("@"+gem+"_property"+i, "<font color='"+substitution_color+"'>"+value+"</font>")
+	}
+	return description
+}

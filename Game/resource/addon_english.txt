@@ -12918,6 +12918,9 @@
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your attacks have a @special_property1% chance to deal @special_property2% increased damage. Additionally increases base attack damage by @special_property3x your level."
+
+		"item_rpc_adamantine_samurai_helmet_ruby1"	"Increases strength by @ruby_property1"
+		"item_rpc_adamantine_samurai_helmet_emerald1" "Increases agility by @emerald_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
