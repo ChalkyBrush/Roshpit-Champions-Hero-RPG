@@ -12592,7 +12592,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
 		"item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by @special_property1. Additionally, all basic stat bonuses are amplified by @special_property2%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
+		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by <font color='#ccff66'>5</font>. Additionally, all basic stat bonuses are amplified by <font color='#ccff66'>50</font>%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
@@ -12600,18 +12600,18 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
 		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal 240% increased damage."
+		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal <font color='#ccff66'>240</font>% increased damage."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Every 6 seconds, gain a stack of Spiritual Empowerment. Each stack adds @special_property1% Base Ability Damage. Casting a spell consumes a stack. Max 10 stacks."
+		"property_spiritual_empowerment_description"		"Every <font color='#ccff66'>6</font> seconds, gain a stack of Spiritual Empowerment. Each stack adds <font color='#ccff66'>80</font>% Base Ability Damage. Casting a spell consumes a stack. Max <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% stacks."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by 10%, while also draining 3 movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <font color='#ccff66'>8</font> stacks can be applied per second, no matter how quickly you attack."
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by <font color='#ccff66'>10</font>%, while also draining <font color='#ccff66'>3</font> movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <font color='#ccff66'>8</font> stacks can be applied per second, no matter how quickly you attack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"

@@ -12569,7 +12569,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
 		"item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"Каждое очко атрибутов увеличивает базовый урон на @special_property1. Дополнительно увеличивает бонусы от всех атрибутов на @special_property2%."
+		 "property_halcyon_soul_description"				"Каждое очко атрибутов увеличивает базовый урон на @special_property1. Дополнительно увеличивает бонусы от всех атрибутов на <font color='#ccff66'>50</font>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
@@ -12577,18 +12577,18 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
 		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"Все дебаффы, наносящие урон со временем усилены на 240%."
+		 "property_forgotten_ghost_description"				"Все дебаффы, наносящие урон со временем усилены на <font color='#ccff66'>240</font>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Каждые 6 секунд герой получает заряд способности этого предмета.<br>Каждый заряд увеличивает Базовый урон способностей на @special_property1%.<br>Прочтение любой способности потратит 1 заряд.<br>Максимум 10 зарядов."
+		"property_spiritual_empowerment_description"		"Каждые <font color='#ccff66'>6</font> секунд герой получает заряд способности этого предмета.<br>Каждый заряд увеличивает Базовый урон способностей на <font color='#ccff66'>80</font>%.<br>Прочтение любой способности потратит 1 заряд.<br>Максимум <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% зарядов."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Каждый заряд увеличивает базовый урон способностей на %property_one%%%."
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Успешно атакуя одну и ту же цель, герой наносит по ней на 10% больше урона и снижает её скорость передвижения на 3. Складывается неограниченное количество раз. Смена цели полностью сбрасывает эффект."
+		"property_gravekeeper_gauntlet_description"		"Успешно атакуя одну и ту же цель, герой наносит по ней на <font color='#ccff66'>10</font>% больше урона и снижает её скорость передвижения на <font color='#ccff66'>3</font>. Складывается неограниченное количество раз. Смена цели полностью сбрасывает эффект."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Теряет скорость передвижения и получает увеличенный урон с каждым зарядом."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
