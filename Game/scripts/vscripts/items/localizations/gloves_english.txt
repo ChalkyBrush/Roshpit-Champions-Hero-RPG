@@ -150,7 +150,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your base attack damage is increased by @special_property1% of your health regen stat. Can't increase your base attack damage above 500 million."
+		"property_silverspring_description"			"Your base attack damage is increased by x<% SILVERSPRING_BASE_DMG_PER_REGEN %> of your health regen stat. Can't increase your base attack damage above 500 million."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"

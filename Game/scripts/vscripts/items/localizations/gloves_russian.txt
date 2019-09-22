@@ -150,7 +150,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Увеличивает урон на @special_property1% от значения регенерации здоровья. Максимальный бонус урона равен 500 миллионам."
+		"property_silverspring_description"			"Увеличивает урон на x<% SILVERSPRING_BASE_DMG_PER_REGEN %> от значения регенерации здоровья. Максимальный бонус урона равен 500 миллионам."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
