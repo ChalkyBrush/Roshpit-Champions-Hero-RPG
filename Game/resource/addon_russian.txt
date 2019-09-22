@@ -12662,7 +12662,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Прочтение @Ability1 образует призрачное облако, наносящее x<font color='#ccff66'>240</font> от общей атаки в радиусе <font color='#ccff66'>400</font> , обездвиживает врагов на <font color='#ccff66'>5</font> секунд. Дает невидимость на <font color='#ccff66'>2</font> с. Невидимость имеет <font color='#ccff66'>8</font> секунд перезарядки."
+		"property_dark_emissary_Description"									"Прочтение @Ability1 образует призрачное облако, наносящее <font color='#ccff66'>240</font>x от общей атаки в радиусе <font color='#ccff66'>400</font> , обездвиживает врагов на <font color='#ccff66'>5</font> секунд. Дает невидимость на <font color='#ccff66'>2</font> с. Невидимость имеет <font color='#ccff66'>8</font> секунд перезарядки."
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Невидим"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
@@ -12676,14 +12676,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
 		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"С прочтением (W) @Ability2, герой усиляет всех юнитов, не являющихся героями. Усиленные юниты наносят на @special_property1% увеличенный пост-резистный урон, а их атаки производят энергетический луч, наносящий урон в размере @special_property2% от урона героя. Бонус к урону заимствуется от героя, активировавшего его. Эффект длится 30 секунд."
+		"property_buzuki_finger_description"						"С прочтением (W) @Ability2, герой усиляет всех юнитов, не являющихся героями. Усиленные юниты наносят на <font color='#ccff66'>500</font>% увеличенный пост-резистный урон, а их атаки производят энергетический луч, наносящий урон в размере <font color='#ccff66'>100</font>% от урона героя. Бонус к урону заимствуется от героя, активировавшего его. Эффект длится <font color='#ccff66'>30</font> секунд."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Увеличивает пост-резистный урон и наносит дополнительный чистый урон при атаках"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
-		"property_swiftspike_bracer_description"					"Каждое очко текущей скорости передвижения увеличивает Базовый Урон Способностей на @special_property1%"
+		"property_swiftspike_bracer_description"					"Каждое очко текущей скорости передвижения увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.01</font>%"
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
 		"item_property_tiamat_claw"							"Prismatic Vise"
