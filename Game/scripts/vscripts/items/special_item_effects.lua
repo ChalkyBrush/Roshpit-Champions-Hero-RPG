@@ -2941,9 +2941,9 @@ function royal_wristguard_take_damage(event)
 	local ability = event.ability
 	local caster = event.caster
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_royal_wristguards_stack_effect", {duration = 15})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_royal_wristguards_stack_effect", {duration = ROYAL_WRISTGUARDS_STACK_DURATION})
 	local current_stack = target:GetModifierStackCount("modifier_royal_wristguards_stack_effect", ability)
-	local newStack = math.min(current_stack + 1, 80)
+	local newStack = math.min(current_stack + 1, ROYAL_WRISTGUARDS_CHARGE_CAP)
 	target:SetModifierStackCount("modifier_royal_wristguards_stack_effect", ability, newStack)
 end
 
