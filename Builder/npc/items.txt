@@ -13415,12 +13415,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"20"
+				"property_one"		"<% FROSTBURN_GLOVES_CHANCE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"200"
+				"property_two"		"<% FROSTBURN_GLOVES_MS_SLOW %>"
 			}
 		}
 		"Modifiers"
@@ -13443,7 +13443,7 @@
             	"TextureName"		"crystal_maiden_crystal_nova"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% FROSTBURN_GLOVES_MS_SLOW %>"
 				}
 			}
 		}

@@ -107,7 +107,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Скорость передвижения врагов, задетых умением (W) @Ability2 снижается на 100 на 4 секунды. Дополнительно, с 20% шансом, пораженный умением (W) @Ability2 враг окажется в центре ледяного взрыва, который наносит полный урон способности в небольшой области вокруг."
+		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Скорость передвижения врагов, задетых умением (W) @Ability2 снижается на <% FROSTBURN_GLOVES_MS_SLOW %> на <% FROSTBURN_GLOVES_MS_SLOW_DUR %> секунды. Дополнительно, с <% FROSTBURN_GLOVES_CHANCE %>% шансом, пораженный умением (W) @Ability2 враг окажется в центре ледяного взрыва, который наносит полный урон способности в небольшой области вокруг."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Замедлен"
 		
