@@ -293,7 +293,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
 		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"С прочтением (W) @Ability2, герой усиляет всех юнитов, не являющихся героями. Усиленные юниты наносят на @special_property1% увеличенный пост-резистный урон, а их атаки производят энергетический луч, наносящий урон в размере @special_property2% от урона героя. Бонус к урону заимствуется от героя, активировавшего его. Эффект длится 30 секунд."
+		"property_buzuki_finger_description"						"С прочтением (W) @Ability2, герой усиляет всех юнитов, не являющихся героями. Усиленные юниты наносят на <% BUZUKIS_FINGER_POST_MITI %>% увеличенный пост-резистный урон, а их атаки производят энергетический луч, наносящий урон в размере <% BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>% от урона героя. Бонус к урону заимствуется от героя, активировавшего его. Эффект длится <% BUZUKIS_FINGER_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Увеличивает пост-резистный урон и наносит дополнительный чистый урон при атаках"
 		
