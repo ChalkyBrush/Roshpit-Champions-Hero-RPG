@@ -279,7 +279,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Прочтение @Ability1 образует призрачное облако, наносящее x<% DARK_EMISSARY_DAMAGE_MULT %> от общей атаки в радиусе <% DARK_EMISSARY_RADIUS %> , обездвиживает врагов на <% DARK_EMISSARY_ROOT_DURATION %> секунд. Дает невидимость на <% DARK_EMISSARY_INVIS_DURATION %> с. Невидимость имеет <% DARK_EMISSARY_INVIS_CD %> секунд перезарядки."
+		"property_dark_emissary_Description"									"Прочтение @Ability1 образует призрачное облако, наносящее <% DARK_EMISSARY_DAMAGE_MULT %>x от общей атаки в радиусе <% DARK_EMISSARY_RADIUS %> , обездвиживает врагов на <% DARK_EMISSARY_ROOT_DURATION %> секунд. Дает невидимость на <% DARK_EMISSARY_INVIS_DURATION %> с. Невидимость имеет <% DARK_EMISSARY_INVIS_CD %> секунд перезарядки."
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Невидим"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
