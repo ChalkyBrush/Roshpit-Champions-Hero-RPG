@@ -43,7 +43,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
 		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"При успешном прочтении (R) @Ability4 на поле боя будет призван рубиновый дракон способный выдыхать огонь, наносящий урон, равный @special_property1x вашей силы и оставлять на 3 секунды ожоги, наносящие урон, равный @special_property2x вашей Силы каждые 0.5 секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property3% за каждые 10 очков Силы."
+		"property_ruby_dragon_description"			"При успешном прочтении (R) @Ability4 на поле боя будет призван рубиновый дракон на <% RUBY_DRAGON_DURATION %> сек. способный выдыхать огонь, наносящий урон, равный <% RUBY_DRAGON_IMPACT_DMG_PER_STR %>x вашей Силы и оставлять горение на целях в течение <% RUBY_DRAGON_TICK_DURATION %> сек. Каждый дебафф горения имеет собственную независимую длительность и урон."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	

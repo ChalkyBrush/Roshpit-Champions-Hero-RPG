@@ -6,7 +6,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"Sange Boots"
 		"item_property_sange"						"Combat Mastery S"
-		"property_sange_description"				"Каждое очко Ловкости увеличивает показатель здоровья на <% SANGE_HP_PER_AGI %>."
+		"property_sange_description"				"Каждое очко Ловкости увеличивает показатель здоровья на <% SANGE_HP_PER_AGI %> и показатель маны на <% SANGE_MP_PER_AGI %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"

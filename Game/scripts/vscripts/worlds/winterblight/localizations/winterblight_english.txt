@@ -803,7 +803,7 @@
 		"DOTA_Tooltip_ability_winterblight_ice_vortex_aoe_as_slow"	"ATTACKSPEED SLOW:"
 
 		"DOTA_Tooltip_modifier_ice_vortex_aoe_slow"				"Spreading Cold"
-		"DOTA_Tooltip_modifier_ice_vortex_aoe_slow_Description"	"Grealty reduced move and attack speed"
+		"DOTA_Tooltip_modifier_ice_vortex_aoe_slow_Description"	"Greatly reduced move and attack speed"
 
 		"DOTA_Tooltip_ability_winterblight_rock_guardian_passive" "Stone Guardian"
 		"DOTA_Tooltip_ability_winterblight_rock_guardian_passive_Description"	"Attacks build up stacks that push and stun enemies after exceeding a threshold."
@@ -840,7 +840,7 @@
 		"DOTA_Tooltip_modifier_blood_might_health_pct_bonus_Description"	"Gaining attack damage based on the health of nearby enemies."
 
 		"DOTA_Tooltip_ability_curse_of_belial"						"Curse of Belial"
-		"DOTA_Tooltip_ability_curse_of_belial_Description"			"A demonic curse is applied to the target which reduces their base attack damage and movespeed by a percentage. When a target affected by curse of belial uses an ability, they lose health based on a % of their max health."
+		"DOTA_Tooltip_ability_curse_of_belial_Description"			"A demonic curse is applied to the target which reduces their base attack damage and movespeed by a percentage. When a target affected by Curse of Belial uses an ability, they lose health based on a % of their max health."
 		"DOTA_Tooltip_ability_curse_of_belial_pct_damage_on_spell_cast"	"% MAX HEALTH REMOVAL ON SPELL CAST:"
 		"DOTA_Tooltip_ability_curse_of_belial_base_attack_damage_reduction"	"% BASE ATTACK DAMAGE REDUCTION:"
 		"DOTA_Tooltip_ability_curse_of_belial_base_attack_damage_movement_slow"	"% MOVEMENT SPEED SLOW:"
@@ -1029,11 +1029,11 @@
 
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive"					"Ultimate Predator"
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive_Description"		"Attacking an enemy applies a buff that gains more stacks on subsequent attacks. Once at 5 stacks, gain the ultimate predator buff that grants massive attack power and 1 shot kill ability. The instant kill only works on heroes."
-		"DOTA_Tooltip_ability_winterblight_space_shark_passive_damage_bonus_per_stack"	"% DAMGE BONUS PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_space_shark_passive_damage_bonus_per_stack"	"% DAMAGE BONUS PER STACK:"
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive_duration"				"BUFF DURATION:"	
 		"DOTA_Tooltip_ability_winterblight_space_shark_passive_damage_bonus_full_shark"	"% BONUS DAMAGE WHILE ULTIMATE PREDATOR ACTIVE:"
 
-		"DOTA_Tooltip_modifier_space_shark_stacks"									"Pedator Buildup"
+		"DOTA_Tooltip_modifier_space_shark_stacks"									"Predator Buildup"
 		"DOTA_Tooltip_modifier_space_shark_stacks_Description"						"Gaining attack damage. At 5 stacks gain Ultimate Predator."
 
 		"DOTA_Tooltip_modifier_space_shark_full"									"Ultimate Predator"
