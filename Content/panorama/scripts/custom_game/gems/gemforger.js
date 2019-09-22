@@ -192,7 +192,7 @@ function set_gem_hover_events(gem_panel, gem, i, item, gem_level){
 }
 
 function set_gem_click(gem_panel, gem, gem_level, item, socket_number){
-	gem_panel.SetPanelEvent("onmouseout", function GemClick() {
+	gem_panel.SetPanelEvent("onactivate", function GemClick() {
 		gem_click(gem, gem_level, item, socket_number)
 	})
 }
@@ -219,16 +219,7 @@ function gem_hover(panel, item, gem, gem_number, current_level){
 	var tooltip = "<font color='"+'#E4AE33'+"'>"+$.Localize("DOTA_Tooltip_ability_"+item_name)+"</font>"+"<br><br>"
 
 	var base_gem_tooltip = $.Localize(item_name+"_"+gem+gem_number)
-	$.Msg(item_name+"_"+gem+gem_number)
-	for (i = gem_number; i >= 1; i--) {
-		var test_tooltip = $.Localize(item_name+"_"+gem+i)
-		if (test_tooltip.indexOf(item_name) > -1){
 
-		}else{
-			base_gem_tooltip = $.Localize(item_name+"_"+gem+i)
-			break
-		}
-	}
 	base_gem_tooltip = substituteGemDescriptions(base_gem_tooltip, gem, gem_number, item)
 	var cost = calculate_forge_cost(current_level, gem_number, gem)
 	tooltip = tooltip + base_gem_tooltip + "<br><br>"
@@ -243,10 +234,6 @@ function gem_unhover(panel){
 function calculate_forge_cost(current_level, highlighted_level, gem){
 	var gem_costs = [0, 30, 90, 270, 810, 2430]
 	var total_cost = 0
-	$.Msg("-----")
-	$.Msg(current_level)
-	$.Msg(highlighted_level)
-	$.Msg("@@@@@@")
 	for (i = current_level+1; i <= highlighted_level; i++){
 		$.Msg(i)
 		total_cost = total_cost + gem_costs[i]

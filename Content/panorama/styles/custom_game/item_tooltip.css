@@ -214,3 +214,40 @@
 	font-size:16px;
 	margin-top:2px;
 }
+
+#gems_info_container{
+	flow-children:down;
+	width:100%;
+}
+
+.gem_info{
+	flow-children:right;
+	width:100%;
+}
+
+.gem_description{
+	color:white;
+}
+
+.gem_title{
+	width:100%;
+}
+
+.tooltip_gem_image{
+	width:24px;
+	height:24px;
+	vertical-align: center;
+	border-radius:100%;
+	background-color: #333333;
+	border:1px solid #a87732;
+}
+
+.gem_title_and_descrip{
+	flow-children:down;
+	margin-left:12px;
+	width:100%;
+}
+
+.open_socket_title{
+	margin-top:4px;
+}
