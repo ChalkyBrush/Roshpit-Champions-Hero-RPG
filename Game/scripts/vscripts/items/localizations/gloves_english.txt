@@ -233,7 +233,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"Claw of the Ethereal Revenant"
 		"item_property_ethereal_revenant"						"Revenant Link"
-		"property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a @special_property1% chance to be linked by a beam of electricity. Linked enemies deal @special_property2% reduced damage to you and you deal @special_property3x increased damage to them. Lasts @special_property4 seconds."
+		"property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a <% ETHEREAL_REVENANT_CHANCE %>% chance to be linked by a beam of electricity. Linked enemies deal <% ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT %>% reduced damage to you and you deal <% ETHEREAL_REVENANT_DAMAGE_AMP %>x increased damage to them. Lasts <% ETHEREAL_REVENANT_DURATION %> seconds."
 
 		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
 		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Taking increased damage while dealing reduced damage to linked hero"

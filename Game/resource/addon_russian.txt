@@ -12616,7 +12616,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"Claw of the Ethereal Revenant"
 		"item_property_ethereal_revenant"						"Revenant Link"
-		"property_ethereal_revenant_description"				"Поражённые умением (W) @Ability2 враги с @special_property1% шансом будут связаны электрической дугой. Связанные враги наносят герою на @special_property2% меньше урона, а получаемый ими урон увеличен в @special_property3 раз. Эффект длится @special_property4 сек."
+		"property_ethereal_revenant_description"				"Поражённые умением (W) @Ability2 враги с <font color='#ccff66'>11</font>% шансом будут связаны электрической дугой. Связанные враги наносят герою на <font color='#ccff66'>90</font>% меньше урона, а получаемый ими урон увеличен в <font color='#ccff66'>3</font> раза. Эффект длится <font color='#ccff66'>6</font> сек."
 
 		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
 		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Получает увеличенный урон, наносит уменьшенный урон создавшему связь герою."
