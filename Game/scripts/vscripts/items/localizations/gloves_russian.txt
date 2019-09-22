@@ -186,7 +186,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
 		"item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"Каждое очко атрибутов увеличивает базовый урон на @special_property1. Дополнительно увеличивает бонусы от всех атрибутов на @special_property2%."
+		 "property_halcyon_soul_description"				"Каждое очко атрибутов увеличивает базовый урон на @special_property1. Дополнительно увеличивает бонусы от всех атрибутов на <% HALCYON_SOUL_GLOVE_BONUS * 100 %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
