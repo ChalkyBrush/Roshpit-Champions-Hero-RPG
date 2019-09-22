@@ -179,7 +179,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants +100% bonus attack damage, and all nearby enemies take 50% of your attack damage as magic each second. Attacking consumes a stack. Max 5 stacks. Lasts 10 seconds."
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>% bonus attack damage, and all nearby enemies within <% SWEEPING_WIND_RADIUS %> radius take <% SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>% of your attack damage as magic each second. Attacking consumes a stack. Max <% SWEEPING_WIND_MAX_STACKS %> stacks. Lasts <% SWEEPING_WIND_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 		 

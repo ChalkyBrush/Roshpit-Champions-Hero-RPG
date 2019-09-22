@@ -3257,10 +3257,10 @@ end
 function sweeping_winds_think(event)
 	local target = event.target
 	local caster = event.caster
-	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, SWEEPING_WIND_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local currentStacks = target:GetModifierStackCount("modifier_sweeping_wind_stackable", caster)
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * 0.05 * currentStacks
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT/100 * currentStacks
 		for _, enemy in pairs(enemies) do
 			CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", enemy, 0.8)
 			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)

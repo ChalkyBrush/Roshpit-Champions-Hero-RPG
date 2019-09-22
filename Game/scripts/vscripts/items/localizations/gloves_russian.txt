@@ -179,7 +179,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на 100%, а все ближайшие противники будут ежесекундно получать магический урон в размере 50% от основного урона героя. Каждая базовая атака поглощает 1 заряд. Максимум 5 зарядов. Длительность 10 секунд."
+		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на <% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>%, а все ближайшие противники в радиусе <% SWEEPING_WIND_RADIUS %> будут ежесекундно получать магический урон в размере <% SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>%  от силы атаки героя. Каждая базовая атака поглощает 1 заряд. Максимум <% SWEEPING_WIND_MAX_STACKS %> зарядов. Длительность <% SWEEPING_WIND_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Каждый заряд дарует увеличение базового урона, а ближайшие враги получают ежесекундный урон."
 		 
