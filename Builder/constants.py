@@ -1,10 +1,14 @@
 import os
+import re
+
 
 def parse(file_path):
     result = {}
     file = open(file_path, 'r', encoding='utf-8')
     for line in file:
-        if '{' in line or '}' in line or 'return ' in line:
+        if 'return ' in line:
+            continue
+        if ('{' in line and not '}' in line) or ('}' in line and not '{' in line):
             continue
         if ';' in line:
             line = line.replace(';', '').strip()
@@ -16,6 +20,10 @@ def parse(file_path):
             line = line[:line.index('--')]
         if '=' not in line:
             continue
+        if '{' in line and '}' in line:
+            line =  re.sub('\s*,\s*', ' ', line, 0, re.MULTILINE)
+            line = line.replace('{', '')
+            line = line.replace('}', '')
         temp = line.split('=')
         value = temp[1].strip().replace("'", "").replace('"', '')
         key = temp[0].strip()
