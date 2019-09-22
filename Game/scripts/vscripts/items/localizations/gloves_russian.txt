@@ -90,12 +90,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Увеличивает урон от (R) @Ability4 на 200%"
+		"property_master_gloves_description"		"Увеличивает урон от (R) @Ability4 на <% MASTER_GLOVES_BAD %>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Даёт @special_property1 регенерацию здоровья за каждое отсутствующее очко здоровья. Каждое имеющееся очко текущего здоровья увеличивает Базовый Урон атаки на @special_property2."
+		"property_phoenix_gloves_description"		"Даёт <% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> регенерацию здоровья за каждое отсутствующее очко здоровья. Каждое имеющееся очко текущего здоровья увеличивает Базовый Урон атаки на <% PHOENIX_GLOVES_ATT_DMG_PER_HP %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"

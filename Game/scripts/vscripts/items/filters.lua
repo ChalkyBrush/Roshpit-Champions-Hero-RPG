@@ -1659,7 +1659,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     elseif slot == BASE_ABILITY_R then
         if attacker:HasModifier("modifier_master_gloves") then
-            damageMult = damageMult + 2
+            damageMult = damageMult + MASTER_GLOVES_BAD/100
         end
         if attacker:HasModifier("modifier_watcher_four") then
             damageMult = damageMult + 0.35
