@@ -131,7 +131,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases Base Ability Damage by 0.3% for every 10 points of Intelligence."
+		"property_grand_arcanist_description"		"Increases Base Ability Damage by <%GRAND_ARCANIST_BAD_PER_INT * 100 * 10%>% for every 10 points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
