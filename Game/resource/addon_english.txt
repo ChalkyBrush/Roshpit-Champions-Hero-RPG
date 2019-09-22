@@ -12484,7 +12484,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Increases Mana Regen by 50% of your Intelligence"
+		"property_scarecrow_description"			"Each point of Intelligence additionally grants <font color='#ccff66'>0.5</font> Mana Regen."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
@@ -12496,12 +12496,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Increases the Base Ability Damage of @Ability4 by 200%"
+		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <font color='#ccff66'>200</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Gain @special_property1 Health Regen for each missing point of health. Gain @special_property2 base attack damage for each current point of health."
+		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> Health Regen for each missing point of health. Gain <font color='#ccff66'>1</font> base attack damage for each current point of health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
@@ -12513,7 +12513,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by 100 for 4 seconds. Additionally, @Ability2's damage instances have a 20% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
+		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by <font color='#ccff66'>100</font> for <font color='#ccff66'>4</font> seconds. Additionally, @Ability2's damage instances have a <font color='#ccff66'>20</font>% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
 		
@@ -12532,12 +12532,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
 		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Increases attack damage by 150%. All Post-Mitigation Physical damage is enhanced by 200%."
+		"property_power_ranger_description"			"Increases attack damage by <font color='#ccff66'>150</font>%. All Post-Mitigation Physical damage is enhanced by <font color='#ccff66'>200</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases Base Ability Damage by 0.3% for every 10 points of Intelligence."
+		"property_grand_arcanist_description"		"Increases Base Ability Damage by <font color='#ccff66'>0.3</font>% for every 10 points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
@@ -12556,7 +12556,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your base attack damage is increased by @special_property1% of your health regen stat. Can't increase your base attack damage above 500 million."
+		"property_silverspring_description"			"Your base attack damage is increased by x<font color='#ccff66'>10</font> of your health regen stat. Can't increase your base attack damage above 500 million."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
@@ -12568,7 +12568,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"On taking damage, gain a stack of @special_property1% bonus attack damage. Base Ability Damage of @Ability1 is increased by @special_property2% per stack, but all of these stacks are removed when casting it. Stacks up to 80 times."
+		"property_royal_wrist_description"						"On taking damage, gain a stack of <font color='#ccff66'>20</font>% bonus attack damage. Base Ability Damage of @Ability1 is increased by <font color='#ccff66'>20</font>% per stack, but all of these stacks are removed when casting it. Stacks up to <font color='#ccff66'>80</font> times."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and Q ability damage."
 		

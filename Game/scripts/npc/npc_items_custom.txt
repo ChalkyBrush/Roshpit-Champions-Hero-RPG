@@ -36616,7 +36616,7 @@
 				"TextureName"	"itemicons/royal_wristguards"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
 				}
 			}
 		}
@@ -42050,7 +42050,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -42780,7 +42780,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			1"
 			}
 		}
 	}
@@ -43354,7 +43354,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"200"
+				"property_two"		"100"
 			}
 		}
 		"Modifiers"

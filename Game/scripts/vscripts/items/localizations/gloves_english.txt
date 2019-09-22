@@ -90,7 +90,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master<% MASTER_GLOVES_BAD %>200%"
+		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <% MASTER_GLOVES_BAD %>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
