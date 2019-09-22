@@ -82,10 +82,10 @@
     	"DOTA_Tooltip_ability_star_blink_star_aoe"						"РАДИУС ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_1"							"[E1] Pegasus"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"При касте @Ability3 призывает Пегаса, пролетающего сквозь противников между точкой прочтения и позицией героя. Пораженные противники будут получать увеличенный Пост-Резистный урон. Дебафф складывается до 10 раз."
+    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"При касте @Ability3 призывает Пегаса, пролетающего сквозь противников между точкой прочтения и позицией героя. Пораженные противники будут обездвижены и получат увеличенный Пост-Резистный урон. Дебафф складывается до 10 раз."
     	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Усиление Пост-Резистного урона"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					"%"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_property_two"				"Длительность остановки"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_property_two"				"Длительность обездвиживания"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" сек."
 
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible"					"Pegasus"

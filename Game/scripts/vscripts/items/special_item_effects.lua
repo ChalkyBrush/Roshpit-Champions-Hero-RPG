@@ -3497,12 +3497,12 @@ function ablecore_greaves_think(event)
 	local caster = event.target
 	local movespeed = caster:GetBaseMoveSpeed()
 	local movespeedModifier = caster:GetMoveSpeedModifier(movespeed, false)
-	if movespeedModifier <= 300 then
+	if movespeedModifier <= ABLECORE_GREAVES_MS_REQ then
 		event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ablecore_greaves_effect", {})
 	else
 		if caster:HasModifier("modifier_ablecore_greaves_effect") then
 			if caster:FindModifierByName("modifier_ablecore_greaves_effect"):GetDuration() == -1 then
-				event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ablecore_greaves_effect", {duration = 6})
+				event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ablecore_greaves_effect", {duration = ABLECORE_GREAVES_STICKY_DURATION})
 			end
 		else
 			caster:RemoveModifierByName("modifier_ablecore_greaves_effect")

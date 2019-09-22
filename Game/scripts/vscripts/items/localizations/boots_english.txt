@@ -145,9 +145,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"While movespeed is less than or equal to 300, incoming damage is reduced by 80% and outgoing Post-Mitigation damage is increased by 600%. The buff sticks for 6 seconds if your movespeed moves back above 300."
+		"property_ablecore_greaves_description"			"While movespeed is less than or equal to ABLECORE_GREAVES_MS_REQ, incoming damage is reduced by ABLECORE_GREAVES_DMG_RED% and outgoing Post-Mitigation damage is increased by ABLECORE_GREAVES_POST_MITI%. The buff sticks for ABLECORE_GREAVES_STICKY_DURATION seconds if your movespeed moves back above ABLECORE_GREAVES_MS_REQ."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by 80%% and outgoing damage increased by 600%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by ABLECORE_GREAVES_DMG_RED%% and outgoing damage increased by ABLECORE_GREAVES_POST_MITI%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
