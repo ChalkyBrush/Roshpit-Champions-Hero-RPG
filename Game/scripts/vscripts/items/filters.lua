@@ -274,7 +274,7 @@ end
 
 function Filters:GetDelayWithCastSpeed(caster, delay)
     if caster:HasModifier("modifier_spellfire_gloves") then
-        delay = delay * 0.2
+        delay = delay * (1-SPELLFIRE_CAST_POINT_REDUCTION)
     end
     return delay
 end

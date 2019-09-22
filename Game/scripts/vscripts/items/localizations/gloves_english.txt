@@ -241,7 +241,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by @special_property1%."
+		 "property_spellfire_description"						"Cast rate is increased by <% SPELLFIRE_CAST_POINT_REDUCTION %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"

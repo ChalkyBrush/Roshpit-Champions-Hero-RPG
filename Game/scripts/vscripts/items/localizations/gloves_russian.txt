@@ -241,7 +241,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Все умения применяются на @special_property1% быстрее."
+		 "property_spellfire_description"						"Задержка применения всех умений уменьшена на <% SPELLFIRE_CAST_POINT_REDUCTION %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
