@@ -267,7 +267,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"У всего стихийного урона, вторая стихия заменяется на стихию <font color=\"#5B648C\">Демона</font>. Урон от свойства <font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ</font> снижается на x<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>."
+		"property_depth_demon_claw_Description"									"У всего стихийного урона, вторая стихия заменяется на стихию <font color=\"#5B648C\">Демона</font>. Урон от свойства <font color=\"#E4AE33\">АУГМЕНТАЦИЯ</font> снижается на x<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
