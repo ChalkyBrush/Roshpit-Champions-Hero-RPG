@@ -4,6 +4,9 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/gems/gemforger.js" />
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
 	</scripts>
 	<snippets>
 		<snippet name="gemforger_main">
@@ -18,6 +21,8 @@
 						</Panel>
 					</Image>
 					<Panel id="gemforger_attach_contents">
+					</Panel>
+					<Panel id="gemforger_attach_contents_down">
 					</Panel>
 					<Button id="close_button">
 						<Label id="close_button_label" text="ui_close"/>
@@ -65,14 +70,22 @@
 	    </snippet>
 	    <snippet name="forge_gems_item_main">
 	    	<Panel class="forge_gem_main_root">
-		    	<Label id="socket_item_name" hittest="false" text="none"/>
+		    	<Label id="socket_item_name_main" hittest="false" text="none"/>
 				<Button id="item_tooltip_button" hittest="true"
 					onmouseover="ItemShowTooltipInit()"
 					onmouseout="ItemHideTooltipInit()"/>
-				<DOTAItemImage hittest="true" id="socket_item_fail"
+				<DOTAItemImage hittest="true" id="socket_item_main"
 					onmouseover="ItemShowTooltipInit()"
-					onmouseout="ItemHideTooltipInit()"/>
-		    	<Label id="forge_gems_fail_tip" hittest="false" text="gemforge_item_cannot_be_forged"/>
+					onmouseout="ItemHideTooltipInit()">
+					<Panel hittest="false" id="gems-small" class="invisible">
+						<Panel hittest="false" id="gems-small-socket1" class="gems-small-socket">
+							<Image class="placed-gem" id="placed-gem1"/>
+						</Panel>
+						<Panel hittest="false" id="gems-small-socket2" class="gems-small-socket">
+							<Image class="placed-gem" id="placed-gem2"/>
+						</Panel>
+					</Panel>
+				</DOTAItemImage>
 	    	</Panel>
 	    </snippet>
 	</snippets>

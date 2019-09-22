@@ -161,13 +161,14 @@
 #gemforger_reward_collect{
 	height:100%;
 	width:100%;
-	background-color: #111111;
+	background-color: gradient( linear, 0px 0%, 0px 100px, from( #121212 ), to( #0C0C0C ) );
 	border-radius:6px;
 	flow-children:right;
 }
 
 .gemforger_reward_active{
 	border:1px solid white;
+	box-shadow: 2px 2px 6px #000000;
 }
 
 #gemforger_reward_collect:hover{
@@ -227,7 +228,7 @@
 #gemforger_start_button_collect{
 	height:100%;
 	width:100%;
-	background-color: #111111;
+	background-color: gradient( linear, 0px 0%, 0px 100px, from( #121212 ), to( #0C0C0C ) );
 	border-radius:6px;
 }
 
@@ -296,4 +297,25 @@
 	font-weight:lighter;
 	font-size:32px;
 	color:white;
+}
+
+#socket_item_name_main{
+	horizontal-align:center;
+	margin-top:5px;
+	text-align: center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:32px;
+	color:white;	
+	width:100%;
+	text-align:center;
+}
+
+#socket_item_main{
+	horizontal-align:center;
+	margin-top:50px;
+}
+
+#gemforger-item-start-main{
+	width:100%;
 }

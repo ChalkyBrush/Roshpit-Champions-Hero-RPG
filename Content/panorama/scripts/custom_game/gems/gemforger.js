@@ -1,3 +1,6 @@
+gemforge_item = -1
+mTooltipPanel = null
+
 function OpenGemforger(msg){
 	$.Msg("GEM FORGER")
 	var parent = $('#gemforger_container')
@@ -94,7 +97,20 @@ function ItemGemforgeMenu(msg){
 
         gemforger_fail.FindChildTraverse('socket_item_name').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ))
 	}else if(msg.success == 1){
+		var parent = $('#gemforger_container')
+		var attach_point = parent.FindChildTraverse('gemforger_attach_contents')
+		attach_point.RemoveAndDeleteChildren(0)
+	    var gemforger_item_main = $.CreatePanel("Panel", attach_point, "gemforger-item-start-main")
+	    gemforger_item_main.BLoadLayoutSnippet("forge_gems_item_main"); 
 
+	    var item_panel = gemforger_item_main.FindChildTraverse('socket_item_main')
+        item_panel.contextEntityIndex = item;
+        item_panel.SetAttributeInt("item", item)  
+
+        gemforger_item_main.FindChildTraverse('socket_item_name_main').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ));
+        gemforge_item = item
+        manageSocketsWithRoot(item_panel, item)
+        mTooltipPanel = item_panel
 	}
 }
 
@@ -105,6 +121,7 @@ function CloseGemforger(){
 	if (GameUI.CustomUIConfig().gemforge == 1){
 		clearGearHighlighter()
 	}
+	mTooltipPanel = null
 }
 
 function clearGearHighlighter()
@@ -124,6 +141,19 @@ function clearGearHighlighter()
     amuletPanel.RemoveClass("chiselable_gear");
     weaponPanel.RemoveClass("chiselable_gear");
     GameUI.CustomUIConfig().gemforge = 0
+}
+
+function ItemShowTooltipInit()
+{
+	var item = gemforge_item
+	if ( item == -1 )
+		return;
+	ItemShowTooltipOnPanel(mTooltipPanel)
+}
+
+function ItemHideTooltipInit()
+{
+	ItemHideTooltipByPanel(mTooltipPanel)
 }
 
 (function()

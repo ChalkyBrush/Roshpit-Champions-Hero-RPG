@@ -508,6 +508,7 @@ function OnDragEnter(a, draggedPanel) {
         return true;
     }
     if (!(itemValues.socket1 === undefined) && !(itemValues.socket1 == "open")){
+        $('#item_image').AddClass("hightlight_red");
         return true
     }
     // highlight this panel as a drop target
@@ -519,6 +520,7 @@ function OnDragEnter(a, draggedPanel) {
 function OnDragDrop(panelId, draggedPanel) {
     var draggedItem = draggedPanel.m_DragItem;
     draggedPanel.lockOrder = true;
+    $('#item_image').RemoveClass("hightlight_red");
     // only care about dragged items other than us
     if (draggedItem === null)
         return true;
@@ -547,6 +549,7 @@ function OnDragLeave(panelId, draggedPanel) {
         return false;
 
     $('#item_image').RemoveClass("item_highlight");
+    $('#item_image').RemoveClass("hightlight_red");
     return true;
 }
 
