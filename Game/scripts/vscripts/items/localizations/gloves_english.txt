@@ -126,7 +126,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
 		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Increases attack damage by 150%. All Post-Mitigation Physical damage is enhanced by 200%."
+		"property_power_ranger_description"			"Increases attack damage by <% POWER_RANGER_BONUS_DAMAGE %>%. All Post-Mitigation Physical damage is enhanced by <% POWER_RANGER_PHYS_POST_MITI %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"

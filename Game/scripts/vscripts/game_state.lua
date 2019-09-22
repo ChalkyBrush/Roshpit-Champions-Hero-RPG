@@ -2180,7 +2180,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_power_ranger") then
-			mult = mult + 2
+			mult = mult + POWER_RANGER_PHYS_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_golden_war_plate") then
 			mult = mult + 7.0
