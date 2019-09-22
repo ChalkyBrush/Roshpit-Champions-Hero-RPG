@@ -155,7 +155,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
 		"item_property_farseer_glove"				"Spell Strike"
-		"property_farseer_description"				"Increases your Base Attack damage by 1% of the last instance of pre-mitigation Magical Damage that you dealt. Lasts 15 seconds and does not stack. Damage bonus is capped at 50x primary attribute."
+		"property_farseer_description"				"Increases your Base Attack damage by <% FARSEER_PRE_MITI_MAGIC_BASE * 100 %>% of the last instance of pre-mitigation Magical Damage that you dealt. Lasts <% FARSEER_DURATION %> seconds and does not stack. Damage bonus is capped at <% FARSEER_PRIMARY_ATT_CAP %>x primary attribute."
 		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
 		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"Attack Damage was Increased by last instance of Magic Damage"
 		

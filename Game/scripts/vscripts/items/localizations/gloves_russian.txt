@@ -126,7 +126,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
 		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Увеличивает урон на 150%. Увеличивает весь пост-резистный физический урон на 200%."
+		"property_power_ranger_description"			"Увеличивает урон на <% POWER_RANGER_BONUS_DAMAGE %>%. Увеличивает весь пост-резистный физический урон на <% POWER_RANGER_PHYS_POST_MITI %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
@@ -155,7 +155,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
 		"item_property_farseer_glove"				"Spell Strike"
-		"property_farseer_description"				"Базовый урон увеличивается на 1% от вашего последнего нанесенного магического урона<br>(Для расчёта берётся значение, полученное до вычислений со снижением урона).<br>Эффект длится 15 секунд и не складывается.<br>Максимальное значение бонуса равно 50х основного атрибута."
+		"property_farseer_description"				"Базовый урон увеличивается на <% FARSEER_PRE_MITI_MAGIC_BASE * 100 %>% от вашего последнего нанесенного магического урона<br>(Для расчёта берётся значение, полученное до вычислений со снижением урона).<br>Эффект длится <% FARSEER_DURATION %> секунд и не складывается.<br>Максимальное значение бонуса равно <% FARSEER_PRIMARY_ATT_CAP %>х основного атрибута."
 		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
 		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"Увеличивает основной урон в зависимости от нанесенного магического урона"
 		

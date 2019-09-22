@@ -3711,17 +3711,17 @@ function Filters:FarSeerGloves(attacker, damage, inflictor)
     --         return false
     --     end
     -- end
-    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_effect", {duration = 15})
+    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_effect", {duration = FARSEER_DURATION})
     local maximum = 0
     local primeAttribute = attacker:GetPrimaryAttribute()
     if primeAttribute == 0 then
-        maximum = attacker:GetStrength() * 50
+        maximum = attacker:GetStrength() * FARSEER_PRIMARY_ATT_CAP
     elseif primeAttribute == 1 then
-        maximum = attacker:GetAgility() * 50
+        maximum = attacker:GetAgility() * FARSEER_PRIMARY_ATT_CAP
     elseif primeAttribute == 2 then
-        maximum = attacker:GetIntellect() * 50
+        maximum = attacker:GetIntellect() * FARSEER_PRIMARY_ATT_CAP
     end
-    local stacks = math.min(math.floor(damage * 0.01), maximum)
+    local stacks = math.min(math.floor(damage * FARSEER_PRE_MITI_MAGIC_BASE), maximum)
 
     modifier = attacker:FindModifierByName("modifier_far_seer_effect")
     ----print("FarSeerGloves "..modifier:GetStackCount())
