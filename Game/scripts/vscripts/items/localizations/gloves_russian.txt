@@ -90,7 +90,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Увеличивает Базовый Урон Способности от (R) @Ability4 на 200%"
+		"property_master_gloves_description"		"Увеличивает урон от (R) @Ability4 на 200%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
