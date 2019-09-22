@@ -5238,7 +5238,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"70"
+				"property_one"			"<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>"
 			}
 		}
 	}

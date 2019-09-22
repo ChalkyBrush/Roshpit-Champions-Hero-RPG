@@ -12599,7 +12599,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"При получении урона есть 10% шанс, что в сторону атакующего будет направлен мощный разлом.<br>Разлом оглушает все задетые цели на 2 секунды<br>и наносит им магический урон в размере @special_property1x от показателя Силы героя.<br>Весь напрямую наносимый предметами урон увеличивается на @special_property2% за каждые 100 очков текущего здоровья."
+		 "property_autumnrock_bracer_description"				"При получении урона есть <font color='#ccff66'>10</font>% шанс, что в сторону атакующего будет направлен мощный разлом.<br>Разлом оглушает все задетые цели на <font color='#ccff66'>2</font> секунды<br>и наносит им магический урон в размере <font color='#ccff66'>200</font>x от показателя Силы героя.<br>Весь напрямую наносимый предметами урон увеличивается на <font color='#ccff66'>0.1</font>% за каждые <font color='#ccff66'>100</font> очков текущего здоровья."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
@@ -12650,7 +12650,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"У всего стихийного урона, вторая стихия заменяется на стихию <font color=\"#5B648C\">Демона</font>. Урон от свойства <font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ</font> снижается на 70%."
+		"property_depth_demon_claw_Description"									"У всего стихийного урона, вторая стихия заменяется на стихию <font color=\"#5B648C\">Демона</font>. Урон от свойства <font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ</font> снижается на x<font color='#ccff66'>0.3</font>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
@@ -12662,7 +12662,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Прочтение @Ability1 образует призрачное облако, наносящее @special_property1% от общей атаки в радиусе 400 radius, обездвиживает врагов на 5 секунд. Дает невидимость на @special_property2 с. Невидимость имеет @special_property3 секунд перезарядки."
+		"property_dark_emissary_Description"									"Прочтение @Ability1 образует призрачное облако, наносящее x<font color='#ccff66'>240</font> от общей атаки в радиусе <font color='#ccff66'>400</font> , обездвиживает врагов на <font color='#ccff66'>5</font> секунд. Дает невидимость на <font color='#ccff66'>2</font> с. Невидимость имеет <font color='#ccff66'>8</font> секунд перезарядки."
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Невидим"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
