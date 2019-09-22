@@ -226,7 +226,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
 		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Каждые @special_property1 сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере @special_property3x общего урона героя<br>и оглушает всех врагов в небольшой области на @special_property4 сек.<br>Максимум зарядов: @special_property2."
+		"property_skulldigger_description"					"Каждые <% SKULLDIGGER_STACK_RATE %> сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере <% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>x общего урона героя<br>и оглушает всех врагов в небольшой области на <% SKULLDIGGER_STUN_DURATION %> сек.<br>Максимум зарядов: <% SKULLDIGGER_MAX_STACKS %>."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"При получении урона будет израсходован заряд, отправляя в сторону атакующего поток энергии."
 		 

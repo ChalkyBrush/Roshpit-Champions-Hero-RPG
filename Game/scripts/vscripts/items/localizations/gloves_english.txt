@@ -226,7 +226,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
 		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Gain Wraithfire stacks each @special_property1 seconds. When attacked, launch a Wraithfire Blast at the target that deals @special_property3x your attack damage on impact and stuns enemies in a small area for @special_property4 seconds. Max @special_property2 stacks."
+		"property_skulldigger_description"					"Gain Wraithfire stacks each <% SKULLDIGGER_STACK_RATE %> seconds. When attacked, launch a Wraithfire Blast at the target that deals <% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>x your attack damage on impact and stuns enemies in a small area for <% SKULLDIGGER_STUN_DURATION %> seconds. Max <% SKULLDIGGER_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a Wraithfire Blast at the attacker"
 		 
