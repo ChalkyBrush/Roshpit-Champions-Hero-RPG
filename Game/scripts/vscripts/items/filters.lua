@@ -1794,7 +1794,7 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     end
     local instances = 1
     if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
-        instances = instances + 2
+        instances = instances + HEAVY_ECHO_REPEATS
     end
     if attacker:HasModifier("shadow_deity_passive") then
         local e_2_level = attacker:GetRuneValue("e", 2)

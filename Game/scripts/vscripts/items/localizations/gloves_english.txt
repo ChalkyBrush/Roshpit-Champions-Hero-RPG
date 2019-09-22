@@ -263,7 +263,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
 		"item_property_heavy_echo"						"Reactive Grip"
-		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional 2 times."
+		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <% HEAVY_ECHO_REPEATS %> times."
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 		"property_depth_demon_claw"												"Metamorphose"
