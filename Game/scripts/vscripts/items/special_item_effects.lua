@@ -109,18 +109,18 @@ function midas_attack_land(event)
 	local runeUnit = event.caster
 	local target = event.target
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, 20)
+	local proc = Filters:GetProc(caster, HAND_OF_MIDAS_CHANCE)
 	if proc then
 		local position = target:GetAbsOrigin()
-		local radius = 340
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 50
+		local radius = HAND_OF_MIDAS_RADIUS
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * HAND_OF_MIDAS_ATTACK_DAMAGE_MULT
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 				if not enemy:HasModifier("modifier_midas_freeze_immune") then
-					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze", {duration = 2})
-					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze_immune", {duration = 5})
+					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze", {duration = HAND_OF_MIDAS_FREEZE_DURATION})
+					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze_immune", {duration = HAND_OF_MIDAS_FREEZE_CD})
 				end
 			end
 		end
