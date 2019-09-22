@@ -199,7 +199,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Every 6 seconds, gain a stack of Spiritual Empowerment. Each stack adds @special_property1% Base Ability Damage. Casting a spell consumes a stack. Max 10 stacks."
+		"property_spiritual_empowerment_description"		"Every <% SPIRITUAL_EMPOWERMENT_TICKRATE %> seconds, gain a stack of Spiritual Empowerment. Each stack adds <% SPIRITUAL_EMPOWERMENT_BAD %>% Base Ability Damage. Casting a spell consumes a stack. Max <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% stacks."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
 		 

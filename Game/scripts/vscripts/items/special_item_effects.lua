@@ -3543,7 +3543,7 @@ function spiritual_empowerment_think(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_spiritual_empowerment_stack", {})
 	local newStack = target:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster) + 1
-	newStack = math.min(newStack, 10)
+	newStack = math.min(newStack, SPIRITUAL_EMPOWERMENT_MAX_STACKS)
 	target:SetModifierStackCount("modifier_spiritual_empowerment_stack", caster, newStack)
 end
 

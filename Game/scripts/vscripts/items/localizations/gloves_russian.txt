@@ -199,7 +199,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Каждые 6 секунд герой получает заряд способности этого предмета.<br>Каждый заряд увеличивает Базовый урон способностей на @special_property1%.<br>Прочтение любой способности потратит 1 заряд.<br>Максимум 10 зарядов."
+		"property_spiritual_empowerment_description"		"Каждые <% SPIRITUAL_EMPOWERMENT_TICKRATE %> секунд герой получает заряд способности этого предмета.<br>Каждый заряд увеличивает Базовый урон способностей на <% SPIRITUAL_EMPOWERMENT_BAD %>%.<br>Прочтение любой способности потратит 1 заряд.<br>Максимум <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% зарядов."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Каждый заряд увеличивает базовый урон способностей на %property_one%%%."
 		 

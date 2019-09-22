@@ -1425,7 +1425,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_spiritual_empowerment_stack") then
             local current_stack = attacker:GetModifierStackCount("modifier_spiritual_empowerment_stack", attacker.InventoryUnit)
-            damageMult = damageMult + (current_stack + 1) * 0.8
+            damageMult = damageMult + (current_stack + 1) * SPIRITUAL_EMPOWERMENT_BAD/100
         end
         if attacker:HasModifier("modifier_ability_potion_1") then
             damageMult = damageMult + 0.3

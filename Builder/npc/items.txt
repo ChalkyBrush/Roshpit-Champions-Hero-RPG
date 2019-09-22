@@ -4539,7 +4539,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "6.0"
+				"ThinkInterval"  "<% SPIRITUAL_EMPOWERMENT_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
