@@ -32,7 +32,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
 		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые @special_property1 очков Силы. Устанавивает базовое время атаки на @special_property2 сек."
+		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые <% YASHA_AS_PER_STR %> очков Силы. Устанавивает базовое время атаки на <% YASHA_BAT %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
