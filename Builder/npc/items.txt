@@ -4491,12 +4491,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1500"
+				"property_one"			"<% MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.3"
+				"property_two"		"<% MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>"
 			}
 			"03"
 			{
@@ -4539,7 +4539,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "6.0"
+				"ThinkInterval"  "<% SPIRITUAL_EMPOWERMENT_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -4632,7 +4632,7 @@
 				"TextureName"	"itemicons/gloves_of_sweeping_wind"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>"
 				}
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
@@ -4702,7 +4702,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "150"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% POWER_RANGER_BONUS_DAMAGE %>"
 				}
 			}
 		}
@@ -5082,7 +5082,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"24000"
+				"property_one"			"<% DARK_EMISSARY_DAMAGE_MULT %>"
 			}
 			"02"
 			{
@@ -5092,12 +5092,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"<% DARK_EMISSARY_INVIS_DURATION %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"		"8"
+				"property_three"		"<% DARK_EMISSARY_INVIS_CD %>"
 			}
 		}
 	}
@@ -5238,7 +5238,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"70"
+				"property_one"			"<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>"
 			}
 		}
 	}
@@ -6301,7 +6301,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "5"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>"
 				}
 			}
 		}
@@ -6310,12 +6310,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"<% HALCYON_SOUL_GLOVE_BONUS * 100 %>"
 			}
 		}
 	}
@@ -6466,12 +6466,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% AUTUMNROCK_BRACER_DMG_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.1"
+				"property_two"		"<% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>"
 			}
 			"03"
 			{
@@ -6589,14 +6589,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_swiftspike_bracer"
@@ -6682,7 +6674,7 @@
 				"TextureName"	"itemicons/royal_wristguards"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
 				}
 			}
 		}
@@ -6691,12 +6683,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"20"
+				"property_two"		"<% ROYAL_WRISTGUARDS_Q_BAD %>"
 			}
 		}
 	}
@@ -12107,7 +12099,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"10"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SILVERSPRING_BASE_DMG_PER_REGEN %>"
 				}
 			}
 		}
@@ -12116,7 +12108,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"<% SILVERSPRING_BASE_DMG_PER_REGEN %>"
 			}
 		}
 	}
@@ -12345,17 +12337,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"<% DEMONFIRE_ELEMENTAL_AMP_PCT %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"25"
+				"property_three"	"<% DEMONFIRE_STACKS %>"
 			}
 		}
 	}
@@ -12477,7 +12469,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT %>"
 			}
 		}
 	}
@@ -12543,7 +12535,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
 				}
 			}
 		}
@@ -12552,7 +12544,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
 			}
 		}
 	}
@@ -12668,7 +12660,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "3"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% GRAVEKEEPER_MOVESPEED_DRAIN %>"
 				}
 			}
 			"modifier_gravekeeper_gauntlet_target"
@@ -12694,7 +12686,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-3"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% GRAVEKEEPER_MOVESPEED_DRAIN %>"
 				}
 			}
 		}
@@ -12841,12 +12833,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"<% PHOENIX_GLOVES_ATT_DMG_PER_HP %>"
 			}
 		}
 	}
@@ -13235,26 +13227,6 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"1.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"9"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_three"		"75.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"		"0.9"
-			}
-			"05"
-			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"		"17"
 			}
@@ -13267,7 +13239,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"1.2"
+				"ThinkInterval"  	"<% SKULLDIGGER_STACK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -13275,7 +13247,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"skulldigger_think"
 						"target"		"TARGET"
-						"max_stacks"	"%property_two"
+						"max_stacks"	"<% SKULLDIGGER_MAX_STACKS %>"
 					}
 				}
 				"OnDestroy"
@@ -13309,8 +13281,8 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"skulldigger_hellfire_hit"
 				"target"        "TARGET"
-				"stun_duration"	"%property_four"
-				"attack_mult"	"%property_three"
+				"stun_duration"	"<% SKULLDIGGER_STUN_DURATION %>"
+				"attack_mult"	"<% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>"
 			}
 		}
 	}
@@ -13415,12 +13387,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"20"
+				"property_one"		"<% FROSTBURN_GLOVES_CHANCE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"200"
+				"property_two"		"<% FROSTBURN_GLOVES_MS_SLOW %>"
 			}
 		}
 		"Modifiers"
@@ -13443,7 +13415,7 @@
             	"TextureName"		"crystal_maiden_crystal_nova"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% FROSTBURN_GLOVES_MS_SLOW %>"
 				}
 			}
 		}
@@ -13562,29 +13534,6 @@
 						"target"		"TARGET"
 					}
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"11"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"90"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"		"6"
 			}
 		}
 	}

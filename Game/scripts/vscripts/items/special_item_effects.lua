@@ -109,18 +109,18 @@ function midas_attack_land(event)
 	local runeUnit = event.caster
 	local target = event.target
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, 20)
+	local proc = Filters:GetProc(caster, HAND_OF_MIDAS_CHANCE)
 	if proc then
 		local position = target:GetAbsOrigin()
-		local radius = 340
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 50
+		local radius = HAND_OF_MIDAS_RADIUS
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * HAND_OF_MIDAS_ATTACK_DAMAGE_MULT
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 				if not enemy:HasModifier("modifier_midas_freeze_immune") then
-					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze", {duration = 2})
-					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze_immune", {duration = 5})
+					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze", {duration = HAND_OF_MIDAS_FREEZE_DURATION})
+					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze_immune", {duration = HAND_OF_MIDAS_FREEZE_CD})
 				end
 			end
 		end
@@ -854,7 +854,7 @@ function scarecrow_gloves_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetIntellect() * 0.5)
+	local stacks = math.floor(target:GetIntellect() * SCARECROW_GLOVES_MPREGEN_PER_INT)
 	if not target:HasModifier("modifier_scarecrow_gloves_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_scarecrow_gloves_effect", {})
 	end
@@ -899,12 +899,12 @@ function phoenix_gloves_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = (target:GetMaxHealth() - target:GetHealth()) * 0.15
+	local stacks = (target:GetMaxHealth() - target:GetHealth()) * PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP
 	if not target:HasModifier("modifier_phoenix_gloves_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_phoenix_gloves_effect", {})
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_phoenix_gloves_attack_damage", {})
-	local damageStacks = target:GetHealth()
+	local damageStacks = target:GetHealth() * PHOENIX_GLOVES_ATT_DMG_PER_HP
 	target:SetModifierStackCount("modifier_phoenix_gloves_attack_damage", ability, damageStacks)
 	target:SetModifierStackCount("modifier_phoenix_gloves_effect", ability, stacks)
 end
@@ -1859,19 +1859,16 @@ function mountain_vambrace_attack(event)
 	local caster = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, 15)
-	if caster:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
-		proc = Filters:GetProc(caster, 10)
-	end
+	local proc = Filters:GetProc(caster, MOUNTAIN_VAMBRACES_CHANCE)
 	if proc then
 		EmitSoundOn("Hero_Sven.StormBoltImpact", target)
-		local radius = 290
-		local damage = caster:GetStrength() * 1500
+		local radius = MOUNTAIN_VAMBRACES_STUN_RADIUS
+		local damage = caster:GetStrength() * MOUNTAIN_VAMBRACES_DAMAGE_PER_STR
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster, 1, enemy)
+				Filters:ApplyStun(caster, MOUNTAIN_VAMBRACES_STUN_DURATION, enemy)
 			end
 		end
 		local particleName = "particles/units/heroes/hero_sven/mountain_vambraces_storm_bolt_projectile_explosion.vpcf"
@@ -2895,7 +2892,7 @@ function silverspring_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local currentStacks = target:GetModifierStackCount("modifier_silverspring_effect", ability)
-	local stacks = math.min((500000000 - (target:GetBaseDamageMin() - currentStacks * 10)) / 10, math.max(0, math.floor(target:GetHealthRegen() * 1.0)))
+	local stacks = math.min((500000000 - (target:GetBaseDamageMin() - currentStacks * SILVERSPRING_BASE_DMG_PER_REGEN)) / SILVERSPRING_BASE_DMG_PER_REGEN, math.max(0, math.floor(target:GetHealthRegen() * 1.0)))
 	if not target:HasModifier("modifier_silverspring_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_silverspring_effect", {})
 	end
@@ -2941,9 +2938,9 @@ function royal_wristguard_take_damage(event)
 	local ability = event.ability
 	local caster = event.caster
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_royal_wristguards_stack_effect", {duration = 15})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_royal_wristguards_stack_effect", {duration = ROYAL_WRISTGUARDS_STACK_DURATION})
 	local current_stack = target:GetModifierStackCount("modifier_royal_wristguards_stack_effect", ability)
-	local newStack = math.min(current_stack + 1, 80)
+	local newStack = math.min(current_stack + 1, ROYAL_WRISTGUARDS_CHARGE_CAP)
 	target:SetModifierStackCount("modifier_royal_wristguards_stack_effect", ability, newStack)
 end
 
@@ -3081,7 +3078,7 @@ end
 function mordiggus_attack(event)
 	local attacker = event.attacker
 	local beginningHealth = attacker:GetHealth()
-	local newHealth = math.max(attacker:GetHealth() - attacker:GetMaxHealth() * 0.07, 1)
+	local newHealth = math.max(attacker:GetHealth() - attacker:GetMaxHealth() * MORDIGGUS_LIFE_DRAIN_ATTACK_PCT/100, 1)
 	attacker:SetHealth(newHealth)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", attacker, 0.7)
 	if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
@@ -3260,10 +3257,10 @@ end
 function sweeping_winds_think(event)
 	local target = event.target
 	local caster = event.caster
-	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, SWEEPING_WIND_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local currentStacks = target:GetModifierStackCount("modifier_sweeping_wind_stackable", caster)
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * 0.05 * currentStacks
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT/1000 * currentStacks
 		for _, enemy in pairs(enemies) do
 			CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", enemy, 0.8)
 			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
@@ -3543,7 +3540,7 @@ function spiritual_empowerment_think(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_spiritual_empowerment_stack", {})
 	local newStack = target:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster) + 1
-	newStack = math.min(newStack, 10)
+	newStack = math.min(newStack, SPIRITUAL_EMPOWERMENT_MAX_STACKS)
 	target:SetModifierStackCount("modifier_spiritual_empowerment_stack", caster, newStack)
 end
 
@@ -3649,7 +3646,7 @@ function autumnrock_bracer_take_damage(event)
 	if target == event.attacker then
 		return false
 	end
-	local proc = Filters:GetProc(hero, 10)
+	local proc = Filters:GetProc(hero, AUTUMNROCK_BRACER_CHANCE)
 	if proc then
 		local attacker = event.attacker
 		local length = math.max(WallPhysics:GetDistance(hero:GetAbsOrigin() * Vector(1, 1, 0), attacker:GetAbsOrigin() * Vector(1, 1, 0)) / 250, 1)
@@ -3658,7 +3655,7 @@ function autumnrock_bracer_take_damage(event)
 		for i = 1, math.floor(length), 1 do
 			Timers:CreateTimer(0.8 * (i - 1), function()
 				local position = startPosition + fv * i * 260
-				autumn_mage_boss_explosion(hero, position, damage, 160, ability)
+				autumn_mage_boss_explosion(hero, position, damage, AUTUMNROCK_BRACER_EXP_AOE, ability)
 			end)
 		end
 	end
@@ -3672,7 +3669,7 @@ function autumn_mage_boss_explosion(caster, position, damage, explosionAOE, abil
 	Timers:CreateTimer(4, function()
 		ParticleManager:DestroyParticle(particle1, false)
 	end)
-	local damage = caster:GetStrength() * 200
+	local damage = caster:GetStrength() * AUTUMNROCK_BRACER_DMG_PER_STR
 	EmitSoundOnLocationWithCaster(position, "Item.AutumnMage.Quake", caster)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
@@ -4746,8 +4743,8 @@ function demonfire_attack_land(event)
 	local target = event.attacker
 	local ability = event.ability
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_demonfire_stack", {duration = 6})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_demonfire_stack", caster) + 1, 25)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_demonfire_stack", {duration = DEMONFIRE_STACK_DURATION})
+	local newStacks = math.min(target:GetModifierStackCount("modifier_demonfire_stack", caster) + 1, DEMONFIRE_STACKS)
 	target:SetModifierStackCount("modifier_demonfire_stack", caster, newStacks)
 	ability.stacks = newStacks
 end
@@ -4756,10 +4753,10 @@ function demonfire_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-	local maxTargets = 4
+	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, DEMONFIRE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+	local maxTargets = DEMONFIRE_NUMBER_ENEMIES
 	local currentTargets = 0
-	local damage = ability.stacks * OverflowProtectedGetAverageTrueAttackDamage(target)
+	local damage = ability.stacks * OverflowProtectedGetAverageTrueAttackDamage(target) * DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK
 	if #enemies > 0 then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.Demonfire", target)
 		for _, enemy in pairs(enemies) do
@@ -5546,7 +5543,7 @@ function buzuki_buff_attack_land(event)
 	local ability = event.ability
 	local hero = caster.hero
 	EmitSoundOn("RPCItems.BuzukiFinger.BeamHit", target)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(event.attacker)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(event.attacker)*BUZUKIS_FINGER_MODIFIER_ATTACK_PCT/100
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_DEMON)
 
 	local particle1 = ParticleManager:CreateParticle("particles/roshpit/winterblight/blue_finger.vpcf", PATTACH_CUSTOMORIGIN, target)

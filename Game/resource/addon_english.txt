@@ -12479,12 +12479,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"20% chance on atack to deal @special_property1x your attack damage as Pure in an 340 radius area around the target and turn all enemies to solid gold, freezing them for 2 seconds. Max 1 freeze every 5 seconds."
+		"property_hand_of_midas_description"		"<font color='#ccff66'>20</font>% chance on atack to deal <font color='#ccff66'>50</font>x your attack damage as Pure in an <font color='#ccff66'>340</font> radius area around the target and turn all enemies to solid gold, freezing them for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Increases Mana Regen by 50% of your Intelligence"
+		"property_scarecrow_description"			"Each point of Intelligence additionally grants <font color='#ccff66'>0.5</font> Mana Regen."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
@@ -12496,12 +12496,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Increases the Base Ability Damage of @Ability4 by 200%"
+		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <font color='#ccff66'>200</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Gain @special_property1 Health Regen for each missing point of health. Gain @special_property2 base attack damage for each current point of health."
+		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> Health Regen for each missing point of health. Gain <font color='#ccff66'>1</font> base attack damage for each current point of health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
@@ -12513,31 +12513,31 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by 100 for 4 seconds. Additionally, @Ability2's damage instances have a 20% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
+		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by <font color='#ccff66'>100</font> for <font color='#ccff66'>4</font> seconds. Additionally, @Ability2's damage instances have a <font color='#ccff66'>20</font>% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
 		"item_property_mountain_vambraces"			"Craggy Shock"
-		"property_mountain_vambraces_description"	"Your attacks have a 15% chance to stun enemies in a small area around the target for 2 seconds, dealing @special_property1x your Strength as Magical damage. Enemies can not be stunned by this effect more than once every 4 seconds.<br>All damage dealt directly by items is increased by @special_property2% for each 10 points of Strength."
+		"property_mountain_vambraces_description"	"Your attacks have a <font color='#ccff66'>15</font>% chance to stun enemies in a small area around the target for <font color='#ccff66'>2</font> seconds, dealing <font color='#ccff66'>1500</font>x your Strength as Magical damage.<br>All damage dealt directly by items is increased by <font color='#ccff66'>0.3</font>% for each <font color='#ccff66'>10</font> points of Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing @special_property1x your attack damage times @Ability2 level as Magical damage. Each successive hit deals 100% increased damage. Max @special_property2 stacks."
+		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing <font color='#ccff66'>3</font>x your attack damage times @Ability2 level as Magical damage. Each successive hit deals 100% increased damage. Max <font color='#ccff66'>10</font> stacks."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
 		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Increases attack damage by 150%. All Post-Mitigation Physical damage is enhanced by 200%."
+		"property_power_ranger_description"			"Increases attack damage by <font color='#ccff66'>250</font>%. All Post-Mitigation Physical damage is enhanced by <font color='#ccff66'>200</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases Base Ability Damage by 0.3% for every 10 points of Intelligence."
+		"property_grand_arcanist_description"		"Increases Base Ability Damage by <font color='#ccff66'>0.3</font>% for every 10 points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
@@ -12556,43 +12556,43 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your base attack damage is increased by @special_property1% of your health regen stat. Can't increase your base attack damage above 500 million."
+		"property_silverspring_description"			"Your base attack damage is increased by x<font color='#ccff66'>10</font> of your health regen stat. Can't increase your base attack damage above 500 million."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
 		"item_property_farseer_glove"				"Spell Strike"
-		"property_farseer_description"				"Increases your Base Attack damage by 1% of the last instance of pre-mitigation Magical Damage that you dealt. Lasts 15 seconds and does not stack. Damage bonus is capped at 50x primary attribute."
+		"property_farseer_description"				"Increases your Base Attack damage by <font color='#ccff66'>1</font>% of the last instance of pre-mitigation Magical Damage that you dealt. Lasts <font color='#ccff66'>15</font> seconds and does not stack. Damage bonus is capped at <font color='#ccff66'>50</font>x primary attribute."
 		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
 		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"Attack Damage was Increased by last instance of Magic Damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
 		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"On taking damage, gain a stack of @special_property1% bonus attack damage. Base Ability Damage of @Ability1 is increased by @special_property2% per stack, but all of these stacks are removed when casting it. Stacks up to 80 times."
+		"property_royal_wrist_description"						"On taking damage, gain a stack of <font color='#ccff66'>20</font>% bonus attack damage. Base Ability Damage of @Ability1 is increased by <font color='#ccff66'>20</font>% per stack, but all of these stacks are removed when casting it. Stacks up to <font color='#ccff66'>80</font> times."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and Q ability damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by @special_property1% for each missing percent of health. Each spell cast drains 20% of max life, and each attack drains 7% of max life. Health drained by this effect cannot be lethal."
+		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <font color='#ccff66'>4</font>% for each missing percent of health. Each spell cast drains <font color='#ccff66'>20</font>% of max life, and each attack drains <font color='#ccff66'>7</font>% of max life. Health drained by this effect cannot be lethal."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
 		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Your base attack damage is increased by @special_property1x your total Armor."
+		"property_ironbound_gloves_description"				"Your base attack damage is increased by <font color='#ccff66'>12</font>x your total Armor."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants +100% bonus attack damage, and all nearby enemies take 50% of your attack damage as magic each second. Attacking consumes a stack. Max 5 stacks. Lasts 10 seconds."
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <font color='#ccff66'>100</font>% bonus attack damage, and all nearby enemies within <font color='#ccff66'>400</font> radius take <font color='#ccff66'>150</font>% of your attack damage as magic each second. Attacking consumes a stack. Max <font color='#ccff66'>5</font> stacks. Lasts <font color='#ccff66'>30</font> seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
 		"item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by @special_property1. Additionally, all basic stat bonuses are amplified by @special_property2%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
+		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by <font color='#ccff66'>5</font>. Additionally, all basic stat bonuses are amplified by <font color='#ccff66'>50</font>%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
@@ -12600,18 +12600,18 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
 		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal 240% increased damage."
+		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal <font color='#ccff66'>240</font>% increased damage."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Every 6 seconds, gain a stack of Spiritual Empowerment. Each stack adds @special_property1% Base Ability Damage. Casting a spell consumes a stack. Max 10 stacks."
+		"property_spiritual_empowerment_description"		"Every <font color='#ccff66'>6</font> seconds, gain a stack of Spiritual Empowerment. Each stack adds <font color='#ccff66'>80</font>% Base Ability Damage. Casting a spell consumes a stack. Max <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% stacks."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by 10%, while also draining 3 movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <font color='#ccff66'>8</font> stacks can be applied per second, no matter how quickly you attack."
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by <font color='#ccff66'>10</font>%, while also draining <font color='#ccff66'>3</font> movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <font color='#ccff66'>8</font> stacks can be applied per second, no matter how quickly you attack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
@@ -12622,7 +12622,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"10% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for 2 seconds and deals @special_property1x your Strength as Magical damage.<br>All damage dealt directly by items is enhanced by @special_property2% for each 100 points of current health."
+		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for <font color='#ccff66'>2</font> seconds and deals <font color='#ccff66'>200</font>x your Strength as Magical damage.<br>All damage dealt directly by items is enhanced by <font color='#ccff66'>0.1</font>% for each <font color='#ccff66'>100</font> points of current health."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
@@ -12632,14 +12632,14 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
 		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Gain Wraithfire stacks each @special_property1 seconds. When attacked, launch a Wraithfire Blast at the target that deals @special_property3x your attack damage on impact and stuns enemies in a small area for @special_property4 seconds. Max @special_property2 stacks."
+		"property_skulldigger_description"					"Gain Wraithfire stacks each <font color='#ccff66'>1.2</font> seconds. When attacked, launch a Wraithfire Blast at the target that deals <font color='#ccff66'>75</font>x your attack damage on impact and stuns enemies in a small area for <font color='#ccff66'>0.9</font> seconds. Max <font color='#ccff66'>9</font> stacks."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a Wraithfire Blast at the attacker"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"Claw of the Ethereal Revenant"
 		"item_property_ethereal_revenant"						"Revenant Link"
-		"property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a @special_property1% chance to be linked by a beam of electricity. Linked enemies deal @special_property2% reduced damage to you and you deal @special_property3x increased damage to them. Lasts @special_property4 seconds."
+		"property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a <font color='#ccff66'>11</font>% chance to be linked by a beam of electricity. Linked enemies deal <font color='#ccff66'>90</font>% reduced damage to you and you deal <font color='#ccff66'>3</font>x increased damage to them. Lasts <font color='#ccff66'>6</font> seconds."
 
 		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
 		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Taking increased damage while dealing reduced damage to linked hero"
@@ -12647,7 +12647,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by @special_property1%."
+		 "property_spellfire_description"						"Cast rate is increased by <font color='#ccff66'>80</font>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
@@ -12662,18 +12662,18 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by @special_property1%. When the buff ends, the 4 closest enemies within a 1000 radius are damaged by @special_property2% of attack power times the number of stacks. Max @special_property3 stacks."
+		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by <font color='#ccff66'>30</font>%. When the buff ends, the <font color='#ccff66'>4</font> closest enemies within a <font color='#ccff66'>1000</font> radius are damaged by x<font color='#ccff66'>1</font> of attack power times the number of stacks. Max <font color='#ccff66'>25</font> stacks."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
 		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Each stack increases Elemental damage by 30%%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
 		"item_property_heavy_echo"						"Reactive Grip"
-		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional 2 times."
+		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <font color='#ccff66'>2</font> times."
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage. Damage dealt by <font color=\"#E4AE33\">ABILITY AUGMENT</font> effects is reduced by 70%."
+		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage. Damage dealt by <font color=\"#E4AE33\">ABILITY AUGMENT</font> effects is reduced by x<font color='#ccff66'>0.3</font>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
@@ -12685,7 +12685,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that deals @special_property1% of your attack power to enemies in a 400 radius, and roots them for 5 seconds. Applies invisibility for @special_property2 seconds. Invisibility from this effect has a @special_property3 second cooldown."
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that x<font color='#ccff66'>240</font> of your attack power to enemies in a <font color='#ccff66'>400</font> radius, and roots them for <font color='#ccff66'>5</font> seconds. Applies invisibility for <font color='#ccff66'>2</font> seconds. Invisibility from this effect has a <font color='#ccff66'>8</font> second cooldown."
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Invisible"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
@@ -12699,14 +12699,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
 		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal @special_property1% increased Post-Mitigation damage and their attacks create an energy beam that deals @special_property2% of attack damage. The damage is attributed to the original caster. Buff lasts 30 seconds."
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal <font color='#ccff66'>500</font>% increased Post-Mitigation damage and their attacks create an energy beam that deals <font color='#ccff66'>100</font>% of attack damage. The damage is attributed to the original caster. Buff lasts <font color='#ccff66'>30</font> seconds."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased post-mitigation damage and dealing additional Pure damage on attacks"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
-		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by @special_property1%."
+		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <font color='#ccff66'>0.01</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
 		"item_property_tiamat_claw"							"Unyielding Vanity"

@@ -767,7 +767,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local intelligence = hero:GetIntellect()
 	local halcyon = 1
 	if hero:HasModifier("modifier_halcyon_soul_glove") then
-		halcyon = 1.5
+		halcyon = 1 + HALCYON_SOUL_GLOVE_BONUS
 	end
 	if hero:HasModifier("modifier_frozen_heart") then
 		hero:RemoveModifierByName("modifier_strength_health")
