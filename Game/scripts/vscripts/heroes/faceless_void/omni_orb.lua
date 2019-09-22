@@ -399,10 +399,10 @@ function omni_rune_wind_projectile_hit(event)
 	local enemy = event.target
 	local mace_hit_data = omni_mace_basic_element_data(RPC_ELEMENT_WIND)
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
-	if enemy.pushLock then
-	else
-		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wind_orb_pushback", {duration = 1})
-	end
+	--if enemy.pushLock then
+	--else
+	--	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wind_orb_pushback", {duration = 1})
+	--end
 end
 
 function omniro_wind_orb_push_think(event)
