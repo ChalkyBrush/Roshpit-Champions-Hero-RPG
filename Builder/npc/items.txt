@@ -6466,12 +6466,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% AUTUMNROCK_BRACER_DMG_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.1"
+				"property_two"		"<% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>"
 			}
 			"03"
 			{

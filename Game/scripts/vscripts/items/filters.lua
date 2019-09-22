@@ -170,7 +170,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     end
 
     if caster:HasModifier("modifier_autumnrock_bracer") then
-        mult = mult + 0.001 * (caster:GetHealth() / 100)
+        mult = mult + AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT/100 * (caster:GetHealth() / AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR)
     end
     if caster:HasModifier("modifier_rockfall_passive") then
         local a_c_level = caster:GetRuneValue("e", 1)

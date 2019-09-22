@@ -3649,7 +3649,7 @@ function autumnrock_bracer_take_damage(event)
 	if target == event.attacker then
 		return false
 	end
-	local proc = Filters:GetProc(hero, 10)
+	local proc = Filters:GetProc(hero, AUTUMNROCK_BRACER_CHANCE)
 	if proc then
 		local attacker = event.attacker
 		local length = math.max(WallPhysics:GetDistance(hero:GetAbsOrigin() * Vector(1, 1, 0), attacker:GetAbsOrigin() * Vector(1, 1, 0)) / 250, 1)
@@ -3658,7 +3658,7 @@ function autumnrock_bracer_take_damage(event)
 		for i = 1, math.floor(length), 1 do
 			Timers:CreateTimer(0.8 * (i - 1), function()
 				local position = startPosition + fv * i * 260
-				autumn_mage_boss_explosion(hero, position, damage, 160, ability)
+				autumn_mage_boss_explosion(hero, position, damage, AUTUMNROCK_BRACER_EXP_AOE, ability)
 			end)
 		end
 	end
@@ -3672,7 +3672,7 @@ function autumn_mage_boss_explosion(caster, position, damage, explosionAOE, abil
 	Timers:CreateTimer(4, function()
 		ParticleManager:DestroyParticle(particle1, false)
 	end)
-	local damage = caster:GetStrength() * 200
+	local damage = caster:GetStrength() * AUTUMNROCK_BRACER_DMG_PER_STR
 	EmitSoundOnLocationWithCaster(position, "Item.AutumnMage.Quake", caster)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then

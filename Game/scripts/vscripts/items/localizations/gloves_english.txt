@@ -216,7 +216,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"10% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for 2 seconds and deals @special_property1x your Strength as Magical damage.<br>All damage dealt directly by items is enhanced by @special_property2% for each 100 points of current health."
+		 "property_autumnrock_bracer_description"				"<% AUTUMNROCK_BRACER_CHANCE %>% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for <% AUTUMNROCK_BRACER_STUN_DUR %> seconds and deals <% AUTUMNROCK_BRACER_DMG_PER_STR %>x your Strength as Magical damage.<br>All damage dealt directly by items is enhanced by <% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>% for each <% AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR %> points of current health."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"

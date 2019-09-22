@@ -216,7 +216,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"При получении урона есть 10% шанс, что в сторону атакующего будет направлен мощный разлом.<br>Разлом оглушает все задетые цели на 2 секунды<br>и наносит им магический урон в размере @special_property1x от показателя Силы героя.<br>Весь напрямую наносимый предметами урон увеличивается на @special_property2% за каждые 100 очков текущего здоровья."
+		 "property_autumnrock_bracer_description"				"При получении урона есть <% AUTUMNROCK_BRACER_CHANCE %>% шанс, что в сторону атакующего будет направлен мощный разлом.<br>Разлом оглушает все задетые цели на <% AUTUMNROCK_BRACER_STUN_DUR %> секунды<br>и наносит им магический урон в размере <% AUTUMNROCK_BRACER_DMG_PER_STR %>x от показателя Силы героя.<br>Весь напрямую наносимый предметами урон увеличивается на <% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>% за каждые <% AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR %> очков текущего здоровья."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
