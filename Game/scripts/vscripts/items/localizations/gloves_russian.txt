@@ -169,7 +169,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Увеличивает весь Пост-Резистный урон на 100%. Каждое прочтение любого заклинания тратит 20% от макс. здоровья героя. Каждая атака тратит 7% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
+		"property_mordiggus_description"					"Увеличивает весь Пост-Резистный урон на <% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING * 100 %>% за каждый отсутствующий процент здоровья. Каждое прочтение любого заклинания тратит <% MORDIGGUS_LIFE_DRAIN_CAST_PCT %>% от макс. здоровья героя. Каждая атака тратит <% MORDIGGUS_LIFE_DRAIN_ATTACK_PCT %>% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"

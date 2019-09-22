@@ -2409,7 +2409,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 6
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
-		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * 4
+		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT
 	end
 
 	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
