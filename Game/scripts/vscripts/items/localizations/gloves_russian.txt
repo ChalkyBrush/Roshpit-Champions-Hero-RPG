@@ -174,7 +174,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
 		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Базовый урон атаки увеличивается на @special_property1х вашей брони."
+		"property_ironbound_gloves_description"				"Базовый урон атаки увеличивается на <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>х вашей брони."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"

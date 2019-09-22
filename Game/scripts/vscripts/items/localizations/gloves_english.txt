@@ -174,7 +174,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
 		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Your base attack damage is increased by @special_property1x your total Armor."
+		"property_ironbound_gloves_description"				"Your base attack damage is increased by <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x your total Armor."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
