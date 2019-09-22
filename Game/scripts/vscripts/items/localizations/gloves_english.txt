@@ -186,7 +186,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
 		"item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by @special_property1. Additionally, all basic stat bonuses are amplified by <% HALCYON_SOUL_GLOVE_BONUS * 100 %>%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
+		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by <% HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>. Additionally, all basic stat bonuses are amplified by <% HALCYON_SOUL_GLOVE_BONUS * 100 %>%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
@@ -194,7 +194,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
 		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal 240% increased damage."
+		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal <% FORGOTTEN_GHOST_DOT_MULT * 100 %>% increased damage."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"

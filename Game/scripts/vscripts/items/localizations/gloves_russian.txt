@@ -194,7 +194,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
 		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"Все дебаффы, наносящие урон со временем усилены на 240%."
+		 "property_forgotten_ghost_description"				"Все дебаффы, наносящие урон со временем усилены на <% FORGOTTEN_GHOST_DOT_MULT * 100 %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
