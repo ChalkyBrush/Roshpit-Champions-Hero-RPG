@@ -5082,7 +5082,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"24000"
+				"property_one"			"<% DARK_EMISSARY_DAMAGE_MULT %>"
 			}
 			"02"
 			{
@@ -5092,12 +5092,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"<% DARK_EMISSARY_INVIS_DURATION %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"		"8"
+				"property_three"		"<% DARK_EMISSARY_INVIS_CD %>"
 			}
 		}
 	}

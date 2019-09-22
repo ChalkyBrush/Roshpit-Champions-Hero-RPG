@@ -279,7 +279,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that deals @special_property1% of your attack power to enemies in a 400 radius, and roots them for 5 seconds. Applies invisibility for @special_property2 seconds. Invisibility from this effect has a @special_property3 second cooldown."
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that x<% DARK_EMISSARY_DAMAGE_MULT %> of your attack power to enemies in a <% DARK_EMISSARY_RADIUS %> radius, and roots them for <% DARK_EMISSARY_ROOT_DURATION %> seconds. Applies invisibility for <% DARK_EMISSARY_INVIS_DURATION %> seconds. Invisibility from this effect has a <% DARK_EMISSARY_INVIS_CD %> second cooldown."
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Invisible"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"

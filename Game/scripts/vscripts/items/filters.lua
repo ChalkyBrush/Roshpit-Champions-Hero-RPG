@@ -4570,15 +4570,15 @@ function Filters:DarkEmissary(caster)
     CustomAbilities:QuickAttachParticle("particles/act_2/blob_launch_impact.vpcf", caster, 4)
     EmitSoundOn("RPCItem.DarkEmissary.Activate", caster)
     if not caster:HasModifier('modifier_dark_emissary_invise_delay') then
-        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = 2})
-        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invise_delay", {duration = 8})
+        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = DARK_EMISSARY_INVIS_DURATION})
+        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invise_delay", {duration = DARK_EMISSARY_INVIS_CD})
     end
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 240
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, DARK_EMISSARY_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * DARK_EMISSARY_DAMAGE_MULT
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, caster.handItem, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
-            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_dark_emissary_root", {duration = 5})
+            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_dark_emissary_root", {duration = DARK_EMISSARY_ROOT_DURATION})
             CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/ghostfire_blast_e3.vpcf", enemy, 0.5)
         end
     end
