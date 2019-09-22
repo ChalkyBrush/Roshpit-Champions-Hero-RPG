@@ -73,7 +73,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"С 20% шансом при базовой атаке герой нанесет @special_property1x Чистый урон по области, превращая задетых врагов в золото и замораживая их на 2 секунды. Максимум 1 заморозка за 5 секунд."
+		"property_hand_of_midas_description"		"С <% HAND_OF_MIDAS_CHANCE %>% шансом при базовой атаке герой нанесет <% HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>x Чистый урон по области <% HAND_OF_MIDAS_RADIUS %>, превращая задетых врагов в золото и замораживая их на <% HAND_OF_MIDAS_FREEZE_DURATION %> секунды. Максимум 1 заморозка за <% HAND_OF_MIDAS_FREEZE_CD %> секунд."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
@@ -119,7 +119,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный @special_property1x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
+		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный <% CYTOPIAN_LASER_DMG_PER_ATT %>x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Получит увеличенный урон от лазера"
 		
