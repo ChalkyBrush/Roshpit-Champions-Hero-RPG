@@ -1859,19 +1859,16 @@ function mountain_vambrace_attack(event)
 	local caster = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, 15)
-	if caster:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
-		proc = Filters:GetProc(caster, 10)
-	end
+	local proc = Filters:GetProc(caster, MOUNTAIN_VAMBRACES_CHANCE)
 	if proc then
 		EmitSoundOn("Hero_Sven.StormBoltImpact", target)
-		local radius = 290
-		local damage = caster:GetStrength() * 1500
+		local radius = MOUNTAIN_VAMBRACES_STUN_RADIUS
+		local damage = caster:GetStrength() * MOUNTAIN_VAMBRACES_DAMAGE_PER_STR
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster, 1, enemy)
+				Filters:ApplyStun(caster, MOUNTAIN_VAMBRACES_STUN_DURATION, enemy)
 			end
 		end
 		local particleName = "particles/units/heroes/hero_sven/mountain_vambraces_storm_bolt_projectile_explosion.vpcf"

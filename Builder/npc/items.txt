@@ -4491,12 +4491,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1500"
+				"property_one"			"<% MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.3"
+				"property_two"		"<% MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>"
 			}
 			"03"
 			{
