@@ -3,6 +3,7 @@ from time import gmtime, strftime, sleep
 import os
 
 import Builder.constants as b_constants
+import Builder.lua_check as b_lua_check
 import Builder.helpers as b_helpers
 import Builder.replaces as b_replaces
 import Builder.settings as b_settings
@@ -22,11 +23,12 @@ def replace_in_file(input_file_patch, output_file_path, replaces, output_encodin
     output_file.close()
 
 
-def build(global_replaces_paths, global_constants_paths, base_settings):
+def build(global_replaces_paths, global_constants_paths, global_lua_paths, base_settings):
     print('---- build start ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + ' ----')
     global_constants = b_constants.get(global_constants_paths, {}, base_settings['warnings'])
     global_replaces = b_replaces.get(global_replaces_paths, global_constants,
                                              base_settings['constants_settings'], base_settings['warnings'])
+    b_lua_check.check(global_lua_paths, global_constants,{}, base_settings['warnings'])
     for file, settings in b_settings.get_files_settings().items():
         output_path = base_settings['base_destination_path'] + settings['destination']
         replace_in_file('Builder/' + file, output_path, global_replaces, settings['output_encoding'])
@@ -45,6 +47,7 @@ def watch():
     base_settings = {}
     global_constants_paths = []
     global_replaces_paths = []
+    global_lua_paths = []
     while True:
         should_rebuild = False
         if counter % 30 == 0:
@@ -59,6 +62,11 @@ def watch():
             for replace_regex_path in base_settings['replaces']:
                 replace_paths = b_helpers.regex_find_all(base_settings['base_replaces_path'] + replace_regex_path)
                 global_replaces_paths.extend(replace_paths)
+            # Fill list of lua files
+            global_lua_paths = []
+            for lua_regex_path in base_settings['lua_files']:
+                lua_paths = b_helpers.regex_find_all(base_settings['base_lua_path'] + lua_regex_path)
+                global_lua_paths.extend(lua_paths)
 
         for path in global_constants_paths:
             change_time = os.path.getmtime(path)
@@ -69,6 +77,14 @@ def watch():
             if should_rebuild:
                 files_change_time[path] = change_time
         for path in global_replaces_paths:
+            change_time = os.path.getmtime(path)
+            if path not in files_change_time:
+                should_rebuild = True
+            elif files_change_time[path] < change_time:
+                should_rebuild = True
+            if should_rebuild:
+                files_change_time[path] = change_time
+        for path in global_lua_paths:
             change_time = os.path.getmtime(path)
             if path not in files_change_time:
                 should_rebuild = True
@@ -95,7 +111,7 @@ def watch():
                 files_change_time[path] = change_time
 
         if should_rebuild:
-            build(global_replaces_paths, global_constants_paths, base_settings)
+            build(global_replaces_paths, global_constants_paths, global_lua_paths, base_settings)
         sleep(1)
 
 
