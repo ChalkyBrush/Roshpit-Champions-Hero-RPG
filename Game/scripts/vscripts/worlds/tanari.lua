@@ -1191,11 +1191,11 @@ end
 
 function Tanari:GenericCrystal(mithrilReward, position)
     Timers:CreateTimer(5, function()
-        local mithrilMult = TANARI_MITHRIL_NORMAL
+        local mithrilMult = TANARI_MITHRIL_NORMAL_MULT
         if GameState:GetDifficultyFactor() == 2 then
-            mithrilMult = TANARI_MITHRIL_ELITE
+            mithrilMult = TANARI_MITHRIL_ELITE_MULT
         elseif GameState:GetDifficultyFactor() == 3 then
-            mithrilMult = TANARI_MITHRIL_LEGEND
+            mithrilMult = TANARI_MITHRIL_LEGEND_MULT
         end
         if Events.SpiritRealm then
             mithrilMult = mithrilMult * TANARI_MITHRIL_SPIRIT_REALM_MULT

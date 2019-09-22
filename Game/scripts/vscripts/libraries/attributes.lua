@@ -55,7 +55,7 @@ function Attributes:ModifyBonuses(hero)
         -- Base Armor Bonus
         local armor = agility * Attributes.armor_adjustment
         if hero:HasModifier("modifier_halcyon_soul_glove") then
-            armor = armor + agility * Attributes.v.ARMOR_PER_AGI * 0.5
+            armor = armor + agility * Attributes.v.ARMOR_PER_AGI * HALCYON_SOUL_GLOVE_BONUS
         end
         hero:SetPhysicalArmorBaseValue(armor)
 
@@ -69,7 +69,7 @@ function Attributes:ModifyBonuses(hero)
 
             local health_stacks = math.abs(strength * Attributes.hp_adjustment)
             if hero:HasModifier("modifier_halcyon_soul_glove") then
-                health_stacks = health_stacks + strength * Attributes.v.HP_PER_STR * 0.5
+                health_stacks = health_stacks + strength * Attributes.v.HP_PER_STR * HALCYON_SOUL_GLOVE_BONUS
             end
             if hero:GetMaxHealth() - health_stacks > 1000 then
                 hero:SetModifierStackCount("modifier_health_bonus", Attributes.applier, health_stacks)
@@ -82,7 +82,7 @@ function Attributes:ModifyBonuses(hero)
 
             local health_regen_stacks = math.abs(strength * Attributes.hp_regen_adjustment * 100)
             if hero:HasModifier("modifier_halcyon_soul_glove") then
-                health_regen_stacks = health_regen_stacks + strength * Attributes.v.HP_REGEN_PER_STR * 0.5
+                health_regen_stacks = health_regen_stacks + strength * Attributes.v.HP_REGEN_PER_STR * HALCYON_SOUL_GLOVE_BONUS
             end
             hero:SetModifierStackCount("modifier_health_regen_constant", Attributes.applier, health_regen_stacks)
         end
@@ -111,7 +111,7 @@ function Attributes:ModifyBonuses(hero)
             --print("MANA STACKS A:")
             --print(mana_stacks)
             if hero:HasModifier("modifier_halcyon_soul_glove") then
-                mana_stacks = mana_stacks - intellect * Attributes.v.MANA_PER_INT * 0.5
+                mana_stacks = mana_stacks - intellect * Attributes.v.MANA_PER_INT * HALCYON_SOUL_GLOVE_BONUS
             end
             --print("MANA STACKS B:")
             --print(mana_stacks)
@@ -126,7 +126,7 @@ function Attributes:ModifyBonuses(hero)
 
             local mana_regen_stacks = math.abs(intellect * Attributes.mana_regen_adjustment * 100)
             if hero:HasModifier("modifier_halcyon_soul_glove") then
-                mana_regen_stacks = mana_regen_stacks + intellect * Attributes.v.MANA_REGEN_PER_INT * 0.5
+                mana_regen_stacks = mana_regen_stacks + intellect * Attributes.v.MANA_REGEN_PER_INT * HALCYON_SOUL_GLOVE_BONUS
             end
             hero:SetModifierStackCount("modifier_base_mana_regen", Attributes.applier, mana_regen_stacks)
 

@@ -5,10 +5,20 @@
 #
 data = {
     "constants": [
+        "dota_constants.lua",
         "heroes/.*/.*constants.*\.lua",
         "items/constants/.*\.lua",
         "worlds/.*/constants/.*\.lua",
         "global_constants.lua",
+    ],
+    "lua_files": [
+        ".*\.lua",
+        ".*/.*\.lua",
+        ".*/.*/.*\.lua",
+        ".*/.*/.*/.*\.lua",
+        ".*/.*/.*/.*/.*/.*\.lua",
+        ".*/.*/.*/.*/.*/.*/.*\.lua",
+        ".*/.*/.*/.*/.*/.*/.*/.*\.lua",
     ],
     "replaces": [
         "heroes/.*/npc/.*\.txt",
@@ -25,6 +35,7 @@ data = {
     "base_destination_path": "Game/",
     "base_constants_path": "Game/scripts/vscripts/",
     "base_replaces_path": "Game/scripts/vscripts/",
+    "base_lua_path": "Game/scripts/vscripts/",
     "constants_settings": {
         "start": "<%",
         "end": "%>",
@@ -46,6 +57,7 @@ data = {
         "replace_file_no_exist": True,
         "replace_invalid_constant": True,
         "syntax_invalid": True,
+        "lua_constant_no_exist": False,
     },
     "files": {
         "npc/abilities.txt": "scripts/npc/npc_abilities_custom.txt",

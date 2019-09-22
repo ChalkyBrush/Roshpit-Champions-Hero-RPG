@@ -1505,7 +1505,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	local damage = BASE_VALUE_FOR_CALCULATE
 
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
-		damage = damage * 0.2
+		damage = damage * (100-ABLECORE_GREAVES_DMG_RED)/100
 	end
 	if victim:HasModifier("modifier_resplendent_rubber_boots") then
 		damage = damage * 0.25
@@ -2180,7 +2180,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_power_ranger") then
-			mult = mult + 2
+			mult = mult + POWER_RANGER_PHYS_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_golden_war_plate") then
 			mult = mult + 7.0
@@ -2406,10 +2406,10 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
-		mult = mult + 6
+		mult = mult + ABLECORE_GREAVES_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
-		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * 4
+		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT
 	end
 
 	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
@@ -2487,7 +2487,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + 2
 	end
 	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
-		mult = mult + 5
+		mult = mult + BUZUKIS_FINGER_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_earthshock_damage_reduce") then
 		local modifierCaster = attacker:FindModifierByName("modifier_earthshock_damage_reduce"):GetCaster()
@@ -2675,7 +2675,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		local stacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", attacker.InventoryUnit)
-		filterTable["damage"] = filterTable["damage"] * (1 + (stacks * 0.1))
+		filterTable["damage"] = filterTable["damage"] * (1 + (stacks * GRAVEKEEPER_PRE_MITI_DAMAGE_AMP_PER_STACK))
 	end
 	if attacker:HasModifier("modifier_neutral_glyph_5_3") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -3130,14 +3130,14 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_ethereal_revenant_link") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if victim.revenantData then
 			if victim.revenantData[1] == attacker:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * 3
+				filterTable["damage"] = filterTable["damage"] * ETHEREAL_REVENANT_DAMAGE_AMP
 			end
 		end
 	end
 	if attacker:HasModifier("modifier_ethereal_revenant_link") then
 		if attacker.revenantData then
 			if attacker.revenantData[1] == victim:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * 0.1
+				filterTable["damage"] = filterTable["damage"] * (100-ETHEREAL_REVENANT_DAMAGE_REDUCTION)/100
 			end
 		end
 	end

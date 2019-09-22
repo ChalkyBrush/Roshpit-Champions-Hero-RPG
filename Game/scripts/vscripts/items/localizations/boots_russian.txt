@@ -6,7 +6,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"Sange Boots"
 		"item_property_sange"						"Combat Mastery S"
-		"property_sange_description"				"Каждое очко Ловкости увеличивает показатель здоровья на <% SANGE_HP_PER_AGI %>."
+		"property_sange_description"				"Каждое очко Ловкости увеличивает показатель здоровья на <% SANGE_HP_PER_AGI %> и показатель маны на <% SANGE_MP_PER_AGI %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
@@ -146,9 +146,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"Когда скорость героя ниже 300, весь входящий урон снижен на 80%, а исходящий урон увеличен на 600%. Эффект будет действовать еще 6 секунд после того, как скорость героя станет выше необходимого уровня."
+		"property_ablecore_greaves_description"			"Когда скорость героя ниже ABLECORE_GREAVES_MS_REQ, весь входящий урон снижен на ABLECORE_GREAVES_DMG_RED%, а исходящий урон увеличен на ABLECORE_GREAVES_POST_MITI%. Эффект будет действовать еще ABLECORE_GREAVES_STICKY_DURATION секунд после того, как скорость героя станет выше необходимого уровня."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на 80%%, исходящий повышен на 150%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на ABLECORE_GREAVES_DMG_RED%%, исходящий повышен на ABLECORE_GREAVES_POST_MITI%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"

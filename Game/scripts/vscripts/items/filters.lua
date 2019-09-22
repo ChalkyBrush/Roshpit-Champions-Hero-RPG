@@ -83,7 +83,7 @@ function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_
     local damageData = attacker._damage_data or {}
 
     if attacker:HasModifier("modifier_depth_demon_claw") then
-        damage = damage * 0.3
+        damage = damage * DEPTH_DEMON_CLAW_AUGMENT_REDUCTION
     end
     if damageData.skipItemDamageEffectsApply then
         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)
@@ -163,14 +163,14 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 0.002 * (caster:GetIntellect() / 10)
     end
     if caster:HasModifier("modifier_mountain_vambraces") then
-        mult = mult + 0.003 * (caster:GetStrength() / 10)
+        mult = mult + MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / MOUNTAIN_VAMBRACES_STR_DIVISOR)
     end
     if caster:HasModifier("modifier_body_avalanche") then
         mult = mult + 0.003 * (caster:GetStrength() / 10)
     end
 
     if caster:HasModifier("modifier_autumnrock_bracer") then
-        mult = mult + 0.001 * (caster:GetHealth() / 100)
+        mult = mult + AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT/100 * (caster:GetHealth() / AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR)
     end
     if caster:HasModifier("modifier_rockfall_passive") then
         local a_c_level = caster:GetRuneValue("e", 1)
@@ -274,7 +274,7 @@ end
 
 function Filters:GetDelayWithCastSpeed(caster, delay)
     if caster:HasModifier("modifier_spellfire_gloves") then
-        delay = delay * 0.2
+        delay = delay * (1-SPELLFIRE_CAST_POINT_REDUCTION)
     end
     return delay
 end
@@ -658,7 +658,7 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
     heroes.venomort.onDotDamageDo(caster, target)
     local mult = 1
     if caster:HasModifier("modifier_glove_of_the_forgotten_ghost") then
-        mult = mult + 2.4
+        mult = mult + FORGOTTEN_GHOST_DOT_MULT
     end
     mult = mult + heroes.venomort.getDotAmplify(caster, target)
     damage = damage * mult
@@ -719,7 +719,7 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         local beginningHealth = caster:GetHealth()
-        local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * 0.2, 1)
+        local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * MORDIGGUS_LIFE_DRAIN_CAST_PCT/100, 1)
         caster:SetHealth(newHealth)
         CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
         if caster:HasModifier("modifier_wraith_hunters_steel_helm") then
@@ -1328,7 +1328,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.5
         end
         if attacker:HasModifier("modifier_grand_arcanist") then
-            damageMult = damageMult + 0.003 * (attacker:GetIntellect() / 10)
+            damageMult = damageMult + GRAND_ARCANIST_BAD_PER_INT * attacker:GetIntellect()
         end
         if attacker:HasModifier("modifier_direwolf_bulwark_effect") then
             damageMult = damageMult + 0.001 * attacker:GetModifierStackCount("modifier_direwolf_bulwark_effect", attacker.InventoryUnit)
@@ -1369,7 +1369,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
-            damageMult = damageMult + 0.01 * current_stack
+            damageMult = damageMult + SWIFTSPIKE_BAD_PER_MS * current_stack
         end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount("modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1"))
@@ -1425,7 +1425,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_spiritual_empowerment_stack") then
             local current_stack = attacker:GetModifierStackCount("modifier_spiritual_empowerment_stack", attacker.InventoryUnit)
-            damageMult = damageMult + (current_stack + 1) * 0.8
+            damageMult = damageMult + (current_stack + 1) * SPIRITUAL_EMPOWERMENT_BAD/100
         end
         if attacker:HasModifier("modifier_ability_potion_1") then
             damageMult = damageMult + 0.3
@@ -1577,10 +1577,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_claws_of_the_ethereal_revenant") then
             if not ignore_effects then
-                local proc = Filters:GetProc(attacker, 11)
+                local proc = Filters:GetProc(attacker, ETHEREAL_REVENANT_CHANCE)
                 if proc then
                     Timers:CreateTimer(0.05, function()
-                        attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = 6})
+                        attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = ETHEREAL_REVENANT_DURATION})
                     end)
                 end
             end
@@ -1659,7 +1659,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     elseif slot == BASE_ABILITY_R then
         if attacker:HasModifier("modifier_master_gloves") then
-            damageMult = damageMult + 2
+            damageMult = damageMult + MASTER_GLOVES_BAD/100
         end
         if attacker:HasModifier("modifier_watcher_four") then
             damageMult = damageMult + 0.35
@@ -1794,7 +1794,7 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     end
     local instances = 1
     if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
-        instances = instances + 2
+        instances = instances + HEAVY_ECHO_REPEATS
     end
     if attacker:HasModifier("shadow_deity_passive") then
         local e_2_level = attacker:GetRuneValue("e", 2)
@@ -1841,7 +1841,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
-            mult = mult + stacks * 0.3
+            mult = mult + stacks * DEMONFIRE_ELEMENTAL_AMP_PCT/100
         end
         if bIsRealDamage then
             if attacker:HasModifier("modifier_ice_avatar") then
@@ -3146,12 +3146,12 @@ function Filters:SpiritGlove(caster)
 end
 
 function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, damage
-    local proc = Filters:GetProc(attacker, 20)
+    local proc = Filters:GetProc(attacker, FROSTBURN_GLOVES_CHANCE)
     CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
-    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = 4})
+    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = FROSTBURN_GLOVES_MS_SLOW_DUR})
     if proc then
         local icePoint = victim:GetAbsOrigin()
-        local radius = 240
+        local radius = FROSTBURN_GLOVES_EXPLOSION_RADIUS
         EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", attacker)
         local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
         local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, attacker)
@@ -3163,7 +3163,7 @@ function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, 
         local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
-                attacker.frostburnItem:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_gauntlets_slow", {duration = 3})
+                attacker.frostburnItem:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_gauntlets_slow", {duration = FROSTBURN_GLOVES_MS_SLOW_DUR})
                 Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
             end
         end
@@ -3711,17 +3711,17 @@ function Filters:FarSeerGloves(attacker, damage, inflictor)
     --         return false
     --     end
     -- end
-    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_effect", {duration = 15})
+    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_effect", {duration = FARSEER_DURATION})
     local maximum = 0
     local primeAttribute = attacker:GetPrimaryAttribute()
     if primeAttribute == 0 then
-        maximum = attacker:GetStrength() * 50
+        maximum = attacker:GetStrength() * FARSEER_PRIMARY_ATT_CAP
     elseif primeAttribute == 1 then
-        maximum = attacker:GetAgility() * 50
+        maximum = attacker:GetAgility() * FARSEER_PRIMARY_ATT_CAP
     elseif primeAttribute == 2 then
-        maximum = attacker:GetIntellect() * 50
+        maximum = attacker:GetIntellect() * FARSEER_PRIMARY_ATT_CAP
     end
-    local stacks = math.min(math.floor(damage * 0.01), maximum)
+    local stacks = math.min(math.floor(damage * FARSEER_PRE_MITI_MAGIC_BASE), maximum)
 
     modifier = attacker:FindModifierByName("modifier_far_seer_effect")
     ----print("FarSeerGloves "..modifier:GetStackCount())
@@ -4570,15 +4570,15 @@ function Filters:DarkEmissary(caster)
     CustomAbilities:QuickAttachParticle("particles/act_2/blob_launch_impact.vpcf", caster, 4)
     EmitSoundOn("RPCItem.DarkEmissary.Activate", caster)
     if not caster:HasModifier('modifier_dark_emissary_invise_delay') then
-        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = 2})
-        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invise_delay", {duration = 8})
+        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = DARK_EMISSARY_INVIS_DURATION})
+        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invise_delay", {duration = DARK_EMISSARY_INVIS_CD})
     end
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 240
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, DARK_EMISSARY_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * DARK_EMISSARY_DAMAGE_MULT
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, caster.handItem, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
-            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_dark_emissary_root", {duration = 5})
+            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_dark_emissary_root", {duration = DARK_EMISSARY_ROOT_DURATION})
             CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/ghostfire_blast_e3.vpcf", enemy, 0.5)
         end
     end
@@ -4619,14 +4619,14 @@ function Filters:Bahamut_DB_runeArcana(caster, damage, slot, enemy)
 end
 
 function Filters:BuzukisFinger(caster)
-    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, BUZUKIS_FINGER_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
     if #allies > 0 then
         for _, ally in pairs(allies) do
             ally:RemoveModifierByName("modifier_buzuki_powering_up")
             EmitSoundOn("RPCItems.BuzukiFinger.Powerup", ally)
-            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzukis_finger_buff", {duration = 30})
+            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzukis_finger_buff", {duration = BUZUKIS_FINGER_DURATION})
             caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_buzuki_powering_up", {duration = 2.5})
-            ally:AddNewModifier(caster.InventoryUnit, caster.handItem, "modifier_buzuki_finger_lua", {duration = 30})
+            ally:AddNewModifier(caster.InventoryUnit, caster.handItem, "modifier_buzuki_finger_lua", {duration = BUZUKIS_FINGER_DURATION})
         end
     end
 end
