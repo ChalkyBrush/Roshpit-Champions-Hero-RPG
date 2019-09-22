@@ -78,7 +78,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Increases Mana Regen by 50% of your Intelligence"
+		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% SCARECROW_GLOVES_MPREGEN_PER_INT %> Mana Regen."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
