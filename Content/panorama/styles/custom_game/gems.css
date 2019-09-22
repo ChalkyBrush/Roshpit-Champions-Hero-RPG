@@ -313,9 +313,137 @@
 
 #socket_item_main{
 	horizontal-align:center;
-	margin-top:50px;
+	margin-top:40px;
 }
 
 #gemforger-item-start-main{
 	width:100%;
+}
+
+#gemforging_main_socket_attacher{
+	width:100%;
+	flow-children:down;
+	margin-top:105px;
+}
+
+.gemforging_main_no_socket_root{
+	width:100%;
+}
+
+#socket_name{
+	margin-top:5px;
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:24px;
+	color:white;	
+	text-align:center;
+}
+
+#no_socket_text{
+	margin-top:40px;
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:18px;
+	color:#ccc09f;	
+	text-align:center;
+}
+
+.gemforging_main_socket_root{
+	width:100%;
+}
+#socket_seperator{
+	width:92%;
+	horizontal-align:center;
+	height:2px;
+	background-color: #555555;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+#socket_summary_text{
+	margin-top:40px;
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:18px;
+	text-align:center;
+}
+
+.gem_color_open{
+	color:#ccc09f;
+}
+
+.gem_color_ruby{
+	color:#f02929;
+}
+
+.gem_color_emerald{
+	color:#36d63b;
+}
+
+.gem_color_sapphire{
+	color:#388af5;
+}
+
+.gem_color_amethyst{
+	color:#c744b8;
+}
+
+#socket_gems_attacher{
+	width:100%;
+	margin-top:65px;
+	flow-children:down;
+}
+.socket_gems_list_root{
+	width:100%;
+}
+.socket_gems_list_row{
+	width:100%;
+	margin-bottom:5px;
+}
+#socket_gems_list_row_attacher{
+	horizontal-align:center;
+	flow-children:right;
+}
+#socket_gem_image{
+	width:36px;
+	height:36px;
+	horizontal-align:center;
+	vertical-align: center;
+}
+
+
+
+.socket_gem_root{
+	border-radius:100%;
+	
+	margin-left:20px;
+	margin-right:20px;
+	width:40px;
+	height:40px;
+}
+
+#socket_gem_overlay{
+	width:80%;
+	height:80%;
+	vertical-align: center;
+	horizontal-align:center;
+}
+
+.socket_gem_hoverable{
+	background-color: #111111;
+}
+
+.socket_gem_hoverable:hover{
+	background-color: #AAAAAA;
+}
+
+.socket_gems_list_row_background{
+	height:4px;
+	background-color: #111111;
+	margin-top:18px;
+	width:50%;
+	horizontal-align:center;
 }

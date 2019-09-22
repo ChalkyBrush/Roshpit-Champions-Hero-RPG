@@ -146,6 +146,8 @@ function Gems:PanoramaInput(msg)
 		Gems:CollectReward(msg)
 	elseif msg.event_type == "item_up_for_forging" then
 		Gems:ItemUpForForging(msg)
+	elseif msg.event_type == "insert_gem" then
+		Gems:InsertGem(msg)
 	end
 end
 
@@ -241,5 +243,27 @@ function Gems:CanItemTakeGems(item)
 		end
 	else
 		return false
+	end
+end
+
+function Gems:IsValidGemInput(item, socket_number, gem, gem_level)
+	return true
+end
+
+function Gems:InsertGem(msg)
+	local item = EntIndexToHScript(msg.item)
+	local playerID = msg.PlayerID
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	if Gems:CanItemTakeGems(item) and Gems:IsValidGemInput(item, msg.socket_number, msg.gem, msg.gem_level) then
+		Gems:SetSocket(item, msg.socket_number, msg.gem, msg.gem_level)
+		EmitSoundOn("NPC.Blacksmith.AddSocket", hero)
+		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
+		ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin()+Vector(0,0,1000))
+		Timers:CreateTimer(1.5, function()
+			EmitSoundOn("NPC.Blacksmith.AddSocket2", hero)
+		end)
+		EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
 	end
 end

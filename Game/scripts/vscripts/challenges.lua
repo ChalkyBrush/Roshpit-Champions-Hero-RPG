@@ -277,7 +277,7 @@ function Challenges:FinalSocket(msg)
 		end
 		if Gems:CanItemBeSocketed(item) then
 			local amount = math.min(cost*-1, -1)
-			-- Challenges:ModifyMithril(amount, hero, "socket")
+			Challenges:ModifyMithril(amount, hero, "socket")
 			if IsValidEntity(cutter:GetContainer()) then
 				UTIL_Remove(cutter:GetContainer())
 			end

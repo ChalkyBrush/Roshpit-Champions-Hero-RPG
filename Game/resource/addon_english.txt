@@ -1189,6 +1189,33 @@
 
 		"gemforge_item_select_help"									"Select an equipped item or drag an item from your inventory into the slot to view gem forging options."
 		"gemforge_item_cannot_be_forged"							"This item does not have any sockets."
+		"ui_socket"													"Socket"
+		"ui_no_socket"												"No Socket"
+		"ui_open_socket"											"Open Socket"
+
+		"gems_ruby1"												"Chipped Ruby"
+		"gems_ruby2"												"Flawed Ruby"
+		"gems_ruby3"												"Ordinary Ruby"
+		"gems_ruby4"												"Pristine Ruby"
+		"gems_ruby5"												"Perfect Ruby"
+
+		"gems_emerald1"												"Chipped Emerald"
+		"gems_emerald2"												"Flawed Emerald"
+		"gems_emerald3"												"Ordinary Emerald"
+		"gems_emerald4"												"Pristine Emerald"
+		"gems_emerald5"												"Perfect Emerald"
+
+		"gems_sapphire1"												"Chipped Sapphire"
+		"gems_sapphire2"												"Flawed Sapphire"
+		"gems_sapphire3"												"Ordinary Sapphire"
+		"gems_sapphire4"												"Pristine Sapphire"
+		"gems_sapphire5"												"Perfect Sapphire"
+
+		"gems_amethyst1"												"Chipped Amethyst"
+		"gems_amethyst2"												"Flawed Amethyst"
+		"gems_amethyst3"												"Ordinary Amethyst"
+		"gems_amethyst4"												"Pristine Amethyst"
+		"gems_amethyst5"												"Perfect Amethyst"
 
 	    //------------------------
 		// World

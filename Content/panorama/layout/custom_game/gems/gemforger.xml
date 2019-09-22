@@ -86,8 +86,43 @@
 						</Panel>
 					</Panel>
 				</DOTAItemImage>
+				<Panel id="gemforging_main_socket_attacher">
+				</Panel>
+				<Panel id="gemforging_socket_tooltip">
+				</Panel>
 	    	</Panel>
 	    </snippet>
+	    <snippet name="gemforging_main_socket_snippet_no_socket">
+	    	<Panel class="gemforging_main_no_socket_root">
+	    		<Label id="socket_name"/>
+	    		<Label id="no_socket_text" text="ui_no_socket"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="gemforging_main_socket_snippet">
+	    	<Panel class="gemforging_main_socket_root">
+	    		<Label id="socket_name"/>
+	    		<Label id="socket_summary_text" text="none"/>
+	    		<Panel id="socket_gems_attacher"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="socket_gems_list">
+	    	<Panel class="socket_gems_list_root">
+	    		<Panel class="socket_gems_list_row_background">
+	    		</Panel>
+	    		<Panel class="socket_gems_list_row">
+	    			<Panel id="socket_gems_list_row_attacher">
+	    			</Panel>
+	    		</Panel>
+
+	    	</Panel>
+	    </snippet>
+	    <snippet name="socket_gem">
+	    	<Panel class="socket_gem_root">
+	    		<Image id="socket_gem_image" hittest="false"/>
+	    		<Image id="socket_gem_overlay" hittest="false"/>
+	    	</Panel>
+	    </snippet>
+
 	</snippets>
 
 	<Panel class="gemforger_content" hittest="false">

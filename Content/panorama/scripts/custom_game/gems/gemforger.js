@@ -111,7 +111,86 @@ function ItemGemforgeMenu(msg){
         gemforge_item = item
         manageSocketsWithRoot(item_panel, item)
         mTooltipPanel = item_panel
+
+        var item_table = CustomNetTables.GetTableValue( "item_basics", item.toString() );
+        var socket_attacher = gemforger_item_main.FindChildTraverse('gemforging_main_socket_attacher')
+        var gems_total_array = [item_table.socket1, item_table.socket2]
+        if (!(item_table.socket1===undefined) && !(item_table.socket1=="none")){
+        	make_gemforge_socket_panel(1, socket_attacher, item, item_table.socket1, item_table.socket1value, gems_total_array)
+        }else{
+        	var socket1panel = $.CreatePanel("Panel", socket_attacher, "main_socket_panel1")
+        	socket1panel.BLoadLayoutSnippet('gemforging_main_socket_snippet_no_socket')
+        	socket1panel.FindChildTraverse('socket_name').text = $.Localize("ui_socket") + " 1"
+        }
+        var socket_seperator = $.CreatePanel("Panel", socket_attacher, "socket_seperator")
+        if (!(item_table.socket2===undefined) && !(item_table.socket2=="none")){
+        	make_gemforge_socket_panel(2, socket_attacher, item, item_table.socket2, item_table.socket2value, gems_total_array)
+        }else{
+        	var socket2panel = $.CreatePanel("Panel", socket_attacher, "main_socket_panel2")
+        	socket2panel.BLoadLayoutSnippet('gemforging_main_socket_snippet_no_socket')
+        	socket2panel.FindChildTraverse('socket_name').text = $.Localize("ui_socket") + " 2"
+        }
 	}
+}
+
+function make_gemforge_socket_panel(socket_number, socket_attacher, item, socket, socket_value, gems_total_array){
+	var socket_panel = $.CreatePanel("Panel", socket_attacher, "main_socket_panel"+socket_number)
+	socket_panel.BLoadLayoutSnippet('gemforging_main_socket_snippet')
+	socket_panel.FindChildTraverse('socket_name').text = $.Localize("ui_socket") + " " + socket_number
+	if (socket == "open"){
+		socket_panel.FindChildTraverse('socket_summary_text').text = $.Localize('ui_open_socket')
+	}else{
+		socket_panel.FindChildTraverse('socket_summary_text').text = $.Localize("gems_"+socket+socket_value)
+	}
+	socket_panel.FindChildTraverse('socket_summary_text').AddClass('gem_color_'+socket)
+
+	if (socket == "open"){
+		var parent = socket_panel.FindChildTraverse('socket_gems_attacher')
+		if (!(gems_total_array[0] == "ruby" || gems_total_array[1] == "ruby")){
+			attach_gems_list(parent, "ruby", 0, item, socket_number)
+		}
+		if (!(gems_total_array[0] == "sapphire" || gems_total_array[1] == "sapphire")){
+			attach_gems_list(parent, "sapphire", 0, item, socket_number)
+		}
+		if (!(gems_total_array[0] == "emerald" || gems_total_array[1] == "emerald")){
+			attach_gems_list(parent, "emerald", 0, item, socket_number)
+		}
+		if (!(gems_total_array[0] == "amethyst" || gems_total_array[1] == "amethyst")){
+			attach_gems_list(parent, "amethyst", 0, item, socket_number)
+		}
+	}else{
+		var parent = socket_panel.FindChildTraverse('socket_gems_attacher')
+		attach_gems_list(parent, socket, socket_value, item, socket_number)
+	}
+}
+
+function attach_gems_list(parent, gem, gem_level, item, socket_number){
+	var attacher = $.CreatePanel("Panel", parent, "gems-list")
+	attacher.BLoadLayoutSnippet('socket_gems_list')
+	list_attacher = attacher.FindChildTraverse('socket_gems_list_row_attacher')
+	for (i = 1; i <= 5; i++) {
+		var gem_panel = $.CreatePanel("Panel", list_attacher, "gem-"+gem+i)
+		gem_panel.BLoadLayoutSnippet('socket_gem')
+		gem_panel.FindChildTraverse('socket_gem_image').SetImage("file://{images}/items/gems/"+gem+i+".png")
+		if (i <= gem_level){
+			gem_panel.FindChildTraverse('socket_gem_overlay').SetImage("file://{images}/custom_game/ui/trade-y.png")
+		}else{
+			gem_panel.AddClass('socket_gem_hoverable')
+			set_gem_click(gem_panel, gem, i, item, socket_number)
+		}
+	}
+}
+
+function set_gem_click(gem_panel, gem, gem_level, item, socket_number){
+	gem_panel.SetPanelEvent("onactivate", function GemClick() {
+		gem_click(gem, gem_level, item, socket_number)
+	})
+}
+
+function gem_click(gem, gem_level, item, socket_number){
+	GameEvents.SendCustomGameEventToServer( "gems", {event_type: "insert_gem", item: item, gem: gem, gem_level: gem_level, socket_number: socket_number});
+	Game.EmitSound("Gemforger.UI.CollectReward")
+	CloseGemforger()
 }
 
 function CloseGemforger(){
