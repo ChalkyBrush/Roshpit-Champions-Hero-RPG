@@ -12456,7 +12456,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"С 20% шансом при базовой атаке герой нанесет @special_property1x Чистый урон по области, превращая задетых врагов в золото и замораживая их на 2 секунды. Максимум 1 заморозка за 5 секунд."
+		"property_hand_of_midas_description"		"С <font color='#ccff66'>20</font>% шансом при базовой атаке герой нанесет <font color='#ccff66'>50</font>x Чистый урон по области <font color='#ccff66'>340</font>, превращая задетых врагов в золото и замораживая их на <font color='#ccff66'>2</font> секунды. Максимум 1 заморозка за <font color='#ccff66'>5</font> секунд."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
@@ -12497,19 +12497,19 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
 		"item_property_mountain_vambraces"			"Craggy Shock"
-		"property_mountain_vambraces_description"	"Ваши атаки с 15% шансом (10% дальний бой) оглушат противников в небольшой зоне действия на 2 секунды и нанесут магический урон в размере @special_property1х вашей Силы. Враги могут быть оглушены лишь раз в 4 секунды.<br>Весь урон, напрямую наносимый предметами увеличен на @special_property2% за каждые 10 очков Силы."
+		"property_mountain_vambraces_description"	"Ваши атаки с <font color='#ccff66'>15</font>% шансом оглушат противников в небольшой зоне действия на <font color='#ccff66'>2</font> секунды и нанесут магический урон в размере <font color='#ccff66'>1500</font>х вашей Силы.<br>Весь урон, напрямую наносимый предметами увеличен на <font color='#ccff66'>0.3</font>% за каждые <font color='#ccff66'>10</font> очков Силы."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный @special_property1x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
+		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный <font color='#ccff66'>3</font>x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Получит увеличенный урон от лазера"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
 		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Увеличивает урон на 150%. Увеличивает весь пост-резистный физический урон на 200%."
+		"property_power_ranger_description"			"Увеличивает урон на <font color='#ccff66'>250</font>%. Увеличивает весь пост-резистный физический урон на <font color='#ccff66'>200</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
@@ -12538,7 +12538,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
 		"item_property_farseer_glove"				"Spell Strike"
-		"property_farseer_description"				"Базовый урон увеличивается на 1% от вашего последнего нанесенного магического урона<br>(Для расчёта берётся значение, полученное до вычислений со снижением урона).<br>Эффект длится 15 секунд и не складывается.<br>Максимальное значение бонуса равно 50х основного атрибута."
+		"property_farseer_description"				"Базовый урон увеличивается на <font color='#ccff66'>1</font>% от вашего последнего нанесенного магического урона<br>(Для расчёта берётся значение, полученное до вычислений со снижением урона).<br>Эффект длится <font color='#ccff66'>15</font> секунд и не складывается.<br>Максимальное значение бонуса равно <font color='#ccff66'>50</font>х основного атрибута."
 		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
 		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"Увеличивает основной урон в зависимости от нанесенного магического урона"
 		
@@ -12552,17 +12552,17 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Увеличивает весь Пост-Резистный урон на 100%. Каждое прочтение любого заклинания тратит 20% от макс. здоровья героя. Каждая атака тратит 7% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
+		"property_mordiggus_description"					"Увеличивает весь Пост-Резистный урон на <font color='#ccff66'>4</font>% за каждый отсутствующий процент здоровья. Каждое прочтение любого заклинания тратит <font color='#ccff66'>20</font>% от макс. здоровья героя. Каждая атака тратит <font color='#ccff66'>7</font>% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
 		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Базовый урон атаки увеличивается на @special_property1х вашей брони."
+		"property_ironbound_gloves_description"				"Базовый урон атаки увеличивается на <font color='#ccff66'>12</font>х вашей брони."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на 100%, а все ближайшие противники будут ежесекундно получать магический урон в размере 50% от основного урона героя. Каждая базовая атака поглощает 1 заряд. Максимум 5 зарядов. Длительность 10 секунд."
+		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на <font color='#ccff66'>100</font>%, а все ближайшие противники в радиусе <font color='#ccff66'>400</font> будут ежесекундно получать магический урон в размере <font color='#ccff66'>150</font>%  от силы атаки героя. Каждая базовая атака поглощает 1 заряд. Максимум <font color='#ccff66'>5</font> зарядов. Длительность <font color='#ccff66'>30</font> секунд."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Каждый заряд дарует увеличение базового урона, а ближайшие враги получают ежесекундный урон."
 		 
@@ -12609,7 +12609,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
 		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Каждые @special_property1 сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере @special_property3x общего урона героя<br>и оглушает всех врагов в небольшой области на @special_property4 сек.<br>Максимум зарядов: @special_property2."
+		"property_skulldigger_description"					"Каждые <font color='#ccff66'>1.2</font> сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере <font color='#ccff66'>75</font>x общего урона героя<br>и оглушает всех врагов в небольшой области на <font color='#ccff66'>0.9</font> сек.<br>Максимум зарядов: <font color='#ccff66'>9</font>."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"При получении урона будет израсходован заряд, отправляя в сторону атакующего поток энергии."
 		 
@@ -12624,7 +12624,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Все умения применяются на @special_property1% быстрее."
+		 "property_spellfire_description"						"Задержка применения всех умений уменьшена на <font color='#ccff66'>80</font>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
@@ -12639,18 +12639,18 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на @special_property1%. Когда заряды развеются, 4 ближайших врага в радиусе 1000 получат урон, равный @special_property2% урона героя, умноженного на количество зарядов. Максимум зарядов: @special_property3."
+		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <font color='#ccff66'>30</font>%. Когда заряды развеются, <font color='#ccff66'>4</font> ближайших врага в радиусе <font color='#ccff66'>1000</font> получат урон, равный x<font color='#ccff66'>1</font> урона героя, умноженного на количество зарядов. Максимум зарядов: <font color='#ccff66'>25</font>."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
-		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на 30%%"
+		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <font color='#ccff66'>30</font>%%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
 		"item_property_heavy_echo"						"Reactive Grip"
-		"property_heavy_echo_description"				"Весь наносимый предметами урон, а так же базовый урон способностей наносится еще два раза."
+		"property_heavy_echo_description"				"Весь наносимый предметами урон, а так же базовый урон способностей наносится еще <font color='#ccff66'>2</font> раза."
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"У всего стихийного урона, вторая стихия заменяется на стихию <font color=\"#5B648C\">Демона</font>. Урон от свойства <font color=\"#E4AE33\">ДОПОЛНЕНИЕ К СПОСОБНОСТИ</font> снижается на x<font color='#ccff66'>0.3</font>."
+		"property_depth_demon_claw_Description"									"У всего стихийного урона, вторая стихия заменяется на стихию <font color=\"#5B648C\">Демона</font>. Урон от свойства <font color=\"#E4AE33\">АУГМЕНТАЦИЯ</font> снижается на x<font color='#ccff66'>0.3</font>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	

@@ -34636,7 +34636,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "150"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "250"
 				}
 			}
 		}
@@ -42284,7 +42284,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"1"
 			}
 			"05"
 			{
@@ -42477,7 +42477,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "12"
 				}
 			}
 		}
@@ -43169,26 +43169,6 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"1.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"9"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_three"		"75.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"		"0.9"
-			}
-			"05"
-			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"		"17"
 			}
@@ -43209,7 +43189,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"skulldigger_think"
 						"target"		"TARGET"
-						"max_stacks"	"%property_two"
+						"max_stacks"	"9"
 					}
 				}
 				"OnDestroy"
@@ -43243,8 +43223,8 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"skulldigger_hellfire_hit"
 				"target"        "TARGET"
-				"stun_duration"	"%property_four"
-				"attack_mult"	"%property_three"
+				"stun_duration"	"0.9"
+				"attack_mult"	"75"
 			}
 		}
 	}
@@ -43496,29 +43476,6 @@
 						"target"		"TARGET"
 					}
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"11"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"90"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"		"6"
 			}
 		}
 	}
