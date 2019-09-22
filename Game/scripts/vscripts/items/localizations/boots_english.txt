@@ -94,7 +94,7 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
 		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by 30% of their base cooldown."
+		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by <% VOYAGER_BOOTS_E_RED %>% of their base cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
