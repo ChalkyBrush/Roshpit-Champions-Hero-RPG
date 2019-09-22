@@ -12477,7 +12477,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT %>"
 			}
 		}
 	}
