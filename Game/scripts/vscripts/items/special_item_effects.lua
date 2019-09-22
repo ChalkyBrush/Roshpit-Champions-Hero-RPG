@@ -4746,8 +4746,8 @@ function demonfire_attack_land(event)
 	local target = event.attacker
 	local ability = event.ability
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_demonfire_stack", {duration = 6})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_demonfire_stack", caster) + 1, 25)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_demonfire_stack", {duration = DEMONFIRE_STACK_DURATION})
+	local newStacks = math.min(target:GetModifierStackCount("modifier_demonfire_stack", caster) + 1, DEMONFIRE_STACKS)
 	target:SetModifierStackCount("modifier_demonfire_stack", caster, newStacks)
 	ability.stacks = newStacks
 end
@@ -4756,10 +4756,10 @@ function demonfire_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-	local maxTargets = 4
+	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, DEMONFIRE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+	local maxTargets = DEMONFIRE_NUMBER_ENEMIES
 	local currentTargets = 0
-	local damage = ability.stacks * OverflowProtectedGetAverageTrueAttackDamage(target)
+	local damage = ability.stacks * OverflowProtectedGetAverageTrueAttackDamage(target) * DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK
 	if #enemies > 0 then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.Demonfire", target)
 		for _, enemy in pairs(enemies) do

@@ -256,7 +256,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by @special_property1%. When the buff ends, the 4 closest enemies within a 1000 radius are damaged by @special_property2% of attack power times the number of stacks. Max @special_property3 stacks."
+		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%. When the buff ends, the <% DEMONFIRE_NUMBER_ENEMIES %> closest enemies within a <% DEMONFIRE_RADIUS %> radius are damaged by x<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %> of attack power times the number of stacks. Max <% DEMONFIRE_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
 		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Each stack increases Elemental damage by 30%%"
 		

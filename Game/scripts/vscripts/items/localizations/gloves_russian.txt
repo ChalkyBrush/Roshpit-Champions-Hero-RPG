@@ -256,9 +256,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на @special_property1%. Когда заряды развеются, 4 ближайших врага в радиусе 1000 получат урон, равный @special_property2% урона героя, умноженного на количество зарядов. Максимум зарядов: @special_property3."
+		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%. Когда заряды развеются, <% DEMONFIRE_NUMBER_ENEMIES %> ближайших врага в радиусе <% DEMONFIRE_RADIUS %> получат урон, равный x<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %> урона героя, умноженного на количество зарядов. Максимум зарядов: <% DEMONFIRE_STACKS %>."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
-		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на 30%%"
+		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
