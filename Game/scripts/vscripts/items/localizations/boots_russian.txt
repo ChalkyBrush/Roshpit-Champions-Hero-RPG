@@ -11,7 +11,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
 		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Сокращает время перезарядки способности (E) @Ability3 на 2 секунды."
+		"property_dunetread_description"			"Сокращает время перезарядки способности (E) @Ability3 на <% DUNETREADS_CD_RED %> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
@@ -146,9 +146,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"Когда скорость героя ниже ABLECORE_GREAVES_MS_REQ, весь входящий урон снижен на ABLECORE_GREAVES_DMG_RED%, а исходящий урон увеличен на ABLECORE_GREAVES_POST_MITI%. Эффект будет действовать еще ABLECORE_GREAVES_STICKY_DURATION секунд после того, как скорость героя станет выше необходимого уровня."
+		"property_ablecore_greaves_description"			"Когда скорость героя ниже <% ABLECORE_GREAVES_MS_REQ %>, весь входящий урон снижен на <% ABLECORE_GREAVES_DMG_RED %>%, а исходящий урон увеличен на <% ABLECORE_GREAVES_POST_MITI %>%. Эффект будет действовать еще <% ABLECORE_GREAVES_STICKY_DURATION %> секунд после того, как скорость героя станет выше необходимого уровня."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на ABLECORE_GREAVES_DMG_RED%%, исходящий повышен на ABLECORE_GREAVES_POST_MITI%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на <% ABLECORE_GREAVES_DMG_RED %>%%, исходящий повышен на <% ABLECORE_GREAVES_POST_MITI %>%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
