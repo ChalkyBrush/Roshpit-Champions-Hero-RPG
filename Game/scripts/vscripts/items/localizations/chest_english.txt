@@ -251,7 +251,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
 		"item_property_knight_crusher"						"Overpower"
-		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by 50%, and stun durations are considered 50% shorter when added to an enemy's stun immunity counter."
+		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <% STAGGERING_KNIGHT_CRUSHER_STUN_DURATION_INCREASE %>%, and stun durations are considered <% STAGGERING_KNIGHT_CRUSHER_STUN_IMMUNITY_COUNTER_DECREASE %>% shorter when added to an enemy's stun immunity counter."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"

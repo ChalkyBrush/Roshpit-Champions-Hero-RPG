@@ -251,7 +251,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
 		"item_property_knight_crusher"						"Overpower"
-		"property_knight_crusher_description"				"Время оглушений от способностей и предметов увеличено на 50%. Добавляет на 50% меньше времени к иммунитету врагов к оглушению."
+		"property_knight_crusher_description"				"Время оглушений от способностей и предметов увеличено на <% STAGGERING_KNIGHT_CRUSHER_STUN_DURATION_INCREASE %>%. Добавляет на <% STAGGERING_KNIGHT_CRUSHER_STUN_IMMUNITY_COUNTER_DECREASE %>% меньше времени к иммунитету врагов к оглушению."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
