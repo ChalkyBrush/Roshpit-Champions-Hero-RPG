@@ -2102,7 +2102,7 @@ function onu_attack_land(event)
 	if target.dummy then
 		return false
 	end
-	local proc = Filters:GetProc(attacker, 35)
+	local proc = Filters:GetProc(attacker, GLINT_OF_ONU_CHANCE)
 	if target:HasModifier("modifier_glint_no_proc") then
 		local newNoProcStacks = target:GetModifierStackCount("modifier_glint_no_proc", caster) - 1
 		if newNoProcStacks > 0 then
@@ -2122,7 +2122,7 @@ function onu_attack_land(event)
 			local newPosition = WallPhysics:WallSearch(position, newPosition, target)
 			FindClearSpaceForUnit(attacker, newPosition, false)
 			attacker:SetForwardVector(target:GetForwardVector() * Vector(1, 1, 0))
-			event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_blinded_glint_buff", {duration = 0.8})
+			event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_blinded_glint_buff", {duration = GLINT_OF_ONU_BUFF_DUR})
 
 			local particleName = "particles/econ/items/meepo/meepo_diggers_divining_rod/meepo_divining_rod_poof_end_rays_burst.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)

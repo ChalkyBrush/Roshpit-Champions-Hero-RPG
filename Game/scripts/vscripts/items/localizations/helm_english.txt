@@ -162,7 +162,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
 		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"35% chance on attack to teleport behind your target and gain max attack speed for 0.8 seconds. Additionally perform 2 immediate bonus attacks on proc."
+		"property_glint_of_onu_description"			"<% GLINT_OF_ONU_CHANCE %>% chance on attack to teleport behind your target and gain max attack speed for <% GLINT_OF_ONU_BUFF_DUR %> seconds. Additionally perform <% GLINT_OF_ONU_NUMBER_OF_BONUS_ATTACKS %> immediate bonus attacks on proc."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"

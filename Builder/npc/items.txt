@@ -21155,7 +21155,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1200"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% GLINT_OF_ONU_AS_BONUS %>"
 				}
 			}
 			"modifier_glint_no_proc"
