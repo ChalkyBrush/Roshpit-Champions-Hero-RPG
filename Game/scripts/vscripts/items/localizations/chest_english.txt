@@ -298,7 +298,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
 		"item_property_tanari_wind_armor"						"Zephyr"
-		"property_tanari_wind_armor_description"				"Enemies within 500 radius have their movespeed reduced by 80%, their attack speed slowed by 100, and have a 30% miss chance."
+		"property_tanari_wind_armor_description"				"Enemies within <% ANCIENT_TANARI_WIND_RADIUS %> radius have their movespeed reduced by <% ANCIENT_TANARI_WIND_MS_REDUCTION %>%, their attack speed slowed by <% ANCIENT_TANARI_WIND_AS_REDUCTION %>, and have a <% ANCIENT_TANARI_WIND_MISS_CHANCE %>% miss chance."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
