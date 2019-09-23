@@ -1495,7 +1495,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
             local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
-            damageMult = damageMult + shipyardStacks
+            damageMult = damageMult + shipyardStacks*(SHIPYARD_VEIL_BAD_PER_STACK/100)
             if not ignore_effects then
                 Filters:ShipyardVeilQHit(attacker, victim)
             end
@@ -4254,7 +4254,7 @@ function Filters:ShipyardVeilQHit(attacker, victim)
     local ability = attacker.headItem
     if not ability.lock then
         ability.lock = true
-        local maxStacks = ability:GetSpecialValueFor("property_one")
+        local maxStacks = SHIPYARD_VEIL_MAX_STACKS
         ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_shipyard_veil_shield", {})
         local newStacks = math.min(maxStacks, attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit) + 1)
         attacker:SetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit, newStacks)

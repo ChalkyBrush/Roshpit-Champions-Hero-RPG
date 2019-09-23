@@ -17,7 +17,7 @@
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
-		 "property_shipyard_veil_3_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Враг, атаковавший героя во время активного щита будет ответно атакован черепом, который нанесёт магический урон в размере @special_property3x от основного атрибута героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		 "property_shipyard_veil_3_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - <% SHIPYARD_VEIL_MAX_STACKS %>, минимальный интервал создания щитов <% SHIPYARD_SHIELD_COOLDOWN %>. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Враг, атаковавший героя во время активного щита будет ответно атакован черепом, который нанесёт магический урон в размере <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x от основного атрибута героя."
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"

@@ -3881,7 +3881,7 @@ function shipyard_veil_lvl_3_hit(event)
 	if not caster then
 		return false
 	end
-	local damage = Filters:GetPrimaryAttributeMultiple(caster, ability:GetLevelSpecialValueFor("property_three", 1))
+	local damage = Filters:GetPrimaryAttributeMultiple(caster, ability:GetLevelSpecialValueFor("property_three", SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG))
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end
 
