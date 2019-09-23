@@ -3113,7 +3113,7 @@ function Filters:SecretTemple(caster)
 end
 
 function Filters:VampiricBreastplate(caster, damage)
-    local heal = math.max(math.floor(damage * 0.3), 0)
+    local heal = math.max(math.floor(damage * VAMPIRIC_BREASTPLATE_Q_LIFESTEAL/100), 0)
     Filters:ApplyHeal(caster, caster, heal, true)
     if not caster:HasModifier("modifier_vampiric_particle") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_vampiric_particle", {duration = 1})

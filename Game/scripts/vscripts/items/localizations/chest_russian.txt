@@ -101,7 +101,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_property_vampiric_breastplate"		"Vampiric Core"
-		"property_varmpiric_breastplate_description" "30% вампиризм от (Q) @Ability1"
+		"property_varmpiric_breastplate_description" "<% VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% вампиризм от (Q) @Ability1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
