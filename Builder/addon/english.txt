@@ -1191,7 +1191,7 @@
 		"gemforge_item_cannot_be_forged"							"This item does not have any sockets."
 		"ui_socket"													"Socket"
 		"ui_no_socket"												"No Socket"
-		"ui_open_socket"											"Open Socket"
+		"ui_open_socket"											"Empty Socket"
 
 		"gems_ruby1"												"Chipped Ruby"
 		"gems_ruby2"												"Flawed Ruby"
