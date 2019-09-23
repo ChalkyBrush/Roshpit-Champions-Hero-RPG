@@ -56,7 +56,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"
 		"item_property_sorcerers_regalia"			"Spellbinder"
-		"property_sorcerers_regalia_description"	"Post-Mitigation magic damage output increased by 40%."
+		"property_sorcerers_regalia_description"	"Post-Mitigation magic damage output increased by <% SORCERERS_REGALIA_MAGIC_POST_MITI %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"

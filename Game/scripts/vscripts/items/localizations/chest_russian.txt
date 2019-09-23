@@ -56,7 +56,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"
 		"item_property_sorcerers_regalia"			"Spellbinder"
-		"property_sorcerers_regalia_description"	"Весь исходящий пост-резистный магический урон увеличен на 40%."
+		"property_sorcerers_regalia_description"	"Весь исходящий пост-резистный магический урон увеличен на <% SORCERERS_REGALIA_MAGIC_POST_MITI %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
