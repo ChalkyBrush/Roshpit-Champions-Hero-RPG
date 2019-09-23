@@ -293,7 +293,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на @special_property1"
+		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на <% VERMILLION_DREAM_CAST_RANGE_INCREASE %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"

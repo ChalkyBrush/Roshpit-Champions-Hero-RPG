@@ -251,7 +251,7 @@ function Filters:GetAdjustedRange(caster, baseRange)
         baseRange = baseRange + 140
     end
     if caster:HasModifier("modifier_vermillion_dream_lua") then
-        baseRange = baseRange + 420
+        baseRange = baseRange + VERMILLION_DREAM_CAST_RANGE_INCREASE
     end
     return baseRange
 end
