@@ -1322,7 +1322,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_watcher_two") then
-            damageMult = damageMult + 0.15
+            damageMult = damageMult + WATCHER_II_BAD/100
         end
         if attacker:HasModifier("modifier_eye_of_avernus") then
             damageMult = damageMult + 0.5
@@ -2909,7 +2909,7 @@ function Filters:SeraphicVest(caster)
 end
 
 function Filters:WatcherOne(caster)
-    local proc = Filters:GetProc(caster, 25)
+    local proc = Filters:GetProc(caster, WATCHER_I_REFRESH_CHANCE)
     if proc then
         local ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
         ability:EndCooldown()

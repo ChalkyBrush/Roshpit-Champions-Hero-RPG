@@ -40,14 +40,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
 		"item_property_seraphic_soulvest"			"Seraphic Lance"
-		"property_seraphic_soulvest_description"	"С каждым прочтением (W) @Ability2 в случайного противника в большом радиусе будет отправлено небесное копьё, которое нанесёт чистый урон в размере 50% от общего урона героя, умноженного на уровень умения (W) @Ability2."
+		"property_seraphic_soulvest_description"	"С каждым прочтением (W) @Ability2 в случайного противника в большом радиусе будет отправлено небесное копьё, которое нанесёт чистый урон в размере <% SERAPHIC_SOULVEST_ATTACK_TO_DMG %>% от общего урона героя, умноженного на уровень умения (W) @Ability2."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
 		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Каждое прочтение (Q) @Ability1 даёт вам 25% шанс сбросить время перезарядки (R) @Ability4."
+		"property_watcher_one_description"			"Каждое прочтение (Q) @Ability1 даёт вам <% WATCHER_I_REFRESH_CHANCE %>% шанс сбросить время перезарядки (R) @Ability4."
 		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Увеличивает Базовый Урон Способностей на 15%."
+		"property_watcher_two_description"			"Увеличивает Базовый Урон Способностей на <% WATCHER_II_BAD %>%."
 		"item_property_watcher_three"				"Watcher III"
 		"property_watcher_three_description"		"Увеличивает Базовый Урон Способности (W) @Ability2 на 35%."
 		"item_property_watcher_four"				"Watcher IV"

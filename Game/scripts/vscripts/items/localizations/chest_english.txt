@@ -45,9 +45,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
 		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Every cast of @Ability has a 25% chance to instantly refresh the cooldown of @Ability4."
+		"property_watcher_one_description"			"Every cast of @Ability has a <% WATCHER_I_REFRESH_CHANCE %>% chance to instantly refresh the cooldown of @Ability4."
 		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Increases the damage of all Base Abilities by 15%."
+		"property_watcher_two_description"			"Increases the damage of all Base Abilities by <% WATCHER_II_BAD %>%."
 		"item_property_watcher_three"				"Watcher III"
 		"property_watcher_three_description"		"Increases the Base Ability Damage of @Ability2 by 35%."
 		"item_property_watcher_four"				"Watcher IV"
