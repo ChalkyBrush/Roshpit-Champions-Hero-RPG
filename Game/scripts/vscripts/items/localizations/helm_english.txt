@@ -307,17 +307,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by 40%."
+		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by 1 second."
+		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> second."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by 40%."
+		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	

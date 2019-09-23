@@ -291,12 +291,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (@special_property4* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на @special_property2 и снижает скорость атаки на @special_property1. Все находящиеся в лаве враги каждые 0.5 секунды получают @special_property3x урон героя."
+		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (<% IGNEOUS_CANINE_STUN_DURATION %>* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на <% IGNEOUS_CANINE_MOVESPEED_SLOW %> и снижает скорость атаки на <% IGNEOUS_CANINE_AS_SLOW %>. Все находящиеся в лаве враги каждые <% IGNEOUS_CANINE_LAVA_INTERVAL %> секунды получают <% IGNEOUS_CANINE_ATTACK_TO_DMG %>x урон героя."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"Во время прочтения (R) @Ability4 перед героем выпускается мощный поток огня, наносящий урон, равный @special_property1% от урона героя за каждый тик. Каждый задетый пламенем враг сокращает текущее время перезарядки (R) @Ability4 на @special_property2 сек."
+		"property_burning_spirit_description"					"Во время прочтения (R) @Ability4 перед героем выпускается мощный поток огня, наносящий урон, равный <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% от урона героя за каждый тик. Каждый задетый пламенем враг сокращает текущее время перезарядки (R) @Ability4 на <% BURNING_SPIRIT_CD_RED %> сек."
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
@@ -306,17 +306,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"(Q) @Ability1 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (Q) @Ability1 на 40%."
+		"property_twisted_mask_of_ahnqhir_a_Description"									"(Q) @Ability1 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (Q) @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"(W) @Ability2 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (W) @Ability2 на 1 секунду."
+		"property_twisted_mask_of_ahnqhir_b_Description"									"(W) @Ability2 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (W) @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> секунду."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"(E) @Ability3 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (E) @Ability3 на 40%."
+		"property_twisted_mask_of_ahnqhir_c_Description"									"(E) @Ability3 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (E) @Ability3 на <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	

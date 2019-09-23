@@ -451,7 +451,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = abilityCooldown - CDreduce
 
     if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
-        abilityCooldown = abilityCooldown * 0.6
+        abilityCooldown = abilityCooldown * (1-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
         if caster:GetHealth() <= caster:GetMaxHealth() * 0.3 then
@@ -856,7 +856,7 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = baseCd * 0.6
+        baseCd = baseCd * (1-TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT)
         ability:EndCooldown()
 
         ability:StartCooldown(baseCd)
@@ -964,7 +964,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_yellow") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = math.max(baseCd - 1, 0)
+        baseCd = math.max(baseCd - TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED, 0)
         ability:EndCooldown()
         ability:StartCooldown(baseCd)
     end
