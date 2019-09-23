@@ -4841,22 +4841,22 @@ function sea_oracle_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_stacker", {duration = 8})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_stacker", {duration = HOOD_OF_SEA_ORACLE_DURATION})
 	local currentMainStacks = target:GetModifierStackCount("modifier_sea_oracle_stacker", caster)
-	local newStacks = math.min(target:GetModifierStackCount("modifier_sea_oracle_stacker", caster) + 1, 15)
+	local newStacks = math.min(target:GetModifierStackCount("modifier_sea_oracle_stacker", caster) + 1, HOOD_OF_SEA_ORACLE_MAX_STACKS)
 	target:SetModifierStackCount("modifier_sea_oracle_stacker", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_health_loss", {duration = 8})
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_armor_loss", {duration = 8})
-	if currentMainStacks < 15 then
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_health_loss", {duration = HOOD_OF_SEA_ORACLE_DURATION})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_armor_loss", {duration = HOOD_OF_SEA_ORACLE_DURATION})
+	if currentMainStacks < HOOD_OF_SEA_ORACLE_MAX_STACKS then
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact_d.vpcf", target, 2)
 		ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin())
-		local attackerReduce = target:GetAttackDamage() * 0.05
+		local attackerReduce = target:GetAttackDamage() * HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT/100
 		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_health_loss", caster)
 		local newStacks = currentStacks + attackerReduce
 		target:SetModifierStackCount("modifier_sea_oracle_health_loss", caster, newStacks)
 
-		local armorReduce = target:GetPhysicalArmorValue(false) * 0.05
+		local armorReduce = target:GetPhysicalArmorValue(false) * HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT/100
 		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_armor_loss", caster)
 		local newStacks = currentStacks + armorReduce
 		target:SetModifierStackCount("modifier_sea_oracle_armor_loss", caster, newStacks)

@@ -2852,8 +2852,8 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then
 		if victim:HasModifier("modifier_sea_oracle_stacker") then
 			local stacks = victim:GetModifierStackCount("modifier_sea_oracle_stacker", attacker.InventoryUnit)
-			if stacks >= 15 then
-				mult = mult + 5.5
+			if stacks >= HOOD_OF_SEA_ORACLE_MAX_STACKS then
+				mult = mult + HOOD_OF_SEA_ORACLE_POST_MITI/100
 				if not victim:HasModifier("modifier_sea_oracle_particle_lock") then
 					local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact.vpcf", victim, 1)
 					ParticleManager:SetParticleControl(pfx, 1, victim:GetAbsOrigin())
