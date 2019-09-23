@@ -7280,7 +7280,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"ThinkInterval"  	"0.2"
+				"ThinkInterval"  	"<% AVALANCHE_PLATE_AVALANCHE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

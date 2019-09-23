@@ -4390,21 +4390,21 @@ function tiny_avalanche_think(event)
 	local target = event.target
 	local ability = event.ability
 	ParticleManager:SetParticleControl(ability.pfx, 0, target:GetAbsOrigin())
-	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, AVALANCHE_PLATE_AVALANCHE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local levelTwo = true
 	if #enemies > 0 then
 		local mult = 6
 		if levelTwo then
-			mult = 15
+			mult = AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG
 		end
 		local damage = target:GetStrength() * mult
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
-			Filters:ApplyStun(target, 0.1, enemy)
+			Filters:ApplyStun(target, AVALANCHE_PLATE_STUN_DUR, enemy)
 			if levelTwo then
 				ability.strikeCount = ability.strikeCount + 1
-				if ability.strikeCount % 20 == 0 then
-					local radius = 800
+				if ability.strikeCount % AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD == 0 then
+					local radius = AVALANCHE_PLATE_EARTHQUAKE_RADIUS
 					local caster = target
 					local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
 					local position = caster:GetAbsOrigin()
@@ -4415,12 +4415,12 @@ function tiny_avalanche_think(event)
 						ParticleManager:DestroyParticle(pfx, false)
 					end)
 					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.Avalanche2Quake", caster)
-					local damage = caster:GetStrength() * 80
+					local damage = caster:GetStrength() * AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG
 					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
 						for _, enemy in pairs(enemies) do
 							Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
-							Filters:ApplyStun(caster, 1.5, enemy)
+							Filters:ApplyStun(caster, AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR, enemy)
 						end
 					end
 				end

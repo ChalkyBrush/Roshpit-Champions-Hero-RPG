@@ -28,7 +28,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"When you finish casting @Ability4, release a 400-radius avalanche which deals @special_property1x your Strength every 0.2 seconds. Struck enemies are stunned for 0.1 seconds. Each enemy hit counts up to 20, at which point you create a massive earthquake that deals<br>@special_property2x Strength to enemies in a 600 radius and stuns them for 1.6 seconds.<br>All damage dealt directly by items is enhanced by @special_property3% for each 10 points of Strength."
+		"property_avalanche_description_2"			"When you finish casting @Ability4, release a <% AVALANCHE_PLATE_AVALANCHE_RADIUS %>-radius avalanche which deals <% AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x your Strength every <% AVALANCHE_PLATE_AVALANCHE_INTERVAL %> seconds. Struck enemies are stunned for <% AVALANCHE_PLATE_STUN_DUR %> seconds. Each enemy hit counts up to <% AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD %>, at which point you create a massive earthquake that deals<br><% AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG %>x Strength to enemies in a <% AVALANCHE_PLATE_EARTHQUAKE_RADIUS %> radius and stuns them for <% AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR %> seconds.<br>All damage dealt directly by items is enhanced by <% AVALANCHE_PLATE_ITEM_AMP_PER_STR %>% for each <% AVALANCHE_PLATE_STR_DIVISOR %> points of Strength."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
