@@ -256,17 +256,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by @special_property1 and Armor by @special_property2"
+		"property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by <% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %> and Armor by <% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Each point of Strength increases attack damage by @special_property1 and Armor by @special_property2"
+		"property_ruby_dragon_armor_description"			"Each point of Strength increases attack damage by <% RUBY_DRAGON_SCALE_ATTACK_PER_STR %> and Armor by <% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Each point of Agility increases attack damage by @special_property1 and Armor by @special_property2"
+		"property_topaz_dragon_description"				"Each point of Agility increases attack damage by <% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %> and Armor by <% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"

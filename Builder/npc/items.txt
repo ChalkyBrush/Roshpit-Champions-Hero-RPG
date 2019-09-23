@@ -9353,12 +9353,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.4"
+				"property_two"		"<% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 			}
 		}
 		"Modifiers"
@@ -9396,8 +9396,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 				}
 			}
 		}
@@ -9435,12 +9435,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% RUBY_DRAGON_SCALE_ATTACK_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.4"
+				"property_two"		"<% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 			}
 		}
 		"Modifiers"
@@ -9478,8 +9478,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% RUBY_DRAGON_SCALE_ATTACK_PER_STR %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 				}
 			}
 		}
@@ -9517,12 +9517,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.4"
+				"property_two"		"<% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 			}
 		}
 		"Modifiers"
@@ -9560,8 +9560,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 				}
 			}
 		}

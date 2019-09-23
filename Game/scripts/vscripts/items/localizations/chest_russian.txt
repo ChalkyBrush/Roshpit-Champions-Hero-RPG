@@ -256,17 +256,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Каждое очко Интеллекта увеличивает урон на @special_property1 и броню на @special_property2"
+		"property_sapphire_dragon_description"				"Каждое очко Интеллекта увеличивает урон на <% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %> и броню на <% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Каждое очко Силы увеличивает урон на @special_property1 и броню на @special_property2"
+		"property_ruby_dragon_armor_description"			"Каждое очко Силы увеличивает урон на <% RUBY_DRAGON_SCALE_ATTACK_PER_STR %> и броню на <% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Каждое очко Ловкости увеличивает урон на @special_property1 и броню на @special_property2"
+		"property_topaz_dragon_description"				"Каждое очко Ловкости увеличивает урон на <% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %> и броню на <% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
