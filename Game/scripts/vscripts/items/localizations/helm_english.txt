@@ -167,7 +167,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
 		"item_property_roknar_emperor"				"Enduring Protection"
-		"property_roknar_emperor_description"		"While stunned or getting knocked back, heal 12% of your max health every 0.25 seconds."
+		"property_roknar_emperor_description"		"While stunned or getting knocked back, heal <% ROKNAR_EMPEROR_HP_PCT %>% of your max health every <% ROKNAR_EMPEROR_TICKRATE %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
@@ -184,7 +184,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
 		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Casting @Ability2 makes you disappear for 0.75seconds, unable to attack, cast spells, move, or take damage. 2 second cooldown. Disjoints oncoming projectiles when activated."
+		"property_wraith_description"				"Casting @Ability2 makes you disappear for <% WRAITH_CROWN_DURATION %> seconds, unable to attack, cast spells, move, or take damage. <% WRAITH_CROWN_CD %> second cooldown. Disjoints oncoming projectiles when activated."
 		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
 		
 		

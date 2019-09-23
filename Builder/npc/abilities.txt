@@ -61753,7 +61753,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "0.25"
+				"ThinkInterval"  "<% ROKNAR_EMPEROR_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

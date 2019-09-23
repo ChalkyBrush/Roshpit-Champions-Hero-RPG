@@ -168,7 +168,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
 		"item_property_roknar_emperor"				"Enduring Protection"
-		"property_roknar_emperor_description"		"Во время оглушения или отталкивания, восстанавливает 12% от макс. здоровья каждые 0.25 секунды."
+		"property_roknar_emperor_description"		"Во время оглушения или отталкивания, восстанавливает <% ROKNAR_EMPEROR_HP_PCT %>% от макс. здоровья каждые <% ROKNAR_EMPEROR_TICKRATE %> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
@@ -183,7 +183,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
 		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Применение способности (W) @Ability2 переводит героя в другое измерение на 0.75 секунды. Находясь в другом измерении герой не может атаковать, читать заклинания, двигаться и получать урон. Восстанавливается 2 секунды. Позволяет уклониться от летящих атак."
+		"property_wraith_description"				"Применение способности (W) @Ability2 переводит героя в другое измерение на <% WRAITH_CROWN_DURATION %> секунды. Находясь в другом измерении герой не может атаковать, читать заклинания, двигаться и получать урон. Восстанавливается <% WRAITH_CROWN_CD %> секунды. Позволяет уклониться от летящих атак."
 		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
 		
 		

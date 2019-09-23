@@ -2154,7 +2154,7 @@ function roknar_think(event)
 		Timers:CreateTimer(0.2, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		local heal = target:GetMaxHealth() * 0.12
+		local heal = target:GetMaxHealth() * ROKNAR_EMPEROR_HP_PCT/100
 		Filters:ApplyHeal(target, target, heal, true)
 	end
 end

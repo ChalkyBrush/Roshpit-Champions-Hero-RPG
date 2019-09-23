@@ -20584,7 +20584,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Duration"		"0.75"
+				"Duration"		"WRAITH_CROWN_DURATION"
 
 				"EffectName"		"particles/units/heroes/hero_puck/wraith_crown.vpcf"
 				"EffectAttachType"	"attach_origin"

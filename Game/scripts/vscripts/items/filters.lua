@@ -3623,8 +3623,8 @@ end
 function Filters:WraithCrown(caster)
     local ability = caster.wraith_crown
     if not caster:HasModifier("modifier_wraith_crown_cooldown") then
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_phased", {duration = 0.75})
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_cooldown", {duration = 2})
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_phased", {duration = WRAITH_CROWN_DURATION})
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_cooldown", {duration = WRAITH_CROWN_CD})
     end
 end
 
