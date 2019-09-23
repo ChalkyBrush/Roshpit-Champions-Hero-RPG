@@ -209,7 +209,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
 		"item_property_grithault"								"Pain Reversal"
-		"property_grithault_description"						"24% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
+		"property_grithault_description"						"<% GRITHAULT_CHANCE %>% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"

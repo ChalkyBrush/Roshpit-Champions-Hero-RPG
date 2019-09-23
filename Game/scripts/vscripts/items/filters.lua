@@ -3881,7 +3881,7 @@ function Filters:AerithsTearTakeDamage(attacker, victim)
 end
 
 function Filters:GrithaultDamage(victim, damage)
-    local proc = Filters:GetProc(victim, 24)
+    local proc = Filters:GetProc(victim, GRITHAULT_CHANCE)
     if proc then
         damage = math.floor(damage)
         Filters:ApplyHeal(victim, victim, damage, true)
