@@ -2548,7 +2548,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:HasModifier("modifier_nightmare_rider_stacks") then
             local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)
-            mult = mult + (stacks * 300) / 100
+            mult = mult + (stacks * NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE) / 100
         end
     end
     if element1 == RPC_ELEMENT_WIND or element2 == RPC_ELEMENT_WIND then
@@ -4141,7 +4141,7 @@ end
 
 function Filters:NightmareRider(caster)
     local shadowCharges = caster:GetModifierStackCount("modifier_nightmare_rider_stacks", caster.InventoryUnit)
-    local shadowRadius = 400 + shadowCharges * 100
+    local shadowRadius = NIGHTMARE_RIDER_RADIUS + shadowCharges * NIGHTMARE_RIDER_RADIUS_INCREASE
     local origin = caster:GetAbsOrigin()
     caster:RemoveModifierByName("modifier_nightmare_rider_stacks")
     local particleName = "particles/roshpit/items/nightmare_rider_mantle_cowlofice.vpcf"
@@ -4158,9 +4158,9 @@ function Filters:NightmareRider(caster)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             enemy:RemoveModifierByName("modifier_nightmare_rider_invisible")
-            ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_effect_visible", {duration = 10})
-            local armorLossStacks = enemy:GetPhysicalArmorValue(false) * 0.8
-            ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_invisible", {duration = 10})
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_effect_visible", {duration = NIGHTMARE_RIDER_DEBUFF_DURATION})
+            local armorLossStacks = enemy:GetPhysicalArmorValue(false) * NIGHTMARE_RIDER_ARMOR_REDUCTION/100
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_invisible", {duration = NIGHTMARE_RIDER_DEBUFF_DURATION})
             enemy:SetModifierStackCount("modifier_nightmare_rider_invisible", caster.InventoryUnit, armorLossStacks)
         end
     end

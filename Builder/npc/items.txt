@@ -10263,7 +10263,7 @@
 				"TextureName"	"itemicons/nightmare_rider_mantle"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% NIGHTMARE_RIDER_SLOW %>"
 				}
 			}
 			"modifier_nightmare_rider_invisible"

@@ -116,7 +116,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"
 		"item_property_nightmare_rider"				"Shadow Melt"
-		"property_nightmare_rider_description"		"Прочтение (Q) @Ability1 дополнительно выпустит поток теней в ближайших врагов, замедляя их на 40% и снижая значение их текущей брони на 80% на 10 секунд, а так же получаемый ими пост-резистный урон увеличивается на 200%. С каждой успешной атакой радиус действия этой способности увеличивается на 50. Каждый активный заряд дополнительно увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> на 30%. Максимум зарядов: 20."
+		"property_nightmare_rider_description"		"Прочтение (Q) @Ability1 дополнительно выпустит поток теней в ближайших врагов, замедляя их на <% NIGHTMARE_RIDER_SLOW %>% и снижая значение их текущей брони на <% NIGHTMARE_RIDER_ARMOR_REDUCTION %>% на <% NIGHTMARE_RIDER_DEBUFF_DURATION %> секунд, а так же получаемый ими пост-резистный урон увеличивается на <% NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF %>%. С каждой успешной атакой радиус действия этой способности увеличивается на <% NIGHTMARE_RIDER_RADIUS_INCREASE %>. Каждый активный заряд дополнительно увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> на <% NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE %>%. Максимум зарядов: <% NIGHTMARE_RIDER_MAX_STACKS %>."
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Каждый заряд увеличивает радиус действия Shadow Melt и увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> на 30%%."
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
