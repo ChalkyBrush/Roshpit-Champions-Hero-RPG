@@ -132,7 +132,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
 		"item_property_stormshield"					"Storm Shield"
-		"property_stormshield_description"			"Reduces all Physical damage taken by 50%."
+		"property_stormshield_description"			"Reduces all Physical damage taken by <% STORMSHIELD_PHYS_REDUCTION * 100 %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"

@@ -1375,7 +1375,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	local damage = BASE_VALUE_FOR_CALCULATE
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_stormshield_cloak") then
-			damage = damage * 0.5
+			damage = damage * STORMSHIELD_PHYS_REDUCTION
 		end
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
 			damage = damage * 0.7
