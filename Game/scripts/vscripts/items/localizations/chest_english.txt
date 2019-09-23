@@ -323,7 +323,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
 		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Heal @special_property1% of max health every 0.15 seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% TEMPLAR_LIGHT_SEER_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
+		"property_light_seer_Description"									"Heal <% TEMPLAR_LIGHT_SEER_HP_PCT_PER_TICK %>% of max health every <% TEMPLAR_LIGHT_SEER_TICKRATE %> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% TEMPLAR_LIGHT_SEER_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
 		

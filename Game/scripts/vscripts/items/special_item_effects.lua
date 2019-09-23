@@ -4871,7 +4871,7 @@ function light_seer_channeling(event)
 	local ability = event.ability
 	local target = event.target
 
-	local healAmount = target:GetMaxHealth() * 0.2
+	local healAmount = target:GetMaxHealth() * TEMPLAR_LIGHT_SEER_HP_PCT_PER_TICK/100
 	Filters:ApplyHeal(target, target, healAmount, true)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/flash_healheal.vpcf", target, 1)
 
