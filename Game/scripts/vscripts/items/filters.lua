@@ -1572,7 +1572,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 24
         end
         if attacker:HasModifier("modifier_trickster_mask") then
-            local randomFactor = RandomInt(1, 60) / 10
+            local randomFactor = RandomInt(TRICKSTER_MASK_W_DMG_MULT_MIN * 10, TRICKSTER_MASK_W_DMG_MULT_MAX * 10) / 10
             damage = damage * randomFactor
         end
         if attacker:HasModifier("modifier_claws_of_the_ethereal_revenant") then
@@ -3094,7 +3094,7 @@ end
 
 function Filters:TricksterMask(caster)
     local casterOrigin = caster:GetAbsOrigin()
-    local randomPosition = casterOrigin + RandomVector(380)
+    local randomPosition = casterOrigin + RandomVector(TRICKSTER_MASK_RANGE)
     randomPosition = WallPhysics:WallSearch(casterOrigin, randomPosition, caster)
     FindClearSpaceForUnit(caster, randomPosition, false)
     caster:RemoveModifierByName("modifier_trickster_mask_effect")

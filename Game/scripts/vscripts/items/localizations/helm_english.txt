@@ -99,7 +99,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"            "Each cast of @Ability2 instantly moves you 380 units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between 0.5 to 2.5. Each instance of @Ability2 damage is further multiplied by a random factor of 0.1 to 6."
+		"property_trickster_description"            "Each cast of @Ability2 instantly moves you <% TRICKSTER_MASK_RANGE %> units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> to <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Each instance of @Ability2 damage is further multiplied by a random factor of <% TRICKSTER_MASK_W_DMG_MULT_MIN %> to <% TRICKSTER_MASK_W_DMG_MULT_MAX %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
