@@ -1440,7 +1440,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * 0.3
 		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
-			damage = damage * 0.7
+			damage = damage * (100-FEATHERWHITE_MAGIC_AND_PURE_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("modifier_azalea_zealot_ai") then

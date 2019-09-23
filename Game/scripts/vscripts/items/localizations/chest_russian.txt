@@ -82,7 +82,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"Светлый грифон следует за героем, ежесекундно исцеляя его и ближайших союзных юнитов на @special_property1% от макс. здоровья и сокращая входящий чистый и магический урон на @special_property2%. Грифон также даёт беспрепятственный обзор местности вокруг себя."
+		"property_featherwhite_armor_description"	"Светлый грифон следует за героем, ежесекундно исцеляя его и ближайших союзных юнитов на <% FEATHERWHITE_HEAL_OF_MAX_HP %>% от макс. здоровья и сокращая входящий чистый и магический урон на <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%. Грифон также даёт беспрепятственный обзор местности вокруг себя."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Получаемый магический и чистый урон снижен на %property_two%%%"
 		
