@@ -4641,7 +4641,7 @@ function flamethrower_init(event)
 	local ability = event.ability
 	ability.interval = -4
 	ability.rising = true
-	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * BURNING_SPIRIT_ATTACK_TO_DAMAGE
+	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * BURNING_SPIRIT_ATTACK_TO_DAMAGE/100
 	ability.origCaster = target
 	flamethrower_thinking(event)
 end
