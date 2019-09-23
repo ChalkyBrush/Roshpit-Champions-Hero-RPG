@@ -335,7 +335,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
 		"property_sea_giant_plate"												"Titanic Fortitude"
-		"property_sea_giant_plate_Description"									"All damage taken is reduced by @special_property1% while stunned."
+		"property_sea_giant_plate_Description"									"All damage taken is reduced by <% SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>% while stunned."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
