@@ -82,14 +82,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"Светлый грифон следует за героем, ежесекундно исцеляя его и ближайших союзных юнитов на <% FEATHERWHITE_HEAL_OF_MAX_HP %>% от макс. здоровья и сокращая входящий чистый и магический урон на <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%. Грифон также даёт беспрепятственный обзор местности вокруг себя."
+		"property_featherwhite_armor_description"	"Светлый грифон следует за героем, исцеляя его и ближайших союзных юнитов на <% FEATHERWHITE_HEAL_OF_MAX_HP %>% от макс. здоровья каждые <% FEATHERWHITE_INTERVAL %> сек. и сокращая входящий чистый и магический урон на <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%. Грифон также даёт беспрепятственный обзор местности вокруг себя."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Получаемый магический и чистый урон снижен на %property_two%%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
 		"item_property_dragon_ceremony"				"Beast of Ceremony"
-		"property_dragon_ceremony_description"		"Церемониальный зверь постоянно следует за вами - атакует до 12 противников каждые 0.8 секунды, при этом нанося урон равный 12х основного атрибута."
+		"property_dragon_ceremony_description"		"Церемониальный зверь постоянно следует за вами - атакует до <% DRAGON_CEREMONY_ %> противников каждые <% DRAGON_CEREMONY_ %> секунды, при этом нанося урон равный <% DRAGON_CEREMONY_ %>х основного атрибута."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"

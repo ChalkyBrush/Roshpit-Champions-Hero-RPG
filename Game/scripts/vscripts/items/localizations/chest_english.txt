@@ -82,7 +82,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <% FEATHERWHITE_HEAL_OF_MAX_HP %>% of their max health per second while also reducing all Magic and Pure damage taken by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>. The gryphon also has its own flying vision."
+		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <% FEATHERWHITE_HEAL_OF_MAX_HP %>% of their max health each <% FEATHERWHITE_INTERVAL %> second interval while also reducing all Magic and Pure damage taken by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>. The gryphon also has its own flying vision."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%%"
 		
