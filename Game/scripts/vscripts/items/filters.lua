@@ -3000,7 +3000,7 @@ end
 function Filters:DeathWhisperApply(attacker, victim)
     local inventoryUnit = attacker.InventoryUnit
     local ability = inventoryUnit:FindAbilityByName("helm_slot")
-    ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_death_whisper_effect", {duration = 5})
+    ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_death_whisper_effect", {duration = DEATH_WHISPER_DURATION})
 end
 
 function Filters:WildNatureTwo(attacker, victim)

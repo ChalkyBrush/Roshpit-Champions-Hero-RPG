@@ -58,7 +58,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
 		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"All enemies struck by @Ability1 take 30% increased Post-mitigation damage from all sources and are slowed by 100 for 5 seconds."
+		"property_death_whisper_description"		"All enemies struck by @Ability1 take <% DEATH_WHISPER_DAMAGE_AMP_PCT %>% increased Post-mitigation damage from all sources and are slowed by <% DEATH_WHISPER_SLOW %> for <% DEATH_WHISPER_DURATION %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"

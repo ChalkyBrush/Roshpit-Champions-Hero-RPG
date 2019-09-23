@@ -58,7 +58,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
 		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"Все враги, задетые способностью (Q) @Ability1 будут замедлены на 100 и получать на 30% больше урона из всех источников в течение 5 секунд."
+		"property_death_whisper_description"		"Все враги, задетые способностью (Q) @Ability1 будут замедлены на <% DEATH_WHISPER_SLOW %> и получать на <% DEATH_WHISPER_DAMAGE_AMP_PCT %>% больше урона из всех источников в течение <% DEATH_WHISPER_DURATION %> секунд."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
