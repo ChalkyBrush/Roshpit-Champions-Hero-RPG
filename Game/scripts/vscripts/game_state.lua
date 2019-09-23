@@ -2183,7 +2183,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + POWER_RANGER_PHYS_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_golden_war_plate") then
-			mult = mult + 7.0
+			mult = mult + GOLDEN_WARPLATE_PHYS_POST_MITI_AMP/100
 		end
 		if victim:HasModifier("modifier_hood_of_defiler_effect_visible") then
 			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * 0.25
@@ -2566,7 +2566,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + 2
+			mult = mult + TERRASIC_STONE_PLATE_POST_MITI/100
 		end
 	end
 	if attacker:HasModifier("modifier_warlord_arcana2") then
@@ -2940,7 +2940,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_golden_war_plate") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * 0.35
+			filterTable["damage"] = filterTable["damage"] * (100-GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then

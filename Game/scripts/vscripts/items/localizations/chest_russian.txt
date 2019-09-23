@@ -229,7 +229,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
 		"item_property_terrasic_stone"						"Magma Break"
-		 "property_terrasic_stone_description"				"Весь наносимый пост-резистный урон по оглушенным целям увеличен на 200%."
+		 "property_terrasic_stone_description"				"Весь наносимый пост-резистный урон по оглушенным целям увеличен на <% TERRASIC_STONE_PLATE_POST_MITI %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
@@ -241,12 +241,12 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
 		"item_property_gold_war_plate"						"Heroic Valor"
-		"property_gold_war_plate_description"				"Увеличивает весь пост-резистный физический урон на @special_property1%. Уменьшает исходящий магический урон на 65%."
+		"property_gold_war_plate_description"				"Увеличивает весь пост-резистный физический урон на <% GOLDEN_WARPLATE_PHYS_POST_MITI_AMP %>%. Уменьшает исходящий магический урон на <% GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
 		"item_property_gold_plate_of_leon"						"Gallant Hero"
-		"property_gold_plate_of_leon_description"				"Увеличивает основной атрибут героя на @special_property1%."
+		"property_gold_plate_of_leon_description"				"Увеличивает основной атрибут героя на <% GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
