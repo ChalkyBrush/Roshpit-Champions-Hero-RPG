@@ -137,7 +137,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
 		"item_property_gilded_soul"					"Siphon Soul"
-		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies for 15% of their max health. They also increase your attack damage by @special_property1% and <font color=\"#F6FFB5\">Holy</font> damage by @special_property3% for 8 seconds, stacking up to 100 times. Stacks only lower by 1 at a time.<br>When an enemy's soul is collected, gain @special_property2 seconds Spell Immunity."
+		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies for <% GILDED_SOUL_CAGE_HEAL_PCT %>% of their max health. They also increase your attack damage by <% GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE %>% and <font color=\"#F6FFB5\">Holy</font> damage by <% GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>% for <% GILDED_SOUL_CAGE_BUFF_DURATION %> seconds, stacking up to <% GILDED_SOUL_CAGE_MAX_STACKS %> times. Stacks only lower by 1 at a time.<br>When an enemy's soul is collected, gain <% GILDED_SOUL_CAGE_MAGIC_IMMUNITY_DURATION %> seconds Spell Immunity."
 		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
 		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Gaining attack damage and Holy damage."
 		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"

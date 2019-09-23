@@ -2306,7 +2306,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:HasModifier("modifier_gilded_soul_buff") then
             local stacks = attacker:GetModifierStackCount("modifier_gilded_soul_buff", attacker.InventoryUnit)
-            mult = mult + stacks * 0.1
+            mult = mult + stacks * GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP/100
         end
         if attacker:HasModifier("modifier_hand_holy") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_holy", attacker.InventoryUnit)
