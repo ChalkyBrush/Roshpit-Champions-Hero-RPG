@@ -8540,22 +8540,11 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"witch_hat_strike"
 				"target"		"TARGET"
-				"int_mult"		"%property_one"
 			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"				"600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"				"15"
-			}
-			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"				"11"

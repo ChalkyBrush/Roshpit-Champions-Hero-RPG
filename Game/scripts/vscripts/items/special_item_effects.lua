@@ -613,9 +613,9 @@ function witch_hat_strike(event)
 	local ability = event.ability
 	local caster = ability.caster
 	local target = event.target
-	local damage = caster:GetIntellect() * event.int_mult
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_witch_hat_damage_amp", {duration = 8})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_witch_hat_damage_amp", caster) + 1, 10)
+	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_witch_hat_damage_amp", {duration = SWAMP_WITCH_HAT_DURATION})
+	local newStacks = math.min(target:GetModifierStackCount("modifier_witch_hat_damage_amp", caster) + 1, SWAMP_WITCH_HAT_MAX_STACKS)
 	target:SetModifierStackCount("modifier_witch_hat_damage_amp", caster, newStacks)
 
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
