@@ -3695,7 +3695,7 @@ function silent_templar_attack_land(event)
 	if not target.dummy then
 		local ability = event.ability
 		local attacker = event.attacker
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 60
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * SILENT_TEMPLAR_ATTACK_TO_DAMAGE
 		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_DEMON)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", target, 2.5)
 		EmitSoundOn("Item.SilentWatch.Hit", target)

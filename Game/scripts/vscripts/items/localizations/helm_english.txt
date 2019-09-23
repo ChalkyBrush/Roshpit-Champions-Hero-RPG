@@ -255,7 +255,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
 		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for @special_property1 seconds. During this time, attack speed is increased by @special_property2 and attacks deal an additional @special_property3% Magical damage."
+		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for <% SILENT_TEMPLAR_DURATION %> seconds. During this time, attack speed is increased by <% SILENT_TEMPLAR_AS %> and attacks deal an additional <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% Magical damage."
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
 		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Silenced. +240 attack speed and attacks deal additional Magical damage."
 		 

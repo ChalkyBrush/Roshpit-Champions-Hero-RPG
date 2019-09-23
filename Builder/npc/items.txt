@@ -21635,21 +21635,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"15"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"10"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"240"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"6000"
-			}
 		}
 		"OnSpellStart"
 		{
@@ -21689,7 +21674,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "240"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SILENT_TEMPLAR_AS %>"
 				}
 				"OnAttackLanded"
 				{

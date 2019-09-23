@@ -1181,7 +1181,7 @@ function Filters:ApplyRskills(caster)
         end
     end
     if caster:HasModifier("modifier_helm_of_silent_templar") then
-        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_helm_of_silent_templar_effect", {duration = 10})
+        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_helm_of_silent_templar_effect", {duration = SILENT_TEMPLAR_DURATION})
         local particleName = "particles/dark_smoke_test.vpcf"
         local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
         ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
