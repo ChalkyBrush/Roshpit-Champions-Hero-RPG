@@ -72,7 +72,7 @@ CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = 6000
 CustomAttributes.OGTHUN_HEALTH = 10
-CustomAttributes.TYRIUS_HEALTH_PER_STR = 10
+CustomAttributes.TYRIUS_HEALTH = TYRIUS_HP_PER_STR
 CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
@@ -860,7 +860,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)
 	end
 	if excludedModifier ~= "modifier_tyrius_buff" and hero:HasModifier("modifier_tyrius_buff") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_buff", CustomAttributes.TYRIUS_HEALTH_PER_STR)
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_buff", CustomAttributes.TYRIUS_HEALTH)
 	end
 	if excludedModifier ~= "modifier_ogthun_health" and hero:HasModifier("modifier_ogthun_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ogthun_health", CustomAttributes.OGTHUN_HEALTH)

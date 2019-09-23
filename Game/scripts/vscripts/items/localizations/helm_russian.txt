@@ -109,7 +109,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Каждое очко Силы увеличивает здоровье на 10 и ману на 4."
+		"property_tyrius_description"				"Каждое очко Силы увеличивает здоровье на <% TYRIUS_HP_PER_STR %> и ману на <% TYRIUS_MANA_PER_STR %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"

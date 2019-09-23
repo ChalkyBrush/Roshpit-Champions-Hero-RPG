@@ -8704,7 +8704,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	 "4"
+					"MODIFIER_PROPERTY_MANA_BONUS"	 "<% TYRIUS_MANA_PER_STR %>"
 				}
 			}
 		}
