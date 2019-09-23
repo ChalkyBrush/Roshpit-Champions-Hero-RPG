@@ -194,7 +194,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
 		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Враги, получившие урон от (W) @Ability2 теряют броню, равную <% CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS %*уровень способности, а также увеличивает получаемый целью пост-резистный магический урон на <% CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC %>%*уровень способности. Складывается до <% CREST_OF_UMBRAL_SENTINEL_MAX_STACKS %> раз. Эффект длится <% CREST_OF_UMBRAL_SENTINEL_DURATION %> секунд."
+		"property_umbral_description"				"Враги, получившие урон от (W) @Ability2 теряют броню, равную <% CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS %>*уровень способности, а также увеличивает получаемый целью пост-резистный магический урон на <% CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC %>%*уровень способности. Складывается до <% CREST_OF_UMBRAL_SENTINEL_MAX_STACKS %> раз. Эффект длится <% CREST_OF_UMBRAL_SENTINEL_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Теряет %% базовой брони, получает больше магического урона"
 		
