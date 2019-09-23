@@ -8242,24 +8242,6 @@
                 }
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.6"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"600"
-			}
-		}
 	}
 
 	"item_rpc_autumn_sleeper_mask"

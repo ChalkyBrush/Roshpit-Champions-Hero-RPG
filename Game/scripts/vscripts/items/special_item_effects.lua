@@ -5579,7 +5579,7 @@ end
 function mugato_attack(event)
 	local attacker = event.attacker
 
-	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = 0.6})
+	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = MUGATO_ATTACK_SILENCE_DUR})
 end
 
 function stormcloth_think(event)

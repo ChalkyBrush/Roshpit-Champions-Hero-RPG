@@ -775,7 +775,7 @@ function Filters:CastSkillArguments(slot, caster)
         Filters:JexNatureCostmicW(caster)
     end
     if caster:HasModifier("modifier_mugato") then
-        caster:AddNewModifier(caster, nil, "modifier_silence", {duration = 4})
+        caster:AddNewModifier(caster, nil, "modifier_silence", {duration = MUGATO_SPELL_SILENCE_DUR})
     end
 end
 

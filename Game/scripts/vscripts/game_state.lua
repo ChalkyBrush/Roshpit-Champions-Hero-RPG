@@ -2413,7 +2413,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
-		mult = mult + 6
+		mult = mult + MUGATO_POST_MITI_PCT/100
 	end
 	if victim:HasModifier("modifier_epoch_rune_w_2_visible") then
 		if victim:GetPhysicalArmorValue(false) < 0 then
