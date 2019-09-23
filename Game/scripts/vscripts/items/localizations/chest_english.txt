@@ -288,7 +288,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
 		"item_property_mystic_mana_wall"						"Magic Block"
-		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by 75% and taken from mana instead of health, if there is enough mana. Every 30 current mana points adds 1 Armor."
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <% MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>% and taken from mana instead of health, if there is enough mana. Every <% MYSTIC_MANA_WALL_MANA_TO_ARMOR %> current mana points adds <% MYSTIC_MANA_WALL_ARMOR_DIVISOR %> Armor."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"

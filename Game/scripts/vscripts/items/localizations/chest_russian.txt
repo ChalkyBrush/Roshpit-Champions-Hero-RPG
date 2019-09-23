@@ -288,7 +288,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
 		"item_property_mystic_mana_wall"						"Magic Block"
-		"property_mystic_mana_wall_description"				"Весь получаемый чистый или магический урон сокращается на 75%, а вместо здоровья тратится мана, если таковая имеется в достаточном количестве. Каждые 30 очков маны увеличивают значение брони на 1."
+		"property_mystic_mana_wall_description"				"Весь получаемый чистый или магический урон сокращается на <% MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>%, а вместо здоровья тратится мана, если таковая имеется в достаточном количестве. Каждые <% MYSTIC_MANA_WALL_MANA_TO_ARMOR %> очков маны увеличивают значение брони на <% MYSTIC_MANA_WALL_ARMOR_DIVISOR %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
