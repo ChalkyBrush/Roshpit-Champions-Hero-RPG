@@ -3105,9 +3105,9 @@ end
 
 function Filters:SecretTemple(caster)
     local inventoryUnit = caster.InventoryUnit
-    caster.refractionItem:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_refraction", {duration = 30})
-    caster:SetModifierStackCount("modifier_secret_temple_refraction", caster.refractionItem, 7)
-    caster.refractionItem:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_damage_increase", {duration = 30})
+    caster.refractionItem:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_refraction", {duration = SECRET_TEMPLE_SHIELDS_DURATION})
+    caster:SetModifierStackCount("modifier_secret_temple_refraction", caster.refractionItem, SECRET_TEMPLE_SHIELDS)
+    caster.refractionItem:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_damage_increase", {duration = SECRET_TEMPLE_SHIELDS_DURATION})
     local damageStackCount = caster:GetModifierStackCount("modifier_secret_temple_damage_increase", caster.refractionItem)
     caster:SetModifierStackCount("modifier_secret_temple_damage_increase", caster.refractionItem, caster:GetAttackDamage() - damageStackCount)
 end
