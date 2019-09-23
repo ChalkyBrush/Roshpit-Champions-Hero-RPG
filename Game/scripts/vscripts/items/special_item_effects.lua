@@ -4457,7 +4457,7 @@ function seraphic_soul_hit(event)
 	local abilityLevel = hero:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
 	if target:IsAlive() then
 		EmitSoundOn("RPCItem.SoulVestImpact", target)
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * 0.5 * abilityLevel
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * SERAPHIC_SOULVEST_ATTACK_TO_DMG/100 * abilityLevel
 		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	end
 end

@@ -40,7 +40,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
 		"item_property_seraphic_soulvest"			"Seraphic Lance"
-		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a large radius, dealing 50% of your attack damage times @Ability2 level as Pure damage."
+		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a large radius, dealing <% SERAPHIC_SOULVEST_ATTACK_TO_DMG %>% of your attack damage times @Ability2 level as Pure damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
