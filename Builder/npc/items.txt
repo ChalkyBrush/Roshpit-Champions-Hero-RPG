@@ -5151,7 +5151,7 @@
 				}
 				"Properties"
 				{
-				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two"
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DARK_REEF_SHARK_HELMET_PASSIVE_BONUS %>"
 				}
 			}
 			"modifier_dark_reef_shark_stacks"
@@ -5165,7 +5165,7 @@
 				"TextureName"	"kunkka_ghostship_immortal"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "<% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>"
 				}
 				"OnCreated"
 				{
@@ -5180,19 +5180,6 @@
 					}
 
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"100"
 			}
 		}
 	}

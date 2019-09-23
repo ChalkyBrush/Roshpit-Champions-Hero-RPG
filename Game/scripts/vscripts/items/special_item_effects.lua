@@ -4795,12 +4795,12 @@ function shark_helmet_attack_land(event)
 	local ability = event.ability
 
 	if not attacker:HasModifier("modifier_dark_reef_shark_effect") then
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_stacks", {duration = 20})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_stacks", {duration = DARK_REEF_SHARK_HELMET_PASSIVE_DURATION})
 	end
 	local newStacks = attacker:GetModifierStackCount("modifier_dark_reef_shark_stacks", caster) + 1
-	if newStacks >= 7 then
+	if newStacks >= DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS then
 		attacker:RemoveModifierByName("modifier_dark_reef_shark_stacks")
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_effect", {duration = 1.5})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_effect", {duration = DARK_REEF_SHARK_HELMET_ACTIVE_DURATION})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/items/shark_helmet.vpcf", attacker, 1)
 		EmitSoundOn("RPCItem.SharkHelmet.Activate", attacker)
 	else
