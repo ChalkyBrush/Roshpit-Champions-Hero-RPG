@@ -5529,7 +5529,7 @@ function tattered_novice_stack_increase(event)
 	local target = event.target
 	local ability = event.ability
 	if target:HasModifier("modifier_tattered_novice_stack") then
-		local newStacks = math.min(target:GetModifierStackCount("modifier_tattered_novice_stack", caster) + 1, 2)
+		local newStacks = math.min(target:GetModifierStackCount("modifier_tattered_novice_stack", caster) + 1, TATTERED_NOVICE_MAX_STACKS)
 		target:SetModifierStackCount("modifier_tattered_novice_stack", caster, newStacks)
 	else
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_tattered_novice_stack", {})

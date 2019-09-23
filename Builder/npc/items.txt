@@ -4858,7 +4858,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "12"
+				"ThinkInterval"  "<% TATTERED_NOVICE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

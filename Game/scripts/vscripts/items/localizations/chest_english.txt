@@ -350,7 +350,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
 		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Every @special_property1 seconds gain a Resolution stack. Each stack removes the cooldown on @Ability1. Max @special_property2 stacks."
+		"property_tattered_novice_armor_description"				"Every <% TATTERED_NOVICE_INTERVAL %> seconds gain a Resolution stack. Each stack removes the cooldown on @Ability1. Max <% TATTERED_NOVICE_MAX_STACKS %> stacks."
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"

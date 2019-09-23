@@ -350,7 +350,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
 		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Каждые @special_property1 сек, герой получает заряд этого предмета. Каждый заряд позволяет применять (Q) @Ability1 без перезарядки. Максимум @special_property2 заряда(ов)."
+		"property_tattered_novice_armor_description"				"Каждые <% TATTERED_NOVICE_INTERVAL %> сек, герой получает заряд этого предмета. Каждый заряд позволяет применять (Q) @Ability1 без перезарядки. Максимум <% TATTERED_NOVICE_MAX_STACKS %> заряда(ов)."
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Умение (Q) применяется без перезарядки"
