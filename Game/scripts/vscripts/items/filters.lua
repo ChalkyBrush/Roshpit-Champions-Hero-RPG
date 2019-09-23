@@ -1691,8 +1691,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                         attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount - 1
                     end)
                 end
-                Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-                attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_crown_slow", {duration = 6})
+                Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage*WATER_DEITY_CROWN_DAMAGE_AMP/100, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+                attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_crown_slow", {duration = WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION})
             end
             if not indirectProcR then
                 Filters:ApplyRdamage(victim, attacker, damage, damage_type)
@@ -2684,8 +2684,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local multIncrease = modifier:GetStackCount() * HYDROXIS_ARCANA_R3_WATER_AMP_PCT/100
             waterMult = waterMult + multIncrease
         end
-        if waterMult > 50 and attacker:HasModifier("modifier_water_deity_crown") then
-            waterMult = 50
+        if waterMult > WATER_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_water_deity_crown") then
+            waterMult = WATER_DEITY_CROWN_ELEMENT_CAP/100
         end
 
         mult = mult + waterMult

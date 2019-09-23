@@ -21507,7 +21507,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>"
 				}
 			}
 		}
@@ -21517,16 +21517,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"14"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"5000"
 			}
 		}
 	}

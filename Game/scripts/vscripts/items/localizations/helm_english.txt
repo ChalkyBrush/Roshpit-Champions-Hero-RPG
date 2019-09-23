@@ -270,7 +270,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing 100% of the ability's damage and slowing the enemy's movement speed by 60% for 6 seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at 5000%."
+		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing <% WATER_DEITY_CROWN_DAMAGE_AMP %>% of the ability's damage and slowing the enemy's movement speed by <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% for <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at <% WATER_DEITY_CROWN_ELEMENT_CAP %>%."
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 		
