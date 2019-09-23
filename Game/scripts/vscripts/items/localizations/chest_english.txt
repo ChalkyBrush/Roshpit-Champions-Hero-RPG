@@ -224,7 +224,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
 		"item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"@special_property1% chance when attacked to stun all nearby enemies for @special_property5 seconds and deal @special_property2x your Strength + @special_property3x your armor. All damage dealt directly by items is enhanced by @special_property4% for each 10 points of Strength while enemies are stunned."
+		 "property_depth_crest_description"					"<% DEPTH_CREST_ARMOR_CHANCE %>% chance when attacked to stun all nearby enemies for <% DEPTH_CREST_ARMOR_STUN_DURATION %> seconds and deal <% DEPTH_CREST_ARMOR_STR_TO_DMG %>x your Strength + <% DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>x your armor. All damage dealt directly by items is enhanced by <% DEPTH_CREST_ARMOR_ITEM_AMP %>% for each <% DEPTH_CREST_ARMOR_STR_DIVISOR %> points of Strength while enemies are stunned."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
