@@ -179,7 +179,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
 		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"When a single damage instance deals more than 20% of your max health, you are healed for 75% of the damage instance after 0.05 seconds."
+		"property_twilight_vestments_description"	"When a single damage instance deals more than <% TWILIGHT_VESTMENT_HP_THRESHOLD %>% of your max health, you are healed for <% TWILIGHT_VESTMENT_HEAL_PCT %>% of the damage instance after <% TWILIGHT_VESTMENT_DELAY %> seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
