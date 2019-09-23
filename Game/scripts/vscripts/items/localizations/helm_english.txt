@@ -292,7 +292,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for @special_property4 seconds times its ability level, and leaves a pool of lava that slows movespeed by @special_property2 and attack speed by @special_property1. Enemies in the lava take @special_property3x your attack damage each 0.5 seconds."
+		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for <% IGNEOUS_CANINE_STUN_DURATION %> seconds times its ability level, and leaves a pool of lava that slows movespeed by <% IGNEOUS_CANINE_MOVESPEED_SLOW %> and attack speed by <% IGNEOUS_CANINE_AS_SLOW %>. Enemies in the lava take <% IGNEOUS_CANINE_ATTACK_TO_DMG %>x your attack damage each <% IGNEOUS_CANINE_LAVA_INTERVAL %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"

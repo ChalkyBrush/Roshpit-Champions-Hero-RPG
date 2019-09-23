@@ -4325,8 +4325,8 @@ function Filters:IgneousCanine(caster)
         ParticleManager:DestroyParticle(pfx, false)
     end)
     local wAbilityLevel = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-    local stunDuration = wAbilityLevel * 0.2
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local stunDuration = wAbilityLevel * IGNEOUS_CANINE_STUN_DURATION
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, IGNEOUS_CANINE_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.IgneousCanine", caster.InventoryUnit)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do

@@ -4208,7 +4208,7 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * IGNEOUS_CANINE_ATTACK_TO_DMG
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

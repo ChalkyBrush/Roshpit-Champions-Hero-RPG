@@ -18775,11 +18775,11 @@
 			"modifier_igneous_canine_thinker"
 			{
 				"Aura"					"igneous_canine_aura"
-				"Aura_Radius"			"320"
+				"Aura_Radius"			"<% IGNEOUS_CANINE_LAVA_POOL_AOE %>"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"6"
+				"Duration"				"<% IGNEOUS_CANINE_LAVA_POOL_DURATION %>"
 
 				"OnCreated"
 				{
@@ -18802,7 +18802,7 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
-				"ThinkInterval"	"0.5"
+				"ThinkInterval"	"<% IGNEOUS_CANINE_LAVA_INTERVAL %>"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
 				{
@@ -18815,8 +18815,8 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_one"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%property_two"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% IGNEOUS_CANINE_AS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "<% IGNEOUS_CANINE_MOVESPEED_SLOW %>"
 				}
 			}
 		}
