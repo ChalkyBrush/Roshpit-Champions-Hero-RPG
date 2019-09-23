@@ -187,7 +187,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
 		"item_property_windsteel_armor"				"Fluttering Guard"
-		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by 50% and increases movespeed by 100. Lasts @special_property1 seconds. @special_property2 second cooldown."
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by <% WINDSTEEL_EVASION %>% and increases movespeed by <% WINDSTEEL_MOVESPEED %>. Lasts <% WINDSTEEL_DURATION %> seconds. <% WINDSTEEL_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
 		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining 50% evasion and 100 movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"

@@ -1031,9 +1031,9 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_windsteel_armor") then
         if not caster:HasModifier("modifier_windsteel_cooldown") then
             local stackCount = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_effect", {duration = 8})
-            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_stat_bonuses", {duration = 8})
-            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_cooldown", {duration = 5})
+            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_effect", {duration = WINDSTEEL_DURATION})
+            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_stat_bonuses", {duration = WINDSTEEL_DURATION})
+            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_cooldown", {duration = WINDSTEEL_COOLDOWN})
             caster:SetModifierStackCount("modifier_windsteel_effect", caster.body, stackCount)
             EmitSoundOn("Item.WindSteel", caster)
         end
