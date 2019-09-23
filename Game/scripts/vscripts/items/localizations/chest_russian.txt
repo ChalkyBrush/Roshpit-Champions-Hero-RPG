@@ -111,7 +111,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
 		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Увеличивает Силу, Ловкость и Интеллект на 30%"
+		"property_legion_vestments_description"		"Увеличивает Силу, Ловкость и Интеллект на <% LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"
