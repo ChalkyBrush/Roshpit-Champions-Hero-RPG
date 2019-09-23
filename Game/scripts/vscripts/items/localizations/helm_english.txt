@@ -297,7 +297,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing instances of @special_property1% of attack damage while the stream persists. Each enemy hit by a flame burst reduces the current cooldown of @Ability4 by @special_property2 seconds."
+		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing instances of <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% of attack damage while the stream persists. Each enemy hit by a flame burst reduces the current cooldown of @Ability4 by <% BURNING_SPIRIT_CD_RED %> seconds."
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"

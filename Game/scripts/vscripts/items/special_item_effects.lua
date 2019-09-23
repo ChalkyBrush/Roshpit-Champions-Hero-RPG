@@ -4641,7 +4641,7 @@ function flamethrower_init(event)
 	local ability = event.ability
 	ability.interval = -4
 	ability.rising = true
-	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * 2.00
+	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * BURNING_SPIRIT_ATTACK_TO_DAMAGE
 	ability.origCaster = target
 	flamethrower_thinking(event)
 end
@@ -4702,7 +4702,7 @@ function flamethrower_impact(event)
 	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_R_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
-	ulti:StartCooldown(currentCD - 0.5)
+	ulti:StartCooldown(currentCD - BURNING_SPIRIT_CD_RED)
 end
 
 function aquasteel_take_damage(event)

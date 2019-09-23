@@ -18661,17 +18661,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.4"
 			}
 		}
 	}
