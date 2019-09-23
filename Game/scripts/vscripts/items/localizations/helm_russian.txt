@@ -213,7 +213,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Значение вашей маны становится равным 0, восстановление маны возможно только путём получения урона. 3% от любого полученного урона восстановит вам ману. Каждое очко маны увеличивает базовый урон на 5. Каждая атака тратит 2% от макс. маны. Дополнительно увеличивает урон от (W) @Ability2 на 350%."
+		"property_wraith_hunter_description"				"Значение вашей маны становится равным 0, восстановление маны возможно только путём получения урона. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% от любого полученного урона восстановит вам ману. Каждое очко маны увеличивает базовый урон на <% WRAITH_HUNTER_BASE_ATTACK %>. Каждая атака тратит <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% от макс. маны. Дополнительно увеличивает урон от (W) @Ability2 на <% WRAITH_HUNTER_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
