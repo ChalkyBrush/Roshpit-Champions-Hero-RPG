@@ -346,7 +346,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на @special_property1%. Когда уровень здоровья выше 80%, герой получает на @special_property2% меньше урона."
+		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. Когда уровень здоровья выше <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>%, герой получает на @special_property2% меньше урона."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"

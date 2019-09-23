@@ -347,7 +347,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Increases max health by @special_property1%. While above 80% of max health, reduce all incoming damage by @special_property2%."
+		"property_mountain_giant_description"						"Increases max health by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. While above <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% of max health, reduce all incoming damage by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
