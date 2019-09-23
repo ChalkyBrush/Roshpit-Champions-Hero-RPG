@@ -501,10 +501,10 @@ function wild_nature_struck(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target
-	local proc = Filters:GetProc(target, 30)
+	local proc = Filters:GetProc(target, CAP_OF_WILD_NATURE_CHANCE_ONE)
 	if proc then
 		attacker.entangler = target
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_wild_nature_entangle_effect", {duration = 3})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_wild_nature_entangle_effect", {duration = CAP_OF_WILD_NATURE_DURATION_ONE})
 	end
 end
 
@@ -514,11 +514,11 @@ function wild_nature_entangle_think(event)
 	local primeAttribute = caster:GetPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
-		damage = caster:GetStrength() * 750
+		damage = caster:GetStrength() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	elseif primeAttribute == 1 then
-		damage = caster:GetAgility() * 750
+		damage = caster:GetAgility() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	elseif primeAttribute == 2 then
-		damage = caster:GetIntellect() * 750
+		damage = caster:GetIntellect() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	end
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 end

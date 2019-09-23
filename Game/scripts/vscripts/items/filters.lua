@@ -3004,12 +3004,12 @@ function Filters:DeathWhisperApply(attacker, victim)
 end
 
 function Filters:WildNatureTwo(attacker, victim)
-    local proc = Filters:GetProc(attacker, 30)
+    local proc = Filters:GetProc(attacker, CAP_OF_WILD_NATURE_CHANCE_TWO)
     if proc then
         local inventoryUnit = attacker.InventoryUnit
         victim.entangler = attacker
         local ability = inventoryUnit:FindAbilityByName("helm_slot")
-        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_wild_nature_entangle_effect", {duration = 3})
+        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_wild_nature_entangle_effect", {duration = CAP_OF_WILD_NATURE_DURATION_TWO})
     end
 end
 

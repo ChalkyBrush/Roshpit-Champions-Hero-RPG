@@ -7997,21 +7997,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"16"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"30"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"750"
-			}
 		}
 	}
 
