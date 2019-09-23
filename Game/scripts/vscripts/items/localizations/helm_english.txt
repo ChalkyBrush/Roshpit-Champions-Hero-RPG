@@ -75,7 +75,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance to be multiplied by @special_property2. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
+		"property_odin_description"					"All instances of damage dealt have a <% ODIN_HELMET_CHANCE %>% chance to be multiplied by <% ODIN_HELMET_MULT %>. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"

@@ -3036,10 +3036,10 @@ function Filters:LumaGuardStrike(attacker, victim, damage)
 end
 
 function Filters:OdinCrit(attacker, victim, damage, damage_type)
-    local proc = Filters:GetProc(attacker, 5)
+    local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
     if proc then
-        ApplyDamage({victim = victim, attacker = attacker, damage = damage * 20, damage_type = damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
-        PopupDamage(victim, damage * 20)
+        ApplyDamage({victim = victim, attacker = attacker, damage = damage * ODIN_HELMET_MULT, damage_type = damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+        PopupDamage(victim, damage * ODIN_HELMET_MULT)
     end
 end
 

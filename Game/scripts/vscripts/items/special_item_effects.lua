@@ -528,10 +528,10 @@ function odin_attack(event)
 	local attacker = event.attacker
 	local attack_damage = event.attack_damage
 	attack_damage = GameState:GetPostReductionPhysicalDamage(attack_damage, target:GetPhysicalArmorValue(false))
-	local proc = Filters:GetProc(attacker, 5)
+	local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
 	if proc then
-		ApplyDamage({victim = target, attacker = attacker, damage = attack_damage * 20, damage_type = DAMAGE_TYPE_PURE})
-		PopupDamage(target, attack_damage * 20)
+		ApplyDamage({victim = target, attacker = attacker, damage = attack_damage * ODIN_HELMET_MULT, damage_type = DAMAGE_TYPE_PURE})
+		PopupDamage(target, attack_damage * ODIN_HELMET_MULT)
 	end
 end
 

@@ -3709,10 +3709,10 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] * (1 + modifier:GetExtraPostmitigationAmplify())
 	end
 	if attacker:HasModifier("modifier_helm_odin") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
-		local proc = Filters:GetProc(attacker, 10)
+		local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
 		if proc then
-			filterTable["damage"] = filterTable["damage"] * 7
-			PopupOdin(victim, 7)
+			filterTable["damage"] = filterTable["damage"] * ODIN_HELMET_MULT
+			PopupOdin(victim, ODIN_HELMET_MULT)
 			local helm = attacker.headItem
 			if not helm.particleCount then
 				helm.particleCount = 0
