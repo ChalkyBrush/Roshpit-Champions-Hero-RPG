@@ -89,7 +89,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
 		"item_property_dragon_ceremony"				"Beast of Ceremony"
-		"property_dragon_ceremony_description"		"Церемониальный зверь постоянно следует за вами - атакует до <% DRAGON_CEREMONY_ %> противников каждые <% DRAGON_CEREMONY_ %> секунды, при этом нанося урон равный <% DRAGON_CEREMONY_ %>х основного атрибута."
+		"property_dragon_ceremony_description"		"Церемониальный зверь постоянно следует за вами - атакует до <% DRAGON_CEREMONY_NUMBER_OF_ENEMIES %> противников каждые <% DRAGON_CEREMONY_INTERVAL %> секунды, при этом нанося урон равный <% DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG %>х основного атрибута."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"

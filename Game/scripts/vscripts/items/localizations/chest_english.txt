@@ -89,7 +89,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
 		"item_property_dragon_ceremony"				"Beast of Ceremony"
-		"property_dragon_ceremony_description"		"A wyrmling follows you always, launching an attack every 0.8 seconds on up to 12 nearby enemies that deals damage equal to 12x your primary attribute."
+		"property_dragon_ceremony_description"		"A wyrmling follows you always, launching an attack every <% DRAGON_CEREMONY_INTERVAL %> seconds on up to <% DRAGON_CEREMONY_NUMBER_OF_ENEMIES %> nearby enemies that deals damage equal to <% DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG %>x your primary attribute."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"

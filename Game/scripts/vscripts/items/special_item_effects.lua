@@ -730,7 +730,7 @@ function ceremony_beast_think(event)
 	local ability = event.ability
 	caster:MoveToPosition(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
 	local position = caster:GetAbsOrigin()
-	local radius = 820
+	local radius = DRAGON_CEREMONY_RADIUS
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local count = 0
 	if #enemies > 0 then
@@ -754,7 +754,7 @@ function ceremony_beast_think(event)
 			iVisionTeamNumber = caster:GetTeamNumber()}
 			projectile = ProjectileManager:CreateTrackingProjectile(info)
 			count = count + 1
-			if count > 12 then
+			if count > DRAGON_CEREMONY_NUMBER_OF_ENEMIES then
 				break
 			end
 		end
@@ -769,11 +769,11 @@ function ceremony_beast_projectile_strike(event)
 	local primeAttribute = hero:GetPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
-		damage = hero:GetStrength() * 12
+		damage = hero:GetStrength() * DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG
 	elseif primeAttribute == 1 then
-		damage = hero:GetAgility() * 12
+		damage = hero:GetAgility() * DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG
 	elseif primeAttribute == 2 then
-		damage = hero:GetIntellect() * 12
+		damage = hero:GetIntellect() * DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG
 	end
 	--print(target)
 	--print(hero)
