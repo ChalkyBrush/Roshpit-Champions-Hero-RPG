@@ -240,7 +240,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
-        damage = damage * 0.2
+        damage = damage * (100-BLACK_MAGE_ITEM_DAMAGE_PENALTY)/100
     end
     damage = damage * mult
     return damage

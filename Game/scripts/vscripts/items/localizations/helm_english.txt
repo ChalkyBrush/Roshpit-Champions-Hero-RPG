@@ -238,7 +238,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by 280%. Damage dealt directly by items is reduced by 80%."
+		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by <% BLACK_MAGE_MAGIC_POST_MITI %>%. Damage dealt directly by items is reduced by <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"

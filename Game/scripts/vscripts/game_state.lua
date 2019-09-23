@@ -2251,7 +2251,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
-			mult = mult + 2.8
+			mult = mult + BLACK_MAGE_MAGIC_POST_MITI
 		end
 
 		-- if attacker:HasModifier("modifier_warlord_rune_b_a_invisible") then
