@@ -210,7 +210,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
 		"item_property_bladestorm_vest"							"Bladestorm"
-		"property_bladestorm_vest_description"					"Атакуя противника 10 раз подряд, герой получит заряд Bladestorm. Каждый заряд увеличивает Бонусный урон атаки героя на @special_property1% и весь пост-резистный урон @special_property2%. Прочтение любого заклинания потратит один заряд. Максимум 3 заряда."
+		"property_bladestorm_vest_description"					"Атакуя противника <% BLADESTORM_NUMBER_OF_ATTACKS %> раз подряд, герой получит заряд Bladestorm. Каждый заряд увеличивает Бонусный урон атаки героя на <% BLADESTORM_BONUS_ATTACK_DMG %>% и весь пост-резистный урон <% BLADESTORM_POST_MITI %>%. Прочтение любого заклинания потратит один заряд. Максимум <% BLADESTORM_MAX_STACKS %> заряда."
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Базовый урон и урон умений увеличен"
 		
