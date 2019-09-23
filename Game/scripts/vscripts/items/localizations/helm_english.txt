@@ -114,7 +114,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
 		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"@Ability2 costs @special_property1% more mana and deals @special_property2% increased damage."
+		"property_cerulean_highguard_description"	"@Ability2 costs <% CERULEAN_HIGHGUARD_MANA_INCREASE %>% more mana and deals <% CERULEAN_HIGHGUARD_BAD %>% increased damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"

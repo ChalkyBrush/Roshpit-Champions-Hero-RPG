@@ -1551,7 +1551,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3.5
         end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
-            damageMult = damageMult + 20
+            damageMult = damageMult + CERULEAN_HIGHGUARD_BAD/100
         end
         if attacker:HasModifier("modifier_crest_of_the_umbral_sentinel") then
             Filters:UmbralSentinel(attacker, victim)
@@ -3357,7 +3357,7 @@ end
 function Filters:CeruleanHighguard(caster)
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     local manaCost = ability:GetManaCost(-1)
-    caster:ReduceMana(manaCost * 4)
+    caster:ReduceMana(manaCost * CERULEAN_HIGHGUARD_MANA_INCREASE/100)
 end
 
 function Filters:AscensionTrigger(caster)
