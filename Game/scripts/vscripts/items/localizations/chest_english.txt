@@ -271,7 +271,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
 		"item_property_sacred_trials"						"Combat Trial"
-		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal @special_property1% bonus Magical damage in an area."
+		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% bonus Magical damage in an area."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals %property_one%%% Magical damage in a small area"
 		

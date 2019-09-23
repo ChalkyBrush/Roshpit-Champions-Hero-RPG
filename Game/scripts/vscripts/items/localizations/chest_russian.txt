@@ -271,7 +271,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
 		"item_property_sacred_trials"						"Combat Trial"
-		"property_sacred_trials_description"				"После прочтения (W) @Ability2 следующая базовая атака героя нанесёт @special_property1% магического урона по области."
+		"property_sacred_trials_description"				"После прочтения (W) @Ability2 следующая базовая атака героя нанесёт <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% магического урона по области."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Следующая базовая атака героя нанесёт %property_one%%% магического урона по области."
 		

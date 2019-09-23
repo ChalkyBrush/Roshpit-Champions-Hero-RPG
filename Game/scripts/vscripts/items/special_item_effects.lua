@@ -3551,7 +3551,7 @@ function trials_attack(event)
 	local ability = event.ability
 	damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
 	EmitSoundOn("Item.SacredTrial", target)
-	local radius = 320
+	local radius = SACRED_TRIALS_ARMOR_AOE_RADIUS
 	local particleName = "particles/roshpit/items/sacred_trial.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
@@ -3562,7 +3562,7 @@ function trials_attack(event)
 	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyItemDamage(enemy, attacker, damage * 10, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(enemy, attacker, damage * SACRED_TRIALS_ARMOR_ATTACK_TO_DMG/100, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end
 
