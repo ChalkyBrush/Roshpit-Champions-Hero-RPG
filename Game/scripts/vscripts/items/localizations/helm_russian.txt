@@ -242,7 +242,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
 		"item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Враги, находящиеся в радиусе 900 будут обездвижены на 3 секунды. Прочтение (R) @Ability4 обездвиживает всех врагов в радиусе 1200 на 4 секунды."
+		 "property_autumn_sleeper_description"				"Враги, находящиеся в радиусе <% AUTUMN_SLEEPER_RADIUS %> будут обездвижены на <% AUTUMN_SLEEPER_ROOT_DUR %> секунды. Прочтение (R) @Ability4 обездвиживает всех врагов в радиусе <% AUTUMN_SLEEPER_RADIUS_R %> на <% AUTUMN_SLEEPER_ROOT_DUR_R %> секунды."
 		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Обездвижен"
 		 

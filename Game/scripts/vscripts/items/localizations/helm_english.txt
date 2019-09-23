@@ -243,7 +243,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
 		"item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Enemies that come within 900 range of you are immediately rooted for 3 seconds. Casting @Ability4 roots all enemies in a 1200 radius for 4 seconds."
+		 "property_autumn_sleeper_description"				"Enemies that come within <% AUTUMN_SLEEPER_RADIUS %> range of you are immediately rooted for <% AUTUMN_SLEEPER_ROOT_DUR %> seconds. Casting @Ability4 roots all enemies in a <% AUTUMN_SLEEPER_RADIUS_R %> radius for <% AUTUMN_SLEEPER_ROOT_DUR_R %> seconds."
 		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
 		 

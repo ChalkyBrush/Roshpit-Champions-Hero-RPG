@@ -3624,8 +3624,8 @@ function autumn_sleeper_root_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not target:HasModifier("modifier_autumn_sleeper_root_immunity") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root", {duration = 3})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root_immunity", {duration = 10})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root", {duration = AUTUMN_SLEEPER_ROOT_DUR})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root_immunity", {duration = AUTUMN_SLEEPER_ROOT_DUR_IMMUNITY})
 	end
 end
 
