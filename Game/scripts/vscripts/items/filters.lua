@@ -802,7 +802,7 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_space_tech") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
-        caster.space_tech:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = 8.0})
+        caster.space_tech:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = SPACE_TECH_DURATION})
     end
     if caster:HasModifier("modifier_druid_spirit_helm") then
         caster.druid_spirit:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_druid_channel", {duration = 8.0})

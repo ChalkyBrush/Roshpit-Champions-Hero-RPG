@@ -125,7 +125,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
 		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by 160, and movespeed slowed by 50%. The slow effects stick for 7 seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain 35% Bonus Attack damage every 0.3 seconds. These stacks are lost when beginning to channel the spell again."
+		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by <% SPACE_TECH_AS_SLOW %>, and movespeed slowed by <% SPACE_TECH_MS_SLOW %>%. The slow effects stick for <% SPACE_TECH_DURATION %> seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain <% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>% Bonus Attack damage every <% SPACE_TECH_GAIN_INTERVAL %> seconds. These stacks are lost when beginning to channel the spell again."
 		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
 		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased attack damage."
 		
