@@ -7495,14 +7495,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"35"
-			}
-		}
 	}
 
 	"item_rpc_doomplate"

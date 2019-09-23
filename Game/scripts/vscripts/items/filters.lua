@@ -1534,7 +1534,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.35
         end
         if attacker:HasModifier("modifier_spellslinger_coat") then
-            damageMult = damageMult + 1
+            damageMult = damageMult + SPELLSLINGER_BAD/100
         end
         if not ignore_effects then
             if attacker:HasModifier("modifier_wild_nature_two") then
@@ -2932,7 +2932,7 @@ end
 function Filters:SpellslingerCoat(caster)
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     local manaCost = ability:GetManaCost(-1)
-    local manaRestore = manaCost * 0.35
+    local manaRestore = manaCost * SPELLSLINGER_MANA_RESTORE/100
     manaRestore = WallPhysics:round(manaRestore, 0)
     caster:GiveMana(manaRestore)
     PopupMana(caster, manaRestore)

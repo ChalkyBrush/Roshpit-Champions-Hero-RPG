@@ -61,7 +61,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
 		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"@Ability2 restores @special_property1% of its mana cost on use and its Base Ability Damage is increased by 100%."
+		"property_spellslinger_coat_description"	"@Ability2 restores <% SPELLSLINGER_MANA_RESTORE %>% of its mana cost on use and its Base Ability Damage is increased by <% SPELLSLINGER_BAD %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"

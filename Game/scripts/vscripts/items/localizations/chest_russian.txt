@@ -61,7 +61,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
 		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"(W) @Ability2 восстановит @special_property1% от затраченной маны и будет наносить на 100% больше урона."
+		"property_spellslinger_coat_description"	"(W) @Ability2 восстановит <% SPELLSLINGER_MANA_RESTORE %>% от затраченной маны и будет наносить на <% SPELLSLINGER_BAD %>% больше урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
