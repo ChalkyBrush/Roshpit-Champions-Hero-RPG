@@ -10490,7 +10490,7 @@
 				"TextureName"	"itemicons/bladestorm_vest"							 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% BLADESTORM_BONUS_ATTACK_DMG %>"
 				}
 			}
 			"modifier_bladestorm_vest_weapon_effect"

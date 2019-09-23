@@ -1806,14 +1806,14 @@ function bladestorm_vest_attack_hit(event)
 	local caster = event.caster
 	if attacker.bladeHits then
 		attacker.bladeHits = attacker.bladeHits + 1
-		if attacker.bladeHits == 10 then
+		if attacker.bladeHits == BLADESTORM_NUMBER_OF_ATTACKS then
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_bladestorm_vest_buff", {})
 			local currentStacks = #attacker.bladeTable
-			local stacks = math.min(currentStacks + 1, 3)
+			local stacks = math.min(currentStacks + 1, BLADESTORM_MAX_STACKS)
 			attacker:SetModifierStackCount("modifier_bladestorm_vest_buff", caster, stacks)
 			attacker.bladeHits = 0
 
-			if currentStacks < 3 then
+			if currentStacks < BLADESTORM_MAX_STACKS then
 				Filters:ModifyBladestormVestSwordCount(attacker, stacks, ability, caster)
 			end
 		end

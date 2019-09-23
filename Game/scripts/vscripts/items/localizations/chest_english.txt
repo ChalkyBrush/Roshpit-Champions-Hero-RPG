@@ -210,7 +210,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
 		"item_property_bladestorm_vest"							"Bladestorm"
-		"property_bladestorm_vest_description"					"Attacking an enemy 10 times adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by @special_property1% and post-mitigation damage amp by @special_property2%. Casting any spell consumes a stack. Maximum 3 stacks."
+		"property_bladestorm_vest_description"					"Attacking an enemy <% BLADESTORM_NUMBER_OF_ATTACKS %> times adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by <% BLADESTORM_BONUS_ATTACK_DMG %>% and post-mitigation damage amp by <% BLADESTORM_POST_MITI %>%. Casting any spell consumes a stack. Maximum <% BLADESTORM_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Post-Mitigation Damage and Base Ability damage."
 		
