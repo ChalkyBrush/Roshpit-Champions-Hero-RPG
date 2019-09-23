@@ -308,7 +308,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
 		"item_property_outland_stone"							"Blast Fusion"
-		"property_outland_stone_description"					"Increases the Base Ability Damage of @Ability1 by @special_property2%, but stuns self for @special_property1 seconds on cast."
+		"property_outland_stone_description"					"Increases the Base Ability Damage of @Ability1 by <% OUTLAND_STONE_BAD %>%, but stuns self for <% OUTLAND_STONE_SELF_STUN %> seconds on cast."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"

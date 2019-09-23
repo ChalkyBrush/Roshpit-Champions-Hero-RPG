@@ -308,7 +308,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
 		"item_property_outland_stone"							"Blast Fusion"
-		"property_outland_stone_description"					"Увеличивает Базовый Урон Способности от (Q) @Ability1 на @special_property2%, но оглушает владельца предмета на @special_property1 сек. при прочтении."
+		"property_outland_stone_description"					"Увеличивает Базовый Урон Способности от (Q) @Ability1 на <% OUTLAND_STONE_BAD %>%, но оглушает владельца предмета на <% OUTLAND_STONE_SELF_STUN %> сек. при прочтении."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
