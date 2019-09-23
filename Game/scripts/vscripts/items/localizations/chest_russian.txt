@@ -106,7 +106,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
 		"item_property_dark_arts"					"Dark Mastery"
-		"property_dark_arts_description"			"Увеличивает показатель Ловкости на 50% от вашего интеллекта."
+		"property_dark_arts_description"			"Увеличивает показатель Ловкости на <% DARK_ARTS_INT_TO_AGI * 100 %>% от вашего интеллекта."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
