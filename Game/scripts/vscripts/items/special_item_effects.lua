@@ -4178,7 +4178,7 @@ end
 function crimson_skull_cap_kill(event)
 	local caster = event.caster.hero
 	local target = event.unit
-	local damage = target:GetMaxHealth() * 0.5
+	local damage = target:GetMaxHealth() * CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE/100
 	local particleName = "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"
 	local shadowFlarePos = GetGroundPosition(target:GetAbsOrigin(), caster)
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
@@ -4196,7 +4196,7 @@ function crimson_skull_cap_kill(event)
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
 	EmitSoundOn("RPCItem.CrimsonSkullCap.Explode", target)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, CRIMSON_SKULL_CAP_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)

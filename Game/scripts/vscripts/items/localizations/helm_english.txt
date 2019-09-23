@@ -282,7 +282,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		 "property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal @special_property1% of their max health to surrounding enemies as Magical damage."
+		 "property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% of their max health to surrounding enemies as Magical damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
