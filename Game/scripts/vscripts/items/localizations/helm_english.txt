@@ -219,7 +219,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
 		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"                "Enemies hit by @Ability2 receive a debuff that reduces their current total Armor by 15%, and causes them to take 25% increased Post-Mitigation Physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Grants bonus attack damage by 0.5% for each target hit, up to 100 stacks."
+		"property_hood_of_defiler_description"                "Enemies hit by @Ability2 receive a debuff that reduces their current total Armor by <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>%, and causes them to take <% HOOD_OF_DEFILER_POST_MITI_PHYS %>% increased Post-Mitigation Physical damage from all sources. Stacks up to <% HOOD_OF_DEFILER_POST_MITI_MAX_STACKS %> times and lasts <% HOOD_OF_DEFILER_DURATION %> seconds. Grants bonus attack damage by <% HOOD_OF_DEFILER_BONUS_ATTACK_DMG_PER_TARGET %>% for each target hit, up to <% HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG %> stacks."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased Physical damage."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"

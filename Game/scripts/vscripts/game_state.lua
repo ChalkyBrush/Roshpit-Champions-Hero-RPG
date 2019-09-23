@@ -2186,7 +2186,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 7.0
 		end
 		if victim:HasModifier("modifier_hood_of_defiler_effect_visible") then
-			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * 0.25
+			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * HOOD_OF_DEFILER_POST_MITI_PHYS/100
 			mult = mult + multIncrease
 		end
 		if victim:HasModifier('modifier_basilisk_plague_petrify') then

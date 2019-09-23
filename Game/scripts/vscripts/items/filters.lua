@@ -3684,20 +3684,20 @@ function Filters:DefilerHit(attacker, victim)
     local origStacks = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability)
 
     local currentArmorLoss = victim:GetModifierStackCount("modifier_hood_of_defiler_armor_loss", ability)
-    local additionalArmorLoss = math.ceil(victim:GetPhysicalArmorValue(false) * 0.15)
-    if origStacks >= 5 then
+    local additionalArmorLoss = math.ceil(victim:GetPhysicalArmorValue(false) * HOOD_OF_DEFILER_ARMOR_REDUCTION/100)
+    if origStacks >= HOOD_OF_DEFILER_POST_MITI_MAX_STACKS then
         additionalArmorLoss = 0
     end
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_armor_loss", {duration = 9})
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_armor_loss", {duration = HOOD_OF_DEFILER_DURATION})
     victim:SetModifierStackCount("modifier_hood_of_defiler_armor_loss", ability, currentArmorLoss + additionalArmorLoss)
 
     local origStacks = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability)
-    local newStacks = math.min(origStacks + 1, 5)
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_effect_visible", {duration = 9})
+    local newStacks = math.min(origStacks + 1, HOOD_OF_DEFILER_POST_MITI_MAX_STACKS)
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_effect_visible", {duration = HOOD_OF_DEFILER_DURATION})
     victim:SetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability, newStacks)
 
     local casterStacks = attacker:GetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit)
-    local newCasterStacks = math.min(casterStacks + 1, 100)
+    local newCasterStacks = math.min(casterStacks + 1, HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG)
     ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff", {duration = 9})
     attacker:SetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit, newCasterStacks)
 end
