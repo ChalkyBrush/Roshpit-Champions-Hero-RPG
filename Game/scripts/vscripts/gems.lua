@@ -261,8 +261,8 @@ function Gems:InsertGem(msg)
 	local playerID = msg.PlayerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	if Gems:CanItemTakeGems(item) and Gems:IsValidGemInput(item, msg.socket_number, msg.gem, msg.gem_level) then
-		if Gems:CanPlayerAffordGem(playerID, msg.gem, msg.socket_number, msg.gem_level) then
-			local cost = Gems:GetCostFromItem(msg.gem_level, item, msg.gem)
+		if Gems:CanPlayerAffordGem(playerID, msg.socket_number, msg.gem, msg.gem_level, item) then
+			local cost = Gems:GetCostFromItem(msg.gem_level, item, msg.gem, msg.socket_number)
 			Gems:SetSocket(item, msg.socket_number, msg.gem, msg.gem_level, item)
 			EmitSoundOn("NPC.Blacksmith.AddSocket", hero)
 			local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
@@ -278,7 +278,7 @@ function Gems:InsertGem(msg)
 	end
 end
 
-function Gems:GetCostFromItem(gem_level, item, gem)
+function Gems:GetCostFromItem(gem_level, item, gem, socket_number)
 	local current_level = 0
 	local desired_level = gem_level
 	if socket_number == 1 then
@@ -286,6 +286,7 @@ function Gems:GetCostFromItem(gem_level, item, gem)
 	elseif socket_number == 2 then
 		current_level = item.newItemTable.socket2value
 	end
+	print("CURRENT LEVEL: "..current_level)
 	if not current_level then
 		current_level = 0
 	end
@@ -299,7 +300,7 @@ function Gems:GetGemCost(current_level, desired_level, gem)
 	if desired_level <= current_level then
 		cost = 0
 	else 
-		for i = current_level, desired_level, 1 do
+		for i = current_level+1, desired_level, 1 do
 			cost = cost + gems_cost[i+1]
 		end
 	end
@@ -307,7 +308,7 @@ function Gems:GetGemCost(current_level, desired_level, gem)
 end
 
 function Gems:CanPlayerAffordGem(playerID, socket_number, gem, gem_level, item)
-	local cost = Gems:GetCostFromItem(gem_level, item, gem)
+	local cost = Gems:GetCostFromItem(gem_level, item, gem, socket_number)
 	local gems = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-gemstones").gemstones
 	if (gems >= cost) then
 		return true
