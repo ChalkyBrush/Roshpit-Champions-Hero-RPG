@@ -2971,7 +2971,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_enchanted_solar_cape") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = 15})
+			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = SOLAR_CAPE_DURATION})
 		end
 	end
 	if victim:HasModifier("modifier_arcane_shell") then

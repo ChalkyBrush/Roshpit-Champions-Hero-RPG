@@ -150,7 +150,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
 		"item_property_hermit_spike_shell"			"Quill Spray"
-		"property_hermit_spike_shell_description"	"When you take a total of 15% of your max health as damage, release quills that deal 30x the damage taken as Physical to all surrounding enemies."
+		"property_hermit_spike_shell_description"	"When you take a total of <% HERMIT_SPIKE_THRESHOLD %>% of your max health as damage, release quills that deal <% HERMIT_SPIKE_DAMAGE_OF_DAMAGE_TAKEN %> x the damage taken as Physical to all surrounding enemies."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
@@ -160,14 +160,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Taking any Magical or Pure damage increases both Base Ability Damage and all Elemental Damage bonuses by 400% for 15 seconds."
+		"property_enchanted_solar_description"		"Taking any Magical or Pure damage increases both Base Ability Damage and all Elemental Damage bonuses by <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% for <% SOLAR_CAPE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"All Base Ability damage and Elemental damage increased by 400%"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"All Base Ability damage and Elemental damage increased by <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"
 		"item_property_ocean_tempest"				"Tidal Windstorm"
-		"property_ocean_tempest_description"		"Drain 40% of your max mana per second while channeling @Ability4. For every 100 mana drained, increase @Ability4 damage by 1.5%. This bonus resets when casting @Ability4 again."
+		"property_ocean_tempest_description"		"Drain <% OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND %>% of your max mana per second while channeling @Ability4. For every <% OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD %>  mana drained, increase @Ability4 damage by <% OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD %>%. This bonus resets when casting @Ability4 again."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"Radiant Ruins Leather"

@@ -2293,7 +2293,7 @@ function hermit_spike_damage_taken(event)
 	if not ability.spineDamage then
 		ability.spineDamage = 0
 	end
-	local spineThreshold = target:GetMaxHealth() * 0.15
+	local spineThreshold = target:GetMaxHealth() * HERMIT_SPIKE_THRESHOLD/100
 	ability.spineDamage = ability.spineDamage + attack_damage
 	if ability.spineDamage > spineThreshold then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Bristleback.QuillSpray.Cast", target)
@@ -2307,8 +2307,8 @@ function hermit_spike_damage_taken(event)
 				Timers:CreateTimer(2, function()
 					ParticleManager:DestroyParticle(pfx, false)
 				end)
-				local radius = 550
-				local damage = spineThreshold * 30
+				local radius = HERMIT_SPIKE_RADIUS
+				local damage = spineThreshold * HERMIT_SPIKE_DAMAGE_OF_DAMAGE_TAKEN
 				local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
@@ -2639,7 +2639,7 @@ function ocean_tempest_think(event)
 	local target = event.target
 	local ability = event.ability
 
-	local manaDrain = target:GetMaxMana() * 0.04
+	local manaDrain = target:GetMaxMana() * OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND/10
 	if manaDrain > target:GetMana() then
 		manaDrain = target:GetMana()
 	end

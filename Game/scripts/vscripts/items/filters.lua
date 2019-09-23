@@ -1346,7 +1346,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3
         end
         if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
-            damageMult = damageMult + 3
+            damageMult = damageMult + SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
         end
         if attacker:HasModifier("modifier_boots_of_old_wisdom_active") then
             damageMult = damageMult + 6.5
@@ -1669,7 +1669,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_ocean_tempest_pallium") and attacker.ocean_tempest and attacker.ocean_tempest.manaDrained then
             --TO DO check for bugs
-            local damageIncrease = (attacker.ocean_tempest.manaDrained / 100) * 0.015
+            local damageIncrease = (attacker.ocean_tempest.manaDrained / OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD) * OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD/100
             damageMult = damageMult + damageIncrease
         end
 
@@ -1837,7 +1837,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + 3
         end
         if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
-            mult = mult + 3
+            mult = mult + SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
         end
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
