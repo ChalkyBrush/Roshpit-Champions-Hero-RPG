@@ -1517,7 +1517,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 0.65
 	end
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
-		damage = damage * 0.05
+		damage = damage * (100-GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * 0.8) then
 		damage = damage * 0.5

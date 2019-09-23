@@ -281,9 +281,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Applies a Shield for 1.5 seconds when casting @Ability3, or 3.5 seconds when casting @Ability4, that reduces all damage taken by 95%."
+		"property_guard_of_feronia_description"				"Applies a Shield for <% GUARD_OF_FERONIA_SHIELD_DURATION_E %> seconds when casting @Ability3, or <% GUARD_OF_FERONIA_SHIELD_DURATION_R %> seconds when casting @Ability4, that reduces all damage taken by <% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by 95%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"

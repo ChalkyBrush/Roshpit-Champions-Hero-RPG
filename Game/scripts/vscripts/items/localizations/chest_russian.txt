@@ -281,9 +281,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Прочтение (E) @Ability3 или (R) @Ability4 наделяет героя особым щитом на 1.5 или 3.5 секунды соответственно, который поглощает весь входящий урон на 95%"
+		"property_guard_of_feronia_description"				"Прочтение (E) @Ability3 или (R) @Ability4 наделяет героя особым щитом на <% GUARD_OF_FERONIA_SHIELD_DURATION_E %> или <% GUARD_OF_FERONIA_SHIELD_DURATION_R %> секунды соответственно, который поглощает весь входящий урон на <% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description"	"Снижает входящий урон на 95%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description"	"Снижает входящий урон на <% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
