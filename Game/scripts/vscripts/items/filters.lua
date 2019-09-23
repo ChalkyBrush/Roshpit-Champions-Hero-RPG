@@ -649,7 +649,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
                 return
             end
             target.whiteMageShield = shieldValue
-            caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = 16})
+            caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = WHITE_MAGE_SHIELD_DURATION})
         end
     end
 end
@@ -1337,7 +1337,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.0025 * (attacker:GetAgility() / 10)
         end
         if attacker:HasModifier("modifier_white_mage_hat2") then
-            damageMult = damageMult + 0.001 * (attacker:GetIntellect() / 10)
+            damageMult = damageMult + WHITE_MAGE_BAD_PER_INT/100 * (attacker:GetIntellect() / WHITE_MAGE_INT_DIVISOR)
         end
         if attacker:HasModifier("modifier_garnet_warfare_ring") then
             damageMult = damageMult + 0.003 * (attacker:GetStrength() / 10)
@@ -2946,9 +2946,8 @@ function Filters:DoomplateApply(attacker, victim)
 end
 
 function Filters:WhiteMageHat(caster)
-    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local healMult = caster.headItem:GetSpecialValueFor("property_one")
-    local healAmount = caster:GetIntellect() * healMult
+    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, WHITE_MAGE_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local healAmount = caster:GetIntellect() * WHITE_MAGE_INT_TO_HEAL
     local inventoryUnit = caster.InventoryUnit
     local ability = inventoryUnit:FindAbilityByName("helm_slot")
     if #allies > 0 then

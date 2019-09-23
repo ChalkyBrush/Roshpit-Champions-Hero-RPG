@@ -31,14 +31,14 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
-		"property_white_mage_hat_2_description"		"Каждое прочтение (W) @Ability2 дополнительно восстановит здоровье вам и вашим союзникам в размере @special_property1x вашего Интеллекта. Когда цели имеют полное здоровье, каждое следующее применение эффекта наделит их щитом, который способен поглотить урон. Сила щита зависит от силы лечения, но не более 100% от максимального здоровья цели.<br>Базовый Урон Способностей увеличивается на @special_property2% за каждые 10 очков Интеллекта.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_white_mage_hat_2_description"		"Каждое прочтение (W) @Ability2 дополнительно восстановит здоровье вам и вашим союзникам в размере <% WHITE_MAGE_INT_TO_HEAL %>x вашего Интеллекта. Когда цели имеют полное здоровье, каждое следующее применение эффекта наделит их щитом, который способен поглотить урон. Сила щита зависит от силы лечения, но не более 100% от максимального здоровья цели.<br>Базовый Урон Способностей увеличивается на <% WHITE_MAGE_BAD_PER_INT %>% за каждые <% WHITE_MAGE_INT_DIVISOR %> очков Интеллекта."
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Поглощение урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"С @special_property1% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный @special_property2x от вашего урона. Снижает базовое время атаки @special_property3 сек.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property4% за каждые 10 очков Ловкости.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_hyper_visor2_description"			"С @special_property1% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный @special_property2x от вашего урона. Снижает базовое время атаки @special_property3 сек.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property4% за каждые 10 очков Ловкости."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
