@@ -136,7 +136,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
-		"property_samurai_helmet_description"		"С @special_property1% шансом ваши атаки нанесут на @special_property2% больший урон. Увеличивает Базовый Урон атак на (уровень героя * @special_property3)."
+		"property_samurai_helmet_description"		"С <% ADAMANTINE_SAMURAI_CHANCE %>% шансом ваши атаки нанесут на <% ADAMANTINE_SAMURAI_CRIT %>% больший урон. Увеличивает Базовый Урон атак на (уровень героя * <% ADAMANTINE_SAMURAI_BASE_ATTACK_PER_LVL %>)."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
