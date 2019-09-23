@@ -5359,7 +5359,7 @@ function boreal_granite_vest_take_damage(event)
 		return false
 	end
 	local ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-	local proc = Filters:GetProc(hero, 10)
+	local proc = Filters:GetProc(hero, BOREAL_GRANITE_VEST_CHANCE)
 	local cd = ability:GetCooldownTimeRemaining()
 	local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), target:GetAbsOrigin())
 	local behavior = ability:GetBehavior()

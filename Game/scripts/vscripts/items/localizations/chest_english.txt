@@ -340,7 +340,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
 		"item_property_boreal_granite"						"Diametric Force"
-		"property_boreal_granite_description"				"When taking damage from an enemy, there is a @special_property1% chance to cast @Ability1 for free immediately if the damage source is within the ability's cast range. @Ability1's cooldown is refreshed when this occurs. Targeted abilities are cast at the attacker or their location, if they are within the cast range."
+		"property_boreal_granite_description"				"When taking damage from an enemy, there is a <% BOREAL_GRANITE_VEST_CHANCE %>% chance to cast @Ability1 for free immediately if the damage source is within the ability's cast range. @Ability1's cooldown is refreshed when this occurs. Targeted abilities are cast at the attacker or their location, if they are within the cast range."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
