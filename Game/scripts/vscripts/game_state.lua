@@ -3137,7 +3137,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_ethereal_revenant_link") then
 		if attacker.revenantData then
 			if attacker.revenantData[1] == victim:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * (100-ETHEREAL_REVENANT_DAMAGE_REDUCTION)/100
+				filterTable["damage"] = filterTable["damage"] * (100-ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT)/100
 			end
 		end
 	end
