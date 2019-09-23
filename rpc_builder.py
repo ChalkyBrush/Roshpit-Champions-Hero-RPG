@@ -84,14 +84,6 @@ def watch():
                 should_rebuild = True
             if should_rebuild:
                 files_change_time[path] = change_time
-        for path in global_lua_paths:
-            change_time = os.path.getmtime(path)
-            if path not in files_change_time:
-                should_rebuild = True
-            elif files_change_time[path] < change_time:
-                should_rebuild = True
-            if should_rebuild:
-                files_change_time[path] = change_time
         for path in global_replaces_paths:
             change_time = os.path.getmtime(path)
             if path not in files_change_time:
