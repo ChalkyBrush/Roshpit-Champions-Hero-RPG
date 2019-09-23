@@ -5431,9 +5431,9 @@ function captains_vest_think(event)
 	local r_2_level = hero:GetRuneValue("r", 2)
 	local r_3_level = hero:GetRuneValue("r", 3)
 	local r_4_level = hero:GetRuneValue("r", 4)
-	local strength = q_1_level * 3 + q_2_level * 6 + q_3_level * 15 + q_4_level * 30 + r_1_level * 1 + r_2_level * 2 + r_3_level * 5 + r_4_level * 10
-	local agility = e_1_level * 3 + e_2_level * 6 + e_3_level * 15 + e_4_level * 30 + r_1_level * 1 + r_2_level * 2 + r_3_level * 5 + r_4_level * 10
-	local intelligence = w_1_level * 3 + w_2_level * 6 + w_3_level * 15 + w_4_level * 30 + r_1_level * 1 + r_2_level * 2 + r_3_level * 5 + r_4_level * 10
+	local strength = q_1_level * CAPTAINS_VEST_Q1 + q_2_level * CAPTAINS_VEST_Q2 + q_3_level * CAPTAINS_VEST_Q3 + q_4_level * CAPTAINS_VEST_Q4 + r_1_level * CAPTAINS_VEST_R1 + r_2_level * CAPTAINS_VEST_R2 + r_3_level * CAPTAINS_VEST_R3 + r_4_level * CAPTAINS_VEST_R4
+	local agility = e_1_level * CAPTAINS_VEST_E1 + e_2_level * CAPTAINS_VEST_E2 + e_3_level * CAPTAINS_VEST_E3 + e_4_level * CAPTAINS_VEST_E4 + r_1_level * CAPTAINS_VEST_R1 + r_2_level * CAPTAINS_VEST_R2 + r_3_level * CAPTAINS_VEST_R3 + r_4_level * CAPTAINS_VEST_R4
+	local intelligence = w_1_level * CAPTAINS_VEST_W1 + w_2_level * CAPTAINS_VEST_W2 + w_3_level * CAPTAINS_VEST_W3 + w_4_level * CAPTAINS_VEST_W4 + r_1_level * CAPTAINS_VEST_R1 + r_2_level * CAPTAINS_VEST_R2 + r_3_level * CAPTAINS_VEST_R3 + r_4_level * CAPTAINS_VEST_R4
 	if strength > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_captains_vest_str", {})
 		hero:SetModifierStackCount("modifier_captains_vest_str", caster, strength)
