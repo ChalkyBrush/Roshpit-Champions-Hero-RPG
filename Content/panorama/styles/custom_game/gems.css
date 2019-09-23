@@ -447,3 +447,14 @@
 	width:50%;
 	horizontal-align:center;
 }
+
+.too-poor-for-gem{
+	background-color: #111111;
+	opacity:0.95;
+	width:52px;
+	border-radius:100%;
+}
+
+.too-poor-for-gem:hover{
+	background-color: #111111;
+}

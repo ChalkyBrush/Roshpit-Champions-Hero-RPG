@@ -170,13 +170,22 @@ function attach_gems_list(parent, gem, gem_level, item, socket_number){
 	list_attacher = attacher.FindChildTraverse('socket_gems_list_row_attacher')
 	for (i = 1; i <= 5; i++) {
 		var gem_panel = $.CreatePanel("Panel", list_attacher, "gem-"+gem+i)
+		var check_level = i
 		gem_panel.BLoadLayoutSnippet('socket_gem')
 		gem_panel.FindChildTraverse('socket_gem_image').SetImage("file://{images}/items/gems/"+gem+i+".png")
+		var cost = calculate_forge_cost(gem_level, check_level, gem)
 		if (i <= gem_level){
 			gem_panel.FindChildTraverse('socket_gem_overlay').SetImage("file://{images}/custom_game/ui/trade-y.png")
 		}else{
 			gem_panel.AddClass('socket_gem_hoverable')
-			set_gem_click(gem_panel, gem, i, item, socket_number)
+			if (!(can_afford_gem(cost))){
+				gem_panel.FindChildTraverse('socket_gem_overlay').AddClass('too-poor-for-gem')
+				gem_panel.SetPanelEvent("onactivate", function GemClick() {
+					Game.EmitSound("UI.TooFarDialogue")
+				})
+			}else{
+				set_gem_click(gem_panel, gem, i, item, socket_number)
+			}
 			set_gem_hover_events(gem_panel, gem, i, item, gem_level)
 		}
 	}
@@ -224,6 +233,9 @@ function gem_hover(panel, item, gem, gem_number, current_level){
 	var cost = calculate_forge_cost(current_level, gem_number, gem)
 	tooltip = tooltip + base_gem_tooltip + "<br><br>"
 	tooltip = "<font color='"+'#FFFFFF'+"'>"+tooltip + "Cost: " + cost + " Prismatic Gemstones"+"</font>"
+	if (!(can_afford_gem(cost))){
+		tooltip = tooltip + "<br><font color='#999999' size='12px'> (Not Enough Available)"+"</font>"
+	}
 	$.DispatchEvent("DOTAShowTitleTextTooltip", panel, title, tooltip);
 }
 
@@ -232,15 +244,30 @@ function gem_unhover(panel){
 }
 
 function calculate_forge_cost(current_level, highlighted_level, gem){
-	var gem_costs = [0, 30, 90, 270, 810, 2430]
+	$.Msg("CALC FORGE COST:")
+	$.Msg("CURRENT LEVEL: "+current_level+" | HIGHLIGHTED: "+highlighted_level)
+	var gem_costs = [0, 30, 150, 750, 3750, 18750]
 	var total_cost = 0
-	for (i = current_level+1; i <= highlighted_level; i++){
-		$.Msg(i)
-		total_cost = total_cost + gem_costs[i]
-	} 
+	if (highlighted_level <= current_level){
+		total_cost = 0
+	}else{
+		for (k = current_level+1; k <= highlighted_level; k++){
+			$.Msg(k)
+			total_cost = total_cost + gem_costs[k]
+		}
+	}
 	return total_cost
 }
 
+function can_afford_gem(cost){
+	var playerID = Game.GetLocalPlayerID();
+	var prismatics = CustomNetTables.GetTableValue( "player_stats", playerID.toString()+"-gemstones" );
+	if (prismatics.gemstones >= cost){
+		return true
+	}else{
+		return false
+	}
+}
 
 function CloseGemforger(){
 	var parent = $('#gemforger_container')

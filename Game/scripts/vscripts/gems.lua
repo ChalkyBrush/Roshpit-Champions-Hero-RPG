@@ -156,7 +156,6 @@ function Gems:CollectReward(msg)
 	local player = PlayerResource:GetPlayer(playerID)
 	if player then
 		local hero = GameState:GetHeroByPlayerID(playerID)
-		local steamID = PlayerResource:GetSteamAccountID(playerID)
 		if hero.gem_reward > 0 then
 
 			local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
@@ -171,35 +170,42 @@ function Gems:CollectReward(msg)
 			EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
 			local reward = hero.gem_reward
 			hero.gem_reward = 0
-			local url = ROSHPIT_URL.."/champions/modifyPrismaticGemstones?"
-			url = url.."steam_id="..steamID
-			url = url.."&amount="..reward
-			url = url.."&reason=" .. "gem_forger"
-			url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-
-			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-				--SaveLoad:NewKey()
-				local resultTable = {}
-				--print( "GET response:\n" )
-				for k, v in pairs(result) do
-					--print( string.format( "%s : %s\n", k, v ) )
-				end
-				--print( "Done." )
-				if result.StatusCode == 200 then
-					local resultTable = JSON:decode(result.Body)
-					local gemstones_from_json = resultTable.prismatic_gemstones
-					--print("[Challenges:FinalReroll] gemstones_from_json:"..tostring(gemstones_from_json))
-					CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {gemstones = gemstones_from_json})
-					CustomGameEventManager:Send_ServerToPlayer(player, "update_gemstones", {gemstones = gemstones_from_json, player = playerID})
-
-				else
-					for k, v in pairs(result) do
-						print( string.format( "%s : %s\n", k, v ) )
-					end
-				end
-			end)			
+			Gems:ModifyPrismaticGemstones(playerID, reward, "gemforger_reward", "add")
 		end
 	end
+end
+
+function Gems:ModifyPrismaticGemstones(playerID, amount, reason, add_or_subtract)
+	local player = PlayerResource:GetPlayer(playerID)
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local url = ROSHPIT_URL.."/champions/modifyPrismaticGemstones?"
+	url = url.."steam_id="..steamID
+	url = url.."&amount="..amount
+	url = url.."&reason=" ..reason
+	url = url.."&add_or_subtract=" ..add_or_subtract
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+		--SaveLoad:NewKey()
+		local resultTable = {}
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
+		end
+		--print( "Done." )
+		if result.StatusCode == 200 then
+			local resultTable = JSON:decode(result.Body)
+			local gemstones_from_json = resultTable.prismatic_gemstones
+			--print("[Challenges:FinalReroll] gemstones_from_json:"..tostring(gemstones_from_json))
+			CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {gemstones = gemstones_from_json})
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_gemstones", {gemstones = gemstones_from_json, player = playerID})
+
+		else
+			for k, v in pairs(result) do
+				print( string.format( "%s : %s\n", k, v ) )
+			end
+		end
+	end)	
 end
 
 function Gems:ItemUpForForging(msg)
@@ -255,15 +261,57 @@ function Gems:InsertGem(msg)
 	local playerID = msg.PlayerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	if Gems:CanItemTakeGems(item) and Gems:IsValidGemInput(item, msg.socket_number, msg.gem, msg.gem_level) then
-		Gems:SetSocket(item, msg.socket_number, msg.gem, msg.gem_level)
-		EmitSoundOn("NPC.Blacksmith.AddSocket", hero)
-		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
-		ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin()+Vector(0,0,1000))
-		Timers:CreateTimer(1.5, function()
-			EmitSoundOn("NPC.Blacksmith.AddSocket2", hero)
-		end)
-		EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
+		if Gems:CanPlayerAffordGem(playerID, msg.gem, msg.socket_number, msg.gem_level) then
+			local cost = Gems:GetCostFromItem(msg.gem_level, item, msg.gem)
+			Gems:SetSocket(item, msg.socket_number, msg.gem, msg.gem_level, item)
+			EmitSoundOn("NPC.Blacksmith.AddSocket", hero)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
+			ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin()+Vector(0,0,1000))
+			Timers:CreateTimer(1.5, function()
+				EmitSoundOn("NPC.Blacksmith.AddSocket2", hero)
+			end)
+			EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
+			Gems:ModifyPrismaticGemstones(playerID, cost, "forge_gem", "subtract")
+		end
+	end
+end
+
+function Gems:GetCostFromItem(gem_level, item, gem)
+	local current_level = 0
+	local desired_level = gem_level
+	if socket_number == 1 then
+		current_level = item.newItemTable.socket1value
+	elseif socket_number == 2 then
+		current_level = item.newItemTable.socket2value
+	end
+	if not current_level then
+		current_level = 0
+	end
+	local cost = Gems:GetGemCost(current_level, desired_level, gem)
+	return cost
+end
+
+function Gems:GetGemCost(current_level, desired_level, gem)
+	gems_cost = {0, 30, 150, 750, 3750, 18750}
+	local cost = 0
+	if desired_level <= current_level then
+		cost = 0
+	else 
+		for i = current_level, desired_level, 1 do
+			cost = cost + gems_cost[i+1]
+		end
+	end
+	return cost
+end
+
+function Gems:CanPlayerAffordGem(playerID, socket_number, gem, gem_level, item)
+	local cost = Gems:GetCostFromItem(gem_level, item, gem)
+	local gems = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-gemstones").gemstones
+	if (gems >= cost) then
+		return true
+	else
+		return false
 	end
 end
