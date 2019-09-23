@@ -248,7 +248,7 @@ end
 
 function Filters:GetAdjustedRange(caster, baseRange)
     if caster:HasModifier("modifier_hood_of_lords_lua") then
-        baseRange = baseRange + 140
+        baseRange = baseRange + HOOD_OF_LORDS_BONUS_RANGE
     end
     if caster:HasModifier("modifier_vermillion_dream_lua") then
         baseRange = baseRange + 420
@@ -398,7 +398,7 @@ end
 function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
     local abilityCooldown = ability:GetCooldownTimeRemaining()
     if caster:HasModifier("modifier_hood_of_lords_lua") then
-        abilityCooldown = abilityCooldown + 1
+        abilityCooldown = abilityCooldown + HOOD_OF_LORDS_CD_RED
     end
     local abilityCooldown = abilityCooldown - CDreduce
     if abilityCooldown > 0 then
@@ -446,7 +446,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         CDreduce = CDreduce - baseCD
     end
     if caster:HasModifier("modifier_hood_of_lords_lua") then
-        CDreduce = CDreduce - 1
+        CDreduce = CDreduce - HOOD_OF_LORDS_CD_RED
     end
     local abilityCooldown = abilityCooldown - CDreduce
 
@@ -473,7 +473,7 @@ end
 function Filters:GetCDNoHood(caster, cd)
     if cd < 1.5 then
         if caster:HasModifier("modifier_hood_of_lords_lua") then
-            cd = cd + 1
+            cd = cd + HOOD_OF_LORDS_CD_RED
         end
     end
     return cd

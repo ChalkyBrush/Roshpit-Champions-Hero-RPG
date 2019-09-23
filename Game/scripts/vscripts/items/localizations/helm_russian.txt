@@ -286,7 +286,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
 		"item_property_lords"									"Commanding Sight"
-		 "property_lords_description"							"Время перезарядки всех умений снижено на @special_property1 сек., а дальность их применения увеличена на @special_property2. Умения применяются сразу, вне зависимости от того, смотрит ли герой в нужную сторону или нет."
+		 "property_lords_description"							"Время перезарядки всех умений снижено на <% HOOD_OF_LORDS_CD_RED %>  сек., а дальность их применения увеличена на <% HOOD_OF_LORDS_BONUS_RANGE %>. Умения применяются сразу, вне зависимости от того, смотрит ли герой в нужную сторону или нет."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"

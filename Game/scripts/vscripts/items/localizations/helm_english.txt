@@ -287,7 +287,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
 		"item_property_lords"									"Commanding Sight"
-		 "property_lords_description"							"Ability cooldowns are reduced by @special_property1 second and have @special_property2 extra cast range. Abilities begin their cast time even before you fully turn to face the target."
+		 "property_lords_description"							"Ability cooldowns are reduced by <% HOOD_OF_LORDS_CD_RED %> second and have <% HOOD_OF_LORDS_BONUS_RANGE %> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
