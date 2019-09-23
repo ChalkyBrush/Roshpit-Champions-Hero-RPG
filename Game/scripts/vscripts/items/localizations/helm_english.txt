@@ -250,7 +250,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Increases Strength and Agility by <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %> of Intelligence."
+		 "property_eye_of_seasons_description"				"Increases Strength and Agility by <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %>% of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
