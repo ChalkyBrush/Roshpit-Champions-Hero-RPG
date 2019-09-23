@@ -2277,7 +2277,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 		if victim:HasModifier("modifier_umbral_sentinel_magic_amp") then
-			local multIncrease = victim:GetModifierStackCount("modifier_umbral_sentinel_magic_amp", victim.umbral) * 0.03
+			local multIncrease = victim:GetModifierStackCount("modifier_umbral_sentinel_magic_amp", victim.umbral) * CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC/100
 			mult = mult + multIncrease
 		end
 

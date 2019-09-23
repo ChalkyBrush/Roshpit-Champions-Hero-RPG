@@ -195,7 +195,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
 		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Enemies damaged by @Ability2 lose base Armor equal to 70x the ability's level, and take increased Post-Mitigation Magical damage equal to 3% x the ability's level. Stacks up to 5 times. Lasts 10 seconds."
+		"property_umbral_description"				"Enemies damaged by @Ability2 lose base Armor equal to <% CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS %>x the ability's level, and take increased Post-Mitigation Magical damage equal to <% CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC %>% x the ability's level. Stacks up to <% CREST_OF_UMBRAL_SENTINEL_MAX_STACKS %> times. Lasts <% CREST_OF_UMBRAL_SENTINEL_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Losing a %% of base Armor and taking increased Magical damage."
 		

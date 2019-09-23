@@ -3664,13 +3664,13 @@ function Filters:UmbralSentinel(attacker, victim)
     local ability = attacker.headItem
     local wLevel = attacker:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
     local origStacks = victim:GetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_visible", ability)
-    local newStacks = math.min(origStacks + 1, 5)
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_visible", {duration = 10})
+    local newStacks = math.min(origStacks + 1, CREST_OF_UMBRAL_SENTINEL_MAX_STACKS)
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_visible", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
     victim:SetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_visible", ability, newStacks)
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_invisible", {duration = 10})
-    victim:SetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_invisible", ability, math.floor(newStacks * 70 * wLevel))
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_invisible", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
+    victim:SetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_invisible", ability, math.floor(newStacks * CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS * wLevel))
 
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_umbral_sentinel_magic_amp", {duration = 10})
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_umbral_sentinel_magic_amp", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
     victim:SetModifierStackCount("modifier_umbral_sentinel_magic_amp", ability, newStacks * wLevel)
     victim.umbral = ability
 end
