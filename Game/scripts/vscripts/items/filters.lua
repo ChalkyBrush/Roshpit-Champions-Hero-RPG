@@ -3629,11 +3629,11 @@ function Filters:WraithCrown(caster)
 end
 
 function Filters:DemonMask(caster, target, damage)
-    local proc = Filters:GetProc(caster, 15)
+    local proc = Filters:GetProc(caster, DEMON_MASK_CHANCE)
     -- proc = true
     if proc then
         --print("dmg test: "..damage)
-        damage = damage * 15
+        damage = damage * DEMON_MASK_AMP
         --print("dmg test: "..damage)
         local limitKey = caster:GetPlayerOwnerID() .. '_demon_mask'
         Util.Common:LimitPerTime(4, 1, limitKey, function()
@@ -3647,7 +3647,7 @@ function Filters:DemonMask(caster, target, damage)
                 ParticleManager:DestroyParticle(pfx, false)
             end)
         end)
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, DEMON_MASK_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         -- local damage = highestAttribute*40
         Timers:CreateTimer(0.1, function()
             if #enemies > 0 then

@@ -190,7 +190,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into an infernal spark instead, dealing @special_property2x the ability's damage in a large area around the target."
+		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <% DEMON_MASK_CHANCE %> chance to be converted into an infernal spark instead, dealing <% DEMON_MASK_AMP %>x the ability's damage in a large area around the target."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"

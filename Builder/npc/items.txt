@@ -18316,16 +18316,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"15"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"15"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"15"
-			}
 		}
 	}
 

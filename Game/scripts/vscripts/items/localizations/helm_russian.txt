@@ -189,7 +189,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С @special_property1% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет @special_property2x урона в большой области вокруг атакованной цели."
+		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <% DEMON_MASK_CHANCE %>% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет <% DEMON_MASK_AMP %>x урона в большой области вокруг атакованной цели."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
