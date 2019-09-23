@@ -63,19 +63,19 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"С 30% шансом враг, атакующий вас будет связан в течение 3 секунд и будет получать ежесекундный урон равный @special_property3х вашего основного атрибута."
+		"property_wild_nature_description"			"С <% CAP_OF_WILD_NATURE_CHANCE_ONE %>% шансом враг, атакующий вас будет связан в течение <% CAP_OF_WILD_NATURE_DURATION_ONE %> секунд и будет получать ежесекундный урон равный <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>х вашего основного атрибута."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Задетые способностью (W) @Ability2 враги с @special_property1% шансом будут обездвижены на @special_property2 сек. и будут получать ежесекундный урон, равный @special_property3x вашего основного атрибута."
+		"property_wild_nature_two_description"		"Задетые способностью (W) @Ability2 враги с <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% шансом будут обездвижены на <% CAP_OF_WILD_NATURE_DURATION_TWO %> сек. и будут получать ежесекундный урон, равный <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x вашего основного атрибута."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Moon Beams"
-		"property_luma_description"					 "<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Урон от умения (Q) @Ability1 с @special_property1% шансом может быть нанесен лунными лучами, которые наносят урон, равный @special_property2% от урона умения и даёт беспрепятственный обзор местности в месте над атакованной целью на 4 секунды. Этот предмет ограничивает ваш стихийный урон <font color=\"#C25DFC\">Космоса</font> на 5000%."
+		"property_luma_description"					 "<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Урон от умения (Q) @Ability1 с <% LUMA_BEAM_CHANCE %>% шансом может быть нанесен лунными лучами, которые наносят урон, равный <% LUMA_DAMAGE_AMP %>% от урона умения и даёт беспрепятственный обзор местности в месте над атакованной целью на <% LUMA_VISION_DURATION %> секунды. Этот предмет ограничивает ваш стихийный урон <font color=\"#C25DFC\">Космоса</font> на <% LUMA_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"С @special_property1% шансом все атаки и способности могут умножить урон на @special_property2. Считается Пост-Резистным усилением, но является отдельным множителем."
+		"property_odin_description"					"С <% ODIN_HELMET_CHANCE %>% шансом все атаки и способности могут умножить урон на <% ODIN_HELMET_MULT %>. Считается Пост-Резистным усилением, но является отдельным множителем."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
@@ -87,24 +87,24 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Прочтение любого заклинания накладывает безмолвие на @special_property1 секунды, нанесение атаки - на @special_property2 секунды. Герой, находясь в безмолвии, увеличивает свой пост-резистный урон на @special_property3%."
+		"property_mugato_description" 				"Прочтение любого заклинания накладывает безмолвие на <% MUGATO_SPELL_SILENCE_DUR %> секунды, нанесение атаки - на <% MUGATO_ATTACK_SILENCE_DUR %> секунды. Герой, находясь в безмолвии, увеличивает свой пост-резистный урон на <% MUGATO_POST_MITI_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
 		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере @special_property1x вашего Интеллекта. Враги, задетые волной также будут получать на @special_property2% больше пост-резистного урона на 8 секунд. Складывается до 10 раз."
+		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере <% SWAMP_WITCH_HAT_INT_TO_DMG %>x вашего Интеллекта. Враги, задетые волной также будут получать на <% SWAMP_WITCH_HAT_POST_MITI %>% больше пост-резистного урона на <% SWAMP_WITCH_HAT_DURATION %> секунд. Складывается до <% SWAMP_WITCH_HAT_MAX_STACKS %> раз."
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Пост-резистный урон увеличен на 15%% за каждый заряд."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"			"Каждое использование (W) @Ability2 мгновенно переместит вас на расстояние 380 юнитов в случайном направлении. Любой исходящий урон каждый раз умножается на случайное число от 0.5 до 2.5. Дополнительно Базовый Урон Способности (W) @Ability2 умножается на случайное число от 0.1 до 6. Модификаторы удачи влияют на шанс."
+		"property_trickster_description"			"Каждое использование (W) @Ability2 мгновенно переместит вас на расстояние <% TRICKSTER_MASK_RANGE %> юнитов в случайном направлении. Любой исходящий урон каждый раз умножается на случайное число от <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> до <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Дополнительно Базовый Урон Способности (W) @Ability2 умножается на случайное число от <% TRICKSTER_MASK_W_DMG_MULT_MIN %> до <% TRICKSTER_MASK_W_DMG_MULT_MAX %>. Модификаторы удачи влияют на шанс."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"50% полученного урона будет поглощено маной, вместо здоровья. Поглощение маны при получении урона уменьшено на 66%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_MANA_DAMAGE %>% полученного урона будет поглощено маной, вместо здоровья. Каждая единица урона по мане равноценна <% EMERALD_DOULI_MANA_DAMAGE_REDUCTION %> единицам урона по здоровью. "
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"

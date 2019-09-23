@@ -63,14 +63,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"@special_property1% chance to root enemies that damage you for @special_property2 seconds, dealing @special_property3x your primary attribute as damage every second."
+		"property_wild_nature_description"			"<% CAP_OF_WILD_NATURE_CHANCE_ONE %> chance to root enemies that damage you for <% CAP_OF_WILD_NATURE_DURATION_ONE %> seconds, dealing <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a @special_property1% chance to be rooted for @special_property2 seconds, taking @special_property3x your primary attribute as damage every second."
+		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% chance to be rooted for <% CAP_OF_WILD_NATURE_DURATION_TWO %> seconds, taking <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <% LUMA_BEAM_CHANCE %>% chance to be converted into lucent beams instead, dealing <% LUMA_DAMAGE_AMP %> of the ability's damage and providing flying vision over the target for <% LUMA_VISION_DURATION %> seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at <% LUMA_ELEMENT_CAP %>%."
+		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <% LUMA_BEAM_CHANCE %>% chance to be converted into lucent beams instead, dealing <% LUMA_DAMAGE_AMP %>% of the ability's damage and providing flying vision over the target for <% LUMA_VISION_DURATION %> seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at <% LUMA_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
