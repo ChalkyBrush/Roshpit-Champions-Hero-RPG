@@ -303,7 +303,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
 		"item_property_blazing_fury_armor"						"Blazing Fury"
-		"property_blazing_fury_description"						"Increases Strength and Intelligence by @special_property1% of Agility."
+		"property_blazing_fury_description"						"Increases Strength and Intelligence by <% BLAZING_FURY_AGI_TO_STR_AND_INT %>% of Agility."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
