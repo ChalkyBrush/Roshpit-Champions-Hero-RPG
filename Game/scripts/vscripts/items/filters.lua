@@ -1103,7 +1103,7 @@ function Filters:ApplyEskills(caster)
         Filters:RedrockFootwear(caster)
     end
     if caster:HasModifier("modifier_carbuncles_helm_of_reflection") then
-        local shieldDuration = math.max(ability:GetCooldownTimeRemaining() * 0.35, 1)
+        local shieldDuration = math.max(ability:GetCooldownTimeRemaining() * CARBUNCLE_SHIELD_DUR_RELATIVE_PCT/100, CARBUNCLE_SHIELD_DUR_MIN)
         caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncles_helm_of_reflection_effect", {duration = shieldDuration})
     end
     if caster:HasModifier("modifier_boots_of_pure_waters") then

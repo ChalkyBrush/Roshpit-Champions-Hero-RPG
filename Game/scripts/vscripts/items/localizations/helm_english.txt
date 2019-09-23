@@ -202,7 +202,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"When you cast @Ability3, gain a magic-reflecting shell that reduces Magical damage taken to 0 and damages the enemy instead for @special_property1x the damage and stuns for @special_property2 seconds. Lasts for a duration equal to @special_property3% of the cooldown of the ability, or a minimum of 1 second. Once this occurs, a target is immune to these effects again for @special_property4 seconds."
+		"property_carbuncle_description"						"When you cast @Ability3, gain a magic-reflecting shell that reduces Magical damage taken to 0 and damages the enemy instead for <% CARBUNCLE_DAMAGE_AMP %>x the damage and stuns for <% CARBUNCLE_STUN_DUR %> seconds. Lasts for a duration equal to <% CARBUNCLE_SHIELD_DUR_RELATIVE_PCT %>% of the cooldown of the ability, or a minimum of <% CARBUNCLE_SHIELD_DUR_MIN %> second. Once this occurs, a target is immune to these effects again for <% CARBUNCLE_ENEMY_IMMUNITY_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical damage taken reduced to 0 and reflected back at the source, dealing increased damage and stunning."
 

@@ -18549,33 +18549,14 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"3.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"35"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
 			}
-			"05"
+			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"			"10"
 			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"			"3"
-			}
+
 		}
 		"Modifiers"
 		{
