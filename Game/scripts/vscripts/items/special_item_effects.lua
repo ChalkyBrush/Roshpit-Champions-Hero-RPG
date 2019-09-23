@@ -3100,7 +3100,7 @@ function wraith_hunter_think(event)
 	if target:HasModifier("modifier_bahamut_sphere_of_divinity") then
 		local divinityAbility = target:FindAbilityByName("bahamut_arcana_orb")
 		local manaDrainPerSecond = divinityAbility:GetLevelSpecialValueFor("mana_drain_per_second", divinityAbility:GetLevel())
-		ability.wraith_mana = math.max(ability.wraith_mana - target:GetMaxMana() * manaDrainPerSecond * 0.03 / 100, 0)
+		ability.wraith_mana = math.max(ability.wraith_mana - target:GetMaxMana() * manaDrainPerSecond * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/10000, 0)
 	end
 	target:SetMana(ability.wraith_mana)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_wraith_hunter_attack_increase", {})
@@ -3111,7 +3111,7 @@ function wraith_hunter_take_damage(event)
 	local target = event.unit
 	local damage = event.attack_damage
 	local ability = event.ability
-	local manaRestore = math.max(math.floor(damage * 0.03), 1)
+	local manaRestore = math.max(math.floor(damage * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/100), 1)
 	ability.wraith_mana = math.min(ability.wraith_mana + manaRestore, target:GetMaxMana())
 	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active_bubbles.vpcf", target, 1)
 end
@@ -3119,7 +3119,7 @@ end
 function wraith_hunter_attack(event)
 	local attacker = event.attacker
 	local ability = event.ability
-	local manaSpent = math.min(attacker:GetMaxMana() * 0.02, attacker:GetMana())
+	local manaSpent = math.min(attacker:GetMaxMana() * WRAITH_HUNTER_MANA_DRAIN_PCT/100, attacker:GetMana())
 	ability.wraith_mana = math.max(ability.wraith_mana - manaSpent, 0)
 	if attacker:HasModifier("modifier_bluestar_armor") then
 		local target = attacker

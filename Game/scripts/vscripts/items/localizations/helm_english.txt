@@ -214,7 +214,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. 3% of damage taken restores mana. Each point of mana increases base attack damage by 5. Attacking drains 2% of your max mana. Additionally increases damage of @Ability2 by 350%."
+		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% of damage taken restores mana. Each point of mana increases base attack damage by <% WRAITH_HUNTER_BASE_ATTACK %>. Attacking drains <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% of your max mana. Additionally increases damage of @Ability2 by <% WRAITH_HUNTER_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"

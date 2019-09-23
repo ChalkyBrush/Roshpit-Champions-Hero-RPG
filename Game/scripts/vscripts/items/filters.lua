@@ -1548,7 +1548,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 12
         end
         if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
-            damageMult = damageMult + 3.5
+            damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
         end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
             damageMult = damageMult + CERULEAN_HIGHGUARD_BAD/100
