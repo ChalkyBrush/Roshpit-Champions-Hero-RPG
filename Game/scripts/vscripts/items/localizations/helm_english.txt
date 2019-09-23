@@ -104,7 +104,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"50% of damage taken is removed from mana instead of health. The damage taken from mana is reduced by 66%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_MANA_DAMAGE %>% of damage taken is removed from mana instead of health. Each point of mana damage is calculated as <% EMERALD_DOULI_MANA_DAMAGE_REDUCTION %> points of HP damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"

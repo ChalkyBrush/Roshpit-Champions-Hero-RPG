@@ -624,10 +624,10 @@ end
 function emerald_douli_damage(event)
 	local target = event.unit
 	local damage = event.damage
-	local manaDamage = math.floor(damage * 0.5)
+	local manaDamage = math.floor(damage * EMERALD_DOULI_MANA_DAMAGE/100)
 	if target:GetMana() > manaDamage then
 		target:Heal(manaDamage, target)
-		target:ReduceMana(manaDamage / 3)
+		target:ReduceMana(math.floor(manaDamage / 15))
 	end
 end
 
