@@ -647,7 +647,7 @@ function ice_quill_think(event)
 	local ability = event.ability
 	local caster = event.caster
 
-	local threshold = 600
+	local threshold = ICE_QUILL_MANA_THRESHOLD
 	if not target.ice_quill_mana_prev then
 		target.ice_quill_mana_prev = target:GetMana()
 		target.ice_quill_mana_loss = 0
@@ -678,7 +678,7 @@ function ice_quill_spell_cast(event)
 	if not hero:HasModifier("modifier_ice_quill_unloading") then
 		if hero:HasModifier("modifier_ice_quill_carapace_stack") then
 			local stacks = hero:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster)
-			local unload_duration = (stacks * 0.1) - 0.5
+			local unload_duration = (stacks * ICE_QUILL_INTERVAL) - 0.5
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_ice_quill_unloading", {duration = unload_duration})
 			hero:RemoveModifierByName("modifier_ice_quill_carapace_stack")
 		end
@@ -693,15 +693,15 @@ function ice_quill_unloading_think(event)
 	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", hero, 3)
 	EmitSoundOn("RPC.IceQuill", hero)
-	local radius = 460
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * 4
+	local radius = ICE_QUILL_RADIUS
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ICE_QUILL_ATTACK_TO_DMG
 	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
 		end
 	end
-	local manaRestore = hero:GetMaxMana() * 0.01
+	local manaRestore = hero:GetMaxMana() * ICE_QUILL_MANA_RESTORE_PCT/100
 	hero:GiveMana(manaRestore)
 	PopupMana(hero, manaRestore)
 end
