@@ -2111,8 +2111,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
-        if fireMult > 50 and attacker:HasModifier("modifier_fire_deity_crown") then
-            fireMult = 50
+        if fireMult > FIRE_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_fire_deity_crown") then
+            fireMult = FIRE_DEITY_CROWN_ELEMENT_CAP/100
         end
 
         mult = mult + fireMult
@@ -4212,11 +4212,11 @@ function Filters:ManawallDamageTaken(victim, damage)
 end
 
 function Filters:FireDeity(attacker, victim, damage)
-    local proc = Filters:GetProc(attacker, 20)
+    local proc = Filters:GetProc(attacker, FIRE_DEITY_CROWN_CHANCE)
     if proc then
-        damage = damage * 2.5
+        damage = damage * FIRE_DEITY_CROWN_AMP/100
         local target = victim
-        local radius = 220
+        local radius = FIRE_DEITY_CROWN_AOE
 
         local limitKey = attacker:GetPlayerOwnerID() .. '_fire_deity'
         Util.Common:LimitPerTime(4, 1, limitKey, function()
@@ -4241,7 +4241,7 @@ function Filters:FireDeity(attacker, victim, damage)
         local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
-                Filters:ApplyStun(attacker, 0.6, enemy)
+                Filters:ApplyStun(attacker, FIRE_DEITY_CROWN_STUN_DURATION, enemy)
                 Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             end
         end
