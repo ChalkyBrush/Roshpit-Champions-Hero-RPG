@@ -1623,12 +1623,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if not ignore_effects then
                 if attacker:IsAlive() then
                     local ability = attacker.headItem
-                    if ability.targetsHit < ability:GetSpecialValueFor("property_two") then
+                    if ability.targetsHit < WIND_DEITY_CROWN_ATTACK_LIMIT then
                         ability.targetsHit = ability.targetsHit + 1
                         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
                         Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
                     end
-                    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = 30})
+                    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = WIND_DEITY_CROWN_BONUS_DMG_DURATION})
                     local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
                     attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, currentStacks + 1)
                 end

@@ -21410,7 +21410,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "%property_one"
+				"ThinkInterval"  "<% WIND_DEITY_CROWN_LIMIT_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -21434,25 +21434,12 @@
 				"TextureName"	"tanari/ancient_hero_wind_god"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% WIND_DEITY_CROWN_BONUS_DMG %>"
 				}
 				"States"
 				{
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"		"1.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"10"
 			}
 		}
 	}

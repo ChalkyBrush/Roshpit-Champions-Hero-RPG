@@ -263,7 +263,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max @special_property2 attacks per @special_property1 seconds. Each enemy hit by these attacks increases your attack damage by 2% for 30 seconds, but these stacks are lost when you cast @Ability3."
+		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max <% WIND_DEITY_CROWN_ATTACK_LIMIT %> attacks per <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> seconds. Each enemy hit by these attacks increases your attack damage by <% WIND_DEITY_CROWN_BONUS_DMG %>% for <% WIND_DEITY_CROWN_BONUS_DMG_DURATION %> seconds, but these stacks are lost when you cast @Ability3."
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
 		
