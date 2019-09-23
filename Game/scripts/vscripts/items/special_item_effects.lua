@@ -3634,7 +3634,7 @@ function eye_of_seasons_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local stats = math.floor(target:GetBaseIntellect() * 0.35)
+	local stats = math.floor(target:GetBaseIntellect() * EYE_OF_SEASONS_INT_TO_STR_AGI)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_eye_of_seasons_stats", {})
 	target:SetModifierStackCount("modifier_eye_of_seasons_stats", caster, stats)
 end
