@@ -184,7 +184,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_hyper_visor") then
-        mult = mult + 0.003 * (caster:GetAgility() / 10)
+        mult = mult + HYPER_VISOR_AGI_TO_ITEM_AMP/100 * (caster:GetAgility() / HYPER_VISOR_AGI_DIVISOR)
     end
     if caster:HasModifier("modifier_rpc_steamboots") then
         mult = mult + 0.003 * (caster:GetAgility() / 10)

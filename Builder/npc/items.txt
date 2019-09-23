@@ -7730,26 +7730,6 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"40"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_three"	"-0.1"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"	"0.3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"		"4"
 			}
 		}
@@ -7770,7 +7750,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "%property_three"
+					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "<% HYPER_VISOR_BAT %>"
 				}
 			}
 		}

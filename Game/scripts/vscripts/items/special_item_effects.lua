@@ -406,11 +406,10 @@ function hyper_visor_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = event.attacker
-	local proc = Filters:GetProc(attacker, 20)
-	local agilityMult = ability:GetSpecialValueFor("property_two")
+	local proc = Filters:GetProc(attacker, HYPER_VISOR_CHANCE)
 	if proc then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * agilityMult
-		local radius = 450
+		local radius = HYPER_VISOR_AOE
 		local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -426,7 +425,7 @@ function hyper_visor_attack_land(event)
 		end)
 		EmitSoundOn("Hero_StormSpirit.Orchid_BallLightning", target)
 	else
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * agilityMult
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * HYPER_VISOR_ATTACK_TO_DMG
 		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	end
 end

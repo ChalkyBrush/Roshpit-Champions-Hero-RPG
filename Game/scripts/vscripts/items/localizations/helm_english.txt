@@ -38,7 +38,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"@special_property1% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on @special_property2x your attack power. Reduces your Base Attack Time by @special_property3 seconds.<br>All damage dealt directly by items is enhanced by @special_property4% for each 10 points of Agility."
+		"property_hyper_visor2_description"			"<% HYPER_VISOR_CHANCE %>% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on <% HYPER_VISOR_ATTACK_TO_DMG %>x your attack power. Changes your Base Attack Time to <% HYPER_VISOR_BAT %> seconds.<br>All damage dealt directly by items is enhanced by <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% for each <% HYPER_VISOR_AGI_DIVISOR %> points of Agility."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
