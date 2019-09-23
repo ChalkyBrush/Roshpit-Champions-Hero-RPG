@@ -23,17 +23,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
 		"item_property_flooding_3"					"Water Elemental"
-		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт 12 секунд и восстанавливает владельцу 5% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере 35x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный общему урону героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4."
+		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт <% ROBE_OF_FLOODING_DURATION %> секунд и восстанавливает владельцу <% ROBE_OF_FLOODING_MANA_RESTORE_PCT %>% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере <% ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный <% ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG %>x общего урона героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе 400 происходит сильный камнепад, который нанесёт урон, равный @special_property1x Силы каждые 0.2 секунды и оглушает врагов на 0.1 секунды.<br>Каждое успешное попадание камнепадом по противнику накапливает заряды. Когда будет накоплено 20 зарядов, произойдёт сильное землетрясение в радиусе 600,<br>которое нанесёт урон, равный @special_property2x Силы и оглушит задетых врагов на 1.6 секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property3% за каждые 10 очков Силы.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_avalanche_description_2"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе <% AVALANCHE_PLATE_AVALANCHE_RADIUS %> происходит сильный камнепад, который нанесёт урон, равный <% AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x Силы каждые <% AVALANCHE_PLATE_AVALANCHE_INTERVAL %> секунды и оглушает врагов на <% AVALANCHE_PLATE_STUN_DUR %> секунды.<br>Каждое успешное попадание камнепадом по противнику накапливает заряды. Когда будет накоплено <% AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD %> зарядов, произойдёт сильное землетрясение в радиусе <% AVALANCHE_PLATE_EARTHQUAKE_RADIUS %>,<br>которое нанесёт урон, равный <% AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG %>x Силы и оглушит задетых врагов на <% AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR %> секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на <% AVALANCHE_PLATE_ITEM_AMP_PER_STR %>% за каждые <% AVALANCHE_PLATE_STR_DIVISOR %> очков Силы."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Увеличивает Базовый Урон Способности (Q) @Ability1 на 350%.<br>Когда (Q) @Ability1 попадает по противнику, его броня снижается на 1 за каждые 0.1% от базового урона умения на 6 секунд.<br>Значение брони цели не может опуститься ниже 0."
+		"property_violet_guard_armor_description2"	"Увеличивает Базовый Урон Способности (Q) @Ability1 на <% VIOLET_GUARD_ARMOR_BAD %>%.<br>Когда (Q) @Ability1 попадает по противнику, его броня снижается на 1 за каждые <% VIOLET_GUARD_ARMOR_DAMAGE_TO_ARMOR_REDUCTION * 100 %>% от нанесенного умением урона на <% VIOLET_GUARD_ARMOR_DURATION %> секунд.<br>Значение брони цели не может опуститься ниже 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Броня снижена."
 		
