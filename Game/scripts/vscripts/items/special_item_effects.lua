@@ -2902,11 +2902,11 @@ function cascade_hat_think(event)
 	local caster = event.target
 	local ability = event.ability
 	ability.caster = caster
-	local manaDrain = caster:GetMaxMana() * 0.02
+	local manaDrain = caster:GetMaxMana() * ARCANE_CASCADE_MANA_DRAIN
 	if manaDrain > caster:GetMana() then
 		manaDrain = caster:GetMana()
 	end
-	ability.damage = manaDrain * 8000 * (caster:GetLevel() / 120) ^ 2
+	ability.damage = manaDrain * ARCANE_CASCADE_DAMAGE * (caster:GetLevel() / 120) ^ 2
 	caster:ReduceMana(manaDrain)
 	-- local fv = caster:GetForwardVector()
 	-- if manaDrain < caster:GetMana() then

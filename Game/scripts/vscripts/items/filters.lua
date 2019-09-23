@@ -1001,7 +1001,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_phantom_sorcerer") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local cdRemaining = ability:GetCooldownTimeRemaining()
-        local newCD = math.min(cdRemaining + 4, ability:GetCooldown(ability:GetLevel() - 1) + 4)
+        local newCD = math.min(cdRemaining + PHANTOM_SORCERER_CD_INCREASE, ability:GetCooldown(ability:GetLevel() - 1) + PHANTOM_SORCERER_CD_INCREASE)
         ability:EndCooldown()
         ability:StartCooldown(newCD)
     end
@@ -1542,7 +1542,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_phantom_sorcerer") then
-            damageMult = damageMult + 25
+            damageMult = damageMult + PHANTOM_SORCERER_BAD/100
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + 12

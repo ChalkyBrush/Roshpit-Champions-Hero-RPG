@@ -20473,7 +20473,7 @@
 					}
 				}
 				"Aura"          	"modifier_arcane_cascade_debuff"
-				"Aura_Radius"   	"750"
+				"Aura_Radius"   	"<% ARCANE_CASCADE_RANGE %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -20483,7 +20483,7 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "<% ARCANE_CASCADE_TICKRATE %>"
 				"EffectName"	"particles/items2_fx/arcane_cascade.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnIntervalThink"
@@ -20497,7 +20497,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-30"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% ARCANE_CASCADE_MAGIC_RESISTANCE_LOSS %>"
 				}
 			}
 		}
@@ -20662,24 +20662,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"40"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"4000"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_samurai_helmet"
@@ -20707,7 +20689,7 @@
 
 			        "Random"
 			        {
-			            "Chance" "40"
+			            "Chance" "<% ADAMANTINE_SAMURAI_CHANCE %>"
 			            "OnSuccess"
 			            {
 			            	"FireSound"
@@ -20745,7 +20727,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_three"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ADAMANTINE_SAMURAI_BASE_ATTACK_PER_LVL %>"
 				}
 			}
 			"modifier_samurai_crit"
@@ -20753,7 +20735,7 @@
 			    "IsHidden"  "1"
 			    "Properties"
 			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "600"
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "<% ADAMANTINE_SAMURAI_CRIT %>"
 			    }
 
 			    "OnAttackLanded"
