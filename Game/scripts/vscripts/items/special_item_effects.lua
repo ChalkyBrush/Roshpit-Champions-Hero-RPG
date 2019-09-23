@@ -4820,17 +4820,17 @@ function sunrise_robe_think(event)
 
 	if heroStr <= heroAgi and heroStr <= heroInt then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_str", {})
-		target:SetModifierStackCount("modifier_empyreal_str", caster, heroStr * 1.6)
+		target:SetModifierStackCount("modifier_empyreal_str", caster, heroStr * EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP)
 		target:RemoveModifierByName("modifier_empyreal_agi")
 		target:RemoveModifierByName("modifier_empyreal_int")
 	elseif heroAgi <= heroStr and heroAgi <= heroInt then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_agi", {})
-		target:SetModifierStackCount("modifier_empyreal_agi", caster, heroAgi * 1.6)
+		target:SetModifierStackCount("modifier_empyreal_agi", caster, heroAgi * EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP)
 		target:RemoveModifierByName("modifier_empyreal_str")
 		target:RemoveModifierByName("modifier_empyreal_int")
 	elseif heroInt <= heroStr and heroInt <= heroAgi then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_int", {})
-		target:SetModifierStackCount("modifier_empyreal_int", caster, heroInt * 1.6)
+		target:SetModifierStackCount("modifier_empyreal_int", caster, heroInt * EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP)
 		target:RemoveModifierByName("modifier_empyreal_str")
 		target:RemoveModifierByName("modifier_empyreal_agi")
 	end

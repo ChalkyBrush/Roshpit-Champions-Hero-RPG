@@ -330,7 +330,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"Empyreal Sunrise Robe"	
 		"property_tropical_sunrise"												"Diffusal Wake"
-		"property_tropical_sunrise_Description"									"Увеличивает значение самого слабого атрибута на @special_property1%"
+		"property_tropical_sunrise_Description"									"Увеличивает значение самого слабого атрибута на <% EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP * 100 %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
