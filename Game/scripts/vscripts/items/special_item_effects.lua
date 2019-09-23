@@ -4937,7 +4937,7 @@ function direwolf_think(event)
 	local ability = event.ability
 	local target = event.target
 
-	local stacks = Filters:GetPrimaryAttributeMultiple(target, 0.1)
+	local stacks = Filters:GetPrimaryAttributeMultiple(target, DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR/100)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_direwolf_bulwark_effect", {})
 	target:SetModifierStackCount("modifier_direwolf_bulwark_effect", caster, math.ceil(stacks))
 end
