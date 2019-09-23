@@ -232,7 +232,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере @special_property1x своего общего урона + @special_property2x суммы всех атрибутов.<br>Увеличивает длительность всех оглушений на 35%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		 "property_stormcrack2_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x своего общего урона + <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x суммы всех атрибутов.<br>Увеличивает длительность всех оглушений на <% STORMCRACK_STUN_DURATION_AMP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"

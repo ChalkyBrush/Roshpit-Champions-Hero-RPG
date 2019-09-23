@@ -233,7 +233,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as Magical damage. Increases the duration of all your stuns by 35%."
+		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as Magical damage. Increases the duration of all your stuns by <% STORMCRACK_STUN_DURATION_AMP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"

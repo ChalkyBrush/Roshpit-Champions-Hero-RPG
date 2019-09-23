@@ -548,7 +548,7 @@ function Filters:ApplyStun(caster, duration, target)
 
             local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * STORMCRACK_ATTACK_DAMAGE_MULT * 2 + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * STORMCRACK_ATTR_DAMAGE_MULT * 2
             Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-            mult = mult + 0.35
+            mult = mult + STORMCRACK_STUN_DURATION_AMP/100
         end
     end
 
