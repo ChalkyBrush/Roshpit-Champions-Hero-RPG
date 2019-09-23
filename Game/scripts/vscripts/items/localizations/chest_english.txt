@@ -246,7 +246,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
 		"item_property_gold_plate_of_leon"						"Gallant Hero"
-		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE%"
+		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by <% GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
