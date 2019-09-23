@@ -254,7 +254,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
 		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"После прочтения (R) @Ability4 герой будет обезмолвлен на @special_property1 секунд. В это время, его скорость атаки увеличена на @special_property2, а к обычным атакам добавляется @special_property3% магического урона."
+		 "property_helm_of_silent_templar_description"			"После прочтения (R) @Ability4 герой будет обезмолвлен на <% SILENT_TEMPLAR_DURATION %> секунд. В это время, его скорость атаки увеличена на <% SILENT_TEMPLAR_AS %>, а к обычным атакам добавляется <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% магического урона."
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
 		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Обезмолвлен. +240 скорости атаки, атаки дополнительно наносят 600% магического урона."
 		 
@@ -262,21 +262,21 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Герой незамедлительно атакует всех врагов, задетых умением (E) @Ability3<br>(Учитываются все модификаторы атаки, максимум 10 атак в секунду).<br>За каждого задетого атаками врага герой получает 2% бонус к урону,<br>который длится 30 секунд или до повторного прочтения (E) @Ability3."
+		 "property_wind_deity_description"						"Герой незамедлительно атакует всех врагов, задетых умением (E) @Ability3<br>(Учитываются все модификаторы атаки, максимум <% WIND_DEITY_CROWN_ATTACK_LIMIT %> атак в <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> секунду).<br>За каждого задетого атаками врага герой получает <% WIND_DEITY_CROWN_BONUS_DMG %>% бонус к урону атаки,<br>который длится <% WIND_DEITY_CROWN_BONUS_DMG_DURATION %> секунд или до повторного прочтения (E) @Ability3."
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Урон увеличен"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит 100% от урона способности и замедляет задетых врагов на 60% на 6 секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на 5000%."
+		 "property_water_deity_description"						"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит <% WATER_DEITY_CROWN_DAMAGE_AMP %>% от урона способности и замедляет задетых врагов на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на <% WATER_DEITY_CROWN_ELEMENT_CAP %>%."
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"60%% замедление, 100%% дополнительного чистого урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С @special_property1% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный @special_property2% от урона способности и окружит ближайших врагов на 0.6 секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на 5000%."
+		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <% FIRE_DEITY_CROWN_CHANCE %>% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный <% FIRE_DEITY_CROWN_AMP %>% от урона способности и окружит ближайших врагов на <% FIRE_DEITY_CROWN_STUN_DURATION %> секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на <% FIRE_DEITY_CROWN_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
