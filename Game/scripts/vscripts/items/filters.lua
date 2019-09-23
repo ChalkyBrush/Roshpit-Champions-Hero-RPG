@@ -762,13 +762,13 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_chains_of_orthok") then
         if slot == BASE_ABILITY_Q then
-            Filters:OrthokStack(caster, 5)
+            Filters:OrthokStack(caster, ORTHOK_Q_E_CAST_STACKS)
         elseif slot == BASE_ABILITY_W then
-            Filters:OrthokStack(caster, 1)
+            Filters:OrthokStack(caster, ORTHOK_W_CAST_STACKS)
         elseif slot == BASE_ABILITY_E then
-            Filters:OrthokStack(caster, 5)
+            Filters:OrthokStack(caster, ORTHOK_Q_E_CAST_STACKS)
         elseif slot == BASE_ABILITY_R then
-            Filters:OrthokStack(caster, 12)
+            Filters:OrthokStack(caster, ORTHOK_R_CAST_STACKS)
         end
     end
     if caster:HasModifier("modifier_jex_nature_cosmic_w") then
@@ -1361,7 +1361,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_orthok_zeal") then
             local current_stack = attacker:GetModifierStackCount("modifier_orthok_zeal", attacker.InventoryUnit)
-            damageMult = damageMult + 0.08 * current_stack
+            damageMult = damageMult + ORTHOK_STACK_BAD/100 * current_stack
         end
         if attacker:HasModifier("modifier_flood_basin_a_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
@@ -4632,7 +4632,7 @@ end
 
 function Filters:OrthokStack(hero, stacks)
     local chains = hero.headItem
-    chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_zeal", {duration = 10})
+    chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_zeal", {duration = ORTHOK_STACK_DURATION})
     if not chains.zealData then
         chains.zealData = {}
     end
@@ -4650,7 +4650,7 @@ function Filters:RecalculateOrthokStacks(hero, chains)
         chains.zealData = {}
     end
     for i = 1, #chains.zealData, 1 do
-        if GameRules:GetGameTime() - chains.zealData[i].createdAt >= 10 then
+        if GameRules:GetGameTime() - chains.zealData[i].createdAt >= ORTHOK_STACK_DURATION then
         else
             table.insert(newZealData, chains.zealData[i])
             totalStacks = totalStacks + chains.zealData[i].value

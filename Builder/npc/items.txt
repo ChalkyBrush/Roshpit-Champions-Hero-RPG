@@ -5558,14 +5558,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-		}
 		"OnSpellStart"
 		{
 			"RunScript"
