@@ -11463,7 +11463,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% WATER_MAGE_ROBES_MS_SLOW %>"
 				}
 			}
 		}

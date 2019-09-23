@@ -234,7 +234,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
 		"item_property_watermage"							"Wave Burst"
-		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of 7x your attack damage and 30x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by 50%, and while slowed they take 100% increased Post-Mitigation damage from the caster."
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of <% WATER_MAGE_ROBES_ATTACK_TO_DMG %>x your attack damage and <% WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% WATER_MAGE_ROBES_MS_SLOW %>%, and while slowed they take <% WATER_MAGE_ROBES_POST_MITI_AMP %>% increased Post-Mitigation damage from the caster."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
 		 

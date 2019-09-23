@@ -234,7 +234,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
 		"item_property_watermage"							"Wave Burst"
-		"property_watermage_description"					"Во время прочтения (R) @Ability4, во все стороны от героя будет выпущен мощный поток воды, наносящий магический урон за каждую волну, который равен сумме 7х урона героя и 30х Интеллекта. Дополнительно замедляет врагов на 50%."
+		"property_watermage_description"					"Во время прочтения (R) @Ability4, во все стороны от героя будет выпущен мощный поток воды, наносящий магический урон за каждую волну, который равен сумме <% WATER_MAGE_ROBES_ATTACK_TO_DMG %>х урона героя и <% WATER_MAGE_ROBES_INT_TO_DMG %>x Интеллекта. Дополнительно замедляет врагов на <% WATER_MAGE_ROBES_MS_SLOW %>% и увеличивает Пост-Резистный урон по противникам, попавшим под волну на <% WATER_MAGE_ROBES_POST_MITI_AMP %>%."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Скорость передвижения снижена"
 		 

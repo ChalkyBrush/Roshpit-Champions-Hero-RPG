@@ -3413,9 +3413,9 @@ function water_mage_robes_projectile_hit(event)
 	local hero = event.ability.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * 7 + hero:GetIntellect() * 30
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * WATER_MAGE_ROBES_ATTACK_TO_DMG + hero:GetIntellect() * WATER_MAGE_ROBES_INT_TO_DMG
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_water_mage_slow", {duration = 4})
+	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_water_mage_slow", {duration = WATER_MAGE_ROBES_SLOW_DURATION})
 end
 
 function halcyon_glove_think(event)
