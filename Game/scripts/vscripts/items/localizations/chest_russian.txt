@@ -313,12 +313,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
 		"item_property_direwolf"						"Cerberus Core"
-		"property_direwolf_description"					"Каждые 10 очков основного атрибута увеличивают базовый урон на @special_property1, броню на @special_property2, а базовый урон способностей на @special_property3%. Предмет невозможно перековать у Кузнеца."
+		"property_direwolf_description"					"Каждые <% DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR %> очков основного атрибута увеличивают базовый урон на <% DIREWOLF_BULWARK_BASE_ATTACK_DMG %>, броню на <% DIREWOLF_BULWARK_ARMOR %>, а базовый урон способностей на <% DIREWOLF_BULWARK_BAD %>%. Предмет невозможно перековать у Кузнеца."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
 		"property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"									"Если входящий Пост-Резистный урон отнимает более 100% здоровья героя, то он снижается на @special_property1%."
+		"property_armor_of_atlantis_Description"									"Если входящий Пост-Резистный урон отнимает более <% ARMOR_OF_ATLANTIS_HP_THRESHOLD * 100 %>% здоровья героя, то он снижается на <% ARMOR_OF_ATLANTIS_DMG_REDUCTION %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	

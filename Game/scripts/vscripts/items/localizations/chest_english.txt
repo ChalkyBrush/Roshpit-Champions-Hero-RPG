@@ -318,7 +318,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
 		"property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"									"Damage instances that deal more than 100% of max health after all reductions is reduced by @special_property1%."
+		"property_armor_of_atlantis_Description"									"Damage instances that deal more than <% ARMOR_OF_ATLANTIS_HP_THRESHOLD * 100 %>% of max health after all reductions is reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
