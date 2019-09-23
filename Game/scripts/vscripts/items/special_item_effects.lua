@@ -457,7 +457,7 @@ function centaur_horn_think(event)
 		ability.interval = 0
 		CustomAbilities:QuickAttachParticle("particles/roshpit/centaur_horns_lifesteal.vpcf", caster, 0.9)
 	end
-	ApplyDamage({victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+	ApplyDamage({victim = caster, attacker = caster, damage = CENTAUR_HORNS_SELF_DMG, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	if caster:IsStunned() then
 		Filters:CleanseStuns(caster)
 	end

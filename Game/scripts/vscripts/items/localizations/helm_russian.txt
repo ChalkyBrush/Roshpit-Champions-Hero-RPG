@@ -38,7 +38,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"С @special_property1% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный @special_property2x от вашего урона. Снижает базовое время атаки @special_property3 сек.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property4% за каждые 10 очков Ловкости."
+		"property_hyper_visor2_description"			"С <% HYPER_VISOR_CHANCE %>% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный <% HYPER_VISOR_ATTACK_TO_DMG %>x от вашего урона. Снижает базовое время атаки <% HYPER_VISOR_BAT %> сек.<br>Весь урон, напрямую наносимый предметами увеличивается на <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% за каждые <% HYPER_VISOR_AGI_DIVISOR %> очков Ловкости."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
@@ -48,7 +48,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
-		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более 0.03 секунды. Любой получаемый урон не отнимет более @special_property1% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на @special_property2 секунды. Герой получает 1 ед. чистого урона каждые 0.03 секунды."
+		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды. Любой получаемый урон не отнимет более <% CENTAUR_HORNS_DAMAGE_CAP %>% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на <% CENTAUR_HORNS_DEBUFF_DURATION %> секунды. Герой получает <% CENTAUR_HORNS_SELF_DMG %> ед. чистого урона каждые <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды."
 		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
 		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Невозможно восстановить здоровье"
 		

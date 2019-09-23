@@ -2087,11 +2087,11 @@ function GameState:FilterDamage(filterTable)
 		if filterTable["entindex_inflictor_const"] then
 			if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() ~= "item_rpc_centaur_horns" then
 				local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
-				ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+				ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = CENTAUR_HORNS_DEBUFF_DURATION})
 			end
 		else
 			local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
-			ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+			ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = CENTAUR_HORNS_DEBUFF_DURATION})
 		end
 	end
 
@@ -3861,7 +3861,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_centaur_horns") then
-		local thresh = 0.15
+		local thresh = CENTAUR_HORNS_DAMAGE_CAP/100
 		if filterTable["damage"] > victim:GetMaxHealth() * thresh then
 			filterTable["damage"] = victim:GetMaxHealth() * thresh
 		end

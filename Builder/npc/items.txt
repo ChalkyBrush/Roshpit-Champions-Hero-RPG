@@ -7794,7 +7794,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.03"
+				"ThinkInterval"  "<% CENTAUR_HORNS_SELF_DMG_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -7816,19 +7816,6 @@
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"1.5"
 			}
 		}
 	}
