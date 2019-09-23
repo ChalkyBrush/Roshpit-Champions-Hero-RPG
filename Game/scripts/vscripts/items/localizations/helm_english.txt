@@ -228,12 +228,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
 		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"Damage dealt directly by items is increased by 0.5% for each 10 points of Intelligence."
+		"property_excavator_description"					"Damage dealt directly by items is increased by <% EXCAVATOR_ITEM_AMP_PER_INT %>% for each <% EXCAVATOR_INT_DIVISOR %> points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as Magiacl damage. Increases the duration of all your stuns by 35%."
+		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as Magical damage. Increases the duration of all your stuns by 35%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"

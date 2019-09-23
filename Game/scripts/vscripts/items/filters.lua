@@ -157,7 +157,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 3
     end
     if caster:HasModifier("modifier_excavators_focus_cap") then
-        mult = mult + 0.005 * (caster:GetIntellect() / 10)
+        mult = mult + EXCAVATOR_ITEM_AMP_PER_INT/100 * (caster:GetIntellect() / EXCAVATOR_INT_DIVISOR)
     end
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
         mult = mult + 0.002 * (caster:GetIntellect() / 10)
