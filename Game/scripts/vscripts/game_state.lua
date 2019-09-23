@@ -3012,7 +3012,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_flurry_aura_debuff") then
-		filterTable["damage"] = filterTable["damage"] * 0.7
+		filterTable["damage"] = filterTable["damage"] * (100-SKYFORGE_DMG_REDUCTION)/100
 	end
 	if attacker:HasModifier("modifier_neutral_glyph_5_1") then
 		filterTable["damage"] = filterTable["damage"] * 0.5

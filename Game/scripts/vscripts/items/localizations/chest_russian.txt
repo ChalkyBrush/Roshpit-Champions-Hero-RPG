@@ -160,26 +160,26 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"При получении магического или чистого урона, усиливает Базовый Урон Способностей и урон всех Элементов на 400% на 15 секунд."
+		"property_enchanted_solar_description"		"При получении магического или чистого урона, усиливает Базовый Урон Способностей и урон всех Элементов на <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% на <% SOLAR_CAPE_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"Урон всех Базовых Умений и всех Элементов увеличен на 400%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"
 		"item_property_ocean_tempest"				"Tidal Windstorm"
-		"property_ocean_tempest_description"		"Пока произносится способность (R) @Ability4, ежесекундно тратится 40% маны. Каждые 100 затраченной маны увеличит урон способности (R) @Ability4 на 1.5%."
+		"property_ocean_tempest_description"		"Пока произносится способность (R) @Ability4, ежесекундно тратится <% OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND %>% маны. Каждые <% OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD %> затраченной маны увеличит урон способности (R) @Ability4 на <% OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"Radiant Ruins Leather"
 		"item_property_radiant_ruins"				"Endurance Aura"
-		"property_radiant_ruins_description"		"Герой распространяет ауру на себя и всех дружественных юнитов, которая увеличивает скорость атаки на 220 и скорость передвижения на 120."
+		"property_radiant_ruins_description"		"Герой распространяет ауру на себя и всех дружественных юнитов, которая увеличивает скорость атаки на <% RADIANT_RUINS_LEATHER_AS %> и скорость передвижения на <% RADIANT_RUINS_LEATHER_MS %>."
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Скорость атаки увеличена на 120, скорость передвижения увеличена на 70."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
 		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"Если единичный урон наносит вам больше 20% здоровья, через 0.05 секунды вы будете исцелены на 75% от полученного урона."
+		"property_twilight_vestments_description"	"Если единичный урон наносит вам больше <% TWILIGHT_VESTMENT_HP_THRESHOLD %>% здоровья, через <% TWILIGHT_VESTMENT_DELAY %> секунды вы будете исцелены на <% TWILIGHT_VESTMENT_HEAL_PCT %>% от полученного урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
@@ -203,9 +203,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
 		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Снижает весь исходящий урон всех ближайших врагов на 30%."
+		"property_skyforge_description"						"Снижает весь исходящий урон всех ближайших врагов на <% SKYFORGE_DMG_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на 30%%"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на <% SKYFORGE_DMG_REDUCTION %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"

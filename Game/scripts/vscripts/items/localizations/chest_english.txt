@@ -203,9 +203,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
 		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Reduces all nearby enemies' damage output by 30%."
+		"property_skyforge_description"						"Reduces all nearby enemies' damage output by <% SKYFORGE_DMG_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"25%% reduced damage output"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"<% SKYFORGE_DMG_REDUCTION %>%% reduced damage output"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
