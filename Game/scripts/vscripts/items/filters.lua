@@ -2387,8 +2387,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
 
-        if cosmosMult > 50 and attacker:HasModifier("modifier_luma_guard") then
-            cosmosMult = 50
+        if cosmosMult > LUMA_ELEMENT_CAP/100 and attacker:HasModifier("modifier_luma_guard") then
+            cosmosMult = LUMA_ELEMENT_CAP/100
         end
 
         mult = mult + cosmosMult
@@ -3014,21 +3014,21 @@ function Filters:WildNatureTwo(attacker, victim)
 end
 
 function Filters:LumaGuardStrike(attacker, victim, damage)
-    local proc = Filters:GetProc(attacker, 70)
+    local proc = Filters:GetProc(attacker, LUMA_BEAM_CHANCE)
     if proc then
         local inventoryUnit = attacker.InventoryUnit
         local ability = inventoryUnit:FindAbilityByName("helm_slot")
-        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_luma_guard_moonbeam", {duration = 4})
+        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_luma_guard_moonbeam", {duration = LUMA_VISION_DURATION})
         -- local moonParticle = "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
         -- local position = victim:GetAbsOrigin()
         -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_CUSTOMORIGIN, victim )
         -- ParticleManager:SetParticleControl( pfx, 0, position )
-        AddFOWViewer(attacker:GetTeamNumber(), victim:GetAbsOrigin(), 500, 4, false)
+        AddFOWViewer(attacker:GetTeamNumber(), victim:GetAbsOrigin(), 500, LUMA_VISION_DURATION, false)
 
         -- Timers:CreateTimer(4, function()
         --  ParticleManager:DestroyParticle(pfx, false)
         -- end)
-        local damage = damage * 4
+        local damage = damage * LUMA_DAMAGE_AMP/100
         Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
         ----print("MOONBEAM HAS FIRED")
         return true

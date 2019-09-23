@@ -70,7 +70,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into lucent beams instead, dealing @special_property2% of the ability's damage and providing flying vision over the target for 4 seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at 5000%."
+		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <% LUMA_BEAM_CHANCE %>% chance to be converted into lucent beams instead, dealing <% LUMA_DAMAGE_AMP %> of the ability's damage and providing flying vision over the target for <% LUMA_VISION_DURATION %> seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at <% LUMA_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
