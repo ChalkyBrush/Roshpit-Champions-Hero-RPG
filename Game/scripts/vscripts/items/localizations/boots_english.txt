@@ -114,7 +114,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"For every 1200 units of distance moved, gain 85% evasion and 350% bonus attack damage for 6 seconds."
+		"property_dragon_greaves_description"		"For every <% BLUE_DRAGON_GREAVES_DISTANCE %> units of distance moved, gain <% BLUE_DRAGON_GREAVES_EVASION %>% evasion and <% BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>% bonus attack damage for <% BLUE_DRAGON_GREAVES_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% evasion and 350%% increased attack damage"
 		
