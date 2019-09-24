@@ -1508,7 +1508,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-ABLECORE_GREAVES_DMG_RED)/100
 	end
 	if victim:HasModifier("modifier_resplendent_rubber_boots") then
-		damage = damage * 0.25
+		damage = damage * (100-RESPLENDENT_RUBBER_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * 0.05
