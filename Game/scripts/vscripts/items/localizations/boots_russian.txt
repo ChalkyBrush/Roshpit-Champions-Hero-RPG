@@ -67,7 +67,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
 		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Увеличивает Базовый Урон Способности (E) @Ability3 на 100%"
+		"property_admiral_boots_description"		"Увеличивает Базовый Урон Способности (E) @Ability3 на <% ADMIRAL_BOOTS_BAD_E %>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"

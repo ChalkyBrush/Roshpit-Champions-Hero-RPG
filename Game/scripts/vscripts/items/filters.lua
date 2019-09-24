@@ -1613,7 +1613,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
     elseif slot == BASE_ABILITY_E then
         if attacker:HasModifier("modifier_admiral_boots") then
-            damageMult = damageMult + 1
+            damageMult = damageMult + ADMIRAL_BOOTS_BAD_E/100
         end
         if attacker:HasModifier("modifier_boots_of_ashara") and attacker:GetHealth() / attacker:GetMaxHealth() <= 0.5 then
             damageMult = damageMult + 20
