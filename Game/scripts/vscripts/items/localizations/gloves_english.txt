@@ -42,7 +42,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
-		"property_scorched_gauntlet_description_2"	"20% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to @special_property1% of your attack power + @special_property2x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing @special_property3% of your attack power to enemies in an area upon landing, stunning those affected for @special_property4 seconds, and creating another fire zone."
+		"property_scorched_gauntlet_description_2"	"<% HIGH_FLAME_GAUNTLET_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% of your attack power + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% HIGH_FLAME_GAUNTLET_STUN_DUR %> seconds, and creating another fire zone."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
@@ -54,7 +54,7 @@
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Slot: Hands"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Applies -50% damage reduction, increasing all damage taken."
+		"property_azinoth_description"				"Applies -<% CLAW_OF_AZINOTH_DAMAGE_AMP %>%% damage reduction, increasing all damage taken."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"

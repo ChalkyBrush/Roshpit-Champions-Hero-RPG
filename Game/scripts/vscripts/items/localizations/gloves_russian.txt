@@ -42,7 +42,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
-		"property_scorched_gauntlet_description_2"	"С <% HIGH_FLAME_GAUNTLET_CHANCE %>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% урона героя + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>2x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% от урона героя в небольшой области и оглушает задетые цели на <% HIGH_FLAME_GAUNTLET_STUN_DUR %> сек, дополнительно поджигая землю под ними."
+		"property_scorched_gauntlet_description_2"	"С <% HIGH_FLAME_GAUNTLET_CHANCE %>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% урона героя + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% от урона героя в небольшой области и оглушает задетые цели на <% HIGH_FLAME_GAUNTLET_STUN_DUR %> сек, дополнительно поджигая землю под ними."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
@@ -54,7 +54,7 @@
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Слот: Наручи"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на 50%"
+		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на <% CLAW_OF_AZINOTH_DAMAGE_AMP %>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
