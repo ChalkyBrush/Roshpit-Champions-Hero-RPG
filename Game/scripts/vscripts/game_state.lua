@@ -1610,7 +1610,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = 0
 	end
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
-		damage = damage * 0.5
+		damage = damage * (100-ROOTED_FEET_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_ice_scathe_q2_shield") then
 		damage = damage * (1-(WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT/100))

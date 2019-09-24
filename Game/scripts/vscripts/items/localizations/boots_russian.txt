@@ -72,7 +72,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
 		"item_property_rooted_feet"					"Deep Earthen Grip"
-		"property_rooted_feet_description"			"Пока персонаж стоит на месте, его броня увеличена вдвое, регенерация здоровья втрое, а весь входящий урон сокращён на 50%."
+		"property_rooted_feet_description"			"Пока персонаж стоит на месте, его броня увеличена x<% ROOTED_FEET_ARMOR_AMP %>, регенерация здоровья x<% ROOTED_FEET_HP_REGEN_AMP %>, а весь входящий урон сокращён на <% ROOTED_FEET_DMG_REDUCTION %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
