@@ -1349,7 +1349,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 3
         end
         if attacker:HasModifier("modifier_boots_of_old_wisdom_active") then
-            damageMult = damageMult + 6.5
+            damageMult = damageMult + OLD_WISDOM_BAD/100
         end
         if attacker:HasModifier("modifier_ogthun_visible") then
             local current_stack = attacker:GetModifierStackCount("modifier_ogthun_visible", attacker.body)

@@ -126,7 +126,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
 		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases Base Ability Damage by @special_property1%. Using the same ability twice in a row removes this effect for 12 seconds."
+		"property_old_wisdom_description"						"Increases Base Ability Damage by <% OLD_WISDOM_BAD %>%. Using the same ability twice in a row removes this effect for <% OLD_WISDOM_COOLDOWN %> seconds."
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
 		
