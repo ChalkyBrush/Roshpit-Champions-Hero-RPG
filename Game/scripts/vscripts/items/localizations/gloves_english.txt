@@ -83,9 +83,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
 		"item_property_living_gauntlet"				"Nourishment"
-		"property_living_gauntlet_description"		"While below 25% mana, all damage taken is reduced by @special_property2% and health regen is increased by @special_property1% of max health."
+		"property_living_gauntlet_description"		"While below <% LIVING_GAUNTLET_MANA_THRESHOLD %>% mana, all damage taken is reduced by <% LIVING_GAUNTLET_DMG_REDUCTION %>% and health regen is increased by <% LIVING_GAUNTLET_HP_REGEN_PCT %>% of max health."
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
-		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"All damage taken reduced by %property_two%%% and health regen increased by %property_one%%% of max health"
+		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"All damage taken reduced by <% LIVING_GAUNTLET_DMG_REDUCTION %>%% and health regen increased by <% LIVING_GAUNTLET_HP_REGEN_PCT %>%% of max health"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"

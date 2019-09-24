@@ -1659,7 +1659,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_living_gauntlet_effect") then
-		damage = damage * 0.5
+		damage = damage * (100-LIVING_GAUNTLET_DMG_REDUCTION)/100
 	end
 
 	if victim:HasModifier("modifier_red_october_boots") then
