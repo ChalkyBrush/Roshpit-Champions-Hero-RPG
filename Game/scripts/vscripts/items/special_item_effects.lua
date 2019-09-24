@@ -4631,8 +4631,8 @@ end
 
 function shadowflame_fist_think(event)
 	local target = event.target
-	if target:GetMana() > target:GetMaxMana() * 0.1 then
-		target:SetMana(target:GetMaxMana() * 0.1)
+	if target:GetMana() > target:GetMaxMana() * SHADOWFLAME_FIST_MANA_CAP/100 then
+		target:SetMana(target:GetMaxMana() * SHADOWFLAME_FIST_MANA_CAP/100)
 	end
 end
 

@@ -246,7 +246,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
 		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Mana is capped at @special_property1% of max. Base Ability Damage of @Ability2 is increased by @special_property2%."
+		"property_shadowflame_fist_description"					"Mana is capped at <% SHADOWFLAME_FIST_MANA_CAP %>% of max. Base Ability Damage of @Ability2 is increased by <% SHADOWFLAME_FIST_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"

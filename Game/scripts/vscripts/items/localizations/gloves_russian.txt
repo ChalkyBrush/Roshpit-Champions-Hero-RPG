@@ -246,7 +246,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
 		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Значение маны не может быть выше @special_property1% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на @special_property2%."
+		"property_shadowflame_fist_description"					"Значение маны не может быть выше <% SHADOWFLAME_FIST_MANA_CAP %>% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на <% SHADOWFLAME_FIST_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"

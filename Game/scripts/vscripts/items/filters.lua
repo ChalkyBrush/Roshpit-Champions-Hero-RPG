@@ -1545,7 +1545,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 25
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
-            damageMult = damageMult + 12
+            damageMult = damageMult + SHADOWFLAME_FIST_W_BAD/100
         end
         if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
             damageMult = damageMult + 3.5
