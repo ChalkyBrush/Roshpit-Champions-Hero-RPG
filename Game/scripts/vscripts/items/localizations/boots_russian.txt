@@ -37,7 +37,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
 		"item_property_mana_striders"				"Mana Stride"
-		"property_mana_striders_description"		"Восстанавливает @special_property1% от вашей макс. маны за каждые пройденные 240 юнитов."
+		"property_mana_striders_description"		"Восстанавливает <% MANA_STRIDERS_MANA_RESTORE_PCT %>% от вашей макс. маны за каждые пройденные <% MANA_STRIDERS_DISTANCE %> юнитов."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"
