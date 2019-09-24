@@ -13800,7 +13800,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CRIMSYTH_ELITE_ARMOR %>"
 				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
@@ -13812,7 +13812,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%property_two"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% CRIMSYTH_ELITE_MAGIC_RESISTANCE %>"
 				}
 				"OnDestroy"
 				{
@@ -14154,7 +14154,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.65"
+				"ThinkInterval"  "<% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -14162,7 +14162,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"gravelfoot_think"
 						"target"		"TARGET"
-						"duration"		"%property_two"
 					}
 				}
 			}
@@ -14174,7 +14173,7 @@
 				"StatusEffectPriority"  "120"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%property_three"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% GRAVELFOOT_SELF_SLOW %>"
 				}
 				"OnCreated"
 				{
@@ -14319,7 +14318,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "12"
+				"ThinkInterval"  "<% SANDSTREAM_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

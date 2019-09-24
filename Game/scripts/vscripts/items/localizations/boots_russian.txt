@@ -159,26 +159,26 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
 		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"После прочтения (E) @Ability3 Базовый Урон способности (W) @Ability2 будет усилен на 2400%. Эффект длится 7 секунд, но снимается сразу же при нанесении любого урона от (W) @Ability2."
+		"property_redfall_runners_description"				"После прочтения (E) @Ability3 Базовый Урон способности (W) @Ability2 будет усилен на <% REDFALL_RUNNERS_BAD_MULT %>%. Эффект длится <% REDFALL_RUNNERS_DURATION %> секунд, но снимается сразу же при нанесении любого урона от (W) @Ability2."
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"Умение (W) усилено на 2400%%."
+		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"Умение (W) усилено на <% REDFALL_RUNNERS_BAD_MULT %>%%."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 наносит @special_property1x увеличенный Базовый Урон Способности, если здоровье ниже или равно @special_property2%."
+		 "property_boots_of_ashara_description"					"@Ability3 наносит <% BOOTS_OF_ASHARA_BAD_E %>x увеличенный Базовый Урон Способности, если здоровье ниже или равно <% BOOTS_OF_ASHARA_HP_THRESHOLD %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
 		"item_property_sandstream_slippers"					"Sandstream"
-		 "property_sandstream_slippers_description"				"Каждые 12 секунд даёт герою заряд этого предмета. Каждый заряд убирает время перезарядки для (E) @Ability3. Максимум 2 заряда."
+		 "property_sandstream_slippers_description"				"Каждые <% SANDSTREAM_INTERVAL %> секунд даёт герою заряд этого предмета. Каждый заряд убирает время перезарядки для (E) @Ability3. Максимум <% SANDSTREAM_MAX_STACKS %> заряда."
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Убирает время перезарядки для умения (E). Прочтение способности (E) потратит заряд."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
 		"item_property_crimsyth_elite_3"						"Crimsyth Elite"
-		 "property_crimsyth_elite_3_description"				"Увеличивает броню на @special_property1x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит @special_property2 % сопротивление магии.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		 "property_crimsyth_elite_3_description"				"Увеличивает броню на <% CRIMSYTH_ELITE_ARMOR %>x от уровня героя. При прочтении любой способности, на @special_property3 сек. герой потеряет бонус брони, вместо этого получит <% CRIMSYTH_ELITE_MAGIC_RESISTANCE %> % сопротивление магии."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
@@ -186,12 +186,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
 		"item_property_boots_of_great_fortune"					"Additional Luck"
-		 "property_boots_of_great_fortune_description"			"Прибавляет к шансу срабатывания всех надетых предметов дополнительно @special_property1%."
+		 "property_boots_of_great_fortune_description"			"Прибавляет к шансу срабатывания всех надетых предметов дополнительно <% BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до 1 секунды, когда уровень здоровья становится ниже @special_property1%."
+		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до <% BLOODSTONE_BOOTS_E_CD %> секунды, когда уровень здоровья становится ниже <% BLOODSTONE_BOOTS_HP_THRESHOLD %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
@@ -202,7 +202,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"После прочтения (R) @Ability4 герой будет скован обездвиживающим льдом. Весь получаемый урон снижается на 100%, а весь магический урон увеличивается на @special_property4% на @special_property1 сек. Если входящий урон превысит @special_property2-кратный запас максимального здоровья, лед расколется. Если это произойдёт, все ближайшие враги будут обездвижены и получат урон, равный @special_property3x вашего макс. здоровья."
+		 "property_alarana_description"							"После прочтения (R) @Ability4 герой будет скован обездвиживающим льдом. Весь получаемый урон снижается на 100%, а весь магический пост-резистный урон увеличивается на <% ALARANA_MAGIC_POST_MITI %>% на <% ALARANA_ICE_ENCASE_DURATION %> сек. Если входящий урон превысит <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>-кратный запас максимального здоровья, лед расколется. Если это произойдёт, все ближайшие враги будут обездвижены и получат урон, равный <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x вашего макс. здоровья."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Обездвижен"
@@ -210,39 +210,39 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
 		"item_property_emerald_speed"							"Stable Pace"
-		"property_emerald_speed_description"					"Скорость передвижения не может опуститься ниже @special_property1"
+		"property_emerald_speed_description"					"Скорость передвижения не может опуститься ниже <% EMERALD_SPEED_MS_LOW_CAP %>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
 		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на @special_property1%."
+		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на <% RED_OCTOBER_DMG_REDUCTION %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
 		"item_property_steamboots"						"Steamboots"
-		"property_steamboots_description"				"Увеличивает урон, наносимый предметами на @special_property1% за каждые 10 очков Ловкости."
+		"property_steamboots_description"				"Увеличивает урон, наносимый предметами на <% STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>% за каждые <% STEAMBOOTS_AGI_DIVISOR %> очков Ловкости."
 		
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
 		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Увеличивает базовый урон способностей на @special_property1% за каждые 10 очков Ловкости."
+		"property_oceanrunner_Description"									"Увеличивает базовый урон способностей на <% OCEANRUNNER_AGI_TO_BAD %>% за каждые <% OCEANRUNNER_AGI_DIVISOR %> очков Ловкости."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Обездвиженные враги наносят на @special_property1% меньше урона владельцу предмета и получают от него увеличенный в @special_property2 раз урон."
+		"property_crystalline_Description"									"Обездвиженные враги наносят на <% CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED %>% меньше урона владельцу предмета и получают от него увеличенный в <% CRYSTALLINE_PRE_MITI_AMP %> раз урон."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
 		"item_property_gravelfoot"							"Gravelfoot"
-		"property_gravelfoot_description"					"Очищает один негативный эффект с героя каждые @special_property1 сек. В этот момент, герой на @special_property2 сек. покроется каменной коркой, которая снизит скорость передвижения на @special_property3 и сократит получаемый урон на @special_property4%."
+		"property_gravelfoot_description"					"Очищает один негативный эффект с героя каждые <% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %> сек. В этот момент, герой на <% GRAVELFOOT_SELF_SLOW_DURATION %> сек. покроется каменной коркой, которая снизит скорость передвижения на <% GRAVELFOOT_SELF_SLOW %> и сократит получаемый урон на <% GRAVELFOOT_DMG_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Скорость передвижения снижена. Получаемый урон сокращен"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
 		"item_property_ice_floe_slippers"					"Ice Floe"
-		"property_ice_floe_slippers_description"			"Прикажите герою следовать в указанную точку дважды, чтобы тот начал скользить по ледяному следу. Во время скольжения герой не может двигаться и снижает весь получаемый физический урон до 0. Максимальное расстояние для скольжения - 1500. Нельзя скользить, будучи обездвиженным или оглушенным."
+		"property_ice_floe_slippers_description"			"Прикажите герою следовать в указанную точку дважды, чтобы тот начал скользить по ледяному следу. Во время скольжения герой не может двигаться и снижает весь получаемый физический урон до 0. Максимальное расстояние для скольжения - <% ICE_FLOE_TRAVEL_DISTANCE %>. Нельзя скользить, будучи обездвиженным или оглушенным."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"

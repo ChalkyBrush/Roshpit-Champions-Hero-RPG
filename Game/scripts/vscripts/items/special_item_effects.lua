@@ -3721,7 +3721,7 @@ function sandstream_stack_increase(event)
 	local target = event.target
 	local ability = event.ability
 	if target:HasModifier("modifier_sandstream_slippers_stack") then
-		local newStacks = math.min(target:GetModifierStackCount("modifier_sandstream_slippers_stack", caster) + 1, 2)
+		local newStacks = math.min(target:GetModifierStackCount("modifier_sandstream_slippers_stack", caster) + 1, SANDSTREAM_MAX_STACKS)
 		target:SetModifierStackCount("modifier_sandstream_slippers_stack", caster, newStacks)
 	else
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_sandstream_slippers_stack", {})
@@ -5479,7 +5479,7 @@ function gravelfoot_think(event)
 	if procced then
 		EmitSoundOn("RPCItems.Gravelfoot.Dispel", caster)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/gravelfoot_dispel.vpcf", caster, 1.2)
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = event.duration})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = GRAVELFOOT_SELF_SLOW_DURATION})
 	end
 end
 

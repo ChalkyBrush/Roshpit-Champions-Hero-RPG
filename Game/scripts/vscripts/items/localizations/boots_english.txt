@@ -158,26 +158,26 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
 		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 2400%. Lasts 7 seconds but works only for your next damage instance from @Ability2."
+		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by <% REDFALL_RUNNERS_BAD_MULT %>%. Lasts <% REDFALL_RUNNERS_DURATION %> seconds but works only for your next damage instance from @Ability2."
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by 2400%%."
+		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by <% REDFALL_RUNNERS_BAD_MULT %>%%."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 gains @special_property1x increased Base Ability Damage while health is less than or equal to @special_property2%"
+		 "property_boots_of_ashara_description"					"@Ability3 gains <% BOOTS_OF_ASHARA_BAD_E %>x increased Base Ability Damage while health is less than or equal to <% BOOTS_OF_ASHARA_HP_THRESHOLD %>%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
 		"item_property_sandstream_slippers"					"Sandstream"
-		 "property_sandstream_slippers_description"				"Every 12 seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max 2 stacks."
+		 "property_sandstream_slippers_description"				"Every <% SANDSTREAM_INTERVAL %> seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max <% SANDSTREAM_MAX_STACKS %> stacks."
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Removes the cooldown on E ability. Using E ability consumes a stack."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
 		"item_property_crimsyth_elite_3"						"Crimsyth Elite"
-		 "property_crimsyth_elite_3_description"				"Increases Armor by @special_property1x your hero level. Upon casting an ability, lose the armor and gain a @special_property2 Magic Resistance shield for @special_property3 seconds."
+		 "property_crimsyth_elite_3_description"				"Increases Armor by <% CRIMSYTH_ELITE_ARMOR %>x your hero level. Upon casting an ability, lose the armor and gain a <% CRIMSYTH_ELITE_MAGIC_RESISTANCE %> Magic Resistance shield for <% CRIMSYTH_ELITE_DURATION %> seconds."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
@@ -185,12 +185,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
 		"item_property_boots_of_great_fortune"					"Additional Luck"
-		 "property_boots_of_great_fortune_description"			"Adds a flat @special_property1% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
+		 "property_boots_of_great_fortune_description"			"Adds a flat <% BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE %>% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below @special_property1% health, @Ability3 has a 1-second cooldown."
+		 "property_bloodstone_boots_description"				"While below <% BLOODSTONE_BOOTS_HP_THRESHOLD %>% health, @Ability3 has a <% BLOODSTONE_BOOTS_E_CD %>-second cooldown."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
@@ -201,7 +201,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by @special_property4% for @special_property1 seconds. If total damage blocked exceeds @special_property2x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to @special_property3x your Max Health."
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <% ALARANA_MAGIC_POST_MITI %>% for  <% ALARANA_ICE_ENCASE_DURATION %> seconds. If total damage blocked exceeds <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"
@@ -209,39 +209,39 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
 		"item_property_emerald_speed"							"Unbreakable Stride"
-		"property_emerald_speed_description"					"Movespeed can not fall below @special_property1"
+		"property_emerald_speed_description"					"Movespeed can not fall below <% EMERALD_SPEED_MS_LOW_CAP %>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
 		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"While @Ability3 is on cooldown, all damage taken is reduced by @special_property1%."
+		"property_red_october_description"						"While @Ability3 is on cooldown, all damage taken is reduced by <% RED_OCTOBER_DMG_REDUCTION %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
 		"item_property_steamboots"						"Steamboots"
-		"property_steamboots_description"				"Each 10 points of Agility increases item damage by @special_property1%."
+		"property_steamboots_description"				"Each <% STEAMBOOTS_AGI_DIVISOR %> points of Agility increases item damage by <% STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%."
 		
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
 		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Increases Base Ability damage by @special_property1% for every 10 points of Agility."
+		"property_oceanrunner_Description"									"Increases Base Ability damage by <% OCEANRUNNER_AGI_TO_BAD %>% for every <% OCEANRUNNER_AGI_DIVISOR %> points of Agility."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal @special_property1% reduced damage to you, and take @special_property2x pre-mitigation damage from you."
+		"property_crystalline_Description"									"Enemies who are rooted deal <% CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED %>% reduced damage to you, and take <% CRYSTALLINE_PRE_MITI_AMP %>x pre-mitigation damage from you."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
 		"item_property_gravelfoot"							"Gravelfoot"
-		"property_gravelfoot_description"					"Cleanse an enemy debuff every @special_property1 seconds. When a debuff is cleansed, turn to frosty stone for @special_property2 seconds, reducing movespeed by @special_property3 and damage taken by @special_property4%."
+		"property_gravelfoot_description"					"Cleanse an enemy debuff every <% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %> seconds. When a debuff is cleansed, turn to frosty stone for <% GRAVELFOOT_SELF_SLOW_DURATION %> seconds, reducing movespeed by <% GRAVELFOOT_SELF_SLOW %> and damage taken by <% GRAVELFOOT_DMG_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
 		"item_property_ice_floe_slippers"					"Ice Floe"
-		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is 1500. This ability cannot be activated while stunned or rooted."
+		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <% ICE_FLOE_TRAVEL_DISTANCE %>. This ability cannot be activated while stunned or rooted."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
