@@ -142,7 +142,7 @@ function scorch_attack_land(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local caster = event.caster
-	local proc = Filters:GetProc(caster, 20)
+	local proc = Filters:GetProc(caster, HIGH_FLAME_GAUNTLET_CHANCE)
 	if proc then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.HighFlameStart", attacker)
 		ability.attacker = attacker
@@ -158,7 +158,7 @@ function scorched_earth_damage(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = ability.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker) * event.attack_mult / 100 + ability.attacker:GetPhysicalArmorValue(false) * event.armor_mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker) * HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG / 100 + ability.attacker:GetPhysicalArmorValue(false) * HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG
 	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
@@ -180,11 +180,11 @@ function HighFlameThrow(caster, ability, victim)
 	flare:SetRenderColor(240, 110, 20)
 	flare:SetModelScale(0.05)
 	flare.fv = adjustedFV
-	flare.stun_duration = 1.6
+	flare.stun_duration = HIGH_FLAME_GAUNTLET_STUN_DUR
 	flare.liftVelocity = 60 + zDifferential / 20
 	flare.forwardVelocity = forwardVelocity
 	flare.interval = 0
-	flare.damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	flare.damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL/100
 	flare.origCaster = caster
 	flare.origAbility = ability
 

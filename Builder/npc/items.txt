@@ -4183,8 +4183,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"scorched_earth_damage"
 						"Target"		"TARGET"
-						"attack_mult"	"%property_one"
-						"armor_mult"	"%property_two"
 					}
 				}
 			}
@@ -4192,26 +4190,6 @@
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"25"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"250"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"			"1.6"
-			}
-			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
