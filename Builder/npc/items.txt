@@ -16210,7 +16210,7 @@
 				"IsBuff"				"1"
 				"IsHidden"				"1"
 				"IsPurgable"			"0"
-				"ThinkInterval"  "0.39"
+				"ThinkInterval"  "<% ARCANYS_SLIPPER_EXPLOSIONS_DURATION / ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
