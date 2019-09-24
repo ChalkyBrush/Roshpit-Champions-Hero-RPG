@@ -32,7 +32,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Slot: Hands"
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"15% chance on taking damage to instantly heal for the amount of the damage instance."
+		"property_shadow_armlet_description"	"<% SHADOW_ARMLET_HEAL_CHANCE %>% chance on taking damage to instantly heal for the amount of the damage instance."
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"Slot: Hands"

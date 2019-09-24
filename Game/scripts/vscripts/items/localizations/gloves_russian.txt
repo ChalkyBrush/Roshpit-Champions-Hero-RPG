@@ -24,7 +24,7 @@
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Слот: Наручи"
 		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Каждая успешная атака по одной цели даёт заряд. Каждый заряд увеличивает урон владельца предмета на число, равное @special_property1, умноженное на уровень героя и скорость атаки на @special_property2. Время действия эффекта: @special_property3 сек. Дополнительно, каждый заряд увеличивает входящий урон из всех источников на @special_property4%.<br>Смена цели снимает 25% накопленных зарядов."
+		"property_berserker_rage_description"	"Каждая успешная атака по одной цели даёт заряд. Каждый заряд увеличивает урон владельца предмета на число, равное <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>, умноженное на уровень героя и скорость атаки на <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>. Время действия эффекта: <% BERSERKER_GLOVES_DURATION %> сек. Дополнительно, каждый заряд увеличивает входящий урон из всех источников на <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>%.<br>Смена цели снимает <% BERSERKER_GLOVES_STACKS_PENALTY %>% накопленных зарядов."
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Урон и скорость атаки увеличены. Входящий урон увеличен."
 		
@@ -32,7 +32,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Слот: Наручи"
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"15% шанс перевести полученный урон в лечение."
+		"property_shadow_armlet_description"	"<% SHADOW_ARMLET_HEAL_CHANCE %>% шанс перевести полученный урон в лечение."
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"Слот: Наручи"
