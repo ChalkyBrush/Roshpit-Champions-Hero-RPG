@@ -251,7 +251,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"@special_property1% chance on taking damage to release a jet of water towards the attacking unit, dealing damage equal to @special_property2x your attack power + @special_property3x your Armor, and stunning for @special_property4 seconds."
+		"property_aquasteel_description"						"<% AQUASTEEL_CHANCE %>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage equal to <% AQUASTEEL_ATTACK_TO_DMG %>x your attack power + <% AQUASTEEL_ARMOR_TO_DMG %>x your Armor, and stunning for <% AQUASTEEL_STUN_DUR %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"

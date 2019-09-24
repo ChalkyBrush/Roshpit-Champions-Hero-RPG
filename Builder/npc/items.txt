@@ -12196,10 +12196,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"aquasteel_take_damage"
-						"proc_chance"	"%property_one"
-						"damage_mult"	"%property_two"
-						"armor_mult"	"%property_three"
-						"stun_duration"	"%property_four"
 					}
 				}
 			}

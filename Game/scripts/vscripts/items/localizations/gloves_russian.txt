@@ -251,7 +251,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"С @special_property1% шансом при получении урона в сторону атакующего отправится поток воды, который нанесёт урон, равный @special_property2x урона героя + @special_property3x брони, и оглушающий врагов на @special_property4 сек."
+		"property_aquasteel_description"						"С <% AQUASTEEL_CHANCE %>% шансом при получении урона в сторону атакующего отправится поток воды, который нанесёт урон, равный <% AQUASTEEL_ATTACK_TO_DMG %>x урона героя + <% AQUASTEEL_ARMOR_TO_DMG %>x брони, и оглушающий врагов на <% AQUASTEEL_STUN_DUR %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
