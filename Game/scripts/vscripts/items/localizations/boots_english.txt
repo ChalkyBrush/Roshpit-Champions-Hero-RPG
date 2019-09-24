@@ -133,7 +133,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
 		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"When you cast @Ability3, restore 4% of your max mana and launch a trail of water that deals the greater of 10x your attack damage or 80x your Intelligence as Pure damage. Also slows movespeed of targets struck by 30% for 4 seconds.<br>Can only trigger once every 1 second."
+		"property_pure_waters_description"					"When you cast @Ability3, restore <% PURE_WATERS_MANA_RESTORE_PCT %>% of your max mana and launch a trail of water that deals the greater of <% PURE_WATERS_ATTACK_TO_DMG %>x your attack damage or <% PURE_WATERS_INT_TO_DMG %>x your Intelligence as Pure damage. Also slows movespeed of targets struck by <% PURE_WATERS_SLOW %>% for <% PURE_WATERS_SLOW_DURATION %> seconds.<br>Can only trigger once every <% PURE_WATERS_INTERVAL_RESTRICTION %> second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"

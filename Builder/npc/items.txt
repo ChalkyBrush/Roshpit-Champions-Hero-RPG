@@ -15228,7 +15228,7 @@
 			{
 				"ModifierName"	"modifier_pure_waters_slow"
 				"Target" 		"TARGET"
-				"Duration"		"4"
+				"Duration"		"<% PURE_WATERS_SLOW_DURATION %>"
 			}
 		}
 		"Modifiers"
@@ -15254,7 +15254,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% PURE_WATERS_SLOW %>"
 				}
 			}
 
