@@ -115,9 +115,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"Каждые пройденные 1200 юнитов, герой получает 85% бонус к уклонению и увеличивает урон на 350% на 6 секунд."
+		"property_dragon_greaves_description"		"Каждые пройденные <% BLUE_DRAGON_GREAVES_DISTANCE %> юнитов, герой получает <% BLUE_DRAGON_GREAVES_EVASION %>% бонус к уклонению и увеличивает урон на <% BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>% на <% BLUE_DRAGON_GREAVES_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% уклонение 350%% доп. урон"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<% BLUE_DRAGON_GREAVES_EVASION %>%% уклонение <% BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>%% доп. урон"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
