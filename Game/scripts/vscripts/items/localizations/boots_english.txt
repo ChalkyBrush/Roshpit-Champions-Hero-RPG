@@ -138,7 +138,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
 		"item_property_terrasic_lava"						"Magma Tread"
-		"property_terrasic_lava_description"				"Allows you to freely walk on lava. Touching lava increases attack damage by 100% and attack range by 150 for 7 seconds."
+		"property_terrasic_lava_description"				"Allows you to freely walk on lava. Touching lava increases attack damage by <% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>%, attack speed by <% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_SPEED %> and attack range by <% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_RANGE %> for <% TERRASIC_LAVA_BOOTS_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
 		 
