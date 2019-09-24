@@ -14522,7 +14522,7 @@
 					{
 						"ModifierName"	"modifier_pathfinder_resonant_cooldown"
 						"Target" 		"UNIT"
-						"Duration"		"7"
+						"Duration"		"<% PATHFINDER_DElAY %>"
 					}
 				}
 				"ThinkInterval"  "1.0"
@@ -14542,7 +14542,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"			"7"
+				"Duration"			"<% PATHFINDER_DElAY %>"
 			}
 		}
 	}
