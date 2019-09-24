@@ -1994,8 +1994,8 @@ function devotion_think(event)
 	local hero = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local stacks = math.floor(hero:GetStrength() / 10)
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local stacks = math.floor(hero:GetStrength() * CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT/100)
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, CRUSADER_BOOTS_AURA_RANGE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
 			ability:ApplyDataDrivenModifier(caster, ally, "modifier_devotion_aura_buff", {duration = 1.5})
@@ -2079,16 +2079,16 @@ function arcanys_slipper_think(event)
 	local particleName = "particles/econ/courier/courier_dolfrat_and_roshinante/arcanys_poof.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-	Timers:CreateTimer(1.2, function()
+	Timers:CreateTimer(ARCANYS_SLIPPER_EXPLOSIONS_DURATION, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	local manaDrain = target:GetMaxMana() * 0.1
+	local manaDrain = target:GetMaxMana() * ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT/100
 	if target:GetMana() <= manaDrain then
 		manaDrain = target:GetMana()
 	end
-	local damageIncrease = manaDrain * 10
+	local damageIncrease = manaDrain * ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN
 	target:ReduceMana(manaDrain)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = 10})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = ARCANYS_SLIPPER_BUFF_DURATION})
 	local currentStacks = target:GetModifierStackCount("modifier_arcanys_slipper_buff", caster)
 	target:SetModifierStackCount("modifier_arcanys_slipper_buff", caster, damageIncrease + currentStacks)
 	EmitSoundOn("Item.ArcanysSlipper", target)

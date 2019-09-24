@@ -76,7 +76,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
 		"item_property_crusader_boots"				"Devotion Aura"
-		"property_crusader_boots_description"		"Gives Armor to you and nearby allied heroes equal to 10% of your Strength."
+		"property_crusader_boots_description"		"Gives Armor to you and nearby allied heroes equal to <% CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>% of your Strength."
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
@@ -84,7 +84,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"Arcanys Slippers"
 		"item_property_arcanys_slipper"				"Arcane Rush"
-		"property_arcanys_slipper_description"		"After casting @Ability3, release 3 poofs of arcane energy over 1.2 seconds. Each explosion drains @special_property1% of your max mana and adds base attack damage equal to @special_property2x the mana drained."
+		"property_arcanys_slipper_description"		"After casting @Ability3, release <% ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %> poofs of arcane energy over <% ARCANYS_SLIPPER_EXPLOSIONS_DURATION %> seconds. Each explosion drains <% ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT %>% of your max mana and adds base attack damage equal to <% ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN %>x the mana drained."
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Increased Attack Damage"
 		
