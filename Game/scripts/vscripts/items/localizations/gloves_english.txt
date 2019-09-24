@@ -100,9 +100,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to 6x your Intelligence per second for 12 seconds."
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <% SPIRIT_GLOVE_INT_TO_HEAL %>x your Intelligence per <% SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% SPIRIT_GLOVE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
-		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each second."
+		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <% SPIRIT_GLOVE_HEAL_INTERVAL %> second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"

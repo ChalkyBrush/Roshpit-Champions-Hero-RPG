@@ -13308,7 +13308,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"		"itemicons/spirit_glove"
-				"ThinkInterval"  	"1.0"
+				"ThinkInterval"  	"<% SPIRIT_GLOVE_HEAL_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
