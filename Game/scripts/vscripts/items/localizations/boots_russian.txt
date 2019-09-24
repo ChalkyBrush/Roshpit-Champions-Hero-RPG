@@ -27,7 +27,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
 		"item_property_tranquil_boots"				"Grove Roamer"	
-		"property_tranquil_boots_description"		"Восстанавливает вам @special_property1% от макс. здоровья за каждые пройденные 200 юнитов."
+		"property_tranquil_boots_description"		"Восстанавливает вам <% TRANQUIL_BOOTS_HP_HEAL_PCT %>% от макс. здоровья за каждые пройденные <% TRANQUIL_BOOTS_DISTANCE %> юнитов."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"

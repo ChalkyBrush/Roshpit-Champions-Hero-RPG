@@ -26,7 +26,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
 		"item_property_tranquil_boots"				"Grove Roamer"	
-		"property_tranquil_boots_description"		"Heal @special_property1% of your max Health for every 200 units moved."
+		"property_tranquil_boots_description"		"Heal <% TRANQUIL_BOOTS_HP_HEAL_PCT %>% of your max Health for every <% TRANQUIL_BOOTS_DISTANCE %> units moved."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
