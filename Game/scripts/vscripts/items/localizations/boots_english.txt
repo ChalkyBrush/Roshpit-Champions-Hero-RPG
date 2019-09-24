@@ -99,7 +99,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
 		"item_property_redrock"						"Fevering Footwork"
-		"property_redrock_description"				"When you cast @Ability3, release 3 pulses of psychoactive heat over 1.5 seconds that force all nearby enemies to attack you for 5 seconds. Also increases your current health by 200% and reduces damage taken by 50% while the effect lasts."
+		"property_redrock_description"				"When you cast @Ability3, release <% REDROCK_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% REDROCK_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% REDROCK_TAUNT_DURATION %> seconds. Also increases your current health by <% REDROCK_HP_INCREASE_PCT %>% and reduces damage taken by <% REDROCK_DAMAGE_REDUCTION_PCT %>% while the effect lasts."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"
