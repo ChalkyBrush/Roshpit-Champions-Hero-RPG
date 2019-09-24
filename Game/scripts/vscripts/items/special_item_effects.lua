@@ -1133,7 +1133,7 @@ function yasha_boots_think(event)
 	if not target:HasModifier("modifier_rpc_yasha_buff") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_yasha_buff", {})
 	end
-	target:SetModifierStackCount("modifier_rpc_yasha_buff", ability, target:GetStrength() / 20)
+	target:SetModifierStackCount("modifier_rpc_yasha_buff", ability, target:GetStrength() / YASHA_AS_PER_STR)
 end
 
 function mana_striders_think(event)

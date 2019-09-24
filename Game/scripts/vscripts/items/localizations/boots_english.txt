@@ -10,7 +10,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
 		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Reduces the cooldown of @Ability3 by 2 seconds."
+		"property_dunetread_description"			"Reduces the cooldown of @Ability3 by <% DUNETREADS_CD_RED %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
@@ -31,7 +31,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
 		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Increase attack speed by 1 for every @special_property1 Strength. Sets Base Attack Time to @special_property2 seconds."
+		"property_yasha_description"				"Increase attack speed by 1 for every <% YASHA_AS_PER_STR %> Strength. Sets Base Attack Time to <% YASHA_BAT %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
@@ -46,7 +46,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"
 		"item_property_moon_techs"					"Moon Dust"
-		"property_moon_techs_description"			"When casting @Ability3, create a cloud of moon dust that reduces enemies' movespeed by 50%. Enemies within the cloud also take 1% increased damage for each point of movespeed below the caster's. Lasts 8 seconds."
+		"property_moon_techs_description"			"When casting @Ability3, create a cloud of moon dust that reduces enemies' movespeed by <% MOON_TECHS_MS_SLOW_PCT %>%. Enemies within the cloud also take 1% increased damage for each point of movespeed below the caster's. Lasts <% MOON_TECHS_DURATION %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"
@@ -94,7 +94,7 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
 		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by 30% of their base cooldown."
+		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by <% VOYAGER_BOOTS_E_RED %>% of their base cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
@@ -145,9 +145,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"While movespeed is less than or equal to ABLECORE_GREAVES_MS_REQ, incoming damage is reduced by ABLECORE_GREAVES_DMG_RED% and outgoing Post-Mitigation damage is increased by ABLECORE_GREAVES_POST_MITI%. The buff sticks for ABLECORE_GREAVES_STICKY_DURATION seconds if your movespeed moves back above ABLECORE_GREAVES_MS_REQ."
+		"property_ablecore_greaves_description"			"While movespeed is less than or equal to <% ABLECORE_GREAVES_MS_REQ %>, incoming damage is reduced by <% ABLECORE_GREAVES_DMG_RED %>% and outgoing Post-Mitigation damage is increased by <% ABLECORE_GREAVES_POST_MITI %>%. The buff sticks for <% ABLECORE_GREAVES_STICKY_DURATION %> seconds if your movespeed moves back above <% ABLECORE_GREAVES_MS_REQ %>."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by ABLECORE_GREAVES_DMG_RED%% and outgoing damage increased by ABLECORE_GREAVES_POST_MITI%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by %< ABLECORE_GREAVES_DMG_RED %>%% and outgoing damage increased by <% ABLECORE_GREAVES_POST_MITI %>%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"

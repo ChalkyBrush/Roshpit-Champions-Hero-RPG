@@ -426,7 +426,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         end
     end
     if caster:HasModifier("modifier_dunetread_boots") then
-        CDreduce = CDreduce + 2
+        CDreduce = CDreduce + DUNETREADS_CD_RED
     end
     if caster:HasModifier("modifier_neutral_glyph_3_3") then
         CDreduce = CDreduce + 1
@@ -3462,11 +3462,11 @@ end
 
 function Filters:VoyagerBoots(caster)
     local ability1 = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-    Filters:ReduceCDByPercentage(ability1, 0.3)
+    Filters:ReduceCDByPercentage(ability1, VOYAGER_BOOTS_E_RED/100)
     local ability2 = caster:GetAbilityByIndex(DOTA_W_SLOT)
-    Filters:ReduceCDByPercentage(ability2, 0.3)
+    Filters:ReduceCDByPercentage(ability2, VOYAGER_BOOTS_E_RED/100)
     local ability4 = caster:GetAbilityByIndex(DOTA_R_SLOT)
-    Filters:ReduceCDByPercentage(ability4, 0.3)
+    Filters:ReduceCDByPercentage(ability4, VOYAGER_BOOTS_E_RED/100)
     -- local blizzard = caster:FindAbilityByName("blizzard")
     -- Filters:ReduceCDByPercentage(blizzard, 0.3)
     -- local pyroblast = caster:FindAbilityByName("pyroblast")
