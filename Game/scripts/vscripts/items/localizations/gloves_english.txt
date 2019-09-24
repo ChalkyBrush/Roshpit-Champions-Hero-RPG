@@ -24,7 +24,7 @@
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Slot: Hands"
 		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Landing an attack increases your attack damage by @special_property1x your level and increases attack speed by @special_property2 for @special_property3 seconds. Each stack makes you take @special_property4% extra damage from all sources.<br>Switching targets removes 25% of your stacks."
+		"property_berserker_rage_description"	"Landing an attack increases your attack damage by <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>x your level and increases attack speed by <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> for <% BERSERKER_GLOVES_DURATION %> seconds. Each stack makes you take <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% extra damage from all sources.<br>Switching targets removes <% BERSERKER_GLOVES_STACKS_PENALTY %>% of your stacks."
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Increased attack damage and attack speed, and taking additional damage."
 		

@@ -4019,7 +4019,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>"
 				}
 			}
 			"modifier_berserker_gloves_buff_invisible"
@@ -4028,7 +4028,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>"
 				}
 			}
 		}

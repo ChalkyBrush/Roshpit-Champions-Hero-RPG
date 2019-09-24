@@ -3912,14 +3912,14 @@ function berserker_gloves_attack_land(event)
 
 	if target:GetEntityIndex() == ability.targetIndex then
 	else
-		multiplier = 0.75
+		multiplier = (100-BERSERKER_GLOVES_STACKS_PENALTY)/100
 	end
 
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_visible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_visible", {duration = BERSERKER_GLOVES_DURATION})
 	local newStacks = math.floor((attacker:GetModifierStackCount("modifier_berserker_gloves_buff_visible", caster) + 1) * multiplier)
 	attacker:SetModifierStackCount("modifier_berserker_gloves_buff_visible", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_invisible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_invisible", {duration = BERSERKER_GLOVES_DURATION})
 	attacker:SetModifierStackCount("modifier_berserker_gloves_buff_invisible", caster, newStacks * heroLevel)
 
 	ability.targetIndex = target:GetEntityIndex()
