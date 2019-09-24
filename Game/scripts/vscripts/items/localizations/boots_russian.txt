@@ -153,7 +153,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
 		"item_property_giant_hunter_boot"					"Giant Hunter"
-		"property_giant_hunter_boot_description"			"Во время оглушения или обездвиживания герой становится невосприимчив к магии на @special_property1 сек."
+		"property_giant_hunter_boot_description"			"Во время оглушения или обездвиживания герой становится невосприимчив к магии на <% GIANT_HUNTERS_BOOTS_IMMUNITY_DURATION %> сек."
 		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Сапоги Giant Hunter - невосприимчив к магии"
 		
 		 

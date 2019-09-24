@@ -3530,7 +3530,7 @@ function giant_hunter_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if target:IsStunned() or target:IsRooted() then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = 3.5})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = GIANT_HUNTERS_BOOTS_IMMUNITY_DURATION})
 	end
 end
 

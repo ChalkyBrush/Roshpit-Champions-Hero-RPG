@@ -152,7 +152,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
 		"item_property_giant_hunter_boot"					"Giant Hunter"
-		"property_giant_hunter_boot_description"			"When stunned or rooted, gain Spell Immunity for @special_property1 seconds."
+		"property_giant_hunter_boot_description"			"When stunned or rooted, gain Spell Immunity for <% GIANT_HUNTERS_BOOTS_IMMUNITY_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Spell Immunity"
 		
 		 
