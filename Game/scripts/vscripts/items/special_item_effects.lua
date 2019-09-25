@@ -2339,7 +2339,7 @@ function pathfinder_think(event)
 	local animation = false
 	if not target:HasModifier("modifier_pathfinder_resonant_cooldown") then
 		if target:GetHealth() < target:GetMaxHealth() then
-			local heal = math.ceil(target:GetMaxHealth() * <% PATHFINDER_HP_RESTORE_PCT %>/100)
+			local heal = math.ceil(target:GetMaxHealth() * PATHFINDER_HP_RESTORE_PCT/100)
 			Filters:ApplyHeal(target, target, heal, true)
 			animation = true
 		end

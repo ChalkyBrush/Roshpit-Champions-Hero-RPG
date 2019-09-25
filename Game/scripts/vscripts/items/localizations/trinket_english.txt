@@ -164,7 +164,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
 		"item_property_tempest_falcon"						"Storm Switch"
-		"property_tempest_falcon_description"				"Dealing an instance of Physical damage applies a buff that enhances the Post-Mitigation damage of your next instance of Magical damage by <% TEMPEST_FALCON_RING_POST_MITI_MAGIC %>."
+		"property_tempest_falcon_description"				"Dealing an instance of Physical damage applies a buff that enhances the Post-Mitigation damage of your next instance of Magical damage by <% TEMPEST_FALCON_RING_POST_MITI_MAGIC %>%."
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of Magical damage deals 300%% more Post-Mitigation damage"
 		 
