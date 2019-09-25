@@ -480,8 +480,7 @@ end
 function ankh_of_ancients_think(event)
 	local caster = event.target
 	local ability = event.ability
-	local max_duration = event.max_duration
-	if GameRules:GetGameTime() - caster.amulet.ankh_apply_time > max_duration then
+	if GameRules:GetGameTime() - caster.amulet.ankh_apply_time > ANKH_COOLDOWN_MAX then
 		caster:RemoveModifierByName('modifier_ankh_of_the_ancients')
 	end
 
@@ -492,9 +491,8 @@ end
 function ankh_of_ancients_end(event)
 	local caster = event.target
 	local ability = event.ability
-	local cd_multiplier = event.cd_multiplier
 	local ankh_duration = GameRules:GetGameTime() - caster.amulet.ankh_apply_time
-	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * cd_multiplier})
+	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * ANKH_COOLDOWN})
 end
 
 function wild_nature_struck(event)
@@ -1308,7 +1306,7 @@ function lifesource_vessel_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetStrength() * 0.3)
+	local stacks = math.floor(target:GetStrength() * LIFESOURCE_HP_REGEN_PER_STR)
 	if not target:HasModifier("modifier_lifesource_vessel_buff") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_lifesource_vessel_buff", {})
 	end
@@ -1333,7 +1331,7 @@ function galaxy_orb_channel_begin(event)
 	ability.pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
 
 	local position = caster:GetAbsOrigin()
-	local radius = 800
+	local radius = GALAXY_ORB_RADIUS
 	ParticleManager:SetParticleControl(ability.pfx, 0, position)
 	ParticleManager:SetParticleControl(ability.pfx, 1, Vector(radius, 2, radius * 2))
 
@@ -1344,7 +1342,7 @@ function galaxy_orb_suction(event)
 	local caster = event.target
 	local ability = event.ability
 	local position = ability.position
-	local radius = 800
+	local radius = GALAXY_ORB_RADIUS
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -2325,9 +2323,9 @@ function gengar_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.unit
-	local proc = Filters:GetProc(target, 15)
+	local proc = Filters:GetProc(target, GENGAR_CHANCE)
 	if proc then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_torch_of_gengar_effect", {duration = 6})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_torch_of_gengar_effect", {duration = GENGAR_DURATION})
 	end
 end
 
@@ -2581,14 +2579,14 @@ function spirit_glove_think(event)
 end
 
 function ruby_attack(event)
-	local damage = event.damage * 8
+	local damage = event.damage * OMEGA_RUBY_ATTACK_TO_DMG/100
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
 	-- damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
 	--print("RUBY DAMAGE:"..damage)
 	EmitSoundOn("Hero_Lina.ProjectileImpact", target)
-	local radius = 360
+	local radius = OMEGA_RUBY_AOE_RADIUS
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
@@ -2663,15 +2661,15 @@ end
 
 function raven_idol_think(event)
 	local target = event.target
-	if target:GetHealth() > target:GetMaxHealth() * 0.5 then
-		target:SetHealth(target:GetMaxHealth() * 0.5)
+	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD then
+		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD)
 	end
 end
 
 function raven_idol_health_gained(event)
 	local target = event.unit
-	if target:GetHealth() > target:GetMaxHealth() * 0.5 then
-		target:SetHealth(target:GetMaxHealth() * 0.5)
+	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD then
+		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD)
 	end
 end
 
@@ -2760,11 +2758,11 @@ function phoenix_die(event)
 			Timers:CreateTimer(0.3, function()
 				caster:AddNoDraw()
 				local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
-				Timers:CreateTimer(5.01, function()
-					ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_emblem_cooldown", {duration = 55})
+				Timers:CreateTimer(PHOENIX_EMBLEM_RESURRECTION_DELAY+0.01, function()
+					ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_emblem_cooldown", {duration = PHOENIX_EMBLEM_COOLDOWN})
 				end)
-				ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_rebirthing", {duration = 5})
-				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_disable_player", {duration = 5})
+				ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_rebirthing", {duration = PHOENIX_EMBLEM_RESURRECTION_DELAY})
+				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_disable_player", {duration = PHOENIX_EMBLEM_RESURRECTION_DELAY})
 				caster:SetAbsOrigin(rezPosition)
 				local playerID = caster:GetPlayerID()
 				if playerID then
@@ -2786,7 +2784,7 @@ function phoenix_die(event)
 			egg:SetModel("models/phoenix_egg_hitbox.vmdl")
 			egg:SetAbsOrigin(egg:GetAbsOrigin() - Vector(0, 0, 80))
 			egg.hero = caster
-			ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = 5})
+			ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = PHOENIX_EMBLEM_RESURRECTION_DELAY})
 			AddFOWViewer(caster:GetTeamNumber(), rezPosition, 800, 8, false)
 		end
 	end
@@ -2824,10 +2822,10 @@ function egg_end(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	ScreenShake(particleVector, 500, 0.4, 0.8, 9000, 0, true)
-	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), particleVector, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), particleVector, nil, PHOENIX_EMBLEM_STUN_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyStun(hero, 5, enemy)
+			Filters:ApplyStun(hero, PHOENIX_EMBLEM_STUN_DURPHOENIX_EMBLEM_STUN_DUR, enemy)
 		end
 	end
 	UTIL_Remove(target)
@@ -3169,11 +3167,11 @@ function twig_think(event)
 	end
 	if target:GetMana() > target.manaShellMana then
 		local manaGained = target:GetMana() - target.manaShellMana
-		target.manaShellAbsorb = math.min(target.manaShellAbsorb + manaGained * 5, target:GetMaxMana() * 5)
+		target.manaShellAbsorb = math.min(target.manaShellAbsorb + manaGained * TWIG_OF_ENLIGHTENED_MANA_GAIN_TO_SHIELD, target:GetMaxMana() * 5)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/luna/luna_lucent_ti5/luna_eclipse_cast_flash_ti_5.vpcf", target, 1)
 	end
 	if ability.twigPFX then
-		local ratio = math.min((target.manaShellAbsorb / (target:GetMaxMana() * 5)) * 255, 255)
+		local ratio = math.min((target.manaShellAbsorb / (target:GetMaxMana() * TWIG_OF_ENLIGHTENED_SHIELD_MAX_CAPACITY)) * 255, 255)
 		ParticleManager:SetParticleControl(ability.twigPFX, 1, Vector(ratio, ratio, ratio))
 	end
 	if target.manaShellAbsorb > 0 then
@@ -3471,7 +3469,7 @@ end
 function mana_relic_attack(event)
 	local attacker = event.attacker
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/antique_mana_relic_restore.vpcf", attacker, 1.5)
-	local manaRestore = attacker:GetMaxMana() * 0.025
+	local manaRestore = attacker:GetMaxMana() * ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK/100
 	attacker:GiveMana(manaRestore)
 end
 
@@ -3479,7 +3477,7 @@ function mana_relic_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local damageBoost = target:GetMana()
+	local damageBoost = target:GetMana() * ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA
 	if damageBoost > 0 then
 		if not target:HasModifier("modifier_mana_relic_attack_damage") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_mana_relic_attack_damage", {})
@@ -4122,7 +4120,7 @@ function cobalt_serenity_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_cobalt_serenity_health_regen", {})
-	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect") * 8
+	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect") * COBALT_SERENITY_INT_TO_HP_REGEN
 	target:SetModifierStackCount("modifier_cobalt_serenity_health_regen", caster, healthRegenStacks)
 end
 
@@ -4439,8 +4437,8 @@ function eternal_frost_slowing(event)
 		target:SetModifierStackCount("modifier_eternal_frost_slowing_effect", caster, newStacks)
 		local movespeed = target:GetBaseMoveSpeed()
 		local movespeedModifier = target:GetMoveSpeedModifier(movespeed, false)
-		if movespeedModifier <= 150 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_nova", {duration = 4.5})
+		if movespeedModifier <= ETERNAL_FROST_MS_THRESHOLD then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_nova", {duration = ETERNAL_FROST_AURA_ROOT_DURATION})
 			target:RemoveModifierByName("modifier_eternal_frost_slowing_effect")
 			EmitSoundOn("RPCItem.EternalFrostFreeze", target)
 		else
@@ -4944,8 +4942,8 @@ function eyeglass_attack(event)
 	if target.dummy then
 		return false
 	end
-	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), 5000)
-	local damage = 0.001 * attacker:GetLevel() * distance ^ 3
+	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE)
+	local damage = EPSILON_EYEGLASS_DAMAGE_BASE * attacker:GetLevel() * distance ^ 3
 
 	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/epsilon_impact.vpcf", target, 0.5)
@@ -4968,13 +4966,13 @@ function monkey_paw_unit_die(event)
 	if unit.paragon then
 		local gold = hero:GetGold();
 		local bossLocation = victim:GetAbsOrigin()
-		local divisor = 3500 * GameState:GetDifficultyFactor()
+		local divisor = MONKEY_PAW_GOLD_DIVISOR * GameState:GetDifficultyFactor()
 		local itemsCount = math.floor(gold / divisor)
 		if itemsCount >= 1 then
-			hero:SpendGold(gold / 2, DOTA_ModifyGold_PurchaseItem)
+			hero:SpendGold(gold * MONKEY_PAW_GOLD_COST_PCT/100, DOTA_ModifyGold_PurchaseItem)
 			for i = 1, itemsCount, 1 do
 				Timers:CreateTimer((i - 1) * 0.3, function()
-					RPCItems.LevelRoll = 30 * GameState:GetDifficultyFactor()
+					RPCItems.LevelRoll = MONKEY_PAW_ITEM_LVL_MULTIPLIER_PER_DIFF * GameState:GetDifficultyFactor()
 					EmitSoundOnLocationWithCaster(bossLocation, "RPC.MonkeyPaw.Bounty", caster)
 					CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/monkey_paw_bounty.vpcf", GetGroundPosition(bossLocation, Events.GameMaster), 1.2)
 					CustomAbilities:QuickAttachParticle("particles/roshpit/items/monkey_paw_bounty.vpcf", hero, 0.5)
@@ -5226,7 +5224,7 @@ function frozen_heart_think(event)
 	hero:SetModifierStackCount("modifier_frozen_heart_negative_health", caster, 900)
 	if not hero:HasModifier("modifier_frozen_heart_regen") then
 		if not hero:HasModifier("modifier_frozen_heart_regen_prep") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = 2.5})
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = FROZEN_HEART_HP_REGEN_DELAY})
 		end
 	end
 	-- if hero:GetHealth() <= 0 then
@@ -5273,7 +5271,7 @@ function frozen_heart_regen_thinker(event)
 	local caster = event.caster
 	local hero = event.target
 	local ability = event.ability
-	local newHealth = math.min(hero:GetHealth() + 1, 100)
+	local newHealth = math.min(hero:GetHealth() + FROZEN_HEART_HP_REGEN, FROZEN_HEART_NEW_HP_CAP)
 	hero:SetHealth(newHealth)
 end
 
@@ -5283,10 +5281,10 @@ function frozen_heart_take_damage(event)
 	local caster = event.caster
 	ability.interval = 0
 	--print("take damage")
-	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = 2.5})
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = FROZEN_HEART_HP_REGEN_DELAY})
 	local modifier = unit:FindModifierByName("modifier_frozen_heart_regen_prep")
 	if modifier then
-		modifier:SetDuration(2.5, true)
+		modifier:SetDuration(FROZEN_HEART_HP_REGEN_DELAY, true)
 	end
 	Timers:CreateTimer(0.03, function()
 		ability.interval = 0

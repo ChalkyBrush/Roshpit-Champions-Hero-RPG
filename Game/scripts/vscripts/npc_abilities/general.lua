@@ -120,7 +120,7 @@ function crystal_moving_to_target(event)
 				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "collect_arcane", {gain = pickUpPlayer.crystalsPickedUp})
 				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "update_resources_increment", {increment = pickUpPlayer.crystalsPickedUp, resource = "arcane"})
 				if pickUpPlayer:HasModifier("modifier_arcane_charm") then
-					local healPercent = (caster.quantity / 100) * 0.01
+					local healPercent = (caster.quantity / 100) * ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE
 					Filters:ApplyHeal(pickUpPlayer, pickUpPlayer, pickUpPlayer:GetMaxHealth() * healPercent, true)
 					pickUpPlayer:GiveMana(pickUpPlayer:GetMaxMana() * healPercent)
 				end

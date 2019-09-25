@@ -16429,7 +16429,7 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 
-				"ThinkInterval"  "0.03"
+				"ThinkInterval"  "<% MONKEY_PAW_DMG_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -16440,7 +16440,7 @@
 					}
 				}
 				"Aura"          	"modifier_monkey_paw_aura"
-				"Aura_Radius"   	"600"
+				"Aura_Radius"   	"<% MONKEY_PAW_AOE_PARAGON_TRIGGER %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -16690,7 +16690,7 @@
 				"AbilityTextureName"	"wyvern_cold_embrace"
 				"EffectName"		"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% FROZEN_HEART_HP_REGEN_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -16793,7 +16793,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Aura"          	"modifier_eternal_frost_slowing"
-				"Aura_Radius"   	"900"
+				"Aura_Radius"   	"<% ETERNAL_FROST_AURA_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -16805,7 +16805,7 @@
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/gem_of_eternal_frost"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% ETERNAL_FROST_STACK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -16831,7 +16831,7 @@
 				"EffectAttachType"	"attach_overhead"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-12"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ETERNAL_FROST_SLOW_PER_STACK %>"
 				}
 			}
 			"modifier_eternal_frost_nova"
@@ -17395,7 +17395,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"75"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"<% GENGAR_EVASION %>"
 				}
 			}
 		}
@@ -17866,8 +17866,8 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"800"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"800"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"<% EPSILON_EYEGLASS_VISION_RADIUS %>"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"<% EPSILON_EYEGLASS_VISION_RADIUS %>"
 				}
 
 				"OnCreated"
@@ -17918,8 +17918,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "240"
-					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "1500"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% EPSILON_EYEGLASS_ATTACK_RANGE %>"
+					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "<% EPSILON_EYEGLASS_PROJECTILE_SPEED %>"
 				}
 			}
 		}
@@ -17979,7 +17979,7 @@
 				"TextureName" 	"itemicons/fenrir_fang"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "60"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% FENRIR_FANG_BONUS_DAMAGE %>"
 				}
 			}
 		}
@@ -18049,7 +18049,7 @@
 				"TextureName"	"itemicons/fuchsia_ring"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_two"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% FUCHSIA_HP_REGEN_OF_MAX_HP %>"
 				}
 			}
 		}
@@ -19886,7 +19886,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_think"
 						"target"		"TARGET"
-						"max_duration"  "%property_three"
 					}
 				}
 				"OnCreated"
@@ -19903,7 +19902,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_end"
-						"cd_multiplier"  "%property_two"
 						"target"		"TARGET"
 					}
 				}

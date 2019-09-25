@@ -148,7 +148,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     local casterName = caster:GetUnitName()
     local mult = 1
     if caster:HasModifier("modifier_ancient_waterstone") then
-        mult = mult + 4
+        mult = mult + ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
     end
     if caster:HasModifier("modifier_neutral_glyph_2_1") then
         mult = mult + 2
@@ -160,7 +160,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 0.005 * (caster:GetIntellect() / 10)
     end
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
-        mult = mult + 0.002 * (caster:GetIntellect() / 10)
+        mult = mult + ETERNAL_FROST_INT_TO_ITEM_DMG/100 * (caster:GetIntellect() / ETERNAL_FROST_INT_DIVISOR)
     end
     if caster:HasModifier("modifier_mountain_vambraces") then
         mult = mult + MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / MOUNTAIN_VAMBRACES_STR_DIVISOR)
@@ -190,13 +190,13 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + STEAMBOOTS_AGI_TO_ITEM_DAMAGE/100 * (caster:GetAgility() / STEAMBOOTS_AGI_DIVISOR)
     end
     if caster:HasModifier("modifier_red_divinex_amulet") then
-        mult = mult + 0.0007 * (caster:GetStrength() / 10)
+        mult = mult + RED_DIVINEX_STR_TO_ITEM_DMG/100 * (caster:GetStrength() / RED_DIVINEX_STR_DIVISOR)
     end
     if caster:HasModifier("modifier_green_divinex_amulet") then
-        mult = mult + 0.0007 * (caster:GetAgility() / 10)
+        mult = mult + GREEN_DIVINEX_STR_TO_ITEM_DMG/100 * (caster:GetAgility() / GREEN_DIVINEX_AGI_DIVISOR)
     end
     if caster:HasModifier("modifier_blue_divinex_amulet") then
-        mult = mult + 0.0007 * (caster:GetIntellect() / 10)
+        mult = mult + BLUE_DIVINEX_STR_TO_ITEM_DMG/100 * (caster:GetIntellect() / BLUE_DIVINEX_INT_DIVISOR)
     end
 
     if caster:HasModifier("modifier_raven_idol2") then
@@ -262,7 +262,7 @@ function Filters:GetAdjustedBuffDuration(caster, baseDuration, bItem)
         baseDuration = baseDuration + c_d_level * 0.15
     end
     if caster:HasModifier("modifier_arbor_dragonfly") then
-        baseDuration = baseDuration * 1.3
+        baseDuration = baseDuration * (100+ARBOR_DRAGONFLY_BUFF_INCREASE_PCT)/100
     end
     return baseDuration
 end
@@ -293,7 +293,7 @@ function Filters:GetProc(caster, percentageChance)
         percentageChance = percentageChance + BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE
     end
     if caster:HasModifier("modifier_fortunes_talisman_of_truth") then
-        percentageChance = math.ceil(percentageChance * 1.5)
+        percentageChance = math.ceil(percentageChance * (100+FORTUNES_TALISMAN_CHANCE_AMP)/100)
     end
     if caster:HasModifier("modifier_astral_rune_r_4_invisible") then
         local chanceModifier = 1 + 0.01 * caster:GetModifierStackCount("modifier_astral_rune_r_4_invisible", Events.GameMaster)
@@ -813,7 +813,7 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_signus_charm") then
         ability:EndCooldown()
-        baseCd = baseCd * 0.6
+        baseCd = baseCd * (100-SIGNUS_R_CD_REDUCTION)/100
         ability:StartCooldown(baseCd)
     end
     if caster:HasModifier("modifier_burning_spirit_helmet") then
@@ -875,10 +875,10 @@ function Filters:ApplyQskills(caster)
         Filters:WatcherOne(caster)
     end
     if caster:HasModifier("modifier_antique_mana_relic") then
-        if caster:GetMana() >= caster:GetMaxMana() * 0.5 then
-            caster:ReduceMana(caster:GetMaxMana() * 0.5)
-            caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = 5})
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, 5)
+        if caster:GetMana() >= caster:GetMaxMana() * ANTIQUE_MANA_RELIC_MANA_DRAIN/100 then
+            caster:ReduceMana(caster:GetMaxMana() * ANTIQUE_MANA_RELIC_MANA_DRAIN/100)
+            caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = ANTIQUE_MANA_RELIC_BUFF_DURATION})
+            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, ANTIQUE_MANA_RELIC_BUFF_DURATION)
         end
     end
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
@@ -1325,7 +1325,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.15
         end
         if attacker:HasModifier("modifier_eye_of_avernus") then
-            damageMult = damageMult + 0.5
+            damageMult = damageMult + EYE_OF_AVERNUS_BAD/100
         end
         if attacker:HasModifier("modifier_grand_arcanist") then
             damageMult = damageMult + GRAND_ARCANIST_BAD_PER_INT * attacker:GetIntellect()
@@ -1340,10 +1340,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.001 * (attacker:GetIntellect() / 10)
         end
         if attacker:HasModifier("modifier_garnet_warfare_ring") then
-            damageMult = damageMult + 0.003 * (attacker:GetStrength() / 10)
+            damageMult = damageMult + GARNET_WARFARE_STR_TO_BAD/100 * (attacker:GetStrength() / GARNET_WARFARE_STR_DIVISOR)
         end
         if attacker:HasModifier("modifier_torch_of_gengar_effect") then
-            damageMult = damageMult + 3
+            damageMult = damageMult + GENGAR_BAD/100
         end
         if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
             damageMult = damageMult + 3
@@ -1357,7 +1357,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_azure_empire_base_ability") then
             local current_stack = attacker:GetModifierStackCount("modifier_azure_empire_base_ability", attacker.InventoryUnit)
-            damageMult = damageMult + 0.4 * current_stack
+            damageMult = damageMult + PENDANT_AZURE_EMPIRE_SILVER_BAD/100 * current_stack
         end
         if attacker:HasModifier("modifier_orthok_zeal") then
             local current_stack = attacker:GetModifierStackCount("modifier_orthok_zeal", attacker.InventoryUnit)
@@ -1476,7 +1476,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 27
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
-            damageMult = damageMult + 4
+            damageMult = damageMult + ANTIQUE_MANA_RELIC_Q_BAD/100
         end
         if attacker:HasModifier("modifier_death_whisper") then
             if not ignore_effects then
@@ -3335,7 +3335,7 @@ function Filters:EternalFrost(caster)
     local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
     local position = caster:GetAbsOrigin()
-    local radius = 500
+    local radius = ETERNAL_FROST_ACTIVE_ROOT_AOE
     ParticleManager:SetParticleControl(pfx, 0, position)
     ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
     Timers:CreateTimer(3, function()
@@ -3344,9 +3344,9 @@ function Filters:EternalFrost(caster)
     local ability = caster.eternal_frost_gem
     EmitSoundOn("Ability.FrostNova", caster)
 
-    local damage = caster:GetIntellect() * 4000
+    local damage = caster:GetIntellect() * ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local freezeDuration = 2.5
+    local freezeDuration = ETERNAL_FROST_ACTIVE_ROOT_DURATION
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
@@ -3492,7 +3492,7 @@ end
 
 function Filters:TomeOfChaos(caster)
     if not caster:HasModifier("modifier_tome_of_chaos_cooldown") then
-        caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tome_of_chaos_cooldown", {duration = 30})
+        caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tome_of_chaos_cooldown", {duration = TOME_OF_CHAOS_CD})
         local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 580
         particleName = "particles/items_fx/infernal_summon_spawn_aegis_starfall.vpcf"
         for i = 1, 8, 1 do
@@ -3514,7 +3514,7 @@ function Filters:TomeOfChaos(caster)
             local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             if #enemies > 0 then
                 for _, enemy in pairs(enemies) do
-                    Filters:ApplyStun(caster, 2, enemy)
+                    Filters:ApplyStun(caster, TOME_OF_CHAOS_STUN, enemy)
                 end
             end
             Timers:CreateTimer(0.2, function()
@@ -3525,19 +3525,19 @@ function Filters:TomeOfChaos(caster)
             infernal.summoner = caster
             infernal:SetOwner(caster)
             infernal:SetControllableByPlayer(caster:GetPlayerID(), true)
-            infernal.dieTime = 20
+            infernal.dieTime = TOME_OF_CHAOS_DURATION
             infernal:AddAbility("ability_die_after_time_generic"):SetLevel(1)
             StartAnimation(infernal, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.0})
             local summonAbil = infernal:AddAbility("ability_summoned_unit")
             summonAbil:SetLevel(1)
 
-            local infernalDamage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * 5
+            local infernalDamage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE
             infernalDamage = Filters:AdjustItemDamage(caster, infernalDamage, nil)
             infernalDamage = Filters:ElementalDamage(infernal, caster, infernalDamage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, true)
             infernal:SetBaseDamageMin(infernalDamage)
             infernal:SetBaseDamageMax(infernalDamage)
 
-            local minionHealth = math.floor(caster:GetMaxHealth() * 2)
+            local minionHealth = math.floor(caster:GetMaxHealth() * TOME_OF_CHAOS_HP_MULT)
             minionHealth = Filters:AdjustItemDamage(caster, minionHealth, nil)
             infernal:SetMaxHealth(minionHealth)
             infernal:SetBaseMaxHealth(minionHealth)
@@ -3545,7 +3545,7 @@ function Filters:TomeOfChaos(caster)
             infernal:Heal(minionHealth, infernal)
             infernal:SetModelScale(0.9)
             infernal:SetRenderColor(140, 255, 140)
-            infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false) / 2, nil))
+            infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false) * TOME_OF_CHAOS_ARMOR_MULT, nil))
             infernal:AddAbility("sven_great_cleave"):SetLevel(1)
             infernal:SetAcquisitionRange(2800)
             caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, infernal, "modifier_infernal_effect", {duration = 30})
@@ -3874,7 +3874,7 @@ end
 
 function Filters:AerithsTearTakeDamage(attacker, victim)
     local distance = CalcDistanceBetweenEntityOBB(attacker, victim)
-    if distance <= 400 then
+    if distance <= AERITHS_TEAR_DISTANCE then
         return true
     else
         return false
@@ -3897,7 +3897,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
     if victim:GetEntityIndex() == attacker:GetEntityIndex() then
         return damage
     end
-    if damage < victim:GetMaxHealth() * 0.002 then
+    if damage < victim:GetMaxHealth() * GEODE_INSTANCE_THRESHOLD/100 then
         local ability = attacker.amulet
         if not ability.particles then
             ability.particles = 0
@@ -3910,7 +3910,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
                 ability.particles = ability.particles - 1
             end)
         end
-        return damage * 10
+        return damage * GEODE_DAMAGE_MULT
     else
         return damage
     end
@@ -4356,11 +4356,11 @@ function Filters:AzureEmpire(victim, attacker)
     end
     local birdTable = victim.birdTable
     if birdTable then
-        for i = 1, 3, 1 do
+        for i = 1, PENDANT_AZURE_EMPIRE_NUMBER_OF_HAWKS, 1 do
             if not birdTable[i]:HasModifier("modifier_azure_hawk_dead") then
                 CustomAbilities:QuickAttachParticle("particles/roshpit/items/azure_hawk_impact.vpcf", birdTable[i], 1.5)
                 EmitSoundOn("RPCItem.AzureEmpireHit", birdTable[i])
-                victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, birdTable[i], "modifier_azure_hawk_dead", {duration = 4})
+                victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, birdTable[i], "modifier_azure_hawk_dead", {duration = PENDANT_AZURE_EMPIRE_HAWK_CD})
                 EndAnimation(birdTable[i])
                 StartAnimation(birdTable[i], {duration = 0.8, activity = ACT_DOTA_DIE, rate = 1.3})
                 ParticleManager:DestroyParticle(birdTable[i].pfx, false)

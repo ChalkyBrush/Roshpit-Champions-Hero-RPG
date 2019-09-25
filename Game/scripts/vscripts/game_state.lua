@@ -1392,7 +1392,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
-			damage = damage * 0.05
+			damage = damage * (100 - SPARKLING_TOKEN_PURE_DMG_REDUCTION)/100
 		end
 		if victim:HasModifier("modifier_sunstrider_lightsworn") then
 			damage = damage * (1 - SEINARU_ARCANA_E2_PURE_DMG_REDUCE)
@@ -1601,7 +1601,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
-		damage = damage * 0.15
+		damage = damage * (100-FUCHSIA_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_energy_field_c_d_shield") then
 		damage = damage * (1 - ARKIMUS_R3_DMG_RED)
@@ -1651,7 +1651,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_raven_idol2") then
-		damage = damage * 0.5
+		damage = damage * (100-RAVEN_IDOL_DMG_REDUCTION)/100
 	end
 
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
@@ -1670,7 +1670,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_world_tree_effect") then
-		damage = damage * 2
+		damage = damage * WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT/100
 	end
 
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
@@ -2173,10 +2173,10 @@ function GameState:FilterDamage(filterTable)
 		-- filterTable["damage"] = filterTable["damage"]*(1+((primaryAttibute/16)/100))
 		-- end
 		if attacker:HasModifier("modifier_tempest_falcon_ring") then
-			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = 8})
+			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = TEMPEST_FALCON_RING_DURATION})
 		end
 		if attacker:HasModifier("modifier_firelock_pendant") then
-			local multIncrease = (attacker:GetStrength() / 10) * 0.003
+			local multIncrease = (attacker:GetStrength() / FIRELOCK_PENDANT_STR_DIVISOR) * FIRELOCK_PENDANT_STR_TO_POST_MITI/100
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_power_ranger") then
@@ -2237,7 +2237,7 @@ function GameState:FilterDamage(filterTable)
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
 		end
 		if attacker:HasModifier("modifier_tempest_falcon_ring_effect") then
-			mult = mult + 3
+			mult = mult + TEMPEST_FALCON_RING_POST_MITI_MAGIC/100
 			Timers:CreateTimer(0.05, function()
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
@@ -2294,7 +2294,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * 5, 0)
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * EMERALD_NULLIFICATION_AGI_TO_PURE_MAGIC_DMG_BLOCK, 0)
 		end
 		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
 			filterTable["damage"] = (1 - SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
@@ -2386,7 +2386,7 @@ function GameState:FilterDamage(filterTable)
 			minBoost = minBoost + BOOTS_OF_GREAT_FORTUNE_TRICKSTER_BOOST
 		end
 		if attacker:HasModifier("modifier_fortunes_talisman_of_truth") then
-			minBoost = minBoost * 1.5 + 2
+			minBoost = minBoost * FORTUNES_TALISMAN_TRICKSTER_BOOST_MULT + FORTUNES_TALISMAN_TRICKSTER_BOOST_ADD
 		end
 		local tricksterFactor = RandomInt(-5 + minBoost, 15)
 		mult = mult + tricksterFactor / 10
@@ -2706,7 +2706,7 @@ function GameState:FilterDamage(filterTable)
 	-- end
 	if victim:HasModifier("modifier_aeriths_tear") then
 		if Filters:AerithsTearTakeDamage(attacker, victim) then
-			filterTable["damage"] = filterTable["damage"] * 0.1
+			filterTable["damage"] = filterTable["damage"] * (100-AERITHS_TEAR_DMG_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("modifier_infernal_jailer_passive") then
@@ -3441,7 +3441,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_world_tree_effect") then
-		mult = mult + 2
+		mult = mult + WORLD_TREES_CACHE_POST_MITI/100
 	end
 
 	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") and applyEffects then
@@ -3729,7 +3729,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_volcano_orb") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * 2.5
+			filterTable["damage"] = filterTable["damage"] * VOLCANO_ORB_MAGIC_DMG_MULT
 		end
 	end
 
@@ -3740,10 +3740,10 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_conquest_stone_falcon") then
 		if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
-			if filterTable["damage"] > victim:GetMaxHealth() * 0.35 then
+			if filterTable["damage"] > victim:GetMaxHealth() * STONE_FALCON_HP_THRESHOLD/100 then
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_end.vpcf", victim, 1.5)
 			end
-			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * 0.35)
+			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * STONE_FALCON_HP_THRESHOLD/100)
 		end
 	end
 	if attacker:HasModifier("modifier_water_temple_bubble_effect") then
@@ -3985,11 +3985,11 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_frozen_heart") then
 		if damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = 8
+			filterTable["damage"] = FROZEN_HEART_DAMAGE_PER_PURE
 		elseif damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = 5
+			filterTable["damage"] = FROZEN_HEART_DAMAGE_PER_MAGICAL
 		else
-			filterTable["damage"] = 2
+			filterTable["damage"] = FROZEN_HEART_DAMAGE_PER_PHYS
 		end
 	end
 
@@ -4089,7 +4089,7 @@ function GameState:FilterDamage(filterTable)
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
 				victim.amulet.ankh_apply_time = GameRules:GetGameTime()
-				victim.amulet:ApplyDataDrivenModifier(victim, victim, "modifier_ankh_of_ancients_shield", {duration = 4})
+				victim.amulet:ApplyDataDrivenModifier(victim, victim, "modifier_ankh_of_ancients_shield", {duration = ANKH_SHIELD_DURATION})
 				for i = 0, 3, 1 do
 					local abilityIndex = i
 					if i == 3 then
@@ -4106,8 +4106,8 @@ function GameState:FilterDamage(filterTable)
 				filterTable["damage"] = victim:GetHealth() - 2
 				--print("DO THIS STUFF")
 				victim:AddNoDraw()
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_cache_cooldown", {duration = 15})
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = 3})
+				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_cache_cooldown", {duration = WORLD_TREES_CACHE_COOLDOWN})
+				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = WORLD_TREES_CACHE_RESURRECTION_DELAY})
 				local pfx = ParticleManager:CreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_sufferwood.vpcf", PATTACH_ABSORIGIN_FOLLOW, victim)
 				ParticleManager:SetParticleControl(pfx, 0, victim:GetAbsOrigin())
 				ParticleManager:SetParticleControl(pfx, 4, Vector(300, 0, 0))
@@ -4116,12 +4116,12 @@ function GameState:FilterDamage(filterTable)
 				end
 				EmitSoundOn("RPCItem.WorldTreeCache.Start", victim)
 				rezzed = true
-				Timers:CreateTimer(3, function()
+				Timers:CreateTimer(WORLD_TREES_CACHE_RESURRECTION_DELAY, function()
 					victim:RemoveNoDraw()
 					EmitSoundOn("RPCItem.WorldTreeCache.End", victim)
 					victim:SetHealth(victim:GetMaxHealth())
 					ParticleManager:DestroyParticle(pfx, false)
-					victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_effect", {duration = 12})
+					victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_effect", {duration = WORLD_TREES_CACHE_BUFF_DURATION})
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", victim, 1.2)
 					local enemies = FindUnitsInRadius(victim:GetTeamNumber(), victim:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
