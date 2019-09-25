@@ -421,3 +421,7 @@
 .status_bad{
 	color: #dd2e2e;
 }
+
+#SpiritIcon{
+	background-image: url("file://{images}/custom_game/ui/spirit.png");
+}

@@ -108,6 +108,17 @@ function CDOTA_BaseNPC_Hero:GetIntellect()
 	return tonumber(intelligence)
 end
 
+function CDOTA_BaseNPC_Hero:GetSpirit()
+	local hero = self
+	local spirit = hero.spirit_custom + hero.spirit_bonus
+	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
+		local item = self.handItem
+		spirit = item.newItemTable.property1
+	end
+	return tonumber(spirit)
+end
+
+
 function CDOTA_BaseNPC_Hero:GetBaseStrength()
 	local strength = self:GetStrength()
 	local modifier = nil
@@ -298,6 +309,7 @@ function CustomAttributes:SetAttributes(hero)
 	local str_bonus = 0
 	local agi_bonus = 0
 	local int_bonus = 0
+	local spirit_bonus = 0
 	local heroName = hero:GetUnitName()
 	if hero:HasModifier("modifier_flamewaker_rune_r_3") then
 		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
@@ -706,6 +718,7 @@ function CustomAttributes:SetAttributes(hero)
 	hero.str_bonus = str_bonus
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus
+	hero.spirit_bonus = spirit_bonus
 
 	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence)})
 end

@@ -19,11 +19,26 @@ function InitializeHeroStatsOnce(){
 }
 
 function InitializeHeroStats(){
-	UpdateHeroStats()
+	UnitStats40()
 	$.Schedule( 0.2, InitializeHeroStats );
 	// $.Schedule(0.2, function(){
 	// 	InitializeHeroStats()
 	// });
+}
+
+function UnitStats40(){
+	GameUI.STATS_PANEL.style.visibility = "visible"
+	if (Game.GetState() < DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS){
+		return false
+	}	
+	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	if (Entities.IsHero( queryUnit )){
+		$('#hero_attributes').style.visibility = "visible"
+		$('#unit_attributes').style.horizontalAlign = "left"
+	}else{
+		$('#hero_attributes').style.visibility = "collapse"
+		$('#unit_attributes').style.horizontalAlign = "right"
+	}
 }
 
 function UpdateHeroStats(){
@@ -137,9 +152,9 @@ function InspirationRing(msg)
 (function()
 {
 	InitializeHeroStatsOnce()
-	GameEvents.Subscribe( "update_hero_stats", UpdateHeroStats );
-	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateHeroStats );
-	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateHeroStats );
+	GameEvents.Subscribe( "update_hero_stats", UnitStats40 );
+	GameEvents.Subscribe( "dota_player_update_selected_unit", UnitStats40 );
+	GameEvents.Subscribe( "dota_player_update_query_unit", UnitStats40 );
 	GameEvents.Subscribe( "inspiration_ring", InspirationRing);
 })();
 

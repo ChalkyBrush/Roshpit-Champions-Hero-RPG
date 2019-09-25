@@ -71,8 +71,6 @@
 
     <CustomUIElement type="HudTopBar"       layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml" /> 
 
-    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/hero/hero_stats.xml" />
-
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/special_events.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/overlay_events.xml" /> 
 

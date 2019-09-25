@@ -202,9 +202,6 @@ function SaveLoad:SaveCharacter(msg)
 		url = url.."&ability_points="..current_skill_points
 		url = url.."&rune_points="..current_rune_points
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-		-- if GameState:IsWorld1() then
-		url = SaveLoad:AttachPortalKeysToUrl(url, hero)
-		-- end
 		url = SaveLoad:AttachGlyphsToUrl(url, hero)
 		for i = 0, 5, 1 do
 			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, 0)
@@ -283,19 +280,19 @@ function SaveLoad:AttachGlyphsToUrl(url, hero)
 end
 
 function SaveLoad:AttachPortalKeysToUrl(url, hero)
-	local normalKeys = CustomNetTables:GetTableValue("portal_keys", tostring(hero:GetEntityIndex()) .. "-"..1)
-	local eliteKeys = CustomNetTables:GetTableValue("portal_keys", tostring(hero:GetEntityIndex()) .. "-"..2)
-	local legendKeys = CustomNetTables:GetTableValue("portal_keys", tostring(hero:GetEntityIndex()) .. "-"..3)
-	url = url.."&portal1normal="..normalKeys.forest
-	url = url.."&portal2normal="..normalKeys.desert
-	url = url.."&portal3normal="..normalKeys.mines
-	url = url.."&portal1elite="..eliteKeys.forest
-	url = url.."&portal2elite="..eliteKeys.desert
-	url = url.."&portal3elite="..eliteKeys.mines
-	url = url.."&portal1legend="..legendKeys.forest
-	url = url.."&portal2legend="..legendKeys.desert
-	url = url.."&portal3legend="..legendKeys.mines
-	return url
+	-- local normalKeys = CustomNetTables:GetTableValue("portal_keys", tostring(hero:GetEntityIndex()) .. "-"..1)
+	-- local eliteKeys = CustomNetTables:GetTableValue("portal_keys", tostring(hero:GetEntityIndex()) .. "-"..2)
+	-- local legendKeys = CustomNetTables:GetTableValue("portal_keys", tostring(hero:GetEntityIndex()) .. "-"..3)
+	-- url = url.."&portal1normal="..normalKeys.forest
+	-- url = url.."&portal2normal="..normalKeys.desert
+	-- url = url.."&portal3normal="..normalKeys.mines
+	-- url = url.."&portal1elite="..eliteKeys.forest
+	-- url = url.."&portal2elite="..eliteKeys.desert
+	-- url = url.."&portal3elite="..eliteKeys.mines
+	-- url = url.."&portal1legend="..legendKeys.forest
+	-- url = url.."&portal2legend="..legendKeys.desert
+	-- url = url.."&portal3legend="..legendKeys.mines
+	-- return url
 end
 
 function SaveLoad:DebugGear(playerID)
@@ -561,9 +558,9 @@ function SaveLoad:LoadCharacter(msg)
 		Timers:CreateTimer(1, function()
 			SaveLoad:LoadGlyphs(resultTable.character, hero)
 		end)
-		Timers:CreateTimer(3, function()
-			SaveLoad:LoadPortalKeys(resultTable.character, hero)
-		end)
+		-- Timers:CreateTimer(3, function()
+		-- 	SaveLoad:LoadPortalKeys(resultTable.character, hero)
+		-- end)
 		CustomGameEventManager:Send_ServerToPlayer(player, "close_oracle", {})
 		if GameState:IsRPCArena() then
 			Arena:LoadChampionsLeagueData(hero, nil)
@@ -595,14 +592,14 @@ function SaveLoad:LoadGlyphs(character, hero)
 end
 
 function SaveLoad:LoadPortalKeys(character, hero)
-	local heroIndex = hero:GetEntityIndex()
-	CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "1", {forest = character.portal1normal, desert = character.portal2normal, mines = character.portal3normal})
-	CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "2", {forest = character.portal1elite, desert = character.portal2elite, mines = character.portal3elite})
-	CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "3", {forest = character.portal1legend, desert = character.portal2legend, mines = character.portal3legend})
-	if GameState:IsWorld1() then
-		Beacons:ActivatePortalsForKeys()
-		CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
-	end
+	-- local heroIndex = hero:GetEntityIndex()
+	-- CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "1", {forest = character.portal1normal, desert = character.portal2normal, mines = character.portal3normal})
+	-- CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "2", {forest = character.portal1elite, desert = character.portal2elite, mines = character.portal3elite})
+	-- CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "3", {forest = character.portal1legend, desert = character.portal2legend, mines = character.portal3legend})
+	-- if GameState:IsWorld1() then
+	-- 	Beacons:ActivatePortalsForKeys()
+	-- 	CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
+	-- end
 end
 
 function SaveLoad:LoadGear(gearTable, playerID, bEquip)

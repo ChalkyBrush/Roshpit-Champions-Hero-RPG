@@ -198,6 +198,7 @@ function GameMode:OnNPCSpawned(keys)
 			npc.strength_custom = 20
 			npc.agility_custom = 20
 			npc.intellect_custom = 20
+			npc.spirit_custom = 20
 		end
 		CustomAttributes:SetAttributes(npc)
 	end
@@ -1085,18 +1086,7 @@ function Events:InitializeHero(heroEntity)
 	local player = heroEntity:GetPlayerOwner()
 
 	local heroIndex = heroEntity:GetEntityIndex()
-	if GameState:IsWorld1() then
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "1", {forest = 1, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "2", {forest = 0, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "3", {forest = 0, desert = 0, mines = 0})
-		Timers:CreateTimer(3, function()
-			Beacons:ActivatePortalsForKeys()
-		end)
-	else
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "1", {forest = 1, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "2", {forest = 0, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "3", {forest = 0, desert = 0, mines = 0})
-	end
+
 	Timers:CreateTimer(4, function()
 		-- if not GameState:NoOracle() then
 		--   CustomGameEventManager:Send_ServerToPlayer(player, "open_oracle", {player=playerID, loadEnabled = heroEntity.loadEnabled} )
@@ -1130,44 +1120,44 @@ function Events:InitializeHero(heroEntity)
 end
 
 function Events:EarnKey(clearedZone)
-	local difficulty = GameState:GetDifficultyFactor()
-	local keyName = ""
-	if clearedZone == "forest" then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-			local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
-			CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = 1, mines = existingKeysThisDifficulty.mines})
-			keyName = "desert"
-			local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-			if existingKeysThisDifficulty.desert == 0 then
-				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-			end
-		end
-	elseif clearedZone == "desert" then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-			local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
-			CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = existingKeysThisDifficulty.desert, mines = 1})
-			keyName = "mines"
-			local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-			if existingKeysThisDifficulty.mines == 0 then
-				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-			end
-		end
-	elseif clearedZone == "mines" and difficulty < 3 then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-			local existingKeysNextDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty + 1))
-			CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty + 1, {forest = 1, desert = existingKeysNextDifficulty.desert, mines = existingKeysNextDifficulty.mines})
-			keyName = "forest"
-			local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-			if existingKeysNextDifficulty.forest == 0 then
-				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-			end
-		end
-	end
-	CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
-	Beacons:ActivatePortalsForKeys()
+	-- local difficulty = GameState:GetDifficultyFactor()
+	-- local keyName = ""
+	-- if clearedZone == "forest" then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
+	-- 		local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
+	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = 1, mines = existingKeysThisDifficulty.mines})
+	-- 		keyName = "desert"
+	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+	-- 		if existingKeysThisDifficulty.desert == 0 then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
+	-- 		end
+	-- 	end
+	-- elseif clearedZone == "desert" then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
+	-- 		local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
+	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = existingKeysThisDifficulty.desert, mines = 1})
+	-- 		keyName = "mines"
+	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+	-- 		if existingKeysThisDifficulty.mines == 0 then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
+	-- 		end
+	-- 	end
+	-- elseif clearedZone == "mines" and difficulty < 3 then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
+	-- 		local existingKeysNextDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty + 1))
+	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty + 1, {forest = 1, desert = existingKeysNextDifficulty.desert, mines = existingKeysNextDifficulty.mines})
+	-- 		keyName = "forest"
+	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+	-- 		if existingKeysNextDifficulty.forest == 0 then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
+	-- 		end
+	-- 	end
+	-- end
+	-- CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
+	-- Beacons:ActivatePortalsForKeys()
 
 end
 
