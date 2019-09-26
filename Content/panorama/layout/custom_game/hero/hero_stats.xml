@@ -21,7 +21,7 @@
         <Panel class="unit_attributes_row" id="unit_attributes_bottom_row" hittest="false">
           <Panel class="unit_attribute" hittest="false">
             <Image id="unit_attribute_magic_armor" class="unit_attribute_image" hittest="false"/>
-            <Label id="unit_attribute_magic_armor_label" class="unit_attribute_label" text="8422" hittest="false"/>
+            <Label id="unit_attribute_magic_armor_label" class="unit_attribute_label" text="844" hittest="false"/>
           </Panel>
           <Panel class="unit_attribute" hittest="false">
             <Image id="unit_attribute_spell_pierce" class="unit_attribute_image" hittest="false"/>

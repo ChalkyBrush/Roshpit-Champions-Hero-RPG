@@ -260,6 +260,171 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	return intellect
 end
 
+function CDOTA_BaseNPC:InitRoshpitAttributes()
+	local unit = self
+	if not unit.roshpit_attributes then
+		unit.roshpit_attributes = {}
+	end
+	if unit:IsRealHero() then
+		if not unit.strength_custom then
+			unit.strength_custom = 20
+			unit.agility_custom = 20
+			unit.intellect_custom = 20
+			unit.spirit_custom = 20
+		end
+		CustomAttributes:SetAttributes(unit)
+	else
+		unit:SetBaseRoshpitArmor(unit:GetKeyValue("RoshpitArmor", false))
+		unit:SetBaseRoshpitMagicArmor(unit:GetKeyValue("RoshpitMagicArmor", false))
+		unit:SetBaseRoshpitArmorPierce(unit:GetKeyValue("RoshpitArmorPierce", false))
+		unit:SetBaseRoshpitSpellPierce(unit:GetKeyValue("RoshpitSpellPierce", false))
+	end
+end
+
+function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)
+	local unit = self
+	if not unit.roshpit_attributes then
+		unit.roshpit_attributes = {}
+	end
+	unit.roshpit_attributes.roshpit_armor = amount
+	return amount
+end
+
+function CDOTA_BaseNPC:SetBaseRoshpitMagicArmor(amount)
+	local unit = self
+	if not unit.roshpit_attributes then
+		unit.roshpit_attributes = {}
+	end
+	unit.roshpit_attributes.roshpit_magic_armor = amount
+	return amount
+end
+
+function CDOTA_BaseNPC:SetBaseRoshpitSpellPierce(amount)
+	local unit = self
+	if not unit.roshpit_attributes then
+		unit.roshpit_attributes = {}
+	end
+	unit.roshpit_attributes.roshpit_spell_pierce = amount
+	return amount
+end
+
+function CDOTA_BaseNPC:SetBaseRoshpitArmorPierce(amount)
+	local unit = self
+	if not unit.roshpit_attributes then
+		unit.roshpit_attributes = {}
+	end
+	unit.roshpit_attributes.roshpit_armor_pierce = amount
+	return amount
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
+	local unit = self
+	local armor = unit.roshpit_attributes.roshpit_armor
+	unit:SetRoshpitArmor(armor)
+	return armor
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
+	local unit = self
+	local magic_armor = unit.roshpit_attributes.roshpit_magic_armor
+	unit:SetRoshpitMagicArmor(magic_armor)
+	return magic_armor
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
+	local unit = self
+	local armor_pierce = unit.roshpit_attributes.roshpit_armor_pierce
+	unit:SetRoshpitArmorPierce(armor_pierce)
+	return armor_pierce
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
+	local unit = self
+	local spell_pierce = unit.roshpit_attributes.roshpit_spell_pierce
+	unit:SetRoshpitSpellPierce(spell_pierce)
+	return spell_pierce
+end
+
+function CDOTA_BaseNPC:SetRoshpitArmor(amount)
+	local unit = self
+	if not unit:HasModifier("modifier_roshpit_armor") then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor", {})
+	end
+	unit:SetModifierStackCount("modifier_roshpit_armor", Events.GameMaster, amount)
+	if amount < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_armor", {})
+	else
+		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
+	end
+	return amount
+end
+
+function CDOTA_BaseNPC:GetRoshpitArmor(amount)
+	local mult = 1
+	local unit = self
+	if unit:HasModifier("modifier_negative_roshpit_armor") then
+		mult = -1
+	end
+	local armor = unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster)
+	armor = armor*mult
+	return armor
+end
+
+function CDOTA_BaseNPC:SetRoshpitMagicArmor(amount)
+	local unit = self
+	if not unit:HasModifier("modifier_roshpit_magic_armor") then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_magic_armor", {})
+	end
+	unit:SetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster, amount)
+	if amount < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_magic_armor", {})
+	else
+		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
+	end
+	return amount
+end
+
+function CDOTA_BaseNPC:GetRoshpitMagicArmor(amount)
+	local mult = 1
+	local unit = self
+	if unit:HasModifier("modifier_negative_roshpit_magic_armor") then
+		mult = -1
+	end
+	local armor = unit:GetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster)
+	armor = armor*mult
+	return armor
+end
+
+function CDOTA_BaseNPC:SetRoshpitArmorPierce(amount)
+	local unit = self
+	if not unit:HasModifier("modifier_roshpit_armor_pierce") then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor_pierce", {})
+	end
+	unit:SetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster, amount)
+	return amount
+end
+
+function CDOTA_BaseNPC:GetRoshpitArmorPierce(amount)
+	local unit = self
+	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
+	return armor_pierce
+end
+
+function CDOTA_BaseNPC:SetRoshpitSpellPierce(amount)
+	local unit = self
+	if not unit:HasModifier("modifier_roshpit_spell_pierce") then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_spell_pierce", {})
+	end
+	unit:SetModifierStackCount("modifier_roshpit_spell_pierce", Events.GameMaster, amount)
+	return amount
+end
+
+function CDOTA_BaseNPC:GetRoshpitSpellPierce(amount)
+	local unit = self
+	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
+	return armor_pierce
+end
+
 function CDOTA_BaseNPC:GetRuneValue(letter, tier)
 	local index = 0
 	if letter == "q" then

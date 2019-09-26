@@ -23,7 +23,12 @@ function general_hero_think(event)
 	-- 	end
 	-- end
 	-- problem with frozen heart is that health regen still exists as a value in background, and any numbers that interact with health regen still work
-	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), tiamat = tiamat})
+
+	local armor = target:GetRoshpitArmor(amount)
+	local magic_armor = target:GetRoshpitMagicArmor(amount)
+	local armor_pierce = target:GetRoshpitArmorPierce(amount)
+	local spell_pierce = target:GetRoshpitSpellPierce(amount)
+	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), tiamat = tiamat, armor = tostring(armor), magic_armor = tostring(magic_armor), spell_pierce = tostring(spell_pierce), armor_pierce = tostring(armor_pierce)})
 	for i = 0, 5, 1 do
 		local playerID = target:GetPlayerOwnerID()
 		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))

@@ -13,6 +13,7 @@ require('glyphs')
 require('paragon')
 require('elements')
 require('spawning')
+require('keyvalues')
 
 Beacons.cheats = true
 
@@ -179,6 +180,7 @@ function GameMode:OnGameRulesStateChange(keys)
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i]:RemoveModifierByName("modifier_command_restric_player")
 		end
+		Timers:CreateTimer(1, LoadGameKeyValues())
 	end
 end
 
@@ -193,15 +195,7 @@ function GameMode:OnNPCSpawned(keys)
 	if npc:GetClassname() ~= "npc_dota_base_additive" and npc:GetUnitName() ~= "rune_unit" then
 		npc:AddNewModifier(nil, nil, "modifier_attack_land_basic", {})
 	end
-	if npc:IsRealHero() then
-		if not npc.strength_custom then
-			npc.strength_custom = 20
-			npc.agility_custom = 20
-			npc.intellect_custom = 20
-			npc.spirit_custom = 20
-		end
-		CustomAttributes:SetAttributes(npc)
-	end
+	npc:InitRoshpitAttributes()
 	if npc:IsRealHero() and Events.gameLoaded then
 		GameMode:CorrectRespawn(npc)
 		-- if GameState:IsSerengaard() then

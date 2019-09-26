@@ -98344,6 +98344,36 @@
 				"IsHidden"	"1"
 				"Passive"	"0"
 			}
+			"modifier_roshpit_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_negative_roshpit_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_roshpit_magic_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_negative_roshpit_magic_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
 		}
 		"AbilitySpecial"
 		{
