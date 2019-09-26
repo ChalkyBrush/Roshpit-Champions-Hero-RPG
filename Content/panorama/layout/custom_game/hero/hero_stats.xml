@@ -11,21 +11,21 @@
         <Panel class="unit_attributes_row" id="unit_attributes_top_row" hittest="false">
           <Panel class="unit_attribute" hittest="false">
             <Image id="unit_attribute_armor" class="unit_attribute_image" hittest="false"/>
-            <Label id="unit_attribute_armor_label" class="unit_attribute_label" text="12999" hittest="false"/>
+            <Label id="unit_attribute_armor_label" class="unit_attribute_label" text="0" hittest="false"/>
           </Panel>
           <Panel class="unit_attribute" hittest="false">
             <Image id="unit_attribute_armor_pierce" class="unit_attribute_image" hittest="false"/>
-            <Label id="unit_attribute_armor_pierce_label" class="unit_attribute_label" text="1000" hittest="false"/>
+            <Label id="unit_attribute_armor_pierce_label" class="unit_attribute_label" text="0" hittest="false"/>
           </Panel>
         </Panel>
         <Panel class="unit_attributes_row" id="unit_attributes_bottom_row" hittest="false">
           <Panel class="unit_attribute" hittest="false">
             <Image id="unit_attribute_magic_armor" class="unit_attribute_image" hittest="false"/>
-            <Label id="unit_attribute_magic_armor_label" class="unit_attribute_label" text="844" hittest="false"/>
+            <Label id="unit_attribute_magic_armor_label" class="unit_attribute_label" text="0" hittest="false"/>
           </Panel>
           <Panel class="unit_attribute" hittest="false">
             <Image id="unit_attribute_spell_pierce" class="unit_attribute_image" hittest="false"/>
-            <Label id="unit_attribute_spell_pierce_label" class="unit_attribute_label" text="1000" hittest="false"/>
+            <Label id="unit_attribute_spell_pierce_label" class="unit_attribute_label" text="0" hittest="false"/>
           </Panel>
         </Panel>
       </Panel>
@@ -33,19 +33,19 @@
       <Panel id="hero_attributes">
 
           <Panel class="attribute_data">
-            <Label class="hero_attribute_label" id="strength_label" text="2400"/>
+            <Label class="hero_attribute_label" id="strength_label" text="0"/>
             <Panel id="Hero_Strength_Icon"/>
           </Panel>
           <Panel class="attribute_data">
-            <Label class="hero_attribute_label" id="agility_label"  text="240"/>
+            <Label class="hero_attribute_label" id="agility_label"  text="0"/>
             <Panel id="Hero_Agility_Icon"/>
           </Panel>
           <Panel class="attribute_data">
-            <Label class="hero_attribute_label" id="intelligence_label"  text="210"/>
+            <Label class="hero_attribute_label" id="intelligence_label"  text="0"/>
             <Panel id="Hero_Intelligence_Icon"/>
           </Panel>
           <Panel class="attribute_data">
-            <Label class="hero_attribute_label" id="spirit_label"  text="2500"/>
+            <Label class="hero_attribute_label" id="spirit_label"  text="0"/>
             <Panel id="Hero_Spirit_Icon"/>
           </Panel>
       </Panel>

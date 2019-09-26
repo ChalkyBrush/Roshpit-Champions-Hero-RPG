@@ -1,13 +1,20 @@
-HEALTH_PER_STR = 20
+HEALTH_PER_STR = 10
 HEALTH_REGEN_PER_STR = 0.1
+ARMOR_PER_STR = 1
 
-ATTACKSPEED_PER_AGI = 0.04
-ARMOR_PER_AGI = 0.14
+ATTACKSPEED_PER_AGI = 0.5
+MOVESPEED_PER_AGI = 0.1
+ARMOR_PIERCE_PER_AGI = 1
 
 MANA_PER_INT = 5
 MANA_REGEN_PER_INT = 0.1
+SPELL_PIERCE_PER_INT = 1
 
-ATK_DMG_PER_PRIMARY = 2
+STATUS_RESIST_PER_SPIRIT = 0.01
+BASE_ABILITY_DAMAGE_PER_SPIRIT = 0.1
+MAGIC_ARMOR_PER_SPIRIT = 1
+
+ATK_DMG_PER_PRIMARY = 1
 
 function initializeTooltip(func){
 	// $.Msg(func)
@@ -32,32 +39,43 @@ function initializeTooltip(func){
 		$('#attribute_title_strength').text = $.Localize("#item_strength")
 		$('#attribute_title_agility').text = $.Localize("#item_agility")
 		$('#attribute_title_int').text = $.Localize("#item_intelligence")
+		$('#attribute_title_spr').text = $.Localize("#item_spirit")
 
 		var heroAttributes = CustomNetTables.GetTableValue( "hero_index", queryUnit.toString()+"_attributes" );
 
 		$('#attribute_value_strength').text = numberWithCommas(heroAttributes.strength)
 		$('#attribute_value_agility').text = numberWithCommas(heroAttributes.agility)
 		$('#attribute_value_int').text = numberWithCommas(heroAttributes.intelligence)
+		$('#attribute_value_spr').text = numberWithCommas(heroAttributes.spirit)
 
 		var healthBonus = heroAttributes.strength*HEALTH_PER_STR*halcyonMult
 		var healthRegenBonus = parseInt(heroAttributes.strength*HEALTH_REGEN_PER_STR*halcyonMult)
+		var armorBonus = parseInt(heroAttributes.strength*ARMOR_PER_STR*halcyonMult)
 		$('#attribute_given_bonus_str_1_left').text = "<font color='#FFFFFF'>HP</font>"
 		$('#attribute_given_bonus_str_1_right').text = "+"+numberWithCommas(healthBonus)
 
 		$('#attribute_given_bonus_str_2_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_regen')+"</font>"
 		$('#attribute_given_bonus_str_2_right').text = "+"+numberWithCommas(healthRegenBonus)
 
+		$('#attribute_given_bonus_str_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_armor')+"</font>"
+		$('#attribute_given_bonus_str_3_right').text = "+"+numberWithCommas(armorBonus)
+
 		var atkspdBonus = parseInt(heroAttributes.agility*ATTACKSPEED_PER_AGI*halcyonMult)
-		var armorBonus = parseInt(heroAttributes.agility*ARMOR_PER_AGI*halcyonMult)
+		var movespeedBonus = parseInt(heroAttributes.agility*MOVESPEED_PER_AGI*halcyonMult)
+		var armorPierceBonus = parseInt(heroAttributes.agility*ARMOR_PIERCE_PER_AGI*halcyonMult)
 
 		$('#attribute_given_bonus_agi_1_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_attack_speed')+"</font>"
 		$('#attribute_given_bonus_agi_1_right').text = "+"+numberWithCommas(atkspdBonus)
 
-		$('#attribute_given_bonus_agi_2_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_armor')+"</font>"
-		$('#attribute_given_bonus_agi_2_right').text = "+"+numberWithCommas(armorBonus)
+		$('#attribute_given_bonus_agi_2_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_movespeed')+"</font>"
+		$('#attribute_given_bonus_agi_2_right').text = "+"+numberWithCommas(movespeedBonus)
+
+		$('#attribute_given_bonus_agi_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_armor_pierce')+"</font>"
+		$('#attribute_given_bonus_agi_3_right').text = "+"+numberWithCommas(armorPierceBonus)
 
 		var manaBonus = parseInt(heroAttributes.intelligence*MANA_PER_INT*halcyonMult)
 		var manaRegenBonus = parseInt(heroAttributes.intelligence*MANA_REGEN_PER_INT*halcyonMult)
+		var spellPierceBonus = parseInt(heroAttributes.intelligence*SPELL_PIERCE_PER_INT*halcyonMult)
 
 		$('#attribute_given_bonus_int_1_left').text = "<font color='#FFFFFF'>"+"Mana"+"</font>"
 		$('#attribute_given_bonus_int_1_right').text = "+"+numberWithCommas(manaBonus)
@@ -65,38 +83,60 @@ function initializeTooltip(func){
 		$('#attribute_given_bonus_int_2_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_mana_regen')+"</font>"
 		$('#attribute_given_bonus_int_2_right').text = "+"+numberWithCommas(manaRegenBonus)
 
+		$('#attribute_given_bonus_int_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_spell_pierce')+"</font>"
+		$('#attribute_given_bonus_int_3_right').text = "+"+numberWithCommas(spellPierceBonus)
+
+		var statusResistBonus = heroAttributes.spirit*STATUS_RESIST_PER_SPIRIT*halcyonMult
+		var base_ability_damage = parseInt(heroAttributes.spirit*BASE_ABILITY_DAMAGE_PER_SPIRIT*halcyonMult)
+		var magicArmorBonus = parseInt(heroAttributes.spirit*MAGIC_ARMOR_PER_SPIRIT*halcyonMult)
+		$('#attribute_given_bonus_spr_1_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_status_resist')+"</font>"
+		$('#attribute_given_bonus_spr_1_right').text = "+"+statusResistBonus+"%"
+
+		$('#attribute_given_bonus_spr_2_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_base_ability_damage')+"</font>"
+		$('#attribute_given_bonus_spr_2_right').text = "+"+numberWithCommas(base_ability_damage)+"%"
+
+		$('#attribute_given_bonus_spr_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_magic_armor')+"</font>"
+		$('#attribute_given_bonus_spr_3_right').text = "+"+numberWithCommas(magicArmorBonus)		
+
 		var primaryAttribute = parseInt(heroAttributes.primaryAttribute)
 		if (primaryAttribute == 0){
 			var atkBonus = parseInt(heroAttributes.strength*ATK_DMG_PER_PRIMARY*halcyonMult)
-			$('#attribute_given_bonus_str_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
-			$('#attribute_given_bonus_str_3_right').text = "+"+numberWithCommas(atkBonus)
+			$('#attribute_given_bonus_str_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
+			$('#attribute_given_bonus_str_4_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_strength').AddClass('primary_attribute')
 
-			$('#attribute_given_bonus_agi_3_left').text = ""
-			$('#attribute_given_bonus_agi_3_right').text = ""
+			$('#attribute_given_bonus_agi_4_left').text = ""
+			$('#attribute_given_bonus_agi_4_right').text = ""
 
-			$('#attribute_given_bonus_int_3_left').text = ""
-			$('#attribute_given_bonus_int_3_right').text = ""
+			$('#attribute_given_bonus_int_4_left').text = ""
+			$('#attribute_given_bonus_int_4_right').text = ""
+
+			$('#attribute_given_bonus_spr_4_left').text = ""
+			$('#attribute_given_bonus_spr_4_right').text = ""
 		}else if(primaryAttribute == 1){
 			var atkBonus = parseInt(heroAttributes.agility*ATK_DMG_PER_PRIMARY*halcyonMult)
-			$('#attribute_given_bonus_agi_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
-			$('#attribute_given_bonus_agi_3_right').text = "+"+numberWithCommas(atkBonus)
+			$('#attribute_given_bonus_agi_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
+			$('#attribute_given_bonus_agi_4_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_agility').AddClass('primary_attribute')	
-			$('#attribute_given_bonus_str_3_left').text = ""
-			$('#attribute_given_bonus_str_3_right').text = ""
+			$('#attribute_given_bonus_str_4_left').text = ""
+			$('#attribute_given_bonus_str_4_right').text = ""
 
-			$('#attribute_given_bonus_int_3_left').text = ""
-			$('#attribute_given_bonus_int_3_right').text = ""	
+			$('#attribute_given_bonus_int_4_left').text = ""
+			$('#attribute_given_bonus_int_4_right').text = ""
+			$('#attribute_given_bonus_spr_4_left').text = ""
+			$('#attribute_given_bonus_spr_4_right').text = ""	
 		}else if(primaryAttribute == 2){
 			var atkBonus = parseInt(heroAttributes.intelligence*ATK_DMG_PER_PRIMARY*halcyonMult)
-			$('#attribute_given_bonus_int_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
-			$('#attribute_given_bonus_int_3_right').text = "+"+numberWithCommas(atkBonus)
+			$('#attribute_given_bonus_int_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
+			$('#attribute_given_bonus_int_4_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_int').AddClass('primary_attribute')	
-			$('#attribute_given_bonus_agi_3_left').text = ""
-			$('#attribute_given_bonus_agi_3_right').text = ""
+			$('#attribute_given_bonus_agi_4_left').text = ""
+			$('#attribute_given_bonus_agi_4_right').text = ""
 
-			$('#attribute_given_bonus_str_3_left').text = ""
-			$('#attribute_given_bonus_str_3_right').text = ""	
+			$('#attribute_given_bonus_str_4_left').text = ""
+			$('#attribute_given_bonus_str_4_right').text = ""
+			$('#attribute_given_bonus_spr_4_left').text = ""
+			$('#attribute_given_bonus_spr_4_right').text = ""	
 		}
 	}
 

@@ -45,6 +45,10 @@
 						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_str_3_left" html="true"/>
 						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_str_3_right" html="true"/>
 					</Panel>
+					<Panel class="attribute_given_bonus_container">
+						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_str_4_left" html="true"/>
+						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_str_4_right" html="true"/>
+					</Panel>
 				</Panel>
 				<Panel class="attribute_container" id="container_agility">
 					<Panel class="attribute_header">
@@ -68,7 +72,11 @@
 					<Panel class="attribute_given_bonus_container">
 						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_agi_3_left" html="true"/>
 						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_agi_3_right" html="true"/>
-					</Panel>				
+					</Panel>		
+					<Panel class="attribute_given_bonus_container">
+						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_agi_4_left" html="true"/>
+						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_agi_4_right" html="true"/>
+					</Panel>		
 				</Panel>
 				<Panel class="attribute_container" id="container_int">
 					<Panel class="attribute_header">
@@ -92,6 +100,38 @@
 					<Panel class="attribute_given_bonus_container">
 						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_int_3_left" html="true"/>
 						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_int_3_right" html="true"/>
+					</Panel>
+					<Panel class="attribute_given_bonus_container">
+						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_int_4_left" html="true"/>
+						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_int_4_right" html="true"/>
+					</Panel>				
+				</Panel>
+				<Panel class="attribute_container" id="container_spr">
+					<Panel class="attribute_header">
+						<Image src="file://{images}/custom_game/ui/spirit_for_tooltip.png" class="attribute_image" id="attribute_image_spr">
+						</Image>
+						<Panel class="attribute_title_and_value_container">
+							<Label class="attribute_title" id="attribute_title_spr"/>
+							<Label class="attribute_value" id="attribute_value_spr"/>
+						</Panel>
+					</Panel>	
+					<Panel class="class-splitter-thin">
+					</Panel>
+					<Panel class="attribute_given_bonus_container">
+						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_spr_1_left" html="true"/>
+						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_spr_1_right" html="true"/>
+					</Panel>
+					<Panel class="attribute_given_bonus_container">
+						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_spr_2_left" html="true"/>
+						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_spr_2_right" html="true"/>
+					</Panel>	
+					<Panel class="attribute_given_bonus_container">
+						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_spr_3_left" html="true"/>
+						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_spr_3_right" html="true"/>
+					</Panel>	
+					<Panel class="attribute_given_bonus_container">
+						<Label class="attribute_given_bonus bonus_left" id="attribute_given_bonus_spr_4_left" html="true"/>
+						<Label class="attribute_given_bonus bonus_right" id="attribute_given_bonus_spr_4_right" html="true"/>
 					</Panel>				
 				</Panel>
 			</Panel>
