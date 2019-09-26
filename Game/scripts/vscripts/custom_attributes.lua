@@ -262,6 +262,9 @@ end
 
 function CDOTA_BaseNPC:InitRoshpitAttributes()
 	local unit = self
+	if not Events.GameMasterAbility then
+		return false
+	end
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
@@ -272,6 +275,10 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 			unit.intellect_custom = 20
 			unit.spirit_custom = 20
 		end
+		unit:SetBaseRoshpitArmor(0)
+		unit:SetBaseRoshpitMagicArmor(0)
+		unit:SetBaseRoshpitArmorPierce(0)
+		unit:SetBaseRoshpitSpellPierce(0)
 		CustomAttributes:SetAttributes(unit)
 	else
 		unit:SetBaseRoshpitArmor(unit:GetKeyValue("RoshpitArmor", false))
@@ -279,6 +286,7 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitArmorPierce(unit:GetKeyValue("RoshpitArmorPierce", false))
 		unit:SetBaseRoshpitSpellPierce(unit:GetKeyValue("RoshpitSpellPierce", false))
 	end
+	unit:CalculateAndSaveAllAttributes()
 end
 
 function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)
@@ -315,6 +323,13 @@ function CDOTA_BaseNPC:SetBaseRoshpitArmorPierce(amount)
 	end
 	unit.roshpit_attributes.roshpit_armor_pierce = amount
 	return amount
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveAllAttributes()
+	self:CalculateAndSaveRoshpitArmor()
+	self:CalculateAndSaveRoshpitMagicArmor()
+	self:CalculateAndSaveRoshpitArmorPierce()
+	self:CalculateAndSaveRoshpitSpellPierce()
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -470,6 +485,7 @@ function CustomAttributes:SetAttributes(hero)
 	local strength = hero.strength_custom
 	local agility = hero.agility_custom
 	local intelligence = hero.intellect_custom
+	local spirit = hero.spirit_custom
 
 	local str_bonus = 0
 	local agi_bonus = 0
@@ -885,7 +901,7 @@ function CustomAttributes:SetAttributes(hero)
 	hero.int_bonus = int_bonus
 	hero.spirit_bonus = spirit_bonus
 
-	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence)})
+	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), spirit = tostring(spirit)})
 end
 
 function CustomAttributes:AddStatsBonusFromStacks(hero, caster, modifierName, statPerStack)

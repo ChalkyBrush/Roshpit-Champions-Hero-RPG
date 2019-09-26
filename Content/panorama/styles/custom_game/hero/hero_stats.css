@@ -139,7 +139,6 @@
 	margin-bottom:4px;
 	background-color:#111111;
 	opacity:0.9; 
-	margin-left:65px;
 	border-radius:6px;
 }
 
@@ -198,4 +197,8 @@
 
 	border-radius:2px;
 	text-align: center;
+}
+
+.unit_attributes_for_heroes{
+	horizontal-align:left;
 }

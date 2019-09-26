@@ -1,20 +1,7 @@
+mQueryUnit = 0
+mAttributesHash = {modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null}
+
 function InitializeHeroStatsOnce(){
-	// var inventoryPanel = GameUI.InventoryPanel
-	// if (inventoryPanel){
-	// 	$('#hero_stats_container').SetParent(inventoryPanel)
-	// }else{
-	// 	$.Schedule( 1.0, InitializeHeroStats );
-	// }
-	// var inventoryPanel = GameUI.InventoryPanel
-	// var positon = GameUI.InventoryPanel.GetPositionWithinWindow()
-	// $.Msg(GameUI.InventoryPanel.GetPositionWithinWindow())
-	// $.GetContextPanel().style.position = positon.x+"px "+positon.y+"px 0"
-	// var positon2 = $.GetContextPanel().GetPositionWithinWindow()
-	
-	// var differentialX = positon2.x - positon.x 
-	// var differentialY = positon2.y - positon.y
-	// $.GetContextPanel().style.position = (positon.x-differentialX)+"px "+(positon.y-differentialY)+"px 0"
-	// $.Msg($.GetContextPanel().GetPositionWithinWindow())
 	$.Schedule( 3, InitializeHeroStats );
 }
 
@@ -24,6 +11,36 @@ function InitializeHeroStats(){
 	// $.Schedule(0.2, function(){
 	// 	InitializeHeroStats()
 	// });
+
+}
+
+function recalculate_attributes(){
+	mQueryUnit = 0
+	UnitStats40()
+}
+
+function get_attributes_for_query_unit(queryUnit){
+	var number_of_buffs = Entities.GetNumBuffs( queryUnit )
+	mAttributesHash["modifier_negative_roshpit_armor"] = 0
+	mAttributesHash["modifier_negative_roshpit_magic_armor"] = 0
+	for (i = 0; i < number_of_buffs; i++) {
+	  // var buff = Entities.GetBuff( queryUnit, i)
+	  var buffName = Buffs.GetName( queryUnit, i )
+	  if (buffName == "modifier_roshpit_armor"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  }else if(buffName == "modifier_negative_roshpit_armor"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i ) = 1
+	  }else if(buffName == "modifier_roshpit_magic_armor"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  }else if(buffName == "modifier_negative_roshpit_magic_armor"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i ) = 1
+	  }else if(buffName == "modifier_roshpit_armor_pierce"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  }else if(buffName == "modifier_roshpit_spell_pierce"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  }
+	}
+	mQueryUnit = queryUnit
 }
 
 function UnitStats40(){
@@ -35,10 +52,25 @@ function UnitStats40(){
 	if (Entities.IsHero( queryUnit )){
 		$('#hero_attributes').style.visibility = "visible"
 		$('#unit_attributes').style.horizontalAlign = "left"
+		$('#unit_attributes').AddClass('unit_attributes_for_heroes')
+
+		var heroAttributes = CustomNetTables.GetTableValue( "hero_index", queryUnit.toString()+"_attributes" );
+		$('#strength_label').text = heroAttributes.strength
+		$('#agility_label').text = heroAttributes.agility
+		$('#intelligence_label').text = heroAttributes.intelligence	
+		$('#spirit_label').text = heroAttributes.spirit		
 	}else{
 		$('#hero_attributes').style.visibility = "collapse"
 		$('#unit_attributes').style.horizontalAlign = "right"
+		$('#unit_attributes').RemoveClass('unit_attributes_for_heroes')
 	}
+	// if (!(mQueryUnit == queryUnit)){
+	get_attributes_for_query_unit(queryUnit)
+	$('#unit_attribute_armor_label').text = mAttributesHash["modifier_roshpit_armor"]
+	$('#unit_attribute_armor_pierce_label').text = mAttributesHash["modifier_roshpit_armor_pierce"]
+	$('#unit_attribute_magic_armor_label').text = mAttributesHash["modifier_roshpit_magic_armor"]
+	$('#unit_attribute_spell_pierce_label').text = mAttributesHash["modifier_roshpit_spell_pierce"]
+	// }
 }
 
 function UpdateHeroStats(){
@@ -155,6 +187,7 @@ function InspirationRing(msg)
 	GameEvents.Subscribe( "update_hero_stats", UnitStats40 );
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UnitStats40 );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UnitStats40 );
+	// GameEvents.Subscribe( "recalculate_attributes", recalculate_attributes );
 	GameEvents.Subscribe( "inspiration_ring", InspirationRing);
 })();
 
