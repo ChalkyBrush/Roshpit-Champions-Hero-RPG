@@ -45390,7 +45390,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"1.1"
+				"property_two"		"20"
 			}
 		}
 		"Modifiers"
@@ -45413,7 +45413,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "%property_two"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "20"
 				}
 			}
 			"modifier_rpc_yasha_buff"
