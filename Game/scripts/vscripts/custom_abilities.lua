@@ -193,7 +193,7 @@ function CustomAbilities:IceQuill(event)
 					end
 				end
 				ability.manaSpent = ability.manaSpent + executedAbility:GetManaCost(executedAbility:GetLevel() - 1) + bonusManaSpent
-				if ability.manaSpent > 600 then
+				if ability.manaSpent > ICE_QUILL_MANA_THRESHOLD then
 					ability.manaSpent = 0
 					local spikeParticle = "particles/units/heroes/hero_bristleback/ice_quills.vpcf"
 					local position = target:GetAbsOrigin()
@@ -202,8 +202,8 @@ function CustomAbilities:IceQuill(event)
 					Timers:CreateTimer(2, function()
 						ParticleManager:DestroyParticle(pfx, false)
 					end)
-					local radius = 405
-					local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * 3
+					local radius = ICE_QUILL_RADIUS
+					local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ICE_QUILL_ATTACK_TO_DMG
 					local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
 						for _, enemy in pairs(enemies) do

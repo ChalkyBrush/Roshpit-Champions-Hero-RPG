@@ -627,13 +627,13 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", 5)
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_agi") then
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", 5)
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_int") then
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", 5)
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then

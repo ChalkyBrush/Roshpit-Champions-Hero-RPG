@@ -1375,7 +1375,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	local damage = BASE_VALUE_FOR_CALCULATE
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_stormshield_cloak") then
-			damage = damage * 0.5
+			damage = damage * STORMSHIELD_PHYS_REDUCTION
 		end
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
 			damage = damage * 0.7
@@ -1440,7 +1440,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * 0.3
 		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
-			damage = damage * 0.7
+			damage = damage * (100-FEATHERWHITE_MAGIC_AND_PURE_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("modifier_azalea_zealot_ai") then
@@ -1517,7 +1517,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 0.65
 	end
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
-		damage = damage * 0.05
+		damage = damage * (100-GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD/100) then
 		damage = damage * HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION/100
@@ -1684,7 +1684,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_sea_giants_plate") then
 		if victim:IsStunned() then
-			damage = damage * 0.04
+			damage = damage * (100-SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED)/100
 		end
 	end
 
@@ -2183,7 +2183,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + POWER_RANGER_PHYS_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_golden_war_plate") then
-			mult = mult + 7.0
+			mult = mult + GOLDEN_WARPLATE_PHYS_POST_MITI_AMP/100
 		end
 		if victim:HasModifier("modifier_hood_of_defiler_effect_visible") then
 			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * HOOD_OF_DEFILER_POST_MITI_PHYS/100
@@ -2224,7 +2224,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + postmit
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
-			mult = mult + 0.4
+			mult = mult + SORCERERS_REGALIA_MAGIC_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_slipfinn_bog_roller_e3") then
 			local stacks = attacker:GetModifierStackCount("modifier_slipfinn_bog_roller_e3", attacker)
@@ -2398,7 +2398,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
-		mult = mult + 6
+		mult = mult + NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF/100
 	end
 	if attacker:HasModifier("modifier_axe_rune_r_4_invisible") then
 		local stacksCount = attacker:GetModifierStackCount("modifier_axe_rune_r_4_invisible", attacker)
@@ -2475,7 +2475,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			mult = mult + 1
+			mult = mult + WATER_MAGE_ROBES_POST_MITI_AMP/100
 		end
 	end
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
@@ -2566,7 +2566,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + 2
+			mult = mult + TERRASIC_STONE_PLATE_POST_MITI/100
 		end
 	end
 	if attacker:HasModifier("modifier_warlord_arcana2") then
@@ -2940,7 +2940,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_golden_war_plate") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * 0.35
+			filterTable["damage"] = filterTable["damage"] * (100-GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then
@@ -2971,7 +2971,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_enchanted_solar_cape") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = 15})
+			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = SOLAR_CAPE_DURATION})
 		end
 	end
 	if victim:HasModifier("modifier_arcane_shell") then
@@ -2988,7 +2988,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_bladestorm_vest_buff") then
 		local bladestormStacks = math.min(attacker:GetModifierStackCount("modifier_bladestorm_vest_buff", attacker.body) + 1, 3)
-		mult = mult + bladestormStacks * 2
+		mult = mult + bladestormStacks * BLADESTORM_POST_MITI/100
 	end
 	if victim:HasModifier("modifier_duskbringer_rune_e_2_effect") then
 		filterTable["damage"] = 0
@@ -3012,7 +3012,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_flurry_aura_debuff") then
-		filterTable["damage"] = filterTable["damage"] * 0.7
+		filterTable["damage"] = filterTable["damage"] * (100-SKYFORGE_DMG_REDUCTION)/100
 	end
 	if attacker:HasModifier("modifier_neutral_glyph_5_1") then
 		filterTable["damage"] = filterTable["damage"] * 0.5
@@ -3137,7 +3137,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_ethereal_revenant_link") then
 		if attacker.revenantData then
 			if attacker.revenantData[1] == victim:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * (100-ETHEREAL_REVENANT_DAMAGE_REDUCTION)/100
+				filterTable["damage"] = filterTable["damage"] * (100-ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT)/100
 			end
 		end
 	end
@@ -3945,8 +3945,8 @@ function GameState:FilterDamage(filterTable)
 		Winterblight:PixieSummonTakeDamage(victim)
 	end
 	if victim:HasModifier("modifier_armor_of_atlantis") then
-		if filterTable["damage"] > victim:GetMaxHealth() then
-			filterTable["damage"] = filterTable["damage"] * 0.05
+		if filterTable["damage"] > victim:GetMaxHealth() * ARMOR_OF_ATLANTIS_HP_THRESHOLD then
+			filterTable["damage"] = filterTable["damage"] * (100-ARMOR_OF_ATLANTIS_DMG_REDUCTION)/100
 			local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
 			ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
 		end
