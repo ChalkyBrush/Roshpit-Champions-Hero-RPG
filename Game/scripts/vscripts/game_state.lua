@@ -1482,10 +1482,10 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 	local damage = BASE_VALUE_FOR_CALCULATE
 	if victim:HasModifier("modifier_berserker_gloves_buff_visible") then
 		local stacks = victim:GetModifierStackCount("modifier_berserker_gloves_buff_visible", victim.InventoryUnit)
-		damage = damage + damage * 0.05 * stacks
+		damage = damage + damage * BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE/100 * stacks
 	end
 	if victim:HasModifier("modifier_hand_azinoth") then
-		damage = damage * 1.5
+		damage = damage * (100 + CLAW_OF_AZINOTH_DAMAGE_AMP)/100
 	end
 	if victim:HasModifier("modifier_frostiok_damage_amp") then
 		local buffCaster = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetCaster()
@@ -1659,7 +1659,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_living_gauntlet_effect") then
-		damage = damage * 0.5
+		damage = damage * (100-LIVING_GAUNTLET_DMG_REDUCTION)/100
 	end
 
 	if victim:HasModifier("modifier_red_october_boots") then

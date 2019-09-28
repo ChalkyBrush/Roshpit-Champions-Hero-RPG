@@ -24,7 +24,7 @@
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Слот: Наручи"
 		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Каждая успешная атака по одной цели даёт заряд. Каждый заряд увеличивает урон владельца предмета на число, равное @special_property1, умноженное на уровень героя и скорость атаки на @special_property2. Время действия эффекта: @special_property3 сек. Дополнительно, каждый заряд увеличивает входящий урон из всех источников на @special_property4%.<br>Смена цели снимает 25% накопленных зарядов."
+		"property_berserker_rage_description"	"Каждая успешная атака по одной цели даёт заряд. Каждый заряд увеличивает урон владельца предмета на число, равное <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>, умноженное на уровень героя и скорость атаки на <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>. Время действия эффекта: <% BERSERKER_GLOVES_DURATION %> сек. Дополнительно, каждый заряд увеличивает входящий урон из всех источников на <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>%.<br>Смена цели снимает <% BERSERKER_GLOVES_STACKS_PENALTY %>% накопленных зарядов."
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Урон и скорость атаки увеличены. Входящий урон увеличен."
 		
@@ -32,7 +32,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Слот: Наручи"
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"15% шанс перевести полученный урон в лечение."
+		"property_shadow_armlet_description"	"<% SHADOW_ARMLET_HEAL_CHANCE %>% шанс перевести полученный урон в лечение."
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"Слот: Наручи"
@@ -42,7 +42,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
-		"property_scorched_gauntlet_description_2"	"С 20% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный @special_property1% урона героя + @special_property2x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный @special_property3% от урона героя в небольшой области и оглушает задетые цели на @special_property4 сек, дополнительно поджигая землю под ними.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_scorched_gauntlet_description_2"	"С <% HIGH_FLAME_GAUNTLET_CHANCE %>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% урона героя + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% от урона героя в небольшой области и оглушает задетые цели на <% HIGH_FLAME_GAUNTLET_STUN_DUR %> сек, дополнительно поджигая землю под ними."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
@@ -54,7 +54,7 @@
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Слот: Наручи"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на 50%"
+		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на <% CLAW_OF_AZINOTH_DAMAGE_AMP %>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
@@ -83,9 +83,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
 		"item_property_living_gauntlet"				"Nourishment"
-		"property_living_gauntlet_description"		"Когда запас маны опускается ниже 25% от максимума, весь получаемый героем урон сокращается на @special_property2%, а регенерация здоровья увеличивается на @special_property1% от максимума."
+		"property_living_gauntlet_description"		"Когда запас маны опускается ниже <% LIVING_GAUNTLET_MANA_THRESHOLD %>% от максимума, весь получаемый героем урон сокращается на <% LIVING_GAUNTLET_DMG_REDUCTION %>%, а регенерация здоровья увеличивается на <% LIVING_GAUNTLET_HP_REGEN_PCT %>% от максимума."
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
-		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"Весь получаемый урон сокращается на %property_two%%%, регенерация здоровья увеличена на %property_one%%%."
+		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"Весь получаемый урон сокращается на <% LIVING_GAUNTLET_DMG_REDUCTION %>%%, регенерация здоровья увеличена на <% LIVING_GAUNTLET_HP_REGEN_PCT %>%%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
@@ -100,9 +100,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"Успешное прочтение (R) @Ability4 восстановит здоровье себе и ближайшим союзникам в размере 6x вашего Интеллекта в течении 12 секунд."
+		"property_spirit_glove_description"			"Успешное прочтение (R) @Ability4 восстановит здоровье себе и ближайшим союзникам в размере <% SPIRIT_GLOVE_INT_TO_HEAL %>x вашего Интеллекта в течении <% SPIRIT_GLOVE_DURATION %> секунд. Интервал восстановления здоровья <% SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
-		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Здоровье восстанавливается каждую секунду."
+		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Здоровье восстанавливается раз в <% SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
@@ -246,12 +246,12 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
 		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Значение маны не может быть выше @special_property1% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на @special_property2%."
+		"property_shadowflame_fist_description"					"Значение маны не может быть выше <% SHADOWFLAME_FIST_MANA_CAP %>% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на <% SHADOWFLAME_FIST_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"С @special_property1% шансом при получении урона в сторону атакующего отправится поток воды, который нанесёт урон, равный @special_property2x урона героя + @special_property3x брони, и оглушающий врагов на @special_property4 сек."
+		"property_aquasteel_description"						"С <% AQUASTEEL_CHANCE %>% шансом при получении урона в сторону атакующего отправится поток воды, который нанесёт урон, равный <% AQUASTEEL_ATTACK_TO_DMG %>x урона героя + <% AQUASTEEL_ARMOR_TO_DMG %>x брони, и оглушающий врагов на <% AQUASTEEL_STUN_DUR %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"

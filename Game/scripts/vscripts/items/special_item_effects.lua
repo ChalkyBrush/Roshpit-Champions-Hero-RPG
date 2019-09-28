@@ -64,7 +64,7 @@ function shadow_armlet_take_damage(event)
 	local caster = event.caster
 	local attack_damage = event.attack_damage
 	local target = event.unit
-	local proc = Filters:GetProc(target, 15)
+	local proc = Filters:GetProc(target, SHADOW_ARMLET_HEAL_CHANCE)
 	if proc then
 		Filters:ApplyHeal(target, target, attack_damage, true)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_shadow_armlet_effect", {duration = 1})
@@ -142,7 +142,7 @@ function scorch_attack_land(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local caster = event.caster
-	local proc = Filters:GetProc(caster, 20)
+	local proc = Filters:GetProc(caster, HIGH_FLAME_GAUNTLET_CHANCE)
 	if proc then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.HighFlameStart", attacker)
 		ability.attacker = attacker
@@ -158,7 +158,7 @@ function scorched_earth_damage(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = ability.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker) * event.attack_mult / 100 + ability.attacker:GetPhysicalArmorValue(false) * event.armor_mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker) * HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG / 100 + ability.attacker:GetPhysicalArmorValue(false) * HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG
 	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
@@ -180,11 +180,11 @@ function HighFlameThrow(caster, ability, victim)
 	flare:SetRenderColor(240, 110, 20)
 	flare:SetModelScale(0.05)
 	flare.fv = adjustedFV
-	flare.stun_duration = 1.6
+	flare.stun_duration = HIGH_FLAME_GAUNTLET_STUN_DUR
 	flare.liftVelocity = 60 + zDifferential / 20
 	flare.forwardVelocity = forwardVelocity
 	flare.interval = 0
-	flare.damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	flare.damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL/100
 	flare.origCaster = caster
 	flare.origAbility = ability
 
@@ -887,7 +887,7 @@ function living_gauntlet_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if target:GetMana() <= target:GetMaxMana() * 0.25 then
+	if target:GetMana() <= target:GetMaxMana() * LIVING_GAUNTLET_MANA_THRESHOLD/100 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_living_gauntlet_effect", {})
 	else
 		target:RemoveModifierByName("modifier_living_gauntlet_effect")
@@ -3911,14 +3911,14 @@ function berserker_gloves_attack_land(event)
 
 	if target:GetEntityIndex() == ability.targetIndex then
 	else
-		multiplier = 0.75
+		multiplier = (100-BERSERKER_GLOVES_STACKS_PENALTY)/100
 	end
 
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_visible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_visible", {duration = BERSERKER_GLOVES_DURATION})
 	local newStacks = math.floor((attacker:GetModifierStackCount("modifier_berserker_gloves_buff_visible", caster) + 1) * multiplier)
 	attacker:SetModifierStackCount("modifier_berserker_gloves_buff_visible", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_invisible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_invisible", {duration = BERSERKER_GLOVES_DURATION})
 	attacker:SetModifierStackCount("modifier_berserker_gloves_buff_invisible", caster, newStacks * heroLevel)
 
 	ability.targetIndex = target:GetEntityIndex()
@@ -4630,8 +4630,8 @@ end
 
 function shadowflame_fist_think(event)
 	local target = event.target
-	if target:GetMana() > target:GetMaxMana() * 0.1 then
-		target:SetMana(target:GetMaxMana() * 0.1)
+	if target:GetMana() > target:GetMaxMana() * SHADOWFLAME_FIST_MANA_CAP/100 then
+		target:SetMana(target:GetMaxMana() * SHADOWFLAME_FIST_MANA_CAP/100)
 	end
 end
 
@@ -4709,12 +4709,8 @@ function aquasteel_take_damage(event)
 	local unit = event.unit
 	local attacker = event.attacker
 	local caster = event.unit
-	local proc_chance = event.proc_chance
-	local damage_mult = event.damage_mult
-	local armor_mult = event.armor_mult
-	local stun_duration = event.stun_duration
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, proc_chance)
+	local proc = Filters:GetProc(caster, AQUASTEEL_CHANCE)
 	if unit:GetEntityIndex() == attacker:GetEntityIndex() then
 	else
 		if proc then
@@ -4727,11 +4723,11 @@ function aquasteel_take_damage(event)
 				ParticleManager:DestroyParticle(dagon_particle, false)
 				ParticleManager:ReleaseParticleIndex(dagon_particle)
 			end)
-			local damage = damage_mult * OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue(false) * armor_mult
+			local damage = AQUASTEEL_ATTACK_TO_DMG * OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue(false) * AQUASTEEL_ARMOR_TO_DMG
 			EmitSoundOn("RPCItem.Aquasteel", attacker)
 			Timers:CreateTimer(0.1, function()
 				Filters:ApplyItemDamage(attacker, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster, stun_duration, attacker)
+				Filters:ApplyStun(caster, AQUASTEEL_STUN_DUR, attacker)
 			end)
 		end
 	end
