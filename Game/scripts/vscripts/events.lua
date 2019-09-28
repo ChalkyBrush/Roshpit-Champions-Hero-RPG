@@ -475,10 +475,10 @@ function GameMode:OnPlayerChat(keys)
 		end
 		Notifications:Bottom(keys.playerid, {text = textNotif, duration = 15.0})
 	end
-	if string.match(text, "spawnunit") then
+	if string.match(text, "-spawnunit") then
 		if Beacons.cheats then
 			local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector() * 600
-			local unitName = string.gsub(text, "spawnunit ", '')
+			local unitName = string.gsub(text, "-spawnunit ", '')
 			local unit = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
 			Events:AdjustDeathXP(unit)
 			unit.targetRadius = 800
@@ -489,35 +489,35 @@ function GameMode:OnPlayerChat(keys)
 			unit.autoAbilityCD = 1
 			unit.aggro = true
 		end
-	elseif string.match(text, "tanari") then
+	elseif string.match(text, "-tanari") then
 		if Beacons.cheats then
 			Tanari:Debug()
 		end
-	elseif string.match(text, "arena") then
+	elseif string.match(text, "-arena") then
 		if Beacons.cheats then
 			Arena:Debug()
 		end
-	elseif string.match(text, "redfall") then
+	elseif string.match(text, "-redfall") then
 		if Beacons.cheats then
 			Redfall:Debug()
 		end
-	elseif string.match(text, "serengaard") then
+	elseif string.match(text, "-serengaard") then
 		if Beacons.cheats then
 			Serengaard:Debug()
 		end
-	elseif string.match(text, "seafort") then
+	elseif string.match(text, "-seafort") then
 		if Beacons.cheats then
 			Seafortress:Debug()
 		end
-	elseif string.match(text, "winter") then
+	elseif string.match(text, "-winter") then
 		if Beacons.cheats then
 			Winterblight:Debug()
 		end
-	elseif string.match(text, "tutorial") then
+	elseif string.match(text, "-tutorial") then
 		if Beacons.cheats then
 			Tutorial:Debug()
 		end
-	elseif string.match(text, "ladder") then
+	elseif string.match(text, "-ladder") then
 		if GameState:IsRedfallRidge() then
 			if Beacons.cheats then
 				Redfall:Debug2()
