@@ -33971,7 +33971,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
 				}
 			}
 			"modifier_berserker_gloves_buff_invisible"
@@ -33980,7 +33980,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"200"
 				}
 			}
 		}
@@ -34135,8 +34135,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"scorched_earth_damage"
 						"Target"		"TARGET"
-						"attack_mult"	"%property_one"
-						"armor_mult"	"%property_two"
 					}
 				}
 			}
@@ -34144,26 +34142,6 @@
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"25"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"250"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"			"1.6"
-			}
-			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
@@ -35103,7 +35081,7 @@
 				}
 				"Properties"
 				{
-				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two"
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				}
 			}
 			"modifier_dark_reef_shark_stacks"
@@ -35117,7 +35095,7 @@
 				"TextureName"	"kunkka_ghostship_immortal"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "1000"
 				}
 				"OnCreated"
 				{
@@ -35132,19 +35110,6 @@
 					}
 
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"100"
 			}
 		}
 	}
@@ -35523,14 +35488,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -37054,7 +37011,7 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Aura"          	"modifier_tanari_wind_aura_slow"
-				"Aura_Radius"   	"520"
+				"Aura_Radius"   	"500"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -37447,14 +37404,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"35"
-			}
-		}
 	}
 
 	"item_rpc_doomplate"
@@ -37643,19 +37592,6 @@
 
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.1"
-			}
-		}
 	}
 
 	"item_rpc_hyper_visor"
@@ -37695,26 +37631,6 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"40"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_three"	"-0.1"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"	"0.3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"		"4"
 			}
 		}
@@ -37735,7 +37651,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "%property_three"
+					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "1.2"
 				}
 			}
 		}
@@ -37801,19 +37717,6 @@
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"1.5"
 			}
 		}
 	}
@@ -37995,21 +37898,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"16"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"30"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"750"
-			}
 		}
 	}
 
@@ -38050,22 +37938,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"70"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"8"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"5000"
 			}
 		}
 	}
@@ -38099,19 +37972,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"7"
 			}
 		}
 	}
@@ -38281,24 +38141,6 @@
                         "Function"		"mugato_attack"
                     }
                 }
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.6"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"600"
 			}
 		}
 	}
@@ -38599,22 +38441,11 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"witch_hat_strike"
 				"target"		"TARGET"
-				"int_mult"		"%property_one"
 			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"				"600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"				"15"
-			}
-			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"				"11"
@@ -38915,19 +38746,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"6"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"30"
 			}
 		}
 	}
@@ -39369,8 +39187,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"0.4"
 				}
 			}
 		}
@@ -39451,8 +39269,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"0.4"
 				}
 			}
 		}
@@ -39533,8 +39351,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"0.4"
 				}
 			}
 		}
@@ -41847,7 +41665,7 @@
 				"TextureName"	"treant_living_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "LIVING_GAUNTLET_HP_REGEN_PCT"
 				}
 				"OnCreated"
 				{
@@ -42170,10 +41988,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"aquasteel_take_damage"
-						"proc_chance"	"%property_one"
-						"damage_mult"	"%property_two"
-						"armor_mult"	"%property_three"
-						"stun_duration"	"%property_four"
 					}
 				}
 			}
@@ -43282,7 +43096,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"		"itemicons/spirit_glove"
-				"ThinkInterval"  	"1.0"
+				"ThinkInterval"  	"1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -43778,7 +43592,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
 				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
@@ -43790,7 +43604,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%property_two"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "85"
 				}
 				"OnDestroy"
 				{
@@ -44140,7 +43954,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"gravelfoot_think"
 						"target"		"TARGET"
-						"duration"		"%property_two"
 					}
 				}
 			}
@@ -44152,7 +43965,7 @@
 				"StatusEffectPriority"  "120"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%property_three"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-200"
 				}
 				"OnCreated"
 				{
@@ -46188,7 +46001,7 @@
 				"IsBuff"				"1"
 				"IsHidden"				"1"
 				"IsPurgable"			"0"
-				"ThinkInterval"  "0.39"
+				"ThinkInterval"  "0.4"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -48028,7 +47841,7 @@
 				"TextureName"	"itemicons/fuchsia_ring"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_two"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "45"
 				}
 			}
 		}
@@ -48386,16 +48199,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"15"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"15"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"15"
-			}
 		}
 	}
 
@@ -48450,11 +48253,6 @@
 		}
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
-			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
@@ -48629,33 +48427,14 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"3.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"35"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
 			}
-			"05"
+			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"			"10"
 			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"			"3"
-			}
+
 		}
 		"Modifiers"
 		{
@@ -48765,17 +48544,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.4"
 			}
 		}
 	}
@@ -48919,8 +48688,8 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_one"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%property_two"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "15"
 				}
 			}
 		}
@@ -49865,7 +49634,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_think"
 						"target"		"TARGET"
-						"max_duration"  "%property_three"
 					}
 				}
 				"OnCreated"
@@ -49882,7 +49650,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_end"
-						"cd_multiplier"  "%property_two"
 						"target"		"TARGET"
 					}
 				}
@@ -50654,7 +50421,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Duration"		"0.75"
+				"Duration"		"WRAITH_CROWN_DURATION"
 
 				"EffectName"		"particles/units/heroes/hero_puck/wraith_crown.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -50701,6 +50468,121 @@
 				"TextureName"	"itemicons/wraith_crown"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
+			}
+		}
+	}
+
+	"item_rpc_adamantine_samurai_helmet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/adamantine_samurai_helmet" //"adamantine_samurai_helmet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_samurai_helmet"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "3.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"samurai_helmet_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnAttackStart"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName" 	"modifier_samurai_crit"
+			            "Target" 		"ATTACKER"
+			        }
+
+			        "Random"
+			        {
+			            "Chance" "40"
+			            "OnSuccess"
+			            {
+			            	"FireSound"
+					        {
+					        	"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+					        	"Target"		"TARGET"
+					        }
+
+					        "FireEffect"
+					        {
+					       		"EffectName" 		"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
+					            "EffectAttachType"  "follow_origin"
+					            "Target"    		"ATTACKER"
+					        }
+
+			                "ApplyModifier"
+			                {
+			                    "ModifierName" 	"modifier_samurai_crit"
+			                    "Target"    	"ATTACKER"
+			                }
+			            }
+			        }
+			    }
+			    "OnDestroy"
+			    {
+			    	"RemoveModifier"
+			    	{
+			    		"ModifierName"	"modifier_samurai_damage"
+			    		"Target" 		"TARGET"
+			    	}
+			    }
+			}
+			"modifier_samurai_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "4000"
+				}
+			}
+			"modifier_samurai_crit"
+			{
+			    "IsHidden"  "1"
+			    "Properties"
+			    {
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "600"
+			    }
+
+			    "OnAttackLanded"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName"  "modifier_samurai_crit"
+			            "Target"   		"ATTACKER"
+			        }
+			    }
 			}
 		}
 	}
@@ -51394,7 +51276,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "%property_one"
+				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -51424,19 +51306,6 @@
 				{
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"		"1.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"10"
 			}
 		}
 	}
@@ -51501,16 +51370,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"14"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"5000"
 			}
 		}
 	}
@@ -51618,21 +51477,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"15"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"10"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"240"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"6000"
 			}
 		}
 		"OnSpellStart"
@@ -53636,21 +53480,6 @@
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"10"
-			}
-			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"		"17"

@@ -17,7 +17,7 @@
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
-		 "property_shipyard_veil_3_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - @special_property1. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на @special_property2%. Враг, атаковавший героя во время активного щита будет ответно атакован черепом, который нанесёт магический урон в размере @special_property3x от основного атрибута героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		 "property_shipyard_veil_3_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - <% SHIPYARD_VEIL_MAX_STACKS %>, минимальный интервал создания щитов <% SHIPYARD_SHIELD_COOLDOWN %>. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Враг, атаковавший героя во время активного щита будет ответно атакован черепом, который нанесёт магический урон в размере <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x от основного атрибута героя."
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
@@ -31,14 +31,14 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
-		"property_white_mage_hat_2_description"		"Каждое прочтение (W) @Ability2 дополнительно восстановит здоровье вам и вашим союзникам в размере @special_property1x вашего Интеллекта. Когда цели имеют полное здоровье, каждое следующее применение эффекта наделит их щитом, который способен поглотить урон. Сила щита зависит от силы лечения, но не более 100% от максимального здоровья цели.<br>Базовый Урон Способностей увеличивается на @special_property2% за каждые 10 очков Интеллекта.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_white_mage_hat_2_description"		"Каждое прочтение (W) @Ability2 дополнительно восстановит здоровье вам и вашим союзникам в размере <% WHITE_MAGE_INT_TO_HEAL %>x вашего Интеллекта. Когда цели имеют полное здоровье, каждое следующее применение эффекта наделит их щитом, который способен поглотить урон. Сила щита зависит от силы лечения, но не более 100% от максимального здоровья цели.<br>Базовый Урон Способностей увеличивается на <% WHITE_MAGE_BAD_PER_INT %>% за каждые <% WHITE_MAGE_INT_DIVISOR %> очков Интеллекта."
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Поглощение урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"С @special_property1% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный @special_property2x от вашего урона. Снижает базовое время атаки @special_property3 сек.<br>Весь урон, напрямую наносимый предметами увеличивается на @special_property4% за каждые 10 очков Ловкости.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_hyper_visor2_description"			"С <% HYPER_VISOR_CHANCE %>% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный <% HYPER_VISOR_ATTACK_TO_DMG %>x от вашего урона. Снижает базовое время атаки <% HYPER_VISOR_BAT %> сек.<br>Весь урон, напрямую наносимый предметами увеличивается на <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% за каждые <% HYPER_VISOR_AGI_DIVISOR %> очков Ловкости."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
@@ -48,7 +48,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
-		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более 0.03 секунды. Любой получаемый урон не отнимет более @special_property1% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на @special_property2 секунды. Герой получает 1 ед. чистого урона каждые 0.03 секунды."
+		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды. Любой получаемый урон не отнимет более <% CENTAUR_HORNS_DAMAGE_CAP %>% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на <% CENTAUR_HORNS_DEBUFF_DURATION %> секунды. Герой получает <% CENTAUR_HORNS_SELF_DMG %> ед. чистого урона каждые <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды."
 		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
 		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Невозможно восстановить здоровье"
 		
@@ -58,24 +58,24 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
 		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"Все враги, задетые способностью (Q) @Ability1 будут замедлены на 100 и получать на 30% больше урона из всех источников в течение 5 секунд."
+		"property_death_whisper_description"		"Все враги, задетые способностью (Q) @Ability1 будут замедлены на <% DEATH_WHISPER_SLOW %> и получать на <% DEATH_WHISPER_DAMAGE_AMP_PCT %>% больше урона из всех источников в течение <% DEATH_WHISPER_DURATION %> секунд."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"С 30% шансом враг, атакующий вас будет связан в течение 3 секунд и будет получать ежесекундный урон равный @special_property3х вашего основного атрибута."
+		"property_wild_nature_description"			"С <% CAP_OF_WILD_NATURE_CHANCE_ONE %>% шансом враг, атакующий вас будет связан в течение <% CAP_OF_WILD_NATURE_DURATION_ONE %> секунд и будет получать ежесекундный урон равный <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>х вашего основного атрибута."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Задетые способностью (W) @Ability2 враги с @special_property1% шансом будут обездвижены на @special_property2 сек. и будут получать ежесекундный урон, равный @special_property3x вашего основного атрибута."
+		"property_wild_nature_two_description"		"Задетые способностью (W) @Ability2 враги с <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% шансом будут обездвижены на <% CAP_OF_WILD_NATURE_DURATION_TWO %> сек. и будут получать ежесекундный урон, равный <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x вашего основного атрибута."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Moon Beams"
-		"property_luma_description"					 "<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Урон от умения (Q) @Ability1 с @special_property1% шансом может быть нанесен лунными лучами, которые наносят урон, равный @special_property2% от урона умения и даёт беспрепятственный обзор местности в месте над атакованной целью на 4 секунды. Этот предмет ограничивает ваш стихийный урон <font color=\"#C25DFC\">Космоса</font> на 5000%."
+		"property_luma_description"					 "<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Урон от умения (Q) @Ability1 с <% LUMA_BEAM_CHANCE %>% шансом может быть нанесен лунными лучами, которые наносят урон, равный <% LUMA_DAMAGE_AMP %>% от урона умения и даёт беспрепятственный обзор местности в месте над атакованной целью на <% LUMA_VISION_DURATION %> секунды. Этот предмет ограничивает ваш стихийный урон <font color=\"#C25DFC\">Космоса</font> на <% LUMA_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"С @special_property1% шансом все атаки и способности могут умножить урон на @special_property2. Считается Пост-Резистным усилением, но является отдельным множителем."
+		"property_odin_description"					"С <% ODIN_HELMET_CHANCE %>% шансом все атаки и способности могут умножить урон на <% ODIN_HELMET_MULT %>. Считается Пост-Резистным усилением, но является отдельным множителем."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
@@ -87,56 +87,56 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Прочтение любого заклинания накладывает безмолвие на @special_property1 секунды, нанесение атаки - на @special_property2 секунды. Герой, находясь в безмолвии, увеличивает свой пост-резистный урон на @special_property3%."
+		"property_mugato_description" 				"Прочтение любого заклинания накладывает безмолвие на <% MUGATO_SPELL_SILENCE_DUR %> секунды, нанесение атаки - на <% MUGATO_ATTACK_SILENCE_DUR %> секунды. Герой, находясь в безмолвии, увеличивает свой пост-резистный урон на <% MUGATO_POST_MITI_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
 		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере @special_property1x вашего Интеллекта. Враги, задетые волной также будут получать на @special_property2% больше пост-резистного урона на 8 секунд. Складывается до 10 раз."
+		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере <% SWAMP_WITCH_HAT_INT_TO_DMG %>x вашего Интеллекта. Враги, задетые волной также будут получать на <% SWAMP_WITCH_HAT_POST_MITI %>% больше пост-резистного урона на <% SWAMP_WITCH_HAT_DURATION %> секунд. Складывается до <% SWAMP_WITCH_HAT_MAX_STACKS %> раз."
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Пост-резистный урон увеличен на 15%% за каждый заряд."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"			"Каждое использование (W) @Ability2 мгновенно переместит вас на расстояние 380 юнитов в случайном направлении. Любой исходящий урон каждый раз умножается на случайное число от 0.5 до 2.5. Дополнительно Базовый Урон Способности (W) @Ability2 умножается на случайное число от 0.1 до 6. Модификаторы удачи влияют на шанс."
+		"property_trickster_description"			"Каждое использование (W) @Ability2 мгновенно переместит вас на расстояние <% TRICKSTER_MASK_RANGE %> юнитов в случайном направлении. Любой исходящий урон каждый раз умножается на случайное число от <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> до <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Дополнительно Базовый Урон Способности (W) @Ability2 умножается на случайное число от <% TRICKSTER_MASK_W_DMG_MULT_MIN %> до <% TRICKSTER_MASK_W_DMG_MULT_MAX %>. Модификаторы удачи влияют на шанс."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"50% полученного урона будет поглощено маной, вместо здоровья. Поглощение маны при получении урона уменьшено на 66%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_MANA_DAMAGE %>% полученного урона будет поглощено маной, вместо здоровья. Каждая единица урона по мане равноценна <% EMERALD_DOULI_MANA_DAMAGE_REDUCTION %> единицам урона по здоровью. "
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Каждое очко Силы увеличивает здоровье на 10 и ману на 4."
+		"property_tyrius_description"				"Каждое очко Силы увеличивает здоровье на <% TYRIUS_HP_PER_STR %> и ману на <% TYRIUS_MANA_PER_STR %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
 		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"Стоимость маны для (W) @Ability2 выше на @special_property1%, при этом способность нанесёт на @special_property2% больше урона."
+		"property_cerulean_highguard_description"	"Стоимость маны для (W) @Ability2 выше на <% CERULEAN_HIGHGUARD_MANA_INCREASE %>%, при этом способность нанесёт на <% CERULEAN_HIGHGUARD_BAD %>% больше урона."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"После прочтения способности (R) @Ability4 атаки получат дополнительную дальность 500 юнитов, урон атак увеличен на 100%, скорость атаки увеличивается на 240, а скорость передвижения увеличивается на 100. Атаки могут одновременно поразить до 3 целей, а каждое успешное попадание по врагу снижает время перезарядки (R) @Ability4 на 0.05 секунды. Эффект длится 12 секунд."
+		"property_super_ascendency_description"		"После прочтения способности (R) @Ability4 атаки получат дополнительную дальность <% SUPER_ASCENDENCY_ATK_RANGE %> юнитов, урон атак увеличен на <% SUPER_ASCENDENCY_ATK_PCT %>%, скорость атаки увеличивается на <% SUPER_ASCENDENCY_ATK_SPD %>, а скорость передвижения увеличивается на <% SUPER_ASCENDENCY_MOVE_SPD %>. Атаки могут одновременно поразить до <% SUPER_ASCENDENCY_TARGETS %> целей, а каждое успешное попадание по врагу снижает время перезарядки (R) @Ability4 на <% SUPER_ASCENDENCY_CD_RED %> секунды. Эффект длится столько же, сколько занимает перезарядка @Ability4, либо как минимум <% SUPER_ASCENDENCY_MIN_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"500 бонусной дальности атаки, 100%% бонусного урона атаки, 240 скорости атаки и 100 скорости передвижения. Мультишот по 2 дополнительным целям. Каждая атаки немного снижает оставшийся кулдаун способности R."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"<% SUPER_ASCENDENCY_ATK_RANGE %> бонусной дальности атаки, <% SUPER_ASCENDENCY_ATK_PCT %>%% бонусного урона атаки, <% SUPER_ASCENDENCY_ATK_SPD %> скорости атаки и <% SUPER_ASCENDENCY_MOVE_SPD %> скорости передвижения. Мультишот по <% SUPER_ASCENDENCY_TARGETS %> целям. Каждая атака немного снижает оставшийся кулдаун способности R."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
 		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"Базовый урон (W) @Ability2 увеличивается в @special_property1 раз, а время восстановления способности увеличивается на 4 секунды."
+		"property_phantom_sorcerer_description"		"Базовый урон (W) @Ability2 увеличивается на <% PHANTOM_SORCERER_BAD %>%, а время восстановления способности увеличивается на<% PHANTOM_SORCERER_CD_INCREASE %> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Каждые @special_property2 секунды сжигается @special_property1% макс. маны. Все враги в радиусе 750, попавшие под эффект, получат магический урон в размере @special_property3х от выжженой маны и потеряют @special_property4% магического сопротивления. Эффект слабее, если уровень героя ниже 120."
+		"property_arcane_cascade_description"		"Каждые <% ARCANE_CASCADE_TICKRATE %> секунды сжигается <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% макс. маны. Все враги в радиусе <% ARCANE_CASCADE_RANGE %>, попавшие под эффект, получат магический урон в размере <% ARCANE_CASCADE_DAMAGE %>х от выжженой маны и потеряют <% ARCANE_CASCADE_MAGIC_RESISTANCE_LOSS %>% магического сопротивления. Эффект слабее, если уровень героя ниже 120."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
-		"property_samurai_helmet_description"		"С @special_property1% шансом ваши атаки нанесут на @special_property2% больший урон. Увеличивает Базовый Урон атак на (уровень героя * @special_property3)."
+		"property_samurai_helmet_description"		"С <% ADAMANTINE_SAMURAI_CHANCE %>% шансом ваши атаки нанесут на <% ADAMANTINE_SAMURAI_CRIT %>% больший урон. Увеличивает Базовый Урон атак на (уровень героя * <% ADAMANTINE_SAMURAI_BASE_ATTACK_PER_LVL %>)."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
@@ -163,12 +163,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
 		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"При атаке есть 35% шанс телепортироваться за спину цели, получив при этом максимальную скорость атаки в течение 0.8 секунды. При срабатывании эффекта герой мгновенно производит 2 атаки."
+		"property_glint_of_onu_description"			"При атаке есть <% GLINT_OF_ONU_CHANCE %>% шанс телепортироваться за спину цели, получив при этом максимальную скорость атаки в течение <% GLINT_OF_ONU_BUFF_DUR %> секунды. При срабатывании эффекта герой мгновенно производит <% GLINT_OF_ONU_NUMBER_OF_BONUS_ATTACKS %> атаки."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
 		"item_property_roknar_emperor"				"Enduring Protection"
-		"property_roknar_emperor_description"		"Во время оглушения или отталкивания, восстанавливает 12% от макс. здоровья каждые 0.25 секунды."
+		"property_roknar_emperor_description"		"Во время оглушения или отталкивания, восстанавливает <% ROKNAR_EMPEROR_HP_PCT %>% от макс. здоровья каждые <% ROKNAR_EMPEROR_TICKRATE %> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
@@ -183,25 +183,25 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
 		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Применение способности (W) @Ability2 переводит героя в другое измерение на 0.75 секунды. Находясь в другом измерении герой не может атаковать, читать заклинания, двигаться и получать урон. Восстанавливается 2 секунды. Позволяет уклониться от летящих атак."
+		"property_wraith_description"				"Применение способности (W) @Ability2 переводит героя в другое измерение на <% WRAITH_CROWN_DURATION %> секунды. Находясь в другом измерении герой не может атаковать, читать заклинания, двигаться и получать урон. Восстанавливается <% WRAITH_CROWN_CD %> секунды. Позволяет уклониться от летящих атак."
 		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С @special_property1% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет @special_property2x урона в большой области вокруг атакованной цели."
+		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <% DEMON_MASK_CHANCE %>% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет <% DEMON_MASK_AMP %>x урона в большой области вокруг атакованной цели."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
 		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Враги, получившие урон от (W) @Ability2 теряют броню, равную 70*уровень способности, а также увеличивает получаемый целью пост-резистный магический урон на 3%*уровень способности. Складывается до 5 раз. Эффект длится 10 секунд."
+		"property_umbral_description"				"Враги, получившие урон от (W) @Ability2 теряют броню, равную <% CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS %>*уровень способности, а также увеличивает получаемый целью пост-резистный магический урон на <% CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC %>%*уровень способности. Складывается до <% CREST_OF_UMBRAL_SENTINEL_MAX_STACKS %> раз. Эффект длится <% CREST_OF_UMBRAL_SENTINEL_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Теряет %% базовой брони, получает больше магического урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"Прочтение (E) @Ability3 наделит героя отражающим магическим щитом. Во время действия этого щита, герой не будет получать магического урона, вместо этого, он будет усилен в @special_property1 раз и направлен обратно во врага, дополнительно оглушая его на @special_property2 сек. Длится @special_property3% от времени перезарядки умения (E) либо минимально 1 секунду. Поражённые отраженным магическим уроном враги невосприимчивы к повторному воздействию этого эффекта в последующие @special_property4 сек."
+		"property_carbuncle_description"						"Прочтение (E) @Ability3 наделит героя отражающим магическим щитом. Во время действия этого щита, герой не будет получать магического урона, вместо этого, он будет усилен в <% CARBUNCLE_DAMAGE_AMP %> раз и направлен обратно во врага, дополнительно оглушая его на <% CARBUNCLE_STUN_DUR %> сек. Длится <% CARBUNCLE_SHIELD_DUR_RELATIVE_PCT %>% от времени перезарядки умения (E) либо минимально <% CARBUNCLE_SHIELD_DUR_MIN %> секунду. Поражённые отраженным магическим уроном враги невосприимчивы к повторному воздействию этого эффекта в последующие <% CARBUNCLE_ENEMY_IMMUNITY_DURATION %> сек."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Получаемый магический урон снижен до 0. Весь урон усиливается и отражается обратно во врага, дополнительно оглушая его."
 
@@ -213,12 +213,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Значение вашей маны становится равным 0, восстановление маны возможно только путём получения урона. 3% от любого полученного урона восстановит вам ману. Каждое очко маны увеличивает базовый урон на 5. Каждая атака тратит 2% от макс. маны. Дополнительно увеличивает урон от (W) @Ability2 на 350%."
+		"property_wraith_hunter_description"				"Значение вашей маны становится равным 0, восстановление маны возможно только путём получения урона. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% от любого полученного урона восстановит вам ману. Каждое очко маны увеличивает базовый урон на <% WRAITH_HUNTER_BASE_ATTACK %>. Каждая атака тратит <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% от макс. маны. Дополнительно увеличивает урон от (W) @Ability2 на <% WRAITH_HUNTER_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
 		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"				"Враги, задетые способностью (W) @Ability2 получат дебафф, который снижает значение их текущей брони на 15% и дополнительно увеличивает весь физический урон по ним на 25% из всех источников.<br>Складывается до 5 раз и длится 9 секунд.<br>Увеличивает урон героя на 0.5% за каждую успешную атаку,<br>складывается до 100 раз."
+		"property_hood_of_defiler_description"				"Враги, задетые способностью (W) @Ability2 получат дебафф, который снижает значение их текущей брони на <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>% и дополнительно увеличивает весь физический урон по ним на <% HOOD_OF_DEFILER_POST_MITI_PHYS %>% из всех источников.<br>Складывается до <% HOOD_OF_DEFILER_POST_MITI_MAX_STACKS %> раз и длится <% HOOD_OF_DEFILER_DURATION %> секунд.<br>Увеличивает урон героя на <% HOOD_OF_DEFILER_BONUS_ATTACK_DMG_PER_TARGET %>% за каждую успешную атаку,<br>складывается до <% HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG %> раз."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Броня снижена, получаемый физический урон увеличен."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
@@ -232,29 +232,29 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере @special_property1x своего общего урона + @special_property2x суммы всех атрибутов.<br>Увеличивает длительность всех оглушений на 35%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		 "property_stormcrack2_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x своего общего урона + <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x суммы всех атрибутов.<br>Увеличивает длительность всех оглушений на <% STORMCRACK_STUN_DURATION_AMP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Весь пост-резистный магический урон героя увеличен на 280%. Урон, наносимый предметами снижен на 80%."
+		 "property_black_mage_description"					"Весь пост-резистный магический урон героя увеличен на <% BLACK_MAGE_MAGIC_POST_MITI %>%. Урон, наносимый предметами снижен на <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
 		"item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Враги, находящиеся в радиусе 900 будут обездвижены на 3 секунды. Прочтение (R) @Ability4 обездвиживает всех врагов в радиусе 1200 на 4 секунды."
+		 "property_autumn_sleeper_description"				"Враги, находящиеся в радиусе <% AUTUMN_SLEEPER_RADIUS %> будут обездвижены на <% AUTUMN_SLEEPER_ROOT_DUR %> секунды. Прочтение (R) @Ability4 обездвиживает всех врагов в радиусе <% AUTUMN_SLEEPER_RADIUS_R %> на <% AUTUMN_SLEEPER_ROOT_DUR_R %> секунды."
 		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Обездвижен"
 		 
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Увеличивает показатели Силы и Ловкости на @special_property1% от Интеллекта."
+		 "property_eye_of_seasons_description"				"Увеличивает показатели Силы и Ловкости на <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %>% от Интеллекта."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
 		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"После прочтения (R) @Ability4 герой будет обезмолвлен на @special_property1 секунд. В это время, его скорость атаки увеличена на @special_property2, а к обычным атакам добавляется @special_property3% магического урона."
+		 "property_helm_of_silent_templar_description"			"После прочтения (R) @Ability4 герой будет обезмолвлен на <% SILENT_TEMPLAR_DURATION %> секунд. В это время, его скорость атаки увеличена на <% SILENT_TEMPLAR_AS %>, а к обычным атакам добавляется <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% магического урона."
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
 		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Обезмолвлен. +240 скорости атаки, атаки дополнительно наносят 600% магического урона."
 		 
@@ -262,41 +262,41 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Герой незамедлительно атакует всех врагов, задетых умением (E) @Ability3<br>(Учитываются все модификаторы атаки, максимум 10 атак в секунду).<br>За каждого задетого атаками врага герой получает 2% бонус к урону,<br>который длится 30 секунд или до повторного прочтения (E) @Ability3."
+		 "property_wind_deity_description"						"Герой незамедлительно атакует всех врагов, задетых умением (E) @Ability3<br>(Учитываются все модификаторы атаки, максимум <% WIND_DEITY_CROWN_ATTACK_LIMIT %> атак в <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> секунду).<br>За каждого задетого атаками врага герой получает <% WIND_DEITY_CROWN_BONUS_DMG %>% бонус к урону атаки,<br>который длится <% WIND_DEITY_CROWN_BONUS_DMG_DURATION %> секунд или до повторного прочтения (E) @Ability3."
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Урон увеличен"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит 100% от урона способности и замедляет задетых врагов на 60% на 6 секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на 5000%."
+		 "property_water_deity_description"						"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит <% WATER_DEITY_CROWN_DAMAGE_AMP %>% от урона способности и замедляет задетых врагов на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на <% WATER_DEITY_CROWN_ELEMENT_CAP %>%."
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"60%% замедление, 100%% дополнительного чистого урона"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С @special_property1% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный @special_property2% от урона способности и окружит ближайших врагов на 0.6 секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на 5000%."
+		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <% FIRE_DEITY_CROWN_CHANCE %>% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный <% FIRE_DEITY_CROWN_AMP %>% от урона способности и окружит ближайших врагов на <% FIRE_DEITY_CROWN_STUN_DURATION %> секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на <% FIRE_DEITY_CROWN_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		 "property_crimson_skull_cap_description"				"Убитые враги взрываются, нанося окружающим противникам магический урон в размере @special_property1% от максимального здоровья погибшей цели."
+		 "property_crimson_skull_cap_description"				"Убитые враги взрываются, нанося окружающим противникам магический урон в размере <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% от максимального здоровья погибшей цели."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
 		"item_property_lords"									"Commanding Sight"
-		 "property_lords_description"							"Время перезарядки всех умений снижено на @special_property1 сек., а дальность их применения увеличена на @special_property2. Умения применяются сразу, вне зависимости от того, смотрит ли герой в нужную сторону или нет."
+		 "property_lords_description"							"Время перезарядки всех умений снижено на <% HOOD_OF_LORDS_CD_RED %>  сек., а дальность их применения увеличена на <% HOOD_OF_LORDS_BONUS_RANGE %>. Умения применяются сразу, вне зависимости от того, смотрит ли герой в нужную сторону или нет."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (@special_property4* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на @special_property2 и снижает скорость атаки на @special_property1. Все находящиеся в лаве враги каждые 0.5 секунды получают @special_property3x урон героя."
+		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (<% IGNEOUS_CANINE_STUN_DURATION %>* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на <% IGNEOUS_CANINE_MOVESPEED_SLOW %> и снижает скорость атаки на <% IGNEOUS_CANINE_AS_SLOW %>. Все находящиеся в лаве враги каждые <% IGNEOUS_CANINE_LAVA_INTERVAL %> секунды получают <% IGNEOUS_CANINE_ATTACK_TO_DMG %>x урон героя."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"Во время прочтения (R) @Ability4 перед героем выпускается мощный поток огня, наносящий урон, равный @special_property1% от урона героя за каждый тик. Каждый задетый пламенем враг сокращает текущее время перезарядки (R) @Ability4 на @special_property2 сек."
+		"property_burning_spirit_description"					"Во время прочтения (R) @Ability4 перед героем выпускается мощный поток огня, наносящий урон, равный <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% от урона героя за каждый тик. Каждый задетый пламенем враг сокращает текущее время перезарядки (R) @Ability4 на <% BURNING_SPIRIT_CD_RED %> сек."
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
@@ -306,17 +306,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"(Q) @Ability1 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (Q) @Ability1 на 40%."
+		"property_twisted_mask_of_ahnqhir_a_Description"									"(Q) @Ability1 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (Q) @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"(W) @Ability2 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (W) @Ability2 на 1 секунду."
+		"property_twisted_mask_of_ahnqhir_b_Description"									"(W) @Ability2 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (W) @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> секунду."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"(E) @Ability3 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (E) @Ability3 на 40%."
+		"property_twisted_mask_of_ahnqhir_c_Description"									"(E) @Ability3 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (E) @Ability3 на <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
@@ -325,14 +325,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
 		"property_sea_oracle"												"Progenetic Srike"
-		"property_sea_oracle_Description"									"С каждой успешной атакой броня цели и её базовый урон снижаются на @special_property1%. Складывается до @special_property2 раз. Как только вражеский юнит наберёт максимальное количество зарядов - герой будет наносить ему увеличенный на @special_property3% пост-резистный урон."
+		"property_sea_oracle_Description"									"С каждой успешной атакой броня цели и её базовый урон снижаются на <% HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT %>%. Складывается до <% HOOD_OF_SEA_ORACLE_MAX_STACKS %> раз. Как только вражеский юнит наберёт максимальное количество зарядов - герой будет наносить ему увеличенный на <% HOOD_OF_SEA_ORACLE_POST_MITI %>% пост-резистный урон."
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Progenetic Strike Stacks"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"С каждым зарядом броня и базовый урон снижаются. По достижении 15 зарядов, существо будет получать увеличенный пост-резистный урон от владельца предмета Hood of the Sea Oracle."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
 		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"Пассивно увеличивает бонусную силу Атаки на @special_property2%. Совершив 7 успешных атак, герой получит @special_property1% бонус к урону на 1.5 секунды."
+		"property_shark_helmet_Description"									"Пассивно увеличивает бонусную силу Атаки на <% DARK_REEF_SHARK_HELMET_PASSIVE_BONUS %>%. Совершив <% DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS %> успешных атак, герой получит <% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>% бонус к урону на <% DARK_REEF_SHARK_HELMET_ACTIVE_DURATION %> секунды."
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"После серии из 7 успешных атак герой получит бонус к урону на 1.5 секунды."
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
@@ -346,7 +346,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на @special_property1%. Когда уровень здоровья выше 80%, герой получает на @special_property2% меньше урона."
+		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. Когда уровень здоровья выше <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>%, герой получает на @special_property2% меньше урона."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"

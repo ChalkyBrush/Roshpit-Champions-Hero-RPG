@@ -2995,7 +2995,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "1.5"
+				"ThinkInterval"  "<% FEATHERWHITE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3019,7 +3019,7 @@
 					}
 				}
 				"Aura"          	"modifier_ivory_gryffin_aura_effect"
-				"Aura_Radius"   	"640"
+				"Aura_Radius"   	"<% FEATHERWHITE_AURA_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -3051,7 +3051,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "0.7"
+				"ThinkInterval"  "<% DRAGON_CEREMONY_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -9123,8 +9123,8 @@
 				"Duration"  "5"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "30"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "<% DEATH_WHISPER_DAMAGE_AMP_PCT %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% DEATH_WHISPER_SLOW %>"
 				}
 				"OnCreated"
 				{
@@ -61810,7 +61810,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "0.25"
+				"ThinkInterval"  "<% ROKNAR_EMPEROR_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

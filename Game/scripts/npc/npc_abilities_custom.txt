@@ -89009,7 +89009,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "1.5"
+				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -89065,7 +89065,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "0.7"
+				"ThinkInterval"  "0.8"
 				"OnIntervalThink"
 				{
 					"RunScript"

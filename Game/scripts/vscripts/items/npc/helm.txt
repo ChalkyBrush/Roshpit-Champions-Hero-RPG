@@ -423,21 +423,6 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"10"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"		"17"
 			}
 		}

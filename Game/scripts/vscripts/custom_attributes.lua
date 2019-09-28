@@ -58,10 +58,12 @@ CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = 1000
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
 
-CustomAttributes.RING_OF_NOBILITY = 30
-CustomAttributes.RING_OF_NOBILITY2 = 60
-CustomAttributes.AZURE_EMPIRE_STATS = 25
-CustomAttributes.TANARI_FLOWER_STATS = 300
+CustomAttributes.RING_OF_NOBILITY = NOBILITY_ALL_ATTRIBUTES
+CustomAttributes.RING_OF_NOBILITY2 = NOBILITY_ALL_ATTRIBUTES_AUGMENTED
+CustomAttributes.AZURE_EMPIRE_STATS = PENDANT_AZURE_EMPIRE_GREEN_AGI
+CustomAttributes.WIND_ORCHID_AGI_PER_E4 = WIND_ORCHID_AGI_PER_E4
+CustomAttributes.AQUA_LILY_INT_PER_R4 = AQUA_LILY_INT_PER_R4
+CustomAttributes.FIRE_BLOSSOM_STR_PER_W4 = FIRE_BLOSSOM_STR_PER_W4
 CustomAttributes.FLAMEWAKER_WEAPON_2_AGI = 50000
 CustomAttributes.SEINARU_WEAPON_3_STR = 60
 
@@ -72,7 +74,7 @@ CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = 6000
 CustomAttributes.OGTHUN_HEALTH = 10
-CustomAttributes.TYRIUS_HEALTH_PER_STR = 10
+CustomAttributes.TYRIUS_HEALTH = TYRIUS_HP_PER_STR
 CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
@@ -816,24 +818,24 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_intelligence", CustomAttributes.AZURE_EMPIRE_STATS)
 	end
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.TANARI_FLOWER_STATS)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.WIND_ORCHID_AGI_PER_E4)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", 5)
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_agi") then
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", 5)
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_int") then
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", 5)
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.TANARI_FLOWER_STATS)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.AQUA_LILY_INT_PER_R4)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.TANARI_FLOWER_STATS)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.FIRE_BLOSSOM_STR_PER_W4)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
@@ -1055,7 +1057,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)
 	end
 	if excludedModifier ~= "modifier_tyrius_buff" and hero:HasModifier("modifier_tyrius_buff") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_buff", CustomAttributes.TYRIUS_HEALTH_PER_STR)
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_buff", CustomAttributes.TYRIUS_HEALTH)
 	end
 	if excludedModifier ~= "modifier_ogthun_health" and hero:HasModifier("modifier_ogthun_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ogthun_health", CustomAttributes.OGTHUN_HEALTH)

@@ -24,7 +24,7 @@
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Slot: Hands"
 		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Landing an attack increases your attack damage by @special_property1x your level and increases attack speed by @special_property2 for @special_property3 seconds. Each stack makes you take @special_property4% extra damage from all sources.<br>Switching targets removes 25% of your stacks."
+		"property_berserker_rage_description"	"Landing an attack increases your attack damage by <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>x your level and increases attack speed by <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> for <% BERSERKER_GLOVES_DURATION %> seconds. Each stack makes you take <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% extra damage from all sources.<br>Switching targets removes <% BERSERKER_GLOVES_STACKS_PENALTY %>% of your stacks."
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Increased attack damage and attack speed, and taking additional damage."
 		
@@ -32,7 +32,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Slot: Hands"
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"15% chance on taking damage to instantly heal for the amount of the damage instance."
+		"property_shadow_armlet_description"	"<% SHADOW_ARMLET_HEAL_CHANCE %>% chance on taking damage to instantly heal for the amount of the damage instance."
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"Slot: Hands"
@@ -42,7 +42,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
-		"property_scorched_gauntlet_description_2"	"20% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to @special_property1% of your attack power + @special_property2x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing @special_property3% of your attack power to enemies in an area upon landing, stunning those affected for @special_property4 seconds, and creating another fire zone."
+		"property_scorched_gauntlet_description_2"	"<% HIGH_FLAME_GAUNTLET_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% of your attack power + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% HIGH_FLAME_GAUNTLET_STUN_DUR %> seconds, and creating another fire zone."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
@@ -54,7 +54,7 @@
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Slot: Hands"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Applies -50% damage reduction, increasing all damage taken."
+		"property_azinoth_description"				"Applies -<% CLAW_OF_AZINOTH_DAMAGE_AMP %>%% damage reduction, increasing all damage taken."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
@@ -83,9 +83,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
 		"item_property_living_gauntlet"				"Nourishment"
-		"property_living_gauntlet_description"		"While below 25% mana, all damage taken is reduced by @special_property2% and health regen is increased by @special_property1% of max health."
+		"property_living_gauntlet_description"		"While below <% LIVING_GAUNTLET_MANA_THRESHOLD %>% mana, all damage taken is reduced by <% LIVING_GAUNTLET_DMG_REDUCTION %>% and health regen is increased by <% LIVING_GAUNTLET_HP_REGEN_PCT %>% of max health."
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
-		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"All damage taken reduced by %property_two%%% and health regen increased by %property_one%%% of max health"
+		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"All damage taken reduced by <% LIVING_GAUNTLET_DMG_REDUCTION %>%% and health regen increased by <% LIVING_GAUNTLET_HP_REGEN_PCT %>%% of max health"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
@@ -100,9 +100,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to 6x your Intelligence per second for 12 seconds."
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <% SPIRIT_GLOVE_INT_TO_HEAL %>x your Intelligence per <% SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% SPIRIT_GLOVE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
-		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each second."
+		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <% SPIRIT_GLOVE_HEAL_INTERVAL %> second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
@@ -246,12 +246,12 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
 		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Mana is capped at @special_property1% of max. Base Ability Damage of @Ability2 is increased by @special_property2%."
+		"property_shadowflame_fist_description"					"Mana is capped at <% SHADOWFLAME_FIST_MANA_CAP %>% of max. Base Ability Damage of @Ability2 is increased by <% SHADOWFLAME_FIST_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"@special_property1% chance on taking damage to release a jet of water towards the attacking unit, dealing damage equal to @special_property2x your attack power + @special_property3x your Armor, and stunning for @special_property4 seconds."
+		"property_aquasteel_description"						"<% AQUASTEEL_CHANCE %>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage equal to <% AQUASTEEL_ATTACK_TO_DMG %>x your attack power + <% AQUASTEEL_ARMOR_TO_DMG %>x your Armor, and stunning for <% AQUASTEEL_STUN_DUR %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"

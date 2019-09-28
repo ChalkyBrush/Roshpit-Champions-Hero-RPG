@@ -4037,7 +4037,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_two"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>"
 				}
 			}
 			"modifier_berserker_gloves_buff_invisible"
@@ -4046,7 +4046,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>"
 				}
 			}
 		}
@@ -4201,8 +4201,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"scorched_earth_damage"
 						"Target"		"TARGET"
-						"attack_mult"	"%property_one"
-						"armor_mult"	"%property_two"
 					}
 				}
 			}
@@ -4210,26 +4208,6 @@
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"25"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"250"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"			"1.6"
-			}
-			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
@@ -4876,7 +4854,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "12"
+				"ThinkInterval"  "<% TATTERED_NOVICE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -5169,7 +5147,7 @@
 				}
 				"Properties"
 				{
-				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two"
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DARK_REEF_SHARK_HELMET_PASSIVE_BONUS %>"
 				}
 			}
 			"modifier_dark_reef_shark_stacks"
@@ -5183,7 +5161,7 @@
 				"TextureName"	"kunkka_ghostship_immortal"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "<% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>"
 				}
 				"OnCreated"
 				{
@@ -5198,19 +5176,6 @@
 					}
 
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"100"
 			}
 		}
 	}
@@ -5589,14 +5554,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5881,7 +5838,7 @@
 				"IsHidden"	"1"
 				"EffectName" "particles/act_2/ice_boss_channel.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "0.15"
+				"ThinkInterval"  "<% TEMPLAR_LIGHT_SEER_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -7120,7 +7077,7 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Aura"          	"modifier_tanari_wind_aura_slow"
-				"Aura_Radius"   	"520"
+				"Aura_Radius"   	"<% ANCIENT_TANARI_WIND_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -7137,9 +7094,9 @@
 				"TextureName"		"itemicons/tanari_wind_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
-				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-30"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ANCIENT_TANARI_WIND_AS_REDUCTION %>"
+				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-<% ANCIENT_TANARI_WIND_MISS_CHANCE %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-<% ANCIENT_TANARI_WIND_MS_REDUCTION %>"
 				}
 			}
 		}
@@ -7298,7 +7255,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"ThinkInterval"  	"0.2"
+				"ThinkInterval"  	"<% AVALANCHE_PLATE_AVALANCHE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -7513,14 +7470,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"35"
-			}
-		}
 	}
 
 	"item_rpc_doomplate"
@@ -7709,19 +7658,6 @@
 
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.1"
-			}
-		}
 	}
 
 	"item_rpc_hyper_visor"
@@ -7761,26 +7697,6 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"40"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_three"	"-0.1"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"	"0.3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"		"4"
 			}
 		}
@@ -7801,7 +7717,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "%property_three"
+					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "<% HYPER_VISOR_BAT %>"
 				}
 			}
 		}
@@ -7845,7 +7761,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.03"
+				"ThinkInterval"  "<% CENTAUR_HORNS_SELF_DMG_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -7867,19 +7783,6 @@
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"1.5"
 			}
 		}
 	}
@@ -7990,8 +7893,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% DIREWOLF_BULWARK_ARMOR %>"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% DIREWOLF_BULWARK_BASE_ATTACK_DMG%>"
 				}
 			}
 		}
@@ -8061,21 +7964,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"16"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"30"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"3"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"750"
-			}
 		}
 	}
 
@@ -8116,22 +8004,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"70"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"8"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"5000"
 			}
 		}
 	}
@@ -8165,19 +8038,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"7"
 			}
 		}
 	}
@@ -8349,24 +8209,6 @@
                 }
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.6"
-			}
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"600"
-			}
-		}
 	}
 
 	"item_rpc_autumn_sleeper_mask"
@@ -8409,7 +8251,7 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Aura"          	"modifier_autumn_sleeper_aura_effect"
-				"Aura_Radius"   	"900"
+				"Aura_Radius"   	"<% AUTUMN_SLEEPER_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -8665,22 +8507,11 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"witch_hat_strike"
 				"target"		"TARGET"
-				"int_mult"		"%property_one"
 			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"				"600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"				"15"
-			}
-			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"				"11"
@@ -8840,7 +8671,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	 "4"
+					"MODIFIER_PROPERTY_MANA_BONUS"	 "<% TYRIUS_MANA_PER_STR %>"
 				}
 			}
 		}
@@ -8983,19 +8814,6 @@
 				"Function"		"equip_item"
 			}
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"6"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"30"
-			}
-		}
 	}
 
 	"item_rpc_dragon_ceremony_vestments"
@@ -9077,7 +8895,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Duration"  		"30"
+				"Duration"  		"<% SECRET_TEMPLE_SHIELDS_DURATION %>"
 				"TextureName"		"templar_assassin_refraction"
 				"OnCreated"
 				{
@@ -9111,7 +8929,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"  		"30"
+				"Duration"  		"<% SECRET_TEMPLE_SHIELDS_DURATION %>"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
@@ -9392,12 +9210,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.4"
+				"property_two"		"<% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 			}
 		}
 		"Modifiers"
@@ -9435,8 +9253,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 				}
 			}
 		}
@@ -9474,12 +9292,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% RUBY_DRAGON_SCALE_ATTACK_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.4"
+				"property_two"		"<% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 			}
 		}
 		"Modifiers"
@@ -9517,8 +9335,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% RUBY_DRAGON_SCALE_ATTACK_PER_STR %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 				}
 			}
 		}
@@ -9556,12 +9374,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.4"
+				"property_two"		"<% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 			}
 		}
 		"Modifiers"
@@ -9599,8 +9417,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 				}
 			}
 		}
@@ -10302,7 +10120,7 @@
 				"TextureName"	"itemicons/nightmare_rider_mantle"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% NIGHTMARE_RIDER_SLOW %>"
 				}
 			}
 			"modifier_nightmare_rider_invisible"
@@ -10529,7 +10347,7 @@
 				"TextureName"	"itemicons/bladestorm_vest"							 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% BLADESTORM_BONUS_ATTACK_DMG %>"
 				}
 			}
 			"modifier_bladestorm_vest_weapon_effect"
@@ -10633,7 +10451,7 @@
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
-				"ThinkInterval"  "0.3"
+				"ThinkInterval"  "<% SPACE_TECH_GAIN_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -10651,8 +10469,8 @@
 				"IsHidden"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-180"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% SPACE_TECH_AS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% SPACE_TECH_MS_SLOW %>"
 				}
 				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -10666,7 +10484,7 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "35"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>"
 				}
 			}
 		}
@@ -11502,7 +11320,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% WATER_MAGE_ROBES_MS_SLOW %>"
 				}
 			}
 		}
@@ -11822,8 +11640,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "50"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "100"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% WINDSTEEL_EVASION %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% WINDSTEEL_MOVESPEED %>"
 				}
 			}
 			"modifier_windsteel_cooldown"
@@ -11913,7 +11731,7 @@
 				"TextureName"	"treant_living_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "LIVING_GAUNTLET_HP_REGEN_PCT"
 				}
 				"OnCreated"
 				{
@@ -12236,10 +12054,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"aquasteel_take_damage"
-						"proc_chance"	"%property_one"
-						"damage_mult"	"%property_two"
-						"armor_mult"	"%property_three"
-						"stun_duration"	"%property_four"
 					}
 				}
 			}
@@ -13348,7 +13162,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"		"itemicons/spirit_glove"
-				"ThinkInterval"  	"1.0"
+				"ThinkInterval"  	"<% SPIRIT_GLOVE_HEAL_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -13844,7 +13658,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CRIMSYTH_ELITE_ARMOR %>"
 				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
@@ -13856,7 +13670,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%property_two"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% CRIMSYTH_ELITE_MAGIC_RESISTANCE %>"
 				}
 				"OnDestroy"
 				{
@@ -14198,7 +14012,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.65"
+				"ThinkInterval"  "<% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -14206,7 +14020,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"gravelfoot_think"
 						"target"		"TARGET"
-						"duration"		"%property_two"
 					}
 				}
 			}
@@ -14218,7 +14031,7 @@
 				"StatusEffectPriority"  "120"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%property_three"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% GRAVELFOOT_SELF_SLOW %>"
 				}
 				"OnCreated"
 				{
@@ -14363,7 +14176,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "12"
+				"ThinkInterval"  "<% SANDSTREAM_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -14566,7 +14379,7 @@
 					{
 						"ModifierName"	"modifier_pathfinder_resonant_cooldown"
 						"Target" 		"UNIT"
-						"Duration"		"7"
+						"Duration"		"<% PATHFINDER_DElAY %>"
 					}
 				}
 				"ThinkInterval"  "1.0"
@@ -14586,7 +14399,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"			"7"
+				"Duration"			"<% PATHFINDER_DElAY %>"
 			}
 		}
 	}
@@ -15272,7 +15085,7 @@
 			{
 				"ModifierName"	"modifier_pure_waters_slow"
 				"Target" 		"TARGET"
-				"Duration"		"4"
+				"Duration"		"<% PURE_WATERS_SLOW_DURATION %>"
 			}
 		}
 		"Modifiers"
@@ -15298,7 +15111,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% PURE_WATERS_SLOW %>"
 				}
 			}
 
@@ -15372,8 +15185,8 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "85"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"350"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% BLUE_DRAGON_GREAVES_EVASION %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>"
 				}
 			}
 		}
@@ -15422,9 +15235,9 @@
 				"TextureName"	"itemicons/terrasic_lava_boots"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
-				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"150"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_SPEED %>"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>"
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_RANGE %>"
 				}
 				"OnCreated"
 				{
@@ -16123,8 +15936,8 @@
 				"TextureName"			"itemicons/radiant_leather"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "220"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"120"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% RADIANT_RUINS_LEATHER_AS %>"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"<% RADIANT_RUINS_LEATHER_MS %>"
 				}
 			}
 		}
@@ -16254,7 +16067,7 @@
 				"IsBuff"				"1"
 				"IsHidden"				"1"
 				"IsPurgable"			"0"
-				"ThinkInterval"  "0.39"
+				"ThinkInterval"  "<% ARCANYS_SLIPPER_EXPLOSIONS_DURATION / ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -16474,7 +16287,7 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 
-				"ThinkInterval"  "0.03"
+				"ThinkInterval"  "<% MONKEY_PAW_DMG_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -16485,7 +16298,7 @@
 					}
 				}
 				"Aura"          	"modifier_monkey_paw_aura"
-				"Aura_Radius"   	"600"
+				"Aura_Radius"   	"<% MONKEY_PAW_AOE_PARAGON_TRIGGER %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -16735,7 +16548,7 @@
 				"AbilityTextureName"	"wyvern_cold_embrace"
 				"EffectName"		"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% FROZEN_HEART_HP_REGEN_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -16838,7 +16651,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Aura"          	"modifier_eternal_frost_slowing"
-				"Aura_Radius"   	"900"
+				"Aura_Radius"   	"<% ETERNAL_FROST_AURA_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -16850,7 +16663,7 @@
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/gem_of_eternal_frost"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% ETERNAL_FROST_STACK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -16876,7 +16689,7 @@
 				"EffectAttachType"	"attach_overhead"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-12"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ETERNAL_FROST_SLOW_PER_STACK %>"
 				}
 			}
 			"modifier_eternal_frost_nova"
@@ -17440,7 +17253,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"75"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"<% GENGAR_EVASION %>"
 				}
 			}
 		}
@@ -17911,8 +17724,8 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"800"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"800"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"<% EPSILON_EYEGLASS_VISION_RADIUS %>"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"<% EPSILON_EYEGLASS_VISION_RADIUS %>"
 				}
 
 				"OnCreated"
@@ -17963,8 +17776,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "240"
-					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "1500"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% EPSILON_EYEGLASS_ATTACK_RANGE %>"
+					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "<% EPSILON_EYEGLASS_PROJECTILE_SPEED %>"
 				}
 			}
 		}
@@ -18024,7 +17837,7 @@
 				"TextureName" 	"itemicons/fenrir_fang"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "60"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% FENRIR_FANG_BONUS_DAMAGE %>"
 				}
 			}
 		}
@@ -18094,7 +17907,7 @@
 				"TextureName"	"itemicons/fuchsia_ring"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_two"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% FUCHSIA_HP_REGEN_OF_MAX_HP %>"
 				}
 			}
 		}
@@ -18452,16 +18265,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"15"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"15"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"15"
-			}
 		}
 	}
 
@@ -18516,11 +18319,6 @@
 		}
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
-			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
@@ -18695,33 +18493,14 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"3.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"			"35"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
 			}
-			"05"
+			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_two"			"10"
 			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"			"3"
-			}
+
 		}
 		"Modifiers"
 		{
@@ -18831,17 +18610,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"element_one"			"2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"			"0.4"
 			}
 		}
 	}
@@ -18945,11 +18714,11 @@
 			"modifier_igneous_canine_thinker"
 			{
 				"Aura"					"igneous_canine_aura"
-				"Aura_Radius"			"320"
+				"Aura_Radius"			"<% IGNEOUS_CANINE_LAVA_POOL_AOE %>"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"6"
+				"Duration"				"<% IGNEOUS_CANINE_LAVA_POOL_DURATION %>"
 
 				"OnCreated"
 				{
@@ -18972,7 +18741,7 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
-				"ThinkInterval"	"0.5"
+				"ThinkInterval"	"<% IGNEOUS_CANINE_LAVA_INTERVAL %>"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
 				{
@@ -18985,8 +18754,8 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_one"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%property_two"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% IGNEOUS_CANINE_AS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "<% IGNEOUS_CANINE_MOVESPEED_SLOW %>"
 				}
 			}
 		}
@@ -19109,7 +18878,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "5"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% WRAITH_HUNTER_BASE_ATTACK %>"
 				}
 			}
 		}
@@ -19931,7 +19700,6 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_think"
 						"target"		"TARGET"
-						"max_duration"  "%property_three"
 					}
 				}
 				"OnCreated"
@@ -19948,7 +19716,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ankh_of_ancients_end"
-						"cd_multiplier"  "%property_two"
 						"target"		"TARGET"
 					}
 				}
@@ -20609,7 +20376,7 @@
 					}
 				}
 				"Aura"          	"modifier_arcane_cascade_debuff"
-				"Aura_Radius"   	"750"
+				"Aura_Radius"   	"<% ARCANE_CASCADE_RANGE %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -20619,7 +20386,7 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "<% ARCANE_CASCADE_TICKRATE %>"
 				"EffectName"	"particles/items2_fx/arcane_cascade.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"OnIntervalThink"
@@ -20633,7 +20400,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-30"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% ARCANE_CASCADE_MAGIC_RESISTANCE_LOSS %>"
 				}
 			}
 		}
@@ -20720,7 +20487,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Duration"		"0.75"
+				"Duration"		"WRAITH_CROWN_DURATION"
 
 				"EffectName"		"particles/units/heroes/hero_puck/wraith_crown.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -20767,6 +20534,121 @@
 				"TextureName"	"itemicons/wraith_crown"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
+			}
+		}
+	}
+
+	"item_rpc_adamantine_samurai_helmet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/adamantine_samurai_helmet" //"adamantine_samurai_helmet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_samurai_helmet"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "3.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"samurai_helmet_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnAttackStart"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName" 	"modifier_samurai_crit"
+			            "Target" 		"ATTACKER"
+			        }
+
+			        "Random"
+			        {
+			            "Chance" "<% ADAMANTINE_SAMURAI_CHANCE %>"
+			            "OnSuccess"
+			            {
+			            	"FireSound"
+					        {
+					        	"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+					        	"Target"		"TARGET"
+					        }
+
+					        "FireEffect"
+					        {
+					       		"EffectName" 		"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
+					            "EffectAttachType"  "follow_origin"
+					            "Target"    		"ATTACKER"
+					        }
+
+			                "ApplyModifier"
+			                {
+			                    "ModifierName" 	"modifier_samurai_crit"
+			                    "Target"    	"ATTACKER"
+			                }
+			            }
+			        }
+			    }
+			    "OnDestroy"
+			    {
+			    	"RemoveModifier"
+			    	{
+			    		"ModifierName"	"modifier_samurai_damage"
+			    		"Target" 		"TARGET"
+			    	}
+			    }
+			}
+			"modifier_samurai_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ADAMANTINE_SAMURAI_BASE_ATTACK_PER_LVL %>"
+				}
+			}
+			"modifier_samurai_crit"
+			{
+			    "IsHidden"  "1"
+			    "Properties"
+			    {
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "<% ADAMANTINE_SAMURAI_CRIT %>"
+			    }
+
+			    "OnAttackLanded"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName"  "modifier_samurai_crit"
+			            "Target"   		"ATTACKER"
+			        }
+			    }
 			}
 		}
 	}
@@ -21176,7 +21058,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1200"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% GLINT_OF_ONU_AS_BONUS %>"
 				}
 			}
 			"modifier_glint_no_proc"
@@ -21262,7 +21144,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% HOOD_OF_DEFILER_BONUS_ATTACK_DMG_PER_TARGET %>"
 				}
 			}
 		}
@@ -21460,7 +21342,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "%property_one"
+				"ThinkInterval"  "<% WIND_DEITY_CROWN_LIMIT_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -21484,25 +21366,12 @@
 				"TextureName"	"tanari/ancient_hero_wind_god"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% WIND_DEITY_CROWN_BONUS_DMG %>"
 				}
 				"States"
 				{
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"		"1.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"10"
 			}
 		}
 	}
@@ -21557,7 +21426,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>"
 				}
 			}
 		}
@@ -21567,16 +21436,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"element_one"			"14"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"5000"
 			}
 		}
 	}
@@ -21685,21 +21544,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"element_two"		"15"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"10"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"240"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"6000"
-			}
 		}
 		"OnSpellStart"
 		{
@@ -21739,7 +21583,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "240"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SILENT_TEMPLAR_AS %>"
 				}
 				"OnAttackLanded"
 				{
