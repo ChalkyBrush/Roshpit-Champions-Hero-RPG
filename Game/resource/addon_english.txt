@@ -12104,7 +12104,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <font color='#ccff66'>6</font>% of their max health each <font color='#ccff66'>0.5</font> second interval while also reducing all Magic and Pure damage taken by <font color='#ccff66'>30</font>. The gryphon also has its own flying vision."
+		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <font color='#ccff66'>6</font>% of their max health each <font color='#ccff66'>0.5</font> second interval while also reducing all Magic and Pure damage taken by <font color='#ccff66'>30</font>%. The gryphon also has its own flying vision."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by <font color='#ccff66'>30</font>%%"
 		
@@ -12367,7 +12367,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
 		"item_property_captains_vest"						"Stalwart Champion"
-		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <font color='#ccff66'>3</font>/<font color='#ccff66'>6</font>/<font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>. W1/2/3/4 Runes increase Intelligence by <font color='#ccff66'>3</font>/<font color='#ccff66'>6</font>/<font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>. E1/2/3/4 Runes increase Agility by <font color='#ccff66'>3</font>/<font color='#ccff66'>6</font>/<font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>. R1/2/3/4 Runes increase all attributes by <font color='#ccff66'>1</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>5</font>/<font color='#ccff66'>10</font>."
+		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>. W1/2/3/4 Runes increase Intelligence by <font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>. E1/2/3/4 Runes increase Agility by <font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>. R1/2/3/4 Runes increase all attributes by <font color='#ccff66'>5</font>/<font color='#ccff66'>10</font>/<font color='#ccff66'>25</font>/<font color='#ccff66'>50</font>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
@@ -12706,7 +12706,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
-		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <font color='#ccff66'>0.01</font>%."
+		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <font color='#ccff66'>1</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
 		"item_property_tiamat_claw"							"Unyielding Vanity"
