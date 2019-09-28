@@ -2817,14 +2817,14 @@ function egg_end(event)
 	ParticleManager:SetParticleControl(pfx, 0, particleVector)
 	ParticleManager:SetParticleControl(pfx, 1, particleVector)
 	ParticleManager:SetParticleControl(pfx, 2, particleVector)
-	Timers:CreateTimer(3, function()
+	Timers:CreateTimer(PHOENIX_EMBLEM_RESURRECTION_DELAY, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	ScreenShake(particleVector, 500, 0.4, 0.8, 9000, 0, true)
 	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), particleVector, nil, PHOENIX_EMBLEM_STUN_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyStun(hero, PHOENIX_EMBLEM_STUN_DURPHOENIX_EMBLEM_STUN_DUR, enemy)
+			Filters:ApplyStun(hero, PHOENIX_EMBLEM_STUN_DUR, enemy)
 		end
 	end
 	UTIL_Remove(target)

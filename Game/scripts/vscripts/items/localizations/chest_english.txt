@@ -82,7 +82,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <% FEATHERWHITE_HEAL_OF_MAX_HP %>% of their max health each <% FEATHERWHITE_INTERVAL %> second interval while also reducing all Magic and Pure damage taken by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>. The gryphon also has its own flying vision."
+		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <% FEATHERWHITE_HEAL_OF_MAX_HP %>% of their max health each <% FEATHERWHITE_INTERVAL %> second interval while also reducing all Magic and Pure damage taken by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%. The gryphon also has its own flying vision."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%%"
 		
@@ -345,7 +345,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
 		"item_property_captains_vest"						"Stalwart Champion"
-		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <% CAPTAINS_VEST_Q1 %>/<% CAPTAINS_VEST_Q2 %>/<% CAPTAINS_VEST_Q3 %>/<% CAPTAINS_VEST_Q4 %>. W1/2/3/4 Runes increase Intelligence by <% CAPTAINS_VEST_W1 %>/<% CAPTAINS_VEST_W2 %>/<% CAPTAINS_VEST_W3 %>/<% CAPTAINS_VEST_W4 %>. E1/2/3/4 Runes increase Agility by <% CAPTAINS_VEST_E1 %>/<% CAPTAINS_VEST_E2 %>/<% CAPTAINS_VEST_E3 %>/<% CAPTAINS_VEST_E4 %>. R1/2/3/4 Runes increase all attributes by <% CAPTAINS_VEST_R1 %>/<% CAPTAINS_VEST_R2 %>/<% CAPTAINS_VEST_R3 %>/<% CAPTAINS_VEST_R4 %>."
+		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <% CAPTAINS_VEST_Q1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. W1/2/3/4 Runes increase Intelligence by <% CAPTAINS_VEST_W1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. E1/2/3/4 Runes increase Agility by <% CAPTAINS_VEST_E1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. R1/2/3/4 Runes increase all attributes by <% CAPTAINS_VEST_R1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
