@@ -81,7 +81,7 @@ function lavaGO(trigger, fv, zHeight)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = TERRASIC_LAVA_BOOTS_DURATION})
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)

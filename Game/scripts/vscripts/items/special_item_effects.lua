@@ -1078,18 +1078,18 @@ function tranquil_boots_think(event)
 	ability.hero = target
 	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
 	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > 200 then
+	if ability.distanceMoved > TRANQUIL_BOOTS_DISTANCE then
 		if not ability.active then
 			StartSoundEvent("Hero_WitchDoctor.Voodoo_Restoration.Loop", target)
 		end
 		ability.active = true
-		for i = 1, ability.distanceMoved / 200, 1 do
+		for i = 1, ability.distanceMoved / TRANQUIL_BOOTS_DISTANCE, 1 do
 			tranquil_boots_heal(target)
 			if i > 3 then
 				break
 			end
 		end
-		ability.distanceMoved = ability.distanceMoved % 200
+		ability.distanceMoved = ability.distanceMoved % TRANQUIL_BOOTS_DISTANCE
 	else
 		if distance < 20 then
 			ability.active = false
@@ -1101,7 +1101,7 @@ function tranquil_boots_think(event)
 end
 
 function tranquil_boots_heal(hero)
-	local healthRestore = math.floor(hero:GetMaxHealth() * 0.1)
+	local healthRestore = math.floor(hero:GetMaxHealth() * TRANQUIL_BOOTS_HP_HEAL_PCT/100)
 	local particleName = "particles/items2_fx/tranquil_boots.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
@@ -1148,18 +1148,18 @@ function mana_striders_think(event)
 	ability.hero = target
 	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
 	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > 240 then
+	if ability.distanceMoved > MANA_STRIDERS_DISTANCE then
 		if not ability.active then
 			-- StartSoundEvent("Hero_Leshrac.Diabolic_Edict_lp", target)
 		end
 		ability.active = true
-		for i = 1, ability.distanceMoved / 240, 1 do
+		for i = 1, ability.distanceMoved / MANA_STRIDERS_DISTANCE, 1 do
 			mana_striders_heal(target)
 			if i > 3 then
 				break
 			end
 		end
-		ability.distanceMoved = ability.distanceMoved % 240
+		ability.distanceMoved = ability.distanceMoved % MANA_STRIDERS_DISTANCE
 	else
 		if distance < 20 then
 			ability.active = false
@@ -1171,7 +1171,7 @@ function mana_striders_think(event)
 end
 
 function mana_striders_heal(hero)
-	local manaRestore = WallPhysics:round(hero:GetMaxMana() * 0.03, 0)
+	local manaRestore = WallPhysics:round(hero:GetMaxMana() * MANA_STRIDERS_MANA_RESTORE_PCT/100, 0)
 	local particleName = "particles/units/heroes/hero_obsidian_destroyer/obsidian_death_flash.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
@@ -1273,11 +1273,11 @@ function rooted_foot_regen_think(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_applicator", {})
 	local currentStacks = target:GetModifierStackCount("modifier_rooted_feet_armor_portion", caster)
-	local armor = Filters:GetBaseBaseArmor(target)
+	local armor = Filters:GetBaseBaseArmor(target) * (ROOTED_FEET_ARMOR_AMP-1)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_armor_portion", {})
 	target:SetModifierStackCount("modifier_rooted_feet_armor_portion", caster, armor)
 	local currentRegenStacks = target:GetModifierStackCount("modifier_rooted_feet_regen_portion", caster)
-	local regen = (target:GetHealthRegen() - currentRegenStacks) * 2
+	local regen = (target:GetHealthRegen() - currentRegenStacks) * ROOTED_FEET_HP_REGEN_AMP
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_regen_portion", {})
 	target:SetModifierStackCount("modifier_rooted_feet_regen_portion", caster, regen)
 end
@@ -1993,8 +1993,8 @@ function devotion_think(event)
 	local hero = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local stacks = math.floor(hero:GetStrength() / 10)
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local stacks = math.floor(hero:GetStrength() * CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT/100)
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, CRUSADER_BOOTS_AURA_RANGE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
 			ability:ApplyDataDrivenModifier(caster, ally, "modifier_devotion_aura_buff", {duration = 1.5})
@@ -2078,16 +2078,16 @@ function arcanys_slipper_think(event)
 	local particleName = "particles/econ/courier/courier_dolfrat_and_roshinante/arcanys_poof.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-	Timers:CreateTimer(1.2, function()
+	Timers:CreateTimer(ARCANYS_SLIPPER_EXPLOSIONS_DURATION, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	local manaDrain = target:GetMaxMana() * 0.1
+	local manaDrain = target:GetMaxMana() * ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT/100
 	if target:GetMana() <= manaDrain then
 		manaDrain = target:GetMana()
 	end
-	local damageIncrease = manaDrain * 10
+	local damageIncrease = manaDrain * ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN
 	target:ReduceMana(manaDrain)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = 10})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = ARCANYS_SLIPPER_BUFF_DURATION})
 	local currentStacks = target:GetModifierStackCount("modifier_arcanys_slipper_buff", caster)
 	target:SetModifierStackCount("modifier_arcanys_slipper_buff", caster, damageIncrease + currentStacks)
 	EmitSoundOn("Item.ArcanysSlipper", target)
@@ -2340,12 +2340,12 @@ function pathfinder_think(event)
 	local animation = false
 	if not target:HasModifier("modifier_pathfinder_resonant_cooldown") then
 		if target:GetHealth() < target:GetMaxHealth() then
-			local heal = math.ceil(target:GetMaxHealth() * 0.08)
+			local heal = math.ceil(target:GetMaxHealth() * <% PATHFINDER_HP_RESTORE_PCT %>/100)
 			Filters:ApplyHeal(target, target, heal, true)
 			animation = true
 		end
 		if target:GetMana() < target:GetMaxMana() then
-			local manaRestore = math.ceil(target:GetMaxMana() * 0.04)
+			local manaRestore = math.ceil(target:GetMaxMana() * PATHFINDER_MANA_RESTORE_PCT/100)
 			target:GiveMana(manaRestore)
 			Timers:CreateTimer(0.1, function()
 				PopupMana(target, manaRestore)
@@ -2618,11 +2618,11 @@ function blue_dragon_greaves_think(event)
 	ability.hero = target
 	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
 	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > 1200 then
+	if ability.distanceMoved > BLUE_DRAGON_GREAVES_DISTANCE then
 
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_blue_dragon_greaves_effect", {duration = 6})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_blue_dragon_greaves_effect", {duration = BLUE_DRAGON_GREAVES_DURATION})
 		EmitSoundOn("Items.BlueDragonGreaves", target)
-		ability.distanceMoved = ability.distanceMoved % 1200
+		ability.distanceMoved = ability.distanceMoved % BLUE_DRAGON_GREAVES_DISTANCE
 	end
 
 	ability.lastPos = target:GetAbsOrigin()
@@ -2952,7 +2952,7 @@ function old_wisdom_spell_cast(event)
 	--print(ability.lastUsedAbilityName)
 	if executedAbility:GetAbilityName() == ability.lastUsedAbilityName then
 		--print("REMOVE??")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_boots_of_old_wisdom_cooldown", {duration = 12})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_boots_of_old_wisdom_cooldown", {duration = OLD_WISDOM_COOLDOWN})
 		target:RemoveModifierByName("modifier_boots_of_old_wisdom_active")
 	end
 	ability.lastUsedAbilityName = executedAbility:GetAbilityName()
@@ -3217,7 +3217,7 @@ end
 
 function pure_waters_impact(event)
 	local caster = event.ability.caster
-	local damage = math.max(OverflowProtectedGetAverageTrueAttackDamage(caster) * 10, caster:GetIntellect() * 80)
+	local damage = math.max(OverflowProtectedGetAverageTrueAttackDamage(caster) * PURE_WATERS_ATTACK_TO_DMG, caster:GetIntellect() * PURE_WATERS_INT_TO_DMG)
 	Filters:ApplyItemDamage(event.target, caster, damage, DAMAGE_TYPE_PURE, event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end
 
@@ -3529,7 +3529,7 @@ function giant_hunter_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if target:IsStunned() or target:IsRooted() then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = 3.5})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = GIANT_HUNTERS_BOOTS_IMMUNITY_DURATION})
 	end
 end
 
@@ -3720,7 +3720,7 @@ function sandstream_stack_increase(event)
 	local target = event.target
 	local ability = event.ability
 	if target:HasModifier("modifier_sandstream_slippers_stack") then
-		local newStacks = math.min(target:GetModifierStackCount("modifier_sandstream_slippers_stack", caster) + 1, 2)
+		local newStacks = math.min(target:GetModifierStackCount("modifier_sandstream_slippers_stack", caster) + 1, SANDSTREAM_MAX_STACKS)
 		target:SetModifierStackCount("modifier_sandstream_slippers_stack", caster, newStacks)
 	else
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_sandstream_slippers_stack", {})
@@ -5478,7 +5478,7 @@ function gravelfoot_think(event)
 	if procced then
 		EmitSoundOn("RPCItems.Gravelfoot.Dispel", caster)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/gravelfoot_dispel.vpcf", caster, 1.2)
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = event.duration})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = GRAVELFOOT_SELF_SLOW_DURATION})
 	end
 end
 

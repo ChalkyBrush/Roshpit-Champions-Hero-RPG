@@ -822,7 +822,7 @@ function GameState:OrderFilter(orderTable)
 				if unit.ice_floe_table.last_clicked then
 					if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
 					else
-						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < 1500) then
+						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < ICE_FLOE_TRAVEL_DISTANCE) then
 							unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
 							unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
 							unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
@@ -1508,7 +1508,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-ABLECORE_GREAVES_DMG_RED)/100
 	end
 	if victim:HasModifier("modifier_resplendent_rubber_boots") then
-		damage = damage * 0.25
+		damage = damage * (100-RESPLENDENT_RUBBER_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * 0.05
@@ -1529,10 +1529,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 0.7
 	end
 	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
-		damage = damage * 0.5
+		damage = damage * (100-REDROCK_DAMAGE_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_gravelfoot_buff") then
-		damage = damage * 0.005
+		damage = damage * (100-GRAVELFOOT_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_flametongue_q_2_fire_shield") then
 		if victim.q_2_level and victim.q_2_level > 0 then
@@ -1610,7 +1610,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = 0
 	end
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
-		damage = damage * 0.5
+		damage = damage * (100-ROOTED_FEET_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_ice_scathe_q2_shield") then
 		damage = damage * (1-(WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT/100))
@@ -1665,7 +1665,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_red_october_boots") then
 		local EAbility = victim:GetAbilityByIndex(DOTA_E_SLOT)
 		if EAbility:GetCooldownTimeRemaining() > 0 then
-			damage = damage * 0.5
+			damage = damage * (100-RED_OCTOBER_DMG_REDUCTION)/100
 		end
 	end
 
@@ -2195,7 +2195,7 @@ function GameState:FilterDamage(filterTable)
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
-			mult = mult + 0.75
+			mult = mult + ALARANA_MAGIC_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_warlord_glyph_5_a") then
 			if attacker:HasModifier("modifier_warlord_ice_charge") then
@@ -2383,7 +2383,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
 		if attacker:HasModifier("modifier_boots_of_great_fortune") then
-			minBoost = minBoost + 2
+			minBoost = minBoost + BOOTS_OF_GREAT_FORTUNE_TRICKSTER_BOOST
 		end
 		if attacker:HasModifier("modifier_fortunes_talisman_of_truth") then
 			minBoost = minBoost * 1.5 + 2
@@ -3292,7 +3292,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_crystalline_slippers") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if victim:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * 5
+			filterTable["damage"] = filterTable["damage"] * CRYSTALLINE_PRE_MITI_AMP
 		end
 	end
 	if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
@@ -3936,7 +3936,7 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_crystalline_slippers") then
 		if attacker:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * 0.2
+			filterTable["damage"] = filterTable["damage"] * (100-CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED)/100
 		end
 	end
 	-- wEIRD MONSTERS
