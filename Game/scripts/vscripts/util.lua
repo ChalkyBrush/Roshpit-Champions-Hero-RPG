@@ -148,6 +148,34 @@ function Util.Common:LimitPerTime(limit, time, key, func)
         func()
     end
 end
+-- heavy impact function
+-- time restricted to 10 seconds due to optimization
+function Util.Common:LimitPerTimeAndPlace(limit, time, position, limitRadius, key, func)
+    self.limitPerTimeAndPlaceStore = self.limitPerTimeAndPlaceStore or {}
+    local keyLimitInfo = self.limitPerTimeAndPlaceStore[key] or {}
+    local currentTime = GameRules:GetGameTime()
+    local nearestCastsCount = 0
+    for key, positionInfo in pairs(keyLimitInfo) do
+        if positionInfo ~= nil then
+            local oldPosition = positionInfo.position
+            if WallPhysics:GetDistance2d(position, oldPosition) <= limitRadius and positionInfo.castTime + time > currentTime  then
+                nearestCastsCount = nearestCastsCount + 1
+            end
+            if currentTime - positionInfo.castTime > 10 then
+                keyLimitInfo[key] = nil -- remove old elements from array
+            end
+        end
+    end
+    if nearestCastsCount >= limit then
+        return
+    end
+    self.limitPerTimeAndPlaceStore[key] = self.limitPerTimeAndPlaceStore[key] or {}
+    table.insert(self.limitPerTimeAndPlaceStore[key], {
+        castTime = currentTime,
+        position = position
+    })
+    func()
+end
 
 Util.BaseType = Util.BaseType or class({})
 function Util.BaseType:IsAbilityBaseType(baseType)

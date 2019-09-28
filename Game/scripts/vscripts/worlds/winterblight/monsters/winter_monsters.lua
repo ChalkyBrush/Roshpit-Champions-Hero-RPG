@@ -71,31 +71,35 @@ function ogre_armor_take_damage(event)
 	else
 		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
 	end
-	CustomAbilities:QuickAttachParticle("particles/neutral_fx/ogre_magi_frost_armor_b.vpcf", caster, 0.5)
-	EmitSoundOn("Winterblight.OgreShield.Launch", caster)
-	local fv = ((attacker:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	local info =
-	{
-		Ability = ability,
-		EffectName = "particles/roshpit/winterblight/ogre_retaliation.vpcf",
-		vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 50),
-		fDistance = 2000,
-		fStartRadius = 100,
-		fEndRadius = 300,
-		Source = caster,
-		StartPosition = "attach_attack1",
-		bHasFrontalCone = true,
-		bReplaceExisting = false,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 10.0,
-		bDeleteOnHit = false,
-		vVelocity = fv * 300,
-		bProvidesVision = false,
-	}
-	projectile = ProjectileManager:CreateLinearProjectile(info)
-	end
+
+	local key = 'ogre_armor_cast'
+	Util.Common:LimitPerTimeAndPlace(2, 2, caster:GetAbsOrigin(), 500, key, function()
+		CustomAbilities:QuickAttachParticle("particles/neutral_fx/ogre_magi_frost_armor_b.vpcf", caster, 0.5)
+		EmitSoundOn("Winterblight.OgreShield.Launch", caster)
+		local fv = ((attacker:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+		local info =
+		{
+			Ability = ability,
+			EffectName = "particles/roshpit/winterblight/ogre_retaliation.vpcf",
+			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 50),
+			fDistance = 1800,
+			fStartRadius = 240,
+			fEndRadius = 420,
+			Source = caster,
+			StartPosition = "attach_attack1",
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 6,
+			bDeleteOnHit = false,
+			vVelocity = fv * 300,
+			bProvidesVision = true,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end)
+end
 
 function ogre_armor_impact(event)
 	local caster = event.caster
