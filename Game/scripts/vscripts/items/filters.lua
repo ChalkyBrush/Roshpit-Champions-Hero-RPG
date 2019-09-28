@@ -1119,10 +1119,6 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_moon_techs") then
         Filters:MoonTechRunners(caster)
     end
-    if caster:HasModifier("modifier_redfall_runners") then
-        caster:RemoveModifierByName("modifier_redfall_runners_hidden_buff")
-        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_redfall_runners_buff", {duration = 7})
-    end
     if caster:HasModifier("modifier_guard_of_feronia") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = 1.5})
     end
@@ -1588,11 +1584,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
                 Filters:ApplyStun(attacker, 0.8, victim)
             end
-        end
-        if attacker:HasModifier("modifier_redfall_runners_buff") or attacker:HasModifier("modifier_redfall_runners_hidden_buff") then
-            attacker:RemoveModifierByName("modifier_redfall_runners_buff")
-            attacker.foot:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_redfall_runners_hidden_buff", {duration = 0.2})
-            damageMult = damageMult + 24
         end
         if attacker:HasModifier("modifier_trickster_mask") then
             local randomFactor = RandomInt(1, 60) / 10

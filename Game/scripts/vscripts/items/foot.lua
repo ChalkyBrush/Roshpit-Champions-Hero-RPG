@@ -161,8 +161,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_ablecore_greaves", item)
 	elseif propertyName == "giant_hunter" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_giant_hunters_boots", item)
-	elseif propertyName == "redfall_runners" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_redfall_runners", item)
 	elseif propertyName == "ashara" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_boots_of_ashara", item)
 	elseif propertyName == "sandstream" then

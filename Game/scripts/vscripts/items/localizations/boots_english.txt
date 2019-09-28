@@ -158,9 +158,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
 		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by 2400%. Lasts 7 seconds but works only for your next damage instance from @Ability2."
-		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by 2400%%."
+		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
+		"DOTA_Tooltip_modifier_redfall_runners"		"Crackling Leaves"
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> per %% of missing health."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"

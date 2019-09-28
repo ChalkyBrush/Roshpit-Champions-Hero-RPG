@@ -5379,25 +5379,6 @@ function RPCItems:RollFireWalkers(deathLocation)
     return item
 end
 
-function RPCItems:RollRedfallRunners(deathLocation)
-    local item = RPCItems:CreateVariant("item_rpc_redfall_runners", "immortal", "Redfall Runners", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "redfall_runners"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_redfall_runners", "#E87B7B", 1, "#property_redfall_runners_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(100, 2, 12, 0, 0, item.newItemTable.rarity, false, math.ceil(maxFactor / 2.4))
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "base_ability"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
-
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollRedOctoberBoots(deathLocation, isSpirit)
     local item = RPCItems:CreateVariant("item_rpc_red_october_boots", "immortal", "Red October Boots", "feet", true, "Slot: Feet")
@@ -8476,8 +8457,6 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollAutumnSleeperMask(deathLocation, isShop)
     elseif itemName == "item_rpc_eye_of_seasons" then
         newItem = RPCItems:RollEyeOfSeasons(deathLocation, isShop)
-    elseif itemName == "item_rpc_redfall_runners" then
-        newItem = RPCItems:RollRedfallRunners(deathLocation)
     elseif itemName == "item_rpc_fenrirs_fang" then
         newItem = RPCItems:RollFenrirFang(deathLocation)
     elseif itemName == "item_rpc_boots_of_ashara" then
