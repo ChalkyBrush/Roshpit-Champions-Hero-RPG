@@ -79,9 +79,9 @@ function ogre_armor_take_damage(event)
 		Ability = ability,
 		EffectName = "particles/roshpit/winterblight/ogre_retaliation.vpcf",
 		vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 50),
-		fDistance = 2500,
-		fStartRadius = 300,
-		fEndRadius = 600,
+		fDistance = 2000,
+		fStartRadius = 100,
+		fEndRadius = 300,
 		Source = caster,
 		StartPosition = "attach_attack1",
 		bHasFrontalCone = true,
@@ -91,7 +91,7 @@ function ogre_armor_take_damage(event)
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		fExpireTime = GameRules:GetGameTime() + 10.0,
 		bDeleteOnHit = false,
-		vVelocity = fv * 330,
+		vVelocity = fv * 300,
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)

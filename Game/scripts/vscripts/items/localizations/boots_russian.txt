@@ -11,7 +11,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
 		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Сокращает время перезарядки способности (E) @Ability3 на 2 секунды."
+		"property_dunetread_description"			"Сокращает время перезарядки способности (E) @Ability3 на <% DUNETREADS_CD_RED %> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
@@ -32,7 +32,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
 		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые @special_property1 очков Силы. Устанавивает базовое время атаки на @special_property2 сек."
+		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые <% YASHA_AS_PER_STR %> очков Силы. Устанавивает базовое время атаки на <% YASHA_BAT %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
@@ -47,7 +47,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"
 		"item_property_moon_techs"					"Moon Dust"
-		"property_moon_techs_description"			"При прочтении (E) @Ability3 появится облако лунной пыли, сокращающее скорость передвижения врагов на 50% и длящееся 8 секунд.<br>Враги, находящиеся в облаке получают увеличенный урон из всех источников.<br>Увеличение урона происходит, если скорость передвижения врага становится меньше скорости передвижения героя, на 1% за каждую единицу в разнице значений."
+		"property_moon_techs_description"			"При прочтении (E) @Ability3 появится облако лунной пыли, сокращающее скорость передвижения врагов на % MOON_TECHS_MS_SLOW_PCT %>%% и длящееся <% MOON_TECHS_DURATION %> секунд.<br>Враги, находящиеся в облаке получают увеличенный урон из всех источников.<br>Увеличение урона происходит, если скорость передвижения врага становится меньше скорости передвижения героя, на 1% за каждую единицу в разнице значений."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"
@@ -95,7 +95,7 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
 		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"После применения (E) @Ability3 - Сокращает время перезарядки всех способностей на 30%."
+		"property_voyager_description"				"После применения (E) @Ability3 - Сокращает время перезарядки всех способностей на <% VOYAGER_BOOTS_E_RED %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
@@ -146,9 +146,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"Когда скорость героя ниже ABLECORE_GREAVES_MS_REQ, весь входящий урон снижен на ABLECORE_GREAVES_DMG_RED%, а исходящий урон увеличен на ABLECORE_GREAVES_POST_MITI%. Эффект будет действовать еще ABLECORE_GREAVES_STICKY_DURATION секунд после того, как скорость героя станет выше необходимого уровня."
+		"property_ablecore_greaves_description"			"Когда скорость героя ниже <% ABLECORE_GREAVES_MS_REQ %>, весь входящий урон снижен на <% ABLECORE_GREAVES_DMG_RED %>%, а исходящий урон увеличен на <% ABLECORE_GREAVES_POST_MITI %>%. Эффект будет действовать еще <% ABLECORE_GREAVES_STICKY_DURATION %> секунд после того, как скорость героя станет выше необходимого уровня."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на ABLECORE_GREAVES_DMG_RED%%, исходящий повышен на ABLECORE_GREAVES_POST_MITI%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на <% ABLECORE_GREAVES_DMG_RED %>%%, исходящий повышен на <% ABLECORE_GREAVES_POST_MITI %>%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
