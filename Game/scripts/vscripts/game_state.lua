@@ -2388,7 +2388,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_fortunes_talisman_of_truth") then
 			minBoost = minBoost * FORTUNES_TALISMAN_TRICKSTER_BOOST_MULT + FORTUNES_TALISMAN_TRICKSTER_BOOST_ADD
 		end
-		local tricksterFactor = RandomInt(-(TRICKSTER_MASK_ALL_DMG_MULT_MIN * 10) + minBoost, ((TRICKSTER_MASK_ALL_DMG_MULT_MAX * 10) - 10)
+		local tricksterFactor = RandomInt(-(TRICKSTER_MASK_ALL_DMG_MULT_MIN * 10) + minBoost, ((TRICKSTER_MASK_ALL_DMG_MULT_MAX * 10) - 10))
 		mult = mult + tricksterFactor / 10
 	end
 	if victim:HasModifier("modifier_nights_procession_a_d_rune") then
