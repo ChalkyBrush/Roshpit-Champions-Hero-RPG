@@ -20565,6 +20565,19 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% ADAMANTINE_SAMURAI_HELMET_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% ADAMANTINE_SAMURAI_HELMET_EMERALD %>"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_samurai_helmet"

@@ -50499,6 +50499,19 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"20 40 60 80 100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"20 40 60 80 100"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_samurai_helmet"
