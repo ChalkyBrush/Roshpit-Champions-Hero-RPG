@@ -1519,8 +1519,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
 		damage = damage * 0.05
 	end
-	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * 0.8) then
-		damage = damage * 0.5
+	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD/100) then
+		damage = damage * HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION/100
 	end
 	if victim:HasModifier("modifier_whirlwind") and victim:HasModifier("modifier_axe_glyph_4_2") then
 		damage = damage * 0.5
@@ -2087,11 +2087,11 @@ function GameState:FilterDamage(filterTable)
 		if filterTable["entindex_inflictor_const"] then
 			if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() ~= "item_rpc_centaur_horns" then
 				local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
-				ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+				ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = CENTAUR_HORNS_DEBUFF_DURATION})
 			end
 		else
 			local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
-			ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
+			ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = CENTAUR_HORNS_DEBUFF_DURATION})
 		end
 	end
 
@@ -2186,7 +2186,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 7.0
 		end
 		if victim:HasModifier("modifier_hood_of_defiler_effect_visible") then
-			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * 0.25
+			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * HOOD_OF_DEFILER_POST_MITI_PHYS/100
 			mult = mult + multIncrease
 		end
 		if victim:HasModifier('modifier_basilisk_plague_petrify') then
@@ -2251,7 +2251,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
-			mult = mult + 2.8
+			mult = mult + BLACK_MAGE_MAGIC_POST_MITI
 		end
 
 		-- if attacker:HasModifier("modifier_warlord_rune_b_a_invisible") then
@@ -2266,9 +2266,9 @@ function GameState:FilterDamage(filterTable)
 				if not attacker:HasModifier("modifier_carbuncle_immunity") then
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", victim, 0.8)
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", attacker, 0.8)
-					Filters:ApplyItemDamage(attacker, victim, filterTable["damage"] * 1000, DAMAGE_TYPE_MAGICAL, victim.headItem, RPC_ELEMENT_FIRE, RPC_ELEMENT_ARCANE)
-					victim.headItem:ApplyDataDrivenModifier(victim.InventoryUnit, attacker, "modifier_carbuncle_immunity", {duration = 3})
-					Filters:ApplyStun(victim, 3, attacker)
+					Filters:ApplyItemDamage(attacker, victim, filterTable["damage"] * CARBUNCLE_DAMAGE_AMP, DAMAGE_TYPE_MAGICAL, victim.headItem, RPC_ELEMENT_FIRE, RPC_ELEMENT_ARCANE)
+					victim.headItem:ApplyDataDrivenModifier(victim.InventoryUnit, attacker, "modifier_carbuncle_immunity", {duration = CARBUNCLE_ENEMY_IMMUNITY_DURATION})
+					Filters:ApplyStun(victim, CARBUNCLE_STUN_DUR, attacker)
 					EmitSoundOn("RPC.Carbuncle.Reflect", attacker)
 					local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/items/carbuncle_reflect.vpcf", attacker, 3)
 					ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
@@ -2277,7 +2277,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 		if victim:HasModifier("modifier_umbral_sentinel_magic_amp") then
-			local multIncrease = victim:GetModifierStackCount("modifier_umbral_sentinel_magic_amp", victim.umbral) * 0.03
+			local multIncrease = victim:GetModifierStackCount("modifier_umbral_sentinel_magic_amp", victim.umbral) * CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC/100
 			mult = mult + multIncrease
 		end
 
@@ -2388,7 +2388,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_fortunes_talisman_of_truth") then
 			minBoost = minBoost * 1.5 + 2
 		end
-		local tricksterFactor = RandomInt(-5 + minBoost, 15)
+		local tricksterFactor = RandomInt(-(TRICKSTER_MASK_ALL_DMG_MULT_MIN * 10) + minBoost, ((TRICKSTER_MASK_ALL_DMG_MULT_MAX * 10) - 10)
 		mult = mult + tricksterFactor / 10
 	end
 	if victim:HasModifier("modifier_nights_procession_a_d_rune") then
@@ -2413,7 +2413,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
-		mult = mult + 6
+		mult = mult + MUGATO_POST_MITI_PCT/100
 	end
 	if victim:HasModifier("modifier_epoch_rune_w_2_visible") then
 		if victim:GetPhysicalArmorValue(false) < 0 then
@@ -2852,8 +2852,8 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then
 		if victim:HasModifier("modifier_sea_oracle_stacker") then
 			local stacks = victim:GetModifierStackCount("modifier_sea_oracle_stacker", attacker.InventoryUnit)
-			if stacks >= 15 then
-				mult = mult + 5.5
+			if stacks >= HOOD_OF_SEA_ORACLE_MAX_STACKS then
+				mult = mult + HOOD_OF_SEA_ORACLE_POST_MITI/100
 				if not victim:HasModifier("modifier_sea_oracle_particle_lock") then
 					local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact.vpcf", victim, 1)
 					ParticleManager:SetParticleControl(pfx, 1, victim:GetAbsOrigin())
@@ -3709,10 +3709,10 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"] * (1 + modifier:GetExtraPostmitigationAmplify())
 	end
 	if attacker:HasModifier("modifier_helm_odin") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
-		local proc = Filters:GetProc(attacker, 10)
+		local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
 		if proc then
-			filterTable["damage"] = filterTable["damage"] * 7
-			PopupOdin(victim, 7)
+			filterTable["damage"] = filterTable["damage"] * ODIN_HELMET_MULT
+			PopupOdin(victim, ODIN_HELMET_MULT)
 			local helm = attacker.headItem
 			if not helm.particleCount then
 				helm.particleCount = 0
@@ -3861,7 +3861,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_centaur_horns") then
-		local thresh = 0.15
+		local thresh = CENTAUR_HORNS_DAMAGE_CAP/100
 		if filterTable["damage"] > victim:GetMaxHealth() * thresh then
 			filterTable["damage"] = victim:GetMaxHealth() * thresh
 		end

@@ -157,7 +157,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 3
     end
     if caster:HasModifier("modifier_excavators_focus_cap") then
-        mult = mult + 0.005 * (caster:GetIntellect() / 10)
+        mult = mult + EXCAVATOR_ITEM_AMP_PER_INT/100 * (caster:GetIntellect() / EXCAVATOR_INT_DIVISOR)
     end
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
         mult = mult + 0.002 * (caster:GetIntellect() / 10)
@@ -184,7 +184,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_hyper_visor") then
-        mult = mult + 0.003 * (caster:GetAgility() / 10)
+        mult = mult + HYPER_VISOR_AGI_TO_ITEM_AMP/100 * (caster:GetAgility() / HYPER_VISOR_AGI_DIVISOR)
     end
     if caster:HasModifier("modifier_rpc_steamboots") then
         mult = mult + 0.003 * (caster:GetAgility() / 10)
@@ -240,7 +240,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
-        damage = damage * 0.2
+        damage = damage * (100-BLACK_MAGE_ITEM_DAMAGE_PENALTY)/100
     end
     damage = damage * mult
     return damage
@@ -248,7 +248,7 @@ end
 
 function Filters:GetAdjustedRange(caster, baseRange)
     if caster:HasModifier("modifier_hood_of_lords_lua") then
-        baseRange = baseRange + 140
+        baseRange = baseRange + HOOD_OF_LORDS_BONUS_RANGE
     end
     if caster:HasModifier("modifier_vermillion_dream_lua") then
         baseRange = baseRange + 420
@@ -398,7 +398,7 @@ end
 function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
     local abilityCooldown = ability:GetCooldownTimeRemaining()
     if caster:HasModifier("modifier_hood_of_lords_lua") then
-        abilityCooldown = abilityCooldown + 1
+        abilityCooldown = abilityCooldown + HOOD_OF_LORDS_CD_RED
     end
     local abilityCooldown = abilityCooldown - CDreduce
     if abilityCooldown > 0 then
@@ -446,12 +446,12 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         CDreduce = CDreduce - baseCD
     end
     if caster:HasModifier("modifier_hood_of_lords_lua") then
-        CDreduce = CDreduce - 1
+        CDreduce = CDreduce - HOOD_OF_LORDS_CD_RED
     end
     local abilityCooldown = abilityCooldown - CDreduce
 
     if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
-        abilityCooldown = abilityCooldown * 0.6
+        abilityCooldown = abilityCooldown * (1-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
         if caster:GetHealth() <= caster:GetMaxHealth() * 0.3 then
@@ -473,7 +473,7 @@ end
 function Filters:GetCDNoHood(caster, cd)
     if cd < 1.5 then
         if caster:HasModifier("modifier_hood_of_lords_lua") then
-            cd = cd + 1
+            cd = cd + HOOD_OF_LORDS_CD_RED
         end
     end
     return cd
@@ -548,7 +548,7 @@ function Filters:ApplyStun(caster, duration, target)
 
             local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * STORMCRACK_ATTACK_DAMAGE_MULT * 2 + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * STORMCRACK_ATTR_DAMAGE_MULT * 2
             Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-            mult = mult + 0.35
+            mult = mult + STORMCRACK_STUN_DURATION_AMP/100
         end
     end
 
@@ -649,7 +649,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
                 return
             end
             target.whiteMageShield = shieldValue
-            caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = 16})
+            caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = WHITE_MAGE_SHIELD_DURATION})
         end
     end
 end
@@ -762,20 +762,20 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_chains_of_orthok") then
         if slot == BASE_ABILITY_Q then
-            Filters:OrthokStack(caster, 5)
+            Filters:OrthokStack(caster, ORTHOK_Q_E_CAST_STACKS)
         elseif slot == BASE_ABILITY_W then
-            Filters:OrthokStack(caster, 1)
+            Filters:OrthokStack(caster, ORTHOK_W_CAST_STACKS)
         elseif slot == BASE_ABILITY_E then
-            Filters:OrthokStack(caster, 5)
+            Filters:OrthokStack(caster, ORTHOK_Q_E_CAST_STACKS)
         elseif slot == BASE_ABILITY_R then
-            Filters:OrthokStack(caster, 12)
+            Filters:OrthokStack(caster, ORTHOK_R_CAST_STACKS)
         end
     end
     if caster:HasModifier("modifier_jex_nature_cosmic_w") then
         Filters:JexNatureCostmicW(caster)
     end
     if caster:HasModifier("modifier_mugato") then
-        caster:AddNewModifier(caster, nil, "modifier_silence", {duration = 4})
+        caster:AddNewModifier(caster, nil, "modifier_silence", {duration = MUGATO_SPELL_SILENCE_DUR})
     end
 end
 
@@ -856,7 +856,7 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = baseCd * 0.6
+        baseCd = baseCd * (1-TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT)
         ability:EndCooldown()
 
         ability:StartCooldown(baseCd)
@@ -964,7 +964,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_yellow") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = math.max(baseCd - 1, 0)
+        baseCd = math.max(baseCd - TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED, 0)
         ability:EndCooldown()
         ability:StartCooldown(baseCd)
     end
@@ -1001,7 +1001,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_phantom_sorcerer") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local cdRemaining = ability:GetCooldownTimeRemaining()
-        local newCD = math.min(cdRemaining + 4, ability:GetCooldown(ability:GetLevel() - 1) + 4)
+        local newCD = math.min(cdRemaining + PHANTOM_SORCERER_CD_INCREASE, ability:GetCooldown(ability:GetLevel() - 1) + PHANTOM_SORCERER_CD_INCREASE)
         ability:EndCooldown()
         ability:StartCooldown(newCD)
     end
@@ -1103,7 +1103,7 @@ function Filters:ApplyEskills(caster)
         Filters:RedrockFootwear(caster)
     end
     if caster:HasModifier("modifier_carbuncles_helm_of_reflection") then
-        local shieldDuration = math.max(ability:GetCooldownTimeRemaining() * 0.35, 1)
+        local shieldDuration = math.max(ability:GetCooldownTimeRemaining() * CARBUNCLE_SHIELD_DUR_RELATIVE_PCT/100, CARBUNCLE_SHIELD_DUR_MIN)
         caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncles_helm_of_reflection_effect", {duration = shieldDuration})
     end
     if caster:HasModifier("modifier_boots_of_pure_waters") then
@@ -1181,7 +1181,7 @@ function Filters:ApplyRskills(caster)
         end
     end
     if caster:HasModifier("modifier_helm_of_silent_templar") then
-        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_helm_of_silent_templar_effect", {duration = 10})
+        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_helm_of_silent_templar_effect", {duration = SILENT_TEMPLAR_DURATION})
         local particleName = "particles/dark_smoke_test.vpcf"
         local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
         ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
@@ -1337,7 +1337,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.0025 * (attacker:GetAgility() / 10)
         end
         if attacker:HasModifier("modifier_white_mage_hat2") then
-            damageMult = damageMult + 0.001 * (attacker:GetIntellect() / 10)
+            damageMult = damageMult + WHITE_MAGE_BAD_PER_INT/100 * (attacker:GetIntellect() / WHITE_MAGE_INT_DIVISOR)
         end
         if attacker:HasModifier("modifier_garnet_warfare_ring") then
             damageMult = damageMult + 0.003 * (attacker:GetStrength() / 10)
@@ -1361,7 +1361,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_orthok_zeal") then
             local current_stack = attacker:GetModifierStackCount("modifier_orthok_zeal", attacker.InventoryUnit)
-            damageMult = damageMult + 0.08 * current_stack
+            damageMult = damageMult + ORTHOK_STACK_BAD/100 * current_stack
         end
         if attacker:HasModifier("modifier_flood_basin_a_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
@@ -1495,7 +1495,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
             local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
-            damageMult = damageMult + shipyardStacks
+            damageMult = damageMult + shipyardStacks*(SHIPYARD_VEIL_BAD_PER_STACK/100)
             if not ignore_effects then
                 Filters:ShipyardVeilQHit(attacker, victim)
             end
@@ -1542,16 +1542,16 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_phantom_sorcerer") then
-            damageMult = damageMult + 25
+            damageMult = damageMult + PHANTOM_SORCERER_BAD/100
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + 12
         end
         if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
-            damageMult = damageMult + 3.5
+            damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
         end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
-            damageMult = damageMult + 20
+            damageMult = damageMult + CERULEAN_HIGHGUARD_BAD/100
         end
         if attacker:HasModifier("modifier_crest_of_the_umbral_sentinel") then
             Filters:UmbralSentinel(attacker, victim)
@@ -1572,7 +1572,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 24
         end
         if attacker:HasModifier("modifier_trickster_mask") then
-            local randomFactor = RandomInt(1, 60) / 10
+            local randomFactor = RandomInt(TRICKSTER_MASK_W_DMG_MULT_MIN * 10, TRICKSTER_MASK_W_DMG_MULT_MAX * 10) / 10
             damage = damage * randomFactor
         end
         if attacker:HasModifier("modifier_claws_of_the_ethereal_revenant") then
@@ -1623,12 +1623,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if not ignore_effects then
                 if attacker:IsAlive() then
                     local ability = attacker.headItem
-                    if ability.targetsHit < ability:GetSpecialValueFor("property_two") then
+                    if ability.targetsHit < WIND_DEITY_CROWN_ATTACK_LIMIT then
                         ability.targetsHit = ability.targetsHit + 1
                         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
                         Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
                     end
-                    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = 30})
+                    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = WIND_DEITY_CROWN_BONUS_DMG_DURATION})
                     local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
                     attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, currentStacks + 1)
                 end
@@ -1691,8 +1691,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                         attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount - 1
                     end)
                 end
-                Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-                attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_crown_slow", {duration = 6})
+                Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage*WATER_DEITY_CROWN_DAMAGE_AMP/100, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+                attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_crown_slow", {duration = WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION})
             end
             if not indirectProcR then
                 Filters:ApplyRdamage(victim, attacker, damage, damage_type)
@@ -2111,8 +2111,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
-        if fireMult > 50 and attacker:HasModifier("modifier_fire_deity_crown") then
-            fireMult = 50
+        if fireMult > FIRE_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_fire_deity_crown") then
+            fireMult = FIRE_DEITY_CROWN_ELEMENT_CAP/100
         end
 
         mult = mult + fireMult
@@ -2387,8 +2387,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
 
-        if cosmosMult > 50 and attacker:HasModifier("modifier_luma_guard") then
-            cosmosMult = 50
+        if cosmosMult > LUMA_ELEMENT_CAP/100 and attacker:HasModifier("modifier_luma_guard") then
+            cosmosMult = LUMA_ELEMENT_CAP/100
         end
 
         mult = mult + cosmosMult
@@ -2684,8 +2684,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local multIncrease = modifier:GetStackCount() * HYDROXIS_ARCANA_R3_WATER_AMP_PCT/100
             waterMult = waterMult + multIncrease
         end
-        if waterMult > 50 and attacker:HasModifier("modifier_water_deity_crown") then
-            waterMult = 50
+        if waterMult > WATER_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_water_deity_crown") then
+            waterMult = WATER_DEITY_CROWN_ELEMENT_CAP/100
         end
 
         mult = mult + waterMult
@@ -2946,9 +2946,8 @@ function Filters:DoomplateApply(attacker, victim)
 end
 
 function Filters:WhiteMageHat(caster)
-    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local healMult = caster.headItem:GetSpecialValueFor("property_one")
-    local healAmount = caster:GetIntellect() * healMult
+    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, WHITE_MAGE_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local healAmount = caster:GetIntellect() * WHITE_MAGE_INT_TO_HEAL
     local inventoryUnit = caster.InventoryUnit
     local ability = inventoryUnit:FindAbilityByName("helm_slot")
     if #allies > 0 then
@@ -3001,35 +3000,35 @@ end
 function Filters:DeathWhisperApply(attacker, victim)
     local inventoryUnit = attacker.InventoryUnit
     local ability = inventoryUnit:FindAbilityByName("helm_slot")
-    ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_death_whisper_effect", {duration = 5})
+    ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_death_whisper_effect", {duration = DEATH_WHISPER_DURATION})
 end
 
 function Filters:WildNatureTwo(attacker, victim)
-    local proc = Filters:GetProc(attacker, 30)
+    local proc = Filters:GetProc(attacker, CAP_OF_WILD_NATURE_CHANCE_TWO)
     if proc then
         local inventoryUnit = attacker.InventoryUnit
         victim.entangler = attacker
         local ability = inventoryUnit:FindAbilityByName("helm_slot")
-        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_wild_nature_entangle_effect", {duration = 3})
+        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_wild_nature_entangle_effect", {duration = CAP_OF_WILD_NATURE_DURATION_TWO})
     end
 end
 
 function Filters:LumaGuardStrike(attacker, victim, damage)
-    local proc = Filters:GetProc(attacker, 70)
+    local proc = Filters:GetProc(attacker, LUMA_BEAM_CHANCE)
     if proc then
         local inventoryUnit = attacker.InventoryUnit
         local ability = inventoryUnit:FindAbilityByName("helm_slot")
-        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_luma_guard_moonbeam", {duration = 4})
+        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_luma_guard_moonbeam", {duration = LUMA_VISION_DURATION})
         -- local moonParticle = "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
         -- local position = victim:GetAbsOrigin()
         -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_CUSTOMORIGIN, victim )
         -- ParticleManager:SetParticleControl( pfx, 0, position )
-        AddFOWViewer(attacker:GetTeamNumber(), victim:GetAbsOrigin(), 500, 4, false)
+        AddFOWViewer(attacker:GetTeamNumber(), victim:GetAbsOrigin(), 500, LUMA_VISION_DURATION, false)
 
         -- Timers:CreateTimer(4, function()
         --  ParticleManager:DestroyParticle(pfx, false)
         -- end)
-        local damage = damage * 4
+        local damage = damage * LUMA_DAMAGE_AMP/100
         Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
         ----print("MOONBEAM HAS FIRED")
         return true
@@ -3037,10 +3036,10 @@ function Filters:LumaGuardStrike(attacker, victim, damage)
 end
 
 function Filters:OdinCrit(attacker, victim, damage, damage_type)
-    local proc = Filters:GetProc(attacker, 5)
+    local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
     if proc then
-        ApplyDamage({victim = victim, attacker = attacker, damage = damage * 20, damage_type = damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
-        PopupDamage(victim, damage * 20)
+        ApplyDamage({victim = victim, attacker = attacker, damage = damage * ODIN_HELMET_MULT, damage_type = damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+        PopupDamage(victim, damage * ODIN_HELMET_MULT)
     end
 end
 
@@ -3095,7 +3094,7 @@ end
 
 function Filters:TricksterMask(caster)
     local casterOrigin = caster:GetAbsOrigin()
-    local randomPosition = casterOrigin + RandomVector(380)
+    local randomPosition = casterOrigin + RandomVector(TRICKSTER_MASK_RANGE)
     randomPosition = WallPhysics:WallSearch(casterOrigin, randomPosition, caster)
     FindClearSpaceForUnit(caster, randomPosition, false)
     caster:RemoveModifierByName("modifier_trickster_mask_effect")
@@ -3358,7 +3357,7 @@ end
 function Filters:CeruleanHighguard(caster)
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     local manaCost = ability:GetManaCost(-1)
-    caster:ReduceMana(manaCost * 4)
+    caster:ReduceMana(manaCost * CERULEAN_HIGHGUARD_MANA_INCREASE/100)
 end
 
 function Filters:AscensionTrigger(caster)
@@ -3624,17 +3623,17 @@ end
 function Filters:WraithCrown(caster)
     local ability = caster.wraith_crown
     if not caster:HasModifier("modifier_wraith_crown_cooldown") then
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_phased", {duration = 0.75})
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_cooldown", {duration = 2})
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_phased", {duration = WRAITH_CROWN_DURATION})
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_cooldown", {duration = WRAITH_CROWN_CD})
     end
 end
 
 function Filters:DemonMask(caster, target, damage)
-    local proc = Filters:GetProc(caster, 15)
+    local proc = Filters:GetProc(caster, DEMON_MASK_CHANCE)
     -- proc = true
     if proc then
         --print("dmg test: "..damage)
-        damage = damage * 15
+        damage = damage * DEMON_MASK_AMP
         --print("dmg test: "..damage)
         local limitKey = caster:GetPlayerOwnerID() .. '_demon_mask'
         Util.Common:LimitPerTime(4, 1, limitKey, function()
@@ -3648,7 +3647,7 @@ function Filters:DemonMask(caster, target, damage)
                 ParticleManager:DestroyParticle(pfx, false)
             end)
         end)
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, DEMON_MASK_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         -- local damage = highestAttribute*40
         Timers:CreateTimer(0.1, function()
             if #enemies > 0 then
@@ -3665,13 +3664,13 @@ function Filters:UmbralSentinel(attacker, victim)
     local ability = attacker.headItem
     local wLevel = attacker:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
     local origStacks = victim:GetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_visible", ability)
-    local newStacks = math.min(origStacks + 1, 5)
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_visible", {duration = 10})
+    local newStacks = math.min(origStacks + 1, CREST_OF_UMBRAL_SENTINEL_MAX_STACKS)
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_visible", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
     victim:SetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_visible", ability, newStacks)
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_invisible", {duration = 10})
-    victim:SetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_invisible", ability, math.floor(newStacks * 70 * wLevel))
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_invisible", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
+    victim:SetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_invisible", ability, math.floor(newStacks * CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS * wLevel))
 
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_umbral_sentinel_magic_amp", {duration = 10})
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_umbral_sentinel_magic_amp", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
     victim:SetModifierStackCount("modifier_umbral_sentinel_magic_amp", ability, newStacks * wLevel)
     victim.umbral = ability
 end
@@ -3685,20 +3684,20 @@ function Filters:DefilerHit(attacker, victim)
     local origStacks = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability)
 
     local currentArmorLoss = victim:GetModifierStackCount("modifier_hood_of_defiler_armor_loss", ability)
-    local additionalArmorLoss = math.ceil(victim:GetPhysicalArmorValue(false) * 0.15)
-    if origStacks >= 5 then
+    local additionalArmorLoss = math.ceil(victim:GetPhysicalArmorValue(false) * HOOD_OF_DEFILER_ARMOR_REDUCTION/100)
+    if origStacks >= HOOD_OF_DEFILER_POST_MITI_MAX_STACKS then
         additionalArmorLoss = 0
     end
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_armor_loss", {duration = 9})
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_armor_loss", {duration = HOOD_OF_DEFILER_DURATION})
     victim:SetModifierStackCount("modifier_hood_of_defiler_armor_loss", ability, currentArmorLoss + additionalArmorLoss)
 
     local origStacks = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability)
-    local newStacks = math.min(origStacks + 1, 5)
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_effect_visible", {duration = 9})
+    local newStacks = math.min(origStacks + 1, HOOD_OF_DEFILER_POST_MITI_MAX_STACKS)
+    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_effect_visible", {duration = HOOD_OF_DEFILER_DURATION})
     victim:SetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability, newStacks)
 
     local casterStacks = attacker:GetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit)
-    local newCasterStacks = math.min(casterStacks + 1, 100)
+    local newCasterStacks = math.min(casterStacks + 1, HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG)
     ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff", {duration = 9})
     attacker:SetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit, newCasterStacks)
 end
@@ -3882,7 +3881,7 @@ function Filters:AerithsTearTakeDamage(attacker, victim)
 end
 
 function Filters:GrithaultDamage(victim, damage)
-    local proc = Filters:GetProc(victim, 24)
+    local proc = Filters:GetProc(victim, GRITHAULT_CHANCE)
     if proc then
         damage = math.floor(damage)
         Filters:ApplyHeal(victim, victim, damage, true)
@@ -4183,10 +4182,10 @@ function Filters:AuriunImmortalWeapon1(damage, victim)
 end
 
 function Filters:AutumnSleeperMask(caster)
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, AUTUMN_SLEEPER_RADIUS_R, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
-            caster.headItem:ApplyDataDrivenModifier(caster, enemy, "modifier_autumn_sleeper_root", {duration = 4})
+            caster.headItem:ApplyDataDrivenModifier(caster, enemy, "modifier_autumn_sleeper_root", {duration = AUTUMN_SLEEPER_ROOT_DUR_R})
         end
     end
     local particle = "particles/roshpit/items/autumn_sleeper_cast_th_cast.vpcf"
@@ -4213,11 +4212,11 @@ function Filters:ManawallDamageTaken(victim, damage)
 end
 
 function Filters:FireDeity(attacker, victim, damage)
-    local proc = Filters:GetProc(attacker, 20)
+    local proc = Filters:GetProc(attacker, FIRE_DEITY_CROWN_CHANCE)
     if proc then
-        damage = damage * 2.5
+        damage = damage * FIRE_DEITY_CROWN_AMP/100
         local target = victim
-        local radius = 220
+        local radius = FIRE_DEITY_CROWN_AOE
 
         local limitKey = attacker:GetPlayerOwnerID() .. '_fire_deity'
         Util.Common:LimitPerTime(4, 1, limitKey, function()
@@ -4242,7 +4241,7 @@ function Filters:FireDeity(attacker, victim, damage)
         local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
-                Filters:ApplyStun(attacker, 0.6, enemy)
+                Filters:ApplyStun(attacker, FIRE_DEITY_CROWN_STUN_DURATION, enemy)
                 Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             end
         end
@@ -4254,7 +4253,7 @@ function Filters:ShipyardVeilQHit(attacker, victim)
     local ability = attacker.headItem
     if not ability.lock then
         ability.lock = true
-        local maxStacks = ability:GetSpecialValueFor("property_one")
+        local maxStacks = SHIPYARD_VEIL_MAX_STACKS
         ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_shipyard_veil_shield", {})
         local newStacks = math.min(maxStacks, attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit) + 1)
         attacker:SetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit, newStacks)
@@ -4326,8 +4325,8 @@ function Filters:IgneousCanine(caster)
         ParticleManager:DestroyParticle(pfx, false)
     end)
     local wAbilityLevel = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-    local stunDuration = wAbilityLevel * 0.2
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local stunDuration = wAbilityLevel * IGNEOUS_CANINE_STUN_DURATION
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, IGNEOUS_CANINE_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.IgneousCanine", caster.InventoryUnit)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
@@ -4633,7 +4632,7 @@ end
 
 function Filters:OrthokStack(hero, stacks)
     local chains = hero.headItem
-    chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_zeal", {duration = 10})
+    chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_zeal", {duration = ORTHOK_STACK_DURATION})
     if not chains.zealData then
         chains.zealData = {}
     end
@@ -4651,7 +4650,7 @@ function Filters:RecalculateOrthokStacks(hero, chains)
         chains.zealData = {}
     end
     for i = 1, #chains.zealData, 1 do
-        if GameRules:GetGameTime() - chains.zealData[i].createdAt >= 10 then
+        if GameRules:GetGameTime() - chains.zealData[i].createdAt >= ORTHOK_STACK_DURATION then
         else
             table.insert(newZealData, chains.zealData[i])
             totalStacks = totalStacks + chains.zealData[i].value

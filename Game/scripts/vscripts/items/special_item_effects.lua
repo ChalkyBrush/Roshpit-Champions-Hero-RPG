@@ -406,11 +406,10 @@ function hyper_visor_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = event.attacker
-	local proc = Filters:GetProc(attacker, 20)
-	local agilityMult = ability:GetSpecialValueFor("property_two")
+	local proc = Filters:GetProc(attacker, HYPER_VISOR_CHANCE)
 	if proc then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * agilityMult
-		local radius = 450
+		local radius = HYPER_VISOR_AOE
 		local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -426,7 +425,7 @@ function hyper_visor_attack_land(event)
 		end)
 		EmitSoundOn("Hero_StormSpirit.Orchid_BallLightning", target)
 	else
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * agilityMult
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * HYPER_VISOR_ATTACK_TO_DMG
 		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	end
 end
@@ -458,7 +457,7 @@ function centaur_horn_think(event)
 		ability.interval = 0
 		CustomAbilities:QuickAttachParticle("particles/roshpit/centaur_horns_lifesteal.vpcf", caster, 0.9)
 	end
-	ApplyDamage({victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+	ApplyDamage({victim = caster, attacker = caster, damage = CENTAUR_HORNS_SELF_DMG, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	if caster:IsStunned() then
 		Filters:CleanseStuns(caster)
 	end
@@ -502,10 +501,10 @@ function wild_nature_struck(event)
 	local ability = event.ability
 	local caster = event.caster
 	local target = event.target
-	local proc = Filters:GetProc(target, 30)
+	local proc = Filters:GetProc(target, CAP_OF_WILD_NATURE_CHANCE_ONE)
 	if proc then
 		attacker.entangler = target
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_wild_nature_entangle_effect", {duration = 3})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_wild_nature_entangle_effect", {duration = CAP_OF_WILD_NATURE_DURATION_ONE})
 	end
 end
 
@@ -515,11 +514,11 @@ function wild_nature_entangle_think(event)
 	local primeAttribute = caster:GetPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
-		damage = caster:GetStrength() * 750
+		damage = caster:GetStrength() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	elseif primeAttribute == 1 then
-		damage = caster:GetAgility() * 750
+		damage = caster:GetAgility() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	elseif primeAttribute == 2 then
-		damage = caster:GetIntellect() * 750
+		damage = caster:GetIntellect() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	end
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 end
@@ -529,10 +528,10 @@ function odin_attack(event)
 	local attacker = event.attacker
 	local attack_damage = event.attack_damage
 	attack_damage = GameState:GetPostReductionPhysicalDamage(attack_damage, target:GetPhysicalArmorValue(false))
-	local proc = Filters:GetProc(attacker, 5)
+	local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
 	if proc then
-		ApplyDamage({victim = target, attacker = attacker, damage = attack_damage * 20, damage_type = DAMAGE_TYPE_PURE})
-		PopupDamage(target, attack_damage * 20)
+		ApplyDamage({victim = target, attacker = attacker, damage = attack_damage * ODIN_HELMET_MULT, damage_type = DAMAGE_TYPE_PURE})
+		PopupDamage(target, attack_damage * ODIN_HELMET_MULT)
 	end
 end
 
@@ -614,9 +613,9 @@ function witch_hat_strike(event)
 	local ability = event.ability
 	local caster = ability.caster
 	local target = event.target
-	local damage = caster:GetIntellect() * event.int_mult
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_witch_hat_damage_amp", {duration = 8})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_witch_hat_damage_amp", caster) + 1, 10)
+	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_witch_hat_damage_amp", {duration = SWAMP_WITCH_HAT_DURATION})
+	local newStacks = math.min(target:GetModifierStackCount("modifier_witch_hat_damage_amp", caster) + 1, SWAMP_WITCH_HAT_MAX_STACKS)
 	target:SetModifierStackCount("modifier_witch_hat_damage_amp", caster, newStacks)
 
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
@@ -625,10 +624,10 @@ end
 function emerald_douli_damage(event)
 	local target = event.unit
 	local damage = event.damage
-	local manaDamage = math.floor(damage * 0.5)
+	local manaDamage = math.floor(damage * EMERALD_DOULI_MANA_DAMAGE/100)
 	if target:GetMana() > manaDamage then
 		target:Heal(manaDamage, target)
-		target:ReduceMana(manaDamage / 3)
+		target:ReduceMana(math.floor(manaDamage / 15))
 	end
 end
 
@@ -2103,7 +2102,7 @@ function onu_attack_land(event)
 	if target.dummy then
 		return false
 	end
-	local proc = Filters:GetProc(attacker, 35)
+	local proc = Filters:GetProc(attacker, GLINT_OF_ONU_CHANCE)
 	if target:HasModifier("modifier_glint_no_proc") then
 		local newNoProcStacks = target:GetModifierStackCount("modifier_glint_no_proc", caster) - 1
 		if newNoProcStacks > 0 then
@@ -2123,7 +2122,7 @@ function onu_attack_land(event)
 			local newPosition = WallPhysics:WallSearch(position, newPosition, target)
 			FindClearSpaceForUnit(attacker, newPosition, false)
 			attacker:SetForwardVector(target:GetForwardVector() * Vector(1, 1, 0))
-			event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_blinded_glint_buff", {duration = 0.8})
+			event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_blinded_glint_buff", {duration = GLINT_OF_ONU_BUFF_DUR})
 
 			local particleName = "particles/econ/items/meepo/meepo_diggers_divining_rod/meepo_divining_rod_poof_end_rays_burst.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
@@ -2155,7 +2154,7 @@ function roknar_think(event)
 		Timers:CreateTimer(0.2, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		local heal = target:GetMaxHealth() * 0.12
+		local heal = target:GetMaxHealth() * ROKNAR_EMPEROR_HP_PCT/100
 		Filters:ApplyHeal(target, target, heal, true)
 	end
 end
@@ -2903,11 +2902,11 @@ function cascade_hat_think(event)
 	local caster = event.target
 	local ability = event.ability
 	ability.caster = caster
-	local manaDrain = caster:GetMaxMana() * 0.02
+	local manaDrain = caster:GetMaxMana() * ARCANE_CASCADE_MANA_DRAIN
 	if manaDrain > caster:GetMana() then
 		manaDrain = caster:GetMana()
 	end
-	ability.damage = manaDrain * 8000 * (caster:GetLevel() / 120) ^ 2
+	ability.damage = manaDrain * ARCANE_CASCADE_DAMAGE * (caster:GetLevel() / 120) ^ 2
 	caster:ReduceMana(manaDrain)
 	-- local fv = caster:GetForwardVector()
 	-- if manaDrain < caster:GetMana() then
@@ -3101,7 +3100,7 @@ function wraith_hunter_think(event)
 	if target:HasModifier("modifier_bahamut_sphere_of_divinity") then
 		local divinityAbility = target:FindAbilityByName("bahamut_arcana_orb")
 		local manaDrainPerSecond = divinityAbility:GetLevelSpecialValueFor("mana_drain_per_second", divinityAbility:GetLevel())
-		ability.wraith_mana = math.max(ability.wraith_mana - target:GetMaxMana() * manaDrainPerSecond * 0.03 / 100, 0)
+		ability.wraith_mana = math.max(ability.wraith_mana - target:GetMaxMana() * manaDrainPerSecond * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/10000, 0)
 	end
 	target:SetMana(ability.wraith_mana)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_wraith_hunter_attack_increase", {})
@@ -3112,7 +3111,7 @@ function wraith_hunter_take_damage(event)
 	local target = event.unit
 	local damage = event.attack_damage
 	local ability = event.ability
-	local manaRestore = math.max(math.floor(damage * 0.03), 1)
+	local manaRestore = math.max(math.floor(damage * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/100), 1)
 	ability.wraith_mana = math.min(ability.wraith_mana + manaRestore, target:GetMaxMana())
 	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active_bubbles.vpcf", target, 1)
 end
@@ -3120,7 +3119,7 @@ end
 function wraith_hunter_attack(event)
 	local attacker = event.attacker
 	local ability = event.ability
-	local manaSpent = math.min(attacker:GetMaxMana() * 0.02, attacker:GetMana())
+	local manaSpent = math.min(attacker:GetMaxMana() * WRAITH_HUNTER_MANA_DRAIN_PCT/100, attacker:GetMana())
 	ability.wraith_mana = math.max(ability.wraith_mana - manaSpent, 0)
 	if attacker:HasModifier("modifier_bluestar_armor") then
 		local target = attacker
@@ -3625,8 +3624,8 @@ function autumn_sleeper_root_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not target:HasModifier("modifier_autumn_sleeper_root_immunity") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root", {duration = 3})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root_immunity", {duration = 10})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root", {duration = AUTUMN_SLEEPER_ROOT_DUR})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root_immunity", {duration = AUTUMN_SLEEPER_ROOT_DUR_IMMUNITY})
 	end
 end
 
@@ -3635,7 +3634,7 @@ function eye_of_seasons_think(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	local stats = math.floor(target:GetBaseIntellect() * 0.35)
+	local stats = math.floor(target:GetBaseIntellect() * EYE_OF_SEASONS_INT_TO_STR_AGI)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_eye_of_seasons_stats", {})
 	target:SetModifierStackCount("modifier_eye_of_seasons_stats", caster, stats)
 end
@@ -3696,7 +3695,7 @@ function silent_templar_attack_land(event)
 	if not target.dummy then
 		local ability = event.ability
 		local attacker = event.attacker
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 60
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * SILENT_TEMPLAR_ATTACK_TO_DAMAGE
 		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_DEMON)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", target, 2.5)
 		EmitSoundOn("Item.SilentWatch.Hit", target)
@@ -3881,7 +3880,7 @@ function shipyard_veil_lvl_3_hit(event)
 	if not caster then
 		return false
 	end
-	local damage = Filters:GetPrimaryAttributeMultiple(caster, ability:GetLevelSpecialValueFor("property_three", 1))
+	local damage = Filters:GetPrimaryAttributeMultiple(caster, ability:GetLevelSpecialValueFor("property_three", SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG))
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 end
 
@@ -4179,7 +4178,7 @@ end
 function crimson_skull_cap_kill(event)
 	local caster = event.caster.hero
 	local target = event.unit
-	local damage = target:GetMaxHealth() * 0.5
+	local damage = target:GetMaxHealth() * CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE/100
 	local particleName = "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"
 	local shadowFlarePos = GetGroundPosition(target:GetAbsOrigin(), caster)
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
@@ -4197,7 +4196,7 @@ function crimson_skull_cap_kill(event)
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
 	EmitSoundOn("RPCItem.CrimsonSkullCap.Explode", target)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, CRIMSON_SKULL_CAP_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
@@ -4209,7 +4208,7 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * IGNEOUS_CANINE_ATTACK_TO_DMG
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
@@ -4642,7 +4641,7 @@ function flamethrower_init(event)
 	local ability = event.ability
 	ability.interval = -4
 	ability.rising = true
-	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * 2.00
+	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * BURNING_SPIRIT_ATTACK_TO_DAMAGE/100
 	ability.origCaster = target
 	flamethrower_thinking(event)
 end
@@ -4703,7 +4702,7 @@ function flamethrower_impact(event)
 	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_R_SLOT)
 	local currentCD = ulti:GetCooldownTimeRemaining()
 	ulti:EndCooldown()
-	ulti:StartCooldown(currentCD - 0.5)
+	ulti:StartCooldown(currentCD - BURNING_SPIRIT_CD_RED)
 end
 
 function aquasteel_take_damage(event)
@@ -4796,12 +4795,12 @@ function shark_helmet_attack_land(event)
 	local ability = event.ability
 
 	if not attacker:HasModifier("modifier_dark_reef_shark_effect") then
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_stacks", {duration = 20})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_stacks", {duration = DARK_REEF_SHARK_HELMET_PASSIVE_DURATION})
 	end
 	local newStacks = attacker:GetModifierStackCount("modifier_dark_reef_shark_stacks", caster) + 1
-	if newStacks >= 7 then
+	if newStacks >= DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS then
 		attacker:RemoveModifierByName("modifier_dark_reef_shark_stacks")
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_effect", {duration = 1.5})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_effect", {duration = DARK_REEF_SHARK_HELMET_ACTIVE_DURATION})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/items/shark_helmet.vpcf", attacker, 1)
 		EmitSoundOn("RPCItem.SharkHelmet.Activate", attacker)
 	else
@@ -4842,22 +4841,22 @@ function sea_oracle_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_stacker", {duration = 8})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_stacker", {duration = HOOD_OF_SEA_ORACLE_DURATION})
 	local currentMainStacks = target:GetModifierStackCount("modifier_sea_oracle_stacker", caster)
-	local newStacks = math.min(target:GetModifierStackCount("modifier_sea_oracle_stacker", caster) + 1, 15)
+	local newStacks = math.min(target:GetModifierStackCount("modifier_sea_oracle_stacker", caster) + 1, HOOD_OF_SEA_ORACLE_MAX_STACKS)
 	target:SetModifierStackCount("modifier_sea_oracle_stacker", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_health_loss", {duration = 8})
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_armor_loss", {duration = 8})
-	if currentMainStacks < 15 then
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_health_loss", {duration = HOOD_OF_SEA_ORACLE_DURATION})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_armor_loss", {duration = HOOD_OF_SEA_ORACLE_DURATION})
+	if currentMainStacks < HOOD_OF_SEA_ORACLE_MAX_STACKS then
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact_d.vpcf", target, 2)
 		ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin())
-		local attackerReduce = target:GetAttackDamage() * 0.05
+		local attackerReduce = target:GetAttackDamage() * HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT/100
 		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_health_loss", caster)
 		local newStacks = currentStacks + attackerReduce
 		target:SetModifierStackCount("modifier_sea_oracle_health_loss", caster, newStacks)
 
-		local armorReduce = target:GetPhysicalArmorValue(false) * 0.05
+		local armorReduce = target:GetPhysicalArmorValue(false) * HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT/100
 		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_armor_loss", caster)
 		local newStacks = currentStacks + armorReduce
 		target:SetModifierStackCount("modifier_sea_oracle_armor_loss", caster, newStacks)
@@ -5580,7 +5579,7 @@ end
 function mugato_attack(event)
 	local attacker = event.attacker
 
-	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = 0.6})
+	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = MUGATO_ATTACK_SILENCE_DUR})
 end
 
 function stormcloth_think(event)

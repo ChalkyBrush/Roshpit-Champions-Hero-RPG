@@ -9096,8 +9096,8 @@
 				"Duration"  "5"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "30"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "<% DEATH_WHISPER_DAMAGE_AMP_PCT %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% DEATH_WHISPER_SLOW %>"
 				}
 				"OnCreated"
 				{
@@ -61753,7 +61753,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "0.25"
+				"ThinkInterval"  "<% ROKNAR_EMPEROR_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

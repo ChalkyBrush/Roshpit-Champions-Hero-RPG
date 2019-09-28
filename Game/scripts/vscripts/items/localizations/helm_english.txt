@@ -17,7 +17,7 @@
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
-		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (0.1 second cooldown). Max @special_property1 stacks. Each stack increases Base Ability damage of @Ability1 by @special_property2%. Enemies who damage the shield are targeted by a skull that deals<br>@special_property3x your primary attribute as magic damage."
+		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
@@ -31,14 +31,14 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
-		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based on @special_property1x your Intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by @special_property2% for each 10 points of Intelligence."
+		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based <% WHITE_MAGE_INT_TO_HEAL %>x your Intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by <% WHITE_MAGE_BAD_PER_INT %>% for each <% WHITE_MAGE_INT_DIVISOR %> points of Intelligence."
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"@special_property1% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on @special_property2x your attack power. Reduces your Base Attack Time by @special_property3 seconds.<br>All damage dealt directly by items is enhanced by @special_property4% for each 10 points of Agility."
+		"property_hyper_visor2_description"			"<% HYPER_VISOR_CHANCE %>% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on <% HYPER_VISOR_ATTACK_TO_DMG %>x your attack power. Changes your Base Attack Time to <% HYPER_VISOR_BAT %> seconds.<br>All damage dealt directly by items is enhanced by <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% for each <% HYPER_VISOR_AGI_DIVISOR %> points of Agility."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
@@ -48,7 +48,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
-		"property_centaur_horns_description"		"Knockback and Stuns received are capped at 0.03 seconds. Damage instances taken are capped at @special_property1% of max health. Taking damage from any source other than Centaur Horns disables all healing for @special_property2 seconds. Take 1 pure damage every 0.03 seconds."
+		"property_centaur_horns_description"		"Knockback and Stuns received are capped at <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> seconds. Damage instances taken are capped at <% CENTAUR_HORNS_DAMAGE_CAP %>% of max health. Taking damage from any source other than Centaur Horns disables all healing for <% CENTAUR_HORNS_DEBUFF_DURATION %> seconds. Take <% CENTAUR_HORNS_SELF_DMG %> pure damage every <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> seconds."
 		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
 		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Healing disabled"
 		
@@ -58,24 +58,24 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
 		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"All enemies struck by @Ability1 take 30% increased Post-mitigation damage from all sources and are slowed by 100 for 5 seconds."
+		"property_death_whisper_description"		"All enemies struck by @Ability1 take <% DEATH_WHISPER_DAMAGE_AMP_PCT %>% increased Post-mitigation damage from all sources and are slowed by <% DEATH_WHISPER_SLOW %> for <% DEATH_WHISPER_DURATION %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"@special_property1% chance to root enemies that damage you for @special_property2 seconds, dealing @special_property3x your primary attribute as damage every second."
+		"property_wild_nature_description"			"<% CAP_OF_WILD_NATURE_CHANCE_ONE %> chance to root enemies that damage you for <% CAP_OF_WILD_NATURE_DURATION_ONE %> seconds, dealing <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a @special_property1% chance to be rooted for @special_property2 seconds, taking @special_property3x your primary attribute as damage every second."
+		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% chance to be rooted for <% CAP_OF_WILD_NATURE_DURATION_TWO %> seconds, taking <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into lucent beams instead, dealing @special_property2% of the ability's damage and providing flying vision over the target for 4 seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at 5000%."
+		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <% LUMA_BEAM_CHANCE %>% chance to be converted into lucent beams instead, dealing <% LUMA_DAMAGE_AMP %>% of the ability's damage and providing flying vision over the target for <% LUMA_VISION_DURATION %> seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at <% LUMA_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"All instances of damage dealt have a @special_property1% chance to be multiplied by @special_property2. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
+		"property_odin_description"					"All instances of damage dealt have a <% ODIN_HELMET_CHANCE %>% chance to be multiplied by <% ODIN_HELMET_MULT %>. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
@@ -87,34 +87,34 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Casting any spell silences you for @special_property1 seconds, and attacking silences you for @special_property2 seconds. While silenced from any source, your Post-Mitigation damage is increased by @special_property3%."
+		"property_mugato_description" 				"Casting any spell silences you for <% MUGATO_SPELL_SILENCE_DUR %> seconds, and attacking silences you for <% MUGATO_ATTACK_SILENCE_DUR %> seconds. While silenced from any source, your Post-Mitigation damage is increased by <% MUGATO_POST_MITI_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
 		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of spectral bats in front of you, dealing @special_property1x your Intelligence as damage. Enemies hit by the wave take @special_property2% increased post-mitigation damage for 8 seconds, stacking up to 10 times."
+		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of spectral bats in front of you, dealing <% SWAMP_WITCH_HAT_INT_TO_DMG %>x your Intelligence as damage. Enemies hit by the wave take <% SWAMP_WITCH_HAT_POST_MITI %>% increased post-mitigation damage for <% SWAMP_WITCH_HAT_DURATION %> seconds, stacking up to <% SWAMP_WITCH_HAT_MAX_STACKS %> times."
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Taking 15% increased post-mitigation damage per stack."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"            "Each cast of @Ability2 instantly moves you 380 units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between 0.5 to 2.5. Each instance of @Ability2 damage is further multiplied by a random factor of 0.1 to 6."
+		"property_trickster_description"            "Each cast of @Ability2 instantly moves you <% TRICKSTER_MASK_RANGE %> units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> to <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Each instance of @Ability2 damage is further multiplied by a random factor of <% TRICKSTER_MASK_W_DMG_MULT_MIN %> to <% TRICKSTER_MASK_W_DMG_MULT_MAX %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"50% of damage taken is removed from mana instead of health. The damage taken from mana is reduced by 66%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_MANA_DAMAGE %>% of damage taken is removed from mana instead of health. Each point of mana damage is calculated as <% EMERALD_DOULI_MANA_DAMAGE_REDUCTION %> points of HP damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of Strength additionally increases max health by 10 and max mana by 4."
+		"property_tyrius_description"				"Each point of Strength additionally increases max health by <% TYRIUS_HP_PER_STR %> and max mana by <% TYRIUS_MANA_PER_STR %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
 		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"@Ability2 costs @special_property1% more mana and deals @special_property2% increased damage."
+		"property_cerulean_highguard_description"	"@Ability2 costs <% CERULEAN_HIGHGUARD_MANA_INCREASE %>% more mana and deals <% CERULEAN_HIGHGUARD_BAD %>% increased damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
@@ -125,17 +125,17 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
 		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 deals @special_property1x increased Base Ability Damage and has an extra 4 seconds added to its cooldown."
+		"property_phantom_sorcerer_description"		"@Ability2 has <% PHANTOM_SORCERER_BAD %>% more Base Ability Damage and has an extra <% PHANTOM_SORCERER_CD_INCREASE %> seconds added to its cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Drains @special_property1% of your max mana every @special_property2 seconds. All enemies within 750 range take up to @special_property3x the mana drained as Magic Damage and also receive a -@special_property4 Magic Resistance debuff. Damage is reduced when hero is below level 120."
+		"property_arcane_cascade_description"		"Drains <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% of your max mana every <% ARCANE_CASCADE_TICKRATE %> seconds. All enemies within <% ARCANE_CASCADE_RANGE %> range take up to <% ARCANE_CASCADE_DAMAGE %>x the mana drained as Magic Damage and also receive a -<% ARCANE_CASCADE_MAGIC_RESISTANCE_LOSS %> Magic Resistance debuff. Damage is reduced when hero is below level 120."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
-		"property_samurai_helmet_description"		"Your attacks have a @special_property1% chance to deal @special_property2% increased damage. Additionally increases base attack damage by @special_property3x your level."
+		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage. Additionally increases base attack damage by <% ADAMANTINE_SAMURAI_BASE_ATTACK_PER_LVL %>x your level."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
@@ -162,12 +162,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
 		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"35% chance on attack to teleport behind your target and gain max attack speed for 0.8 seconds. Additionally perform 2 immediate bonus attacks on proc."
+		"property_glint_of_onu_description"			"<% GLINT_OF_ONU_CHANCE %>% chance on attack to teleport behind your target and gain max attack speed for <% GLINT_OF_ONU_BUFF_DUR %> seconds. Additionally perform <% GLINT_OF_ONU_NUMBER_OF_BONUS_ATTACKS %> immediate bonus attacks on proc."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
 		"item_property_roknar_emperor"				"Enduring Protection"
-		"property_roknar_emperor_description"		"While stunned or getting knocked back, heal 12% of your max health every 0.25 seconds."
+		"property_roknar_emperor_description"		"While stunned or getting knocked back, heal <% ROKNAR_EMPEROR_HP_PCT %>% of your max health every <% ROKNAR_EMPEROR_TICKRATE %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
@@ -184,42 +184,42 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
 		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Casting @Ability2 makes you disappear for 0.75seconds, unable to attack, cast spells, move, or take damage. 2 second cooldown. Disjoints oncoming projectiles when activated."
+		"property_wraith_description"				"Casting @Ability2 makes you disappear for <% WRAITH_CROWN_DURATION %> seconds, unable to attack, cast spells, move, or take damage. <% WRAITH_CROWN_CD %> second cooldown. Disjoints oncoming projectiles when activated."
 		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a @special_property1% chance to be converted into an infernal spark instead, dealing @special_property2x the ability's damage in a large area around the target."
+		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <% DEMON_MASK_CHANCE %> chance to be converted into an infernal spark instead, dealing <% DEMON_MASK_AMP %>x the ability's damage in a large area around the target."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
 		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Enemies damaged by @Ability2 lose base Armor equal to 70x the ability's level, and take increased Post-Mitigation Magical damage equal to 3% x the ability's level. Stacks up to 5 times. Lasts 10 seconds."
+		"property_umbral_description"				"Enemies damaged by @Ability2 lose base Armor equal to <% CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS %>x the ability's level, and take increased Post-Mitigation Magical damage equal to <% CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC %>% x the ability's level. Stacks up to <% CREST_OF_UMBRAL_SENTINEL_MAX_STACKS %> times. Lasts <% CREST_OF_UMBRAL_SENTINEL_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
 		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Losing a %% of base Armor and taking increased Magical damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"When you cast @Ability3, gain a magic-reflecting shell that reduces Magical damage taken to 0 and damages the enemy instead for @special_property1x the damage and stuns for @special_property2 seconds. Lasts for a duration equal to @special_property3% of the cooldown of the ability, or a minimum of 1 second. Once this occurs, a target is immune to these effects again for @special_property4 seconds."
+		"property_carbuncle_description"						"When you cast @Ability3, gain a magic-reflecting shell that reduces Magical damage taken to 0 and damages the enemy instead for <% CARBUNCLE_DAMAGE_AMP %>x the damage and stuns for <% CARBUNCLE_STUN_DUR %> seconds. Lasts for a duration equal to <% CARBUNCLE_SHIELD_DUR_RELATIVE_PCT %>% of the cooldown of the ability, or a minimum of <% CARBUNCLE_SHIELD_DUR_MIN %> second. Once this occurs, a target is immune to these effects again for <% CARBUNCLE_ENEMY_IMMUNITY_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical damage taken reduced to 0 and reflected back at the source, dealing increased damage and stunning."
 
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
 		"item_property_grithault"								"Pain Reversal"
-		"property_grithault_description"						"24% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
+		"property_grithault_description"						"<% GRITHAULT_CHANCE %>% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. 3% of damage taken restores mana. Each point of mana increases base attack damage by 5. Attacking drains 2% of your max mana. Additionally increases damage of @Ability2 by 350%."
+		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% of damage taken restores mana. Each point of mana increases base attack damage by <% WRAITH_HUNTER_BASE_ATTACK %>. Attacking drains <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% of your max mana. Additionally increases damage of @Ability2 by <% WRAITH_HUNTER_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
 		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"                "Enemies hit by @Ability2 receive a debuff that reduces their current total Armor by 15%, and causes them to take 25% increased Post-Mitigation Physical damage from all sources. Stacks up to 5 times and lasts 9 seconds. Grants bonus attack damage by 0.5% for each target hit, up to 100 stacks."
+		"property_hood_of_defiler_description"                "Enemies hit by @Ability2 receive a debuff that reduces their current total Armor by <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>%, and causes them to take <% HOOD_OF_DEFILER_POST_MITI_PHYS %>% increased Post-Mitigation Physical damage from all sources. Stacks up to <% HOOD_OF_DEFILER_POST_MITI_MAX_STACKS %> times and lasts <% HOOD_OF_DEFILER_DURATION %> seconds. Grants bonus attack damage by <% HOOD_OF_DEFILER_BONUS_ATTACK_DMG_PER_TARGET %>% for each target hit, up to <% HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG %> stacks."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased Physical damage."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
@@ -228,34 +228,34 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
 		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"Damage dealt directly by items is increased by 0.5% for each 10 points of Intelligence."
+		"property_excavator_description"					"Damage dealt directly by items is increased by <% EXCAVATOR_ITEM_AMP_PER_INT %>% for each <% EXCAVATOR_INT_DIVISOR %> points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as Magiacl damage. Increases the duration of all your stuns by 35%."
+		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as Magical damage. Increases the duration of all your stuns by <% STORMCRACK_STUN_DURATION_AMP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by 280%. Damage dealt directly by items is reduced by 80%."
+		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by <% BLACK_MAGE_MAGIC_POST_MITI %>%. Damage dealt directly by items is reduced by <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
 		"item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Enemies that come within 900 range of you are immediately rooted for 3 seconds. Casting @Ability4 roots all enemies in a 1200 radius for 4 seconds."
+		 "property_autumn_sleeper_description"				"Enemies that come within <% AUTUMN_SLEEPER_RADIUS %> range of you are immediately rooted for <% AUTUMN_SLEEPER_ROOT_DUR %> seconds. Casting @Ability4 roots all enemies in a <% AUTUMN_SLEEPER_RADIUS_R %> radius for <% AUTUMN_SLEEPER_ROOT_DUR_R %> seconds."
 		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
 		 
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Increases Strength and Agility by @special_property1% of Intelligence."
+		 "property_eye_of_seasons_description"				"Increases Strength and Agility by <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %>% of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
 		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for @special_property1 seconds. During this time, attack speed is increased by @special_property2 and attacks deal an additional @special_property3% Magical damage."
+		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for <% SILENT_TEMPLAR_DURATION %> seconds. During this time, attack speed is increased by <% SILENT_TEMPLAR_AS %> and attacks deal an additional <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% Magical damage."
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
 		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Silenced. +240 attack speed and attacks deal additional Magical damage."
 		 
@@ -263,41 +263,41 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max @special_property2 attacks per @special_property1 seconds. Each enemy hit by these attacks increases your attack damage by 2% for 30 seconds, but these stacks are lost when you cast @Ability3."
+		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max <% WIND_DEITY_CROWN_ATTACK_LIMIT %> attacks per <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> seconds. Each enemy hit by these attacks increases your attack damage by <% WIND_DEITY_CROWN_BONUS_DMG %>% for <% WIND_DEITY_CROWN_BONUS_DMG_DURATION %> seconds, but these stacks are lost when you cast @Ability3."
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing 100% of the ability's damage and slowing the enemy's movement speed by 60% for 6 seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at 5000%."
+		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing <% WATER_DEITY_CROWN_DAMAGE_AMP %>% of the ability's damage and slowing the enemy's movement speed by <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% for <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at <% WATER_DEITY_CROWN_ELEMENT_CAP %>%."
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability2 damage instances have a @special_property1% chance to be converted into pyroclastic blasts instead, dealing @special_property2% of the ability's damage and stunning enemies for 0.6 seconds in a small area around the target. This item caps your <font color=\"#EF4126\">Fire</font> elemental damage bonus at 5000%."
+		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability2 damage instances have a <% FIRE_DEITY_CROWN_CHANCE %>% chance to be converted into pyroclastic blasts instead, dealing <% FIRE_DEITY_CROWN_AMP %>% of the ability's damage and stunning enemies for <% FIRE_DEITY_CROWN_STUN_DURATION %> seconds in a small area around the target. This item caps your <font color=\"#EF4126\">Fire</font> elemental damage bonus at <% FIRE_DEITY_CROWN_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		 "property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal @special_property1% of their max health to surrounding enemies as Magical damage."
+		 "property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% of their max health to surrounding enemies as Magical damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
 		"item_property_lords"									"Commanding Sight"
-		 "property_lords_description"							"Ability cooldowns are reduced by @special_property1 second and have @special_property2 extra cast range. Abilities begin their cast time even before you fully turn to face the target."
+		 "property_lords_description"							"Ability cooldowns are reduced by <% HOOD_OF_LORDS_CD_RED %> second and have <% HOOD_OF_LORDS_BONUS_RANGE %> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for @special_property4 seconds times its ability level, and leaves a pool of lava that slows movespeed by @special_property2 and attack speed by @special_property1. Enemies in the lava take @special_property3x your attack damage each 0.5 seconds."
+		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for <% IGNEOUS_CANINE_STUN_DURATION %> seconds times its ability level, and leaves a pool of lava that slows movespeed by <% IGNEOUS_CANINE_MOVESPEED_SLOW %> and attack speed by <% IGNEOUS_CANINE_AS_SLOW %>. Enemies in the lava take <% IGNEOUS_CANINE_ATTACK_TO_DMG %>x your attack damage each <% IGNEOUS_CANINE_LAVA_INTERVAL %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing instances of @special_property1% of attack damage while the stream persists. Each enemy hit by a flame burst reduces the current cooldown of @Ability4 by @special_property2 seconds."
+		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing instances of <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% of attack damage while the stream persists. Each enemy hit by a flame burst reduces the current cooldown of @Ability4 by <% BURNING_SPIRIT_CD_RED %> seconds."
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
@@ -307,17 +307,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by 40%."
+		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by 1 second."
+		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> second."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by 40%."
+		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
@@ -326,14 +326,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
 		"property_sea_oracle"												"Tideworn Strikes"
-		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage and Armor of the target by @special_property1%. Stacks up to @special_property2 times. You deal @special_property3% increased Post-Mitigation damage to targets with max stacks."
+		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage and Armor of the target by <% HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT %>%. Stacks up to <% HOOD_OF_SEA_ORACLE_MAX_STACKS %> times. You deal <% HOOD_OF_SEA_ORACLE_POST_MITI %>% increased Post-Mitigation damage to targets with max stacks."
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and Armor. If at 15 stacks, take extra damage from the debuff's source."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
 		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"Passively grants @special_property2% bonus attack damage. After performing 7 attacks, gain @special_property1% attack power for 1.5 seconds. This is applied as a multiplier to your current total attack damage at activation time."
+		"property_shark_helmet_Description"									"Passively grants <% DARK_REEF_SHARK_HELMET_PASSIVE_BONUS %>% bonus attack damage. After performing <% DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS %> attacks, gain <% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>% attack power for <% DARK_REEF_SHARK_HELMET_ACTIVE_DURATION %> seconds. This is applied as a multiplier to your current total attack damage at activation time."
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At 7 stacks, activate Shark Bite"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
@@ -347,12 +347,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Increases max health by @special_property1%. While above 80% of max health, reduce all incoming damage by @special_property2%."
+		"property_mountain_giant_description"						"Increases max health by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. While above <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% of max health, reduce all incoming damage by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
 		"item_property_chains_of_orthok"							"Binding Zeal"
-		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add 1 zeal stack. Casting @Ability1 and @Ability3 add 5 zeal stacks. Casting @Ability4 adds 12 zeal stacks. Each stack increases Base Ability Damage by @special_property1%. Each stack lasts 10 seconds and has its own individual duration."
+		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add <% ORTHOK_W_CAST_STACKS %> zeal stack. Casting @Ability1 and @Ability3 add <% ORTHOK_Q_E_CAST_STACKS %> zeal stacks. Casting @Ability4 adds <% ORTHOK_R_CAST_STACKS %> zeal stacks. Each stack increases Base Ability Damage by <% ORTHOK_STACK_BAD %>%. Each stack lasts <% ORTHOK_STACK_DURATION %> seconds and has its own individual duration."
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"
 
