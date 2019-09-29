@@ -186,7 +186,7 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"(T1) Глиф скольжения"
-		"item_rpc_slipfinn_glyph_1_1_description" 				"Снижает трение о землю на <% 100 - SLIPFINN_GLYPH_1_1_FRICTION_MULT*100 %>%."
+		"item_rpc_slipfinn_glyph_1_1_description" 				"Снижает трение о землю на <% SLIPFINN_GLYPH_1_1_FRICTION_MULT * 100%>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"(T2) Глиф далеких прыжков"
 		"item_rpc_slipfinn_glyph_2_1_description" 				"Увеличивает подъемную силу при Дальнем прыжке на <% SLIPFINN_GLYPH_2_1_JUMP_FORCE %>."
