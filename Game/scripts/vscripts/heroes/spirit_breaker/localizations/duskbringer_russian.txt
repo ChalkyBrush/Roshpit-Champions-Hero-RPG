@@ -270,7 +270,7 @@
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"(T1-2) Glyph of Eerie Silence"
 		"item_rpc_duskbringer_glyph_1_2_description" 				"Во время безмолвия, регенерация здоровья увеличивается на <% DUSKBRINGER_GLYPH_1_2_HPREG %>% от макс. здоровья. Бонус продлится еще <% DUSKBRINGER_GLYPH_1_2_BASE_DUR %> сек. после окончания безмолвия."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2-2) "Glyph of Blank Combustion"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2-2) Glyph of Blank Combustion"
 		"item_rpc_duskbringer_glyph_2_2_description" 				"При атаке по врагу накладывается <% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %> заряда(ов) [Q1] Duskfire Flail вместо 1."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"(T3-2) Glyph of Churning"
