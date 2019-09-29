@@ -8903,6 +8903,16 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_agility_movespeed"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
+				}
+			}
 			"modifier_agility_armor"
 			{
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"

@@ -1321,6 +1321,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damage = damage + attacker:GetHealth() * SOLUNIA_ARCANA_Q2_SPELL_DMG_FLAT_HP_PCT/100 * q_2_level
             end
         end
+        if attacker:IsRealHero() then
+            damageMult = damageMult + attacker:GetSpirit()*(CustomAttributes.BAD_PER_SPIRIT/100)
+        end
         if attacker:HasModifier("modifier_watcher_two") then
             damageMult = damageMult + WATCHER_II_BAD/100
         end

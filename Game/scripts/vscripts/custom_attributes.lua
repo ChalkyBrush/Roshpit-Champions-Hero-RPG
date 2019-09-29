@@ -21,16 +21,23 @@ require('items/constants/gloves')
 require('items/constants/helm')
 require('items/constants/trinket')
 
-CustomAttributes.HEALTH_PER_STR = 20
+CustomAttributes.HEALTH_PER_STR = 10
 CustomAttributes.HEALTH_REGEN_PER_STR = 0.1
+CustomAttributes.ARMOR_PER_STR = 1
 
-CustomAttributes.ATTACKSPEED_PER_AGI = 0.04
-CustomAttributes.ARMOR_PER_AGI = 0.14
+CustomAttributes.ATTACKSPEED_PER_AGI = 0.5
+CustomAttributes.MOVESPEED_PER_AGI = 0.1
+CustomAttributes.ARMOR_PIERCE_PER_AGI = 1
 
 CustomAttributes.MANA_PER_INT = 5
 CustomAttributes.MANA_REGEN_PER_INT = 0.1
+CustomAttributes.SPELL_PIERCE_PER_INT = 1
 
-CustomAttributes.ATK_DMG_PER_PRIMARY = 2
+CustomAttributes.STATUS_RESIST_PER_SPIRIT = 0.01
+CustomAttributes.BAD_PER_SPIRIT = 0.1
+CustomAttributes.MAGIC_ARMOR_PER_SPIRIT = 1
+
+CustomAttributes.ATK_DMG_PER_PRIMARY = 1
 
 CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
@@ -288,7 +295,7 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitArmorPierce(unit:GetKeyValue("RoshpitArmorPierce", false))
 		unit:SetBaseRoshpitSpellPierce(unit:GetKeyValue("RoshpitSpellPierce", false))
 	end
-	unit:CalculateAndSaveAllAttributes()
+	unit:CalculateAndSaveRoshpitAttributes()
 end
 
 function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)
@@ -327,7 +334,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitArmorPierce(amount)
 	return amount
 end
 
-function CDOTA_BaseNPC:CalculateAndSaveAllAttributes()
+function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	self:CalculateAndSaveRoshpitArmor()
 	self:CalculateAndSaveRoshpitMagicArmor()
 	self:CalculateAndSaveRoshpitArmorPierce()
@@ -337,6 +344,9 @@ end
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	local unit = self
 	local armor = unit.roshpit_attributes.roshpit_armor
+	if unit:IsRealHero() then
+		armor = armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
+	end
 	unit:SetRoshpitArmor(armor)
 	return armor
 end
@@ -344,6 +354,9 @@ end
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	local unit = self
 	local magic_armor = unit.roshpit_attributes.roshpit_magic_armor
+	if unit:IsRealHero() then
+		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
+	end
 	unit:SetRoshpitMagicArmor(magic_armor)
 	return magic_armor
 end
@@ -351,6 +364,9 @@ end
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	local unit = self
 	local armor_pierce = unit.roshpit_attributes.roshpit_armor_pierce
+	if unit:IsRealHero() then
+		armor_pierce = armor_pierce + unit:GetAgility()*CustomAttributes.ARMOR_PIERCE_PER_AGI
+	end
 	unit:SetRoshpitArmorPierce(armor_pierce)
 	return armor_pierce
 end
@@ -358,6 +374,9 @@ end
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	local unit = self
 	local spell_pierce = unit.roshpit_attributes.roshpit_spell_pierce
+	if unit:IsRealHero() then
+		spell_pierce = spell_pierce + unit:GetIntellect()*CustomAttributes.SPELL_PIERCE_PER_INT
+	end
 	unit:SetRoshpitSpellPierce(spell_pierce)
 	return spell_pierce
 end
@@ -903,7 +922,6 @@ function CustomAttributes:SetAttributes(hero)
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus
 	hero.spirit_bonus = spirit_bonus
-
 	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), spirit = tostring(spirit)})
 end
 
@@ -997,12 +1015,10 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	end
 	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility * CustomAttributes.ATTACKSPEED_PER_AGI * halcyon)
 
-	-- if not hero:HasModifier("modifier_agility_armor") then
-	-- ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_armor", {})
-	-- end
-	-- hero:SetModifierStackCount("modifier_agility_armor", caster, agility*CustomAttributes.ARMOR_PER_AGI)
-	local armor = agility * CustomAttributes.ARMOR_PER_AGI * halcyon + 10
-	hero:SetPhysicalArmorBaseValue(armor)
+	if not hero:HasModifier("modifier_agility_movespeed") then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_movespeed", {})
+	end
+	hero:SetModifierStackCount("modifier_agility_movespeed", caster, agility * CustomAttributes.MOVESPEED_PER_AGI * halcyon)
 
 	if not hero:HasModifier("modifier_int_mana") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana", {})
@@ -1020,6 +1036,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	end
 	hero:SetModifierStackCount("modifier_primary_attribute_damage", caster, damage_from_primary)
 	hero:CalculateStatBonus()
+	hero:CalculateAndSaveRoshpitAttributes()
 end
 
 function CustomAttributes:GetMaxHealth(hero, excludedModifier)
@@ -1109,8 +1126,16 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1) * 100)
 	tableData.roshpit_armor = unit:CalculateAndSaveRoshpitArmor()
 	tableData.roshpit_armor_pierce = unit:CalculateAndSaveRoshpitArmorPierce()
-	tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor
-	tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor
+	if unit:IsRealHero() then
+		tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
+	else
+		tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor
+	end
+	if unit:IsRealHero() then
+		tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
+	else
+		tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor
+	end
 	tableData.roshpit_magic_armor = unit:CalculateAndSaveRoshpitMagicArmor()
 	tableData.roshpit_spell_pierce = unit:CalculateAndSaveRoshpitSpellPierce()
 	local level = unit:GetLevel()

@@ -664,6 +664,7 @@
 		"item_armor_pierce"			"Armor Pierce"
 		"item_spell_pierce"			"Spell Pierce"
 		"item_magic_armor"			"Magic Armor"
+		"bonus_magic_armor"			"Bonus Magic Armor"
 		"item_status_resist"		"Status Resist"
 		"ui_base_ability_damage"	"Base Ability"
 		"tooltip_magic_armor"		"Magic Armor Resist"

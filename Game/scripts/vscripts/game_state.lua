@@ -538,6 +538,16 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
    -- entindex_caster_const           	= 606 (number)
    -- name_const                      	= "modifier_name" (string)
 	local target = EntIndexToHScript(modifierGainedTable["entindex_parent_const"])
+	if target:IsRealHero() then
+		-- handle spirit status resist
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if modifierGainedTable["entindex_ability_const"] then
+			local duration_modifier = target:GetSpirit()*CustomAttributes.STATUS_RESIST_PER_SPIRIT
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+			end
+		end
+	end
 	if target:HasModifier("modifier_radium_spores") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if modifierGainedTable["entindex_ability_const"] then

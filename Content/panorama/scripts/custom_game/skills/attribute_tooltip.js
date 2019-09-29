@@ -216,11 +216,11 @@ function initializeTooltip(func){
 	resist = (parseInt(resist*100000))/1000
 	$('#def_3_right').text = resist+"%"
 
-	$('#def_4_left').text = $.Localize("#item_armor")
+	$('#def_4_left').text = $.Localize("#item_magic_armor")
     var magic_armor = GameUI.StatQueryData.base_roshpit_magic_armor
 	$('#def_4_right').text = numberWithCommas(magic_armor)
 	var bonus_magic_armor = parseInt(GameUI.StatQueryData.roshpit_magic_armor - GameUI.StatQueryData.base_roshpit_magic_armor)
-	$('#def_5_left').text = $.Localize("#ui_bonus_armor")
+	$('#def_5_left').text = $.Localize("#bonus_magic_armor")
 	if (bonus_magic_armor >= 0){
 		$('#def_5_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonus_magic_armor)+"</font>"
 	}else{
