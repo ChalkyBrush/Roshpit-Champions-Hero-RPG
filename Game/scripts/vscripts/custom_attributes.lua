@@ -307,28 +307,28 @@ function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	local hero = self
 	local strength = hero:GetKeyValue("RoshpitStrength", nil)
 	strength = strength + self:GetLevel()*hero:GetKeyValue("RoshpitStrengthGain", nil)
-	hero.strength_custom = strength
+	hero.strength_custom = math.floor(strength)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 	local hero = self
 	local agility = hero:GetKeyValue("RoshpitAgility", nil)
 	agility = agility + self:GetLevel()*hero:GetKeyValue("RoshpitAgilityGain", nil)
-	hero.agility_custom = agility
+	hero.agility_custom = math.floor(agility)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 	local hero = self
 	local intellect = hero:GetKeyValue("RoshpitIntelligence", nil)
 	intellect = intellect + self:GetLevel()*hero:GetKeyValue("RoshpitIntelligenceGain", nil)
-	hero.intellect_custom = intellect
+	hero.intellect_custom = math.floor(intellect)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
 	local hero = self
 	local spirit = hero:GetKeyValue("RoshpitSpirit", nil)
 	spirit = spirit + self:GetLevel()*hero:GetKeyValue("RoshpitSpiritGain", nil)
-	hero.spirit_custom = spirit
+	hero.spirit_custom = math.floor(spirit)
 end
 
 function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)
@@ -416,14 +416,15 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitArmor(amount)
 	local unit = self
-	if not unit:HasModifier("modifier_roshpit_armor") then
-		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor", {})
-	end
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor", Events.GameMaster, amount)
 	if amount < 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_armor", {})
 	else
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
+	end
+	if unit:IsRealHero() then
+		-- print(unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster))
 	end
 	return amount
 end
@@ -441,9 +442,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitMagicArmor(amount)
 	local unit = self
-	if not unit:HasModifier("modifier_roshpit_magic_armor") then
-		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_magic_armor", {})
-	end
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_magic_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster, amount)
 	if amount < 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_magic_armor", {})
@@ -466,9 +465,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitArmorPierce(amount)
 	local unit = self
-	if not unit:HasModifier("modifier_roshpit_armor_pierce") then
-		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor_pierce", {})
-	end
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor_pierce", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster, amount)
 	return amount
 end
@@ -481,9 +478,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitSpellPierce(amount)
 	local unit = self
-	if not unit:HasModifier("modifier_roshpit_spell_pierce") then
-		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_spell_pierce", {})
-	end
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_spell_pierce", {})
 	unit:SetModifierStackCount("modifier_roshpit_spell_pierce", Events.GameMaster, amount)
 	return amount
 end

@@ -121,7 +121,6 @@ function LoadGameKeyValues()
             end
         end
     end
-    DeepPrintTable(KeyValues.All)
     -- Merge units and heroes (due to them sharing the same class CDOTA_BaseNPC)
     for key,value in pairs(KeyValues.HeroKV) do
         if not KeyValues.UnitKV[key] then
