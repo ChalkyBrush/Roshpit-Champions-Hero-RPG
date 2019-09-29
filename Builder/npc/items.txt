@@ -7699,7 +7699,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "<% HYPER_VISOR_BAT %>"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT" "<% HYPER_VISOR_BAT %>"
 				}
 			}
 		}

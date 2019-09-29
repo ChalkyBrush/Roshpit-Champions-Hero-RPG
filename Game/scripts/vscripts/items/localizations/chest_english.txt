@@ -189,7 +189,7 @@
 		"item_property_windsteel_armor"				"Fluttering Guard"
 		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by <% WINDSTEEL_EVASION %>% and increases movespeed by <% WINDSTEEL_MOVESPEED %>. Lasts <% WINDSTEEL_DURATION %> seconds. <% WINDSTEEL_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining 50% evasion and 100 movespeed."
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <% WINDSTEEL_EVASION %>% evasion and <% WINDSTEEL_MOVESPEED %> movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
 		
 		
@@ -273,7 +273,7 @@
 		"item_property_sacred_trials"						"Combat Trial"
 		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% bonus Magical damage in an area."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals %property_one%%% Magical damage in a small area"
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% Magical damage in a small area"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"Heroic Conqueror Vestments"

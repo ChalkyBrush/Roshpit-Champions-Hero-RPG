@@ -335,7 +335,7 @@
 		"property_shark_helmet"												"Shark Bite"
 		"property_shark_helmet_Description"									"Passively grants <% DARK_REEF_SHARK_HELMET_PASSIVE_BONUS %>% bonus attack damage. After performing <% DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS %> attacks, gain <% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>% attack power for <% DARK_REEF_SHARK_HELMET_ACTIVE_DURATION %> seconds. This is applied as a multiplier to your current total attack damage at activation time."
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At 7 stacks, activate Shark Bite"
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At <% DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS %> stacks, activate Shark Bite"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Attack damage greatly increased"
 		

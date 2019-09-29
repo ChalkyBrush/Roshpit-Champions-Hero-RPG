@@ -1,17 +1,17 @@
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"蓝雨手套"
 		"item_property_blue_rain"								"雨浪"
-		"property_blue_rain_description"						"攻击不会落空。同时攻击有 15% 的几率制造一道水浪，水浪对一条直线上的敌人造成 7500% 攻击力的伤害。"
+		"property_blue_rain_description"						"攻击不会落空。同时攻击有 <% BLUE_RAIN_CHANCE %>% 的几率制造一道水浪，水浪对一条直线上的敌人造成 <% BLUE_RAIN_DMG_PER_ATT %>x 攻击力的伤害。"
 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"暴风护腕"
 		"item_property_stormcloth"					"雷神降临"
-		"property_stormcloth_description"			"右键点击任意友方单位，你就能立即传送到其身边。降临时眩晕附近900范围的敌人1.5秒。这个传送效果有6秒的冷却时间"
+		"property_stormcloth_description"			"右键点击任意友方单位，你就能立即传送到其身边。降临时眩晕附近<% STORMCLOTH_STUN_AOE %>范围的敌人<% STORMCLOTH_STUN_DUR %>秒。这个传送效果有<% STORMCLOTH_COOLDOWN %>秒的冷却时间"
 
 
 		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"长老护腕"
 		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"部位：手"
 		"item_property_elder_grasp"					"长者智慧"
-		"property_elder_grasp_description"			"当你施放任意技能时，回复500范围内所有盟友10 % 最大生命值的血量。任何过度治疗将转化成临时护盾，护盾最大值为目标最大生命值的3倍"
+		"property_elder_grasp_description"			"当你施放任意技能时，回复<% ELDER_GRASP_RADIUS %>范围内所有盟友<% ELDER_GRASP_HEAL_PCT * 100%>% 最大生命值的血量。任何过度治疗将转化成临时护盾，护盾最大值为目标最大生命值的<% ELDER_GRASP_SHIELD_PER_HP %>倍"
 		"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"巫师灾星"
     	"DOTA_Tooltip_ability_item_rpc_magebane_gloves_Description"						"部位：手"
 		
@@ -19,7 +19,7 @@
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"狂战士护手"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"部位：手"
 		"item_property_berserker"				"狂暴之怒"
-		"property_berserker_rage_description"	"每攻击同一目标一次将获得一层buff增加基础攻击力 @special_property1x 乘以你的等级并且提高攻击速度 @special_property2 持续 @special_property3 秒。同时每层buff会使玩家受到的伤害提高 @special_property4% 。<br>转移攻击目标移除25%的层数。"
+		"property_berserker_rage_description"	"每攻击同一目标一次将获得一层buff增加基础攻击力 <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>x 乘以你的等级并且提高攻击速度 <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> 持续 <% BERSERKER_GLOVES_DURATION %> 秒。同时每层buff会使玩家受到的伤害提高 <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% 。<br>转移攻击目标移除<% BERSERKER_GLOVES_STACKS_PENALTY %>%的层数。"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"狂暴之怒"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"攻击力和攻击速度提高，但是受到的伤害也将增加。"
 		
@@ -27,7 +27,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"暗影臂章"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"部位：手"
 		"item_property_shadow_armlet"			"暗影步"
-		"property_shadow_armlet_description"	"受到伤害时有 15% 几率回复与该次伤害等量的生命值。"
+		"property_shadow_armlet_description"	"受到伤害时有 <% SHADOW_ARMLET_HEAL_CHANCE %>% 几率回复与该次伤害等量的生命值。"
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"护骨手套"
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"部位：手"
@@ -36,10 +36,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"								"火焰护腕"
-		"item_property_scorched_gauntlet"			"焦土"
-		"property_scorched_gauntlet_description"	"攻击时有20%几率产生一片焦土，每秒对范围内所有敌人造成 @special_property1% 攻击力+ @special_property2x 护甲值的持续伤害。达到4000时升级。"
 		"item_property_scorched_gauntlet_2"			"炎狱"
-		"property_scorched_gauntlet_description_2"	"攻击时有20%几率产生一片焦土，每秒对范围内所有敌人造成 @special_property1% 攻击力+ @special_property2x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 @special_property3% 攻击力的伤害、 <br>眩晕敌人 @special_property4 秒并且留下一片新的焦土。"
+		"property_scorched_gauntlet_description_2"	"攻击时有<% HIGH_FLAME_GAUNTLET_CHANCE %>%几率产生一片焦土，每秒对范围内所有敌人造成 <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% 攻击力+ <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% 攻击力的伤害、 <br>眩晕敌人 <% HIGH_FLAME_GAUNTLET_STUN_DUR %> 秒并且留下一片新的焦土。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"荣耀护手"
@@ -51,13 +49,13 @@
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"埃辛诺斯之爪"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"部位：手"
 		"item_property_azinoth"						"埃辛诺斯的诅咒"
-		"property_azinoth_description"				"所有玩家受到的伤害提高 50% 。"
+		"property_azinoth_description"				"所有玩家受到的伤害提高 <% CLAW_OF_AZINOTH_DAMAGE_AMP %>% 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"纯净护腕"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"部位：手"
 		"item_property_divine_purity"				"纯净"
-		"property_divine_purity_description"		"攻击时额外造成<% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>00%纯粹伤害。"
+		"property_divine_purity_description"		"攻击时额外造成<% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>x纯粹伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"掠夺者护手"
@@ -70,65 +68,65 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"迈达斯之手"
 		"item_property_hand_of_midas"				"贪婪之触"
-		"property_hand_of_midas_description"		"攻击时有20% 几率对目标周围所有单位造成 @special_property1x 总攻击力的纯粹伤害并将敌人变成黄金————定身2秒。每5秒最多被定身1次。"
+		"property_hand_of_midas_description"		"攻击时有<% HAND_OF_MIDAS_CHANCE %>% 几率对目标周围所有单位造成 <% HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>x 总攻击力的纯粹伤害并将敌人变成黄金————定身<% HAND_OF_MIDAS_FREEZE_DURATION %>秒。每<% HAND_OF_MIDAS_FREEZE_CD %>秒最多被定身1次。"
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"稻草人手套"
 		"item_property_scarecrow"					"补给"
-		"property_scarecrow_description"			"魔法回复速度提高，提高值为智力值的50%。"
+		"property_scarecrow_description"			"魔法回复速度提高，提高值为智力值的<% SCARECROW_GLOVES_MPREGEN_PER_INT * 100 %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"生命护腕"
 		"item_property_living_gauntlet"				"营养"
-		"property_living_gauntlet_description"		"当魔法值低于25%时，受到的所有伤害减少 @special_property2%，同时生命回复速度增加，增加值为玩家 @special_property1% 的生命最大值。"
+		"property_living_gauntlet_description"		"当魔法值低于<% LIVING_GAUNTLET_MANA_THRESHOLD %>%时，受到的所有伤害减少 <% LIVING_GAUNTLET_DMG_REDUCTION %>%，同时生命回复速度增加，增加值为玩家 <% LIVING_GAUNTLET_HP_REGEN_PCT %>% 的生命最大值。"
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"营养"
 		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"受到的所有伤害减少 %property_two%%% 同时生命回复速度增加 %property_one%%% 玩家的生命最大值"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"大师护手"
 		"item_property_master_gloves"				"大师的教诲"
-		"property_master_gloves_description"		"提高 @Ability4 伤害200%。"
+		"property_master_gloves_description"		"提高 @Ability4 伤害<% MASTER_GLOVES_BAD %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"凤凰手套"
 		"item_property_phoenix_gloves"				"永生" 
-		"property_phoenix_gloves_description"		"每失去1点生命值提高 @special_property1 点生命值回复速度。当前的每1点生命值提高基础攻击力 @special_property2 点。"
+		"property_phoenix_gloves_description"		"每失去1点生命值提高 <% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> 点生命值回复速度。当前的每1点生命值提高基础攻击力 <% PHOENIX_GLOVES_ATT_DMG_PER_HP %> 点。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"灵魂手套"
 		"item_property_spirit_glove"				"灵魂触摸" 
-		"property_spirit_glove_description"			"成功施放 @Ability4 后，每秒为你及周围友军回复6倍智力的生命值，持续12秒。"
+		"property_spirit_glove_description"			"成功施放 @Ability4 后，每秒为你及周围友军回复<% SPIRIT_GLOVE_INT_TO_HEAL %>倍智力的生命值，持续<% SPIRIT_GLOVE_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"灵魂触摸"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"每秒回复生命值"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"霜灼护手"
 		"item_property_frostburn_gauntlets"			"霜灼"
-		"property_frostburn_gauntlets_description"	"被 @Ability2 击中的敌人移动速度减少 100，并且有 20% 的几率在小范围内制造一次 2X @Ability2 伤害的纯粹伤害。此装备不享受装备加成效果。"
+		"property_frostburn_gauntlets_description"	"被 @Ability2 击中的敌人移动速度减少 <% FROSTBURN_GLOVES_MS_SLOW %>，并且有 <% FROSTBURN_GLOVES_CHANCE %>% 的几率在小范围内制造一次 2X @Ability2 伤害的纯粹伤害。此装备不享受装备加成效果。"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"霜灼"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"被减速"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"云山臂铠"
 		"item_property_mountain_vambraces"			"崎岖打击"
-		"property_mountain_vambraces_description"	"你的攻击有15%（远程10%）的几率对小范围内的敌人造成2秒眩晕和 @special_property1x 力量值的魔法伤害。同一单位在4秒内只会被眩晕一次。<br>每10点力量值提高装备伤害 @special_property2% 。"
+		"property_mountain_vambraces_description"	"你的攻击有<% MOUNTAIN_VAMBRACES_CHANCE %>%的几率对小范围内的敌人造成<% MOUNTAIN_VAMBRACES_STUN_DURATION %>秒眩晕和 <% MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %> 力量值的魔法伤害。同一单位在4秒内只会被眩晕一次。<br>每<% MOUNTAIN_VAMBRACES_STR_DIVISOR %>点力量值提高装备伤害 <% MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>% 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"激光手套"
 		"item_property_cytopian_laser"				"激光"
-		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成 @special_property1x 玩家攻击力乘以 @Ability2 等级数的魔法伤害。激光每次击中敌人，都增加100%的伤害，最高叠加 @special_property2 层。"
+		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成 <% CYTOPIAN_LASER_DMG_PER_ATT %>x 玩家攻击力乘以 @Ability2 等级数的魔法伤害。激光每次击中敌人，都增加100%的伤害，最高叠加 <% CYTOPIAN_LASER_MAX_STACKS %> 层。"
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"激光"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"受到激光的伤害增加"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"金刚护手"
 		"item_property_power_ranger"				"雷电神兵"
-		"property_power_ranger_description"			"提高150% 基础攻击力。敌人所受到的物理伤害加深200%。（计算在敌人减伤之后）"
+		"property_power_ranger_description"			"提高<% POWER_RANGER_BONUS_DAMAGE %>% 基础攻击力。敌人所受到的物理伤害加深<% POWER_RANGER_PHYS_POST_MITI %>%。（计算在敌人减伤之后）"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"奥术师包裹"
 		"item_property_grand_arcanist"				"魔法大师"
-		"property_grand_arcanist_description"		"每10点智力值提高基础技能伤害 0.3%。"
+		"property_grand_arcanist_description"		"每10点智力值提高基础技能伤害 <%GRAND_ARCANIST_BAD_PER_INT * 100 * 10 %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"不灭精华手套"
@@ -147,43 +145,43 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"银泉手套"
 		"item_property_silverspring_glove"			"银泉"
-		"property_silverspring_description"			"提高玩家基础攻击力，提高值为 @special_property1% 的生命回复速度。"
+		"property_silverspring_description"			"提高玩家基础攻击力，提高值为 <% SILVERSPRING_BASE_DMG_PER_REGEN %>% 的生命回复速度。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"先知手套"
 		"item_property_farseer_glove"				"法能"
-		"property_farseer_description"				"根据你最近造成的魔法伤害（不计算减伤）的 1% 提高你的基础攻击力。持续15秒，不叠加。上限为50x主属性。"
+		"property_farseer_description"				"根据你最近造成的魔法伤害（不计算减伤）的 <% FARSEER_PRE_MITI_MAGIC_BASE * 100 %>% 提高你的基础攻击力。持续<% FARSEER_DURATION %>秒，不叠加。上限为<% FARSEER_PRIMARY_ATT_CAP %>x主属性。"
 		"DOTA_Tooltip_modifier_far_seer_effect"				"法能"
 		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"根据最近造成的魔法伤害提高基础攻击力"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"皇家护腕"		
 		"item_property_royal_wrist"								"军令如山"
-		"property_royal_wrist_description"						"每一次受到伤害时，提高 @special_property1% 攻击力，可叠加至80层。每层提高 @Ability1 的基础技能伤害 @special_property2%，但使用该技能后层数将归零。"
+		"property_royal_wrist_description"						"每一次受到伤害时，提高 <% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>% 攻击力，可叠加至<% ROYAL_WRISTGUARDS_CHARGE_CAP %>层。每层提高 @Ability1 的基础技能伤害 <% ROYAL_WRISTGUARDS_Q_BAD %>%，但使用该技能后层数将归零。"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"军令如山"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "提高攻击力和一技能伤害"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"每点丢失生命值%提高所有造成的伤害 @special_property1%。每次施放技能汲取你 20% 最大生命值，每次攻击汲取你 7% 最大生命值。汲取生命不会致死。"
+		"property_mordiggus_description"					"每点丢失生命值%提高所有造成的伤害 <% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT %>%。每次施放技能汲取你 <% MORDIGGUS_LIFE_DRAIN_CAST_PCT %>% 最大生命值，每次攻击汲取你 <% MORDIGGUS_LIFE_DRAIN_ATTACK_PCT %>% 最大生命值。汲取生命不会致死。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
 		"item_property_ironbound_gloves"					"铁拳"
-		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 @special_property1x倍。"
+		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x倍。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"狂风手套"
 		"item_property_sweeping_wind"						"狂风"
-		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高5层。每层buff提高 100% 攻击力，且附近所有敌人每秒受到 50% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间10秒。"
+		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高<% SWEEPING_WIND_MAX_STACKS %>层。每层buff提高 <% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>% 攻击力，且附近所有敌人每秒受到 <% SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间<% SWEEPING_WIND_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"狂风"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"每层提高攻击力并对附近敌人造成持续伤害"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"安魂手套"
 		"item_property_halcyon_soul"						"平衡"
-		 "property_halcyon_soul_description"				"每点全属性提高 @special_property1 点基础攻击力。同时，所有属性的加成效果都被放大 @special_property2%。（力量值获得更多血量上限，敏捷值获得更多护甲，智力值获得更多魔法值）"
+		 "property_halcyon_soul_description"				"每点全属性提高 <% HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %> 点基础攻击力。同时，所有属性的加成效果都被放大 <% HALCYON_SOUL_GLOVE_BONUS * 100 %>%。（力量值获得更多血量上限，敏捷值获得更多护甲，智力值获得更多魔法值）"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"绿砂铜护手"
@@ -191,18 +189,18 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"遗忘鬼魂手套"
 		"item_property_forgotten_ghost"					"后燃"
-		 "property_forgotten_ghost_description"				"所有debuff的持续伤害提高 240%。"
+		 "property_forgotten_ghost_description"				"所有debuff的持续伤害提高 <% FORGOTTEN_GHOST_DOT_MULT * 100 %>%。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"心灵赋权手套"
 		"item_property_spiritual_empowerment"				"心灵赋权"
-		"property_spiritual_empowerment_description"		"每6秒获得1层buff，每层buff使你的基础技能伤害增加 @special_property1%。施放技能消耗1层buff，最高10层。"
+		"property_spiritual_empowerment_description"		"每<% SPIRITUAL_EMPOWERMENT_TICKRATE %>秒获得1层buff，每层buff使你的基础技能伤害增加 <% SPIRITUAL_EMPOWERMENT_BAD %>%。施放技能消耗1层buff，最高<% SPIRITUAL_EMPOWERMENT_MAX_STACKS >层。"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"心灵赋权"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"每层buff使你得基础技能伤害增加 %property_one%%% "
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"守墓者手套"
 		"item_property_gravekeeper_gauntlet"				"守墓者"
-		"property_gravekeeper_gauntlet_description"		"连续对同一目标进行攻击，每攻击一次会使该目标获得一层debuff。每层debuff使该单位受到的伤害增加 10%，并且吸取该目标3点移动速度。转移攻击目标该效果重置。"
+		"property_gravekeeper_gauntlet_description"		"连续对同一目标进行攻击，每攻击一次会使该目标获得一层debuff。每层debuff使该单位受到的伤害增加 <% GRAVEKEEPER_PRE_MITI_DAMAGE_AMP_PER_STACK * 100 %>%，并且吸取该目标 <% GRAVEKEEPER_MOVESPEED_DRAIN %>点移动速度。转移攻击目标该效果重置。"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"守墓者的目标"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"每次攻击都会叠加伤害并且令目标失去移动速度"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"守墓者"
@@ -213,7 +211,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"秋岩护腕"
 		"item_property_autumnrock_bracer"						"沟壑"
-		 "property_autumnrock_bracer_description"				"受到伤害时有10%机率对攻击者施放沟壑。沟壑眩晕敌人2秒并造成 @special_property1x 你的力量值的魔法伤害。<br>每100点当前生命值提高装备伤害 @special_property2%。"
+		 "property_autumnrock_bracer_description"				"受到伤害时有<% AUTUMNROCK_BRACER_CHANCE %>%机率对攻击者施放沟壑。沟壑眩晕敌人<% AUTUMNROCK_BRACER_STUN_DUR %>秒并造成 <% AUTUMNROCK_BRACER_DMG_PER_STR %>x 你的力量值的魔法伤害。<br>每<% AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR %>点当前生命值提高装备伤害 <% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>%。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"孔雀色的护腕"
@@ -223,14 +221,14 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"盗颅者手套"
 		"item_property_skulldigger"						"冥火"
-		"property_skulldigger_description"					"每 @special_property1 秒增加一层冥火。当你受到伤害时，施放一股冥火对目标造成 @special_property3x 攻击力的伤害并造成AOE眩晕效果，持续 @special_property4 秒。最高 @special_property2 层冥火。"
+		"property_skulldigger_description"					"每 <% SKULLDIGGER_STACK_RATE %> 秒增加一层冥火。当你受到伤害时，施放一股冥火对目标造成 <% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>x 攻击力的伤害并造成AOE眩晕效果，持续 <% SKULLDIGGER_STUN_DURATION %> 秒。最高 <% SKULLDIGGER_MAX_STACKS %> 层冥火。"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"冥火"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"当受到伤害, 施放一股冥火对攻击者造成伤害。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"飘渺的圣约之爪"
 		"item_property_ethereal_revenant"						"返回链接"
-		"property_ethereal_revenant_description"				"被 @Ability2 击中的敌人有 @special_property1% 的机率被一束电链接。链接的敌人对玩家造成的伤害减少 @special_property2% ，同时玩家对连接的敌人造成的伤害增加，变为 @special_property3x。链接持续 @special_property4 秒。"
+		"property_ethereal_revenant_description"				"被 @Ability2 击中的敌人有 <% ETHEREAL_REVENANT_CHANCE %>% 的机率被一束电链接。链接的敌人对玩家造成的伤害减少 <% ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT %>% ，同时玩家对连接的敌人造成的伤害增加，变为 <% ETHEREAL_REVENANT_DAMAGE_AMP %>x。链接持续 <% ETHEREAL_REVENANT_DURATION %> 秒。"
 
 		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"返回链接"
 		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"增加受到的伤害并减少对链接创建者造成的伤害"
@@ -238,22 +236,22 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"火法术手套"	
 		 "item_property_spellfire"								"法术"
-		 "property_spellfire_description"						"施法速率提高 @special_property1%。该装备符文重铸有上限，上限为21 。"
+		 "property_spellfire_description"						"施法速率提高 <% SPELLFIRE_CAST_POINT_REDUCTION %>%。该装备符文重铸有上限，上限为21 。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"暗影拳套"
 		"item_property_shadowflame_fist"						"虚无阴影"
-		"property_shadowflame_fist_description"					"魔法值被限制在 @special_property1% 的最大魔法值。同时 @Ability2 的基础技能伤害提高 @special_property2%。"
+		"property_shadowflame_fist_description"					"魔法值被限制在 <% SHADOWFLAME_FIST_MANA_CAP %>% 的最大魔法值。同时 @Ability2 的基础技能伤害提高 <% SHADOWFLAME_FIST_W_BAD %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"水之钢铁护腕"
 		"item_property_aquasteel"								"水爆"
-		"property_aquasteel_description"						"受到伤害时，有 @special_property1% 的几率向攻击者喷射一股水流，水流对敌人造成 @special_property2x 攻击力 + @special_property3x 护甲值的伤害，并且眩晕敌人 @special_property4 秒。"
+		"property_aquasteel_description"						"受到伤害时，有 <% AQUASTEEL_CHANCE %>% 的几率向攻击者喷射一股水流，水流对敌人造成 <% AQUASTEEL_ATTACK_TO_DMG %>x 攻击力 + <% AQUASTEEL_ARMOR_TO_DMG %>x 护甲值的伤害，并且眩晕敌人 <% AQUASTEEL_STUN_DUR %> 秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"炎魔手套"
 		"item_property_demonfire"								"恶魔之火"
-		"property_demonfire_description"						"每一次攻击，增加一层恶魔之火buff，每层恶魔之火增加所有元素的伤害 @special_property1%。当buff结束时，1000码半径内4个最近的敌人会受到 @special_property2% 攻击力 乘以 恶魔之火buff层数的伤害。恶魔之火最多叠加 @special_property3 层。"
+		"property_demonfire_description"						"每一次攻击，增加一层恶魔之火buff，每层恶魔之火增加所有元素的伤害 <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%。当buff结束时，<% DEMONFIRE_RADIUS %>码半径内<% DEMONFIRE_NUMBER_ENEMIES %>个最近的敌人会受到 <% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %>x 攻击力 乘以 恶魔之火buff层数的伤害。恶魔之火最多叠加 <% DEMONFIRE_STACKS %> 层。"
 		"DOTA_Tooltip_modifier_demonfire_stack"					"恶魔之火"
 		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"每层增加元素伤害 30%%"
 		
@@ -264,19 +262,19 @@
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"深海恶魔利爪"	
 		"property_depth_demon_claw"												"变质"
-		"property_depth_demon_claw_Description"									"为玩家的所有伤害附加一个 <font color=\"#5B648C\">恶魔</font> 元素。降低不计算物品伤害的装备 70% 的伤害。（不计算物品伤害的装备只有 火神头，水神头，光明守卫，恶魔头，和霜灼护手）"
+		"property_depth_demon_claw_Description"									"为玩家的所有伤害附加一个 <font color=\"#5B648C\">恶魔</font> 元素。降低不计算物品伤害的装备 x<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %> 的伤害。（不计算物品伤害的装备只有 火神头，水神头，光明守卫，恶魔头，和霜灼护手）"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"龙虾钳"	
 		"property_lobster_claw"												"壳质硬皮"
 		"property_lobster_claw_Description"									"每 <% CHITINOUS_LOBSTER_CLAW_STACK_RATE %>秒，获得一层壳质硬皮buff，每层buff伤害减免<% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%。最大 <% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> 层。"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"壳质硬皮"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 1%%"
+		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 <% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"暗黑使者手套"	
 		"property_dark_emissary"												"彩虹迷雾"
-		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在400码范围内缠绕敌人并造成 @special_property1% 乘以玩家攻击力的伤害。将隐身2秒。隐身效果具有8秒的冷却时间"
+		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在<% DARK_EMISSARY_RADIUS %>码范围内缠绕敌人并造成 <% DARK_EMISSARY_DAMAGE_MULT %>% 乘以玩家攻击力的伤害。将隐身<% DARK_EMISSARY_ROOT_DURATION %>秒。隐身效果具有<% DARK_EMISSARY_INVIS_CD %>秒的冷却时间"
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"彩虹迷雾"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"隐形"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"彩虹迷雾"
@@ -290,14 +288,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"布祖克的手指"
 		"item_property_buzuki_finger"								"赐予你力量！"
-		"property_buzuki_finger_description"						"释放 @Ability2 可以给周围的非英雄单位提供增益效果，提高它们@special_property1%的税后伤害，同时它们的普攻可以附加一道@special_property2%攻击力伤害的能量光束。伤害来源为英雄。Buff持续30s。"
+		"property_buzuki_finger_description"						"释放 @Ability2 可以给周围的非英雄单位提供增益效果，提高它们<% BUZUKIS_FINGER_POST_MITI %>%的税后伤害，同时它们的普攻可以附加一道<% BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>%攻击力伤害的能量光束。伤害来源为英雄。Buff持续<% BUZUKIS_FINGER_DURATION %>s。"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"赐予你力量!"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"提高税后伤害并造成额外的纯粹打击伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"迅捷钉刺护腕"
 		"item_property_swiftspike_bracer"							"音爆"
-		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 @special_property1%"
+		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 <% SWIFTSPIKE_BAD_PER_MS * 100 %>%"
 
 	"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"提亚马特的钻石之爪"
 		"item_property_tiamat_claw"							"七彩之钳"
