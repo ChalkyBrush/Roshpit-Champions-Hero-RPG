@@ -22,15 +22,15 @@ require('items/constants/helm')
 require('items/constants/trinket')
 
 CustomAttributes.HEALTH_PER_STR = 10
-CustomAttributes.HEALTH_REGEN_PER_STR = 0.1
+CustomAttributes.HEALTH_REGEN_PER_STR = 0.5
 CustomAttributes.ARMOR_PER_STR = 1
 
-CustomAttributes.ATTACKSPEED_PER_AGI = 0.5
+CustomAttributes.ATTACKSPEED_PER_AGI = 0.3
 CustomAttributes.MOVESPEED_PER_AGI = 0.1
 CustomAttributes.ARMOR_PIERCE_PER_AGI = 1
 
 CustomAttributes.MANA_PER_INT = 5
-CustomAttributes.MANA_REGEN_PER_INT = 0.1
+CustomAttributes.MANA_REGEN_PER_INT = 0.5
 CustomAttributes.SPELL_PIERCE_PER_INT = 1
 
 CustomAttributes.STATUS_RESIST_PER_SPIRIT = 0.01

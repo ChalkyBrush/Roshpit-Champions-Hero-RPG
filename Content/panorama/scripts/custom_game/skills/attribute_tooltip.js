@@ -1,13 +1,13 @@
 HEALTH_PER_STR = 10
-HEALTH_REGEN_PER_STR = 0.1
+HEALTH_REGEN_PER_STR = 0.5
 ARMOR_PER_STR = 1
 
-ATTACKSPEED_PER_AGI = 0.5
+ATTACKSPEED_PER_AGI = 0.3
 MOVESPEED_PER_AGI = 0.1
 ARMOR_PIERCE_PER_AGI = 1
 
 MANA_PER_INT = 5
-MANA_REGEN_PER_INT = 0.1
+MANA_REGEN_PER_INT = 0.5
 SPELL_PIERCE_PER_INT = 1
 
 STATUS_RESIST_PER_SPIRIT = 0.01
@@ -213,7 +213,7 @@ function initializeTooltip(func){
 	$('#def_3_left').text = $.Localize("#ui_physical_reduction")
 	var totalArmor = physArmor + bonusArmor
 	var resist = 1 - (255 / (255 + totalArmor))
-	resist = (parseInt(resist*100000))/1000
+	resist = (parseInt(resist*10000))/100
 	$('#def_3_right').text = resist+"%"
 
 	$('#def_4_left').text = $.Localize("#item_magic_armor")
@@ -230,7 +230,7 @@ function initializeTooltip(func){
 	$('#def_6_left').text = $.Localize("#tooltip_magic_armor")
 	var total_magic_armor = magic_armor + bonus_magic_armor
 	var resist = 1 - (255 / (255 + total_magic_armor))
-	resist = (parseInt(resist*100000))/1000
+	resist = (parseInt(resist*10000))/100
 	$('#def_6_right').text = resist+"%"
 	
 	// $.Msg(GameUI.StatQueryData)
