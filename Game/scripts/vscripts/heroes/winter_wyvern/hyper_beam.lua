@@ -117,7 +117,7 @@ function hyperbeam_orb_thinking(event)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), hyperbeam:GetAbsOrigin(), nil, hyperbeam.size, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			local freeze_duration = event.freeze_duration
 			if caster:HasModifier("modifier_dinath_glyph_1_1") then
-				freeze_duration = freeze_duration + 1.5
+				freeze_duration = freeze_duration + DINATH_GLYPH_1_1_FREEZE_DURATION_INCREASE
 			end
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do

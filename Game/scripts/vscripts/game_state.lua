@@ -2758,8 +2758,8 @@ function GameState:FilterDamage(filterTable)
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			if not victim:HasModifier("modifier_golden_scale_immunity") then
 				local immo_glyph = victim.immo_glyph_data
-				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_black_King_bar_immunity", {duration = 3})
-				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_golden_scale_immunity", {duration = 5})
+				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_black_King_bar_immunity", {duration = DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION})
+				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_golden_scale_immunity", {duration = DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD})
 			end
 		end
 	end

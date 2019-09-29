@@ -172,28 +172,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"Glyph of Cryogenation"
-		"item_rpc_dinath_glyph_1_1_description" 				"Increases the freeze duration of @Ability4 by @glyph_property1 seconds."
+		"item_rpc_dinath_glyph_1_1_description" 				"Increases the freeze duration of @Ability4 by <% DINATH_GLYPH_1_1_FREEZE_DURATION_INCREASE %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"Glyph of Aeriform"
-		"item_rpc_dinath_glyph_2_1_description" 				"Maintain fly height while channeling @Ability4. Maximum fly height increased by @glyph_property1."
+		"item_rpc_dinath_glyph_2_1_description" 				"Maintain fly height while channeling @Ability4. Maximum fly height increased by <% DINATH_GLYPH_2_1_FLY_HEIGHT_INCREASE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"Glyph of the Gizzard"
-		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 has an additional @glyph_property1 charges of free cast."
+		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 has an additional <% DINATH_GLYPH_3_1_Q_CHARGES_INCREASE %> charges of free cast."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"Glyph of Sweeping Drake"
-		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 gains a free cast charge every @glyph_property1 seconds."
+		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 gains a free cast charge every <% DINATH_GLYPH_4_1_E_FREE_CAST_INTERVAL %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"Glyph of the Tarragon"
-		"item_rpc_dinath_glyph_5_1_description" 				"Landing an attack reduces the cooldown of all other abilities by @glyph_property1 seconds."
+		"item_rpc_dinath_glyph_5_1_description" 				"Landing an attack reduces the cooldown of all other abilities by <% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"Glyph of Calamity"
-		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=\"#EF4126\">Fire</font>, <font color=\"#87D9FF\">Ice</font>, <font color=\"#5CCDF9\">Lightning</font>, and <font color=\"#C25DFC\">Cosmic</font> damage by @glyph_property1%."
+		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=\"#EF4126\">Fire</font>, <font color=\"#87D9FF\">Ice</font>, <font color=\"#5CCDF9\">Lightning</font>, and <font color=\"#C25DFC\">Cosmic</font> damage by <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"Glyph of the Mana Dragon"
-		"item_rpc_dinath_glyph_7_1_description" 				"Damage of @Ability2 is increased by @glyph_property1x current mana, and attacks restore @glyph_property2% of max mana."
+		"item_rpc_dinath_glyph_7_1_description" 				"Damage of @Ability2 is increased by <% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>x current mana, and attacks restore <% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>% of max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"Glyph of Golden Scales"
-		"item_rpc_dinath_glyph_5_a_description" 				"Taking an instance of magic or pure damage activates magic immunity for @glyph_property1 seconds. @glyph_property2 second cooldown."
+		"item_rpc_dinath_glyph_5_a_description" 				"Taking an instance of magic or pure damage activates magic immunity for <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION %> seconds. <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD %> second cooldown."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"Spike"

@@ -66,9 +66,9 @@ function spire_breath_attack_land(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (event.damage_mult / 100)
 
 	if attacker:HasModifier("modifier_dinath_glyph_7_1") then
-		local mana_restore = attacker:GetMaxMana() * 0.01
+		local mana_restore = attacker:GetMaxMana() * DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT/100
 		attacker:GiveMana(mana_restore)
-		damage = damage + attacker:GetMana() * 1000
+		damage = damage + attacker:GetMana() * DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE
 		PopupMana(caster, mana_restore)
 	end
 	local ability = event.ability

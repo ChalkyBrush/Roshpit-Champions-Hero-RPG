@@ -1979,7 +1979,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
         local fireMult = 0
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            fireMult = fireMult + 10
+            fireMult = fireMult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_dragon_knight" then
             if attacker.r_4_level then
@@ -2159,7 +2159,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_LIGHTNING or element2 == RPC_ELEMENT_LIGHTNING then
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            mult = mult + 10
+            mult = mult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_phantom_assassin" then
             if attacker:HasAbility("voltex_azure_leap") or attacker:HasAbility("voltex_rune_e_3_heavens_charge") then
@@ -2333,7 +2333,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         local cosmosMult = 0
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            cosmosMult = cosmosMult + 10
+            cosmosMult = cosmosMult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_drow_ranger" then
             cosmosMult = cosmosMult + 0.0007 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
@@ -2395,7 +2395,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_ICE or element2 == RPC_ELEMENT_ICE then
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            mult = mult + 10
+            mult = mult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker:HasAbility("blizzard") then
