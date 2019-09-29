@@ -2921,22 +2921,22 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"(T1) Glyph of Nimbus"
-		"item_rpc_auriun_glyph_1_1_description" 				"Все союзники, попавшие под действие (R) @Ability4 получат @glyph_property1 скорости передвижения на @glyph_property2 сек."
+		"item_rpc_auriun_glyph_1_1_description" 				"Все союзники, попавшие под действие (R) @Ability4 получат <font color='#ccff66'>200</font> скорости передвижения на <font color='#ccff66'>4</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"(T2) Glyph of Radiance"
-		"item_rpc_auriun_glyph_2_1_description" 				"Весь напрямую наносимый предметами урон увеличен на @glyph_property1%"
+		"item_rpc_auriun_glyph_2_1_description" 				"Весь напрямую наносимый предметами урон увеличен на <font color='#ccff66'>300</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"(T3) Glyph of Cleanse"
 		"item_rpc_auriun_glyph_3_1_description" 				"Применение (Q) Heaven's Shield на союзника снимает с него случайный негативный эффект."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"(T4) Glyph of Stratus"
-		"item_rpc_auriun_glyph_4_1_description" 				"Увеличивает дальность атаки на @glyph_property1."
+		"item_rpc_auriun_glyph_4_1_description" 				"Увеличивает дальность атаки на <font color='#ccff66'>280</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"(T5) Glyph of Angels"
-		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает @glyph_property1% сопротивление магии."
+		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает <font color='#ccff66'>65</font>% сопротивление магии."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"(T6) Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет @glyph_property1 сек неуязвимости, когда был активирован (Q) @Ability1."
+		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет <font color='#ccff66'>2</font> сек. неуязвимости, когда был активирован (Q) @Ability1."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Полный иммунитет к урону"
@@ -2945,7 +2945,7 @@
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <font color='#ccff66'>240</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"(Immortal) Глиф разоряющей тени"
-		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая ежесекундно наносит им урон, равный @glyph_property1x Интеллекта героя и замедляющей их на @glyph_property2%. 1% от нанесённого урона исцеляет Auriun."
+		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая наносит им урон каждые <font color='#ccff66'>0.5</font> сек., равный <font color='#ccff66'>100</font>x Интеллекта героя и замедляющей их на <font color='#ccff66'>20</font>%. <font color='#ccff66'>1</font>% от нанесённого урона исцеляет Auriun."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"
@@ -2964,21 +2964,21 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"Prophecy"
 		"item_property_auriun_immortal_weapon"								"Heaven's Guidance"
-		"property_auriun_immortal_weapon_description"						"При получении урона, герой полностью игнорирует его и исчезает из поля зрения врагов на 1.5 секунды. Перезаряжается 4 секунды."
+		"property_auriun_immortal_weapon_description"						"При получении урона, герой полностью игнорирует его и исчезает из поля зрения врагов на <font color='#ccff66'>1.5</font> секунды. Перезаряжается <font color='#ccff66'>4</font> секунды."
 		
 		 "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_2"            "Vita's Spirit Scroll"
         "item_property_auriun_immortal_weapon2"                             "Patient Insight"
-        "property_auriun_immortal_weapon2_description"                      "Каждые 8 секунд получает заряд Insight, максимум 2. Каждый заряд тратится на отсутствие перезарядки для умения (Q) @Ability1."
+        "property_auriun_immortal_weapon2_description"                      "Каждые <font color='#ccff66'>8</font> секунд получает заряд Insight, максимум <font color='#ccff66'>2</font>. Каждый заряд тратится на отсутствие перезарядки для умения (Q) @Ability1."
         
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight"			"Insight"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight_Description"	"(Q) Heaven's Shield не требует перезарядки."
 
         "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "Umbral Tome of Herod"
         "item_property_auriun_immortal_weapon3"                             "Artifice"
-        "property_auriun_immortal_weapon3_description"                      "Прочтение (W) @Ability2 дарует иммунитет к магии и @special_property1% регенерацию здоровья на @special_property2 секунд. Дополнительно базовый урон способностей увеличивается на @special_property3%."
+        "property_auriun_immortal_weapon3_description"                      "Прочтение (W) @Ability2 дарует иммунитет к магии и -<font color='#ccff66'>8</font>% регенерацию здоровья на <font color='#ccff66'>10</font> секунд. Дополнительно базовый урон способностей увеличивается на <font color='#ccff66'>200</font>%."
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
-        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, повышенная регенерация здоровья."
+        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, пониженная регенерация здоровья."
 
 		"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
         "DOTA_Tooltip_ability_stun_attack_Description"                  "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным взрывом. Также на время действия повышается скорость атаки."

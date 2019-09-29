@@ -2827,22 +2827,22 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"Glyph of Nimbus"
-		"item_rpc_auriun_glyph_1_1_description" 				"All allies affected by @Ability4 gain @glyph_property1 movespeed for @glyph_property2 seconds."
+		"item_rpc_auriun_glyph_1_1_description" 				"All allies affected by @Ability4 gain <font color='#ccff66'>200</font> movespeed for <font color='#ccff66'>4</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"Glyph of Radiance"
-		"item_rpc_auriun_glyph_2_1_description" 				"All damage dealt directly by items is increased by @glyph_property1%"
+		"item_rpc_auriun_glyph_2_1_description" 				"All damage dealt directly by items is increased by <font color='#ccff66'>300</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"Glyph of Cleanse"
 		"item_rpc_auriun_glyph_3_1_description" 				"Casting Heaven's Shield on an ally removes 1 enemy debuff."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"Glyph of Stratus"
-		"item_rpc_auriun_glyph_4_1_description" 				"Increases attack range by @glyph_property1."
+		"item_rpc_auriun_glyph_4_1_description" 				"Increases attack range by <font color='#ccff66'>280</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"Glyph of Angels"
-		"item_rpc_auriun_glyph_5_1_description" 				"You can attack during @Ability3 and gain @glyph_property1% magic resistance, but it removes the invisibility."
+		"item_rpc_auriun_glyph_5_1_description" 				"You can attack during @Ability3 and gain <font color='#ccff66'>65</font>% magic resistance, but it removes the invisibility."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Adds @glyph_property1 seconds of invulnerability when @Ability1 is applied."
+		"item_rpc_auriun_glyph_6_1_description" 				"Adds <font color='#ccff66'>2</font> seconds of invulnerability when @Ability1 is applied."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Magic and Physical Immunity"
@@ -2851,7 +2851,7 @@
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <font color='#ccff66'>240</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"Glyph of Shadow Flay"
-		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing @glyph_property1x Auriun's intelligence per second and slowing them by @glyph_property2%. 1% of damage dealt heals Auriun."
+		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing <font color='#ccff66'>100</font>x Auriun's intelligence each <font color='#ccff66'>0.5</font> second tick and slowing them by <font color='#ccff66'>20</font>%. <font color='#ccff66'>1</font>% of damage dealt heals Auriun."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"
@@ -2870,18 +2870,18 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"Prophecy"
 		"item_property_auriun_immortal_weapon"								"Heaven's Guidance"
-		"property_auriun_immortal_weapon_description"						"When taking damage, ignore the damage instance and fade from enemy view for 1.5 seconds. 4 second cooldown."
+		"property_auriun_immortal_weapon_description"						"When taking damage, ignore the damage instance and fade from enemy view for <font color='#ccff66'>1.5</font> seconds. <font color='#ccff66'>4</font> second cooldown."
 		
 		 "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_2"            "Vita's Spirit Scroll"
         "item_property_auriun_immortal_weapon2"                             "Patient Insight"
-        "property_auriun_immortal_weapon2_description"                      "Every 8 seconds gain a stack of Insight, up to a maximum of 2 stacks. With stacks of insight, @Ability1 does not go on cooldown and consumes a stack instead."
+        "property_auriun_immortal_weapon2_description"                      "Every <font color='#ccff66'>8</font> seconds gain a stack of Insight, up to a maximum of <font color='#ccff66'>2</font> stacks. With stacks of insight, @Ability1 does not go on cooldown and consumes a stack instead."
         
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight"			"Insight"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight_Description"	"Heaven's Shield will not trigger its cooldown."
 
         "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "Umbral Tome of Herod"
         "item_property_auriun_immortal_weapon3"                             "Artifice"
-        "property_auriun_immortal_weapon3_description"                      "Casting @Ability2 applies magic immunity, @special_property3% increased base ability damage, and @special_property1% health regen for @special_property2 seconds."
+        "property_auriun_immortal_weapon3_description"                      "Casting @Ability2 applies magic immunity, <font color='#ccff66'>200</font>% increased base ability damage, and -<font color='#ccff66'>8</font> health regen for <font color='#ccff66'>10</font> seconds."
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Magic Immunity and reduced health regen."

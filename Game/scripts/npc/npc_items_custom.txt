@@ -30041,7 +30041,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "-8"
 				}
 			}
 		}
