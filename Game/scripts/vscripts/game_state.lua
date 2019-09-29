@@ -538,7 +538,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
    -- entindex_caster_const           	= 606 (number)
    -- name_const                      	= "modifier_name" (string)
 	local target = EntIndexToHScript(modifierGainedTable["entindex_parent_const"])
-	if target:IsRealHero() then
+	if target:IsRealHero() and target.spirit_custom and modifierGainedTable["entindex_caster_const"] then
 		-- handle spirit status resist
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if modifierGainedTable["entindex_ability_const"] then

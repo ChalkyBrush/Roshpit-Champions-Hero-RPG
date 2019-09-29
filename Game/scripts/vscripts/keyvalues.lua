@@ -91,7 +91,6 @@ function LoadGameKeyValues()
         if LOAD_BASE_FILES then
             file = LoadKeyValues(scriptPath..v.base..".txt")
         end
-
         -- Replace main game keys by any match on the override file
         -- for k,v in pairs(override) do
         --     if file[k] then
@@ -99,15 +98,15 @@ function LoadGameKeyValues()
         --     end
         -- end
 
-        -- local custom_file = LoadKeyValues(scriptPath..v.custom..".txt")
-        -- if custom_file then
-        --     for k,v in pairs(custom_file) do
-        --         file[k] = v
-        --     end
-        -- else
-        --     print("[KeyValues] Critical Error on "..v.custom..".txt")
-        --     return
-        -- end
+        local custom_file = LoadKeyValues(scriptPath..v.custom..".txt")
+        if custom_file then
+            for k,v in pairs(custom_file) do
+                file[k] = v
+            end
+        else
+            print("[KeyValues] Critical Error on "..v.custom..".txt")
+            return
+        end
         
         GameRules[k] = file --backwards compatibility
         KeyValues[k] = file
@@ -122,7 +121,7 @@ function LoadGameKeyValues()
             end
         end
     end
-
+    DeepPrintTable(KeyValues.All)
     -- Merge units and heroes (due to them sharing the same class CDOTA_BaseNPC)
     for key,value in pairs(KeyValues.HeroKV) do
         if not KeyValues.UnitKV[key] then
@@ -146,6 +145,21 @@ function CDOTA_BaseNPC:GetKeyValue(key, level)
     	else
     		return 0
     	end
+    end
+end
+
+function CDOTA_BaseNPC_Hero:GetKeyValue(key, level)
+    local unitName = HerosCustom:GetInternalHeroName(self:GetUnitName())
+    if level then 
+        return GetUnitKV(unitName, key, level)
+    else
+        local value = GetUnitKV(unitName, key)
+        print(value)
+        if value then
+            return GetUnitKV(unitName, key) 
+        else
+            return 0
+        end
     end
 end
 

@@ -279,10 +279,7 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 	end
 	if unit:IsRealHero() then
 		if not unit.strength_custom then
-			unit.strength_custom = 20
-			unit.agility_custom = 20
-			unit.intellect_custom = 20
-			unit.spirit_custom = 20
+			unit:SetStatsForLevel()
 		end
 		unit:SetBaseRoshpitArmor(0)
 		unit:SetBaseRoshpitMagicArmor(0)
@@ -296,6 +293,42 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitSpellPierce(unit:GetKeyValue("RoshpitSpellPierce", false))
 	end
 	unit:CalculateAndSaveRoshpitAttributes()
+end
+
+function CDOTA_BaseNPC_Hero:SetStatsForLevel()
+	local hero = self
+	hero:SetRoshpitStrengthForLevel()
+	hero:SetRoshpitAgilityForLevel()
+	hero:SetRoshpitIntelligenceForLevel()
+	hero:SetRoshpitSpiritForLevel()
+end
+
+function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
+	local hero = self
+	local strength = hero:GetKeyValue("RoshpitStrength", nil)
+	strength = strength + self:GetLevel()*hero:GetKeyValue("RoshpitStrengthGain", nil)
+	hero.strength_custom = strength
+end
+
+function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
+	local hero = self
+	local agility = hero:GetKeyValue("RoshpitAgility", nil)
+	agility = agility + self:GetLevel()*hero:GetKeyValue("RoshpitAgilityGain", nil)
+	hero.agility_custom = agility
+end
+
+function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
+	local hero = self
+	local intellect = hero:GetKeyValue("RoshpitIntelligence", nil)
+	intellect = intellect + self:GetLevel()*hero:GetKeyValue("RoshpitIntelligenceGain", nil)
+	hero.intellect_custom = intellect
+end
+
+function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
+	local hero = self
+	local spirit = hero:GetKeyValue("RoshpitSpirit", nil)
+	spirit = spirit + self:GetLevel()*hero:GetKeyValue("RoshpitSpiritGain", nil)
+	hero.spirit_custom = spirit
 end
 
 function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)

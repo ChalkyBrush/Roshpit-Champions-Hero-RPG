@@ -180,7 +180,6 @@ function GameMode:OnGameRulesStateChange(keys)
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i]:RemoveModifierByName("modifier_command_restric_player")
 		end
-		Timers:CreateTimer(1, LoadGameKeyValues())
 	end
 end
 
@@ -920,6 +919,7 @@ function Events:HeroLevelUp(player, hero, level)
 	if level % 40 == 0 then
 		Stars:StarEventPlayer("power_up", hero)
 	end
+	hero:SetStatsForLevel()
 end
 
 -- A player last hit a creep, a tower, or a hero
