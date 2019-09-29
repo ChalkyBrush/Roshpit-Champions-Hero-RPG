@@ -11823,7 +11823,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
 		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Increases the damage of @Ability3 by ADMIRAL_BOOTS_BAD_E%"
+		"property_admiral_boots_description"		"Increases the damage of @Ability3 by <font color='#ccff66'>100</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
@@ -12211,7 +12211,7 @@
 		"item_property_windsteel_armor"				"Fluttering Guard"
 		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by <font color='#ccff66'>50</font>% and increases movespeed by <font color='#ccff66'>100</font>. Lasts <font color='#ccff66'>8</font> seconds. <font color='#ccff66'>5</font> second cooldown."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining 50% evasion and 100 movespeed."
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <font color='#ccff66'>50</font>% evasion and <font color='#ccff66'>100</font> movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
 		
 		
@@ -12295,7 +12295,7 @@
 		"item_property_sacred_trials"						"Combat Trial"
 		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal <font color='#ccff66'>1000</font>% bonus Magical damage in an area."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals %property_one%%% Magical damage in a small area"
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals <font color='#ccff66'>1000</font>%% Magical damage in a small area"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"Heroic Conqueror Vestments"
@@ -12460,7 +12460,7 @@
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Slot: Hands"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Applies -<font color='#ccff66'>50</font>%% damage reduction, increasing all damage taken."
+		"property_azinoth_description"				"Applies -<font color='#ccff66'>50</font>% damage reduction, increasing all damage taken."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
@@ -13056,7 +13056,7 @@
 		"property_shark_helmet"												"Shark Bite"
 		"property_shark_helmet_Description"									"Passively grants <font color='#ccff66'>100</font>% bonus attack damage. After performing <font color='#ccff66'>7</font> attacks, gain <font color='#ccff66'>1000</font>% attack power for <font color='#ccff66'>1.5</font> seconds. This is applied as a multiplier to your current total attack damage at activation time."
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At 7 stacks, activate Shark Bite"
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At <font color='#ccff66'>7</font> stacks, activate Shark Bite"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Attack damage greatly increased"
 		
@@ -13219,7 +13219,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
 		"item_property_volcano_orb"					"Fiery Core"
-		"property_volcano_orb_description"			"Increases Post-Mitigation Magical damage output x<font color='#ccff66'>2.5</font>. This effect multiplies with other Post-Mitigation buffs."
+		"property_volcano_orb_description"			"Increases Post-Mitigation Magical damage output <font color='#ccff66'>2.5</font>x. This effect multiplies with other Post-Mitigation buffs."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"

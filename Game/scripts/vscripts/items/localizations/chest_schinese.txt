@@ -225,7 +225,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"熔岩板甲"
 		"item_property_terrasic_stone"						"岩浆喷涌"
-		 "property_terrasic_stone_description"				"对眩晕的目标造成 <% TERRASIC_STONE_PLATE_POST_MITI %>	% 的伤害加深。（计算在敌人减伤之后）"
+		 "property_terrasic_stone_description"				"对眩晕的目标造成 <% TERRASIC_STONE_PLATE_POST_MITI %>% 的伤害加深。（计算在敌人减伤之后）"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"水法师长袍"

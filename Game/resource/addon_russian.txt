@@ -12514,7 +12514,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.03</font>% за каждые 10 очков Интеллекта."
+		"property_grand_arcanist_description"		"Увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.3</font>% за каждые 10 очков Интеллекта."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
