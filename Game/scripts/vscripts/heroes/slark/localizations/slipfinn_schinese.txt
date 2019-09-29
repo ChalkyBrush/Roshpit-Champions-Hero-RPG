@@ -183,28 +183,28 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"滑行雕文"
-		"item_rpc_slipfinn_glyph_1_1_description" 				"减少地面的摩擦系数 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_1_1_description" 				"减少地面的摩擦系数 <% SLIPFINN_GLYPH_1_1_FRICTION_MULT * 100 %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"跳远雕文"
-		"item_rpc_slipfinn_glyph_2_1_description" 				"提高 远跃 时的弹跳力 @glyph_property1。"
+		"item_rpc_slipfinn_glyph_2_1_description" 				"提高 远跃 时的弹跳力 <% SLIPFINN_GLYPH_2_1_JUMP_FORCE %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"弹弹雕文"
-		"item_rpc_slipfinn_glyph_3_1_description" 				"提高跳跃至敌人头顶时的弹起高度 @glyph_property1。"
+		"item_rpc_slipfinn_glyph_3_1_description" 				"提高跳跃至敌人头顶时的弹起高度 <% SLIPFINN_GLYPH_3_1_BOUNCE_FORCE %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"自由落体雕文"
-		"item_rpc_slipfinn_glyph_4_1_description" 				"减少 重击地面 时，在空中翻转的时间 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_4_1_description" 				"减少 重击地面 时，在空中翻转的时间 <% SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT * 100 %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"粉碎雕文"
-		"item_rpc_slipfinn_glyph_5_1_description" 				"提高 重击地面 时的眩晕时间，提高至 @glyph_property1 秒。"
+		"item_rpc_slipfinn_glyph_5_1_description" 				"提高 重击地面 时的眩晕时间，提高至 <% SLIPFINN_GLYPH_5_1_STUN_DURATION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"主权融合雕文"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"主权气泡的施法目标，在施法吟唱过程中将被麻痹。同时，在释放该敌人时，[R2] 震慑 的眩晕时间提高 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_6_1_description" 				"主权气泡的施法目标，在施法吟唱过程中将被麻痹。同时，在释放该敌人时，[R2] 震慑 的眩晕时间提高 <% SLIPFINN_GLYPH_6_1_STUN_MULT %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"飞跃雕文"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"跳跃时或滑步疾驰过程中，将不会被眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"跃龙门雕文"
-		"item_rpc_slipfinn_glyph_5_a_description" 				"跳跃至敌人头顶的判定范围提高 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_5_a_description" 				"跳跃至敌人头顶的判定范围提高 <% SLIPFINN_GLYPH_5_A_RADIUS_MULT * 100 %>%。"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"短匕"
@@ -223,7 +223,7 @@
 		
 		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "春潮湿雨刀"
         "item_property_slipfinn_immortal_weapon"                             "涅槃"
-        "property_slipfinn_immortal_weapon_description"                      "复活时间减少至 @special_property1 秒。黑礁守卫释放鬼雾将会传送至目标地点的上空，离地面高度 @special_property2 。"
+        "property_slipfinn_immortal_weapon_description"                      "复活时间减少至 <% SLIPFINN_IMMORTAL_WEAPON_1_RESPAWN_TIME %> 秒。黑礁守卫释放鬼雾将会传送至目标地点的上空，离地面高度 <% SLIPFINN_IMMORTAL_WEAPON_1_HEIGHT %> 。"
 
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_2"            "锯齿泥沼刃"
         "item_property_slipfinn_immortal_weapon2"                             "精准一击"

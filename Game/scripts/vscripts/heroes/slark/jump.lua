@@ -80,7 +80,7 @@ function slipfinn_main_thinker(event)
 		-- friction = friction/1.5
 		-- end
 		if caster:HasModifier("modifier_slipfinn_glyph_1_1") then
-			friction = friction * SLIPFINN_GLYPH_1_1_FRICTION_MULT
+			friction = friction * (1-SLIPFINN_GLYPH_1_1_FRICTION_MULT)
 		end
 		if caster:HasModifier("modifier_slipfinn_prone") then
 			friction = friction / 7
@@ -319,7 +319,7 @@ function slipfinn_jump_think(event)
 
 	local jump_on_head_radius = JUMP_ON_HEAD_RADIUS
 	if caster:HasModifier("modifier_slipfinn_glyph_5_a") then
-		jump_on_head_radius = jump_on_head_radius * SLIPFINN_GLYPH_5_A_RADIUS_MULT
+		jump_on_head_radius = jump_on_head_radius + jump_on_head_radius * SLIPFINN_GLYPH_5_A_RADIUS_MULT
 	end
 	if caster.jump_force < -1 then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, jump_on_head_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
