@@ -323,16 +323,16 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"(T1) Глиф полумесяца"
-		"item_rpc_solunia_glyph_1_1_description" 				"Увеличивает максимальное количество бросков бумерангов на @glyph_property1."
+		"item_rpc_solunia_glyph_1_1_description" 				"Увеличивает максимальное количество бросков бумерангов на <% SOLUNIA_GLYPH_1_1_W_BLADES_ADDED %>."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"(T2) Глиф гравитации"
-		"item_rpc_solunia_glyph_2_1_description" 				"Возвращение бумеранга, задевшего хотя бы одного врага снижает текущее время перезарядки (Q) Napalm на @glyph_property1 сек."
+		"item_rpc_solunia_glyph_2_1_description" 				"Возвращение бумеранга, задевшего хотя бы одного врага снижает текущее время перезарядки (Q) Napalm на <% SOLUNIA_GLYPH_2_1_W_HIT_Q_CD_REDUCTION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"(T3) Глиф гиперновы"
-		"item_rpc_solunia_glyph_3_1_description" 				"Увеличивает время оглушения от (Q) @Ability1 на @glyph_property1 сек."
+		"item_rpc_solunia_glyph_3_1_description" 				"Увеличивает время оглушения от (Q) @Ability1 на <% SOLUNIA_GLYPH_3_1_Q_STUN_DURATION_ADDED %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"(T4) Глиф тени"
-		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает время полёта от (E) Warp Flare на @glyph_property1 сек."
+		"item_rpc_solunia_glyph_4_1_description" 				"Увеличивает время полёта от (E) Warp Flare на <% SOLUNIA_GLYPH_4_1_E_FLOATING_DURATION_ADDED %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"(T5) Глиф нейтрино"
 		"item_rpc_solunia_glyph_5_1_description" 				"После прочтения @Ability4 дает щит, блокирующий <% SOLUNIA_GLYPH_5_1_STACKS_BASE %> порций урона."
@@ -350,10 +350,10 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"Следующее прочтение (Q) Napalm не будет перезаряжаться."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"(T7) Глиф световых лет"
-		"item_rpc_solunia_glyph_7_1_description" 				"Увеличивает максимальное количество возможных прыжков (E) Warp Flares на @glyph_property1."
+		"item_rpc_solunia_glyph_7_1_description" 				"Увеличивает максимальное количество возможных прыжков (E) Warp Flares на <% SOLUNIA_GLYPH_7_1_E_CASTS_ADDED %>."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"(Immortal) Глиф протозвезды"
-		"item_rpc_solunia_glyph_5_a_description" 				"При получении смертельного урона герой поднимается в воздух, при этом сбрасывается время перезарядки (R) Supernova или (R) Eclipse и герой произносит умение (R). Перезаряжается @glyph_property1 сек."
+		"item_rpc_solunia_glyph_5_a_description" 				"При получении смертельного урона герой поднимается в воздух, при этом сбрасывается время перезарядки (R) Supernova или (R) Eclipse и герой произносит умение (R). Перезаряжается <% SOLUNIA_GLYPH_5_A_CD %> сек."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"
 		

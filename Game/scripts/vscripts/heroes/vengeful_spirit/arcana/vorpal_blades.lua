@@ -25,7 +25,7 @@ function start_vorpal_blades(event)
 	end
 	local total_max_blades = event.max_blades
 	if caster:HasModifier("modifier_solunia_glyph_1_1") then
-		total_max_blades = total_max_blades + 2
+		total_max_blades = total_max_blades + SOLUNIA_GLYPH_1_1_W_BLADES_ADDED
 	end
 	local vorpals_for_this_throw = math.min(3, total_max_blades-#ability.vorpals)
 

@@ -553,7 +553,7 @@ function CustomAbilities:Protostar(victim)
 	local glyphUnit = modifier:GetCaster()
 	local glyph = modifier:GetAbility()
 	glyph.liftVelocity = 1
-	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_solunia_glyph_5_a_cooldown", {duration = 18})
+	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_solunia_glyph_5_a_cooldown", {duration = SOLUNIA_GLYPH_5_A_CD})
 	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_soluna_protostar_lifting", {duration = 4})
 end
 

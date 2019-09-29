@@ -100,7 +100,7 @@ function solarang_start(event)
 	caster:SetModifierStackCount("modifier_outgoing_solarang", caster, #ability.boomerangTable)
 	local max_boomerangs = event.max_boomerangs
 	if caster:HasModifier("modifier_solunia_glyph_1_1") then
-		max_boomerangs = max_boomerangs + 2
+		max_boomerangs = max_boomerangs + SOLUNIA_GLYPH_1_1_W_BLADES_ADDED
 	end
 	if #ability.boomerangTable >= max_boomerangs then
 		ability:SetActivated(false)
@@ -219,7 +219,7 @@ function reduceNapalmCooldown(caster, napalmName)
 		local ability = caster:FindAbilityByName(napalmName)
 		if ability then
 			if ability:GetCooldownTimeRemaining() > 0 then
-				local newCD = ability:GetCooldownTimeRemaining() - 2
+				local newCD = ability:GetCooldownTimeRemaining() - SOLUNIA_GLYPH_2_1_W_HIT_Q_CD_REDUCTION
 				if newCD > 0 then
 					ability:EndCooldown()
 					ability:StartCooldown(newCD)
@@ -352,7 +352,7 @@ function lunarang_start(event)
 	caster:SetModifierStackCount("modifier_outgoing_lunarang", caster, #ability.boomerangTable)
 	local max_boomerangs = event.max_boomerangs
 	if caster:HasModifier("modifier_solunia_glyph_1_1") then
-		max_boomerangs = max_boomerangs + 2
+		max_boomerangs = max_boomerangs + SOLUNIA_GLYPH_1_1_W_BLADES_ADDED
 	end
 	if #ability.boomerangTable >= max_boomerangs then
 		ability:SetActivated(false)

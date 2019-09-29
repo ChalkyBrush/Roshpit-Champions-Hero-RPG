@@ -277,19 +277,19 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"新月雕文"
-		"item_rpc_solunia_glyph_1_1_description" 				"增加 @glyph_property1 个回旋镖（W）的数量。"
+		"item_rpc_solunia_glyph_1_1_description" 				"增加 <% SOLUNIA_GLYPH_1_1_W_BLADES_ADDED %> 个回旋镖（W）的数量。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"引力雕文"
-		"item_rpc_solunia_glyph_2_1_description" 				"每收回一个击中至少1个单位的回旋镖会使日月之石的冷却时间降低 @glyph_property1 秒。"
+		"item_rpc_solunia_glyph_2_1_description" 				"每收回一个击中至少1个单位的回旋镖会使日月之石的冷却时间降低 <% SOLUNIA_GLYPH_2_1_W_HIT_Q_CD_REDUCTION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"超新星雕文"
-		"item_rpc_solunia_glyph_3_1_description" 				"增加日月之石眩晕时间 @glyph_property1 秒。"
+		"item_rpc_solunia_glyph_3_1_description" 				"增加日月之石眩晕时间 <% SOLUNIA_GLYPH_3_1_Q_STUN_DURATION_ADDED %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"影子雕文"
-		"item_rpc_solunia_glyph_4_1_description" 				"增加弯曲火焰浮空时间 @glyph_property1 秒。"
+		"item_rpc_solunia_glyph_4_1_description" 				"增加弯曲火焰浮空时间 <% SOLUNIA_GLYPH_4_1_E_FLOATING_DURATION_ADDED %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"中微子雕文"
-		"item_rpc_solunia_glyph_5_1_description" 				"释放R技能，会获得三层护盾，直到护盾被破坏。"
+		"item_rpc_solunia_glyph_5_1_description" 				"释放R技能，会获得<% SOLUNIA_GLYPH_5_1_STACKS_BASE %>层护盾，直到护盾被破坏。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"奇點雕文"
 		"item_rpc_solunia_glyph_6_1_description" 				"施放超新星或者日食后，获得buff使日月之石没有冷却时间。"
@@ -298,10 +298,10 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"日月之石没有冷却时间。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"光年雕文"
-		"item_rpc_solunia_glyph_7_1_description" 				"增加弯曲火焰的最大数量 @glyph_property1。"
+		"item_rpc_solunia_glyph_7_1_description" 				"增加弯曲火焰的最大数量 <% SOLUNIA_GLYPH_7_1_E_CASTS_ADDED %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"原恆星雕文"
-		"item_rpc_solunia_glyph_5_a_description" 				"受到致命伤害时日夜女神进入天空刷新超新星和日食并且施放。 @glyph_property1 冷却时间。"
+		"item_rpc_solunia_glyph_5_a_description" 				"受到致命伤害时日夜女神进入天空刷新超新星和日食并且施放。 <% SOLUNIA_GLYPH_5_A_CD %> 冷却时间。"
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"原恆星冷却时间"
 		

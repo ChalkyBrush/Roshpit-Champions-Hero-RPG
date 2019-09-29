@@ -328,16 +328,16 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"Glyph of Crescents"
-		"item_rpc_solunia_glyph_1_1_description" 				"Increases the max number of concurrent boomerangs by @glyph_property1."
+		"item_rpc_solunia_glyph_1_1_description" 				"Increases the max number of concurrent boomerangs by <% SOLUNIA_GLYPH_1_1_W_BLADES_ADDED %>."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"Glyph of Gravitation"
-		"item_rpc_solunia_glyph_2_1_description" 				"Recollecting a boomerang that has damaged at least 1 enemy removes @glyph_property1 seconds from the cooldown of Napalm."
+		"item_rpc_solunia_glyph_2_1_description" 				"Recollecting a boomerang that has damaged at least 1 enemy removes <% SOLUNIA_GLYPH_2_1_W_HIT_Q_CD_REDUCTION %> seconds from the cooldown of Napalm."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"Glyph of Hypernova"
-		"item_rpc_solunia_glyph_3_1_description" 				"Increases the stun duration of @Ability1 projectiles by @glyph_property1 second."
+		"item_rpc_solunia_glyph_3_1_description" 				"Increases the stun duration of @Ability1 projectiles by <% SOLUNIA_GLYPH_3_1_Q_STUN_DURATION_ADDED %> second."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"Glyph of Umbra"
-		"item_rpc_solunia_glyph_4_1_description" 				"Increases the floating duration between Warp Flares by @glyph_property1 seconds."
+		"item_rpc_solunia_glyph_4_1_description" 				"Increases the floating duration between Warp Flares by <% SOLUNIA_GLYPH_4_1_E_FLOATING_DURATION_ADDED %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"Glyph of Neutrino"
 		"item_rpc_solunia_glyph_5_1_description" 				"After casting @Ability4 gain a shield which blocks <% SOLUNIA_GLYPH_5_1_STACKS_BASE %> instances of damage."
@@ -355,10 +355,10 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"Casting Napalm will not trigger its cooldown."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"Glyph of Light Years"
-		"item_rpc_solunia_glyph_7_1_description" 				"Increases the max number of successive Warp Flares by @glyph_property1."
+		"item_rpc_solunia_glyph_7_1_description" 				"Increases the max number of successive Warp Flares by <% SOLUNIA_GLYPH_7_1_E_CASTS_ADDED %>."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"Glyph of Protostar"
-		"item_rpc_solunia_glyph_5_a_description" 				"Taking lethal damage first launches Solunia into the air, then refreshes her Supernova or Eclipse and casts it. @glyph_property1 cooldown."
+		"item_rpc_solunia_glyph_5_a_description" 				"Taking lethal damage first launches Solunia into the air, then refreshes her Supernova or Eclipse and casts it. <% SOLUNIA_GLYPH_5_A_CD %> cooldown."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"
 		
