@@ -1025,7 +1025,7 @@ function Filters:ApplyWskills(caster)
                 EmitSoundOn("Auriun.Immo3Activate", caster)
             end
             caster:RemoveModifierByName("modifier_auriun_immortal_weapon_3_effect")
-            caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auriun_immortal_weapon_3_effect", {duration = 10})
+            caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auriun_immortal_weapon_3_effect", {duration = AURIUN_IMMO_WEAPON_3_DURATION})
         end
     end
     if caster:HasModifier("modifier_windsteel_armor") then
@@ -1435,7 +1435,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.9
         end
         if attacker:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
-            damageMult = damageMult + 2
+            damageMult = damageMult + AURIUN_IMMO_WEAPON_3_BAD/100
         end
         if attacker:HasModifier("modifier_hawk_c_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_hawk_c_d", attacker)
@@ -4175,8 +4175,8 @@ end
 function Filters:AuriunImmortalWeapon1(damage, victim)
     if not victim:HasModifier("modifier_auriun_immortal_weapon_1_cooldown") then
         damage = 0
-        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_weapon_1_cooldown", {duration = 4})
-        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_phased", {duration = 1.5})
+        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_weapon_1_cooldown", {duration = AURIUN_IMMO_WEAPON_1_CD})
+        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_phased", {duration = AURIUN_IMMO_WEAPON_1_DURATION})
     end
     return damage
 end

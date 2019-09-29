@@ -280,18 +280,18 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"Prophecy"
 		"item_property_auriun_immortal_weapon"								"Heaven's Guidance"
-		"property_auriun_immortal_weapon_description"						"When taking damage, ignore the damage instance and fade from enemy view for 1.5 seconds. 4 second cooldown."
+		"property_auriun_immortal_weapon_description"						"When taking damage, ignore the damage instance and fade from enemy view for <% AURIUN_IMMO_WEAPON_1_DURATION %> seconds. <% AURIUN_IMMO_WEAPON_1_CD %> second cooldown."
 		
 		 "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_2"            "Vita's Spirit Scroll"
         "item_property_auriun_immortal_weapon2"                             "Patient Insight"
-        "property_auriun_immortal_weapon2_description"                      "Every 8 seconds gain a stack of Insight, up to a maximum of 2 stacks. With stacks of insight, @Ability1 does not go on cooldown and consumes a stack instead."
+        "property_auriun_immortal_weapon2_description"                      "Every <% AURIUN_IMMO_WEAPON_2_RECHARGE_INTERVAL %> seconds gain a stack of Insight, up to a maximum of <% AURIUN_IMMO_WEAPON_2_MAX_STACKS %> stacks. With stacks of insight, @Ability1 does not go on cooldown and consumes a stack instead."
         
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight"			"Insight"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight_Description"	"Heaven's Shield will not trigger its cooldown."
 
         "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "Umbral Tome of Herod"
         "item_property_auriun_immortal_weapon3"                             "Artifice"
-        "property_auriun_immortal_weapon3_description"                      "Casting @Ability2 applies magic immunity, @special_property3% increased base ability damage, and @special_property1% health regen for @special_property2 seconds."
+        "property_auriun_immortal_weapon3_description"                      "Casting @Ability2 applies magic immunity, <% AURIUN_IMMO_WEAPON_3_BAD %>% increased base ability damage, and -<% AURIUN_IMMO_WEAPON_3_NEGATIVE_REGEN %> health regen for <% AURIUN_IMMO_WEAPON_3_DURATION %> seconds."
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Magic Immunity and reduced health regen."

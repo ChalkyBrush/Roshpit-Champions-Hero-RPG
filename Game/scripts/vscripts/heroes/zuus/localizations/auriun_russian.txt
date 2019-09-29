@@ -280,18 +280,18 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"Prophecy"
 		"item_property_auriun_immortal_weapon"								"Heaven's Guidance"
-		"property_auriun_immortal_weapon_description"						"При получении урона, герой полностью игнорирует его и исчезает из поля зрения врагов на 1.5 секунды. Перезаряжается 4 секунды."
+		"property_auriun_immortal_weapon_description"						"При получении урона, герой полностью игнорирует его и исчезает из поля зрения врагов на <% AURIUN_IMMO_WEAPON_1_DURATION %> секунды. Перезаряжается <% AURIUN_IMMO_WEAPON_1_CD %> секунды."
 		
 		 "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_2"            "Vita's Spirit Scroll"
         "item_property_auriun_immortal_weapon2"                             "Patient Insight"
-        "property_auriun_immortal_weapon2_description"                      "Каждые 8 секунд получает заряд Insight, максимум 2. Каждый заряд тратится на отсутствие перезарядки для умения (Q) @Ability1."
+        "property_auriun_immortal_weapon2_description"                      "Каждые <% AURIUN_IMMO_WEAPON_2_RECHARGE_INTERVAL %> секунд получает заряд Insight, максимум <% AURIUN_IMMO_WEAPON_2_MAX_STACKS %>. Каждый заряд тратится на отсутствие перезарядки для умения (Q) @Ability1."
         
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight"			"Insight"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight_Description"	"(Q) Heaven's Shield не требует перезарядки."
 
         "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "Umbral Tome of Herod"
         "item_property_auriun_immortal_weapon3"                             "Artifice"
-        "property_auriun_immortal_weapon3_description"                      "Прочтение (W) @Ability2 дарует иммунитет к магии и @special_property1% регенерацию здоровья на @special_property2 секунд. Дополнительно базовый урон способностей увеличивается на @special_property3%."
+        "property_auriun_immortal_weapon3_description"                      "Прочтение (W) @Ability2 дарует иммунитет к магии и -<% AURIUN_IMMO_WEAPON_3_NEGATIVE_REGEN %>% регенерацию здоровья на <% AURIUN_IMMO_WEAPON_3_DURATION %> секунд. Дополнительно базовый урон способностей увеличивается на <% AURIUN_IMMO_WEAPON_3_BAD %>%."
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
-        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, повышенная регенерация здоровья."
+        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, пониженная регенерация здоровья."

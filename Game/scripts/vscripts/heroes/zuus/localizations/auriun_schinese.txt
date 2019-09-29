@@ -278,18 +278,18 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"预言"
 		"item_property_auriun_immortal_weapon"								"天堂的引导"
-		"property_auriun_immortal_weapon_description"						"当收到伤害时,无视此次的伤害并且在敌人的视野中消失1.5秒. 4秒的冷却时间."
+		"property_auriun_immortal_weapon_description"						"当收到伤害时,无视此次的伤害并且在敌人的视野中消失<% AURIUN_IMMO_WEAPON_1_DURATION %>秒. <% AURIUN_IMMO_WEAPON_1_CD %>秒的冷却时间."
 		
 		 "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_2"            "精神卷轴"
         "item_property_auriun_immortal_weapon2"                             "内力"
-        "property_auriun_immortal_weapon2_description"                      "每 8 秒获得一层内力，最大 2 层。当内力存在时，施放 @Ability1 将消耗一层内力充能，但不进入冷却时间。"
+        "property_auriun_immortal_weapon2_description"                      "每 <% AURIUN_IMMO_WEAPON_2_RECHARGE_INTERVAL %> 秒获得一层内力，最大 <% AURIUN_IMMO_WEAPON_2_MAX_STACKS %> 层。当内力存在时，施放 @Ability1 将消耗一层内力充能，但不进入冷却时间。"
         
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight"			"内力"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight_Description"	"天堂之盾将不会进入冷却时间"
 
         "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "残暴希律王之典"
         "item_property_auriun_immortal_weapon3"                             "诡诈"
-        "property_auriun_immortal_weapon3_description"                      "施放 @Ability2 将获得魔法免疫，提高基础技能伤害 @special_property3% ，但是生命回复速度变为 @special_property1%。持续 @special_property2 秒。"
+        "property_auriun_immortal_weapon3_description"                      "施放 @Ability2 将获得魔法免疫，提高基础技能伤害 <% AURIUN_IMMO_WEAPON_3_BAD %>% ，但是生命回复速度变为 -<% AURIUN_IMMO_WEAPON_3_NEGATIVE_REGEN %>%。持续 <% AURIUN_IMMO_WEAPON_3_DURATION %> 秒。"
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"诡诈"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"魔法免疫并降低生命回复速度"
