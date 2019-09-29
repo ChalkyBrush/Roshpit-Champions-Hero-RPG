@@ -212,7 +212,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "Innervation Claw"
         "item_property_dinath_immortal_weapon"                             "Hypercharge"
-        "property_dinath_immortal_weapon_description"                      "@Ability4 starts @special_property1 size larger and travels @special_property2 farther."
+        "property_dinath_immortal_weapon_description"                      "@Ability4 starts <% DINATH_IMMO_WEAPON_1_BASE_SIZE_INCREASE %> size larger and travels <% DINATH_IMMO_WEAPON_1_ADDITIONAL_RANGE %> farther."
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "Breath of Vitali"
         "item_property_dinath_immortal_weapon2"                             "Aurora Shield"

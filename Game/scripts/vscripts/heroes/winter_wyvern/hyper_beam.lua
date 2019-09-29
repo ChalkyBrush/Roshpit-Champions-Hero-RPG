@@ -21,7 +21,7 @@ function hyperbeam_start_channel(event)
 	hyperbeam.pfx = pfx
 	hyperbeam.size = 50
 	if caster:HasModifier("modifier_dinath_immortal_weapon_1") then
-		hyperbeam.size = hyperbeam.size + 100
+		hyperbeam.size = hyperbeam.size + DINATH_IMMO_WEAPON_1_BASE_SIZE_INCREASE
 	end
 	hyperbeam.speed = 40
 	hyperbeam:SetDayTimeVisionRange(200)
@@ -101,7 +101,7 @@ function hyperbeam_orb_thinking(event)
 		hyperbeam.distanceTravelled = hyperbeam.distanceTravelled + forwardMovement
 		local max_distance = 2000
 		if caster:HasModifier("modifier_dinath_immortal_weapon_1") then
-			max_distance = max_distance + 1000
+			max_distance = max_distance + DINATH_IMMO_WEAPON_1_ADDITIONAL_RANGE
 		end
 		if hyperbeam.distanceTravelled >= max_distance then
 			hyperbeam:RemoveModifierByName("modifier_hyperbeam_orb")
