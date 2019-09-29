@@ -110,7 +110,7 @@ function dominion_debuff_death(event)
 		table.insert(ability.dominionTable, summon)
 		local max_summons = event.max_summons
 		if caster:HasModifier("modifier_ekkan_glyph_5_1") then
-			max_summons = max_summons + 2
+			max_summons = max_summons + EKKAN_GLYPH_5_1_Q_ADD_UNITS
 		end
 		if #ability.dominionTable > max_summons then
 			ability.dominionTable[1]:ForceKill(false)
@@ -187,7 +187,7 @@ function dominion_unit_think(event)
 	if target:IsAlive() then
 		local leashDistance = 2000
 		if caster:HasModifier("modifier_ekkan_glyph_5_a") then
-			leashDistance = leashDistance + 1000
+			leashDistance = leashDistance + EKKAN_GLYPH_5_A_LEASH_RANGE_INCREASE
 		end
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
 		if distance > leashDistance then

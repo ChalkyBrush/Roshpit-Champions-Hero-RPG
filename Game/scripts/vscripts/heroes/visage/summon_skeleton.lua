@@ -67,7 +67,7 @@ function cast_raise_skeleton(event)
 						skeletonDuration = skeletonDuration + EKKAN_W2_DURATION * w_2_level
 					end
 					if caster:HasModifier("modifier_ekkan_glyph_3_1") then
-						skeletonDuration = skeletonDuration * 2
+						skeletonDuration = skeletonDuration + skeletonDuration * EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT/100
 					end
 
 					skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
@@ -97,7 +97,7 @@ function cast_raise_skeleton(event)
 					table.insert(ability.skeleTable, skeleton)
 					local max_skeletons = event.max_skeletons
 					if caster:HasModifier("modifier_ekkan_glyph_1_1") then
-						max_skeletons = max_skeletons + 4
+						max_skeletons = max_skeletons + EKKAN_GLYPH_1_1_ADD_UNITS
 					end
 					if #ability.skeleTable > max_skeletons then
 						if IsValidEntity(ability.skeleTable[1]) then
