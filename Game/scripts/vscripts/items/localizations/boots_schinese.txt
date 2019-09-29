@@ -1,17 +1,17 @@
 
     	"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"飞刀杂耍者之靴"
 		"item_property_slinger_boot"				"飞刀杂耍者"
-		"property_slinger_boots_description"		"每0.2秒攻击在你背后的敌人一次，攻击继承全部攻击特效。"
+		"property_slinger_boots_description"		"每<% BLADESLINGER_ATT_INTERVAL %>秒攻击在你背后的敌人一次，攻击继承全部攻击特效。"
 
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"
 		"item_property_sange"						"战斗大师S"
-		"property_sange_description"				"每点敏捷值额外提高25点最大生命值。"
+		"property_sange_description"				"每点敏捷值额外提高<% SANGE_HP_PER_AGI %>点最大生命值。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"沙丘之靴"
 		"item_property_dunetread"					"沙丘行者"
-		"property_dunetread_description"			"减少 @Ability3 的冷却时间2秒。"
+		"property_dunetread_description"			"减少 @Ability3 的冷却时间<% DUNETREADS_CD_RED %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"紫罗兰卫士之靴"
@@ -27,17 +27,17 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"静谧之鞋"
 		"item_property_tranquil_boots"				"森林漫游"	
-		"property_tranquil_boots_description"		"每移动200码，回复 @special_property1% 的最大生命值。"
+		"property_tranquil_boots_description"		"每移动<% TRANQUIL_BOOTS_DISTANCE %>码，回复 <% TRANQUIL_BOOTS_HP_HEAL_PCT %>% 的最大生命值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"夜叉之鞋"
 		"item_property_yasha"						"战斗大师Y"	
-		"property_yasha_description"				"每 @special_property1 点力量值提高 1 点攻击速度。同时，基础攻击间隔时间降低到 @special_property2 秒。"
+		"property_yasha_description"				"每 <% YASHA_AS_PER_STR %> 点力量值提高 1 点攻击速度。同时，基础攻击间隔时间降低到 <% YASHA_BAT %> 秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"魔力之靴"
 		"item_property_mana_striders"				"魔力步伐"
-		"property_mana_striders_description"		"每移动240码，回复 @special_property1% 的最大魔法值。"
+		"property_mana_striders_description"		"每移动<% MANA_STRIDERS_DISTANCE %>码，回复 <% MANA_STRIDERS_MANA_RESTORE_PCT %>% 的最大魔法值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"烈火战靴"
@@ -47,7 +47,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"月球旅航鞋"
 		"item_property_moon_techs"					"月球尘埃"
-		"property_moon_techs_description"			"施放 @Ability3 时在脚下留下尘埃，尘埃中的敌人将被减速 50%。并且尘埃中的敌人所受到来自施法者的伤害加深，施法者每点高于敌人的移动速度都将加深伤害 1% （计算在敌人减伤之后）。尘埃持续8秒。"
+		"property_moon_techs_description"			"施放 @Ability3 时在脚下留下尘埃，尘埃中的敌人将被减速 <% MOON_TECHS_MS_SLOW_PCT %>%。并且尘埃中的敌人所受到来自施法者的伤害加深，施法者每点高于敌人的移动速度都将加深伤害 1% （计算在敌人减伤之后）。尘埃持续<% MOON_TECHS_DURATION %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"音速鞋"
@@ -67,17 +67,17 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"海军上将之靴"
 		"item_property_admiral_boots"				"海上霸主"
-		"property_admiral_boots_description"		"提高 @Ability3 伤害100%。"
+		"property_admiral_boots_description"		"提高 @Ability3 伤害<% ADMIRAL_BOOTS_BAD_E %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"叶落归根"
 		"item_property_rooted_feet"					"根深蒂固"
-		"property_rooted_feet_description"			"当玩家静止不动时获得2倍的护甲值、3倍的生命回复速度和50%减伤。"
+		"property_rooted_feet_description"			"当玩家静止不动时获得<% ROOTED_FEET_ARMOR_AMP %>倍的护甲值、<% ROOTED_FEET_HP_REGEN_AMP %>倍的生命回复速度和<% ROOTED_FEET_DMG_REDUCTION %>%减伤。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"十字军之靴"
 		"item_property_crusader_boots"				"忠诚光环"
-		"property_crusader_boots_description"		"提升你及附近友军的护甲，提升值为你力量值的10%。"
+		"property_crusader_boots_description"		"提升你及附近友军的护甲，提升值为你力量值的<% CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>%。"
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "忠诚光环"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"获得额外护甲值"
@@ -85,7 +85,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"奥术之鞋"
 		"item_property_arcanys_slipper"				"奥术冲击"
-		"property_arcanys_slipper_description"		"施放 @Ability3 后，在1.2秒内释放3股奥术能量。每股能量汲取你 @special_property1% 的最大魔法值，并提高 @special_property2x 倍所汲取魔法值的基础攻击力。"
+		"property_arcanys_slipper_description"		"施放 @Ability3 后，在<% ARCANYS_SLIPPER_EXPLOSIONS_DURATION %>秒内释放<% ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>股奥术能量。每股能量汲取你 <% ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT %>% 的最大魔法值，并提高 <% ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN %>x 倍所汲取魔法值的基础攻击力。"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"奥术冲击"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"攻击力提高"
 		
@@ -95,17 +95,17 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"航海长靴"
 		"item_property_voyager"						"航海家"
-		"property_voyager_description"				"施放 @Ability3 后，减少其余技能的冷却时间30%。"
+		"property_voyager_description"				"施放 @Ability3 后，减少其余技能的冷却时间<% VOYAGER_BOOTS_E_RED %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
 		"item_property_redrock"						"灼热步伐"
-		"property_redrock_description"				"施放 @Ability3 时，在1.5秒内释放3股心灵脉冲强制附近敌人攻击你，额外增加3倍生命值和50%伤害减免，持续5秒。"
+		"property_redrock_description"				"施放 @Ability3 时，在<% REDROCK_DURATION_OF_PULSES %>秒内释放<% REDROCK_NUMBER_OF_PULSES %>股心灵脉冲强制附近敌人攻击你，额外增加<% REDROCK_HP_INCREASE_PCT %>%倍生命值和<% REDROCK_DAMAGE_REDUCTION_PCT %>%伤害减免，持续<% REDROCK_TAUNT_DURATION %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"共鸣皮靴"
 		"item_property_pathfinder"					"净化共鸣"
-		"property_pathfinder_description"			"如果7秒内未受到伤害，则每秒回复8%的最大生命值和4%的最大魔法值。"
+		"property_pathfinder_description"			"如果<% PATHFINDER_DElAY %>秒内未受到伤害，则每秒回复<% PATHFINDER_HP_RESTORE_PCT %>%的最大生命值和<% PATHFINDER_MANA_RESTORE_PCT %>%的最大魔法值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"							"海神宝靴"
@@ -115,70 +115,70 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"蓝龙胫甲"
 		"item_property_dragon_greaves"				"龙舞"
-		"property_dragon_greaves_description"		"每移动1200码，获得 85% 闪避并提高 350% 的攻击力，持续6秒。"
+		"property_dragon_greaves_description"		"每移动<% BLUE_DRAGON_GREAVES_DISTANCE %>码，获得 % BLUE_DRAGON_GREAVES_EVASION %>% 闪避并提高 <% BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>% 的攻击力，持续<% BLUE_DRAGON_GREAVES_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"龙舞"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "85%% 闪避并提高 350%% 的攻击力"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "% BLUE_DRAGON_GREAVES_EVASION %>%% 闪避并提高 <% BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>%% 的攻击力"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"橡胶靴"
 		"item_property_resplendent_rubber"					"接地"
-		"property_resplendent_rubber_description"			"减少受到的所有伤害75%。"
+		"property_resplendent_rubber_description"			"减少受到的所有伤害<% RESPLENDENT_RUBBER_DMG_REDUCTION %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"古老智慧之鞋"
 		"item_property_old_wisdom"								"技能变异"
-		"property_old_wisdom_description"						"提高基础技能伤害 @special_property1% 。连续两次使用相同的技能将移除该效果12秒。"
+		"property_old_wisdom_description"						"提高基础技能伤害 <% OLD_WISDOM_BAD %>% 。连续两次使用相同的技能将移除该效果<% OLD_WISDOM_COOLDOWN %>秒。"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"技能变异冷却中"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"连续使用相同的技能"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"纯净水之靴"
 		"item_property_pure_waters"							"纯净水"
-		"property_pure_waters_description"					"当你施放 @Ability3 时，回复 4% 的最大魔法值，喷出一股纯净水造成10x攻击力或80x智力值（取较大值）的纯粹伤害。同时降低敌人移动速度30%，持续4秒。<br>每一秒只能触发一次。"
+		"property_pure_waters_description"					"当你施放 @Ability3 时，回复 <% PURE_WATERS_MANA_RESTORE_PCT %>% 的最大魔法值，喷出一股纯净水造成<% PURE_WATERS_ATTACK_TO_DMG %>x攻击力或<% PURE_WATERS_INT_TO_DMG %>x智力值（取较大值）的纯粹伤害。同时降低敌人移动速度<% PURE_WATERS_SLOW %>%，持续<% PURE_WATERS_SLOW_DURATION %>秒。<br>每一秒只能触发一次。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"熔岩靴"
 		"item_property_terrasic_lava"						"熔岩践踏"
-		"property_terrasic_lava_description"				"允许你在塔纳利丛林的岩浆上行走。接触岩浆后提高攻击力100% 和攻击距离150点，持续7秒。"
+		"property_terrasic_lava_description"				"允许你在塔纳利丛林的岩浆上行走。接触岩浆后提高攻击力<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>% 和攻击距离<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_RANGE %>点，持续<% TERRASIC_LAVA_BOOTS_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"熔岩践踏"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"攻击力和攻击距离提高。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"格里夫斯"
 		"item_property_ablecore_greaves"					"龟速"
-		"property_ablecore_greaves_description"			"当移动速度低于或者等于300，受到的伤害减少80%并且伤害输出增加600%。当移动速度高于300时，此buff仍持续6秒。"
+		"property_ablecore_greaves_description"			"当移动速度低于或者等于<% ABLECORE_GREAVES_MS_REQ %>，受到的伤害减少<% ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ABLECORE_GREAVES_POST_MITI %>%。当移动速度高于<% ABLECORE_GREAVES_MS_REQ %>时，此buff仍持续<% ABLECORE_GREAVES_STICKY_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"龟速"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少80%并且伤害输出增加600%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少<% ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ABLECORE_GREAVES_POST_MITI %>%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"巨型猎人的复原鞋子"
 		"item_property_giant_hunter_boot"					"巨型猎人"
-		"property_giant_hunter_boot_description"			"当被眩晕或缠绕时，获得魔法免疫，魔法免疫持续 @special_property1 秒。"
+		"property_giant_hunter_boot_description"			"当被眩晕或缠绕时，获得魔法免疫，魔法免疫持续 <% GIANT_HUNTERS_BOOTS_IMMUNITY_DURATION %> 秒。"
 		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"巨型猎人的魔法免疫"
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"落红流火的赛跑者"
 		"item_property_redfall_runners"					"嘎吱作响的叶子"
-		"property_redfall_runners_description"				"施放 @Ability3 获得buff，增加 @Ability2 的基础技能伤害20倍。持续时间7秒，释放二技能后失去buff。"
+		"property_redfall_runners_description"				"施放 @Ability3 获得buff，增加 @Ability2 的基础技能伤害<% REDFALL_RUNNERS_BAD_MULT %>%倍。持续时间<% REDFALL_RUNNERS_DURATION %>秒，释放二技能后失去buff。"
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"嘎吱作响的叶子"
 		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W 技能伤害增加20x"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
 		 "item_property_boots_of_ashara"						"秋叶魅力"
-		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的@special_property2%时，@Ability3的基础技能伤害增加 @special_property1X"
+		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的<% BOOTS_OF_ASHARA_HP_THRESHOLD %>%时，@Ability3的基础技能伤害增加 <% BOOTS_OF_ASHARA_BAD_E %>X"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"砂流之鞋"
 		"item_property_sandstream_slippers"					"流沙"
-		 "property_sandstream_slippers_description"				"每12秒叠加一层流沙，每层流沙移除一次 @Ability3 的冷却时间，最多两层。"
+		 "property_sandstream_slippers_description"				"每<% SANDSTREAM_INTERVAL %>秒叠加一层流沙，每层流沙移除一次 @Ability3 的冷却时间，最多<% SANDSTREAM_MAX_STACKS %>层。"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"流沙叠加"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"移除E技能的冷却时间，使用E技能消耗一层流沙"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth精英鞋子"
 		"item_property_crimsyth_elite_3"						"Crimsyth精英"
-		 "property_crimsyth_elite_3_description"				"增加护甲值，增加值为 @special_property1x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 @special_property2 ，持续 @special_property3 秒。"
+		 "property_crimsyth_elite_3_description"				"增加护甲值，增加值为 <% CRIMSYTH_ELITE_ARMOR %>x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 <% CRIMSYTH_ELITE_MAGIC_RESISTANCE %> ，持续 <% CRIMSYTH_ELITE_DURATION %> 秒。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"收割者鞋子"
@@ -186,12 +186,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"大财宝靴"
 		"item_property_boots_of_great_fortune"					"幸运"
-		 "property_boots_of_great_fortune_description"			"增加装备效果的触发机率 @special_property1% 。 （加法，并且最优先计算）"
+		 "property_boots_of_great_fortune_description"			"增加装备效果的触发机率 <% BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE %>% 。 （加法，并且最优先计算）"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"血石之靴"
 		"item_property_bloodstone_boots"						"生死攸关"
-		 "property_bloodstone_boots_description"				"当生命值低于 @special_property1% ，@Ability3 拥有1秒冷却时间。"
+		 "property_bloodstone_boots_description"				"当生命值低于 <% BLOODSTONE_BOOTS_HP_THRESHOLD %>% ，@Ability3 拥有<% BLOODSTONE_BOOTS_E_CD %>秒冷却时间。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"时光逆流之靴"
@@ -202,7 +202,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"安拉罗娜的冰靴"
 		"item_property_alarana"								"冰之盾"
-		 "property_alarana_description"							"施放 @Ability4 后将把玩家包裹在冰盾中。冰盾状态下玩家被缠绕，但是伤害减免 100% 并且在 @special_property1 秒内魔法伤害提高 @special_property4% 。如果在护盾状态下受到的总伤害超过 @special_property2x 玩家最大生命值，冰盾会被打破。冰盾破碎时，缠绕周围所有敌人并且对敌人造成 @special_property3x 玩家最大生命值的伤害。"
+		 "property_alarana_description"							"施放 @Ability4 后将把玩家包裹在冰盾中。冰盾状态下玩家被缠绕，但是伤害减免 100% 并且在 <% ALARANA_ICE_ENCASE_DURATION %> 秒内魔法伤害提高 <% ALARANA_MAGIC_POST_MITI %>% 。如果在护盾状态下受到的总伤害超过 <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x 玩家最大生命值，冰盾会被打破。冰盾破碎时，缠绕周围所有敌人并且对敌人造成 <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x 玩家最大生命值的伤害。"
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"冰之盾"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"冰霜新星"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"被缠绕"
@@ -210,39 +210,39 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"翡翠速度赛跑者"
 		"item_property_emerald_speed"							"稳定步伐"
-		"property_emerald_speed_description"					"移动速度不会低于 @special_property1 。"
+		"property_emerald_speed_description"					"移动速度不会低于 <% EMERALD_SPEED_MS_LOW_CAP %> 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"腥红十月靴"
 		"item_property_red_october"								"自然星火"
-		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 @special_property1%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
+		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 <% RED_OCTOBER_DMG_REDUCTION %>%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"蒸汽长靴"
 		"item_property_steamboots"						"蒸汽长靴"
-		"property_steamboots_description"				"每 10 点敏捷值提高装备伤害 @special_property1%。"
+		"property_steamboots_description"				"每 <% STEAMBOOTS_AGI_DIVISOR %> 点敏捷值提高装备伤害 <% STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%。"
 		
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"深海靴"	
 		"property_oceanrunner"												"轻盈"
-		"property_oceanrunner_Description"									"每 10 点敏捷值提高基础技能伤害 0.25% 。"
+		"property_oceanrunner_Description"									"每 <% OCEANRUNNER_AGI_TO_BAD %> 点敏捷值提高基础技能伤害 <% OCEANRUNNER_AGI_DIVISOR %>% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"水晶鞋"	
 		"property_crystalline"												"水晶缠绕"
-		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 @special_property1%，并且受到 @special_property2x 来自玩家的伤害（税前）。"
+		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 <% CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED %>%，并且受到 <% CRYSTALLINE_PRE_MITI_AMP %>x 来自玩家的伤害（税前）。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"砾石足踏"
 		"item_property_gravelfoot"							"砾石之足"
-		"property_gravelfoot_description"					"每@special_property1秒净化一次敌人debuff效果。当debuff被净化时，自身变成霜冻石块形态@special_property2秒，移动速度减少@special_property3，受到的伤害减少@special_property4%。"
+		"property_gravelfoot_description"					"每<% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %>秒净化一次敌人debuff效果。当debuff被净化时，自身变成霜冻石块形态<% GRAVELFOOT_SELF_SLOW_DURATION %>秒，移动速度减少<% GRAVELFOOT_SELF_SLOW %>，受到的伤害减少<% GRAVELFOOT_DMG_REDUCTION %>%。"
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"砾石之足"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"移速和受到的伤害降低"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"浮冰滑靴"
 		"item_property_ice_floe_slippers"					"浮冰"
-		"property_ice_floe_slippers_description"			"在同一目标地点连续发出两个移动指令，即可在冰上滑行。滑行的时候，你被缠绕且石化不受物理伤害。最大滑行距离为1500码。当被晕眩或缠绕的时候不能激活滑行效果。"
+		"property_ice_floe_slippers_description"			"在同一目标地点连续发出两个移动指令，即可在冰上滑行。滑行的时候，你被缠绕且石化不受物理伤害。最大滑行距离为<% ICE_FLOE_TRAVEL_DISTANCE %>码。当被晕眩或缠绕的时候不能激活滑行效果。"
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"钢铁毁灭足踏"
