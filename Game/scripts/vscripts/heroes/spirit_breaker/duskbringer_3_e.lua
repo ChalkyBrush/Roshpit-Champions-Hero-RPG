@@ -146,7 +146,7 @@ end
 function immortal3_attack_land(event)
 	local caster = event.attacker
 	local target = event.target
-	local proc = Filters:GetProc(caster, 25)
+	local proc = Filters:GetProc(caster, DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_CHANCE)
 	if proc then
 		local casterOrigin = caster:GetAbsOrigin()
 		local modifierKnockback =
@@ -162,7 +162,7 @@ function immortal3_attack_land(event)
 
 		EmitSoundOn("Hero_Spirit_Breaker.GreaterBash", target)
 
-		Filters:ApplyStun(caster, 2.0, target)
+		Filters:ApplyStun(caster, DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_DURATION, target)
 		if not target.jumpLock then
 			target:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
 		end
@@ -177,7 +177,7 @@ function immortal3_attack_land(event)
 		local b_c_duration = DUSKBRINGER_E2_BASE_DUR + DUSKBRINGER_E2_DUR * e_2_level
 		b_c_duration = Filters:GetAdjustedBuffDuration(caster, b_c_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_duskbringer_rune_e_2_effect", {duration = b_c_duration})
-		caster:SetModifierStackCount("modifier_duskbringer_rune_e_2_effect", caster, 5)
+		caster:SetModifierStackCount("modifier_duskbringer_rune_e_2_effect", caster, DUSKBRINGER_IMMORTAL_WEAPON_3_E2_SHIELD_STACKS_PER_BASH)
 
 	end
 end
