@@ -386,7 +386,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
         "item_property_solunia_immortal_weapon2"                             "Cryoshock"
-        "property_solunia_immortal_weapon2_description"                      "When @Ability2 crits, enemies in a 200 radius around the boomerang are frozen for @special_property1 seconds."
+        "property_solunia_immortal_weapon2_description"                      "When @Ability2 crits, enemies in a <% SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_AOE %> radius around the boomerang are frozen for <% SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_DURATION %> seconds."
 
         "DOTA_Tooltip_modifier_solunia_cryoshock"							"Cryoshock"
         "DOTA_Tooltip_modifier_solunia_cryoshock_Description"				"Frozen"

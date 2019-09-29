@@ -418,7 +418,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "外星之力"
         "item_property_solunia_immortal_weapon2"                             "寒霜冲击"
-        "property_solunia_immortal_weapon2_description"                      "当 @Ability2 暴击时，在 200 码范围内的敌人将被冰冻 @special_property1 秒。"
+        "property_solunia_immortal_weapon2_description"                      "当 @Ability2 暴击时，在 <% SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_AOE %> 码范围内的敌人将被冰冻 <% SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_DURATION %> 秒。"
 
         "DOTA_Tooltip_modifier_solunia_cryoshock"							"寒霜冲击"
         "DOTA_Tooltip_modifier_solunia_cryoshock_Description"				"被冰冻"
