@@ -237,31 +237,31 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"(T1) Glyph of Nimbus"
-		"item_rpc_auriun_glyph_1_1_description" 				"Все союзники, попавшие под действие (R) @Ability4 получат @glyph_property1 скорости передвижения на @glyph_property2 сек."
+		"item_rpc_auriun_glyph_1_1_description" 				"Все союзники, попавшие под действие (R) @Ability4 получат <% AURIUN_GLYPH_1_1_MS_BONUS %> скорости передвижения на <% AURIUN_GLYPH_1_1_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"(T2) Glyph of Radiance"
-		"item_rpc_auriun_glyph_2_1_description" 				"Весь напрямую наносимый предметами урон увеличен на @glyph_property1%"
+		"item_rpc_auriun_glyph_2_1_description" 				"Весь напрямую наносимый предметами урон увеличен на <% AURIUN_GLYPH_2_1_ITEM_DAMAGE %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"(T3) Glyph of Cleanse"
 		"item_rpc_auriun_glyph_3_1_description" 				"Применение (Q) Heaven's Shield на союзника снимает с него случайный негативный эффект."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"(T4) Glyph of Stratus"
-		"item_rpc_auriun_glyph_4_1_description" 				"Увеличивает дальность атаки на @glyph_property1."
+		"item_rpc_auriun_glyph_4_1_description" 				"Увеличивает дальность атаки на <% AURIUN_GLYPH_4_1_BONUS_ATTACK_RANGE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"(T5) Glyph of Angels"
-		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает @glyph_property1% сопротивление магии."
+		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает <% AURIUN_GLYPH_5_1_MAGIC_RESIST %>% сопротивление магии."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"(T6) Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет @glyph_property1 сек неуязвимости, когда был активирован (Q) @Ability1."
+		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет <% AURIUN_GLYPH_6_1_INVUL_DURATION %> сек. неуязвимости, когда был активирован (Q) @Ability1."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Полный иммунитет к урону"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"(T7) Glyph of Smite"
-		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <% AURIUN_GLYPH7_RADIUS %>."
+		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <% AURIUN_GLYPH_7_1_RADIUS %>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"(Immortal) Глиф разоряющей тени"
-		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая ежесекундно наносит им урон, равный @glyph_property1x Интеллекта героя и замедляющей их на @glyph_property2%. 1% от нанесённого урона исцеляет Auriun."
+		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая наносит им урон каждые <% AURIUN_GLYPH_5_A_INTERVAL %> сек., равный <% AURIUN_GLYPH_5_A_AOE_DMG_PER_INT %>x Интеллекта героя и замедляющей их на <% AURIUN_GLYPH_5_A_MS_SLOW_PCT %>%. <% AURIUN_GLYPH_5_A_DMG_TO_SELF_HEAL_PCT %>% от нанесённого урона исцеляет Auriun."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"
@@ -280,18 +280,18 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_1"		"Prophecy"
 		"item_property_auriun_immortal_weapon"								"Heaven's Guidance"
-		"property_auriun_immortal_weapon_description"						"При получении урона, герой полностью игнорирует его и исчезает из поля зрения врагов на 1.5 секунды. Перезаряжается 4 секунды."
+		"property_auriun_immortal_weapon_description"						"При получении урона, герой полностью игнорирует его и исчезает из поля зрения врагов на <% AURIUN_IMMO_WEAPON_1_DURATION %> секунды. Перезаряжается <% AURIUN_IMMO_WEAPON_1_CD %> секунды."
 		
 		 "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_2"            "Vita's Spirit Scroll"
         "item_property_auriun_immortal_weapon2"                             "Patient Insight"
-        "property_auriun_immortal_weapon2_description"                      "Каждые 8 секунд получает заряд Insight, максимум 2. Каждый заряд тратится на отсутствие перезарядки для умения (Q) @Ability1."
+        "property_auriun_immortal_weapon2_description"                      "Каждые <% AURIUN_IMMO_WEAPON_2_RECHARGE_INTERVAL %> секунд получает заряд Insight, максимум <% AURIUN_IMMO_WEAPON_2_MAX_STACKS %>. Каждый заряд тратится на отсутствие перезарядки для умения (Q) @Ability1."
         
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight"			"Insight"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_2_insight_Description"	"(Q) Heaven's Shield не требует перезарядки."
 
         "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "Umbral Tome of Herod"
         "item_property_auriun_immortal_weapon3"                             "Artifice"
-        "property_auriun_immortal_weapon3_description"                      "Прочтение (W) @Ability2 дарует иммунитет к магии и @special_property1% регенерацию здоровья на @special_property2 секунд. Дополнительно базовый урон способностей увеличивается на @special_property3%."
+        "property_auriun_immortal_weapon3_description"                      "Прочтение (W) @Ability2 дарует иммунитет к магии и -<% AURIUN_IMMO_WEAPON_3_NEGATIVE_REGEN %>% регенерацию здоровья на <% AURIUN_IMMO_WEAPON_3_DURATION %> секунд. Дополнительно базовый урон способностей увеличивается на <% AURIUN_IMMO_WEAPON_3_BAD %>%."
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
-        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, повышенная регенерация здоровья."
+        "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Иммунитет к магии, пониженная регенерация здоровья."

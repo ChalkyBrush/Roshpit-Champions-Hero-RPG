@@ -499,7 +499,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"8"
+				"ThinkInterval"  	"<% AURIUN_IMMO_WEAPON_2_RECHARGE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -588,7 +588,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "-<% AURIUN_IMMO_WEAPON_3_NEGATIVE_REGEN %>"
 				}
 			}
 		}

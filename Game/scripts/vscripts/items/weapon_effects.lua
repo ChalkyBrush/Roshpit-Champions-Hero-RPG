@@ -253,7 +253,7 @@ function auriun_immortal_2_think(event)
 	local caster = event.caster
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_immortal_weapon_2_insight", {})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_auriun_immortal_weapon_2_insight", caster) + 1, 2)
+	local newStacks = math.min(target:GetModifierStackCount("modifier_auriun_immortal_weapon_2_insight", caster) + 1, AURIUN_IMMO_WEAPON_2_MAX_STACKS)
 	target:SetModifierStackCount("modifier_auriun_immortal_weapon_2_insight", caster, newStacks)
 end
 
