@@ -1107,6 +1107,12 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.phys = tostring(tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1) * 100)
 	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1) * 100)
 	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1) * 100)
+	tableData.roshpit_armor = unit:CalculateAndSaveRoshpitArmor()
+	tableData.roshpit_armor_pierce = unit:CalculateAndSaveRoshpitArmorPierce()
+	tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor
+	tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor
+	tableData.roshpit_magic_armor = unit:CalculateAndSaveRoshpitMagicArmor()
+	tableData.roshpit_spell_pierce = unit:CalculateAndSaveRoshpitSpellPierce()
 	local level = unit:GetLevel()
 	if unit:IsHero() then
 		unit.q_4_level = unit:GetRuneValue("q", 4)

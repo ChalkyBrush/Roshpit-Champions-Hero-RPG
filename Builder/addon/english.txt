@@ -666,6 +666,7 @@
 		"item_magic_armor"			"Magic Armor"
 		"item_status_resist"		"Status Resist"
 		"ui_base_ability_damage"	"Base Ability"
+		"tooltip_magic_armor"		"Magic Armor Resist"
 
 		"item_magic_resist"			"Magic Resist"
 		"item_armor"				"Armor"

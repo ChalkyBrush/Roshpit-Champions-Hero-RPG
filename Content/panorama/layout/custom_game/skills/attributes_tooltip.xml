@@ -154,6 +154,14 @@
 						<Label class="atk_def_property bonus_left" id="atk_4_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="atk_4_right" html="true"/>
 					</Panel>
+					<Panel class="atk_def_property_container">
+						<Label class="atk_def_property bonus_left" id="atk_5_left" html="true"/>
+						<Label class="atk_def_property bonus_right" id="atk_5_right" html="true"/>
+					</Panel>
+					<Panel class="atk_def_property_container">
+						<Label class="atk_def_property bonus_left" id="atk_6_left" html="true"/>
+						<Label class="atk_def_property bonus_right" id="atk_6_right" html="true"/>
+					</Panel>
 					<Panel class="class-splitter-thin-full">
 					</Panel>
 					<Label class="attack_defense_subtitle" id="attack_defense_subtitle_base_ability"/>
@@ -214,6 +222,14 @@
 					<Panel class="atk_def_property_container">
 						<Label class="atk_def_property bonus_left" id="def_4_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="def_4_right" html="true"/>
+					</Panel>
+					<Panel class="atk_def_property_container">
+						<Label class="atk_def_property bonus_left" id="def_5_left" html="true"/>
+						<Label class="atk_def_property bonus_right" id="def_5_right" html="true"/>
+					</Panel>
+					<Panel class="atk_def_property_container">
+						<Label class="atk_def_property bonus_left" id="def_6_left" html="true"/>
+						<Label class="atk_def_property bonus_right" id="def_6_right" html="true"/>
 					</Panel>
 					<Panel class="class-splitter-thin-full">
 					</Panel>

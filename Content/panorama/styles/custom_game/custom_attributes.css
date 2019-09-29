@@ -295,12 +295,12 @@
 
 #resistance_container{
 	flow-children: down;
-	height: 110px;
+	height: 108px;
 }
 
 .resistance_item_container{
 	width:250px;
-	height:33%;
+	height:36px;
 	background-color: #1F1F1F;
 	border-radius:4px;
 	margin-left:4px;

@@ -166,6 +166,12 @@ function initializeTooltip(func){
 	var attackRange = Entities.GetAttackRange( queryUnit )
 	$('#atk_4_right').text = numberWithCommas(attackRange)
 
+	$('#atk_5_left').text = $.Localize("#item_armor_pierce")
+	$('#atk_5_right').text = numberWithCommas(GameUI.StatQueryData.roshpit_armor_pierce)
+
+	$('#atk_6_left').text = $.Localize("#item_spell_pierce")
+	$('#atk_6_right').text = numberWithCommas(GameUI.StatQueryData.roshpit_spell_pierce)
+
 	$('#attack_defense_subtitle_base_ability').text = $.Localize('#ui_base_ability_damage')
 	$('#base_ability_title_q').text = "Q"
 	$('#base_ability_value_q').text = parseInt(GameUI.StatQueryData.qAmp)/1 + "%"
@@ -194,9 +200,9 @@ function initializeTooltip(func){
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()
 	$('#def_1_left').text = $.Localize("#item_armor")
-    var physArmor = parseInt(Entities.GetPhysicalArmorValue(queryUnit)) - parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
+    var physArmor = GameUI.StatQueryData.base_roshpit_armor
 	$('#def_1_right').text = numberWithCommas(physArmor)
-	var bonusArmor = parseInt(Entities.GetBonusPhysicalArmor(queryUnit))
+	var bonusArmor = parseInt(GameUI.StatQueryData.roshpit_armor - GameUI.StatQueryData.base_roshpit_armor)
 	$('#def_2_left').text = $.Localize("#ui_bonus_armor")
 	if (bonusArmor >= 0){
 		$('#def_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusArmor)+"</font>"
@@ -206,13 +212,26 @@ function initializeTooltip(func){
 
 	$('#def_3_left').text = $.Localize("#ui_physical_reduction")
 	var totalArmor = physArmor + bonusArmor
-	var resist = (0.05*totalArmor/(1 + (0.05 * Math.abs(totalArmor))))
+	var resist = 1 - (255 / (255 + totalArmor))
 	resist = (parseInt(resist*100000))/1000
 	$('#def_3_right').text = resist+"%"
 
-	$('#def_4_left').text = $.Localize("#item_magic_resist")
-	var magRes = parseInt(Entities.GetMagicalArmorValue( queryUnit)*10000)/100
-	$('#def_4_right').text = magRes+"%"
+	$('#def_4_left').text = $.Localize("#item_armor")
+    var magic_armor = GameUI.StatQueryData.base_roshpit_magic_armor
+	$('#def_4_right').text = numberWithCommas(magic_armor)
+	var bonus_magic_armor = parseInt(GameUI.StatQueryData.roshpit_magic_armor - GameUI.StatQueryData.base_roshpit_magic_armor)
+	$('#def_5_left').text = $.Localize("#ui_bonus_armor")
+	if (bonus_magic_armor >= 0){
+		$('#def_5_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonus_magic_armor)+"</font>"
+	}else{
+		$('#def_5_right').text = "<font color='#ff0000'>"+numberWithCommas(bonus_magic_armor)+"</font>"
+	}
+
+	$('#def_6_left').text = $.Localize("#tooltip_magic_armor")
+	var total_magic_armor = magic_armor + bonus_magic_armor
+	var resist = 1 - (255 / (255 + total_magic_armor))
+	resist = (parseInt(resist*100000))/1000
+	$('#def_6_right').text = resist+"%"
 	
 	// $.Msg(GameUI.StatQueryData)
 	$('#attack_defense_subtitle_resist').text = $.Localize('ui_additional_resistance')
