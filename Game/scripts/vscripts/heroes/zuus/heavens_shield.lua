@@ -39,7 +39,7 @@ function heavens_shield_cast(event)
 	end
 	if caster:HasModifier("modifier_auriun_glyph_6_1") then
 		-- local glyph_duration = Filters:GetAdjustedBuffDuration(caster, 1.2, false)
-		local glyph_duration = 2.0
+		local glyph_duration = AURIUN_GLYPH_6_1_INVUL_DURATION
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_glyph_6_1_effect", {duration = glyph_duration})
 	end
 	if caster:HasModifier("modifier_auriun_glyph_3_1") then

@@ -240,28 +240,28 @@
 		"item_rpc_auriun_glyph_1_1_description" 				"All allies affected by @Ability4 gain <% AURIUN_GLYPH_1_1_MS_BONUS %> movespeed for <% AURIUN_GLYPH_1_1_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"Glyph of Radiance"
-		"item_rpc_auriun_glyph_2_1_description" 				"All damage dealt directly by items is increased by @glyph_property1%"
+		"item_rpc_auriun_glyph_2_1_description" 				"All damage dealt directly by items is increased by <% AURIUN_GLYPH_2_1_ITEM_DAMAGE %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"Glyph of Cleanse"
 		"item_rpc_auriun_glyph_3_1_description" 				"Casting Heaven's Shield on an ally removes 1 enemy debuff."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"Glyph of Stratus"
-		"item_rpc_auriun_glyph_4_1_description" 				"Increases attack range by @glyph_property1."
+		"item_rpc_auriun_glyph_4_1_description" 				"Increases attack range by <% AURIUN_GLYPH_4_1_BONUS_ATTACK_RANGE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"Glyph of Angels"
-		"item_rpc_auriun_glyph_5_1_description" 				"You can attack during @Ability3 and gain @glyph_property1% magic resistance, but it removes the invisibility."
+		"item_rpc_auriun_glyph_5_1_description" 				"You can attack during @Ability3 and gain <% AURIUN_GLYPH_5_1_MAGIC_RESIST %>% magic resistance, but it removes the invisibility."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"Glyph of Luminescence"
-		"item_rpc_auriun_glyph_6_1_description" 				"Adds @glyph_property1 seconds of invulnerability when @Ability1 is applied."
+		"item_rpc_auriun_glyph_6_1_description" 				"Adds <% AURIUN_GLYPH_6_1_INVUL_DURATION %> seconds of invulnerability when @Ability1 is applied."
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"Luminescence"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"Magic and Physical Immunity"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"Glyph of Smite"
-		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <% AURIUN_GLYPH7_RADIUS %>"
+		"item_rpc_auriun_glyph_7_1_description" 				"[R1] attacks explode and deal another instance of damage to all enemies in a radius of <% AURIUN_GLYPH_7_1_RADIUS %>"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"Glyph of Shadow Flay"
-		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing @glyph_property1x Auriun's intelligence per second and slowing them by @glyph_property2%. 1% of damage dealt heals Auriun."
+		"item_rpc_auriun_glyph_5_a_description" 				"All nearby enemies are grasped by Shadow Flay, dealing <% AURIUN_GLYPH_5_A_AOE_DMG_PER_INT %>x Auriun's intelligence each <% AURIUN_GLYPH_5_A_INTERVAL %> second tick and slowing them by <% AURIUN_GLYPH_5_A_MS_SLOW_PCT %>%. <% AURIUN_GLYPH_5_A_DMG_TO_SELF_HEAL_PCT %>% of damage dealt heals Auriun."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "Tome"

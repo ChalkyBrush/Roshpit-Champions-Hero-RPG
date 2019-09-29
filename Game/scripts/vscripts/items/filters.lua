@@ -154,7 +154,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 2
     end
     if caster:HasModifier("modifier_auriun_glyph_2_1") then
-        mult = mult + 3
+        mult = mult + AURIUN_GLYPH_2_1_ITEM_DAMAGE/100
     end
     if caster:HasModifier("modifier_excavators_focus_cap") then
         mult = mult + EXCAVATOR_ITEM_AMP_PER_INT/100 * (caster:GetIntellect() / EXCAVATOR_INT_DIVISOR)

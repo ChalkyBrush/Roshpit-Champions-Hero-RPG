@@ -238,28 +238,28 @@
 		"item_rpc_auriun_glyph_1_1_description" 				"受生命赐福影响的友军提高 <% AURIUN_GLYPH_1_1_MS_BONUS %> 移动速度，持续 <% AURIUN_GLYPH_1_1_DURATION %> 秒"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"辉耀雕文"
-		"item_rpc_auriun_glyph_2_1_description" 				"所有由装备造成的伤害增加 @glyph_property1%。"
+		"item_rpc_auriun_glyph_2_1_description" 				"所有由装备造成的伤害增加 <% AURIUN_GLYPH_2_1_ITEM_DAMAGE %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"意志雕文"
 		"item_rpc_auriun_glyph_3_1_description" 				"获得天堂之盾时，将清除一个负面的buff。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_4_1"		"祥云雕文"
-		"item_rpc_auriun_glyph_4_1_description" 				"提高攻击距离 @glyph_property1"
+		"item_rpc_auriun_glyph_4_1_description" 				"提高攻击距离 <% AURIUN_GLYPH_4_1_BONUS_ATTACK_RANGE %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"天使雕文"
-		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得 @glyph_property1% 的魔法抗性。但是会移除隐身效果"
+		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得 <% AURIUN_GLYPH_5_1_MAGIC_RESIST %>% 的魔法抗性。但是会移除隐身效果"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"闪光雕文"
-		"item_rpc_auriun_glyph_6_1_description" 				"获得天堂之盾后的前 @glyph_property1 秒处于无敌状态。"
+		"item_rpc_auriun_glyph_6_1_description" 				"获得天堂之盾后的前 <% AURIUN_GLYPH_6_1_INVUL_DURATION %> 秒处于无敌状态。"
 
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect"			"闪光"
 		"DOTA_Tooltip_modifier_auriun_glyph_6_1_effect_description"	"魔法和物理免疫"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"猛击雕文"
-		"item_rpc_auriun_glyph_7_1_description" 				"普通攻击时 [R1]会产生爆炸，对周围 <% AURIUN_GLYPH7_RADIUS %> 内的敌人造成一次额外伤害。"
+		"item_rpc_auriun_glyph_7_1_description" 				"普通攻击时 [R1]会产生爆炸，对周围 <% AURIUN_GLYPH_7_1_RADIUS %> 内的敌人造成一次额外伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"阴影雕文"
-		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 @glyph_property1x 宙斯智力值的伤害并且减速 @glyph_property2%. 1% 造成的伤害治疗宙斯."
+		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 <% AURIUN_GLYPH_5_A_AOE_DMG_PER_INT %>x 宙斯智力值的伤害并且减速 <% AURIUN_GLYPH_5_A_MS_SLOW_PCT %>%. <% AURIUN_GLYPH_5_A_DMG_TO_SELF_HEAL_PCT %>% 造成的伤害治疗宙斯."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "卷轴"

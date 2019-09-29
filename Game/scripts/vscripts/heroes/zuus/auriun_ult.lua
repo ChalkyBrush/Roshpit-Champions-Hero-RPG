@@ -130,7 +130,7 @@ function auriun_ult_attack_land(event)
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * AURIUN_R1_HOLY_DMG_PER_ATT * r_1_level
 		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		if attacker:HasModifier("modifier_auriun_glyph_7_1") then
-			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, AURIUN_GLYPH7_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, AURIUN_GLYPH_7_1_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/auriun/auriun_glyph_7.vpcf", target, 0.5)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
