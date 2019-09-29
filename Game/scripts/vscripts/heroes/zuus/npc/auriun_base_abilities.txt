@@ -614,7 +614,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "200"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% AURIUN_GLYPH_1_1_MS_BONUS %>"
 				}
 			}
 		}

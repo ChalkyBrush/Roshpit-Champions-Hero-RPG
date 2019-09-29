@@ -237,7 +237,7 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"(T1) Glyph of Nimbus"
-		"item_rpc_auriun_glyph_1_1_description" 				"Все союзники, попавшие под действие (R) @Ability4 получат @glyph_property1 скорости передвижения на @glyph_property2 сек."
+		"item_rpc_auriun_glyph_1_1_description" 				"Все союзники, попавшие под действие (R) @Ability4 получат <% AURIUN_GLYPH_1_1_MS_BONUS %> скорости передвижения на <% AURIUN_GLYPH_1_1_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"(T2) Glyph of Radiance"
 		"item_rpc_auriun_glyph_2_1_description" 				"Весь напрямую наносимый предметами урон увеличен на @glyph_property1%"

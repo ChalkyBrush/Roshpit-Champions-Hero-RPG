@@ -235,7 +235,7 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"灵气雕文"
-		"item_rpc_auriun_glyph_1_1_description" 				"受生命赐福影响的友军提高 @glyph_property1 移动速度，持续 @glyph_property2 秒"
+		"item_rpc_auriun_glyph_1_1_description" 				"受生命赐福影响的友军提高 <% AURIUN_GLYPH_1_1_MS_BONUS %> 移动速度，持续 <% AURIUN_GLYPH_1_1_DURATION %> 秒"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"辉耀雕文"
 		"item_rpc_auriun_glyph_2_1_description" 				"所有由装备造成的伤害增加 @glyph_property1%。"

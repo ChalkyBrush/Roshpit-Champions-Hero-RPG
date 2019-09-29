@@ -237,7 +237,7 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"Glyph of Nimbus"
-		"item_rpc_auriun_glyph_1_1_description" 				"All allies affected by @Ability4 gain @glyph_property1 movespeed for @glyph_property2 seconds."
+		"item_rpc_auriun_glyph_1_1_description" 				"All allies affected by @Ability4 gain <% AURIUN_GLYPH_1_1_MS_BONUS %> movespeed for <% AURIUN_GLYPH_1_1_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"Glyph of Radiance"
 		"item_rpc_auriun_glyph_2_1_description" 				"All damage dealt directly by items is increased by @glyph_property1%"

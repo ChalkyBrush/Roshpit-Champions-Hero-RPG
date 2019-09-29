@@ -31,7 +31,7 @@ function channel_succeed(event)
 				end
 			end
 			if caster:HasModifier("modifier_auriun_glyph_1_1") then
-				local glyph_duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
+				local glyph_duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_GLYPH_1_1_DURATION, false)
 				ability:ApplyDataDrivenModifier(caster, allAllies[i], "modifier_auriun_glyph_1_1_effect", {duration = glyph_duration})
 			end
 		end
@@ -54,7 +54,7 @@ function channel_succeed(event)
 				end
 			end
 			if caster:HasModifier("modifier_auriun_glyph_1_1") then
-				local glyph_duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
+				local glyph_duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_GLYPH_1_1_DURATION, false)
 				ability:ApplyDataDrivenModifier(caster, ally, "modifier_auriun_glyph_1_1_effect", {duration = glyph_duration})
 			end
 		end
