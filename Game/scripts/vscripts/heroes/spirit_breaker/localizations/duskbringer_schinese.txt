@@ -292,7 +292,7 @@
     	"DOTA_Tooltip_ability_manifestation_Description"			"元素： <font color=\"#9ACCD1\">鬼</font><br> 夜幕使者立即在目标点显现，对周围每个敌人施放虚实相生。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"甲骨文雕文"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 @glyph_property1 秒。"
+		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 <% DUSKBRINGER_GLYPH_5_a_CD %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"夜幕使者雕文书"
 		
