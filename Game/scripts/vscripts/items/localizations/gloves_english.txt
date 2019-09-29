@@ -54,7 +54,7 @@
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Slot: Hands"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Applies -<% CLAW_OF_AZINOTH_DAMAGE_AMP %>%% damage reduction, increasing all damage taken."
+		"property_azinoth_description"				"Applies -<% CLAW_OF_AZINOTH_DAMAGE_AMP %>% damage reduction, increasing all damage taken."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
