@@ -91,7 +91,7 @@ function dinath_diving_think(event)
 	local afterWallPosition = WallPhysics:WallSearch(beforeWallPosition, ability.straightVector + ability.fv * moveVelocity, caster)
 	local maxHeight = 480
 	if caster:HasModifier("modifier_dinath_glyph_2_1") then
-		maxHeight = maxHeight + 35
+		maxHeight = maxHeight + DINATH_GLYPH_2_1_FLY_HEIGHT_INCREASE
 	end
 	local zStacks = math.min(caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) + 8, maxHeight)
 	caster:SetModifierStackCount("modifier_dinath_postflight_zheight", caster, zStacks)

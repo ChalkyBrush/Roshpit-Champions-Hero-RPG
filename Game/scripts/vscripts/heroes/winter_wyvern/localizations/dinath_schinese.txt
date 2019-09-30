@@ -170,28 +170,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"低温雕文"
-		"item_rpc_dinath_glyph_1_1_description" 				"提高 @Ability4 的冻结持续时间 @glyph_property1 秒。"
+		"item_rpc_dinath_glyph_1_1_description" 				"提高 @Ability4 的冻结持续时间 <% DINATH_GLYPH_1_1_FREEZE_DURATION_INCREASE %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"无形雕文"
-		"item_rpc_dinath_glyph_2_1_description" 				"当引导 @Ability4 的时候，保持飞行高度，最大飞行高度 @glyph_property1 。"
+		"item_rpc_dinath_glyph_2_1_description" 				"当引导 @Ability4 的时候，保持飞行高度，最大飞行高度 <% DINATH_GLYPH_2_1_FLY_HEIGHT_INCREASE %> 。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"狂火雕文"
-		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 拥有 @glyph_property1 层最大充能。"
+		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 拥有 <% DINATH_GLYPH_3_1_Q_CHARGES_INCREASE %> 层最大充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"德雷克清扫"
-		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 每 @glyph_property1 就可以免冷却释放一次。"
+		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 每 <% DINATH_GLYPH_4_1_E_FREE_CAST_INTERVAL %> 就可以免冷却释放一次。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"龙之怒"
-		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 @glyph_property1 秒。"
+		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 <% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"灾难雕文"
-		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 @glyph_property1%."
+		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"龙族魔法"
-		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 @glyph_property1x 当前魔法值, 同时每次攻击可以回复 @glyph_property2% 的最大魔法值"
+		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 <% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>x 当前魔法值, 同时每次攻击可以回复 <% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>% 的最大魔法值"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"金色龙鳞"
-		"item_rpc_dinath_glyph_5_a_description" 				"每当受到一次纯粹或魔法伤害的时候，就立刻进入魔法免疫的状态 @glyph_property1 秒。 冷却时间 @glyph_property2 秒。"
+		"item_rpc_dinath_glyph_5_a_description" 				"每当受到一次纯粹或魔法伤害的时候，就立刻进入魔法免疫的状态 <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION %> 秒。 冷却时间 <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD %> 秒。"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"长戟"
@@ -210,7 +210,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "统御者的龍爪"
         "item_property_dinath_immortal_weapon"                             "超负荷"
-        "property_dinath_immortal_weapon_description"                      "@Ability4 的半径增大 @special_property1 ，飞行距离提高 @special_property2 。"
+        "property_dinath_immortal_weapon_description"                      "@Ability4 的半径增大 <% DINATH_IMMO_WEAPON_1_BASE_SIZE_INCREASE %> ，飞行距离提高 <% DINATH_IMMO_WEAPON_1_ADDITIONAL_RANGE %> 。"
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "维塔利的呼吸"
         "item_property_dinath_immortal_weapon2"                             "极光之盾"

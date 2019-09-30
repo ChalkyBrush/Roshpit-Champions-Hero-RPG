@@ -227,7 +227,7 @@ function arctic_burn_passive_thinker(event)
 		ability.think_interval = 0
 		local maxStacks = 2
 		if caster:HasModifier("modifier_dinath_glyph_3_1") then
-			maxStacks = maxStacks + 2
+			maxStacks = maxStacks + DINATH_GLYPH_3_1_Q_CHARGES_INCREASE
 		end
 		local newStacks = math.min(caster:GetModifierStackCount("modifier_arctic_burn_freecast", caster) + 1, maxStacks)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arctic_burn_freecast", {})
