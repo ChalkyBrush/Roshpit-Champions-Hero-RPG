@@ -182,10 +182,11 @@
 		"twilight_crow_summon"		"Crow Aspect"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
-		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Casting @Ability2 makes you disappear for <% WRAITH_CROWN_DURATION %> seconds, unable to attack, cast spells, move, or take damage. <% WRAITH_CROWN_CD %> second cooldown. Disjoints oncoming projectiles when activated."
-		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
+		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
+		"item_property_wraith"									"Wraithtide"					
+		"property_wraith_description"							"While having <% WRAITH_CROWN_BUFF_HP_TRESHOLD_PCT %>% of max health or less you will have <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoint projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
+		"DOTA_Tooltip_modifier_wraith_crown_buff"				"Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_buff_description"	"Gives <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoints projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"

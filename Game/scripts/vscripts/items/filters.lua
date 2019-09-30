@@ -1020,9 +1020,6 @@ function Filters:ApplyWskills(caster)
         local manaCost = ability:GetManaCost(ability:GetLevel())
         caster:ReduceMana(1000)
     end
-    if caster:HasModifier("modifier_wraith_crown") then
-        Filters:WraithCrown(caster)
-    end
     if caster:HasModifier("modifier_auriun_immortal_weapon_3") then
         if caster:GetUnitName() == "npc_dota_hero_zuus" then
             if not caster:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
@@ -3622,14 +3619,6 @@ function Filters:ReanimateThorok(caster)
         EmitSoundOn("Hero_LifeStealer.Rage", thorok)
         caster.necro_hood:ApplyDataDrivenModifier(caster.InventoryUnit, thorok, "modifier_thorok_enraged", {duration = 15})
         thorok:SetModelScale(1.55)
-    end
-end
-
-function Filters:WraithCrown(caster)
-    local ability = caster.wraith_crown
-    if not caster:HasModifier("modifier_wraith_crown_cooldown") then
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_phased", {duration = WRAITH_CROWN_DURATION})
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_cooldown", {duration = WRAITH_CROWN_CD})
     end
 end
 
