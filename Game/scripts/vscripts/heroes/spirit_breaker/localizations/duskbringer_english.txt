@@ -255,47 +255,47 @@
 		"item_rpc_duskbringer_glyph_1_1_description" 				"When entering Wraith Form, the cooldowns of all abilities are refreshed. (This also affects allies.)"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"Glyph of Scathing Phantoms"
-		"item_rpc_duskbringer_glyph_2_1_description" 				"Enemies trapped by Ghost Hallow gain @glyph_property1 Duskfire stacks each second."
+		"item_rpc_duskbringer_glyph_2_1_description" 				"Enemies trapped by Ghost Hallow gain <% DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC %> Duskfire stacks each second."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"Glyph of Lingering"
-		"item_rpc_duskbringer_glyph_3_1_description" 				"Phantom Pace stacks time out in 2 seconds instead of 1 second."
+		"item_rpc_duskbringer_glyph_3_1_description" 				"Phantom Pace stacks time out in <% DUSKBRINGER_GLYPH_3_1_INCR_DUR + 1 %> seconds instead of 1 second."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"Glyph of Nightfall"
 		"item_rpc_duskbringer_glyph_4_1_description" 				"Enemies trapped in Ghost Hallow are also disarmed."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"Glyph of Death Prophecies"
-		"item_rpc_duskbringer_glyph_5_1_description" 				"Adds @glyph_property1 additional strikes to Seven Visions."
+		"item_rpc_duskbringer_glyph_5_1_description" 				"Adds <% DUSKBRINGER_GLYPH_5_1_INCR_ATTS %> additional strikes to Seven Visions."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"Glyph of Winding"
-		"item_rpc_duskbringer_glyph_6_1_description" 				"Reduces the cooldown of Whirling Flail to @glyph_property1 seconds."
+		"item_rpc_duskbringer_glyph_6_1_description" 				"Reduces the cooldown of Whirling Flail to <% DUSKBRINGER_GLYPH_6_1_CD %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"Glyph of Manifestation"
-		"item_rpc_duskbringer_glyph_7_1_description" 				"Replaces Specter Rush with Manifestation, an ability that teleports Duskbringer to the target location and strikes all surrounding enemies with Entity Clash on arrival. Also increases the Duskfire stack chance of Entity Clash by @glyph_property1x."
+		"item_rpc_duskbringer_glyph_7_1_description" 				"Replaces Specter Rush with Manifestation, an ability that teleports Duskbringer to the target location and strikes all surrounding enemies with Entity Clash on arrival. Also increases the Duskfire stack chance of Entity Clash by <% DUSKBRINGER_GLYPH_7_1_MULT_STACKS %>x."
 
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"Glyph of Eerie Silence"
-		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by @glyph_property1% of maximum health while silenced, and for @glyph_property2 seconds afterward."
+		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by <% DUSKBRINGER_GLYPH_1_2_HPREG %>% of maximum health while silenced, and for <% DUSKBRINGER_GLYPH_1_2_BASE_DUR %> seconds afterward."
 
 		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect"				"Eerie Silence"
 		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect_Description"	"Regenerates 10% of Max HP per second."
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"Glyph of Blank Combustion"
-		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies @glyph_property1 stacks of Duskfire to enemies, instead of just 1."
+		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies <% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %> stacks of Duskfire to enemies, instead of just 1."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"Glyph of Churning"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by @glyph_property1%, but also decreases its base damage by @glyph_property2%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by <% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>%, but also decreases its base damage by <% DUSKBRINGER_GLYPH_3_2_DMG_DECR %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"Glyph of the Journey"
-		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of @glyph_property1% damage reduction, to a maximum of @glyph_property2 stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
+		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of <% DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * 100 %>% damage reduction, to a maximum of <% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %> stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
 		
 		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible"					"Glyph of Journey"
-		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible_Description"		"Damage reduction, 30 stacks at max."
+		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible_Description"		"Damage reduction, <% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %> stacks at max."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"Glyph of Shared Fate"
-		"item_rpc_duskbringer_glyph_5_2_description" 				"Enemies within @glyph_property1 range of the primary target of your attacks will also gain stacks of Duskfire."
+		"item_rpc_duskbringer_glyph_5_2_description" 				"Enemies within <% DUSKBRINGER_GLYPH_5_2_BASE_RADIUS %> range of the primary target of your attacks will also gain stacks of Duskfire."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"Glyph of the Wraith"
-		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every 0.3 seconds."
+		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"Glyph of Haunted Spirits"
 		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains Ghost as an additional element."
@@ -305,7 +305,7 @@
     	"DOTA_Tooltip_ability_manifestation_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer immediately appears at the target location, smashing each nearby enemy with Entity Clash."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"Glyph of Second Chances"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"Allies will not die when Final Vengeance wraithform ends. This effect has a cooldown of @glyph_property1 seconds."
+		"item_rpc_duskbringer_glyph_5_a_description" 				"Allies will not die when Final Vengeance wraithform ends. This effect has a cooldown of <% DUSKBRINGER_GLYPH_5_a_CD %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Duskbringer Glyph Book"
 		
@@ -329,12 +329,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_1"		"Nightfire"
 		"item_property_duskbringer_immortal_weapon"								"Nightfire"
-		"property_duskbringer_immortal_weapon_description"						"Duskfire stacks build 2x faster."
+		"property_duskbringer_immortal_weapon_description"						"Duskfire stacks build <% DUSKBRINGER_IMMORTAL_WEAPON_1_DUSKFIRE_STACK_MULT %>x faster."
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "Warden's Bone Mace"
         "item_property_duskbringer_immortal_weapon2"                             "Fear"
-        "property_duskbringer_immortal_weapon2_description"                      "Enemies damaged in any way by @Ability2 are stunned for @special_property1 seconds."
+        "property_duskbringer_immortal_weapon2_description"                      "Enemies damaged in any way by @Ability2 are stunned for <% DUSKBRINGER_IMMORTAL_WEAPON_2_W_STUN %> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
         "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
-        "property_duskbringer_immortal_weapon3_description"                      "Basic attacks have a @special_property1% chance to stun the enemy for @special_property2 seconds and apply a @special_property3 charge ghost armor."
+        "property_duskbringer_immortal_weapon3_description"                      "Basic attacks have a <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_CHANCE %>% chance to stun the enemy for <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_DURATION %> seconds and apply a <% DUSKBRINGER_IMMORTAL_WEAPON_3_E2_SHIELD_STACKS_PER_BASH %> charge ghost armor."

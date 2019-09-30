@@ -245,55 +245,55 @@
 		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4_Description"				"Пост-резистный урон увеличен."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"(T1) Глиф дыхания смерти"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"(T1-1) Glyph of Dying Breath"
 		"item_rpc_duskbringer_glyph_1_1_description" 				"При обретении предсмертной формы духа, время перезарядки всех способностей сбрасываетс (также действует и на союзных героев)."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"(T2) Глиф жестоких духов"
-		"item_rpc_duskbringer_glyph_2_1_description" 				"Враги, попавшие под действие (W) Ghost Hallow ежесекундно получают 3 заряда [Q1] Duskfire."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"(T2-1) Glyph of Scathing Phantoms"
+		"item_rpc_duskbringer_glyph_2_1_description" 				"Враги, попавшие под действие (W) Ghost Hallow ежесекундно получают <% DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC %> заряда [Q1] Duskfire."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"(T3) Глиф продления"
-		"item_rpc_duskbringer_glyph_3_1_description" 				"Заряды [E1] пропадают за 2 секунды, вместо 1."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"(T3-1) Glyph of Lingering"
+		"item_rpc_duskbringer_glyph_3_1_description" 				"Заряды [E1] пропадают за <% DUSKBRINGER_GLYPH_3_1_INCR_DUR + 1 %> секунды, вместо 1."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"(T4) Глиф сумерек"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"(T4-1) Glyph of Nightfall"
 		"item_rpc_duskbringer_glyph_4_1_description" 				"Враги, попавшие под действие умения (W) Ghost Hallow, обезоруживаются."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"(T5) Глиф пророчества смерти"
-		"item_rpc_duskbringer_glyph_5_1_description" 				"Увеличивает количество атак (R)Seven Visions на @glyph_property1."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"(T5-1) Glyph of Death Prophecies"
+		"item_rpc_duskbringer_glyph_5_1_description" 				"Увеличивает количество атак (R)Seven Visions на <% DUSKBRINGER_GLYPH_5_1_INCR_ATTS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"(T6) Глиф порыва"
-		"item_rpc_duskbringer_glyph_6_1_description" 				"Уменьшает время перезарядки (Q) Whirling Flail до @glyph_property1 сек."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"(T6-1) Glyph of Winding"
+		"item_rpc_duskbringer_glyph_6_1_description" 				"Уменьшает время перезарядки (Q) Whirling Flail до <% DUSKBRINGER_GLYPH_6_1_CD %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"(T7) Глиф призраков"
-		"item_rpc_duskbringer_glyph_7_1_description" 				"Заменяет (E) Specter Rush на (E) Manifestation - способность, которая перемещает Duskbringer к точке и применяет на всех рядом стоящих противниках [E3]. Дополнительно увеличивает шанс наложения зарядов [Q1] от руны [E3] в @glyph_property1 раз(а)."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"(T7-1) Glyph of Manifestation"
+		"item_rpc_duskbringer_glyph_7_1_description" 				"Заменяет (E) Specter Rush на (E) Manifestation - способность, которая перемещает Duskbringer к точке и применяет на всех рядом стоящих противниках [E3]. Дополнительно увеличивает шанс наложения зарядов [Q1] от руны [E3] в <% DUSKBRINGER_GLYPH_7_1_MULT_STACKS %> раз(а)."
 
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"(T1-2) Глиф безумной тишины"
-		"item_rpc_duskbringer_glyph_1_2_description" 				"Во время безмолвия, регенерация здоровья увеличивается на @glyph_property1% от макс. здоровья. Бонус продлится еще @glyph_property2 сек. после окончания безмолвия."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"(T1-2) Glyph of Eerie Silence"
+		"item_rpc_duskbringer_glyph_1_2_description" 				"Во время безмолвия, регенерация здоровья увеличивается на <% DUSKBRINGER_GLYPH_1_2_HPREG %>% от макс. здоровья. Бонус продлится еще <% DUSKBRINGER_GLYPH_1_2_BASE_DUR %> сек. после окончания безмолвия."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2-2) Глиф обжигающей пустоты"
-		"item_rpc_duskbringer_glyph_2_2_description" 				"При атаке по врагу накладывается @glyph_property1 заряда(ов) [Q1] Duskfire Flail вместо 1."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"(T2-2) Glyph of Blank Combustion"
+		"item_rpc_duskbringer_glyph_2_2_description" 				"При атаке по врагу накладывается <% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %> заряда(ов) [Q1] Duskfire Flail вместо 1."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"(T3-2) Глиф смешивания"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"Сокращает интервал нанесения урона от умения (Q) @Ability1 на @glyph_property1, но также сокращает базовый урон умения на @glyph_property2%"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"(T3-2) Glyph of Churning"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"Сокращает интервал нанесения урона от умения (Q) @Ability1 на <% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>, но также сокращает базовый урон умения на <% DUSKBRINGER_GLYPH_3_2_DMG_DECR %>%"
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"(T4-2) Глиф путешественника"
-		"item_rpc_duskbringer_glyph_4_2_description" 				"При движении герой получает заряды, сокращающие входящий урон на @glyph_property1%. Максимум @glyph_property2 заряда(ов). Длительность действия равна длительности действия зарядов от руны [E1], но за отведенное время теряются все заряды, вместо одного."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"(T4-2) Glyph of the Journey"
+		"item_rpc_duskbringer_glyph_4_2_description" 				"При движении герой получает заряды, сокращающие входящий урон на <% DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * 100 %>%. Максимум <% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %> заряда(ов). Длительность действия равна длительности действия зарядов от руны [E1], но за отведенное время теряются все заряды, вместо одного."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"(T5-2) Глиф разделения судьбы"
-		"item_rpc_duskbringer_glyph_5_2_description" 				"Враги в радиусе @glyph_property1 от основной атакуемой цели также получают заряды [Q1]."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"(T5-2) Glyph of Shared Fate"
+		"item_rpc_duskbringer_glyph_5_2_description" 				"Враги в радиусе <% DUSKBRINGER_GLYPH_5_2_BASE_RADIUS %> от основной атакуемой цели также получают заряды [Q1]."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"(T6-2) Глиф гнева"
-		"item_rpc_duskbringer_glyph_6_2_description" 				"Снимает с героя все эффекты оглушения и безмолвия каждые 0.3 секунды."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"(T6-2) Glyph of the Wraith"
+		"item_rpc_duskbringer_glyph_6_2_description" 				"Снимает с героя все эффекты оглушения и безмолвия каждые <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %> секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"(T7-2) Глиф пугающих духов"
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"(T7-2) Glyph of Haunted Spirits"
 		"item_rpc_duskbringer_glyph_7_2_description" 				"Весь урон, наносимый предметами напрямую получает вторую стихию - Призрака."
 
 
     	"DOTA_Tooltip_ability_manifestation"						"Manifestation"
     	"DOTA_Tooltip_ability_manifestation_Description"			"Стихия: <font color=\"#9ACCD1\">Призрак</font><br>Duskbringer мгновенно перемещается к указанной точке, атакуя попавшихся врагов с помощью [E3] Entity Clash."
 
-		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"(Immortal) Глиф второго шанса"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается @glyph_property1 сек."
+		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"(Immortal) Glyph of Second Chances"
+		"item_rpc_duskbringer_glyph_5_a_description" 				"Союзники не погибают по окончании действия формы духа. Эта особенность перезаряжается <% DUSKBRINGER_GLYPH_5_a_CD %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Книга Глифов Duskbringer"
 		
@@ -317,12 +317,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_1"		"Nightfire"
 		"item_property_duskbringer_immortal_weapon"								"Nightfire"
-		"property_duskbringer_immortal_weapon_description"						"Удваивает количество зарядов Duskfire."
+		"property_duskbringer_immortal_weapon_description"						"Умножает количество зарядов [Q1] на противниках на <% DUSKBRINGER_IMMORTAL_WEAPON_1_DUSKFIRE_STACK_MULT %>."
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "Warden's Bone Mace"
         "item_property_duskbringer_immortal_weapon2"                             "Fear"
-        "property_duskbringer_immortal_weapon2_description"                      "Враги, любым образом получившие урон от (W) @Ability2 будут оглушены на @special_property1 сек."
+        "property_duskbringer_immortal_weapon2_description"                      "Враги, любым образом получившие урон от (W) @Ability2 будут оглушены на <% DUSKBRINGER_IMMORTAL_WEAPON_2_W_STUN %> сек."
 
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
         "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
-        "property_duskbringer_immortal_weapon3_description"                      "С @special_property1% шансом при обычной атаке герой оглушит врага на @special_property2 сек. и получит @special_property3 зарядов [E2] Ghost armor."
+        "property_duskbringer_immortal_weapon3_description"                      "С <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_CHANCE %>% шансом при обычной атаке герой оглушит врага на <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_DURATION %> сек. и получит <% DUSKBRINGER_IMMORTAL_WEAPON_3_E2_SHIELD_STACKS_PER_BASH %> зарядов [E2] Ghost armor."

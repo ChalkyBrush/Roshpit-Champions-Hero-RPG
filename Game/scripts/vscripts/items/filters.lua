@@ -1563,7 +1563,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_duskbringer_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
-                Filters:ApplyStun(attacker, 0.8, victim)
+                Filters:ApplyStun(attacker, DUSKBRINGER_IMMORTAL_WEAPON_2_W_STUN, victim)
             end
         end
         if attacker:HasModifier("modifier_redfall_runners_buff") or attacker:HasModifier("modifier_redfall_runners_hidden_buff") then
