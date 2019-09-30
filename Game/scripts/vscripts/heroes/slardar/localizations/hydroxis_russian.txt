@@ -283,12 +283,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"Sapphire Trident"
 		"item_property_hydroxis_immortal_weapon"							"Poseidon's Wake"
-		"property_hydroxis_immortal_weapon_description"					"Увеличивает урон эффекта [R3] Poseidon's Fury на 100% и увеличивает его радиус на 50%."
+		"property_hydroxis_immortal_weapon_description"					"Увеличивает урон эффекта [R3] Poseidon's Fury на <% HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT %>% и увеличивает его радиус на <% HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "Barbed Cudgel of the Dark Reef"
         "item_property_hydroxis_immortal_weapon2"                             "Slithercharge"
-        "property_hydroxis_immortal_weapon2_description"                      "Враги, которых Hydroxis задел во время перемещения от умения (E) @Ability3 оглушаются на @special_property1 сек. и проталкиваются вперёд."
+        "property_hydroxis_immortal_weapon2_description"                      "Враги, которых Hydroxis задел во время перемещения от умения (E) @Ability3 оглушаются на <% HYDROXIS_IMMORTAL_WEAPON_2_STUN_DURATION %> сек. и проталкиваются вперёд."
 
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "Siltbreaker's Golden Trident"
         "item_property_hydroxis_immortal_weapon3"                             "Tidecaller"
-        "property_hydroxis_immortal_weapon3_description"                      "Потоки воды от (Q) Hydro Pump расходятся на @special_property1% чаще."
+        "property_hydroxis_immortal_weapon3_description"                      "Потоки воды от (Q) Hydro Pump расходятся на <% HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT %>% чаще."

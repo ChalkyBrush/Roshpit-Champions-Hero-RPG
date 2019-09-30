@@ -233,9 +233,9 @@ function poseidons_wrath_attack_land(event)
 	end
 	EmitSoundOn("Hydroxis.CDGush", target)
 	-- local fv = attacker:GetForwardVector()
-	local radius = 300
+	local radius = HYDROXIS_R3_RADIUS_BASE
 	if attacker:HasModifier("modifier_hydroxis_immortal_weapon_1") then
-		radius = 450
+		radius = HYDROXIS_R3_RADIUS_BASE * (100+HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT)/100
 	end
 	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
@@ -280,7 +280,7 @@ function poseidon_wrath_attack_hit(event)
 	local ability = event.ability
 	local damage = ability.r_3_level * HYDROXIS_R3_ATTACK_TO_DMG_PCT/100 * OverflowProtectedGetAverageTrueAttackDamage(caster) * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(false)) * HYDROXIS_R1_RUNE_MULT
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
-		damage = damage * 2
+		damage = damage * (100 + HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT)/100
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end

@@ -285,12 +285,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"Sapphire Trident"
 		"item_property_hydroxis_immortal_weapon"							"Poseidon's Wake"
-		"property_hydroxis_immortal_weapon_description"					"Increases the damage of Poseidon's Fury by 100% and increases its radius by 50%."
+		"property_hydroxis_immortal_weapon_description"					"Increases the damage of Poseidon's Fury by <% HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT %>% and increases its radius by <% HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "Barbed Cudgel of the Dark Reef"
         "item_property_hydroxis_immortal_weapon2"                             "Slithercharge"
-        "property_hydroxis_immortal_weapon2_description"                      "Enemies who come into contact with Hydroxis during @Ability3 are stunned for @special_property1 seconds and pushed forward."
+        "property_hydroxis_immortal_weapon2_description"                      "Enemies who come into contact with Hydroxis during @Ability3 are stunned for <% HYDROXIS_IMMORTAL_WEAPON_2_STUN_DURATION %> seconds and pushed forward."
 
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "Siltbreaker's Golden Trident"
         "item_property_hydroxis_immortal_weapon3"                             "Tidecaller"
-        "property_hydroxis_immortal_weapon3_description"                      "Hydro Pumps travel outward with @special_property1% reduced delay."
+        "property_hydroxis_immortal_weapon3_description"                      "Hydro Pumps travel outward with <% HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT %>% reduced delay."

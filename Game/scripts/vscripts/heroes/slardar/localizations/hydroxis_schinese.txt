@@ -273,12 +273,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"蓝宝石三叉戟"
 		"item_property_hydroxis_immortal_weapon"							"波塞冬的唤醒"
-		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害100%和半径50%."
+		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害<% HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT %>%和半径<% HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "黑暗之礁刺棍"
         "item_property_hydroxis_immortal_weapon2"                             "滑动能量"
-        "property_hydroxis_immortal_weapon2_description"                      "胖头鱼施放 @Ability3 滑动过程中所接触到的敌人将被眩晕 @special_property1 秒并且被推开。"
+        "property_hydroxis_immortal_weapon2_description"                      "胖头鱼施放 @Ability3 滑动过程中所接触到的敌人将被眩晕 <% HYDROXIS_IMMORTAL_WEAPON_2_STUN_DURATION %> 秒并且被推开。"
 
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "破泞之主的三叉戟"
         "item_property_hydroxis_immortal_weapon3"                             "潮汐使者"
-        "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 @special_property1% "
+        "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 <% HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT %>% "

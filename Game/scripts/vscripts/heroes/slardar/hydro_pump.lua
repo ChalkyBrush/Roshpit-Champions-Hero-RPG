@@ -18,7 +18,7 @@ function begin_hydro_pump(event)
 	local targetPoint = event.target_points[1]
 	local pumpDelay = 0.9
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_3") then
-		pumpDelay = pumpDelay * 0.5
+		pumpDelay = pumpDelay * (100-HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT)/100
 	end
 	for j = 0, procs, 1 do
 		Timers:CreateTimer(0.9 * j, function()
