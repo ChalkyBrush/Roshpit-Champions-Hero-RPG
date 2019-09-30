@@ -22,21 +22,21 @@ function begin_piercing_gale(event)
 	end
 	local galeParticle = "particles/roshpit/sephyr/piercing_gale.vpcf"
 	local critParticle = "particles/roshpit/sephyr/gale/crit.vpcf"
-	local range = 800
-	local speed = 2500
+	local range = SEPHYR_W_BASE_RANGE
+	local speed = SEPHYR_W_BASE_PARTICLE_SPEED
 	local w_2_level = caster:GetRuneValue("w", 2)
 	local castAbility = ability
 	ability.w_2_level = w_2_level
 	if caster:HasModifier("modifier_sephyr_glyph_4_1") then
-		range = 1200
-		speed = 3500
+		range = SEPHYR_W_BASE_RANGE + SEPHYR_GLYPH_4_1_W_BONUS_RANGE 
+		speed = SEPHYR_W_BASE_PARTICLE_SPEED + SEPHYR_GLYPH_4_1_W_BONUS_PARTICLE_SPEED
 		galeParticle = "particles/roshpit/sephyr/glyphed_piercing_gale.vpcf"
 		critParticle = "particles/roshpit/sephyr/gale/glyphed_crit.vpcf"
 	end
 	if ability.w_2_level > 0 then
 		local procChance = 20
 		if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
-			procChance = procChance + 15
+			procChance = procChance + SEPHYR_IMMORTAL_WEAPON_1_CRIT_CHANCE_INCREASE
 		end
 		local crit = Filters:GetProc(caster, procChance)
 		if crit then
@@ -53,7 +53,7 @@ function begin_piercing_gale(event)
 	local width = 170
 	local immortal1 = false
 	if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
-		width = 340
+		width = width * (SEPHYR_IMMORTAL_WEAPON_1_W_WIDTH_INCREASE_PCT + 100)/100
 		immortal1 = true
 	end
 	local perpFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 4)
