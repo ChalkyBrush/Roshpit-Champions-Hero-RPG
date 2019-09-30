@@ -243,25 +243,25 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"(T1) Глиф земного разлома"
-		"item_rpc_hydroxis_glyph_1_1_description" 				"Спустя 2 секунды после прочтения (R) @Ability4, это умение применяется снова."
+		"item_rpc_hydroxis_glyph_1_1_description" 				"Спустя <% HYDROXIS_GLYPH_1_1_R_REPEAT_DELAY %> секунды после прочтения (R) @Ability4, это умение применяется снова."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"(T2) Глиф фонтанов"
-		"item_rpc_hydroxis_glyph_2_1_description" 				"Во время движения (E) Slipstream, [E1] применяет (W) Water Bombs на @glyph_property1% чаще."
+		"item_rpc_hydroxis_glyph_2_1_description" 				"Во время движения (E) Slipstream, [E1] применяет (W) Water Bombs на <% HYDROXIS_GLYPH_2_1_E1_INTERVAL_RED_PCT %>% чаще."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"(T3) Глиф исцеляющих вод"
-		"item_rpc_hydroxis_glyph_3_1_description" 				"Исцеление от [Q2] происходит в 2 раза чаще."
+		"item_rpc_hydroxis_glyph_3_1_description" 				"Исцеление от [Q2] происходит в <% HYDROXIS_GLYPH_3_1_Q2_TICKRATE_MULT %> раза чаще."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"(T4) Глиф шторма"
-		"item_rpc_hydroxis_glyph_4_1_description" 				"Увеличивает урон [E2] в 3 раза."
+		"item_rpc_hydroxis_glyph_4_1_description" 				"Увеличивает урон [E2] в <% HYDROXIS_GLYPH_4_1_E2_DMG_AMP %> раза."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"(T5) Глиф пара"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"С @glyph_property1% шансом атаки от [W1] нанесут дополнительный магический урон Воды, равный @glyph_property2% урона героя."
+		"item_rpc_hydroxis_glyph_5_1_description" 				"С <% HYDROXIS_GLYPH_5_1_CHANCE %>% шансом атаки от [W1] нанесут дополнительный магический урон Воды, равный <% HYDROXIS_GLYPH_5_1_W1_MAGIC_AMP %>% урона героя."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"(T6) Глиф погружения"
-		"item_rpc_hydroxis_glyph_6_1_description" 				"Увеличивает радиус Drowning Pool на @glyph_property1. Дополнительно убирает время прочтения для (R) Oceal Quake."
+		"item_rpc_hydroxis_glyph_6_1_description" 				"Увеличивает радиус Drowning Pool на <% HYDROXIS_GLYPH_6_1_R4_RADIUS_INCREASE %>. Дополнительно убирает время прочтения для (R) Oceal Quake."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"(T7) Глиф морского бога"
-		"item_rpc_hydroxis_glyph_7_1_description" 				"Увеличивает длительность Poseidon's Fury на @glyph_property1 сек."
+		"item_rpc_hydroxis_glyph_7_1_description" 				"Увеличивает длительность Poseidon's Fury на <% HYDROXIS_GLYPH_7_1_R3_DURATION_INCREASE %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"(Immortal) Глиф сверкающего моря"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"Каждый заряд [Q2] способен поглотить любой входящий магический или чистый урон."

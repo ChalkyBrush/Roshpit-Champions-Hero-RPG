@@ -26,10 +26,10 @@ function channel_complete(event)
 	-- CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", caster, 7)
 	local castLoops = 0
 	if caster:HasModifier("modifier_hydroxis_glyph_1_1") then
-		castLoops = 1
+		castLoops = HYDROXIS_GLYPH_1_1_R_REPEAT_NUMBER_OF_REPEATS
 	end
 	for i = 0, castLoops, 1 do
-		Timers:CreateTimer(i * 2, function()
+		Timers:CreateTimer(i * HYDROXIS_GLYPH_1_1_R_REPEAT_DELAY, function()
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/hydroxis/ocean_quake.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
@@ -78,7 +78,7 @@ function channel_complete(event)
 			if c_d_level > 0 then
 				local baseCD = 12
 				if caster:HasModifier("modifier_hydroxis_glyph_7_1") then
-					baseCD = baseCD + 5
+					baseCD = baseCD + HYDROXIS_GLYPH_7_1_R3_DURATION_INCREASE
 				end
 				local c_d_duration = Filters:GetAdjustedBuffDuration(caster, baseCD, false)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_c_d_poseidons_wrath", {duration = c_d_duration})

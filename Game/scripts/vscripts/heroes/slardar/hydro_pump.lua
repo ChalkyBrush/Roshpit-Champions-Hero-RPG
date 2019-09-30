@@ -78,7 +78,7 @@ function begin_hydro_pump(event)
 										caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_visible", caster, newStacks)
 									else
 										ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_visible_glyphed", {duration = 12})
-										newStacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster) + 1
+										newStacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster) + (HYDROXIS_GLYPH_3_1_Q2_TICKRATE_MULT-1)
 										caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster, newStacks)
 									end
 
