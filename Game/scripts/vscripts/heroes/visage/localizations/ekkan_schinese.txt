@@ -244,28 +244,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"不死军团雕文"
-		"item_rpc_ekkan_glyph_1_1_description" 				"增加 @glyph_property1 的召唤骷髅数量。"
+		"item_rpc_ekkan_glyph_1_1_description" 				"增加 <% EKKAN_GLYPH_1_1_ADD_UNITS %> 的召唤骷髅数量。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"尸体雕文"
-		"item_rpc_ekkan_glyph_2_1_description" 				"施放E技能时周围出现 @glyph_property1 尸体。"
+		"item_rpc_ekkan_glyph_2_1_description" 				"施放E技能时周围出现 <% EKKAN_GLYPH_2_1_E_SPAWN_CORPSES %> 尸体。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"复活雕文"
-		"item_rpc_ekkan_glyph_3_1_description" 				"骷髅的持续时间增加 @glyph_property1%。"
+		"item_rpc_ekkan_glyph_3_1_description" 				"骷髅的持续时间增加 <% EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"超级充能雕文"
-		"item_rpc_ekkan_glyph_4_1_description" 				"灵魂充能增加额外的攻击速度 @glyph_property1，同时增加移动速度 @glyph_property2。"
+		"item_rpc_ekkan_glyph_4_1_description" 				"灵魂充能增加额外的攻击速度 <% EKKAN_GLYPH_4_1_R_AS_INCREASE %>，同时增加移动速度 <% EKKAN_GLYPH_4_1_R_MS_INCREASE %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"统治雕文"
-		"item_rpc_ekkan_glyph_5_1_description" 				"最大支配数量增加 @glyph_property1。"
+		"item_rpc_ekkan_glyph_5_1_description" 				"最大支配数量增加 <% EKKAN_GLYPH_5_1_Q_ADD_UNITS %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"雕塑师雕文"
-		"item_rpc_ekkan_glyph_6_1_description" 				"增加石像鬼的最大数量 @glyph_property1。"
+		"item_rpc_ekkan_glyph_6_1_description" 				"增加石像鬼的最大数量 <% EKKAN_GLYPH_6_1_E_ADD_UNITS %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"超级骷颅雕文"
-		"item_rpc_ekkan_glyph_7_1_description" 				"骷髅王每次伤害额外打击 @glyph_property1 个敌人。"
+		"item_rpc_ekkan_glyph_7_1_description" 				"骷髅王每次伤害额外打击 <% EKKAN_GLYPH_7_1_R3_MORE_TARGETS %> 个敌人。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"黑灾害雕文"
-		"item_rpc_ekkan_glyph_5_a_description" 				"被支配单位的基础攻击力和黑暗旅程提高的伤害都提高 100%。"
+		"item_rpc_ekkan_glyph_5_a_description" 				"Increases leash range on minions by <% EKKAN_GLYPH_5_A_LEASH_RANGE_INCREASE %>。"
 		
 		
 		//Weapons

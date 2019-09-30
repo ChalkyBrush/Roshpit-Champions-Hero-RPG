@@ -61,7 +61,7 @@ function supercharge_start(event)
 				superSkeleton.damage = target.attackpower * EKKAN_R3_DAMAGE * c_d_level
 				superSkeleton.numTargets = 1
 				if caster:HasModifier("modifier_ekkan_glyph_7_1") then
-					superSkeleton.numTargets = 3
+					superSkeleton.numTargets = 1 + EKKAN_GLYPH_7_1_R3_MORE_TARGETS
 				end
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", superSkeleton, 3)
 				EmitSoundOn("Ekkan.SkeletonSpawn", superSkeleton)
@@ -82,7 +82,7 @@ function supercharge_buff_start(event)
 	local ability = event.ability
 	local target = event.target
 	if caster:HasModifier("modifier_ekkan_glyph_4_1") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_supercharge_glyphed", {duration = 15})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_supercharge_glyphed", {duration = EKKAN_GLYPH_4_1_BUFF_DURATION})
 	end
 end
 

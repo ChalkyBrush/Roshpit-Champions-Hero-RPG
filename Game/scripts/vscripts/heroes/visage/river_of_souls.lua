@@ -57,7 +57,7 @@ function river_of_souls_start(event)
 			SummonFamiliar(caster, ability, portalPosition, b_c_level)
 		end
 		if caster:HasModifier("modifier_ekkan_glyph_2_1") then
-			for i = 1, 5, 1 do
+			for i = 1, EKKAN_GLYPH_2_1_E_SPAWN_CORPSES, 1 do
 				local corpse = CreateUnitByName("ekkan_corpse", portalPosition, false, nil, nil, DOTA_TEAM_NEUTRALS)
 				local summonSkeletonAbility = caster:FindAbilityByName("ekkan_summon_skeleton")
 				summonSkeletonAbility:ApplyDataDrivenModifier(caster, corpse, "modifier_ekkan_skeleton_corpse", {duration = 30})
@@ -128,7 +128,7 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	familiar.hero = caster
 	table.insert(ability.familiarTable, familiar)
 	if caster:HasModifier("modifier_ekkan_glyph_6_1") then
-		maxFamiliars = maxFamiliars + 1
+		maxFamiliars = maxFamiliars + EKKAN_GLYPH_6_1_E_ADD_UNITS
 	end
 	if #ability.familiarTable > maxFamiliars then
 		if IsValidEntity(ability.familiarTable[1]) then

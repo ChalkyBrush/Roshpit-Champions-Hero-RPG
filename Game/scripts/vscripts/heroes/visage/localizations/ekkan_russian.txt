@@ -248,29 +248,29 @@
     	"DOTA_Tooltip_modifier_black_dominion_shield_Description"				"Поглощает урон."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"(T1) Глиф бессмертной армии"
-		"item_rpc_ekkan_glyph_1_1_description" 				"Увеличивает максимальное количество призываемых скелетов на @glyph_property1."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"(T1) Glyph of Undead Army"
+		"item_rpc_ekkan_glyph_1_1_description" 				"Увеличивает максимальное количество призываемых скелетов на <% EKKAN_GLYPH_1_1_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"(T2) Глиф трупов"
-		"item_rpc_ekkan_glyph_2_1_description" 				"(E) Acheron's portal создаёт рядом с местом применения трупы в количестве @glyph_property1."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"(T2) Glyph of Corpses"
+		"item_rpc_ekkan_glyph_2_1_description" 				"(E) Acheron's portal создаёт рядом с местом применения трупы в количестве <% EKKAN_GLYPH_2_1_E_SPAWN_CORPSES %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"(T3) Глиф оживления"
-		"item_rpc_ekkan_glyph_3_1_description" 				"Увеличивает длительность жизни призываемых скелетов на @glyph_property1%."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"(T3) Glyph of Reanimation"
+		"item_rpc_ekkan_glyph_3_1_description" 				"Увеличивает длительность жизни призываемых скелетов на <% EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"(T4) Глиф сверхзаряда"
-		"item_rpc_ekkan_glyph_4_1_description" 				"(R) Soul charge дополнительно увеличивает скорость атаки на @glyph_property1 и скорость передвижения на @glyph_property2."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"(T4) Glyph of Supercharge"
+		"item_rpc_ekkan_glyph_4_1_description" 				"(R) Soul charge дополнительно увеличивает скорость атаки на <% EKKAN_GLYPH_4_1_R_AS_INCREASE %> и скорость передвижения на <% EKKAN_GLYPH_4_1_R_MS_INCREASE %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"(T5) Глиф подчинения"
-		"item_rpc_ekkan_glyph_5_1_description" 				"Увеличивает максимальное количество подчинённых юнитов на @glyph_property1."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"(T5) Glyph of Domination"
+		"item_rpc_ekkan_glyph_5_1_description" 				"Увеличивает максимальное количество подчинённых юнитов на <% EKKAN_GLYPH_5_1_Q_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"(T6)Глиф гаргулий"
-		"item_rpc_ekkan_glyph_6_1_description" 				"Увеличивает максимальное количество призываемых гаргулий на @glyph_property1."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"(T6)Glyph of Gargoyles"
+		"item_rpc_ekkan_glyph_6_1_description" 				"Увеличивает максимальное количество призываемых гаргулий на <% EKKAN_GLYPH_6_1_E_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"(T7) Глиф огромного скелета"
-		"item_rpc_ekkan_glyph_7_1_description" 				"Призванный король скелетов может задеть сразу @glyph_property1 дополнительных цели."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"(T7) Glyph of Super Skeleton"
+		"item_rpc_ekkan_glyph_7_1_description" 				"Призванный король скелетов может задеть сразу <% EKKAN_GLYPH_7_1_R3_MORE_TARGETS %> дополнительных цели."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"(Immortal) Глиф чёрной плети"
-		"item_rpc_ekkan_glyph_5_a_description" 				"Увеличивает максимальное расстояние, на которые подконтрольные юниты могут отойти от героя на @glyph_property1."
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"(Immortal) Glyph of Black Scourge"
+		"item_rpc_ekkan_glyph_5_a_description" 				"Увеличивает максимальное расстояние, на которые подконтрольные юниты могут отойти от героя на <% EKKAN_GLYPH_5_A_LEASH_RANGE_INCREASE %>."
 		
 		
 		//Weapons
