@@ -1,4 +1,3 @@
-require('heroes/phantom_assassin/constants_voltex')
 function begin_lightning_dash(event)
 	local caster = event.caster
 	local ability = event.ability

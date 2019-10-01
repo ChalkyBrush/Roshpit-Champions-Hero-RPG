@@ -119,7 +119,7 @@ function voltex_glyph_4_1_trigger(event)
 	else
 		local ability = event.ability
 		local caster = ability.hero
-		for i = 1, 9, 1 do
+		for i = 1, VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS, 1 do
 			local fv = RandomVector(1)
 			local projectileParticle = "particles/econ/items/zeus/lightning_weapon_fx/linear_electric_immortal_lightning.vpcf"
 			local projectileOrigin = caster:GetAbsOrigin() + fv * 10
@@ -155,7 +155,7 @@ end
 function voltex_glyph_4_1_strike(event)
 	local target = event.target
 	local caster = event.ability.hero
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * VOLTEX_GLYPH_4_1_ATTACK_TO_DMG
 	local sound = "Hero_Zuus.ArcLightning.Target"
 	EmitSoundOn(sound, target)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
