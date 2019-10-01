@@ -245,7 +245,7 @@ function disciple_heal_start(event)
 	event.ability:ApplyDataDrivenModifier(attacker, victim, "modifier_paladin_rune_r_2_hidden_block", {duration = 16})
 	if attacker:HasModifier("modifier_disciple_cooldown_reduction") then
 		local cd = ability:GetCooldownTimeRemaining()
-		local newCD = cd * (1 - PALADIN_IMMO2_CD_RED)
+		local newCD = cd * (1 - PALADIN_IMMORTAL_WEAPON_2_DISCIPLES_CD_RED)
 		ability:EndCooldown()
 		ability:StartCooldown(newCD)
 	end

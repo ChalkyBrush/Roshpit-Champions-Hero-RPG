@@ -342,13 +342,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"Radiance"
 		"item_property_paladin_immortal_weapon"								"Radiant Aegis"
-		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a @special_property1 charge Divine Aegis for @special_property2 seconds. Max Divine Aegis stacks from attacks increased to @special_property3."
+		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a <% PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS %> charge Divine Aegis for <% PALADIN_IMMORTAL_WEAPON_1_Q3_DURATION %> seconds. Max Divine Aegis stacks from attacks increased to <% PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS %>."
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"Light's Crusader"
     	"item_property_paladin_immortal_weapon2"							"Spiritual Wrath"
-    	"property_paladin_immortal_weapon2_description"						"@Ability4 summons have @special_property1% cooldown reduction on all of their abilities."
+    	"property_paladin_immortal_weapon2_description"						"@Ability4 summons have <% PALADIN_IMMORTAL_WEAPON_2_DISCIPLES_CD_RED * 100 %>% cooldown reduction on all of their abilities."
 
 
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
     	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
-    	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by @special_property1"
+    	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by <% PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR %>."
