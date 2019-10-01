@@ -2,43 +2,53 @@ if GameState == nil then
 	GameState = class({})
 end
 
-
-require('/heroes/dark_seer/zhonik_constants')
-require('/heroes/huskar/spirit_warrior_constants')
-require('/heroes/obsidian_destroyer/epoch_constants')
-require('/heroes/juggernaut/seinaru_constants')
-require('/heroes/nightstalker/chernobog_constants')
-require('/heroes/antimage/arkimus_constants')
-require('/heroes/monkey_king/constants')
-require('/heroes/skywrath_mage/constants')
-require('/heroes/invoker/constants_CONJUROR')
-require("/heroes/moon_ranger/constants")
+require("/heroes/antimage/arkimus_constants")
+require("/heroes/arc_warden/jex_constants")
+require("/heroes/axe/red_general_constants")
+require("/heroes/beastmaster/warlord_constants")
+require("/heroes/crystal_maiden/sorceress_constants")
+require("/heroes/dark_seer/zhonik_constants")
 require("/heroes/dragon_knight/flamewaker_constants")
+require("/heroes/faceless_void/omniro_constants")
+require("/heroes/hero_necrolyte/venomort_constants")
+require("/heroes/hero_necrolyte/scales")
+require("/heroes/huskar/spirit_warrior_constants")
+require("/heroes/invoker/constants_CONJUROR")
+require("/heroes/juggernaut/seinaru_constants")
+require("/heroes/lanaya/trapper_constants")
+require("/heroes/legion_commander/mountain_protector_constants")
+require("/heroes/leshrac/bahamut_constants")
+require("/heroes/monkey_king/djanghor_constants")
+require("/heroes/moon_ranger/astral_ranger_constants")
+require("/heroes/nightstalker/chernobog_constants")
+require("/heroes/obsidian_destroyer/epoch_constants")
+require("/heroes/omniknight/paladin_constants")
+require("heroes/phantom_assassin/voltex_constants")
+require("/heroes/skywrath_mage/sephyr_constants")
+require("/heroes/slardar/hydroxis_constants")
+require("/heroes/slark/slipfinn_constants")
 require("/heroes/spirit_breaker/duskbringer_constants")
-require('heroes/slardar/hydroxis_constants')
-require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/vengeful_spirit/solunia_constants")
 require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
-require("/heroes/beastmaster/warlord_constants")
+require("/heroes/zuus/auriun_constants")
 
-require('/items/constants/boots')
-require('/items/constants/chest')
-require('/items/constants/gloves')
-require('/items/constants/helm')
-require('/items/constants/trinket')
+require("/items/constants/boots")
+require("/items/constants/chest")
+require("/items/constants/gloves")
+require("/items/constants/helm")
+require("/items/constants/trinket")
 
-require('/worlds/winterblight/constants/enemies_abilities')
-require('/worlds/redfall/constants/mithril')
-require('/worlds/winterblight/constants/mithril')
-require('/worlds/tanari/constants/mithril')
-require('/worlds/arena/constants/mithril')
-require('/worlds/tutorial/constants/mithril')
-require('/worlds/sea_fortress/constants/mithril')
-require('/worlds/serengaard/constants/mithril')
+require("/worlds/winterblight/constants/enemies_abilities")
+require("/worlds/redfall/constants/mithril")
+require("/worlds/winterblight/constants/mithril")
+require("/worlds/tanari/constants/mithril")
+require("/worlds/arena/constants/mithril")
+require("/worlds/tutorial/constants/mithril")
+require("/worlds/sea_fortress/constants/mithril")
+require("/worlds/serengaard/constants/mithril")
 
-local heroes = {
-	venomort = require('/heroes/hero_necrolyte/scales')}
-require('/heroes/legion_commander/mountain_protector_constants')
+
 
 VectorTarget:Init({noOrderFilter = true})
 
@@ -1586,7 +1596,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_paladin_glyph_7_2") then
-		damage = damage * (100-PALADIN_GLYPH_7_2_DAMAGE_RECEIVED_REDUCTION)/100
+		damage = damage * 0.01
 	end
 	if victim:HasModifier("modifier_nefali_aura_effect") then
 		if victim:GetTeamNumber() == victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster():GetTeamNumber() then
@@ -2025,7 +2035,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
-		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
+		filterTable["damage"] = filterTable["damage"] * 0.001
 	end
 	if attacker:GetUnitName() == "voltex_rune_e_1_illusion" then
 		--Changes the attacker to hero, so that its cerdited to him
@@ -2529,7 +2539,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + multIncrease
 	end
 	if attacker:HasModifier("modifier_voltex_immortal_weapon_1") then
-		mult = mult + 0.5
+		mult = mult + VOLTEX_IMMORTAL_WEAPON_1_POST_MITI_BONUS
 	end
 	if attacker:HasModifier("modifier_machinal_jump_c_c_amp") then
 		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
@@ -2586,7 +2596,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
 		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
-		mult = mult + immortalOrArcanaCount * PALADIN_GLYPH_6_2_POST_MITI_PER_GEAR_PIECE_PCT/100
+		mult = mult + immortalOrArcanaCount * 2.4
 	end
 	if attacker:HasModifier("modfier_razor_band_stacks") then
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
