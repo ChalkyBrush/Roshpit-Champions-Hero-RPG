@@ -259,43 +259,43 @@
 		//Glyphs
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"Glyph of Resurrection"
-		"item_rpc_paladin_glyph_1_1_description" 				"Reduces the cooldown of Second Coming to @glyph_property1 seconds."
+		"item_rpc_paladin_glyph_1_1_description" 				"Reduces the cooldown of Second Coming to <% PALADIN_GLYPH_1_1_E1_CD %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"Glyph of Consecration"
 		"item_rpc_paladin_glyph_2_1_description" 				"@Ability1 becomes a toggle ability that remains active while it is toggled on."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"Glyph of Command"
-		"item_rpc_paladin_glyph_3_1_description" 				"@Ability4 becomes fully controllable and increases their movespeed to <%PALADIN_DISCIPLE_GLYPH_3_MS%>. Right-clicking the ability turns on his automatic AI."
+		"item_rpc_paladin_glyph_3_1_description" 				"@Ability4 becomes fully controllable and increases their movespeed to <% PALADIN_GLYPH_3_1_DISCIPLE_MS %>. Right-clicking the ability turns on his automatic AI."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"Glyph of Unwavering Justice"
-		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provide 5x stack generation. "
+		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provide <% PALADIN_GLYPH_4_1_W_W1_STACK_AMP %>x stack generation. "
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"Glyph of Holy Authority"
 		"item_rpc_paladin_glyph_5_1_description" 				"Increases the damage of Justice Overwhelming and Holy Fire by 200%, also each hit provide an additional 9 stacks."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"Glyph of Nobility"
-		"item_rpc_paladin_glyph_6_1_description" 				"Grants a @glyph_property1 increased movespeed aura."
+		"item_rpc_paladin_glyph_6_1_description" 				"Grants a <% PALADIN_GLYPH_6_1_MS_AURA %> increased movespeed aura."
 
 		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
-		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Increased Movespeed"
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Movespeed increased by <% PALADIN_GLYPH_6_1_MS_AURA %>"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"Glyph of Zeal"
-		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, @glyph_property1% chance to immediately attack another target within range with no cooldown."
+		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, <% PALADIN_GLYPH_7_1_ZEAL_CHANCE_DIV_BY_10 * 10 %>% chance to immediately attack another target within range with no cooldown."
 
         //Column2Glyphs
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_book" 		"Paladin Glyph Book"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "Glyph of Repentance"
-        "item_rpc_paladin_glyph_1_2_description"                "Enemies hit by @Ability2 have their attack speed slowed by @glyph_property1 for 8 seconds."
+        "item_rpc_paladin_glyph_1_2_description"                "Enemies hit by @Ability2 have their attack speed slowed by <% PALADIN_GLYPH_1_2_AS_SLOW %> for 8 seconds."
 
         "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect"        "Repentance"
         "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "Attack speed reduced" 
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "Glyph of Blessed Hammer"
-        "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by @glyph_property1%. Bonus only updated on weapon equip."
+        "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by <% PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT %>%. Bonus only updated on weapon equip."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "Glyph of Conviction"
-        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for @glyph_property1% of damage dealt."
+        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <% PALADIN_GLYPH_3_2_LIFESTEAL * 100 %>% of damage dealt."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "Glyph of Fanaticism"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
@@ -304,13 +304,13 @@
         "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to 10x Paladin's attack power."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "Glyph of Vestigial Value"
-        "item_rpc_paladin_glyph_6_2_description"                "Each piece of gear that is mythical rarity or below that is equipped increases post-mitigation damage output by @glyph_property1%."
+        "item_rpc_paladin_glyph_6_2_description"                "Each piece of gear that is mythical rarity or below that is equipped increases post-mitigation damage output by < PALADIN_GLYPH_6_2_POST_MITI_PER_GEAR_PIECE_PCT %>%."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "Glyph of Heaven's Sentinel"
-        "item_rpc_paladin_glyph_7_2_description"                "Decreases damage taken by @glyph_property1%, and decreases damage dealt by @glyph_property2%."
+        "item_rpc_paladin_glyph_7_2_description"                "Decreases damage taken by <% PALADIN_GLYPH_7_2_DAMAGE_RECEIVED_REDUCTION %>%, and decreases damage dealt by <% PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"Glyph of Holy Wrath"
-		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a @glyph_property1 AOE and hits the primary target twice."
+		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a <% PALADIN_GLYPH_5_A_AOE_RADIUS %> AOE and hits the primary target twice."
 		
 		//Weapons
 		"paladin_weapon_01"			"Hammer of Might"

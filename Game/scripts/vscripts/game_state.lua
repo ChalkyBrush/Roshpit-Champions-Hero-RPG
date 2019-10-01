@@ -1586,7 +1586,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_paladin_glyph_7_2") then
-		damage = damage * 0.01
+		damage = damage * (100-PALADIN_GLYPH_7_2_DAMAGE_RECEIVED_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_nefali_aura_effect") then
 		if victim:GetTeamNumber() == victim:FindModifierByName("modifier_nefali_aura_effect"):GetCaster():GetTeamNumber() then
@@ -2025,7 +2025,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
-		filterTable["damage"] = filterTable["damage"] * 0.001
+		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
 	end
 	if attacker:GetUnitName() == "voltex_rune_e_1_illusion" then
 		--Changes the attacker to hero, so that its cerdited to him
@@ -2586,7 +2586,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
 		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
-		mult = mult + immortalOrArcanaCount * 2.4
+		mult = mult + immortalOrArcanaCount * PALADIN_GLYPH_6_2_POST_MITI_PER_GEAR_PIECE_PCT/100
 	end
 	if attacker:HasModifier("modfier_razor_band_stacks") then
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
