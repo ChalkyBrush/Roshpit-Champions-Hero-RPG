@@ -14,6 +14,7 @@ require('paragon')
 require('elements')
 require('spawning')
 require('keyvalues')
+require('challenges_reborn')
 
 Beacons.cheats = true
 

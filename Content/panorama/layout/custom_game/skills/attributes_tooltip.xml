@@ -155,11 +155,13 @@
 						<Label class="atk_def_property bonus_right" id="atk_4_right" html="true"/>
 					</Panel>
 					<Panel class="atk_def_property_container">
-						<Label class="atk_def_property bonus_left" id="atk_5_left" html="true"/>
+						<Image class="property_image" id="unit_attribute_armor_pierce" html="true"/>
+						<Label class="atk_def_property bonus_left stat_label_offset" id="atk_5_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="atk_5_right" html="true"/>
 					</Panel>
 					<Panel class="atk_def_property_container">
-						<Label class="atk_def_property bonus_left" id="atk_6_left" html="true"/>
+						<Image class="property_image" id="unit_attribute_spell_pierce" html="true"/>
+						<Label class="atk_def_property bonus_left stat_label_offset" id="atk_6_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="atk_6_right" html="true"/>
 					</Panel>
 					<Panel class="class-splitter-thin-full">
@@ -208,7 +210,8 @@
 				<Panel class="attack_defense_panel panel_right">
 					<Label class="attack_defense_title" id="attack_defense_title_def"/>
 					<Panel class="atk_def_property_container">
-						<Label class="atk_def_property bonus_left" id="def_1_left" html="true"/>
+						<Image class="property_image" id="unit_attribute_armor" html="true"/>
+						<Label class="atk_def_property bonus_left stat_label_offset" id="def_1_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="def_1_right" html="true"/>
 					</Panel>
 					<Panel class="atk_def_property_container">
@@ -220,7 +223,8 @@
 						<Label class="atk_def_property bonus_right" id="def_3_right" html="true"/>
 					</Panel>
 					<Panel class="atk_def_property_container">
-						<Label class="atk_def_property bonus_left" id="def_4_left" html="true"/>
+						<Image class="property_image" id="unit_attribute_magic_armor" html="true"/>
+						<Label class="atk_def_property bonus_left stat_label_offset" id="def_4_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="def_4_right" html="true"/>
 					</Panel>
 					<Panel class="atk_def_property_container">
