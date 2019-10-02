@@ -67,7 +67,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%property_one"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% SEPHYR_GLYPH_2_1_EVASION_PCT %>"
 				}
 			}
 		}

@@ -177,7 +177,7 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 		--print("SEPHYR IMMORTAL3")
 		local runeTable = {"rune_q_4", "rune_w_4", "rune_e_4", "rune_r_4"}
 		for i = 1, #runeTable, 1 do
-			Weaponmodifiers:runeProperty(runeTable[i], 7, hero)
+			Weaponmodifiers:runeProperty(runeTable[i], SEPHYR_IMMORTAL_WEAPON_3_T4_RUNES, hero)
 		end
 	end
 	RPCItems:PreacheArcanaResources(item)

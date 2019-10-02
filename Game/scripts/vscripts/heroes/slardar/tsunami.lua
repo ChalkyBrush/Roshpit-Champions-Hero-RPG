@@ -26,10 +26,10 @@ function channel_complete(event)
 	-- CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", caster, 7)
 	local castLoops = 0
 	if caster:HasModifier("modifier_hydroxis_glyph_1_1") then
-		castLoops = 1
+		castLoops = HYDROXIS_GLYPH_1_1_R_REPEAT_NUMBER_OF_REPEATS
 	end
 	for i = 0, castLoops, 1 do
-		Timers:CreateTimer(i * 2, function()
+		Timers:CreateTimer(i * HYDROXIS_GLYPH_1_1_R_REPEAT_DELAY, function()
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/hydroxis/ocean_quake.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
@@ -78,7 +78,7 @@ function channel_complete(event)
 			if c_d_level > 0 then
 				local baseCD = 12
 				if caster:HasModifier("modifier_hydroxis_glyph_7_1") then
-					baseCD = baseCD + 5
+					baseCD = baseCD + HYDROXIS_GLYPH_7_1_R3_DURATION_INCREASE
 				end
 				local c_d_duration = Filters:GetAdjustedBuffDuration(caster, baseCD, false)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_c_d_poseidons_wrath", {duration = c_d_duration})
@@ -233,9 +233,9 @@ function poseidons_wrath_attack_land(event)
 	end
 	EmitSoundOn("Hydroxis.CDGush", target)
 	-- local fv = attacker:GetForwardVector()
-	local radius = 300
+	local radius = HYDROXIS_R3_RADIUS_BASE
 	if attacker:HasModifier("modifier_hydroxis_immortal_weapon_1") then
-		radius = 450
+		radius = HYDROXIS_R3_RADIUS_BASE * (100+HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT)/100
 	end
 	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
@@ -280,7 +280,7 @@ function poseidon_wrath_attack_hit(event)
 	local ability = event.ability
 	local damage = ability.r_3_level * HYDROXIS_R3_ATTACK_TO_DMG_PCT/100 * OverflowProtectedGetAverageTrueAttackDamage(caster) * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(false)) * HYDROXIS_R1_RUNE_MULT
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
-		damage = damage * 2
+		damage = damage * (100 + HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT)/100
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end

@@ -49,6 +49,26 @@ require("/worlds/sea_fortress/constants/mithril")
 require("/worlds/serengaard/constants/mithril")
 
 
+require('/items/constants/boots')
+require('/items/constants/chest')
+require('/items/constants/gloves')
+require('/items/constants/helm')
+require('/items/constants/trinket')
+
+require('/worlds/winterblight/constants/enemies_abilities')
+require('/worlds/redfall/constants/mithril')
+require('/worlds/winterblight/constants/mithril')
+require('/worlds/tanari/constants/mithril')
+require('/worlds/arena/constants/mithril')
+require('/worlds/tutorial/constants/mithril')
+require('/worlds/sea_fortress/constants/mithril')
+require('/worlds/serengaard/constants/mithril')
+
+
+local heroes = {
+	venomort = require('/heroes/hero_necrolyte/scales')}
+require('/heroes/legion_commander/mountain_protector_constants')
+
 
 VectorTarget:Init({noOrderFilter = true})
 
@@ -1605,7 +1625,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			local reduction = nefaliAbility:GetLevelSpecialValueFor("damage_reduce", nefaliAbility:GetLevel())
 			reduction = (100 - reduction) / 100
 			if nefaliCaster:HasModifier("modifier_sephyr_glyph_5_a") then
-				reduction = 0.005
+				reduction = (100 - SEPHYR_GLYPH_5_A_R_DMG_REDUCTION_PCT)/100
 			end
 			damage = damage * reduction
 		end
@@ -3557,8 +3577,8 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_sephyr_glyph_6_1") then
-		local luck = RandomInt(1, 20)
-		if luck <= 7 then
+		local luck = RandomInt(1, 100)
+		if luck <= SEPHYR_GLYPH_6_1_DAMAGE_NEGATION_CHANCE then
 			filterTable["damage"] = 0
 			CustomAbilities:QuickAttachParticle("particles/roshpit/sephyr/glyph_6_damage.vpcf", victim, 0.5)
 		end

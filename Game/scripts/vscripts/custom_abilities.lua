@@ -630,10 +630,10 @@ function CustomAbilities:SephyrBoomerang(caster, ability, enemy, bWindDeity)
 	local max_boomerangs = 1
 	local pucks = 1
 	if caster:HasModifier("modifier_sephyr_glyph_1_1") then
-		max_boomerangs = max_boomerangs + 1
+		max_boomerangs = max_boomerangs + SEPHYR_GLYPH_1_1_ADDITIONAL_E1_PUCK
 	end
 	if caster:HasModifier("modifier_sephyr_immortal_weapon_2") then
-		max_boomerangs = max_boomerangs + 3
+		max_boomerangs = max_boomerangs + SEPHYR_IMMORTAL_WEAPON_2_ADDITIONAL_E1_PUCKS
 		if not bWindDeity then
 			pucks = 2
 		end

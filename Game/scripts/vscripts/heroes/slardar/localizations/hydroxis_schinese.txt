@@ -233,25 +233,25 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"构造学雕文"
-		"item_rpc_hydroxis_glyph_1_1_description" 				"施放海洋地震后，将在2秒后再次自动施放。"
+		"item_rpc_hydroxis_glyph_1_1_description" 				"施放海洋地震后，将在<% HYDROXIS_GLYPH_1_1_R_REPEAT_DELAY %>秒后再次自动施放。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"喷薄雕文"
-		"item_rpc_hydroxis_glyph_2_1_description" 				"在滑行时，深水炸弹速度提高 @glyph_property1% "
+		"item_rpc_hydroxis_glyph_2_1_description" 				"在滑行时，深水炸弹速度提高 <% HYDROXIS_GLYPH_2_1_E1_INTERVAL_RED_PCT %>% "
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"圣水雕文"
-		"item_rpc_hydroxis_glyph_3_1_description" 				"神秘水盾的治疗间隔缩短 2x。"
+		"item_rpc_hydroxis_glyph_3_1_description" 				"神秘水盾的治疗间隔缩短 <% HYDROXIS_GLYPH_3_1_Q2_TICKRATE_MULT %>x。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"殘骸雕文"
-		"item_rpc_hydroxis_glyph_4_1_description" 				"洪水滑动伤害增加 3x。"
+		"item_rpc_hydroxis_glyph_4_1_description" 				"洪水滑动伤害增加 <% HYDROXIS_GLYPH_4_1_E2_DMG_AMP %>x。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"水汽雕文"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 @glyph_property1% 机率触发新月波造成 @glyph_property2% 攻击力的魔法伤害。"
+		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 <% HYDROXIS_GLYPH_5_1_CHANCE %>% 机率触发新月波造成 <% HYDROXIS_GLYPH_5_1_W1_MAGIC_AMP %>x 攻击力的魔法伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"淹沒雕文"
-		"item_rpc_hydroxis_glyph_6_1_description" 				"增加斃命水池的半径 @glyph_property1。大招不再需要持续施法"
+		"item_rpc_hydroxis_glyph_6_1_description" 				"增加斃命水池的半径 <% HYDROXIS_GLYPH_6_1_R4_RADIUS_INCREASE %>。大招不再需要持续施法"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"海神雕文"
-		"item_rpc_hydroxis_glyph_7_1_description" 				"增加波塞冬的憤怒的持续时间 @glyph_property1 秒。"
+		"item_rpc_hydroxis_glyph_7_1_description" 				"增加波塞冬的憤怒的持续时间 <% HYDROXIS_GLYPH_7_1_R3_DURATION_INCREASE %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"海光雕文"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"神秘水盾消耗1层叠加数量吸收一次魔法和纯碎伤害。"
@@ -273,12 +273,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"蓝宝石三叉戟"
 		"item_property_hydroxis_immortal_weapon"							"波塞冬的唤醒"
-		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害100%和半径50%."
+		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害<% HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT %>%和半径<% HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "黑暗之礁刺棍"
         "item_property_hydroxis_immortal_weapon2"                             "滑动能量"
-        "property_hydroxis_immortal_weapon2_description"                      "胖头鱼施放 @Ability3 滑动过程中所接触到的敌人将被眩晕 @special_property1 秒并且被推开。"
+        "property_hydroxis_immortal_weapon2_description"                      "胖头鱼施放 @Ability3 滑动过程中所接触到的敌人将被眩晕 <% HYDROXIS_IMMORTAL_WEAPON_2_STUN_DURATION %> 秒并且被推开。"
 
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "破泞之主的三叉戟"
         "item_property_hydroxis_immortal_weapon3"                             "潮汐使者"
-        "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 @special_property1% "
+        "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 <% HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT %>% "
