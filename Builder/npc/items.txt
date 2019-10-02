@@ -15292,7 +15292,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "<% YASHA_AS_PER_STR %>"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "<% YASHA_BAT %>"
 				}
 			}
 			"modifier_rpc_yasha_buff"
