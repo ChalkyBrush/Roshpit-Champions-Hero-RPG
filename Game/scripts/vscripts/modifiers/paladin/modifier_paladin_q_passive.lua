@@ -26,7 +26,7 @@ function class:OnAttackLanded(event)
 			return
 		else
 			if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
-				max_stacks = caster.weapon:GetSpecialValueFor("property_three")
+				max_stacks = PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS
 			end
 		end
 		local stacks = caster:GetModifierStackCount("modifier_paladin_q3_shield", caster)

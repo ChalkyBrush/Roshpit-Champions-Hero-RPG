@@ -341,13 +341,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"Radiance"
 		"item_property_paladin_immortal_weapon"								"Radiant Aegis"
-		"property_paladin_immortal_weapon_description"						"Прочтение (Q) Heroic Fury даст герою @special_property1 зарядов [Q3] Divine Aegis на 8 секунд. Максимальное количество зарядов [Q3] Divine Aegis увеличено до 4."
+		"property_paladin_immortal_weapon_description"						"Прочтение (Q) Heroic Fury даст герою <% PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS %> зарядов [Q3] Divine Aegis на <% PALADIN_IMMORTAL_WEAPON_1_Q3_DURATION %> секунд. Максимальное количество зарядов [Q3] Divine Aegis увеличено до <% PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS %>."
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"Light's Crusader"
     	"item_property_paladin_immortal_weapon2"							"Spiritual Wrath"
-    	"property_paladin_immortal_weapon2_description"						"Время перезарядки умений Небесных Адептов от способности (R) @Ability4 снижено на @special_property1%."
+    	"property_paladin_immortal_weapon2_description"						"Время перезарядки умений Небесных Адептов от способности (R) @Ability4 снижено на <% PALADIN_IMMORTAL_WEAPON_2_DISCIPLES_CD_RED * 100 %>%."
 
 
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
     	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
-    	"property_paladin_immortal_weapon3_description"						"Каждое очко Силы дополнительно увеличивает максимальное здоровье на @special_property1"
+    	"property_paladin_immortal_weapon3_description"						"Каждое очко Силы дополнительно увеличивает максимальное здоровье на <% PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR %>."

@@ -82,7 +82,7 @@ function paladin_get_w_1_level(caster, ability)
 	ability.w_1_damage = (150 + totalLevel * 5000) / 2
 	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
 	if caster:HasModifier("modifier_paladin_glyph_5_1") then
-		ability.w_1_damage = ability.w_1_damage * 3
+		ability.w_1_damage = ability.w_1_damage * PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP
 	end
 	return totalLevel
 end
@@ -135,7 +135,7 @@ function cone_impact(event)
 	local ability = event.ability
 	local damage = event.damage
 	if caster:HasModifier("modifier_paladin_glyph_5_1") then
-		damage = damage * 3
+		damage = damage * PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP
 	end
 	if caster:GetTeamNumber() == target:GetTeamNumber() then
 		if ability.w_2_level > 0 then
@@ -160,7 +160,7 @@ function paladin_w_1_apply(caster, target, ability)
 	if ability.w_1_level > 0 then
 		ability.w_1_damage = (PALADIN_W1_BASE_DMG + ability.w_1_level * PALADIN_W1_DMG_PER_LEVEL) / 2
 		if caster:HasModifier("modifier_paladin_glyph_5_1") then
-			ability.w_1_damage = ability.w_1_damage * 3
+			ability.w_1_damage = ability.w_1_damage * PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP
 		end
 		local burnDuration = ability.w_1_level * PALADIN_W1_DURATION_PER_LEVEL + PALADIN_W1_BASE_DURATION
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_w_1", {duration = burnDuration})
@@ -169,10 +169,10 @@ function paladin_w_1_apply(caster, target, ability)
 			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_w_1", caster)
 			local additionalStacks = 1
 			if caster:HasModifier("modifier_paladin_glyph_5_1") then
-				additionalStacks = additionalStacks + 9
+				additionalStacks = additionalStacks + PALADIN_GLYPH_5_1_W_W1_ADDITIONAL_STACKS
 			end
 			if caster:HasModifier("modifier_paladin_glyph_4_1") then
-				additionalStacks = additionalStacks * 5
+				additionalStacks = additionalStacks * PALADIN_GLYPH_4_1_W_W1_STACK_AMP
 			end
 			local newStacks = math.min(stackCount + additionalStacks, ability.w_4_level + 1)
 			target:SetModifierStackCount("modifier_paladin_rune_w_1", caster, newStacks)

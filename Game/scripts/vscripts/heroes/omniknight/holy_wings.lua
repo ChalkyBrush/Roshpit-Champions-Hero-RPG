@@ -18,9 +18,9 @@ function cast_wings(event)
 		if caster:HasAbility("paladin_penance") then
 			coneAbility = caster:FindAbilityByName("paladin_penance")
 		end
-		local immortalDuration = Filters:GetAdjustedBuffDuration(caster, 8, false)
+		local immortalDuration = Filters:GetAdjustedBuffDuration(caster, PALADIN_IMMORTAL_WEAPON_1_Q3_DURATION, false)
 		coneAbility:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_rune_c_a_shield", {duration = immortalDuration})
-		caster:SetModifierStackCount("modifier_paladin_rune_c_a_shield", caster, 4)
+		caster:SetModifierStackCount("modifier_paladin_rune_c_a_shield", caster, PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS)
 	end
 end
 

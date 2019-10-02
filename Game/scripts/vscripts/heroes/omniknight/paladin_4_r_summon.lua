@@ -10,7 +10,7 @@ function knights_disciple_cast(event)
 	summonAbility:SetLevel(1)
 	if caster:HasModifier("modifier_paladin_glyph_3_1") then
 		summon:SetControllableByPlayer(caster:GetPlayerID(), true)
-		summon:AddNewModifier(summon, nil, "modifier_disciple_bonus_movespeed", {movespeed = PALADIN_DISCIPLE_GLYPH_3_MS})
+		summon:AddNewModifier(summon, nil, "modifier_disciple_bonus_movespeed", {movespeed = PALADIN_GLYPH_3_1_DISCIPLE_MS})
 	else
 		summonAbility:ApplyDataDrivenModifier(summon, summon, "modifier_disciple_unselectable", {})
 	end
@@ -245,7 +245,7 @@ function disciple_heal_start(event)
 	event.ability:ApplyDataDrivenModifier(attacker, victim, "modifier_paladin_rune_r_2_hidden_block", {duration = 16})
 	if attacker:HasModifier("modifier_disciple_cooldown_reduction") then
 		local cd = ability:GetCooldownTimeRemaining()
-		local newCD = cd * (1 - PALADIN_IMMO2_CD_RED)
+		local newCD = cd * (1 - PALADIN_IMMORTAL_WEAPON_2_DISCIPLES_CD_RED)
 		ability:EndCooldown()
 		ability:StartCooldown(newCD)
 	end
@@ -307,7 +307,7 @@ function disciple_bolt_start(event)
 	ParticleManager:SetParticleControl(particle, 2, Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, target:GetAbsOrigin().z + target:GetBoundingMaxs().z))
 	if paladin:HasModifier("modifier_paladin_glyph_5_a") then
 		Timers:CreateTimer(0.3, function()
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, PALADIN_GLYPH_5_A_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				EmitSoundOn("Paladin.HolyBolt", enemies[1])
 				for i = 1, #enemies, 1 do

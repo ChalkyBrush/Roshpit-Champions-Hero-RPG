@@ -78,7 +78,7 @@ CustomAttributes.TYRIUS_HEALTH = TYRIUS_HP_PER_STR
 CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
-CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
+CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self

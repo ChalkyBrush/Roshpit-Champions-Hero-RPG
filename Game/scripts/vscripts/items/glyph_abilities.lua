@@ -265,7 +265,7 @@ function paladin_glyph_7_1_attack(event)
 		attacker:RemoveModifierByName("modifier_paladin_glyph_7_1_immunity")
 	else
 		local luck = RandomInt(1, 10)
-		if luck <= 4 then
+		if luck <= PALADIN_GLYPH_7_1_ZEAL_CHANCE_DIV_BY_10 then
 			StartAnimation(attacker, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.5})
 			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, attacker:Script_GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
