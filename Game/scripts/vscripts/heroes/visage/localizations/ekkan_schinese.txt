@@ -265,7 +265,7 @@
 		"item_rpc_ekkan_glyph_7_1_description" 				"骷髅王每次伤害额外打击 <% EKKAN_GLYPH_7_1_R3_MORE_TARGETS %> 个敌人。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"黑灾害雕文"
-		"item_rpc_ekkan_glyph_5_a_description" 				"Increases leash range on minions by <% EKKAN_GLYPH_5_A_LEASH_RANGE_INCREASE %>。"
+		"item_rpc_ekkan_glyph_5_a_description" 				"使牵引范围增加至<font color='#ccff66'>1000</font>。"
 		
 		
 		//Weapons

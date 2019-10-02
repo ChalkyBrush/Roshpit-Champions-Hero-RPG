@@ -281,7 +281,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"观星者的法球"
 		"item_property_stargazer"									"观星者之眼"
-		"property_stargazer_description"							"(description outdated, tranlator required)在任意地点发出攻击移动命令创建一个半径为 @special_property1 有视野的观星者领域。在区域内受到伤害的敌人会被流星击中，造成所受伤害额外 @special_property3% 的纯粹伤害。敌人每0.5秒只能被一颗流星击中一次。在该区域内发出一次攻击移动命令将会摧毁它，并砸下一颗陨石在该区域内造成 @special_property4% 攻击力的伤害并且眩晕1秒。观星者领域的最小生成间隔为 @special_property2 秒。"
+		"property_stargazer_description"							"在任意地点发出攻击移动命令创建一个有视野的观星者领域。受到伤害的光圈内部的敌人将被一颗星击中，造成的纯伤害等于该戒指一生中对敌人造成的最高伤害实例的<% STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% 。之后的伤害只能造成<% STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x 的伤害。与高级鉴定相比，将其阈值提高到其正常值的<% STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>x至(<% STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>。观星者领域的最小生成间隔为 <% STARGAZERS_SPHERE_STARFALL_CD %> 秒内置cd.(此物品不受元素伤害加成)，在一个圆圈内发出攻击移动命令会立即将其折叠，形成一个流星，其流星在该区域造成<% STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x你的攻击力并且眩晕此区域的敌人<% STARGAZERS_SPHERE_COOLDOWN %>秒"
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
 		
