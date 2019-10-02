@@ -21,7 +21,7 @@ function voltex_overcharge_onspellstart(event)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_visible", {duration = duration})
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_glyph_2_1_effect_invisible", {duration = duration})
         Timers:CreateTimer(0.03, function()
-            local agility = caster:GetBaseAgility()
+            local agility = caster:GetBaseAgility() * VOLTEX_GLYPH_2_1_AGILITY_BONUS
             caster:SetModifierStackCount("modifier_voltex_glyph_2_1_effect_invisible", ability, agility)
         end)
     end

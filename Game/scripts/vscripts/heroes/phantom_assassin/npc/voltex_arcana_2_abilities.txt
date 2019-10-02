@@ -156,7 +156,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "80"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% VOLTEX_GLYPH_1_1_EVASION %>"
 				}
 			}
 			"modifier_voltex_glyph_2_1_effect_visible"
@@ -166,7 +166,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "200"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% VOLTEX_GLYPH_2_1_MS_BONUS %>"
 				}
 			}
 			"modifier_voltex_glyph_2_1_effect_invisible"

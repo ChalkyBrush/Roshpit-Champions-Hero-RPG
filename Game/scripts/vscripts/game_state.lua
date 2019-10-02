@@ -2,24 +2,52 @@ if GameState == nil then
 	GameState = class({})
 end
 
-
-require('/heroes/dark_seer/zhonik_constants')
-require('/heroes/huskar/spirit_warrior_constants')
-require('/heroes/obsidian_destroyer/epoch_constants')
-require('/heroes/juggernaut/seinaru_constants')
-require('/heroes/nightstalker/chernobog_constants')
-require('/heroes/antimage/arkimus_constants')
-require('/heroes/monkey_king/constants')
-require('/heroes/skywrath_mage/constants')
-require('/heroes/invoker/constants_CONJUROR')
-require("/heroes/moon_ranger/constants")
+require("/heroes/antimage/arkimus_constants")
+require("/heroes/arc_warden/jex_constants")
+require("/heroes/axe/red_general_constants")
+require("/heroes/beastmaster/warlord_constants")
+require("/heroes/crystal_maiden/constants")
+require("/heroes/dark_seer/zhonik_constants")
 require("/heroes/dragon_knight/flamewaker_constants")
+require("/heroes/faceless_void/omniro_constants")
+require("/heroes/hero_necrolyte/constants")
+require("/heroes/hero_necrolyte/scales")
+require("/heroes/huskar/spirit_warrior_constants")
+require("/heroes/invoker/constants_CONJUROR")
+require("/heroes/juggernaut/seinaru_constants")
+require("/heroes/lanaya/constants")
+require("/heroes/legion_commander/mountain_protector_constants")
+require("/heroes/leshrac/bahamut_constants")
+require("/heroes/monkey_king/constants")
+require("/heroes/moon_ranger/constants")
+require("/heroes/nightstalker/chernobog_constants")
+require("/heroes/obsidian_destroyer/epoch_constants")
+require("/heroes/omniknight/paladin_constants")
+require("heroes/phantom_assassin/voltex_constants")
+require("/heroes/skywrath_mage/constants")
+require("/heroes/slardar/hydroxis_constants")
+require("/heroes/slark/constants")
 require("/heroes/spirit_breaker/duskbringer_constants")
-require('heroes/slardar/hydroxis_constants')
-require('/heroes/vengeful_spirit/solunia_constants')
+require("/heroes/vengeful_spirit/solunia_constants")
 require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
-require("/heroes/beastmaster/warlord_constants")
+require("/heroes/zuus/auriun_constants")
+
+require("/items/constants/boots")
+require("/items/constants/chest")
+require("/items/constants/gloves")
+require("/items/constants/helm")
+require("/items/constants/trinket")
+
+require("/worlds/winterblight/constants/enemies_abilities")
+require("/worlds/redfall/constants/mithril")
+require("/worlds/winterblight/constants/mithril")
+require("/worlds/tanari/constants/mithril")
+require("/worlds/arena/constants/mithril")
+require("/worlds/tutorial/constants/mithril")
+require("/worlds/sea_fortress/constants/mithril")
+require("/worlds/serengaard/constants/mithril")
+
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -40,6 +68,7 @@ require('/worlds/serengaard/constants/mithril')
 local heroes = {
 	venomort = require('/heroes/hero_necrolyte/scales')}
 require('/heroes/legion_commander/mountain_protector_constants')
+
 
 VectorTarget:Init({noOrderFilter = true})
 
@@ -2530,7 +2559,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + multIncrease
 	end
 	if attacker:HasModifier("modifier_voltex_immortal_weapon_1") then
-		mult = mult + 0.5
+		mult = mult + VOLTEX_IMMORTAL_WEAPON_1_POST_MITI_BONUS
 	end
 	if attacker:HasModifier("modifier_machinal_jump_c_c_amp") then
 		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
