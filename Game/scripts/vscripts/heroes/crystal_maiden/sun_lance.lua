@@ -24,7 +24,7 @@ function begin_fireball(event)
 		caster = caster.origCaster
 	end
 	local q_1_level = caster:GetRuneValue("q", 1)
-	ability.damage = q_1_level * 12000 + 5000 + OverflowProtectedGetAverageTrueAttackDamage(caster) * 1 * q_1_level
+	ability.damage = q_1_level * 12000 + 5000 + OverflowProtectedGetAverageTrueAttackDamage(caster) * SORCERESS_ARCANA2_Q1_ATT_TO_DMG_PCT/100 * q_1_level
 	Filters:CastSkillArguments(1, caster)
 	ability.projectileFV = fv
 end
@@ -106,17 +106,5 @@ function sunlance_think(event)
 			CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_sun_lance", "sorceress_fire_arcana_q", 0)
 			caster.sunlance = false
 		end
-	end
-end
-
-function ring_of_fire_burn(event)
-	local caster = event.caster
-	local ability = event.ability
-	local target = event.target
-	local damage = target.ringOfFireBurn
-	--print("RING OF FIRE BURN?")
-	if damage > 0 then
-		target.ringOfFireTick = true
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	end
 end

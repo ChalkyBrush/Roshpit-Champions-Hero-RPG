@@ -2002,15 +2002,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
                 fireMult = fireMult + stacks * 0.2
             end
-            if victim:HasModifier("modifier_ring_of_fire_burn") then
-                if bIsRealDamage then
-                    if victim.ringOfFireTick then
-                        victim.ringOfFireTick = false
-                    else
-                        victim.ringOfFireBurn = victim.ringOfFireBurn + damage * 0.35
-                    end
-                end
-            end
         end
         if attacker:HasModifier("modifier_flametongue") then
             local flametongue = attacker:FindModifierByName("modifier_flametongue"):GetAbility()
@@ -4530,7 +4521,22 @@ function Filters:IsIceFrozen(target)
 end
 
 function Filters:IsFireBurning(target)
-    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") or target:HasModifier("modifier_jex_cipher_bolt_burn") or target:HasModifier("modifier_w_fire_fire_as_slow") or target:HasModifier("modifier_jex_e_fire_fire_burn") or target:HasModifier("modifier_cinderbark_burning") then
+    if target:HasModifier("modifier_pyroblast_ignite") or
+            target:HasModifier("modifier_fulminating_burn_effect") or
+            target:HasModifier("modifier_flametongue_a_a_rune") or
+            target:HasModifier("modifier_solunia_solar_burn") or
+            target:HasModifier("modifier_on_fire_effect") or
+            target:HasModifier("ruby_dragon_burn") or
+            target:HasModifier("modifier_infernal_prison_effect_from_attack") or
+            target:HasModifier("modifier_infernal_prison_nearby") or
+            target:HasModifier("fire_walker_aura") or
+            target:HasModifier("scorched_earth_aura") or
+            target:HasModifier("modifier_ring_of_fire_burn") or
+            target:HasModifier("modifier_sun_lance_burn") or
+            target:HasModifier("modifier_jex_cipher_bolt_burn") or
+            target:HasModifier("modifier_w_fire_fire_as_slow") or
+            target:HasModifier("modifier_jex_e_fire_fire_burn") or
+            target:HasModifier("modifier_cinderbark_burning") then
         return true
     else
         return false

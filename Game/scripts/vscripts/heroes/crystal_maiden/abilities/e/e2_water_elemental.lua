@@ -7,7 +7,7 @@ local function summon(caster, ability, origin)
 
     local baseDamage = E2_BASE_DAMAGE + runesCount * E2_ADD_DAMAGE
     local summonPosition = origin
-    local health = E2_HEALTH_AMPLIFY * caster:GetMaxHealth()
+    local health = SORCERESS_E2_HEALTH_AMPLIFY * caster:GetMaxHealth()
 
     if caster.waterElemental then
         caster.waterElemental:SetBaseDamageMin(baseDamage)
@@ -44,7 +44,7 @@ local function summon(caster, ability, origin)
         ability:ApplyDataDrivenModifier(caster, caster.waterElemental, "modifier_water_elemental_4_1_enchancement", {})
     end
 
-    local armor = E2_ARMOR_AMPLIFY * caster:GetPhysicalArmorValue(false)
+    local armor = SORCERESS_E2_HEALTH_AMPLIFY * caster:GetPhysicalArmorValue(false)
 
     Timers:CreateTimer(0.05, function()
         caster.waterElemental:SetMaxHealth(health)

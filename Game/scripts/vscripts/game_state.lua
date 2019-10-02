@@ -2899,8 +2899,12 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if Filters:IsFireBurning(victim) and attacker:HasModifier('modifier_fire_ring_passive') then
-		if attacker.q_2_level then
-			mult = mult + 0.035 * attacker.q_2_level
+		if attacker.q2_level then
+			local localMult = SORCERESS_ARCANA2_Q2_PCT/100 * attacker.q2_level
+			if victim:HasModifier("modifier_ring_of_fire_burn") then
+				localMult = localMult * SORCERESS_ARCANA2_Q2_AMP_IN_RING
+			end
+			mult = mult + localMult
 		end
 	end
 
