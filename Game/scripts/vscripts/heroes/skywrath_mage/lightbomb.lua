@@ -158,8 +158,8 @@ function lightbomb_cast(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				if caster:HasModifier("modifier_sephyr_glyph_5_1") then
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lightbomb_freeze", {duration = 1.4})
-					Timers:CreateTimer(1.4, function()
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lightbomb_freeze", {duration = SEPHYR_GLYPH_5_1_Q_FREEZE_DUR})
+					Timers:CreateTimer(SEPHYR_GLYPH_5_1_Q_FREEZE_DUR, function()
 						Filters:ApplyStun(caster, stun_duration, enemy)
 					end)
 				else
@@ -214,8 +214,8 @@ function glyph_7_1_think(event)
 	local caster = event.target
 	local ability = event.ability
 	local distance = caster:GetAbsOrigin().z + caster:GetModifierStackCount("modifier_z_flight", caster) - GetGroundHeight(caster:GetAbsOrigin(), caster)
-	if distance >= 380 then
-		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_black_King_bar_immunity", {duration = 1})
+	if distance >= SEPHYR_GLYPH_7_1_Z_DISTANCE_FOR_IMMUNITY then
+		ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_black_King_bar_immunity", {duration = SEPHYR_GLYPH_7_1_DURATION})
 	else
 		caster:RemoveModifierByName("modifier_black_King_bar_immunity")
 	end

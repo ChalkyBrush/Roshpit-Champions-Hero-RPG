@@ -26,13 +26,13 @@ function begin_icewind_gale(event)
 	local speed = SEPHYR_ARCANA_GALE_SPEED
 	local castAbility = ability
 	if caster:HasModifier("modifier_sephyr_glyph_4_1") then
-		range = SEPHYR_ARCANA_GALE_RANGE_GLYPH41
-		speed = SEPHYR_ARCANA_GALE_SPEED_GLYPH41
+		range = SEPHYR_ARCANA_GALE_RANGE + SEPHYR_GLYPH_4_1_W_BONUS_RANGE
+		speed = SEPHYR_ARCANA_GALE_SPEED + SEPHYR_GLYPH_4_1_W_BONUS_PARTICLE_SPEED
 	end
 
 	local procChance = SEPHYR_ARCANA_GALE_CRIT_CHANCE
 	if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
-		procChance = procChance + 15
+		procChance = procChance + SEPHYR_IMMORTAL_WEAPON_1_CRIT_CHANCE_INCREASE
 	end
 	local crit = Filters:GetProc(caster, procChance)
 	if crit then
@@ -51,7 +51,7 @@ function begin_icewind_gale(event)
 	local minJ = 0
 	local maxJ = 0
 	if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
-		width = 340
+		width = width * (SEPHYR_IMMORTAL_WEAPON_1_W_WIDTH_INCREASE_PCT + 100)/100
 		immortal1 = true
 		minJ = -1
 		maxJ = 1
