@@ -4566,28 +4566,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"Glyph of Cryogenation"
-		"item_rpc_dinath_glyph_1_1_description" 				"Increases the freeze duration of @Ability4 by @glyph_property1 seconds."
+		"item_rpc_dinath_glyph_1_1_description" 				"Increases the freeze duration of @Ability4 by <font color='#ccff66'>1.5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"Glyph of Aeriform"
-		"item_rpc_dinath_glyph_2_1_description" 				"Maintain fly height while channeling @Ability4. Maximum fly height increased by @glyph_property1."
+		"item_rpc_dinath_glyph_2_1_description" 				"Maintain fly height while channeling @Ability4. Maximum fly height increased by <font color='#ccff66'>35</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"Glyph of the Gizzard"
-		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 has an additional @glyph_property1 charges of free cast."
+		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 has an additional <font color='#ccff66'>2</font> charges of free cast."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"Glyph of Sweeping Drake"
-		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 gains a free cast charge every @glyph_property1 seconds."
+		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 gains a free cast charge every <font color='#ccff66'>7</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"Glyph of the Tarragon"
-		"item_rpc_dinath_glyph_5_1_description" 				"Landing an attack reduces the cooldown of all other abilities by @glyph_property1 seconds."
+		"item_rpc_dinath_glyph_5_1_description" 				"Landing an attack reduces the cooldown of all other abilities by <font color='#ccff66'>0.1</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"Glyph of Calamity"
-		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=\"#EF4126\">Fire</font>, <font color=\"#87D9FF\">Ice</font>, <font color=\"#5CCDF9\">Lightning</font>, and <font color=\"#C25DFC\">Cosmic</font> damage by @glyph_property1%."
+		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=\"#EF4126\">Fire</font>, <font color=\"#87D9FF\">Ice</font>, <font color=\"#5CCDF9\">Lightning</font>, and <font color=\"#C25DFC\">Cosmic</font> damage by <font color='#ccff66'>1000</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"Glyph of the Mana Dragon"
-		"item_rpc_dinath_glyph_7_1_description" 				"Damage of @Ability2 is increased by @glyph_property1x current mana, and attacks restore @glyph_property2% of max mana."
+		"item_rpc_dinath_glyph_7_1_description" 				"Damage of @Ability2 is increased by <font color='#ccff66'>1000</font>x current mana, and attacks restore <font color='#ccff66'>1</font>% of max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"Glyph of Golden Scales"
-		"item_rpc_dinath_glyph_5_a_description" 				"Taking an instance of magic or pure damage activates magic immunity for @glyph_property1 seconds. @glyph_property2 second cooldown."
+		"item_rpc_dinath_glyph_5_a_description" 				"Taking an instance of magic or pure damage activates magic immunity for <font color='#ccff66'>3</font> seconds. <font color='#ccff66'>5</font> second cooldown."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"Spike"
@@ -4606,7 +4606,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "Innervation Claw"
         "item_property_dinath_immortal_weapon"                             "Hypercharge"
-        "property_dinath_immortal_weapon_description"                      "@Ability4 starts @special_property1 size larger and travels @special_property2 farther."
+        "property_dinath_immortal_weapon_description"                      "@Ability4 starts <font color='#ccff66'>100</font> size larger and travels <font color='#ccff66'>1000</font> farther."
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "Breath of Vitali"
         "item_property_dinath_immortal_weapon2"                             "Aurora Shield"
@@ -5250,47 +5250,47 @@
 		"item_rpc_duskbringer_glyph_1_1_description" 				"When entering Wraith Form, the cooldowns of all abilities are refreshed. (This also affects allies.)"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"Glyph of Scathing Phantoms"
-		"item_rpc_duskbringer_glyph_2_1_description" 				"Enemies trapped by Ghost Hallow gain @glyph_property1 Duskfire stacks each second."
+		"item_rpc_duskbringer_glyph_2_1_description" 				"Enemies trapped by Ghost Hallow gain <font color='#ccff66'>3</font> Duskfire stacks each second."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"Glyph of Lingering"
-		"item_rpc_duskbringer_glyph_3_1_description" 				"Phantom Pace stacks time out in 2 seconds instead of 1 second."
+		"item_rpc_duskbringer_glyph_3_1_description" 				"Phantom Pace stacks time out in <font color='#ccff66'>2</font> seconds instead of 1 second."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"Glyph of Nightfall"
 		"item_rpc_duskbringer_glyph_4_1_description" 				"Enemies trapped in Ghost Hallow are also disarmed."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"Glyph of Death Prophecies"
-		"item_rpc_duskbringer_glyph_5_1_description" 				"Adds @glyph_property1 additional strikes to Seven Visions."
+		"item_rpc_duskbringer_glyph_5_1_description" 				"Adds <font color='#ccff66'>7</font> additional strikes to Seven Visions."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"Glyph of Winding"
-		"item_rpc_duskbringer_glyph_6_1_description" 				"Reduces the cooldown of Whirling Flail to @glyph_property1 seconds."
+		"item_rpc_duskbringer_glyph_6_1_description" 				"Reduces the cooldown of Whirling Flail to <font color='#ccff66'>4</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"Glyph of Manifestation"
-		"item_rpc_duskbringer_glyph_7_1_description" 				"Replaces Specter Rush with Manifestation, an ability that teleports Duskbringer to the target location and strikes all surrounding enemies with Entity Clash on arrival. Also increases the Duskfire stack chance of Entity Clash by @glyph_property1x."
+		"item_rpc_duskbringer_glyph_7_1_description" 				"Replaces Specter Rush with Manifestation, an ability that teleports Duskbringer to the target location and strikes all surrounding enemies with Entity Clash on arrival. Also increases the Duskfire stack chance of Entity Clash by <font color='#ccff66'>2</font>x."
 
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"Glyph of Eerie Silence"
-		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by @glyph_property1% of maximum health while silenced, and for @glyph_property2 seconds afterward."
+		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by <font color='#ccff66'>10</font>% of maximum health while silenced, and for <font color='#ccff66'>20</font> seconds afterward."
 
 		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect"				"Eerie Silence"
 		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect_Description"	"Regenerates 10% of Max HP per second."
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"Glyph of Blank Combustion"
-		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies @glyph_property1 stacks of Duskfire to enemies, instead of just 1."
+		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies <font color='#ccff66'>3</font> stacks of Duskfire to enemies, instead of just 1."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"Glyph of Churning"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by @glyph_property1%, but also decreases its base damage by @glyph_property2%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"Decreases the interval between @Ability1 damage instances by <font color='#ccff66'>50</font>%, but also decreases its base damage by <font color='#ccff66'>0.4</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"Glyph of the Journey"
-		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of @glyph_property1% damage reduction, to a maximum of @glyph_property2 stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
+		"item_rpc_duskbringer_glyph_4_2_description" 				"While moving, gain stacks of <font color='#ccff66'>3</font>% damage reduction, to a maximum of <font color='#ccff66'>30</font> stacks. These stacks last as long as your Phantom Pace stacks, but all stacks are lost at once instead of one at a time."
 		
 		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible"					"Glyph of Journey"
-		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible_Description"		"Damage reduction, 30 stacks at max."
+		"DOTA_Tooltip_modifier_duskbringer_glyph_4_2_visible_Description"		"Damage reduction, <font color='#ccff66'>30</font> stacks at max."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"Glyph of Shared Fate"
-		"item_rpc_duskbringer_glyph_5_2_description" 				"Enemies within @glyph_property1 range of the primary target of your attacks will also gain stacks of Duskfire."
+		"item_rpc_duskbringer_glyph_5_2_description" 				"Enemies within <font color='#ccff66'>250</font> range of the primary target of your attacks will also gain stacks of Duskfire."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"Glyph of the Wraith"
-		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every 0.3 seconds."
+		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every <font color='#ccff66'>0.3</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"Glyph of Haunted Spirits"
 		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains Ghost as an additional element."
@@ -5300,7 +5300,7 @@
     	"DOTA_Tooltip_ability_manifestation_Description"			"Element: <font color=\"#9ACCD1\">Ghost</font><br>Duskbringer immediately appears at the target location, smashing each nearby enemy with Entity Clash."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"Glyph of Second Chances"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"Allies will not die when Final Vengeance wraithform ends. This effect has a cooldown of @glyph_property1 seconds."
+		"item_rpc_duskbringer_glyph_5_a_description" 				"Allies will not die when Final Vengeance wraithform ends. This effect has a cooldown of <font color='#ccff66'>22</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"Duskbringer Glyph Book"
 		
@@ -5324,15 +5324,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_1"		"Nightfire"
 		"item_property_duskbringer_immortal_weapon"								"Nightfire"
-		"property_duskbringer_immortal_weapon_description"						"Duskfire stacks build 2x faster."
+		"property_duskbringer_immortal_weapon_description"						"Duskfire stacks build <font color='#ccff66'>2</font>x faster."
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "Warden's Bone Mace"
         "item_property_duskbringer_immortal_weapon2"                             "Fear"
-        "property_duskbringer_immortal_weapon2_description"                      "Enemies damaged in any way by @Ability2 are stunned for @special_property1 seconds."
+        "property_duskbringer_immortal_weapon2_description"                      "Enemies damaged in any way by @Ability2 are stunned for <font color='#ccff66'>0.8</font> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "Cranium Basher"
         "item_property_duskbringer_immortal_weapon3"                             "Skull Bash"
-        "property_duskbringer_immortal_weapon3_description"                      "Basic attacks have a @special_property1% chance to stun the enemy for @special_property2 seconds and apply a @special_property3 charge ghost armor."
+        "property_duskbringer_immortal_weapon3_description"                      "Basic attacks have a <font color='#ccff66'>25</font>% chance to stun the enemy for <font color='#ccff66'>2</font> seconds and apply a <font color='#ccff66'>5</font> charge ghost armor."
 
 		//Abilities
 		"ekkan_corpse"														"Corpse"
@@ -5585,28 +5585,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"Glyph of Undead Army"
-		"item_rpc_ekkan_glyph_1_1_description" 				"Increases the max number of concurrent skeleton summons by @glyph_property1."
+		"item_rpc_ekkan_glyph_1_1_description" 				"Increases the max number of concurrent skeleton summons by <font color='#ccff66'>4</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"Glyph of Corpses"
-		"item_rpc_ekkan_glyph_2_1_description" 				"Acheron's portal creates @glyph_property1 corpses around the cast point."
+		"item_rpc_ekkan_glyph_2_1_description" 				"Acheron's portal creates <font color='#ccff66'>5</font> corpses around the cast point."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"Glyph of Reanimation"
-		"item_rpc_ekkan_glyph_3_1_description" 				"Skeleton life duration is increased by @glyph_property1%."
+		"item_rpc_ekkan_glyph_3_1_description" 				"Skeleton life duration is increased by <font color='#ccff66'>100</font>1%."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"Glyph of Supercharge"
-		"item_rpc_ekkan_glyph_4_1_description" 				"Soul charge increases attack speed by an additional @glyph_property1 and increases movespeed by @glyph_property2."
+		"item_rpc_ekkan_glyph_4_1_description" 				"Soul charge increases attack speed by an additional <font color='#ccff66'>60</font> and increases movespeed by <font color='#ccff66'>80</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"Glyph of Domination"
-		"item_rpc_ekkan_glyph_5_1_description" 				"Increases the max number of concurrent Dark Dominion units by @glyph_property1."
+		"item_rpc_ekkan_glyph_5_1_description" 				"Increases the max number of concurrent Dark Dominion units by <font color='#ccff66'>2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"Glyph of Gargoyles"
-		"item_rpc_ekkan_glyph_6_1_description" 				"Increases max concurrent familiars by @glyph_property1."
+		"item_rpc_ekkan_glyph_6_1_description" 				"Increases max concurrent familiars by <font color='#ccff66'>1</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"Glyph of Super Skeleton"
-		"item_rpc_ekkan_glyph_7_1_description" 				"Reanimated Skeleton King zaps @glyph_property1 additional enemies at a time."
+		"item_rpc_ekkan_glyph_7_1_description" 				"Reanimated Skeleton King zaps <font color='#ccff66'>2</font> additional enemies at a time."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"Glyph of Black Scourge"
-		"item_rpc_ekkan_glyph_5_a_description" 				"Increases leash range on minions by @glyph_property1."
+		"item_rpc_ekkan_glyph_5_a_description" 				"Increases leash range on minions by <font color='#ccff66'>1000</font>."
 		
 		
 		//Weapons
@@ -6934,25 +6934,25 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"Glyph of Tectonics"
-		"item_rpc_hydroxis_glyph_1_1_description" 				"After casting @Ability4, cast it again automatically after 2 seconds."
+		"item_rpc_hydroxis_glyph_1_1_description" 				"After casting @Ability4, cast it again automatically after <font color='#ccff66'>2</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"Glyph of Gushing"
-		"item_rpc_hydroxis_glyph_2_1_description" 				"Undertow throws water bombs @glyph_property1% faster during Slipstream"
+		"item_rpc_hydroxis_glyph_2_1_description" 				"Undertow throws water bombs <font color='#ccff66'>50</font>% faster during Slipstream"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"Glyph of Healing Waters"
-		"item_rpc_hydroxis_glyph_3_1_description" 				"The heal from Mystic Water Shield ticks 2x faster."
+		"item_rpc_hydroxis_glyph_3_1_description" 				"The heal from Mystic Water Shield ticks <font color='#ccff66'>2</font>x faster."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"Glyph of Jetsam"
-		"item_rpc_hydroxis_glyph_4_1_description" 				"Flood Slide damage increased 3x."
+		"item_rpc_hydroxis_glyph_4_1_description" 				"Flood Slide damage increased <font color='#ccff66'>3</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"Glyph of Vapor"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"Attacks have a @glyph_property1% chance for Crescent Wave to deal an additional Water damage instance equal to @glyph_property2% of attack power as magic damage."
+		"item_rpc_hydroxis_glyph_5_1_description" 				"Attacks have a <font color='#ccff66'>15</font>% chance for Crescent Wave to deal an additional Water damage instance equal to <font color='#ccff66'>4</font>x of attack power as magic damage."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"Glyph of Submergence"
-		"item_rpc_hydroxis_glyph_6_1_description" 				"Increases the radius of Drowning Pool by @glyph_property1. Additionally remove cast time of Ocean Quake."
+		"item_rpc_hydroxis_glyph_6_1_description" 				"Increases the radius of Drowning Pool by <font color='#ccff66'>200</font>. Additionally remove cast time of Ocean Quake."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"Glyph of the Sea God"
-		"item_rpc_hydroxis_glyph_7_1_description" 				"Increases the duration of Poseidon's Fury by @glyph_property1 seconds."
+		"item_rpc_hydroxis_glyph_7_1_description" 				"Increases the duration of Poseidon's Fury by <font color='#ccff66'>5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"Glyph of the Sparkling Sea"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"Mystic Water Shield absorbs instances of magic or pure damage at the cost of 1 stack."
@@ -6974,15 +6974,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"Sapphire Trident"
 		"item_property_hydroxis_immortal_weapon"							"Poseidon's Wake"
-		"property_hydroxis_immortal_weapon_description"					"Increases the damage of Poseidon's Fury by 100% and increases its radius by 50%."
+		"property_hydroxis_immortal_weapon_description"					"Increases the damage of Poseidon's Fury by <font color='#ccff66'>100</font>% and increases its radius by <font color='#ccff66'>50</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "Barbed Cudgel of the Dark Reef"
         "item_property_hydroxis_immortal_weapon2"                             "Slithercharge"
-        "property_hydroxis_immortal_weapon2_description"                      "Enemies who come into contact with Hydroxis during @Ability3 are stunned for @special_property1 seconds and pushed forward."
+        "property_hydroxis_immortal_weapon2_description"                      "Enemies who come into contact with Hydroxis during @Ability3 are stunned for <font color='#ccff66'>1.2</font> seconds and pushed forward."
 
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "Siltbreaker's Golden Trident"
         "item_property_hydroxis_immortal_weapon3"                             "Tidecaller"
-        "property_hydroxis_immortal_weapon3_description"                      "Hydro Pumps travel outward with @special_property1% reduced delay."
+        "property_hydroxis_immortal_weapon3_description"                      "Hydro Pumps travel outward with <font color='#ccff66'>50</font>% reduced delay."
 
 	"upgrade_cost"		"Upgrade:"
 	"tech_points"	"Tech Points"
@@ -8499,7 +8499,7 @@
 		//Glyphs
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"Glyph of Resurrection"
-		"item_rpc_paladin_glyph_1_1_description" 				"Reduces the cooldown of Second Coming to @glyph_property1 seconds."
+		"item_rpc_paladin_glyph_1_1_description" 				"Reduces the cooldown of Second Coming to <font color='#ccff66'>80</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"Glyph of Consecration"
 		"item_rpc_paladin_glyph_2_1_description" 				"@Ability1 becomes a toggle ability that remains active while it is toggled on."
@@ -8508,34 +8508,34 @@
 		"item_rpc_paladin_glyph_3_1_description" 				"@Ability4 becomes fully controllable and increases their movespeed to <font color='#ccff66'>800</font>. Right-clicking the ability turns on his automatic AI."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"Glyph of Unwavering Justice"
-		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provide 5x stack generation. "
+		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provide <font color='#ccff66'>5</font>x stack generation. "
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"Glyph of Holy Authority"
 		"item_rpc_paladin_glyph_5_1_description" 				"Increases the damage of Justice Overwhelming and Holy Fire by 200%, also each hit provide an additional 9 stacks."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"Glyph of Nobility"
-		"item_rpc_paladin_glyph_6_1_description" 				"Grants a @glyph_property1 increased movespeed aura."
+		"item_rpc_paladin_glyph_6_1_description" 				"Grants a <font color='#ccff66'>70</font> increased movespeed aura."
 
 		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
-		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Increased Movespeed"
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Movespeed increased by <font color='#ccff66'>70</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"Glyph of Zeal"
-		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, @glyph_property1% chance to immediately attack another target within range with no cooldown."
+		"item_rpc_paladin_glyph_7_1_description" 				"When landing an attack, <font color='#ccff66'>40</font>% chance to immediately attack another target within range with no cooldown."
 
         //Column2Glyphs
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_book" 		"Paladin Glyph Book"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "Glyph of Repentance"
-        "item_rpc_paladin_glyph_1_2_description"                "Enemies hit by @Ability2 have their attack speed slowed by @glyph_property1 for 8 seconds."
+        "item_rpc_paladin_glyph_1_2_description"                "Enemies hit by @Ability2 have their attack speed slowed by <font color='#ccff66'>-160</font> for 8 seconds."
 
         "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect"        "Repentance"
         "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "Attack speed reduced" 
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "Glyph of Blessed Hammer"
-        "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by @glyph_property1%. Bonus only updated on weapon equip."
+        "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by <font color='#ccff66'>50</font>%. Bonus only updated on weapon equip."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "Glyph of Conviction"
-        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for @glyph_property1% of damage dealt."
+        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <font color='#ccff66'>1</font>% of damage dealt."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "Glyph of Fanaticism"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
@@ -8544,13 +8544,13 @@
         "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to 10x Paladin's attack power."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "Glyph of Vestigial Value"
-        "item_rpc_paladin_glyph_6_2_description"                "Each piece of gear that is mythical rarity or below that is equipped increases post-mitigation damage output by @glyph_property1%."
+        "item_rpc_paladin_glyph_6_2_description"                "Each piece of gear that is mythical rarity or below that is equipped increases post-mitigation damage output by < PALADIN_GLYPH_6_2_POST_MITI_PER_GEAR_PIECE_PCT %>%."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "Glyph of Heaven's Sentinel"
-        "item_rpc_paladin_glyph_7_2_description"                "Decreases damage taken by @glyph_property1%, and decreases damage dealt by @glyph_property2%."
+        "item_rpc_paladin_glyph_7_2_description"                "Decreases damage taken by <font color='#ccff66'>99</font>%, and decreases damage dealt by <font color='#ccff66'>99.9</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"Glyph of Holy Wrath"
-		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a @glyph_property1 AOE and hits the primary target twice."
+		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a <font color='#ccff66'>520</font> AOE and hits the primary target twice."
 		
 		//Weapons
 		"paladin_weapon_01"			"Hammer of Might"
@@ -8582,16 +8582,16 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"Radiance"
 		"item_property_paladin_immortal_weapon"								"Radiant Aegis"
-		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a @special_property1 charge Divine Aegis for @special_property2 seconds. Max Divine Aegis stacks from attacks increased to @special_property3."
+		"property_paladin_immortal_weapon_description"						"Casting Heroic Fury applies a <font color='#ccff66'>4</font> charge Divine Aegis for <font color='#ccff66'>8</font> seconds. Max Divine Aegis stacks from attacks increased to <font color='#ccff66'>4</font>."
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"Light's Crusader"
     	"item_property_paladin_immortal_weapon2"							"Spiritual Wrath"
-    	"property_paladin_immortal_weapon2_description"						"@Ability4 summons have @special_property1% cooldown reduction on all of their abilities."
+    	"property_paladin_immortal_weapon2_description"						"@Ability4 summons have <font color='#ccff66'>25</font>% cooldown reduction on all of their abilities."
 
 
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
     	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
-    	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by @special_property1"
+    	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by <font color='#ccff66'>12</font>."
 
     	//Abilities
 
@@ -9315,28 +9315,28 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"Glyph of Sliding"
-		"item_rpc_slipfinn_glyph_1_1_description" 				"Reduces ground friction by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_1_1_description" 				"Reduces ground friction by <font color='#ccff66'>40</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"Glyph of Long Jumps"
-		"item_rpc_slipfinn_glyph_2_1_description" 				"Increases lift force on Long Jumps by @glyph_property1."
+		"item_rpc_slipfinn_glyph_2_1_description" 				"Increases lift force on Long Jumps by <font color='#ccff66'>8</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"Glyph of Bouncing"
-		"item_rpc_slipfinn_glyph_3_1_description" 				"Increases base bounce height when landing on an enemy's head by @glyph_property1."
+		"item_rpc_slipfinn_glyph_3_1_description" 				"Increases base bounce height when landing on an enemy's head by <font color='#ccff66'>15</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"Glyph of Freefall"
-		"item_rpc_slipfinn_glyph_4_1_description" 				"Reduces the time to flip and do a ground pound by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_4_1_description" 				"Reduces the time to flip and do a ground pound by <font color='#ccff66'>50</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"Glyph of Crashing"
-		"item_rpc_slipfinn_glyph_5_1_description" 				"Increases the stun duration of Ground Pound to @glyph_property1 seconds."
+		"item_rpc_slipfinn_glyph_5_1_description" 				"Increases the stun duration of Ground Pound to <font color='#ccff66'>1.8</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"Glyph of Binding Possession"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by <font color='#ccff66'>1.5</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"Glyph of Slipping"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Cannot be stunned while jumping or shadow rushing."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"Glyph of the Puddle Jumper"
-		"item_rpc_slipfinn_glyph_5_a_description" 				"The radius for bouncing on an enemy's head is increased by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_5_a_description" 				"The radius for bouncing on an enemy's head is increased by <font color='#ccff66'>60</font>%."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"Dagger"
@@ -9355,7 +9355,7 @@
 		
 		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "Spring Wetlands Dagger"
         "item_property_slipfinn_immortal_weapon"                             "Spawning"
-        "property_slipfinn_immortal_weapon_description"                      "Respawn time is reduced to @special_property1 seconds. Shady Smoke ability makes Slipfinn appear @special_property2 distance in the air."
+        "property_slipfinn_immortal_weapon_description"                      "Respawn time is reduced to <font color='#ccff66'>5</font> seconds. Shady Smoke ability makes Slipfinn appear <font color='#ccff66'>600</font> distance in the air."
 
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_2"            "Jagged Mire Knife"
         "item_property_slipfinn_immortal_weapon2"                             "Opportunity Strike"
@@ -9695,16 +9695,16 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"Glyph of Crescents"
-		"item_rpc_solunia_glyph_1_1_description" 				"Increases the max number of concurrent boomerangs by @glyph_property1."
+		"item_rpc_solunia_glyph_1_1_description" 				"Increases the max number of concurrent boomerangs by <font color='#ccff66'>2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"Glyph of Gravitation"
-		"item_rpc_solunia_glyph_2_1_description" 				"Recollecting a boomerang that has damaged at least 1 enemy removes @glyph_property1 seconds from the cooldown of Napalm."
+		"item_rpc_solunia_glyph_2_1_description" 				"Recollecting a boomerang that has damaged at least 1 enemy removes <font color='#ccff66'>2</font> seconds from the cooldown of Napalm."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"Glyph of Hypernova"
-		"item_rpc_solunia_glyph_3_1_description" 				"Increases the stun duration of @Ability1 projectiles by @glyph_property1 second."
+		"item_rpc_solunia_glyph_3_1_description" 				"Increases the stun duration of @Ability1 projectiles by <font color='#ccff66'>1</font> second."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"Glyph of Umbra"
-		"item_rpc_solunia_glyph_4_1_description" 				"Increases the floating duration between Warp Flares by @glyph_property1 seconds."
+		"item_rpc_solunia_glyph_4_1_description" 				"Increases the floating duration between Warp Flares by <font color='#ccff66'>1.5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"Glyph of Neutrino"
 		"item_rpc_solunia_glyph_5_1_description" 				"After casting @Ability4 gain a shield which blocks <font color='#ccff66'>3</font> instances of damage."
@@ -9722,10 +9722,10 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"Casting Napalm will not trigger its cooldown."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"Glyph of Light Years"
-		"item_rpc_solunia_glyph_7_1_description" 				"Increases the max number of successive Warp Flares by @glyph_property1."
+		"item_rpc_solunia_glyph_7_1_description" 				"Increases the max number of successive Warp Flares by <font color='#ccff66'>2</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"Glyph of Protostar"
-		"item_rpc_solunia_glyph_5_a_description" 				"Taking lethal damage first launches Solunia into the air, then refreshes her Supernova or Eclipse and casts it. @glyph_property1 cooldown."
+		"item_rpc_solunia_glyph_5_a_description" 				"Taking lethal damage first launches Solunia into the air, then refreshes her Supernova or Eclipse and casts it. <font color='#ccff66'>18</font> cooldown."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"
 		
@@ -9753,7 +9753,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "Alien Husk of Synesthesia"
         "item_property_solunia_immortal_weapon2"                             "Cryoshock"
-        "property_solunia_immortal_weapon2_description"                      "When @Ability2 crits, enemies in a 200 radius around the boomerang are frozen for @special_property1 seconds."
+        "property_solunia_immortal_weapon2_description"                      "When @Ability2 crits, enemies in a <font color='#ccff66'>200</font> radius around the boomerang are frozen for <font color='#ccff66'>1.5</font> seconds."
 
         "DOTA_Tooltip_modifier_solunia_cryoshock"							"Cryoshock"
         "DOTA_Tooltip_modifier_solunia_cryoshock_Description"				"Frozen"
@@ -9877,7 +9877,7 @@
     	"DOTA_Tooltip_modifier_flicker_charges_Description"					"If you have 10 or more charges, blink's cooldown will not activate"	
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_2"							"[E2] Summon Water Elemental"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_2_Description"				"When you cast blink - summon a Water Elemental if you don't already have one. The Water Elemental has the 10x armor and health of Sorceress."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_Description"				"When you cast blink - summon a Water Elemental if you don't already have one. The Water Elemental has the <font color='#ccff66'>10</font>x armor and <font color='#ccff66'>50</font>x health of Sorceress."
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_one"				"Attack Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_two"				"Mana cost on summon"
@@ -10021,7 +10021,7 @@
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Casting arcane explosion twice in succession releases a soul-burning Ring of Fire. Affected enemies start burning and have 180 reduced attack speed. 10 second cooldown. Your water elemental will cast this at the same time. Enemies who are burning by any means take increased post-mitigation damage from sorceress. Enemies burn for an equivalent amount of 35% of all fire damage taken from Sorceress since the start of the burn every 0.5 seconds as <font color=\"#E1A2E8\">Arcane</font> damage."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Enemies burning by any means take increased damage from sorceress. Casting arcane explosion twice in succession releases a a soul-burning Ring of Fire. Enemies affected by ring of fire take <font color='#ccff66'>4</font>x of the runes postmitigation damage and have 180 reduced attack speed. <font color='#ccff66'>20</font> second cooldown."
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"Burning Post-Mitigation Damage Amp"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_two"				"Burn Duration"
@@ -11397,13 +11397,13 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"Glyph of Magnetic Blur"
-		"item_rpc_voltex_glyph_1_1_description" 				"Gain @glyph_property1% Evasion while in @Ability1."
+		"item_rpc_voltex_glyph_1_1_description" 				"Gain <font color='#ccff66'>80</font>% Evasion while in @Ability1."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"Magnetic Blur"
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"Gaining Evasion"	
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"Glyph of Magnetic Haste"
-		"item_rpc_voltex_glyph_2_1_description" 				"Gain @glyph_property1x Agility and @glyph_property2 movespeed while in @Ability1."
+		"item_rpc_voltex_glyph_2_1_description" 				"Gain <font color='#ccff66'>100</font>% more Agility and <font color='#ccff66'>200</font> movespeed while in @Ability1."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "Magnetic Haste"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"Increased Agility and Movespeed"
@@ -11412,22 +11412,22 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of @Ability1."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases @glyph_property1 electric bolts that deal @glyph_property2x her attack damage as magic."
+		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <font color='#ccff66'>9</font> electric bolts that deal <font color='#ccff66'>2</font>x her attack damage as magic."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"Glyph of Charged Combat"
-		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by @glyph_property1 seconds and increases attack damage while in Avatar by @glyph_property2%."
+		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by <font color='#ccff66'>12</font> seconds and increases attack damage while in Avatar by <font color='#ccff66'>50</font>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1"	"Charged Combat"
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"Increased Attack Damage"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"Glyph of Vengeful Skies"
-		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by @glyph_property1x and Thunder Storm by @glyph_property2x."
+		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by <font color='#ccff66'>10</font>x and Thunder Storm by <font color='#ccff66'>30</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"Glyph of Explosive Static"
-		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an 8 second cooldown, but deals @glyph_property1x damage and stuns for @glyph_property2 seconds."
+		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an <font color='#ccff66'>8</font> second cooldown, but deals <font color='#ccff66'>200</font>x damage and stuns for <font color='#ccff66'>2.5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"Glyph of Conductivity"
-		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by @glyph_property1%."
+		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by <font color='#ccff66'>100</font>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Slowed"
@@ -11461,13 +11461,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"Gravity Volt"
 		"item_property_voltex_immortal_weapon"							"Gravity Volt"
-		"property_voltex_immortal_weapon_description"					"All post-mitigation damage is increased by 50%."
+		"property_voltex_immortal_weapon_description"					"All post-mitigation damage is increased by <font color='#ccff66'>50</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"Blade of Arcadia"
 
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
-    	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for @special_property1 seconds."
+    	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for <font color='#ccff66'>4.5</font> seconds."
 
 		//Abilities
 		"DOTA_Tooltip_ability_tachyon_shell"								"Tachyon Shell"

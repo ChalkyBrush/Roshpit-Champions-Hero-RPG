@@ -4927,28 +4927,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"低温雕文"
-		"item_rpc_dinath_glyph_1_1_description" 				"提高 @Ability4 的冻结持续时间 @glyph_property1 秒。"
+		"item_rpc_dinath_glyph_1_1_description" 				"提高 @Ability4 的冻结持续时间 <font color='#ccff66'>1.5</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"无形雕文"
-		"item_rpc_dinath_glyph_2_1_description" 				"当引导 @Ability4 的时候，保持飞行高度，最大飞行高度 @glyph_property1 。"
+		"item_rpc_dinath_glyph_2_1_description" 				"当引导 @Ability4 的时候，保持飞行高度，最大飞行高度 <font color='#ccff66'>35</font> 。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"狂火雕文"
-		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 拥有 @glyph_property1 层最大充能。"
+		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 拥有 <font color='#ccff66'>2</font> 层最大充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"德雷克清扫"
-		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 每 @glyph_property1 就可以免冷却释放一次。"
+		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 每 <font color='#ccff66'>7</font> 就可以免冷却释放一次。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"龙之怒"
-		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 @glyph_property1 秒。"
+		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 <font color='#ccff66'>0.1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"灾难雕文"
-		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 @glyph_property1%."
+		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <font color='#ccff66'>1000</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"龙族魔法"
-		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 @glyph_property1x 当前魔法值, 同时每次攻击可以回复 @glyph_property2% 的最大魔法值"
+		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 <font color='#ccff66'>1000</font>x 当前魔法值, 同时每次攻击可以回复 <font color='#ccff66'>1</font>% 的最大魔法值"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"金色龙鳞"
-		"item_rpc_dinath_glyph_5_a_description" 				"每当受到一次纯粹或魔法伤害的时候，就立刻进入魔法免疫的状态 @glyph_property1 秒。 冷却时间 @glyph_property2 秒。"
+		"item_rpc_dinath_glyph_5_a_description" 				"每当受到一次纯粹或魔法伤害的时候，就立刻进入魔法免疫的状态 <font color='#ccff66'>3</font> 秒。 冷却时间 <font color='#ccff66'>5</font> 秒。"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_dinath_weapon_00"		"长戟"
@@ -4967,7 +4967,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "统御者的龍爪"
         "item_property_dinath_immortal_weapon"                             "超负荷"
-        "property_dinath_immortal_weapon_description"                      "@Ability4 的半径增大 @special_property1 ，飞行距离提高 @special_property2 。"
+        "property_dinath_immortal_weapon_description"                      "@Ability4 的半径增大 <font color='#ccff66'>100</font> ，飞行距离提高 <font color='#ccff66'>1000</font> 。"
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "维塔利的呼吸"
         "item_property_dinath_immortal_weapon2"                             "极光之盾"
@@ -5593,41 +5593,41 @@
 		"item_rpc_duskbringer_glyph_1_1_description" 				"当进入冥魂状态时，刷新一切技能冷却时间。（同样作用于友军）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"疼苦雕文"
-		"item_rpc_duskbringer_glyph_2_1_description" 				"被幽冥之井困住的敌人每秒增加3层的冥火伽 debuff。"
+		"item_rpc_duskbringer_glyph_2_1_description" 				"被幽冥之井困住的敌人每秒增加<font color='#ccff66'>3</font>层的冥火伽 debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"漫游雕文"
-		"item_rpc_duskbringer_glyph_3_1_description" 				"幻影步伐 buff 滞留时间延长，1秒提高至2秒。（最多可以停在原地两秒而buff不消失）"
+		"item_rpc_duskbringer_glyph_3_1_description" 				"幻影步伐 buff 滞留时间延长，1秒提高至<font color='#ccff66'>2</font>秒。（最多可以停在原地两秒而buff不消失）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"黄昏雕文"
 		"item_rpc_duskbringer_glyph_4_1_description" 				"被幽冥之井困住的敌人会被缴械。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"梦境雕文"
-		"item_rpc_duskbringer_glyph_5_1_description" 				"七重梦境添加 @glyph_property1 次额外攻击"
+		"item_rpc_duskbringer_glyph_5_1_description" 				"七重梦境添加 <font color='#ccff66'>7</font> 次额外攻击"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"上弦雕文"
-		"item_rpc_duskbringer_glyph_6_1_description" 				"降低 螺旋枷 的冷却时间至 @glyph_property1 秒。"
+		"item_rpc_duskbringer_glyph_6_1_description" 				"降低 螺旋枷 的冷却时间至 <font color='#ccff66'>4</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"幻影雕文"
-		"item_rpc_duskbringer_glyph_7_1_description" 				"将幽灵冲刺替换为示威 - 将夜幕使者传送至目标点并对周围敌人施放虚实相生。同时提高虚实相生叠加 螺旋枷 的概率 @glyph_property1x。"
+		"item_rpc_duskbringer_glyph_7_1_description" 				"将幽灵冲刺替换为示威 - 将夜幕使者传送至目标点并对周围敌人施放虚实相生。同时提高虚实相生叠加 螺旋枷 的概率 <font color='#ccff66'>2</font>x。"
 
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"阴郁沉默雕文"
-		"item_rpc_duskbringer_glyph_1_2_description" 				"被沉默时提高生命回复速度 @glyph_property1% 最大生命值每秒，持续 @glyph_property2 秒。"
+		"item_rpc_duskbringer_glyph_1_2_description" 				"被沉默时提高生命回复速度 <font color='#ccff66'>10</font>% 最大生命值每秒，持续 <font color='#ccff66'>20</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"空白燃烧雕文"
-		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 @glyph_property1 层 冥火枷的层数。（原来为 1 层）"
+		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 <font color='#ccff66'>3</font> 层 冥火枷的层数。（原来为 1 层）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"螺旋雕文"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 @glyph_property1，但是其基础技能伤害降低 @glyph_property2%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 <font color='#ccff66'>50</font>，但是其基础技能伤害降低 <font color='#ccff66'>0.4</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"畅游雕文"
-		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 @glyph_property1% ，最高叠加 @glyph_property2 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
+		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 <font color='#ccff66'>3</font>% ，最高叠加 <font color='#ccff66'>30</font> 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"共享雕文"
-		"item_rpc_duskbringer_glyph_5_2_description" 				"攻击时，攻击目标 @glyph_property1 范围内的全部其他敌人也将叠加一层 冥火枷 的层数。"
+		"item_rpc_duskbringer_glyph_5_2_description" 				"攻击时，攻击目标 <font color='#ccff66'>250</font> 范围内的全部其他敌人也将叠加一层 冥火枷 的层数。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"盛怒雕文"
-		"item_rpc_duskbringer_glyph_6_2_description" 				"每 0.3秒 清除沉默和眩晕。"
+		"item_rpc_duskbringer_glyph_6_2_description" 				"每 <font color='#ccff66'>0.3</font>秒 清除沉默和眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"魔鬼吞噬雕文"
 		"item_rpc_duskbringer_glyph_7_2_description" 				"直接装备伤害将获得 鬼元素 作为第二元素伤害。（不作用于基于 基础技能伤害 而造成伤害的装备）"
@@ -5637,7 +5637,7 @@
     	"DOTA_Tooltip_ability_manifestation_Description"			"元素： <font color=\"#9ACCD1\">鬼</font><br> 夜幕使者立即在目标点显现，对周围每个敌人施放虚实相生。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"甲骨文雕文"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 @glyph_property1 秒。"
+		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 <font color='#ccff66'>22</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"夜幕使者雕文书"
 		
@@ -5663,11 +5663,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "狱长骨的权杖"
         "item_property_duskbringer_immortal_weapon2"                             "颤栗"
-        "property_duskbringer_immortal_weapon2_description"                      "任何受到 @Ability2 伤害的敌人将被眩晕 @special_property1 秒。"
+        "property_duskbringer_immortal_weapon2_description"                      "任何受到 @Ability2 伤害的敌人将被眩晕 <font color='#ccff66'>0.8</font> 秒。"
 
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "碎颅锤"
         "item_property_duskbringer_immortal_weapon3"                             "骷髅锤"
-        "property_duskbringer_immortal_weapon3_description"                      "攻击有 @special_property1% 的概率眩晕敌人 @special_property2 秒，并且获得 @special_property3 层鬼灵护甲。"
+        "property_duskbringer_immortal_weapon3_description"                      "攻击有 <font color='#ccff66'>25</font>% 的概率眩晕敌人 <font color='#ccff66'>2</font> 秒，并且获得 <font color='#ccff66'>5</font> 层鬼灵护甲。"
 
 
 		//Abilities
@@ -5916,28 +5916,28 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"不死军团雕文"
-		"item_rpc_ekkan_glyph_1_1_description" 				"增加 @glyph_property1 的召唤骷髅数量。"
+		"item_rpc_ekkan_glyph_1_1_description" 				"增加 <font color='#ccff66'>4</font> 的召唤骷髅数量。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"尸体雕文"
-		"item_rpc_ekkan_glyph_2_1_description" 				"施放E技能时周围出现 @glyph_property1 尸体。"
+		"item_rpc_ekkan_glyph_2_1_description" 				"施放E技能时周围出现 <font color='#ccff66'>5</font> 尸体。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"复活雕文"
-		"item_rpc_ekkan_glyph_3_1_description" 				"骷髅的持续时间增加 @glyph_property1%。"
+		"item_rpc_ekkan_glyph_3_1_description" 				"骷髅的持续时间增加 <font color='#ccff66'>100</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"超级充能雕文"
-		"item_rpc_ekkan_glyph_4_1_description" 				"灵魂充能增加额外的攻击速度 @glyph_property1，同时增加移动速度 @glyph_property2。"
+		"item_rpc_ekkan_glyph_4_1_description" 				"灵魂充能增加额外的攻击速度 <font color='#ccff66'>60</font>，同时增加移动速度 <font color='#ccff66'>80</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"统治雕文"
-		"item_rpc_ekkan_glyph_5_1_description" 				"最大支配数量增加 @glyph_property1。"
+		"item_rpc_ekkan_glyph_5_1_description" 				"最大支配数量增加 <font color='#ccff66'>2</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"雕塑师雕文"
-		"item_rpc_ekkan_glyph_6_1_description" 				"增加石像鬼的最大数量 @glyph_property1。"
+		"item_rpc_ekkan_glyph_6_1_description" 				"增加石像鬼的最大数量 <font color='#ccff66'>1</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"超级骷颅雕文"
-		"item_rpc_ekkan_glyph_7_1_description" 				"骷髅王每次伤害额外打击 @glyph_property1 个敌人。"
+		"item_rpc_ekkan_glyph_7_1_description" 				"骷髅王每次伤害额外打击 <font color='#ccff66'>2</font> 个敌人。"
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"黑灾害雕文"
-		"item_rpc_ekkan_glyph_5_a_description" 				"被支配单位的基础攻击力和黑暗旅程提高的伤害都提高 100%。"
+		"item_rpc_ekkan_glyph_5_a_description" 				"Increases leash range on minions by <font color='#ccff66'>1000</font>。"
 		
 		
 		//Weapons
@@ -7211,25 +7211,25 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"构造学雕文"
-		"item_rpc_hydroxis_glyph_1_1_description" 				"施放海洋地震后，将在2秒后再次自动施放。"
+		"item_rpc_hydroxis_glyph_1_1_description" 				"施放海洋地震后，将在<font color='#ccff66'>2</font>秒后再次自动施放。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"喷薄雕文"
-		"item_rpc_hydroxis_glyph_2_1_description" 				"在滑行时，深水炸弹速度提高 @glyph_property1% "
+		"item_rpc_hydroxis_glyph_2_1_description" 				"在滑行时，深水炸弹速度提高 <font color='#ccff66'>50</font>% "
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"圣水雕文"
-		"item_rpc_hydroxis_glyph_3_1_description" 				"神秘水盾的治疗间隔缩短 2x。"
+		"item_rpc_hydroxis_glyph_3_1_description" 				"神秘水盾的治疗间隔缩短 <font color='#ccff66'>2</font>x。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"殘骸雕文"
-		"item_rpc_hydroxis_glyph_4_1_description" 				"洪水滑动伤害增加 3x。"
+		"item_rpc_hydroxis_glyph_4_1_description" 				"洪水滑动伤害增加 <font color='#ccff66'>3</font>x。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"水汽雕文"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 @glyph_property1% 机率触发新月波造成 @glyph_property2% 攻击力的魔法伤害。"
+		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 <font color='#ccff66'>15</font>% 机率触发新月波造成 <font color='#ccff66'>4</font>x 攻击力的魔法伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"淹沒雕文"
-		"item_rpc_hydroxis_glyph_6_1_description" 				"增加斃命水池的半径 @glyph_property1。大招不再需要持续施法"
+		"item_rpc_hydroxis_glyph_6_1_description" 				"增加斃命水池的半径 <font color='#ccff66'>200</font>。大招不再需要持续施法"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"海神雕文"
-		"item_rpc_hydroxis_glyph_7_1_description" 				"增加波塞冬的憤怒的持续时间 @glyph_property1 秒。"
+		"item_rpc_hydroxis_glyph_7_1_description" 				"增加波塞冬的憤怒的持续时间 <font color='#ccff66'>5</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"海光雕文"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"神秘水盾消耗1层叠加数量吸收一次魔法和纯碎伤害。"
@@ -7251,15 +7251,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"蓝宝石三叉戟"
 		"item_property_hydroxis_immortal_weapon"							"波塞冬的唤醒"
-		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害100%和半径50%."
+		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害<font color='#ccff66'>100</font>%和半径<font color='#ccff66'>50</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "黑暗之礁刺棍"
         "item_property_hydroxis_immortal_weapon2"                             "滑动能量"
-        "property_hydroxis_immortal_weapon2_description"                      "胖头鱼施放 @Ability3 滑动过程中所接触到的敌人将被眩晕 @special_property1 秒并且被推开。"
+        "property_hydroxis_immortal_weapon2_description"                      "胖头鱼施放 @Ability3 滑动过程中所接触到的敌人将被眩晕 <font color='#ccff66'>1.2</font> 秒并且被推开。"
 
         "DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_3"            "破泞之主的三叉戟"
         "item_property_hydroxis_immortal_weapon3"                             "潮汐使者"
-        "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 @special_property1% "
+        "property_hydroxis_immortal_weapon3_description"                      "洪流向外扩散的延迟减少 <font color='#ccff66'>50</font>% "
 
 
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"冲击波"
@@ -8274,16 +8274,16 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_1"		"辉煌"
 		"item_property_paladin_immortal_weapon"								"辉煌庇护"
-		"property_paladin_immortal_weapon_description"						"施放英雄之怒时拥有4层的神圣庇护充能持续8秒。并且神圣庇护最大层数增加至4层。"
+		"property_paladin_immortal_weapon_description"						"施放英雄之怒时拥有<font color='#ccff66'>4</font>层的神圣庇护充能持续<font color='#ccff66'>8</font>秒。并且神圣庇护最大层数增加至<font color='#ccff66'>4</font>层。"
 		
 		"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_2"			"圣光骑士"
     	"item_property_paladin_immortal_weapon2"							"神之怒"
-    	"property_paladin_immortal_weapon2_description"						"@Ability4 所召唤门徒的所有技能冷却时间减少 @special_property1% 。"
+    	"property_paladin_immortal_weapon2_description"						"@Ability4 所召唤门徒的所有技能冷却时间减少 <font color='#ccff66'>25</font>% 。"
 
 
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"圣锤"
     	"item_property_paladin_immortal_weapon3"								"神圣之力"
-    	"property_paladin_immortal_weapon3_description"						"每点力量值额外提高最大生命值 @special_property1"
+    	"property_paladin_immortal_weapon3_description"						"每点力量值额外提高最大生命值 <font color='#ccff66'>12</font>。"
 
 
     	//Abilities
@@ -9015,28 +9015,28 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"滑行雕文"
-		"item_rpc_slipfinn_glyph_1_1_description" 				"减少地面的摩擦系数 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_1_1_description" 				"减少地面的摩擦系数 <font color='#ccff66'>40</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"跳远雕文"
-		"item_rpc_slipfinn_glyph_2_1_description" 				"提高 远跃 时的弹跳力 @glyph_property1。"
+		"item_rpc_slipfinn_glyph_2_1_description" 				"提高 远跃 时的弹跳力 <font color='#ccff66'>8</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"弹弹雕文"
-		"item_rpc_slipfinn_glyph_3_1_description" 				"提高跳跃至敌人头顶时的弹起高度 @glyph_property1。"
+		"item_rpc_slipfinn_glyph_3_1_description" 				"提高跳跃至敌人头顶时的弹起高度 <font color='#ccff66'>15</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"自由落体雕文"
-		"item_rpc_slipfinn_glyph_4_1_description" 				"减少 重击地面 时，在空中翻转的时间 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_4_1_description" 				"减少 重击地面 时，在空中翻转的时间 <font color='#ccff66'>50</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"粉碎雕文"
-		"item_rpc_slipfinn_glyph_5_1_description" 				"提高 重击地面 时的眩晕时间，提高至 @glyph_property1 秒。"
+		"item_rpc_slipfinn_glyph_5_1_description" 				"提高 重击地面 时的眩晕时间，提高至 <font color='#ccff66'>1.8</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"主权融合雕文"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"主权气泡的施法目标，在施法吟唱过程中将被麻痹。同时，在释放该敌人时，[R2] 震慑 的眩晕时间提高 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_6_1_description" 				"主权气泡的施法目标，在施法吟唱过程中将被麻痹。同时，在释放该敌人时，[R2] 震慑 的眩晕时间提高 <font color='#ccff66'>1.5</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"飞跃雕文"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"跳跃时或滑步疾驰过程中，将不会被眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"跃龙门雕文"
-		"item_rpc_slipfinn_glyph_5_a_description" 				"跳跃至敌人头顶的判定范围提高 @glyph_property1%。"
+		"item_rpc_slipfinn_glyph_5_a_description" 				"跳跃至敌人头顶的判定范围提高 <font color='#ccff66'>60</font>%。"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"短匕"
@@ -9055,7 +9055,7 @@
 		
 		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "春潮湿雨刀"
         "item_property_slipfinn_immortal_weapon"                             "涅槃"
-        "property_slipfinn_immortal_weapon_description"                      "复活时间减少至 @special_property1 秒。黑礁守卫释放鬼雾将会传送至目标地点的上空，离地面高度 @special_property2 。"
+        "property_slipfinn_immortal_weapon_description"                      "复活时间减少至 <font color='#ccff66'>5</font> 秒。黑礁守卫释放鬼雾将会传送至目标地点的上空，离地面高度 <font color='#ccff66'>600</font> 。"
 
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_2"            "锯齿泥沼刃"
         "item_property_slipfinn_immortal_weapon2"                             "精准一击"
@@ -9345,19 +9345,19 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_1_1"		"新月雕文"
-		"item_rpc_solunia_glyph_1_1_description" 				"增加 @glyph_property1 个回旋镖（W）的数量。"
+		"item_rpc_solunia_glyph_1_1_description" 				"增加 <font color='#ccff66'>2</font> 个回旋镖（W）的数量。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_2_1"		"引力雕文"
-		"item_rpc_solunia_glyph_2_1_description" 				"每收回一个击中至少1个单位的回旋镖会使日月之石的冷却时间降低 @glyph_property1 秒。"
+		"item_rpc_solunia_glyph_2_1_description" 				"每收回一个击中至少1个单位的回旋镖会使日月之石的冷却时间降低 <font color='#ccff66'>2</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_3_1"		"超新星雕文"
-		"item_rpc_solunia_glyph_3_1_description" 				"增加日月之石眩晕时间 @glyph_property1 秒。"
+		"item_rpc_solunia_glyph_3_1_description" 				"增加日月之石眩晕时间 <font color='#ccff66'>1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_4_1"		"影子雕文"
-		"item_rpc_solunia_glyph_4_1_description" 				"增加弯曲火焰浮空时间 @glyph_property1 秒。"
+		"item_rpc_solunia_glyph_4_1_description" 				"增加弯曲火焰浮空时间 <font color='#ccff66'>1.5</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_1"		"中微子雕文"
-		"item_rpc_solunia_glyph_5_1_description" 				"释放R技能，会获得三层护盾，直到护盾被破坏。"
+		"item_rpc_solunia_glyph_5_1_description" 				"释放R技能，会获得<font color='#ccff66'>3</font>层护盾，直到护盾被破坏。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_6_1"		"奇點雕文"
 		"item_rpc_solunia_glyph_6_1_description" 				"施放超新星或者日食后，获得buff使日月之石没有冷却时间。"
@@ -9366,10 +9366,10 @@
 		"DOTA_Tooltip_modifier_solunia_glyph_6_1_ready_Description"	"日月之石没有冷却时间。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"光年雕文"
-		"item_rpc_solunia_glyph_7_1_description" 				"增加弯曲火焰的最大数量 @glyph_property1。"
+		"item_rpc_solunia_glyph_7_1_description" 				"增加弯曲火焰的最大数量 <font color='#ccff66'>2</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"原恆星雕文"
-		"item_rpc_solunia_glyph_5_a_description" 				"受到致命伤害时日夜女神进入天空刷新超新星和日食并且施放。 @glyph_property1 冷却时间。"
+		"item_rpc_solunia_glyph_5_a_description" 				"受到致命伤害时日夜女神进入天空刷新超新星和日食并且施放。 <font color='#ccff66'>18</font> 冷却时间。"
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"原恆星冷却时间"
 		
@@ -9486,7 +9486,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_solunia_immortal_weapon_2"            "外星之力"
         "item_property_solunia_immortal_weapon2"                             "寒霜冲击"
-        "property_solunia_immortal_weapon2_description"                      "当 @Ability2 暴击时，在 200 码范围内的敌人将被冰冻 @special_property1 秒。"
+        "property_solunia_immortal_weapon2_description"                      "当 @Ability2 暴击时，在 <font color='#ccff66'>200</font> 码范围内的敌人将被冰冻 <font color='#ccff66'>1.5</font> 秒。"
 
         "DOTA_Tooltip_modifier_solunia_cryoshock"							"寒霜冲击"
         "DOTA_Tooltip_modifier_solunia_cryoshock_Description"				"被冰冻"
@@ -11034,13 +11034,13 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"磁力模糊雕文"
-		"item_rpc_voltex_glyph_1_1_description" 				"过载时提高 @glyph_property1% 闪避。"
+		"item_rpc_voltex_glyph_1_1_description" 				"过载时提高 <font color='#ccff66'>80</font>% 闪避。"
 
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"磁力模糊"
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"提高闪避"	
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"磁场加速雕文"
-		"item_rpc_voltex_glyph_2_1_description" 				" @Ability1状态下提高 @glyph_property1x 敏捷和 @glyph_property2 移动速度。"
+		"item_rpc_voltex_glyph_2_1_description" 				" @Ability1状态下提高 +<font color='#ccff66'>100</font>% 敏捷和 <font color='#ccff66'>200</font> 移动速度。"
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "磁场加速"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"提高敏捷和移动速度"
@@ -11049,22 +11049,22 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"雷电充能将刷新过载的冷却时间。"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"不稳定电压雕文"
-		"item_rpc_voltex_glyph_4_1_description" 				"当电光使者施放技能（非静电）时，释放 @glyph_property1 道闪电造成 @glyph_property2 倍总攻击力的魔法伤害。"
+		"item_rpc_voltex_glyph_4_1_description" 				"当电光使者施放技能（非静电）时，释放 <font color='#ccff66'>9</font> 道闪电造成 <font color='#ccff66'>2</font> 倍总攻击力的魔法伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"雷电战神雕文"
-		"item_rpc_voltex_glyph_5_1_description" 				"提高天神下凡的持续时间 @glyph_property1 秒并提高天神下凡时的攻击力 @glyph_property2%"
+		"item_rpc_voltex_glyph_5_1_description" 				"提高天神下凡的持续时间 <font color='#ccff66'>12</font> 秒并提高天神下凡时的攻击力 <font color='#ccff66'>50</font>%"
 
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1"	"雷电战神"
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"提高攻击力"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"复仇雕文"
-		"item_rpc_voltex_glyph_6_1_description" 				"提高静电场的伤害 @glyph_property1x 和雷霆风暴的伤害 @glyph_property2x"
+		"item_rpc_voltex_glyph_6_1_description" 				"提高静电场的伤害 <font color='#ccff66'>10</font>x 和雷霆风暴的伤害 <font color='#ccff66'>30</font>x"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"静电爆炸雕文"
-		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为8秒，造成 @glyph_property1x 伤害并眩晕敌人 @glyph_property2 秒。"
+		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为<font color='#ccff66'>8</font>秒，造成 <font color='#ccff66'>200</font>x 伤害并眩晕敌人 <font color='#ccff66'>2.5</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"离子雕文"
-		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间 @glyph_property1 秒。"
+		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间 <font color='#ccff66'>100</font> 秒。"
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"电子效应"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"减速"
@@ -11085,13 +11085,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"重力伏特"
 		"item_property_voltex_immortal_weapon"							"重力伏特"
-		"property_voltex_immortal_weapon_description"					"加深敌人所有受到的伤害 50% （伤害加深计算在敌人减伤之后）"
+		"property_voltex_immortal_weapon_description"					"加深敌人所有受到的伤害 <font color='#ccff66'>50</font>% （伤害加深计算在敌人减伤之后）"
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"阿卡狄亚之剑"
 
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"不朽之神"
     	"item_property_voltex_immortal_weapon3"								"静电麻痹"
-    	"property_voltex_immortal_weapon3_description"						"被 @Ability4 击中的敌人将被麻痹，瘫痪持续 @special_property1 秒。"
+    	"property_voltex_immortal_weapon3_description"						"被 @Ability4 击中的敌人将被麻痹，瘫痪持续 <font color='#ccff66'>4.5</font> 秒。"
 
 
 		//Abilities
