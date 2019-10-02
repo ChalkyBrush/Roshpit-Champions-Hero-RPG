@@ -400,27 +400,28 @@
 }
 
 .property_image{
-	width:14px;
-	height:14px;
+	width:12px;
+	height:12px;
 	color: #DDDDDD;
+	margin-top:2px;
 }
 #unit_attribute_armor{
-	background-size: 14px 14px;
+	background-size: 12px 12px;
 	background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
 }
 
 #unit_attribute_armor_pierce{
-	background-size: 14px 14px;
+	background-size: 12px 12px;
 	background-image: url("file://{images}/custom_game/ui/armor_pierce.png");
 }
 
 #unit_attribute_magic_armor{
-	background-size: 14px 14px;
+	background-size: 12px 12px;
 	background-image: url("file://{images}/custom_game/ui/magic_armor.png");
 }
 
 #unit_attribute_spell_pierce{
-	background-size: 14px 14px;
+	background-size: 12px 12px;
 	background-image: url("file://{images}/custom_game/ui/spell_pierce.png");
 }
 
