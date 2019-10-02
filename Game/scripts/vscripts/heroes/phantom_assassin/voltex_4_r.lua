@@ -81,7 +81,7 @@ function voltex_static_field_spark_hit(event)
 	end
 	voltex_rune_r_4_increment(caster, ability)
 	if caster:HasModifier("modifier_voltex_glyph_6_1") then
-		damage = damage * 10
+		damage = damage * VOLTEX_GLYPH_6_1_R_DAMAGE_AMP
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_voltex_static_field_post_mitigation", {duration = 10})
 	local stacks = target:GetModifierStackCount("modifier_voltex_static_field_post_mitigation", caster)
@@ -89,7 +89,7 @@ function voltex_static_field_spark_hit(event)
 	target:SetModifierStackCount("modifier_voltex_static_field_post_mitigation", caster, newStacks)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	if caster:HasModifier("modifier_voltex_immortal_weapon_3") then
-		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_voltex_immortal_paralysis", {duration = 4.5})
+		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_voltex_immortal_paralysis", {duration = VOLTEX_IMMORTAL_WEAPON_3_PARALYSIS_DURATION})
 	end
 end
 
@@ -103,7 +103,7 @@ function voltex_rune_r_1(caster, ability)
 			damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * VOLTEX_R4_ADD_DMG_PER_ATT * r_4_level
 		end
 		if caster:HasModifier("modifier_voltex_glyph_6_1") then
-			damage = damage * 30
+			damage = damage * VOLTEX_GLYPH_6_1_R1_DAMAGE_AMP
 		end
 		local maxLightning = r_1_level + 3
 		if maxLightning > 40 then

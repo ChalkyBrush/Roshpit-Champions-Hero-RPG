@@ -50,7 +50,7 @@ local function tryToCast(caster, ability, bInstant)
     if bInstant then
         if not caster:HasModifier("modifier_ring_of_fire_down") then
             cast(caster, ability, runesCount)
-            ability:ApplyDataDrivenModifier(caster, caster, "modifier_ring_of_fire_down", {duration = 10})
+            ability:ApplyDataDrivenModifier(caster, caster, "modifier_ring_of_fire_down", {duration = SORCERESS_ARCANA2_Q2_COOLDOWN})
         end
     else
         if caster:HasModifier("modifier_ring_of_fire_ready") then

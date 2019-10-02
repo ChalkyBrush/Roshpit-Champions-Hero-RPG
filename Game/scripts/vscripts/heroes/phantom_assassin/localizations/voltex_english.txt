@@ -250,13 +250,13 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"Glyph of Magnetic Blur"
-		"item_rpc_voltex_glyph_1_1_description" 				"Gain @glyph_property1% Evasion while in @Ability1."
+		"item_rpc_voltex_glyph_1_1_description" 				"Gain <% VOLTEX_GLYPH_1_1_EVASION %>% Evasion while in @Ability1."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"Magnetic Blur"
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"Gaining Evasion"	
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"Glyph of Magnetic Haste"
-		"item_rpc_voltex_glyph_2_1_description" 				"Gain @glyph_property1x Agility and @glyph_property2 movespeed while in @Ability1."
+		"item_rpc_voltex_glyph_2_1_description" 				"Gain <% VOLTEX_GLYPH_2_1_AGILITY_BONUS * 100 %>% more Agility and <% VOLTEX_GLYPH_2_1_MS_BONUS %> movespeed while in @Ability1."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "Magnetic Haste"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"Increased Agility and Movespeed"
@@ -265,22 +265,22 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of @Ability1."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases @glyph_property1 electric bolts that deal @glyph_property2x her attack damage as magic."
+		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <% VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS %> electric bolts that deal <% VOLTEX_GLYPH_4_1_ATTACK_TO_DMG %>x her attack damage as magic."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"Glyph of Charged Combat"
-		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by @glyph_property1 seconds and increases attack damage while in Avatar by @glyph_property2%."
+		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by <% VOLTEX_GLYPH_5_1_DURATION_INCREASE %> seconds and increases attack damage while in Avatar by <% VOLTEX_GLYPH_5_1_ATT_PCT %>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1"	"Charged Combat"
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"Increased Attack Damage"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"Glyph of Vengeful Skies"
-		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by @glyph_property1x and Thunder Storm by @glyph_property2x."
+		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by <% VOLTEX_GLYPH_6_1_R_DAMAGE_AMP %>x and Thunder Storm by <% VOLTEX_GLYPH_6_1_R1_DAMAGE_AMP %>x."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"Glyph of Explosive Static"
-		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an 8 second cooldown, but deals @glyph_property1x damage and stuns for @glyph_property2 seconds."
+		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an <% VOLTEX_GLYPH_7_1_W_CD %> second cooldown, but deals <% VOLTEX_GLYPH_7_1_DMG_MULT %>x damage and stuns for <% VOLTEX_GLYPH_7_1_STUN_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"Glyph of Conductivity"
-		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by @glyph_property1%."
+		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by <% VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT %>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed_Description"	"Slowed"
@@ -314,10 +314,10 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"Gravity Volt"
 		"item_property_voltex_immortal_weapon"							"Gravity Volt"
-		"property_voltex_immortal_weapon_description"					"All post-mitigation damage is increased by 50%."
+		"property_voltex_immortal_weapon_description"					"All post-mitigation damage is increased by <% VOLTEX_IMMORTAL_WEAPON_1_POST_MITI_BONUS * 100 %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"Blade of Arcadia"
 
     	"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_3"			"Immortal Zetsabre"
     	"item_property_voltex_immortal_weapon3"								"Paralyzing Static"
-    	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for @special_property1 seconds."
+    	"property_voltex_immortal_weapon3_description"						"Enemies hit by sparks of @Ability4 are paralyzed for <% VOLTEX_IMMORTAL_WEAPON_3_PARALYSIS_DURATION %> seconds."

@@ -113,7 +113,7 @@
     	"DOTA_Tooltip_modifier_flicker_charges_Description"					"If you have 10 or more charges, blink's cooldown will not activate"	
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_2"							"[E2] Summon Water Elemental"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_2_Description"				"When you cast blink - summon a Water Elemental if you don't already have one. The Water Elemental has the 10x armor and health of Sorceress."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_2_Description"				"When you cast blink - summon a Water Elemental if you don't already have one. The Water Elemental has the <% SORCERESS_E2_ARMOR_AMPLIFY %>x armor and <% SORCERESS_E2_HEALTH_AMPLIFY %>x health of Sorceress."
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_one"				"Attack Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_e_2_property_two"				"Mana cost on summon"
@@ -257,7 +257,7 @@
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Casting arcane explosion twice in succession releases a soul-burning Ring of Fire. Affected enemies start burning and have 180 reduced attack speed. 10 second cooldown. Your water elemental will cast this at the same time. Enemies who are burning by any means take increased post-mitigation damage from sorceress. Enemies burn for an equivalent amount of 35% of all fire damage taken from Sorceress since the start of the burn every 0.5 seconds as <font color=\"#E1A2E8\">Arcane</font> damage."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Enemies burning by any means take increased damage from sorceress. Casting arcane explosion twice in succession releases a a soul-burning Ring of Fire. Enemies affected by ring of fire take <% SORCERESS_ARCANA2_Q2_AMP_IN_RING %>x of the runes postmitigation damage and have 180 reduced attack speed. <% SORCERESS_ARCANA2_Q2_COOLDOWN %> second cooldown."
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"Burning Post-Mitigation Damage Amp"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_two"				"Burn Duration"

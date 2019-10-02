@@ -451,7 +451,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = abilityCooldown - CDreduce
 
     if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
-        abilityCooldown = abilityCooldown * (1-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)
+        abilityCooldown = abilityCooldown * (100-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)/100
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
         if caster:GetHealth() <= caster:GetMaxHealth() * BLOODSTONE_BOOTS_HP_THRESHOLD/100 then
@@ -856,7 +856,7 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = baseCd * (1-TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT)
+        baseCd = baseCd * (100-TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT)/100
         ability:EndCooldown()
 
         ability:StartCooldown(baseCd)
@@ -2001,15 +2001,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
                 fireMult = fireMult + stacks * 0.2
-            end
-            if victim:HasModifier("modifier_ring_of_fire_burn") then
-                if bIsRealDamage then
-                    if victim.ringOfFireTick then
-                        victim.ringOfFireTick = false
-                    else
-                        victim.ringOfFireBurn = victim.ringOfFireBurn + damage * 0.35
-                    end
-                end
             end
         end
         if attacker:HasModifier("modifier_flametongue") then
@@ -4530,7 +4521,22 @@ function Filters:IsIceFrozen(target)
 end
 
 function Filters:IsFireBurning(target)
-    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") or target:HasModifier("modifier_jex_cipher_bolt_burn") or target:HasModifier("modifier_w_fire_fire_as_slow") or target:HasModifier("modifier_jex_e_fire_fire_burn") or target:HasModifier("modifier_cinderbark_burning") then
+    if target:HasModifier("modifier_pyroblast_ignite") or
+            target:HasModifier("modifier_fulminating_burn_effect") or
+            target:HasModifier("modifier_flametongue_a_a_rune") or
+            target:HasModifier("modifier_solunia_solar_burn") or
+            target:HasModifier("modifier_on_fire_effect") or
+            target:HasModifier("ruby_dragon_burn") or
+            target:HasModifier("modifier_infernal_prison_effect_from_attack") or
+            target:HasModifier("modifier_infernal_prison_nearby") or
+            target:HasModifier("fire_walker_aura") or
+            target:HasModifier("scorched_earth_aura") or
+            target:HasModifier("modifier_ring_of_fire_burn") or
+            target:HasModifier("modifier_sun_lance_burn") or
+            target:HasModifier("modifier_jex_cipher_bolt_burn") or
+            target:HasModifier("modifier_w_fire_fire_as_slow") or
+            target:HasModifier("modifier_jex_e_fire_fire_burn") or
+            target:HasModifier("modifier_cinderbark_burning") then
         return true
     else
         return false

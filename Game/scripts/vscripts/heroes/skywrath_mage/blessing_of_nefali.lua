@@ -13,7 +13,7 @@ function start_channel(event)
 	local castIndex = ability.castIndex
 	local radius = event.radius
 	if caster:HasModifier("modifier_sephyr_glyph_3_1") then
-		radius = radius + 180
+		radius = radius + SEPHYR_GLYPH_3_1_R_BONUS_RADIUS
 	end
 	Timers:CreateTimer(0.45, function()
 		if castIndex == ability.castIndex and caster:HasModifier("modifier_nefali_channel") then

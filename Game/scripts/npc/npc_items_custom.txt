@@ -22749,7 +22749,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%property_one"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "80"
 				}
 			}
 		}
@@ -45226,7 +45226,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "20"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "1.1"
 				}
 			}
 			"modifier_rpc_yasha_buff"

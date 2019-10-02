@@ -18,7 +18,7 @@ function begin_hydro_pump(event)
 	local targetPoint = event.target_points[1]
 	local pumpDelay = 0.9
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_3") then
-		pumpDelay = pumpDelay * 0.5
+		pumpDelay = pumpDelay * (100-HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT)/100
 	end
 	for j = 0, procs, 1 do
 		Timers:CreateTimer(0.9 * j, function()
@@ -78,7 +78,7 @@ function begin_hydro_pump(event)
 										caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_visible", caster, newStacks)
 									else
 										ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_b_a_shield_visible_glyphed", {duration = 12})
-										newStacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster) + 1
+										newStacks = caster:GetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster) + (HYDROXIS_GLYPH_3_1_Q2_TICKRATE_MULT-1)
 										caster:SetModifierStackCount("modifier_hydroxis_b_a_shield_visible_glyphed", caster, newStacks)
 									end
 
