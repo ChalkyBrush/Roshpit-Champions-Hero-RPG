@@ -64,6 +64,9 @@ require('/worlds/tutorial/constants/mithril')
 require('/worlds/sea_fortress/constants/mithril')
 require('/worlds/serengaard/constants/mithril')
 
+local heroes = {	
+	venomort = require('/heroes/hero_necrolyte/scales')}	
+	
 VectorTarget:Init({noOrderFilter = true})
 
 GameState.PVP_REDUCTION = 0.01
