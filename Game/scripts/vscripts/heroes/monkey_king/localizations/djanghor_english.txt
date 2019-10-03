@@ -314,28 +314,28 @@
 		"item_rpc_djanghor_glyph_1_1_description" 				"Hitting an enemy with a large hit from Jin'bo refreshes the cooldown of Monkey Leap."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"Glyph of Hunting"
-		"item_rpc_djanghor_glyph_2_1_description" 				"In wolf form attacks have a @glyph_property1% chance of having +@glyph_property2% attack damage. Effects persists for 7 seconds after shifting out."
+		"item_rpc_djanghor_glyph_2_1_description" 				"In wolf form attacks have a <% DJANGHOR_GLYPH_2_1_CHANCE %>% chance of having +<% DJANGHOR_GLYPH_2_1_BONUS_DAMAGE_PCT %>% bonus attack damage. Effects persists for <% DJANGHOR_GLYPH_2_1_EFFECT_LINGERING %> seconds after shifting out."
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"Wolf Critical Strike"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Attacks have a chance to deal additional damage."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"Glyph of Elusion"
-		"item_rpc_djanghor_glyph_3_1_description" 				"@glyph_property1% evasion in Wolf form, @glyph_property2% evasion in Monkey form."
+		"item_rpc_djanghor_glyph_3_1_description" 				"<% DJANGHOR_GLYPH_3_1_WOLF_EVASION %>% evasion in Wolf form, <% DJANGHOR_GLYPH_3_1_MONKEY_EVASION %>% evasion in Monkey form."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"Glyph of Protective Shapeshifter"
-		"item_rpc_djanghor_glyph_4_1_description" 				"Finishing a Shapeshift applies a shield that absorbs @glyph_property1 instances of damage. Lasts 12 seconds."
+		"item_rpc_djanghor_glyph_4_1_description" 				"Finishing a Shapeshift applies a shield that absorbs <% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %> instances of damage. Lasts <% DJANGHOR_GLYPH_4_1_DURATION %> seconds."
 
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"Shapeshifter's Shield"
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"Each stack absorbs an instance of damage"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"Glyph of Animal Acoustics"
-		"item_rpc_djanghor_glyph_5_1_description" 				"Reduces the cooldown of @Ability1 by @glyph_property1 seconds."
+		"item_rpc_djanghor_glyph_5_1_description" 				"Reduces the cooldown of @Ability1 by <% DJANGHOR_GLYPH_5_1_Q_CD_RED %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"Glyph of Forest Blessing"
-		"item_rpc_djanghor_glyph_6_1_description" 				"Every 2 seconds, Djanghor cleanses 1 enemy debuff from himself. Any of Djanghor's animal form spells that make him charge to a location will apply [E3] when cast."
+		"item_rpc_djanghor_glyph_6_1_description" 				"Every <% DJANGHOR_GLYPH_6_1_CLEANCE_INTERVAL %> seconds, Djanghor cleanses 1 enemy debuff from himself. Any of Djanghor's animal form spells that make him charge to a location will apply [E3] when cast."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a @glyph_property1% chance to bash the target, dealing @glyph_property2% increased damage and stunning for @glyph_property3 seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend for 20 seconds."
+		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a <% DJANGHOR_GLYPH_7_1_BASH_CHANCE %>% chance to bash the target, dealing <% DJANGHOR_GLYPH_7_1_BASH_BONUS_DAMAGE_PCT %>% increased damage and stunning for <% DJANGHOR_GLYPH_7_1_BASH_DURATION %> seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend for <% DJANGHOR_GLYPH_7_1_ARMOR_LOSS_DURATION %> seconds."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."
@@ -361,11 +361,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "Sabretooth Daibo"
         "item_property_djanghor_immortal_weapon"                             "Alpha Wolf"
-        "property_djanghor_immortal_weapon_description"                      "Additional @special_property1 attack power for each point of Agility while in wolf form. @Ability2 has primary element nature and hits enemies in a line while in Wolf Form."
+        "property_djanghor_immortal_weapon_description"                      "Additional <% DJANGHOR_IMMORTAL_WEAPON_1_BASE_DMG_PER_AGI %> attack power for each point of Agility while in wolf form. @Ability2 has primary element nature and hits enemies in a line while in Wolf Form."
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_2"            "Grizzly Ironclaw Daibo"
         "item_property_djanghor_immortal_weapon2"                             "Ironfur Bear"
-        "property_djanghor_immortal_weapon2_description"                      "Damage instances that deal less than 100x max health are capped at @special_property1% of max health while in Bear Form."
+        "property_djanghor_immortal_weapon2_description"                      "Damage instances that deal less than 100x max health are capped at <% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT * 100 %>% of max health while in Bear Form."
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_3"            "Avian Staff of Enlightenment"
         "item_property_djanghor_immortal_weapon3"                             "Stormcrow"

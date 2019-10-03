@@ -244,7 +244,7 @@ end
 function all_shift_after(caster)
 	if caster:HasModifier("modifier_djanghor_glyph_4_1") then
 		local monkeyForm = caster:FindAbilityByName("draghor_monkey_form")
-		monkeyForm:ApplyDataDrivenModifier(caster, caster, "modifier_djanghor_4_1_shield", {duration = 12})
+		monkeyForm:ApplyDataDrivenModifier(caster, caster, "modifier_djanghor_4_1_shield", {duration = DJANGHOR_GLYPH_4_1_DURATION})
 		caster:SetModifierStackCount("modifier_djanghor_4_1_shield", caster, DJANGHOR_GLYPH_4_1_SHIELD_STACKS)
 	end
 	Filters:CastSkillArguments(4, caster)
@@ -288,7 +288,7 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {duration = 7})
+		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical", {duration = DJANGHOR_GLYPH_2_1_EFFECT_LINGERING})
 	end
 	if caster:HasModifier("modifier_djanghor_glyph_3_1") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
@@ -481,7 +481,7 @@ function general_shapeshift_think(event)
 			caster:SetModifierStackCount("modifier_year_beast_b_d_health", caster, healthBonus)
 		end
 		if caster:HasModifier("modifier_djanghor_immortal_weapon_1") then
-			attackBonus = attackBonus + attribute * 5
+			attackBonus = attackBonus + attribute * DJANGHOR_IMMORTAL_WEAPON_1_BASE_DMG_PER_AGI
 		end
 		caster:SetModifierStackCount("modifier_shapeshift_attack_power_a_d", caster, attackBonus)
 	else
@@ -493,7 +493,7 @@ function wolf_pre_attack(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local luck = RandomInt(1, 5)
+	local luck = RandomInt(1, 100/DJANGHOR_GLYPH_2_1_CHANCE)
 	if luck == 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_2_critical_effect", {duration = 1.5})
 
@@ -514,9 +514,9 @@ function bear_pre_attack(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local luck = RandomInt(1, 5)
+	local luck = RandomInt(1, 100/DJANGHOR_GLYPH_7_1_BASH_CHANCE)
 	if luck == 1 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash_effect", {duration = 1.5})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash_effect", {duration = DJANGHOR_GLYPH_7_1_BASH_DURATION})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/bear_bash.vpcf", caster, 0.5)
 	end
 end
