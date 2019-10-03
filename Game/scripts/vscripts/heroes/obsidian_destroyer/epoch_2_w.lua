@@ -73,7 +73,7 @@ function genesis_orb_impact(event)
 	end
 	damage = damage * ability.damageAmp
 	if caster:HasModifier("modifier_epoch_glyph_3_1") then
-		damage = damage + caster:GetMana() * 2 * ability:GetLevel()
+		damage = damage + caster:GetMana() * EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT/100 * ability:GetLevel()
 	end
 	--print("MANA "..caster:GetMaxMana())
 	--print("MANA "..caster:GetMana())

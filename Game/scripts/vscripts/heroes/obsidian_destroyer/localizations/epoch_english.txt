@@ -216,7 +216,7 @@
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Taking Additional Damage from All Sources"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"Glyph of Distorted Time"
-		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels @glyph_property1% farther and @glyph_property2% faster. Additionally, the duration of @Ability1 is doubled."
+		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels @glyph_property1% farther and @glyph_property2% faster. Additionally, the duration of [E1] is doubled."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"Glyph of Cracking"
 		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on @glyph_property1% of current mana times the ability's level."

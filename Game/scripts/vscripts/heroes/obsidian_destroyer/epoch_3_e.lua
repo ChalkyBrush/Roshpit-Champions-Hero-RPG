@@ -69,8 +69,8 @@ function fire_main_orb(event)
 	local fv = (point - caster:GetAbsOrigin()):Normalized()
 	fv = fv * Vector(1, 1, 0)
 	if origCaster:HasModifier("modifier_epoch_glyph_2_1") then
-		speed = speed * 1.6
-		range = range * 1.6
+		speed = speed * (100+EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT)/100
+		range = range * (100+EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT)/100
 	end
 	speed = Filters:GetAdjustedESpeed(origCaster, speed, false)
 	local info =
@@ -139,7 +139,7 @@ function getProjectilePosition(event)
 	local ability = event.ability
 	local distanceAmount = 23
 	if caster:HasModifier("modifier_epoch_glyph_2_1") then
-		distanceAmount = distanceAmount * 1.6
+		distanceAmount = distanceAmount * (100+EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT)/100
 	end
 	distanceAmount = Filters:GetAdjustedESpeed(caster, distanceAmount, false)
 	if ability.orb_distance then
@@ -173,7 +173,7 @@ function epoch_e_1(caster)
 	if e_1_level > 0 then
 		local e_1_duration = Filters:GetAdjustedBuffDuration(caster, 0.4 + e_1_level * EPOCH_E1_DURATION, false)
 		if caster:HasModifier("modifier_epoch_glyph_2_1") then
-			e_1_duration = e_1_duration * 2
+			e_1_duration = e_1_duration * EPOCH_GLYPH_2_1_E2_DURATION_AMP
 		end
 		--print("e_1_duration "..e_1_duration)
 		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_1", {duration = e_1_duration})
