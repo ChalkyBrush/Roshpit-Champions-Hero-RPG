@@ -199,16 +199,16 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"衰落雕文"
-		"item_rpc_epoch_glyph_1_1_description" 				"受时空锁和空间链接影响的敌人受到的所有伤害将提高 @glyph_property1%"
+		"item_rpc_epoch_glyph_1_1_description" 				"受时空锁和空间链接影响的敌人受到的所有伤害将提高 <% EPOCH_GLYPH_1_1_Q1_DAMAGE_INCREASED_PCT %>%"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"衰落"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"受到所有伤害提高"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"扭曲雕文"
-		"item_rpc_epoch_glyph_2_1_description" 				"时空球移动距离提高 @glyph_property1% 并且速度提高 @glyph_property2%。额外地，[E1] 时光扭曲持续时间提高一倍。"
+		"item_rpc_epoch_glyph_2_1_description" 				"时空球移动距离提高 <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% 并且速度提高 <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>%。额外地，[E1] 时光扭曲持续时间提高一倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"裂隙雕文"
-		"item_rpc_epoch_glyph_3_1_description" 				"创世纪之球造成基于 @glyph_property1% 当前魔法值 乘以技能等级的额外的伤害。"
+		"item_rpc_epoch_glyph_3_1_description" 				"创世纪之球造成基于 <% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% 当前魔法值 乘以技能等级的额外的伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"世纪雕文"
 		"item_rpc_epoch_glyph_4_1_description" 				"攻击不在消耗 [W3] 智慧穷尽 buff。（智力加成不降低，同时每次攻击都恢复相应的生命值）"
@@ -220,7 +220,7 @@
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"凝结雕文"
-		"item_rpc_epoch_glyph_6_1_description" 				"受时空锁和空间连接影响的敌人基础攻击力降低 @glyph_property1%，同时 [Q2] 的效果 X10。"
+		"item_rpc_epoch_glyph_6_1_description" 				"受时空锁和空间连接影响的敌人基础攻击力降低 <% EPOCH_GLYPH_6_1_ATTACK_DMG_REDUCTION_PCT %>%，同时 [Q2] 的效果 X<% EPOCH_GLYPH_6_1_Q2_MULTI %>。"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"凝结"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"攻击力降低"
@@ -229,7 +229,7 @@
 		"item_rpc_epoch_glyph_7_1_description" 				"当时空球移动时，时光守卫离开此空间维度，无法攻击并闪避所有弹道。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"时光旅行雕文"
-		"item_rpc_epoch_glyph_5_a_description" 				"时光守卫受到致命伤害时，立刻发动时光宝石回到过去，恢复全部生命值、魔法值、刷新技能冷却。该掉文有 @glyph_property1 秒冷却时间。"
+		"item_rpc_epoch_glyph_5_a_description" 				"时光守卫受到致命伤害时，立刻发动时光宝石回到过去，恢复全部生命值、魔法值、刷新技能冷却。该掉文有 <% EPOCH_GLYPH_5_A_SECOND_LIFE_CD %> 秒冷却时间。"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"时光旅行冷却中"
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"时光旅行伤害抵御"
@@ -250,11 +250,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"克罗诺斯之眼"
 		"item_property_epoch_immortal_weapon"								"克罗诺斯之眼"
-		"property_epoch_immortal_weapon_description"						"创世纪之球平行发射额外的2个球造成2x伤害."
+		"property_epoch_immortal_weapon_description"						"创世纪之球平行发射额外的<% EPOCH_IMMORTAL_WEAPON_1_ORBS - 1 %>个球造成<% EPOCH_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x伤害."
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"永恒守卫神杖"
     	"item_property_epoch_immortal_weapon2"								"永恒的守护者"
-    	"property_epoch_immortal_weapon2_description"						"死亡时，如果 @Ability4 的冷却时间结束，将立即在死亡位置释放，并且 @special_property1 秒后，时光守卫重生。重生时，除 @Ability4 技能外，其余技能冷却时间刷新，但是 @Ability4 技能的冷却时间变为原来的 @special_property2x 。"
+    	"property_epoch_immortal_weapon2_description"						"死亡时，如果 @Ability4 的冷却时间结束，将立即在死亡位置释放，并且 <% EPOCH_IMMORTAL_WEAPON_2_RESPAWN_DELAY %> 秒后，时光守卫重生。重生时，除 @Ability4 技能外，其余技能冷却时间刷新，但是 @Ability4 技能的冷却时间变为原来的 <% EPOCH_IMMORTAL_WEAPON_2_R_CD_MULT %>x 。"
 
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"永恒之塔"
     	"item_property_epoch_immortal_weapon3"								"时空紊乱"
-    	"property_epoch_immortal_weapon3_description"						"当 @Ability3 的弹道仍在飞行时，伤害减免 100% 。当敌人受到 @Ability3 的伤害时，被 @Ability1 链接的敌人将被眩晕 @special_property1 秒。"
+    	"property_epoch_immortal_weapon3_description"						"当 @Ability3 的弹道仍在飞行时，伤害减免 100% 。当敌人受到 @Ability3 的伤害时，被 @Ability1 链接的敌人将被眩晕 <% EPOCH_IMMORTAL_WEAPON_3_STUN %> 秒。"
