@@ -803,6 +803,18 @@
 		"ui_picked_up"			"拾取"
 		"ui_equip_new"			"装备！"
 		"ui_close_panel"		"关闭"
+		"ui_old_item"			"旧"
+		"ui_new_item"			"新"
+		"ui_old_item_main_option" "保持旧裝備並且"
+		"ui_old_item_option_1"	"将新物品退回库存"
+		"ui_old_item_option_2"	"舍弃新物品"
+		"ui_new_item_main_option" "装备新物品并"
+		"ui_new_item_option_1"	"保存"
+		"ui_new_item_option_2"	"不保存"
+		"ui_new_item_option_no_save_slot"	"丢弃旧物品"
+		"ui_new_item_extra_help"	"这两个选项都会破坏当前装备的物品."
+		"ui_new_item_equip_tooltip_title"	"新装备"
+		"ui_new_item_equip_tooltip_text"	"以下两个选项将替换并销毁此插槽中当前装备的装备。拜访铁匠并凿出您当前的装备以保存它."
 
 		"ui_trade"				"交易"
 
@@ -1435,8 +1447,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"惊鸿雕文"
 		"item_rpc_neutral_glyph_3_3_description" 			"降低 @Ability3 的冷却时间 @glyph_property1 秒"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"嗑药雕文"
-		"item_rpc_neutral_glyph_4_3_description" 			"所有药水的效果（回复效果、属性加成）都将被提高 @glyph_property1%"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"    "嗑药雕文"
+		"item_rpc_neutral_glyph_4_3_description"             "所有药水的效果（回复效果、属性加成）都将被提高 @glyph_property1%.此外每0.5秒自动吃掉400码内的药水."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"野蛮雕文"
 		"item_rpc_neutral_glyph_5_3_description" 			"提高造成的所有物理伤害 @glyph_property1% 并降低造成的所有魔法伤害 @glyph_property2%"
@@ -2331,50 +2343,50 @@
 
 		"ozubu_spiderling"											"Crystalline Arachnid"
 
-		"DOTA_Tooltip_ability_winterblight_aertega_passive"			"Cyrystal Viper"
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_Description"	"Attacks explode with Ice, dealing AOE damage and slowing in the area."	
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_damage"	"DAMAGE:"
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_ms_loss"	"MOVESPEED LOSS:"
+		"DOTA_Tooltip_ability_winterblight_aertega_passive"			"冰晶冥界亚龙"
+		"DOTA_Tooltip_ability_winterblight_aertega_passive_Description"	"攻击造成冰爆,造成AOE伤害并且减速."	
+		"DOTA_Tooltip_ability_winterblight_aertega_passive_damage"	"伤害:"
+		"DOTA_Tooltip_ability_winterblight_aertega_passive_ms_loss"	"移速丢失:"
 
-		"DOTA_Tooltip_ability_aertega_frost_nova"					"Giga Frost Nova"
-		"DOTA_Tooltip_ability_aertega_frost_nova_Description"		"After a 3 second channel, a massive wave of crushing ice freezes enemies in a 2000 radius."
-		"DOTA_Tooltip_ability_aertega_frost_nova_damage"			"DAMAGE:"
-		"DOTA_Tooltip_ability_aertega_frost_nova_freeze_duration"	"FREEZE DURATION:"
+		"DOTA_Tooltip_ability_aertega_frost_nova"					"冰霜新星"
+		"DOTA_Tooltip_ability_aertega_frost_nova_Description"		"3秒过后, 冰霜新星将敌人在2000半径范围内冻结."
+		"DOTA_Tooltip_ability_aertega_frost_nova_damage"			"伤害:"
+		"DOTA_Tooltip_ability_aertega_frost_nova_freeze_duration"	"冰冻时间:"
 
-		"DOTA_Tooltip_modifier_aertega_frost_nova"					"Giga Frost Nova"
-		"DOTA_Tooltip_modifier_aertega_frost_nova_Description"		"Completely Frozen"
+		"DOTA_Tooltip_modifier_aertega_frost_nova"					"冰霜新星"
+		"DOTA_Tooltip_modifier_aertega_frost_nova_Description"		"完全冰封"
 
-		"DOTA_Tooltip_ability_winterblight_torturok_passive"		"Winterhide"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_Description"	"All damage is immediately retaliated by an icy projectile that damages and slows on impact"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_damage"			"DAMAGE:"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_ms_loss"		"CHILLED MOVESPEED LOSS:"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_as_loss"		"CHILLED ATTACK SPEED LOSS:"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive"		"冰皮"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_Description"	"冰冷的弹丸会立即对所有伤害进行反伤，而冰弹会伤害并减缓撞击速度"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_damage"			"伤害:"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_ms_loss"		"移动速度丢失:"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_as_loss"		"攻击速度丢失:"
 
-		"DOTA_Tooltip_ability_torturok_comet"						"Primal Leap"
-		"DOTA_Tooltip_ability_torturok_comet_Description"			"Jump toward the target location"
+		"DOTA_Tooltip_ability_torturok_comet"						"原始飞跃"
+		"DOTA_Tooltip_ability_torturok_comet_Description"			"跳向目标位置"
 
-		"DOTA_Tooltip_ability_torturok_aura"						"Frostbite Aura"
-		"DOTA_Tooltip_ability_torturok_aura_Description"			"Enemies within 800 range take damage when moving."
-	"DOTA_Tooltip_ability_torturok_aura_damage_per_distance"	"DAMAGE PER DISTANCE:"
+		"DOTA_Tooltip_ability_torturok_aura"						"冻伤光环"
+		"DOTA_Tooltip_ability_torturok_aura_Description"			"800范围内的敌人移动时受到伤害."
+		"DOTA_Tooltip_ability_torturok_aura_damage_per_distance"	"每点距离伤害:"
 
-		"DOTA_Tooltip_modifier_torturok_aura_effect"				"Frostbite Aura"
-		"DOTA_Tooltip_modifier_torturok_aura_effect_Description"	"Taking damage when moving"
+		"DOTA_Tooltip_modifier_torturok_aura_effect"				"冻伤光环"
+		"DOTA_Tooltip_modifier_torturok_aura_effect_Description"	"移动时受到伤害"
 
 		"DOTA_Tooltip_ability_ozubu_passive"						"Exonova"
-		"DOTA_Tooltip_ability_ozubu_passive_Description"			"Constant icy explosions around the caster."
-		"DOTA_Tooltip_ability_ozubu_passive_damage"					"DAMAGE:"
-		"DOTA_Tooltip_ability_ozubu_passive_ms_loss"				"MOVESPEED LOSS:"
-		"DOTA_Tooltip_ability_ozubu_passive_as_loss"				"ATTACKSPEED LOSS:"
+		"DOTA_Tooltip_ability_ozubu_passive_Description"			"周围持续冰冷爆炸."
+		"DOTA_Tooltip_ability_ozubu_passive_damage"					"伤害:"
+		"DOTA_Tooltip_ability_ozubu_passive_ms_loss"				"移速丢失:"
+		"DOTA_Tooltip_ability_ozubu_passive_as_loss"				"攻速丢失:"
 
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom"			"Ice Venom Dart"
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_Description"	"Deals damage to the target and transfers 1 negative debuff to them."
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom"			"冰毒镖"
+		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_Description"	"对目标造成伤害，并对其造成1点负面减益."
+		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_damage"	"伤害:"
 
-		"DOTA_Tooltip_ability_ozubu_spiderling_passive"				"Ice Venom Bite"
-		"DOTA_Tooltip_ability_ozubu_spiderling_passive_Description"	"Transfers 1 negative debuff to the target on attack. Also leaves a short poison debuff that deals damage every 0.1 seconds."
+		"DOTA_Tooltip_ability_ozubu_spiderling_passive"				"冰霜毒咬"
+		"DOTA_Tooltip_ability_ozubu_spiderling_passive_Description"	"攻击时将1点负面减益转移给目标。它还会留下一个短暂的毒气减益效果，每0.1秒造成一次伤害."
 		
-		"DOTA_Tooltip_modifier_ozubu_spiderling_poison"				"Ice Venom Bite"
-		"DOTA_Tooltip_modifier_ozubu_spiderling_poison_Description"	"Taking damage every 0.1 seconds"
+		"DOTA_Tooltip_modifier_ozubu_spiderling_poison"				"冰霜毒咬"
+		"DOTA_Tooltip_modifier_ozubu_spiderling_poison_Description"	"每0.1秒受到一次伤害"
 
 		//雪图
 
