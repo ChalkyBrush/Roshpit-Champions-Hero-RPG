@@ -35,7 +35,7 @@ function solar_glow_start(event)
 			flare.fv = flareAngle
 			flare.stun_duration = stun_duration
 			if caster:HasModifier("modifier_solunia_glyph_3_1") then
-				flare.stun_duration = flare.stun_duration + 1
+				flare.stun_duration = flare.stun_duration + SOLUNIA_GLYPH_3_1_Q_STUN_DURATION_ADDED
 			end
 			flare.liftVelocity = 40
 			flare.q_2_level = q_2_level
@@ -237,7 +237,7 @@ function lunar_glow_start(event)
 			flare.q_3_level = q_3_level
 			flare.stun_duration = stun_duration
 			if caster:HasModifier("modifier_solunia_glyph_3_1") then
-				flare.stun_duration = flare.stun_duration + 1
+				flare.stun_duration = flare.stun_duration + SOLUNIA_GLYPH_3_1_Q_STUN_DURATION_ADDED
 			end
 			flare.liftVelocity = 40
 			flare.forwardVelocity = forwardVelocity

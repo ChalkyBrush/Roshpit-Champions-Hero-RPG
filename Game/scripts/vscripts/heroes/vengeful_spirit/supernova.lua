@@ -184,7 +184,7 @@ function novaExplosion(event)
 	GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), 240, false)
 
 	if caster:HasModifier("modifier_solunia_glyph_6_1") then
-		local glyph_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
+		local glyph_duration = Filters:GetAdjustedBuffDuration(caster, SOLUNIA_GLYPH_6_1_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_glyph_6_1_ready", {duration = glyph_duration})
 	end
 	Filters:CastSkillArguments(4, caster)

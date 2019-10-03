@@ -1,22 +1,22 @@
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"铁匠牌匾"
 		"item_property_blacksmiths_tablet"			"精制武器"
-		"property_blacksmiths_tablet_description"	"武器属性和符文加成提高 65%。同时，玩家的武器升级速度提高40%。"
+		"property_blacksmiths_tablet_description"	"武器属性和符文加成提高 <% BLACKSMITH_TABLE_ADD_STATS_PCT * 100%>%。同时，玩家的武器升级速度提高 <% BLACKSMITH_TABLE_ADD_WEAPON_EXP * 100 %>%。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"
 		"item_property_saytaru"						"最后的希望"
-		"property_saytaru_description"				"当生命值低于50%时获得魔法免疫，该状态下受到的纯粹伤害降低70%，造成的魔法和纯粹伤害降低50%"
+		"property_saytaru_description"				"当生命值低于<% SAYTARU_HP_THRESHOLD_PCT * 100 %>%时获得魔法免疫，该状态下受到的纯粹伤害降低<% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%，造成的魔法和纯粹伤害降低<% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"蓝莲花"
 		"item_property_sapphire_lotus"				"蓝色魅力"
-		"property_sapphire_lotus_description"		"每点智力值额外增加25点最大生命值。"
+		"property_sapphire_lotus_description"		"每点智力值额外增加<% SAPPHIRE_LOTUS_HP_PER_INT %>点最大生命值。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"征服石猎鹰"
 		"item_property_stone_falcon"						"圣物"
-		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的35%。"
+		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<% STONE_FALCON_HP_THRESHOLD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_never_ring"										"灵魂戒指"
@@ -32,7 +32,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"猴爪"
 		"item_property_monkey_paw"					"摇曳的梦想"
-		"property_monkey_paw_description"			"精英怪在玩家 600 码 范围内死亡，会掉落额外的不朽装备。每额外掉落一件装备，将消耗 50% 的当前金钱。地图的难度决定额外掉落的装备的质量与等级，但同时也会增加掉落时所需的最少金钱数（@special_property2/@special_property3/@special_property4 普通难度/精英难度/传说难度）装备猴爪后，玩家每 0.03 秒将受到 1 点纯粹伤害。"
+		"property_monkey_paw_description"			"精英怪在玩家 <% MONKEY_PAW_AOE_PARAGON_TRIGGER %> 码 范围内死亡，会掉落额外的不朽装备。每额外掉落一件装备，将消耗 <% MONKEY_PAW_GOLD_COST_PCT %>% 的当前金钱。地图的难度决定额外掉落的装备的质量与等级，但同时也会增加掉落时所需的最少金钱数（<% MONKEY_PAW_GOLD_DIVISOR %>/<% MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% MONKEY_PAW_GOLD_DIVISOR * 3 %> 普通难度/精英难度/传说难度）装备猴爪后，玩家每 <% MONKEY_PAW_DMG_TICK_RATE %> 秒将受到 1 点纯粹伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"戈登神石"
@@ -40,17 +40,17 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"点水蜻蜓"
 		"item_property_arbor_dragonfly"				"迷雾祝福"
-		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 @special_property1%，包括雕文和符文技能。"
+		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 <% ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%，包括雕文和符文技能。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"永冻宝石"
 		"item_property_eternal_frost"				"冰霜新星"
-		"property_eternal_frost_description"		"附近的敌人每0.1秒降低12移速，当敌人移速低于150时被冰冻4.5秒。<br>当你施放 @Ability3 技能时，冰冻500码范围敌人2.5秒，并造成 @special_property1x 智力值的伤害。<br>每10点智力值提高所有装备伤害 @special_property2% 。"
+		"property_eternal_frost_description"		"附近的敌人每<% ETERNAL_FROST_STACK_INTERVAL %>秒降低<% ETERNAL_FROST_SLOW_PER_STACK %>移速，当敌人移速低于<% ETERNAL_FROST_MS_THRESHOLD %>时被冰冻<% ETERNAL_FROST_AURA_ROOT_DURATION %>秒。<br>当你施放 @Ability3 技能时，冰冻<% ETERNAL_FROST_ACTIVE_ROOT_AOE %>码范围敌人<% ETERNAL_FROST_ACTIVE_ROOT_DURATION %>秒，并造成 <% ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x 智力值的伤害。<br>每<% ETERNAL_FROST_INT_DIVISOR %>点智力值提高所有装备伤害 <% ETERNAL_FROST_INT_TO_ITEM_DMG %>% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"生命源泉"
 		"item_property_lifesource_vessel"			"生命源泉"
-		"property_lifesource_vessel_description"	"每点力量值提高生命值回复速度 0.3。"
+		"property_lifesource_vessel_description"	"每点力量值提高生命值回复速度 <% LIFESOURCE_HP_REGEN_PER_STR %>。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"星球"
@@ -60,32 +60,32 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"天蓝帝国吊坠"
 		"item_property_azure_empire"				"天空法官"
-		"property_azure_empire_description"			"3只雄鹰跟随你，每只吸收一次纯碎伤害或魔法伤害。雄鹰在受到伤害 @special_property1 秒后重生"
+		"property_azure_empire_description"			"<% PENDANT_AZURE_EMPIRE_NUMBER_OF_HAWKS %>只雄鹰跟随你，每只吸收一次纯碎伤害或魔法伤害。雄鹰在受到伤害 <% PENDANT_AZURE_EMPIRE_HAWK_CD %> 秒后重生"
 		"item_property_azure_empire_silver"				"银色天空"
-		"property_azure_empire_silver_description"	"每只存在的雄鹰提高玩家的基础技能伤害 @special_property2% 。"
+		"property_azure_empire_silver_description"	"每只存在的雄鹰提高玩家的基础技能伤害 <% PENDANT_AZURE_EMPIRE_SILVER_BAD %>% 。"
 		"item_property_azure_empire_green"				"玉色天空"
-		"property_azure_empire_green_description"	"每只存在的雄鹰提高玩家的敏捷值 @special_property3x 当前英雄等级。"
+		"property_azure_empire_green_description"	"每只存在的雄鹰提高玩家的敏捷值 <% PENDANT_AZURE_EMPIRE_GREEN_AGI %>x 当前英雄等级。"
 		"item_property_azure_empire_red"				"绯红天空"
-		"property_azure_empire_red_description"	"每只存在的雄鹰提高玩家的力量值 @special_property3x 当前英雄等级。"
+		"property_azure_empire_red_description"	"每只存在的雄鹰提高玩家的力量值 <% PENDANT_AZURE_EMPIRE_RED_STR %>x 当前英雄等级。"
 		"item_property_azure_empire_blue"				"蔚蓝天空"
-		"property_azure_empire_blue_description"	"每只存在的雄鹰提高玩家的智力值 @special_property3x 当前英雄等级。"
+		"property_azure_empire_blue_description"	"每只存在的雄鹰提高玩家的智力值 <% PENDANT_AZURE_EMPIRE_BLUE_INT %>x 当前英雄等级。"
 		"DOTA_Tooltip_modifier_azure_empire_visible"	"雄鹰帝国"
 		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"每只雄鹰吸收一次魔法或纯粹伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"西格拉斯的魅力"
 		"item_property_signus"						"西格拉斯"
-		"property_signus_description"				"减少 @Ability4 冷却时间40%。 @Ability3 冷却时间提高1倍。"
+		"property_signus_description"				"减少 @Ability4 冷却时间<% SIGNUS_R_CD_REDUCTION %>%。 @Ability3 冷却时间提高1倍。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"地狱之眼"
 		"item_property_avernus"						"居高临下"								
-		"property_avernus_description"				"提高所有基础技能的伤害50%。"
+		"property_avernus_description"				"提高所有基础技能的伤害<% EYE_OF_AVERNUS_BAD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"混乱之书"
 		"item_property_tome_of_chaos"				"地狱火"
-		"property_tome_of_chaos"					"施放 @Ability2 后，召唤一头地狱火并眩晕敌人2秒。地狱火拥有你2倍的生命值，0.5倍的护甲值和5倍总属性值的基础攻击力。<br>持续20秒，冷却时间30秒。"
+		"property_tome_of_chaos"					"施放 @Ability2 后，召唤一头地狱火并眩晕敌人<% TOME_OF_CHAOS_STUN %>秒。地狱火拥有你<% TOME_OF_CHAOS_HP_MULT %>倍的生命值，<% TOME_OF_CHAOS_ARMOR_MULT %>倍的护甲值和<% TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %>倍总属性值的基础攻击力。<br>持续<% TOME_OF_CHAOS_DURATION %>秒，冷却时间<% TOME_OF_CHAOS_CD %>秒。"
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"地狱火冷却中"
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
 		
@@ -94,9 +94,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"阴影火炬"
 		"item_property_gengar"						"暗影步伐"
-		"property_gengar"							"受到伤害时有 15% 的几率获得 75% 闪避，相位移动能力并且增加 300% 的基础技能伤害，持续6秒。"
+		"property_gengar"							"受到伤害时有 <% GENGAR_CHANCE %>% 的几率获得 <% GENGAR_EVASION %>% 闪避，相位移动能力并且增加 <% GENGAR_BAD %>% 的基础技能伤害，持续<% GENGAR_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"暗影步伐"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"30%% 闪避，相位移动和400%% 技能伤害"
+		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<% GENGAR_EVASION %>%% 闪避，相位移动和<% GENGAR_BAD %>%% 技能伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"头骨令牌"
@@ -108,113 +108,113 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"欧米伽宝石"
 		"item_property_omega_ruby"					"欧米伽之火"
-		"property_omega_ruby"						"你的普通攻击附有火焰，造成 @special_property1% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
+		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <% OMEGA_RUBY_ATTACK_TO_DMG %>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
 		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害50%。生命值将不会超过最大生命值的50%。 每100点缺失的血量提高装备伤害 0.01% 。该装备无法重铸。"
+		"property_raven_idol_description2"			"减少受到的所有伤害<% RAVEN_IDOL_DMG_REDUCTION %>%。生命值将不会超过最大生命值的<% RAVEN_IDOL_HP_THRESHOLD * 100 %>。 每100点缺失的血量提高装备伤害 0.01% 。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
 		"item_property_phoenix_emblem"				"涅盘"
-		"property_phoenix_emblem"					"当你死亡时，5秒后涅盘重生并眩晕附近所有敌人5秒。冷却时间20秒。"
+		"property_phoenix_emblem"					"当你死亡时，<% PHOENIX_EMBLEM_RESURRECTION_DELAY %>秒后涅盘重生并眩晕附近所有敌人<% PHOENIX_EMBLEM_STUN_DUR %>秒。冷却时间<% PHOENIX_EMBLEM_COOLDOWN %>秒。"
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"涅盘冷却中"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
 		"item_property_volcano_orb"					"火热之心"
-		"property_volcano_orb_description"			"提高所有魔法伤害 @special_property1%。该效果与其他税后效果乘法计算。"
+		"property_volcano_orb_description"			"提高所有魔法伤害 <% VOLCANO_ORB_MAGIC_DMG_MULT %>x。该效果与其他税后效果乘法计算。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
 		"item_property_aeriths_tear"							"最终幻想"
-		"property_aeriths_tear"									"400码范围内敌人对你的伤害降低 90% 。"
+		"property_aeriths_tear"									"<% AERITHS_TEAR_DISTANCE %>码范围内敌人对你的伤害降低 <% AERITHS_TEAR_DMG_REDUCTION %>% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"放大水晶"
 		"item_property_geode"								"对数放大"
-		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的0.2%，该伤害值变为10倍。"
+		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的<% GEODE_INSTANCE_THRESHOLD %>%，该伤害值变为<% GEODE_DAMAGE_MULT %>倍。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
 		"item_property_nobility"							"崇高之路"
-		"property_nobility_description"						"提高全属性 30x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
+		"property_nobility_description"						"提高全属性 <% NOBILITY_ALL_ATTRIBUTES %>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"强力崇高戒指"
 		"item_property_nobility_augmented"					"崇高步伐"
-		"property_nobility_augmented_description"			"提高全属性 60x 你的等级。该装备无法重铸。"
+		"property_nobility_augmented_description"			"提高全属性 <% NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x 你的等级。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"启示树枝"
 		"item_property_twig_of_enlightened"					"魔力护盾"
-		"property_twig_of_enlightened_description"			"每当你获得魔法值时，创建一个护盾吸收 5x所获魔法值的伤害。护盾的伤害吸收上限为 5x你的最大魔法值。"
+		"property_twig_of_enlightened_description"			"每当你获得魔法值时，创建一个护盾吸收 <% TWIG_OF_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x所获魔法值的伤害。护盾的伤害吸收上限为 <% TWIG_OF_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x你的最大魔法值。"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"魔力护盾"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"吸收伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"水之石"
 		"item_property_ancient_waterstone"					"水之女神的祝福"
-		"property_ancient_waterstone_description"			"由装备造成的伤害提高 @special_property1%"
+		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <% ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"风暴猎鹰指环"
 		"item_property_tempest_falcon"						"暴风转换"
-		"property_tempest_falcon_description"				"每造成一次物理伤害获得一个buff，使你的下一次魔法伤害提高300%。"
+		"property_tempest_falcon_description"				"每造成一次物理伤害获得一个buff，使你的下一次魔法伤害提高<% TEMPEST_FALCON_RING_POST_MITI_MAGIC %>%。"
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"暴风转换"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"下一次魔法伤害提高300%"
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"下一次魔法伤害提高<% TEMPEST_FALCON_RING_POST_MITI_MAGIC %>%"
 		 
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"火枪吊坠"
 		"item_property_firelock"							"稳定火焰"		
-		"property_firelock_description"					"每10点力量值提高所有物理伤害 @special_property1%。"
+		"property_firelock_description"					"每<% FIRELOCK_PENDANT_STR_DIVISOR %>点力量值提高所有物理伤害 <% FIRELOCK_PENDANT_STR_TO_POST_MITI %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"
 		"item_property_antique_mana_relic"					"魔法风暴"
-		"property_antique_mana_relic_description"			"施放 @Ability1 汲取 50% 的最大魔法值，并且提高该技能 400% 的基础技能伤害。每次攻击回复 2.5% 的魔法值。每1点当前的魔法值提高1点基础攻击力。"
+		"property_antique_mana_relic_description"			"施放 @Ability1 汲取 <% ANTIQUE_MANA_RELIC_MANA_DRAIN %>% 的最大魔法值，并且提高该技能 <% ANTIQUE_MANA_RELIC_Q_BAD %>% 的基础技能伤害。每次攻击回复 <% ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% 的魔法值。每<% ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>点当前的魔法值提高1点基础攻击力。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
 		"item_property_epsilon_eyeglass"					"扩展范围"
-		"property_epsilon_eyeglass_description"			"增加攻击距离 @special_property1 码(只适用于远程英雄)并且增加 @special_property2 码视野范围，和 @special_property3 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.001 * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 @special_property5，仍以此距离计算。"
+		"property_epsilon_eyeglass_description"			"增加攻击距离 <% EPSILON_EYEGLASS_ATTACK_RANGE %> 码(只适用于远程英雄)并且增加 <% EPSILON_EYEGLASS_VISION_RADIUS %> 码视野范围，和 <% EPSILON_EYEGLASS_PROJECTILE_SPEED %> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000 %> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>，仍以此距离计算。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"芬里尔的犬牙"
 		"item_property_fenrir_fang"							"阿尔法狼灵气"
-		"property_fenrir_fang"									"增加自己和友军的攻击力60%。"
+		"property_fenrir_fang"									"增加自己和友军的攻击力<% FENRIR_FANG_BONUS_DAMAGE %>%。"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"阿尔法狼灵气"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"增加攻击力"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"紫红色的戒指"
 		"item_property_fuchsia_ring"							"团结"
-		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 @special_property1% 并且血量每秒回复 @special_property2% 玩家的最大的生命值。"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 %property_one%% 并且生命回复提高每秒 %property_two%% 的最大生命值"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 %property_one%% 并且生命回复提高每秒 %property_two%% 的最大生命值"
+		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 <% FUCHSIA_DMG_REDUCTION %>% 并且血量每秒回复 <% FUCHSIA_HP_REGEN_OF_MAX_HP %>% 玩家的最大的生命值。"
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <% FUCHSIA_DMG_REDUCTION %>% 并且生命回复提高每秒 <% FUCHSIA_HP_REGEN_OF_MAX_HP %>%% 的最大生命值"
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <% FUCHSIA_DMG_REDUCTION %>% 并且生命回复提高每秒 <% FUCHSIA_HP_REGEN_OF_MAX_HP %>%% 的最大生命值"
 		 
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"幸运护身符"
 		"item_property_fortune_talisman"						"幸运项链"
-		"property_fortune_talisman_description"				"提高装备效果的触发机率 @special_property1% 。（乘法）"
+		"property_fortune_talisman_description"				"提高装备效果的触发机率 <% FORTUNES_TALISMAN_CHANCE_AMP %>% 。（乘法）"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"宁静之戒"
 		"item_property_cobalt_serenity"						"宁静"
-		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 @special_property1% 的智力值。"
+		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <% COBALT_SERENITY_INT_TO_HP_REGEN %>% 的智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
 		"item_property_emerald_null"							"翡翠淨化"
-		 "property_emerald_null_description"					"减少受到的纯粹或魔法伤害，减少值为 @special_property1x 敏捷值。计算在魔法抗性之后，其他伤害减免之前。"
+		 "property_emerald_null_description"					"减少受到的纯粹或魔法伤害，减少值为 <% EMERALD_NULLIFICATION_AGI_TO_PURE_MAGIC_DMG_BLOCK %>x 敏捷值。计算在魔法抗性之后，其他伤害减免之前。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"战争戒指"
 		"item_property_garnet_warfare"							"石榴战争"
-		 "property_garnet_warfare_description"					"每10点力量增加基础技能伤害 @special_property1%。"
+		 "property_garnet_warfare_description"					"每<% GARNET_WARFARE_STR_DIVISOR %>点力量增加基础技能伤害 <% GARNET_WARFARE_STR_TO_BAD %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"太阳宝石"
@@ -222,22 +222,22 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_wind_orchid"										"风兰花"
 		"item_property_wind_orchid"							"风之花"
-		 "property_wind_orchid_description"						"E4 每一点符文点数将提高 @special_property1 点敏捷值。"
+		 "property_wind_orchid_description"						"E4 每一点符文点数将提高 <% WIND_ORCHID_AGI_PER_E4 %> 点敏捷值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"水百合"
 		"item_property_aqua_lily"							"水之花"
-		 "property_aqua_lily_description"					"R4 每一点符文点数将提高 @special_property1 点智力值。"
+		 "property_aqua_lily_description"					"R4 每一点符文点数将提高 <% AQUA_LILY_INT_PER_R4 %> 点智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"火玫瑰"
 		"item_property_fire_blossom"							"火之花"
-		 "property_fire_blossom_description"					"W4 每一点符文点数将提高 @special_property1 点力量值。"
+		 "property_fire_blossom_description"					"W4 每一点符文点数将提高 <% FIRE_BLOSSOM_STR_PER_W4 %> 点力量值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"远古护符"
 		"item_property_ankh_of_ancients"						"不朽之灵"
-		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 @special_property1 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。冷却时间为6倍护盾持续时间。"
+		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 <% ANKH_SHIELD_DURATION %> 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。冷却时间为<% ANKH_COOLDOWN %>倍护盾持续时间。"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"不朽之灵"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"免疫伤害和眩晕"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"远古护符冷却中"
@@ -248,15 +248,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"世界树之花的宝藏"
 		"item_property_world_trees_flower_cache"				"血之兰"
-		"property_world_trees_flower_cache_description"			"受到致命伤害后3秒，将从世界树之花中满血重生。重生后获得buff，使所受到的伤害提高 200%，同时也加深敌人所受到的伤害 200%。（计算在敌人减伤之后） 伤害加深buff持续时间12秒。物品技能冷却时间12秒。"
+		"property_world_trees_flower_cache_description"			"受到致命伤害后 <% WORLD_TREES_CACHE_RESURRECTION_DELAY %>秒，将从世界树之花中满血重生。重生后获得buff，使所受到的伤害提高 <% WORLD_TREES_CACHE_POST_MITI %>%，同时也加深敌人所受到的伤害 <% WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT %>%。（计算在敌人减伤之后） 伤害加深buff持续时间<% WORLD_TREES_CACHE_BUFF_DURATION %>秒。物品技能冷却时间12秒。"
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"血之兰冷却中"
 		"DOTA_Tooltip_modifier_world_tree_effect"				"血之兰"
-		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"受到的伤害提高 200%% 同时加深敌人所受到的伤害 200%%（伤害加深计算在减伤之后）"
+		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"受到的伤害提高 <% WORLD_TREES_CACHE_POST_MITI %>%% 同时加深敌人所受到的伤害 <% WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT %>%%（伤害加深计算在减伤之后）"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"奥术挂坠"
 		"item_property_arcane_charm"					"奥法聚能环"
-		"property_arcane_charm_description"				"提高奥术水晶拾取范围 @special_property1%，并且拾取奥术水晶会恢复一定的生命值和魔法值。根据拾取水晶的大小分别恢复 10/20/50/100% 的最大生命值和魔法值。（越大恢复越多）"
+		"property_arcane_charm_description"				"提高奥术水晶拾取范围 <% ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%，并且拾取奥术水晶会恢复一定的生命值和魔法值。根据拾取水晶的大小分别恢复 <% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% 的最大生命值和魔法值。（越大恢复越多）"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"霜枯骷髅戒"
@@ -269,36 +269,36 @@
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"海洋之心"	
 		"property_sparkling_token"												"炽热雾霭"
-		"property_sparkling_token_Description"									"所受到的所有纯粹伤害减少 @special_property1%。"
+		"property_sparkling_token_Description"									"所受到的所有纯粹伤害减少 <% SPARKLING_TOKEN_PURE_DMG_REDUCTION %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"阿祖赫仑的冰霜之心"
 		"item_property_frozen_heart"								"冰血寒髓"	
-		"property_frozen_heart_description"					"最大生命值被设定为100，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成2/5/8点伤害。在没有受到伤害的2.5秒后，每0.1秒恢复1点生命值。"
+		"property_frozen_heart_description"					"最大生命值被设定为<% FROZEN_HEART_NEW_HP_CAP %>，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成<% FROZEN_HEART_DAMAGE_PER_PHYS %> / <% FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% FROZEN_HEART_DAMAGE_PER_PURE %>点伤害。在没有受到伤害的<% FROZEN_HEART_HP_REGEN_DELAY %>秒后，每<% FROZEN_HEART_HP_REGEN_INTERVAL %>秒恢复<% FROZEN_HEART_HP_REGEN %>点生命值。"
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"冰血冷却"
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"冰血回复"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"观星者的法球"
 		"item_property_stargazer"									"观星者之眼"
-		"property_stargazer_description"							"在任意地点发出攻击移动命令创建一个半径为 @special_property1 有视野的观星者领域。在区域内受到伤害的敌人会被流星击中，造成所受伤害额外 @special_property3% 的纯粹伤害。敌人每0.5秒只能被一颗流星击中一次。在该区域内发出一次攻击移动命令将会摧毁它，并砸下一颗陨石在该区域内造成 @special_property4% 攻击力的伤害并且眩晕1秒。观星者领域的最小生成间隔为 @special_property2 秒。"
+		"property_stargazer_description"							"在任意地点发出攻击移动命令创建一个有视野的观星者领域。受到伤害的光圈内部的敌人将被一颗星击中，造成的纯伤害等于该戒指一生中对敌人造成的最高伤害实例的<% STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% 。之后的伤害只能造成<% STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x 的伤害。与高级鉴定相比，将其阈值提高到其正常值的<% STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>x至(<% STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>。观星者领域的最小生成间隔为 <% STARGAZERS_SPHERE_STARFALL_CD %> 秒内置cd.(此物品不受元素伤害加成)，在一个圆圈内发出攻击移动命令会立即将其折叠，形成一个流星，其流星在该区域造成<% STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x你的攻击力并且眩晕此区域的敌人<% STARGAZERS_SPHERE_COOLDOWN %>秒"
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"红色占卜神符"
 		"item_property_red_divinex"									"我渴望力量！"
-		"property_red_divinex_description"							"敏捷和智力上限被限定为20。力量翻倍。每10点力量提高装备伤害 @special_property1%."
+		"property_red_divinex_description"							"敏捷和智力上限被限定为20。力量翻倍。每<% RED_DIVINEX_STR_DIVISOR %>点力量提高装备伤害 <% RED_DIVINEX_STR_TO_ITEM_DMG %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"绿色占卜神符"
 		"item_property_green_divinex"									"超强敏捷"
-		"property_green_divinex_description"							"力量和智力上限被限定为20。敏捷翻倍。每10点敏捷提高装备伤害 @special_property1%."
+		"property_green_divinex_description"							"力量和智力上限被限定为20。敏捷翻倍。每<% GREEN_DIVINEX_AGI_DIVISOR %>点敏捷提高装备伤害 <% GREEN_DIVINEX_STR_TO_ITEM_DMG %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"蓝色占卜神符"
 		"item_property_blue_divinex"									"超强智力"
-		"property_blue_divinex_description"							"力量和敏捷上限被限定为20。智力翻倍。每10点智力提高装备伤害 @special_property1%."
+		"property_blue_divinex_description"							"力量和敏捷上限被限定为20。智力翻倍。每<% BLUE_DIVINEX_INT_DIVISOR %>点智力提高装备伤害 <% BLUE_DIVINEX_STR_TO_ITEM_DMG %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"解谜者吊坠"
 		"item_property_puzzler"										"重组"

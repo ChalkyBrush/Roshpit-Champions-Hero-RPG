@@ -172,7 +172,7 @@ function hydroxis_attack_land(event)
 		local crit = false
 		if caster:HasModifier("modifier_hydroxis_glyph_5_1") then
 			local luck = RandomInt(1, 100)
-			if luck <= 15 then
+			if luck <= HYDROXIS_GLYPH_5_1_CHANCE then
 				crit = true
 				EmitSoundOnLocationWithCaster(attacker:GetAbsOrigin(), "Hydroxis.VaporCrit", attacker)
 			end
@@ -208,7 +208,7 @@ function hydroxis_attack_land(event)
 						ParticleManager:ReleaseParticleIndex(pfx2)
 					end)
 					-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/kunkka_tidebringer_base/kunkka_spell_tidebringer.vpcf", enemy, 1)
-					local glyphDamage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 4
+					local glyphDamage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * HYDROXIS_GLYPH_5_1_W1_MAGIC_AMP
 					Filters:TakeArgumentsAndApplyDamage(enemy, attacker, glyphDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 				end
 				-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})

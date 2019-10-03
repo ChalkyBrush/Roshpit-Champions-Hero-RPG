@@ -126,7 +126,7 @@ function glyph_5_attack_land(event)
 		local baseAbility = caster:GetAbilityByIndex(i)
 		if baseAbility then
 			if baseAbility:GetCooldownTimeRemaining() > 0 then
-				local newCD = baseAbility:GetCooldownTimeRemaining() - 0.1
+				local newCD = baseAbility:GetCooldownTimeRemaining() - DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK
 				baseAbility:EndCooldown()
 				baseAbility:StartCooldown(newCD)
 			end

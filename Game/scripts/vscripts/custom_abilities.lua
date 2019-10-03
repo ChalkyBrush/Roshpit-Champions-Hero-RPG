@@ -1,5 +1,5 @@
 require('heroes/nightstalker/chernobog_constants')
-require('/heroes/skywrath_mage/constants')
+require('/heroes/skywrath_mage/sephyr_constants')
 if CustomAbilities == nil then
 	CustomAbilities = class({})
 end
@@ -553,7 +553,7 @@ function CustomAbilities:Protostar(victim)
 	local glyphUnit = modifier:GetCaster()
 	local glyph = modifier:GetAbility()
 	glyph.liftVelocity = 1
-	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_solunia_glyph_5_a_cooldown", {duration = 18})
+	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_solunia_glyph_5_a_cooldown", {duration = SOLUNIA_GLYPH_5_A_CD})
 	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_soluna_protostar_lifting", {duration = 4})
 end
 
@@ -630,10 +630,10 @@ function CustomAbilities:SephyrBoomerang(caster, ability, enemy, bWindDeity)
 	local max_boomerangs = 1
 	local pucks = 1
 	if caster:HasModifier("modifier_sephyr_glyph_1_1") then
-		max_boomerangs = max_boomerangs + 1
+		max_boomerangs = max_boomerangs + SEPHYR_GLYPH_1_1_ADDITIONAL_E1_PUCK
 	end
 	if caster:HasModifier("modifier_sephyr_immortal_weapon_2") then
-		max_boomerangs = max_boomerangs + 3
+		max_boomerangs = max_boomerangs + SEPHYR_IMMORTAL_WEAPON_2_ADDITIONAL_E1_PUCKS
 		if not bWindDeity then
 			pucks = 2
 		end

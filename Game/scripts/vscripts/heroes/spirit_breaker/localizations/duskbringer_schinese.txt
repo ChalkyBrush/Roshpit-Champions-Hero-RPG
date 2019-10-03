@@ -248,41 +248,41 @@
 		"item_rpc_duskbringer_glyph_1_1_description" 				"当进入冥魂状态时，刷新一切技能冷却时间。（同样作用于友军）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"疼苦雕文"
-		"item_rpc_duskbringer_glyph_2_1_description" 				"被幽冥之井困住的敌人每秒增加3层的冥火伽 debuff。"
+		"item_rpc_duskbringer_glyph_2_1_description" 				"被幽冥之井困住的敌人每秒增加<% DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC %>层的冥火伽 debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_1"		"漫游雕文"
-		"item_rpc_duskbringer_glyph_3_1_description" 				"幻影步伐 buff 滞留时间延长，1秒提高至2秒。（最多可以停在原地两秒而buff不消失）"
+		"item_rpc_duskbringer_glyph_3_1_description" 				"幻影步伐 buff 滞留时间延长，1秒提高至<% DUSKBRINGER_GLYPH_3_1_INCR_DUR + 1 %>秒。（最多可以停在原地两秒而buff不消失）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_1"		"黄昏雕文"
 		"item_rpc_duskbringer_glyph_4_1_description" 				"被幽冥之井困住的敌人会被缴械。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_1"		"梦境雕文"
-		"item_rpc_duskbringer_glyph_5_1_description" 				"七重梦境添加 @glyph_property1 次额外攻击"
+		"item_rpc_duskbringer_glyph_5_1_description" 				"七重梦境添加 <% DUSKBRINGER_GLYPH_5_1_INCR_ATTS %> 次额外攻击"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_1"		"上弦雕文"
-		"item_rpc_duskbringer_glyph_6_1_description" 				"降低 螺旋枷 的冷却时间至 @glyph_property1 秒。"
+		"item_rpc_duskbringer_glyph_6_1_description" 				"降低 螺旋枷 的冷却时间至 <% DUSKBRINGER_GLYPH_6_1_CD %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_1"		"幻影雕文"
-		"item_rpc_duskbringer_glyph_7_1_description" 				"将幽灵冲刺替换为示威 - 将夜幕使者传送至目标点并对周围敌人施放虚实相生。同时提高虚实相生叠加 螺旋枷 的概率 @glyph_property1x。"
+		"item_rpc_duskbringer_glyph_7_1_description" 				"将幽灵冲刺替换为示威 - 将夜幕使者传送至目标点并对周围敌人施放虚实相生。同时提高虚实相生叠加 螺旋枷 的概率 <% DUSKBRINGER_GLYPH_7_1_MULT_STACKS %>x。"
 
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"阴郁沉默雕文"
-		"item_rpc_duskbringer_glyph_1_2_description" 				"被沉默时提高生命回复速度 @glyph_property1% 最大生命值每秒，持续 @glyph_property2 秒。"
+		"item_rpc_duskbringer_glyph_1_2_description" 				"被沉默时提高生命回复速度 <% DUSKBRINGER_GLYPH_1_2_HPREG %>% 最大生命值每秒，持续 <% DUSKBRINGER_GLYPH_1_2_BASE_DUR %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"空白燃烧雕文"
-		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 @glyph_property1 层 冥火枷的层数。（原来为 1 层）"
+		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 <% DUSKBRINGER_GLYPH_2_2_Q1_STACKS %> 层 冥火枷的层数。（原来为 1 层）"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_3_2"		"螺旋雕文"
-		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 @glyph_property1，但是其基础技能伤害降低 @glyph_property2%"
+		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 <% DUSKBRINGER_GLYPH_3_2_TICK_TIME_DECR %>，但是其基础技能伤害降低 <% DUSKBRINGER_GLYPH_3_2_DMG_DECR %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"畅游雕文"
-		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 @glyph_property1% ，最高叠加 @glyph_property2 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
+		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 <% DUSKBRINGER_GLYPH_4_2_RES_PER_STACK * 100 %>% ，最高叠加 <% DUSKBRINGER_GLYPH_4_2_MAX_STACKS %> 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"共享雕文"
-		"item_rpc_duskbringer_glyph_5_2_description" 				"攻击时，攻击目标 @glyph_property1 范围内的全部其他敌人也将叠加一层 冥火枷 的层数。"
+		"item_rpc_duskbringer_glyph_5_2_description" 				"攻击时，攻击目标 <% DUSKBRINGER_GLYPH_5_2_BASE_RADIUS %> 范围内的全部其他敌人也将叠加一层 冥火枷 的层数。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_6_2"		"盛怒雕文"
-		"item_rpc_duskbringer_glyph_6_2_description" 				"每 0.3秒 清除沉默和眩晕。"
+		"item_rpc_duskbringer_glyph_6_2_description" 				"每 <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %>秒 清除沉默和眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"魔鬼吞噬雕文"
 		"item_rpc_duskbringer_glyph_7_2_description" 				"直接装备伤害将获得 鬼元素 作为第二元素伤害。（不作用于基于 基础技能伤害 而造成伤害的装备）"
@@ -292,7 +292,7 @@
     	"DOTA_Tooltip_ability_manifestation_Description"			"元素： <font color=\"#9ACCD1\">鬼</font><br> 夜幕使者立即在目标点显现，对周围每个敌人施放虚实相生。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_a"		"甲骨文雕文"
-		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 @glyph_property1 秒。"
+		"item_rpc_duskbringer_glyph_5_a_description" 				"友军在冥魂状态结束时将不会死亡。起死回生效果冷却时间 <% DUSKBRINGER_GLYPH_5_a_CD %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_book"	"夜幕使者雕文书"
 		
@@ -318,8 +318,8 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_2"            "狱长骨的权杖"
         "item_property_duskbringer_immortal_weapon2"                             "颤栗"
-        "property_duskbringer_immortal_weapon2_description"                      "任何受到 @Ability2 伤害的敌人将被眩晕 @special_property1 秒。"
+        "property_duskbringer_immortal_weapon2_description"                      "任何受到 @Ability2 伤害的敌人将被眩晕 <% DUSKBRINGER_IMMORTAL_WEAPON_2_W_STUN %> 秒。"
 
         "DOTA_Tooltip_ability_item_rpc_duskbringer_immortal_weapon_3"            "碎颅锤"
         "item_property_duskbringer_immortal_weapon3"                             "骷髅锤"
-        "property_duskbringer_immortal_weapon3_description"                      "攻击有 @special_property1% 的概率眩晕敌人 @special_property2 秒，并且获得 @special_property3 层鬼灵护甲。"
+        "property_duskbringer_immortal_weapon3_description"                      "攻击有 <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_CHANCE %>% 的概率眩晕敌人 <% DUSKBRINGER_IMMORTAL_WEAPON_3_BASH_DURATION %> 秒，并且获得 <% DUSKBRINGER_IMMORTAL_WEAPON_3_E2_SHIELD_STACKS_PER_BASH %> 层鬼灵护甲。"

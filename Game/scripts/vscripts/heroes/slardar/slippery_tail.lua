@@ -141,7 +141,7 @@ function slippery_tail_think(event)
 			for i = 1, #enemies, 1 do
 				local enemy = enemies[i]
 				if not enemy:HasModifier("modifier_hydroxis_immortal_push") then
-					Filters:ApplyStun(caster, 1.2, enemy)
+					Filters:ApplyStun(caster, HYDROXIS_IMMORTAL_WEAPON_2_STUN_DURATION, enemy)
 					EmitSoundOn("Hydroxis.Immo2Impact", enemy)
 				end
 				if enemy.pushLock or enemy.jumpLock then

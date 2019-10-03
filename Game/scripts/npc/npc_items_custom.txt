@@ -22749,7 +22749,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%property_one"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "80"
 				}
 			}
 		}
@@ -30041,7 +30041,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "-8"
 				}
 			}
 		}
@@ -37651,7 +37651,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT" "1.2"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT" "1.2"
 				}
 			}
 		}
@@ -45244,7 +45244,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "20"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "1.1"
 				}
 			}
 			"modifier_rpc_yasha_buff"

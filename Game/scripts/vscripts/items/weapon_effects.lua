@@ -253,7 +253,7 @@ function auriun_immortal_2_think(event)
 	local caster = event.caster
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_immortal_weapon_2_insight", {})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_auriun_immortal_weapon_2_insight", caster) + 1, 2)
+	local newStacks = math.min(target:GetModifierStackCount("modifier_auriun_immortal_weapon_2_insight", caster) + 1, AURIUN_IMMO_WEAPON_2_MAX_STACKS)
 	target:SetModifierStackCount("modifier_auriun_immortal_weapon_2_insight", caster, newStacks)
 end
 
@@ -329,7 +329,7 @@ end
 function ekkan_immo2_gargoyle_attack_land(event)
 	local target = event.target
 	local attacker = event.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*EKKAN_IMMORTAL_WEAPON_2_FAMILIAR_PURE_UNDEAD_ATTACK_PCT/100
 	local source = attacker.hero
 	CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/immo2_gargoyle_hit.vpcf", target, 1.2)
 	Filters:ApplyItemDamage(target, source, damage, DAMAGE_TYPE_PURE, event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)

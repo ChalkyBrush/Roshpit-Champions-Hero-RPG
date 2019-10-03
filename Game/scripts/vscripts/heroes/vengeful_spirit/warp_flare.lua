@@ -67,7 +67,7 @@ function reactivateBoomerangAbility(abilityName, caster)
 		local ability = caster:FindAbilityByName(abilityName)
 		local maxBoomerangs = ability:GetSpecialValueFor("max_boomerangs")
 		if caster:HasModifier("modifier_solunia_glyph_1_1") then
-			maxBoomerangs = maxBoomerangs + 2
+			maxBoomerangs = maxBoomerangs + SOLUNIA_GLYPH_1_1_W_BLADES_ADDED
 		end
 		if ability.boomerangTable then
 			if #ability.boomerangTable < maxBoomerangs then
@@ -132,7 +132,7 @@ function end_warp_phase(caster, ability)
 	flareParticle(caster:GetAbsOrigin(), caster, ability)
 	local maxFlares = 3
 	if caster:HasModifier("modifier_solunia_glyph_7_1") then
-		maxFlares = maxFlares + 2
+		maxFlares = maxFlares + SOLUNIA_GLYPH_7_1_E_CASTS_ADDED
 	end
 	if ability.flareCount >= maxFlares then
 		end_warp_flare(ability, caster)
@@ -141,7 +141,7 @@ function end_warp_phase(caster, ability)
 		ability:EndCooldown()
 		local inBetweenTime = 2
 		if caster:HasModifier("modifier_solunia_glyph_4_1") then
-			inBetweenTime = inBetweenTime + 1.5
+			inBetweenTime = inBetweenTime + SOLUNIA_GLYPH_4_1_E_FLOATING_DURATION_ADDED
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_in_between_flare", {duration = inBetweenTime})
 	end
@@ -219,7 +219,7 @@ function end_warp_flare(ability, caster)
 	flareParticle(caster:GetAbsOrigin(), caster, ability)
 	local maxFlares = 3
 	if caster:HasModifier("modifier_solunia_glyph_7_1") then
-		maxFlares = maxFlares + 2
+		maxFlares = maxFlares + SOLUNIA_GLYPH_7_1_E_CASTS_ADDED
 	end
 	-- if ability.flareCount < maxFlares then
 	Filters:ReduceECooldown(caster, ability, ability:GetCooldown(ability:GetLevel()), true)

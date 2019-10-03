@@ -25,9 +25,9 @@ function prone_start(event)
 		local animDur = 0.37
 		local animRate = 1.6
 		if caster:HasModifier("modifier_slipfinn_glyph_4_1") then
-			delay = delay * SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
-			animDur = animDur * SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
-			animRate = animRate / SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT
+			delay = delay * (1-SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT)
+			animDur = animDur * (1-SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT)
+			animRate = animRate / (1-SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT)
 		end
 		if caster:HasModifier("modifier_slipfinn_bog_roller") then
 			StartAnimation(caster, {duration = animDur, activity = ACT_DOTA_OVERRIDE_ABILITY_2, rate = animRate})

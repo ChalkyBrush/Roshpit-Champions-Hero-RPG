@@ -73,7 +73,7 @@ function ogre_armor_take_damage(event)
 	end
 
 	local key = 'ogre_armor_cast'
-	Util.Common:LimitPerTimeAndPlace(2, 2, caster:GetAbsOrigin(), 500, key, function()
+	Util.Common:LimitPerTimeAndPlace(2, 2, caster:GetAbsOrigin(), 1100, key, function()
 		CustomAbilities:QuickAttachParticle("particles/neutral_fx/ogre_magi_frost_armor_b.vpcf", caster, 0.5)
 		EmitSoundOn("Winterblight.OgreShield.Launch", caster)
 		local fv = ((attacker:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()

@@ -100,7 +100,7 @@ function solarang_start(event)
 	caster:SetModifierStackCount("modifier_outgoing_solarang", caster, #ability.boomerangTable)
 	local max_boomerangs = event.max_boomerangs
 	if caster:HasModifier("modifier_solunia_glyph_1_1") then
-		max_boomerangs = max_boomerangs + 2
+		max_boomerangs = max_boomerangs + SOLUNIA_GLYPH_1_1_W_BLADES_ADDED
 	end
 	if #ability.boomerangTable >= max_boomerangs then
 		ability:SetActivated(false)
@@ -219,7 +219,7 @@ function reduceNapalmCooldown(caster, napalmName)
 		local ability = caster:FindAbilityByName(napalmName)
 		if ability then
 			if ability:GetCooldownTimeRemaining() > 0 then
-				local newCD = ability:GetCooldownTimeRemaining() - 2
+				local newCD = ability:GetCooldownTimeRemaining() - SOLUNIA_GLYPH_2_1_W_HIT_Q_CD_REDUCTION
 				if newCD > 0 then
 					ability:EndCooldown()
 					ability:StartCooldown(newCD)
@@ -352,7 +352,7 @@ function lunarang_start(event)
 	caster:SetModifierStackCount("modifier_outgoing_lunarang", caster, #ability.boomerangTable)
 	local max_boomerangs = event.max_boomerangs
 	if caster:HasModifier("modifier_solunia_glyph_1_1") then
-		max_boomerangs = max_boomerangs + 2
+		max_boomerangs = max_boomerangs + SOLUNIA_GLYPH_1_1_W_BLADES_ADDED
 	end
 	if #ability.boomerangTable >= max_boomerangs then
 		ability:SetActivated(false)
@@ -436,10 +436,10 @@ function immo_weapon_2_effect(caster, target)
 		ParticleManager:DestroyParticle(particle1, false)
 	end)
 	EmitSoundOn("Solunia.Cryoshock", target)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			caster.origCaster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = 1.5})
+			caster.origCaster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_DURATION})
 		end
 	end
 end

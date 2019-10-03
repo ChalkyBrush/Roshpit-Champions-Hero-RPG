@@ -509,7 +509,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_IMMO2_CD_RED * 100 %>"
+				"property_one"			"<% PALADIN_IMMORTAL_WEAPON_2_DISCIPLES_CD_RED * 100 %>"
 			}
 		}
 	}

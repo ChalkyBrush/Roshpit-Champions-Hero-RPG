@@ -17302,7 +17302,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_INVALID"
 		"AbilityCastRange"				"1000"
-		"AOERadius"						"500 530 560 590 620 650 680"
+		"AOERadius"						"550 600 650 700 750 800 850"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityChannelTime"			"4.5"
 
@@ -17316,7 +17316,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aoe_radius"		"500 530 560 590 620 650 680"
+				"aoe_radius"		"550 600 650 700 750 800 850"
 			}
 			"03"
 			{
@@ -17336,7 +17336,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"2"
 
 		// Cost
 		//-------------------------------------------------------
@@ -17500,7 +17500,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"1.5"
+		"AbilityCooldown"				"0.4"
 		"AbilityCastRange"				"2000"
 
 		// Cost
@@ -17632,7 +17632,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"120"
 			}
 		}
 	}
@@ -17654,7 +17654,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -17665,16 +17665,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two_base"		"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"10"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
 			}
 		}
 	}
@@ -17727,7 +17717,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"550"
 			}
 			"02"
 			{
@@ -17939,16 +17929,6 @@
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"TextureName"		"sorceress/sorceress_rune_q_2_arcana2"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/crystal_maiden/sun_lance"
-						"Function"		"ring_of_fire_burn"
-						"target"        "TARGET"
-					}
-				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-140"
@@ -19171,7 +19151,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"12000"
 			}
 			"02"
 			{
@@ -19501,7 +19481,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"8000"
 			}
 			"02"
 			{
@@ -19612,12 +19592,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"8000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"				"50000"
+				"property_one_base"				"80000"
 			}
 			"03"
 			{

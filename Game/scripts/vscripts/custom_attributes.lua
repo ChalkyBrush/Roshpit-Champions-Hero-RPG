@@ -7,9 +7,9 @@ require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
 require('/heroes/dark_seer/zhonik_constants')
-require('/heroes/hero_necrolyte/constants')
+require('/heroes/hero_necrolyte/venomort_constants')
 require('/heroes/nightstalker/chernobog_constants')
-require('/heroes/skywrath_mage/constants')
+require('/heroes/skywrath_mage/sephyr_constants')
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/winter_wyvern/dinath_constants")
@@ -85,7 +85,7 @@ CustomAttributes.TYRIUS_HEALTH = TYRIUS_HP_PER_STR
 CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
-CustomAttributes.PALADIN_IMMO_3_HEALTH = 12
+CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self

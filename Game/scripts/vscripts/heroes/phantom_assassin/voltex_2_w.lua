@@ -8,7 +8,7 @@ function voltex_static_onspellstart(event)
 	if caster:HasModifier("modifier_voltex_glyph_7_1") then
 		caster:SetMana(0)
 		ability:EndCooldown()
-		ability:StartCooldown(8)
+		ability:StartCooldown(VOLTEX_GLYPH_7_1_W_CD)
 		local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 		local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
@@ -84,7 +84,7 @@ function voltex_static_hit(event)
 	end
 	if caster:HasModifier("modifier_voltex_glyph_7_1") then
 		damage = damage * VOLTEX_GLYPH_7_1_DMG_MULT
-		Filters:ApplyStun(caster, 2.5, target)
+		Filters:ApplyStun(caster, VOLTEX_GLYPH_7_1_STUN_DURATION, target)
 	end
 
 	local w_1_level = caster:GetRuneValue("w", 1)

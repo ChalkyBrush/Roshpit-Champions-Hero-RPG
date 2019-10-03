@@ -278,7 +278,7 @@
 				"IsPurgable"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "70"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% PALADIN_GLYPH_6_1_MS_AURA %>"
 				}
 			}
 		}

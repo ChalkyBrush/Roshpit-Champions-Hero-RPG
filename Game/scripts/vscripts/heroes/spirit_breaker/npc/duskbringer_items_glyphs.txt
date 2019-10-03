@@ -600,7 +600,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"0.3"
+				"ThinkInterval"  	"<% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

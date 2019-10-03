@@ -12,14 +12,14 @@ require('items/special_item_effects')
 require('/heroes/omniknight/paladin_constants')
 require('/heroes/phantom_assassin/voltex_constants')
 require('/heroes/juggernaut/seinaru_constants')
-require('/heroes/lanaya/constants')
+require('/heroes/lanaya/trapper_constants')
 require('/heroes/leshrac/bahamut_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/spirit_breaker/duskbringer_constants')
 require('/heroes/zuus/auriun_constants')
 require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/faceless_void/omniro_constants')
-require('/heroes/skywrath_mage/constants')
+require('/heroes/skywrath_mage/sephyr_constants')
 require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/visage/ekkan_constants")
@@ -154,7 +154,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + 2
     end
     if caster:HasModifier("modifier_auriun_glyph_2_1") then
-        mult = mult + 3
+        mult = mult + AURIUN_GLYPH_2_1_ITEM_DAMAGE/100
     end
     if caster:HasModifier("modifier_excavators_focus_cap") then
         mult = mult + EXCAVATOR_ITEM_AMP_PER_INT/100 * (caster:GetIntellect() / EXCAVATOR_INT_DIVISOR)
@@ -451,7 +451,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = abilityCooldown - CDreduce
 
     if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
-        abilityCooldown = abilityCooldown * (1-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)
+        abilityCooldown = abilityCooldown * (100-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)/100
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
         if caster:GetHealth() <= caster:GetMaxHealth() * BLOODSTONE_BOOTS_HP_THRESHOLD/100 then
@@ -856,7 +856,7 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = baseCd * (1-TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT)
+        baseCd = baseCd * (100-TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT)/100
         ability:EndCooldown()
 
         ability:StartCooldown(baseCd)
@@ -1025,7 +1025,7 @@ function Filters:ApplyWskills(caster)
                 EmitSoundOn("Auriun.Immo3Activate", caster)
             end
             caster:RemoveModifierByName("modifier_auriun_immortal_weapon_3_effect")
-            caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auriun_immortal_weapon_3_effect", {duration = 10})
+            caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auriun_immortal_weapon_3_effect", {duration = AURIUN_IMMO_WEAPON_3_DURATION})
         end
     end
     if caster:HasModifier("modifier_windsteel_armor") then
@@ -1438,7 +1438,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.9
         end
         if attacker:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
-            damageMult = damageMult + 2
+            damageMult = damageMult + AURIUN_IMMO_WEAPON_3_BAD/100
         end
         if attacker:HasModifier("modifier_hawk_c_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_hawk_c_d", attacker)
@@ -1566,7 +1566,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_duskbringer_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
-                Filters:ApplyStun(attacker, 0.8, victim)
+                Filters:ApplyStun(attacker, DUSKBRINGER_IMMORTAL_WEAPON_2_W_STUN, victim)
             end
         end
         if attacker:HasModifier("modifier_redfall_runners_buff") or attacker:HasModifier("modifier_redfall_runners_hidden_buff") then
@@ -1982,7 +1982,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
         local fireMult = 0
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            fireMult = fireMult + 10
+            fireMult = fireMult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_dragon_knight" then
             if attacker.r_4_level then
@@ -2004,15 +2004,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
                 fireMult = fireMult + stacks * 0.2
-            end
-            if victim:HasModifier("modifier_ring_of_fire_burn") then
-                if bIsRealDamage then
-                    if victim.ringOfFireTick then
-                        victim.ringOfFireTick = false
-                    else
-                        victim.ringOfFireBurn = victim.ringOfFireBurn + damage * 0.35
-                    end
-                end
             end
         end
         if attacker:HasModifier("modifier_flametongue") then
@@ -2162,7 +2153,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_LIGHTNING or element2 == RPC_ELEMENT_LIGHTNING then
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            mult = mult + 10
+            mult = mult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_phantom_assassin" then
             if attacker:HasAbility("voltex_azure_leap") or attacker:HasAbility("voltex_rune_e_3_heavens_charge") then
@@ -2336,7 +2327,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         local cosmosMult = 0
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            cosmosMult = cosmosMult + 10
+            cosmosMult = cosmosMult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_drow_ranger" then
             cosmosMult = cosmosMult + 0.0007 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
@@ -2398,7 +2389,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_ICE or element2 == RPC_ELEMENT_ICE then
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
-            mult = mult + 10
+            mult = mult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker:HasAbility("blizzard") then
@@ -4178,8 +4169,8 @@ end
 function Filters:AuriunImmortalWeapon1(damage, victim)
     if not victim:HasModifier("modifier_auriun_immortal_weapon_1_cooldown") then
         damage = 0
-        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_weapon_1_cooldown", {duration = 4})
-        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_phased", {duration = 1.5})
+        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_weapon_1_cooldown", {duration = AURIUN_IMMO_WEAPON_1_CD})
+        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_phased", {duration = AURIUN_IMMO_WEAPON_1_DURATION})
     end
     return damage
 end
@@ -4533,7 +4524,22 @@ function Filters:IsIceFrozen(target)
 end
 
 function Filters:IsFireBurning(target)
-    if target:HasModifier("modifier_pyroblast_ignite") or target:HasModifier("modifier_fulminating_burn_effect") or target:HasModifier("modifier_flametongue_a_a_rune") or target:HasModifier("modifier_solunia_solar_burn") or target:HasModifier("modifier_on_fire_effect") or target:HasModifier("ruby_dragon_burn") or target:HasModifier("modifier_infernal_prison_effect_from_attack") or target:HasModifier("modifier_infernal_prison_nearby") or target:HasModifier("fire_walker_aura") or target:HasModifier("scorched_earth_aura") or target:HasModifier("modifier_ring_of_fire_burn") or target:HasModifier("modifier_sun_lance_burn") or target:HasModifier("modifier_jex_cipher_bolt_burn") or target:HasModifier("modifier_w_fire_fire_as_slow") or target:HasModifier("modifier_jex_e_fire_fire_burn") or target:HasModifier("modifier_cinderbark_burning") then
+    if target:HasModifier("modifier_pyroblast_ignite") or
+            target:HasModifier("modifier_fulminating_burn_effect") or
+            target:HasModifier("modifier_flametongue_a_a_rune") or
+            target:HasModifier("modifier_solunia_solar_burn") or
+            target:HasModifier("modifier_on_fire_effect") or
+            target:HasModifier("ruby_dragon_burn") or
+            target:HasModifier("modifier_infernal_prison_effect_from_attack") or
+            target:HasModifier("modifier_infernal_prison_nearby") or
+            target:HasModifier("fire_walker_aura") or
+            target:HasModifier("scorched_earth_aura") or
+            target:HasModifier("modifier_ring_of_fire_burn") or
+            target:HasModifier("modifier_sun_lance_burn") or
+            target:HasModifier("modifier_jex_cipher_bolt_burn") or
+            target:HasModifier("modifier_w_fire_fire_as_slow") or
+            target:HasModifier("modifier_jex_e_fire_fire_burn") or
+            target:HasModifier("modifier_cinderbark_burning") then
         return true
     else
         return false

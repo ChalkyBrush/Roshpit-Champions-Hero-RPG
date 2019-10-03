@@ -196,7 +196,7 @@ function dominion_unit_think(event)
 		local leashDistance = 2000
 		local distanceModification = 0
 		if caster:HasModifier("modifier_ekkan_glyph_5_a") then
-			distanceModification = 1000
+			distanceModification = EKKAN_GLYPH_5_A_LEASH_RANGE_INCREASE
 		end
 		leashDistance = leashDistance + distanceModification
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())

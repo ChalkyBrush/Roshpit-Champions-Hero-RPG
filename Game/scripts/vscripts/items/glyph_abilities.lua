@@ -119,7 +119,7 @@ function voltex_glyph_4_1_trigger(event)
 	else
 		local ability = event.ability
 		local caster = ability.hero
-		for i = 1, 9, 1 do
+		for i = 1, VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS, 1 do
 			local fv = RandomVector(1)
 			local projectileParticle = "particles/econ/items/zeus/lightning_weapon_fx/linear_electric_immortal_lightning.vpcf"
 			local projectileOrigin = caster:GetAbsOrigin() + fv * 10
@@ -155,7 +155,7 @@ end
 function voltex_glyph_4_1_strike(event)
 	local target = event.target
 	local caster = event.ability.hero
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 2
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * VOLTEX_GLYPH_4_1_ATTACK_TO_DMG
 	local sound = "Hero_Zuus.ArcLightning.Target"
 	EmitSoundOn(sound, target)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
@@ -265,7 +265,7 @@ function paladin_glyph_7_1_attack(event)
 		attacker:RemoveModifierByName("modifier_paladin_glyph_7_1_immunity")
 	else
 		local luck = RandomInt(1, 10)
-		if luck <= 4 then
+		if luck <= PALADIN_GLYPH_7_1_ZEAL_CHANCE_DIV_BY_10 then
 			StartAnimation(attacker, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.5})
 			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, attacker:Script_GetAttackRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then

@@ -1,14 +1,14 @@
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_hurricane"					"飓风"
-		"property_hurricane_description"			"当你引导完 @Ability4 后，向四面八方扩散一圈风暴伤害敌人并使他们减少攻击和移动速度150持续5秒。伤害公式为 10*(英雄等级/120)*(1800-施法者与敌人的距离)^3"
+		"property_hurricane_description"			"当你引导完 @Ability4 后，向四面八方扩散一圈风暴伤害敌人并使他们减少攻击和移动速度<% HURRICANE_VEST_ATT_SPD_REDUCE %>/<% HURRICANE_VEST_MSP_REDUCE %>持续<% HURRICANE_VEST_SLOW_DUR %>秒。伤害公式为 <% HURRICANE_VEST_DMG_AMP %>*(英雄等级/120)*(<% HURRICANE_VEST_MAX_DISTANCE %>-施法者与敌人的距离)^<% HURRICANE_VEST_DMG_EXP_SCALE %>"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"被强风所牵引"
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"男爵风暴装甲"
 		"item_property_baron_storm"								"风暴链接"
-		"property_baron_storm_description"						"对伤害你的敌人释放电弧，造成5倍总攻击力的伤害，并弹射至附近最多6个敌人。被电击的敌人对玩家造成的伤害减少85%，持续五秒。电弧具有0.1秒的冷却时间"
+		"property_baron_storm_description"						"对伤害你的敌人释放电弧，造成<% BARON_STORM_DMG_PER_ATT %>x倍总攻击力的伤害，并弹射至附近最多<% BARON_STORM_MAX_TARGETS %>个敌人。被电击的敌人对玩家造成的伤害减少<% BARON_STORM_DMG_RESISTANCE * 100 %>%，持续<% BARON_STORM_DUR%>秒。电弧具有<% BARON_STORM_COOLDOWN %>秒的冷却时间"
 		"DOTA_Tooltip_modifier_baron_storm_link"				"风暴链接"
 		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"对所连接的目标造成的伤害减少"
 		
@@ -21,31 +21,31 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"洪水法袍"
 		"item_property_flooding_3"					"水元素"
-		"property_flooding_description_3"			"当你引导完 @Ability4 后，召唤一个水元素，持续12秒。水元素每次攻击将为你回复5%的最大魔法值。攻击造成35x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。<br>所有水元素所造成的伤害都计算为 @Ability4 的基础技能伤害。"
+		"property_flooding_description_3"			"当你引导完 @Ability4 后，召唤一个水元素，持续<% ROBE_OF_FLOODING_DURATION %>秒。水元素每次攻击将为你回复<% ROBE_OF_FLOODING_MANA_RESTORE_PCT %>%的最大魔法值。攻击造成<% ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。<br>所有水元素所造成的伤害都计算为 @Ability4 的基础技能伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"崩裂板甲"
 		"item_property_avalanche_2"					"山裂"
-		"property_avalanche_description_2"			"释放 @Ability4 技能后将在400码范围内引发一场地震，每0.2秒造成 @special_property1x 力量的伤害并晕眩敌人0.1秒。当每个敌人被击中20次时，将在600码范围内引发一场更大的地震，<br>造成 @special_property2x 力量的伤害并且眩晕敌人1.6秒。<br>每10点力量提高装备伤害 @special_property3%。该装备无法重铸。"
+		"property_avalanche_description_2"			"释放 @Ability4 技能后将在<% AVALANCHE_PLATE_AVALANCHE_RADIUS %>码范围内引发一场地震，每<% AVALANCHE_PLATE_AVALANCHE_INTERVAL %>秒造成 <% AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x 力量的伤害并晕眩敌人<% AVALANCHE_PLATE_STUN_DUR %>秒。当每个敌人被击中<% AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD %>次时，将在<% AVALANCHE_PLATE_EARTHQUAKE_RADIUS %>码范围内引发一场更大的地震，<br>造成 <% AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG %>x 力量的伤害并且眩晕敌人<% AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR %>秒。<br>每<% AVALANCHE_PLATE_STR_DIVISOR %>点力量提高装备伤害 <% AVALANCHE_PLATE_ITEM_AMP_PER_STR %>%。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"紫罗兰卫士之甲"
 		"item_property_violet_guard_armor2"			"紫罗兰征服者"
-		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害350%。每0.1%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续6秒。不能将敌人的护甲值降低至0点以下。"
+		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害<% VIOLET_GUARD_ARMOR_BAD %>%。每<% VIOLET_GUARD_ARMOR_DAMAGE_TO_ARMOR_REDUCTION * 100 %>%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续<% VIOLET_GUARD_ARMOR_DURATION %>秒。不能将敌人的护甲值降低至0点以下。"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"紫罗兰征服"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"护甲值降低"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"天使之袍"
 		"item_property_seraphic_soulvest"			"天使之矛"
-		"property_seraphic_soulvest_description"	"每次施放 @Ability2 时将发射一支光矛，对1400码随机一个目标发射光矛。<br>光矛造成 @Ability2 技能等级*50%倍当前攻击力的伤害。"
+		"property_seraphic_soulvest_description"	"每次施放 @Ability2 时将发射一支光矛，对1400码随机一个目标发射光矛。<br>光矛造成 @Ability2 技能等级*<% SERAPHIC_SOULVEST_ATTACK_TO_DMG %>%倍当前攻击力的伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
 		"item_property_watcher_one"					"守望者 I"
-		"property_watcher_one_description"			"每次施放 @Ability1 有25%几率刷新 @Ability4 的冷却时间。"
+		"property_watcher_one_description"			"每次施放 @Ability1 有<% WATCHER_I_REFRESH_CHANCE %>%几率刷新 @Ability4 的冷却时间。"
 		"item_property_watcher_two"					"守望者 II"
-		"property_watcher_two_description"			"提高所有基础技能伤害15%。"
+		"property_watcher_two_description"			"提高所有基础技能伤害<% WATCHER_II_BAD %>%。"
 		"item_property_watcher_three"				"守望者 III"
 		"property_watcher_three_description"		"提高 @Ability2 伤害35%。"
 		"item_property_watcher_four"				"守望者 IV"
@@ -54,12 +54,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"巫师法袍"
 		"item_property_sorcerers_regalia"			"束缚"
-		"property_sorcerers_regalia_description"	"提高玩家所有的魔法输出40%。"
+		"property_sorcerers_regalia_description"	"提高玩家所有的魔法输出<% SORCERERS_REGALIA_MAGIC_POST_MITI %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"射咒者大衣"
 		"item_property_spellslinger_coat"			"射咒者"
-		"property_spellslinger_coat_description"	"施放 @Ability2 回复 @special_property1% 该技能的耗蓝量，并且提高 @Ablity2 基础技能伤害 100%。"
+		"property_spellslinger_coat_description"	"施放 @Ability2 回复 <% SPELLSLINGER_MANA_RESTORE %>% 该技能的耗蓝量，并且提高 @Ablity2 基础技能伤害 <% SPELLSLINGER_BAD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"末日板甲"
@@ -73,67 +73,67 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"冰刺甲"
 		"item_property_ice_quill"					"冰刺"
-		"property_ice_quill_description"			"每消耗 600 点魔法，获得一层 冰刺 层数。当玩家释放技能或者使用物品时，将释放所有的 冰刺 层数，每 0.1秒 释放一次冰刺并消耗一层层数。每次释放冰刺 回复 1% 的最大魔法值，并且在 460码 范围内造成 4x 攻击力的 AOE 伤害。持续释放冰刺的过程中，将不会触发下一次冰刺释放。"
+		"property_ice_quill_description"			"每消耗 <% ICE_QUILL_MANA_THRESHOLD %> 点魔法，获得一层 冰刺 层数。当玩家释放技能或者使用物品时，将释放所有的 冰刺 层数，每 <% ICE_QUILL_INTERVAL %>秒 释放一次冰刺并消耗一层层数。每次释放冰刺 回复 <% ICE_QUILL_MANA_RESTORE_PCT %>% 的最大魔法值，并且在 <% ICE_QUILL_RADIUS %>码 范围内造成 <% ICE_QUILL_ATTACK_TO_DMG %>x 攻击力的 AOE 伤害。持续释放冰刺的过程中，将不会触发下一次冰刺释放。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"白羽袍"
 		"item_property_featherwhite_armor"			"狮鹫牙"
-		"property_featherwhite_armor_description"	"一个狮鹫将一直跟随你，每秒为你和附近友军回复 @special_property1% 最大生命值，并且在光环内玩家和友军所受到的魔法和纯粹伤害将被减免 @special_property2%。狮鹫拥有高空视野。"
+		"property_featherwhite_armor_description"	"一个狮鹫将一直跟随你，每秒为你和附近友军回复 <% FEATHERWHITE_HEAL_OF_MAX_HP %>% 最大生命值，并且在光环内玩家和友军所受到的魔法和纯粹伤害将被减免 <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%。狮鹫拥有高空视野。"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"狮鹫牙光环"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"所受到的魔法和纯粹伤害减免 %property_two%%%"
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"所受到的魔法和纯粹伤害减免 <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"龙仪外衣"
 		"item_property_dragon_ceremony"				"礼仪兽"
-		"property_dragon_ceremony_description"		"一个礼仪兽将一直跟随你，每0.8秒发动一次攻击，对最多12个敌人造成12倍主属性的伤害。"
+		"property_dragon_ceremony_description"		"一个礼仪兽将一直跟随你，每<% DRAGON_CEREMONY_INTERVAL %>秒发动一次攻击，对最多<% DRAGON_CEREMONY_NUMBER_OF_ENEMIES %>个敌人造成<% DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG %>倍主属性的伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"神秘寺庙袈裟"
 		"item_property_secret_temple"				"折射"
-		"property_secret_temple_description"		"施放 @Ability4 后，获得护盾抵挡7次伤害。当护盾存在时普通攻击造成2倍伤害。（可以理解为基础攻击力x2）"
+		"property_secret_temple_description"		"施放 @Ability4 后，获得护盾抵挡<% SECRET_TEMPLE_SHIELDS %>次伤害。当护盾存在时普通攻击造成2倍伤害。（可以理解为基础攻击力x2）"
 		"DOTA_Tooltip_modifier_secret_temple_refraction"				"折射"
 		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"抵挡伤害，普通攻击造成2倍伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"吸血鬼胸甲"
 		"item_property_vampiric_breastplate"		"吸血鬼之心"
-		"property_varmpiric_breastplate_description" "@Ability1 拥有 30% 吸血。"
+		"property_varmpiric_breastplate_description" "@Ability1 拥有 <% VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% 吸血。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"黑魔法外套"
 		"item_property_dark_arts"					"黑暗领域"
-		"property_dark_arts_description"			"提高敏捷值，提高值为玩家智力值的 80% 。"
+		"property_dark_arts_description"			"提高敏捷值，提高值为玩家智力值的 <% DARK_ARTS_INT_TO_AGI * 100 %>% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"军团大衣"
 		"item_property_legion_vestments"			"军团命令"
-		"property_legion_vestments_description"		"提高你的力量、敏捷和智力值30%。"
+		"property_legion_vestments_description"		"提高你的力量、敏捷和智力值<% LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"梦魇骑士护肩"
 		"item_property_nightmare_rider"				"暗影融合"
-		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度40%、当前护甲值80%、同时加深敌人所受到受到的伤害 600% （伤害加深计算在减伤之后），持续10秒。<br>每次攻击时获得一层buff，提高暗影融合的范围100码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 300%。"
+		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度<% NIGHTMARE_RIDER_SLOW %>%、当前护甲值<% NIGHTMARE_RIDER_ARMOR_REDUCTION %>%、同时加深敌人所受到受到的伤害 <% NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF %>% （伤害加深计算在减伤之后），持续<% NIGHTMARE_RIDER_DEBUFF_DURATION %>秒。<br>每次攻击时获得一层buff，提高暗影融合的范围<% NIGHTMARE_RIDER_RADIUS_INCREASE %>码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE %>%。"
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"夜魇层数"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围100，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 300%%。"
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围100，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE %>%%。"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"暗影融合"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"移动速度和护甲值降低，并且伤害加深提高。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"宇航服"
 		"item_property_space_tech"					"重力扭曲"
-		"property_space_tech_description"			"当你引导 @Ability4 时，周围敌人的攻击速度减少160，移动速度减少50%，持续7秒。同时每0.3秒增加35%的攻击力。"
+		"property_space_tech_description"			"当你引导 @Ability4 时，周围敌人的攻击速度减少<% SPACE_TECH_AS_SLOW %>，移动速度减少<% SPACE_TECH_MS_SLOW %>%，持续<% SPACE_TECH_DURATION %>秒。同时每<% SPACE_TECH_GAIN_INTERVAL %>秒增加<% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>%的攻击力。"
 		"DOTA_Tooltip_modifier_space_tech_buff"					"重力扭曲"
 		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"攻击力提高"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"风暴披风"
 		"item_property_stormshield"					"风暴披风"
-		"property_stormshield_description"			"降低受到的所有物理伤害50%。"
+		"property_stormshield_description"			"降低受到的所有物理伤害<% STORMSHIELD_PHYS_REDUCTION * 100 %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"镀金魂甲"
 		"item_property_gilded_soul"					"汲取灵魂"
-		"property_gilded_soul_description"			"每杀死一个敌人为你和附近友军回复15%最大生命值的生命，并获得 @special_property2 秒的魔法免疫。每个汲取的灵魂将提高玩家 @special_property1% 的攻击力，并且提高玩家所有 <font color=\"#F6FFB5\">圣</font> 元素伤害 @special_property3% ，持续8秒，最高叠加100层。每次持续时间结束时，只减少一层buff。"
+		"property_gilded_soul_description"			"每杀死一个敌人为你和附近友军回复<% GILDED_SOUL_CAGE_HEAL_PCT %>%最大生命值的生命，并获得 <% GILDED_SOUL_CAGE_MAGIC_IMMUNITY_DURATION %> 秒的魔法免疫。每个汲取的灵魂将提高玩家 <% GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE %>% 的攻击力，并且提高玩家所有 <font color=\"#F6FFB5\">圣</font> 元素伤害 <% GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>% ，持续8秒，最高叠加<% GILDED_SOUL_CAGE_MAX_STACKS %>层。每次持续时间结束时，只减少一层buff。"
 		"DOTA_Tooltip_modifier_gilded_soul_buff"				"镀金魂甲"
 		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"提高攻击力和圣元素伤害"
 		"DOTA_Tooltip_modifier_gilded_soul_immunity" "镀金魂甲魔法免疫"
@@ -146,7 +146,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"隐士披风"
 		"item_property_hermit_spike_shell"			"飞舞羽毛"
-		"property_hermit_spike_shell_description"	"当玩家累计受到伤害达到 15% 最大生命值时，发射羽毛对周围所有敌人造成 30倍 所受累计伤害值的物理伤害。"
+		"property_hermit_spike_shell_description"	"当玩家累计受到伤害达到 <% HERMIT_SPIKE_THRESHOLD %>% 最大生命值时，发射羽毛对周围所有敌人造成 <% HERMIT_SPIKE_DAMAGE_OF_DAMAGE_TAKEN %>倍 所受累计伤害值的物理伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"地狱牢笼"
@@ -156,26 +156,26 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"魔日披肩"
 		"item_property_enchanted_solar"				"耀斑"
-		"property_enchanted_solar_description"		"受到任何魔法或纯粹伤害提高玩家基础技能伤害和元素伤害 400% ，持续15秒。"
+		"property_enchanted_solar_description"		"受到任何魔法或纯粹伤害提高玩家基础技能伤害和元素伤害 <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% ，持续<% SOLAR_CAPE_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"耀斑"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高400%"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高<% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"海洋风暴披肩"
 		"item_property_ocean_tempest"				"潮汐风暴"
-		"property_ocean_tempest_description"		"引导 @Ability4 时每秒汲取你40% 最大魔法值，每汲取100点魔法值，提高 @Ability4 的伤害1.5%。"
+		"property_ocean_tempest_description"		"引导 @Ability4 时每秒汲取你<% OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND %>% 最大魔法值，每汲取<% OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD %>点魔法值，提高 @Ability4 的伤害<% OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"天辉皮甲"
 		"item_property_radiant_ruins"				"耐久光环"
-		"property_radiant_ruins_description"		"提高你及附近所有友军的攻击速度120点和移动速度70点。"
+		"property_radiant_ruins_description"		"提高你及附近所有友军的攻击速度<% RADIANT_RUINS_LEATHER_AS %>点和移动速度<% RADIANT_RUINS_LEATHER_MS %>点。"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "耐久光环"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"攻击速度提高"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"暮光大衣"
 		"item_property_twilight_vestments"			"金鳞开"
-		"property_twilight_vestments_description"	"当某个单次伤害超过你最大生命值的20% 时，0.05秒后你将回复一定量生命值，回复量为该次伤害值的75%。"
+		"property_twilight_vestments_description"	"当某个单次伤害超过你最大生命值的<% TWILIGHT_VESTMENT_HP_THRESHOLD %>% 时，<% TWILIGHT_VESTMENT_DELAY %>秒后你将回复一定量生命值，回复量为该次伤害值的<% TWILIGHT_VESTMENT_HEAL_PCT %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"夜行衣"
@@ -183,9 +183,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"猎风铠甲"
 		"item_property_windsteel_armor"				"狂风守护"
-		"property_windsteel_armor_description"		"施放 @Ability2 可获得护盾抵挡该技能等级次数的伤害，并提高50% 闪避和100点移动速度，持续 @special_property1 秒。冷却时间 @special_property2 秒。"
+		"property_windsteel_armor_description"		"施放 @Ability2 可获得护盾抵挡该技能等级次数的伤害，并提高<% WINDSTEEL_EVASION %>% 闪避和<% WINDSTEEL_MOVESPEED %>点移动速度，持续 <% WINDSTEEL_DURATION %> 秒。冷却时间 <% WINDSTEEL_COOLDOWN %> 秒。"
 		"DOTA_Tooltip_modifier_windsteel_effect"	"狂风守护"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"每层抵挡一次伤害。同时提高50% 闪避和100点移动速度。"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"每层抵挡一次伤害。同时提高50% 闪避和<% WINDSTEEL_MOVESPEED %>点移动速度。"
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"狂风守护冷却中"
 		
 		
@@ -199,14 +199,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"熔炉板甲"
 		"item_property_skyforge"							"迷乱光环"
-		"property_skyforge_description"						"降低附近所有敌人的伤害输出 30% 。"
+		"property_skyforge_description"						"降低附近所有敌人的伤害输出 <% SKYFORGE_DMG_REDUCTION %>% 。"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"迷乱光环"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"伤害输出降低30%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"剑刃风暴背心"
 		"item_property_bladestorm_vest"							"剑刃风暴"
-		"property_bladestorm_vest_description"					"攻击一个敌人10次获得1层剑刃风暴，每层剑刃风暴提高攻击力 @special_property1%，并且使敌人受到的伤害加深 @special_property2%。（计算在敌人减伤之后）<br>施放任意技能消耗1层。最高3层。"
+		"property_bladestorm_vest_description"					"攻击一个敌人<% BLADESTORM_NUMBER_OF_ATTACKS %>次获得1层剑刃风暴，每层剑刃风暴提高攻击力 <% BLADESTORM_BONUS_ATTACK_DMG %>%，并且使敌人受到的伤害加深 <% BLADESTORM_POST_MITI %>%。（计算在敌人减伤之后）<br>施放任意技能消耗1层。最高<% BLADESTORM_MAX_STACKS %>层。"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"剑刃风暴"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"提高攻击力和基础技能伤害"
 		
@@ -220,56 +220,56 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"绝顶披风"
 		"item_property_depth_crest"						"粉碎"
-		 "property_depth_crest_description"					"受到攻击时，有 @special_property1% 的概率眩晕周围的所有敌人，造成 @special_property2x 力量值 + @special_property3x 护甲值的伤害。当敌人被眩晕时，每 10 点力量值提高装备伤害 @special_property4%。"
+		 "property_depth_crest_description"					"受到攻击时，有 <% DEPTH_CREST_ARMOR_CHANCE %>% 的概率眩晕周围的所有敌人，造成 <% DEPTH_CREST_ARMOR_STR_TO_DMG %>x 力量值 + <% DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>x 护甲值的伤害。当敌人被眩晕时，每 <% DEPTH_CREST_ARMOR_STR_DIVISOR %> 点力量值提高装备伤害 <% DEPTH_CREST_ARMOR_ITEM_AMP %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"熔岩板甲"
 		"item_property_terrasic_stone"						"岩浆喷涌"
-		 "property_terrasic_stone_description"				"对眩晕的目标造成 200% 的伤害加深。（计算在敌人减伤之后）"
+		 "property_terrasic_stone_description"				"对眩晕的目标造成 <% TERRASIC_STONE_PLATE_POST_MITI %>% 的伤害加深。（计算在敌人减伤之后）"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"水法师长袍"
 		"item_property_watermage"							"高压水泵"
-		"property_watermage_description"					"当你引导 @Ability4 时，360度喷射水浪，每股水浪造成7x攻击力或30x智力值（较大值）的魔法伤害。同时降低敌人移动速度50%。被减速的敌人受到来自施法者的伤害将加深 100% （计算在敌人减伤之后）"
+		"property_watermage_description"					"当你引导 @Ability4 时，360度喷射水浪，每股水浪造成% WATER_MAGE_ROBES_ATTACK_TO_DMG %>x攻击力或<% WATER_MAGE_ROBES_INT_TO_DMG %>x智力值（较大值）的魔法伤害。同时降低敌人移动速度<% WATER_MAGE_ROBES_MS_SLOW %>%。被减速的敌人受到来自施法者的伤害将加深 <% WATER_MAGE_ROBES_POST_MITI_AMP %>% （计算在敌人减伤之后）"
 		"DOTA_Tooltip_modifier_water_mage_slow"			"高压水泵"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"移动速度降低"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"黄金战甲"
 		"item_property_gold_war_plate"						"英雄气概"
-		"property_gold_war_plate_description"				"提高造成的所有物理伤害 @special_property1%，同时降低造成的所有魔法伤害 65%。"
+		"property_gold_war_plate_description"				"提高造成的所有物理伤害 <% GOLDEN_WARPLATE_PHYS_POST_MITI_AMP %>%，同时降低造成的所有魔法伤害 <% GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"里昂的金色板甲"
 		"item_property_gold_plate_of_leon"						"无畏英雄"
-		"property_gold_plate_of_leon_description"				"提高你的主属性50%。"
+		"property_gold_plate_of_leon_description"				"提高你的主属性<% GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"骑士破坏之甲"
 		"item_property_knight_crusher"						"过载力量"
-		"property_knight_crusher_description"				"增加所有眩晕技能的眩晕时间 50%，当玩家受到多次连续眩晕时，所受到的眩晕时间减少50%。"
+		"property_knight_crusher_description"				"增加所有眩晕技能的眩晕时间 <% STAGGERING_KNIGHT_CRUSHER_STUN_DURATION_INCREASE %>%，当玩家受到多次连续眩晕时，所受到的眩晕时间减少<% STAGGERING_KNIGHT_CRUSHER_STUN_IMMUNITY_COUNTER_DECREASE %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"蓝宝石龙鳞铠甲"
 		"item_property_sapphire_dragon"					"蓝龙"
-		"property_sapphire_dragon_description"				"每点智力值增加 @special_property1 攻击力和 @special_property2 护甲值。"
+		"property_sapphire_dragon_description"				"每点智力值增加 <% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %> 攻击力和 <% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %> 护甲值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"红宝石龙鳞铠甲"
 		"item_property_ruby_dragon_armor"					"红龙"
-		"property_ruby_dragon_armor_description"			"每点力量值增加 @special_property1 攻击力和 @special_property2 护甲值。"
+		"property_ruby_dragon_armor_description"			"每点力量值增加 <% RUBY_DRAGON_SCALE_ATTACK_PER_STR %> 攻击力和 <% RUBY_DRAGON_SCALE_ARMOR_PER_STR %> 护甲值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"黄玉龙鳞铠甲"
 		"item_property_topaz_dragon"						"黄龙"
-		"property_topaz_dragon_description"				"每点敏捷值增加 @special_property1 攻击力和 @special_property2 护甲值。"
+		"property_topaz_dragon_description"				"每点敏捷值增加 <% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %> 攻击力和 <% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %> 护甲值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"神圣审判护甲"
 		"item_property_sacred_trials"						"战争的审判"
-		"property_sacred_trials_description"				"施放 @Ability2 时，使玩家拥有一个buff，下一次的普通攻击将造成 @special_property1% 攻击力的魔法AOE伤害。"
+		"property_sacred_trials_description"				"施放 @Ability2 时，使玩家拥有一个buff，下一次的普通攻击将造成 <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% 攻击力的魔法AOE伤害。"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"战争的审判"
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"使你下次攻击造成 %property_one%%% 的魔法AOE伤害"
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"使你下次攻击造成 <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% 的魔法AOE伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"英勇征服者的法衣"
@@ -277,74 +277,74 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"费奥南的守卫"
 		"item_property_guard_of_feronia"						"黎明之盾"
-		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续1.5秒的护盾，施放 @Ability4 创造一个持续3.5秒的护盾，拥有护盾时95%伤害减免。"
+		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续<% GUARD_OF_FERONIA_SHIELD_DURATION_E %>秒的护盾，施放 @Ability4 创造一个持续<% GUARD_OF_FERONIA_SHIELD_DURATION_R %>秒的护盾，拥有护盾时<% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>伤害减免。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"神秘的魔法墙"
 		"item_property_mystic_mana_wall"						"魔法防御"
-		"property_mystic_mana_wall_description"				"所有魔法或纯粹的伤害减少75%，并且从魔法值减少而不是生命值。如果有足够的魔法值，每30点魔法值增加一点护甲。"
+		"property_mystic_mana_wall_description"				"所有魔法或纯粹的伤害减少<% MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>%，并且从魔法值减少而不是生命值。如果有足够的魔法值，每<% MYSTIC_MANA_WALL_MANA_TO_ARMOR %>点魔法值增加一点护甲。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"硃砂色的梦幻长袍"
 		"item_property_vermillion_dream_robes"					"夜光"
-		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 @special_property1 。"
+		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 <% VERMILLION_DREAM_CAST_RANGE_INCREASE %> 。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"远古风之甲"
 		"item_property_tanari_wind_armor"						"和风"
-		"property_tanari_wind_armor_description"				"500码范围内的敌人移动速度降低 80% ，攻击速度降低 100 ，并且攻击有 30% 几率丢失。"
+		"property_tanari_wind_armor_description"				"<% ANCIENT_TANARI_WIND_RADIUS %>码范围内的敌人移动速度降低 <% ANCIENT_TANARI_WIND_MISS_CHANCE %>% ，攻击速度降低 <% ANCIENT_TANARI_WIND_MS_REDUCTION %> ，并且攻击有 <% ANCIENT_TANARI_WIND_MS_REDUCTION %>% 几率丢失。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"炽热狂怒盔甲"
 		"item_property_blazing_fury_armor"						"炽炎之怒"
-		"property_blazing_fury_description"						"提高力量值和智力值，提高值为 @special_property1% 的敏捷值。"
+		"property_blazing_fury_description"						"提高力量值和智力值，提高值为 <% BLAZING_FURY_AGI_TO_STR_AND_INT %>% 的敏捷值。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"外陆石之甲"
 		"item_property_outland_stone"							"爆破融合"
-		"property_outland_stone_description"					"提高 @Ability1 的基础技能伤害 @special_property2%，但是施法时会将自己眩晕 @special_property1 秒。"
+		"property_outland_stone_description"					"提高 @Ability1 的基础技能伤害 <% OUTLAND_STONE_BAD %>%，但是施法时会将自己眩晕 <% OUTLAND_STONE_SELF_STUN %> 秒。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"刻尔伯罗斯的垒甲"
 		"item_property_direwolf"						"地狱看门犬"
-		"property_direwolf_description"					"每 10 点主属性提高基础攻击力 @special_property1，护甲值 @special_property2，基础技能伤害 @special_property3%。该装备无法重铸。"
+		"property_direwolf_description"					"每 <% DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR %> 点主属性提高基础攻击力 <% DIREWOLF_BULWARK_BASE_ATTACK_DMG %>，护甲值 <% DIREWOLF_BULWARK_ARMOR %>，基础技能伤害 <% DIREWOLF_BULWARK_BAD %>%。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"亚特兰帝斯之甲"	
 		"property_armor_of_atlantis"												"钢筋铁骨"
-		"property_armor_of_atlantis_Description"									"如果所受到的伤害超过自身 100% 的最大生命值（其他减伤之后），该次伤害将被再次减免 @special_property1%。"
+		"property_armor_of_atlantis_Description"									"如果所受到的伤害超过自身 <% ARMOR_OF_ATLANTIS_HP_THRESHOLD * 100 %>% 的最大生命值（其他减伤之后），该次伤害将被再次减免 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"圣堂光之袍"	
 		"property_light_seer"												"德尔福之光"
-		"property_light_seer_Description"									"当吟唱 @Ability4 时，每 0.15秒治疗 @special_property1% 的最大生命值。每次治疗都会额外获得一层护盾，吸收一次伤害。吟唱结束后，每秒都会减少一层护盾。"
+		"property_light_seer_Description"									"当吟唱 @Ability4 时，每 <% TEMPLAR_LIGHT_SEER_TICKRATE %>秒治疗 <% TEMPLAR_LIGHT_SEER_HP_PCT_PER_TICK %>% 的最大生命值。每次治疗都会额外获得一层护盾，吸收一次伤害。吟唱结束后，每秒都会减少一层护盾。"
 		"DOTA_Tooltip_modifier_light_seer_shield"							"德尔福之盾"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"每层护盾抵挡一次伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"苍穹日出袍"	
 		"property_tropical_sunrise"												"散失觉醒"
-		"property_tropical_sunrise_Description"									"最低的属性值将提高 @special_property1%"
+		"property_tropical_sunrise_Description"									"最低的属性值将提高 <% EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP * 100 %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"海巨人之甲"	
 		"property_sea_giant_plate"												"刚毅泰坦"
-		"property_sea_giant_plate_Description"									"被眩晕时，伤害减免 @special_property1%。"
+		"property_sea_giant_plate_Description"									"被眩晕时，伤害减免 <% SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"北地花岗岩胸甲"
 		"item_property_boreal_granite"						"合抱之力"
-		"property_boreal_granite_description"				"受到一个敌人攻击时，有 @special_property1% 的几率立刻释放 @Ability1 （需要敌人在施法距离之内）。 @Ability1的冷却时间会立刻重置。 技能的施法目标为攻击的目标或者位置。"
+		"property_boreal_granite_description"				"受到一个敌人攻击时，有 <% BOREAL_GRANITE_VEST_CHANCE %>% 的几率立刻释放 @Ability1 （需要敌人在施法距离之内）。 @Ability1的冷却时间会立刻重置。 技能的施法目标为攻击的目标或者位置。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"船长背心"
 		"item_property_captains_vest"						"坚定的决心"
-		"property_captains_vest_description"				"Q1/2/3/4符文提高力量15/30/75/150。 W1/2/3/4符文提高智力15/30/75/150。 E1/2/3/4符文提高敏捷15/30/75/150。 R1/2/3/4符文提高全属性5/10/25/50。"
+		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<% CAPTAINS_VEST_Q1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 W1/2/3/4符文提高智力<% CAPTAINS_VEST_W1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 E1/2/3/4符文提高敏捷<% CAPTAINS_VEST_E1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 R1/2/3/4符文提高全属性<% CAPTAINS_VEST_R1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"残破学徒装甲"
 		"item_property_tattered_novice_armor"						"初心者的决意"
-		"property_tattered_novice_armor_description"				"每 @special_property1 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 @special_property2 层。"
+		"property_tattered_novice_armor_description"				"每 <% TATTERED_NOVICE_INTERVAL %> 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 <% TATTERED_NOVICE_MAX_STACKS %> 层。"
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"初心者的决意"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q技能不进入冷却"

@@ -162,8 +162,8 @@ function shadow_flay_effect_think(event)
 	local ability = event.ability
 	local target = event.target
 
-	local damage = caster.hero:GetIntellect() * 100
-	local heal = math.floor(damage / 100)
+	local damage = caster.hero:GetIntellect() * AURIUN_GLYPH_5_A_AOE_DMG_PER_INT
+	local heal = math.floor(damage * AURIUN_GLYPH_5_A_DMG_TO_SELF_HEAL_PCT/100)
 
 	Filters:ApplyItemDamage(target, caster.hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 

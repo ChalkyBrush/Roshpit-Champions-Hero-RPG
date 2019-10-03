@@ -126,10 +126,6 @@ function firestorm_channel_think(event)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
-					if enemy:HasModifier("modifier_sorceress_firestorm") then
-					else
-						CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_precast.vpcf", enemy, 2.5)
-					end
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sorceress_firestorm", {duration = 10})
 					local damage = event.damage
 					if ability.q_4_level then
@@ -147,7 +143,6 @@ function firestorm_channel_think(event)
 					else
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 					end
-					CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", enemy, 1)
 				end
 			end
 		end)
@@ -176,10 +171,10 @@ function sorceress_firestorm_debuff_think(event)
 end
 
 function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
-	CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", target, 3)
+	--CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", target, 3)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 160, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		EmitSoundOn("Sorceress.Firestorm.Impact", target)
+		--EmitSoundOn("Sorceress.Firestorm.Impact", target)
 		for _, enemy in pairs(enemies) do
 			if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage * amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)

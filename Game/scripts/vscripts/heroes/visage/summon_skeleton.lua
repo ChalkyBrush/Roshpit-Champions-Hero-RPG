@@ -67,7 +67,7 @@ function cast_raise_skeleton(event)
 						skeletonDuration = skeletonDuration + EKKAN_W2_DURATION * w_2_level
 					end
 					if caster:HasModifier("modifier_ekkan_glyph_3_1") then
-						skeletonDuration = skeletonDuration * 2
+						skeletonDuration = skeletonDuration + skeletonDuration * EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT/100
 					end
 
 					skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
@@ -97,7 +97,7 @@ function cast_raise_skeleton(event)
 					table.insert(ability.skeleTable, skeleton)
 					local max_skeletons = event.max_skeletons
 					if caster:HasModifier("modifier_ekkan_glyph_1_1") then
-						max_skeletons = max_skeletons + 4
+						max_skeletons = max_skeletons + EKKAN_GLYPH_1_1_ADD_UNITS
 					end
 					if #ability.skeleTable > max_skeletons then
 						if IsValidEntity(ability.skeleTable[1]) then
@@ -274,16 +274,16 @@ function ekkan_immortal_weapon_aura_start(event)
 		if not caster.immortalSouls then
 			caster.immortalSouls = 0
 		end
-		if caster.immortalSouls < 6 then
+		if caster.immortalSouls < EKKAN_IMMORTAL_WEAPON_1_MAX_STACKS then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Ekkan.CorpsePickup", caster)
 			caster.immortalSouls = caster.immortalSouls + 1
-			ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ekkan_corpse_picked_up", {duration = 10})
+			ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ekkan_corpse_picked_up", {duration = EKKAN_IMMORTAL_WEAPON_1_DURATION})
 			UTIL_Remove(target)
 			if not caster.immortalSoulsPFX then
 				caster.immortalSoulsPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_soul_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 				ParticleManager:SetParticleControlEnt(caster.immortalSoulsPFX, 0, caster, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", caster:GetAbsOrigin() + Vector(0, 0, 200), true)
 			end
-			for i = 1, 6, 1 do
+			for i = 1, EKKAN_IMMORTAL_WEAPON_1_MAX_STACKS, 1 do
 				if caster.immortalSouls >= i then
 					ParticleManager:SetParticleControl(caster.immortalSoulsPFX, i, Vector(caster.immortalSouls, caster.immortalSouls, caster.immortalSouls))
 				end

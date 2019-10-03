@@ -187,28 +187,28 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"Glyph of Sliding"
-		"item_rpc_slipfinn_glyph_1_1_description" 				"Reduces ground friction by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_1_1_description" 				"Reduces ground friction by <% SLIPFINN_GLYPH_1_1_FRICTION_MULT * 100%>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"Glyph of Long Jumps"
-		"item_rpc_slipfinn_glyph_2_1_description" 				"Increases lift force on Long Jumps by @glyph_property1."
+		"item_rpc_slipfinn_glyph_2_1_description" 				"Increases lift force on Long Jumps by <% SLIPFINN_GLYPH_2_1_JUMP_FORCE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"Glyph of Bouncing"
-		"item_rpc_slipfinn_glyph_3_1_description" 				"Increases base bounce height when landing on an enemy's head by @glyph_property1."
+		"item_rpc_slipfinn_glyph_3_1_description" 				"Increases base bounce height when landing on an enemy's head by <% SLIPFINN_GLYPH_3_1_BOUNCE_FORCE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"Glyph of Freefall"
-		"item_rpc_slipfinn_glyph_4_1_description" 				"Reduces the time to flip and do a ground pound by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_4_1_description" 				"Reduces the time to flip and do a ground pound by <% SLIPFINN_GLYPH_4_1_POUND_DELAY_MULT * 100 %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"Glyph of Crashing"
-		"item_rpc_slipfinn_glyph_5_1_description" 				"Increases the stun duration of Ground Pound to @glyph_property1 seconds."
+		"item_rpc_slipfinn_glyph_5_1_description" 				"Increases the stun duration of Ground Pound to <% SLIPFINN_GLYPH_5_1_STUN_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"Glyph of Binding Possession"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by <% SLIPFINN_GLYPH_6_1_STUN_MULT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"Glyph of Slipping"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Cannot be stunned while jumping or shadow rushing."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"Glyph of the Puddle Jumper"
-		"item_rpc_slipfinn_glyph_5_a_description" 				"The radius for bouncing on an enemy's head is increased by @glyph_property1%."
+		"item_rpc_slipfinn_glyph_5_a_description" 				"The radius for bouncing on an enemy's head is increased by <% SLIPFINN_GLYPH_5_A_RADIUS_MULT * 100 %>%."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_weapon_00"		"Dagger"
@@ -227,7 +227,7 @@
 		
 		 "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_1"           "Spring Wetlands Dagger"
         "item_property_slipfinn_immortal_weapon"                             "Spawning"
-        "property_slipfinn_immortal_weapon_description"                      "Respawn time is reduced to @special_property1 seconds. Shady Smoke ability makes Slipfinn appear @special_property2 distance in the air."
+        "property_slipfinn_immortal_weapon_description"                      "Respawn time is reduced to <% SLIPFINN_IMMORTAL_WEAPON_1_RESPAWN_TIME %> seconds. Shady Smoke ability makes Slipfinn appear <% SLIPFINN_IMMORTAL_WEAPON_1_HEIGHT %> distance in the air."
 
         "DOTA_Tooltip_ability_item_rpc_slipfinn_immortal_weapon_2"            "Jagged Mire Knife"
         "item_property_slipfinn_immortal_weapon2"                             "Opportunity Strike"
