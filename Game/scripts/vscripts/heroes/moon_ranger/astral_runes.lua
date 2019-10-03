@@ -25,7 +25,7 @@ function c_d_enter(event)
 	local ability = event.ability
 	local caster = ability.origCaster
 
-	local damage = ability.r_3_level * ASTRAL_R3_ATTACK_DAMAGE_PERCENT * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local damage = ability.r_3_level * ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	--print(caster:GetUnitName())
 	if caster:HasModifier("modifier_astral_glyph_2_1") then
 		damage = damage * 3
@@ -49,7 +49,7 @@ function c_d_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local orig_caster = ability.origCaster
-	local radius = R3_RADIUS
+	local radius = ASTRAL_RANGER_R3_RADIUS
 	local projectileParticle = "particles/base_attacks/ranged_tower_good.vpcf"
 	if phoenix.glyphed then
 		projectileParticle = "particles/base_attacks/astral_glyph_2_1_projectile.vpcf"

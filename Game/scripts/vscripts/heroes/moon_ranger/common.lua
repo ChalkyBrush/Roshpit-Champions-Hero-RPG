@@ -1,6 +1,6 @@
 function getProcChance(caster, baseChance)
     local runeCount = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
-    return baseChance * (1 + R4_PROC_CHANCE_INCREASE * runeCount)
+    return baseChance * (1 + ASTRAL_RANGER_R4_PROC_CHANCE_INCREASE * runeCount)
 end
 
 function astral_immortal_1_attack_land(event)

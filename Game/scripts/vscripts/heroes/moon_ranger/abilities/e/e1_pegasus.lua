@@ -5,12 +5,12 @@ function createPegasus(caster, ability, startPoint, endPoint, delay)
     if runesCount == nil or runesCount <= 0 then
         return
     end
-    local travelsCount = E1_TRAVELS_COUNT
+    local travelsCount = ASTRAL_RANGER_E1_TRAVELS_COUNT
 
     ability.runesCount = runesCount
-    ability.duration = E1_START_DURATION + runesCount * E1_ADD_DURATION
+    ability.duration = ASTRAL_RANGER_E1_START_DURATION + runesCount * ASTRAL_RANGER_E1_ADD_DURATION
     if caster:HasModifier("modifier_astral_glyph_4_1") then
-        ability.duration = ability.duration * (1 - ASTRAL_T41_DURATION_REDUCTION_PCT / 100)
+        ability.duration = ability.duration * (1 - ASTRAL_RANGER_GLYPH_4_1_DURATION_REDUCTION_PCT / 100)
     end
 
     for travelIndex = 1, travelsCount, 1 do
@@ -36,15 +36,15 @@ function createPegasusProjectile(caster, ability, startPoint, endPoint)
     if forwardVector == Vector(0, 0) then
         forwardVector = caster:GetForwardVector()
     end
-    local speed = math.max(range * E1_SPEED_FROM_RANGE, 600)
+    local speed = math.max(range * ASTRAL_RANGER_E1_SPEED_FROM_RANGE, 600)
     local info =
     {
         Ability = ability,
-        EffectName = E1_PARTICLE,
+        EffectName = ASTRAL_RANGER_E1_PARTICLE,
         vSpawnOrigin = startPoint,
         fDistance = range,
-        fStartRadius = E1_RADIUS,
-        fEndRadius = E1_RADIUS,
+        fStartRadius = ASTRAL_RANGER_E1_RADIUS,
+        fEndRadius = ASTRAL_RANGER_E1_RADIUS,
         Source = caster,
         StartPosition = "attach_origin",
         bHasFrontalCone = false,
@@ -81,7 +81,7 @@ function projectileHit(event)
     local duration = ability.duration
     ability:ApplyDataDrivenModifier(caster, target, "modifier_star_blink_root", {duration = duration})
     if duration > 0 then
-        Helper.updateStackModifier(target, caster, ability, 'astral_rune_e_1', duration, E1_MAX_STACKS_COUNT, runesCount)
+        Helper.updateStackModifier(target, caster, ability, 'astral_rune_e_1', duration, ASTRAL_RANGER_E1_MAX_STACKS_COUNT, runesCount)
     end
 end
 

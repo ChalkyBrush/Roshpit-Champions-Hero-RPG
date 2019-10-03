@@ -85,7 +85,7 @@ function crystal_arrow_slow_end(event)
 		if r_4_level > 0 then
 			local modifier = target:FindModifierByName("modifier_crystal_arrow_chilled")
 			if modifier then
-				modifier:SetDuration(r_4_level * ASTRAL_R4_ARCANA2_SLOW, true)
+				modifier:SetDuration(r_4_level * ASTRAL_RANGER_R4_ARCANA2_SLOW, true)
 			end
 		else
 			target:RemoveModifierByName("modifier_crystal_arrow_chilled")

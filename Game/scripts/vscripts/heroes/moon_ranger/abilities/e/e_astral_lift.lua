@@ -19,7 +19,7 @@ function cast(event)
 
     local ability = event.ability
     if caster:HasModifier("modifier_astral_glyph_4_1") then
-        local cd = ability:GetCooldown(ability:GetLevel()) / 2
+        local cd = ability:GetCooldown(ability:GetLevel()) * ASTRAL_RANGER_GLYPH_4_1_CD_REDUCTION
         ability:EndCooldown()
         ability:StartCooldown(cd)
     end
@@ -27,13 +27,13 @@ function cast(event)
     local target = event.target_points[1]
     target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
 
-    local delay = E_DELAY
+    local delay = ASTRAL_RANGER_E_DELAY
     if caster:HasModifier("modifier_astral_glyph_4_1") then
-        delay = delay / 2
+        delay = delay * ASTRAL_RANGER_GLYPH_4_1_CD_REDUCTION
     end
     delay = Filters:GetAdjustedESpeed(caster, delay, true)
     EmitSoundOn("Astral.StarBlink.SpellStart", caster)
-    local particleName = E_PARTICLE1
+    local particleName = ASTRAL_RANGER_E_PARTICLE1
     local particleLocation = target
     local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(particle1, 0, particleLocation)
@@ -47,7 +47,7 @@ function cast(event)
     Timers:CreateTimer(delay, function()
         -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_e_lift_moving", {duration = 0.3})
         ParticleManager:DestroyParticle(particle1, false)
-        particleName = E_PARTICLE2
+        particleName = ASTRAL_RANGER_E_PARTICLE2
 
         local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
         ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())

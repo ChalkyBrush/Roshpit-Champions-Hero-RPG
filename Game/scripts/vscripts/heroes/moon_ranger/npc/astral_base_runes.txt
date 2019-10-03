@@ -31,7 +31,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_Q2_DMG_PER_ATT* 100 %>"
+				"property_one"			"<% ASTRAL_RANGER_Q2_DMG_PER_ATT* 100 %>"
 			}
 			"02"
 			{
@@ -216,7 +216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ASTRAL_E1_POSTMIT_PCT %>"
+				"property_one"			"<% ASTRAL_RANGER_E1_POSTMIT_PCT %>"
 			}
 			"02"
 			{
@@ -333,7 +333,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ASTRAL_R1_DAMAGE %>"
+				"property_two"			"<% ASTRAL_RANGER_R1_DAMAGE %>"
 			}
 			"04"
 			{
@@ -361,17 +361,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_R2_DAMAGE_PCT %>"
+				"property_one"			"<% ASTRAL_RANGER_R2_DAMAGE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ASTRAL_R2_RADIUS %>"
+				"property_two"			"<% ASTRAL_RANGER_ASTRAL_R2_RADIUS %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% ASTRAL_R2_BASE_RADIUS %>"
+				"property_two_base"		"<% ASTRAL_RANGER_R2_BASE_RADIUS %>"
 			}
 		}
 	}
@@ -390,7 +390,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_R3_ATTACK_DAMAGE_PERCENT * 100 %>"
+				"property_one"			"<% ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * 100 %>"
 			}
 			"02"
 			{
