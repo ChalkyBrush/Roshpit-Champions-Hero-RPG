@@ -14,7 +14,7 @@ function begin_genesis_orb(event)
 	if w_3_level > 0 then
 		local stackIncrease = 1
 		if caster:HasModifier("modifier_epoch_immortal_weapon_1") then
-			stackIncrease = 3
+			stackIncrease = EPOCH_IMMORTAL_WEAPON_1_ORBS
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_rune_w_3_visible", {})
 		local currentStacks = caster:GetModifierStackCount("modifier_epoch_rune_w_3_visible", caster)
@@ -78,7 +78,7 @@ function genesis_orb_impact(event)
 	--print("MANA "..caster:GetMaxMana())
 	--print("MANA "..caster:GetMana())
 	if caster:HasModifier("modifier_epoch_immortal_weapon_1") then
-		damage = damage * 2
+		damage = damage * EPOCH_IMMORTAL_WEAPON_1_DAMAGE_AMP
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 

@@ -159,7 +159,7 @@ function onProjectileHit(event)
 		--print("damage x2!!!")
 		damage = damage * 2
 		if target:HasModifier("modifier_epoch_immortal_weapon_3") then
-			Filters:ApplyStun(caster, 0.8, target)
+			Filters:ApplyStun(caster, EPOCH_IMMORTAL_WEAPON_3_STUN, target)
 		end
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
@@ -328,7 +328,7 @@ function epoch_e_2_projectile_hit(event)
 	if target:HasModifier("modifier_time_bound") or target:HasModifier("modifier_time_bind") or target:HasModifier("modifier_space_link") or target:HasModifier("modifier_epoch_arcana_root") then
 		damage = damage * 2
 		if caster:HasModifier("modifier_epoch_immortal_weapon_3") then
-			Filters:ApplyStun(caster, 0.8, target)
+			Filters:ApplyStun(caster, EPOCH_IMMORTAL_WEAPON_3_STUN, target)
 		end
 	end
 	if damage then
