@@ -5,7 +5,7 @@ end
 
 function astral_immortal_1_attack_land(event)
     local caster = event.attacker
-    local healAmount = caster:GetMaxHealth() * 0.01
+    local healAmount = caster:GetMaxHealth() * ASTRAL_RANGER_IMMORTAL_WEAPON_1_HEAL_PCT/100
     Filters:ApplyHeal(caster, caster, healAmount, true)
     EmitSoundOnLocationWithCaster(caster:GetAbsOrigin() + RandomVector(RandomInt(60, 300)), "Astral.Celestia.Heal", caster)
     local particleName = "particles/roshpit/astral/astral_immo1_heal.vpcf"

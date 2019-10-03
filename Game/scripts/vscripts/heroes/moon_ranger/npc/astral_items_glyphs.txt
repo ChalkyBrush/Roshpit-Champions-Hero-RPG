@@ -1,4 +1,4 @@
-
+	
 	"item_rpc_astral_glyph_1_1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -347,7 +347,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ASTRAL_RANGER_GLYPH_5_A_BASE_DAMAGE %>"
 				}
 			}
 		}
@@ -356,7 +356,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400000"
+				"property_one"			"<% ASTRAL_RANGER_GLYPH_5_A_BASE_DAMAGE %>"
 			}
 		}
 	}

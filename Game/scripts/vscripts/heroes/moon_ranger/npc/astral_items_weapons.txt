@@ -520,9 +520,9 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "%property_two"
-				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "%property_two"
-				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_two"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "<% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %>"
+				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "<% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %>"
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% ASTRAL_RANGER_IMMORTAL_WEAPON_3_ATTACK_RANGE %>"
 				}
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
@@ -541,12 +541,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"<% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %>"
 			}
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"400"
+				"property_two"			"<% ASTRAL_RANGER_IMMORTAL_WEAPON_3_ATTACK_RANGE %>"
 			}
 		}
 	}

@@ -281,7 +281,7 @@
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"               "Glyph of Headless Arrows"
         "item_rpc_astral_glyph_1_1_description"                 "@Ability2 no longer deals damage, but fires 4 times the arrows per volley and in all directions instead of a cone. Also doubles the duration of [W1]."
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"Glyph of Aerial Crests"
-		"item_rpc_astral_glyph_2_1_description" 				"Astral Ranger's Phoenix summon has @glyph_property1x increased attack damage and slows movespeed of its targets by @glyph_property2."
+		"item_rpc_astral_glyph_2_1_description" 				"Astral Ranger's Phoenix summon has <% ASTRAL_RANGER_GLYPH_2_1_PHOENIX_DAMAGE_AMP %>x increased attack damage and slows movespeed of its targets by <% ASTRAL_RANGER_GLYPH_2_1_PHOENIX_SLOW %>."
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"Phoenix Slow"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Losing Movespeed"
@@ -299,13 +299,13 @@
         "item_rpc_astral_glyph_6_1_description"                 "Attacks split on impact and hit up to <% ASTRAL_RANGER_GLYPH_6_1_TARGETS %> additional targets. These extra arrows can apply [Q2] but not any other on-hit effects."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"Glyph of Silver Stars"
-		"item_rpc_astral_glyph_7_1_description" 				"Gain 100% evasion while channeling @Ability4. @Ability4, Starfall, and Starquakes deal @glyph_property1x damage."
+		"item_rpc_astral_glyph_7_1_description" 				"Gain 100% evasion while channeling @Ability4. @Ability4, Starfall, and Starquakes deal <% ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT %>x damage."
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"Silver Stars"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% Evasion"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"Glyph of Parallax Arrows"
-		"item_rpc_astral_glyph_5_a_description" 				"Increases Base Attack Damage by @glyph_property1."
+		"item_rpc_astral_glyph_5_a_description" 				"Increases Base Attack Damage by <% ASTRAL_RANGER_GLYPH_5_A_BASE_DAMAGE %>."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"
@@ -336,11 +336,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_1"		"Celestia"
 		"item_property_astral_immortal_weapon"								"Elysian Draw"
-		"property_astral_immortal_weapon_description"						"Landing an attack heals @special_property1% of max health."
+		"property_astral_immortal_weapon_description"						"Landing an attack heals <% ASTRAL_RANGER_IMMORTAL_WEAPON_1_HEAL_PCT %>% of max health."
 		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_2"			"Astral Daedalus"
     	"item_property_astral_immortal_weapon2"								"Rain of Stars"
     	"property_astral_immortal_weapon2_description"						"Biting Stars proc chance increased to <% ASTRAL_RANGER_IMMORTAL_WEAPON_2_Q2_PROC_CHANCE %>%."
 
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"Darnassus Bow"
     	"item_property_astral_immortal_weapon3"								"Lunar Visions"
-    	"property_astral_immortal_weapon3_description"						"@special_property1 flying vision and @special_property2 extra attack and vision range at all times."
+    	"property_astral_immortal_weapon3_description"						"<% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %> flying vision and <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_ATTACK_RANGE %> extra attack and vision range at all times."

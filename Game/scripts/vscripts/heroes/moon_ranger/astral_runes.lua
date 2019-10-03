@@ -28,7 +28,7 @@ function c_d_enter(event)
 	local damage = ability.r_3_level * ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	--print(caster:GetUnitName())
 	if caster:HasModifier("modifier_astral_glyph_2_1") then
-		damage = damage * 3
+		damage = damage * ASTRAL_RANGER_GLYPH_2_1_PHOENIX_DAMAGE_AMP
 		ability.glyphed = true
 	else
 		ability.glyphed = false

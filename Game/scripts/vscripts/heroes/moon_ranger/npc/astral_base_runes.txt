@@ -473,7 +473,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ASTRAL_RANGER_GLYPH_2_1_PHOENIX_SLOW %>"
 				}
 			}
 		}
