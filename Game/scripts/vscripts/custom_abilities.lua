@@ -1,5 +1,5 @@
 require('heroes/nightstalker/chernobog_constants')
-require('/heroes/skywrath_mage/constants')
+require('/heroes/skywrath_mage/sephyr_constants')
 if CustomAbilities == nil then
 	CustomAbilities = class({})
 end
