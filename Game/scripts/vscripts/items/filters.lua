@@ -723,6 +723,7 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         local beginningHealth = caster:GetHealth()
+        if beginningHealth > caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100 then
         local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100, caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
         caster:SetHealth(newHealth)
         CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
@@ -734,6 +735,7 @@ function Filters:CastSkillArguments(slot, caster)
             eventTable.ability = caster.headItem
             wraith_hunter_take_damage(eventTable)
         end
+    end
     end
     if caster:HasModifier("modifier_spiritual_empowerment_stack") then
         local newStack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit) - 1
