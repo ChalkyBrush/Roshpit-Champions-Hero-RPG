@@ -2636,7 +2636,7 @@ function ocean_tempest_think(event)
 	local target = event.target
 	local ability = event.ability
 
-	local manaDrain = target:GetMaxMana() * OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND/10
+	local manaDrain = target:GetMaxMana() * OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND / 100 / 10
 	if manaDrain > target:GetMana() then
 		manaDrain = target:GetMana()
 	end
