@@ -1938,65 +1938,6 @@ function GameState:FilterDamage(filterTable)
 		Filters:ApplyItemDamage(victim, attacker.hero, filterTable.damage, filterTable.damagetype_const, attacker.hero.body, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		return false
 	end
-	if attacker:HasModifier("modifier_magistrates_hood") then
-		if filterTable.damagetype_const == DAMAGE_TYPE_MAGICAL or filterTable.damagetype_const == DAMAGE_TYPE_PURE then
-			local inflictor = nil
-			if filterTable.entindex_inflictor_const then
-				inflictor = EntIndexToHScript(filterTable.entindex_inflictor_const)
-			end
-			if inflictor ~= attacker.headItem then
-				local stacks = attacker:GetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit)
-				if stacks > 0 then
-					local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), victim:GetAbsOrigin(), nil, MAGISTRATE_HOOD_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-					local magistrate_damage = filterTable.damage*(1 + ((MAGISTRATE_HOOD_DAMAGE_AMP_PCT*#enemies)/100))
-					if #enemies > 0 then
-						for _, enemy in pairs(enemies) do
-				            Damage:Apply({
-				                source = attacker.headItem,
-				                sourceType = BASE_NONE,
-				                attacker = attacker,
-				                victim = enemy,
-				                damage = magistrate_damage,
-				                damageType = DAMAGE_TYPE_MAGICAL,
-				                elements = elements,
-				                ignoreMultipliers = true
-				            })
-						end
-					end
-					if not attacker.headItem.particles then
-						attacker.headItem.particles = 0
-					end
-					if attacker.headItem.particles < 6 then
-						attacker.headItem.particles = attacker.headItem.particles + 1
-						local colorVector = Vector(0.5, 0.5, 0.5)
-						if #elements > 0 then
-					    	colorVector = Elements:RGBVectorFromElementIndex(elements[1])
-					    end
-					    print(colorVector)
-					    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/magistrate_hood_gold.vpcf", victim:GetAbsOrigin(), 3)
-					    ParticleManager:SetParticleControl(pfx, 12, colorVector)
-						Timers:CreateTimer(1, function()
-							attacker.headItem.particles = attacker.headItem.particles - 1
-						end)
-					end
-					local new_stacks = math.max(stacks - 1, 0)
-					if new_stacks == 0 then
-						attacker:RemoveModifierByName("modifier_magistrates_hood_charges")
-					else
-						print(new_stacks)
-						attacker:SetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit, new_stacks)
-					end
-					Timers:CreateTimer(MAGISTRATE_HOOD_REPLENISH_TIME, function()
-						local current_stacks = attacker:GetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit)
-						local refreshed_stacks = math.min(current_stacks + 1, MAGISTRATE_HOOD_MAX_CHARGES)
-						attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_magistrates_hood_charges", {})
-						attacker:SetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit, refreshed_stacks)
-					end)
-				end
-				return false
-			end
-		end
-	end
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetPhysicalArmorValue(false)

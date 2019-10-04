@@ -13,6 +13,7 @@ filesToCheck = [
   "Game\\scripts\\vscripts\\items\\RPCamulet.lua", 
   "Game\\scripts\\vscripts\\items\\legendaries.lua", 
   "Game\\scripts\\vscripts\\items\\special_item_effects.lua", 
+  "Game\\scripts\\vscripts\\worlds\\tutorial\\tutorial.lua", 
 ]
 resourceFile = "rpc_test_server_resources.txt"
 

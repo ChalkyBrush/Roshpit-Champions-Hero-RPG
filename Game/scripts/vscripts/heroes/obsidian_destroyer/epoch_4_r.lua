@@ -13,7 +13,7 @@ function Vacuum(keys)
   local radius = ability:GetLevelSpecialValueFor("radius", ability_level)
   local vacuum_modifier = keys.vacuum_modifier
   local remaining_duration = duration - (GameRules:GetGameTime() - target.vacuum_start_time)
-
+  print("Vacuum "..tostring(duration))
   -- Targeting variables
   local target_teams = ability:GetAbilityTargetTeam()
   local target_types = ability:GetAbilityTargetType()
@@ -42,7 +42,7 @@ function Vacuum(keys)
       unit:SetAbsOrigin(unit_location + direction * unit.eternity_flood_vacuum.pull_speed)
     end
   end
-  if remaining_duration < 0.02 then
+  if remaining_duration < 0.03 then
     ability.r_3_level = caster:GetRuneValue("r", 3)
     new_lock(units, target_location, caster, damage, duration, ability, keys.stun_duration)
   end

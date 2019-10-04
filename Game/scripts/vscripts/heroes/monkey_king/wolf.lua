@@ -1,4 +1,4 @@
-require('/heroes/monkey_king/constants')
+require('/heroes/monkey_king/djanghor_constants')
 
 LinkLuaModifier("modifier_draghor_feral_sprint", "modifiers/draghor/modifier_draghor_feral_sprint", LUA_MODIFIER_MOTION_NONE)
 

@@ -1,4 +1,4 @@
-require('/heroes/monkey_king/constants')
+require('/heroes/monkey_king/djanghor_constants')
 
 function draghor_main_think(event)
 	local caster = event.caster
