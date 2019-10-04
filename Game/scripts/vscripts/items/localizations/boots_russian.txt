@@ -157,11 +157,11 @@
 		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Сапоги Giant Hunter - невосприимчив к магии"
 		
 		 
-    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
-		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"После прочтения (E) @Ability3 Базовый Урон способности (W) @Ability2 будет усилен на <% REDFALL_RUNNERS_BAD_MULT %>%. Эффект длится <% REDFALL_RUNNERS_DURATION %> секунд, но снимается сразу же при нанесении любого урона от (W) @Ability2."
-		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"Умение (W) усилено на <% REDFALL_RUNNERS_BAD_MULT %>%%."
+    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"			"Redfall Runners"
+		"item_property_redfall_runners"							"Crackling Leaves"
+		"property_redfall_runners_description"					"TODO: Each % of missing health increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
+		"DOTA_Tooltip_modifier_redfall_runners"					"Crackling Leaves"
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"TODO: Increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> per %% of missing health."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
@@ -191,7 +191,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до <% BLOODSTONE_BOOTS_E_CD %> секунды, когда уровень здоровья становится ниже <% BLOODSTONE_BOOTS_HP_THRESHOLD %>%."
+		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до <% BLOODSTONE_BOOTS_E_CD %> секунды, когда уровень здоровья становится ниже <% BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"

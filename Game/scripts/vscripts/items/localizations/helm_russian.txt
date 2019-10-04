@@ -104,7 +104,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<% EMERALD_DOULI_MANA_DAMAGE %>% полученного урона будет поглощено маной, вместо здоровья. Каждая единица урона по мане равноценна <% EMERALD_DOULI_MANA_DAMAGE_REDUCTION %> единицам урона по здоровью. "
+		"property_emerald_douli_description"		"TODO: <% EMERALD_DOULI_ABSORBED_DMG_PCT %>% of damage taken is removed from mana before health. 1 point of mana can absorb <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> damage. Can't reduce mana below <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
@@ -183,8 +183,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
 		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Применение способности (W) @Ability2 переводит героя в другое измерение на <% WRAITH_CROWN_DURATION %> секунды. Находясь в другом измерении герой не может атаковать, читать заклинания, двигаться и получать урон. Восстанавливается <% WRAITH_CROWN_CD %> секунды. Позволяет уклониться от летящих атак."
-		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
+		"property_wraith_description"							"TODO: While having <% WRAITH_CROWN_BUFF_HP_TRESHOLD_PCT %>% of max health or less you will have <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoint projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
+		"DOTA_Tooltip_modifier_wraith_crown_buff"				"Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_buff_description"	"TODO: Gives <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoints projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"

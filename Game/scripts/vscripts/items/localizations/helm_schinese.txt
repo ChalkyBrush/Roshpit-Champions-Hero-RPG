@@ -98,7 +98,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"翡翠兜里"
 		"item_property_emerald_douli"				"法力护盾"
-		"property_emerald_douli_description"		"玩家所受到的伤害的 <% EMERALD_DOULI_MANA_DAMAGE %>% 将被魔法值抵消。所消耗的魔法值为该次所抵消伤害的 1/<% EMERALD_DOULI_MANA_DAMAGE_REDUCTION %> 。"
+		"property_emerald_douli_description"		"TODO: <% EMERALD_DOULI_ABSORBED_DMG_PCT %>% of damage taken is removed from mana before health. 1 point of mana can absorb <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> damage. Can't reduce mana below <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
@@ -176,8 +176,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"幽灵王冠"
 		"item_property_wraith"						"幽灵暗潮"					
-		"property_wraith_description"				"施放 @Ability2 将使你隐身<% WRAITH_CROWN_DURATION %>秒 - 无法攻击、施放技能、移动或者受到伤害。冷却时间<% WRAITH_CROWN_CD %>秒。同时躲避飞来的弹道。"
-		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"幽灵暗潮冷却中"
+		"property_wraith_description"							"TODO: While having <% WRAITH_CROWN_BUFF_HP_TRESHOLD_PCT %>% of max health or less you will have <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoint projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
+		"DOTA_Tooltip_modifier_wraith_crown_buff"				"TODO: Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_buff_description"	"TODO: Gives <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoints projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"

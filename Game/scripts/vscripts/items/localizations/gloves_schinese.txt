@@ -164,7 +164,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"每点丢失生命值%提高所有造成的伤害 <% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT %>%。每次施放技能汲取你 <% MORDIGGUS_LIFE_DRAIN_CAST_PCT %>% 最大生命值，每次攻击汲取你 <% MORDIGGUS_LIFE_DRAIN_ATTACK_PCT %>% 最大生命值。汲取生命不会致死。"
+		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
