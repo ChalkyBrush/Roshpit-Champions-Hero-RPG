@@ -1,4 +1,4 @@
-require('/heroes/monkey_king/constants')
+require('/heroes/monkey_king/djanghor_constants')
 
 LinkLuaModifier("modifier_draghor_shapeshift_shrink", "modifiers/draghor/modifier_draghor_shapeshift_shrink", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_draghor_shapeshift_hawk_lua", "modifiers/draghor/modifier_draghor_shapeshift_hawk_lua", LUA_MODIFIER_MOTION_NONE)
