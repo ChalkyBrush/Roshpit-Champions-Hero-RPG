@@ -1,4 +1,4 @@
-require("heroes/moon_ranger/constants")
+require("/heroes/moon_ranger/astral_ranger_constants")
 
 function crystal_arrow_channel_start(event)
 	local caster = event.caster
