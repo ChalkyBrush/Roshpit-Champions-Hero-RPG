@@ -1531,6 +1531,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	local BASE_VALUE_FOR_CALCULATE = 1000000 -- for prevent calc errors with small values
 	local damage = BASE_VALUE_FOR_CALCULATE
 
+	local modifier = victim:FindModifierByName("modifier_armor_of_atlantis")
+	if modifier then
+		damage = damage * (1 - modifier:GetDamageReduction())
+	end
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
 		damage = damage * (100-ABLECORE_GREAVES_DMG_RED)/100
 	end
@@ -3973,8 +3977,8 @@ function GameState:FilterDamage(filterTable)
 		Winterblight:PixieSummonTakeDamage(victim)
 	end
 	if victim:HasModifier("modifier_armor_of_atlantis") then
-		if filterTable["damage"] > victim:GetMaxHealth() * ARMOR_OF_ATLANTIS_HP_THRESHOLD then
-			filterTable["damage"] = filterTable["damage"] * (100-ARMOR_OF_ATLANTIS_DMG_REDUCTION)/100
+		if filterTable["damage"] > victim:GetHealth() then
+			filterTable["damage"] = filterTable["damage"] * (100 - ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT) / 100
 			local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
 			ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
 		end

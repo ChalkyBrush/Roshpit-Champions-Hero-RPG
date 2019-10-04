@@ -316,9 +316,11 @@
 		"property_direwolf_description"					"Each <% DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR %> points of your primary attribute increases Base Attack damage by <% DIREWOLF_BULWARK_BASE_ATTACK_DMG %>, Armor by <% DIREWOLF_BULWARK_ARMOR %>, and Base Ability Damage by <% DIREWOLF_BULWARK_BAD %>%. This item cannot be reforged by the Blacksmith."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
-		"property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"									"Damage instances that deal more than <% ARMOR_OF_ATLANTIS_HP_THRESHOLD * 100 %>% of max health after all reductions is reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION %>%."
+		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"			"Armor of Atlantis"	
+		"item_property_armor_of_atlantis"								"Chasm Forge"
+		"item_property_armor_of_atlantis_Description"					"You get <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% damage reduction per percent of health missing. This damage reduction can't be higher than <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. Damage instances that would kill you are reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Take <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>%% reduced damage per percent of health missing. This damage reduction can't be higher than <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%%. Damage instances that would kill you are reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	

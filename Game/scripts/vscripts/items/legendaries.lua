@@ -3048,27 +3048,6 @@ function RPCItems:RollOutlandStoneCuirass(deathLocation)
     return item
 end
 
-function RPCItems:RollArmorOfAtlantis(deathLocation)
-    local item = RPCItems:CreateVariant("item_rpc_armor_of_atlantis", "immortal", "Outland Stone Cuirass", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "atlantis"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_armor_of_atlantis", "#478EC1", 1, "#property_armor_of_atlantis_Description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 200, 800, 1, 1, item.newItemTable.rarity, false, maxFactor * 800)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollBluestarArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_bluestar_armor", "immortal", "Bluestar Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8534,8 +8513,6 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollWorldTreesFlowerCache(deathLocation)
     elseif itemName == "item_rpc_red_october_boots" then
         newItem = RPCItems:RollRedOctoberBoots(deathLocation, false)
-    elseif itemName == "item_rpc_armor_of_atlantis" then
-        newItem = RPCItems:RollArmorOfAtlantis(deathLocation)
     elseif itemName == "item_rpc_chitinous_lobster_claw" then
         newItem = RPCItems:RollChitinousLobsterClaw(deathLocation)
     elseif itemName == "item_rpc_crystalline_slippers" then
@@ -8803,7 +8780,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_temporal_warp_boots", "item_rpc_aqua_lily", "item_rpc_fire_blossom", "item_rpc_wind_orchid", "item_rpc_ankh_of_the_ancients", "item_rpc_alaranas_ice_boot",
         "item_rpc_ancient_tanari_wind_armor", "item_rpc_blue_rain_gauntlet", "item_rpc_shadowflame_fist", "item_rpc_blazing_fury_armor", "item_rpc_aquastone_ring", "item_rpc_burning_spirit_helmet",
         "item_rpc_aquasteel_bracers", "item_rpc_demonfire_gauntlet", "item_rpc_emerald_speed_runners", "item_rpc_outland_stone_cuirass", "item_rpc_world_trees_flower_cache", "item_rpc_red_october_boots",
-        "item_rpc_armor_of_atlantis", "item_rpc_chitinous_lobster_claw", "item_rpc_crystalline_slippers", "item_rpc_dark_emissary_glove", "item_rpc_dark_reef_shark_helmet", "item_rpc_depth_demon_claw", "item_rpc_empyreal_sunrise_robe",
+        "item_rpc_chitinous_lobster_claw", "item_rpc_crystalline_slippers", "item_rpc_dark_emissary_glove", "item_rpc_dark_reef_shark_helmet", "item_rpc_depth_demon_claw", "item_rpc_empyreal_sunrise_robe",
         "item_rpc_hood_of_the_sea_oracle", "item_rpc_ocean_helm_of_valdun", "item_rpc_oceanrunner_boots", "item_rpc_sea_giants_plate", "item_rpc_sparkling_token_of_oceanis", "item_rpc_templar_light_seers_robe",
     "item_rpc_twisted_blue_mask_of_ahnqhir", "item_rpc_twisted_yellow_mask_of_ahnqhir", "item_rpc_twisted_purple_mask_of_ahnqhir", "item_rpc_new_boots", "item_rpc_heavy_echo_gauntlet"}
 
