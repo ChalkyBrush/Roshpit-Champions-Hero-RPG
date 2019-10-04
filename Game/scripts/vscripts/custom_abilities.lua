@@ -410,7 +410,7 @@ function CustomAbilities:ChernobogDemonHunter(victim, damage)
 	--print("THRESHOLD!!")
 	--print(threshold)
 	if victim:HasModifier("modifier_chernobog_immortal_weapon_1") then
-		threshold = threshold - 2
+		threshold = threshold - CHERNOBOG_IMMORTAL_WEAPON_1_W_THRESHOLD_REDUCTION
 	end
 	threshold = threshold / 100
 	if damage > victim:GetMaxHealth() * threshold then

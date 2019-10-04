@@ -312,7 +312,7 @@ end
 function cherno_immo3_attack_land(event)
 	local attacker = event.attacker
 
-	local heal = attacker:GetMaxHealth() * 0.0065
+	local heal = attacker:GetMaxHealth() * CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT/100
 	attacker:SetHealth(attacker:GetHealth() + heal)
 
 	local particleName = "particles/roshpit/chernobog/cherno_immo3_lifesteal.vpcf"

@@ -3461,7 +3461,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
 		local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
-		mult = mult + missingHealthPercent * 1.5 / 100
+		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING / 100
 	end
 	--DUSKBRINGER
 	if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" and victim:IsRooted() then
