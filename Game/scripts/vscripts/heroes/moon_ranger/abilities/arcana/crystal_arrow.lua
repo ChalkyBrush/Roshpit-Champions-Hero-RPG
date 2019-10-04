@@ -18,7 +18,7 @@ function crystal_arrow_channel_start(event)
 		ability.arrow_table = {}
 	end
 	if caster:HasModifier("modifier_astral_glyph_7_1") then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = 2})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = ASTRAL_RANGER_GLYPH_7_1_EVASION_DURATION})
 	end
 	if caster:HasModifier("modifier_crystal_arrow_freecast") then
 		local stackCount = caster:GetModifierStackCount("modifier_crystal_arrow_freecast", caster)
@@ -85,7 +85,7 @@ function crystal_arrow_slow_end(event)
 		if r_4_level > 0 then
 			local modifier = target:FindModifierByName("modifier_crystal_arrow_chilled")
 			if modifier then
-				modifier:SetDuration(r_4_level * ASTRAL_R4_ARCANA2_SLOW, true)
+				modifier:SetDuration(r_4_level * ASTRAL_RANGER_ARCANA2_R4_SLOW, true)
 			end
 		else
 			target:RemoveModifierByName("modifier_crystal_arrow_chilled")
@@ -305,7 +305,7 @@ function arrow_explode(caster, ability, position, damage)
 	end)
 	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.05 * ability.r_2_level
 	if caster:HasModifier("modifier_astral_glyph_7_1") then
-		damage = damage * 10
+		damage = damage * ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.06})
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q2_DMG_PER_ATT * 100 %>"
 			}
 		}
 	}
@@ -33,7 +33,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_ARCANA1_Q2_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q3_DAMAGE_BONUS %>"
 			}
 			"02"
 			{
@@ -84,7 +84,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.75"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q4_DAMAGE_PER_ATTRIBUTE %>"
 			}
 		}
 	}

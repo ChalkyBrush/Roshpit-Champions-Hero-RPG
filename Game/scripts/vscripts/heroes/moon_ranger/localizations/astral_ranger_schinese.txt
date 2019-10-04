@@ -272,13 +272,13 @@
 		"item_rpc_astral_glyph_1_1_description" 				"@Ability2不再造成伤害，但是向周围放出大量的箭。并且 [W1]的持续时间X2。"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"天空雕文"
-		"item_rpc_astral_glyph_2_1_description" 				"凤凰的基础攻击力提高 @glyph_property1x ，并降低其目标的移动速度 @glyph_property2"
+		"item_rpc_astral_glyph_2_1_description" 				"凤凰的基础攻击力提高 <% ASTRAL_RANGER_GLYPH_2_1_PHOENIX_DAMAGE_AMP %>x ，并降低其目标的移动速度 <% ASTRAL_RANGER_GLYPH_2_1_PHOENIX_SLOW %>"
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"凤凰减速"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"移动速度降低"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"新月雕文"
-		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 只发射 @glyph_property1 支箭，并且伤害提高 @glyph_property2x。天使之箭的基础触发概率提高至 40%（R4计算在40%之后）"
+		"item_rpc_astral_glyph_3_1_description" 				"@Ability2 只发射 <% ASTRAL_RANGER_GLYPH_3_1_ARROWS_COUNT %> 支箭，并且伤害提高 <% ASTRAL_RANGER_GLYPH_3_1_DAMAGE_MULTIPLIER %>x。天使之箭的基础触发概率提高至 <% ASTRAL_RANGER_GLYPH_3_1_PROC_CHANCE %>%（R4计算在40%之后）"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"闪烁之光雕文"
 		"item_rpc_astral_glyph_4_1_description" 				" @Ability3的冷却时间和传送延迟减半，并且施法点移除。所有来自@Ability3以及他的符文所提供的buff以及释放后对@Ability1的持续时间的延长效果减少<font color='#ccff66'>25</font>%。"
@@ -290,13 +290,13 @@
 		"item_rpc_astral_glyph_6_1_description" 				"攻击时攻击分裂，最多可以攻击 @glyph_property1 个额外的单位。"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"银星雕文"
-		"item_rpc_astral_glyph_7_1_description" 				"施放天体爆发时获得100% 闪避。天体爆发、流星雨、星辰震颤造成 @glyph_property1x 伤害。"
+		"item_rpc_astral_glyph_7_1_description" 				"施放天体爆发时获得100% 闪避。天体爆发、流星雨、星辰震颤造成 <% ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT %>x 伤害。"
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"银星"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% 闪避"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"箭头雕文"
-		"item_rpc_astral_glyph_5_a_description" 				"增加基础攻击伤害 @glyph_property1。"
+		"item_rpc_astral_glyph_5_a_description" 				"增加基础攻击伤害 <% ASTRAL_RANGER_GLYPH_5_A_BASE_DAMAGE %>。"
 		
 		//Weapons
 		"astral_weapon_01"			"秘银符文弓"
@@ -314,11 +314,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_1"		"勒斯蒂亚"
 		"item_property_astral_immortal_weapon"								"天堂支箭"
-		"property_astral_immortal_weapon_description"						"每次攻击治疗 @special_property1% 的最大生命值。"
+		"property_astral_immortal_weapon_description"						"每次攻击治疗 <% ASTRAL_RANGER_IMMORTAL_WEAPON_1_HEAL_PCT %>% 的最大生命值。"
 		"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_2"			"流星炮"
     	"item_property_astral_immortal_weapon2"								"流星雨"
-    	"property_astral_immortal_weapon2_description"						"炎阳之怒的触发概率提高至 @special_property1%。"
+    	"property_astral_immortal_weapon2_description"						"炎阳之怒的触发概率提高至 <% ASTRAL_RANGER_IMMORTAL_WEAPON_2_Q2_PROC_CHANCE %>%。"
 
     	"DOTA_Tooltip_ability_item_rpc_astral_immortal_weapon_3"			"达纳苏斯月神弓"
     	"item_property_astral_immortal_weapon3"								"月之庇护"
-    	"property_astral_immortal_weapon3_description"						"获得 @special_property1 高空视野和 @special_property2 的额外攻击、视野距离。"
+    	"property_astral_immortal_weapon3_description"						"获得 <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_VISION %> 高空视野和 <% ASTRAL_RANGER_IMMORTAL_WEAPON_3_ATTACK_RANGE %> 的额外攻击、视野距离。"

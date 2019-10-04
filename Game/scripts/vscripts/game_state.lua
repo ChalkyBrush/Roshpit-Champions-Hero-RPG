@@ -2397,7 +2397,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_astral_rune_e_1_visible") then
 		local modifier = victim:FindModifierByName("modifier_astral_rune_e_1_invisible")
 		local stacks = modifier:GetStackCount()
-		local multIncrease = ASTRAL_E1_POSTMIT_PCT/100 * stacks
+		local multIncrease = ASTRAL_RANGER_E1_POSTMIT_PCT/100 * stacks
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_voltex_static_field_post_mitigation") then
@@ -3556,8 +3556,8 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_steadfast") then
 		local threshold_abil = {
-			moon_shroud = ASTRAL_Q2_STEADFAST_THRESHOLD,
-			astral_arcana_ability = ASTRAL_Q2_STEADFAST_THRESHOLD
+			moon_shroud = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD,
+			astral_arcana_ability = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD
 		}
 		local thresholdMult = 1
 		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
@@ -3607,8 +3607,8 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
 		local threshold_abil = {
-			moon_shroud = ASTRAL_Q2_STEADFAST_THRESHOLD,
-			astral_arcana_ability = ASTRAL_Q2_STEADFAST_THRESHOLD
+			moon_shroud = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD,
+			astral_arcana_ability = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD
 		}
 		local thresholdMult = 1
 		if attacker:HasModifier("modifier_neutral_glyph_4_2") then

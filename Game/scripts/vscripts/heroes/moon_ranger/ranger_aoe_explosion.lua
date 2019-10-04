@@ -144,7 +144,7 @@ function rune_r_3(caster, mainAbility)
     dummy:AddAbility("replica")
     dummy.dummy = true
     dummy:FindAbilityByName("replica"):SetLevel(1)
-    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_r_3_phoenix", {duration = ASTRAL_R3_DURATION})
+    ability:ApplyDataDrivenModifier(runeUnit, dummy, "modifier_rune_r_3_phoenix", {duration = ASTRAL_RANGER_R3_DURATION})
     dummy:MoveToNPC(caster)
     if caster:HasModifier("modifier_astral_glyph_2_1") then
       dummy.glyphed = true
@@ -215,7 +215,7 @@ function starfall_initiate(event)
       EmitSoundOn("Astral.CelestialBurst.ChannelVO", caster)
     end
   else
-    local cd = ability:GetCooldown(ability:GetLevel() - 1) - ASTRAL_T51_CD_REDUCE
+    local cd = ability:GetCooldown(ability:GetLevel() - 1) - ASTRAL_RANGER_GLYPH_5_1_CD_REDUCTION
     ability:EndCooldown()
     ability:StartCooldown(cd)
   end
@@ -227,7 +227,7 @@ function starfall_initiate(event)
   ability.maxStars = ability.r_1_level + 20
   ability.hit_mult = math.floor(ability.maxStars / 40)
   ability.remainingStars = ability.maxStars % 40
-  ability.star_damage = ability.r_1_level * ASTRAL_R1_DAMAGE
+  ability.star_damage = ability.r_1_level * ASTRAL_RANGER_R1_DAMAGE
   if caster:HasModifier("modifier_astral_glyph_7_1") then
     ability.star_damage = ability.star_damage * 10
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = ability:GetChannelTime()})
@@ -294,8 +294,8 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
 end
 
 function r_2_quake(damage, ability, caster, r_2_level, target)
-  local radius = ASTRAL_R2_BASE_RADIUS + ASTRAL_R2_RADIUS * r_2_level
-  damage = damage * ASTRAL_R2_DAMAGE_PCT / 100 * r_2_level
+  local radius = ASTRAL_RANGER_R2_BASE_RADIUS + ASTRAL_RANGER_ASTRAL_R2_RADIUS * r_2_level
+  damage = damage * ASTRAL_RANGER_R2_DAMAGE_PCT / 100 * r_2_level
   local particles_names = {
     "particles/units/heroes/hero_brewmaster/brewmaster_dispel_magic_embers.vpcf",
     "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast_explosion_trail.vpcf",
@@ -318,6 +318,6 @@ function r_2_quake(damage, ability, caster, r_2_level, target)
   local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
   for _, enemy in pairs(enemies) do
     Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-    Filters:ApplyStun(caster, ASTRAL_R2_STUN_DURATION, target)
+    Filters:ApplyStun(caster, ASTRAL_RANGER_R2_STUN_DURATION, target)
   end
 end
