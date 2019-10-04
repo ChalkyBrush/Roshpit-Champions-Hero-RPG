@@ -1812,6 +1812,31 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
         instances = 1
     end
 
+    ------------------------------------------------------------------------------------------------------
+    -- below is ApplyDamage (aka actual damage applying), do instances calculation before the Maginot Line
+    if attacker:HasModifier("modifier_magistrates_hood") then
+        if damage_type == DAMAGE_TYPE_MAGICAL or damage_type == DAMAGE_TYPE_PURE then
+            local stacks = attacker:GetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit)
+            if stacks > 0 then
+                -- print("modifier_magistrates_hood stacks "..tostring(stacks))
+                local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), victim:GetAbsOrigin(), nil, MAGISTRATE_HOOD_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+                local magistrate_damage = damage*(1 + ((MAGISTRATE_HOOD_DAMAGE_AMP_PCT*0.01*#enemies)))
+                for i=1,#enemies do
+                    for i = 1, instances do
+                        ApplyDamage({victim = victim, attacker = attacker, damage = magistrate_damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+                    end
+                end
+                local new_stacks = math.max(stacks - 1, 0)
+                if new_stacks == 0 then
+                    attacker:RemoveModifierByName("modifier_magistrates_hood_charges")
+                else
+                    attacker:SetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit, new_stacks)
+                end
+            end
+        end
+        -- print("damage_type "..tostring(damage_type))
+    end
+
     for i = 1, instances do
         ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
     end
