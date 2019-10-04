@@ -204,7 +204,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + multIncrease
     end
     if caster:HasModifier("modifier_chernobog_immortal_weapon_2") then
-		local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
+		local missingHealthPercent = math.floor((1 - (caster:GetHealth() / caster:GetMaxHealth())) * 100)
 		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
 	end
 
@@ -724,18 +724,18 @@ function Filters:CastSkillArguments(slot, caster)
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         local beginningHealth = caster:GetHealth()
         if beginningHealth > caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100 then
-        local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100, caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
-        caster:SetHealth(newHealth)
-        CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
-        if caster:HasModifier("modifier_wraith_hunters_steel_helm") then
-            local damageTaken = math.max(beginningHealth - newHealth, 1)
-            local eventTable = {}
-            eventTable.unit = caster
-            eventTable.attack_damage = damageTaken
-            eventTable.ability = caster.headItem
-            wraith_hunter_take_damage(eventTable)
+            local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100, caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
+            caster:SetHealth(newHealth)
+            CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
+            if caster:HasModifier("modifier_wraith_hunters_steel_helm") then
+                local damageTaken = math.max(beginningHealth - newHealth, 1)
+                local eventTable = {}
+                eventTable.unit = caster
+                eventTable.attack_damage = damageTaken
+                eventTable.ability = caster.headItem
+                wraith_hunter_take_damage(eventTable)
+            end
         end
-    end
     end
     if caster:HasModifier("modifier_spiritual_empowerment_stack") then
         local newStack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit) - 1
