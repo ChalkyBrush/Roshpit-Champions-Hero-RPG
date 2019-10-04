@@ -30,7 +30,7 @@ function beginCast(event)
         arrowCount = ASTRAL_RANGER_GLYPH_3_1_ARROWS_COUNT
         damage = damage * ASTRAL_RANGER_GLYPH_3_1_DAMAGE_MULTIPLIER
     else
-        empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
+        empyralArrowsProcChance = getProcChance(caster, ASTRAL_RANGER_W3_PROC_CHANCE)
         arrowCount = ASTRAL_RANGER_W_ARROWS_COUNT
     end
     if caster:HasModifier("modifier_astral_glyph_1_1") then
