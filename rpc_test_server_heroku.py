@@ -5,7 +5,7 @@ import os
 has_errors = False
 
 
-# path to lua files
+# relative path to lua files
 path = "Game\\scripts\\vscripts\\"
 
 
@@ -33,7 +33,7 @@ def find_files():
 				# print(line)
 				if any(ext in line for ext in dataToChange.keys()):
 					print("Found: " + filePath)
-					print(line)
+					print(line.strip())
 					print()
 					filesToEdit[filePath] = line
 					break
@@ -53,9 +53,7 @@ def edit_file(fPath):
 			for k,v in dataToChange.items():
 				if k in newline:
 					newline = newline.replace(k, v)
-					print(newline)
-			# print(line)
-			
+					print(newline.strip())
 			toWrite.append(newline)
 	with io.open(fPath, 'w', encoding='utf-8') as wFile:
 		wFile.writelines(toWrite)
