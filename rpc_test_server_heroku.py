@@ -14,7 +14,7 @@ path = "Game\\scripts\\vscripts\\"
 dataToChange = {
 	"ROSHPIT_URL = \"https://roshpit.herokuapp.com\"": "ROSHPIT_URL = \"https://roshpit-test.herokuapp.com\"",
 	"GetDedicatedServerKeyV2(SaveLoad.KeyVersion)": "\"test\"",
-	"SaveLoad:GetAllowSaving()": "SaveLoad:GetAllowSaving()",
+	"function SaveLoad:GetAllowSaving()": "function SaveLoad:GetAllowSaving() return true end function SaveLoad:GetAllowSavingOld()",
 }
 
 
