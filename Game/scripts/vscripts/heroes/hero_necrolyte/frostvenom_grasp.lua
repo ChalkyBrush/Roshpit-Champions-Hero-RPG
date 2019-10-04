@@ -1,5 +1,5 @@
 require('heroes/hero_necrolyte/plague_blaster')
-require('heroes/hero_necrolyte/constants')
+require("/heroes/hero_necrolyte/venomort_constants")
 
 function frostvenom_grasp_start(event)
 	local caster = event.caster

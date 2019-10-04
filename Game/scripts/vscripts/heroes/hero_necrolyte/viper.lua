@@ -1,4 +1,4 @@
-require('heroes/hero_necrolyte/constants')
+require("/heroes/hero_necrolyte/venomort_constants")
 
 function begin_channel(event)
     local caster = event.caster
