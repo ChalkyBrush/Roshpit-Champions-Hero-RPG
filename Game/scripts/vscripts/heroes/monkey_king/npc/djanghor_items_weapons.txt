@@ -473,7 +473,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_WEAP_2_HP_THRESHOLD_PCT * 100 %>"
+				"property_one"			"<% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT * 100 %>"
 			}
 		}
 	}

@@ -884,7 +884,7 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
         if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
             local qAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            Filters:ReduceCooldownGeneric(caster, qAbility, 3)
+            Filters:ReduceCooldownGeneric(caster, qAbility, DJANGHOR_GLYPH_5_1_Q_CD_RED)
         end
     end
     if caster:HasModifier("modifier_royal_wristguards") then
