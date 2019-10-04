@@ -182,8 +182,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
-		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"							"TODO: While having <% WRAITH_CROWN_BUFF_HP_TRESHOLD_PCT %>% of max health or less you will have <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoint projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
+		"item_property_wraith_crown"						"Wraithtide"					
+		"property_wraith_crown_description"							"TODO: While having <% WRAITH_CROWN_BUFF_HP_TRESHOLD_PCT %>% of max health or less you will have <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoint projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
 		"DOTA_Tooltip_modifier_wraith_crown_buff"				"Blessing of the Wraith"
 		"DOTA_Tooltip_modifier_wraith_crown_buff_description"	"TODO: Gives <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoints projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
 		
