@@ -1,5 +1,5 @@
 require('heroes/slark/jump')
-require('heroes/slark/constants')
+require("/heroes/slark/slipfinn_constants")
 
 LinkLuaModifier("slipfinn_possessed_lua", "modifiers/slipfinn/slipfinn_possessed_lua", LUA_MODIFIER_MOTION_NONE)
 
