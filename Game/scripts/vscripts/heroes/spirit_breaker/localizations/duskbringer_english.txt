@@ -226,7 +226,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Duskbringer's weapon has an additional energy that explodes on enemies and leaves a burning DPS debuff. The burn effect stacks with no limit. Duration 5 seconds. Enemies hit by Phantom Plasma have a stack of Duskfire added."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"DPS"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Bonus Damage from Agility"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Bonus Damage from Strength"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix_two"			"x"
 		
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
