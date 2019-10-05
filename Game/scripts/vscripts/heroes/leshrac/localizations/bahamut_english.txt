@@ -241,7 +241,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"While outside the @Ability2, the base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's missing mana. While inside the @Ability2 instead, all ability damage is increased based on a multiple of the Sphere's current travel speed. Casting Megaflare while inside the Sphere will multiply its travel speed by <% BAHAMUT_ARCANA_W4_R_SPEED_MULT %>, and this rune will treat you as if you are inside the Sphere for the next 5 seconds. The damage bonus based on the Sphere's travel speed is further multiplied by the level of @Ability2."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"While outside the @Ability2, the base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's missing mana. While inside the @Ability2 instead, all ability damage is increased based on a multiple of the Sphere's current travel speed. Casting Megaflare while inside the Sphere will multiply its travel speed by <% BAHAMUT_ARCANA_2_W4_R_SPEED_MULT %>, and this rune will treat you as if you are inside the Sphere for the next 5 seconds. The damage bonus based on the Sphere's travel speed is further multiplied by the level of @Ability2."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Base Damage Bonus"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
@@ -254,7 +254,7 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"Glyph of Valor"
-		"item_rpc_bahamut_glyph_1_1_description" 				"Reduces all physical damage taken by @glyph_property1%"
+		"item_rpc_bahamut_glyph_1_1_description" 				"Reduces all physical damage taken by <% BAHAMUT_GLYPH_1_1_PHYS_RES_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_2_1"		"Glyph of Gigawall"
 		"item_rpc_bahamut_glyph_2_1_description" 				"Creates a Wall of Impunity at the end of a Megaflare charge that Bahamut automatically passes through."
@@ -262,22 +262,22 @@
 		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"Glyph of Separation"
-		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has @glyph_property1% larger radius."
+		"item_rpc_bahamut_glyph_3_1_description" 				"Judgement falls around Bahamut instead of in front and has <% BAHAMUT_GLYPH_3_1_W_RADIUS_INCREASE_PCT %>% larger radius."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"Glyph of Barriers"
-		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by @glyph_property1 seconds."
+		"item_rpc_bahamut_glyph_4_1_description" 				"Increases the duration of Wall of Impunity by <% BAHAMUT_GLYPH_4_1_Q_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"Glyph of Isolation"
-		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by @glyph_property1 seconds."
+		"item_rpc_bahamut_glyph_5_1_description" 				"Increases the duration of Solitary Shell by <% BAHAMUT_GLYPH_5_1_R4_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"Glyph of Pride"
-		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a @glyph_property1 second stun every 5th pulse."
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] is passive and no longer slows. Also Bahamut Pulse applies a <% BAHAMUT_GLYPH_6_1_E3_STUN %> second stun every <% BAHAMUT_GLYPH_6_1_PULSES %>th pulse."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"Glyph of Surging"
-		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the radius of Bahamut Pulse by @glyph_property1%"
+		"item_rpc_bahamut_glyph_7_1_description" 				"Increases the radius of Bahamut Pulse by <% BAHAMUT_GLYPH_7_1_E3_RADIUS_INCREASE_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"Glyph of Multiwall"
-		"item_rpc_bahamut_glyph_5_a_description" 				"Every @glyph_property1 seconds gain a free Wall of Impunity cast."
+		"item_rpc_bahamut_glyph_5_a_description" 				"Every <% BAHAMUT_GLYPH_5_A_FREE_Q_INTERVAL %> seconds gain a free Wall of Impunity cast."
 
 		"DOTA_Tooltip_ability_modifier_bahamut_5_a_cooldown"	"Multiwall cooldown"
 	

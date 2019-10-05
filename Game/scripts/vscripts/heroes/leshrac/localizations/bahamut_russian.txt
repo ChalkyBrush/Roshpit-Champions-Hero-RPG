@@ -239,7 +239,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"заморожен"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"К урону Способностей и Предметов добавляется показатель зависящий от отсутствующей маны героя. Увеличивает урон Способностей в зависимости от скорости Сферы. Прочтение @Ability4 во время полета в Сфере умножает скорость @Ability2 на <% BAHAMUT_ARCANA_W4_R_SPEED_MULT %> и сохраняет бонус вне Сферы в течение 5 секунд. Указанный урон от скорости умножается на уровень способности @Ability2."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"К урону Способностей и Предметов добавляется показатель зависящий от отсутствующей маны героя. Увеличивает урон Способностей в зависимости от скорости Сферы. Прочтение @Ability4 во время полета в Сфере умножает скорость @Ability2 на <% BAHAMUT_ARCANA_2_W4_R_SPEED_MULT %> и сохраняет бонус вне Сферы в течение 5 секунд. Указанный урон от скорости умножается на уровень способности @Ability2."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Бонус к базе урона умений и предметов"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от недостающей маны"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Увеличение урона"
@@ -252,7 +252,7 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"(T1) Глиф доблести"
-		"item_rpc_bahamut_glyph_1_1_description" 				"Снижает весь получаемый физический урон на @glyph_property1%"
+		"item_rpc_bahamut_glyph_1_1_description" 				"Снижает весь получаемый физический урон на <% BAHAMUT_GLYPH_1_1_PHYS_RES_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_2_1"		"(T2) Глиф Gigawall"
 		"item_rpc_bahamut_glyph_2_1_description" 				"Создаёт Wall of Impunity по окончании (R) Megaflare, через которую герой автоматически проходит."
@@ -260,22 +260,22 @@
 		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"(T3) Глиф разделения"
-		"item_rpc_bahamut_glyph_3_1_description" 				"(W) Judgement действует вокруг героя(вместо атаки впереди) на @glyph_property1% большем радиусе."
+		"item_rpc_bahamut_glyph_3_1_description" 				"(W) Judgement действует вокруг героя(вместо атаки впереди) на <% BAHAMUT_GLYPH_3_1_W_RADIUS_INCREASE_PCT %>% большем радиусе."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"(T4) Глиф барьера"
-		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает время действия (Q) Wall of Impunity на @glyph_property1 сек."
+		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает время действия (Q) Wall of Impunity на <% BAHAMUT_GLYPH_4_1_Q_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"(T5) Глиф изоляции"
-		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на @glyph_property1 сек."
+		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на <% BAHAMUT_GLYPH_5_1_R4_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"(T6) Глиф гордости"
-		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] становится пассивной, и не замедляет. Каждый пятый импульс оглушает цели на @glyph_property1 сек."
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] становится пассивной, и не замедляет. Каждый <% BAHAMUT_GLYPH_6_1_PULSES %> импульс оглушает цели на <% BAHAMUT_GLYPH_6_1_E3_STUN %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"(T7) Глиф вздымающихся волн"
-		"item_rpc_bahamut_glyph_7_1_description" 				"Увеличивает радиус [E3] на @glyph_property1%"
+		"item_rpc_bahamut_glyph_7_1_description" 				"Увеличивает радиус [E3] на <% BAHAMUT_GLYPH_7_1_E3_RADIUS_INCREASE_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"(Immortal) Глиф бесконечных граней"
-		"item_rpc_bahamut_glyph_5_a_description" 				"Каждые @glyph_property1 сек. герой получает заряд, позволяющий установить дополнительную стену от (Q) Wall of Impunity."
+		"item_rpc_bahamut_glyph_5_a_description" 				"Каждые <% BAHAMUT_GLYPH_5_A_FREE_Q_INTERVAL %> сек. герой получает заряд, позволяющий установить дополнительную стену от (Q) Wall of Impunity."
 
 		"DOTA_Tooltip_ability_modifier_bahamut_5_a_cooldown"	"Перезарядка дополнительного использования умения (Q)"
 	

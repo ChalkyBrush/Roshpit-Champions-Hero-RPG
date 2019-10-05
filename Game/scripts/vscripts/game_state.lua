@@ -1405,7 +1405,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * STORMSHIELD_PHYS_REDUCTION
 		end
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
-			damage = damage * 0.7
+			damage = damage * (100-BAHAMUT_GLYPH_1_1_PHYS_RES_PCT)/100
 		end
 		if victim:HasModifier("modifier_pure_resist") then
 			damage = damage * 6
