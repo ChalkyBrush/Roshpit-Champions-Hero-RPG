@@ -1501,7 +1501,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_spirit_warrior_immortal_weapon_1") then
-            damageMult = damageMult + 1
+            damageMult = damageMult + SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DAMAGE_AMP_PCT/100
         end
         if attacker:HasModifier("modifier_royal_wristguards_stack_effect") then
             local qAbility = attacker:GetAbilityByIndex(DOTA_Q_SLOT)

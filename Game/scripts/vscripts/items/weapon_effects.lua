@@ -278,7 +278,7 @@ function spirit_warrior_immo3_attack_start(event)
 		Timers:CreateTimer(attackTime, function()
 			local radius = attacker:Script_GetAttackRange()
 			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-			local max = 2
+			local max = SPIRIT_WARRIOR_IMMORTAL_WEAPON_3_SPLITSHOT_ENEMIES
 			local counter = 0
 			if #enemies > 0 then
 				--print(#enemies)

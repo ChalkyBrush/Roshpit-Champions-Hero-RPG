@@ -23,7 +23,7 @@ function waterheart_start(event)
 	local ability = event.ability
 	local duration = event.duration
 	if caster:HasModifier("modifier_spirit_warrior_immortal_weapon_1") then
-		duration = duration + 10
+		duration = duration + SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DURATION_BONUS
 	end
 	if caster:HasModifier("modifier_spirit_warrior_glyph_7_1") then
 		duration = duration + SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION
