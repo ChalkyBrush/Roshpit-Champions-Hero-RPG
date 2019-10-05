@@ -10,7 +10,7 @@
     	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"Получает периодический урон"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] Mass Hysteria"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <% VENOMORT_PARAGONS_COUNT_AS_ENEMIES %> юнитов, боссы считаются за <% VENOMORT_BOSSES_COUNT_AS_ENEMIES %>. Повторный каст обнуляет прежние заряды, длится <% Q1_DURATION %> секунд. Максимум <% Q1_MAX_STACKS %> стаков яда."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <% VENOMORT_PARAGONS_COUNT_AS_ENEMIES %> юнитов, боссы считаются за <% VENOMORT_BOSSES_COUNT_AS_ENEMIES %>. Повторный каст обнуляет прежние заряды, длится <% VENOMORT_Q1_DURATION %> секунд. Максимум <% VENOMORT_Q1_MAX_STACKS %> стаков яда."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_property_one"				"Базовый Урон Способностей"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_suffix"						"% за юнита"
 
@@ -87,7 +87,7 @@
 		"DOTA_Tooltip_modifier_venomort_rune_e_1_description" 				"Venomort's old E1 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] Acid Armor"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Противники, наносящие урон Venomort покрываются кислотным ядом, который наносит урон каждые <% E2_TICK_RATE %> сек, в течение <% VENONORT_E2_DURATION %> сек. Урон от яда умножается на уровень героя. Пробивает иммунитет к магии."
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Противники, наносящие урон Venomort покрываются кислотным ядом, который наносит урон каждые <% VENOMORT_E2_TICK_RATE %> сек, в течение <% VENONORT_E2_DURATION %> сек. Урон от яда умножается на уровень героя. Пробивает иммунитет к магии."
     	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"x уровень героя"
 

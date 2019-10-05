@@ -16,7 +16,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% Q1_BAD_PER_ENEMY_PERCENT %>"
+				"property_one"			"<% VENOMORT_Q1_BAD_PER_ENEMY_PERCENT %>"
 			}
 		}
 	}
@@ -37,7 +37,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q2_DAMAGE_PER_INT %>"
+				"property_one"			"<% VENOMORT_Q2_DAMAGE_PER_INT %>"
 			}
 		}
 	}
@@ -59,7 +59,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% Q3_ATTACK_SPEED_SLOW %>"
+				"property_one"			"<% VENOMORT_Q3_ATTACK_SPEED_SLOW %>"
 			}
 		}
 	}
@@ -80,7 +80,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q4_RANGE %>"
+				"property_one"			"<% VENOMORT_Q4_RANGE %>"
 			}
 		}
 	}
@@ -101,7 +101,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W1_DAMAGE_PER_HP_PERCENT %>"
+				"property_one"			"<% VENOMORT_W1_DAMAGE_PER_HP_PERCENT %>"
 			}
 		}
 	}
@@ -123,7 +123,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"		    "<% W2_DURATION %>"
+				"property_one"		    "<% VENOMORT_W2_DURATION %>"
 			}
 		}
 	}
@@ -144,7 +144,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W3_BONUS_ATTRIBUTES %>"
+				"property_one"			"<% VENOMORT_W3_BONUS_ATTRIBUTES %>"
 			}
 		}
 	}
@@ -165,7 +165,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% W4_POSTMIT_PER_HP_PERCENT %>"
+				"property_one"			"<% VENOMORT_W4_POSTMIT_PER_HP_PERCENT %>"
 			}
 		}
 	}
@@ -186,7 +186,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E1_POISON_AMPLIFY_PERCENT %>"
+				"property_one"			"<% VENOMORT_E1_POISON_AMPLIFY_PERCENT %>"
 			}
 		}
 	}
@@ -209,7 +209,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E2_DAMAGE_PER_LEVEL %>"
+				"property_one"			"<% VENOMORT_E2_DAMAGE_PER_LEVEL %>"
 			}
             "02"
             {
@@ -240,7 +240,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"		"<% E3_AURA_DAMAGE_PERCENT %>"
+				"property_one"		"<% VENOMORT_E3_AURA_DAMAGE_PERCENT %>"
 			}
 		}
 	}
@@ -261,12 +261,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E4_HP_PER_ENEMY %>"
+				"property_one"			"<% VENOMORT_E4_HP_PER_ENEMY %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% E4_EVASION_PER_ENEMY %>"
+				"property_two"			"<% VENOMORT_E4_EVASION_PER_ENEMY %>"
 			}
 		}
 	}
@@ -289,7 +289,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% R1_VIPER_DAMAGE_PERCENT %>"
+				"property_one"			"<% VENOMORT_R1_VIPER_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{
@@ -318,7 +318,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% R2_VIPER_SCALE_PERCENT %>"
+				"property_one"			"<% VENOMORT_R2_VIPER_SCALE_PERCENT %>"
 			}
 		}
 	}
@@ -340,7 +340,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% R3_STACKS %>"
+				"property_one"			"<% VENOMORT_R3_STACKS %>"
 			}
 		}
 	}
@@ -361,12 +361,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% R4_ADD_HP %>"
+				"property_one"			"<% VENOMORT_R4_ADD_HP %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% R4_ADD_DAMAGE %>"
+				"property_two"			"<% VENOMORT_R4_ADD_DAMAGE %>"
 			}
 		}
 	}

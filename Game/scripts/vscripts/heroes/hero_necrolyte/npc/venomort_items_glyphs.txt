@@ -393,7 +393,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% W2_CHANCE %>"
+				"property_two"			"<% VENOMORT_W2_CHANCE %>"
 			}
 		}
 	}

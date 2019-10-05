@@ -5,7 +5,7 @@ local module = {
         local mult = 0
         local modifier = caster:FindModifierByName("modifier_gale_nova_bad")
         if modifier then
-            mult = mult + modifier:GetStackCount() * Q1_BAD_PER_ENEMY_PERCENT / 100
+            mult = mult + modifier:GetStackCount() * VENOMORT_Q1_BAD_PER_ENEMY_PERCENT / 100
         end
         modifier = caster:FindModifierByName("modifier_venomort_arcana2_q_4_invisible")
         if modifier then
@@ -87,7 +87,7 @@ local module = {
             end
             for index, e1_element in ipairs(e1_elements) do
                 if element1 == e1_element or element2 == e1_element then
-                    mult = mult + e1_level * E1_POISON_AMPLIFY_PERCENT / 100
+                    mult = mult + e1_level * VENOMORT_E1_POISON_AMPLIFY_PERCENT / 100
                 end
             end
         end
@@ -102,7 +102,7 @@ local module = {
         local mult = 0
         local w4_level = caster:GetRuneValue("w", 4)
         if w4_level ~= 0 then
-            mult = mult + w4_level * W4_POSTMIT_PER_HP_PERCENT / 100 * (1 - target:GetHealth() / target:GetMaxHealth()) * 100
+            mult = mult + w4_level * VENOMORT_W4_POSTMIT_PER_HP_PERCENT / 100 * (1 - target:GetHealth() / target:GetMaxHealth()) * 100
         end
 
         if caster:HasModifier("modifier_venomort_glyph_7_2") then
@@ -117,7 +117,7 @@ local module = {
         if attacker:GetName() == "npc_dota_hero_necrolyte" or victim:GetName() == "npc_dota_hero_necrolyte" then
             local modifier = attacker:FindModifierByName('modifier_venomort_summon_damage_reduction')
             if modifier then
-                mult = mult * (1 - R3_DAMAGE_REDUCTION_PERCENT / 100) ^ modifier:GetStackCount();
+                mult = mult * (1 - VENOMORT_R3_DAMAGE_REDUCTION_PERCENT / 100) ^ modifier:GetStackCount();
             end
             modifier = attacker:FindModifierByName('modifier_venomort_glyph_6_1_damage_reduction')
             if modifier then

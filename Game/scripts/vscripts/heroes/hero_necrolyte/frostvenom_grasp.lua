@@ -41,7 +41,7 @@ function frostvenom_grasp_start(event)
 		local w2_level = caster:GetRuneValue("w", 2)
 		if w2_level > 0 then
 			apply_demoralize = true
-			demoralize_duration = w2_level * W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT / 100)
+			demoralize_duration = w2_level * VENOMORT_W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT / 100)
 		end
 	end
 	for i = 1, explosions, 1 do
@@ -70,7 +70,7 @@ function frostvenom_grasp_start(event)
 
 					if apply_demoralize then
 						local luck = RandomInt(1, 100)
-						if luck < W2_CHANCE then
+						if luck < VENOMORT_W2_CHANCE then
 							demoralize(caster, w_ability, enemy, demoralize_duration)
 						end
 

@@ -101,7 +101,7 @@ function ghost_warp_take_damage(event)
 	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")
 
 	local e2_level = caster:GetRuneValue("e", 2)
-	local e2_damage = e2_level * E2_DAMAGE_PER_LEVEL * caster:GetLevel()
+	local e2_damage = e2_level * VENOMORT_E2_DAMAGE_PER_LEVEL * caster:GetLevel()
 
 	if e2_level == 0 then
 		return
@@ -162,8 +162,8 @@ end
 function e3_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = E3_RADIUS
-	local duration = E3_DURATION
+	local radius = VENOMORT_E3_RADIUS
+	local duration = VENOMORT_E3_DURATION
 	ability.e3_level = caster:GetRuneValue("e", 3)
 
 	if ability.e3_level == 0 then
@@ -190,10 +190,10 @@ function apply_e4_stacks(event)
 		paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
 	end
 
-	local duration = VENOMORT_E4_DURATION + E4_DELAY
+	local duration = VENOMORT_E4_DURATION + VENOMORT_E4_DELAY
 
 	if caster:HasModifier("modifier_venomort_glyph_4_2") then
-		duration = T42_DURATION + E4_DELAY
+		duration = T42_DURATION + VENOMORT_E4_DELAY
 	end
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_e4_hero_bonus_visible", nil)

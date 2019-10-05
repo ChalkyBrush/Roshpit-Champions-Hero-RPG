@@ -55,7 +55,7 @@ function cast_necrofusion(event)
 
     local w1_level = caster:GetRuneValue("w", 1)
     if w1_level then
-        damage = damage + w1_level * W1_DAMAGE_PER_HP_PERCENT / 100 * caster:GetHealth()
+        damage = damage + w1_level * VENOMORT_W1_DAMAGE_PER_HP_PERCENT / 100 * caster:GetHealth()
     end
     ability.w_damage = damage
 
@@ -85,7 +85,7 @@ function projectile_hit(event)
     local ability = event.ability
     local target = event.target
     local damage = ability.w_damage
-    local duration = W_DURATION
+    local duration = VENOMORT_W_DURATION
 
     ability:ApplyDataDrivenModifier(caster, target, "modifier_necrofusion_slowed", {duration = duration})
 
@@ -96,7 +96,7 @@ function projectile_hit(event)
     end
     if ability.w2_level > 0 then
         local luck = RandomInt(1, 100)
-        if luck < W2_CHANCE then
+        if luck < VENOMORT_W2_CHANCE then
             demoralize(caster, ability, target, ability.w2_duration)
         end
     end
@@ -110,7 +110,7 @@ function demoralize(caster, ability, target, duration)
     end
 
     ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_demoralize", {duration = duration})
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_demoralize_immune", {duration = duration + W2_IMMUNE_DURATION})
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_demoralize_immune", {duration = duration + VENOMORT_W2_IMMUNE_DURATION})
 end
 
 function demoralize_think(event)
