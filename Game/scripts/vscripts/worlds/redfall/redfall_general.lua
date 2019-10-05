@@ -270,7 +270,9 @@ function use_spirit_ruby(event)
 				Redfall:CreateSpiritAmbience()
 				CustomGameEventManager:Send_ServerToAllClients("update_spirit_zone_display", {tooltip = "#redfall_equinox"})
 			end)
-
+			Timers:CreateTimer(10, function()
+				Challenges:ProcessPossibleSpawnEvent(1)
+			end)
 		else
 			Notifications:Top(hero:GetPlayerOwnerID(), {text = "Must use in Town", duration = 3, style = {color = "red"}, continue = true})
 			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())

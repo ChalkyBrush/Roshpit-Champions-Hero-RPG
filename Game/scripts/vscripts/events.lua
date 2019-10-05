@@ -1016,6 +1016,11 @@ function GameMode:OnPlayerPickHero(keys)
 		CustomGameEventManager:Send_ServerToPlayer(player, "correct_dota_ui", {})
 		table.insert(GameState.HeroPlayerTable, {heroEntity:GetPlayerOwnerID(), keys.heroindex})
 		Events:SetupHeroes(heroEntity)
+		print(#MAIN_HERO_TABLE)
+		print(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
+		if #MAIN_HERO_TABLE == PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
+			Challenges:GetChallengeFromRoshpitServer()
+		end
 		Events:BGMmanager(player, heroEntity)
 
 		--DEBUG

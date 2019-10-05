@@ -412,17 +412,9 @@ end
 function crusader(caster, units)
 	local time = 5
 	local speechSlot = findEmptyDialogSlot()
-	if GameRules:GetGameTime() > 5 then
-		Quests:ShowDialogueText(units, caster, "#dialogue_crusader_one", time, false)
+	if speechSlot < 4 then
+		Quests:ShowDialogueText(units, caster, "#dialogue_crusader_one", time, true)
 		disableSpeech(caster, time, speechSlot)
-
-		for _, unit in ipairs(units) do
-			local player = unit:GetPlayerOwner()
-			if player then
-				local playerId = player:GetPlayerID()
-				Quests:OpenQuests(playerId)
-			end
-		end
 	end
 end
 

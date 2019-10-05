@@ -243,6 +243,7 @@ function GameMode:_InitGameMode()
 
   CustomGameEventManager:RegisterListener("units_special", Dynamic_Wrap(CustomAbilities, "UnitsSpecial"))
   CustomGameEventManager:RegisterListener("gems", Dynamic_Wrap(Gems, "PanoramaInput"))
+  CustomGameEventManager:RegisterListener("challenges", Dynamic_Wrap(Challenges, "PanoramaInput"))
 
   -- GameMode:SetTrackingProjectileFilter( Dynamic_Wrap( Attacks, "FilterProjectile" ), self )
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)

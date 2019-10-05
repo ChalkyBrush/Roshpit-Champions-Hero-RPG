@@ -99,7 +99,7 @@ function Gems:GetErrorMessageForSocketing(item)
 end
 
 function Gems:SpawnGemForger(position, endFV, gem_reward)
-	-- if not Gems.GemForgerSpawned then
+	if not Gems.GemForgerSpawned then
 	 	if Gems.GemForger then
 	 		UTIL_Remove(Gems.GemForger)
 	 	end
@@ -126,10 +126,11 @@ function Gems:SpawnGemForger(position, endFV, gem_reward)
 		EmitSoundOn("NPC.Gemforger.Enter.Start", Gems.GemForger)
 
 		gem_reward = math.ceil(RPCItems:GetLogarithmicVarianceValue(gem_reward, 0, 0, 0, 0))
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, Gems.GemForger:GetAbsOrigin(), 800, 10, false)
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i].gem_reward = gem_reward
 		end
-	-- end
+	end
 end
 
 function Gems:DropSocketForger(position)

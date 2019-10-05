@@ -781,7 +781,9 @@ function use_spirit_stones(event)
 					Tanari:SpawnFireSpirit(Vector(9664, -15104), Vector(-1, 0))
 				end
 			end
-
+			Timers:CreateTimer(10, function()
+				Challenges:ProcessPossibleSpawnEvent(1)
+			end)
 		else
 			Notifications:Top(hero:GetPlayerOwnerID(), {text = "Must use in Tanari Encampment", duration = 3, style = {color = "red"}, continue = true})
 			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())

@@ -1,0 +1,58 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/challenges/crusader.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/challenges/crusader.js" />
+	</scripts>
+	<snippets>
+		<snippet name="crusader_main">
+			<Panel class="crusader_main" hittest="false">
+				<Panel id="crusader_bg" hittest="false"/>
+				
+				<Panel class="crusader_mega_container">	
+					<Image id="crusader_header" hittest="false">
+						<Panel id="crusader_header_container" hittest="false">
+							<Panel id="crusader_header_container_bg" hittest="false"></Panel>
+							<Label id="crusader_header_title" text="the_crusader" hittest="false"/>
+						</Panel>
+					</Image>
+					<Panel id="crusader_attach_contents">
+					</Panel>
+					<Button id="close_button">
+						<Label id="close_button_label" text="ui_close"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="challenge_snippet">
+			<Panel class="challenge_root" hittest="false">
+				
+				
+				<Panel class="challenge_main_container">	
+					<Label id="challenge_title" html="true"></Label>
+					<Panel class="challenge_text_panel">
+						<Panel id="challenge_bg" hittest="false"/>
+						<Panel class="challenge_text_and_mods_panel">
+							<Label id="challenge_text" html="true"></Label>
+							<Panel id="challenge_mods_attacher"/>
+						</Panel>
+					</Panel>
+					<Button id="challenge_start_button">
+						<Label id="challenge_start_button_label" text="ui_start_challenge"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="challenge_mod_snippet">
+			<Panel class="challenge_mod_root" hittest="false">
+				<Label id="mod_text" html="true"></Label>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="crusader_content" hittest="false">
+		<Panel id="crusader_container" hittest="false">
+		</Panel>
+	</Panel>
+</root>
