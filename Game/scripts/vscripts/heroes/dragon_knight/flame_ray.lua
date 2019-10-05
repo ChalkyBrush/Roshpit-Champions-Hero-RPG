@@ -198,7 +198,7 @@ function rune_e_1_damage(event)
         local e_4_level = caster:GetRuneValue("e", 4)
         local damage = ability.rune_e_1 * FLAMEWAKER_E1_DMG
         if ability.glyphed then
-            damage = damage * 2
+            damage = damage * FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT
         end
         CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
         if e_4_level > 0 then

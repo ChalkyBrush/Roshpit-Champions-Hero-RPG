@@ -249,31 +249,31 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"Glyph of Diamond Skin"
-		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a @glyph_property1% chance to be stunned for @glyph_property2 second."
+		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% chance to be stunned for <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> second."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to @glyph_property1 seconds."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <% FLAMEWAKER_GLYPH_2_1_Q_CD %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"Glyph of Blue Flame"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to @glyph_property2% of the sum of your attributes and @glyph_property3% of attack damage. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by @glyph_property1."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to <% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x of the sum of your attributes and <% FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL %>% of attack damage. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> for <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"Glyph of Charred Hearts"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <% FLAMEWAKER_T51_R2_DUR_MULTIPLY%>x."
+		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %>x."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"Glyph of Mountain's Core"
-		"item_rpc_flamewaker_glyph_6_1_description" 			"Increases attack damage by @glyph_property1% for @glyph_property2 seconds after casting Cataclysm."
+		"item_rpc_flamewaker_glyph_6_1_description" 			"Increases attack damage by <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>% for <% FLAMEWAKER_GLYPH_6_1_DURATION %> seconds after casting @Ability4."
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
-		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Gaining 100%% increased attack damage."
+		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Gaining <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>%% increased attack damage."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"Glyph of Flaming Sea"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"Blazing Trail has @glyph_property1x width and deals @glyph_property2x damage."
+		"item_rpc_flamewaker_glyph_7_1_description" 			"Blazing Trail has @glyph_property1x width and deals <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %>x damage."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"Glyph of Dragon Skin"
-		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at @glyph_property1% of max health. If below 50% health, instances are capped at @glyph_property2%."
+		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP * 100 %>% of max health. If below <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH * 100 %>% health, instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP * 100 %>%."
 
 		//Weapons
 		"flamewaker_weapon_00"			"Basic Sword"
@@ -306,15 +306,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
 		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"
-		"property_flamewaker_immortal_weapon_description"					"Casting @Ability4 applies a @special_property1 charge shield that reduces damage taken by 90%."
+		"property_flamewaker_immortal_weapon_description"					"Casting @Ability4 applies a <% FLAMEWAKER_IMMORTAL_WEAPON_1_SHIELDS %> charge shield that reduces damage taken by <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%."
 
 		"DOTA_Tooltip_modifier_volcano_shield"							"Volcano Shield"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Damage taken reduced by 90%%"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Damage taken reduced by <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%%"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
-    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by @special_property1. While @Ability3 is active, gain @special_property2 agility."
+    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by <% FLAMEWAKER_IMMORTAL_WEAPON_2_ATTACK_DAMAGE_PER_AGILITY %>. While @Ability3 is active, gain <% FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E %> agility."
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
-    	"property_flamewaker_immortal_weapon3_description"						"Increases the stun duration of @Ability1 and @Ability4 by @special_property1%"
+    	"property_flamewaker_immortal_weapon3_description"						"Stun duration of @Ability1 and @Ability4 is multiplied by <% FLAMEWAKER_IMMORTAL_WEAPON_3_STUN_DURATION_Q_R_MULT %>"

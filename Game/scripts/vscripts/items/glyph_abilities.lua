@@ -107,9 +107,8 @@ function flamewaker_glyph_1_1_attacked(event)
 	local target = event.target
 	local attacker = event.attacker
 	local luck = RandomInt(1, 2)
-	local stun_duration = event.ability:GetSpecialValueFor("property_two")
-	if luck == 1 then
-		Filters:ApplyStun(target, stun_duration, attacker)
+	if luck == 100/FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE then
+		Filters:ApplyStun(target, FLAMEWAKER_GLYPH_1_1_STUN_DURATION, attacker)
 	end
 end
 

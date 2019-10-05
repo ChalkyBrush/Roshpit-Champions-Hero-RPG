@@ -1667,7 +1667,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_volcano_shield") then
-		damage = damage * 0.1
+		damage = damage * (100-FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION)/100
 		if shouldConsumeShields then
 			CustomAbilities:HitVolcanoShield(victim, attacker)
 		end
@@ -3822,9 +3822,9 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_flamewaker_glyph_5_a") then
 		if victim:GetUnitName() == "npc_dota_hero_dragon_knight" then
-			local thresh = 0.3
-			if victim:GetHealth() < victim:GetMaxHealth() * 0.5 then
-				thresh = 0.15
+			local thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP
+			if victim:GetHealth() < victim:GetMaxHealth() * FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH then
+				thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP
 			end
 			if filterTable["damage"] > victim:GetMaxHealth() * thresh then
 				filterTable["damage"] = victim:GetMaxHealth() * thresh

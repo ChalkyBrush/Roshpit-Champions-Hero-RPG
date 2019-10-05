@@ -157,8 +157,8 @@ function flame_proj_hit(event)
 	attack_dmg_bonus = attack_dmg_bonus + w_3_level * 5
 	local damage = base_damage + (attack_dmg_bonus / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
-		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * 5 + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.2) * ability:GetLevel()
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = 3})
+		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL + OverflowProtectedGetAverageTrueAttackDamage(caster) * FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL/100) * ability:GetLevel()
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = FLAMEWAKER_GLYPH_4_1_SLOW_DURATION})
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_dragonflame_armor_shred", {duration = 0.5})
 	local stacks = target:GetModifierStackCount("modifier_dragonflame_armor_shred", caster)

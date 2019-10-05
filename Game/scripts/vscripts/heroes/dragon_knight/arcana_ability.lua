@@ -90,7 +90,7 @@ function cast_dragon_fire_burst(caster, ability, target_point, damage, q_2_level
 	end)
 	local stunDuration = 1.2
 	if caster:HasModifier("modifier_flamewaker_immortal_weapon_3") then
-		stunDuration = stunDuration + stunDuration * 1.5
+		stunDuration = stunDuration * FLAMEWAKER_IMMORTAL_WEAPON_3_STUN_DURATION_Q_R_MULT
 	end
 	EmitSoundOnLocationWithCaster(target_point, "Flamewaker.ArcanaAbility", caster)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target_point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
