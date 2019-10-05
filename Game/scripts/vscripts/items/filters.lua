@@ -1997,7 +1997,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             normalMult = normalMult + stacks / 100
         end
         if attacker:HasModifier('modifier_trapper_glyph_6_1') and slot == BASE_ITEM then
-            normalMult = normalMult * TRAPPER_T61_NORMAL_ITEM_AMPLIFY
+            normalMult = normalMult * TRAPPER_GLYPH_6_1_NORMAL_ITEM_AMPLIFY
         end
         mult = mult + normalMult
     end
@@ -2117,7 +2117,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * 0.15
+            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
             fireMult = fireMult + multIncrease
         end
         if unitName == "npc_dota_hero_arc_warden" then
@@ -2235,7 +2235,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * 0.15
+            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
             mult = mult + multIncrease
         end
     end
@@ -2692,7 +2692,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * 0.15
+            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
             waterMult = waterMult + multIncrease
         end
         if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then

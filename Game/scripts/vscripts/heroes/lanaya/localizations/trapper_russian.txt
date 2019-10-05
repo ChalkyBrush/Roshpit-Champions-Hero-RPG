@@ -222,7 +222,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Glyph of Tinkering"
-        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <% TRAPPER_T31_ADD_RADIUS %>, и добавляет <% TRAPPER_T31_ADD_BOMBS %> бомбы за каст. Противники, задетые взрывом, будут контужены и не смогут нанести урон по Trapper следующими <% TRAPPER_T31_SHIELDS %> порциями урона. Урон от бомб обновляет контузию."
+        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <% TRAPPER_GLYPH_3_1_ADD_RADIUS %>, и добавляет <% TRAPPER_GLYPH_3_1_ADD_BOMBS %> бомбы за каст. Противники, задетые взрывом, будут контужены и не смогут нанести урон по Trapper следующими <% TRAPPER_GLYPH_3_1_SHIELDS %> порциями урона. Урон от бомб обновляет контузию."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"
@@ -231,7 +231,7 @@
         "item_rpc_trapper_glyph_4_1_description"                "Применяя (R)Backstab на монстров парагона, будет нанесён увеличенный в @glyph_property1 раз(а) урон."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "(T5) Glyph of the Mad Bomber"
-        "item_rpc_trapper_glyph_5_1_description"                "Бросает @Ability2 каждые <% TRAPPER_T51_DISTANCE %> пройденной дистанции. Smoke Bomb производит газ <% TRAPPER_T51_INVISIBLE_W_DURATION_AMPLIFY %> раз дольше и имеет <% TRAPPER_T51_INVISIBLE_W_RADIUS_AMPLIFY %>x радиус газа."
+        "item_rpc_trapper_glyph_5_1_description"                "Бросает @Ability2 каждые <% TRAPPER_GLYPH_5_1_DISTANCE %> пройденной дистанции. Smoke Bomb производит газ <% TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY %> раз дольше и имеет <% TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY %>x радиус газа."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "(T6) Glyph of Craftsmanship"
         "item_rpc_trapper_glyph_6_1_description"                "Весь урон, напрямую наносимый предметами получает дополнительную <font color=\"#DDDDDD\">Нормальную</font> стихию. В обмен на этот бонус, урон <font color=\"#DDDDDD\">Нормальной</font> стихии снижается на @glyph_property1%"
@@ -240,7 +240,7 @@
         "item_rpc_trapper_glyph_7_1_description"                "Одновременно может существовать 2 экземпляра каждой из ловушек @Ability1."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "(Immortal) Glyph of Blueprints"
-        "item_rpc_trapper_glyph_5_a_description"                "Усиливает @Ability1. Fulminating Trap наносит <% TRAPPER_T5A_FULMINATING_AMP * 100 - 100 %>% больше урона. Poison Trap увеличивает максимальные заряды яда до <% TRAPPER_T5A_POISON_STACKS %>. Net Trap имеет <% TRAPPER_T5A_NET_DUR_AMP %>x увеличенную длительность связывания. Torrent Trap требует <% TRAPPER_T5A_TORRENT_DUR_UNTIL %> секунд для обнаружения цели."
+        "item_rpc_trapper_glyph_5_a_description"                "Усиливает @Ability1. Fulminating Trap наносит <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% больше урона. Poison Trap увеличивает максимальные заряды яда до <% TRAPPER_GLYPH_5_A_POISON_STACKS %>. Net Trap имеет <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %>x увеличенную длительность связывания. Torrent Trap требует <% TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL %> секунд для обнаружения цели."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1-2) Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] удваивается."
@@ -288,4 +288,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
-        "property_trapper_immortal_weapon3_description"                      "Дальность применения всех способностей увеличена на @special_property1"
+        "property_trapper_immortal_weapon3_description"                      "Дальность применения всех способностей увеличена на <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>, перезарядка @Ability1 и @Ability4 снижена на <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>."

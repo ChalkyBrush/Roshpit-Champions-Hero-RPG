@@ -61,7 +61,7 @@ function action_leap_cast(event)
     local fv = (targetOrigin * Vector(1, 1, 0) - casterOrigin * Vector(1, 1, 0)):Normalized()
     local distance = WallPhysics:GetDistance(casterOrigin * Vector(1, 1, 0), targetOrigin * Vector(1, 1, 0))
     if caster:HasModifier("modifier_trapper_immo3_effect") then
-        max_distance = max_distance + 400
+        max_distance = max_distance + TRAPPER_IMMORTAL_WEAPON_3_RANGE
     end
     if caster:HasModifier('modifier_trapper_glyph_1_1') then
         decoy(caster, ability, caster.e2_level)
@@ -142,14 +142,14 @@ function decoy(caster, casterAbility, runesCount)
     decoy.ability = casterAbility
     decoy:SetOwner(caster)
     decoy:SetControllableByPlayer(caster:GetPlayerID(), true)
-    decoy.dieTime = E2_DECOY_DURATION
-    decoy.dieDamage = E2_STATS_DAMAGE * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * runesCount
+    decoy.dieTime = TRAPPER_E2_DECOY_DURATION
+    decoy.dieDamage = TRAPPER_E2_STATS_DAMAGE * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * runesCount
     decoy:AddAbility("ability_die_after_time_generic"):SetLevel(1)
     StartAnimation(decoy, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.0})
     -- local summonAbil = decoy:AddAbility("ability_summoned_unit")
     -- summonAbil:SetLevel(1)
 
-    local minionHealth = E2_DECOY_HEALTH
+    local minionHealth = TRAPPER_E2_DECOY_HEALTH
     if caster:HasModifier('modifier_trapper_glyph_6_2') then
         minionHealth = T62_DECOY_HEALTH
         decoy.dieDamage = decoy.dieDamage * (1 + T62_DECOY_DAMAGE_AMPLIFY_PERCENT / 100)
@@ -163,8 +163,8 @@ function decoy(caster, casterAbility, runesCount)
 
     local runeAbility = caster.runeUnit2:FindAbilityByName("trapper_rune_r_2")
     local decoyDuration = Filters:GetAdjustedBuffDuration(caster, 15, false)
-    runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, decoy, "modifier_decoy_effect", {duration = E2_DECOY_DURATION - 0.5})
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), decoy:GetAbsOrigin(), nil, E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, decoy, "modifier_decoy_effect", {duration = TRAPPER_E2_DECOY_DURATION - 0.5})
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), decoy:GetAbsOrigin(), nil, TRAPPER_E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for _,enemy in pairs(enemies) do
         enemy:MoveToTargetToAttack(decoy)
     end
@@ -182,7 +182,7 @@ function decoy_die(event)
         ParticleManager:DestroyParticle(particle1, false)
     end)
 
-    local enemies = FindUnitsInRadius(decoy:GetTeamNumber(), position, nil, E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(decoy:GetTeamNumber(), position, nil, TRAPPER_E2_EXPLODE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Damage:Apply({
@@ -220,7 +220,7 @@ function vanish_thinking(event)
     local caster = event.caster
     local ability = event.ability
     if caster:HasModifier("modifier_trapper_glyph_2_1") then
-        local healAmount = caster:GetMaxHealth() * 0.03
+        local healAmount = caster:GetMaxHealth() * TRAPPER_GLYPH_2_1_HEAL_PCT/100
         Filters:ApplyHeal(caster, caster, healAmount, true, false)
         -- PopupHealing(caster, healAmount)
         PopupFirstAid(caster)

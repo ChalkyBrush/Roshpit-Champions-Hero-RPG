@@ -3487,7 +3487,7 @@ function GameState:FilterDamage(filterTable)
 	modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
 	if modifier then
 		local stacks = modifier:GetStackCount()
-		mult = mult + stacks * 0.15
+		mult = mult + stacks * TRAPPER_E4_POST_AMP_PERCENT/100
 	end
 
 	modifier = victim:FindModifierByName("modifier_poison_whip")
@@ -3662,7 +3662,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		if victim:HasModifier("modifier_fulminating_burn_effect") or victim:HasModifier("modifier_poison_trap_effect") or victim:HasModifier("modifier_net_trap_netted_effect") or victim:HasModifier("modifier_torrent_trap_slowed_effect") then
-			filterTable["damage"] = filterTable["damage"] * 1.3
+			filterTable["damage"] = filterTable["damage"] * (100+TRAPPER_IMMORTAL_WEAPON_2_DAMAGE_AMP_PCT)/100
 		end
 	end
 

@@ -13,7 +13,7 @@ function bomb_throw_start(event)
     end)
     local bombsCount = TRAPPER_W_BOMBS_COUNT
     if caster:HasModifier('modifier_trapper_glyph_3_1') then
-        bombsCount = bombsCount + TRAPPER_T31_ADD_BOMBS
+        bombsCount = bombsCount + TRAPPER_GLYPH_3_1_ADD_BOMBS
     end
     for i = 1,bombsCount do
         local bomb = createBomb(event, caster, ability)
@@ -315,7 +315,7 @@ function smoke_bomb_explode(unit)
     bombAbility:ApplyDataDrivenModifier(unit, unit, "modifier_smoke_bomb", {})
     local duration = TRAPPER_W2_DURATION_BASE
     if caster:HasModifier('modifier_trapper_glyph_5_1') then
-        duration = duration * TRAPPER_T51_INVISIBLE_W_DURATION_AMPLIFY
+        duration = duration * TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY
     end
     Timers:CreateTimer(duration, function()
         UTIL_Remove(unit)
@@ -401,7 +401,7 @@ function bomb_throw_start_smoke(event)
     bomb.radius = event.radius
 
     if caster:HasModifier('modifier_trapper_glyph_5_1') then
-        bomb.radius = bomb.radius * TRAPPER_T51_INVISIBLE_W_RADIUS_AMPLIFY
+        bomb.radius = bomb.radius * TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY
     end
     bomb:AddAbility("lanaya_bomb_ability"):SetLevel(1)
     local bombAbility = bomb:FindAbilityByName("lanaya_bomb_ability")
