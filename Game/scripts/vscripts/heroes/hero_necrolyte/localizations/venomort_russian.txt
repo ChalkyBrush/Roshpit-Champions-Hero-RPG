@@ -251,7 +251,7 @@
 		"item_rpc_venomort_glyph_2_1_description" 				"Для каждого эффекта, базирующегося на числе пораженных целей, монстры Парагона считаются за @glyph_property2 юнитов, а боссы - за @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"(Т3) Glyph of Ghost Shroud"
-		"item_rpc_venomort_glyph_3_1_description" 				"В эффекте невидимости от @Ability3, регенерация здоровья Venomort увеличена на @glyph_property1% от максимального запаса здоровья. Перезарядка @Ability3 уменьшена на <% VENOMORT_T31_E_CD_RED %> секунд, дальность каста увеличена на <% VENOMORT_T31_E_CAST_RANGE_AMP %>."
+		"item_rpc_venomort_glyph_3_1_description" 				"В эффекте невидимости от @Ability3, регенерация здоровья Venomort увеличена на @glyph_property1% от максимального запаса здоровья. Перезарядка @Ability3 уменьшена на <% VENOMORT_GLYPH_3_1_E_CD_RED %> секунд, дальность каста увеличена на <% VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP %>."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"(Т4) Glyph of Melancholy"
 		"item_rpc_venomort_glyph_4_1_description" 				"[E1] дополнительно увеличивает стихии <font color=\"#9ACCD1\">Призрак</font>, <font color=\"#5C776E\">Нежить</font>, и <font color=\"#7F4F84\">Тень</font>."
@@ -260,7 +260,7 @@
 		"item_rpc_venomort_glyph_5_1_description" 				"Умножает потенциал [W3] на @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"(T6) Glyph of Enfeeblement"
-		"item_rpc_venomort_glyph_6_1_description" 				"Враги, страдающие от любого яда Venomort наносят ему @glyph_property1% меньше урона в течение <% VENOMORT_T61_DURATION %> сек."
+		"item_rpc_venomort_glyph_6_1_description" 				"Враги, страдающие от любого яда Venomort наносят ему @glyph_property1% меньше урона в течение <% VENOMORT_GLYPH_6_1_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"(Т7) Glyph of the Snake Charmer"
 		"item_rpc_venomort_glyph_7_1_description" 				"Увеличивает длительность жизни существ, призванных с помощью способностей и рун Venomort (но не из остальных источников) на @glyph_property1 секунд, и увеличивает их скорость атаки на @glyph_property2."

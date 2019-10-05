@@ -13,7 +13,7 @@ function cast(event)
 
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
 		ability:EndCooldown()
-		ability:StartCooldown(T11_COOLDOWN)
+		ability:StartCooldown(VENOMORT_GLYPH_1_1_COOLDOWN)
 	end
 
 	local q1_level = caster:GetRuneValue("q", 1)
@@ -53,8 +53,8 @@ function cast(event)
 	local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
 	local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
-		paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
+		bossesCountAs = VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES
 	end
 
 	local apply_demoralize = false
@@ -65,7 +65,7 @@ function cast(event)
 		local w2_level = caster:GetRuneValue("w", 2)
 		if w2_level > 0 then
 			apply_demoralize = true
-			demoralize_duration = w2_level * VENOMORT_W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT / 100)
+			demoralize_duration = w2_level * VENOMORT_W2_DURATION * (1 + VENOMORT_GLYPH_1_2_DURATION_INCREASE_PERCENT / 100)
 		end
 	end
 

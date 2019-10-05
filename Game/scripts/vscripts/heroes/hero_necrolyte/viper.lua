@@ -52,8 +52,8 @@ function cast(event)
     local attackspeed = 100
 
     if caster:HasModifier('modifier_venomort_glyph_7_1') then
-        attackspeed = attackspeed + T71_ADDITIONAL_ATTACK_SPEED
-        lifetime = lifetime + T71_ADDITIONAL_LIFETIME
+        attackspeed = attackspeed + VENOMORT_GLYPH_7_1_ADDITIONAL_ATTACK_SPEED
+        lifetime = lifetime + VENOMORT_GLYPH_7_1_ADDITIONAL_LIFETIME
     end
     EmitSoundOn("Venomort.Viper.CastVO", caster)
     local viper = CreateUnitByName("venomort_viper_summon", caster:GetAbsOrigin() + caster:GetForwardVector() * 120, true, caster, caster, caster:GetTeamNumber())
@@ -127,7 +127,7 @@ function attack_land(event)
                     summonAbility.particleCount = summonAbility.particleCount - 1
                 end)
             end
-            local enemies = FindUnitsInRadius(creator:GetTeamNumber(), target:GetAbsOrigin(), nil, WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+            local enemies = FindUnitsInRadius(creator:GetTeamNumber(), target:GetAbsOrigin(), nil, VENOMORT_IMMORTAL_WEAPON_1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
             if #enemies > 0 then
                 for _, enemy in pairs(enemies) do
                     Filters:ApplyDotDamage(creator, ability, enemy, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)

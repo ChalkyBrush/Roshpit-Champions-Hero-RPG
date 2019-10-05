@@ -251,7 +251,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_suffix_two"				""
 
   		"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2"						"[Q3] Fangs of Ozubu"
-    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"Every time an enemy unit takes an instance of damage from any of Venomort's various poisons, it gains a stacking debuff which increases damage received from all of Venomort's Damage Over Time effects. Max <% ARCANA2_Q3_MAX_STACKS_COUNT %> stacks, lasts <% ARCANA2_Q3_DURATION %> seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"Every time an enemy unit takes an instance of damage from any of Venomort's various poisons, it gains a stacking debuff which increases damage received from all of Venomort's Damage Over Time effects. Max <% VENOMORT_ARCANA2_Q3_MAX_STACKS_COUNT %> stacks, VENOMORT_ARCANA2_Q3_DURATION_DURATION %> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_property_one"			"Damage Boost"
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_suffix"					"% per stack"
 		"DOTA_Tooltip_modifier_venomort_frostvenom_graps_dot_amp"				"Fangs of Ozubu"
@@ -275,7 +275,7 @@
 		"item_rpc_venomort_glyph_2_1_description" 				"For each of Venomort's effects that gains power based on the number of affected targets, Paragon enemies count as @glyph_property2 units, while bosses count as @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"Glyph of Ghost Shroud"
-		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health. Additionally reduces @Ability3's cooldown by <% VENOMORT_T31_E_CD_RED %> seconds and multiplies its cast range by <% VENOMORT_T31_E_CAST_RANGE_AMP %>."
+		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health. Additionally reduces @Ability3's cooldown by <% VENOMORT_GLYPH_3_1_E_CD_RED %> seconds and multiplies its cast range by <% VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP %>."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"Glyph of Melancholy"
 		"item_rpc_venomort_glyph_4_1_description" 				"[E1] additionally increases <font color=\"#9ACCD1\">Ghost</font>, <font color=\"#5C776E\">Undead</font>, and <font color=\"#7F4F84\">Shadow</font> damage."
@@ -284,7 +284,7 @@
 		"item_rpc_venomort_glyph_5_1_description" 				"Multiplies the effectiveness of [W3] by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"Glyph of Enfeeblement"
-		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced taken damage to Venomort for <% VENOMORT_T61_DURATION %> seconds."
+		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced taken damage to Venomort for <% VENOMORT_GLYPH_6_1_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"Glyph of the Snake Charmer"
 		"item_rpc_venomort_glyph_7_1_description" 				"Increases the duration of all units summoned by any of Venomort's spells or runes (but not from other sources) by @glyph_property1 seconds, and increases their base attack speed by @glyph_property2."

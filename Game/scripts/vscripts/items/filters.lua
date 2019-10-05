@@ -432,7 +432,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         CDreduce = CDreduce + 1
     end
     if caster:HasModifier('modifier_venomort_glyph_3_1') then
-        CDreduce = CDreduce + VENOMORT_T31_E_CD_RED
+        CDreduce = CDreduce + VENOMORT_GLYPH_3_1_E_CD_RED
     end
     if caster:HasModifier("modifier_bear_silencer") then
         CDreduce = CDreduce - 30

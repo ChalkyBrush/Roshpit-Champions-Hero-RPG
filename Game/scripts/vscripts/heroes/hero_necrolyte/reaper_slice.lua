@@ -97,7 +97,7 @@ function slice_start(event)
 								ability.particleCount = ability.particleCount - 1
 							end)
 						end
-						local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, WEAPON1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+						local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, VENOMORT_IMMORTAL_WEAPON_1_AOE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 						if #enemies > 0 then
 							for _, enemy in pairs(enemies) do
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_venomort_arcana2_reaper_dot", {duration = VENOMORT_ARCANA_1_R1_DURATION})

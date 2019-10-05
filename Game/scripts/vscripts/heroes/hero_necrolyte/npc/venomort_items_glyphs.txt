@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T11_COOLDOWN %>"
+				"property_one"			"<% VENOMORT_GLYPH_1_1_COOLDOWN %>"
 			}
 		}
 	}
@@ -103,12 +103,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES %>"
+				"property_one"			"<% VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES %>"
+				"property_two"			"<% VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES %>"
 			}
 		}
 	}
@@ -150,7 +150,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% T31_HEAL_PERCENT %>"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% VENOMORT_GLYPH_3_1_HEAL_PERCENT %>"
 				}
 			}
 		}
@@ -159,7 +159,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T31_HEAL_PERCENT %>"
+				"property_one"			"<% VENOMORT_GLYPH_3_1_HEAL_PERCENT %>"
 			}
 		}
 	}
@@ -229,7 +229,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T51_AMPLIFY_W3 %>"
+				"property_one"			"<% VENOMORT_GLYPH_5_1_AMPLIFY_W3 %>"
 			}
 		}
 	}
@@ -274,7 +274,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_T61_DAMAGE_REDUCTION_PERCENT %>"
+				"property_one"			"<% VENOMORT_GLYPH_6_1_DAMAGE_REDUCTION_PERCENT %>"
 			}
 		}
 	}
@@ -313,12 +313,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T71_ADDITIONAL_LIFETIME %>"
+				"property_one"			"<% VENOMORT_GLYPH_7_1_ADDITIONAL_LIFETIME %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% T71_ADDITIONAL_ATTACK_SPEED %>"
+				"property_two"			"<% VENOMORT_GLYPH_7_1_ADDITIONAL_ATTACK_SPEED %>"
 			}
 		}
 	}
@@ -388,7 +388,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T12_DURATION_INCREASE_PERCENT %>"
+				"property_one"			"<% VENOMORT_GLYPH_1_2_DURATION_INCREASE_PERCENT %>"
 			}
 			"02"
 			{
@@ -432,7 +432,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T22_RADIUS %>"
+				"property_one"			"<% VENOMORT_GLYPH_2_2_RADIUS %>"
 			}
 		}
 	}
@@ -471,12 +471,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T32_HEALTH_THRESHOLD_PERCENT %>"
+				"property_one"			"<% VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT %>"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VENOMORT_T32_AMPLIFY %>"
+				"property_two"			"<% VENOMORT_GLYPH_3_2_AMPLIFY %>"
 			}
 		}
 	}
@@ -515,7 +515,7 @@
             "01"
             {
                 "var_type"				"FIELD_INTEGER"
-                "property_one"			"<% T42_DURATION %>"
+                "property_one"			"<% VENOMORT_GLYPH_4_2_DURATION %>"
             }
         }
 	}
@@ -554,7 +554,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T52_RANGE_INCREASE_PERCENT %>"
+				"property_one"			"<% VENOMORT_GLYPH_5_2_RANGE_INCREASE_PERCENT %>"
 			}
 		}
 	}
@@ -624,12 +624,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T72_HEALTH_THRESHOLD_PERCENT %>"
+				"property_one"			"<% VENOMORT_GLYPH_7_2_HEALTH_THRESHOLD_PERCENT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% T72_POSTMITIGATION_PERCENT %>"
+				"property_two"			"<% VENOMORT_GLYPH_7_2_POSTMITIGATION_PERCENT %>"
 			}
 		}
 	}

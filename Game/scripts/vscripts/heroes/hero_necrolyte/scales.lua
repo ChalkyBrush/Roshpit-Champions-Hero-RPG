@@ -9,7 +9,7 @@ local module = {
         end
         modifier = caster:FindModifierByName("modifier_venomort_arcana2_q_4_invisible")
         if modifier then
-            mult = mult + modifier:GetStackCount() * ARCANA2_Q4_BAD_PERCENT / 100
+            mult = mult + modifier:GetStackCount() * VENOMORT_ARCANA2_Q4_BAD_PERCENT / 100
         end
         return mult
     end,
@@ -25,7 +25,7 @@ local module = {
 
         local q3_level = caster:GetRuneValue("q", 3)
         if q3_level ~= 0 then
-            local duration = ARCANA2_Q3_DURATION
+            local duration = VENOMORT_ARCANA2_Q3_DURATION
             local ability = caster:FindAbilityByName('venomort_frostvenom_grasp')
             if ability then
                 ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_frostvenom_graps_dot_amp", {duration = duration})
@@ -33,7 +33,7 @@ local module = {
                 local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
                 local stacks = modifier:GetStackCount()
 
-                stacks = math.min(stacks + q3_level, q3_level * ARCANA2_Q3_MAX_STACKS_COUNT)
+                stacks = math.min(stacks + q3_level, q3_level * VENOMORT_ARCANA2_Q3_MAX_STACKS_COUNT)
                 modifier:SetStackCount(stacks)
             end
         end
@@ -43,7 +43,7 @@ local module = {
             local duration = VENOMORT_E4_DURATION
 
             if caster:HasModifier("modifier_venomort_glyph_4_2") then
-                duration = T42_DURATION
+                duration = VENOMORT_GLYPH_4_2_DURATION
             end
 
             local ability = caster:FindAbilityByName('venomort_ghost_warp')
@@ -55,14 +55,14 @@ local module = {
         local modifier = caster:FindModifierByName("modifier_venomort_glyph_6_1")
         if modifier then
             local glyphAbility = modifier:GetAbility()
-            glyphAbility:ApplyDataDrivenModifier(caster, target, "modifier_venomort_glyph_6_1_damage_reduction", {duration = VENOMORT_T61_DURATION})
+            glyphAbility:ApplyDataDrivenModifier(caster, target, "modifier_venomort_glyph_6_1_damage_reduction", {duration = VENOMORT_GLYPH_6_1_DURATION})
         end
     end,
     getDotAmplify = function(caster, target)
         if IsValidEntity(target) then
             local modifier = target:FindModifierByName("modifier_venomort_frostvenom_graps_dot_amp")
             if modifier then
-                return modifier:GetStackCount() * ARCANA2_Q3_DOT_AMPLIFY_PERCENT / 100
+                return modifier:GetStackCount() * VENOMORT_ARCANA2_Q3_DOT_AMPLIFY_PERCENT / 100
             end
         end
         return 0
@@ -106,8 +106,8 @@ local module = {
         end
 
         if caster:HasModifier("modifier_venomort_glyph_7_2") then
-            if target:GetHealth() / target:GetMaxHealth() >= T72_HEALTH_THRESHOLD_PERCENT / 100 then
-                mult = mult + T72_POSTMITIGATION_PERCENT / 100
+            if target:GetHealth() / target:GetMaxHealth() >= VENOMORT_GLYPH_7_2_HEALTH_THRESHOLD_PERCENT / 100 then
+                mult = mult + VENOMORT_GLYPH_7_2_POSTMITIGATION_PERCENT / 100
             end
         end
         return mult
@@ -121,7 +121,7 @@ local module = {
             end
             modifier = attacker:FindModifierByName('modifier_venomort_glyph_6_1_damage_reduction')
             if modifier then
-                mult = mult * (1 - VENOMORT_T61_DAMAGE_REDUCTION_PERCENT / 100);
+                mult = mult * (1 - VENOMORT_GLYPH_6_1_DAMAGE_REDUCTION_PERCENT / 100);
             end
         end
         return mult
