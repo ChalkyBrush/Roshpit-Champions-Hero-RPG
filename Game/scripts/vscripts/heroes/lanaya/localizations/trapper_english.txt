@@ -241,7 +241,7 @@
         "item_rpc_trapper_glyph_7_1_description"                "You can have 2 traps of each type active at a time."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "Glyph of Blueprints"
-        "item_rpc_trapper_glyph_5_a_description"                "Upgrades @Ability1. Fulminating Trap deals <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% more damage. Poison Trap maximum stack count increased to <% TRAPPER_GLYPH_5_A_POISON_STACKS %>. Net Trap has <% TRAPPER_T5A_NET_DUR_AMP %>x root duration. Torrent Trap needs only <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %> seconds to erupt at a target."
+        "item_rpc_trapper_glyph_5_a_description"                "Upgrades @Ability1. Fulminating Trap deals <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% more damage. Poison Trap maximum stack count increased to <% TRAPPER_GLYPH_5_A_POISON_STACKS %>. Net Trap has <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %>x root duration. Torrent Trap needs only <% TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL %> seconds to erupt at a target."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "The effect of [Q3] is doubled."
