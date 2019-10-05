@@ -61,7 +61,7 @@ function begin_mystic_wave(event)
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
 	if caster:HasModifier("modifier_mountain_protector_glyph_4_1") then
-		local luck = RandomInt(1, 4)
+		local luck = RandomInt(1, 100/MOUNTAIN_PROTECTOR_GLYPH_4_1_Q_MULTICAST_CHANCE)
 		if luck == 4 then
 			Timers:CreateTimer(0.4, function()
 				StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.3})
@@ -128,7 +128,7 @@ function mystic_wave_impact(event)
 					end
 				end
 				if caster:HasModifier("modifier_mountain_protector_immortal_weapon_1") then
-					stunDuration = stunDuration + 0.35
+					stunDuration = stunDuration + MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_1_Q_STUN_DURATION_INCREASE
 				end
 				if target:HasModifier("modifier_mountain_protector_q_2_invisible") then
 					local stacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster)

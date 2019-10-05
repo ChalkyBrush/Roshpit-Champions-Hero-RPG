@@ -175,7 +175,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_rockfall_passive") then
         local a_c_level = caster:GetRuneValue("e", 1)
         if a_c_level > 0 then
-            mult = mult + ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((caster:GetMaxHealth() - caster:GetHealth()) / 1000) * a_c_level
+            mult = mult + MOUNTAIN_PROTECTOR_ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((caster:GetMaxHealth() - caster:GetHealth()) / 1000) * a_c_level
         end
     end
     if caster:HasModifier("modifier_depth_crest_armor") then
@@ -1281,7 +1281,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_rockfall_passive") then
             local b_c_level = attacker:GetRuneValue("e", 2)
             if b_c_level > 0 then
-                damage = damage + attacker:GetStrength() * b_c_level * ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
+                damage = damage + attacker:GetStrength() * b_c_level * MOUNTAIN_PROTECTOR_ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
             end
         end
         -- if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
@@ -1445,7 +1445,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if Util.BaseType:IsAbilityBaseType(slot) then
                 local a_c_level = attacker:GetRuneValue("e", 1)
                 if a_c_level > 0 then
-                    damageMult = damageMult + ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
+                    damageMult = damageMult + MOUNTAIN_PROTECTOR_ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
                 end
             end
         end

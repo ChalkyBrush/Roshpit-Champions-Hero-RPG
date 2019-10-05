@@ -9,7 +9,7 @@ function begin_mystic_strike(event)
 
     local particleName = "particles/roshpit/mystic_assassin/mystic_strike.vpcf"
     if caster:HasModifier("modifier_mountain_protector_immortal_weapon_3") then
-        local CD = ability:GetCooldownTimeRemaining() * 0.35
+        local CD = ability:GetCooldownTimeRemaining() * (100-MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_3_E_CD_REDUCTION_PCT)/100
         ability:EndCooldown()
         ability:StartCooldown(CD)
     end
@@ -23,7 +23,7 @@ function begin_mystic_strike(event)
     end
     rock_start(caster, ability, target)
     if caster:HasModifier("modifier_mountain_protector_glyph_5_1") then
-        local luck = RandomInt(1, 2)
+        local luck = RandomInt(1, 100/MOUNTAIN_PROTECTOR_GLYPH_5_1_E_REFRESH_CHANCE)
         if luck == 1 then
             ability:EndCooldown()
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_coreglow.vpcf", caster, 2)

@@ -265,25 +265,25 @@
         "DOTA_Tooltip_modifier_mountain_protector_glyph_1_1_cant_heal_Description"  "Противники не могут восполнять здоровье во время оглушения от Mountain Protector."
 		
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"(T2) Glyph of Guardians"
-		"item_rpc_mountain_protector_glyph_2_1_description" 				"Весь входящий урон дополнительно снижается на @glyph_property1% во время активного умения (W) @Ability2."
+		"item_rpc_mountain_protector_glyph_2_1_description" 				"Весь входящий урон дополнительно снижается на <% MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION %>% во время активного умения (W) @Ability2."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"(T3) Glyph of Catastrophe"
-		"item_rpc_mountain_protector_glyph_3_1_description" 				"Увеличивает количество взрывов от умения (R) @Ability4 на @glyph_property1."
+		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 пробивает иммунитет к магии и наносит чистый урон."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"(T4) Glyph of Mountain Force"
-		"item_rpc_mountain_protector_glyph_4_1_description" 				"С шансом в @glyph_property1% с прочтением (Q) @Ability1 герой выпустит две волны."
+		"item_rpc_mountain_protector_glyph_4_1_description" 				"С шансом в <% MOUNTAIN_PROTECTOR_GLYPH_4_1_Q_MULTICAST_CHANCE %>% с прочтением (Q) @Ability1 герой выпустит две волны."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_1"		"(T5) Glyph of Emberstones"
-		"item_rpc_mountain_protector_glyph_5_1_description" 				"С шансом в @glyph_property1% время перезарядки умения (E) @Ability3 будет сброшено."
+		"item_rpc_mountain_protector_glyph_5_1_description" 				"С шансом в <% MOUNTAIN_PROTECTOR_GLYPH_5_1_E_REFRESH_CHANCE %>% время перезарядки умения (E) @Ability3 будет сброшено."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_6_1"		"(T6) Glyph of Aeon Schism"
-		"item_rpc_mountain_protector_glyph_6_1_description" 				"Снижает время перезарядки способности (R) @Ability4 на @glyph_property1 сек."
+		"item_rpc_mountain_protector_glyph_6_1_description" 				"Снижает время перезарядки способности (R) @Ability4 на <% MOUNTAIN_PROTECTOR_GLYPH_6_1_R_CD_REDUCTION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_7_1"		"(T7) Glyph of Mountain's Revenge"
-		"item_rpc_mountain_protector_glyph_7_1_description" 				"Пока активно умение (W) @Ability2 все атакующие героя враги с шансом в @glyph_property1% будут оглушены на 1 секунду."
+		"item_rpc_mountain_protector_glyph_7_1_description" 				"Пока активно умение (W) @Ability2 все атакующие героя враги с шансом в <% MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN_CHANCE %>% будут оглушены на <% MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN %> секунду."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"(Immortal) Glyph of Mountain's Peak"
-		"item_rpc_mountain_protector_glyph_5_a_description" 				"Эпицентр (R) @Ability4 следует за героем. Дополнительно увеличивает силу на @glyph_property1."
+		"item_rpc_mountain_protector_glyph_5_a_description" 				"Эпицентр (R) @Ability4 следует за героем. Дополнительно увеличивает силу на <% MOUNTAIN_PROTECTOR_GLYPH_5_A_STR %>."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_00"	"Blade"
@@ -302,14 +302,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_1"	"Runeblade of V'noth"
 		"item_property_mountain_protector_immortal_weapon"						"Runeshock"
-		"property_mountain_protector_immortal_weapon_description"				"Время оглушения от (Q) Shockwave увеличено на 0.35 секунды."
+		"property_mountain_protector_immortal_weapon_description"				"Время оглушения от (Q) Shockwave увеличено на <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_1_Q_STUN_DURATION_INCREASE %> секунды."
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_2"            "Spine of Skorne"
         "item_property_mountain_protector_immortal_weapon2"                             "Champion's Legacy"
-        "property_mountain_protector_immortal_weapon2_description"                      "Получает бонус к урону в @special_property1% и @special_property2 брони с каждым убитым врагом, за которого был получен опыт. Накопленный бонус не исчезает в текущей игровой сессии."
+        "property_mountain_protector_immortal_weapon2_description"                      "Получает бонус к урону в <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_DAMAGE_PER_KILL_PCT %>% и <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_ARMOR_PER_KILL %> брони с каждым убитым врагом, за которого был получен опыт. Накопленный бонус не исчезает в текущей игровой сессии."
  		
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks"								"Champion's Legacy"
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks_Description"					"Бонус к урону и броне"
 
         "DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_3"            "Inscribed Sierra Blade"
         "item_property_mountain_protector_immortal_weapon3"                             "Mountain Pitch"
-        "property_mountain_protector_immortal_weapon3_description"                      "Камень от (E) @Ability3 падает сверху в указанную точку. Время перезарядки способности сокращено на @special_property1%."
+        "property_mountain_protector_immortal_weapon3_description"                      "Камень от (E) @Ability3 падает сверху в указанную точку. Время перезарядки способности сокращено на <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_3_E_CD_REDUCTION_PCT %>%."

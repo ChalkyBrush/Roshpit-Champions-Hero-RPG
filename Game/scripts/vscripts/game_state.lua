@@ -1741,7 +1741,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_energy_channel") or victim:HasModifier("modifier_steelforge_stance") then
 		if victim:HasModifier("modifier_mountain_protector_glyph_2_1") then
-			damage = damage * 0.7
+			damage = damage * (100-MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION)/100
 		end
 	end
 
@@ -2545,7 +2545,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
+			mult = mult + MOUNTAIN_PROTECTOR_ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
 		end
 	end
 	if attacker:HasModifier("modifier_energy_channel") then
@@ -3583,7 +3583,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
+			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * MOUNTAIN_PROTECTOR_ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
@@ -3635,7 +3635,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
+			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * MOUNTAIN_PROTECTOR_ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
