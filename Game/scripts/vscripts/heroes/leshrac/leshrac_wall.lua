@@ -30,7 +30,7 @@ function createWall(event)
 	local fv = (point - casterOrigin):Normalized()
 	local wallLength = event.wallLength
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_3") then
-		wallLength = wallLength * 2
+		wallLength = wallLength * (100+BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT)/100
 	end
 	local ninetyDegrees = WallPhysics:rotateVector(fv, math.pi / 2)
 	local wallPoint1 = point - ninetyDegrees * wallLength / 2
@@ -120,7 +120,7 @@ function WallDamageThink(event)
 	local ability = event.ability
 	local damage = event.damage
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_3") then
-		damage = damage * 3
+		damage = damage * (100+BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_INCREASE_PCT)/100
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	EmitSoundOn("Hero_DeathProphet.Exorcism.Damage", target)

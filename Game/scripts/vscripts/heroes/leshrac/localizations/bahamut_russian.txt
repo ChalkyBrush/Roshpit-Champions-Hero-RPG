@@ -310,12 +310,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"Universe Rune"
 		"item_property_bahamut_immortal_weapon"								"World Reach"
-		"property_bahamut_immortal_weapon_description"						"Базовые способности и руна [W2] Manifold Judgment с 20% шансом будут дополнительно усилены в 4 раза от нанесённого урона. Тип урона - чистый."
+		"property_bahamut_immortal_weapon_description"						"Базовые способности и руна [W2] Manifold Judgment с <% BAHAMUT_IMMORTAL_WEAPON_1_CHANCE %>% шансом будут дополнительно усилены в <% BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP %> раза от нанесённого урона. Тип урона - чистый."
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "Nucleus Rune"
         "item_property_bahamut_immortal_weapon2"                             "Rising Consciousness"
-        "property_bahamut_immortal_weapon2_description"                      "Увеличивает скорость передвижения на @special_property1%, взамен увеличивая базовое время перезарядки (E) @Ability3 на @special_property2 сек."
+        "property_bahamut_immortal_weapon2_description"                      "Увеличивает скорость передвижения на <% BAHAMUT_IMMORTAL_WEAPON_2_MOVESPEED_BONUS_PCT %>%, взамен увеличивая базовое время перезарядки (E) @Ability3 на <% BAHAMUT_IMMORTAL_WEAPON_2_BASE_E_CD %> сек."
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
-        "property_bahamut_immortal_weapon3_description"                      "Увеличивает размер действия (Q) @Ability1 на @special_property1% и его урон на @special_property2%"
+        "property_bahamut_immortal_weapon3_description"                      "Увеличивает размер действия (Q) @Ability1 на <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% и его урон на <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_INCREASE_PCT %>%"

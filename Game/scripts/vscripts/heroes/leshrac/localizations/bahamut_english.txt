@@ -312,12 +312,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"Universe Rune"
 		"item_property_bahamut_immortal_weapon"								"World Reach"
-		"property_bahamut_immortal_weapon_description"						"Damage from Abilities and Manifold Judgement have a 20% chance to be nuked for 4x the damage dealt as pure damage."
+		"property_bahamut_immortal_weapon_description"						"Damage from Abilities and Manifold Judgement have a <% BAHAMUT_IMMORTAL_WEAPON_1_CHANCE %>% chance to be nuked for <% BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x the damage dealt as pure damage."
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "Nucleus Rune"
         "item_property_bahamut_immortal_weapon2"                             "Rising Consciousness"
-        "property_bahamut_immortal_weapon2_description"                      "Increases movespeed by @special_property1% and reduces the base cooldown for @Ability3 to @special_property2 seconds."
+        "property_bahamut_immortal_weapon2_description"                      "Increases movespeed by <% BAHAMUT_IMMORTAL_WEAPON_2_MOVESPEED_BONUS_PCT %>% and reduces the base cooldown for @Ability3 to <% BAHAMUT_IMMORTAL_WEAPON_2_BASE_E_CD %> seconds."
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
-        "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by @special_property1% and its damage by @special_property2%"
+        "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% and its damage by <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_INCREASE_PCT %>%"

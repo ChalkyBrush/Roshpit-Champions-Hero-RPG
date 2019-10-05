@@ -10,7 +10,7 @@ function HideCaster(event)
 	local ability = event.ability
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_2") then
 		ability:EndCooldown()
-		ability:StartCooldown(4.5)
+		ability:StartCooldown(BAHAMUT_IMMORTAL_WEAPON_2_BASE_E_CD)
 	end
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	event.caster.newPosition = event.target_points[1]

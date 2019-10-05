@@ -300,12 +300,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"宇宙符文"
 		"item_property_bahamut_immortal_weapon"								"世界之渊"
-		"property_bahamut_immortal_weapon_description"						"技能和多重审判所造成的伤害有20%暴击造成4x所造成的伤害，暴击伤害为纯粹伤害。"
+		"property_bahamut_immortal_weapon_description"						"技能和多重审判所造成的伤害有<% BAHAMUT_IMMORTAL_WEAPON_1_CHANCE %>%暴击造成<% BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x所造成的伤害，暴击伤害为纯粹伤害。"
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "核子符文"
         "item_property_bahamut_immortal_weapon2"                             "顿悟"
-        "property_bahamut_immortal_weapon2_description"                      "提高移动速度 @special_property1% 并且减少 @Ability3 的基础冷却时间至 @special_property2 秒。"
+        "property_bahamut_immortal_weapon2_description"                      "提高移动速度 <% BAHAMUT_IMMORTAL_WEAPON_2_MOVESPEED_BONUS_PCT %>% 并且减少 @Ability3 的基础冷却时间至 <% BAHAMUT_IMMORTAL_WEAPON_2_BASE_E_CD %> 秒。"
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
         "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
-        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 @special_property1% 并且伤害提高 @special_property2%"
+        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% 并且伤害提高 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_INCREASE_PCT %>%"

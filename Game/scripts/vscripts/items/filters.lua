@@ -1719,7 +1719,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_bahamut_immortal_weapon_1") then
-            local proc = Filters:GetProc(attacker, 20)
+            local proc = Filters:GetProc(attacker, BAHAMUT_IMMORTAL_WEAPON_1_CHANCE)
             if proc then
                 --print("BIG IMMORTAL NUKE!")
                 local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, victim)
@@ -1728,7 +1728,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 Timers:CreateTimer(2.5, function()
                     ParticleManager:DestroyParticle(pfx, false)
                 end)
-                ApplyDamage({victim = victim, attacker = attacker, damage = damage * 4, damage_type = DAMAGE_TYPE_PURE})
+                ApplyDamage({victim = victim, attacker = attacker, damage = damage * BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP, damage_type = DAMAGE_TYPE_PURE})
             end
         end
     end
