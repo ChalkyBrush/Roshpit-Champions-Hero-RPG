@@ -1,5 +1,5 @@
 require('/npc_abilities/base_modifier')
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 modifier_trapper_t31_main = class(npc_base_modifier, nil, npc_base_modifier)
 local class = modifier_trapper_t31_main
 local modifierShields = 'modifier_trapper_t31_shields'

@@ -1,4 +1,4 @@
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 function trap_start(event)
 	local caster = event.caster

@@ -1,5 +1,5 @@
 Helper = require('heroes/util/helper')
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 function channel_initialize(event)
 	local caster = event.caster

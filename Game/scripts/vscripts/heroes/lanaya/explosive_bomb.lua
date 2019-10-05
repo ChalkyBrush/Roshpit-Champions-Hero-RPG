@@ -1,4 +1,4 @@
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 -- too much code that a bit hard to understand and to rewrite)
 function bomb_throw_start(event)
     local caster = event.caster

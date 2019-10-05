@@ -1,4 +1,4 @@
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 function trapper_lasso_start(event)
 	local caster = event.caster

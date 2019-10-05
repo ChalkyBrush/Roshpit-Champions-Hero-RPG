@@ -1,5 +1,5 @@
 require('/npc_abilities/base_modifier')
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 modifier_trapper_t32_damage_reduction = class(npc_base_modifier, nil, npc_base_modifier)
 local class = modifier_trapper_t32_damage_reduction
 

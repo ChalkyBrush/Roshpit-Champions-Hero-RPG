@@ -1,5 +1,5 @@
 require('heroes/lanaya/explosive_bomb')
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 local prefix = '3_e_'
 local modifiers = {
