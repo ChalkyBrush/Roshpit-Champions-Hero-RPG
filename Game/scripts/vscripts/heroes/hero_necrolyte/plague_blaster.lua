@@ -67,7 +67,7 @@ function cast_necrofusion(event)
     end
 
     local w2_level = caster:GetRuneValue("w", 2)
-    local w2_duration = w2_level * W2_DURATION
+    local w2_duration = w2_level * VENOMORT_W2_DURATION
 
     local modifier = caster:FindModifierByName("modifier_venomort_glyph_1_2")
     if modifier then
