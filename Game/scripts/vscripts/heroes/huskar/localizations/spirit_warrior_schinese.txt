@@ -273,31 +273,31 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"灵魂游动雕文"
-		"item_rpc_spirit_warrior_glyph_1_1_description" 				"提高跳跃至远古灵魂的速度 @glyph_property1%"
+		"item_rpc_spirit_warrior_glyph_1_1_description" 				"提高跳跃至远古灵魂的速度 <% SPIRIT_WARRIOR_GLYPH_1_1_E_JUMP_SPEED_INCREASE_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_2_1"		"灵魂之火雕文"
 		"item_rpc_spirit_warrior_glyph_2_1_description" 				"当炽血武器激活时，灵魂之刺对所有受攻击的目标施加燃烧debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_3_1"		"先祖雕文"
-		"item_rpc_spirit_warrior_glyph_3_1_description" 				"将远古灵魂的最大数量提高至5。"
+		"item_rpc_spirit_warrior_glyph_3_1_description" 				"将远古灵魂的最大数量提高至<% SPIRIT_WARRIOR_GLYPH_3_1_MAX_SPIRITS %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_4_1"		"大地之缚雕文"
-		"item_rpc_spirit_warrior_glyph_4_1_description" 				"跳至远古灵魂后, 风之敕令将会爆炸 @glyph_property1 次，每次爆炸时间间隔 @glyph_property2 秒。"
+		"item_rpc_spirit_warrior_glyph_4_1_description" 				"跳至远古灵魂后, 风之敕令将会爆炸 <% SPIRIT_WARRIOR_GLYPH_4_1_E1_REPEATS %> 次，每次爆炸时间间隔 <% SPIRIT_WARRIOR_GLYPH_4_1_E1_REPEAT_INTERVAL %> 秒。"
 
 		"DOTA_Tooltip_modifier_spirit_glyph_root"						"大地之缚"
 		"DOTA_Tooltip_modifier_spirit_glyph_root_Description"			"定身"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_1"		"灵魂复苏雕文"
-		"item_rpc_spirit_warrior_glyph_5_1_description" 				"如果你的灵魂之刺攻击4个或者更多的目标，回复 @glyph_property1% 基础魔法消耗。"
+		"item_rpc_spirit_warrior_glyph_5_1_description" 				"如果你的灵魂之刺攻击4个或者更多的目标，回复 <% SPIRIT_WARRIOR_GLYPH_5_1_W_HIT_MANACOST_PCT_RESTORE %>% 基础魔法消耗。"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_6_1"		"远古强化雕文"
 		"item_rpc_spirit_warrior_glyph_6_1_description" 				"炽血武器和风怒武器可同时作用于灵魂守卫。"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"灵魂泰坦雕文"
-		"item_rpc_spirit_warrior_glyph_7_1_description" 				"提高远古活力的持续时间 @glyph_property1 秒。"
+		"item_rpc_spirit_warrior_glyph_7_1_description" 				"提高远古活力的持续时间 <% SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"風暴螺旋雕文"
-		"item_rpc_spirit_warrior_glyph_5_a_description" 				"站在暴风雨中每 0.5 秒获得一层風暴螺旋buff。每层buff提高攻击速度 @glyph_property1，提高攻击力 @glyph_property2% 并且提高攻击距离 @glyph_property3。"
+		"item_rpc_spirit_warrior_glyph_5_a_description" 				"站在暴风雨中每 <% SPIRIT_WARRIOR_GLYPH_5_A_STACK_INTERVAL %> 秒获得一层風暴螺旋buff。每层buff提高攻击速度 <% SPIRIT_WARRIOR_GLYPH_5_A_AS_PER_STACK %>，提高攻击力 <% SPIRIT_WARRIOR_GLYPH_5_A_BONUS_DMG_PER_STACK_PCT %>% 并且提高攻击距离 <% SPIRIT_WARRIOR_GLYPH_5_A_ATTACK_RANGE_PER_STACK %>。"
 
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"風暴螺旋"
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"攻击力和攻击速度提高"
