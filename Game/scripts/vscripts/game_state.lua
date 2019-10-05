@@ -2452,7 +2452,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
-		mult = mult + 2
+		mult = mult + CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT/100
 	end
 	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
 		mult = mult + BUZUKIS_FINGER_POST_MITI/100

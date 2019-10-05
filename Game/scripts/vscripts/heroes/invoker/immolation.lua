@@ -160,7 +160,7 @@ end
 
 function fire_breath(fireAspect, ability, conjuror, damage)
 	ability.conjuror = conjuror
-	ability.flamebreathDamage = damage * 5
+	ability.flamebreathDamage = damage * CONJUROR_GLYPH_6_1_CRIT
 	local caster = fireAspect
 	local start_radius = 120
 	local end_radius = 400

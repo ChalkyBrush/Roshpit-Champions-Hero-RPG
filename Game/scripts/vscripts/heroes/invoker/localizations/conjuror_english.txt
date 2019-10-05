@@ -454,32 +454,32 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
-		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has @glyph_property1 extra attack speed and @glyph_property2% increased attack damage."
+		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_AS %> extra attack speed and <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_ATTACK_DMG_PCT %>% increased attack damage."
 		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect"				"Glyph of Blazing Fire"
 		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect_Description"	"Attack speed and bonus attack damage increased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"Glyph of Conjuring"
-		"item_rpc_conjuror_glyph_2_1_description" 				"Increases the Max Health of all Aspects by @glyph_property1%"
+		"item_rpc_conjuror_glyph_2_1_description" 				"Increases the Max Health of all Aspects by <% CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"Glyph of Encroaching Shadow"
-		"item_rpc_conjuror_glyph_3_1_description" 				"Shadow Gate has a @glyph_property1 second cooldown while Call of Shadow is active."
+		"item_rpc_conjuror_glyph_3_1_description" 				"Shadow Gate has a <% CONJUROR_GLYPH_3_1_E_CD_DURING_R %> second cooldown while Call of Shadow is active."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"Glyph of Distant Shadows"
-		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by @glyph_property1."
+		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by <% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>."
 		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect"		"Glyph of Distant Shadows"
 		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect_Description"	"Attack range insreased."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"Glyph of Trembling Earth"
-		"item_rpc_conjuror_glyph_5_1_description" 				"@Ability1 radius is increased by @glyph_property1, and the duration of free-casting is increased by @glyph_property2 seconds."
+		"item_rpc_conjuror_glyph_5_1_description" 				"@Ability1 radius is increased by <% CONJUROR_GLYPH_5_1_Q_BONUS_RADIUS %>, and the duration of free-casting is increased by <% CONJUROR_GLYPH_5_1_FREE_CAST_DURATION_INCREASE %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"Glyph of Flamethrower"
-		"item_rpc_conjuror_glyph_6_1_description" 				"Your Fire Aspect spits a cone of fire every time he lands a critical hit, dealing @glyph_property1x the crit damage to all damaged targets."
+		"item_rpc_conjuror_glyph_6_1_description" 				"Your Fire Aspect spits a cone of fire every time he lands a critical hit, dealing <% CONJUROR_GLYPH_6_1_CRIT %>x the crit damage to all damaged targets."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"Glyph of Immortal Earth"
 		"item_rpc_conjuror_glyph_7_1_description" 				"Your Earth Aspect is resummoned immediately upon death."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"Glyph of Summoning"
-		"item_rpc_conjuror_glyph_5_a_description" 				"ALL post-mitigation damage dealt by conjuror and his aspects is increased by 200%."
+		"item_rpc_conjuror_glyph_5_a_description" 				"ALL post-mitigation damage dealt by conjuror and his aspects is increased by <% CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT %>%."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"

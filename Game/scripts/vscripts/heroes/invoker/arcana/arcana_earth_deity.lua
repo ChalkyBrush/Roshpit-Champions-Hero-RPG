@@ -48,7 +48,7 @@ function earth_deity(event)
 		aspectHealth = aspectHealth + caster:GetModifierStackCount("modifier_weapon_aspect_health", caster.aspectHealthAbility)
 	end
 	if caster:HasModifier("modifier_conjuror_glyph_2_1") then
-		aspectHealth = aspectHealth * 1.8
+		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
 	-- local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
 	-- aspectHealth = aspectHealth*(1+q_1_level*0.05)
@@ -148,8 +148,8 @@ function earthshock_cast(event)
 
 	local duration = 3.0
 	if caster:HasModifier("modifier_conjuror_glyph_5_1") then
-		duration = duration + 1.5
-		radius = radius + 80
+		duration = duration + CONJUROR_GLYPH_5_1_FREE_CAST_DURATION_INCREASE
+		radius = radius + CONJUROR_GLYPH_5_1_Q_BONUS_RADIUS
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	local damage = event.damage
