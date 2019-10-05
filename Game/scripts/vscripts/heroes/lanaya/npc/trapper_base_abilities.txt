@@ -1357,7 +1357,7 @@
 
         		"Properties"
         		{
-        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% R2_ATTACK_DAMAGE %>"
+        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% TRAPPER_R2_ATTACK_DAMAGE %>"
         		}
         	}
 			"modifier_trapper_rune_r_4_bonus_agi"
@@ -1599,7 +1599,7 @@
 			    "IsHidden"  "1"
 			    "Properties"
 			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "<% R3_CRIT_DAMAGE %>"
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "<% TRAPPER_R3_CRIT_DAMAGE %>"
 			    }
 
 			    "OnAttackLanded"

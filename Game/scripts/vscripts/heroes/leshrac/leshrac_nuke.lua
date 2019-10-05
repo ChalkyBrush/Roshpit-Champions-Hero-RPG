@@ -14,7 +14,7 @@ function begin_judgement(event)
 	local targetPoint = casterOrigin + fv * nukeRange
 	targetPoint = GetGroundPosition(targetPoint, caster)
 	if caster:HasModifier("modifier_bahamut_glyph_3_1") then
-		radius = radius * 1.3
+		radius = radius * (100+BAHAMUT_GLYPH_3_1_W_RADIUS_INCREASE_PCT)/100
 		targetPoint = GetGroundPosition(casterOrigin, caster)
 	end
 	blast(caster, targetPoint, radius, damage, ability)

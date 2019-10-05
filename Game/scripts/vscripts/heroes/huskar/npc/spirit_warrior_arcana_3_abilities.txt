@@ -210,7 +210,7 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"spirit_warrior/tempest_haze"
-				"ThinkInterval"  "0.5"
+				"ThinkInterval"  "<% SPIRIT_WARRIOR_GLYPH_5_A_STACK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

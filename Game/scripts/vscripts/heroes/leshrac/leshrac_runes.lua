@@ -196,7 +196,7 @@ function leshrac_attack_land(event)
 	local caster = event.caster
 	local damage = ability.w_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * BAHAMUT_W2_DAMAGE_PCT/100
 	if caster:HasModifier("modifier_bahamut_immortal_weapon_1") then
-		local luck = RandomInt(1, 5)
+		local luck = RandomInt(1, 100/BAHAMUT_IMMORTAL_WEAPON_1_CHANCE)
 		if luck == 1 then
 			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, target)
 			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -204,7 +204,7 @@ function leshrac_attack_land(event)
 			Timers:CreateTimer(2.5, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
-			Filters:TakeArgumentsAndApplyDamage(target, caster, damage * 4, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, caster, damage * BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end
 

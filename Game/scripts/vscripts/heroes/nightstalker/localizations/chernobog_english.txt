@@ -311,12 +311,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_1"		"Svarog's Divine Claw"
 		"item_property_chernobog_immortal_weapon"						"Dreadfast"
-		"property_chernobog_immortal_weapon_description"				"Demon Hunter's max damage taken % threshold is reduced by 2."
+		"property_chernobog_immortal_weapon_description"				"Demon Hunter's max damage taken % threshold is reduced by <% CHERNOBOG_IMMORTAL_WEAPON_1_W_THRESHOLD_REDUCTION %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Vacant Hollow"
-        "property_chernobog_immortal_weapon2_description"                      "Each missing % of max health increases ALL post-mitigation damage by @special_property1%."
+        "property_chernobog_immortal_weapon2_description"                      "Each missing % of max health increases ALL post-mitigation damage by <% CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING %>%."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
-        "property_chernobog_immortal_weapon3_description"                      "Landing an attack restores 0.65% of max health, even if healing is disabled."
+        "property_chernobog_immortal_weapon3_description"                      "Landing an attack restores <% CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT %>% of max health, even if healing is disabled."

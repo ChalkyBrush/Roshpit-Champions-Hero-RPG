@@ -55,7 +55,7 @@ CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 180
 CustomAttributes.AXE_E1_STATS = 10
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = 100
 CustomAttributes.SORCERESS_ARCANE_INT = 50
-CustomAttributes.TRAPPER_R4_AGI = 1000
+CustomAttributes.TRAPPER_R4_AGI = TRAPPER_R4_BONUS_AGI
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
 
 CustomAttributes.RING_OF_NOBILITY = NOBILITY_ALL_ATTRIBUTES
@@ -69,7 +69,7 @@ CustomAttributes.SEINARU_WEAPON_3_STR = 60
 
 CustomAttributes.NEUTRAL_GLYPH_1 = 500
 CustomAttributes.NEUTRAL_GLYPH_7 = 3500
-CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = 5000
+CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A = MOUNTAIN_PROTECTOR_GLYPH_5_A_STR
 CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = 6000
@@ -471,9 +471,9 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_nefali_d_d", SEPHYR_R4_BONUS_INT)
 	end
 	if hero:HasModifier("modifier_venomort_bonus_stats") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", W3_BONUS_ATTRIBUTES)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_conjuror_arcana2") then
 		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
@@ -853,7 +853,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trinket_max_health", 1)
 	end
 	if excludedModifier ~= "modifier_venomort_e4_hero_bonus_invisible" and hero:HasModifier("modifier_venomort_e4_hero_bonus_invisible") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", E4_HP_PER_ENEMY)
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", VENOMORT_E4_HP_PER_ENEMY)
 	end
 	if excludedModifier ~= "modifier_solunia_rune_e_4_effect" and hero:HasModifier("modifier_solunia_rune_e_4_effect") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_rune_e_4_effect", SOLUNIA_E4_HP)

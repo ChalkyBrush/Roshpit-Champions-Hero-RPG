@@ -46,7 +46,7 @@ function ancient_rain_start(event)
 	local ability = event.ability
 	local duration = event.duration
 	if caster:HasModifier("modifier_spirit_warrior_glyph_7_1") then
-		duration = duration + spirit_warrior_glyph_7_1_additional_duration
+		duration = duration + SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain", {duration = duration})
@@ -264,7 +264,7 @@ function javelin_hit(event)
 		end
 	end
 	if caster:HasModifier("modifier_spirit_warrior_glyph_5_1") then
-		local manaRestore = ability:GetManaCost(ability:GetLevel() - 1) * 0.15
+		local manaRestore = ability:GetManaCost(ability:GetLevel() - 1) * SPIRIT_WARRIOR_GLYPH_5_1_W_HIT_MANACOST_PCT_RESTORE/100
 		caster:GiveMana(manaRestore)
 	end
 end
@@ -324,7 +324,7 @@ function spirit_dashing_think(event)
 	local moveVector = ((spiritOrigin - casterOrigin) * Vector(1, 1, 0)):Normalized()
 	local dashSpeed = 34
 	if caster:HasModifier("modifier_spirit_warrior_glyph_1_1") then
-		dashSpeed = math.floor(dashSpeed * 1.5)
+		dashSpeed = math.floor(dashSpeed * (100+SPIRIT_WARRIOR_GLYPH_1_1_E_JUMP_SPEED_INCREASE_PCT)/100)
 	end
 	local newPosition = casterOrigin + moveVector * dashSpeed
 	local obstruction = WallPhysics:FindNearestObstruction(newPosition)
@@ -408,7 +408,7 @@ function create_spirit_elite(caster, ability, target)
 
 	local maxSpirits = 3
 	if caster:HasModifier("modifier_spirit_warrior_glyph_3_1") then
-		maxSpirits = 5
+		maxSpirits = SPIRIT_WARRIOR_GLYPH_3_1_MAX_SPIRITS
 	end
 	if #ability.spiritTable > maxSpirits then
 		removeSpirit(ability.spiritTable[1], ability, caster)

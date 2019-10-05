@@ -1,4 +1,4 @@
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 require('heroes/lanaya/explosive_bomb')
 require('heroes/lanaya/lasso')
 local modifiers  = {
@@ -45,16 +45,16 @@ function t51_think(event)
     if ability.cdUntil > GameRules:GetGameTime() then
         return
     end
-    ability.cdUntil = GameRules:GetGameTime() + TRAPPER_T51_COOLDOWN
-    if ability.movedDistance > TRAPPER_T51_DISTANCE then
+    ability.cdUntil = GameRules:GetGameTime() + TRAPPER_GLYPH_5_1_COOLDOWN
+    if ability.movedDistance > TRAPPER_GLYPH_5_1_DISTANCE then
         ability.movedDistance = 0
         local wAbility = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local target_points = {}
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, TRAPPER_T51_SEARCH_DISTANCE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, TRAPPER_GLYPH_5_1_SEARCH_DISTANCE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             target_points = { enemies[1]:GetAbsOrigin() }
         else
-            target_points = { currentCasterPosition + RandomVector(RandomInt(0, TRAPPER_T51_SEARCH_DISTANCE)) }
+            target_points = { currentCasterPosition + RandomVector(RandomInt(0, TRAPPER_GLYPH_5_1_SEARCH_DISTANCE)) }
         end
         local data = {
             caster = caster,

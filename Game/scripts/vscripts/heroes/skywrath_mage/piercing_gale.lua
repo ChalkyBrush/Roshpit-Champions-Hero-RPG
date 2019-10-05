@@ -1,4 +1,4 @@
-require("heroes/skywrath_mage/constants")
+require("/heroes/skywrath_mage/sephyr_constants")
 
 function begin_piercing_gale(event)
 	local ability = event.ability

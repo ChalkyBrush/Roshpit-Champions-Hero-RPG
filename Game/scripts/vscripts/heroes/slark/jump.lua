@@ -1,4 +1,4 @@
-require('heroes/slark/constants')
+require("/heroes/slark/slipfinn_constants")
 
 GROUND_FRICTION = 1.0
 TURN_RATE = 1

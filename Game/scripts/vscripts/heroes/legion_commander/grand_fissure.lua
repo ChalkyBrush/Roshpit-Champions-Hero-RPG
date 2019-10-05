@@ -6,7 +6,7 @@ function start_channel(event)
     if caster:HasModifier("modifier_mountain_protector_glyph_6_1") then
         local currentCD = ability:GetCooldownTimeRemaining()
         ability:EndCooldown()
-        local newCD = currentCD - 8
+        local newCD = currentCD - MOUNTAIN_PROTECTOR_GLYPH_6_1_R_CD_REDUCTION
         ability:StartCooldown(newCD)
     end
 end
@@ -151,7 +151,7 @@ function glyph_7_1_damage(event)
     if caster:HasModifier("modifier_energy_channel") or caster:HasModifier("modifier_steelforge_stance") then
         local luck = RandomInt(1, 10)
         if luck <= 3 then
-            Filters:ApplyStun(caster, 1, attacker)
+            Filters:ApplyStun(caster, MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN, attacker)
         end
     end
 end

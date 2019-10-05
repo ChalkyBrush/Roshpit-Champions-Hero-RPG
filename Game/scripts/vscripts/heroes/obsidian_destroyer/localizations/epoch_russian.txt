@@ -1,4 +1,4 @@
-		"DOTA_Tooltip_ability_epoch_time_binder"								"Time Binder"
+"DOTA_Tooltip_ability_epoch_time_binder"								"Time Binder"
 		"DOTA_Tooltip_ability_epoch_time_binder_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font><br>Выпускает в указанную точку Time Binder. При контакте с врагом она соединяет всех ближайших противников, замедляя и нанося урон. Первое столкновение вызовет взрыв в небольшом радиусе."
 		"DOTA_Tooltip_ability_epoch_time_binder_Lore"							""
 		"DOTA_Tooltip_ability_epoch_time_binder_damage_per_tick"				"УРОН/СЕК:"
@@ -207,16 +207,16 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"(T1) Glyph of Crumbling Bonds"
-		"item_rpc_epoch_glyph_1_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] получат на @glyph_property1% больше урона из всех источников."
+		"item_rpc_epoch_glyph_1_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] получат на <% EPOCH_GLYPH_1_1_Q1_DAMAGE_INCREASED_PCT %>% больше урона из всех источников."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Получаемый урон из ВСЕХ источников увеличен"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"(T2) Glyph of Distorted Time"
-		"item_rpc_epoch_glyph_2_1_description" 				"(E) Distortion Orb пролетает на @glyph_property1% дальше и движется на @glyph_property2% быстрее. Дополнительно, время связки врагов от (Q) Time Binder удваивается."
+		"item_rpc_epoch_glyph_2_1_description" 				"(E) Distortion Orb пролетает на <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% дальше и движется на <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>% быстрее. Дополнительно, длительность [E1] удвоена."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"(T3) Glyph of Cracking"
-		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере @glyph_property1% от значения текущей маны героя, умноженного на уровень основного умения."
+		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере<% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% от значения текущей маны героя, умноженного на уровень основного умения."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"(T4) Glyph of Ages"
 		"item_rpc_epoch_glyph_4_1_description" 				"Атаки больше не поглощают заряды [W3] (Бонус к интеллекту не пропадает, тогда как восстановление здоровья происходит в полной мере как раньше)."
@@ -225,7 +225,7 @@
 		"item_rpc_epoch_glyph_5_1_description" 				"Атаки накладывают Origination на противника."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"(T6) Glyph of Tangled Flow"
-		"item_rpc_epoch_glyph_6_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] теряют @glyph_property1% своего основного урона. Дополнительно, эффекты от [Q2] усиливаются в 10 раз."
+		"item_rpc_epoch_glyph_6_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] теряют <% EPOCH_GLYPH_6_1_ATTACK_DMG_REDUCTION_PCT %>% своего основного урона. Дополнительно, эффекты от [Q2] усиливаются в <% EPOCH_GLYPH_6_1_Q2_MULTI %> раз."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Базовый урон уменьшен"
@@ -234,7 +234,7 @@
 		"item_rpc_epoch_glyph_7_1_description" 				"Пока летит @Ability3, герой покидает это измерение и уклоняется от летящих заклинаний и атак."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"(Immortal) Glyph of Time Travel"
-		"item_rpc_epoch_glyph_5_a_description" 				"Позволяет герою выжить при получении смертельного урона, восстанавливая здоровье, ману и способности. Перезаряжается @glyph_property1 сек."
+		"item_rpc_epoch_glyph_5_a_description" 				"Позволяет герою выжить при получении смертельного урона, восстанавливая здоровье, ману и способности. Перезаряжается <% EPOCH_GLYPH_5_A_SECOND_LIFE_CD %> сек."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Невосприимчив к урону, Immortal Глиф путешествия во времени"
@@ -268,11 +268,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"Eye of Chronos"
 		"item_property_epoch_immortal_weapon"								"Eye of Chronos"
-		"property_epoch_immortal_weapon_description"						"Каждое прочтение (W) Genesis orb выпускает параллельно еще 2 сферы, урон умения удвоен."
+		"property_epoch_immortal_weapon_description"						"Каждое прочтение (W) Genesis orb выпускает параллельно еще <% EPOCH_IMMORTAL_WEAPON_1_ORBS - 1 %> сферы, урон умения увеличен <% EPOCH_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x."
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"Staff of the Eternal Guardian"
     	"item_property_epoch_immortal_weapon2"								"Guardian of Eternity"
-    	"property_epoch_immortal_weapon2_description"						"Если умение (R) @Ability4 перезаряжается и герой погибает, умение произносится сразу в месте гибели, а Epoch Guardian перерождается спустя @special_property1 сек. При возрождении сбрасывается время перезарядки всех умений, кроме (R) @Ability4. В этом случае время перезарядки (R) @Ability4 будет увеличено в @special_property2 раз."
+    	"property_epoch_immortal_weapon2_description"						"Если умение (R) @Ability4 перезаряжается и герой погибает, умение произносится сразу в месте гибели, а Epoch Guardian перерождается спустя <% EPOCH_IMMORTAL_WEAPON_2_RESPAWN_DELAY %> сек. При возрождении сбрасывается время перезарядки всех умений, кроме (R) @Ability4. В этом случае время перезарядки (R) @Ability4 будет увеличено в <% EPOCH_IMMORTAL_WEAPON_2_R_CD_MULT %> раз(а)."
 
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
-    	"property_epoch_immortal_weapon3_description"						"Пока летит сфера от умения (E) @Ability3, весь входящий урон снижается на 100%. Если сфера пролетает сквозь врагов, связанных умением (Q) @Ability1, то они оглушаются на @special_property1 сек."	
+    	"property_epoch_immortal_weapon3_description"						"Пока летит сфера от умения (E) @Ability3, весь входящий урон снижается на 100%. Если сфера пролетает сквозь врагов, связанных умением (Q) @Ability1, то они оглушаются на <% EPOCH_IMMORTAL_WEAPON_3_STUN %> сек."

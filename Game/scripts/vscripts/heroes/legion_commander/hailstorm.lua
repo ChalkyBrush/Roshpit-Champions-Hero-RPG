@@ -6,7 +6,7 @@ function start_channel(event)
 	if caster:HasModifier("modifier_mountain_protector_glyph_6_1") then
 		local currentCD = ability:GetCooldownTimeRemaining()
 		ability:EndCooldown()
-		local newCD = currentCD - 8
+		local newCD = currentCD - MOUNTAIN_PROTECTOR_GLYPH_6_1_R_CD_REDUCTION
 		ability:StartCooldown(newCD)
 	end
 
@@ -140,8 +140,8 @@ function glyph_7_1_damage(event)
 	local caster = event.unit
 	if caster:HasModifier("modifier_energy_channel") then
 		local luck = RandomInt(1, 10)
-		if luck <= 3 then
-			Filters:ApplyStun(caster, 1, attacker)
+		if luck <= MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN_CHANCE/10 then
+			Filters:ApplyStun(caster, MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN, attacker)
 		end
 	end
 end
@@ -167,8 +167,8 @@ function frozen_stand_start(event)
 	caster:GetAbilityByIndex(DOTA_D_SLOT):SetActivated(false)
 	ability.r2_level = caster:GetRuneValue("r", 2)
 
-	local ability_duration = ARCANA2_R2_DURATION_BASE + ability.r2_level * ARCANA2_R2_DURATION
-	local cooldown = max(ability_duration * ARCANA2_R2_COOLDOWN_PERCENT / 100, ARCANA2_R2_MIN_COOLDOWN)
+	local ability_duration = MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION_BASE + ability.r2_level * MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION
+	local cooldown = max(ability_duration * MOUNTAIN_PROTECTOR_ARCANA2_R2_COOLDOWN_PERCENT / 100, MOUNTAIN_PROTECTOR_ARCANA2_R2_MIN_COOLDOWN)
 	StartAnimation(caster, {duration = ability_duration, activity = ACT_DOTA_IDLE, rate = 1, translate = "injured"})
 
 	local modifier = caster:FindModifierByName('modifier_frozen_stand')
@@ -187,8 +187,8 @@ function frozen_stand_end(event)
 	caster:GetAbilityByIndex(DOTA_W_SLOT):SetActivated(true)
 	caster:GetAbilityByIndex(DOTA_E_SLOT):SetActivated(true)
 	caster:GetAbilityByIndex(DOTA_D_SLOT):SetActivated(true)
-	local stun_duration = ability.r2_level * ARCANA2_R2_STUN_DURATION
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ARCANA2_R2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local stun_duration = ability.r2_level * MOUNTAIN_PROTECTOR_ARCANA2_R2_STUN_DURATION
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyStun(caster, stun_duration, enemy)
@@ -199,8 +199,8 @@ function frozen_stand_end(event)
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
 	local origin = caster:GetAbsOrigin()
 	ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin() + Vector(0, 0, 20))
-	ParticleManager:SetParticleControl(particle1, 1, Vector(ARCANA2_R2_RADIUS, 1, ARCANA2_R2_RADIUS))
-	ParticleManager:SetParticleControl(particle1, 3, Vector(ARCANA2_R2_RADIUS, ARCANA2_R2_RADIUS, ARCANA2_R2_RADIUS))
+	ParticleManager:SetParticleControl(particle1, 1, Vector(MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS, 1, MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS))
+	ParticleManager:SetParticleControl(particle1, 3, Vector(MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS, MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS, MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS))
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(particle1, false)
 	end)

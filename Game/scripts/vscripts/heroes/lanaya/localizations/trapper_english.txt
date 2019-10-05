@@ -103,7 +103,7 @@
     	"DOTA_Tooltip_modifier_trapper_rune_e_1_effect_Description"	"Gaining Attack Damage while Vanished"
 		
       	"DOTA_Tooltip_ability_trapper_rune_e_2"						"[E2] Decoy"
-    	"DOTA_Tooltip_ability_trapper_rune_e_2_Description"			"When Trapper enters Vanish, she creates an uncontrollable illusion that lasts <% E2_DECOY_DURATION %> seconds. This Decoy does not act, but it is immune to all Magic and Pure damage. After taking <% E2_DECOY_HEALTH %> attacks or expiring, it will explode, damaging enemies in a <% E2_EXPLODE_RADIUS %> radius. This damage ignores Steadfast."
+    	"DOTA_Tooltip_ability_trapper_rune_e_2_Description"			"When Trapper enters Vanish, she creates an uncontrollable illusion that lasts <% TRAPPER_E2_DECOY_DURATION %> seconds. This Decoy does not act, but it is immune to all Magic and Pure damage. After taking <% TRAPPER_E2_DECOY_HEALTH %> attacks or expiring, it will explode, damaging enemies in a <% TRAPPER_E2_EXPLODE_RADIUS %> radius. This damage ignores Steadfast."
         "DOTA_Tooltip_ability_trapper_rune_e_2_property_one"        "Damage"
         "DOTA_Tooltip_ability_trapper_rune_e_2_suffix"              "x All Attributes"		
 
@@ -226,22 +226,22 @@
         "item_rpc_trapper_glyph_2_1_description"                "While vanished, restore @glyph_property1% of your max health every 0.1 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "Glyph of Tinkering"
-        "item_rpc_trapper_glyph_3_1_description"                "Increases the radius of @Ability2 by <% TRAPPER_T31_ADD_RADIUS %>, and adds <% TRAPPER_T31_ADD_BOMBS %> more Explosive Bombs per cast. Enemies damaged by an Explosive Bomb are coated in a numbing agent that reduces their next <% TRAPPER_T31_SHIELDS %> instances of damage dealt to Trapper to 0. Being damaged by another Explosive Bomb will reset the stack count."
+        "item_rpc_trapper_glyph_3_1_description"                "Increases the radius of @Ability2 by <% TRAPPER_GLYPH_3_1_ADD_RADIUS %>, and adds <% TRAPPER_GLYPH_3_1_ADD_BOMBS %> more Explosive Bombs per cast. Enemies damaged by an Explosive Bomb are coated in a numbing agent that reduces their next <% TRAPPER_GLYPH_3_1_SHIELDS %> instances of damage dealt to Trapper to 0. Being damaged by another Explosive Bomb will reset the stack count."
 
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "Glyph of Death Strike"
         "item_rpc_trapper_glyph_4_1_description"                "Backstab deals @glyph_property1x damage to Paragon creatures."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "Glyph of the Mad Bomber"
-        "item_rpc_trapper_glyph_5_1_description"                "Attempt to cast @Ability2 for free every time you move <% TRAPPER_T51_DISTANCE %> distance. Smoke Bombs last <% TRAPPER_T51_INVISIBLE_W_DURATION_AMPLIFY %> times longer and have <% TRAPPER_T51_INVISIBLE_W_RADIUS_AMPLIFY %>x radius."
+        "item_rpc_trapper_glyph_5_1_description"                "Attempt to cast @Ability2 for free every time you move <% TRAPPER_GLYPH_5_1_DISTANCE %> distance. Smoke Bombs last <% TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY %> times longer and have <% TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY %>x radius."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "Glyph of Craftsmanship"
-        "item_rpc_trapper_glyph_6_1_description"                "All damage dealt directly by items has Normal added as an additional element. Normal damage dealt by items is multiplied by <% TRAPPER_T61_NORMAL_ITEM_AMPLIFY %>."
+        "item_rpc_trapper_glyph_6_1_description"                "All damage dealt directly by items has Normal added as an additional element. Normal damage dealt by items is multiplied by <% TRAPPER_GLYPH_6_1_NORMAL_ITEM_AMPLIFY %>."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "Glyph of Trapping"
         "item_rpc_trapper_glyph_7_1_description"                "You can have 2 traps of each type active at a time."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "Glyph of Blueprints"
-        "item_rpc_trapper_glyph_5_a_description"                "Upgrades @Ability1. Fulminating Trap deals <% TRAPPER_T5A_FULMINATING_AMP * 100 - 100 %>% more damage. Poison Trap maximum stack count increased to <% TRAPPER_T5A_POISON_STACKS %>. Net Trap has <% TRAPPER_T5A_NET_DUR_AMP %>x root duration. Torrent Trap needs only <% TRAPPER_T5A_TORRENT_DUR_UNTIL %> seconds to erupt at a target."
+        "item_rpc_trapper_glyph_5_a_description"                "Upgrades @Ability1. Fulminating Trap deals <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% more damage. Poison Trap maximum stack count increased to <% TRAPPER_GLYPH_5_A_POISON_STACKS %>. Net Trap has <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %>x root duration. Torrent Trap needs only <% TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL %> seconds to erupt at a target."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "The effect of [Q3] is doubled."
@@ -289,4 +289,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
-        "property_trapper_immortal_weapon3_description"                      "Increases cast range of all abilities by @special_property1."
+        "property_trapper_immortal_weapon3_description"                      "Increases cast range of all abilities by <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>. Cooldowns for @Ability1 and @Ability4 are decreased by <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."

@@ -1405,7 +1405,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * STORMSHIELD_PHYS_REDUCTION
 		end
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
-			damage = damage * 0.7
+			damage = damage * (100-BAHAMUT_GLYPH_1_1_PHYS_RES_PCT)/100
 		end
 		if victim:HasModifier("modifier_pure_resist") then
 			damage = damage * 6
@@ -1741,7 +1741,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_energy_channel") or victim:HasModifier("modifier_steelforge_stance") then
 		if victim:HasModifier("modifier_mountain_protector_glyph_2_1") then
-			damage = damage * 0.7
+			damage = damage * (100-MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION)/100
 		end
 	end
 
@@ -2397,7 +2397,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_astral_rune_e_1_visible") then
 		local modifier = victim:FindModifierByName("modifier_astral_rune_e_1_invisible")
 		local stacks = modifier:GetStackCount()
-		local multIncrease = ASTRAL_E1_POSTMIT_PCT/100 * stacks
+		local multIncrease = ASTRAL_RANGER_E1_POSTMIT_PCT/100 * stacks
 		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_voltex_static_field_post_mitigation") then
@@ -2452,7 +2452,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
-		mult = mult + 2
+		mult = mult + CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT/100
 	end
 	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
 		mult = mult + BUZUKIS_FINGER_POST_MITI/100
@@ -2545,7 +2545,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
+			mult = mult + MOUNTAIN_PROTECTOR_ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
 		end
 	end
 	if attacker:HasModifier("modifier_energy_channel") then
@@ -3461,7 +3461,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
 		local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
-		mult = mult + missingHealthPercent * 1.5 / 100
+		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING / 100
 	end
 	--DUSKBRINGER
 	if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" and victim:IsRooted() then
@@ -3487,7 +3487,7 @@ function GameState:FilterDamage(filterTable)
 	modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
 	if modifier then
 		local stacks = modifier:GetStackCount()
-		mult = mult + stacks * 0.15
+		mult = mult + stacks * TRAPPER_E4_POST_AMP_PERCENT/100
 	end
 
 	modifier = victim:FindModifierByName("modifier_poison_whip")
@@ -3556,8 +3556,8 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_steadfast") then
 		local threshold_abil = {
-			moon_shroud = ASTRAL_Q2_STEADFAST_THRESHOLD,
-			astral_arcana_ability = ASTRAL_Q2_STEADFAST_THRESHOLD
+			moon_shroud = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD,
+			astral_arcana_ability = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD
 		}
 		local thresholdMult = 1
 		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
@@ -3583,7 +3583,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
+			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * MOUNTAIN_PROTECTOR_ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
@@ -3607,8 +3607,8 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
 		local threshold_abil = {
-			moon_shroud = ASTRAL_Q2_STEADFAST_THRESHOLD,
-			astral_arcana_ability = ASTRAL_Q2_STEADFAST_THRESHOLD
+			moon_shroud = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD,
+			astral_arcana_ability = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD
 		}
 		local thresholdMult = 1
 		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
@@ -3635,7 +3635,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
+			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * MOUNTAIN_PROTECTOR_ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
 		end
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
@@ -3662,7 +3662,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_trapper_immortal_weapon_2") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		if victim:HasModifier("modifier_fulminating_burn_effect") or victim:HasModifier("modifier_poison_trap_effect") or victim:HasModifier("modifier_net_trap_netted_effect") or victim:HasModifier("modifier_torrent_trap_slowed_effect") then
-			filterTable["damage"] = filterTable["damage"] * 1.3
+			filterTable["damage"] = filterTable["damage"] * (100+TRAPPER_IMMORTAL_WEAPON_2_DAMAGE_AMP_PCT)/100
 		end
 	end
 
@@ -3842,7 +3842,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
 		if victim:HasModifier("modifier_shapeshift_bear") or victim:HasModifier("modifier_shapeshift_year_beast") then
 			if filterTable["damage"] < victim:GetMaxHealth() * 100 then
-				filterTable["damage"] = math.min(victim:GetMaxHealth() * DJANGHOR_WEAP_2_HP_THRESHOLD_PCT, filterTable["damage"])
+				filterTable["damage"] = math.min(victim:GetMaxHealth() * DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT, filterTable["damage"])
 			end
 		end
 	end

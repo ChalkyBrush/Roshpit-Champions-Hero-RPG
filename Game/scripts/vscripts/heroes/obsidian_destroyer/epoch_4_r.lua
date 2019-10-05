@@ -261,9 +261,9 @@ function immortal_weapon_2_die(event)
       eventTable.duration = ulti:GetLevelSpecialValueFor("duration", ulti:GetLevel())
       eternity_flood_script(eventTable)
       local CD = ulti:GetCooldown(ulti:GetLevel())
-      ulti:StartCooldown(CD * 1.5)
+      ulti:StartCooldown(CD * EPOCH_IMMORTAL_WEAPON_2_R_CD_MULT)
     end
-    Timers:CreateTimer(3, function()
+    Timers:CreateTimer(EPOCH_IMMORTAL_WEAPON_2_RESPAWN_DELAY, function()
       if caster:IsAlive() then
       else
         caster:RespawnHero(false, false)

@@ -1,4 +1,4 @@
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 function trapper_lasso_start(event)
 	local caster = event.caster
@@ -6,7 +6,7 @@ function trapper_lasso_start(event)
 	local point = event.target_points[1]
 	local radius = event.radius
 	if caster:HasModifier('modifier_trapper_glyph_5_1') then
-		radius = radius * TRAPPER_T51_INVISIBLE_W_RADIUS_AMPLIFY
+		radius = radius * TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY
 	end
 	local pullToPoint = caster:GetAbsOrigin() + caster:GetForwardVector() * 90
 
@@ -94,7 +94,7 @@ function trapper_poison_whip_start(event)
 	local point = event.target_points[1]
 	local radius = event.radius
 	if caster:HasModifier('modifier_trapper_glyph_3_1') then
-		radius = radius + TRAPPER_T31_ADD_RADIUS
+		radius = radius + TRAPPER_GLYPH_3_1_ADD_RADIUS
 	end
 
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

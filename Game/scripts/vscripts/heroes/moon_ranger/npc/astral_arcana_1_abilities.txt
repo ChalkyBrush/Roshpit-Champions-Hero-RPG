@@ -94,7 +94,7 @@
                 "IsHidden"  "1"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+                    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% ASTRAL_RANGER_ARCANA1_Q1_ATTACK_RANGE_INCREASE %>"
                 }
             }
             "modifier_astral_arcana_on_platform"
@@ -208,7 +208,7 @@
                 "TextureName"       "astral_ranger/astral_rune_q_3"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ASTRAL_RANGER_ARCANA1_Q3_DAMAGE_BONUS %>"
                 }
             }
             "modifier_astral_rune_q_4"

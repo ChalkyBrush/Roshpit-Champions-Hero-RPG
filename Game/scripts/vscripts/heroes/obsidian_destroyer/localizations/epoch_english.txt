@@ -215,11 +215,11 @@
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Taking Additional Damage from All Sources"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"Glyph of Distorted Time"
-		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels @glyph_property1% farther and @glyph_property2% faster. Additionally, the duration of @Ability1 is doubled."
+		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% farther and <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>% faster. Additionally, the duration of [E1] is doubled."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"Glyph of Cracking"
-		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on @glyph_property1% of current mana times the ability's level."
+		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on <% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% of current mana times the ability's level."
+
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"Glyph of Ages"
 		"item_rpc_epoch_glyph_4_1_description" 				"Attacking no longer consumes stacks of the [W3] buff (the Intelligence bonus is mantained while restoring health on every attack)."
@@ -230,8 +230,7 @@
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"Glyph of Tangled Flow"
-		"item_rpc_epoch_glyph_6_1_description" 				"Enemies effected by @Ability1 and [Q1] have @glyph_property1% reduced attack damage. Additionally, the effects of [Q2] are multiplied by 10."
+		"item_rpc_epoch_glyph_6_1_description" 				"Enemies effected by @Ability1 and [Q1] have <% EPOCH_GLYPH_6_1_ATTACK_DMG_REDUCTION_PCT %>% reduced attack damage. Additionally, the effects of [Q2] are multiplied by <% EPOCH_GLYPH_6_1_Q2_MULTI %>."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Reduced Attack Damage"
@@ -240,7 +239,7 @@
 		"item_rpc_epoch_glyph_7_1_description" 				"While @Ability3 is travelling Epoch Guardian is phased out of this dimension, disabling him and disjointing all oncoming projectiles."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"Glyph of Time Travel"
-		"item_rpc_epoch_glyph_5_a_description" 				"Allow you to survive on lethal damage, refreshes health, mana, abilities. @glyph_property1 second cooldown."
+		"item_rpc_epoch_glyph_5_a_description" 				"Allow you to survive on lethal damage, refreshes health, mana, abilities. <% EPOCH_GLYPH_5_A_SECOND_LIFE_CD %> second cooldown."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"Time Travel Damage immune"
@@ -274,11 +273,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"Eye of Chronos"
 		"item_property_epoch_immortal_weapon"								"Eye of Chronos"
-		"property_epoch_immortal_weapon_description"						"Genesis orb fires an additional 2 orbs in parallel and deal 2x damage."
+		"property_epoch_immortal_weapon_description"						"Genesis orb fires an additional <% EPOCH_IMMORTAL_WEAPON_1_ORBS - 1 %> orbs in parallel and deal <% EPOCH_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x damage."
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"Staff of the Eternal Guardian"
     	"item_property_epoch_immortal_weapon2"								"Guardian of Eternity"
-    	"property_epoch_immortal_weapon2_description"						"If @Ability4 is off cooldown on death, immediately cast it at Epoch Guardian's position and respawn after @special_property1 seconds. Upon respawning, base ability cooldowns are refreshed, except for @Ability4 which goes on @special_property2x cooldown."
+    	"property_epoch_immortal_weapon2_description"						"If @Ability4 is off cooldown on death, immediately cast it at Epoch Guardian's position and respawn after <% EPOCH_IMMORTAL_WEAPON_2_RESPAWN_DELAY %> seconds. Upon respawning, base ability cooldowns are refreshed, except for @Ability4 which goes on <% EPOCH_IMMORTAL_WEAPON_2_R_CD_MULT %>x cooldown."
 
     	"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_3"				"Aion Eternus"
     	"item_property_epoch_immortal_weapon3"								"Spatial Distortion"
-    	"property_epoch_immortal_weapon3_description"						"While @Ability3 is travelling, all damage taken is reduced by 100%. Enemies who are bound by @Ability1 are stunned for @special_property1 seconds when damaged by @Ability3."
+    	"property_epoch_immortal_weapon3_description"						"While @Ability3 is travelling, all damage taken is reduced by 100%. Enemies who are bound by @Ability1 are stunned for <% EPOCH_IMMORTAL_WEAPON_3_STUN %> seconds when damaged by @Ability3."

@@ -175,7 +175,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_rockfall_passive") then
         local a_c_level = caster:GetRuneValue("e", 1)
         if a_c_level > 0 then
-            mult = mult + ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((caster:GetMaxHealth() - caster:GetHealth()) / 1000) * a_c_level
+            mult = mult + MOUNTAIN_PROTECTOR_ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((caster:GetMaxHealth() - caster:GetHealth()) / 1000) * a_c_level
         end
     end
     if caster:HasModifier("modifier_depth_crest_armor") then
@@ -432,7 +432,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         CDreduce = CDreduce + 1
     end
     if caster:HasModifier('modifier_venomort_glyph_3_1') then
-        CDreduce = CDreduce + VENOMORT_T31_E_CD_RED
+        CDreduce = CDreduce + VENOMORT_GLYPH_3_1_E_CD_RED
     end
     if caster:HasModifier("modifier_bear_silencer") then
         CDreduce = CDreduce - 30
@@ -884,7 +884,7 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
         if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
             local qAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            Filters:ReduceCooldownGeneric(caster, qAbility, 3)
+            Filters:ReduceCooldownGeneric(caster, qAbility, DJANGHOR_GLYPH_5_1_Q_CD_RED)
         end
     end
     if caster:HasModifier("modifier_royal_wristguards") then
@@ -1281,7 +1281,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_rockfall_passive") then
             local b_c_level = attacker:GetRuneValue("e", 2)
             if b_c_level > 0 then
-                damage = damage + attacker:GetStrength() * b_c_level * ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
+                damage = damage + attacker:GetStrength() * b_c_level * MOUNTAIN_PROTECTOR_ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
             end
         end
         -- if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
@@ -1445,7 +1445,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if Util.BaseType:IsAbilityBaseType(slot) then
                 local a_c_level = attacker:GetRuneValue("e", 1)
                 if a_c_level > 0 then
-                    damageMult = damageMult + ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
+                    damageMult = damageMult + MOUNTAIN_PROTECTOR_ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
                 end
             end
         end
@@ -1490,7 +1490,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-                damageMult = damageMult + 0.003 * (attacker:GetStrength() / 10)
+                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetStrength() / CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR)
             end
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
@@ -1501,7 +1501,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_spirit_warrior_immortal_weapon_1") then
-            damageMult = damageMult + 1
+            damageMult = damageMult + SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DAMAGE_AMP_PCT/100
         end
         if attacker:HasModifier("modifier_royal_wristguards_stack_effect") then
             local qAbility = attacker:GetAbilityByIndex(DOTA_Q_SLOT)
@@ -1558,7 +1558,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-                damageMult = damageMult + 0.003 * (attacker:GetIntellect() / 10)
+                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetIntellect() / CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR)
             end
         end
         if attacker:HasModifier("modifier_duskbringer_immortal_weapon_2") then
@@ -1636,7 +1636,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-                damageMult = damageMult + 0.003 * (attacker:GetAgility() / 10)
+                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetAgility() / CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR)
             end
         end
         damage = damage * (1 + damageMult)
@@ -1719,7 +1719,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:HasModifier("modifier_bahamut_immortal_weapon_1") then
-            local proc = Filters:GetProc(attacker, 20)
+            local proc = Filters:GetProc(attacker, BAHAMUT_IMMORTAL_WEAPON_1_CHANCE)
             if proc then
                 --print("BIG IMMORTAL NUKE!")
                 local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", PATTACH_CUSTOMORIGIN, victim)
@@ -1728,7 +1728,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 Timers:CreateTimer(2.5, function()
                     ParticleManager:DestroyParticle(pfx, false)
                 end)
-                ApplyDamage({victim = victim, attacker = attacker, damage = damage * 4, damage_type = DAMAGE_TYPE_PURE})
+                ApplyDamage({victim = victim, attacker = attacker, damage = damage * BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP, damage_type = DAMAGE_TYPE_PURE})
             end
         end
     end
@@ -1997,7 +1997,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             normalMult = normalMult + stacks / 100
         end
         if attacker:HasModifier('modifier_trapper_glyph_6_1') and slot == BASE_ITEM then
-            normalMult = normalMult * TRAPPER_T61_NORMAL_ITEM_AMPLIFY
+            normalMult = normalMult * TRAPPER_GLYPH_6_1_NORMAL_ITEM_AMPLIFY
         end
         mult = mult + normalMult
     end
@@ -2117,7 +2117,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * 0.15
+            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
             fireMult = fireMult + multIncrease
         end
         if unitName == "npc_dota_hero_arc_warden" then
@@ -2235,7 +2235,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * 0.15
+            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
             mult = mult + multIncrease
         end
     end
@@ -2692,7 +2692,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
             local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * 0.15
+            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
             waterMult = waterMult + multIncrease
         end
         if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then

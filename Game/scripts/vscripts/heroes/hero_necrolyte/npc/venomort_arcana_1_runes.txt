@@ -17,7 +17,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA1_R1_DAMAGE_PERCENT %>"
+				"property_one"			"<% VENOMORT_ARCANA_1_R1_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{
@@ -53,7 +53,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA1_R2_RADIUS %>"
+				"property_one"			"<% VENOMORT_ARCANA_1_R2_RADIUS %>"
 			}
 			"02"
 		        {
@@ -79,12 +79,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARCANA1_R3_HEAL_PERCENT %>"
+				"property_one"			"<% VENOMORT_ARCANA_1_R3_HEAL_PERCENT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ARCANA1_R3_SHIELD_PERCENT %>"
+				"property_two"			"<% VENOMORT_ARCANA_1_R3_SHIELD_PERCENT %>"
 			}
 		}
 	}
@@ -105,12 +105,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA1_R4_BONUS_MOVESPEED %>"
+				"property_one"			"<% VENOMORT_ARCANA_1_R4_BONUS_MOVESPEED %>"
 			}
 			"02"
             {
                     "var_type"                             "FIELD_INTEGER"
-                    "property_two"                         "<% VENOMORT_ARCANA1_R4_ARMOR_BONUS %>"
+                    "property_two"                         "<% VENOMORT_ARCANA_1_R4_ARMOR_BONUS %>"
             }
 		}
 	}

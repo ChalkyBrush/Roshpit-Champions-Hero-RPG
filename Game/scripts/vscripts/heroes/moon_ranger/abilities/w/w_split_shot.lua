@@ -26,12 +26,12 @@ function beginCast(event)
     local empyralArrowsProcChance = 0
 
     if caster:HasModifier("modifier_astral_glyph_3_1") then
-        empyralArrowsProcChance = getProcChance(caster, T31_PROC_CHANCE)
-        arrowCount = T31_ARROWS_COUNT
-        damage = damage * T31_DAMAGE_MULTIPLIER
+        empyralArrowsProcChance = getProcChance(caster, ASTRAL_RANGER_GLYPH_3_1_PROC_CHANCE)
+        arrowCount = ASTRAL_RANGER_GLYPH_3_1_ARROWS_COUNT
+        damage = damage * ASTRAL_RANGER_GLYPH_3_1_DAMAGE_MULTIPLIER
     else
-        empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
-        arrowCount = W_ARROWS_COUNT
+        empyralArrowsProcChance = getProcChance(caster, ASTRAL_RANGER_W3_PROC_CHANCE)
+        arrowCount = ASTRAL_RANGER_W_ARROWS_COUNT
     end
     if caster:HasModifier("modifier_astral_glyph_1_1") then
         arrowCount = arrowCount * 4
@@ -58,7 +58,7 @@ function beginCast(event)
     local manaCost = ability:GetManaCost(abilityLevel)
 
     for shotIndex = 0, shotsCount, 1 do
-        Timers:CreateTimer(shotIndex * W_DELAY, function()
+        Timers:CreateTimer(shotIndex * ASTRAL_RANGER_W_DELAY, function()
             makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow, empyralArrowsProcChance, shotIndex ~= 0, angleMult)
             if (shotIndex == shotsCount) then
                 ability:SetActivated(true)
@@ -78,17 +78,17 @@ function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArro
         if (luck < empyralArrowsProcChance) then
             local forwardVector = caster:GetForwardVector()
             local empyralArrowOrigin = arrowOrigin + forwardVector * 40
-            createArrow(caster, w3ability, W3_PARTICLE, range, empyralArrowOrigin, rotatedVector)
+            createArrow(caster, w3ability, ASTRAL_RANGER_W3_PARTICLE, range, empyralArrowOrigin, rotatedVector)
         else
-            createArrow(caster, ability, W_PARTICLE, range, arrowOrigin, rotatedVector)
+            createArrow(caster, ability, ASTRAL_RANGER_W_PARTICLE, range, arrowOrigin, rotatedVector)
         end
 
     end
     if playSound then
-        StartAnimation(caster, {duration = W_DELAY - 0.06, activity = ACT_DOTA_ATTACK, rate = 5.4, translate = "ti6"})
+        StartAnimation(caster, {duration = ASTRAL_RANGER_W_DELAY - 0.06, activity = ACT_DOTA_ATTACK, rate = 5.4, translate = "ti6"})
         EmitSoundOn("Astral.AstralVolleySmall", caster)
     else
-        -- StartAnimation(caster, {duration=W_DELAY-0.06, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.8, translate="ti6"})
+        -- StartAnimation(caster, {duration=ASTRAL_RANGER_W_DELAY-0.06, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.8, translate="ti6"})
     end
     caster:ReduceMana(manaCost)
     local event = {}

@@ -1,11 +1,11 @@
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 function trap_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
-		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
 	EmitSoundOn("Trapper.FulminatingPlacement", caster)
 	Filters:CastSkillArguments(1, caster)
@@ -27,7 +27,7 @@ function trap_start(event)
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
 	trap.damage = trap.damage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trap.damage
 	if caster:HasModifier("modifier_trapper_glyph_5_a") then
-		trap.damage = trap.damage * TRAPPER_T5A_FULMINATING_AMP
+		trap.damage = trap.damage * TRAPPER_GLYPH_5_A_FULMINATING_AMP
 	end
 	trap.origCaster = caster
 
@@ -87,7 +87,7 @@ function trap_start_poison(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
-		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
 	StartSoundEvent("Trapper.PoisonTrapPlacement", caster)
 	Timers:CreateTimer(3, function()
@@ -170,7 +170,7 @@ function trap_think(event)
 	local caster = trap.origCaster
 	local ability = event.ability
 	local position = trap:GetAbsOrigin()
-	local radius = TRAP_RADIUS
+	local radius = TRAPPER_Q_TRAP_RADIUS
 	local damage = trap.damage
 	local q_3_level = trap.q_3_level
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -200,7 +200,7 @@ function trap_start_net(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
-		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
 	EmitSoundOn("Trapper.NetTrapPlacement", caster)
 	if ability.current_traps == nil then
@@ -277,13 +277,13 @@ function net_trap_think(event)
 	local caster = trap.origCaster
 	local ability = event.ability
 	local position = trap:GetAbsOrigin()
-	local radius = TRAP_RADIUS
+	local radius = TRAPPER_Q_TRAP_RADIUS
 	local root_duration = trap.root_duration
 	local damage = trap.damage
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local q_3_level = trap.q_3_level
 	if caster:HasModifier("modifier_trapper_glyph_7_a") then
-		root_duration = root_duration * TRAPPER_T5A_NET_DUR_AMP
+		root_duration = root_duration * TRAPPER_GLYPH_5_A_NET_DUR_AMP
 	end
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -314,14 +314,14 @@ function poison_trap_think(event)
 	local caster = trap.origCaster
 	local ability = event.ability
 	local position = trap:GetAbsOrigin()
-	local radius = TRAP_RADIUS
+	local radius = TRAPPER_Q_TRAP_RADIUS
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local q_3_level = trap.q_3_level
 
 	ability.origCaster = caster
-	local maxStacks = Q1_MAX_STACKS_COUNT
+	local maxStacks = TRAPPER_Q1_MAX_STACKS_COUNT
 	if caster:HasModifier('modifier_trapper_glyph_5_a') then
-		maxStacks = TRAPPER_T5A_POISON_STACKS
+		maxStacks = TRAPPER_GLYPH_5_A_POISON_STACKS
 	end
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -355,7 +355,7 @@ function trap_start_torrent(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
-		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
 	StartSoundEvent("Trapper.TorrentTrapPlacement", caster)
 	Timers:CreateTimer(3, function()
@@ -402,7 +402,7 @@ function trap_start_torrent(event)
 
 	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "trapper")
 	trapAbility.q_2_level = q_2_level
-	trapAbility.q_2_damage = q_2_level * Q2_DAMAGE
+	trapAbility.q_2_damage = q_2_level * TRAPPER_Q2_DAMAGE
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
 	trapAbility.q_2_damage = trapAbility.q_2_damage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.q_2_damage
 	-- Plays the sounds
@@ -428,7 +428,7 @@ function torrent_trap_think(event)
 	local caster = trap.origCaster
 	local ability = event.ability
 	local position = trap:GetAbsOrigin()
-	local radius = TRAP_RADIUS
+	local radius = TRAPPER_Q_TRAP_RADIUS
 	local damage = ability.q_2_damage
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local q_3_level = trap.q_3_level
@@ -440,7 +440,7 @@ function torrent_trap_think(event)
 				local currentStacks = enemy:GetModifierStackCount("modifier_torrent_trap_building_up", ability)
 				local stacks = 5
 				if caster:HasModifier("modifier_trapper_glyph_5_a") then
-					stacks = TRAPPER_T5A_TORRENT_DUR_UNTIL * 2
+					stacks = TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL * 2
 				end
 				enemy:SetModifierStackCount("modifier_torrent_trap_building_up", ability, currentStacks + 1)
 				if (currentStacks + 1) == stacks then

@@ -48,7 +48,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q2_DAMAGE %>"
+				"property_one"			"<% TRAPPER_Q2_DAMAGE %>"
 			}
 			"02"
 			{
@@ -89,7 +89,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q3_AMP_PERCENT %>"
+				"property_one"			"<% TRAPPER_Q3_AMP_PERCENT %>"
 			}
 		}
 	}
@@ -273,7 +273,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E2_STATS_DAMAGE %>"
+				"property_one"			"<% TRAPPER_E2_STATS_DAMAGE %>"
 			}
 			"02"
 			{
@@ -337,7 +337,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_two"				"<% E3_ATTACK_RANGE %>"
+				"property_two"				"<% TRAPPER_E3_ATTACK_RANGE %>"
 			}
 			"03"
 			{
@@ -416,7 +416,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% E4_POST_AMP_PERCENT %>"
+				"property_one"			"<% TRAPPER_E4_POST_AMP_PERCENT %>"
 			}
 		}
 	}
@@ -469,7 +469,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% R2_ATTACK_DAMAGE %>"
+				"property_one"			"<% TRAPPER_R2_ATTACK_DAMAGE %>"
 			}
 		}
 		"Modifiers"
@@ -512,7 +512,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% R3_CRIT_DAMAGE %>"
+				"property_one"			"<% TRAPPER_R3_CRIT_DAMAGE %>"
 			}
 		}
 	}
@@ -533,7 +533,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% R4_BONUS_AGI %>"
+				"property_one"			"<% TRAPPER_R4_BONUS_AGI %>"
 			}
 		}
 	}
