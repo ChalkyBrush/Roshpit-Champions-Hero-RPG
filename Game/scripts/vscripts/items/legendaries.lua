@@ -2864,8 +2864,23 @@ function RPCItems:RollGoldPlateOfLeon(deathLocation)
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "gold_leon"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_plate_of_leon", "#E6E617", 1, "#property_gold_plate_of_leon_description")
-
-    RPCItems:RollBodyProperty2(item, 0)
+	local luck = RandomInt(1, 3)
+	if luck == 1 then
+        value, nameLevel = RPCItems:RollAttribute(0, 5, 25, 0, 0, item.newItemTable.rarity, false, maxFactor * 30)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "strength"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
+    elseif luck == 2 then
+        value, nameLevel = RPCItems:RollAttribute(0, 5, 25, 0, 0, item.newItemTable.rarity, false, maxFactor * 30)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "agility"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
+    elseif luck == 3 then
+        value, nameLevel = RPCItems:RollAttribute(0, 5, 25, 0, 0, item.newItemTable.rarity, false, maxFactor * 30)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "intelligence"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
+    end
     RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
 
