@@ -65,7 +65,7 @@ function think(event)
 
     local tickForInterval = 6
     if hero:HasModifier("modifier_axe_glyph_3_1") then
-        tickForInterval = 3
+        tickForInterval = tickForInterval * RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION
     end
 
     if interval % tickForInterval == 0 then

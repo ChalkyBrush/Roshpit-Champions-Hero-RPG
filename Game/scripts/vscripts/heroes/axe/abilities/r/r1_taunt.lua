@@ -1,7 +1,7 @@
 require('heroes/axe/init')
 local Shockwaves = require('heroes/axe/abilities/r/r2_shockwaves')
 local function createTauntWaves(caster, ability, damage)
-    for i = 0, R1_BUFF_DURATION, 1 do
+    for i = 0, RED_GENERAL_R1_BUFF_DURATION, 1 do
         Timers:CreateTimer(0.2 + i, function()
             EmitSoundOn("RedGeneral.TauntWave", caster)
             local position = caster:GetAbsOrigin()
@@ -33,7 +33,7 @@ local function cast(caster, ability, damage)
         return
     end
     createTauntWaves(caster, ability, damage)
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_2_visible", {duration = R1_BUFF_DURATION})
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_2_visible", {duration = RED_GENERAL_R1_BUFF_DURATION})
 end
 
 function takeDamage(event)
@@ -57,7 +57,7 @@ function takeDamage(event)
             --print("incoming damage = " .. event.damage)
             damage = damage * caster.r_1_level * RED_GENERAL_R1_DAMAGE
             if caster:HasModifier("modifier_axe_glyph_5_a") then
-                damage = damage * (1 + T5A_AMPLIFY_PERCENT / 100)
+                damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
             end
 
             --print("damage from r1 = " .. damage)

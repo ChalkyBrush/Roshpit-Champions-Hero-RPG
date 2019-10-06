@@ -181,7 +181,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T41_DAMAGE_PROCENT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>"
 			}
 		}
 	}
@@ -278,7 +278,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T61_DUNKS_COUNT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_6_1_DUNKS_COUNT %>"
 			}
 		}
 	}
@@ -356,7 +356,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T12_STUN_DURATION %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_1_2_STUN_DURATION %>"
 			}
 		}
 	}
@@ -398,7 +398,7 @@
                  "TextureName"            "rpc/axe_d_d"
                  "Properties"
                  {
-                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% T22_ARMOR_DECREASE %>"
+                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %>"
                  }
                  "OnCreated"
                  {
@@ -424,7 +424,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T22_ARMOR_DECREASE %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %>"
 			}
 		}
 	}
@@ -463,7 +463,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T32_STACKS_GAIN %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %>"
 			}
 		}
 	}
@@ -502,7 +502,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T42_DAMAGE_REDUCTION_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>"
 			}
 		}
 	}
@@ -547,12 +547,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T52_AMPLIFY_DURATION %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% T52_AMPLIFY_PERCENT %>"
+				"property_two"			"<% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>"
 			}
 		}
 	}
@@ -583,7 +583,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Attributes"		"RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT"
 			}
 		}
 		"AbilitySpecial"
@@ -591,7 +591,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T62_DAMAGE_REDUCTION_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>"
 			}
 			"02"
 			{
@@ -635,12 +635,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T72_MAX_STACKS_COUNT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% T72_AMP_STACKS_PER_ATTACK %>"
+				"property_two"			"<% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>"
 			}
 		}
 	}

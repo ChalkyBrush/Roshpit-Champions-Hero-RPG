@@ -1553,7 +1553,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 0.5
 	end
 	if victim:HasModifier("modifier_axe_glyph_1_1") then
-		damage = damage * 0.7
+		damage = damage * (100-RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
 		damage = damage * (100-REDROCK_DAMAGE_REDUCTION_PCT)/100
@@ -1682,7 +1682,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
-		damage = damage * 0.5
+		damage = damage * (1-RED_GENERAL_IMMORTAL_WEAPON_DMG_REDUCTION)
 	end
 
 	if victim:HasModifier("modifier_living_gauntlet_effect") then
