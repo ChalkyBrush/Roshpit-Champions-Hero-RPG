@@ -124,6 +124,7 @@
 	width:500px;
 	horizontal-align:center;
 	margin-top:20px;
+	border-bottom:2px solid #333333;
 }
 
 .challenge_main_container{
@@ -212,6 +213,7 @@
 	flow-children:right;
 	horizontal-align:center;
 	margin-top:10px;
+	margin-bottom:5px;
 }
 
 #challenge_reward_image{

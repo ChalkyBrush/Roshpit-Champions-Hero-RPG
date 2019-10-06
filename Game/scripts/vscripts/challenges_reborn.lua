@@ -199,4 +199,21 @@ end
 function Challenges:PanoramaInput(msg)
 	print("START CHALLENGE")
 	print(msg.challenge_type)
+	if msg.event_type == "start" then
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf", MAIN_HERO_TABLE[i], 4)
+			EmitSoundOn("Challenges.Crusader.Enter", MAIN_HERO_TABLE[i])
+		end
+		Notifications:BottomToAll({text = "ui_challenge_started", duration = 4.2})
+		local challenge_text = msg.challenge_text
+		for _, mod in pairs(msg.mod_array) do
+			challenge_text = challenge_text .. "<br>"..mod
+		end
+		print(challenge_text)
+		Timers:CreateTimer(4.2, function()
+			Notifications:BottomToAll({text = challenge_text, duration = 10.0})
+		end)
+		EmitGlobalSound("UI.CrusaderAccept.Music")
+	end
 end
+

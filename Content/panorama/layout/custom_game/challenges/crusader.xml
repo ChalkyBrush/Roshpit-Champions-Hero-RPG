@@ -38,14 +38,14 @@
 							<Panel id="challenge_mods_attacher"/>
 						</Panel>
 					</Panel>
+					<Button id="challenge_start_button">
+						<Label id="challenge_start_button_label" text="ui_start_challenge"/>
+					</Button>
 					<Panel class="challenge_reward_root">
 						<Label id="challenge_reward_text_left" text="" hittest="false"/>
 						<Image id="challenge_reward_image" hittest="false"/>
 						<Label id="challenge_reward_text" text="" hittest="false"/>
 					</Panel>
-					<Button id="challenge_start_button">
-						<Label id="challenge_start_button_label" text="ui_start_challenge"/>
-					</Button>
 				</Panel>
 			</Panel>
 		</snippet>

@@ -1155,6 +1155,7 @@
 
 		"ui_start_challenge"										"Start Challenge"
 		"ui_challenge_reward"										"Reward"
+		"ui_challenge_started"										"The Crusader's Challenge is accepted."
 
 	    //------------------------
 		// Blacksmith

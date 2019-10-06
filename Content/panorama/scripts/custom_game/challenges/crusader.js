@@ -51,11 +51,13 @@ function load_challenge(challenge, challenge_type, crusader_main){
 	if (add_difficulty_mod(challenge, quest_start_panel)){
 		total_mods = 1
 	}
+	var mod_array = []
 	for (j = 0; j < 6; j++) {
 		total_mods = total_mods + 1
 		var index = indeces[j]
 		if (!(mods[index] === undefined)){
-			load_mod(mods[index], quest_start_panel, total_mods)
+			var loaded_mod_text = load_mod(mods[index], quest_start_panel, total_mods)
+			mod_array.push(loaded_mod_text)
 		}
 	}
 	quest_start_panel.FindChildTraverse('challenge_reward_image').SetImage("file://{images}/custom_game/ui/prismatic_gemstone.png")
@@ -63,18 +65,20 @@ function load_challenge(challenge, challenge_type, crusader_main){
 	quest_start_panel.FindChildTraverse('challenge_reward_text_left').text = $.Localize("ui_challenge_reward")+":"
 	quest_start_panel.FindChildTraverse('challenge_reward_text').text = reward+" "+$.Localize("tooltip_prismatic_gemstones")
 	var challenge_start_button = quest_start_panel.FindChildTraverse('challenge_start_button')
-	set_challenge_start_event(challenge_start_button, challenge_type)
+	set_challenge_start_event(challenge_start_button, challenge_type, challenge_text, mod_array)
 
 }
 
-function set_challenge_start_event(challenge_start_button, challenge_type){
+function set_challenge_start_event(challenge_start_button, challenge_type, challenge_text, mod_array){
 	challenge_start_button.SetPanelEvent('onactivate', function Close() {
-		challenge_start_click(challenge_start_button, challenge_type)
+		challenge_start_click(challenge_start_button, challenge_type, challenge_text, mod_array)
 	})	
 }
 
-function challenge_start_click(challenge_start_button, challenge_type){
-	GameEvents.SendCustomGameEventToServer( "challenges", {event_type: "start", challenge_type: challenge_type});
+function challenge_start_click(challenge_start_button, challenge_type, challenge_text, mod_array){
+	Game.EmitSound("UI.CrusaderAccept")
+	GameEvents.SendCustomGameEventToServer( "challenges", {event_type: "start", challenge_type: challenge_type, challenge_text: challenge_text, mod_array: mod_array.reverse()});
+	CloseCrusader();
 }
 
 function add_difficulty_mod(challenge, panel){
@@ -138,6 +142,7 @@ function load_mod(mod, panel, index){
 	}
 	mod_text = "<font color='#f1c40f'>"+index+".</font> "+mod_text
 	quest_mod_panel.FindChildTraverse('mod_text').text = mod_text
+	return mod_text
 }
 
 function find_number_of_heroes_from_hero_spec(mod){
