@@ -2195,7 +2195,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_antimage" then
             if attacker:HasModifier("modifier_arkimus_glyph_7_1") then
-                mult = mult + 10
+                mult = mult + ARKIMUS_GLYPH_7_1_LIGHTNING_AMP/100
             end
             if attacker:HasModifier("modifier_arkimus_arcana1_q4") then
                 local stacks = attacker:GetModifierStackCount("modifier_arkimus_arcana1_q4", attacker)
@@ -2510,7 +2510,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
                 if bIsRealDamage then
-                    local healAmount = damage * mult * 0.005
+                    local healAmount = damage * mult * ARKIMUS_IMMORTAL_WEAPON_2_HEALING_PER_ARCANE_DMG
                     if healAmount > 0 then
                         Filters:ApplyHeal(attacker, attacker, healAmount, true)
                         local particleName = "particles/roshpit/arkimus/arkimus_immo_2_lifesteal.vpcf"
@@ -3763,8 +3763,8 @@ function Filters:EmeraldDouliHit(victim, damage)
 end
 
 function Filters:SpellShieldHit(victim, damage)
-    local splicedDamage = damage * 0.9
-    local manaDamage = splicedDamage * 0.1
+    local splicedDamage = damage * ARKIMUS_GLYPH_5_1_MANA_DAMAGE_PART_PCT/100
+    local manaDamage = splicedDamage * (100-ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION)/100
     local bSplice = true
     if manaDamage > victim:GetMana() then
         manaDamage = victim:GetMana()
@@ -3774,7 +3774,7 @@ function Filters:SpellShieldHit(victim, damage)
     if bSplice then
         return splicedDamage
     else
-        return manaDamage * 10
+        return manaDamage /(100-ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION)/100
     end
 end
 
