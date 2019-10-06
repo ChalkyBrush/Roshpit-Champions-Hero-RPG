@@ -78,7 +78,7 @@ function set_challenge_start_event(challenge_start_button, challenge_type, chall
 function challenge_start_click(challenge_start_button, challenge_type, challenge_text, mod_array){
 	Game.EmitSound("UI.CrusaderAccept")
 	GameEvents.SendCustomGameEventToServer( "challenges", {event_type: "start", challenge_type: challenge_type, challenge_text: challenge_text, mod_array: mod_array.reverse()});
-	CloseCrusader();
+	// CloseCrusader();
 }
 
 function add_difficulty_mod(challenge, panel){
@@ -192,4 +192,6 @@ function CloseCrusader(){
 (function()
 {
 	GameEvents.Subscribe( "open_crusader", OpenCrusader );
+	GameEvents.Subscribe( "close_crusader", CloseCrusader );
+
 })();

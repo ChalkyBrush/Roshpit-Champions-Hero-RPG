@@ -944,6 +944,9 @@ function CustomAbilities:ClickOpenDialogue(msg)
 		local distance_cap = 700
 		local playerID = msg.PlayerID
 		local player = PlayerResource:GetPlayer(playerID)
+		if Challenges.ActiveChallenge then
+			return false
+		end
 		if player then
 			local hero = GameState:GetHeroByPlayerID(playerID)
 			local queryUnit = EntIndexToHScript(msg.queryUnit)

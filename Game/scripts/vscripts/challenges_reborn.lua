@@ -199,6 +199,10 @@ end
 function Challenges:PanoramaInput(msg)
 	print("START CHALLENGE")
 	print(msg.challenge_type)
+	CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
+	if Challenges.ActiveChallenge then
+		return false
+	end
 	if msg.event_type == "start" then
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf", MAIN_HERO_TABLE[i], 4)
@@ -214,6 +218,12 @@ function Challenges:PanoramaInput(msg)
 			Notifications:BottomToAll({text = challenge_text, duration = 10.0})
 		end)
 		EmitGlobalSound("UI.CrusaderAccept.Music")
+		if msg.challenge_type == "main" and Challenges:AreConditionsValidForChallenge(Challenges.main_challenge) then
+			Challenges.ActiveChallenge = Challenges.main_challenge
+		end
+		if msg.challenge_type == "web" and Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) then
+			Challenges.ActiveChallenge = Challenges.web_challenge
+		end
 	end
 end
 
