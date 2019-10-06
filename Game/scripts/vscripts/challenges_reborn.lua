@@ -45,16 +45,8 @@ function Challenges:CheckSpawn()
 	for i = 1, #challenges_list, 1 do
 		local full_challenge = challenges_list[i]
 		local challenge_table = challenges_list[i]["challenge"]
-		if Challenges:HeroMatch(full_challenge) then
-			print("CHECK MAP MATCH")
-			print(GetMapName())
-			DeepPrintTable(challenge_table)
-			print(challenge_table["map_name"])
-			print("######")
-			if challenge_table["map_name"] == GetMapName() then
-				print("MAP MATCH")
-				Challenges:MapMatch(challenge_table)
-			end
+		if Challenges:HeroMatch(full_challenge) and Challenges:MapMatch(challenge_table) and Challenges:DifficultyModMatch(challenge_table) then
+			Challenges:SpawnByMap()
 		end
 	end
 end
@@ -88,49 +80,76 @@ function Challenges:HeroMatch(challenge_table)
 end
 
 function Challenges:MapMatch(challenge_table)
-
-	if challenge_table["map_name"] == "rpc_tanari_jungle" then
-		if challenge_table["difficulty_mod"] == 0 then
-			Challenges:SpawnCrusaderNow(Vector(-4416, 1069), Vector(-0.2, 1))
-		else
-			Challenges.waiting_for_spirit_realm = true
-		end
-	elseif challenge_table["map_name"] == "rpc_redfall_ridge" then
-		if challenge_table["difficulty_mod"] == 0 then
-			Challenges:SpawnCrusaderNow(Vector(-13530, -15232), Vector(0,1))
-		else
-			Challenges.waiting_for_spirit_realm = true
-		end
-	elseif challenge_table["map_name"] == "rpc_winterblight_mountain" then
-		print("WINTER MATCH zxc")
-		if challenge_table["difficulty_mod"] == 0 then
-			Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
-		else
-			Challenges.waiting_for_stones = challenge_table["difficulty_mod"]
-		end
-	elseif challenge_table["map_name"] == "rpc_roshpit_arena" then
-		Challenges.waiting_for_pit_open = challenge_table["difficulty_mod"]
-	elseif challenge_table["map_name"] == "rpc_sea_fortress" then
-		Challenges:SpawnCrusaderNow(Vector(896, -14592), Vector(-1,-1))
+	if challenge_table["map_name"] == GetMapName() then
+		return true
+	else
+		return false
 	end
+end
+
+function Challenges:DifficultyModMatch(challenge_table)
+	local mod_match = true
+	if challenge_table["map_name"] == "rpc_tanari_jungle" and challenge_table["difficulty_mod"] == 1 then
+		if Events.SpiritRealm then
+			mod_match = true
+		else
+			mod_match = false
+		end
+	end
+	if challenge_table["map_name"] == "rpc_redfall_ridge" and challenge_table["difficulty_mod"] == 1 then
+		if Events.SpiritRealm then
+			mod_match = true
+		else
+			mod_match = false
+		end
+	end
+	if challenge_table["map_name"] == "rpc_winterblight_mountain" and challenge_table["difficulty_mod"] > 0 then
+		if Winterblight then
+			if Winterblight.Stones >= challenge_table["difficulty_mod"] then
+				mod_match = true
+			else
+				mod_match = false
+			end
+		else
+			mod_match = false
+		end
+	end
+	if challenge_table["map_name"] == "rpc_roshpit_arena" and challenge_table["difficulty_mod"] > 0 then
+		if Arena then
+			if Arena.PitLevel >= challenge_table["difficulty_mod"] then
+				mod_match = true
+			else
+				mod_match = false
+			end
+		else
+			mod_match = false
+		end
+	end
+	return mod_match
+end
+
+function Challenges:SpawnByMap()
+	if Challenges.Crusader then
+		return false
+	end
+	if GetMapName() == "rpc_tanari_jungle" then
+		Challenges:SpawnCrusaderNow(Vector(-4416, 1069), Vector(-1, 0))
+	elseif GetMapName() == "rpc_redfall_ridge" then
+		Challenges:SpawnCrusaderNow(Vector(-13530, -15232), Vector(0,1))
+	elseif GetMapName() == "rpc_winterblight_mountain" then
+		Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
+	elseif GetMapName() == "rpc_roshpit_arena" then
+		Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
+	elseif GetMapName() == "rpc_sea_fortress" then
+		Challenges:SpawnCrusaderNow(Vector(896, -14592), Vector(-1,-1))
+	end	
 end
 
 function Challenges:ProcessPossibleSpawnEvent(value)
 	if Challenges.Crusader then
 		return false
 	end
-	if Challenges.waiting_for_spirit_realm then
-		if GetMapName() == "rpc_tanari_jungle" then
-			Challenges:SpawnCrusaderNow(Vector(-4416, 1069), Vector(-0.2, 1))
-		elseif GetMapName() == "rpc_redfall_ridge" then
-			Challenges:SpawnCrusaderNow(Vector(-13530, -15232), Vector(0,1))
-		end
-	elseif Challenges.waiting_for_stones and Challenges.waiting_for_stones >= value then
-		Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
-	elseif Challenges.waiting_for_pit_open and Challenges.waiting_for_pit_open >= value then
-		Challenges:SpawnCrusaderNow(Vector(-7941, 10188), Vector(-0.1,-1))
-	end
-
+	Challenges:CheckSpawn()
 end
 
 function Challenges:ChallengeWinEvent(event)

@@ -74,32 +74,33 @@ function add_difficulty_mod(challenge, panel){
 	$.Msg("LOAD MOD")
 	var proceed = false
 	var mod_text = ""
-	if (challenge["map_name"] == "rpc_tanari_jungle" && challenge["difficulty_mod"] == 1){
+	if (challenge["challenge"]["map_name"] == "rpc_tanari_jungle" && challenge["challenge"]["difficulty_mod"] == 1){
 		mod_text = $.Localize("challenge_mod_spirit")
 		mod_text = mod_text.replace('@event', "<font color='#32a852'>"+$.Localize("challenge_spirit")+"</font>")
 		proceed = true
 	}
-	if (challenge["map_name"] == "rpc_redfall_ridge" && challenge["difficulty_mod"] == 1){
+	if (challenge["challenge"]["map_name"] == "rpc_redfall_ridge" && challenge["challenge"]["difficulty_mod"] == 1){
 		mod_text = $.Localize("challenge_mod_spirit")
 		mod_text = mod_text.replace('@event', "<font color='#32a852'>"+$.Localize("challenge_equinox")+"</font>")
 		proceed = true
 	}
-	if (challenge["map_name"] == "rpc_winterblight_mountain" && challenge["difficulty_mod"] > 0){
+	if (challenge["challenge"]["map_name"] == "rpc_winterblight_mountain" && challenge["challenge"]["difficulty_mod"] > 0){
 		mod_text = $.Localize("challenge_mod_stones")
 		mod_text = mod_text.replace('@stones', "<font color='#32a852'>"+challenge["difficulty_mod"]+"</font>")
 		proceed = true
 	}
-	if (challenge["map_name"] == "rpc_roshpit_arena" && challenge["difficulty_mod"] > 0){
+	if (challenge["challenge"]["map_name"] == "rpc_roshpit_arena" && challenge["challenge"]["difficulty_mod"] > 0){
 		mod_text = $.Localize("challenge_mod_pit_level")
 		mod_text = mod_text.replace('@pit_level', "<font color='#32a852'>"+challenge["difficulty_mod"]+"</font>")
 		proceed = true
 	}
 	if (proceed){
 		var attach_point = panel.FindChildTraverse('challenge_mods_attacher')
-		var quest_mod_panel = $.CreatePanel("Panel", attach_point, "mod-"+index)
+		var quest_mod_panel = $.CreatePanel("Panel", attach_point, "mod-"+1)
 		quest_mod_panel.BLoadLayoutSnippet("challenge_mod_snippet");
-		mod_text = "<font color='#f1c40f'>"+index+".</font> \n&nbsp;\n&nbsp;\n&nbsp;\n&nbsp;"+mod_text
+		mod_text = "<font color='#f1c40f'>"+"1"+".</font> "+mod_text
 		quest_mod_panel.FindChildTraverse('mod_text').text = mod_text
+		return true
 	}else{
 		return false
 	}
@@ -126,9 +127,9 @@ function load_mod(mod, panel, index){
 		var int_index = "mod_int"+i
 		var str_index = "mod_string"+i
 		mod_text = mod_text.replace("@int"+i, "<font color='#32a852'>"+mod[int_index]+"</font>")
-		mod_text = mod_text.replace("@string"+i, "<font color='#32a852'>"+mod[str_index]+"</font>")
+		mod_text = mod_text.replace("@string"+i, "<font color='#32a852'>"+$.Localize(mod[str_index])+"</font>")
 	}
-	mod_text = "<font color='#f1c40f'>"+index+".</font> \n&nbsp;\n&nbsp;\n&nbsp;\n&nbsp;"+mod_text
+	mod_text = "<font color='#f1c40f'>"+index+".</font> "+mod_text
 	quest_mod_panel.FindChildTraverse('mod_text').text = mod_text
 }
 

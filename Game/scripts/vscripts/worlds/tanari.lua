@@ -480,11 +480,11 @@ end
 function Tanari:Debug2()
     -- Stars:GetPlayerStars(MAIN_HERO_TABLE[1]:GetPlayerID())
     -- Stars:StarEventPlayer("power_up", MAIN_HERO_TABLE[1])
-    Tanari.WindTemple = {}
-    -- Tanari:SpiritWindTempleStart()
-    -- Tanari:SpiritWindTempleRoom2()
-    Tanari:SpiritWindTempleBossRoom()
-
+    -- Tanari.WindTemple = {}
+    -- -- Tanari:SpiritWindTempleStart()
+    -- -- Tanari:SpiritWindTempleRoom2()
+    -- Tanari:SpiritWindTempleBossRoom()
+    Tanari:WitchDoctorCombine(MAIN_HERO_TABLE[1], 3)
     -- Tanari:SpawnWaterSpirit(Vector(-9901, 16128), Vector(0,-1))
     -- Tanari:SpawnWaterSpiritRoom2()
     -- Tanari:SpiritWaterSection2()
