@@ -565,7 +565,7 @@ function Filters:ApplyStun(caster, duration, target)
             Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_stun_resistance", {duration = 7 + duration})
             local resistDivisor = 1
             if caster:HasModifier("modifier_knight_crusher_armor") or caster:HasModifier("modifier_sorceress_glyph_5_2") then
-                resistDivisor = resistDivisor / 2
+                resistDivisor = resistDivisor * (1 - SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION)
             end
             local newResistanceStacks = currentResistanceStacks + math.ceil((duration * 10) / resistDivisor)
             target:SetModifierStackCount("modifier_stun_resistance", Events.GameMaster, newResistanceStacks)
@@ -2035,7 +2035,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_sorceress_rune_r_3") then
             local runesCount = victim:GetModifierStackCount("modifier_sorceress_rune_r_3", attacker)
             if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
-                runesCount = runesCount * 2
+                runesCount = runesCount * SORCERESS_GLYPH_6_2_R3_MULT
             end
             fireMult = fireMult + 0.1 * runesCount
         end
@@ -2464,6 +2464,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local modifier = victim:FindModifierByName("modifier_tornado_ice_resist_loss_invisible")
             local iceCaster = modifier:GetCaster()
             local stacks = victim:GetModifierStackCount("modifier_tornado_ice_resist_loss_invisible", iceCaster)
+			if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
+                stacks = stacks * SORCERESS_GLYPH_6_2_R3_MULT
+            end
             mult = mult + stacks * 0.005
         end
     end

@@ -17,7 +17,7 @@ function applyBuff(event)
     end
 
     if caster:HasModifier("modifier_sorceress_glyph_3_2") then
-        stacksCount = stacksCount * T32_BONUS_AMPLIFY
+        stacksCount = stacksCount * SORCERESS_GLYPH_3_2_BONUS_AMPLIFY
     end
 
     local runeUnit = caster.runeUnit3

@@ -63,12 +63,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% Q2_ADD_DURATION %>"
+				"property_two"			"<% SORCERESS_Q2_ADD_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% Q2_BASE_DURATION %>"
+				"property_two_base"		"<% SORCERESS_Q2_BASE_DURATION %>"
 			}
 		}
 	}
@@ -95,12 +95,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% Q3_ADD_DURATION %>"
+				"property_two"			"<% SORCERESS_Q3_ADD_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% Q3_BASE_DURATION %>"
+				"property_two_base"		"<% SORCERESS_Q3_BASE_DURATION %>"
 			}
 		}
 	}
@@ -121,7 +121,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARCANA2_Q4_INT_TO_DAMAGE %>"
+				"property_one"			"<% SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE %>"
 			}
 			"02"
 			{

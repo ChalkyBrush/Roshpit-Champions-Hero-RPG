@@ -130,13 +130,13 @@ function firestorm_channel_think(event)
 					local damage = event.damage
 					if ability.q_4_level then
 						if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-							damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
+							damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
 						else
-							damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
+							damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
 						end
 					end
 					if caster:HasModifier("modifier_sorceress_glyph_1_1") then
-						damage = damage * 2
+						damage = damage * SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT
 					end
 					if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
@@ -158,13 +158,13 @@ function sorceress_firestorm_debuff_think(event)
 		local damage = event.damage
 		if ability.q_4_level then
 			if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-				damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
+				damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
 			else
-				damage = damage + ability.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
+				damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
 			end
 		end
 		if caster:HasModifier("modifier_sorceress_glyph_1_1") then
-			damage = damage * 2
+			damage = damage * SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT
 		end
 		sorceress_firestorm_impact(caster, target, ability, damage, false, 1)
 	end
@@ -182,7 +182,7 @@ function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage * amp, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			end
 			if bBurn then
-				local burnDuration = Q3_BASE_DURATION + (caster.q_3_level * Q3_ADD_DURATION)
+				local burnDuration = SORCERESS_Q3_BASE_DURATION + (caster.q_3_level * SORCERESS_Q3_ADD_DURATION)
 				local sunLance = caster:FindAbilityByName("sorceress_sun_lance")
 				sunLance:ApplyDataDrivenModifier(caster, target, "modifier_sun_lance_burn", {duration = burnDuration})
 			end

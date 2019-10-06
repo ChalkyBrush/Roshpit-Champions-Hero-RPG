@@ -19,23 +19,18 @@ function begin_fireball(event)
 	if caster:HasModifier("modifier_sorceress_glyph_3_1") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_precast", {duration = 0.5})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_multishot", {duration = 0.4})
-		Timers:CreateTimer(0.2, function()
-			EmitSoundOn("Sorceress.FireBall.Cast", caster)
-			StartAnimation(caster, {duration = 0.18, activity = ACT_DOTA_CAST_ABILITY_2, rate = 3})
-
-			launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
-			if bArcane then
-				launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
+			for i = 1, SORCERESS_GLYPH_3_1_ADDITIONAL_FIREBALLS, 1 do
+				Timers:CreateTimer(0.2 * i, function()
+					EmitSoundOn("Sorceress.FireBall.Cast", caster)
+					StartAnimation(caster, {duration = 0.18, activity = ACT_DOTA_CAST_ABILITY_2, rate = 3})
+					fireBallStartPosition = caster:GetAbsOrigin()
+					fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+					launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
+					if bArcane then
+						launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
+					end
+				end)
 			end
-			Timers:CreateTimer(0.2, function()
-				EmitSoundOn("Sorceress.FireBall.Cast", caster)
-				StartAnimation(caster, {duration = 0.18, activity = ACT_DOTA_CAST_ABILITY_2, rate = 3})
-				launchFireBall(caster, ability, fv, "particles/units/heroes/hero_jakiro/fireball.vpcf", 140, fireBallStartPosition)
-				if bArcane then
-					launchFireBall(caster, caster:FindAbilityByName("sorceress_blink"), fv, "particles/roshpit/sorceress/arcane_enchantment.vpcf", 90, fireBallStartPosition)
-				end
-			end)
-		end)
 	end
 	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "sorceress")
 	caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
@@ -138,7 +133,7 @@ function fireball_hit(event)
 	if not ability.rune_r_1_level then
 		ability.rune_r_1_level = caster:GetRuneValue("q", 3)
 	end
-	local damage = ability.rune_r_1_level * R1_ADD_DAMAGE + R1_BASE_DAMAGE
+	local damage = ability.rune_r_1_level * SORCERESS_R1_ADD_DAMAGE + SORCERESS_R1_BASE_DAMAGE
 
 	local blinkAbility = caster:FindAbilityByName("sorceress_blink")
 	blinkAbility.w_4_damage = damage
@@ -182,7 +177,7 @@ function fireball_hit(event)
 	local duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_stacks", {duration = 8})
 	local stacksCount = caster:GetModifierStackCount("modifier_fireball_stacks", caster)
-	local newStacksCount = math.min(R1_MAX_STACKS_COUNT, stacksCount + 1)
+	local newStacksCount = math.min(SORCERESS_R1_MAX_STACKS_COUNT, stacksCount + 1)
 	caster:SetModifierStackCount("modifier_fireball_stacks", caster, newStacksCount)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fireball_attackspeed", {duration = duration})
 	caster:SetModifierStackCount("modifier_fireball_attackspeed", caster, newStacksCount * ability.rune_r_1_level)

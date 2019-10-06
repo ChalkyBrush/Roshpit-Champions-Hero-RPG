@@ -296,25 +296,25 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"(T1) Глиф ледяных ветров"
-		"item_rpc_sorceress_glyph_1_1_description" 				"(Q) Blizzard наносит в @glyph_property1 раз(а) больше урона и дополнительно замедляет скорость передвижения и атаки целей на @glyph_property2."
+		"item_rpc_sorceress_glyph_1_1_description" 				"(Q) Blizzard наносит в <% SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT %> раз(а) больше урона и дополнительно замедляет скорость передвижения и атаки целей на <% SORCERESS_GLYPH_1_1_MS_SLOW %>/<% SORCERESS_GLYPH_1_1_AS_SLOW %>."
 
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"Freezing Winds"
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"Скорость атаки и передвижения снижена"	
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"(T2) Глиф Ice Shards"
-		"item_rpc_sorceress_glyph_2_1_description" 				"Каждое прочтение [Q1] также выпускает еще 2 копья (конусом)."
+		"item_rpc_sorceress_glyph_2_1_description" 				"Каждое прочтение [Q1] также выпускает еще <% SORCERESS_GLYPH_2_1_Q1_ADDITIONAL_PROJECTILES %> копья (конусом)."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"(T3) Глиф огненной волны"
-		"item_rpc_sorceress_glyph_3_1_description" 				"Мгновенно выпускает 3 Fireball вместо одного сразу после прочтения."
+		"item_rpc_sorceress_glyph_3_1_description" 				"Выпускает <% SORCERESS_GLYPH_3_1_ADDITIONAL_FIREBALLS %> [R1] вместо одного сразу после прочтения."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"(T4) Глиф тайного зачарования"
-		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на @glyph_property1."
+		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на <% SORCERESS_GLYPH_4_1_BONUS_AS %> /<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"(T5) Глиф потока мудрости"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный 10х урона (W) @Ability2. [W1] накладывает 4 щита, а не 3."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) @Ability2. [W1] накладывает <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> щита, а не 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые 0.2 секунды. Урон снарядов равен 5х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые <% SORCERESS_GLYPH_5_1_INTERVAL %> секунды. Урон снарядов равен <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"ДАЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
 		"DOTA_Tooltip_ability_arcane_torrent_damage"			"БАЗОВЫЙ УРОН(ARCANE EXPLOSION), % ОТ ТЕКУЩЕЙ МАНЫ:"
@@ -325,31 +325,31 @@
 		"item_rpc_sorceress_glyph_6_1_description" 				"На прочтение (Q) @Ability1 не тратится время."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"(T7) Глиф огненного хаоса"
-		"item_rpc_sorceress_glyph_7_1_description" 				"Усиливает мощь умения (R) @Ability4 в @glyph_property1 раз(а)."
+		"item_rpc_sorceress_glyph_7_1_description" 				"Усиливает мощь умения (R) @Ability4 в <% SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER %> раз(а)."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"(Immortal) Глиф заморозки"
-		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до @glyph_property1x."
+		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до <% SORCERESS_GLYPH_5_A_MULTIPLY %>x."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"(T1-2)Глиф кристаллизации"
-		"item_rpc_sorceress_glyph_1_2_description" 				"Элементаль воды с @glyph_property1% шансом заморозит атакуемую цель на @glyph_property2 сек."
+		"item_rpc_sorceress_glyph_1_2_description" 				"Элементаль воды с <% SORCERESS_GLYPH_1_2_CHANCE %>% шансом заморозит атакуемую цель на <% SORCERESS_GLYPH_1_2_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"(T2-2)Глиф острого льда"
-		"item_rpc_sorceress_glyph_2_2_description" 				"Шанс взрыва ледяного копья увеличен до @glyph_property1%, базовый урон увеличен на @glyph_property2%."
+		"item_rpc_sorceress_glyph_2_2_description" 				"Шанс взрыва ледяного копья увеличен до <% SORCERESS_GLYPH_2_2_CHANCE %>%, базовый урон увеличен в <% SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY %> раз(а)."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"(T3-2)Глиф просвещенной магии"
-		"item_rpc_sorceress_glyph_3_2_description" 				"Бонус регенерации маны и интеллекта от руны [W3] увеличен в @glyph_property1 раз(а)."
+		"item_rpc_sorceress_glyph_3_2_description" 				"Бонус регенерации маны и интеллекта от руны [W3] увеличен в <% SORCERESS_GLYPH_3_2_BONUS_AMPLIFY %> раз(а)."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"(T4-2)Глиф тайной вибрации"
-		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только @glyph_property1 зарядов Flicker. Сброс перезарядки ультимейта происходит гарантированно."
+		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только <% SORCERESS_GLYPH_4_2_STACKS_SPEND %> зарядов Flicker. Сброс перезарядки ультимейта происходит гарантированно."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"(T5-2)Глиф смягчения"
-		"item_rpc_sorceress_glyph_5_2_description" 				"Sorceress добавляет на @glyph_property1% меньше времени к иммунитету врагов к оглушению."
+		"item_rpc_sorceress_glyph_5_2_description" 				"Sorceress добавляет на <% SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION * 100 %>% меньше времени к иммунитету врагов к оглушению."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"(T6-2)Глиф выжигания"
-		"item_rpc_sorceress_glyph_6_2_description" 				"Снижение сопротивления к стихии Огня от руны [R3] сильнее на @glyph_property1%."
+		"item_rpc_sorceress_glyph_6_2_description" 				"Снижение сопротивления к стихии Огня от руны [R3] сильнее на <% SORCERESS_GLYPH_6_2_R3_MULT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"(T7-2)Глиф тайного прочтения"
-		"item_rpc_sorceress_glyph_7_2_description" 				"Увеличивает урон от (W) @Ability2 на @glyph_property1%, а к его текущей стоимости добавляется @glyph_property2% от макс. маны."
+		"item_rpc_sorceress_glyph_7_2_description" 				"Увеличивает урон от (W) @Ability2 в <% SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY %> раз(а), а к его текущей стоимости добавляется <% SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT %>% от макс. маны."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Книга Глифов Sorceress"
 		"DOTA_Tooltip_ability_glyph_book_desc"					"Навсегда позволяет изучить рецепт создания @consumableProperty3 у Зачарователя Глифов."

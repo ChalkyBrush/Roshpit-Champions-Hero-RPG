@@ -48,7 +48,7 @@ function clearCast(caster, ability)
     caster:RemoveModifierByName("modifier_pyro_cooldown")
 
     local amplify = ability.amp
-    local clearCastDuration = Filters:GetAdjustedBuffDuration(caster, E_CLEAR_CAST_DURATION, false)
+    local clearCastDuration = Filters:GetAdjustedBuffDuration(caster, SORCERESS_E_CLEAR_CAST_DURATION, false)
 
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_clear_cast", {duration = clearCastDuration})
 
