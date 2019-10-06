@@ -4065,6 +4065,9 @@ function Events:TutorialServerEvent(hero, code1, code2)
   end
 end
 
+function Events:MainBossSlain(boss_name)
+end
+
 require('worlds/winterblight/winterblight')
 
 
