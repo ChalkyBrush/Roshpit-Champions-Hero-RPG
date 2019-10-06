@@ -431,7 +431,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_1"		"Ascentius"
 		"item_property_warlord_immortal_weapon"								"Elemental Blitz"
-		"property_warlord_immortal_weapon_description"						"Elemental Charges stack 2x faster."	
+		"property_warlord_immortal_weapon_description"						"Elemental Charges stack <% WARLORD_IMMORTAL_WEAPON_1_STACK_MULT %>x faster."	
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_2"            "Qio'jin's Sapphire Relic Axe"
 		"item_property_warlord_immortal_weapon2"                             "Axe Prism"
@@ -439,4 +439,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_warlord_immortal_weapon_3"            "Qio'jin's Ruby Relic Axe"
         "item_property_warlord_immortal_weapon3"                             "Primordial Insurgence"
-        "property_warlord_immortal_weapon3_description"                      "Every @special_property1 seconds gain 1 earth, fire, and ice charge."   
+        "property_warlord_immortal_weapon3_description"                      "Every <% WARLORD_IMMORTAL_WEAPON_3_INTERVAL %> seconds gain <% WARLORD_IMMORTAL_WEAPON_3_CHARGES_PER_TICK %> earth, fire, and ice charge."   

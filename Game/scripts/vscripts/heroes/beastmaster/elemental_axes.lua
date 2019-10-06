@@ -326,7 +326,7 @@ function elemental_axe_attack_land(event)
 	local charges = event.charges
 	local caster = attacker
 	if caster:HasModifier("modifier_warlord_immortal_weapon_1") then
-		charges = charges * 2
+		charges = charges * WARLORD_IMMORTAL_WEAPON_1_STACK_MULT
 	end
 	local maxCharges = 20
 	if caster:HasModifier("modifier_warlord_glyph_6_1") then
@@ -430,7 +430,7 @@ function warlord_immo_3_think(event)
 		eventTable.caster = caster
 		eventTable.attacker = caster
 		eventTable.element = elementTable[i]
-		eventTable.charges = 1
+		eventTable.charges = WARLORD_IMMORTAL_WEAPON_3_CHARGES_PER_TICK
 		eventTable.ability = caster:FindAbilityByName("axe_throw_"..elementTable[i])
 		eventTable.bNoLoop = true
 		elemental_axe_attack_land(eventTable)
