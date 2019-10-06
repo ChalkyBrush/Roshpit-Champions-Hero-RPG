@@ -227,22 +227,22 @@
 		"item_rpc_arkimus_glyph_1_1_description" 				"Energy Field's cells initiate at the smallest possible radius."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"Glyph of Mana Tide"
-		"item_rpc_arkimus_glyph_2_1_description" 				"Increases mana regen by @glyph_property1."
+		"item_rpc_arkimus_glyph_2_1_description" 				"Increases mana regen by <% ARKIMUS_GLYPH_2_1_MANA_REGEN %>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"Glyph of Energy Cells"
-		"item_rpc_arkimus_glyph_3_1_description" 				"Energy field has an extra @glyph_property1 cells."
+		"item_rpc_arkimus_glyph_3_1_description" 				"Energy field has an extra <% ARKIMUS_GLYPH_3_1_R_EXTRA_CELLS %> cells."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"Glyph of Acrobatics"
-		"item_rpc_arkimus_glyph_4_1_description" 				"Increases the maximum number of Orbital Leap Free Casts by @glyph_property1."
+		"item_rpc_arkimus_glyph_4_1_description" 				"Increases the maximum number of Orbital Leap Free Casts by <% ARKIMUS_GLYPH_4_1_E_FREE_CAST %>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"Glyph of Mana Shield"
-		"item_rpc_arkimus_glyph_5_1_description" 				"@glyph_property1% of damage taken drains from Mana instead of health, and the mana-damage is reduced by @glyph_property2%."
+		"item_rpc_arkimus_glyph_5_1_description" 				"<% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_PART_PCT %>% of damage taken drains from Mana instead of health, and the mana-damage is reduced by <% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"Glyph of Coil Warping"
-		"item_rpc_arkimus_glyph_6_1_description" 				"Increases the maximum number of Dimension Coil Free Casts by @glyph_property1."
+		"item_rpc_arkimus_glyph_6_1_description" 				"Increases the maximum number of Dimension Coil Free Casts by <% ARKIMUS_GLYPH_6_1_Q_FREE_CAST %>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"Glyph of Arcane Electrocution"
-		"item_rpc_arkimus_glyph_7_1_description" 				"Increases all <font color=\"#5CCDF9\">Lightning</font> damage by @glyph_property1%."
+		"item_rpc_arkimus_glyph_7_1_description" 				"Increases all <font color=\"#5CCDF9\">Lightning</font> damage by <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Active Energy Cells absorb 1 instance of Magic or Pure damage and are subsequently destroyed."
@@ -265,11 +265,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
-		"property_arkimus_immortal_weapon_description"						"Flash Source deals 100% additional damage and doubles the stack rate of Arcane Splice."
+		"property_arkimus_immortal_weapon_description"						"Flash Source deals x<% ARKIMUS_IMMORTAL_WEAPON_1_W_MULT %> damage and stacks [W2] x<% ARKIMUS_IMMORTAL_WEAPON_1_W2_STACK_GAIN_MULT %> faster."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
-        "property_arkimus_immortal_weapon2_description"                      "@special_property1% of all <font color=\"#E1A2E8\">Arcane</font> damage dealt heals Arkimus."
+        "property_arkimus_immortal_weapon2_description"                      "<% ARKIMUS_IMMORTAL_WEAPON_2_HEALING_PER_ARCANE_DMG * 100 %>% of all <font color=\"#E1A2E8\">Arcane</font> damage dealt heals Arkimus."
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
-        "property_arkimus_immortal_weapon3_description"                      "Damage taken during Photon Sprint is reduced by @special_property1%."
+        "property_arkimus_immortal_weapon3_description"                      "Damage taken during Photon Sprint is reduced by <% ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION %>%."

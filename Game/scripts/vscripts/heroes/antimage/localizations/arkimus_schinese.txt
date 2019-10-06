@@ -211,22 +211,22 @@
 		"item_rpc_arkimus_glyph_1_1_description" 				"能量子将产生在最小的范围内。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"法力之潮雕文"
-		"item_rpc_arkimus_glyph_2_1_description" 				"魔法恢复速度提高 @glyph_property1。"
+		"item_rpc_arkimus_glyph_2_1_description" 				"魔法恢复速度提高 <% ARKIMUS_GLYPH_2_1_MANA_REGEN %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"能量子雕文"
-		"item_rpc_arkimus_glyph_3_1_description" 				"能量场将额外产生 @glyph_property1 个能量子。"
+		"item_rpc_arkimus_glyph_3_1_description" 				"能量场将额外产生 <% ARKIMUS_GLYPH_3_1_R_EXTRA_CELLS %> 个能量子。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"杂技雕文"
-		"item_rpc_arkimus_glyph_4_1_description" 				"加多 @glyph_property1 个轨道飞跃自由施放的最大充能数。"
+		"item_rpc_arkimus_glyph_4_1_description" 				"加多 <% ARKIMUS_GLYPH_4_1_E_FREE_CAST %> 个轨道飞跃自由施放的最大充能数。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"法力盾雕文"
-		"item_rpc_arkimus_glyph_5_1_description" 				"所受到伤害的 @glyph_property1% 将从魔法值中扣除而不是生命值。并且所扣除的魔法值将再减少 @glyph_property2%。"
+		"item_rpc_arkimus_glyph_5_1_description" 				"所受到伤害的 <% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_PART_PCT %>% 将从魔法值中扣除而不是生命值。并且所扣除的魔法值将再减少 <% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"扭曲折叠雕文"
-		"item_rpc_arkimus_glyph_6_1_description" 				"加多 @glyph_property1 个维度扭曲自由施放的最大充能数。"
+		"item_rpc_arkimus_glyph_6_1_description" 				"加多 <% ARKIMUS_GLYPH_6_1_Q_FREE_CAST %> 个维度扭曲自由施放的最大充能数。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"杨永信雕文"
-		"item_rpc_arkimus_glyph_7_1_description" 				"所有 <font color=\"#5CCDF9\">电</font> 元素伤害提高 @glyph_property1%。"
+		"item_rpc_arkimus_glyph_7_1_description" 				"所有 <font color=\"#5CCDF9\">电</font> 元素伤害提高 <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"带状分离雕文"
 		"item_rpc_arkimus_glyph_5_a_description" 				"每个激活的能量子吸收一次魔法或纯粹伤害，然后被毁坏。"
@@ -256,4 +256,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "奥法回路刃"
         "item_property_arkimus_immortal_weapon3"                             "粒子盾"
-        "property_arkimus_immortal_weapon3_description"                      "光子冲刺过程中伤害减免 @special_property1%"
+        "property_arkimus_immortal_weapon3_description"                      "光子冲刺过程中伤害减免 <% ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION %>%"

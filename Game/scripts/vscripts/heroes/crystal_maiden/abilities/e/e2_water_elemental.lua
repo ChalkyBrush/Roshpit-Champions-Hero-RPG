@@ -5,7 +5,7 @@ local function summon(caster, ability, origin)
         return
     end
 
-    local baseDamage = E2_BASE_DAMAGE + runesCount * E2_ADD_DAMAGE
+    local baseDamage = SORCERESS_E2_BASE_DAMAGE + runesCount * SORCERESS_E2_ADD_DAMAGE
     local summonPosition = origin
     local health = SORCERESS_E2_HEALTH_AMPLIFY * caster:GetMaxHealth()
 
@@ -82,11 +82,11 @@ function attack(event)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     if creator.e_4_level then
-        damage = damage * (1 + E4_AMPLIFY_PERCENT / 100 * OverflowProtectedGetAverageTrueAttackDamage(creator) * creator.e_4_level)
+        damage = damage * (1 + SORCERESS_E4_AMPLIFY_PERCENT / 100 * OverflowProtectedGetAverageTrueAttackDamage(creator) * creator.e_4_level)
     end
     local frozenDamage = damage
     if creator.e_3_level > 0 then
-        frozenDamage = damage * (1 + E3_AMPLIFY_PERCENT / 100 * creator.e_3_level)
+        frozenDamage = damage * (1 + SORCERESS_E3_AMPLIFY_PERCENT / 100 * creator.e_3_level)
     end
 
     local attacksFreeze = false
@@ -101,8 +101,8 @@ function attack(event)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             local luck = RandomInt(1, 100)
-            if attacksFreeze and luck <= T12_CHANCE then
-                ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_freeze", {duration = SORCERESS_T12_DURATION})
+            if attacksFreeze and luck <= SORCERESS_GLYPH_1_2_CHANCE then
+                ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_freeze", {duration = SORCERESS_GLYPH_1_2_DURATION})
             end
 
             local finalDamage = damage

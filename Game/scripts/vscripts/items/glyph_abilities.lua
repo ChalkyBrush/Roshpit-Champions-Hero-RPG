@@ -107,9 +107,8 @@ function flamewaker_glyph_1_1_attacked(event)
 	local target = event.target
 	local attacker = event.attacker
 	local luck = RandomInt(1, 2)
-	local stun_duration = event.ability:GetSpecialValueFor("property_two")
-	if luck == 1 then
-		Filters:ApplyStun(target, stun_duration, attacker)
+	if luck == 100/FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE then
+		Filters:ApplyStun(target, FLAMEWAKER_GLYPH_1_1_STUN_DURATION, attacker)
 	end
 end
 
@@ -308,9 +307,9 @@ function glyph_5_1_kill(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_warlord_glyph_5_1_effect", {duration = 9})
+	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_warlord_glyph_5_1_effect", {duration = WARLORD_GLYPH_5_1_DURATION})
 	local current_stack = attacker:GetModifierStackCount("modifier_warlord_glyph_5_1_effect", ability)
-	local newStacks = math.min(current_stack + 1, 50)
+	local newStacks = math.min(current_stack + 1, WARLORD_GLYPH_5_1_MAX_STACKS)
 	ability.newStacks = newStacks
 	attacker:SetModifierStackCount("modifier_warlord_glyph_5_1_effect", ability, newStacks)
 end
@@ -321,7 +320,7 @@ function warlord_glyph_5_1_end(event)
 	local attacker = event.target
 	ability.newStacks = math.max(ability.newStacks - 1, 0)
 	if ability.newStacks > 0 then
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_warlord_glyph_5_1_effect", {duration = 9})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_warlord_glyph_5_1_effect", {duration = WARLORD_GLYPH_5_1_DURATION})
 		attacker:SetModifierStackCount("modifier_warlord_glyph_5_1_effect", ability, ability.newStacks)
 	end
 end
@@ -331,9 +330,9 @@ function warlord_glyph_7_1_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
+	damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT/100
 
-	local radius = 320
+	local radius = WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE
 	local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 	local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, target)
 	ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
@@ -347,7 +346,7 @@ function warlord_glyph_7_1_attack(event)
 	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ApplyDamage({victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 		end
 	end
 end

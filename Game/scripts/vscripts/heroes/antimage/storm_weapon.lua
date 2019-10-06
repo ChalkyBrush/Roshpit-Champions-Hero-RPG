@@ -53,7 +53,7 @@ function storm_weapon_strike(event)
 	local damageMult = event.damage_mult
 	local damage = attack_damage * damageMult / 100
 	if caster:HasModifier("modifier_arkimus_immortal_weapon_1") then
-		damage = damage * 2
+		damage = damage * ARKIMUS_IMMORTAL_WEAPON_1_W_MULT
 	end
 	EmitSoundOn("Akrimus.StormWeaponImpact", target)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -65,7 +65,7 @@ function storm_weapon_strike(event)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_storm_weapon_b_b_visible", {duration = 9})
 				local stackGain = 1
 				if caster:HasModifier("modifier_arkimus_immortal_weapon_1") then
-					stackGain = stackGain * 2
+					stackGain = stackGain * ARKIMUS_IMMORTAL_WEAPON_1_W2_STACK_GAIN_MULT
 				end
 				local newStacks = math.min(enemy:GetModifierStackCount("modifier_storm_weapon_b_b_visible", caster) + stackGain, 99)
 				enemy:SetModifierStackCount("modifier_storm_weapon_b_b_visible", caster, newStacks)

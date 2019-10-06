@@ -19,7 +19,7 @@ function think(event)
     local target = event.target
     local caster = event.caster
     local stackCount = target:GetModifierStackCount("modifier_axe_rune_w_1_visible", caster)
-    damage = damage * stackCount * caster.w_1_level * W1_DAMAGE_PERCENT / 100
+    damage = damage * stackCount * caster.w_1_level * RED_GENERAL_W1_DAMAGE_PERCENT / 100
     Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
     if ability.stackLoseTimes[ability.tick] ~= nil then

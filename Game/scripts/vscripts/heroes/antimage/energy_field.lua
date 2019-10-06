@@ -34,7 +34,7 @@ function channel_complete(event)
 	ability.r_2_level = caster:GetRuneValue("r", 2)
 	local count = event.spirits
 	if caster:HasModifier("modifier_arkimus_glyph_3_1") then
-		count = count + 2
+		count = count + ARKIMUS_GLYPH_3_1_R_EXTRA_CELLS
 	end
 	if caster:HasAbility("ark_jump") then
 		local jumpEventTable = {}

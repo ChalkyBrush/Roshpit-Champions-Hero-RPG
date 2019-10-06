@@ -565,7 +565,7 @@ function Filters:ApplyStun(caster, duration, target)
             Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_stun_resistance", {duration = 7 + duration})
             local resistDivisor = 1
             if caster:HasModifier("modifier_knight_crusher_armor") or caster:HasModifier("modifier_sorceress_glyph_5_2") then
-                resistDivisor = resistDivisor / 2
+                resistDivisor = resistDivisor * (1 - SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION)
             end
             local newResistanceStacks = currentResistanceStacks + math.ceil((duration * 10) / resistDivisor)
             target:SetModifierStackCount("modifier_stun_resistance", Events.GameMaster, newResistanceStacks)
@@ -2035,7 +2035,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_sorceress_rune_r_3") then
             local runesCount = victim:GetModifierStackCount("modifier_sorceress_rune_r_3", attacker)
             if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
-                runesCount = runesCount * 2
+                runesCount = runesCount * SORCERESS_GLYPH_6_2_R3_MULT
             end
             fireMult = fireMult + 0.1 * runesCount
         end
@@ -2195,7 +2195,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_antimage" then
             if attacker:HasModifier("modifier_arkimus_glyph_7_1") then
-                mult = mult + 10
+                mult = mult + ARKIMUS_GLYPH_7_1_LIGHTNING_AMP/100
             end
             if attacker:HasModifier("modifier_arkimus_arcana1_q4") then
                 local stacks = attacker:GetModifierStackCount("modifier_arkimus_arcana1_q4", attacker)
@@ -2464,6 +2464,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local modifier = victim:FindModifierByName("modifier_tornado_ice_resist_loss_invisible")
             local iceCaster = modifier:GetCaster()
             local stacks = victim:GetModifierStackCount("modifier_tornado_ice_resist_loss_invisible", iceCaster)
+			if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
+                stacks = stacks * SORCERESS_GLYPH_6_2_R3_MULT
+            end
             mult = mult + stacks * 0.005
         end
     end
@@ -2507,7 +2510,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
                 if bIsRealDamage then
-                    local healAmount = damage * mult * 0.005
+                    local healAmount = damage * mult * ARKIMUS_IMMORTAL_WEAPON_2_HEALING_PER_ARCANE_DMG
                     if healAmount > 0 then
                         Filters:ApplyHeal(attacker, attacker, healAmount, true)
                         local particleName = "particles/roshpit/arkimus/arkimus_immo_2_lifesteal.vpcf"
@@ -3760,8 +3763,8 @@ function Filters:EmeraldDouliHit(victim, damage)
 end
 
 function Filters:SpellShieldHit(victim, damage)
-    local splicedDamage = damage * 0.9
-    local manaDamage = splicedDamage * 0.1
+    local splicedDamage = damage * ARKIMUS_GLYPH_5_1_MANA_DAMAGE_PART_PCT/100
+    local manaDamage = splicedDamage * (100-ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION)/100
     local bSplice = true
     if manaDamage > victim:GetMana() then
         manaDamage = victim:GetMana()
@@ -3771,7 +3774,7 @@ function Filters:SpellShieldHit(victim, damage)
     if bSplice then
         return splicedDamage
     else
-        return manaDamage * 10
+        return manaDamage /(100-ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION)/100
     end
 end
 

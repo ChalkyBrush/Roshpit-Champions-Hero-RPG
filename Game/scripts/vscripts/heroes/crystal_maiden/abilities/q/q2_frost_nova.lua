@@ -11,7 +11,7 @@ local function cast(caster, ability, runesCount)
     EmitSoundOn("Sorceress.FrostNova", caster)
     local radius = 550
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local freezeDuration = Q2_BASE_DURATION + runesCount * Q2_ADD_DURATION
+    local freezeDuration = SORCERESS_Q2_BASE_DURATION + runesCount * SORCERESS_Q2_ADD_DURATION
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frost_nova", {duration = freezeDuration})

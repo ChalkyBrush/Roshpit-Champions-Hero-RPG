@@ -141,7 +141,7 @@ function BlizzardWave(event)
 		local damage = event.damage
 		-- damage = damage + 0.0002*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.q_4_level*damage
 		if caster:HasModifier("modifier_sorceress_glyph_1_1") then
-			damage = damage * 2
+			damage = damage * SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT
 		end
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target_position, nil, radius + 60, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		Timers:CreateTimer(0.35, function()

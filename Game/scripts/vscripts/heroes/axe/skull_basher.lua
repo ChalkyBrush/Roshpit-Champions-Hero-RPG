@@ -85,7 +85,7 @@ function drop_end(keys)
     caster:RemoveModifierByName("modifier_whirlwind_flying_portion")
     if caster:HasModifier("modifier_axe_glyph_7_1") then
         ability:EndCooldown()
-        ability:StartCooldown(1.5)
+        ability:StartCooldown(RED_GENERAL_GLYPH_7_1_Q_CD)
     else
         local skullBasherDuration = Filters:GetAdjustedBuffDuration(caster, keys.duration, false)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_stun_attack", {duration = skullBasherDuration})
@@ -133,8 +133,8 @@ function StunAttack(keys)
         aoe_damage = aoe_damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.06 * q_4_level
     end
     if caster:HasModifier("modifier_axe_glyph_5_1") then
-        aoe_damage = aoe_damage * 3
-        stun_duration = 0.03
+        aoe_damage = aoe_damage * RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP
+        stun_duration = RED_GENERAL_GLYPH_5_1_Q_STUN
     end
     local base_radius = rune_q_1(caster, keys.base_radius)
 

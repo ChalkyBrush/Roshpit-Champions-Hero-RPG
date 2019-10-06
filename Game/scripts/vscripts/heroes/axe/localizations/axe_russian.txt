@@ -24,7 +24,7 @@
         "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% от урона героя"
 		
 		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] Berserker Rage"
-        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Каждая успешная атака дает заряд, дающий бонус к скорости атаки и базовому урону. Если вы не будете атаковать противника в течение 10 секунд, все заряды будут потеряны. Максимум 50 зарядов."
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Каждая успешная атака дает заряд, дающий бонус к скорости атаки и базовому урону. Если вы не будете атаковать противника в течение 10 секунд, все заряды будут потеряны. Максимум <% RED_GENERAL_Q2_MAX_STACKS_COUNT %> зарядов."
         "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "Доп. скорость атаки за заряд"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "Доп. урон за заряд"
@@ -241,52 +241,52 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Глиф битвы"
-        "item_rpc_axe_glyph_1_1_description"                "Снижает весь получаемый урон на @glyph_property1%."
+        "item_rpc_axe_glyph_1_1_description"                "Снижает весь получаемый урон на <% RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "(T2) Глиф шокового удара"
         "item_rpc_axe_glyph_2_1_description"                "Умение (W) @Ability2 выпускает 9 волн во всех направлениях."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "(T3) Глиф порыва"
-        "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на 50% и составляет 0.09 секунды."
+        "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на <% RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION * 100 %>% и составляет 0.09 секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "(T4) Глиф кругового удара"
-        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере 60% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
+        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "(T5) Глиф импульса" // lower pitch base sound high pitch strike sound
-        "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до 0.03 сек., но урон от этой способности увеличен в @glyph_property1 раз(а)."
+        "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до <% RED_GENERAL_GLYPH_5_1_Q_STUN %> сек., но урон от этой способности увеличен в <% RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP %> раз(а)."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "(T6) Глиф мускульной силы"
-        "item_rpc_axe_glyph_6_1_description"                "Умение (R) @Ability4 применяется @glyph_property1 раз(а), вместо одного."
+        "item_rpc_axe_glyph_6_1_description"                "Умение (R) @Ability4 применяется <% RED_GENERAL_GLYPH_6_1_DUNKS_COUNT %> раз(а), вместо одного."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Глиф героического сражения"
-        "item_rpc_axe_glyph_7_1_description"                "Убирает бонус к урону от (Q) @Ability1, но сокращает время перезарядки умения до 1.5 секунды."
+        "item_rpc_axe_glyph_7_1_description"                "Убирает бонус к урону от (Q) @Ability1, но сокращает время перезарядки умения до <% RED_GENERAL_GLYPH_7_1_Q_CD %> секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1-2) Глиф Heel Stomp"
-        "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на 0.08 секунды."
+        "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Глиф ржавой стали"
-        "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -@glyph_property1 за заряд."
+        "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> за заряд."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3-2) Глиф неистового гнева"
-        "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою @glyph_property1 заряда(ов) вместо 1, если целью атаки является босс."
+        "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою <% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %> заряда(ов) вместо 1, если целью атаки является босс."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Глиф красного циклона"
-        "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на @glyph_property1%."
+        "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Глиф натиска"
-        "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие @glyph_property1 секунд урон умения (W) @Ability2 будет увеличен на @glyph_property2%"
+        "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> секунд урон умения (W) @Ability2 будет увеличен на <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Глиф сокращения"
-        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до @glyph_property1%, но снижает шанс получения щита до @glyph_property2% за каждое очко руны, вместо 150%."
+        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%, но снижает шанс получения щита до <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% за каждое очко руны, вместо <% RED_GENERAL_E4_PROC_CHANCE %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Глиф ярости"
-        "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до @glyph_property1, а количество получаемых зарядов увеличено на @glyph_property2. Половина зарядов активна постоянно."
+        "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, а количество получаемых зарядов увеличено до <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>. Половина зарядов активна постоянно."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "(Immortal) Glyph of the Marshall"
-        "item_rpc_axe_glyph_5_a_description"                "Увеличивает урон, наносимый умением (R) @Ability4 и всеми соответствующими умению рунами на @glyph_property1%."
+        "item_rpc_axe_glyph_5_a_description"                "Увеличивает урон, наносимый умением (R) @Ability4 и всеми соответствующими умению рунами на <% RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Книга Глифов Red General"
 
@@ -322,13 +322,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
 		"item_property_axe_immortal_weapon"								"Combat Veteran"
-		"property_axe_immortal_weapon_description"						"Снижает весь получаемый урон на 50%"
+		"property_axe_immortal_weapon_description"						"Снижает весь получаемый урон на <% RED_GENERAL_IMMORTAL_WEAPON_DMG_REDUCTION * 100 %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
         "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
-        "property_axe_immortal_weapon2_description"                        "Пока активно умение (E) @Ability3, скорость передвижения и максимальная скорость передвижения героя увеличены на @special_property1. Дополнительно увеличивает урон от руны [E3] Whirlwind против монстров парагона и боссов на @special_property2%."
+        "property_axe_immortal_weapon2_description"                        "Пока активно умение (E) @Ability3, скорость передвижения и максимальная скорость передвижения героя увеличены на <% RED_GENERAL_IMMORTAL_WEAPON_2_ADD_MOVESPEED %>. Дополнительно увеличивает урон от руны [E3] Whirlwind против монстров парагона и боссов на <% RED_GENERAL_IMMORTAL_WEAPON_2_AMPLIFY_PERCENT %>%."
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"
-        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на @special_property1%" 	
+        "property_axe_immortal_weapon3_description"                        "При прочтении способности (R) @Ability4, количество имеющихся зарядов [E4] увеличивается на <% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>%" 	
  

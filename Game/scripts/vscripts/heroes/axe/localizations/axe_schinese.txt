@@ -24,7 +24,7 @@
         "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% 攻击力"
 		
 		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] 狂暴之怒"
-        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "你的每次攻击将增加攻击速度和基础攻击力，当你超过10秒不攻击时失去所有加成。最高 50层。"
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "你的每次攻击将增加攻击速度和基础攻击力，当你超过10秒不攻击时失去所有加成。最高 <% RED_GENERAL_Q2_MAX_STACKS_COUNT %>层。"
         "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "每次充能攻击速度"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "每次充能基础攻击力"
@@ -242,52 +242,52 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "格斗雕文"
-        "item_rpc_axe_glyph_1_1_description"                "降低受到的所有伤害 @glyph_property1%"
+        "item_rpc_axe_glyph_1_1_description"                "降低受到的所有伤害 <% RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT %>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "冲击扩张雕文"
         "item_rpc_axe_glyph_2_1_description"                "技能冲击波将向四周释放9道冲击波。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "苦行雕文"
-        "item_rpc_axe_glyph_3_1_description"                " @Ability3 拖拽敌人的间隔降低 50%，每 0.09秒拖拽并伤害敌人一次。"
+        "item_rpc_axe_glyph_3_1_description"                " @Ability3 拖拽敌人的间隔降低 <% RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION * 100 %>%，每 0.09秒拖拽并伤害敌人一次。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "螺旋雕文"
-        "item_rpc_axe_glyph_4_1_description"                "施放冲击波时对周围敌人造成 60% 总攻击力的物理伤害。该伤害还将乘以冲击波技能的等级数。"
+        "item_rpc_axe_glyph_4_1_description"                "施放冲击波时对周围敌人造成 <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% 总攻击力的物理伤害。该伤害还将乘以冲击波技能的等级数。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "撞击雕文" // lower pitch base sound high pitch strike sound
-        "item_rpc_axe_glyph_5_1_description"                "骷髅锤的眩晕时间变为0.03秒，伤害提高 @glyph_property1x"
+        "item_rpc_axe_glyph_5_1_description"                "骷髅锤的眩晕时间变为<% RED_GENERAL_GLYPH_5_1_Q_STUN %>秒，伤害提高 <% RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP %>x"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "多重施法雕文"
-        "item_rpc_axe_glyph_6_1_description"                "@Ability4 将多重施法 @glyph_property1 次。"
+        "item_rpc_axe_glyph_6_1_description"                "@Ability4 将多重施法 <% RED_GENERAL_GLYPH_6_1_DUNKS_COUNT %> 次。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "英勇战斗雕文"
-        "item_rpc_axe_glyph_7_1_description"                "移除骷髅锤的buff，但冷却时间降低为1.5秒。"
+        "item_rpc_axe_glyph_7_1_description"                "移除骷髅锤的buff，但冷却时间降低为<% RED_GENERAL_GLYPH_7_1_Q_CD %>秒。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "脚跟重踏雕文"
-        "item_rpc_axe_glyph_1_2_description"                "被 @Ability2 击中的敌人将被眩晕 0.08 秒。"
+        "item_rpc_axe_glyph_1_2_description"                "被 @Ability2 击中的敌人将被眩晕 <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> 秒。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "裂甲雕文"
-        "item_rpc_axe_glyph_2_2_description"                "@Ability1 技能的 [Q4] 符文，每层同时降低敌人护甲 -@glyph_property1 。"
+        "item_rpc_axe_glyph_2_2_description"                "@Ability1 技能的 [Q4] 符文，每层同时降低敌人护甲 -<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> 。"
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"裂甲"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"护甲值降低"	
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "怒意雕文"
-        "item_rpc_axe_glyph_3_2_description"                "在与 BOSS 战斗时，狂暴之怒每次攻击将叠加 @glyph_property1 层。"
+        "item_rpc_axe_glyph_3_2_description"                "在与 BOSS 战斗时，狂暴之怒每次攻击将叠加 <% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %> 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "红色龙卷雕文"
-        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 @glyph_property1%。"
+        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>%。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "牛仔雕文"
-        "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 @glyph_property1 秒内，@Ability2 的伤害将提高 @glyph_property2% 。"
+        "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> 秒内，@Ability2 的伤害将提高 <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>% 。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "减伤雕文"
-        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 @glyph_property1%，但是获得层数的概率降低至每级符文 @glyph_property2% ，而不再是 150% 每级。"
+        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%，但是获得层数的概率降低至每级符文 <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% ，而不再是 <% RED_GENERAL_E4_PROC_CHANCE %>% 每级。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "发狂雕文"
-        "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 @glyph_property1 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 @glyph_property2 层。"
+        "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %> 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %> 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "终极雕文"
-        "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文造成的伤害，都将提高 @glyph_property1%。"
+        "item_rpc_axe_glyph_5_a_description"                "@Ability4 所造成的全部伤害，以及它的所有符文造成的伤害，都将提高 <% RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"赤色上将雕文书"
 
@@ -307,13 +307,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash祖父之斧"
 		"item_property_axe_immortal_weapon"								"身经百战"
-		"property_axe_immortal_weapon_description"						"减少所有受到的伤害50%"
+		"property_axe_immortal_weapon_description"						"减少所有受到的伤害<% RED_GENERAL_IMMORTAL_WEAPON_DMG_REDUCTION * 100 %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "狂战士之斧"
         "item_property_axe_immortal_weapon2"                            "血之狂战士"
-        "property_axe_immortal_weapon2_description"                        "当 E 技能激活时，移动速度提高 @special_property1。E3 对BOSS和精英怪的伤害提高 @special_property2%。"
+        "property_axe_immortal_weapon2_description"                        "当 E 技能激活时，移动速度提高 <% RED_GENERAL_IMMORTAL_WEAPON_2_ADD_MOVESPEED %>。E3 对BOSS和精英怪的伤害提高 <% RED_GENERAL_IMMORTAL_WEAPON_2_AMPLIFY_PERCENT %>%。"
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "雷霆巨斧"
         "item_property_axe_immortal_weapon3"                            "无限力量"
-        "property_axe_immortal_weapon3_description"                        "当开始吟唱大招时，身上所存在的旋风守护护盾数 X2 。" 	
+        "property_axe_immortal_weapon3_description"                        "当开始吟唱大招时，身上所存在的旋风守护护盾数 +<% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>%。" 	
  

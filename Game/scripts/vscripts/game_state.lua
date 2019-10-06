@@ -1553,7 +1553,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 0.5
 	end
 	if victim:HasModifier("modifier_axe_glyph_1_1") then
-		damage = damage * 0.7
+		damage = damage * (100-RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
 		damage = damage * (100-REDROCK_DAMAGE_REDUCTION_PCT)/100
@@ -1667,7 +1667,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_volcano_shield") then
-		damage = damage * 0.1
+		damage = damage * (100-FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION)/100
 		if shouldConsumeShields then
 			CustomAbilities:HitVolcanoShield(victim, attacker)
 		end
@@ -1682,7 +1682,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
-		damage = damage * 0.5
+		damage = damage * (1-RED_GENERAL_IMMORTAL_WEAPON_DMG_REDUCTION)
 	end
 
 	if victim:HasModifier("modifier_living_gauntlet_effect") then
@@ -2168,7 +2168,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_warlord_glyph_5_a") then
 			if attacker:HasModifier("modifier_warlord_ice_charge") then
 				local iceCharges = attacker:GetModifierStackCount("modifier_warlord_ice_charge", attacker)
-				mult = mult + 0.05 * iceCharges
+				mult = mult + WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT/100 * iceCharges
 			end
 		end
 		if attacker:HasModifier("modifier_shadow_trap_d_a_buff") then
@@ -2448,7 +2448,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
 		if victim:HasModifier("modifier_arkimus_immortal_weapon_3") then
-			filterTable["damage"] = 0.01
+			filterTable["damage"] = filterTable["damage"] * (100-ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION)/100
 		end
 	end
 	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
@@ -3822,9 +3822,9 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_flamewaker_glyph_5_a") then
 		if victim:GetUnitName() == "npc_dota_hero_dragon_knight" then
-			local thresh = 0.3
-			if victim:GetHealth() < victim:GetMaxHealth() * 0.5 then
-				thresh = 0.15
+			local thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP
+			if victim:GetHealth() < victim:GetMaxHealth() * FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH then
+				thresh = FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP
 			end
 			if filterTable["damage"] > victim:GetMaxHealth() * thresh then
 				filterTable["damage"] = victim:GetMaxHealth() * thresh

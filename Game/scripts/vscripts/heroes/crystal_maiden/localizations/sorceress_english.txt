@@ -296,25 +296,25 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"Glyph of Freezing Winds"
-		"item_rpc_sorceress_glyph_1_1_description" 				"@Ability1 deals @glyph_property1x damage and slows movespeed and attack speed by an additional @glyph_property2."
+		"item_rpc_sorceress_glyph_1_1_description" 				"@Ability1 deals <% SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT %>x damage and slows movespeed and attack speed by an additional <% SORCERESS_GLYPH_1_1_MS_SLOW %>/<% SORCERESS_GLYPH_1_1_AS_SLOW %>."
 
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"Freezing Winds"
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"Additional Move and Attack slow from Blizzard"	
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"Glyph of Ice Shards"
-		"item_rpc_sorceress_glyph_2_1_description" 				"Ice Lance/Sun Lance fires 2 additional projectiles."
+		"item_rpc_sorceress_glyph_2_1_description" 				"Ice Lance/Sun Lance fires <% SORCERESS_GLYPH_2_1_Q1_ADDITIONAL_PROJECTILES %> additional projectiles."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"Glyph of Fire Bolt"
-		"item_rpc_sorceress_glyph_3_1_description" 				"Immediately launches a 2nd and 3rd fireball after the initial cast."
+		"item_rpc_sorceress_glyph_3_1_description" 				"Immediately launches <% SORCERESS_GLYPH_3_1_ADDITIONAL_FIREBALLS %> additional Fireballs after the initial cast."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"Glyph of Arcane Enhancement"
-		"item_rpc_sorceress_glyph_4_1_description" 				"Increases the attack speed of Sorceress and her Water Elemental by @glyph_property1."
+		"item_rpc_sorceress_glyph_4_1_description" 				"Increases the attack speed of Sorceress and her Water Elemental by <% SORCERESS_GLYPH_4_1_BONUS_AS %> /<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"Glyph of Arcane Torrent"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range and deals damage equal to 10x Arcane Explosion damage. [W1] applies 4 shields instead of 3."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range (<% SORCERESS_GLYPH_5_1_RADIUS %>) and deals damage equal to <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion damage. [W1] applies <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> shields instead of 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on to fire a missle at the closest nearby enemy every 0.2 seconds. Damage dealt is based on 5x Arcane Explosion's damage * the percentage of your mana compared to max mana."
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on to fire a missle at the closest nearby enemy every <% SORCERESS_GLYPH_5_1_INTERVAL %> seconds. Damage dealt is based on <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion's damage * the percentage of your mana compared to max mana."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"RANGE:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "MANA COST PER SECOND:"
 		"DOTA_Tooltip_ability_arcane_torrent_damage"			"DAMAGE (ARCANE EXPLOSION), % OF CURRENT MANA:"
@@ -325,31 +325,31 @@
 		"item_rpc_sorceress_glyph_6_1_description" 				"@Ability1 does not require channeling."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"Glyph of Chaotic Magic"
-		"item_rpc_sorceress_glyph_7_1_description" 				"@Ability4 becomes chaotic, gaining @glyph_property1x damage."
+		"item_rpc_sorceress_glyph_7_1_description" 				"@Ability4 becomes chaotic, gaining <% SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER %>x damage."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"Glyph of Frostbite"
-		"item_rpc_sorceress_glyph_5_a_description" 				"Ice Lance damage multiplier increased to @glyph_property1x when enemies are Frozen."
+		"item_rpc_sorceress_glyph_5_a_description" 				"Ice Lance damage multiplier increased to <% SORCERESS_GLYPH_5_A_MULTIPLY %>x when enemies are Frozen."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"Glyph of Crystallization"
-		"item_rpc_sorceress_glyph_1_2_description" 				"Water Elemental has a @glyph_property1% chance to freeze enemies on attack for @glyph_property2 second."
+		"item_rpc_sorceress_glyph_1_2_description" 				"Water Elemental has a <% SORCERESS_GLYPH_1_2_CHANCE %>% chance to freeze enemies on attack for <% SORCERESS_GLYPH_1_2_DURATION %> second."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"Glyph of Razor Ice"
-		"item_rpc_sorceress_glyph_2_2_description" 				"Ice lance shatter chance increased to @glyph_property1%, and base damage increased by @glyph_property2%."
+		"item_rpc_sorceress_glyph_2_2_description" 				"Ice lance shatter chance increased to <% SORCERESS_GLYPH_2_2_CHANCE %>%, and base damage increased x<% SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY %>."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"Glyph of Enlightened Magic"
-		"item_rpc_sorceress_glyph_3_2_description" 				"Arcane Intellect grants @glyph_property1x mana regen and intelligence."
+		"item_rpc_sorceress_glyph_3_2_description" 				"Arcane Intellect grants <% SORCERESS_GLYPH_3_2_BONUS_AMPLIFY %>x mana regen and intelligence."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"Glyph of Arcane Vibration"
-		"item_rpc_sorceress_glyph_4_2_description" 				"@Ability3 only consumes @glyph_property1 Flicker stacks and clearcast has 100% activation chance."
+		"item_rpc_sorceress_glyph_4_2_description" 				"@Ability3 only consumes <% SORCERESS_GLYPH_4_2_STACKS_SPEND %> Flicker stacks and clearcast has 100% activation chance."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"Glyph of Softening"
-		"item_rpc_sorceress_glyph_5_2_description" 				"Stun durations are considered @glyph_property1% shorter when added to creature stun immunity counter."
+		"item_rpc_sorceress_glyph_5_2_description" 				"Stun durations are considered <% SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION * 100 %>% shorter when added to creature stun immunity counter."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"Glyph of Scorching"
-		"item_rpc_sorceress_glyph_6_2_description" 				"Resistance Loss from Flamestrike is increased by @glyph_property1%."
+		"item_rpc_sorceress_glyph_6_2_description" 				"Resistance Loss from [R3] is multiplied by <% SORCERESS_GLYPH_6_2_R3_MULT %>."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"Glyph of Arcane Channelling"
-		"item_rpc_sorceress_glyph_7_2_description" 				"Increases damage of @Ability2 by @glyph_property1%, and costs an additional @glyph_property2% of max mana."
+		"item_rpc_sorceress_glyph_7_2_description" 				"Increases damage of @Ability2 x<% SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY %>, and costs an additional <% SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT %>% of max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Sorceress Glyph Book"
 		"DOTA_Tooltip_ability_glyph_book_desc"					"Permanently teaches you how to craft @consumableProperty3 at the Glyph Enchanter."

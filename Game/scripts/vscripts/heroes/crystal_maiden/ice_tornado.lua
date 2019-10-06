@@ -214,14 +214,14 @@ function splinter_hit(event)
 	end
 	local damage = caster:GetIntellect() * 7 * ability.r_1_level
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
-		damage = damage * 1.5
+		damage = damage * SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER
 	end
 	local luck = RandomInt(1, 100)
-	if ability.r_2_level > 0 and luck < ARCANA1_R2_CHANCE then
-		damage = damage * (1 + ARCANA1_R2_CRIT_DAMAGE / 100 * ability.r_2_level)
-		local durationWithoutImmune = ARCANA1_R2_START_DURATION + ARCANA1_R2_ADD_DURATION * ability.r_2_level
+	if ability.r_2_level > 0 and luck < SORCERESS_ARCANA1_R2_CHANCE then
+		damage = damage * (1 + SORCERESS_ARCANA1_R2_CRIT_DAMAGE / 100 * ability.r_2_level)
+		local durationWithoutImmune = SORCERESS_ARCANA1_R2_START_DURATION + SORCERESS_ARCANA1_R2_ADD_DURATION * ability.r_2_level
 		if Immune.shouldApplyImmune(caster, target, 'modifier_sorceress_arcana_b_d', durationWithoutImmune) then
-			Immune.applyImmune(caster, target, ability, 'modifier_sorceress_arcana_b_d', ARCANA1_R2_IMMUNE_DURATION)
+			Immune.applyImmune(caster, target, ability, 'modifier_sorceress_arcana_b_d', SORCERESS_ARCANA1_R2_IMMUNE_DURATION)
 		elseif not Immune.targetHasImmune(target, 'modifier_sorceress_arcana_b_d') and not target:HasModifier('modifier_sorceress_arcana_b_d_visible') then
 			Immune.addEffectDuration(caster, target, ability, 'modifier_sorceress_arcana_b_d', 1)
 			ability:ApplyDataDrivenModifier(caster, target, 'modifier_sorceress_arcana_b_d_visible', {duration = 1})
@@ -284,7 +284,7 @@ function tornado_damage_think(event)
 	local damage = event.damage
 	local ability = event.ability
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
-		damage = damage * 1.5
+		damage = damage * SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER
 	end
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.e_3_amp then

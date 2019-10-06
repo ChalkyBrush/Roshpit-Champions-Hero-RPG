@@ -39,7 +39,7 @@ function cast(event)
     WAmplify.applyBuff(caster)
 
     if caster:HasModifier("modifier_axe_glyph_5_a") then
-        damage = damage * (1 + T5A_AMPLIFY_PERCENT / 100)
+        damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
     end
 
     Filters:CastSkillArguments(4, caster)
@@ -47,7 +47,7 @@ function cast(event)
     local delay = Filters:GetDelayWithCastSpeed(caster, 0.35)
     local procsCount = 1
     if caster:HasModifier("modifier_axe_glyph_6_1") then
-        procsCount = T61_DUNKS_COUNT
+        procsCount = RED_GENERAL_GLYPH_6_1_DUNKS_COUNT
     end
 
     for i = 0, procsCount - 1, 1 do

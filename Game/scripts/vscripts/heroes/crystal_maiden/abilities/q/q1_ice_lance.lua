@@ -17,13 +17,13 @@ function cast(event)
         Helper.initializeAbilityRunes(caster, 'sorceress', 'q')
     end
 
-    createProjectile(caster, fv, ability, Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
+    createProjectile(caster, fv, ability, SORCERESS_Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
 
     if caster:HasModifier("modifier_sorceress_glyph_2_1") then
         local rotatedFV = WallPhysics:rotateVector(fv, math.pi / 10)
-        createProjectile(caster, rotatedFV, ability, Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
+        createProjectile(caster, rotatedFV, ability, SORCERESS_Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
         rotatedFV = WallPhysics:rotateVector(fv, -math.pi / 10)
-        createProjectile(caster, rotatedFV, ability, Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
+        createProjectile(caster, rotatedFV, ability, SORCERESS_Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
     end
     Filters:CastSkillArguments(1, caster)
 
@@ -64,7 +64,7 @@ function projectileHit(event)
     local target = event.target
     local ability = event.ability
     EmitSoundOn("hero_Crystal.projectileImpact", target)
-    local damage = caster.q_1_level * Q1_ADD_DAMAGE + Q1_BASE_DAMAGE
+    local damage = caster.q_1_level * SORCERESS_Q1_ADD_DAMAGE + SORCERESS_Q1_BASE_DAMAGE
     damage = damage * event.mult
 
     local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -77,7 +77,7 @@ function projectileHit(event)
     if Filters:IsIceFrozen(target) then
         local damageMult = 1
         if caster:HasModifier("modifier_sorceress_glyph_5_a") then
-            damageMult = T5A_MULTIPLY
+            damageMult = SORCERESS_GLYPH_5_A_MULTIPLY
         end
         damage = damage * damageMult
 
@@ -94,10 +94,10 @@ function projectileHit(event)
         EmitSoundOn("hero_Crystal.projectileImpact", target)
     end
 
-    local chance = Q3_CHANCE
+    local chance = SORCERESS_Q3_CHANCE
     if caster:HasModifier("modifier_sorceress_glyph_2_2") then
-        chance = T22_CHANCE
-        damage = damage * T22_DAMAGE_AMPLIFY
+        chance = SORCERESS_GLYPH_2_2_CHANCE
+        damage = damage * SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY
     end
     local chillStacks = 2
     if ability:GetAbilityName() == "blizzard" then

@@ -57,17 +57,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARCANA1_R2_ADD_DURATION %>"
+				"property_one"			"<% SORCERESS_ARCANA1_R2_ADD_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% ARCANA1_R2_START_DURATION %>"
+				"property_one_base"		"<% SORCERESS_ARCANA1_R2_START_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ARCANA1_R2_CRIT_DAMAGE %>"
+				"property_two"			"<% SORCERESS_ARCANA1_R2_CRIT_DAMAGE %>"
 			}
 		}
 	}
