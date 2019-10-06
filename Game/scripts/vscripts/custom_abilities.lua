@@ -949,7 +949,15 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local queryUnit = EntIndexToHScript(msg.queryUnit)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
 			if distance <= distance_cap then
-				CustomGameEventManager:Send_ServerToPlayer(player, "open_crusader", {player=playerID, main_challenge = Challenges.main_challenge, web_challenge = Challenges.web_challenge} )
+				local main_match = 0
+				local web_match = 0
+				if Challenges:AreConditionsValidForChallenge(Challenges.main_challenge) then
+					main_match = 1
+				end
+				if Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) then
+					web_match = 1
+				end
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_crusader", {player=playerID, main_challenge = Challenges.main_challenge, web_challenge = Challenges.web_challenge, main_match = main_match, web_match = web_match} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
 				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})

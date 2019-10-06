@@ -51,6 +51,15 @@ function Challenges:CheckSpawn()
 	end
 end
 
+function Challenges:AreConditionsValidForChallenge(challenge)
+	local challenge_table = challenge["challenge"]
+	if Challenges:HeroMatch(challenge) and Challenges:MapMatch(challenge_table) and Challenges:DifficultyModMatch(challenge_table) then
+		return true
+	else
+		return false
+	end
+end
+
 function Challenges:HeroMatch(challenge_table)
 	local proceed = true
 	print("--------")

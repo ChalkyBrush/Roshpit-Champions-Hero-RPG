@@ -13,9 +13,12 @@ function OpenCrusader(msg){
     var header = crusader_main.FindChildTraverse('crusader_header')
     var imageName = "file://{images}/custom_game/ui/crusader_header.jpg"
     header.SetImage(imageName)
-
-    load_challenge(msg.main_challenge, "main", crusader_main)
-    load_challenge(msg.web_challenge, "web", crusader_main)
+    if (msg.main_match == 1){
+    	load_challenge(msg.main_challenge, "main", crusader_main)
+    }
+    if (msg.web_match == 1){
+    	load_challenge(msg.web_challenge, "web", crusader_main)
+    }
 
 
     mCloseButton = crusader_main.FindChildTraverse('close_button')
@@ -55,6 +58,10 @@ function load_challenge(challenge, challenge_type, crusader_main){
 			load_mod(mods[index], quest_start_panel, total_mods)
 		}
 	}
+	quest_start_panel.FindChildTraverse('challenge_reward_image').SetImage("file://{images}/custom_game/ui/prismatic_gemstone.png")
+	var reward = challenge["challenge"]["reward"]
+	quest_start_panel.FindChildTraverse('challenge_reward_text_left').text = $.Localize("ui_challenge_reward")+":"
+	quest_start_panel.FindChildTraverse('challenge_reward_text').text = reward+" "+$.Localize("tooltip_prismatic_gemstones")
 	var challenge_start_button = quest_start_panel.FindChildTraverse('challenge_start_button')
 	set_challenge_start_event(challenge_start_button, challenge_type)
 

@@ -1147,7 +1147,6 @@
 		"challenge_mod_super_boss"									"The objective boss has all if its stats increased by @int1%."
 		"challenge_mod_mob_speed"									"Enemies have @int1% increased attackspeed and movespeed."
 		"challenge_mod_spirit"										"Must be completed in @event."
-		"challenge_mod_equinox"										"Must be completed in @event."
 		"challenge_mod_stones"										"Must be completed with @stones active Glacier Stones."
 		"challenge_mod_pit_level"									"Must be completed on at least Pit Level @pit_level."
 
@@ -1155,6 +1154,7 @@
 		"challenge_equinox"											"Equinox"
 
 		"ui_start_challenge"										"Start Challenge"
+		"ui_challenge_reward"										"Reward"
 
 	    //------------------------
 		// Blacksmith

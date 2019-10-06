@@ -207,3 +207,18 @@
 #challenge_start_button_label{
 	font-size:20px;
 }
+
+.challenge_reward_root{
+	flow-children:right;
+	horizontal-align:center;
+	margin-top:10px;
+}
+
+#challenge_reward_image{
+	width:20px;
+	height:20px;
+}
+
+#challenge_reward_text{
+	margin-left:5px;
+}
