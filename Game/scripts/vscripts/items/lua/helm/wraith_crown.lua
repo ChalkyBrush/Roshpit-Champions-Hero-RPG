@@ -1,7 +1,7 @@
 require('items/lua/helm/base')
 require('npc_abilities/base_modifier')
 
-item_rpc_wraith_crown = class(BaseHelm, nil, BaseHlm)
+item_rpc_wraith_crown = class(BaseHelm, nil, BaseHelm)
 local class = item_rpc_wraith_crown
 local className = 'item_rpc_wraith_crown'
 
@@ -10,10 +10,20 @@ local modifierClass = modifier_wraith_crown
 local modifierName = 'modifier_wraith_crown'
 LinkLuaModifier(modifierName, "items/lua/helm/wraith_crown", LUA_MODIFIER_MOTION_NONE)
 
-modifier_wraith_crown_buff = class(npc_base_modifier, nil, npc_base_modifier)
-local buffModifierClass = modifier_wraith_crown_buff
-local buffModifierName = 'modifier_wraith_crown_buff'
-LinkLuaModifier(buffModifierName, "items/lua/helm/wraith_crown", LUA_MODIFIER_MOTION_NONE)
+modifier_wraith_crown_magic_res_buff = class(npc_base_modifier, nil, npc_base_modifier)
+local magicResBuffModifierClass = modifier_wraith_crown_magic_res_buff
+local magicResBuffModifierName = 'modifier_wraith_crown_magic_res_buff'
+LinkLuaModifier(magicResBuffModifierName, "items/lua/helm/wraith_crown", LUA_MODIFIER_MOTION_NONE)
+
+modifier_wraith_crown_evasion_buff = class(npc_base_modifier, nil, npc_base_modifier)
+local evasionBuffModifierClass = modifier_wraith_crown_evasion_buff
+local evasionBuffModifierName = 'modifier_wraith_crown_evasion_buff'
+LinkLuaModifier(evasionBuffModifierName, "items/lua/helm/wraith_crown", LUA_MODIFIER_MOTION_NONE)
+
+modifier_wraith_crown_disjoint_cooldown_debuff = class(npc_base_modifier, nil, npc_base_modifier)
+local disjointCooldownModifierClass = modifier_wraith_crown_disjoint_cooldown_debuff
+local disjointCooldownModifierName = 'modifier_wraith_crown_disjoint_cooldown_debuff'
+LinkLuaModifier(disjointCooldownModifierName, "items/lua/helm/wraith_crown", LUA_MODIFIER_MOTION_NONE)
 
 function class:GetClassName()
     return className
@@ -39,25 +49,34 @@ function class:RollProperty2(maxFactor)
     RPCItems:SetPropertyValues(self, self.newItemTable.property2, "rune", "#7DFF12", 2)
 end
 
-
 function modifierClass:OnCreated()
-    self.thinkInterval = 0.03
-    self:StartIntervalThink(self.thinkInterval)
-end
-
-function modifierClass:OnIntervalThink()
-    local hero = self:GetCaster()
-    if not hero:IsAlive() then
+    if not IsServer() then
         return
     end
-    local currentHealthPercent = hero:GetHealth() / hero:GetMaxHealth()
-    if currentHealthPercent <= WRAITH_CROWN_BUFF_HP_TRESHOLD_PCT / 100 then
-        if not hero:HasModifier(buffModifierName) then
-            hero:AddNewModifier(hero, self, buffModifierName, {})
-        end
-    else
-        hero:RemoveModifierByName(buffModifierName)
+    self:SetSpecialTypes({
+        MODIFIER_SPECIAL_TYPE_CAST_Q_ABILITY,
+        MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY,
+        MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY
+    })
+end
+
+function modifierClass:OnCastQAbility()
+    local hero = self:GetCaster()
+    hero:AddNewModifier(hero, self, magicResBuffModifierName, { duration = WRAITH_CROWN_MAG_RES_DUR })
+end
+
+function modifierClass:OnCastWAbility()
+    local hero = self:GetCaster()
+    if hero:HasModifier(disjointCooldownModifierName) then
+        return
     end
+    hero:AddNewModifier(hero, self, disjointCooldownModifierName, { duration = WRAITH_CROWN_DISJOINT_CD })
+    ProjectileManager:ProjectileDodge(self:GetCaster())
+end
+
+function modifierClass:OnCastEAbility()
+    local hero = self:GetCaster()
+    hero:AddNewModifier(hero, self, evasionBuffModifierName, { duration = WRAITH_CROWN_EVASION_DUR })
 end
 
 function modifierClass:IsHidden()
@@ -68,44 +87,70 @@ function modifierClass:RemoveOnDeath()
     return false
 end
 
-function buffModifierClass:DeclareFunctions()
+----------------
+--EVASION BUFF--
+----------------
+function evasionBuffModifierClass:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_EVASION_CONSTANT,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
+        MODIFIER_PROPERTY_EVASION_CONSTANT
     }
-
     return funcs
 end
 
-function buffModifierClass:GetModifierMagicalResistanceBonus()
-    return WRAITH_CROWN_MAG_RES_PCT
-end
-
-function buffModifierClass:GetModifierEvasion_Constant()
+function evasionBuffModifierClass:GetModifierEvasion_Constant()
     return WRAITH_CROWN_EVASION_PCT
 end
 
-function buffModifierClass:IsHidden()
+function evasionBuffModifierClass:IsHidden()
     return false
 end
 
-function buffModifierClass:IsBuff()
+function evasionBuffModifierClass:IsBuff()
     return true
 end
 
-function buffModifierClass:RemoveOnDeath()
+function evasionBuffModifierClass:RemoveOnDeath()
     return false
 end
 
-function buffModifierClass:OnCreated()
-    self.thinkInterval = WRAITH_CROWN_DISJOINT_INTERVAL_SEC
-    self:StartIntervalThink(self.thinkInterval)
+------------------
+--MAGIC RES BUFF--
+------------------
+function magicResBuffModifierClass:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
+    }
+    return funcs
 end
 
-function buffModifierClass:OnIntervalThink()
-    ProjectileManager:ProjectileDodge(self:GetCaster())
+function magicResBuffModifierClass:GetModifierMagicalResistanceBonus()
+    return WRAITH_CROWN_MAG_RES_PCT
 end
 
-function buffModifierClass:GetTexture()
-    return "itemicons/wraith_crown"
+function magicResBuffModifierClass:IsHidden()
+    return false
 end
+
+function magicResBuffModifierClass:IsBuff()
+    return true
+end
+
+function magicResBuffModifierClass:RemoveOnDeath()
+    return false
+end
+
+--------------------------
+--DISJOINT COOLDOWN BUFF--
+--------------------------
+function magicResBuffModifierClass:IsHidden()
+    return false
+end
+
+function magicResBuffModifierClass:IsDebuff()
+    return true
+end
+
+function magicResBuffModifierClass:RemoveOnDeath()
+    return false
+end
+
