@@ -5148,18 +5148,23 @@ function RPCItems:RollBlueDragonGreaves(deathLocation)
     if luck > 1 then
         RPCItems:RollFootProperty2(item, 0)
     else
-        local luck = RandomInt(1, 8)
+        local luck = RandomInt(1, 9)
         item.newItemTable.hasRunePoints = true
         if luck == 1 then
             local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
             item.newItemTable.property2 = math.floor(value * 1.2)
             item.newItemTable.property2name = "rune_e_3"
             RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-        else
-            local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+        elseif luck == 2 then
+            local value = RandomInt(maxFactor * 12, maxFactor * 800)
+			item.newItemTable.property2 = value
+			item.newItemTable.property2name = "attack_damage"
+			RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		else
+			local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
             item.newItemTable.property2 = math.floor(value * 1.8)
             item.newItemTable.property2name = propertyName
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)		
         end
     end
     RPCItems:RollFootProperty3(item, 0)
