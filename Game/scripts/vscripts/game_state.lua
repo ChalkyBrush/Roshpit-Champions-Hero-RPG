@@ -2168,7 +2168,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_warlord_glyph_5_a") then
 			if attacker:HasModifier("modifier_warlord_ice_charge") then
 				local iceCharges = attacker:GetModifierStackCount("modifier_warlord_ice_charge", attacker)
-				mult = mult + 0.05 * iceCharges
+				mult = mult + WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT/100 * iceCharges
 			end
 		end
 		if attacker:HasModifier("modifier_shadow_trap_d_a_buff") then

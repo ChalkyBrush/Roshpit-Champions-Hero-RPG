@@ -330,7 +330,7 @@ function elemental_axe_attack_land(event)
 	end
 	local maxCharges = 20
 	if caster:HasModifier("modifier_warlord_glyph_6_1") then
-		maxCharges = 25
+		maxCharges = maxCharges + WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES
 	end
 	if caster:HasAbility("enhchant_tomahawk") then
 		local additionalMaxCharges = caster:GetRuneValue("r", 4)
@@ -408,7 +408,7 @@ function warlord_glyph_5_a(event)
 		newAbility:SetHidden(true)
 	end
 	eventTable.ability = event.unit:FindAbilityByName("axe_throw_fire")
-	eventTable.charges = 2
+	eventTable.charges = WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN
 	elemental_axe_attack_land(eventTable)
 end
 

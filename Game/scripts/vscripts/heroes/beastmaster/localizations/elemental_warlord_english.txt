@@ -389,19 +389,19 @@
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"Ambush Cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"Glyph of Savage Combat"
-		"item_rpc_warlord_glyph_5_1_description" 				"Each enemy slain increases attack damage by @glyph_property1%, stacking up to 50 times. Lasts @glyph_property2 seconds and refreshes on kill."
+		"item_rpc_warlord_glyph_5_1_description" 				"Each enemy slain increases attack damage by <% WARLORD_GLYPH_5_1_BONUS_ATTACK_DMG_PER_KILL %>%, stacking up to <% WARLORD_GLYPH_5_1_MAX_STACKS %> times. Lasts <% WARLORD_GLYPH_5_1_DURATION %> seconds and refreshes on kill."
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"Savage Combat"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"Increased Attack Damage when slaying enemies"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"Glyph of Elemental Capacity"
-		"item_rpc_warlord_glyph_6_1_description" 				"Increases the maximum Fire, Ice, and Earth charges to 25."
+		"item_rpc_warlord_glyph_6_1_description" 				"Increases the maximum Fire, Ice, and Earth charges by <% WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES %>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal @glyph_property1% of your attack damage as magic to all surrounding enemies."
+		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %> AOE around main target. Damage is considered an item damage."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"Glyph of Thermogenesis"
-		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds @glyph_property1 Fire Charges. Each active Ice Charge increases post-mitigation Magical damage by 5%"
+		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> Fire Charges. Each active Ice Charge increases post-mitigation Magical damage by <% WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT %>%"
 
 		//Weapons
 		"warlord_weapon_01"			"Mighty Axes"
