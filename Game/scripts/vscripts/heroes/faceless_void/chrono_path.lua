@@ -13,7 +13,7 @@ function omniro_chrono_path_start(event)
 	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.6})
 	local path_length = 5
 	if caster:HasModifier("modifier_omniro_glyph_2_1") then
-		path_length = path_length + OMNIRO_GLYPH_2_PATH_INCREASE
+		path_length = path_length + OMNIRO_GLYPH_2_1_PATH_INCREASE
 	end
 	for i = 1, path_length, 1 do
 		local randomColor = Vector(RandomInt(30, 255), RandomInt(30, 255), RandomInt(30, 255)) / 255

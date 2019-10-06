@@ -179,9 +179,9 @@ function apollo_attack_landed(event)
 			ability.shots = ability.shots - 1
 			if ability.w_3_level > 0 then
 				if caster:HasModifier("modifier_astral_glyph_3_1") then
-					empyralArrowsProcChance = getProcChance(caster, T31_PROC_CHANCE)
+					empyralArrowsProcChance = getProcChance(caster, ASTRAL_RANGER_GLYPH_3_1_PROC_CHANCE)
 				else
-					empyralArrowsProcChance = getProcChance(caster, W3_PROC_CHANCE)
+					empyralArrowsProcChance = getProcChance(caster, ASTRAL_RANGER_W3_PROC_CHANCE)
 				end
 				local procChance = math.ceil(getProcChance(caster, empyralArrowsProcChance))
 				local luck = RandomInt(1, 100)

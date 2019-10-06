@@ -49,7 +49,7 @@ function shadow_deity(event)
 		aspectHealth = aspectHealth + caster:GetModifierStackCount("modifier_weapon_aspect_health", caster.aspectHealthAbility)
 	end
 	if caster:HasModifier("modifier_conjuror_glyph_2_1") then
-		aspectHealth = aspectHealth * 1.8
+		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
 	aspectHealth = aspectHealth * (1 + q_1_level * 0.05)

@@ -7,7 +7,7 @@ function begin_pulse(event)
 	local point = caster:GetAbsOrigin()
 	local radius = 500
 	if caster:HasModifier("modifier_bahamut_glyph_7_1") then
-		radius = radius * 1.4
+		radius = radius * (100+BAHAMUT_GLYPH_7_1_E3_RADIUS_INCREASE_PCT)/100
 	end
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/bahamut_nova.vpcf", caster, 0.3)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -15,7 +15,7 @@ function begin_pulse(event)
 	local bStun = false
 	if caster:HasModifier("modifier_bahamut_glyph_6_1") then
 		ability.strikes = ability.strikes + 1
-		if ability.strikes == 5 then
+		if ability.strikes == BAHAMUT_GLYPH_6_1_PULSES then
 			ability.strikes = 0
 			bStun = true
 			local particleName = "particles/roshpit/bahamut/glyphed_pulse_explosion_fallback_mid_egset.vpcf"
@@ -42,7 +42,7 @@ function begin_pulse(event)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 			if bStun then
-				Filters:ApplyStun(caster, 1.5, enemy)
+				Filters:ApplyStun(caster, BAHAMUT_GLYPH_6_1_E3_STUN, enemy)
 			end
 		end
 	end

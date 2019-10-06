@@ -481,28 +481,28 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"烈火雕文"
-		"item_rpc_conjuror_glyph_1_1_description" 				"你的火元素将提高 @glyph_property1 攻击速度和 @glyph_property2% 额外攻击力。"
+		"item_rpc_conjuror_glyph_1_1_description" 				"你的火元素将提高 <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_AS %> 攻击速度和 <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_ATTACK_DMG_PCT %>% 额外攻击力。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"魔术雕文"
-		"item_rpc_conjuror_glyph_2_1_description" 				"提高所有元素生物的最大生命值 @glyph_property1%"
+		"item_rpc_conjuror_glyph_2_1_description" 				"提高所有元素生物的最大生命值 <% CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"暗影雕文"
-		"item_rpc_conjuror_glyph_3_1_description" 				"当暗之呼唤激活时，暗影之门的冷却时间变为 @glyph_property1 秒。"
+		"item_rpc_conjuror_glyph_3_1_description" 				"当暗之呼唤激活时，暗影之门的冷却时间变为 <% CONJUROR_GLYPH_3_1_E_CD_DURING_R %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"深邃暗影雕文"
-		"item_rpc_conjuror_glyph_4_1_description" 				"提高暗元素的攻击距离 @glyph_property1"
+		"item_rpc_conjuror_glyph_4_1_description" 				"提高暗元素的攻击距离 <% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"大地震颤雕文"
-		"item_rpc_conjuror_glyph_5_1_description" 				"提高地震术的范围 @glyph_property1, 并提高免费施法时间 @glyph_property2 秒。"
+		"item_rpc_conjuror_glyph_5_1_description" 				"提高地震术的范围 <% CONJUROR_GLYPH_5_1_Q_BONUS_RADIUS %>, 并提高免费施法时间 <% CONJUROR_GLYPH_5_1_FREE_CAST_DURATION_INCREASE %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"火焰喷射雕文"
-		"item_rpc_conjuror_glyph_6_1_description" 				"当你的火元素暴击时，火元素将释放一股火焰对所有敌人造成 @glyph_property1x 暴击伤害。"
+		"item_rpc_conjuror_glyph_6_1_description" 				"当你的火元素暴击时，火元素将释放一股火焰对所有敌人造成 <% CONJUROR_GLYPH_6_1_CRIT %>x 暴击伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"不朽大地雕文"
 		"item_rpc_conjuror_glyph_7_1_description" 				"你的土元素将在死亡后立即复活。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"召唤雕文"
-		"item_rpc_conjuror_glyph_5_a_description" 				"召唤师和它的全部位面生物将造成200%的伤害。（计算在敌人减伤之后）"
+		"item_rpc_conjuror_glyph_5_a_description" 				"召唤师和它的全部位面生物将造成<% CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT %>%的伤害。（计算在敌人减伤之后）"
 		
 		//Weapons
 		"conjuror_weapon_01"			"土魔法球"

@@ -1,4 +1,4 @@
-require('/heroes/monkey_king/constants')
+require('/heroes/monkey_king/djanghor_constants')
 
 function bear_roar_pre(event)
 	local caster = event.caster

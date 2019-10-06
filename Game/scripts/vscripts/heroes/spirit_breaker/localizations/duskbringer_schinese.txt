@@ -220,7 +220,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"夜幕使者的武器上附有一股能量，在击中敌人后留下一个灼烧debuff。这个灼烧效果可以无限叠加。持续时间为5秒。敌人在被幻影冲击击中后将被施加冥火枷的debuff。"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"每层每秒伤害："
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"基于敏捷的额外伤害："
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"基于力量的额外伤害："
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix_two"			"x"
 		
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"冥火枷"

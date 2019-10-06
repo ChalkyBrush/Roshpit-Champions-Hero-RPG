@@ -1,5 +1,5 @@
 LinkLuaModifier("slipfinn_bog_roller_lua", "modifiers/slipfinn/slipfinn_bog_roller_lua", LUA_MODIFIER_MOTION_NONE)
-require('heroes/slark/constants')
+require("/heroes/slark/slipfinn_constants")
 require('heroes/slark/jump')
 function turn_toggle_on(event)
 	local caster = event.caster

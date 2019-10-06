@@ -59,7 +59,7 @@ function moon_shroud_move(caster, point)
     dummy:SetAbsOrigin(point)
     local bonus_duration = ability:GetSpecialValueFor("add_duration")
     if caster:HasModifier("modifier_astral_glyph_4_1") then
-      bonus_duration = bonus_duration * (1 - ASTRAL_T41_DURATION_REDUCTION_PCT / 100)
+      bonus_duration = bonus_duration * (1 - ASTRAL_RANGER_GLYPH_4_1_DURATION_REDUCTION_PCT / 100)
     end
     local duration = dummy:FindModifierByName("modifier_moon_shroud_thinker"):GetRemainingTime() + bonus_duration
     dummy:FindModifierByName("modifier_moon_shroud_thinker"):SetDuration(duration, true)

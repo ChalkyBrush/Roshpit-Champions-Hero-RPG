@@ -1,5 +1,5 @@
 Helper = require('heroes/util/helper')
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 function channel_initialize(event)
 	local caster = event.caster
@@ -14,7 +14,7 @@ function channel_succeed(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisible", {duration = duration})
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
-		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
 	switchIntoStealth(caster)
 end
@@ -270,7 +270,7 @@ function backstab_channel_succeed(event)
 	local target = event.target
 	local damageMult = event.damage_mult
 	if caster:HasModifier('modifier_trapper_immortal_weapon_3') then
-		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_WEAPON3_CD_RED)
+		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
 	local damage = math.floor(OverflowProtectedGetAverageTrueAttackDamage(caster) * damageMult)
 	if caster:HasModifier("modifier_trapper_glyph_4_1") and target.paragon then

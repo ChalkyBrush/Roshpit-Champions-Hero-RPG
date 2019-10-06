@@ -65,7 +65,7 @@ function cast_fire_blast(event)
     Filters:CastSkillArguments(1, caster)
     if caster:HasModifier("modifier_flamewaker_glyph_2_1") then
         ability:EndCooldown()
-        ability:StartCooldown(5)
+        ability:StartCooldown(FLAMEWAKER_GLYPH_2_1_Q_CD)
     end
     rune_q_3_eruption(ability, caster, target_location, radius)
     rune_q_2(caster)
@@ -84,7 +84,7 @@ function fire_blast_damage(event)
     local damage = event.damage
     local stun_duration = event.stun_duration
     if caster:HasModifier("modifier_flamewaker_immortal_weapon_3") then
-        stun_duration = stun_duration + stun_duration * 1.5
+        stun_duration = stun_duration * FLAMEWAKER_IMMORTAL_WEAPON_3_STUN_DURATION_Q_R_MULT
     end
     Filters:ApplyStun(caster, stun_duration, target)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)

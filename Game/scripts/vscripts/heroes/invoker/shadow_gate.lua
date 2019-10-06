@@ -54,7 +54,7 @@ function shadow_gate_cast(event)
 	CustomAbilities:QuickAttachThinker(ability, caster, target, "shadow_gate_thinker", {duration = 5})
 	if caster:HasModifier("modifier_call_of_shadow") and caster:HasModifier("modifier_conjuror_glyph_3_1") then
 		ability:EndCooldown()
-		ability:StartCooldown(4)
+		ability:StartCooldown(CONJUROR_GLYPH_3_1_E_CD_DURING_R)
 	end
 	Filters:CastSkillArguments(3, caster)
 	ProjectileManager:ProjectileDodge(caster)

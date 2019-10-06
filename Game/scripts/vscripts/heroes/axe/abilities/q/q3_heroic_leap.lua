@@ -14,7 +14,7 @@ local function cast(caster, ability)
         local procsCount = 1
         local delay = Filters:GetDelayWithCastSpeed(caster, 0.35)
         if caster:HasModifier("modifier_axe_glyph_6_1") then
-            procsCount = T61_DUNKS_COUNT
+            procsCount = RED_GENERAL_GLYPH_6_1_DUNKS_COUNT
         end
         for i = 0, procsCount - 1, 1 do
             Timers:CreateTimer(i * delay, function()

@@ -302,28 +302,28 @@
 		"item_rpc_djanghor_glyph_1_1_description" 				"金箍棒的强力一击击中敌人将刷新筋斗云的冷却。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"狩猎雕文"
-		"item_rpc_djanghor_glyph_2_1_description" 				"在狼形态下，攻击有 @glyph_property1% 的概率获得 +@glyph_property2% 的攻击力。变换为其他形态之后效果仍持续 7秒。"
+		"item_rpc_djanghor_glyph_2_1_description" 				"在狼形态下，攻击有 <% DJANGHOR_GLYPH_2_1_CHANCE %>% 的概率获得 +<% DJANGHOR_GLYPH_2_1_BONUS_DAMAGE_PCT %>% 的攻击力。变换为其他形态之后效果仍持续 <% DJANGHOR_GLYPH_2_1_EFFECT_LINGERING %>秒。"
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"狼之利爪"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"攻击有概率造成额外伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"模糊雕文"
-		"item_rpc_djanghor_glyph_3_1_description" 				"狼形态下有 @glyph_property1% 概率闪避，孙悟空本体形态下有 @glyph_property2% 概率闪避。"
+		"item_rpc_djanghor_glyph_3_1_description" 				"狼形态下有 <% DJANGHOR_GLYPH_3_1_WOLF_EVASION %>% 概率闪避，孙悟空本体形态下有 <% DJANGHOR_GLYPH_3_1_MONKEY_EVASION %>% 概率闪避。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"七十二变雕文"
-		"item_rpc_djanghor_glyph_4_1_description" 				"变身结束后获得 @glyph_property1 层护盾，每层护盾吸收一次伤害。持续 12秒。"
+		"item_rpc_djanghor_glyph_4_1_description" 				"变身结束后获得 <% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %> 层护盾，每层护盾吸收一次伤害。持续 <% DJANGHOR_GLYPH_4_1_DURATION %>秒。"
 
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"七十二变护盾"
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"每层护盾吸收一次伤害"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"动物学雕文"
-		"item_rpc_djanghor_glyph_5_1_description" 				"减少 @Ability1 的冷却时间 @glyph_property1 秒。"
+		"item_rpc_djanghor_glyph_5_1_description" 				"减少 @Ability1 的冷却时间 <% DJANGHOR_GLYPH_5_1_Q_CD_RED %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"自然庇护雕文"
-		"item_rpc_djanghor_glyph_6_1_description" 				"每 @glyph_property1 秒，清除一次来自于敌人的负面debuff。"
+		"item_rpc_djanghor_glyph_6_1_description" 				"每 <% DJANGHOR_GLYPH_6_1_CLEANCE_INTERVAL %> 秒，清除一次来自于敌人的负面debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"抨击雕文"
-		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 @glyph_property1% 的概率攻击眩晕敌人，并且所造成的伤害提高 @glyph_property2% 。眩晕持续 @glyph_property3 秒。变换为其它形态后，buff仍持续 15 秒。 战争践踏将会和撕裂一样降低敌人的护甲。"
+		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 <% DJANGHOR_GLYPH_7_1_BASH_CHANCE %>% 的概率攻击眩晕敌人，并且所造成的伤害提高 <% DJANGHOR_GLYPH_7_1_BASH_BONUS_DAMAGE_PCT %>% 。眩晕持续 <% DJANGHOR_GLYPH_7_1_BASH_DURATION %> 秒。变换为其它形态后，buff仍持续 15 秒。 战争践踏将会和撕裂一样降低敌人的护甲。"
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"抨击"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"攻击时有概率眩晕敌人并造成额外伤害"
@@ -349,11 +349,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "狼牙棒"
         "item_property_djanghor_immortal_weapon"                             "金刚狼"
-        "property_djanghor_immortal_weapon_description"                      "在狼形态下，每点敏捷值额外提高 @special_property1 点攻击力。@Ability2 将打击一条直线上的所有敌人，并且在狼形态下，其主要元素属性变为 自然元素。"
+        "property_djanghor_immortal_weapon_description"                      "在狼形态下，每点敏捷值额外提高 <% DJANGHOR_IMMORTAL_WEAPON_1_BASE_DMG_PER_AGI %> 点攻击力。@Ability2 将打击一条直线上的所有敌人，并且在狼形态下，其主要元素属性变为 自然元素。"
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_2"            "熊爪棍"
         "item_property_djanghor_immortal_weapon2"                             "钢铁熊"
-        "property_djanghor_immortal_weapon2_description"                      "在熊形态下，敌人伤害不超过 100x 最大生命值时，该次伤害将被限制到 @special_property1% 的最大生命值。"
+        "property_djanghor_immortal_weapon2_description"                      "在熊形态下，敌人伤害不超过 100x 最大生命值时，该次伤害将被限制到 <% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT * 100 %>% 的最大生命值。"
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_3"            "鹰隼启示法杖"
         "item_property_djanghor_immortal_weapon3"                             "暴风鸟"

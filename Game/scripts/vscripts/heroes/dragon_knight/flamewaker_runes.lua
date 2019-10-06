@@ -152,7 +152,7 @@ function flamewaker_r_2(event)
 			local count = 50
 
 			if caster:HasModifier("modifier_flamewaker_glyph_5_1") then
-				count = count * FLAMEWAKER_T51_R2_DUR_MULTIPLY
+				count = count * FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY
 			end
 			local cast_number = ability.cast_number
 			for i = 0, count, 1 do

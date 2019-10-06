@@ -418,7 +418,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% WEAPON1_AOE_RADIUS %>"
+				"property_one"			"<% VENOMORT_IMMORTAL_WEAPON_1_AOE_RADIUS %>"
 			}
 		}
 	}
@@ -465,7 +465,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% WEAPON2_FUSIONS_COUNT %>"
+				"property_one"			"<% VENOMORT_IMMORTAL_WEAPON_2_FUSIONS_COUNT %>"
 			}
 		}
 	}
@@ -512,7 +512,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"<% WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT %>"
+				"property_one"		"<% VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT %>"
 			}
 		}
 	}

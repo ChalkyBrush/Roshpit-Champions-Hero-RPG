@@ -19,7 +19,7 @@ function vigor_start(event)
 	local ability = event.ability
 	local duration = event.duration
 	if caster:HasModifier("modifier_spirit_warrior_glyph_7_1") then
-		duration = duration + spirit_warrior_glyph_7_1_additional_duration
+		duration = duration + SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	Timers:CreateTimer(0.5, function()

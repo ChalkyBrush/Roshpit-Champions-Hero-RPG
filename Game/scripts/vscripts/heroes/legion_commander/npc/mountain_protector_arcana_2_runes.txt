@@ -34,22 +34,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"<% ARCANA2_R2_DURATION_BASE %>"
+				"property_one_base"		"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION_BASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"		"<% ARCANA2_R2_DURATION %>"
+				"property_one"		"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARCANA2_R2_STUN_DURATION %>"
+				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_STUN_DURATION %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"constant_one"			"<% ARCANA2_R2_RADIUS %>"
+				"constant_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R2_RADIUS %>"
 			}
 		}
 	}

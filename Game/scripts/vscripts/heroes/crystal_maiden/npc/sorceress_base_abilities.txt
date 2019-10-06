@@ -470,8 +470,8 @@
 				"IsHidden" "0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-100"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% SORCERESS_GLYPH_1_1_MS_SLOW %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% SORCERESS_GLYPH_1_1_AS_SLOW %>"
 				}
 			}
 			"modifier_sorceress_passive"
@@ -633,7 +633,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>"
 				}
 			}
 			"modifier_clear_cast"
@@ -1283,7 +1283,7 @@
 			{
 				"EffectName"	"particles/units/heroes/hero_huskar/arcane_torrent_channel.vpcf"
 				"EffectAttachType" "attach_staff_tip"
-				"ThinkInterval"  "0.2"
+				"ThinkInterval"  "<% SORCERESS_GLYPH_5_1_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -1316,7 +1316,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"						"<% T51_RADIUS %>"
+				"range"						"<% SORCERESS_GLYPH_5_1_RADIUS %>"
 			}
 			"02"
 			{

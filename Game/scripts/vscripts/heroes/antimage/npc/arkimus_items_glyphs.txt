@@ -67,7 +67,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_one"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% ARKIMUS_GLYPH_2_1_MANA_REGEN %>"
 				}
 			}
 		}

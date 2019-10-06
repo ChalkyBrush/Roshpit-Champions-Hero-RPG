@@ -156,7 +156,7 @@ function pyroblast_impact(event)
 		end
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
-		damage = damage * 1.5
+		damage = damage * SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER
 	end
 	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.r_4_level*damage
 	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)

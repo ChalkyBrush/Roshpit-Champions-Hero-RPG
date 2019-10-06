@@ -62,7 +62,7 @@ function dash_think(event)
 		forwardSpeed = 0
 	else
 		if caster:HasModifier("modifier_light_charging") then
-			forwardSpeed = forwardSpeed * BAHAMUT_ARCANA_W4_R_SPEED_MULT
+			forwardSpeed = forwardSpeed * BAHAMUT_ARCANA_2_W4_R_SPEED_MULT
 		else
 			if distance_for_slowing < 200 then
 				forwardSpeed = 24
@@ -75,7 +75,7 @@ function dash_think(event)
 	end
 	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	if w_4_level > 0 then
-		local stacks = forwardSpeed * 33 * BAHAMUT_ARCANA_W4_AMP_BASE_PCT * w_4_level * ability:GetLevel()
+		local stacks = forwardSpeed * 33 * BAHAMUT_ARCANA_2_W4_AMP_BASE_PCT * w_4_level * ability:GetLevel()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp", {})
 		caster:FindModifierByName("modifier_bahamut_arcana_w4_amp"):SetStackCount(stacks)
 	else
@@ -153,7 +153,7 @@ function dash_end(event)
 	local ability = event.ability
 	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_light_charging") then
 		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W4_AMP_LINGER_DURATION})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_2_W4_AMP_LINGER_DURATION})
 		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", ability, stacks)
 	end
 	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")

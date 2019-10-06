@@ -1,4 +1,4 @@
-require('heroes/slark/constants')
+require("/heroes/slark/slipfinn_constants")
 require('heroes/slark/jump')
 function prone_start(event)
 	local caster = event.caster

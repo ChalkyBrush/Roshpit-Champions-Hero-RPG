@@ -66,18 +66,18 @@ function fireball_hit(event)
 	local ability = event.ability
 	local minLuck = 1
 	local damage = ability.damage
-	local chance = Q3_CHANCE
+	local chance = SORCERESS_Q3_CHANCE
 	if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
 		caster = caster.origCaster
 	end
 	if caster:HasModifier("modifier_sorceress_glyph_2_2") then
-		chance = T22_CHANCE
-		damage = damage * T22_DAMAGE_AMPLIFY
+		chance = SORCERESS_GLYPH_2_2_CHANCE
+		damage = damage * SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY
 	end
 	if Filters:IsFireBurning(target) then
 		local damageMult = 1
 		if caster:HasModifier("modifier_sorceress_glyph_5_a") then
-			damageMult = T5A_MULTIPLY
+			damageMult = SORCERESS_GLYPH_5_A_MULTIPLY
 		end
 		damage = damage * damageMult
 	end
@@ -93,7 +93,7 @@ function fireball_hit(event)
 		local caster = caster
 		local target = target
 		local fireAbility = caster:FindAbilityByName("sorceress_fire_arcana_q")
-		local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel() - 1) + fireAbility.q_4_level * ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
+		local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel() - 1) + fireAbility.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
 		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, 0.2 * caster.q_3_level)
 	end
 end

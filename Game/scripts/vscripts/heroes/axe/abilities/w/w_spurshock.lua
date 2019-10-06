@@ -83,7 +83,7 @@ function projectileHit(event)
     ReduceMagicResist.applyDebuff(target, caster, ability)
 
     if caster:HasModifier("modifier_axe_glyph_1_2") then
-        Filters:ApplyStun(caster, T12_STUN_DURATION, target)
+        Filters:ApplyStun(caster, RED_GENERAL_GLYPH_1_2_STUN_DURATION, target)
     end
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 end

@@ -9,7 +9,7 @@ function earthquake_cast(event)
 	local damage = event.damage
 
 	if caster:HasModifier("modifier_conjuror_glyph_5_1") then
-		radius = radius + 80
+		radius = radius + CONJUROR_GLYPH_5_1_Q_BONUS_RADIUS
 	end
 	ability.q_3_level = get_q_3_level(caster, ability)
 	fireQuake(point, caster, radius, stun_duration, damage, true, ability, 1)
@@ -18,7 +18,7 @@ function earthquake_cast(event)
 	end
 	local duration = 1.7
 	if caster:HasModifier("modifier_conjuror_glyph_5_1") then
-		duration = duration + 1.5
+		duration = duration + CONJUROR_GLYPH_5_1_FREE_CAST_DURATION_INCREASE
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	if not caster:HasModifier("modifier_free_quake") then

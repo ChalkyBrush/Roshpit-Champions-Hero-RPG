@@ -34,7 +34,7 @@ function startChannel(event)
             tremorsCount = math.ceil(tremorsCount / 2)
             additionalRadius = math.ceil(additionalRadius / 2)
         end
-        local damageRadius = ARCANA1_R_RADIUS + additionalRadius
+        local damageRadius = RED_GENERAL_ARCANA1_R_RADIUS + additionalRadius
         min = -math.ceil((tremorsCount - 1) / 2)
         max = tremorsCount + min - 1
 
@@ -62,7 +62,7 @@ function startChannel(event)
                     damage = damage * amp
 
                     if caster:HasModifier("modifier_axe_glyph_5_a") then
-                        damage = damage * (1 + T5A_AMPLIFY_PERCENT / 100)
+                        damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
                     end
                     Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
                     Filters:ApplyStun(caster, stun_duration, enemy)
@@ -72,7 +72,7 @@ function startChannel(event)
 
             local procs = 1
             if caster:HasModifier("modifier_axe_glyph_6_1") then
-                procs = T61_DUNKS_COUNT
+                procs = RED_GENERAL_GLYPH_6_1_DUNKS_COUNT
             end
             -- if forks == 1 then
             --     Timers:CreateTimer(1.8 , function()
@@ -189,7 +189,7 @@ function startChannel(event)
             damage = damage * ability.amp
 
             if caster:HasModifier("modifier_axe_glyph_5_a") then
-                damage = damage * (1 + T5A_AMPLIFY_PERCENT / 100)
+                damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
             end
             Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
             Filters:ApplyStun(caster, stun_duration, enemy)

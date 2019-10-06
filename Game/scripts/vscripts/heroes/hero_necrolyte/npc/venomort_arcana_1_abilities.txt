@@ -114,7 +114,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% VENOMORT_ARCANA1_R4_ARMOR_BONUS %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% VENOMORT_ARCANA_1_R4_ARMOR_BONUS %>"
 				}
 		    }
 			"modifier_reaper_slice_shield"

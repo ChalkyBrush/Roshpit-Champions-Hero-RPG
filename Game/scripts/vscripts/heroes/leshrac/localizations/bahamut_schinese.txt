@@ -242,7 +242,7 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"被冻结"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] 逆效力"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"当巴哈姆特在@Ability2之外时，所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高（加法）。当巴哈姆特在@Ability2中时，巴哈姆特造成的伤害将会提高，提高系数基于@Ability2的飞行速度。此外，在@Ability2中释放神圣之耀时，增加@Ability2的飞行速度<% BAHAMUT_ARCANA_W4_R_SPEED_MULT %>倍，并且在接下去的5秒中这个符文将会把你判定为在@Ability2之中。基于移动速度增加伤害的效果会被@Ability2等级提高。"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"当巴哈姆特在@Ability2之外时，所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高（加法）。当巴哈姆特在@Ability2中时，巴哈姆特造成的伤害将会提高，提高系数基于@Ability2的飞行速度。此外，在@Ability2中释放神圣之耀时，增加@Ability2的飞行速度<% BAHAMUT_ARCANA_2_W4_R_SPEED_MULT %>倍，并且在接下去的5秒中这个符文将会把你判定为在@Ability2之中。基于移动速度增加伤害的效果会被@Ability2等级提高。"
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"             "额外伤害"
 		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"                   "丢失魔法值%"		        			
         "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"             "增加伤害"	  						
@@ -255,7 +255,7 @@
 				
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"英勇雕文"
-		"item_rpc_bahamut_glyph_1_1_description" 				"降低受到的所有物理伤害 @glyph_property1%"
+		"item_rpc_bahamut_glyph_1_1_description" 				"降低受到的所有物理伤害 <% BAHAMUT_GLYPH_1_1_PHYS_RES_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_2_1"		"亿万之墙雕文"
 		"item_rpc_bahamut_glyph_2_1_description" 				"神圣之耀结束后创建一面宽恕之墙，巴哈姆特将自动穿过该墙。"
@@ -263,22 +263,22 @@
 		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"隔离雕文"
-		"item_rpc_bahamut_glyph_3_1_description" 				"审判将落在巴哈姆特的周围而不是在其前方，同时提高 @glyph_property1% 范围。"
+		"item_rpc_bahamut_glyph_3_1_description" 				"审判将落在巴哈姆特的周围而不是在其前方，同时提高 <% BAHAMUT_GLYPH_3_1_W_RADIUS_INCREASE_PCT %>% 范围。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"围墙雕文"
-		"item_rpc_bahamut_glyph_4_1_description" 				"提高宽恕之墙的持续时间 @glyph_property1 秒。"
+		"item_rpc_bahamut_glyph_4_1_description" 				"提高宽恕之墙的持续时间 <% BAHAMUT_GLYPH_4_1_Q_DURATION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"孤立雕文"
-		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 @glyph_property1 秒。"
+		"item_rpc_bahamut_glyph_5_1_description" 				"提高孤独之盾的持续时间 <% BAHAMUT_GLYPH_5_1_R4_DURATION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"傲慢雕文"
-		"item_rpc_bahamut_glyph_6_1_description" 				"[E3]被动生效且不再降低移动速度。此外巴哈姆特的脉搏每5次造成1次 @glyph_property1 秒眩晕。"
+		"item_rpc_bahamut_glyph_6_1_description" 				"[E3]被动生效且不再降低移动速度。此外巴哈姆特的脉搏每<% BAHAMUT_GLYPH_6_1_PULSES %>次造成1次 <% BAHAMUT_GLYPH_6_1_E3_STUN %> 秒眩晕。"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"冲击雕文"
-		"item_rpc_bahamut_glyph_7_1_description" 				"提高巴哈姆特的脉搏的范围 @glyph_property1%"
+		"item_rpc_bahamut_glyph_7_1_description" 				"提高巴哈姆特的脉搏的范围 <% BAHAMUT_GLYPH_7_1_E3_RADIUS_INCREASE_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"多重之墙雕文"
-		"item_rpc_bahamut_glyph_5_a_description" 				"每 @glyph_property1 秒增加免费的墙."
+		"item_rpc_bahamut_glyph_5_a_description" 				"每 <% BAHAMUT_GLYPH_5_A_FREE_Q_INTERVAL %> 秒增加免费的墙."
 
 		"DOTA_Tooltip_ability_modifier_bahamut_5_a_cooldown"	"多重之墙冷却"
 	
@@ -300,12 +300,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"宇宙符文"
 		"item_property_bahamut_immortal_weapon"								"世界之渊"
-		"property_bahamut_immortal_weapon_description"						"技能和多重审判所造成的伤害有20%暴击造成4x所造成的伤害，暴击伤害为纯粹伤害。"
+		"property_bahamut_immortal_weapon_description"						"技能和多重审判所造成的伤害有<% BAHAMUT_IMMORTAL_WEAPON_1_CHANCE %>%暴击造成<% BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x所造成的伤害，暴击伤害为纯粹伤害。"
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "核子符文"
         "item_property_bahamut_immortal_weapon2"                             "顿悟"
-        "property_bahamut_immortal_weapon2_description"                      "提高移动速度 @special_property1% 并且减少 @Ability3 的基础冷却时间至 @special_property2 秒。"
+        "property_bahamut_immortal_weapon2_description"                      "提高移动速度 <% BAHAMUT_IMMORTAL_WEAPON_2_MOVESPEED_BONUS_PCT %>% 并且减少 @Ability3 的基础冷却时间至 <% BAHAMUT_IMMORTAL_WEAPON_2_BASE_E_CD %> 秒。"
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "原子符文"
         "item_property_bahamut_immortal_weapon3"                             "终极壁垒"
-        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 @special_property1% 并且伤害提高 @special_property2%"
+        "property_bahamut_immortal_weapon3_description"                      "提高 @Ability1 的长度 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_LENGHT_INCREASE_PCT %>% 并且伤害提高 <% BAHAMUT_IMMORTAL_WEAPON_3_Q_DAMAGE_INCREASE_PCT %>%"

@@ -20,7 +20,7 @@ function star_blink_impact(event)
   caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
   local delay = 2
   if caster:HasModifier("modifier_astral_glyph_4_1") then
-    delay = 1
+    delay = delay * ASTRAL_RANGER_GLYPH_4_1_DELAY
   end
   local particleName = "particles/units/heroes/hero_wisp/wisp_relocate_marker_endpoint.vpcf"
   local particleLocation = target

@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% Q1_ADD_DAMAGE %>"
+				"property_one"			"<% SORCERESS_Q1_ADD_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% Q1_BASE_DAMAGE %>"
+				"property_one_base"		"<% SORCERESS_Q1_BASE_DAMAGE %>"
 			}
 			"03"
 			{
@@ -62,7 +62,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% Q2_BASE_DURATION %>"
+				"property_two_base"		"<% SORCERESS_Q2_BASE_DURATION %>"
 			}
 		}
 	}
@@ -88,12 +88,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% Q3_ADD_DURATION %>"
+				"property_two"			"<% SORCERESS_Q3_ADD_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"<% Q3_BASE_DURATION %>"
+				"property_two_base"		"<% SORCERESS_Q3_BASE_DURATION %>"
 			}
 		}
 	}
@@ -210,12 +210,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% W3_MANA_REGEN %>"
+				"property_one"			"<% SORCERESS_W3_MANA_REGEN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% W3_INTELLECT %>"
+				"property_two"			"<% SORCERESS_W3_INTELLECT %>"
 			}
 		}
 		"Modifiers"
@@ -227,7 +227,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 
 				"Aura"          	"modifier_arcane_intellect_effect_invisible"
-				"Aura_Radius"   	"<% W3_RADIUS %>"
+				"Aura_Radius"   	"<% SORCERESS_W3_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -346,12 +346,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% E2_ADD_DAMAGE %>"
+				"property_one"			"<% SORCERESS_E2_ADD_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% E2_BASE_DAMAGE %>"
+				"property_one_base"		"<% SORCERESS_E2_BASE_DAMAGE %>"
 			}
 		}
 	}
@@ -372,7 +372,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% E3_AMPLIFY_PERCENT %>"
+				"property_one"			"<% SORCERESS_E3_AMPLIFY_PERCENT %>"
 			}
 		}
 		"Modifiers"
@@ -425,7 +425,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% E4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% SORCERESS_E4_AMPLIFY_PERCENT %>"
 			}
 			"02"
 			{
@@ -457,12 +457,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% R1_ADD_DAMAGE %>"
+				"property_one"			"<% SORCERESS_R1_ADD_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"				"<% R1_BASE_DAMAGE %>"
+				"property_one_base"		"<% SORCERESS_R1_BASE_DAMAGE %>"
 			}
 			"03"
 			{

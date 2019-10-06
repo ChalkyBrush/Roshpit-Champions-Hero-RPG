@@ -877,12 +877,13 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"magistrates_hood_init"
+						"Function"		"magistrates_hood_thinker"
 						"target"		"TARGET"
 					}
 				}

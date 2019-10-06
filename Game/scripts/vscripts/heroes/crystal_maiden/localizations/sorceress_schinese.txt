@@ -289,25 +289,25 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"寒风雕文"
-		"item_rpc_sorceress_glyph_1_1_description" 				"暴风雪造成 @glyph_property1x 伤害并额外降低移动速度和攻击速度 @glyph_property2"
+		"item_rpc_sorceress_glyph_1_1_description" 				"暴风雪造成 <% SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT %>x 伤害并额外降低移动速度和攻击速度 <% SORCERESS_GLYPH_1_1_MS_SLOW %>/<% SORCERESS_GLYPH_1_1_AS_SLOW %>"
 
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"寒风"
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"暴风雪额外降低移动速度和攻击速度"	
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"冰枪雕文"
-		"item_rpc_sorceress_glyph_2_1_description" 				"冰枪术将额外发射2个冰枪。"
+		"item_rpc_sorceress_glyph_2_1_description" 				"冰枪术将额外发射<% SORCERESS_GLYPH_2_1_Q1_ADDITIONAL_PROJECTILES %>个冰枪。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"火球雕文"
-		"item_rpc_sorceress_glyph_3_1_description" 				"施放火球术后立即发射第2和第3个火球。"
+		"item_rpc_sorceress_glyph_3_1_description" 				"施放火球术后立即发射第2和第3个火球 (outdated, launches <% SORCERESS_GLYPH_3_1_ADDITIONAL_FIREBALLS %> fireballs)。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"奥能强化雕文"
-		"item_rpc_sorceress_glyph_4_1_description" 				"提高魔法少女及其水元素的攻击速度 @glyph_property1"
+		"item_rpc_sorceress_glyph_4_1_description" 				"提高魔法少女及其水元素的攻击速度 <% SORCERESS_GLYPH_4_1_BONUS_AS %> /<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"奥术洪流雕文"
-		"item_rpc_sorceress_glyph_5_1_description" 				"将 @Ability2 替换为奥术洪流，在远距离吟唱施法，对目标敌人造成 10x @Ability2 的伤害。"
+		"item_rpc_sorceress_glyph_5_1_description" 				"将 @Ability2 替换为奥术洪流，在远距离吟唱施法，对目标敌人造成 <% SORCERESS_GLYPH_5_1_AMPLIFY %>x @Ability2 的伤害。"
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"奥术洪流"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 0.2 秒将发射弹道攻击最近的敌人。伤害为 5x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至4层。"
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 <% SORCERESS_GLYPH_5_1_INTERVAL %> 秒将发射弹道攻击最近的敌人。伤害为 <% SORCERESS_GLYPH_5_1_AMPLIFY %>x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至<% SORCERESS_GLYPH_4_1_W1_SHIELDS %>层。"
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"距离："
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"奥术洪流"
@@ -316,31 +316,31 @@
 		"item_rpc_sorceress_glyph_6_1_description" 				"暴风雪不再需要引导。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"混沌火焰雕文"
-		"item_rpc_sorceress_glyph_7_1_description" 				"炎爆术被替换为 @glyph_property1x 伤害的混爆术。"
+		"item_rpc_sorceress_glyph_7_1_description" 				"炎爆术被替换为 <% SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER %>x 伤害的混爆术。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"冰霜雕文"
-		"item_rpc_sorceress_glyph_5_a_description" 				"冰枪伤害乘数 @glyph_property1x 当敌人被冻住。"
+		"item_rpc_sorceress_glyph_5_a_description" 				"冰枪伤害乘数 <% SORCERESS_GLYPH_5_A_MULTIPLY %>x 当敌人被冻住。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"冰晶雕文"
-		"item_rpc_sorceress_glyph_1_2_description" 				"水精灵有 @glyph_property1% 概率冻结敌人 @glyph_property2 秒。"
+		"item_rpc_sorceress_glyph_1_2_description" 				"水精灵有 <% SORCERESS_GLYPH_1_2_CHANCE %>% 概率冻结敌人 <% SORCERESS_GLYPH_1_2_DURATION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"碎冰雕文"
-		"item_rpc_sorceress_glyph_2_2_description" 				"冰枪术破碎概率提高至 @glyph_property1%，并且基础技能伤害提高 @glyph_property2%。"
+		"item_rpc_sorceress_glyph_2_2_description" 				"冰枪术破碎概率提高至 <% SORCERESS_GLYPH_2_2_CHANCE %>%，并且基础技能伤害提高 <% SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY %>x。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"法强雕文"
-		"item_rpc_sorceress_glyph_3_2_description" 				"[W3]奥术智慧 拥有 @glyph_property1x 智力值和魔法恢复速度提高。"
+		"item_rpc_sorceress_glyph_3_2_description" 				"[W3]奥术智慧 拥有 <% SORCERESS_GLYPH_3_2_BONUS_AMPLIFY %>x 智力值和魔法恢复速度提高。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"灵动雕文"
-		"item_rpc_sorceress_glyph_4_2_description" 				"@Ability3 只消耗 @glyph_property1 的闪烁充能。"
+		"item_rpc_sorceress_glyph_4_2_description" 				"@Ability3 只消耗 <% SORCERESS_GLYPH_4_2_STACKS_SPEND %> 的闪烁充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"灼烧雕文"
-		"item_rpc_sorceress_glyph_5_2_description" 				"在计算敌人眩晕免疫时（眩晕时间超过一定时间，敌人将免疫眩晕），眩晕持续时间将被视为变短 @glyph_property1% "
+		"item_rpc_sorceress_glyph_5_2_description" 				"在计算敌人眩晕免疫时（眩晕时间超过一定时间，敌人将免疫眩晕），眩晕持续时间将被视为变短 <% SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION * 100 %>% "
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"柔软雕文"
-		"item_rpc_sorceress_glyph_6_2_description" 				"火焰打击的火元素伤害减少将提高 @glyph_property1%。"
+		"item_rpc_sorceress_glyph_6_2_description" 				"火焰打击的火元素伤害减少将提高 <% SORCERESS_GLYPH_6_2_R3_MULT %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"奥法吟唱雕文"
-		"item_rpc_sorceress_glyph_7_2_description" 				" @Ability2 的伤害将提高 @glyph_property1%，并且将额外消耗  @glyph_property2% 的最大魔法值。"
+		"item_rpc_sorceress_glyph_7_2_description" 				" @Ability2 的伤害将提高 <% SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY %>x，并且将额外消耗  <% SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT %>% 的最大魔法值。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"魔法巫女雕文书"
 		"DOTA_Tooltip_ability_glyph_book_desc"					"使用将永久学会如何在雕文师处制作 @consumableProperty3 雕文。"

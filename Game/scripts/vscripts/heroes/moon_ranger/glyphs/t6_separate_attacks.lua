@@ -8,17 +8,17 @@ function attackLand(event)
     local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     local target = event.target
     local ability = event.ability
-    local maxCount = T61_TARGETS;
+    local maxCount = ASTRAL_RANGER_GLYPH_6_1_TARGETS;
 
     ability.attacker = attacker
-    ability.damage = damage * T61_DAMAGE_PERCENT
+    ability.damage = damage * ASTRAL_RANGER_GLYPH_6_1_DAMAGE_PERCENT
 
     local arrowParticle = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
     if attacker:HasModifier("modifier_astral_rune_q_3") then
         arrowParticle = "particles/units/heroes/hero_drow/astral_c_a_particle_attackfrost_arrow.vpcf"
     end
 
-    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, T61_ENEMIES_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, ASTRAL_RANGER_GLYPH_6_1_ENEMIES_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         local count = 0
         for _, enemy in pairs(enemies) do

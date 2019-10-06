@@ -1,4 +1,4 @@
-require("heroes/skywrath_mage/constants")
+require("/heroes/skywrath_mage/sephyr_constants")
 
 function strafe_toggled_on(event)
 	local caster = event.caster

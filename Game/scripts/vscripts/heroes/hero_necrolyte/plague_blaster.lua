@@ -1,4 +1,4 @@
-require('heroes/hero_necrolyte/constants')
+require("/heroes/hero_necrolyte/venomort_constants")
 
 function necrofusion_precast(event)
     local caster = event.caster
@@ -18,14 +18,14 @@ function cast_necrofusion(event)
     local range = event.range
 
     if caster:HasModifier("modifier_venomort_glyph_5_2") then
-        range = range * (1 + T52_RANGE_INCREASE_PERCENT / 100)
+        range = range * (1 + VENOMORT_GLYPH_5_2_RANGE_INCREASE_PERCENT / 100)
     end
     local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 100), 1)
     ParticleManager:SetParticleControl(pfx, 1, Vector(40, 40, 40))
     ParticleManager:SetParticleControl(pfx, 2, Vector(18, 18, 18))
     local count = 1
     if caster:HasModifier("modifier_venomort_immortal_weapon_2") then
-        count = WEAPON2_FUSIONS_COUNT
+        count = VENOMORT_IMMORTAL_WEAPON_2_FUSIONS_COUNT
     end
 
     for i = -(count - 1) / 2, (count - 1) / 2 do
@@ -55,7 +55,7 @@ function cast_necrofusion(event)
 
     local w1_level = caster:GetRuneValue("w", 1)
     if w1_level then
-        damage = damage + w1_level * W1_DAMAGE_PER_HP_PERCENT / 100 * caster:GetHealth()
+        damage = damage + w1_level * VENOMORT_W1_DAMAGE_PER_HP_PERCENT / 100 * caster:GetHealth()
     end
     ability.w_damage = damage
 
@@ -63,15 +63,15 @@ function cast_necrofusion(event)
     ability.w3_level = w3_level
 
     if caster:HasModifier("modifier_venomort_glyph_5_1") then
-        ability.w3_level = ability.w3_level * T51_AMPLIFY_W3
+        ability.w3_level = ability.w3_level * VENOMORT_GLYPH_5_1_AMPLIFY_W3
     end
 
     local w2_level = caster:GetRuneValue("w", 2)
-    local w2_duration = w2_level * W2_DURATION
+    local w2_duration = w2_level * VENOMORT_W2_DURATION
 
     local modifier = caster:FindModifierByName("modifier_venomort_glyph_1_2")
     if modifier then
-        w2_duration = w2_duration * (1 + T12_DURATION_INCREASE_PERCENT / 100)
+        w2_duration = w2_duration * (1 + VENOMORT_GLYPH_1_2_DURATION_INCREASE_PERCENT / 100)
     end
 
     ability.w2_level = w2_level
@@ -85,7 +85,7 @@ function projectile_hit(event)
     local ability = event.ability
     local target = event.target
     local damage = ability.w_damage
-    local duration = W_DURATION
+    local duration = VENOMORT_W_DURATION
 
     ability:ApplyDataDrivenModifier(caster, target, "modifier_necrofusion_slowed", {duration = duration})
 
@@ -96,7 +96,7 @@ function projectile_hit(event)
     end
     if ability.w2_level > 0 then
         local luck = RandomInt(1, 100)
-        if luck < W2_CHANCE then
+        if luck < VENOMORT_W2_CHANCE then
             demoralize(caster, ability, target, ability.w2_duration)
         end
     end
@@ -110,7 +110,7 @@ function demoralize(caster, ability, target, duration)
     end
 
     ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_demoralize", {duration = duration})
-    ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_demoralize_immune", {duration = duration + W2_IMMUNE_DURATION})
+    ability:ApplyDataDrivenModifier(caster, target, "modifier_venomort_demoralize_immune", {duration = duration + VENOMORT_W2_IMMUNE_DURATION})
 end
 
 function demoralize_think(event)
@@ -137,8 +137,8 @@ function increase_w3_stacks(event)
     local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
     local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
     if caster:HasModifier("modifier_venomort_glyph_2_1") then
-        bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
-        paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
+        bossesCountAs = VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES
+        paragonsCountAs = VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES
     end
 
     if target.mainBoss then
@@ -163,8 +163,8 @@ function decrease_w3_stacks(event)
     local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
     local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
     if caster:HasModifier("modifier_venomort_glyph_2_1") then
-        bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
-        paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
+        bossesCountAs = VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES
+        paragonsCountAs = VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES
     end
 
     if target.mainBoss then

@@ -23,7 +23,7 @@ function windstrike_start(event)
 	local ability = event.ability
 	local duration = event.duration
 	if caster:HasModifier("modifier_spirit_warrior_immortal_weapon_1") then
-		duration = duration + 10
+		duration = duration + SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DURATION_BONUS
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "spirit_warrior")

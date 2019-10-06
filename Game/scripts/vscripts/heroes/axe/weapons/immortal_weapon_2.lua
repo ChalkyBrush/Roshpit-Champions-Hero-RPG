@@ -11,7 +11,7 @@ end
 local function getAmp(caster, target)
     if caster:HasModifier("modifier_axe_immortal_weapon_2") then
         if target.mainBoss or target.bossStatus or target.paragon then
-            return 1 + SEA_WEAPON_1_AMPLIFY_PERCENT / 100
+            return 1 + RED_GENERAL_IMMORTAL_WEAPON_2_AMPLIFY_PERCENT / 100
         else
             return 1
         end

@@ -248,7 +248,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% spirit_warrior_glyph_7_1_additional_duration %>"
+				"property_one"			"<% SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION %>"
 			}
 		}
 	}
@@ -289,9 +289,9 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%property_one"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_two"
-				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%property_three"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SPIRIT_WARRIOR_GLYPH_5_A_AS_PER_STACK %>"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SPIRIT_WARRIOR_GLYPH_5_A_BONUS_DMG_PER_STACK_PCT %>"
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"<% SPIRIT_WARRIOR_GLYPH_5_A_ATTACK_RANGE_PER_STACK %>"
 				}
 			}
 		}

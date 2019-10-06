@@ -45,7 +45,7 @@ function start(event)
     --print("--NEW JUMP--")
 
     if caster:HasModifier("modifier_axe_glyph_7_1") then
-        local newCD = 1.5
+        local newCD = RED_GENERAL_GLYPH_7_1_Q_CD
         ability:EndCooldown()
         ability:StartCooldown(newCD)
     end
@@ -123,8 +123,8 @@ function attackLand(event)
     local aoe_damage = event.aoe_damage
     aoe_damage = aoe_damage + BrutalExpansion.getAdditionalDamage(caster);
     if caster:HasModifier("modifier_axe_glyph_5_1") then
-        aoe_damage = aoe_damage * 3
-        stun_duration = 0.03
+        aoe_damage = aoe_damage * RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP
+        stun_duration = RED_GENERAL_GLYPH_5_1_Q_STUN
     end
     local base_radius = event.base_radius
 

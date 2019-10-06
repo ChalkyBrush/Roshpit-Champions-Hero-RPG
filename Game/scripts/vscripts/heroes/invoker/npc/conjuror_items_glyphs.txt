@@ -33,12 +33,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"140"
+				"property_one"			"<% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_AS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"<% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_ATTACK_DMG_PCT %>"
 			}
 		}
 	}
@@ -77,7 +77,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"<% CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT %>"
 			}
 		}
 	}
@@ -155,7 +155,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"420"
+				"property_one"			"<% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>"
 			}
 		}
 	}

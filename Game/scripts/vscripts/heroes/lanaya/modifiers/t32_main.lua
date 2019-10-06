@@ -1,5 +1,5 @@
 require('/npc_abilities/base_modifier')
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 modifier_trapper_t32_main = class(npc_base_modifier, nil, npc_base_modifier)
 local class = modifier_trapper_t32_main
 local modifierDamageReduction = 'modifier_trapper_t32_damage_reduction'
@@ -13,7 +13,7 @@ function class:OnAfterPreMitigationReduce(data)
         return
     end
     local modifier = data.victim:AddNewModifier(data.attacker, data.ability, modifierDamageReduction, { duration = TRAPPER_T32_DURATION })
-    modifier:SetStackCount(TRAPPER_T31_SHIELDS)
+    modifier:SetStackCount(TRAPPER_GLYPH_3_1_SHIELDS)
 end
 function class:IsHidden()
     return true

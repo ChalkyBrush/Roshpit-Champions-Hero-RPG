@@ -459,7 +459,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% SEA_WEAPON_1_ADD_MOVESPEED %>"
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% RED_GENERAL_IMMORTAL_WEAPON_2_ADD_MOVESPEED %>"
                 }
 			}
 		}
@@ -468,12 +468,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% SEA_WEAPON_1_ADD_MOVESPEED %>"
+				"property_one"			"<% RED_GENERAL_IMMORTAL_WEAPON_2_ADD_MOVESPEED %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"<% SEA_WEAPON_1_AMPLIFY_PERCENT %>"
+				"property_two"		"<% RED_GENERAL_IMMORTAL_WEAPON_2_AMPLIFY_PERCENT %>"
 			}
 		}
 	}
@@ -524,7 +524,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% SEA_WEAPON_2_BONUS_SHIELDS_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_IMMORTAL_WEAPON_3_BONUS_SHIELDS_PERCENT %>"
 			}
 		}
 	}
