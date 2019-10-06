@@ -591,12 +591,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% T62_SHIELD_CHANCE_PERCENT %>"
+				"property_two"			"<% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>"
 			}
 		}
 	}
