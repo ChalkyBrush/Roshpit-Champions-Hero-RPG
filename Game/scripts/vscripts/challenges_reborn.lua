@@ -224,6 +224,27 @@ function Challenges:PanoramaInput(msg)
 		if msg.challenge_type == "web" and Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) then
 			Challenges.ActiveChallenge = Challenges.web_challenge
 		end
+		StartAnimation(Challenges.Crusader, {duration = 2.5, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.8})
+		EmitSoundOn("Challenges.Crusader.VOStart", Challenges.Crusader)
+		Timers:CreateTimer(2.5, function()
+			Challenges:DespawnCrusader()
+		end)
 	end
+end
+
+function Challenges:DespawnCrusader()
+
+	CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf", Challenges.Crusader, 4)
+	EmitSoundOn("Challenges.Crusader.Enter", Challenges.Crusader)
+	EmitSoundOn("Challenges.Crusader.VOEnter", Challenges.Crusader)
+	Events:smoothSizeChange(Challenges.Crusader, 1.14, 0.01, 66)
+	StartAnimation(Challenges.Crusader, {duration = 1.5, activity = ACT_DOTA_OVERRIDE_ABILITY_3, rate = 0.8})
+	Timers:CreateTimer(1.9, function()
+		CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf", Challenges.Crusader, 4)
+		EmitSoundOn("Challenges.Crusader.Exit", Challenges.Crusader)
+	end)
+	Timers:CreateTimer(2.2, function()
+		UTIL_Remove(Challenges.Crusader)
+	end)
 end
 
