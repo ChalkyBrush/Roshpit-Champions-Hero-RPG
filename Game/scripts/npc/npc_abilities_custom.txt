@@ -19597,7 +19597,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"				"80000"
+				"property_one_base"		"80000"
 			}
 			"03"
 			{
@@ -45689,7 +45689,7 @@
                 "IsHidden"  "1"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+                    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
                 }
             }
             "modifier_astral_arcana_on_platform"
@@ -45836,7 +45836,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"36"
 			}
 		}
 	}
@@ -45855,7 +45855,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"36"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -47868,7 +47868,6 @@
 
 
 
-
 	"astral_rune_q_1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -48375,7 +48374,6 @@
 			}
 		}
 	}
-
 
 
 
@@ -50673,7 +50671,7 @@
 				"Passive"  "0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-40"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-80"
 				}
 			}
 		}
@@ -113592,12 +113590,12 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"1.8 2.2 2.6"
-		"AbilityCooldown"				"8.5"
+		"AbilityChannelTime"			"2.0"
+		"AbilityCooldown"				"10"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 1000 4000"
+		"AbilityDamage"					"600 5000 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -113615,12 +113613,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"channel_time"		"1.8 2.2 2.6"
+				"channel_time"		"2.0"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"total_damage"		"600 2000 8000"
+				"total_damage"		"600 5000 25000"
 			}
 		}
 	}
