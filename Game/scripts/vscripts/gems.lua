@@ -317,3 +317,22 @@ function Gems:CanPlayerAffordGem(playerID, socket_number, gem, gem_level, item)
 		return false
 	end
 end
+
+function Gems:CreateUnrefinedGemstones(reward)
+	local item = RPCItems:CreateConsumable("item_rpc_unrefined_gemstones", "immortal", "Unrefined Gemstones", "consumable", false, "Consumable", "unrefined_gemstones_desc")
+	item.newItemTable.stashable = true
+	item.newItemTable.consumable = true
+	item.pickedUp = true
+	item.newItemTable.property1 = reward
+	item.newItemTable.property1name = "tooltip_prismatic_gemstones"
+	item.newItemTable.property1color = "#EEEEEE"
+	item.newItemTable.property1tooltip = "tooltip_prismatic_gemstones"
+	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "tooltip_prismatic_gemstones", item.newItemTable.property1color, 1)
+	RPCItems:ItemUpdateCustomNetTables(item)
+end
+
+function Gems:UseUnrefinedGemstonesItem(event)
+	local caster = event.caster
+	local gemstones = event.gemstones
+	local gemstone_value = gemstones.newItemTable.property1
+end

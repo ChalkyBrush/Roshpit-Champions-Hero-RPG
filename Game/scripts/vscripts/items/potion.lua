@@ -185,3 +185,7 @@ end
 function use_arcana_cache(event)
 	RPCItems:UseArcanaCache(event.caster, event.ability)
 end
+
+function use_unrefined_gemstones(event)
+	Gems:UseUnrefinedGemstonesItem(event)
+end

@@ -141,6 +141,7 @@ function Challenges:SpawnByMap()
 	if Challenges.Crusader then
 		return false
 	end
+	PrecacheUnitByNameAsync("the_crusader", function(...) end)
 	if GetMapName() == "rpc_tanari_jungle" then
 		Challenges:SpawnCrusaderNow(Vector(-4416, 1069), Vector(-1, 0))
 	elseif GetMapName() == "rpc_redfall_ridge" then
@@ -248,3 +249,45 @@ function Challenges:DespawnCrusader()
 	end)
 end
 
+function Challenges:MainBossSlainEvent(boss_name)
+	if Challenges.ChallengeCompleted then
+		return false
+	end
+	if Challenges.ActiveChallenge["challenge"]["objective"] == boss_name then
+		Challenges.ChallengeCompleted = true
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			local hero = MAIN_HERO_TABLE[i]
+			local playerID = hero:GetPlayerOwnerID()
+			local steamID = PlayerResource:GetSteamAccountID(playerID)
+			Challenges:RewardSequenceForHero(hero)
+		end
+	end
+end
+
+function Challenges:RewardSequenceForHero(hero)
+	CustomAbilities:QuickAttachParticle("particles/econ/taunts/ursa/ursa_unicycle/ursa_unicycle_taunt_spotlight.vpcf", hero, 10)
+	Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_challenge_win_float", {duration = 5})
+	EmitSoundOn("UI.Challenge.WinStart", hero)
+	Timers:CreateTimer(1, function()
+		EmitSoundOn("UI.Crusader.Win", hero)
+		Notifications:BottomToAll({text = "ui_challenge_completed", duration = 7.0})
+	end)
+	Timers:CreateTimer(2, function()
+		CustomAbilities:QuickAttachParticle("particles/roshpit/challenges/challenge_complete.vpcf", hero, 4)
+		CustomAbilities:QuickAttachParticle("particles/econ/taunts/ursa/ursa_unicycle/ursa_unicycle_taunt_spotlight.vpcf", hero, 10)
+	end)
+	local reward = 10
+	Timers:CreateTimer(5, function()
+		CustomAbilities:QuickAttachParticle("particles/roshpit/challenges/win_pop.vpcf", hero, 3)
+		EmitSoundOn("Challenges.RewardPopEnd", hero)
+		-- Challenges:CreateUnrefinedGemstonesForHero(hero, Challenges.ActiveChallenge["challenge"]["reward"])
+		local gemstones_item = Gems:CreateUnrefinedGemstones(reward)
+		RPCItems:GiveItemToHeroWithSlotCheck(hero, gemstones_item)
+	end)
+	-- C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota\particles\econ\items\monkey_king\mk_ti9_immortal\mk_ti9_immortal_army_cast.vpcf
+end
+
+function Challenges:CreateUnrefinedGemstonesForHero(hero, reward)
+	EmitSoundOn("Challenges.RewardPop", hero)
+	print("GIVE "..reward.." TO HERO")
+end

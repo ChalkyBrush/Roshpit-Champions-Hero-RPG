@@ -6745,6 +6745,13 @@
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/sven/sven.vmdl"
         "SoundSet"  "Creep_Good_Range"
+        "precache"
+        {
+            "particle"  "particles/econ/taunts/ursa/ursa_unicycle/ursa_unicycle_taunt_spotlight.vpcf"
+            "particle"  "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf"
+            "particle"  "particles/roshpit/challenges/win_pop.vpcf"
+            "particle"  "particles/roshpit/challenges/challenge_complete.vpcf"
+        }
         "Level" "1"
         "UnitLabel" "healing_ward"
         "ModelScale"    "1.05"

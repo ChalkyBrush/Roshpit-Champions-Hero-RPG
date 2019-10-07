@@ -1092,6 +1092,12 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				end
 				RPCItems:ItemUpdateCustomNetTables(item)
 				return item
+			elseif string.match(gearTable.item_variant, "item_rpc_unrefined_gemstones") then
+				local item = Gems:CreateUnrefinedGemstones(gearTable.property1)
+				if gearTable.validator then
+					item.newItemTable.validator = gearTable.validator
+				end
+				return item
 			end
 		end
 	end

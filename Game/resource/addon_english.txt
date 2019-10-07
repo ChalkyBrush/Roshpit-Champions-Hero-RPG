@@ -1156,6 +1156,10 @@
 		"ui_start_challenge"										"Start Challenge"
 		"ui_challenge_reward"										"Reward"
 		"ui_challenge_started"										"The Crusader's Challenge is accepted."
+		"ui_challenge_completed"									"Challenge Completed"
+
+		"DOTA_Tooltip_ability_item_rpc_unrefined_gemstones"			"Unrefined Gemstones"
+		"unrefined_gemstones_desc"									"Grants Primsatic Gemstones when taken to the Refinery in town."
 
 	    //------------------------
 		// Blacksmith

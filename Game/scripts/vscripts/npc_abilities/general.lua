@@ -756,3 +756,33 @@ function ms_thinker(event)
 	-- end
 end
 
+function challenge_win_float_think(event)
+	local target = event.target
+	if not target.challenge_win_phase then
+		target.challenge_win_phase = 0
+	end
+	target.challenge_win_phase = target.challenge_win_phase + 1
+	local lift_force = 7
+	if target.challenge_win_phase > 20 then
+		lift_force = 5
+	end
+	if target.challenge_win_phase > 30 then
+		lift_force = 3
+	end
+	if target.challenge_win_phase > 40 then
+		lift_force = 1
+	end
+	if target.challenge_win_phase > 50 then
+		lift_force = 0
+	end
+	if target.challenge_win_phase > 150 then
+		lift_force = -15
+		if GetGroundHeight(target:GetAbsOrigin(), target) + 17 > target:GetAbsOrigin().z then
+			target:RemoveModifierByName("modifier_challenge_win_float")
+			target.challenge_win_phase = 0
+			StartAnimation(target, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 1})
+			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+		end
+	end
+	target:SetAbsOrigin(target:GetAbsOrigin()+Vector(0,0,lift_force))
+end
