@@ -4861,7 +4861,20 @@ function RPCItems:RollVoyagerBoots(deathLocation)
     item.newItemTable.property1name = "voyager"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_voyager", "#AB9091", 1, "#property_voyager_description")
 
-    RPCItems:RollFootProperty2(item, 0)
+    local luck = RandomInt(1, 9)
+    if luck == 1 then
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.ceil(value * 0.85)
+		item.newItemTable.property2name = "rune_e_3"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	else
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property2name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	end
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
@@ -5765,7 +5778,7 @@ function RPCItems:RollFalconBoots(deathLocation)
 	elseif luck == 2 then
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		item.newItemTable.property2 = math.ceil(value * 0.75)
+		item.newItemTable.property2 = math.ceil(value * 0.85)
 		item.newItemTable.property2name = "rune_e_3"
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	else
@@ -5800,7 +5813,7 @@ function RPCItems:RollCrusaderBoots(deathLocation)
 	elseif luck == 2 then
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		item.newItemTable.property2 = math.ceil(value * 0.75)
+		item.newItemTable.property2 = math.ceil(value * 0.85)
 		item.newItemTable.property2name = "rune_e_3"
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	else
