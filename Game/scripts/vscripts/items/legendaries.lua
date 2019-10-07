@@ -1231,9 +1231,12 @@ function RPCItems:RollGloveOfTheForgottenGhost(deathLocation)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "base_ability"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
-
+	local luck = RandomInt(1, 2)
+	if luck > 1 then
     Elements:RollElementAttribute(item, RPC_ELEMENT_GHOST, 2.5, 1, 30, 3)
-
+	else
+	RPCItems:RollHandProperty3(item, 0)
+	end
     RPCItems:RollHandProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
