@@ -5780,12 +5780,26 @@ function RPCItems:RollCrusaderBoots(deathLocation)
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "crusader"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crusader_boots", "#48B6CF", 1, "#property_crusader_boots_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 8, 13, 0, 0, item.newItemTable.rarity, false, maxFactor * 13)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "strength"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-
+	
+	local luck = RandomInt(1, 10)
+	if luck == 1 then
+		local value, nameLevel = RPCItems:RollAttribute(0, 8, 25, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
+		item.newItemTable.property2 = value
+		item.newItemTable.property2name = "strength"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
+	elseif luck == 2 then
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.ceil(value * 0.75)
+		item.newItemTable.property2name = "rune_e_3"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	else
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property2name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	end
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
