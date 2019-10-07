@@ -784,12 +784,4 @@
 		{
 			"particle"  "particles/units/heroes/hero_puck/wraith_crown.vpcf"
 		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
 	}

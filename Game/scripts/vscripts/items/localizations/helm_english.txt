@@ -183,10 +183,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
-		"item_property_wraith_crown"									"Wraithtide"					
-		"property_wraith_crown_description"							"While having <% WRAITH_CROWN_BUFF_HP_TRESHOLD_PCT %>% of max health or less you will have <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoint projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
-		"DOTA_Tooltip_modifier_wraith_crown_buff"				"Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_buff_description"	"Gives <% WRAITH_CROWN_EVASION_PCT %>% evasion, <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance and disjoints projectiles every <% WRAITH_CROWN_DISJOINT_INTERVAL_SEC %> seconds."
+		"item_property_wraith_crown"							"Wraithtide"					
+		"property_wraith_crown_description"						"While having equal or less than <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% of max health casting @Ability1 will give you <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance for <% WRAITH_CROWN_MAG_RES_DUR %>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <% WRAITH_CROWN_DISJOINT_CD %>s) and casting @Ability 3 will give you <% WRAITH_CROWN_EVASION_PCT %>% evasion for <% WRAITH_CROWN_EVASION_DUR %>s."
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"Gives <% WRAITH_CROWN_MAG_RES_PCT %>%% magic resistance."
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"Gives <% WRAITH_CROWN_EVASION_PCT %>%% evasion."
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles currently."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
