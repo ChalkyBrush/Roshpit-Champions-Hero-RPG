@@ -5752,7 +5752,19 @@ function RPCItems:RollSonicBoots(deathLocation)
     item.newItemTable.property1name = "sonic_boot"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sonic_boots", "#AACFE6", 1, "#property_sonic_boots_description")
 
-    RPCItems:RollFootProperty2(item, 0)
+    local luck = RandomInt(1, 10)
+    if luck == 1 then
+        local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor / 1.5), 0, 0, 0, 0)
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = "movespeed"
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_movespeed", "#B02020", 2)
+	else
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property2name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	end
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
