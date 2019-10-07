@@ -5757,14 +5757,24 @@ function RPCItems:RollFalconBoots(deathLocation)
 
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_falcon_boot", "#AACFE6", 1, "#property_falcon_boot_description")
 
-    local luck = RandomInt(1, 2)
+    local luck = RandomInt(1, 10)
     if luck == 1 then
         item.newItemTable.property2name = "ghost_walk"
         item.newItemTable.property2 = 1
         RPCItems:SetPropertyValuesSpecial(item, "★", "#item_unit_walking", "#9B72C4", 2, "#property_unit_walking_description")
-    else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_HOLY, 2.8, 2, 22, 2)
-    end
+	elseif luck == 2 then
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.ceil(value * 0.75)
+		item.newItemTable.property2name = "rune_e_3"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	else
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property2name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	end
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
