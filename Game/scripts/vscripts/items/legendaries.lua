@@ -5103,10 +5103,11 @@ function RPCItems:RollCrimsythEliteGreavesLV1(deathLocation)
     --RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_crimsyth_elite_1", "#DD2727",  1, "#property_crimsyth_elite_1_description")
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimsyth_elite_3", "#DD2727", 1, "#property_crimsyth_elite_3_description")
 
-    local value, nameLevel = RPCItems:RollAttribute(0, 4, 8, 0, 0, item.newItemTable.rarity, false, maxFactor * 4)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
+    item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.floor(value * 1.35)
+		item.newItemTable.property2name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
