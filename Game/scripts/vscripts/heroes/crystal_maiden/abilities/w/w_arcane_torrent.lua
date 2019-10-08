@@ -19,7 +19,7 @@ function calculateDamage(event)
     Filters:CastSkillArguments(2, caster)
 
     local arcane_explosion_damage = caster:FindAbilityByName("arcane_explosion"):GetLevelSpecialValueFor("damage", ability:GetLevel())
-    arcane_explosion_damage = arcane_explosion_damage * T51_AMPLIFY * caster:GetMaxMana() / 100
+    arcane_explosion_damage = arcane_explosion_damage * SORCERESS_GLYPH_5_1_AMPLIFY * caster:GetMaxMana() / 100
 
     if caster.w_4_level > 0 then
         arcane_explosion_damage = arcane_explosion_damage * (1 + SORCERESS_W4_AMPLIFY_PERCENT / 100 * caster.w_4_level)
@@ -27,10 +27,10 @@ function calculateDamage(event)
 
     ability.manacost = event.mana_drain / 5
     if caster:HasModifier("modifier_sorceress_glyph_7_2") then
-        arcane_explosion_damage = arcane_explosion_damage * T72_DAMAGE_AMPLIFY
-        ability.manacost = ability.manacost + caster:GetMaxMana() * T72_MANA_DRAIN_PERCENT / 100
+        arcane_explosion_damage = arcane_explosion_damage * SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY
+        ability.manacost = ability.manacost + caster:GetMaxMana() * SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT / 100
     end
-    ability.damage = arcane_explosion_damage * T51_AMPLIFY
+    ability.damage = arcane_explosion_damage * SORCERESS_GLYPH_5_1_AMPLIFY
 end
 
 function toggle_on(event)

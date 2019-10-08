@@ -15,20 +15,20 @@ function attackLand(event)
     if caster:HasModifier("modifier_astral_arcana1") then
         q_2_level = caster:GetRuneValue("q", 2)
         if caster:HasModifier("modifier_astral_immortal_weapon_2") then
-            procChance = WEAPON2_ARCANA1_Q2_PROC_CHANCE
+            procChance = ASTRAL_RANGER_IMMORTAL_WEAPON_2_ARCANA1_Q2_PROC_CHANCE
         else
-            procChance = ARCANA1_Q2_PROC_CHANCE
+            procChance = ASTRAL_RANGER_ARCANA1_Q2_PROC_CHANCE
         end
-        damageMultiply = ASTRAL_ARCANA1_Q2_DMG_PER_ATT
+        damageMultiply = ASTRAL_RANGER_ARCANA1_Q2_DMG_PER_ATT
         baseAbilityFor = 1
     else
         q_2_level = caster:GetRuneValue("q", 2)
         if caster:HasModifier("modifier_astral_immortal_weapon_2") then
-            procChance = WEAPON2_Q2_PROC_CHANCE
+            procChance = ASTRAL_RANGER_IMMORTAL_WEAPON_2_Q2_PROC_CHANCE
         else
-            procChance = Q2_PROC_CHANCE
+            procChance = ASTRAL_RANGER_Q2_PROC_CHANCE
         end
-        damageMultiply = ASTRAL_Q2_DMG_PER_ATT
+        damageMultiply = ASTRAL_RANGER_Q2_DMG_PER_ATT
     end
 
     if q_2_level == nil or q_2_level <= 0 then

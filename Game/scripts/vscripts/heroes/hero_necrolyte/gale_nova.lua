@@ -1,27 +1,27 @@
 require('heroes/hero_necrolyte/plague_blaster')
-require('heroes/hero_necrolyte/constants')
+require("/heroes/hero_necrolyte/venomort_constants")
 
 function cast(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.damage
-	local radius = Q_RANGE
-	local duration = Q_DEBUFF_DURATION
+	local radius = VENOMORT_Q_RANGE
+	local duration = VENOMORT_Q_DEBUFF_DURATION
 
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.3})
 	Filters:CastSkillArguments(1, caster)
 
 	if caster:HasModifier("modifier_venomort_glyph_1_1") then
 		ability:EndCooldown()
-		ability:StartCooldown(T11_COOLDOWN)
+		ability:StartCooldown(VENOMORT_GLYPH_1_1_COOLDOWN)
 	end
 
 	local q1_level = caster:GetRuneValue("q", 1)
-	local q1_duration = Q1_DURATION
+	local q1_duration = VENOMORT_Q1_DURATION
 
 	local q2_level = caster:GetRuneValue("q", 2)
 	if q2_level > 0 then
-		damage = damage + Q2_DAMAGE_PER_INT * q2_level * caster:GetIntellect()
+		damage = damage + VENOMORT_Q2_DAMAGE_PER_INT * q2_level * caster:GetIntellect()
 	end
 	ability.dot_damage = damage
 
@@ -29,7 +29,7 @@ function cast(event)
 
 	local q4_level = caster:GetRuneValue("q", 4)
 	if q4_level > 0 then
-		radius = radius + q4_level * Q4_RANGE
+		radius = radius + q4_level * VENOMORT_Q4_RANGE
 	end
 
 
@@ -53,8 +53,8 @@ function cast(event)
 	local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
 	local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
-		paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
+		bossesCountAs = VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES
 	end
 
 	local apply_demoralize = false
@@ -65,7 +65,7 @@ function cast(event)
 		local w2_level = caster:GetRuneValue("w", 2)
 		if w2_level > 0 then
 			apply_demoralize = true
-			demoralize_duration = w2_level * W2_DURATION * (1 + T12_DURATION_INCREASE_PERCENT / 100)
+			demoralize_duration = w2_level * VENOMORT_W2_DURATION * (1 + VENOMORT_GLYPH_1_2_DURATION_INCREASE_PERCENT / 100)
 		end
 	end
 
@@ -85,7 +85,7 @@ function cast(event)
 			end
 			if apply_demoralize then
 				local luck = RandomInt(1, 100)
-				if luck < W2_CHANCE then
+				if luck < VENOMORT_W2_CHANCE then
 					demoralize(caster, w_ability, enemy, demoralize_duration)
 				end
 
@@ -96,7 +96,7 @@ function cast(event)
 	end
 	if q1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_nova_bad", {duration = q1_duration})
-		local stacks = math.min(#enemies + bossesCount * (bossesCountAs - 1) + paragonsCount * (paragonsCountAs - 1), Q1_MAX_STACKS)
+		local stacks = math.min(#enemies + bossesCount * (bossesCountAs - 1) + paragonsCount * (paragonsCountAs - 1), VENOMORT_Q1_MAX_STACKS)
 		caster:SetModifierStackCount("modifier_gale_nova_bad", caster, q1_level * stacks)
 	end
 

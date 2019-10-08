@@ -195,7 +195,7 @@
 
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastRange"				"300"
+		"AbilityCastRange"				"<% ZHONIK_W_CAST_RANGE %>"
 		"AbilityCastPoint"				"0.5"
 
 		// Time
@@ -342,7 +342,7 @@
 
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"<% ZHONIK_W_CAST_RANGE + ZHONIK_IMMORTAL_WEAPON_1_BONUS_RANGE %>"
 		"AbilityCastPoint"				"0.5"
 
 		// Time

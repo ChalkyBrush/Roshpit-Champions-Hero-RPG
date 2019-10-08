@@ -1,4 +1,4 @@
-require('heroes/hero_necrolyte/constants')
+require("/heroes/hero_necrolyte/venomort_constants")
 
 function ghost_warp_start(event)
 	local caster = event.caster
@@ -6,13 +6,13 @@ function ghost_warp_start(event)
 	local target = event.target_points[1]
 	local maxDistance = event.cast_range
 	if caster:HasModifier('modifier_venomort_glyph_3_1') then
-		maxDistance = maxDistance * VENOMORT_T31_E_CAST_RANGE_AMP
+		maxDistance = maxDistance * VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP
 	end
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target)
 	local scale = math.min(1, distance/maxDistance)
 
 	if caster:HasModifier('modifier_venomort_glyph_3_1') then
-		scale = scale * VENOMORT_T31_E_CAST_RANGE_AMP
+		scale = scale * VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP
 	end
 	if distance > maxDistance then
 		target = WallPhysics:ClampedVector(caster:GetAbsOrigin(), target, maxDistance)
@@ -101,13 +101,13 @@ function ghost_warp_take_damage(event)
 	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")
 
 	local e2_level = caster:GetRuneValue("e", 2)
-	local e2_damage = e2_level * E2_DAMAGE_PER_LEVEL * caster:GetLevel()
+	local e2_damage = e2_level * VENOMORT_E2_DAMAGE_PER_LEVEL * caster:GetLevel()
 
 	if e2_level == 0 then
 		return
 	end
 	if has_weapon3 then
-		e2_damage = e2_damage + e2_level * WEAPON3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT / 100 * caster:GetHealth()
+		e2_damage = e2_damage + e2_level * VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT / 100 * caster:GetHealth()
 		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", attacker:GetAbsOrigin() + Vector(0, 0, attacker:GetBoundingMaxs().z), 1)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(40, 40, 40))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(18, 18, 18))
@@ -116,8 +116,8 @@ function ghost_warp_take_damage(event)
 	if caster:HasModifier("modifier_venomort_glyph_3_2") then
 		if ability.previous_health then
 			local currentHealth = caster:GetHealth()
-			if math.floor(ability.previous_health * T32_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) - math.floor(currentHealth * T32_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) > 0 then
-				e2_damage = e2_damage * VENOMORT_T32_AMPLIFY
+			if math.floor(ability.previous_health * VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) - math.floor(currentHealth * VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT / caster:GetMaxHealth()) > 0 then
+				e2_damage = e2_damage * VENOMORT_GLYPH_3_2_AMPLIFY
 				--print('E2 amplify apply')
 			end
 		end
@@ -128,7 +128,7 @@ function ghost_warp_take_damage(event)
 	ability.e2_damage = e2_damage
 
 	if caster:HasModifier("modifier_venomort_glyph_2_2") then
-		local radius = T22_RADIUS
+		local radius = VENOMORT_GLYPH_2_2_RADIUS
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), attacker:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -162,8 +162,8 @@ end
 function e3_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local radius = E3_RADIUS
-	local duration = E3_DURATION
+	local radius = VENOMORT_E3_RADIUS
+	local duration = VENOMORT_E3_DURATION
 	ability.e3_level = caster:GetRuneValue("e", 3)
 
 	if ability.e3_level == 0 then
@@ -186,14 +186,14 @@ function apply_e4_stacks(event)
 	local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
 	local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
 	if caster:HasModifier("modifier_venomort_glyph_2_1") then
-		bossesCountAs = VENOMORT_T21_BOSSES_COUNT_AS_ENEMIES
-		paragonsCountAs = VENOMORT_T21_PARAGONS_COUNT_AS_ENEMIES
+		bossesCountAs = VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES
+		paragonsCountAs = VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES
 	end
 
-	local duration = VENOMORT_E4_DURATION + E4_DELAY
+	local duration = VENOMORT_E4_DURATION + VENOMORT_E4_DELAY
 
 	if caster:HasModifier("modifier_venomort_glyph_4_2") then
-		duration = T42_DURATION + E4_DELAY
+		duration = VENOMORT_GLYPH_4_2_DURATION + VENOMORT_E4_DELAY
 	end
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_e4_hero_bonus_visible", nil)
@@ -233,7 +233,7 @@ function recalculate_e4_stacks(event)
 	local duration = VENOMORT_E4_DURATION
 
 	if caster:HasModifier("modifier_venomort_glyph_4_2") then
-		duration = T42_DURATION
+		duration = VENOMORT_GLYPH_4_2_DURATION
 	end
 
 	local new_e4_data = {}

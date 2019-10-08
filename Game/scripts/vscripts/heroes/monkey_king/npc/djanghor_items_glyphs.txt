@@ -231,7 +231,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "2.0"
+				"ThinkInterval"  "<% DJANGHOR_GLYPH_6_1_CLEANCE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

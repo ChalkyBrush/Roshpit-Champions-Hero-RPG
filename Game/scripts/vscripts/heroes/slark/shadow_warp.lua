@@ -1,5 +1,5 @@
 LinkLuaModifier("slipfinn_shadow_warping", "modifiers/slipfinn/slipfinn_shadow_warping", LUA_MODIFIER_MOTION_NONE)
-require('heroes/slark/constants')
+require("/heroes/slark/slipfinn_constants")
 require('heroes/slark/jump')
 
 function shadow_warp_start(event)

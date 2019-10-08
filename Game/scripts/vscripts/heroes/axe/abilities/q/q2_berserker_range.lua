@@ -11,21 +11,21 @@ function attackLand(event, q2_think)
     if runesCount <= 0 then
         return
     end
-    local duration = Filters:GetAdjustedBuffDuration(caster, Q2_DURATION, false)
+    local duration = Filters:GetAdjustedBuffDuration(caster, RED_GENERAL_Q2_DURATION, false)
 
     local stacksGain = 1
 
     if caster:HasModifier("modifier_axe_glyph_3_2") and (target.mainBoss or target.bossStatus) then
-        stacksGain = T32_STACKS_GAIN
+        stacksGain = RED_GENERAL_GLYPH_3_2_STACKS_GAIN
     end
 
-    local maxStacksCount = Q2_MAX_STACKS_COUNT
+    local maxStacksCount = RED_GENERAL_Q2_MAX_STACKS_COUNT
 
     if caster:HasModifier("modifier_axe_glyph_7_2") then
         if SkullBasher.isActive(caster) then
-            stacksGain = stacksGain * T72_AMP_STACKS_PER_ATTACK
+            stacksGain = stacksGain * RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK
         end
-        maxStacksCount = T72_MAX_STACKS_COUNT
+        maxStacksCount = RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT
     end
 
     local visibleModifier = "modifier_axe_rune_q_2_visible"

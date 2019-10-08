@@ -72,7 +72,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% OMNIRO_GLYPH_2_PATH_INCREASE %>"
+				"property_one"			"<% OMNIRO_GLYPH_2_1_PATH_INCREASE %>"
 			}
 		}
 	}

@@ -132,7 +132,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "420"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>"
 				}
 			}
 			"modifier_conjuror_rune_e_3_range"

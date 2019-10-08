@@ -443,6 +443,15 @@ function GameMode:OnPlayerChat(keys)
 	-- --print("boom")
 	-- PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
 	-- end
+	if string.match(text, "-suicide") or string.match(text, "-unstuck") then
+		local playerHero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		local modifier_recently_respawned = playerHero:HasModifier("modifier_recently_respawned")
+		if modifier_recently_respawned or not playerHero:IsAlive() then
+			print("! dead !")
+		else
+			playerHero:ForceKill(true)
+		end
+	end
 	if string.match(text, "dbg") then
 		-- Serengaard:KillAllNeutrals()
 		-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
@@ -4054,6 +4063,9 @@ function Events:TutorialServerEvent(hero, code1, code2)
   if GameState:IsTutorial() then
     Tutorial:TutorialServerEvent(hero, code1, code2)
   end
+end
+
+function Events:MainBossSlain(boss_name)
 end
 
 require('worlds/winterblight/winterblight')

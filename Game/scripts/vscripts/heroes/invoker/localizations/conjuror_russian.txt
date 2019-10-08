@@ -449,28 +449,28 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"(T1) Глиф сжигающего пламени"
-		"item_rpc_conjuror_glyph_1_1_description" 				"Ваш огненный элементаль увеличивает свою скорость атаки на @glyph_property1 и урон на @glyph_property2%."
+		"item_rpc_conjuror_glyph_1_1_description" 				"Ваш огненный элементаль увеличивает свою скорость атаки на <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_AS %> и урон на <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_ATTACK_DMG_PCT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"(T2) Глиф призыва"
-		"item_rpc_conjuror_glyph_2_1_description" 				"Увеличивает показатель макс. здоровья всех элементалей на @glyph_property1%"
+		"item_rpc_conjuror_glyph_2_1_description" 				"Увеличивает показатель макс. здоровья всех элементалей на <% CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"(T3) Глиф настигающей тени"
-		"item_rpc_conjuror_glyph_3_1_description" 				"Находясь под действием (R) Call of the elements, умение (E) Shadow Gate перезаряжается @glyph_property1 сек. (Элементаль тьмы должен быть жив по окончании прочтения (R) Call of the elements)"
+		"item_rpc_conjuror_glyph_3_1_description" 				"Находясь под действием (R) Call of the elements, умение (E) Shadow Gate перезаряжается <% CONJUROR_GLYPH_3_1_E_CD_DURING_R %> сек. (Элементаль тьмы должен быть жив по окончании прочтения (R) Call of the elements)"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"(T4) Глиф длинной тени"
-		"item_rpc_conjuror_glyph_4_1_description" 				"Увеличивает дальность атаки вашего элементаля тени на @glyph_property1."
+		"item_rpc_conjuror_glyph_4_1_description" 				"Увеличивает дальность атаки вашего элементаля тени на <% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"(T5) Глиф дрожащей земли"
-		"item_rpc_conjuror_glyph_5_1_description" 				"Радиус умения (Q) Earthquake увеличен на @glyph_property1, а длительность свободного создания землетрясения увеличен на @glyph_property2 сек."
+		"item_rpc_conjuror_glyph_5_1_description" 				"Радиус умения (Q) Earthquake увеличен на <% CONJUROR_GLYPH_5_1_Q_BONUS_RADIUS %>, а длительность свободного создания землетрясения увеличен на <% CONJUROR_GLYPH_5_1_FREE_CAST_DURATION_INCREASE %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"(T6) Глиф огнемёта"
-		"item_rpc_conjuror_glyph_6_1_description" 				"С каждым критическим ударом ваш элементаль огня создаёт огненную воронку, наносящую в @glyph_property1 раз(а) больше урона (от крита)."
+		"item_rpc_conjuror_glyph_6_1_description" 				"С каждым критическим ударом ваш элементаль огня создаёт огненную воронку, наносящую в <% CONJUROR_GLYPH_6_1_CRIT %> раз(а) больше урона (от крита)."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"(T7) Глиф бессмертной земли"
 		"item_rpc_conjuror_glyph_7_1_description" 				"Когда элементаль земли погибнет, он будет автоматически мгновенно перепризван."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"(Immortal) Глиф призывания"
-		"item_rpc_conjuror_glyph_5_a_description" 				"Весь пост-резистный урон, наносимый героем и его элементалями увеличен на 200%."
+		"item_rpc_conjuror_glyph_5_a_description" 				"Весь пост-резистный урон, наносимый героем и его элементалями увеличен на <% CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT %>%."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"

@@ -146,7 +146,7 @@ function zonis_passive_think(event)
 	local stackCount = caster:GetModifierStackCount("modifier_zonis_freecast", caster)
 	local maxStacks = 2
 	if caster:HasModifier("modifier_arkimus_glyph_6_1") then
-		maxStacks = maxStacks + 1
+		maxStacks = maxStacks + ARKIMUS_GLYPH_6_1_Q_FREE_CAST
 	end
 	if stackCount <= maxStacks then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonis_freecast", {})

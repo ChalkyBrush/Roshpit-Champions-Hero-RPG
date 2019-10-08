@@ -68,7 +68,7 @@ function begin_rockfall(event)
 		end
 	end
 	if caster:HasModifier("modifier_mountain_protector_immortal_weapon_3") then
-		local CD = ability:GetCooldownTimeRemaining() * 0.35
+		local CD = ability:GetCooldownTimeRemaining() * (100-MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_3_E_CD_REDUCTION_PCT)/100
 		ability:EndCooldown()
 		ability:StartCooldown(CD)
 	end
@@ -93,8 +93,8 @@ function volcanic_glissade(event)
 	Filters:CastSkillArguments(3, caster)
 	local glyphFreeCast = false
 	if caster:HasModifier("modifier_mountain_protector_glyph_5_1") then
-		local luck = RandomInt(1, 2)
-		if luck == 1 then
+		local luck = RandomInt(1, 100)
+		if luck <= MOUNTAIN_PROTECTOR_GLYPH_5_1_E_REFRESH_CHANCE then
 			glyphFreeCast = true
 		end
 	end
@@ -111,7 +111,7 @@ function volcanic_glissade(event)
 	else
 		if not glyphFreeCast then
 			if caster:HasModifier("modifier_mountain_protector_immortal_weapon_3") then
-				local CD = ability:GetCooldownTimeRemaining() * 0.35
+				local CD = ability:GetCooldownTimeRemaining() *(100-MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_3_E_CD_REDUCTION_PCT)/100
 				ability:EndCooldown()
 				ability:StartCooldown(CD)
 			end

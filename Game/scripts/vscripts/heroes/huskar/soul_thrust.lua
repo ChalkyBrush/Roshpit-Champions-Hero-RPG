@@ -111,7 +111,7 @@ function cast_soul_thrust(event)
 		end
 	end
 	if caster:HasModifier("modifier_spirit_warrior_glyph_5_1") then
-		local manaRestore = ability:GetManaCost(ability:GetLevel() - 1) * 0.15 * #enemies
+		local manaRestore = ability:GetManaCost(ability:GetLevel() - 1) * SPIRIT_WARRIOR_GLYPH_5_1_W_HIT_MANACOST_PCT_RESTORE/100 * #enemies
 		caster:GiveMana(manaRestore)
 	end
 	local particleName = "particles/units/heroes/hero_batrider/soul_thrust.vpcf"

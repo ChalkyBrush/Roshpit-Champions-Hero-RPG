@@ -491,7 +491,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% FLAMEWAKER_IMMORTAL_WEAPON_2_ATTACK_DAMAGE_PER_AGILITY %>"
 				}
 			}
 			"modifier_flamewaker_weapon_agility"

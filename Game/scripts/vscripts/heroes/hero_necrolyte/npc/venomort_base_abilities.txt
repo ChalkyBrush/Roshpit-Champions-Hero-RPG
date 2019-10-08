@@ -92,12 +92,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"<% Q_DEBUFF_DURATION %>"
+				"duration"				"<% VENOMORT_Q_DEBUFF_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"tick_rate"			    "<% Q_TICK_RATE %>"
+				"tick_rate"			    "<% VENOMORT_Q_TICK_RATE %>"
 			}
 			"03"
 			{
@@ -107,7 +107,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"range"			    "<% Q_RANGE %>"
+				"range"			    "<% VENOMORT_Q_RANGE %>"
 			}
 		}
 
@@ -139,7 +139,7 @@
 			{
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"ThinkInterval"		"<% Q_TICK_RATE %>"
+				"ThinkInterval"		"<% VENOMORT_Q_TICK_RATE %>"
 				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 				"EffectAttachType"	"attach_origin"
 
@@ -164,7 +164,7 @@
 				"IsStunDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% Q3_ATTACK_SPEED_SLOW %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% VENOMORT_Q3_ATTACK_SPEED_SLOW %>"
 				}
 
 			}
@@ -272,7 +272,7 @@
 		    "modifier_venomort_demoralize"
 		    {
 				"IsDebuff"	"0"
-				"ThinkInterval"		"<% W2_TICK_RATE %>"
+				"ThinkInterval"		"<% VENOMORT_W2_TICK_RATE %>"
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"OnIntervalThink"
@@ -426,7 +426,7 @@
                     }
 
                 }
-                "ThinkInterval"  "<% E3_TICK_RATE %>"
+                "ThinkInterval"  "<% VENOMORT_E3_TICK_RATE %>"
                 "OnIntervalThink"
                 {
                     "RunScript"
@@ -495,7 +495,7 @@
 			    "IsHidden"  "1"
 			    "EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
 			    "EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "<% E2_TICK_RATE %>"
+				"ThinkInterval"  "<% VENOMORT_E2_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -513,7 +513,7 @@
 				"TextureName"	"necrolyte/sullen_hollow/necrophos_death_pulse"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% E3_AURA_DAMAGE_PERCENT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% VENOMORT_E3_AURA_DAMAGE_PERCENT %>"
 				}
             }
 
@@ -521,7 +521,7 @@
             {
 				"IsHidden"	"0"
 				"TextureName"	"undying_soul_rip"
-				"ThinkInterval"  "<% E4_TICK_RATE %>"
+				"ThinkInterval"  "<% VENOMORT_E4_TICK_RATE %>"
                 "OnIntervalThink"
                 {
                     "RunScript"
@@ -536,8 +536,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "<% E4_HP_PER_ENEMY %>"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% E4_EVASION_PER_ENEMY %>"
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "<% VENOMORT_E4_HP_PER_ENEMY %>"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% VENOMORT_E4_EVASION_PER_ENEMY %>"
 				}
             }
             "modifier_venomort_e4_enemy_debuff"
@@ -708,12 +708,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"<% R_ATTACK_SPEED %>"
+				"attack_speed"			"<% VENOMORT_R_ATTACK_SPEED %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"			    "<% R_DURATION %>"
+				"duration"			    "<% VENOMORT_R_DURATION %>"
 			}
 
 		}

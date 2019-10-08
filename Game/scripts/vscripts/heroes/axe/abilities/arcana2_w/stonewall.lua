@@ -81,7 +81,7 @@ function stonewall_start(event)
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
 		--print("IN HERE?")
-		local radius = AXE_ARCANA2_W3_RADIUS_BASE + AXE_ARCANA2_W3_RADIUS_GROWTH * w_4_level
+		local radius = RED_GENERAL_ARCANA2_W3_RADIUS_BASE + RED_GENERAL_ARCANA2_W3_RADIUS_GROWTH * w_4_level
 		-- local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf", caster, 2)
 		-- ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf", caster, 3)
@@ -92,7 +92,7 @@ function stonewall_start(event)
 			for _, enemy in pairs(enemies) do
 				enemy:MoveToTargetToAttack(caster)
 				if caster:HasModifier("modifier_axe_glyph_1_2") then
-					Filters:ApplyStun(caster, T12_STUN_DURATION * ability:GetLevel(), enemy)
+					Filters:ApplyStun(caster, RED_GENERAL_GLYPH_1_2_STUN_DURATION * ability:GetLevel(), enemy)
 				end
 				local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
 				if distance > 80 then
@@ -139,7 +139,7 @@ function stonewall_passive_attacked(event)
 			EmitSoundOn("RedGeneral.Stonewall.Helix", caster)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_attack_blur_counterhelix.vpcf", caster, 4)
 			StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.1})
-			local damage = (AXE_ARCANA2_W3_DMG_PCT_ATK_POWER / 100) * w_3_level * OverflowProtectedGetAverageTrueAttackDamage(caster)
+			local damage = (RED_GENERAL_ARCANA2_W3_DMG_PCT_ATK_POWER / 100) * w_3_level * OverflowProtectedGetAverageTrueAttackDamage(caster)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do

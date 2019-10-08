@@ -2625,7 +2625,7 @@ function ocean_tempest_think(event)
 	local target = event.target
 	local ability = event.ability
 
-	local manaDrain = target:GetMaxMana() * OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND/10
+	local manaDrain = target:GetMaxMana() * OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND / 100 / 10
 	if manaDrain > target:GetMana() then
 		manaDrain = target:GetMana()
 	end
@@ -6042,13 +6042,16 @@ function pivotal_swift_think(event)
 		
 end
 
-function magistrates_hood_init(event)
+function magistrates_hood_thinker(event)
+	-- print("magistrates_hood_thinker")
 	local ability = event.ability
 	local caster = event.caster
 	local hero = event.target
-
-	ability:ApplyDataDrivenModifier(caster, hero, "modifier_magistrates_hood_charges", {})
-	hero:SetModifierStackCount("modifier_magistrates_hood_charges", caster, MAGISTRATE_HOOD_MAX_CHARGES)
+	local current_stacks = hero:GetModifierStackCount("modifier_magistrates_hood_charges", caster)
+	if current_stacks and type(current_stacks) == "number" then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_magistrates_hood_charges", {})
+		hero:SetModifierStackCount("modifier_magistrates_hood_charges", caster, math.min(MAGISTRATE_HOOD_MAX_CHARGES, current_stacks + 1))
+	end
 end
 
 function nethergrasp_thinker(event)

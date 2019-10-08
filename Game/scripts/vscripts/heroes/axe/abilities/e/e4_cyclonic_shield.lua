@@ -1,9 +1,9 @@
 local function applyShield(caster, ability)
     if caster.e_4_level > 0 then
-        local duration = Filters:GetAdjustedBuffDuration(caster, E4_DURATION, false)
-        local procChance = E4_PROC_CHANCE
+        local duration = Filters:GetAdjustedBuffDuration(caster, RED_GENERAL_E4_DURATION, false)
+        local procChance = RED_GENERAL_E4_PROC_CHANCE
         if caster:HasModifier("modifier_axe_glyph_6_2") then
-            procChance = T62_SHIELD_CHANCE_PERCENT
+            procChance = RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT
         end
         local shieldsCount = Runes:Procs(caster.e_4_level, procChance, 1)
         --print("runes count " .. caster.e_4_level)

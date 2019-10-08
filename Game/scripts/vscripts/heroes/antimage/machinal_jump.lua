@@ -134,7 +134,7 @@ function jump_passive_think(event)
 	local stackCount = caster:GetModifierStackCount("modifier_machinal_jump_freecast", caster)
 	local maxStacks = 2
 	if caster:HasModifier("modifier_arkimus_glyph_4_1") then
-		maxStacks = 3
+		maxStacks = maxStacks + ARKIMUS_GLYPH_4_1_E_FREE_CAST
 	end
 	if stackCount < maxStacks then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump_freecast", {})

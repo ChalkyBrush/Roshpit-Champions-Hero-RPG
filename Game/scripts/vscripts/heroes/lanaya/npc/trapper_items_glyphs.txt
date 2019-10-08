@@ -103,7 +103,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T21_HEAL %>"
+				"property_one"			"<% TRAPPER_GLYPH_2_1_HEAL_PCT %>"
 			}
 		}
 	}
@@ -159,17 +159,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_T31_ADD_BOMBS %>"
+				"property_one"			"<% TRAPPER_GLYPH_3_1_ADD_BOMBS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% TRAPPER_T31_ADD_RADIUS %>"
+				"property_two"			"<% TRAPPER_GLYPH_3_1_ADD_RADIUS %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_three"			"<% TRAPPER_T31_SHIELDS %>"
+				"property_three"			"<% TRAPPER_GLYPH_3_1_SHIELDS %>"
 			}
 		}
 	}
@@ -265,12 +265,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T51_RADIUS_AMPLIFY_PERCENT %>"
+				"property_one"			"<% TRAPPER_GLYPH_5_1_RADIUS_AMPLIFY_PERCENT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% T51_MAX_STACKS_COUNT %>"
+				"property_two"			"<% TRAPPER_GLYPH_5_1_MAX_STACKS_COUNT %>"
 			}
 		}
 	}
@@ -309,7 +309,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% T61_NORMAL_AMPLIFY_DECREASE_PERCENT %>"
+				"property_one"			"<% TRAPPER_GLYPH_6_1_NORMAL_AMPLIFY_DECREASE_PERCENT %>"
 			}
 		}
 	}

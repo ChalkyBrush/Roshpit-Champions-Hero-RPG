@@ -11,7 +11,7 @@ local function cast(caster, ability, runesCount)
     EmitSoundOn("Sorceress.RingOfFire.Cast", caster)
     local radius = 550
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local burn_duration = Q2_BASE_DURATION + runesCount * 0.1
+    local burn_duration = SORCERESS_Q2_BASE_DURATION + runesCount * 0.1
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ring_of_fire_burn", {duration = burn_duration})

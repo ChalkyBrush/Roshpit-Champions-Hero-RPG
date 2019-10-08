@@ -185,7 +185,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1000"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DJANGHOR_GLYPH_2_1_BONUS_DAMAGE_PCT %>"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -203,7 +203,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "60"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% DJANGHOR_GLYPH_3_1_WOLF_EVASION %>"
 				}
 			}
 			"modifier_glyph_3_evasion_monkey"
@@ -211,7 +211,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "30"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% DJANGHOR_GLYPH_3_1_MONKEY_EVASION %>"
 				}
 			}
 			"modifier_shapeshift_cat"
@@ -445,7 +445,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "400"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DJANGHOR_GLYPH_7_1_BASH_BONUS_DAMAGE_PCT %>"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation

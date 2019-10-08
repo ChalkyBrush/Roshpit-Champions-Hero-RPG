@@ -120,7 +120,7 @@ function charge_end(event)
 	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_bahamut_sphere_of_divinity") then
 		local orb = caster:FindAbilityByName("bahamut_arcana_orb")
 		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
-		orb:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W4_AMP_LINGER_DURATION})
+		orb:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_2_W4_AMP_LINGER_DURATION})
 		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", orb, stacks)
 	end
 	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
@@ -174,7 +174,7 @@ function charge_end(event)
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "bahamut")
 	local shellDuration = 3
 	if caster:HasModifier("modifier_bahamut_glyph_5_1") then
-		shellDuration = 6
+		shellDuration = shellDuration + BAHAMUT_GLYPH_5_1_R4_DURATION
 	end
 	shellDuration = Filters:GetAdjustedBuffDuration(caster, shellDuration, false)
 	if d_d_level > 0 then

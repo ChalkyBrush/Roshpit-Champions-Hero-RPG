@@ -1,5 +1,5 @@
 LinkLuaModifier("slipfinn_shadow_rush_lua", "modifiers/slipfinn/slipfinn_shadow_rush_lua", LUA_MODIFIER_MOTION_NONE)
-require('heroes/slark/constants')
+require("/heroes/slark/slipfinn_constants")
 function shadow_rush_pre(event)
 	local caster = event.caster
 	local ability = event.ability

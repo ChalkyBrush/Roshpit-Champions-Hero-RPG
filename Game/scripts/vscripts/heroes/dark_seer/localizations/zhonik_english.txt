@@ -245,7 +245,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"Temporal Discharge stacks increase all <font color=\"#B5FFB7\">Temporal</font> damage by @glyph_property1%. When <font color=\"#B5FFB7\">Temporal</font> damage is dealt, 1 stack is consumed."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"Glyph of Flurry Punches"
-		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every 0.8 seconds."
+		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <% ZHONIK_GLYPH_5_A_INTERVAL %> seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
 		
@@ -267,7 +267,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"Sonar Style"
 		"item_property_zonik_immortal_weapon"							"Comet Punch"
-		"property_zonik_immortal_weapon_description"					"Mach Punch has 500 extra attack range and deals 3x damage."
+		"property_zonik_immortal_weapon_description"					"Mach Punch has <% ZHONIK_IMMORTAL_WEAPON_1_BONUS_RANGE %> extra attack range and deals <% ZHONIK_IMMORTAL_WEAPON_1_W_DMG_MULT %>x damage."
 
 		
 

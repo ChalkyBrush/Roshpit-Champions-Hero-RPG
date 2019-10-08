@@ -26,7 +26,7 @@ function astral_arcana_passive_think(event)
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_rune_q_4", {})
-		local damageStacks = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * 0.75 * q_4_level
+		local damageStacks = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * ASTRAL_RANGER_ARCANA1_Q4_DAMAGE_PER_ATTRIBUTE * q_4_level
 		caster:SetModifierStackCount("modifier_astral_rune_q_4", caster, damageStacks)
 	end
 end
@@ -124,7 +124,7 @@ function arcana_star_blink_move(caster, starAbility)
 	local modifier = caster:FindModifierByName("modifier_astral_arcana_on_platform")
 	local bonus_duration = 4
 	if caster:HasModifier("modifier_astral_glyph_4_1") then
-		bonus_duration = bonus_duration * (1 - ASTRAL_T41_DURATION_REDUCTION_PCT / 100)
+		bonus_duration = bonus_duration * (1 - ASTRAL_RANGER_GLYPH_4_1_DURATION_REDUCTION_PCT / 100)
 	end
 	local duration = modifier:GetRemainingTime() + bonus_duration
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_on_platform", {duration = duration})

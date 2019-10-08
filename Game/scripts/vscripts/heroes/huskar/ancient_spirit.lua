@@ -80,7 +80,7 @@ function cast_ancient_spirit(event)
 		-- end
 		local maxSpirits = 3
 		if caster:HasModifier("modifier_spirit_warrior_glyph_3_1") then
-			maxSpirits = 5
+			maxSpirits = SPIRIT_WARRIOR_GLYPH_3_1_MAX_SPIRITS
 		end
 		if #ability.spiritTable > maxSpirits then
 			removeSpirit(ability.spiritTable[1], ability, caster)
@@ -135,7 +135,7 @@ function spirit_dashing_think(event)
 		local moveVector = ((spiritOrigin - casterOrigin) * Vector(1, 1, 0)):Normalized()
 		local dashSpeed = 50
 		if caster:HasModifier("modifier_spirit_warrior_glyph_1_1") then
-			dashSpeed = math.floor(dashSpeed * 1.5)
+			dashSpeed = math.floor(dashSpeed * (100+SPIRIT_WARRIOR_GLYPH_1_1_E_JUMP_SPEED_INCREASE_PCT)/100)
 		end
 		dashSpeed = Filters:GetAdjustedESpeed(caster, dashSpeed, false)
 		local newPosition = casterOrigin + moveVector * dashSpeed
@@ -204,10 +204,10 @@ function reachSpirit(caster, ability, spiritPosition)
 	if a_c_level > 0 then
 		local loops = 1
 		if caster:HasModifier("modifier_spirit_warrior_glyph_4_1") then
-			loops = 5
+			loops = loops + SPIRIT_WARRIOR_GLYPH_4_1_E1_REPEATS
 		end
 		for i = 0, loops - 1, 1 do
-			Timers:CreateTimer(i * 0.75, function()
+			Timers:CreateTimer(i * SPIRIT_WARRIOR_GLYPH_4_1_E1_REPEAT_INTERVAL, function()
 				EmitSoundOnLocationWithCaster(spiritPosition, "SpiritWarrior.ACExplosion", caster)
 				local particleName = "particles/units/heroes/hero_ember_spirit/spirit_warrior_c_a_wind_edict.vpcf"
 				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)

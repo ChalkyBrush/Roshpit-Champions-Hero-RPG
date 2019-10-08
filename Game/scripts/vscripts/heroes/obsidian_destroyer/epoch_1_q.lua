@@ -315,9 +315,9 @@ function epoch_glyph_1_1(event)
 	local target = event.target
 
 	if caster:HasModifier("modifier_epoch_glyph_1_1") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_1_1_effect", {duration = 7})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_1_1_effect", {duration = EPOCH_GLYPH_1_1_DURATION})
 	end
 	if caster:HasModifier("modifier_epoch_glyph_6_1") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_6_1_effect", {duration = 7})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_epoch_glyph_6_1_effect", {duration = EPOCH_GLYPH_6_1_DURATION})
 	end
 end

@@ -247,31 +247,31 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"金刚肌肤雕文"
-		"item_rpc_flamewaker_glyph_1_1_description" 			"攻击你的敌人有 @glyph_property1% 几率被眩晕 @glyph_property2 秒。"
+		"item_rpc_flamewaker_glyph_1_1_description" 			"攻击你的敌人有 <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% 几率被眩晕 <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"坍缩雕文"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 @glyph_property1 秒。"
+		"item_rpc_flamewaker_glyph_2_1_description" 			"降低地震爆发的冷却时间至 <% FLAMEWAKER_GLYPH_2_1_Q_CD %> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"剧变雕文"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"[W1]造成伤害的同时会对目标附加[W3] 。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"蓝焰雕文"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 @glyph_property2% 的总属性值加 @glyph_property3% 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 @glyph_property1。"
+		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 <% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x 的总属性值加 <% FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL %>% 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"灼热之心雕文"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间<% FLAMEWAKER_T51_R2_DUR_MULTIPLY%>倍。"
+		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间<% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %>倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"山脉之核雕文"
-		"item_rpc_flamewaker_glyph_6_1_description" 			"施放大灾变后提高额外攻击力 @glyph_property1% ，持续时间 @glyph_property2 秒。"
+		"item_rpc_flamewaker_glyph_6_1_description" 			"施放大灾变后提高额外攻击力 <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>% ，持续时间 <% FLAMEWAKER_GLYPH_6_1_DURATION %> 秒。"
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"山脉之核"
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"提高 100%% 额外攻击力"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"火海雕文"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"余烬拥有 @glyph_property1x 宽度并造成 @glyph_property2x 伤害。"
+		"item_rpc_flamewaker_glyph_7_1_description" 			"余烬拥有 @glyph_property1x 宽度并造成 <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %>x 伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"龙族血统雕文"
-		"item_rpc_flamewaker_glyph_5_a_description" 			"受到的伤害上限不会超过 @glyph_property1% 的最大生命值. 如果低于50% 血量, 受到的伤害上限在 @glyph_property2%."
+		"item_rpc_flamewaker_glyph_5_a_description" 			"受到的伤害上限不会超过 <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP * 100 %>% 的最大生命值. 如果低于<% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH * 100 %>% 血量, 受到的伤害上限在 <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP * 100 %>%."
 
 		//Weapons
 		"flamewaker_weapon_00"			"战刃"
@@ -304,15 +304,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"诸神之黄昏"
 		"item_property_flamewaker_immortal_weapon"							"火山盾"
-		"property_flamewaker_immortal_weapon_description"					"施放 @Ability4 将获得 @special_property1 层护盾，抵挡伤害，伤害减免 90%"
+		"property_flamewaker_immortal_weapon_description"					"施放 @Ability4 将获得 <% FLAMEWAKER_IMMORTAL_WEAPON_1_SHIELDS %> 层护盾，抵挡伤害，伤害减免 <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%"
 
 		"DOTA_Tooltip_modifier_volcano_shield"							"火山盾"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"伤害减免 90%%"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"伤害减免 <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%%"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"上古之刃"
     	"item_property_flamewaker_immortal_weapon2"								"龙之心"
-    	"property_flamewaker_immortal_weapon2_description"						"每点敏捷值提高 @special_property1 点攻击力。在 @Ability3 技能开启时提高 @special_property2 点敏捷值。"
+    	"property_flamewaker_immortal_weapon2_description"						"每点敏捷值提高 <% FLAMEWAKER_IMMORTAL_WEAPON_2_ATTACK_DAMAGE_PER_AGILITY %> 点攻击力。在 @Ability3 技能开启时提高 <% FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E %> 点敏捷值。"
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"角斗士之剑"
     	"item_property_flamewaker_immortal_weapon3"								"流星蝴蝶剑"
-    	"property_flamewaker_immortal_weapon3_description"						"提高 @Ability1 和 @Ability4 的眩晕持续时间 @special_property1%"
+    	"property_flamewaker_immortal_weapon3_description"						"提高 @Ability1 和 @Ability4 的眩晕持续时间 <% FLAMEWAKER_IMMORTAL_WEAPON_3_STUN_DURATION_Q_R_MULT %>x"

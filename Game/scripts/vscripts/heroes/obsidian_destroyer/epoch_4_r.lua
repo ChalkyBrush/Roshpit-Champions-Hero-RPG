@@ -13,7 +13,7 @@ function Vacuum(keys)
   local radius = ability:GetLevelSpecialValueFor("radius", ability_level)
   local vacuum_modifier = keys.vacuum_modifier
   local remaining_duration = duration - (GameRules:GetGameTime() - target.vacuum_start_time)
-
+  print("Vacuum "..tostring(duration))
   -- Targeting variables
   local target_teams = ability:GetAbilityTargetTeam()
   local target_types = ability:GetAbilityTargetType()
@@ -42,7 +42,7 @@ function Vacuum(keys)
       unit:SetAbsOrigin(unit_location + direction * unit.eternity_flood_vacuum.pull_speed)
     end
   end
-  if remaining_duration < 0.02 then
+  if remaining_duration < 0.03 then
     ability.r_3_level = caster:GetRuneValue("r", 3)
     new_lock(units, target_location, caster, damage, duration, ability, keys.stun_duration)
   end
@@ -261,9 +261,9 @@ function immortal_weapon_2_die(event)
       eventTable.duration = ulti:GetLevelSpecialValueFor("duration", ulti:GetLevel())
       eternity_flood_script(eventTable)
       local CD = ulti:GetCooldown(ulti:GetLevel())
-      ulti:StartCooldown(CD * 1.5)
+      ulti:StartCooldown(CD * EPOCH_IMMORTAL_WEAPON_2_R_CD_MULT)
     end
-    Timers:CreateTimer(3, function()
+    Timers:CreateTimer(EPOCH_IMMORTAL_WEAPON_2_RESPAWN_DELAY, function()
       if caster:IsAlive() then
       else
         caster:RespawnHero(false, false)

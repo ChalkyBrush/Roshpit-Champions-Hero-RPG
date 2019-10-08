@@ -1,4 +1,4 @@
-require('heroes/lanaya/constants')
+require("/heroes/lanaya/trapper_constants")
 
 function rune_unit_3_think(event)
 	local caster = event.caster

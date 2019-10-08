@@ -215,22 +215,22 @@
 		"item_rpc_arkimus_glyph_1_1_description" 				"Энергосферы от (E) Energy Field появляются на минимально возможном радиусе."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"(T2) Глиф прилива маны"
-		"item_rpc_arkimus_glyph_2_1_description" 				"Увеличивает регенерацию маны на @glyph_property1."
+		"item_rpc_arkimus_glyph_2_1_description" 				"Увеличивает регенерацию маны на <% ARKIMUS_GLYPH_2_1_MANA_REGEN %>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"(T3) Глиф энергосфер"
-		"item_rpc_arkimus_glyph_3_1_description" 				"(R) Energy field дополнительно выпускает @glyph_property1 энергосфер(ы)."
+		"item_rpc_arkimus_glyph_3_1_description" 				"(R) Energy field дополнительно выпускает <% ARKIMUS_GLYPH_3_1_R_EXTRA_CELLS %> энергосфер(ы)."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"(T4) Глиф акробатики"
-		"item_rpc_arkimus_glyph_4_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (E) Orbital Leap на @glyph_property1."
+		"item_rpc_arkimus_glyph_4_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (E) Orbital Leap на <% ARKIMUS_GLYPH_4_1_E_FREE_CAST %>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"(T5) Глиф магического щита"
-		"item_rpc_arkimus_glyph_5_1_description" 				"@glyph_property1% от получаемого урона затратит ману, вместо здоровья. Получаемый магический урон снижен на @glyph_property2%."
+		"item_rpc_arkimus_glyph_5_1_description" 				"<% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_PART_PCT %>% от получаемого урона затратит ману, вместо здоровья. Получаемый магический урон снижен на <% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"(T6) Глиф заряженного прыжка"
-		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на @glyph_property1."
+		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на <% ARKIMUS_GLYPH_6_1_Q_FREE_CAST %>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Глиф тайного электрошока"
-		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на @glyph_property1%."
+		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Глиф энергетического разделения"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
@@ -253,11 +253,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
-		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит на 100% больше урона. Количество зарядов [W2] удвоено."
+		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит в <% ARKIMUS_IMMORTAL_WEAPON_1_W_MULT %> раз(а) больше урона. Количество зарядов [W2] за удар увеличено в <% ARKIMUS_IMMORTAL_WEAPON_1_W2_STACK_GAIN_MULT %> раз(а)."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
         "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=\"#E1A2E8\">Тайны</font> исцеляет героя."
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
-        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] весь входящий урон снижается на @special_property1%."
+        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] весь входящий урон снижается на <% ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION %>%."

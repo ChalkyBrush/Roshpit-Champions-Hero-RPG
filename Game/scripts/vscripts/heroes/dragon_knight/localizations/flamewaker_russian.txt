@@ -243,31 +243,31 @@
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"(T1) Глиф алмазной кожи"
-		"item_rpc_flamewaker_glyph_1_1_description" 			"Враги, атакующие вас могут быть оглушены с шансом @glyph_property1% на @glyph_property2 сек."
+		"item_rpc_flamewaker_glyph_1_1_description" 			"Враги, атакующие вас могут быть оглушены с шансом <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% на <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Глиф кратеров"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до @glyph_property1 сек."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до <% FLAMEWAKER_GLYPH_2_1_Q_CD %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Глиф расплавления"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Глиф синего пламени"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (@glyph_property2% от суммы всех атрибутов плюс @glyph_property3% от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на @glyph_property1."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x от суммы всех атрибутов плюс <% FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL %>% от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> на <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Глиф горячих сердец"
-		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <% FLAMEWAKER_T51_R2_DUR_MULTIPLY%> раза."
+		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %> раза."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Глиф горного массива"
-		"item_rpc_flamewaker_glyph_6_1_description" 			"В течении @glyph_property2 сек. после прочтения (R) Cataclysm, основной урон будет увеличен на @glyph_property1%."
+		"item_rpc_flamewaker_glyph_6_1_description" 			"В течение <% FLAMEWAKER_GLYPH_6_1_DURATION %> сек. после прочтения (R) Cataclysm, основной урон будет увеличен на <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>%."
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
-		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Урон увеличен на 100%%."
+		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Урон увеличен на <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>%%."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"(T7) Глиф пылающего океана"
-		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в @glyph_property2 раз(а) больше урона."
+		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %> раз(а) больше урона."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"(Immortal) Глиф драконьей кожи"
-		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более @glyph_property1% от макс. здоровья. Если уровень здоровья ниже 50%, входящий урон не отнимет более @glyph_property2% от макс. здоровья."
+		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP * 100 %>% от макс. здоровья. Если уровень здоровья ниже <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH * 100 %>%, входящий урон не отнимет более <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP * 100 %>% от макс. здоровья."
 
 		//Weapons
 		"flamewaker_weapon_00"			"Basic Sword"
@@ -300,15 +300,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
 		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"
-		"property_flamewaker_immortal_weapon_description"					"После успешного прочтения (R) @Ability4 герой получит @special_property1 зарядов щита, сокращающего входящий урон на 90%."
+		"property_flamewaker_immortal_weapon_description"					"После успешного прочтения (R) @Ability4 герой получит <% FLAMEWAKER_IMMORTAL_WEAPON_1_SHIELDS %> зарядов щита, сокращающего входящий урон на <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%."
 
 		"DOTA_Tooltip_modifier_volcano_shield"							"Volcano Shield"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Входящий урон снижен на 90%%"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Входящий урон снижен на <% FLAMEWAKER_IMMORTAL_WEAPON_1_DAMAGE_REDUCTION %>%%"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
-    	"property_flamewaker_immortal_weapon2_description"						"Каждое очко Ловкости увеличивает базовый урон на @special_property1. Пока активно умение (E) @Ability3, герой получает бонус: @special_property2 очков Ловкости."
+    	"property_flamewaker_immortal_weapon2_description"						"Каждое очко Ловкости увеличивает базовый урон на <% FLAMEWAKER_IMMORTAL_WEAPON_2_ATTACK_DAMAGE_PER_AGILITY %>. Пока активно умение (E) @Ability3, герой получает бонус: <% FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E %> очков Ловкости."
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
-    	"property_flamewaker_immortal_weapon3_description"						"Время оглушения от (Q) @Ability1 и (R) @Ability4 увеличено на @special_property1%"
+    	"property_flamewaker_immortal_weapon3_description"						"Время оглушения от (Q) @Ability1 и (R) @Ability4 увеличено в <% FLAMEWAKER_IMMORTAL_WEAPON_3_STUN_DURATION_Q_R_MULT %> раз(а)."

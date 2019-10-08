@@ -10,7 +10,7 @@ end
 
 function modifier_trapper_immo3_effect:GetModifierCastRangeBonus(params)
     local hero = self:GetParent()
-    local range = 400
+    local range = TRAPPER_IMMORTAL_WEAPON_3_RANGE
     if hero:HasModifier("modifier_hood_of_lords_lua") then
         range = range + 140
     end

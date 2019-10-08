@@ -159,7 +159,7 @@ function mach_punch_think(event)
 			end)
 			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster) * w_3_level * ZHONIK_W3_DMG_PER_WHIPLASH
 			if caster:HasModifier("modifier_zonik_immortal_weapon_1") then
-				c_b_damage = c_b_damage * 4
+				c_b_damage = c_b_damage * ZHONIK_IMMORTAL_WEAPON_1_W_DMG_MULT
 			end
 			local stun_duration = 0.005 * w_3_level * caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
 			caster:RemoveModifierByName("modifier_mach_punch_whiplash")
