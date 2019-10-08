@@ -4942,6 +4942,7 @@ function eyeglass_attack(event)
 		return false
 	end
 	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE)
+	distance = math.max(distance, EPSILON_EYEGLASS_MIN_RANGE)
 	local damage = EPSILON_EYEGLASS_DAMAGE_BASE * attacker:GetLevel() * distance ^ 3
 
 	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
