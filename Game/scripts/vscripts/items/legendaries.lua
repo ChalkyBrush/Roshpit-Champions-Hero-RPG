@@ -7112,10 +7112,12 @@ function RPCItems:RollFuchsiaRing(deathLocation)
     item.newItemTable.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fuchsia_ring", "#FF0080", 1, "#property_fuchsia_ring_description")
 
-    local magicResistRoll = RandomInt(7, 16)
-    item.newItemTable.property2 = magicResistRoll
-    item.newItemTable.property2name = "magic_resist"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_magic_resist", "#AC47DE", 2)
+    local tier, value, propertyName = RPCItems:RollSkillProperty()
+    if tier > 0 then
+        item.newItemTable.property2 = value
+        item.newItemTable.property2name = propertyName
+        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    end
 
     local tier, value, propertyName = RPCItems:RollSkillProperty()
     if tier > 0 then
