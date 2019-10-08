@@ -4868,8 +4868,9 @@ function RPCItems:RollVoyagerBoots(deathLocation)
     if luck == 1 then
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
 		item.newItemTable.property2 = math.ceil(value * 0.85)
-		item.newItemTable.property2name = "rune_e_3"
+		item.newItemTable.property2name = runeName
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	else
 		item.newItemTable.hasRunePoints = true
@@ -5740,7 +5741,20 @@ function RPCItems:RollTemporalWarpBoots(deathLocation)
         Elements:RollElementAttribute(item, RPC_ELEMENT_TIME, 1.6, 2, 20, 2)
     end
 
-    RPCItems:RollFootProperty3(item, 0)
+    local luck = RandomInt(1, 10)
+    if luck < 2 then
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property3 = math.ceil(value * 0.85)
+		item.newItemTable.property3name = "rune_e_3"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	else
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property3 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property3name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	end
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
@@ -5793,8 +5807,9 @@ function RPCItems:RollFalconBoots(deathLocation)
 	elseif luck == 2 then
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
 		item.newItemTable.property2 = math.ceil(value * 0.85)
-		item.newItemTable.property2name = "rune_e_3"
+		item.newItemTable.property2name = runeName
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	else
 		item.newItemTable.hasRunePoints = true
@@ -5828,8 +5843,9 @@ function RPCItems:RollCrusaderBoots(deathLocation)
 	elseif luck == 2 then
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
 		item.newItemTable.property2 = math.ceil(value * 0.85)
-		item.newItemTable.property2name = "rune_e_3"
+		item.newItemTable.property2name = runeName
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	else
 		item.newItemTable.hasRunePoints = true
