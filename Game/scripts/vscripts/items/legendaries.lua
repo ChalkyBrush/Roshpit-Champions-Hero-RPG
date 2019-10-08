@@ -5449,11 +5449,19 @@ function RPCItems:RollRedfallRunners(deathLocation)
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "redfall_runners"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_redfall_runners", "#E87B7B", 1, "#property_redfall_runners_description")
-
+	local luck = RandomInt(1, 5)
+	if luck < 2 then
     local value, nameLevel = RPCItems:RollAttribute(100, 2, 12, 0, 0, item.newItemTable.rarity, false, math.ceil(maxFactor / 2.4))
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "base_ability"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
+	else
+	item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property2name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	end
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
