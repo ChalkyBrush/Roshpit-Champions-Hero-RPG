@@ -4120,10 +4120,21 @@ function RPCItems:RollEmeraldDouli(deathLocation, isShop)
     item.newItemTable.property1name = "emerald_douli"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_douli", "#1DDB49", 1, "#property_emerald_douli_description")
 
-    local value, prefixLevel = RPCItems:RollAttribute(300, 300, 800, 1, 1, item.newItemTable.rarity, false, maxFactor * 500)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
+    local luck = RandomInt(1, 9)
+    if luck == 1 then
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
+		item.newItemTable.property2 = math.ceil(value * 0.85)
+		item.newItemTable.property2name = runeName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	else
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property2name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+	end
 
     value, prefixLevel = RPCItems:RollAttribute(300, 100, 500, 0, 1, item.newItemTable.rarity, false, maxFactor * 200)
     item.newItemTable.property3 = value
