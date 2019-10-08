@@ -1531,6 +1531,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	local BASE_VALUE_FOR_CALCULATE = 1000000 -- for prevent calc errors with small values
 	local damage = BASE_VALUE_FOR_CALCULATE
 
+	local modifier = victim:FindModifierByName("modifier_armor_of_atlantis")
+	if modifier then
+		damage = damage * (1 - modifier:GetDamageReduction())
+	end
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
 		damage = damage * (100-ABLECORE_GREAVES_DMG_RED)/100
 	end
@@ -1677,8 +1681,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 2
 	end
 
-	if victim:HasModifier("modifier_raven_idol2") then
-		damage = damage * (100-RAVEN_IDOL_DMG_REDUCTION)/100
+	if victim:HasModifier("modifier_raven_idol") then
+		damage = damage * (1 - RAVEN_IDOL_DMG_RED_PCT / 100)
 	end
 
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
@@ -2377,7 +2381,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + ABLECORE_GREAVES_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
-		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT
+		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
 	end
 
 	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
@@ -2994,8 +2998,8 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_emerald_douli") then
-		local reductionPercent = Filters:EmeraldDouliHit(victim, filterTable["damage"])
-		filterTable["damage"] = filterTable["damage"] - filterTable["damage"] * reductionPercent
+		local healthDamage = Filters:EmeraldDouliHit(victim, filterTable["damage"])
+		filterTable["damage"] = healthDamage
 	end
 
 	if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and victim:GetUnitName() ~= "arena_training_dummy" then
@@ -3459,10 +3463,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
-		local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
-		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING / 100
-	end
+
 	--DUSKBRINGER
 	if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" and victim:IsRooted() then
 		local w_4_level = attacker:GetRuneValue("w", 4)
@@ -3917,8 +3918,8 @@ function GameState:FilterDamage(filterTable)
 		Winterblight:PixieSummonTakeDamage(victim)
 	end
 	if victim:HasModifier("modifier_armor_of_atlantis") then
-		if filterTable["damage"] > victim:GetMaxHealth() * ARMOR_OF_ATLANTIS_HP_THRESHOLD then
-			filterTable["damage"] = filterTable["damage"] * (100-ARMOR_OF_ATLANTIS_DMG_REDUCTION)/100
+		if filterTable["damage"] > victim:GetHealth() then
+			filterTable["damage"] = filterTable["damage"] * (100 - ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT) / 100
 			local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
 			ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
 		end
@@ -4148,11 +4149,6 @@ function GameState:FilterDamage(filterTable)
 					local dmgReport = math.floor(filterTable["damage"])
 					local element1 = attacker.element1
 					local element2 = attacker.element2
-					local inflictor = filterTable["entindex_inflictor_const"]
-					if not inflictor then
-						element1 = RPC_ELEMENT_NONE
-						element2 = RPC_ELEMENT_NONE
-					end
 					CustomGameEventManager:Send_ServerToPlayer(attacker:GetPlayerOwner(), "updateTargetDummy", {dmg = dmgReport, victim = victim:GetEntityIndex(), attacker = attacker:GetEntityIndex(), damagetype = damagetype, element1 = element1, element2 = element2})
 					if attacker:HasModifier("modifier_dummy_timer") then
 						victim.timerDamage = victim.timerDamage + dmgReport
@@ -4215,7 +4211,7 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
 				-- print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
+				--filterTable["damage"] = 0
 			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
@@ -4226,7 +4222,7 @@ function GameState:FilterDamage(filterTable)
 				if not victim:HasModifier("modifier_disable_player") then
 					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
 						-- if filterTable["damage"] > 0 then
-							filterTable["damage"] = 999999999999999
+							--filterTable["damage"] = 999999999999999
 						-- end
 					-- end
 				end

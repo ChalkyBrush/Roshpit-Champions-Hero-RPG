@@ -95505,44 +95505,11 @@
 					}
 				}
 			}
-			"modifier_hand_pride"
+			"modifier_hand_proud_gloves"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"pride_attack_land"
-					}
-				}
-			}
-			"modifier_hand_pride_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
-						"EffectAttachType"			"follow_overhead"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"100"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"100"
-				}
 			}
 			"modifier_hand_azinoth"
 			{

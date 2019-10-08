@@ -317,8 +317,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
-		"property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"									"Если входящий Пост-Резистный урон отнимает более <% ARMOR_OF_ATLANTIS_HP_THRESHOLD * 100 %>% здоровья героя, то он снижается на <% ARMOR_OF_ATLANTIS_DMG_REDUCTION %>%."
+		"item_property_armor_of_atlantis"												"Chasm Forge"
+		"property_armor_of_atlantis_Description"					"TODO: You get <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% damage reduction per percent of health missing. This damage reduction can't be higher than <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. Damage instances that would kill you are reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"TODO: Take <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>%% reduced damage per percent of health missing. This damage reduction can't be higher than <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%%. Damage instances that would kill you are reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	

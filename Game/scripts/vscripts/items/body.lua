@@ -256,9 +256,6 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		local modifierName = "modifier_"..suffix
 		--print(modifierName)
 		Head:addItemModifier(0, hero, inventory_unit, modifierName, item)
-	elseif propertyName == "atlantis" then
-		Body:addItemModifier(0, hero, inventory_unit, "modifier_armor_of_atlantis", item)
-		RPCItems:PreacheArcanaResources(item)
 	elseif propertyName == "sunrise" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_empyreal_sunrise_robe", item)
 	elseif propertyName == "sea_giant" then
@@ -496,7 +493,6 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_chernobog_arcana1")
 	hero:RemoveModifierByName("modifier_sorceress_arcana1")
 	hero:RemoveModifierByName("modifier_axe_arcana1")
-	hero:RemoveModifierByName("modifier_armor_of_atlantis")
 	hero:RemoveModifierByName("modifier_empyreal_sunrise_robe")
 	hero:RemoveModifierByName("modifier_sea_giants_plate")
 	hero:RemoveModifierByName("modifier_templar_light_seers_robe")

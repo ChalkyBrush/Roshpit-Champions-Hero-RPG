@@ -45,10 +45,10 @@
 		"property_scorched_gauntlet_description_2"	"С <% HIGH_FLAME_GAUNTLET_CHANCE %>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% урона героя + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% от урона героя в небольшой области и оглушает задетые цели на <% HIGH_FLAME_GAUNTLET_STUN_DUR %> сек, дополнительно поджигая землю под ними."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Слот: Наручи"
-		"item_property_pride"						"Rainbow Strike"
-		"property_pride_description"				"3% шанс при атаке наделить вас и находящихся рядом союзников неслыханной мощью - Даёт 50 брони - 20% сопротивление магии - 100 реген. здоровья - 100 реген. маны на 5 секунд."
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves"								"Proud Gloves"
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves_Description"					"Слот: Наручи"
+		"item_property_proud_gloves"						"Rainbow Strike"
+		"property_proud_gloves_description"				"3% шанс при атаке наделить вас и находящихся рядом союзников неслыханной мощью - Даёт 50 брони - 20% сопротивление магии - 100 реген. здоровья - 100 реген. маны на 5 секунд."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
@@ -169,7 +169,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Увеличивает весь Пост-Резистный урон на <% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT %>% за каждый отсутствующий процент здоровья. Каждое прочтение любого заклинания тратит <% MORDIGGUS_LIFE_DRAIN_CAST_PCT %>% от макс. здоровья героя. Каждая атака тратит <% MORDIGGUS_LIFE_DRAIN_ATTACK_PCT %>% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
+		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"

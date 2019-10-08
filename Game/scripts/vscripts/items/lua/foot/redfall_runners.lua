@@ -1,0 +1,78 @@
+require('items/lua/foot/base')
+require('npc_abilities/base_modifier')
+
+item_rpc_redfall_runners = class(BaseFoot, nil, BaseFoot)
+modifier_redfall_runners = class(npc_base_modifier, nil, npc_base_modifier)
+local class = item_rpc_redfall_runners
+local className = 'item_rpc_redfall_runners'
+
+local modifierClass = modifier_redfall_runners
+local modifierName = 'modifier_redfall_runners'
+LinkLuaModifier(modifierName, "items/lua/foot/redfall_runners", LUA_MODIFIER_MOTION_NONE)
+
+function class:GetClassName()
+    return className
+end
+function class:GetName()
+    return 'Whatever the fuck this is for'
+end
+function class:GetModifierName()
+    return modifierName
+end
+function class:HasRuneSlots()
+    return true
+end
+function class:RollProperty1(maxFactor)
+    self.newItemTable.property1 = 1
+    self.newItemTable.property1name = "redfall_runners"
+    self:SetSpecialValue(self.newItemTable.property1name, "#E87B7B")
+end
+function class:RollProperty2(maxFactor)
+    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+    self.newItemTable.property2 = math.floor(value * 1.75)
+    self.newItemTable.property2name = propertyName
+    RPCItems:SetPropertyValues(self, self.newItemTable.property2, "rune", "#7DFF12", 2)
+end
+
+function modifierClass:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+    }
+
+    return funcs
+end
+function modifierClass:GetModifierMoveSpeed_Max_Increase(params)
+    if not IsServer() then
+        return
+    end
+    local caster = self:GetCaster()
+    local missingHealthPercent = (1 - caster:GetHealth() / caster:GetMaxHealth()) * 100
+    return missingHealthPercent * REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING
+end
+
+function modifierClass:GetModifierMoveSpeedBonus_Constant(params)
+    if not IsServer() then
+        return
+    end
+    local caster = self:GetCaster()
+    local missingHealthPercent = (1 - caster:GetHealth() / caster:GetMaxHealth()) * 100
+    return missingHealthPercent * REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING
+end
+
+function modifierClass:IsHidden()
+    return false
+end
+
+function modifierClass:IsBuff()
+    return true
+end
+
+function modifierClass:RemoveOnDeath()
+    return false
+end
+
+function modifierClass:GetTexture()
+    return "itemicons/redfall_runners"
+end

@@ -40,10 +40,10 @@
 		"property_scorched_gauntlet_description_2"	"攻击时有<% HIGH_FLAME_GAUNTLET_CHANCE %>%几率产生一片焦土，每秒对范围内所有敌人造成 <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% 攻击力+ <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% 攻击力的伤害、 <br>眩晕敌人 <% HIGH_FLAME_GAUNTLET_STUN_DUR %> 秒并且留下一片新的焦土。"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"荣耀护手"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"部位：手"
-		"item_property_pride"						"彩虹打击"
-		"property_pride_description"				"攻击时有3%几率庇护你和你的友军，增加50点护甲、20%魔法抗性、每秒100点生命值回复速度和每秒100点魔法值回复速度，持续5秒。"
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves"								"荣耀护手"
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves_Description"					"部位：手"
+		"item_property_proud_gloves"						"彩虹打击"
+		"property_proud_gloves_description"				"攻击时有3%几率庇护你和你的友军，增加50点护甲、20%魔法抗性、每秒100点生命值回复速度和每秒100点魔法值回复速度，持续5秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"埃辛诺斯之爪"
@@ -164,7 +164,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"每点丢失生命值%提高所有造成的伤害 <% MORDIGGUS_POST_MITI_BONUS_PER_HP_MISSING_PCT %>%。每次施放技能汲取你 <% MORDIGGUS_LIFE_DRAIN_CAST_PCT %>% 最大生命值，每次攻击汲取你 <% MORDIGGUS_LIFE_DRAIN_ATTACK_PCT %>% 最大生命值。汲取生命不会致死。"
+		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"

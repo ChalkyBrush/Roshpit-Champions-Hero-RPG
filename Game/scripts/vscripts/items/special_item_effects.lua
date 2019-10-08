@@ -253,17 +253,6 @@ function highFlameImpact(caster, ability, position, damage)
 
 end
 
-function pride_attack_land(event)
-	local caster = event.caster
-	local ability = event.ability
-	local proc = Filters:GetProc(caster.hero, 3)
-	if proc then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			ability:ApplyDataDrivenModifier(caster, MAIN_HERO_TABLE[i], "modifier_hand_pride_effect", {duration = 5})
-			EmitSoundOn("Hero_Gyrocopter.ART_Barrage.Launch", MAIN_HERO_TABLE[i])
-		end
-	end
-end
 
 function marauder_attack_land(event)
 	local attacker = event.attacker
@@ -2660,15 +2649,15 @@ end
 
 function raven_idol_think(event)
 	local target = event.target
-	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD then
-		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD)
+	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100 then
+		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100)
 	end
 end
 
 function raven_idol_health_gained(event)
 	local target = event.unit
-	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD then
-		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_THRESHOLD)
+	if target:GetHealth() > target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100 then
+		target:SetHealth(target:GetMaxHealth() * RAVEN_IDOL_HP_TRESHOLD_PCT / 100)
 	end
 end
 
@@ -3075,16 +3064,18 @@ end
 function mordiggus_attack(event)
 	local attacker = event.attacker
 	local beginningHealth = attacker:GetHealth()
-	local newHealth = math.max(attacker:GetHealth() - attacker:GetMaxHealth() * MORDIGGUS_LIFE_DRAIN_ATTACK_PCT/100, 1)
-	attacker:SetHealth(newHealth)
-	CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", attacker, 0.7)
-	if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
-		local damageTaken = math.max(beginningHealth - newHealth, 1)
-		local eventTable = {}
-		eventTable.unit = attacker
-		eventTable.attack_damage = damageTaken
-		eventTable.ability = attacker.headItem
-		wraith_hunter_take_damage(eventTable)
+	if beginningHealth > attacker:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100 then
+		local newHealth = math.max(attacker:GetHealth() - attacker:GetMaxHealth() * MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK / 100, attacker:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
+		attacker:SetHealth(newHealth)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", attacker, 0.7)
+		if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
+			local damageTaken = math.max(beginningHealth - newHealth, 1)
+			local eventTable = {}
+			eventTable.unit = attacker
+			eventTable.attack_damage = damageTaken
+			eventTable.ability = attacker.headItem
+			wraith_hunter_take_damage(eventTable)
+		end
 	end
 end
 

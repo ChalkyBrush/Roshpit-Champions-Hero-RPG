@@ -199,10 +199,14 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + BLUE_DIVINEX_STR_TO_ITEM_DMG/100 * (caster:GetIntellect() / BLUE_DIVINEX_INT_DIVISOR)
     end
 
-    if caster:HasModifier("modifier_raven_idol2") then
-        local multIncrease = ((caster:GetMaxHealth() - caster:GetHealth()) / 100) * 0.001
+    if caster:HasModifier("modifier_raven_idol") then
+        local multIncrease = caster:GetHealth() / caster:GetMaxHealth() * RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT
         mult = mult + multIncrease
     end
+    if caster:HasModifier("modifier_chernobog_immortal_weapon_2") then
+		local missingHealthPercent = math.floor((1 - (caster:GetHealth() / caster:GetMaxHealth())) * 100)
+		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
+	end
 
     if caster:HasModifier("modifier_trinket_item_damage_inc") then
         local current_stack = caster:GetModifierStackCount("modifier_trinket_item_damage_inc", caster.InventoryUnit)
@@ -454,7 +458,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         abilityCooldown = abilityCooldown * (100-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)/100
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
-        if caster:GetHealth() <= caster:GetMaxHealth() * BLOODSTONE_BOOTS_HP_THRESHOLD/100 then
+        if caster:GetHealth() <= caster:GetMaxHealth() * BLOODSTONE_BOOTS_HP_TRESHOLD_PCT / 100 then
             abilityCooldown = BLOODSTONE_BOOTS_E_CD
         end
     end
@@ -719,16 +723,18 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         local beginningHealth = caster:GetHealth()
-        local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * MORDIGGUS_LIFE_DRAIN_CAST_PCT/100, 1)
-        caster:SetHealth(newHealth)
-        CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
-        if caster:HasModifier("modifier_wraith_hunters_steel_helm") then
-            local damageTaken = math.max(beginningHealth - newHealth, 1)
-            local eventTable = {}
-            eventTable.unit = caster
-            eventTable.attack_damage = damageTaken
-            eventTable.ability = caster.headItem
-            wraith_hunter_take_damage(eventTable)
+        if beginningHealth > caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100 then
+            local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100, caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
+            caster:SetHealth(newHealth)
+            CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
+            if caster:HasModifier("modifier_wraith_hunters_steel_helm") then
+                local damageTaken = math.max(beginningHealth - newHealth, 1)
+                local eventTable = {}
+                eventTable.unit = caster
+                eventTable.attack_damage = damageTaken
+                eventTable.ability = caster.headItem
+                wraith_hunter_take_damage(eventTable)
+            end
         end
     end
     if caster:HasModifier("modifier_spiritual_empowerment_stack") then
@@ -1016,9 +1022,6 @@ function Filters:ApplyWskills(caster)
         local manaCost = ability:GetManaCost(ability:GetLevel())
         caster:ReduceMana(1000)
     end
-    if caster:HasModifier("modifier_wraith_crown") then
-        Filters:WraithCrown(caster)
-    end
     if caster:HasModifier("modifier_auriun_immortal_weapon_3") then
         if caster:GetUnitName() == "npc_dota_hero_zuus" then
             if not caster:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
@@ -1114,10 +1117,6 @@ function Filters:ApplyEskills(caster)
     end
     if caster:HasModifier("modifier_moon_techs") then
         Filters:MoonTechRunners(caster)
-    end
-    if caster:HasModifier("modifier_redfall_runners") then
-        caster:RemoveModifierByName("modifier_redfall_runners_hidden_buff")
-        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_redfall_runners_buff", {duration = REDFALL_RUNNERS_DURATION})
     end
     if caster:HasModifier("modifier_guard_of_feronia") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = GUARD_OF_FERONIA_SHIELD_DURATION_E})
@@ -1300,6 +1299,21 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             element2 = RPC_ELEMENT_HOLY
             damage_type = DAMAGE_TYPE_PURE
         end
+        if attacker:HasModifier("modifier_hand_proud_gloves") then
+            damage = Filters:AdjustItemDamage(attacker, damage, victim)
+            local highestElement = 1
+            local highestElementAmp = 100
+            local elements = CustomAttributes:CalculatedElementBonuses(victim, attacker)
+            for i,v in ipairs(elements) do
+                if v > highestElementAmp then
+                    highestElement = i
+                    highestElementAmp = v
+                end
+            end
+            element1 = highestElement
+            element2 = RPC_ELEMENT_NONE
+            damage_type = DAMAGE_TYPE_MAGICAL
+        end
     end
 
     damage, element1, element2 = Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, element1, element2, not ignore_effects)
@@ -1366,6 +1380,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_flood_basin_a_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
             damageMult = damageMult + HYDROXIS_ARCANA_R1_BAD_PCT/100 * current_stack
+        end
+        if attacker:HasModifier("modifier_chernobog_immortal_weapon_2") then
+            local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
+            damageMult = damageMult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
@@ -1565,11 +1583,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
                 Filters:ApplyStun(attacker, DUSKBRINGER_IMMORTAL_WEAPON_2_W_STUN, victim)
             end
-        end
-        if attacker:HasModifier("modifier_redfall_runners_buff") or attacker:HasModifier("modifier_redfall_runners_hidden_buff") then
-            attacker:RemoveModifierByName("modifier_redfall_runners_buff")
-            attacker.foot:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_redfall_runners_hidden_buff", {duration = 0.2})
-            damageMult = damageMult + REDFALL_RUNNERS_BAD_MULT/100
         end
         if attacker:HasModifier("modifier_trickster_mask") then
             local randomFactor = RandomInt(TRICKSTER_MASK_W_DMG_MULT_MIN * 10, TRICKSTER_MASK_W_DMG_MULT_MAX * 10) / 10
@@ -3639,14 +3652,6 @@ function Filters:ReanimateThorok(caster)
     end
 end
 
-function Filters:WraithCrown(caster)
-    local ability = caster.wraith_crown
-    if not caster:HasModifier("modifier_wraith_crown_cooldown") then
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_phased", {duration = WRAITH_CROWN_DURATION})
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_cooldown", {duration = WRAITH_CROWN_CD})
-    end
-end
-
 function Filters:DemonMask(caster, target, damage)
     local proc = Filters:GetProc(caster, DEMON_MASK_CHANCE)
     -- proc = true
@@ -3750,13 +3755,16 @@ end
 
 function Filters:EmeraldDouliHit(victim, damage)
     if damage > 0 then
-        local manaDamage = math.floor(damage * 0.5)
-        if victim:GetMana() < manaDamage / 3 then
-            manaDamage = victim:GetMana() * 3
+        local manaDamage = damage * (EMERALD_DOULI_ABSORBED_DMG_PCT / 100) / EMERALD_DOULI_DMG_ABSORB_PER_MANA
+        local normalDamage = damage * (1 - EMERALD_DOULI_ABSORBED_DMG_PCT / 100)
+        local availableMana = victim:GetMana() - victim:GetMaxMana() * EMERALD_DOULI_MANA_THRESHOLD_PCT / 100
+        if availableMana > manaDamage then
+            victim:ReduceMana(manaDamage)
+            return normalDamage
+        else
+            victim:ReduceMana(availableMana)
+            return (manaDamage - availableMana) * EMERALD_DOULI_DMG_ABSORB_PER_MANA + normalDamage
         end
-        victim:ReduceMana(manaDamage / 3)
-
-        return manaDamage / damage
     else
         return 0
     end

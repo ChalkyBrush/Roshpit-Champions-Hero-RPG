@@ -158,7 +158,7 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 	elseif propertyName == "omega_ruby" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_omega_ruby", item)
 	elseif propertyName == "raven2" then
-		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_raven_idol2", item)
+		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_raven_idol", item)
 	elseif propertyName == "phoenix_emblem" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_phoenix_emblem", item)
 	elseif propertyName == "volcano_orb" then
@@ -399,7 +399,7 @@ function Amulet:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_torch_of_gengar")
 	hero:RemoveModifierByName("modifier_ruinfall_skull_token")
 	hero:RemoveModifierByName("modifier_omega_ruby")
-	hero:RemoveModifierByName("modifier_raven_idol2")
+	hero:RemoveModifierByName("modifier_raven_idol")
 	hero:RemoveModifierByName("modifier_phoenix_emblem")
 	hero:RemoveModifierByName("modifier_volcano_orb")
 	hero:RemoveModifierByName("modifier_aeriths_tear")
