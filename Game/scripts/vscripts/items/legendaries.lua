@@ -5765,15 +5765,16 @@ function RPCItems:RollTemporalWarpBoots(deathLocation)
     if luck < 2 then
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
 		item.newItemTable.property3 = math.ceil(value * 0.85)
-		item.newItemTable.property3name = "rune_e_3"
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+		item.newItemTable.property3name = runeName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
 	else
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
 		item.newItemTable.property3 = math.min(math.floor(value * 1.75), 90)
 		item.newItemTable.property3name = propertyName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
 	end
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
@@ -7003,7 +7004,7 @@ function RPCItems:RollFenrirFang(deathLocation)
     item.newItemTable.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fenrir_fang", "#EB7B6A", 1, "#property_fenrir_fang")
 
-    local value = RandomInt(maxFactor * 12, maxFactor * 360)
+    local value = RandomInt(maxFactor * 12, maxFactor * 667)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
