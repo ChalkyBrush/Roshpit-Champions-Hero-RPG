@@ -2496,7 +2496,7 @@ function RPCItems:RollSavagePlateOfOgthun(deathLocation)
     item.newItemTable.property1name = "ogthun"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ogthun", "#B32224", 1, "#property_ogthun_description")
 
-    local value = RandomInt(maxFactor * 22, maxFactor * 360)
+    local value = RandomInt(maxFactor * 22, maxFactor * 800)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
