@@ -4924,7 +4924,7 @@ function Winterblight:StargazerWaveUnitDie(unit)
 					end)
 					local luck = RandomInt(1, 8 - GameState:GetDifficultyFactor())
 					if luck == 1 then
-						item_rpc_stargazers_sphere:Create(pos)
+						item_rpc_stargazers_sphere:CreateLuaItem(pos)
 					end
 					Winterblight:LastBridgeAndCup()
 				end)

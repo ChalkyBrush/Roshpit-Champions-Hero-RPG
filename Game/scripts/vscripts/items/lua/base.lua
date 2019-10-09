@@ -69,7 +69,7 @@ end
 function class:HasRuneSlots()
     return false
 end
-function class:Create(position)
+function class:CreateLuaItem(position)
     self = RPCItems:CreateVariant(self:GetClassName(), "immortal", self:GetName(), self:GetSlot(), true, self:GetSlotText())
     self.isLuaItem = true
     self.newItemTable.hasRunePoints = self:HasRuneSlots()
