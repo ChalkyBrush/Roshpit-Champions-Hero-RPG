@@ -249,6 +249,7 @@ function Challenges:DespawnCrusader()
 	end)
 	Timers:CreateTimer(2.2, function()
 		UTIL_Remove(Challenges.Crusader)
+		Challenges.Crusader = nil
 	end)
 end
 
@@ -304,6 +305,9 @@ function Challenges:SpawnTeacherRai(position, fv)
 end
 
 function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
+	if not Challenges.Crusader then
+		return false
+	end
 	if not Challenges.units_slain then
 		Challenges.units_slain = 0
 	end
