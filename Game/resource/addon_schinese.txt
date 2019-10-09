@@ -12098,9 +12098,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"落红流火的赛跑者"
 		"item_property_redfall_runners"					"嘎吱作响的叶子"
-		"property_redfall_runners_description"				"施放 @Ability3 获得buff，增加 @Ability2 的基础技能伤害<font color='#ccff66'>2400</font>%倍。持续时间<font color='#ccff66'>7</font>秒，释放二技能后失去buff。"
+		"property_redfall_runners_description"					"TODO: Each % of missing health increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font>."
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"嘎吱作响的叶子"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W 技能伤害增加20x"
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"TODO: Increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font> per %% of missing health."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
@@ -12130,7 +12130,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"血石之靴"
 		"item_property_bloodstone_boots"						"生死攸关"
-		 "property_bloodstone_boots_description"				"当生命值低于 <font color='#ccff66'>30</font>% ，@Ability3 拥有<font color='#ccff66'>1</font>秒冷却时间。"
+		 "property_bloodstone_boots_description"				"当生命值低于 <font color='#ccff66'>35</font>% ，@Ability3 拥有<font color='#ccff66'>1</font>秒冷却时间。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"时光逆流之靴"
@@ -12531,8 +12531,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"亚特兰帝斯之甲"	
-		"property_armor_of_atlantis"												"钢筋铁骨"
-		"property_armor_of_atlantis_Description"									"如果所受到的伤害超过自身 <font color='#ccff66'>100</font>% 的最大生命值（其他减伤之后），该次伤害将被再次减免 <font color='#ccff66'>95</font>%。"
+		"item_property_armor_of_atlantis"											"钢筋铁骨"
+		"property_armor_of_atlantis_Description"								"TODO: You get <font color='#ccff66'>1.5</font>% damage reduction per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"								"钢筋铁骨"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"					"TODO: Take <font color='#ccff66'>1.5</font>%% reduced damage per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"圣堂光之袍"	
@@ -12788,7 +12790,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"每点丢失生命值%提高所有造成的伤害 <font color='#ccff66'>4</font>%。每次施放技能汲取你 <font color='#ccff66'>20</font>% 最大生命值，每次攻击汲取你 <font color='#ccff66'>7</font>% 最大生命值。汲取生命不会致死。"
+		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <font color='#ccff66'>6</font>% for each missing percent of health. Each spell cast drains <font color='#ccff66'>20</font>% of max life, and each attack drains <font color='#ccff66'>7</font>% of max life. Health drain can't reduce health below <font color='#ccff66'>30</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
@@ -13033,7 +13035,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"翡翠兜里"
 		"item_property_emerald_douli"				"法力护盾"
-		"property_emerald_douli_description"		"玩家所受到的伤害的 <font color='#ccff66'>100</font>% 将被魔法值抵消。所消耗的魔法值为该次所抵消伤害的 1/<font color='#ccff66'>15</font> 。"
+		"property_emerald_douli_description"		"TODO: <font color='#ccff66'>95</font>% of damage taken is removed from mana before health. 1 point of mana can absorb <font color='#ccff66'>5</font> damage. Can't reduce mana below <font color='#ccff66'>10</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
@@ -13110,9 +13112,14 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"幽灵王冠"
-		"item_property_wraith"						"幽灵暗潮"					
-		"property_wraith_description"				"施放 @Ability2 将使你隐身<font color='#ccff66'>0.75</font>秒 - 无法攻击、施放技能、移动或者受到伤害。冷却时间<font color='#ccff66'>2</font>秒。同时躲避飞来的弹道。"
-		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"幽灵暗潮冷却中"
+		"item_property_wraith_crown"						"幽灵暗潮"					
+		"property_wraith_crown_description"								"TODO: While having equal or less than <font color='#ccff66'>35</font>% of max health casting @Ability1 will give you <font color='#ccff66'>65</font>% magic resistance for <font color='#ccff66'>2</font>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <font color='#ccff66'>1.5</font>s) and casting @Ability 3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font>s."
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"TODO: Gives <font color='#ccff66'>65</font>%% magic resistance."
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"TODO: Gives <font color='#ccff66'>75</font>%% evasion."
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"TODO: Can't disjoint projectiles currently."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"

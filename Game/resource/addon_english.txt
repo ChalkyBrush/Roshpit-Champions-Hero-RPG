@@ -3865,7 +3865,8 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Vacant Hollow"
-        "property_chernobog_immortal_weapon2_description"                      "Each missing % of max health increases ALL post-mitigation damage by <font color='#ccff66'>1.5</font>%."
+        "property_chernobog_immortal_weapon2_description"                      "Each missing % of max health increases Base Ability Damage and Item Damage by <font color='#ccff66'>5</font>%"
+
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
@@ -11915,9 +11916,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
 		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"Casting @Ability3 applies a buff that increases the damage of @Ability2 by <font color='#ccff66'>2400</font>%. Lasts <font color='#ccff66'>7</font> seconds but works only for your next damage instance from @Ability2."
-		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W Ability damage increased by <font color='#ccff66'>2400</font>%%."
+		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font>."
+		"DOTA_Tooltip_modifier_redfall_runners"		"Crackling Leaves"
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font> per %% of missing health."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
@@ -11947,7 +11948,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below <font color='#ccff66'>30</font>% health, @Ability3 has a <font color='#ccff66'>1</font>-second cooldown."
+		 "property_bloodstone_boots_description"				"While below <font color='#ccff66'>35</font>% health, @Ability3 has a <font color='#ccff66'>1</font>-second cooldown."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
@@ -12338,9 +12339,11 @@
 		"property_direwolf_description"					"Each <font color='#ccff66'>10</font> points of your primary attribute increases Base Attack damage by <font color='#ccff66'>20</font>, Armor by <font color='#ccff66'>1</font>, and Base Ability Damage by <font color='#ccff66'>0.1</font>%. This item cannot be reforged by the Blacksmith."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
-		"property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"									"Damage instances that deal more than <font color='#ccff66'>100</font>% of max health after all reductions is reduced by <font color='#ccff66'>95</font>%."
+		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"			"Armor of Atlantis"	
+		"item_property_armor_of_atlantis"								"Chasm Forge"
+		"property_armor_of_atlantis_Description"					"You get <font color='#ccff66'>1.5</font>% damage reduction per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Take <font color='#ccff66'>1.5</font>%% reduced damage per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
@@ -12575,7 +12578,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <font color='#ccff66'>4</font>% for each missing percent of health. Each spell cast drains <font color='#ccff66'>20</font>% of max life, and each attack drains <font color='#ccff66'>7</font>% of max life. Health drained by this effect cannot be lethal."
+		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <font color='#ccff66'>6</font>% for each missing percent of health. Each spell cast drains <font color='#ccff66'>20</font>% of max life, and each attack drains <font color='#ccff66'>7</font>% of max life. Health drain can't reduce health below <font color='#ccff66'>30</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
@@ -12825,7 +12828,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<font color='#ccff66'>100</font>% of damage taken is removed from mana instead of health. Each point of mana damage is calculated as <font color='#ccff66'>15</font> points of HP damage."
+		"property_emerald_douli_description"		"<font color='#ccff66'>95</font>% of damage taken is removed from mana before health. 1 point of mana can absorb <font color='#ccff66'>5</font> damage. Can't reduce mana below <font color='#ccff66'>10</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
@@ -12903,10 +12906,15 @@
 		"twilight_crow_summon"		"Crow Aspect"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
-		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Casting @Ability2 makes you disappear for <font color='#ccff66'>0.75</font> seconds, unable to attack, cast spells, move, or take damage. <font color='#ccff66'>2</font> second cooldown. Disjoints oncoming projectiles when activated."
-		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
+		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
+		"item_property_wraith_crown"							"Wraithtide"					
+		"property_wraith_crown_description"						"While having equal or less than <font color='#ccff66'>35</font>% of max health casting @Ability1 will give you <font color='#ccff66'>65</font>% magic resistance for <font color='#ccff66'>2</font>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <font color='#ccff66'>1.5</font>s) and casting @Ability 3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font>s."
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"Gives <font color='#ccff66'>65</font>%% magic resistance."
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"Gives <font color='#ccff66'>75</font>%% evasion."
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles currently."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
@@ -13208,7 +13216,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
 		"item_property_raven_idol2"					"Black Soul"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by <font color='#ccff66'>50</font>%. Your health can not go above <font color='#ccff66'>50</font>% of your max. Each 100 points of missing health increases damage dealt directly by items by 0.1%."
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by <font color='#ccff66'>50</font>%. Your health can not go above <font color='#ccff66'>35</font>% of your max. Increases item damage dealt by <font color='#ccff66'>10</font>% for each missing percent of health."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
