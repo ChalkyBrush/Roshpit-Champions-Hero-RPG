@@ -329,10 +329,11 @@ function Gems:CreateUnrefinedGemstones(reward)
 	item.newItemTable.property1tooltip = "tooltip_prismatic_gemstones"
 	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "tooltip_prismatic_gemstones", item.newItemTable.property1color, 1)
 	RPCItems:ItemUpdateCustomNetTables(item)
+	return item
 end
 
 function Gems:UseUnrefinedGemstonesItem(event)
 	local caster = event.caster
-	local gemstones = event.gemstones
+	local gemstones = event.ability
 	local gemstone_value = gemstones.newItemTable.property1
 end

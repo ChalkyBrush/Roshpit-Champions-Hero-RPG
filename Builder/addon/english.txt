@@ -1159,7 +1159,11 @@
 		"ui_challenge_completed"									"Challenge Completed"
 
 		"DOTA_Tooltip_ability_item_rpc_unrefined_gemstones"			"Unrefined Gemstones"
-		"unrefined_gemstones_desc"									"Grants Primsatic Gemstones when taken to the Refinery in town."
+		"unrefined_gemstones_desc"									"Grants Primsatic Gemstones when taken to Elder Rai in town."
+
+
+		"elder_rai"													"Elder Rai"
+		"dialogue_elder_rai_one"									""
 
 	    //------------------------
 		// Blacksmith

@@ -1510,7 +1510,7 @@ function GameMode:OnEntityKilled(keys)
 		PopupExperience(killedUnit, killedUnit:GetDeathXP())
 		-- Events:updateKillQuest(killedUnit)
 		Events:UpdateKillScores(killedUnit, killerEntity)
-
+		Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
 		if xpBounty > 0 then
 			RPCItems:RollDrops(killedUnit, killerEntity)
 		end

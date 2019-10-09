@@ -91,6 +91,7 @@
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/heroes_special.xml" /> 
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/error_logger.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/quests/winterblight_cavern.xml" />
+    <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/challenges/elder_rai.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/gems/gemforger.xml" />
     <CustomUIElement type="Hud"             layoutfile="file://{resources}/layout/custom_game/challenges/crusader.xml" />
   </Panel>

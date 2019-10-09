@@ -137,7 +137,7 @@ function distance_test(unitName, queryUnit)
 {
     var playerID = Game.GetLocalPlayerID()
     var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
-	if (unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator" || unitName == "winterblight_cavern_guide" || unitName == "gem_forger" || unitName == "the_crusader")
+	if (unitName == "the_oracle" || unitName == "the_glyph_enchanter" || unitName == "the_blacksmith" || unitName == "tanari_witch_doctor" || unitName == "supplies_dealer" || unitName == "the_curator" || unitName == "winterblight_cavern_guide" || unitName == "gem_forger" || unitName == "the_crusader" || unitName == "teacher_rai")
 	{
 		var position1 = Entities.GetAbsOrigin( queryUnit )
 		var position2 = Entities.GetAbsOrigin( heroIndex )

@@ -43,6 +43,8 @@ function DialogueThink(event)
 						curator(caster, units)
 					elseif caster.dialogueName == "crusader" then
 						crusader(caster, units)
+					elseif caster.dialogueName == "elder_rai" then
+						elder_rai(caster, units)
 					elseif caster.dialogueName == "glyph_enchanter" then
 						glyphShop(caster, units)
 					elseif caster.dialogueName == "witch_doctor" then
@@ -414,6 +416,15 @@ function crusader(caster, units)
 	local speechSlot = findEmptyDialogSlot()
 	if speechSlot < 4 then
 		Quests:ShowDialogueText(units, caster, "#dialogue_crusader_one", time, true)
+		disableSpeech(caster, time, speechSlot)
+	end
+end
+
+function elder_rai(caster, units)
+	local time = 5
+	local speechSlot = findEmptyDialogSlot()
+	if speechSlot < 4 then
+		Quests:ShowDialogueText(units, caster, "#dialogue_elder_rai_one", time, true)
 		disableSpeech(caster, time, speechSlot)
 	end
 end

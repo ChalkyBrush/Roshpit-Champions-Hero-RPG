@@ -200,6 +200,9 @@ end
 function Challenges:PanoramaInput(msg)
 	print("START CHALLENGE")
 	print(msg.challenge_type)
+	if Challenges.Crusader.disabled then
+		return false
+	end
 	CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
 	if Challenges.ActiveChallenge then
 		return false
@@ -290,4 +293,28 @@ end
 function Challenges:CreateUnrefinedGemstonesForHero(hero, reward)
 	EmitSoundOn("Challenges.RewardPop", hero)
 	print("GIVE "..reward.." TO HERO")
+end
+
+function Challenges:SpawnTeacherRai(position, fv)
+	Events.TeacherRai = CreateUnitByName("teacher_rai", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	Events.TeacherRai:SetForwardVector(fv)
+	Events.TeacherRai:FindAbilityByName("town_unit"):SetLevel(1)
+	Events.TeacherRai:FindAbilityByName("npc_dialogue"):SetLevel(1)
+	Events.TeacherRai.dialogueName = "teacher_rai"
+end
+
+function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
+	if not Challenges.units_slain then
+		Challenges.units_slain = 0
+	end
+	Challenges.units_slain = Challenges.units_slain + 1
+	local unitName = killedUnit:GetUnitName()
+	if unitName == "winterblight_living_ice" or unitName == "winterblight_heartfreezer" or unitName == "winterblight_mountain_lord" then
+		Challenges.units_slain = Challenges.units_slain - 1
+	end
+	if Challenges.units_slain == 40 then
+		Challenges.Crusader.disabled = true
+		CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
+		Challenges:DespawnCrusader()
+	end
 end
