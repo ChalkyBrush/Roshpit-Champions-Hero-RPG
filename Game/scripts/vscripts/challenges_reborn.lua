@@ -291,17 +291,12 @@ function Challenges:RewardSequenceForHero(hero)
 	-- C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota\particles\econ\items\monkey_king\mk_ti9_immortal\mk_ti9_immortal_army_cast.vpcf
 end
 
-function Challenges:CreateUnrefinedGemstonesForHero(hero, reward)
-	EmitSoundOn("Challenges.RewardPop", hero)
-	print("GIVE "..reward.." TO HERO")
-end
-
-function Challenges:SpawnTeacherRai(position, fv)
-	Events.TeacherRai = CreateUnitByName("teacher_rai", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	Events.TeacherRai:SetForwardVector(fv)
-	Events.TeacherRai:FindAbilityByName("town_unit"):SetLevel(1)
-	Events.TeacherRai:FindAbilityByName("npc_dialogue"):SetLevel(1)
-	Events.TeacherRai.dialogueName = "teacher_rai"
+function Challenges:SpawnElderRai(position, fv)
+	Events.ElderRai = CreateUnitByName("elder_rai", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	Events.ElderRai:SetForwardVector(fv)
+	Events.ElderRai:FindAbilityByName("town_unit"):SetLevel(1)
+	Events.ElderRai:FindAbilityByName("npc_dialogue"):SetLevel(1)
+	Events.ElderRai.dialogueName = "elder_rai"
 end
 
 function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
