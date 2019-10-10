@@ -11799,7 +11799,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
 		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Увеличивает Базовый Урон Способности (E) @Ability3 на <font color='#ccff66'>100</font>%"
+		"property_admiral_boots_description"		"Увеличивает Базовый Урон Способности (E) @Ability3 на <font color='#ccff66'>500</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
@@ -11827,7 +11827,7 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
 		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"После применения (E) @Ability3 - Сокращает время перезарядки всех способностей на <font color='#ccff66'>30</font>%."
+		"property_voyager_description"				"После применения (E) @Ability3 - Сокращает время перезарядки всех способностей на <font color='#ccff66'>40</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
@@ -11847,9 +11847,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"Каждые пройденные <font color='#ccff66'>1200</font> юнитов, герой получает <font color='#ccff66'>85</font>% бонус к уклонению и увеличивает урон на <font color='#ccff66'>350</font>% на <font color='#ccff66'>7</font> секунд."
+		"property_dragon_greaves_description"		"Каждые пройденные <font color='#ccff66'>1200</font> юнитов, герой получает <font color='#ccff66'>85</font>% бонус к уклонению и увеличивает урон на <font color='#ccff66'>450</font>% на <font color='#ccff66'>7.5</font> секунд."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>85</font>%% уклонение <font color='#ccff66'>350</font>%% доп. урон"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>85</font>%% уклонение <font color='#ccff66'>450</font>%% доп. урон"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
@@ -12292,7 +12292,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на <font color='#ccff66'>420</font>"
+		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на <font color='#ccff66'>900</font>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
@@ -12431,10 +12431,10 @@
 		"property_scorched_gauntlet_description_2"	"С <font color='#ccff66'>20</font>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <font color='#ccff66'>150</font>% урона героя + <font color='#ccff66'>25</font>x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <font color='#ccff66'>250</font>% от урона героя в небольшой области и оглушает задетые цели на <font color='#ccff66'>1.6</font> сек, дополнительно поджигая землю под ними."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_proud_gloves"								"Proud Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_proud_gloves_Description"					"Слот: Наручи"
-		"item_property_proud_gloves"						"Rainbow Strike"
-		"property_proud_gloves_description"				"3% шанс при атаке наделить вас и находящихся рядом союзников неслыханной мощью - Даёт 50 брони - 20% сопротивление магии - 100 реген. здоровья - 100 реген. маны на 5 секунд."
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"<font color=\"#9400D3\">P</font><font color=\"#4B0082\">r</font><font color=\"#0000FF\">o</font><font color=\"#00FF00\">u</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">G</font><font color=\"#9400D3\">l</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">v</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">s</font>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Слот: Наручи"
+		"item_property_proud_gloves"						"<font color=\"#9400D3\">R</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">i</font><font color=\"#00FF00\">n</font><font color=\"#FFFF00\">b</font><font color=\"#FF7F00\">o</font><font color=\"#FF0000\">w</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">S</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">r</font><font color=\"#FFFF00\">i</font><font color=\"#FF7F00\">k</font><font color=\"#FF0000\">e</font>"
+		"property_proud_gloves_description"				"TODO: <font color=\"#9400D3\">A</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">o</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">c</font><font color=\"#00FF00\">k</font><font color=\"#FFFF00\">s</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">d</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">e</font><font color=\"#FF0000\">n</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">w</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">h</font><font color=\"#0000FF\">e</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">h</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">h</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">b</font><font color=\"#FF0000\">o</font><font color=\"#9400D3\">n</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">s</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">m</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">g</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">c</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">l</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">d</font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">m</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">g</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\">.</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">A</font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">n</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">l</font><font color=\"#FF0000\">y</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">m</font><font color=\"#00FF00\">p</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">f</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">u</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">o</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">c</font><font color=\"#9400D3\">k</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">d</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">b</font><font color=\"#00FF00\">y</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">m</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">m</font><font color=\"#FF0000\">a</font><font color=\"#9400D3\">g</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">b</font><font color=\"#FFFF00\">o</font><font color=\"#FF7F00\">n</font><font color=\"#FF0000\">u</font><font color=\"#9400D3\">s</font><font color=\"#4B0082\">.</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
@@ -12957,7 +12957,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Увеличивает показатели Силы и Ловкости на <font color='#ccff66'>35</font>% от Интеллекта."
+		 "property_eye_of_seasons_description"				"Увеличивает показатели Силы и Ловкости на <font color='#ccff66'>45</font>% от Интеллекта."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
@@ -13262,7 +13262,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
 		"item_property_epsilon_eyeglass"					"Extended Scope"
-		"property_epsilon_eyeglass_description"			"Увеличивает дальность атаки на <font color='#ccff66'>240</font> (ТОЛЬКО ДЛЯ ГЕРОЕВ С ДАЛЬНЕЙ АТАКОЙ), увеличивает дальность обзора на <font color='#ccff66'>800</font> и увеличивает скорость полёта снаряда от атаки на <font color='#ccff66'>1500</font>. Каждая атака наносит дополнительный физический урон, зависящий от расстояния между героем и целью.<br>(Формула: 0.00<font color='#ccff66'>1</font> * уровень героя * расстояние ^ 3)<br>Максимально допустимое расстояние для получения наивысшего бонуса: <font color='#ccff66'>5000</font>."
+		"property_epsilon_eyeglass_description"			"Увеличивает дальность атаки на <font color='#ccff66'>240</font> (ТОЛЬКО ДЛЯ ГЕРОЕВ С ДАЛЬНЕЙ АТАКОЙ), увеличивает дальность обзора на <font color='#ccff66'>800</font> и увеличивает скорость полёта снаряда от атаки на <font color='#ccff66'>1500</font>. Каждая атака наносит дополнительный физический урон, зависящий от расстояния между героем и целью.<br>(Формула: 0.00<font color='#ccff66'>1</font> * уровень героя * расстояние ^ 3)<br>Максимально допустимое расстояние для получения наивысшего бонуса: <font color='#ccff66'>5000</font>, а короткая дистанция рассчитывается как <font color='#ccff66'>700</font>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
@@ -13274,8 +13274,8 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
 		"item_property_fuchsia_ring"							"Solidarity"
-		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на <font color='#ccff66'>85</font>%, а регенерация здоровья увеличивается на <font color='#ccff66'>45</font>% от значения максимального здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на <font color='#ccff66'>85</font>%, а регенерация здоровья увеличена на <font color='#ccff66'>45</font>% от макс. здоровья."
+		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на <font color='#ccff66'>96</font>%, а регенерация здоровья увеличивается на <font color='#ccff66'>45</font>% от значения максимального здоровья."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на <font color='#ccff66'>96</font>%, а регенерация здоровья увеличена на <font color='#ccff66'>45</font>% от макс. здоровья."
 		
 		 
 		 

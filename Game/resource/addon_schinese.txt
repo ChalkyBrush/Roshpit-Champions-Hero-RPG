@@ -12006,7 +12006,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"海军上将之靴"
 		"item_property_admiral_boots"				"海上霸主"
-		"property_admiral_boots_description"		"提高 @Ability3 伤害<font color='#ccff66'>100</font>%。"
+		"property_admiral_boots_description"		"提高 @Ability3 伤害<font color='#ccff66'>500</font>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"叶落归根"
@@ -12034,7 +12034,7 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"航海长靴"
 		"item_property_voyager"						"航海家"
-		"property_voyager_description"				"施放 @Ability3 后，减少其余技能的冷却时间<font color='#ccff66'>30</font>%。"
+		"property_voyager_description"				"施放 @Ability3 后，减少其余技能的冷却时间<font color='#ccff66'>40</font>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
@@ -12054,9 +12054,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"蓝龙胫甲"
 		"item_property_dragon_greaves"				"龙舞"
-		"property_dragon_greaves_description"		"每移动<font color='#ccff66'>1200</font>码，获得 % BLUE_DRAGON_GREAVES_EVASION %>% 闪避并提高 <font color='#ccff66'>350</font>% 的攻击力，持续<font color='#ccff66'>7</font>秒。"
+		"property_dragon_greaves_description"		"每移动<font color='#ccff66'>1200</font>码，获得 % BLUE_DRAGON_GREAVES_EVASION %>% 闪避并提高 <font color='#ccff66'>450</font>% 的攻击力，持续<font color='#ccff66'>7.5</font>秒。"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"龙舞"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "% BLUE_DRAGON_GREAVES_EVASION %>%% 闪避并提高 <font color='#ccff66'>350</font>%% 的攻击力"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "% BLUE_DRAGON_GREAVES_EVASION %>%% 闪避并提高 <font color='#ccff66'>450</font>%% 的攻击力"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"橡胶靴"
@@ -12507,7 +12507,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"硃砂色的梦幻长袍"
 		"item_property_vermillion_dream_robes"					"夜光"
-		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 <font color='#ccff66'>420</font> 。"
+		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 <font color='#ccff66'>900</font> 。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"远古风之甲"
@@ -12666,10 +12666,10 @@
 		"property_scorched_gauntlet_description_2"	"攻击时有<font color='#ccff66'>20</font>%几率产生一片焦土，每秒对范围内所有敌人造成 <font color='#ccff66'>150</font>% 攻击力+ <font color='#ccff66'>25</font>x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 <font color='#ccff66'>250</font>% 攻击力的伤害、 <br>眩晕敌人 <font color='#ccff66'>1.6</font> 秒并且留下一片新的焦土。"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_proud_gloves"								"荣耀护手"
-    	"DOTA_Tooltip_ability_item_rpc_proud_gloves_Description"					"部位：手"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"荣耀护手"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"部位：手"
 		"item_property_proud_gloves"						"彩虹打击"
-		"property_proud_gloves_description"				"攻击时有3%几率庇护你和你的友军，增加50点护甲、20%魔法抗性、每秒100点生命值回复速度和每秒100点魔法值回复速度，持续5秒。"
+		"property_proud_gloves_description"				"TODO: <font color=\"#9400D3\">A</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">o</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">c</font><font color=\"#00FF00\">k</font><font color=\"#FFFF00\">s</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">d</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">e</font><font color=\"#FF0000\">n</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">w</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">h</font><font color=\"#0000FF\">e</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">h</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">h</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">b</font><font color=\"#FF0000\">o</font><font color=\"#9400D3\">n</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">s</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">m</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">g</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">c</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">l</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">d</font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">m</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">g</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\">.</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">A</font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">n</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">l</font><font color=\"#FF0000\">y</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">m</font><font color=\"#00FF00\">p</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">f</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">u</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">o</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">c</font><font color=\"#9400D3\">k</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">d</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">b</font><font color=\"#00FF00\">y</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">m</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">m</font><font color=\"#FF0000\">a</font><font color=\"#9400D3\">g</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">b</font><font color=\"#FFFF00\">o</font><font color=\"#FF7F00\">n</font><font color=\"#FF0000\">u</font><font color=\"#9400D3\">s</font><font color=\"#4B0082\">.</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"埃辛诺斯之爪"
@@ -13184,7 +13184,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"四季之眼"
 		 "item_property_eye_of_seasons"						"绯红"
-		 "property_eye_of_seasons_description"				"增加敏捷值和力量值，增加量为智力值的<font color='#ccff66'>35</font>%"
+		 "property_eye_of_seasons_description"				"增加敏捷值和力量值，增加量为智力值的<font color='#ccff66'>45</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"沉寂圣殿骑士的头盔"
@@ -13498,9 +13498,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"紫红色的戒指"
 		"item_property_fuchsia_ring"							"团结"
-		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 <font color='#ccff66'>85</font>% 并且血量每秒回复 <font color='#ccff66'>45</font>% 玩家的最大的生命值。"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>85</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>85</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
+		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 <font color='#ccff66'>96</font>% 并且血量每秒回复 <font color='#ccff66'>45</font>% 玩家的最大的生命值。"
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>96</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>96</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
 		 
 		 
 		 
