@@ -2,7 +2,7 @@ gemforge_item = -1
 mTooltipPanel = null
 
 function OpenElderRai(msg){
-	$.Msg("GEM FORGER")
+	$.Msg("ELDER RAI")
 	var parent = $('#elder_rai_container')
 	parent.RemoveClass('invisible')
 	parent.AddClass('animateEaseClass')

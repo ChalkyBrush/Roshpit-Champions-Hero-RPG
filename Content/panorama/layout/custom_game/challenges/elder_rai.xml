@@ -6,7 +6,7 @@
 		<include src="file://{resources}/scripts/custom_game/challenges/elder_rai.js" />
 	</scripts>
 	<snippets>
-		<snippet name="elder_rai">
+		<snippet name="elder_rai_main">
 			<Panel class="elder_rai" hittest="false">
 				<Panel id="elder_rai_bg" hittest="false"/>
 				
@@ -14,7 +14,7 @@
 					<Image id="elder_rai_header" hittest="false">
 						<Panel id="elder_rai_header_container" hittest="false">
 							<Panel id="elder_rai_header_container_bg" hittest="false"></Panel>
-							<Label id="elder_rai_header_title" text="the_elder_rai" hittest="false"/>
+							<Label id="elder_rai_header_title" text="elder_rai" hittest="false"/>
 						</Panel>
 					</Image>
 					<Panel id="elder_rai_attach_contents">

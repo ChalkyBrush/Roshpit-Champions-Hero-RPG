@@ -73,7 +73,7 @@ function Winterblight:InitCamp()
       Winterblight.ZFLOAT = 0
     
   Timers:CreateTimer(2, function()
-    Challenges:SpawnElderRai(Vector(-15840, -2352), Vector(1,0))
+    Challenges:SpawnElderRai(Vector(-15940, -2552), Vector(1,0))
     -- Events:SpawnCurator(Vector(-15744, -15488), Vector(1,0.7))
   end)
   Events.TownPosition = Vector(-15197, -2924)
