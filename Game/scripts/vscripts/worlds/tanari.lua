@@ -635,7 +635,7 @@ function Tanari:InitCamp()
         -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13945, 12400, 200), 500, 99999, false)
         -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-14452, 12400, 200), 500, 99999, false)
         -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-13438, 12400, 200), 500, 99999, false)
-        Events:SpawnSuppliesDealer(Vector(-3232, 2427), Vector(0, -1))
+        Challenges:SpawnElderRai(Vector(-3232, 2427), Vector(0, -1))
 
     end)
     Events.TownPosition = Vector(-4928, 2048)
