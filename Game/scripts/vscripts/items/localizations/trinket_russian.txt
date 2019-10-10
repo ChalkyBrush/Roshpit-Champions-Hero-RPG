@@ -182,7 +182,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
 		"item_property_epsilon_eyeglass"					"Extended Scope"
-		"property_epsilon_eyeglass_description"			"Увеличивает дальность атаки на <% EPSILON_EYEGLASS_ATTACK_RANGE %> (ТОЛЬКО ДЛЯ ГЕРОЕВ С ДАЛЬНЕЙ АТАКОЙ), увеличивает дальность обзора на <% EPSILON_EYEGLASS_VISION_RADIUS %> и увеличивает скорость полёта снаряда от атаки на <% EPSILON_EYEGLASS_PROJECTILE_SPEED %>. Каждая атака наносит дополнительный физический урон, зависящий от расстояния между героем и целью.<br>(Формула: 0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000  %> * уровень героя * расстояние ^ 3)<br>Максимально допустимое расстояние для получения наивысшего бонуса: <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>."
+		"property_epsilon_eyeglass_description"			"Увеличивает дальность атаки на <% EPSILON_EYEGLASS_ATTACK_RANGE %> (ТОЛЬКО ДЛЯ ГЕРОЕВ С ДАЛЬНЕЙ АТАКОЙ), увеличивает дальность обзора на <% EPSILON_EYEGLASS_VISION_RADIUS %> и увеличивает скорость полёта снаряда от атаки на <% EPSILON_EYEGLASS_PROJECTILE_SPEED %>. Каждая атака наносит дополнительный физический урон, зависящий от расстояния между героем и целью.<br>(Формула: 0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000  %> * уровень героя * расстояние ^ 3)<br>Максимально допустимое расстояние для получения наивысшего бонуса: <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>, а короткая дистанция рассчитывается как <% EPSILON_EYEGLASS_MIN_RANGE %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"

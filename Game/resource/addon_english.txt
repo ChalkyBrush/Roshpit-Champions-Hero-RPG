@@ -11924,7 +11924,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
 		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Increases the damage of @Ability3 by <font color='#ccff66'>100</font>%"
+		"property_admiral_boots_description"		"Increases the damage of @Ability3 by <font color='#ccff66'>500</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
@@ -11952,7 +11952,7 @@
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
 		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by <font color='#ccff66'>30</font>% of their base cooldown."
+		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by <font color='#ccff66'>40</font>% of their base cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
@@ -11972,9 +11972,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"For every <font color='#ccff66'>1200</font> units of distance moved, gain <font color='#ccff66'>85</font>% evasion and <font color='#ccff66'>350</font>% bonus attack damage for <font color='#ccff66'>7</font> seconds."
+		"property_dragon_greaves_description"		"For every <font color='#ccff66'>1200</font> units of distance moved, gain <font color='#ccff66'>85</font>% evasion and <font color='#ccff66'>450</font>% bonus attack damage for <font color='#ccff66'>7.5</font> seconds."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>85</font>%% evasion and <font color='#ccff66'>350</font>%% increased attack damage"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>85</font>%% evasion and <font color='#ccff66'>450</font>%% increased attack damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
@@ -12416,7 +12416,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <font color='#ccff66'>420</font>."
+		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <font color='#ccff66'>900</font>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
@@ -12554,10 +12554,10 @@
 		"property_scorched_gauntlet_description_2"	"<font color='#ccff66'>20</font>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <font color='#ccff66'>150</font>% of your attack power + <font color='#ccff66'>25</font>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <font color='#ccff66'>250</font>% of your attack power to enemies in an area upon landing, stunning those affected for <font color='#ccff66'>1.6</font> seconds, and creating another fire zone."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_proud_gloves"								"Proud Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_proud_gloves_Description"					"Slot: Hands"
-		"item_property_proud_gloves"						"Rainbow Strike"
-		"property_proud_gloves_description"				"<font color=\"#DDDDDD\">A</font><font color=\"#EF4126\">u</font><font color=\"#AF843D\">t</font><font color=\"#5CCDF9\">o</font> <font color=\"#37DD3D\">a</font><font color=\"#B5FFB7\">t</font><font color=\"#F6FFB5\">t</font><font color=\"#C25DFC\">a</font><font color=\"#87D9FF\">c</font><font color=\"#E1A2E8\">k</font><font color=\"#7F4F84\">s</font><font color=\"#7AE2A7\"> d</font><font color=\"#9ACCD1\">e</font><font color=\"#3894FF\">a</font><font color=\"#5B648C\">l</font><font color=\"#69BC71\"> t</font><font color=\"#5C776E\">h</font><font color=\"#3289C7\">e</font><font color=\"#DDDDDD\"> e</font><font color=\"#EF4126\">l</font><font color=\"#AF843D\">e</font><font color=\"#5CCDF9\">m</font><font color=\"#37DD3D\">e</font><font color=\"#B5FFB7\">n</font><font color=\"#F6FFB5\">t</font><font color=\"#C25DFC\"> w</font><font color=\"#87D9FF\">i</font><font color=\"#E1A2E8\">t</font><font color=\"#7F4F84\">h</font><font color=\"#7AE2A7\"> t</font><font color=\"#9ACCD1\">h</font><font color=\"#3894FF\">e</font><font color=\"#5B648C\"> h</font><font color=\"#69BC71\">i</font><font color=\"#5C776E\">g</font><font color=\"#3289C7\">h</font><font color=\"#DDDDDD\">e</font><font color=\"#EF4126\">s</font><font color=\"#AF843D\">t</font><font color=\"#5CCDF9\"> b</font><font color=\"#37DD3D\">o</font><font color=\"#B5FFB7\">n</font><font color=\"#F6FFB5\">u</font><font color=\"#C25DFC\">s</font><font color=\"#87D9FF\"> a</font><font color=\"#E1A2E8\">s</font><font color=\"#7F4F84\"> m</font><font color=\"#7AE2A7\">a</font><font color=\"#9ACCD1\">g</font><font color=\"#3894FF\">i</font><font color=\"#5B648C\">c</font><font color=\"#69BC71\">a</font><font color=\"#5C776E\">l</font><font color=\"#3289C7\"> d</font><font color=\"#DDDDDD\">a</font><font color=\"#EF4126\">m</font><font color=\"#AF843D\">a</font><font color=\"#5CCDF9\">g</font><font color=\"#37DD3D\">e</font><font color=\"#B5FFB7\">. </font><font color=\"#F6FFB5\">A</font><font color=\"#C25DFC\">d</font><font color=\"#87D9FF\">d</font><font color=\"#E1A2E8\">i</font><font color=\"#7F4F84\">t</font><font color=\"#7AE2A7\">i</font><font color=\"#9ACCD1\">o</font><font color=\"#3894FF\">n</font><font color=\"#5B648C\">a</font><font color=\"#69BC71\">l</font><font color=\"#5C776E\">l</font><font color=\"#3289C7\">y</font><font color=\"#DDDDDD\"> a</font><font color=\"#EF4126\">m</font><font color=\"#AF843D\">p</font><font color=\"#5CCDF9\">l</font><font color=\"#37DD3D\">i</font><font color=\"#B5FFB7\">f</font><font color=\"#F6FFB5\">i</font><font color=\"#C25DFC\">e</font><font color=\"#87D9FF\">s</font><font color=\"#E1A2E8\"> a</font><font color=\"#7F4F84\">u</font><font color=\"#7AE2A7\">t</font><font color=\"#9ACCD1\">o</font><font color=\"#3894FF\"> a</font><font color=\"#5B648C\">t</font><font color=\"#69BC71\">t</font><font color=\"#5C776E\">a</font><font color=\"#3289C7\">c</font><font color=\"#DDDDDD\">k</font><font color=\"#EF4126\"> d</font><font color=\"#AF843D\">a</font><font color=\"#5CCDF9\">m</font><font color=\"#37DD3D\">a</font><font color=\"#B5FFB7\">g</font><font color=\"#F6FFB5\">e</font><font color=\"#C25DFC\"> b</font><font color=\"#87D9FF\">y</font><font color=\"#E1A2E8\"> i</font><font color=\"#7F4F84\">t</font><font color=\"#7AE2A7\">e</font><font color=\"#9ACCD1\">m</font><font color=\"#3894FF\"> d</font><font color=\"#5B648C\">a</font><font color=\"#69BC71\">m</font><font color=\"#5C776E\">a</font><font color=\"#3289C7\">g</font><font color=\"#DDDDDD\">e</font><font color=\"#EF4126\"> b</font><font color=\"#AF843D\">o</font><font color=\"#5CCDF9\">n</font><font color=\"#37DD3D\">u</font><font color=\"#B5FFB7\">s</font><font color=\"#F6FFB5\">.</font>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"<font color=\"#9400D3\">P</font><font color=\"#4B0082\">r</font><font color=\"#0000FF\">o</font><font color=\"#00FF00\">u</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">G</font><font color=\"#9400D3\">l</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">v</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">s</font>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
+		"item_property_proud_gloves"												"<font color=\"#9400D3\">R</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">i</font><font color=\"#00FF00\">n</font><font color=\"#FFFF00\">b</font><font color=\"#FF7F00\">o</font><font color=\"#FF0000\">w</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">S</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">r</font><font color=\"#FFFF00\">i</font><font color=\"#FF7F00\">k</font><font color=\"#FF0000\">e</font>"
+		"property_proud_gloves_description"											"<font color=\"#9400D3\">A</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">o</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">c</font><font color=\"#00FF00\">k</font><font color=\"#FFFF00\">s</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">d</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">e</font><font color=\"#FF0000\">n</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">w</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">h</font><font color=\"#0000FF\">e</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">h</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">h</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">b</font><font color=\"#FF0000\">o</font><font color=\"#9400D3\">n</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">s</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">m</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">g</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">c</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">l</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">d</font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">m</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">g</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\">.</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">A</font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">n</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">l</font><font color=\"#FF0000\">y</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">m</font><font color=\"#00FF00\">p</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">f</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">u</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">o</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">c</font><font color=\"#9400D3\">k</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">d</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">b</font><font color=\"#00FF00\">y</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">m</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">m</font><font color=\"#FF0000\">a</font><font color=\"#9400D3\">g</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">b</font><font color=\"#FFFF00\">o</font><font color=\"#FF7F00\">n</font><font color=\"#FF0000\">u</font><font color=\"#9400D3\">s</font><font color=\"#4B0082\">.</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
@@ -13084,7 +13084,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Increases Strength and Agility by <font color='#ccff66'>35</font>% of Intelligence."
+		 "property_eye_of_seasons_description"				"Increases Strength and Agility by <font color='#ccff66'>45</font>% of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
@@ -13388,7 +13388,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
 		"item_property_epsilon_eyeglass"					"Extended Scope"
-		"property_epsilon_eyeglass_description"			"Increases attack range by <font color='#ccff66'>240</font> (RANGED ONLY), increases vision radius by <font color='#ccff66'>800</font>, and adds <font color='#ccff66'>1500</font> to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00<font color='#ccff66'>1</font> * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is <font color='#ccff66'>5000</font>."
+		"property_epsilon_eyeglass_description"			"Increases attack range by <font color='#ccff66'>240</font> (RANGED ONLY), increases vision radius by <font color='#ccff66'>800</font>, and adds <font color='#ccff66'>1500</font> to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00<font color='#ccff66'>1</font> * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is <font color='#ccff66'>5000</font>, while short distance is always calculated as <font color='#ccff66'>700</font>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
@@ -13400,9 +13400,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
 		"item_property_fuchsia_ring"							"Hex Guard"
-		"property_fuchsia_ring_description"					"While silenced or stunned, all damage taken is reduced by <font color='#ccff66'>85</font>%, and health regen is increased by <font color='#ccff66'>45</font>% of max health."
+		"property_fuchsia_ring_description"					"While silenced or stunned, all damage taken is reduced by <font color='#ccff66'>96</font>%, and health regen is increased by <font color='#ccff66'>45</font>% of max health."
 		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Hex Guard"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by <font color='#ccff66'>85</font>% and health regen increased by <font color='#ccff66'>45</font>% of max health."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by <font color='#ccff66'>96</font>% and health regen increased by <font color='#ccff66'>45</font>% of max health."
 		 
 		 
 		 
