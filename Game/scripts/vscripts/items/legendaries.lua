@@ -584,7 +584,7 @@ function RPCItems:RollProudGloves(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_kappa_pride_gloves", "immortal", "Proud Gloves", "hands", true, "Slot: Hands")
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "pride"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pride", "#D950D6", 1, "#property_pride_description")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_proud_gloves", "#D950D6", 1, "#property_proud_gloves_description")
     RPCItems:RollHandProperty2(item, 0)
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)
@@ -3048,27 +3048,6 @@ function RPCItems:RollOutlandStoneCuirass(deathLocation)
     return item
 end
 
-function RPCItems:RollArmorOfAtlantis(deathLocation)
-    local item = RPCItems:CreateVariant("item_rpc_armor_of_atlantis", "immortal", "Outland Stone Cuirass", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "atlantis"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_armor_of_atlantis", "#478EC1", 1, "#property_armor_of_atlantis_Description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 200, 800, 1, 1, item.newItemTable.rarity, false, maxFactor * 800)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollBluestarArmor(deathLocation)
     local item = RPCItems:CreateVariant("item_rpc_bluestar_armor", "immortal", "Bluestar Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -3817,25 +3796,6 @@ function RPCItems:RollStormcrackHelm(deathLocation, isShop)
     item.newItemTable.property1name = "stormcrack2"
     --RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_stormcrack", "#EFF2AE",  1, "#property_stormcrack_description")
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormcrack2", "#EFF2AE", 1, "#property_stormcrack2_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = value * 2
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollWraithCrown(deathLocation, isShop)
-    local item = RPCItems:CreateVariant("item_rpc_wraith_crown", "immortal", "Wraith Crown", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "wraith"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wraith", "#5671E8", 1, "#property_wraith_description")
 
     item.newItemTable.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
@@ -5379,25 +5339,6 @@ function RPCItems:RollFireWalkers(deathLocation)
     return item
 end
 
-function RPCItems:RollRedfallRunners(deathLocation)
-    local item = RPCItems:CreateVariant("item_rpc_redfall_runners", "immortal", "Redfall Runners", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "redfall_runners"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_redfall_runners", "#E87B7B", 1, "#property_redfall_runners_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(100, 2, 12, 0, 0, item.newItemTable.rarity, false, math.ceil(maxFactor / 2.4))
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "base_ability"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
-
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollRedOctoberBoots(deathLocation, isSpirit)
     local item = RPCItems:CreateVariant("item_rpc_red_october_boots", "immortal", "Red October Boots", "feet", true, "Slot: Feet")
@@ -8108,7 +8049,7 @@ function RPCItems:RollImmortalByName(itemName, position)
     local newItem = nil
     --print(immortalName)
     if _G[itemName] then
-        newItem = _G[itemName]:Create(position)
+        newItem = _G[itemName]:CreateLuaItem(position)
     elseif itemName == "item_rpc_magebane_gloves" then
         newItem = RPCItems:RollMageBaneGloves(deathLocation)
     elseif itemName == "item_rpc_berserker_gloves" then
@@ -8253,8 +8194,6 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollBrazenKabuto(deathLocation, isShop)
     elseif itemName == "item_rpc_odin_helmet" then
         newItem = RPCItems:RollOdinHelmet(deathLocation, isShop)
-    elseif itemName == "item_rpc_wraith_crown" then
-        newItem = RPCItems:RollWraithCrown(deathLocation, isShop)
     elseif itemName == "item_rpc_iron_colussus" then
         newItem = RPCItems:RollIronColossus(deathLocation, isShop)
     elseif itemName == "item_rpc_mask_of_mugato" then
@@ -8476,8 +8415,6 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollAutumnSleeperMask(deathLocation, isShop)
     elseif itemName == "item_rpc_eye_of_seasons" then
         newItem = RPCItems:RollEyeOfSeasons(deathLocation, isShop)
-    elseif itemName == "item_rpc_redfall_runners" then
-        newItem = RPCItems:RollRedfallRunners(deathLocation)
     elseif itemName == "item_rpc_fenrirs_fang" then
         newItem = RPCItems:RollFenrirFang(deathLocation)
     elseif itemName == "item_rpc_boots_of_ashara" then
@@ -8576,8 +8513,6 @@ function RPCItems:RollImmortalByName(itemName, position)
         newItem = RPCItems:RollWorldTreesFlowerCache(deathLocation)
     elseif itemName == "item_rpc_red_october_boots" then
         newItem = RPCItems:RollRedOctoberBoots(deathLocation, false)
-    elseif itemName == "item_rpc_armor_of_atlantis" then
-        newItem = RPCItems:RollArmorOfAtlantis(deathLocation)
     elseif itemName == "item_rpc_chitinous_lobster_claw" then
         newItem = RPCItems:RollChitinousLobsterClaw(deathLocation)
     elseif itemName == "item_rpc_crystalline_slippers" then
@@ -8698,7 +8633,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
     end
     RPCItems.LevelRoll = itemLevel
     if item.isLuaItem then
-        newItem = item:Create(deathLocation)
+        newItem = item:CreateLuaItem(deathLocation)
     else
         newItem = RPCItems:RollImmortalByName(itemName, deathLocation)
     end
@@ -8820,7 +8755,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_armor_of_secret_temple", "item_rpc_vampiric_breastplate", "item_rpc_skyforge_flurry_plate", "item_rpc_dark_arts_vestments", "item_rpc_legion_vestments", "item_rpc_nightmare_rider_mantle",
         "item_rpc_space_tech_vest", "item_rpc_stormshield_cloak", "item_rpc_the_infernal_prison", "item_rpc_enchanted_solar_cape", "item_rpc_gilded_soul_cage", "item_rpc_bluestar_armor", "item_rpc_windsteel_armor",
         "item_rpc_white_mage_hat", "item_rpc_hyper_visor", "item_rpc_crown_of_ruby_dragon", "item_rpc_centaur_horns", "item_rpc_hood_of_chosen", "item_rpc_death_whisper_helm",
-        "item_rpc_guard_of_grithault", "item_rpc_cap_of_wild_nature", "item_rpc_guard_of_luma", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_odin_helmet", "item_rpc_wraith_crown",
+        "item_rpc_guard_of_grithault", "item_rpc_cap_of_wild_nature", "item_rpc_guard_of_luma", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_odin_helmet",
         "item_rpc_iron_colussus", "item_rpc_mask_of_mugato", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_demon_mask", "item_rpc_crest_of_the_umbral_sentinel",
         "item_rpc_carbuncles_helm_of_reflection", "item_rpc_wraith_hunters_steel_helm", "item_rpc_emerald_douli", "item_rpc_mask_of_tyrius", "item_rpc_veil_of_the_cerulean_high_guard",
         "item_rpc_blackfeather_crown", "item_rpc_super_ascendency_mask", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_arcane_cascade_hat", "item_rpc_adamantine_samurai_helmet",
@@ -8840,7 +8775,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_antique_mana_relic", "item_rpc_ablecore_greaves", "item_rpc_glove_of_the_forgotten_ghost", "item_rpc_sapphire_dragon_scale_armor", "item_rpc_topaz_dragon_scale_armor",
         "item_rpc_ruby_dragon_scale_armor", "item_rpc_basilisk_plague_helm", "item_rpc_giant_hunters_boots_of_resilience", "item_rpc_spiritual_empowerment_glove", "item_rpc_hood_of_the_black_mage",
         "item_rpc_sacred_trials_armor", "item_rpc_gravekeepers_gauntlet", "item_rpc_conquest_stone_falcon", "item_rpc_epsilons_eyeglass", "item_rpc_heroic_conqueror_vestments",
-        "item_rpc_autumn_sleeper_mask", "item_rpc_eye_of_seasons", "item_rpc_redfall_runners", "item_rpc_fenrirs_fang", "item_rpc_boots_of_ashara", "item_rpc_autumnrock_bracer",
+        "item_rpc_autumn_sleeper_mask", "item_rpc_eye_of_seasons", "item_rpc_fenrirs_fang", "item_rpc_boots_of_ashara", "item_rpc_autumnrock_bracer",
         "item_rpc_guard_of_feronia", "item_rpc_fuchsia_ring", "item_rpc_helm_of_the_silent_templar", "item_rpc_mystic_mana_wall", "item_rpc_sandstream_slippers", "item_rpc_malachite_shade_bracer",
         "item_rpc_wind_deity_crown", "item_rpc_water_deity_crown", "item_rpc_fire_deity_crown", "item_rpc_skulldigger_gauntlet_lv1", "item_rpc_shipyard_veil_lv1", "item_rpc_crimsyth_elite_greaves_lv1",
         "item_rpc_harvester_boots", "item_rpc_fortunes_talisman_of_truth", "item_rpc_vermillion_dream_robes", "item_rpc_boots_of_great_fortune", "item_rpc_cobalt_serenity_ring",
@@ -8849,7 +8784,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_temporal_warp_boots", "item_rpc_aqua_lily", "item_rpc_fire_blossom", "item_rpc_wind_orchid", "item_rpc_ankh_of_the_ancients", "item_rpc_alaranas_ice_boot",
         "item_rpc_ancient_tanari_wind_armor", "item_rpc_blue_rain_gauntlet", "item_rpc_shadowflame_fist", "item_rpc_blazing_fury_armor", "item_rpc_aquastone_ring", "item_rpc_burning_spirit_helmet",
         "item_rpc_aquasteel_bracers", "item_rpc_demonfire_gauntlet", "item_rpc_emerald_speed_runners", "item_rpc_outland_stone_cuirass", "item_rpc_world_trees_flower_cache", "item_rpc_red_october_boots",
-        "item_rpc_armor_of_atlantis", "item_rpc_chitinous_lobster_claw", "item_rpc_crystalline_slippers", "item_rpc_dark_emissary_glove", "item_rpc_dark_reef_shark_helmet", "item_rpc_depth_demon_claw", "item_rpc_empyreal_sunrise_robe",
+        "item_rpc_chitinous_lobster_claw", "item_rpc_crystalline_slippers", "item_rpc_dark_emissary_glove", "item_rpc_dark_reef_shark_helmet", "item_rpc_depth_demon_claw", "item_rpc_empyreal_sunrise_robe",
         "item_rpc_hood_of_the_sea_oracle", "item_rpc_ocean_helm_of_valdun", "item_rpc_oceanrunner_boots", "item_rpc_sea_giants_plate", "item_rpc_sparkling_token_of_oceanis", "item_rpc_templar_light_seers_robe",
     "item_rpc_twisted_blue_mask_of_ahnqhir", "item_rpc_twisted_yellow_mask_of_ahnqhir", "item_rpc_twisted_purple_mask_of_ahnqhir", "item_rpc_new_boots", "item_rpc_heavy_echo_gauntlet"}
 

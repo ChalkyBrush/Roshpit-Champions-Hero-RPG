@@ -159,9 +159,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"落红流火的赛跑者"
 		"item_property_redfall_runners"					"嘎吱作响的叶子"
-		"property_redfall_runners_description"				"施放 @Ability3 获得buff，增加 @Ability2 的基础技能伤害<% REDFALL_RUNNERS_BAD_MULT %>%倍。持续时间<% REDFALL_RUNNERS_DURATION %>秒，释放二技能后失去buff。"
+		"property_redfall_runners_description"					"TODO: Each % of missing health increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
 		"DOTA_Tooltip_modifier_redfall_runners_buff"		"嘎吱作响的叶子"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"W 技能伤害增加20x"
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"TODO: Increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> per %% of missing health."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
@@ -191,7 +191,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"血石之靴"
 		"item_property_bloodstone_boots"						"生死攸关"
-		 "property_bloodstone_boots_description"				"当生命值低于 <% BLOODSTONE_BOOTS_HP_THRESHOLD %>% ，@Ability3 拥有<% BLOODSTONE_BOOTS_E_CD %>秒冷却时间。"
+		 "property_bloodstone_boots_description"				"当生命值低于 <% BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>% ，@Ability3 拥有<% BLOODSTONE_BOOTS_E_CD %>秒冷却时间。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"时光逆流之靴"

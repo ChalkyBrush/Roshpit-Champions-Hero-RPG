@@ -11889,11 +11889,11 @@
 		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Сапоги Giant Hunter - невосприимчив к магии"
 		
 		 
-    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
-		"item_property_redfall_runners"					"Crackling Leaves"
-		"property_redfall_runners_description"				"После прочтения (E) @Ability3 Базовый Урон способности (W) @Ability2 будет усилен на <font color='#ccff66'>2400</font>%. Эффект длится <font color='#ccff66'>7</font> секунд, но снимается сразу же при нанесении любого урона от (W) @Ability2."
-		"DOTA_Tooltip_modifier_redfall_runners_buff"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_buff_Description"	"Умение (W) усилено на <font color='#ccff66'>2400</font>%%."
+    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"			"Redfall Runners"
+		"item_property_redfall_runners"							"Crackling Leaves"
+		"property_redfall_runners_description"					"TODO: Each % of missing health increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font>."
+		"DOTA_Tooltip_modifier_redfall_runners"					"Crackling Leaves"
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"TODO: Increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font> per %% of missing health."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
@@ -11923,7 +11923,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до <font color='#ccff66'>1</font> секунды, когда уровень здоровья становится ниже <font color='#ccff66'>30</font>%."
+		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до <font color='#ccff66'>1</font> секунды, когда уровень здоровья становится ниже <font color='#ccff66'>35</font>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
@@ -12316,8 +12316,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
-		"property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"									"Если входящий Пост-Резистный урон отнимает более <font color='#ccff66'>100</font>% здоровья героя, то он снижается на <font color='#ccff66'>95</font>%."
+		"item_property_armor_of_atlantis"												"Chasm Forge"
+		"property_armor_of_atlantis_Description"					"TODO: You get <font color='#ccff66'>1.5</font>% damage reduction per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"TODO: Take <font color='#ccff66'>1.5</font>%% reduced damage per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
@@ -12429,10 +12431,10 @@
 		"property_scorched_gauntlet_description_2"	"С <font color='#ccff66'>20</font>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <font color='#ccff66'>150</font>% урона героя + <font color='#ccff66'>25</font>x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <font color='#ccff66'>250</font>% от урона героя в небольшой области и оглушает задетые цели на <font color='#ccff66'>1.6</font> сек, дополнительно поджигая землю под ними."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Слот: Наручи"
-		"item_property_pride"						"Rainbow Strike"
-		"property_pride_description"				"3% шанс при атаке наделить вас и находящихся рядом союзников неслыханной мощью - Даёт 50 брони - 20% сопротивление магии - 100 реген. здоровья - 100 реген. маны на 5 секунд."
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves"								"Proud Gloves"
+    	"DOTA_Tooltip_ability_item_rpc_proud_gloves_Description"					"Слот: Наручи"
+		"item_property_proud_gloves"						"Rainbow Strike"
+		"property_proud_gloves_description"				"3% шанс при атаке наделить вас и находящихся рядом союзников неслыханной мощью - Даёт 50 брони - 20% сопротивление магии - 100 реген. здоровья - 100 реген. маны на 5 секунд."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
@@ -12553,7 +12555,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Увеличивает весь Пост-Резистный урон на <font color='#ccff66'>4</font>% за каждый отсутствующий процент здоровья. Каждое прочтение любого заклинания тратит <font color='#ccff66'>20</font>% от макс. здоровья героя. Каждая атака тратит <font color='#ccff66'>7</font>% от макс. здоровья героя. Затрачиваемое здоровье не может быть смертельным, оставляя минимум 1 ед. здоровья."
+		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <font color='#ccff66'>6</font>% for each missing percent of health. Each spell cast drains <font color='#ccff66'>20</font>% of max life, and each attack drains <font color='#ccff66'>7</font>% of max life. Health drain can't reduce health below <font color='#ccff66'>30</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
@@ -12805,7 +12807,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<font color='#ccff66'>100</font>% полученного урона будет поглощено маной, вместо здоровья. Каждая единица урона по мане равноценна <font color='#ccff66'>15</font> единицам урона по здоровью. "
+		"property_emerald_douli_description"		"TODO: <font color='#ccff66'>95</font>% of damage taken is removed from mana before health. 1 point of mana can absorb <font color='#ccff66'>5</font> damage. Can't reduce mana below <font color='#ccff66'>10</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
@@ -12882,10 +12884,15 @@
 		"property_blackfeather_description"			"Каждые 4 секунды призывает ворону, которая наносит 5х вашего урона и снижает броню цели на 40. Время жизни вороны 10 секунд."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"Wraith Crown"
-		"item_property_wraith"						"Wraithtide"					
-		"property_wraith_description"				"Применение способности (W) @Ability2 переводит героя в другое измерение на <font color='#ccff66'>0.75</font> секунды. Находясь в другом измерении герой не может атаковать, читать заклинания, двигаться и получать урон. Восстанавливается <font color='#ccff66'>2</font> секунды. Позволяет уклониться от летящих атак."
-		"DOTA_Tooltip_modifier_wraith_crown_cooldown"	"Wraithtide Cooldown"
+		"DOTA_Tooltip_ability_item_rpc_wraith_crown"					"Wraith Crown"
+		"item_property_wraith_crown"									"Wraithtide"					
+		"property_wraith_crown_description"								"TODO: While having equal or less than <font color='#ccff66'>35</font>% of max health casting @Ability1 will give you <font color='#ccff66'>65</font>% magic resistance for <font color='#ccff66'>2</font>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <font color='#ccff66'>1.5</font>s) and casting @Ability 3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font>s."
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"TODO: Gives <font color='#ccff66'>65</font>%% magic resistance."
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"TODO: Gives <font color='#ccff66'>75</font>%% evasion."
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"TODO: Can't disjoint projectiles currently."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"

@@ -69,14 +69,15 @@ end
 function class:HasRuneSlots()
     return false
 end
-function class:Create(position)
+function class:CreateLuaItem(position)
     self = RPCItems:CreateVariant(self:GetClassName(), "immortal", self:GetName(), self:GetSlot(), true, self:GetSlotText())
     self.isLuaItem = true
     self.newItemTable.hasRunePoints = self:HasRuneSlots()
-    self:RollProperty1()
-    self:RollProperty2()
-    self:RollProperty3()
-    self:RollProperty4()
+    local maxFactor = RPCItems:GetMaxFactor()
+    self:RollProperty1(maxFactor)
+    self:RollProperty2(maxFactor)
+    self:RollProperty3(maxFactor)
+    self:RollProperty4(maxFactor)
 
     CreateItemOnPositionSync(position, self)
     RPCItems:DropItem(self, position)

@@ -96,7 +96,7 @@ function RPCItems:HoodLegendary(itemVariant, deathLocation, isShop)
             RPCItems:RollEternalNightShroud(deathLocation, isShop)
             return true
         elseif luck == 9 then
-            RPCItems:RollWraithCrown(deathLocation, isShop)
+            item_rpc_wraith_crown:Create(deathLocation)
             return true
         elseif luck == 10 then
             local arcanaLuck = RandomInt(1, 840)

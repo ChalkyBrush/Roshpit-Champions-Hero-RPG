@@ -1196,50 +1196,9 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		victim = Events.GameMaster
 		attacker = unit
 	end
-	tableData.elements = {}
-	local damageDealt = 1000
-	local damageNORMAL = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageNORMAL / damageDealt))
-	local damageFIRE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageFIRE / damageDealt))
-	local damageEARTH = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageEARTH / damageDealt))
-	local damageLIGHTNING = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageLIGHTNING / damageDealt))
-	local damagePOISON = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damagePOISON / damageDealt))
-	local damageTIME = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageTIME / damageDealt))
-	local damageHOLY = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageHOLY / damageDealt))
-	local damageCOSMOS = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageCOSMOS / damageDealt))
-	local damageICE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageICE / damageDealt))
-	local damageARCANE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageARCANE / damageDealt))
-	local damageSHADOW = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageSHADOW / damageDealt))
-	local damageWIND = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageWIND / damageDealt))
-	local damageGHOST = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageGHOST / damageDealt))
-	local damageWATER = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageWATER / damageDealt))
-	local damageDEMON = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageDEMON / damageDealt))
-	local damageNATURE = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageNATURE / damageDealt))
-	local damageUNDEAD = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageUNDEAD / damageDealt))
-	local damageDragon = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE, false)
-	table.insert(tableData.elements, math.floor(damageDragon / damageDealt))
+	tableData.elements = CustomAttributes:CalculatedElementBonuses(victim, attacker)
+
 	tableData.halcyon = 0
-	if IsEnemy then
-		for k, v in pairs(tableData.elements) do
-			tableData.elements[k] = -(v - 100)
-		end
-	end
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
@@ -1277,6 +1236,20 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.rAmp = math.floor((rDamage / baseDamage) * 100)
 	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy})
 	Events:TutorialServerEvent(unit, "1_3", 0)
+end
+
+function CustomAttributes:CalculatedElementBonuses(victim, attacker)
+	local elements = {}
+	local damageDealt = 1000
+	for i=1, RPC_ELEMENT_COUNT, 1 do
+		elements[i] = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, i, RPC_ELEMENT_NONE, false) / damageDealt
+	end
+	if IsEnemy then
+		for k, v in pairs(elements) do
+			elements[k] = -(v - 100)
+		end
+	end
+	return elements
 end
 
 CustomAttributes.MS_CAP_MODIFIERS = {
