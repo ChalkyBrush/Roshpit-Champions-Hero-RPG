@@ -174,15 +174,15 @@
 		"property_blackfeather_description"			"每隔4秒召唤一只乌鸦，乌鸦拥有玩家5倍总攻击力的基础攻击力并可降低敌人目标的护甲40点，每只乌鸦持续10秒。"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"幽灵王冠"
-		"item_property_wraith_crown"						"幽灵暗潮"					
-		"property_wraith_crown_description"								"TODO: While having equal or less than <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% of max health casting @Ability1 will give you <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance for <% WRAITH_CROWN_MAG_RES_DUR %>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <% WRAITH_CROWN_DISJOINT_CD %>s) and casting @Ability 3 will give you <% WRAITH_CROWN_EVASION_PCT %>% evasion for <% WRAITH_CROWN_EVASION_DUR %>s."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"TODO: Gives <% WRAITH_CROWN_MAG_RES_PCT %>%% magic resistance."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"TODO: Gives <% WRAITH_CROWN_EVASION_PCT %>%% evasion."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"TODO: Can't disjoint projectiles currently."
+    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"                                    "幽灵王冠"
+        "item_property_wraith_crown"                        "幽灵暗潮"                 
+        "property_wraith_crown_description"                             "当血量等于或少于 <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% of 最大生命值时施放 @Ability1 会给予 <% WRAITH_CROWN_MAG_RES_PCT %>% 的魔抗 <% WRAITH_CROWN_MAG_RES_DUR %>秒, 施放 @Ability2 会躲避弹道 (每次触发不能超过 <% WRAITH_CROWN_DISJOINT_CD %>秒) 并且施放 @Ability 3 会给予 <% WRAITH_CROWN_EVASION_PCT %>% 的闪避 持续 <% WRAITH_CROWN_EVASION_DUR %>秒."
+        "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"             "幽灵的魔法祝福"
+        "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description" "给予 <% WRAITH_CROWN_MAG_RES_PCT %>%% 魔抗."
+        "DOTA_Tooltip_modifier_wraith_crown_evasion_buff"               "幽魂的回避祝福"
+        "DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"   "给予 <% WRAITH_CROWN_EVASION_PCT %>%% 闪避."
+        "DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"           "分离的幽灵祝福"
+        "DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"   "躲避弹道."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"

@@ -264,8 +264,8 @@
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"守护者雕文"
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"当使用山丘守护时所有伤害减少 <% MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION %>%。"
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"灾难雕文"
-		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage."
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"        "灾难雕文"
+        "item_rpc_mountain_protector_glyph_3_1_description"                 "@Ability4 可以对魔免单位造成纯粹伤害."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"山丘之力雕文"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"<% MOUNTAIN_PROTECTOR_GLYPH_4_1_Q_MULTICAST_CHANCE %>% 有几率释放2道超声波。"

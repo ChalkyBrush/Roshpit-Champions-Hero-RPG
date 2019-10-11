@@ -310,11 +310,11 @@
 		"property_direwolf_description"					"每 <% DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR %> 点主属性提高基础攻击力 <% DIREWOLF_BULWARK_BASE_ATTACK_DMG %>，护甲值 <% DIREWOLF_BULWARK_ARMOR %>，基础技能伤害 <% DIREWOLF_BULWARK_BAD %>%。该装备无法重铸。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"亚特兰帝斯之甲"	
-		"item_property_armor_of_atlantis"											"钢筋铁骨"
-		"property_armor_of_atlantis_Description"								"TODO: You get <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% damage reduction per percent of health missing. This damage reduction can't be higher than <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. Damage instances that would kill you are reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
-		"DOTA_Tooltip_modifier_armor_of_atlantis"								"钢筋铁骨"
-		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"					"TODO: Take <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>%% reduced damage per percent of health missing. This damage reduction can't be higher than <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%%. Damage instances that would kill you are reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%%."
+		 "DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"                       "亚特兰帝斯之甲"
+        "item_property_armor_of_atlantis"                                           "钢筋铁骨"
+        "property_armor_of_atlantis_Description"                                "获得 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. 致死伤害减少至 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
+        "DOTA_Tooltip_modifier_armor_of_atlantis"                               "钢筋铁骨"
+        "DOTA_Tooltip_modifier_armor_of_atlantis_Description"                   "获得 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>%% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%%. 致死伤害减少至 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"圣堂光之袍"	

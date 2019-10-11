@@ -113,7 +113,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
 		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害<% RAVEN_IDOL_DMG_REDUCTION %>%。生命值将不会超过最大生命值的<% RAVEN_IDOL_HP_THRESHOLD * 100 %>。 每100点缺失的血量提高装备伤害 0.01% 。该装备无法重铸。"
+		"property_raven_idol_description2"			"减少受到的所有伤害<% RAVEN_IDOL_DMG_REDUCTION %>%. 你的血量不能超过 <% RAVEN_IDOL_HP_TRESHOLD_PCT %>% 的最大生命值. 提升装备伤害 <% RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT %>% 基于失去的血量."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"

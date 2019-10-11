@@ -309,9 +309,9 @@
         "item_property_chernobog_immortal_weapon"                       "恶魔之魂"
         "property_chernobog_immortal_weapon_description"                "恶魔猎人受到最大的%伤害临界值减少 <% CHERNOBOG_IMMORTAL_WEAPON_1_W_THRESHOLD_REDUCTION %>%。"
         
-        "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "卡律布迪斯的下颚"
+		 "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "卡律布迪斯的下颚"
         "item_property_chernobog_immortal_weapon2"                             "虚空"
-        "property_chernobog_immortal_weapon2_description"                      "每损失 1% 的生命，加深对敌人的伤害 <% CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING %>%（伤害加深计算在敌人减伤之后）"
+        "property_chernobog_immortal_weapon2_description"                      "每损失 1% 的最大生命值,增加基础技能伤害和道具伤害 <% CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING %>%"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "恶魔的不洁之爪"
         "item_property_chernobog_immortal_weapon3"                             "吸血渴望"
