@@ -1174,6 +1174,10 @@
 
 		"DOTA_Tooltip_ability_item_rpc_greater_exp_orb"				"Greater EXP Orb"
 		"item_rpc_greater_exp_orb_description"						"Grants <% RPC_EXP_ORB_2 %> Experience Points."
+		"elder_rai_your_mithril_shards"								"Your Mithril Shards"
+		"ui_cost"													"Cost"
+
+		"ui_purchase"												"Purchase"
 
 	    //------------------------
 		// Blacksmith

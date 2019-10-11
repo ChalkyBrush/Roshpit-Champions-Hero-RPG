@@ -162,3 +162,78 @@
 	font-size:16px;
 	vertical-align: center;
 }
+
+.elder_rai_exp_orb_root{
+	margin-top:20px;
+	horizontal-align:center;
+	flow-children:down;
+	font-weight:lighter;
+	color:white;
+	width:100%;
+}
+
+#elder_rai_attach_2{
+	horizontal-align:center;
+	width:300px;
+}
+
+#elder_rai_orb_image_preview{
+	horizontal-align:center;
+}
+#elder_rai_orb_image_title{
+	font-size:22px;
+	color:#8847FF;
+	horizontal-align:center;
+}
+
+#elder_rai_orb_mithril_cost_right{
+	horizontal-align:right;
+}
+
+#elder_rai_orb_your_mithril_right{
+	horizontal-align:right;
+}
+
+#elder_rai_orb_mithril_cost_left{
+}
+
+.exp-orb-cost-container{
+	width:100%;
+	font-size:16px;
+	font-weight:lighter;
+}
+
+#elder_rai_orb_final_purchase{
+	horizontal-align:center;
+	margin-top:30px;
+	border-radius:4px;
+	border:1px solid white;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:20px;
+	font-size:18px;
+	padding-right:20px;
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
+}
+
+#elder_rai_orb_final_purchase:hover{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #3f6eba ), to( #1C4FA0 ) );
+}
+
+.cost_value_container{
+	horizontal-align:right;
+	flow-children:right;
+}
+
+.mithril_preview{
+	height:16px;
+	width:16px;
+}
+
+#elder_rai_orb_description{
+	text-align: center;
+	width:100%;
+	margin-top:5px;
+	margin-bottom:20px;
+	font-size:18px;
+}
