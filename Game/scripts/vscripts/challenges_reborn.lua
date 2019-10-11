@@ -233,6 +233,27 @@ function Challenges:PanoramaInput(msg)
 		Timers:CreateTimer(2.5, function()
 			Challenges:DespawnCrusader()
 		end)
+	elseif msg.event_type == "purchase_exp_orb" then
+		local item = nil
+		local playerID = msg.PlayerID
+		local mithril = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
+		local amount = 100000
+		if msg.action == "exp-orb-1" then
+			amount = 100000
+			if mithril >= 100000 then
+				item = Challenges:CreateEXPOrb()
+			end
+		elseif msg.action == "exp-orb-2" then
+			amount = 1000000
+			if mithril >= 10000000 then
+				item = Challenges:CreateGreaterEXPOrb()
+			end
+		end
+		local hero = GameState:GetHeroByPlayerID(playerID)
+		local cost = amount*-1
+		Challenges:ModifyMithril(cost, hero, "exp-orb")
+		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+		EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
 	end
 end
 
@@ -316,4 +337,22 @@ function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
 		CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
 		Challenges:DespawnCrusader()
 	end
+end
+
+function Challenges:CreateEXPOrb()
+	local item = RPCItems:CreateConsumable("item_rpc_exp_orb", "mythical", "EXP Orb", "consumable", false, "Consumable", "item_rpc_exp_orb_description")
+	item.newItemTable.stashable = true
+	item.newItemTable.consumable = true
+	item.pickedUp = true
+	RPCItems:ItemUpdateCustomNetTables(item)
+	return item
+end
+
+function Challenges:CreateGreaterEXPOrb()
+	local item = RPCItems:CreateConsumable("item_rpc_greater_exp_orb", "mythical", "Unrefined Gemstones", "consumable", false, "Consumable", "item_rpc_greater_exp_orb_description")
+	item.newItemTable.stashable = true
+	item.newItemTable.consumable = true
+	item.pickedUp = true
+	RPCItems:ItemUpdateCustomNetTables(item)
+	return item
 end

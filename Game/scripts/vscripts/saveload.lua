@@ -1098,6 +1098,18 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					item.newItemTable.validator = gearTable.validator
 				end
 				return item
+			elseif string.match(gearTable.item_variant, "item_rpc_exp_orb") then
+				local item = Challenges:CreateEXPOrb()
+				if gearTable.validator then
+					item.newItemTable.validator = gearTable.validator
+				end
+				return item
+			elseif string.match(gearTable.item_variant, "item_rpc_greater_exp_orb") then
+				local item = Challenges:CreateGreaterEXPOrb()
+				if gearTable.validator then
+					item.newItemTable.validator = gearTable.validator
+				end
+				return item
 			end
 		end
 	end
