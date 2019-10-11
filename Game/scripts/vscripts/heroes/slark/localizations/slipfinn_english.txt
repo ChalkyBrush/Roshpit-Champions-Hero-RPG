@@ -154,14 +154,14 @@
 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed burst that decays over its duration. This speed burst also whips up a short-lived cyclone of murky water that damages nearby enemies."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed slow that decays over its duration. This speed burst also whips up a short-lived cyclone of murky water that damages nearby enemies."
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Damage"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% of Attack Power"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Speed Burst"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Roll Speed Slow"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
-        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed boost and damaging nearby enemies" 
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed slow and damaging nearby enemies" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Gain bonus attack damage during Bog Roller. All attacks deal an additional instance of magical <font color=\"#3894FF\">Water</font> damage."

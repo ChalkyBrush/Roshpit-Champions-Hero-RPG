@@ -237,12 +237,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"<% SLIPFINN_E1_SPEED %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"60"
+				"property_two_base"			"<% SLIPFINN_E1_SPEED_BASE %>"
 			}
 			"04"
 			{

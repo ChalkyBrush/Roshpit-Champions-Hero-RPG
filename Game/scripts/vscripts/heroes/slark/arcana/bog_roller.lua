@@ -86,7 +86,7 @@ function bog_roller_think(event)
 			end
 			speedBonus = speedBonus / 10
 		end
-		ability.rollspeed = math.min(ability.rollspeed + 1 + speedBonus, 25 + speedBonus)
+		ability.rollspeed = math.max(ability.rollspeed - speedBonus, math.max(27 - speedBonus, 0))
 		local rollSpeed = ability.rollspeed
 		caster.speed = rollSpeed
 		if caster:HasModifier("modifier_slipfinn_basic_jump") then
