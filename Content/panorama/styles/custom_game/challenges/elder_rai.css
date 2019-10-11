@@ -164,17 +164,24 @@
 }
 
 .elder_rai_exp_orb_root{
-	margin-top:20px;
+	margin-top:10px;
 	horizontal-align:center;
 	flow-children:down;
 	font-weight:lighter;
 	color:white;
 	width:100%;
+	background-color:#111111;
+	border:1px solid black;
+	box-shadow:1px 1px 2px #000000;
+	border-radius:6px;
+	padding:10px;
+	padding-left:40px;
+	padding-right:40px;
 }
 
 #elder_rai_attach_2{
 	horizontal-align:center;
-	width:300px;
+	width:400px;
 }
 
 #elder_rai_orb_image_preview{
@@ -183,6 +190,7 @@
 #elder_rai_orb_image_title{
 	font-size:22px;
 	color:#8847FF;
+	margin-top:8px;
 	horizontal-align:center;
 }
 
@@ -201,6 +209,7 @@
 	width:100%;
 	font-size:16px;
 	font-weight:lighter;
+
 }
 
 #elder_rai_orb_final_purchase{
@@ -236,4 +245,9 @@
 	margin-top:5px;
 	margin-bottom:20px;
 	font-size:18px;
+}
+
+#elder_rai_orb_image_preview{
+	border-radius:6px;
+	box-shadow:0px 0px 1px #000000;
 }
