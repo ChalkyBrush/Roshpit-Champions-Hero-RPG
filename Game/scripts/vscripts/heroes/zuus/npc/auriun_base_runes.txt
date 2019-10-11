@@ -504,7 +504,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_R1_INT_TO_ATTACK_DMG_PCT * 100 %>"
+				"property_one"			"<% AURIUN_R1_INT_TO_ATTACK_DMG * 100 %>"
 			}
 			"02"
 			{
