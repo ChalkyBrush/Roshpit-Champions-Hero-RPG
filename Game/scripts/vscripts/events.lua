@@ -431,6 +431,10 @@ function GameMode:OnPlayerReconnect(keys)
 	-- end
 end
 
+local function starts_with(str, start)
+	return str:sub(1, #start) == start
+end
+
 function GameMode:OnPlayerChat(keys)
 	local text = string.lower(keys.text)
 	-- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
@@ -443,7 +447,7 @@ function GameMode:OnPlayerChat(keys)
 	-- --print("boom")
 	-- PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
 	-- end
-	if string.match(text, "-suicide") or string.match(text, "-unstuck") then
+	if starts_with(text, "-suicide") or starts_with(text, "-unstuck") then
 		local playerHero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 		local modifier_recently_respawned = playerHero:HasModifier("modifier_recently_respawned")
 		if modifier_recently_respawned or not playerHero:IsAlive() then
@@ -456,6 +460,8 @@ function GameMode:OnPlayerChat(keys)
 		-- Serengaard:KillAllNeutrals()
 		-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 		-- RPCItems:RollHyperstone(10, position)
+		-- RPCItems:RollBorealGraniteVest(position)
+		-- RPCItems:RollMonkeyPaw(position)
 		-- for i=1,5 do
 		-- 	RPCItems:CreateCurrencyReroll(position)
 		-- 	RPCItems:CreateCurrencyWhetstone(position)
