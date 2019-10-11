@@ -14,6 +14,25 @@ function OpenElderRai(msg){
     var imageName = "file://{images}/custom_game/ui/elder_rai_header.jpg"
     header.SetImage(imageName)
 
+    var attach_parent = elder_rai_main.FindChildTraverse('elder_rai_attach_contents')
+    var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-unrefined-gemstones")
+    action_panel.BLoadLayoutSnippet('elder_rai_action')
+    action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/unrefined_gemstones.png')
+    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('elder_rai_refine_gemstones')
+    setElderRaiAction(action_panel, "gemstones")
+
+    var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-exp-orb")
+    action_panel.BLoadLayoutSnippet('elder_rai_action')
+    action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/exp_orb.png')
+    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize("elder_rai_buy_exp_orb")
+    setElderRaiAction(action_panel, "exp-orb-1")
+
+    var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-greater-exp-orb")
+    action_panel.BLoadLayoutSnippet('elder_rai_action')
+    action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/greater_exp_orb.png')
+    action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('elder_rai_buy_greater_exp_orb')
+    setElderRaiAction(action_panel, "exp-orb-2")
+
     mCloseButton = elder_rai_main.FindChildTraverse('close_button')
     mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
    
@@ -21,6 +40,17 @@ function OpenElderRai(msg){
 		Game.EmitSound("Gemforger.UI.Close")
 		CloseElderRai();
 	})
+
+}
+
+function setElderRaiAction(button, action){
+	button.SetPanelEvent('onactivate', function ElderRaiAction() {
+		Game.EmitSound("Gemforger.UI.Close")
+		elderRaiAction(action)
+	})
+}
+
+function elderRaiAction(action){
 
 }
 

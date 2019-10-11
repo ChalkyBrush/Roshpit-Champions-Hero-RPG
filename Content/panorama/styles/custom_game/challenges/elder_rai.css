@@ -123,4 +123,42 @@
 #elder_rai_attach_contents{
 	width:100%;
 	flow-children:down;
+	margin-top:8px;
+}
+
+.elder_rai_action_root{
+	width:80%;
+	horizontal-align:center;
+	height:50px;
+	border:1px solid white;
+	margin-top:5px;
+	background-color:#111111;
+	flow-children:right;
+	box-shadow: 1px 1px 2px #000000;
+}
+
+.elder_rai_action_root:hover{
+	background-color: #222222;
+}
+
+#elder-rai-image-container{
+	width:84px;
+	height:64px;
+}
+
+#elder_rai_action_image{
+	height:40px;
+	width:54px;
+	horizontal-align:center;
+	vertical-align: center;
+	border-radius:10px;
+	box-shadow: 1px 1px 2px #000000;
+}
+#elder_rai_action_text{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	font-weight:lighter;
+	font-size:16px;
+	vertical-align: center;
 }

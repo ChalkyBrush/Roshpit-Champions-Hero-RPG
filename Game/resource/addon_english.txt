@@ -1165,6 +1165,10 @@
 		"elder_rai"													"Elder Rai"
 		"dialogue_elder_rai_one"									""
 
+		"elder_rai_refine_gemstones"								"Refine Gemstones"
+		"elder_rai_buy_exp_orb"										"Purchase EXP Orb"
+		"elder_rai_buy_greater_exp_orb"								"Purchase Greater EXP Orb"	
+
 	    //------------------------
 		// Blacksmith
 		//------------------------

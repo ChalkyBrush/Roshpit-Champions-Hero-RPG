@@ -189,3 +189,18 @@ end
 function use_unrefined_gemstones(event)
 	Gems:UseUnrefinedGemstonesItem(event)
 end
+
+function use_exp_orb(event)
+	local amount = 0
+	local caster = event.caster
+	local item = event.item
+	if event.level == 1 then
+		amount = RPC_EXP_ORB_1
+	elseif event.level == 2 then
+		amount = RPC_EXP_ORB_2
+	end
+	CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", caster, 3)
+	EmitSoundOn("RPCItems.ExpOrb", caster)
+	UTIL_Remove(item)
+	caster:AddExperience(amount, 0, false, true)
+end

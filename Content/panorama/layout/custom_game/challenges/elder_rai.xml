@@ -19,16 +19,27 @@
 					</Image>
 					<Panel id="elder_rai_attach_contents">
 					</Panel>
+					<Panel id="elder_rai_attach_2">
+					</Panel>
 					<Button id="close_button">
 						<Label id="close_button_label" text="ui_close"/>
 					</Button>
 				</Panel>
 			</Panel>
 		</snippet>
+		<snippet name="elder_rai_action">
+			<Panel class="elder_rai_action_root" hittest="true">
+				<Panel id="elder-rai-image-container">
+					<Image id="elder_rai_action_image"/>
+				</Panel>
+				<Label id="elder_rai_action_text"/>
+			</Panel>
+		</snippet>
 	</snippets>
 
 	<Panel class="elder_rai_content" hittest="false">
 		<Panel id="elder_rai_container" hittest="false">
+
 		</Panel>
 	</Panel>
 </root>
