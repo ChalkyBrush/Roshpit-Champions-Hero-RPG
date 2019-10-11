@@ -84,12 +84,12 @@ end
 
 function d_b_apply(caster, enemy, w_4_level, d_b_ability)
 	if w_4_level > 0 then
-		d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_visible", {duration = 7})
+		d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_visible", {duration = AURIUN_W4_DURATION})
 		local current_stacks = enemy:GetModifierStackCount("modifier_auriun_rune_w_4_effect_visible", d_b_ability)
-		local new_stacks = math.min(current_stacks + 1, 5)
+		local new_stacks = math.min(current_stacks + 1, AURIUN_W4_STACKS)
 		enemy:SetModifierStackCount("modifier_auriun_rune_w_4_effect_visible", d_b_ability, new_stacks)
 
-		d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_invisible", {duration = 7})
+		d_b_ability:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_auriun_rune_w_4_effect_invisible", {duration = AURIUN_W4_DURATION})
 		enemy:SetModifierStackCount("modifier_auriun_rune_w_4_effect_invisible", d_b_ability, new_stacks * w_4_level)
 	end
 	--"modifier_auriun_rune_w_4_effect_visible"
@@ -100,8 +100,8 @@ function c_b_effect(caster, ability, target, healAmount)
 	local runeAbility = runeUnit:FindAbilityByName("auriun_rune_w_3")
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "auriun")
 	if w_3_level > 0 then
-		ability.auriun_c_b_heal = w_3_level * 0.005 * healAmount
-		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
+		ability.auriun_c_b_heal = w_3_level * AURIUN_W3_PART_OF_HEAL_PER_TICK * healAmount
+		local duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_W3_BASE_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_b_heal", {duration = duration})
 	end
 	-- local manaSpent = ability:GetManaCost(ability:GetLevel())

@@ -21,7 +21,7 @@ function initialize_seraph_surge(event)
 	if b_c_level > 0 then
 		local runeUnit = caster.runeUnit2
 		local runeAbility = runeUnit:FindAbilityByName("auriun_rune_e_2")
-		local b_c_buffDuration = Filters:GetAdjustedBuffDuration(caster, 8, false)
+		local b_c_buffDuration = Filters:GetAdjustedBuffDuration(caster, AURIUN_E2_BASE_DURATION, false)
 
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_auriun_rune_e_2", {duration = b_c_buffDuration})
 		caster:SetModifierStackCount("modifier_auriun_rune_e_2", runeAbility, b_c_level)
@@ -81,9 +81,9 @@ function d_c(caster, d_c_level)
 		end)
 	end
 	Timers:CreateTimer(0.05, function()
-		local radius = 520
-		local stunDuration = 0.5 + d_c_level * 0.1
-		local damage = caster:GetIntellect() * 8 * d_c_level
+		local radius = AURIUN_E4_RADIUS
+		local stunDuration = AURIUN_E4_STUN_BASE + d_c_level * AURIUN_E4_STUN
+		local damage = caster:GetIntellect() * AURIUN_E4_INT_TO_DAMAGE * d_c_level
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do

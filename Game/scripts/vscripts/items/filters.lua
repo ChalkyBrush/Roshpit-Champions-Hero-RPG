@@ -263,7 +263,7 @@ end
 function Filters:GetAdjustedBuffDuration(caster, baseDuration, bItem)
     if caster:GetUnitName() == "npc_dota_hero_zuus" then
         local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "auriun")
-        baseDuration = baseDuration + c_d_level * 0.15
+        baseDuration = baseDuration + c_d_level * AURIUN_R3_BUFF_DUR_INCREASE
     end
     if caster:HasModifier("modifier_arbor_dragonfly") then
         baseDuration = baseDuration * (100+ARBOR_DRAGONFLY_BUFF_INCREASE_PCT)/100
@@ -1173,7 +1173,7 @@ function Filters:ApplyRskills(caster)
         if IsValidEntity(shadowAbility) then
             shadowAbility.q_4_level = caster:GetRuneValue("q", 4)
             if shadowAbility.q_4_level > 0 then
-                local duration = Filters:GetAdjustedBuffDuration(caster, 18, false)
+                local duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_ARCANA_2_Q4_DURATION, false)
                 shadowAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_trap_d_a_buff", {duration = duration})
                 caster:SetModifierStackCount("modifier_shadow_trap_d_a_buff", caster, shadowAbility.q_4_level)
             end
@@ -1399,7 +1399,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_auriun_rune_q_4_effect") then
             local current_stack = attacker:GetModifierStackCount("modifier_auriun_rune_q_4_effect", attacker.auriun_d_a_ability)
-            damageMult = damageMult + 0.07 * current_stack
+            damageMult = damageMult + AURIUN_Q4_BAD/100 * current_stack
         end
 
         if attacker:HasAbility("mountain_protector_emberstone") then
@@ -2308,7 +2308,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_holy_wrath_passive") then
                 local q_3_level = attacker:GetRuneValue("q", 3)
                 if q_3_level then
-                    mult = mult + 0.0006 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_3_level
+                    mult = mult + AURIUN_ARCANA_1_Q3_ATTRIBUTES_TO_HOLY_AMP_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_3_level
                 end
             end
             local w_2_level = attacker:GetRuneValue("w", 2)
@@ -2542,7 +2542,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_shadow_trap_passive") then
                 local q_3_level = attacker:GetRuneValue("q", 3)
                 if q_3_level then
-                    mult = mult + 0.0006 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_3_level
+                    mult = mult + AURIUN_ARCANA_2_Q3_ATTRIBUTES_TO_SHADOW_AMP_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_3_level
                 end
             end
             local w_2_level = attacker:GetRuneValue("w", 2)

@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30000"
+				"property_one"			"<% AURIUN_ARCANA_2_Q1_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"50000"
+				"property_one_base"		"<% AURIUN_ARCANA_2_Q1_DAMAGE_BASE %>"
 			}
 			"03"
 			{
@@ -73,7 +73,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"<% AURIUN_ARCANA_2_Q3_ATTRIBUTES_TO_SHADOW_AMP_PCT %>"
 			}
 		}
 	}
@@ -94,12 +94,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% AURIUN_ARCANA_2_Q4_MAGIC_POST_MITI %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"150"
+				"property_two"			"<% AURIUN_ARCANA_2_Q4_MANA_REGEN %>"
 			}
 		}
 	}

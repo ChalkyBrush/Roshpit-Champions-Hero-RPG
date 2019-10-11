@@ -1018,9 +1018,9 @@ function GameState:OrderFilter(orderTable)
 					else
 						local ability = unit:FindAbilityByName("auriun_aoe_shield")
 						if IsValidEntity(ability) then
-							ability:ApplyDataDrivenModifier(unit, unit, "modifier_holy_wrath_d_a_cooldown", {duration = 1.0})
+							ability:ApplyDataDrivenModifier(unit, unit, "modifier_holy_wrath_d_a_cooldown", {duration = AURIUN_ARCANA_1_Q4_TP_COOLDOWN})
 							CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_lvl2_ti5.vpcf", unit, 3)
-							local clampDistance = ability.q_4_level * 10 + 400
+							local clampDistance = ability.q_4_level * AURIUN_ARCANA_1_Q4_TP_DISTANCE + AURIUN_ARCANA_1_Q4_TP_DISTANCE_BASE
 							local distance = math.min(WallPhysics:GetDistance2d(Vector(orderTable.position_x, orderTable.position_y), unit:GetAbsOrigin()), clampDistance)
 							--print("AHOLA1")
 							--print(Vector(orderTable.position_x, orderTable.position_y))
@@ -2177,7 +2177,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_shadow_trap_d_a_buff") then
 			local stacks = attacker:GetModifierStackCount("modifier_shadow_trap_d_a_buff", attacker)
-			mult = mult + 0.1 * stacks
+			mult = mult + AURIUN_ARCANA_2_Q4_MAGIC_POST_MITI/100 * stacks
 		end
 		if victim:HasModifier("modifier_drake_ring_postmit") then
 			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
@@ -2281,7 +2281,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_auriun_passive") then
 			if attacker.e_1_level then
-				mult = mult + 0.02 * attacker.e_1_level
+				mult = mult + AURIUN_E1_MAGIC_PURE_POST_MITI/100 * attacker.e_1_level
 			end
 		end
 		if attacker:HasModifier("modifier_leshrac_arcana_b_d_effect") then

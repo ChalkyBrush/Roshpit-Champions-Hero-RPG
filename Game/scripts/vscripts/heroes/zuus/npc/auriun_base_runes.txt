@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% AURIUN_Q1_REFLECT_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"property_one_base"		"<% AURIUN_Q1_REFLECT_PCT_BASE %>"
 			}
 			"03"
 			{
@@ -52,7 +52,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% AURIUN_Q2_SHIELD_CHANCE %>"
 			}
 		}
 	}
@@ -73,12 +73,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% AURIUN_Q3_ARMOR_BONUS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.4"
+				"property_two"			"<% AURIUN_Q3_BASE_DAMAGE_PER_ARMOR %>"
 			}
 		}
 		"Modifiers"
@@ -94,7 +94,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% AURIUN_Q3_ARMOR_BONUS %>"
 				}
 			}
 		}
@@ -116,7 +116,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"<% AURIUN_Q4_BAD %>"
 			}
 		}
 		"Modifiers"
@@ -214,7 +214,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% AURIUN_W3_PART_OF_HEAL_PER_TICK / 100 %>"
 			}
 		}
 		"Modifiers"
@@ -255,12 +255,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"<% AURIUN_W4_MISS_CHANCE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-1"
+				"property_two"			"-<% AURIUN_W4_MOVESPEED_REDUCTION %>"
 			}
 		}
 		"Modifiers"
@@ -293,8 +293,8 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "0.6"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "<% AURIUN_W4_MISS_CHANCE_PCT %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% AURIUN_W4_MOVESPEED_REDUCTION %>"
 				}
 			}
 		}
@@ -316,7 +316,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.0"
+				"property_one"			"<% AURIUN_E1_MAGIC_PURE_POST_MITI %>"
 			}
 		}
 		"Modifiers"
@@ -356,7 +356,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"<% AURIUN_E2_INT_INCREASE %>"
 			}
 		}
 		"Modifiers"
@@ -408,7 +408,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"<% AURIUN_E3_ATTRIBUTES_INCREASE %>"
 			}
 		}
 		"Modifiers"
@@ -454,17 +454,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% AURIUN_E4_STUN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.5"
+				"property_one_base"		"<% AURIUN_E4_STUN_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"800"
+				"property_two"			"<% AURIUN_E4_INT_TO_DAMAGE * 100 %>"
 			}
 			"04"
 			{
@@ -504,12 +504,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% AURIUN_R1_INT_TO_ATTACK_DMG_PCT * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"<% AURIUN_R1_MODIFIER_DMG_PER_ATTACK * 100 %>"
 			}
 			"03"
 			{
@@ -543,7 +543,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% AURIUN_R2_GEAR_VALUE_ENCH_PCT %>"
 			}
 		}
 		"Modifiers"
@@ -591,7 +591,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% AURIUN_R3_BUFF_DUR_INCREASE %>"
 			}
 		}
 		"Modifiers"
@@ -644,7 +644,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"<% AURIUN_R4_SHIELD_CHANCE %>"
 			}
 		}
 	}

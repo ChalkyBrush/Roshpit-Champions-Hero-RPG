@@ -57,18 +57,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% 每10点智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] 圣光"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"受到快速治疗的友军将获得一个buff，进行持续治疗。每0.2秒治疗 %% 快速治疗的治疗量，持续3秒。"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"每0.2秒治疗"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"受到快速治疗的友军将获得一个buff，进行持续治疗。每<% AURIUN_W3_TICK_RATE %>秒治疗 %% 快速治疗的治疗量，持续<% AURIUN_W3_BASE_DURATION %>秒。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"每<% AURIUN_W3_TICK_RATE %>秒治疗"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% 初始治疗值"	
 
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"圣光"		
-    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"每0.2秒治疗一次"
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"每<% AURIUN_W3_TICK_RATE %>秒治疗一次"
 
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"圣光"
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"获得攻击力，最大5层。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] 致盲阴影"
-    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"敌人每次被暗影火炬击中，获得一层debuff提高攻击丢失几率并降低移动速度，持续7秒。最高可叠加至5层。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"敌人每次被暗影火炬击中，获得一层debuff提高攻击丢失几率并降低移动速度，持续<% AURIUN_W4_DURATION %>秒。最高可叠加至<% AURIUN_W4_STACKS %>层。"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"每层攻击丢失几率"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"每层移动速度降低"
@@ -184,7 +184,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% 每10点属性值"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] 圣灵"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"施放天堂之力后，获得一个buff，持续5秒。buff提高魔法恢复速度，并且在玩家做出移动指令时，俄瑞恩将直接传送到目标点，传送技能有1秒的冷却时间。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"施放天堂之力后，获得一个buff，持续<% AURIUN_ARCANA_1_Q4_DURATION %>秒。buff提高魔法恢复速度，并且在玩家做出移动指令时，俄瑞恩将直接传送到目标点，传送技能有<% AURIUN_ARCANA_1_Q4_TP_COOLDOWN %>秒的冷却时间。"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"最远传送距离"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"魔法恢复速度提高"
@@ -209,7 +209,7 @@
     	"DOTA_Tooltip_shadow_trap_aura_Description"								"被缠绕"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] 本影浪潮"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"被暗影所束缚的敌人将每0.6秒受到一次暗影打击。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"被暗影所束缚的敌人将每<% AURIUN_ARCANA_2_Q1_INTERVAL %>秒受到一次暗影打击。"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"打击伤害"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
@@ -224,7 +224,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% 每10点属性值"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] 暗黑形态"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"俄瑞恩在施放终极技能（R大招）之后进入暗黑形态10秒。在暗黑形态下魔法恢复速度提高并且敌人所受到的全部魔法伤害将加深。（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"俄瑞恩在施放终极技能（R大招）之后进入暗黑形态<% AURIUN_ARCANA_2_Q4_DURATION %>秒。在暗黑形态下魔法恢复速度提高并且敌人所受到的全部魔法伤害将加深。（计算在敌人减伤之后）"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"魔法伤害加深"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"魔法恢复速度提高"

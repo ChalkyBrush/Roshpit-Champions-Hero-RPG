@@ -77,7 +77,7 @@
 				"StatusEffectPriority"  "30"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% AURIUN_ARCANA_2_Q4_MANA_REGEN %>"
 				}
 			}
 			"shadow_trap"
@@ -95,7 +95,7 @@
 						"EffectName"		"particles/roshpit/auriun/shadow_trap.vpcf"
 						"EffectAttachType"	"follow_origin"
 						"Target"			"TARGET"
-						"Duration"			"6"
+						"Duration"			"<% AURIUN_ARCANA_2_Q_DURATION %>"
 						"ControlPoints"
 						{
 							"00" "0 0 0"
@@ -116,7 +116,7 @@
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "0.6"
+				"ThinkInterval"  "<% AURIUN_ARCANA_2_Q1_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

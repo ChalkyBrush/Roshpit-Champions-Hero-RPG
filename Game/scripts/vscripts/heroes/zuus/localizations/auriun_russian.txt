@@ -57,18 +57,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% за 10 очков Интеллекта"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Цель, попавшая под исцеляющий эффект (W) Flash Heal получает бафф на 3 секунды, который дополнительно исцеляет цель каждые 0.2 секунды."
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Исцеление каждые 0.2 секунды"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Цель, попавшая под исцеляющий эффект (W) Flash Heal получает бафф на <% AURIUN_W3_BASE_DURATION %> секунды, который дополнительно исцеляет цель каждые <% AURIUN_W3_TICK_RATE %> секунды."
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Исцеление каждые <% AURIUN_W3_TICK_RATE %> секунды"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% от изначального лечения"	
 
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"Energizing Light"		
-    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Исцеляется каждые 0.2 секунды"
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Исцеляется каждые <% AURIUN_W3_TICK_RATE %> секунды"
 
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] Blinding Shadows"
-    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Враги, задетые [W1] получают дебафф, который заставляет их промахиваться при атаках и замедляться. Эффект складывается до 5 раз, длится 7 секунд."
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Враги, задетые [W1] получают дебафф, который заставляет их промахиваться при атаках и замедляться. Эффект складывается до <% AURIUN_W4_STACKS %> раз, длится <% AURIUN_W4_DURATION %> секунд."
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"Шанс промаха за стак"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"Замедление передвижения за стак"
@@ -186,7 +186,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% за каждые 10 очков атрибутов."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"При прочтении @Ability1, герой на 5 секунд восстанавливает больше маны и имеет возможность совершить одну телепортацию в секунду на небольшое расстояние. Телепортация срабатывает когда был отдан приказ на движение."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"При прочтении @Ability1, герой на <% AURIUN_ARCANA_1_Q4_DURATION %> секунд восстанавливает больше маны и имеет возможность совершить одну телепортацию в <% AURIUN_ARCANA_1_Q4_TP_COOLDOWN %> секунду на небольшое расстояние. Телепортация срабатывает когда был отдан приказ на движение."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"Макс. дальность телепортации"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"Доп. реген. маны"
@@ -211,7 +211,7 @@
     	"DOTA_Tooltip_shadow_trap_aura_Description"								"Обездвижен"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] Umbral Waves"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Враги, обездвиженные ямой теней каждые 0.6 секунд получают урон от потока теней."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Враги, обездвиженные ямой теней каждые <% AURIUN_ARCANA_2_Q1_INTERVAL %> секунд получают урон от потока теней."
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"Урон"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
@@ -226,7 +226,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% за каждые 10 очков атрибутов."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на 18 секунд. В этом состоянии магический пост-резистный урон увеличен, регенерация маны увеличена."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на <% AURIUN_ARCANA_2_Q4_DURATION %> секунд. В этом состоянии магический пост-резистный урон увеличен, регенерация маны увеличена."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Усиление магического урона"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Доп. реген. маны"

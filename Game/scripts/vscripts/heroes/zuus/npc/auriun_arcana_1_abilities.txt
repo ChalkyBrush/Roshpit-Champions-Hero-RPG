@@ -12,7 +12,7 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityTextureName"			"auriun/auriun_aoe_shield"
-		"AOERadius"						"280"
+		"AOERadius"						"<% AURIUN_ARCANA_1_Q_RADIUS %>"
 		"AbilitySpecial"
 		{
 			"01"
@@ -23,7 +23,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aoe_radius"				"280"
+				"aoe_radius"				"<% AURIUN_ARCANA_1_Q_RADIUS %>"
 			}
 		}
 		// Precache
@@ -89,7 +89,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% AURIUN_ARCANA_1_Q4_MANA_REGEN %>"
 				}
 			}
 			"modifier_holy_wrath_d_a_cooldown"
@@ -165,7 +165,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% AURIUN_Q3_ARMOR_BONUS %>"
 				}
 			}
 			"modifier_auriun_rune_q_3_thinker"
