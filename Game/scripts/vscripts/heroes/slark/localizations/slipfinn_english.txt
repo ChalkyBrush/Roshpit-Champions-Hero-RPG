@@ -42,7 +42,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% of Attack Power"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts 10 seconds. Enemies hit by Dark Bog gain 1 stack."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts <% SLIPFINN_W2_DURATION %> seconds. Enemies hit by Dark Bog gain 1 stack."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Post-mitigation damage taken per stack"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
 
@@ -50,7 +50,7 @@
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Taking increased post-mitigation damage from Slipfinn"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts 12 seconds, and jumping resets the bonus."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts <% SLIPFINN_W3_DURATION %> seconds, and jumping resets the bonus."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"Attack Power Bonus per Stack"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
 

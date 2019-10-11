@@ -2117,7 +2117,7 @@ function GameState:FilterDamage(filterTable)
 					element1 = RPC_ELEMENT_SHADOW
 				end
 				local r_1_level = attacker:GetRuneValue("r", 1)
-				damage = damage + damage * r_1_level * 0.15
+				damage = damage + damage * r_1_level * SLIPFINN_R1_DAMAGE_INCREASE/100
 				Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damagetype, BASE_ABILITY_R, element1, RPC_ELEMENT_NONE)
 				return false
 			end
@@ -2125,7 +2125,7 @@ function GameState:FilterDamage(filterTable)
 		if WallPhysics:DoesTableHaveValue(attacker.possessedTable, victim:GetUnitName()) then
 			local r_3_level = attacker:GetRuneValue("r", 3)
 			if r_3_level > 0 then
-				mult = mult + 0.2 * r_3_level
+				mult = mult + SLIPFINN_R3_POST_MITI/100 * r_3_level
 			end
 		end
 	end
@@ -2200,7 +2200,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_slipfinn_bog_roller_e3") then
 			local stacks = attacker:GetModifierStackCount("modifier_slipfinn_bog_roller_e3", attacker)
-			mult = mult + stacks * 0.08
+			mult = mult + stacks * SLIPFINN_ARCANA_1_E3_POST_MITI_MAGIC/100
 		end
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult + 0.25
@@ -2800,7 +2800,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.015 * stacks
+			mult = mult + SLIPFINN_W2_POST_MITI/100 * stacks
 		end
 	end
 	if attacker:HasModifier("modifier_paladin_d_c_postmit") then
@@ -3589,7 +3589,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
 			local luck = RandomInt(1, 1000)
-			if luck < 5 * e_4_level then
+			if luck < SLIPFINN_E4_STEADFAST_IGNORE_CHANCE * e_4_level then
 				thresholdMult = 10000
 			end
 		end
@@ -3641,7 +3641,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
 			local luck = RandomInt(1, 1000)
-			if luck < 5 * e_4_level then
+			if luck < SLIPFINN_E4_STEADFAST_IGNORE_CHANCE * e_4_level then
 				thresholdMult = 10000
 			end
 		end

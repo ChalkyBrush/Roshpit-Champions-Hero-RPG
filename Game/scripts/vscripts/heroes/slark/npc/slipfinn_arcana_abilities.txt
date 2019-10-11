@@ -202,7 +202,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SLIPFINN_E2_ATK_DMG_PCT%>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SLIPFINN_ARCANA_1_E2_BONUS_DAMAGE_PCT%>"
 				}
 			}
 			"modifier_slipfinn_bog_roller_e3"
@@ -210,7 +210,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% SLIPFINN_E3_ARMOR %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% SLIPFINN_ARCANA_1_E3_ARMOR_BONUS %>"
 				}
 			}
 		}
@@ -232,7 +232,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_E1_RAZOR %>"
+				"property_one"			"<% SLIPFINN_ARCANA_1_E1_CYCLONE_DAMAGE_PER_ATTACK_PCT %>"
 			}
 			"02"
 			{
@@ -278,12 +278,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_E2_ATK_DMG_PCT %>"
+				"property_one"			"<% SLIPFINN_ARCANA_1_E2_BONUS_DAMAGE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT %>"
+				"property_two"			"<% SLIPFINN_ARCANA_1_E2_MODIFIER_DAMAGE_PCT %>"
 			}
 			"03"
 			{
@@ -313,12 +313,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_E3_ARMOR %>"
+				"property_one"			"<% SLIPFINN_ARCANA_1_E3_ARMOR_BONUS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_E3_POST_MIT_MAGIC_PCT %>"
+				"property_two"			"<% SLIPFINN_ARCANA_1_E3_POST_MITI_MAGIC %>"
 			}
 		}
 	}
@@ -339,12 +339,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_E4_STUN_DURATION %>"
+				"property_one"			"<% SLIPFINN_ARCANA_1_E4_STUN_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_E4_DAMAGE_ATK_POWER_PCT %>"
+				"property_two"			"<% SLIPFINN_ARCANA_1_E4_LAND_DAMAGE_PER_ATTACK_PCT %>"
 			}
 			"03"
 			{

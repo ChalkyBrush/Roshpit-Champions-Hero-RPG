@@ -228,7 +228,7 @@ function bog_roller_passive_attack_land(event)
 			ability.particle_count = ability.particle_count + 1
 			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/bog_mystic_dagger.vpcf", target, 2)
 		end
-		local e_2_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SLIPFINN_E2_WATER_DAMAGE_ATK_POWER_PCT / 100) * e_2_level
+		local e_2_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SLIPFINN_ARCANA_1_E2_MODIFIER_DAMAGE_PCT / 100) * e_2_level
 		Filters:TakeArgumentsAndApplyDamage(target, caster, e_2_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	end
 	Timers:CreateTimer(1, function()
@@ -242,7 +242,7 @@ function bog_roller_razor(event)
 	local ability = event.ability
 	local radius = 300
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SLIPFINN_E1_RAZOR / 100) * ability.e_1_level
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SLIPFINN_ARCANA_1_E1_CYCLONE_DAMAGE_PER_ATTACK_PCT / 100) * ability.e_1_level
 	for _, enemy in pairs(enemies) do
 		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
 	end
