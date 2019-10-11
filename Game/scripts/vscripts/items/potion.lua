@@ -193,7 +193,7 @@ end
 function use_exp_orb(event)
 	local amount = 0
 	local caster = event.caster
-	local item = event.item
+	local item = event.ability
 	if event.level == 1 then
 		amount = RPC_EXP_ORB_1
 	elseif event.level == 2 then

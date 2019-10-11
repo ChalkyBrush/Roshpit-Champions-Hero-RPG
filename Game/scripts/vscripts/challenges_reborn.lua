@@ -240,20 +240,26 @@ function Challenges:PanoramaInput(msg)
 		local amount = 100000
 		if msg.action == "exp-orb-1" then
 			amount = 100000
-			if mithril >= 100000 then
+			if mithril >= amount then
 				item = Challenges:CreateEXPOrb()
+			else
+				return false
 			end
 		elseif msg.action == "exp-orb-2" then
 			amount = 1000000
-			if mithril >= 10000000 then
+			if mithril >= amount then
 				item = Challenges:CreateGreaterEXPOrb()
+			else
+				return false
 			end
 		end
 		local hero = GameState:GetHeroByPlayerID(playerID)
 		local cost = amount*-1
 		Challenges:ModifyMithril(cost, hero, "exp-orb")
 		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+		CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", hero, 3)
 		EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
+		StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_RUN, rate = 1.2})
 	end
 end
 
@@ -290,6 +296,7 @@ function Challenges:MainBossSlainEvent(boss_name)
 end
 
 function Challenges:RewardSequenceForHero(hero)
+	print("REWARD SEQUENCE")
 	CustomAbilities:QuickAttachParticle("particles/econ/taunts/ursa/ursa_unicycle/ursa_unicycle_taunt_spotlight.vpcf", hero, 10)
 	Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_challenge_win_float", {duration = 5})
 	EmitSoundOn("UI.Challenge.WinStart", hero)

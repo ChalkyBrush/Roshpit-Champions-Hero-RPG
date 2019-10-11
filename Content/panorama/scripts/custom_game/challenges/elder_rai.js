@@ -68,7 +68,13 @@ function elderRaiAction(action, phase_2_attacher){
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("elder_rai_your_mithril_shards") + ": "
 		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("ui_purchase")+" "+$.Localize('DOTA_Tooltip_ability_item_rpc_exp_orb')
 		var button = rai_detail_panel.FindChildTraverse('elder_rai_orb_final_purchase')
-		set_purchase_orb_button(button, action)
+		if (mithril_cost <= shards){
+			set_purchase_orb_button(button, action)
+			button.AddClass('elder_rai_orb_final_purchase_ok')
+		}else{
+			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("not_enough_shards")
+			button.AddClass("button-disabled")
+		}
 	}else if(action == "exp-orb-2"){
 		var mithril_cost = 1000000
 		var playerID = Game.GetLocalPlayerID()
@@ -84,7 +90,13 @@ function elderRaiAction(action, phase_2_attacher){
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("elder_rai_your_mithril_shards") + ": "
 		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("ui_purchase")+" "+$.Localize('DOTA_Tooltip_ability_item_rpc_greater_exp_orb')
 		var button = rai_detail_panel.FindChildTraverse('elder_rai_orb_final_purchase')
-		set_purchase_orb_button(button, action)		
+		if (mithril_cost <= shards){
+			set_purchase_orb_button(button, action)
+			button.AddClass('elder_rai_orb_final_purchase_ok')
+		}else{
+			button.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("not_enough_shards")
+			button.AddClass("button-disabled")
+		}
 	}
 }
 

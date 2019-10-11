@@ -211,6 +211,7 @@ end
 function Winterblight:Debug2()
   Events.DifficultyFactor = 3
   Winterblight.Stones = 3
+  print("DEBUG2")
   Challenges:RewardSequenceForHero(MAIN_HERO_TABLE[1])
   -- if not Winterblight.GuideBasePos then
   --   Winterblight.GuideBasePos = Winterblight.CavernGuide:GetAbsOrigin()

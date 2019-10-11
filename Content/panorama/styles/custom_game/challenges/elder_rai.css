@@ -216,16 +216,20 @@
 	horizontal-align:center;
 	margin-top:30px;
 	border-radius:4px;
-	border:1px solid white;
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:20px;
 	font-size:18px;
 	padding-right:20px;
+	
+}
+
+.elder_rai_orb_final_purchase_ok{
+	border:1px solid white;
 	background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
 }
 
-#elder_rai_orb_final_purchase:hover{
+.elder_rai_orb_final_purchase_ok:hover{
 	background-color: gradient( linear, 0px 0%, 260px 0%, from( #3f6eba ), to( #1C4FA0 ) );
 }
 
@@ -250,4 +254,13 @@
 #elder_rai_orb_image_preview{
 	border-radius:6px;
 	box-shadow:0px 0px 1px #000000;
+}
+
+.button-disabled{
+	border:1px solid #000000;
+	background-color: #333333;
+}
+
+.button-disabled:hover{
+	background-color: #333333;
 }
