@@ -15,23 +15,24 @@ function OpenElderRai(msg){
     header.SetImage(imageName)
 
     var attach_parent = elder_rai_main.FindChildTraverse('elder_rai_attach_contents')
+    var phase_2_attacher = elder_rai_main.FindChildTraverse('elder_rai_attach_2')
     var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-unrefined-gemstones")
     action_panel.BLoadLayoutSnippet('elder_rai_action')
     action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/unrefined_gemstones.png')
     action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('elder_rai_refine_gemstones')
-    setElderRaiAction(action_panel, "gemstones")
+    setElderRaiAction(action_panel, "gemstones", phase_2_attacher)
 
     var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-exp-orb")
     action_panel.BLoadLayoutSnippet('elder_rai_action')
     action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/exp_orb.png')
     action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize("elder_rai_buy_exp_orb")
-    setElderRaiAction(action_panel, "exp-orb-1")
+    setElderRaiAction(action_panel, "exp-orb-1", phase_2_attacher)
 
     var action_panel = $.CreatePanel("Panel", attach_parent, "elder_rai-greater-exp-orb")
     action_panel.BLoadLayoutSnippet('elder_rai_action')
     action_panel.FindChildTraverse('elder_rai_action_image').SetImage('file://{images}/custom_game/ui/items_for_ui/greater_exp_orb.png')
     action_panel.FindChildTraverse('elder_rai_action_text').text = $.Localize('elder_rai_buy_greater_exp_orb')
-    setElderRaiAction(action_panel, "exp-orb-2")
+    setElderRaiAction(action_panel, "exp-orb-2", phase_2_attacher)
 
     mCloseButton = elder_rai_main.FindChildTraverse('close_button')
     mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
@@ -43,14 +44,14 @@ function OpenElderRai(msg){
 
 }
 
-function setElderRaiAction(button, action){
+function setElderRaiAction(button, action, phase_2_attacher){
 	button.SetPanelEvent('onactivate', function ElderRaiAction() {
 		Game.EmitSound("Gemforger.UI.Close")
-		elderRaiAction(action)
+		elderRaiAction(action, phase_2_attacher)
 	})
 }
 
-function elderRaiAction(action){
+function elderRaiAction(action, phase_2_attacher){
 
 }
 

@@ -35,6 +35,17 @@
 				<Label id="elder_rai_action_text"/>
 			</Panel>
 		</snippet>
+		<snippet name="elder_rai_exp_orb_purchase">
+			<Panel class="elder_rai_exp_orb_root" hittest="false">
+				<Image id="elder_rai_orb_image_preview"/>
+				<Label id="elder_rai_orb_image_title"/>
+				<Label id="elder_rai_orb_mithril_cost"/>
+				<Label id="elder_rai_orb_your_mithril"/>
+				<Button id="elder_rai_orb_final_purchase" hittest="true">
+					<Label id="final_elder_rai_orb_purchase_label" text="elder_rai_purchase_exp_orb"/>
+				</Button>
+			</Panel>
+		</snippet>
 	</snippets>
 
 	<Panel class="elder_rai_content" hittest="false">

@@ -1169,6 +1169,12 @@
 		"elder_rai_buy_exp_orb"										"Purchase EXP Orb"
 		"elder_rai_buy_greater_exp_orb"								"Purchase Greater EXP Orb"	
 
+		"DOTA_Tooltip_ability_item_rpc_exp_orb"						"EXP Orb"
+		"item_rpc_exp_orb_description"								"Grants <% RPC_EXP_ORB_1 %> Experience Points."
+
+		"DOTA_Tooltip_ability_item_rpc_greater_exp_orb"				"Greater EXP Orb"
+		"item_rpc_greater_exp_orb_description"						"Grants <% RPC_EXP_ORB_2 %> Experience Points."
+
 	    //------------------------
 		// Blacksmith
 		//------------------------
