@@ -67,11 +67,37 @@ function elderRaiAction(action, phase_2_attacher){
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_right').text = numberWithCommas(shards)
 		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("elder_rai_your_mithril_shards") + ": "
 		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("ui_purchase")+" "+$.Localize('DOTA_Tooltip_ability_item_rpc_exp_orb')
+		var button = rai_detail_panel.FindChildTraverse('elder_rai_orb_final_purchase')
+		set_purchase_orb_button(button, action)
+	}else if(action == "exp-orb-2"){
+		var mithril_cost = 1000000
+		var playerID = Game.GetLocalPlayerID()
+        var shards = CustomNetTables.GetTableValue("player_stats", playerID.toString() + "-mithril").mithril;
+		var rai_detail_panel = $.CreatePanel("Panel", phase_2_attacher, "rai-attach-main")
+		rai_detail_panel.BLoadLayoutSnippet('elder_rai_exp_orb_purchase')
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_preview').SetImage('file://{images}/custom_game/ui/items_for_ui/greater_exp_orb.png')
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_image_title').text = $.Localize('#DOTA_Tooltip_ability_item_rpc_greater_exp_orb')
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_description').text = $.Localize("item_rpc_greater_exp_orb_description")
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_right').text = numberWithCommas(mithril_cost)
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_mithril_cost_left').text = $.Localize("ui_cost") + ": "
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_right').text = numberWithCommas(shards)
+		rai_detail_panel.FindChildTraverse('elder_rai_orb_your_mithril_left').text = $.Localize("elder_rai_your_mithril_shards") + ": "
+		rai_detail_panel.FindChildTraverse('final_elder_rai_orb_purchase_label').text = $.Localize("ui_purchase")+" "+$.Localize('DOTA_Tooltip_ability_item_rpc_greater_exp_orb')
+		var button = rai_detail_panel.FindChildTraverse('elder_rai_orb_final_purchase')
+		set_purchase_orb_button(button, action)		
 	}
 }
-				// <Button id="elder_rai_orb_final_purchase" hittest="true">
-				// 	<Label id="final_elder_rai_orb_purchase_label" text="elder_rai_purchase_exp_orb"/>
-				// </Button>
+
+function set_purchase_orb_button(button, action){
+	button.SetPanelEvent('onactivate', function FinalBuy() {
+		final_purchase_final(action)
+	})	
+}
+
+function final_purchase_final(action){
+	GameEvents.SendCustomGameEventToServer( "challenges", {event_type: "purchase_exp_orb", action: action});
+	CloseElderRai();
+}
 
 function CloseElderRai(){
 	var parent = $('#elder_rai_container')
