@@ -217,14 +217,14 @@ end
 function Challenges:PanoramaInput(msg)
 	print("START CHALLENGE")
 	print(msg.challenge_type)
-	if Challenges.Crusader.disabled then
-		return false
-	end
 	CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
 	if Challenges.ActiveChallenge then
 		return false
 	end
 	if msg.event_type == "start" then
+		if Challenges.Crusader.disabled then
+			return false
+		end
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf", MAIN_HERO_TABLE[i], 4)
 			EmitSoundOn("Challenges.Crusader.Enter", MAIN_HERO_TABLE[i])

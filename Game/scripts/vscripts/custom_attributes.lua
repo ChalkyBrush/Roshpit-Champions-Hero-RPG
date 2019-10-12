@@ -291,6 +291,8 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitMagicArmor(unit:GetKeyValue("RoshpitMagicArmor", false))
 		unit:SetBaseRoshpitArmorPierce(unit:GetKeyValue("RoshpitArmorPierce", false))
 		unit:SetBaseRoshpitSpellPierce(unit:GetKeyValue("RoshpitSpellPierce", false))
+		local unit_level = unit:GetKeyValue("RoshpitLevel") + (GameState:GetDifficultyFactor()-1)*40
+		unit:SetRoshpitLevel(unit_level)
 	end
 	unit:CalculateAndSaveRoshpitAttributes()
 end
@@ -329,6 +331,17 @@ function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
 	local spirit = hero:GetKeyValue("RoshpitSpirit", nil)
 	spirit = spirit + self:GetLevel()*hero:GetKeyValue("RoshpitSpiritGain", nil)
 	hero.spirit_custom = math.floor(spirit)
+end
+
+function CDOTA_BaseNPC:SetRoshpitLevel(level)
+	local unit = self
+	if not unit.roshpit_attributes then
+		unit.roshpit_attributes = {}
+	end
+	unit.roshpit_attributes.roshpit_level = level
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_level", {})
+	unit:SetModifierStackCount("modifier_roshpit_level", Events.GameMaster, level)
+	return level
 end
 
 function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)
@@ -1173,12 +1186,11 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		unit.e_4_level = unit:GetRuneValue("e", 4)
 		unit.r_4_level = unit:GetRuneValue("r", 4)
 	else
-		if unit.itemLevel then
-			level = math.ceil(unit.itemLevel / 4)
+		if unit.roshpit_attributes.roshpit_level then
+			level = unit.roshpit_attributes.roshpit_level
 		else
-			level = 20
+			level = 1
 		end
-		level = math.min(level + (GameState:GetDifficultyFactor() - 1) * 35, 120)
 		if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 			GameState:FilterDamage({entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 			GameState:FilterDamage({entindex_victim_const = unit:GetEntityIndex(), entindex_attacker_const = Events.GameMaster:GetEntityIndex(), damage = 10000000000, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})

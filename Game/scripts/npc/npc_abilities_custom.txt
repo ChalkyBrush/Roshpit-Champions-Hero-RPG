@@ -98329,6 +98329,11 @@
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
 			}
+			"modifier_roshpit_level"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
 			"modifier_challenge_win_float"
 			{
 				"IsHidden"	"1"

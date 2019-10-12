@@ -1,5 +1,5 @@
 mQueryUnit = 0
-mAttributesHash = {modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null}
+mAttributesHash = {modifier_roshpit_level: null, modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null}
 
 function InitializeHeroStatsOnce(){
 	$.Schedule( 3, InitializeHeroStats );
@@ -23,20 +23,27 @@ function get_attributes_for_query_unit(queryUnit){
 	var number_of_buffs = Entities.GetNumBuffs( queryUnit )
 	mAttributesHash["modifier_negative_roshpit_armor"] = 0
 	mAttributesHash["modifier_negative_roshpit_magic_armor"] = 0
+	mAttributesHash["modifier_roshpit_level"] = 0
+	mAttributesHash["modifier_roshpit_armor"] = 0
+	mAttributesHash["modifier_roshpit_magic_armor"] = 0
+	mAttributesHash["modifier_roshpit_armor_pierce"] = 0
+	mAttributesHash["modifier_roshpit_spell_pierce"] = 0
 	for (i = 0; i < number_of_buffs; i++) {
 	  // var buff = Entities.GetBuff( queryUnit, i)
 	  var buffName = Buffs.GetName( queryUnit, i )
 	  if (buffName == "modifier_roshpit_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_negative_roshpit_armor"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i ) = 1
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_roshpit_magic_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_negative_roshpit_magic_armor"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i ) = 1
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_roshpit_armor_pierce"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_roshpit_spell_pierce"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  }else if (buffName == "modifier_roshpit_level"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }
 	}
@@ -49,6 +56,7 @@ function UnitStats40(){
 		return false
 	}	
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
+	get_attributes_for_query_unit(queryUnit)
 	if (Entities.IsHero( queryUnit )){
 		$('#hero_attributes').style.visibility = "visible"
 		$('#unit_attributes').style.horizontalAlign = "left"
@@ -59,13 +67,14 @@ function UnitStats40(){
 		$('#agility_label').text = heroAttributes.agility
 		$('#intelligence_label').text = heroAttributes.intelligence	
 		$('#spirit_label').text = heroAttributes.spirit		
+		GameUI.level_label.text = Entities.GetLevel( queryUnit )
 	}else{
 		$('#hero_attributes').style.visibility = "collapse"
 		$('#unit_attributes').style.horizontalAlign = "right"
 		$('#unit_attributes').RemoveClass('unit_attributes_for_heroes')
+		GameUI.level_label.text = mAttributesHash["modifier_roshpit_level"]
 	}
 	// if (!(mQueryUnit == queryUnit)){
-	get_attributes_for_query_unit(queryUnit)
 	$('#unit_attribute_armor_label').text = mAttributesHash["modifier_roshpit_armor"]
 	$('#unit_attribute_armor_pierce_label').text = mAttributesHash["modifier_roshpit_armor_pierce"]
 	$('#unit_attribute_magic_armor_label').text = mAttributesHash["modifier_roshpit_magic_armor"]

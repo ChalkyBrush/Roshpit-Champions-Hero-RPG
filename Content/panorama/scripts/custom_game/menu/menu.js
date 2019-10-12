@@ -227,6 +227,7 @@ function CorrectDotaUI(){
 
 	// parent.FindChildTraverse("LevelLabel").style.visibility = 'collapse';
 	// parent.FindChildTraverse("LevelLabel").text = ""
+	GameUI.level_label = parent.FindChildTraverse("LevelLabel")
 	// var levelProgress = parent.FindChildTraverse("StatBranch").FindChildTraverse("StatLevelProgressBar_Left")
 	// $.Msg(levelProgress)
 	// levelProgress.style.width = "1px"
