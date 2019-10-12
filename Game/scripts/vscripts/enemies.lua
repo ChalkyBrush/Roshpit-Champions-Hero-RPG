@@ -131,24 +131,24 @@ function Enemies:InitializeEnemy(unit)
 	local unit_level = unit.roshpit_attributes.roshpit_level
 	local enemyTier = unit.roshpit_attributes.enemy_tier
 	local difficulty = GameState:GetDifficultyFactor()
-	local tier_mult = Enemies.MOB_TIER_EXP_MULT[enemyTier]
-	print(Enemies.EXP_BASE_TABLE[unit_level])
-	print(tier_mult)
-	print("-----")
-	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * tier_mult
+
+	-- exp
+	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	local spirit_realm = Enemies:SpiritRealmNumber(Events.SpiritRealm)
 	unit:SetDeathXP(deathXP)
-
+	
+	-- gold bounty
 	unit:SetMaximumGoldBounty(0)
 	unit:SetMinimumGoldBounty(0)
 
+	-- attack damage
 	local base_damage = unit:GetAverageTrueAttackDamage(unit)
 	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
-
 	local newDamage = Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]
 	unit:SetBaseDamageMin(newDamage-damageDiff)
 	unit:SetBaseDamageMax(newDamage)
 
+	-- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
 	local newArmor = unit.roshpit_attributes.roshpit_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	unit:SetBaseRoshpitArmor(newArmor, false)
 	local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
@@ -158,6 +158,7 @@ function Enemies:InitializeEnemy(unit)
 	local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
+	-- HP
 	local newHealth = (unit:GetMaxHealth()*Enemies.DIFFICULTY_HEALTH_MULT[difficulty][enemyTier] + Enemies.DIFFICULTY_HEALTH_FLAT[difficulty][enemyTier])*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["max_hp"]
 	newHealth = newHealth + newHealth * 0.3 * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
@@ -165,7 +166,7 @@ function Enemies:InitializeEnemy(unit)
 	unit:SetBaseMaxHealth(newHealth)
 	unit:SetHealth(newHealth)
 
-
+	-- ability levels
 	for i = 0, 6, 1 do
 		local ability = unit:GetAbilityByIndex(i)
 		if ability then
