@@ -6,6 +6,7 @@ require('runes')
 require('beacons')
 require('wallPhysics')
 require('dungeons')
+require('enemies')
 require('game_state')
 require('saveload')
 require('quests')
@@ -2373,78 +2374,78 @@ function Events:GetDifficultyScaledDamage(normalDamage, eliteDamage, legendDamag
 end
 
 function Events:AdjustDeathXP(unit)
-	local difficulty = GameState:GetDifficultyFactor()
-	local xp = unit:GetDeathXP()
-	if difficulty == 1 then
-		xp = math.floor(xp * 1.3)
-	end
-	xp = (difficulty - 1) * 355 + math.ceil(difficulty * xp * 1.55)
-	if difficulty > 2 then
-		xp = math.floor(xp * 2)
-	elseif difficulty == 2 then
-		xp = math.floor(xp * 1.5)
-	end
-	if Events.PreserverXP then
-		xp = math.floor(xp * 1.2)
-	end
-	local xpBoost = (RPCItems:GetConnectedPlayerCount() - 1) * 0.35
-	local adjustedXP = xp * (1 + xpBoost) * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1)
-	adjustedXP = math.min(adjustedXP, 200000)
-	unit:SetDeathXP(adjustedXP)
-	unit:SetMaximumGoldBounty(unit:GetMaximumGoldBounty() / 3)
-	unit:SetMinimumGoldBounty(unit:GetMinimumGoldBounty() / 3)
-	local damageAdjustment = unit:GetAttackDamage() * 3 * (difficulty - 1) + (difficulty - 1) * 52000
-	if GameState:IsTanariJungle() then
-		local powerMult = 3
-		if difficulty == 3 then
-			powerMult = 5
-		end
-		damageAdjustment = unit:GetAttackDamage() * powerMult * (difficulty - 1) + (difficulty - 1) * 52000
-	end
-	if difficulty >= 3 then
-		if GameState:IsWorld1() then
-			damageAdjustment = damageAdjustment + RPCItems:GetMaxFactor() * 6400
-		end
-		if Dungeons.itemLevel > 0 then
-			damageAdjustment = math.floor(damageAdjustment * 1.6)
-		end
-		-- damageAdjustment = math.floor(damageAdjustment + unit:GetAttackDamage()*unit:GetAttackDamage()*1.45)
-		-- damageAdjustment = math.min(damageAdjustment, 1000000000)
-	end
-	local minDamage = unit:GetBaseDamageMin()
-	local maxDamage = unit:GetBaseDamageMax()
-	if Events.SpiritRealm then
-		minDamage = minDamage * 2.6
-		maxDamage = maxDamage * 2.6
-	end
-	unit:SetBaseDamageMin(minDamage + damageAdjustment)
-	unit:SetBaseDamageMax(maxDamage + damageAdjustment)
-
-	-- local newArmor = unit:GetPhysicalArmorValue(false)*difficulty*difficulty+30*(difficulty-1)
-	-- if difficulty > 2 then
-	--   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(false)*4
+	-- local difficulty = GameState:GetDifficultyFactor()
+	-- local xp = unit:GetDeathXP()
+	-- if difficulty == 1 then
+	-- 	xp = math.floor(xp * 1.3)
 	-- end
-	local newArmor = unit:GetPhysicalArmorBaseValue() * difficulty + 10 * (difficulty - 1)
-	unit:SetPhysicalArmorBaseValue(newArmor)
+	-- xp = (difficulty - 1) * 355 + math.ceil(difficulty * xp * 1.55)
+	-- if difficulty > 2 then
+	-- 	xp = math.floor(xp * 2)
+	-- elseif difficulty == 2 then
+	-- 	xp = math.floor(xp * 1.5)
+	-- end
+	-- if Events.PreserverXP then
+	-- 	xp = math.floor(xp * 1.2)
+	-- end
+	-- local xpBoost = (RPCItems:GetConnectedPlayerCount() - 1) * 0.35
+	-- local adjustedXP = xp * (1 + xpBoost) * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1)
+	-- adjustedXP = math.min(adjustedXP, 200000)
+	-- unit:SetDeathXP(adjustedXP)
+	-- unit:SetMaximumGoldBounty(unit:GetMaximumGoldBounty() / 3)
+	-- unit:SetMinimumGoldBounty(unit:GetMinimumGoldBounty() / 3)
+	-- local damageAdjustment = unit:GetAttackDamage() * 3 * (difficulty - 1) + (difficulty - 1) * 52000
+	-- if GameState:IsTanariJungle() then
+	-- 	local powerMult = 3
+	-- 	if difficulty == 3 then
+	-- 		powerMult = 5
+	-- 	end
+	-- 	damageAdjustment = unit:GetAttackDamage() * powerMult * (difficulty - 1) + (difficulty - 1) * 52000
+	-- end
+	-- if difficulty >= 3 then
+	-- 	if GameState:IsWorld1() then
+	-- 		damageAdjustment = damageAdjustment + RPCItems:GetMaxFactor() * 6400
+	-- 	end
+	-- 	if Dungeons.itemLevel > 0 then
+	-- 		damageAdjustment = math.floor(damageAdjustment * 1.6)
+	-- 	end
+	-- 	-- damageAdjustment = math.floor(damageAdjustment + unit:GetAttackDamage()*unit:GetAttackDamage()*1.45)
+	-- 	-- damageAdjustment = math.min(damageAdjustment, 1000000000)
+	-- end
+	-- local minDamage = unit:GetBaseDamageMin()
+	-- local maxDamage = unit:GetBaseDamageMax()
+	-- if Events.SpiritRealm then
+	-- 	minDamage = minDamage * 2.6
+	-- 	maxDamage = maxDamage * 2.6
+	-- end
+	-- unit:SetBaseDamageMin(minDamage + damageAdjustment)
+	-- unit:SetBaseDamageMax(maxDamage + damageAdjustment)
 
-	local newHealth = unit:GetMaxHealth() * difficulty + (difficulty - 1) * unit:GetMaxHealth() + 82000 * (difficulty - 1)
-	if difficulty > 2 then
-		newHealth = newHealth + 420000
-	end
-	newHealth = newHealth + newHealth * 0.3 * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
-	newHealth = math.min(newHealth, (2 ^ 30) - 10)
-	unit:SetMaxHealth(newHealth)
-	unit:SetBaseMaxHealth(newHealth)
-	unit:SetHealth(newHealth)
-	unit:Heal(newHealth, unit)
+	-- -- local newArmor = unit:GetPhysicalArmorValue(false)*difficulty*difficulty+30*(difficulty-1)
+	-- -- if difficulty > 2 then
+	-- --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(false)*4
+	-- -- end
+	-- local newArmor = unit:GetPhysicalArmorBaseValue() * difficulty + 10 * (difficulty - 1)
+	-- unit:SetPhysicalArmorBaseValue(newArmor)
 
-	for i = 0, 6, 1 do
-		local ability = unit:GetAbilityByIndex(i)
-		if ability then
-			ability:SetLevel(difficulty)
-		end
-	end
-	unit.regularEnemy = true
+	-- local newHealth = unit:GetMaxHealth() * difficulty + (difficulty - 1) * unit:GetMaxHealth() + 82000 * (difficulty - 1)
+	-- if difficulty > 2 then
+	-- 	newHealth = newHealth + 420000
+	-- end
+	-- newHealth = newHealth + newHealth * 0.3 * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
+	-- newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	-- unit:SetMaxHealth(newHealth)
+	-- unit:SetBaseMaxHealth(newHealth)
+	-- unit:SetHealth(newHealth)
+	-- unit:Heal(newHealth, unit)
+
+	-- for i = 0, 6, 1 do
+	-- 	local ability = unit:GetAbilityByIndex(i)
+	-- 	if ability then
+	-- 		ability:SetLevel(difficulty)
+	-- 	end
+	-- end
+	-- unit.regularEnemy = true
 end
 
 function Events:TownSiegeXP(unit)
