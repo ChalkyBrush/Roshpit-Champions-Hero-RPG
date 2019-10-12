@@ -115,7 +115,7 @@ Enemies.SPIRIT_REALM_CONSTANTS[1]["roshpit_attribute"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["max_hp"] = 2
 
 Enemies.EXP_BASE_TABLE = {}
-for i = 1, 120 , 1 do
+for i = 0, 120 , 1 do
 	Enemies.EXP_BASE_TABLE[i]= math.ceil(5*(1.05^i))
 end
 
@@ -131,12 +131,15 @@ function Enemies:InitializeEnemy(unit)
 	local unit_level = unit.roshpit_attributes.roshpit_level
 	local enemyTier = unit.roshpit_attributes.enemy_tier
 	local difficulty = GameState:GetDifficultyFactor()
-
+	print(unit_level)
+	print(Enemies.EXP_BASE_TABLE[unit_level])
+	print(Enemies.MOB_TIER_EXP_MULT[enemyTier])
+	print("-----")
 	-- exp
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	local spirit_realm = Enemies:SpiritRealmNumber(Events.SpiritRealm)
 	unit:SetDeathXP(deathXP)
-	
+
 	-- gold bounty
 	unit:SetMaximumGoldBounty(0)
 	unit:SetMinimumGoldBounty(0)

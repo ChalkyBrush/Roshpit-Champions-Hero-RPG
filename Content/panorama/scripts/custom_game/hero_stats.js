@@ -147,7 +147,7 @@ function UpdateHeroStats(){
 			// $.Msg(Math.round(heroAttributes.manaRegen))
 			GameUI.ManaRegenLabel.text = prefix+Math.round(heroAttributes.manaRegen)
 
-			GameUI.MovespeedLabel.text = Math.round(heroAttributes.movespeed)
+			// GameUI.MovespeedLabel.text = Math.round(heroAttributes.movespeed)
 
 		}else{
 
@@ -164,7 +164,7 @@ function UpdateHeroStats(){
 				GameUI.HealthRegenLabel.text = "+"+Math.round(Entities.GetHealthThinkRegen( queryUnit ))
 				GameUI.ManaRegenLabel.text = "+"+Math.round(Entities.GetManaThinkRegen( queryUnit ))
 			}
-            GameUI.MovespeedLabel.text = Math.round(Entities.GetMoveSpeedModifier(queryUnit, Entities.GetBaseMoveSpeed(queryUnit), false));
+            // GameUI.MovespeedLabel.text = Math.round(Entities.GetMoveSpeedModifier(queryUnit, Entities.GetBaseMoveSpeed(queryUnit), false));
 		}
 	}
 }
