@@ -389,7 +389,7 @@ function specter_projectile_hit(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	EmitSoundOn(sound, target)
-	local damage = Events:GetDifficultyScaledDamage(250, 22000, 135000)
+	local damage = event.aoe_damage
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 	PopupDamage(target, damage)
 end
@@ -556,7 +556,7 @@ function wind_temple_keyholder_think(event)
 	end
 	caster.interval = caster.interval + 1
 	if caster.interval % 3 == 0 and not caster:IsStunned() and not caster:IsFrozen() then
-		bomb_throw_start(caster, ability, caster:GetAbsOrigin() + caster:GetForwardVector() * RandomInt(350, 450))
+		bomb_throw_start(caster, ability, caster:GetAbsOrigin() + caster:GetForwardVector() * RandomInt(350, 450), event.bomb_damage)
 	end
 	local modulos = 5 - GameState:GetDifficultyFactor()
 	if caster.interval % modulos == 0 then
@@ -690,7 +690,7 @@ end
 
 --WIND TEMPLE KEY HOLDER BOMBS
 
-function bomb_throw_start(caster, ability, target)
+function bomb_throw_start(caster, ability, target, bomb_damage)
 	for i = 1, GameState:GetDifficultyFactor(), 1 do
 		local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 		fv = WallPhysics:rotateVector(fv, math.pi * 2 * (i - 1) / 20)
@@ -707,7 +707,7 @@ function bomb_throw_start(caster, ability, target)
 		bomb.type = "explosive"
 		bomb.origCaster = caster
 		bomb.origAbility = ability
-		bomb.damage = Events:GetDifficultyScaledDamage(500, 30000, 250000)
+		bomb.damage = bomb_damage
 		bomb:SetOriginalModel("models/items/wards/esl_wardchest_radling_ward/esl_wardchest_radling_ward.vmdl")
 		bomb:SetModel("models/items/wards/esl_wardchest_radling_ward/esl_wardchest_radling_ward.vmdl")
 

@@ -19910,7 +19910,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 15000 150000"
+		"AbilityDamage"					"100 1000 10000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -19960,7 +19960,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"200 500000 9855000"
+		"AbilityDamage"					"80 1000 500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -20031,6 +20031,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"damage_reduction"			"10.0 90.0 99.9"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_damage"			"100 500 2500"
+			}
 		}
 		"Modifiers"
 		{
@@ -20089,6 +20094,7 @@
 				"ScriptFile"	"worlds/tanari/monsters/champions_path_ai"
 				"Function"		"specter_projectile_hit"
 				"target"		"TARGET"
+				"aoe_damage"	"%aoe_damage"
 			}
 		}
 		"OnOwnerDied"
@@ -20266,6 +20272,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"bloodseeker_rupture"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -20332,7 +20339,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%damage"
 					}
 				}
@@ -20351,7 +20358,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"90 1000 12000"
+				"damage"			"60 200 500"
 			}
 		}
 
@@ -20499,6 +20506,14 @@
 		"AbilityTextureName"	"lone_druid_true_form"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bomb_damage"			"200 1000 6000"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_wind_temple_keyholder_ai"
@@ -20511,6 +20526,7 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/champions_path_ai"
 						"Function"		"wind_temple_keyholder_think"
+						"bomb_damage"	"%bomb_damage"
 					}
 				}
 				"OnAttackStart"
