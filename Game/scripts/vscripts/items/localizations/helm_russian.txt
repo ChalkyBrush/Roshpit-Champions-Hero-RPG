@@ -104,7 +104,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"TODO: <% EMERALD_DOULI_ABSORBED_DMG_PCT %>% of damage taken is removed from mana before health. 1 point of mana can absorb <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> damage. Can't reduce mana below <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% отнимается из маны вместо здоровья. 1 очко маны может поглотить <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> урона. Эффект не работает при показателе маны ниже <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
@@ -183,13 +183,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"					"Wraith Crown"
 		"item_property_wraith_crown"									"Wraithtide"					
-		"property_wraith_crown_description"								"TODO: While having equal or less than <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% of max health casting @Ability1 will give you <% WRAITH_CROWN_MAG_RES_PCT %>% magic resistance for <% WRAITH_CROWN_MAG_RES_DUR %>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <% WRAITH_CROWN_DISJOINT_CD %>s) and casting @Ability 3 will give you <% WRAITH_CROWN_EVASION_PCT %>% evasion for <% WRAITH_CROWN_EVASION_DUR %>s."
+		"property_wraith_crown_description"								"Если показатель здоровья равен или ниже <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% от максимума, прочтение @Ability1 даст <% WRAITH_CROWN_MAG_RES_PCT %>% магического сопротивления на <% WRAITH_CROWN_MAG_RES_DUR %> сек., прочтение @Ability2 сбросит летящие в персонажа снаряды (перезарядка <% WRAITH_CROWN_DISJOINT_CD %> сек.) и прочтение @Ability 3 даст <% WRAITH_CROWN_EVASION_PCT %>% уклонения на <% WRAITH_CROWN_EVASION_DUR %> сек."
 		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"TODO: Gives <% WRAITH_CROWN_MAG_RES_PCT %>%% magic resistance."
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"<% WRAITH_CROWN_MAG_RES_PCT %>%% сопротивление магии."
 		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"TODO: Gives <% WRAITH_CROWN_EVASION_PCT %>%% evasion."
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"<% WRAITH_CROWN_EVASION_PCT %>%% уклонение."
 		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"TODO: Can't disjoint projectiles currently."
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Сброс летящих снарядов перезаряжается."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
