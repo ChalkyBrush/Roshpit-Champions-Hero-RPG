@@ -127,8 +127,6 @@ function Enemies:SpiritRealmNumber(spirit_realm)
 	end
 end
 
-Enemies:InitializeConstants()
-
 function Enemies:InitializeEnemy(unit)
 	local unit_level = unit.roshpit_attributes.roshpit_level
 	local enemyTier = unit.roshpit_attributes.enemy_tier
