@@ -1178,6 +1178,12 @@
 		"ui_cost"													"Cost"
 
 		"ui_purchase"												"Purchase"
+		"ui_no_unrefined_gemstones"									"No Gemstones in Inventory"
+		"elder_rai_you_have_x_gemstones_1"							"Elder Rai will refine the Gemstones in your inventory."
+		"elder_rai_you_have_x_gemstones_2"							"Elder Rai will refine both Unrefined Gemstones in your inventory."
+		"elder_rai_you_have_x_gemstones_3"							"Elder Rai will refine all @count Unrefined Gemstones in your inventory."
+
+		"elder_rai_cut"												"Telekinetic Cut!"
 
 	    //------------------------
 		// Blacksmith

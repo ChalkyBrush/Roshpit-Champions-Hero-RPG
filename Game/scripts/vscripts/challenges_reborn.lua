@@ -260,6 +260,40 @@ function Challenges:PanoramaInput(msg)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", hero, 3)
 		EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
 		StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_RUN, rate = 1.2})
+	elseif msg.event_type == "refine_inventory_gemstones" then
+		local playerID = msg.PlayerID
+		local amount = 0
+		local hero = GameState:GetHeroByPlayerID(playerID)
+		--COLLECT GEMSTONE COUNT AND REMOVE THEM
+		for i = 0, 8, 1 do
+			if IsValidEntity(hero:GetItemInSlot(i)) then
+				local item_check = hero:GetItemInSlot(i)
+				if item_check:GetAbilityName() == "item_rpc_unrefined_gemstones" then
+					amount = amount + item_check.newItemTable.property1
+					UTIL_Remove(item_check)
+				end
+			end
+		end
+		--ANIMATION SEQUENCE
+		StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_SPAWN, rate = 1.2})
+		local attachPointA = Events.ElderRai:GetAbsOrigin()+Vector(0,0,80)
+		local attachPointB = hero:GetAbsOrigin()+Vector(0,0,120)
+		local particleName = "particles/roshpit/arkimus/zonis_lightning.vpcf"
+		local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(lightningBolt, 0, Vector(attachPointA.x, attachPointA.y, attachPointA.z))
+		ParticleManager:SetParticleControl(lightningBolt, 1, Vector(attachPointB.x, attachPointB.y, attachPointB.z))
+		Timers:CreateTimer(2, function()
+			ParticleManager:DestroyParticle(lightningBolt, false)
+			ParticleManager:ReleaseParticleIndex(lightningBolt)
+		end)
+		CustomAbilities:QuickAttachParticle("particles/roshpit/challenges/win_pop.vpcf", hero, 3)
+		EmitSoundOn("ElderRai.RefinePop", Events.ElderRai)
+		EmitSoundOn("ElderRai.RefineCut", hero)
+		EmitSoundOn("Challenges.RewardPopEnd", hero)
+		Quests:ShowDialogueText({hero}, Events.ElderRai, "elder_rai_cut", 4, true)
+		--ADD GEMSTONES
+		local reason = "refine_gemstones"
+		Gems:ModifyPrismaticGemstones(playerID, amount, reason, "add")
 	end
 end
 
