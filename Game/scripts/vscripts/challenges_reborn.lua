@@ -14,8 +14,17 @@ function Challenges:GetChallengeFromRoshpitServer()
 		return false
 	end
 	-- if GameState:GetDifficultyFactor() == 3 then
-		local url = ROSHPIT_URL.."/champions/get_challenges"
-
+		local url = ROSHPIT_URL.."/champions/get_challenges?"
+		local steamIDS = ""
+		for i = 1, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS), 1 do
+			local playerID = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+			local steam_id = PlayerResource:GetSteamAccountID(playerID)
+			steamIDS = steamIDS..steam_id
+			if i < PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
+				steamIDS = steamIDS.."-"
+			end
+		end
+		url = url.."steam_ids="..steamIDS
 		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 			local resultTable = {}
 			--print( "GET response:\n" )
@@ -45,7 +54,7 @@ function Challenges:CheckSpawn()
 	for i = 1, #challenges_list, 1 do
 		local full_challenge = challenges_list[i]
 		local challenge_table = challenges_list[i]["challenge"]
-		if Challenges:HeroMatch(full_challenge) and Challenges:MapMatch(challenge_table) and Challenges:DifficultyModMatch(challenge_table) then
+		if Challenges:HeroMatch(full_challenge) and Challenges:MapMatch(challenge_table) and Challenges:DifficultyModMatch(challenge_table) and Challenges:IsThereAtLeastOneUnclearedPlayer(challenges_list[i]) then
 			Challenges:SpawnByMap()
 		end
 	end
@@ -53,7 +62,7 @@ end
 
 function Challenges:AreConditionsValidForChallenge(challenge)
 	local challenge_table = challenge["challenge"]
-	if Challenges:HeroMatch(challenge) and Challenges:MapMatch(challenge_table) and Challenges:DifficultyModMatch(challenge_table) then
+	if Challenges:HeroMatch(challenge) and Challenges:MapMatch(challenge_table) and Challenges:DifficultyModMatch(challenge_table) and Challenges:IsThereAtLeastOneUnclearedPlayer(challenge) then
 		return true
 	else
 		return false
@@ -93,6 +102,14 @@ function Challenges:MapMatch(challenge_table)
 		return true
 	else
 		return false
+	end
+end
+
+function Challenges:IsThereAtLeastOneUnclearedPlayer(challenge_table)
+	if challenge_table["clears"] and #challenge_table["clears"] >= PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
+		return false
+	else
+		return true
 	end
 end
 
@@ -233,6 +250,24 @@ function Challenges:PanoramaInput(msg)
 		Timers:CreateTimer(2.5, function()
 			Challenges:DespawnCrusader()
 		end)
+		if Challenges.ActiveChallenge["clears"] then
+			for i = 1, #Challenges.ActiveChallenge["clears"], 1 do
+				for j = 1, #MAIN_HERO_TABLE, 1 do
+					local hero = MAIN_HERO_TABLE[j]
+					local playerID = hero:GetPlayerOwnerID()
+					local steamID = PlayerResource:GetSteamAccountID(playerID)
+					if Challenges.ActiveChallenge["clears"][i]["steam_id"] == steamID then
+						hero.challenge_cleared = true
+					end
+				end
+			end
+			for i = 1, #MAIN_HERO_TABLE, 1 do
+				if MAIN_HERO_TABLE[i].challenge_cleared then
+					local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+					Notifications:Top(playerID, {text="You have already cleared this Challenge", duration=4, style={color="#FFDDAA"}, continue=true})
+				end
+			end
+		end
 	elseif msg.event_type == "purchase_exp_orb" then
 		local item = nil
 		local playerID = msg.PlayerID
@@ -273,6 +308,9 @@ function Challenges:PanoramaInput(msg)
 					UTIL_Remove(item_check)
 				end
 			end
+		end
+		if amount == 0 then
+			return false
 		end
 		--ANIMATION SEQUENCE
 		StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_SPAWN, rate = 1.2})
@@ -320,11 +358,16 @@ function Challenges:MainBossSlainEvent(boss_name)
 	end
 	if Challenges.ActiveChallenge["challenge"]["objective"] == boss_name then
 		Challenges.ChallengeCompleted = true
+		Challenges:SetChallengeClears()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local hero = MAIN_HERO_TABLE[i]
-			local playerID = hero:GetPlayerOwnerID()
-			local steamID = PlayerResource:GetSteamAccountID(playerID)
-			Challenges:RewardSequenceForHero(hero)
+			if MAIN_HERO_TABLE[i].hero.challenge_cleared then
+				Notifications:Top(MAIN_HERO_TABLE[i]:GetPlayerOwnerID(), {text="You have already cleared this Challenge", duration=4, style={color="#FFDDAA"}, continue=true})
+			else
+				local hero = MAIN_HERO_TABLE[i]
+				local playerID = hero:GetPlayerOwnerID()
+				local steamID = PlayerResource:GetSteamAccountID(playerID)
+				Challenges:RewardSequenceForHero(hero)
+			end
 		end
 	end
 end
@@ -396,4 +439,30 @@ function Challenges:CreateGreaterEXPOrb()
 	item.pickedUp = true
 	RPCItems:ItemUpdateCustomNetTables(item)
 	return item
+end
+
+function Challenges:SetChallengeClears()
+	local url = ROSHPIT_URL.."/champions/set_challenge_clears?"
+	local steamIDS = ""
+	for i = 1, #MAIN_HERO_TABLE, 1 do
+		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+		local steam_id = PlayerResource:GetSteamAccountID(playerID)
+		steamIDS = steamIDS..steam_id
+		if i < #MAIN_HERO_TABLE then
+			steamIDS = steamIDS.."-"
+		end
+	end
+	print(steamIDS)
+	url = url.."steam_ids="..steamIDS
+	url = url.."&challenge_id="..Challenges.ActiveChallenge["challenge"]["id"]
+	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
+		local resultTable = {}
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
+		end
+		--print( "Done." )
+		local resultTable = JSON:decode(result.Body)
+		print(resultTable)
+	end)
 end
