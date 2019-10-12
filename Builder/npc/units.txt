@@ -25252,7 +25252,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "2"
         "RoshpitLevel"          "1"
-        "EnemyTier"      "0"
+        "EnemyTier"      "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -25405,7 +25405,7 @@
         "RoshpitSpellPierce"    "22"
         "RoshpitMagicArmor"     "80"
         "RoshpitLevel"          "3"
-        "EnemyTier"      "0"
+        "EnemyTier"      "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -25473,7 +25473,7 @@
         "RoshpitSpellPierce"    "10"
         "RoshpitMagicArmor"     "15"
         "RoshpitLevel"          "2"
-        "EnemyTier"      "0"
+        "EnemyTier"      "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -25586,7 +25586,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "85"
         "RoshpitLevel"          "4"
-        "EnemyTier"      "0"
+        "EnemyTier"      "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -25662,7 +25662,7 @@
         "RoshpitSpellPierce"    "12"
         "RoshpitMagicArmor"     "115"
         "RoshpitLevel"          "3"
-        "EnemyTier"      "0"
+        "EnemyTier"      "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -25736,7 +25736,7 @@
         "RoshpitSpellPierce"    "35"
         "RoshpitMagicArmor"     "155"
         "RoshpitLevel"          "6"
-        "EnemyTier"      "1"
+        "EnemyTier"      "2"
         "Ability1"      ""
         "Ability2"      "tanari_kraken_anchor_smash"
         "Ability3"      "tanari_kraken_king_ai"
@@ -25846,7 +25846,7 @@
         "RoshpitSpellPierce"    "20"
         "RoshpitMagicArmor"     "105"
         "RoshpitLevel"          "3"
-        "EnemyTier"      "0"
+        "EnemyTier"      "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -25920,7 +25920,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "46"
         "RoshpitLevel"          "3"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -25992,7 +25992,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "145"
         "RoshpitLevel"          "3"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26074,7 +26074,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "2"
         "RoshpitLevel"          "2"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26150,7 +26150,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "12"
         "RoshpitLevel"          "4"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26261,7 +26261,7 @@
         "RoshpitSpellPierce"    "150"
         "RoshpitMagicArmor"     "150"
         "RoshpitLevel"          "4"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26358,7 +26358,7 @@
         "RoshpitSpellPierce"    "180"
         "RoshpitMagicArmor"     "200"
         "RoshpitLevel"          "5"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26445,7 +26445,7 @@
         "RoshpitSpellPierce"    "240"
         "RoshpitMagicArmor"     "240"
         "RoshpitLevel"          "5"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26551,7 +26551,7 @@
         "RoshpitSpellPierce"    "100"
         "RoshpitMagicArmor"     "150"
         "RoshpitLevel"          "7"
-        "EnemyTier"             "2"
+        "EnemyTier"             "3"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26714,7 +26714,7 @@
         "RoshpitSpellPierce"    "255"
         "RoshpitMagicArmor"     "150"
         "RoshpitLevel"          "5"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26802,7 +26802,7 @@
         "RoshpitSpellPierce"    "40"
         "RoshpitMagicArmor"     "60"
         "RoshpitLevel"          "3"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26876,7 +26876,7 @@
         "RoshpitSpellPierce"    "50"
         "RoshpitMagicArmor"     "90"
         "RoshpitLevel"          "5"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -26963,7 +26963,7 @@
         "RoshpitSpellPierce"    "65"
         "RoshpitMagicArmor"     "130"
         "RoshpitLevel"          "6"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27059,7 +27059,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "100"
         "RoshpitLevel"          "5"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27131,7 +27131,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "150"
         "RoshpitLevel"          "5"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27208,7 +27208,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "12"
         "RoshpitLevel"          "6"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27286,7 +27286,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "42"
         "RoshpitLevel"          "7"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27365,7 +27365,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "6"
         "RoshpitLevel"          "5"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27484,7 +27484,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "150"
         "RoshpitLevel"          "6"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27585,7 +27585,7 @@
         "RoshpitSpellPierce"    "270"
         "RoshpitMagicArmor"     "240"
         "RoshpitLevel"          "6"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27774,7 +27774,7 @@
         "RoshpitSpellPierce"    "0"
         "RoshpitMagicArmor"     "200"
         "RoshpitLevel"          "6"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -27876,7 +27876,7 @@
         "RoshpitSpellPierce"    "120"
         "RoshpitMagicArmor"     "140"
         "RoshpitLevel"          "7"
-        "EnemyTier"             "0"
+        "EnemyTier"             "1"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
