@@ -42,7 +42,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% от урона героя"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, увеличивающий получаемый ими пост-резистный урон от Slipfinn. Эффект длится 10 секунд. Враги, получившие урон от [W1] получают по 1 заряду"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, увеличивающий получаемый ими пост-резистный урон от Slipfinn. Эффект длится <% SLIPFINN_W2_DURATION %> секунд. Враги, получившие урон от [W1] получают по 1 заряду"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Доп. пост-резистный урон за заряд"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
 
@@ -50,7 +50,7 @@
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Получает дополнительный пост-резистный урон от Slipfinn"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Прыгая по вражеским головам, герой получает % бонус к урону. Длительность эффекта: 12 секунд. Последующие прыжки обновляют время действия."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Прыгая по вражеским головам, герой получает % бонус к урону. Длительность эффекта: <% SLIPFINN_W3_DURATION %> секунд. Последующие прыжки обновляют время действия."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"Доп. урон за заряд"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
 
@@ -153,14 +153,14 @@
 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "@Ability1 даст ускорение внутри панциря на 2 секунды, а все ближайшие противникики дополнительно получают урон от водного потока."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "@Ability1 даст замедление вращения панциря на 2 секунды, а все ближайшие противникики дополнительно получают урон от водного лезвия вокруг героя."
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Урон"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% от силы Атаки"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Ускорение"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Замедление Вращения"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
-        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает ускорение и наносит урон по противникам поблизости" 
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает замедление и наносит урон по противникам поблизости" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Дает Бонусную Атаку во время Bog Roller. Атаки нанесут дополнительно удар магическим уроном <font color=\"#3894FF\">Воды</font>."

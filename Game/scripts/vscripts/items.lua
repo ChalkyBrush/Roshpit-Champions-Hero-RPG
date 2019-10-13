@@ -2002,7 +2002,7 @@ end
 function RPCItems:AdjustAttributeValue(hero, value)
 	if hero:GetUnitName() == "npc_dota_hero_zuus" and type(value) == "number" then
 		local b_d_level = hero:GetRuneValue("r", 2)
-		value = value + value * 0.005 * b_d_level
+		value = value + value * AURIUN_R2_GEAR_VALUE_ENCH_PCT/100 * b_d_level
 	end
 	return value
 end

@@ -1018,9 +1018,9 @@ function GameState:OrderFilter(orderTable)
 					else
 						local ability = unit:FindAbilityByName("auriun_aoe_shield")
 						if IsValidEntity(ability) then
-							ability:ApplyDataDrivenModifier(unit, unit, "modifier_holy_wrath_d_a_cooldown", {duration = 1.0})
+							ability:ApplyDataDrivenModifier(unit, unit, "modifier_holy_wrath_d_a_cooldown", {duration = AURIUN_ARCANA_1_Q4_TP_COOLDOWN})
 							CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_lvl2_ti5.vpcf", unit, 3)
-							local clampDistance = ability.q_4_level * 10 + 400
+							local clampDistance = ability.q_4_level * AURIUN_ARCANA_1_Q4_TP_DISTANCE + AURIUN_ARCANA_1_Q4_TP_DISTANCE_BASE
 							local distance = math.min(WallPhysics:GetDistance2d(Vector(orderTable.position_x, orderTable.position_y), unit:GetAbsOrigin()), clampDistance)
 							--print("AHOLA1")
 							--print(Vector(orderTable.position_x, orderTable.position_y))
@@ -2117,7 +2117,7 @@ function GameState:FilterDamage(filterTable)
 					element1 = RPC_ELEMENT_SHADOW
 				end
 				local r_1_level = attacker:GetRuneValue("r", 1)
-				damage = damage + damage * r_1_level * 0.15
+				damage = damage + damage * r_1_level * SLIPFINN_R1_DAMAGE_INCREASE/100
 				Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damagetype, BASE_ABILITY_R, element1, RPC_ELEMENT_NONE)
 				return false
 			end
@@ -2125,7 +2125,7 @@ function GameState:FilterDamage(filterTable)
 		if WallPhysics:DoesTableHaveValue(attacker.possessedTable, victim:GetUnitName()) then
 			local r_3_level = attacker:GetRuneValue("r", 3)
 			if r_3_level > 0 then
-				mult = mult + 0.2 * r_3_level
+				mult = mult + SLIPFINN_R3_POST_MITI/100 * r_3_level
 			end
 		end
 	end
@@ -2177,7 +2177,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_shadow_trap_d_a_buff") then
 			local stacks = attacker:GetModifierStackCount("modifier_shadow_trap_d_a_buff", attacker)
-			mult = mult + 0.1 * stacks
+			mult = mult + AURIUN_ARCANA_2_Q4_MAGIC_POST_MITI/100 * stacks
 		end
 		if victim:HasModifier("modifier_drake_ring_postmit") then
 			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
@@ -2200,7 +2200,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_slipfinn_bog_roller_e3") then
 			local stacks = attacker:GetModifierStackCount("modifier_slipfinn_bog_roller_e3", attacker)
-			mult = mult + stacks * 0.08
+			mult = mult + stacks * SLIPFINN_ARCANA_1_E3_POST_MITI_MAGIC/100
 		end
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult + 0.25
@@ -2281,7 +2281,7 @@ function GameState:FilterDamage(filterTable)
 		end
 		if attacker:HasModifier("modifier_auriun_passive") then
 			if attacker.e_1_level then
-				mult = mult + 0.02 * attacker.e_1_level
+				mult = mult + AURIUN_E1_MAGIC_PURE_POST_MITI/100 * attacker.e_1_level
 			end
 		end
 		if attacker:HasModifier("modifier_leshrac_arcana_b_d_effect") then
@@ -2800,7 +2800,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.015 * stacks
+			mult = mult + SLIPFINN_W2_POST_MITI/100 * stacks
 		end
 	end
 	if attacker:HasModifier("modifier_paladin_d_c_postmit") then
@@ -3589,7 +3589,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
 			local luck = RandomInt(1, 1000)
-			if luck < 5 * e_4_level then
+			if luck < SLIPFINN_E4_STEADFAST_IGNORE_CHANCE * e_4_level then
 				thresholdMult = 10000
 			end
 		end
@@ -3641,7 +3641,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_slipfinn_passive") then
 			local e_4_level = attacker:GetRuneValue("e", 4)
 			local luck = RandomInt(1, 1000)
-			if luck < 5 * e_4_level then
+			if luck < SLIPFINN_E4_STEADFAST_IGNORE_CHANCE * e_4_level then
 				thresholdMult = 10000
 			end
 		end

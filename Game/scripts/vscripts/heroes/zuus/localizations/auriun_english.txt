@@ -57,18 +57,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% for each 10 points of Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every 0.2 seconds for 3 seconds."
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Heal Per 0.2 Seconds"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every <% AURIUN_W3_TICK_RATE %> seconds for <% AURIUN_W3_BASE_DURATION %> seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Heal Per <% AURIUN_W3_TICK_RATE %> Seconds"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% of original heal"	
 
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"Energizing Light"		
-    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Healing every 0.2 seconds"
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Healing every <% AURIUN_W3_TICK_RATE %> seconds"
 
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] Blinding Shadows"
-    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Enemies struck by Shadow Flare have an increased Miss Chance and decreased Movespeed. Stacks up to 5 times and lasts 7 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Enemies struck by Shadow Flare have an increased Miss Chance and decreased Movespeed. Stacks up to <% AURIUN_W4_STACKS %> times and lasts <% AURIUN_W4_DURATION %> seconds."
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"Miss Chance per Stack"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"Movespeed Loss per Stack"
@@ -186,7 +186,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% for each 10 attributes."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for 5 seconds that increases mana regen and allows you to teleport when issuing a move order. 1 second cooldown on the teleport."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for <% AURIUN_ARCANA_1_Q4_DURATION %> seconds that increases mana regen and allows you to teleport when issuing a move order. <% AURIUN_ARCANA_1_Q4_TP_COOLDOWN %> second cooldown on the teleport."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"Max Teleport Distance"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"Mana Regen"
@@ -211,7 +211,7 @@
     	"DOTA_Tooltip_shadow_trap_aura_Description"								"Rooted"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] Umbral Waves"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Enemies trapped in Shadow Bind are struck by shadow waves every 0.6 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Enemies trapped in Shadow Bind are struck by shadow waves every <% AURIUN_ARCANA_2_Q1_INTERVAL %> seconds."
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"Damage"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
@@ -226,7 +226,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% for each 10 attributes."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"Auriun enters Shadow Form for 18 seconds upon casting his Ultimate ability. In Shadow Form, all post-mitigation magic damage is enhanced and mana regen is increased."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"Auriun enters Shadow Form for <% AURIUN_ARCANA_2_Q4_DURATION %> seconds upon casting his Ultimate ability. In Shadow Form, all post-mitigation magic damage is enhanced and mana regen is increased."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Magic Damage Enhance"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Mana Regen"
