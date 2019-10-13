@@ -31,6 +31,7 @@ function Paragon:SpawnParagonPack(unit_name, location)
 		table.insert(paragonUnitTable, unit)
 	end
 	paragonDummy.buddiesTable = paragonUnitTable
+	paragonDummy.roshpit_attributes = paragonUnitTable[1].roshpit_attributes
 	for j = 1, #paragonUnitTable, 1 do
 		local paragonUnit = paragonUnitTable[j]
 		local paragonAbility = paragonUnit:AddAbility("paragon_abilities")

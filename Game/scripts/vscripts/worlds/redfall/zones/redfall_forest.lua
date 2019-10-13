@@ -268,7 +268,7 @@ function Redfall:SpawnWozxak(position, fv)
 		fv = fv,
 		isAggro = false,
 		deathModifier = nil,
-		enemyType = ENEMY_TYPE_MINI_BOSS,
+		enemyType = ENEMY_TYPE_ELITE_CREEP,
 		creepFunction = creepFunction
 	}
 	return unit
@@ -464,7 +464,7 @@ function Redfall:SpawnDiscipleOfMaru(position, fv)
 		fv = fv,
 		isAggro = true,
 		deathModifier = "modifier_redfall_disciple_of_maru_die",
-		enemyType = ENEMY_TYPE_NORMAL_CREEP,
+		enemyType = ENEMY_TYPE_ELITE_CREEP,
 		creepFunction = creepFunction
 	}
 	return unit
@@ -487,7 +487,7 @@ function Redfall:SpawnAutumnSpirit(position, fv)
 		fv = fv,
 		isAggro = false,
 		deathModifier = nil,
-		enemyType = ENEMY_TYPE_NORMAL_CREEP,
+		enemyType = ENEMY_TYPE_ELITE_CREEP,
 		creepFunction = creepFunction
 	}
 	return unit
@@ -772,7 +772,7 @@ function Redfall:SpawnForestRanger(position, fv)
 		fv = fv,
 		isAggro = false,
 		deathModifier = "modifier_redfall_forest_ranger_die",
-		enemyType = ENEMY_TYPE_NORMAL_CREEP,
+		enemyType = ENEMY_TYPE_ELITE_CREEP,
 		creepFunction = creepFunction
 	}
 	return unit
@@ -1147,7 +1147,7 @@ function Redfall:SpawnCrimsythCultist(position, fv, treeOrigin)
 		fv = fv,
 		isAggro = true,
 		deathModifier = "modifier_redfall_crimsyth_cultist_die",
-		enemyType = ENEMY_TYPE_NORMAL_CREEP,
+		enemyType = ENEMY_TYPE_ELITE_CREEP,
 		creepFunction = creepFunction
 	}
 	return unit
@@ -1224,12 +1224,26 @@ function Redfall:PickupAshTwig()
 end
 
 function Redfall:SpawnAshTreant(position, fv)
-	local unit = Spawning:Spawn("redfall_ashen_treant", position, 2, 4, "Redfall.AshTreeAggro", fv, true)
-	Events:AdjustBossPower(unit, 5, 5, false)
-	unit.itemLevel = 42
-
-	unit:SetRenderColor(255, 60, 60)
-	Redfall:ColorWearables(unit, Vector(255, 60, 60))
+	local creepFunction = function(unit)
+		Events:AdjustBossPower(unit, 5, 5, false)
+		unit.itemLevel = 42
+	
+		unit:SetRenderColor(255, 60, 60)
+		Redfall:ColorWearables(unit, Vector(255, 60, 60))
+	end
+	local unit = Spawning:SpawnUnit{
+		unitName = "redfall_ashen_treant",
+		spawnPoint = position,
+		minDrops = 2,
+		maxDrops = 4,
+		itemLevel = 42,
+		aggroSound = "Redfall.AshTreeAggro",
+		fv = fv,
+		isAggro = true,
+		deathModifier = "modifier_redfall_crimsyth_cultist_master_die",
+		enemyType = ENEMY_TYPE_NORMAL_CREEP,
+		creepFunction = creepFunction
+	}
 	return unit
 end
 
