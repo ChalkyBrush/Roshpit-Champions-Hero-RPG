@@ -220,7 +220,7 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 	print(exp)
 	print(level_differential)
 	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
-		local exp_mult = (1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL))
+		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), 0.05)
 		print(exp_mult)
 		exp = exp*exp_mult
 	end
