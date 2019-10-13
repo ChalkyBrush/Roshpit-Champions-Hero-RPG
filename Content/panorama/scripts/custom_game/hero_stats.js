@@ -58,9 +58,9 @@ function get_attributes_for_query_unit(queryUnit){
 
 function UnitStats40(){
 	GameUI.STATS_PANEL.style.visibility = "visible"
-	if (Game.GetState() < DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS){
-		return false
-	}	
+	// if (Game.GetState() < DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS){
+	// 	return false
+	// }	
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	get_attributes_for_query_unit(queryUnit)
 	if (Entities.IsHero( queryUnit )){
@@ -73,6 +73,7 @@ function UnitStats40(){
 		$('#agility_label').text = heroAttributes.agility
 		$('#intelligence_label').text = heroAttributes.intelligence	
 		$('#spirit_label').text = heroAttributes.spirit		
+		$.Msg("update level label")
 		GameUI.level_label.text = Entities.GetLevel( queryUnit )
 	}else{
 		$('#hero_attributes').style.visibility = "collapse"
@@ -223,7 +224,8 @@ function InspirationRing(msg)
 (function()
 {
 	InitializeHeroStatsOnce()
-	GameEvents.Subscribe( "update_hero_stats", UnitStats40 );
+	// GameEvents.Subscribe( "update_hero_stats", UnitStats40 );
+	GameEvents.Subscribe( "update_roshpit_stats", UnitStats40 );
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UnitStats40 );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UnitStats40 );
 	// GameEvents.Subscribe( "recalculate_attributes", recalculate_attributes );

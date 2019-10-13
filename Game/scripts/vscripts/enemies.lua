@@ -114,6 +114,9 @@ Enemies.SPIRIT_REALM_CONSTANTS[1]["attack_damage"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["roshpit_attribute"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["max_hp"] = 2
 
+Enemies.EXP_LEVEL_DIFFERENTIAL = 10
+Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL = 0.1
+
 Enemies.EXP_BASE_TABLE = {}
 for i = 0, 120 , 1 do
 	Enemies.EXP_BASE_TABLE[i]= math.ceil(8.5*(1.05^i)) + (i-1)
@@ -138,9 +141,8 @@ function Enemies:InitializeEnemy(unit)
 	end
 	-- exp
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
-	print("DEATH XP: "..deathXP)
-	
-	unit:SetDeathXP(deathXP)
+	unit.roshpit_attributes.deathXP = deathXP
+	unit:SetDeathXP(0)
 	-- gold bounty
 	unit:SetMaximumGoldBounty(0)
 	unit:SetMinimumGoldBounty(0)
@@ -178,5 +180,52 @@ function Enemies:InitializeEnemy(unit)
 		if ability then
 			ability:SetLevel(difficulty)
 		end
+	end
+end
+
+function Enemies:EnemySlain(unit, killingUnit)
+	local baseEXP = unit.roshpit_attributes.deathXP
+	local direct_killer = nil
+	local give_exp_to_direct_killer = true
+	if killingUnit:IsHero() then
+		direct_killer = killingUnit
+	end
+	if baseEXP > 0 then
+		PopupExperience(unit, baseEXP)
+		local heroes = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, unit:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
+		if #heroes > 0 then
+			for _, hero in pairs(heroes) do
+				local exp_per_hero = baseEXP/#heroes
+				Enemies:GrantHeroAdjustedEXPForLevel(hero, unit.roshpit_attributes.roshpit_level, exp_per_hero)
+				if hero == direct_killer then
+					give_exp_to_direct_killer = false
+				end
+			end
+		end	
+		if direct_killer and give_exp_to_direct_killer then
+			local exp_for_direct_killer = baseEXP
+			exp_for_direct_killer = baseEXP/(#heroes+1)
+			Enemies:GrantHeroAdjustedEXPForLevel(direct_killer, unit.roshpit_attributes.roshpit_level, exp_for_direct_killer)
+		end
+		Weapons:UpdateWeaponXP(baseEXP)
+	end
+end
+
+
+
+function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEXP)
+	local exp = baseEXP
+	local level_differential = math.abs(hero:GetLevel() - level_of_slain_enemy)
+	print("GRANT EXP")
+	print(exp)
+	print(level_differential)
+	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
+		local exp_mult = (1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL))
+		print(exp_mult)
+		exp = exp*exp_mult
+	end
+	if exp > 0 then
+		hero:AddExperience(exp, 2, false, true)
+		print("Hero Gained: "..exp.." EXP")
 	end
 end

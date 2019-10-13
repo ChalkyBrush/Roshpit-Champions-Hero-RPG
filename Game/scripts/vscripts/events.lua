@@ -1508,19 +1508,16 @@ function GameMode:OnEntityKilled(keys)
 		Dungeons.itemLevel = killedUnit.itemLevel
 	end
 	if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		PopupExperience(killedUnit, killedUnit:GetDeathXP())
-		-- Events:updateKillQuest(killedUnit)
+		Enemies:EnemySlain(killedUnit, killerEntity)
 		Events:UpdateKillScores(killedUnit, killerEntity)
 		Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
 		if xpBounty > 0 then
 			RPCItems:RollDrops(killedUnit, killerEntity)
 		end
-		Weapons:UpdateWeaponXP(xpBounty)
-		if killedUnit.minDrops then
-			Events:RollExtraItems(killedUnit:GetDeathXP(), killedUnit:GetAbsOrigin(), killedUnit.minDrops, killedUnit.maxDrops)
-		end
-
-		-- Events:SpecialDeath(killedUnit, killerEntity)
+		-- Weapons:UpdateWeaponXP(xpBounty)
+		-- if killedUnit.minDrops then
+		-- 	Events:RollExtraItems(killedUnit:GetDeathXP(), killedUnit:GetAbsOrigin(), killedUnit.minDrops, killedUnit.maxDrops)
+		-- end
 		killedUnit:ClearParticles()
 		Timers:CreateTimer(1, function()
 			--ABILITIES: 10 slots of 24 max
