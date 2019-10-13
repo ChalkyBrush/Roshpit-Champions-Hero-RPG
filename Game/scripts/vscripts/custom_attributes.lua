@@ -292,7 +292,7 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitMagicArmor(unit:GetKeyValue("RoshpitMagicArmor", false))
 		unit:SetBaseRoshpitArmorPierce(unit:GetKeyValue("RoshpitArmorPierce", false))
 		unit:SetBaseRoshpitSpellPierce(unit:GetKeyValue("RoshpitSpellPierce", false))
-		local unit_level = unit:GetKeyValue("RoshpitLevel") + (GameState:GetDifficultyFactor()-1)*40
+		local unit_level = unit:GetKeyValue("RoshpitLevel") + (GameState:GetDifficultyFactor()-1)*34
 		unit:SetRoshpitLevel(unit_level)
 		if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 			Enemies:InitializeEnemy(unit)

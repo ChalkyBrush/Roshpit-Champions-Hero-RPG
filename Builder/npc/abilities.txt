@@ -1118,7 +1118,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"         "6000 30000 250000"
+    "AbilityDamage"         "260 800 3000"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -3314,7 +3314,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal_per_tick"			"1200 9000 100000"
+				"heal_per_tick"			"150 750 4000"
 			}
 		}
 		"OnSpellStart"
@@ -22276,7 +22276,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 25000 250000"
+				"damage"				"50 250 2000"
 			}
 			"04"
 			{
@@ -22556,7 +22556,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 6000 45000"
+		"AbilityDamage"					"200 800 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -22722,13 +22722,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"viper_nethertoxin"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"80 3000 8000"
+				"damage_per_tick"			"60 200 1000"
 			}
 		}
 		"Modifiers"
@@ -22843,7 +22844,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"50 1000 5000"
+				"damage_per_second"		"50 200 2000"
 			}
 			"02"
 			{
@@ -22853,7 +22854,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_total_tooltip"		"150 3000 15000"
+				"damage_total_tooltip"		"150 600 6000"
 			}
 			"04"
 			{
@@ -23133,7 +23134,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"200 100000 5000000"
+		"AbilityDamage"					"300 800 4000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23403,7 +23404,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 6000 105000"
+		"AbilityDamage"					"300 1600 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23476,7 +23477,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 6000 45000"
+		"AbilityDamage"					"400 1200 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23622,7 +23623,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 7000 50000"
+		"AbilityDamage"					"500 2000 7500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23727,13 +23728,13 @@
 		"AOERadius"						"2200"
 		"AbilityCooldown"				"8.0"
 		"AbilityManaCost"				"100"
-		"AbilityDamage"					"30 500 3000"
+		"AbilityDamage"					"80 300 2000"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 500 3000"
+				"damage"			"80 300 1000"
 			}
 		}
 		"MaxLevel"	"3"
@@ -24450,14 +24451,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"pudge_flesh_heap"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"bleed_damage"			"100 500 2100"
 			}
 		}
 		"OnOwnerDied"
@@ -24516,7 +24517,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%bleed_damage"
 					}
 				}
@@ -25151,7 +25152,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityTextureName"	"morphling_waveform"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"1000 8000 55000"
+		"AbilityDamage"			"300 1000 6000"
 		"MaxLevel"	"3"
 		"OnSpellStart"
 		{
@@ -25220,7 +25221,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityTextureName"	"tidehunter_gush"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"1000 8000 55000"
+		"AbilityDamage"			"400 1200 4000"
 		"MaxLevel"	"3"
 		"OnSpellStart"
 		{
@@ -25301,7 +25302,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 8000 40000"
+		"AbilityDamage"					"800 3200 15000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -25615,7 +25616,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"100 6000 35000"
+				"damage"						"200 1000 3000"
 			}
 			"02"
 			{
@@ -25679,7 +25680,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage"			"5000 30000 120000"
+				"damage"			"200 600 1500"
 			}
 		}
 		"Modifiers"
@@ -25872,7 +25873,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5115"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 		"BaseClass"						"slardar_slithereen_crush"
@@ -25889,7 +25890,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"3000 15000 75000"
+		"AbilityDamage"					"5000 15000 75000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

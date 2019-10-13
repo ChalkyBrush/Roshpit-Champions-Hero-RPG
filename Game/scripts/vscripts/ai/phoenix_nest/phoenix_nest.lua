@@ -550,7 +550,7 @@ function electron_projectile_hit(event)
 	local caster = event.caster
 	local sound = "Hero_Zuus.ArcLightning.Target"
 	EmitSoundOn(sound, target)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) / 1000
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) / 5
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end

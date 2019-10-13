@@ -116,7 +116,7 @@ Enemies.SPIRIT_REALM_CONSTANTS[1]["max_hp"] = 2
 
 Enemies.EXP_BASE_TABLE = {}
 for i = 0, 120 , 1 do
-	Enemies.EXP_BASE_TABLE[i]= math.ceil(5*(1.05^i)) + (i-1)
+	Enemies.EXP_BASE_TABLE[i]= math.ceil(8.5*(1.05^i)) + (i-1)
 end
 
 function Enemies:SpiritRealmNumber(spirit_realm)
