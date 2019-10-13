@@ -142054,7 +142054,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"1000 20000 125000"
+				"damage"						"700 2000 10000"
 			}
 		}
 
@@ -142146,7 +142146,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_per_hit" "1000 10000 150000"
+				"damage_per_hit" "1000 3000 12000"
 			}
 			"02"
 			{
