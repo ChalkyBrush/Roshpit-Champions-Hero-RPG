@@ -48,7 +48,10 @@ XP_PER_LEVEL_TABLE = {}
 local current_sum = 0
 for i = 1, MAX_LEVEL, 1 do
   XP_PER_LEVEL_TABLE[i] = current_sum
-  current_sum = current_sum + math.floor(100*(1.08^(i-1))) + 10
+  current_sum = current_sum + math.floor(100*(1.08^(i-1)))
+  if i > 1 then
+    current_sum = current_sum + 30
+  end
   
   -- if i <= 5 then
   --   XP_PER_LEVEL_TABLE[i] = ((i - 1) * (120 + (i - 1) * (120)) / 2)

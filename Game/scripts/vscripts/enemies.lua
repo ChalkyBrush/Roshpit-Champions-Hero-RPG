@@ -205,12 +205,13 @@ function Enemies:EnemySlain(unit, killingUnit)
 		direct_killer = killingUnit
 	end
 	if baseEXP > 0 then
-		PopupExperience(unit, baseEXP)
+		local expPopup = baseEXP
+		
 		local heroes = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, unit:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
 		if #heroes > 0 then
 			for _, hero in pairs(heroes) do
 				local exp_per_hero = Enemies:SplitAdjustedEXP(baseEXP, #heroes)
-				Enemies:GrantHeroAdjustedEXPForLevel(hero, unit.roshpit_attributes.roshpit_level, exp_per_hero)
+				expPopup = Enemies:GrantHeroAdjustedEXPForLevel(hero, unit.roshpit_attributes.roshpit_level, exp_per_hero)
 				if hero == direct_killer then
 					give_exp_to_direct_killer = false
 				end
@@ -219,7 +220,10 @@ function Enemies:EnemySlain(unit, killingUnit)
 		if direct_killer and give_exp_to_direct_killer then
 			local exp_for_direct_killer = baseEXP
 			exp_for_direct_killer = Enemies:SplitAdjustedEXP(baseEXP, #heroes+1)
-			Enemies:GrantHeroAdjustedEXPForLevel(direct_killer, unit.roshpit_attributes.roshpit_level, exp_for_direct_killer)
+			expPopup = Enemies:GrantHeroAdjustedEXPForLevel(direct_killer, unit.roshpit_attributes.roshpit_level, exp_for_direct_killer)
+		end
+		if expPopup > 0 then
+			PopupExperience(unit, expPopup)
 		end
 		Weapons:UpdateWeaponXP(baseEXP)
 	end
@@ -242,4 +246,5 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 		hero:AddExperience(exp, 2, false, true)
 		print("Hero Gained: "..exp.." EXP")
 	end
+	return exp
 end
