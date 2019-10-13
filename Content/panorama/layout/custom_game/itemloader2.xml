@@ -3,7 +3,15 @@
 		<include src="file://{resources}/styles/custom_game/equipment.css" />
 	</styles>
 	<Panel class="ItemLoaderRoot">
-
+      <!-- <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_weak_creep.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_normal_creep.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_elite.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_mini_boss.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_boss.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_major_boss.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraith_crown_disjoint_cooldown.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraith_crown_evasion_buff.png"/>
+      <Image id="seq_bg" class="SeqBg" src="file://{images}/items/wraith_crown_magic_res_buff.png"/> -->
 <!-- 	<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/salve_blue.png" />
 	<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/salve_red.png" /> -->
 
@@ -19,11 +27,7 @@
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_1_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_5_1.png"/>
 <Image id="seq_bg" class="SeqBg" src="file://{images}/items/glyphs/omniro/glyph_omniro_7_1.png"/>
-      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_weak_creep.png"/>
-      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_normal_creep.png"/>
-      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_mini_boss.png"/>
-      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_boss.png"/>
-      <Image id="seq_bg" class="SeqBg" src="file://{images}/spellicons/redfall/enemy_major_boss.png"/>
+
 
       <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/ruby1.png"/>
       <Image id="seq_bg" class="SeqBg" src="file://{images}/items/gems/ruby2.png"/>
