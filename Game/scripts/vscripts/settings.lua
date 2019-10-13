@@ -47,8 +47,9 @@ USE_CUSTOM_XP_VALUES = true -- Should we use custom XP values to level up heroes
 XP_PER_LEVEL_TABLE = {}
 local current_sum = 0
 for i = 1, MAX_LEVEL, 1 do
-  current_sum = current_sum + math.floor(100*(1.08^(i-1)))
   XP_PER_LEVEL_TABLE[i] = current_sum
+  current_sum = current_sum + math.floor(100*(1.08^(i-1))) + 10
+  
   -- if i <= 5 then
   --   XP_PER_LEVEL_TABLE[i] = ((i - 1) * (120 + (i - 1) * (120)) / 2)
   -- elseif i <= 15 then
@@ -74,8 +75,10 @@ for i = 1, MAX_LEVEL, 1 do
   -- elseif i <= 120 then
   --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (50000 * 10) + (100000 * 10) + (300000 * 10) + (i - 110) * 500000
   -- end
-  CustomNetTables:SetTableValue("xp_table", tostring(i), {xpNeeded = XP_PER_LEVEL_TABLE[i]})
+  -- CustomNetTables:SetTableValue("xp_table", tostring(i), {xpNeeded = XP_PER_LEVEL_TABLE[i]})
 end
+print("qqww")
+DeepPrintTable(XP_PER_LEVEL_TABLE)
 current_sum = nil
 
 ENABLE_FIRST_BLOOD = true -- Should we enable first blood for the first kill in this game?

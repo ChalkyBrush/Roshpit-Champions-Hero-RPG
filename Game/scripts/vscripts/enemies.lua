@@ -121,10 +121,11 @@ Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER = 0.3
 
 Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER = 0.1
 Enemies.EXTRA_EXP_PER_PASS_PLAYER = 0.2
+Enemies.EXP_SHARE_PERCENTAGE = 0.75
 
 Enemies.EXP_BASE_TABLE = {}
 for i = 0, 120 , 1 do
-	Enemies.EXP_BASE_TABLE[i]= math.ceil(8.5*(1.05^i)) + (i-1)
+	Enemies.EXP_BASE_TABLE[i]= math.ceil(7.5*(1.05^i)) + (i-1)
 end
 
 function Enemies:SpiritRealmNumber(spirit_realm)
@@ -189,6 +190,13 @@ function Enemies:InitializeEnemy(unit)
 	end
 end
 
+
+
+function Enemies:SplitAdjustedEXP(exp, number_of_heroes)
+	local divisor = math.max(number_of_heroes*Enemies.EXP_SHARE_PERCENTAGE, 1)
+	return exp/divisor
+end
+
 function Enemies:EnemySlain(unit, killingUnit)
 	local baseEXP = unit.roshpit_attributes.deathXP
 	local direct_killer = nil
@@ -201,7 +209,7 @@ function Enemies:EnemySlain(unit, killingUnit)
 		local heroes = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, unit:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
 		if #heroes > 0 then
 			for _, hero in pairs(heroes) do
-				local exp_per_hero = baseEXP/#heroes
+				local exp_per_hero = Enemies:SplitAdjustedEXP(baseEXP, #heroes)
 				Enemies:GrantHeroAdjustedEXPForLevel(hero, unit.roshpit_attributes.roshpit_level, exp_per_hero)
 				if hero == direct_killer then
 					give_exp_to_direct_killer = false
@@ -210,7 +218,7 @@ function Enemies:EnemySlain(unit, killingUnit)
 		end	
 		if direct_killer and give_exp_to_direct_killer then
 			local exp_for_direct_killer = baseEXP
-			exp_for_direct_killer = baseEXP/(#heroes+1)
+			exp_for_direct_killer = Enemies:SplitAdjustedEXP(baseEXP, #heroes+1)
 			Enemies:GrantHeroAdjustedEXPForLevel(direct_killer, unit.roshpit_attributes.roshpit_level, exp_for_direct_killer)
 		end
 		Weapons:UpdateWeaponXP(baseEXP)
