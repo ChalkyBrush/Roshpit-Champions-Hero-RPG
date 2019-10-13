@@ -410,7 +410,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 
 	local armor_modify = 0
 	if unit:HasModifier("modifier_wind_boss_slow") then
-		armor_modify = CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_wind_boss_slow")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_wind_boss_slow")
 	end
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -445,7 +445,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:IsRealHero() then
 		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
 	end
+
 	local magic_armor_modify = 0
+	if unit:HasModifier("modifier_flamespitting") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_flamespitting")
+	end
+
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
