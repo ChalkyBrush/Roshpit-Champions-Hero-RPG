@@ -52105,9 +52105,6 @@
         {
             "particle"  "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
         }
-
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "18"
@@ -52116,9 +52113,6 @@
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "2000"
         "AttackRange"   "90"
-        "BountyGoldMin" "50"
-        "BountyGoldMax" "60"
-        "BountyXP" "75"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -52160,7 +52154,13 @@
         }
         "Ability1"  "dungeon_creep"
         "Ability2"  "grizzly_cave_shroom_ai"
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "redfall_autumn_gazer"
@@ -52180,8 +52180,6 @@
             "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf"
         }
         "SoundSet"                  "Hero_Furion" 
-        "ArmorPhysical" "6"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "70"
@@ -52192,9 +52190,6 @@
         "AttackRange"   "740"
         "ProjectileModel" "particles/roshpit/redfall/autumn_tracking_base_attack.vpcf"
         "ProjectileSpeed"   "700"
-        "BountyGoldMin" "60"
-        "BountyGoldMax" "80"
-        "BountyXP" "140"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -52231,6 +52226,13 @@
         }
         "Ability1"          "redfall_autumn_slow"
         "Ability2"          "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "redfall_autumn_spawner"
@@ -52249,8 +52251,6 @@
             "particle"  "particles/world_destruction_fx/dire_tree004b_destruction.vpcf"
         }
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "2"
-        "MagicalResistance" "30"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "0"
@@ -52261,9 +52261,6 @@
         "AttackAcquisitionRange"    "99999"
         "AttackRange"   "128"
         "ProjectileSpeed"   "1900"
-        "BountyGoldMin" "100"
-        "BountyGoldMax" "300"
-        "BountyXP"  "1200"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "70"
         "CollisionSize" "64"
@@ -52304,7 +52301,13 @@
         }
         "Ability1"          "redfall_autumn_spawner_ability"
         "Ability2"          "dungeon_creep"
-        
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "redfall_autumn_flower"
@@ -52321,9 +52324,6 @@
         {
             "particle"  "particles/roshpit/redfall/autumn_spawn.vpcf"
         }
-
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "88"
@@ -52332,9 +52332,6 @@
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "100"
-        "BountyGoldMin" "70"
-        "BountyGoldMax" "90"
-        "BountyXP" "90"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -52375,6 +52372,14 @@
 
         }
         "Ability1"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "0"
+        "AggroSound"            "Redfall.Flower.Aggro"
+        "EnemyTier"             "0"
 
     }
 
@@ -52396,8 +52401,6 @@
             "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_dustcloud.vpcf"
             "model"     "models/heroes/furion/treant.vmdl"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "25"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "150"
@@ -52408,9 +52411,6 @@
         "ProjectileSpeed"           "1400"
         "ProjectileModel"            "particles/units/heroes/hero_lion/lion_base_attack.vpcf"
         "AttackRange"   "500"
-        "BountyGoldMin" "150"
-        "BountyGoldMax" "200"
-        "BountyXP" "450"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "16"
@@ -52463,10 +52463,16 @@
                     "Support"   "0.0"
                     "RoamDistance"  "1000.0"
                 }
-
             }
-
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.ForestSummoner.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_autumn_treant"
@@ -52483,9 +52489,6 @@
         {
 
         }
-
-        "ArmorPhysical" "3"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "132"
@@ -52494,9 +52497,6 @@
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "100"
-        "BountyGoldMin" "70"
-        "BountyGoldMax" "90"
-        "BountyXP" "90"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -52537,7 +52537,13 @@
 
         }
         "Ability1"  "dungeon_creep"
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "redfall_forest_minion"
@@ -52554,9 +52560,6 @@
         {
             "particle"  "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
         }
-
-        "ArmorPhysical" "6"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "88"
@@ -52565,13 +52568,9 @@
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "100"
-        "BountyGoldMin" "50"
-        "BountyGoldMax" "60"
-        "BountyXP" "75"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
-
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "280"
         "MovementTurnRate"  "0.6"
@@ -52608,6 +52607,14 @@
 
         }
         "Ability1"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.ForestMinion.Aggro"
+        "EnemyTier"             "1"
 
     }
 
@@ -52627,8 +52634,6 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
         }
         "SoundSet"                  "Hero_VenomancerWard" 
-        "ArmorPhysical" "12"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "60"
@@ -52639,9 +52644,6 @@
         "AttackRange"   "1150"
         "ProjectileModel" "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
         "ProjectileSpeed"   "700"
-        "BountyGoldMin" "60"
-        "BountyGoldMax" "80"
-        "BountyXP" "140"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -52677,6 +52679,14 @@
 
         }
         "Ability1"          "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.ForestMinion.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_forest_wood_dweller"
@@ -52695,8 +52705,6 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "5"
-        "MagicalResistance" "20"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "125"
@@ -52705,9 +52713,6 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
         "AttackRange"   "175"
-        "BountyGoldMin" "20"
-        "BountyGoldMax" "24"
-        "BountyXP" "700"
         "BoundsHullName"  "DOTA_HULL_SIZE_HUGE"
         "RingRadius"    "70"
         "CollisionSize" "40"
@@ -52764,6 +52769,14 @@
         }
         "Ability1"  "normal_steadfast"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.WoodDweller.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_wozxak"
@@ -52783,8 +52796,6 @@
             "particle"                          "particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
             "soundfile"                         "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
-        "ArmorPhysical" "3"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "262"
@@ -52793,9 +52804,6 @@
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
-        "BountyGoldMin" "70"
-        "BountyGoldMax" "90"
-        "BountyXP" "90"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -52836,6 +52844,14 @@
         }
         "Ability1"  "wozxak_fury_swipes"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.Wozxak.Aggro"
+        "EnemyTier"             "2"
     }
 
     "redfall_forest_overgrowth"
@@ -52853,8 +52869,6 @@
         {
             "particle"  "particles/neutral_fx/gnoll_poison_debuff.vpcf"
         }
-        "ArmorPhysical" "3"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "262"
@@ -52865,9 +52879,6 @@
         "ProjectileModel"   "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
         "ProjectileSpeed" "1300"
         "AttackRange"   "360"
-        "BountyGoldMin" "70"
-        "BountyGoldMax" "90"
-        "BountyXP" "90"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -52909,6 +52920,14 @@
         }
         "Ability1"  "redfall_poison_sting"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.Overgrowth.Aggro"
+        "EnemyTier"             "1"
 
     }
 
@@ -52932,8 +52951,6 @@
             "particle"      "particles/econ/events/battlecup/battlecup_fall_ambient.vpcf"
             "particle"      "particles/econ/items/antimage/antimage_weapon_basher_ti5/time_bind_damage.vpcf"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "340"
@@ -52942,9 +52959,6 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
-        "BountyGoldMin" "300"
-        "BountyGoldMax" "400"
-        "BountyXP" "1200"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -53010,6 +53024,14 @@
         "Ability2"  "juggernaut_blade_dance"
         "Ability3"  "dungeon_creep"
         "Ability4"  "use_ability_1_no_target_ai"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.Maru.Aggro"
+        "EnemyTier"             "2"
     }
 
     "redfall_autumn_spirit"
@@ -53033,11 +53055,6 @@
         "Ability7"                  ""          
         "Ability8"                  ""          
 
-        // Armor
-        //----------------------------------------------------------------
-        "ArmorPhysical"             "2"         // Physical protection.
-        "MagicalResistance"         "20"        // Magical protection.
-
         // Attack
         //----------------------------------------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -53049,14 +53066,7 @@
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "280"
         "ProjectileModel"   "particles/units/heroes/hero_lion/lion_base_attack.vpcf"
-        "ProjectileSpeed"   "1200"
-
-
-        // Bounty
-        //----------------------------------------------------------------
-        "BountyXP"                  "580"   
-        "BountyGoldMin"             "180"     
-        "BountyGoldMax"             "220"    
+        "ProjectileSpeed"   "1200"  
 
         // Bounds
         //----------------------------------------------------------------
@@ -53109,6 +53119,14 @@
                 }
             }
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.AutumnSpirit.Aggro"
+        "EnemyTier"             "2"
     }
 
     "redfall_big_autumn_flower"
@@ -53126,9 +53144,6 @@
             "particle"  "particles/roshpit/redfall/autumn_spawn.vpcf"
             "particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
         }
-
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "388"
@@ -53137,9 +53152,6 @@
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "150"
-        "BountyGoldMin" "70"
-        "BountyGoldMax" "90"
-        "BountyXP" "2200"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -53180,6 +53192,14 @@
 
         }
         "Ability1"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.BigFlower.Aggro"
+        "EnemyTier"             "1"
 
     }
 
@@ -53201,8 +53221,6 @@
             "particle"  "particles/units/heroes/hero_dragon_knight/monk_ulti.vpcf"
             "particle"  "particles/econ/generic/generic_buff_1/monk_ulti_debuff.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "70"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "180"
@@ -53211,9 +53229,6 @@
         "AttackAnimationPoint"  "0.6"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
-        "BountyGoldMin" "60"
-        "BountyGoldMax" "80"
-        "BountyXP" "1400"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -53257,7 +53272,6 @@
                 {
                     "ItemDef"   "351"
                 }
-
             }
             "States"
             {
@@ -53269,15 +53283,21 @@
                     "Support"   "0.0"
                     "RoamDistance"  "1000.0"
                 }
-
             }
             "OffensiveAbilities"
             {
           
             }
-
         }
-
+        "Ability1"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.ForstGnome.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_cliff_weed"
@@ -53296,8 +53316,6 @@
             "particle"      "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
         }
-        "ArmorPhysical" "3"
-        "MagicalResistance" "50"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "288"
@@ -53306,9 +53324,6 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
-        "BountyGoldMin" "70"
-        "BountyGoldMax" "90"
-        "BountyXP" "200"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -53351,7 +53366,14 @@
         "Ability1"  "redfall_forest_roar"
         "Ability2"  "use_ability_1_no_target_ai"
         "Ability3"  "dungeon_creep"
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.CliffWeed.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_otaru"
@@ -53426,9 +53448,6 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-
-        "ArmorPhysical" "1"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "180"
@@ -53437,9 +53456,6 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "200"
         "AttackRange"   "120"
-        "BountyGoldMin" "12"
-        "BountyGoldMax" "14"
-        "BountyXP" "140"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "16"
@@ -53493,6 +53509,14 @@
 
         }
         "Ability1"  "arena_pit_crawler_ai"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            ""
+        "EnemyTier"             "1"
     }
 
     "redfall_cliff_invader_range"
@@ -53506,9 +53530,6 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-
-        "ArmorPhysical" "0"
-        "MagicalResistance" "10"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "200"
@@ -53519,9 +53540,6 @@
         "ProjectileModel"   "particles/units/heroes/hero_necrolyte/necrolyte_base_attack.vpcf"
         "ProjectileSpeed"       "1000"
         "AttackRange"   "560"
-        "BountyGoldMin" "12"
-        "BountyGoldMax" "14"
-        "BountyXP" "170"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "16"
@@ -53582,6 +53600,14 @@
 
         }
         "Ability1"  "arena_pit_crawler_ai"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            ""
+        "EnemyTier"             "1"
     }
 
     "redfall_forest_ranger"
@@ -53603,8 +53629,6 @@
             "soundfile"       "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
             "particle"      "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
         }
-        "ArmorPhysical" "3"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "1500"
         "ProjectileModel"       "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
@@ -53615,9 +53639,6 @@
         "AttackAnimationPoint"  "0.7"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "600"
-        "BountyGoldMin" "200"
-        "BountyGoldMax" "300"
-        "BountyXP" "1200"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -53673,7 +53694,14 @@
                 }
             }
         }
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.ForestRanger.Aggro"
+        "EnemyTier"             "2"
     }
 
     "redfall_red_raven"
@@ -53694,8 +53722,6 @@
             "particle"      "particles/roshpit/redfall/red_powershot.vpcf"
             "particle"      "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "10"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "1500"
         "ProjectileModel"       "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
@@ -53706,9 +53732,6 @@
         "AttackAnimationPoint"  "0.7"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "800"
-        "BountyGoldMin" "5000"
-        "BountyGoldMax" "6000"
-        "BountyXP" "5000"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -53765,7 +53788,14 @@
                 }
             }
         }
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "0"
+        "AggroSound"            "Redfall.RedRaven.Aggro"
+        "EnemyTier"             "3"
     }
 
     "redfall_stone_watcher"
@@ -53785,8 +53815,6 @@
             "particle"      "particles/units/heroes/hero_earth_spirit/es_attack_blur3.vpcf"
             "particle"      "particles/units/heroes/hero_earth_spirit/es_attack_blur2.vpcf"
         }
-        "ArmorPhysical" "5"
-        "MagicalResistance" "50"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "550"
@@ -53795,9 +53823,6 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "150"
-        "BountyGoldMin" "100"
-        "BountyGoldMax" "200"
-        "BountyXP" "1000"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -53854,15 +53879,20 @@
                     "Support"   "0.0"
                     "RoamDistance"  "1000.0"
                 }
-
             }
             "OffensiveAbilities"
             {
             
             }
-
         }
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.StoneWatcher.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_hooded_soul_reacher"
@@ -53888,8 +53918,6 @@
         "SelectionGroup"    "bone_horror"
         "PathfindingSearchDepthScale" "0.2"
         "DefaultState"  "Invade"
-        "ArmorPhysical" "1"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "450"
@@ -53898,9 +53926,6 @@
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
-        "BountyGoldMin" "120"
-        "BountyGoldMax" "130"
-        "BountyXP"  "500"
         "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
         "RingRadius"    "70"
         "CollisionSize" "32"
@@ -53966,10 +53991,16 @@
                 {
                     "ItemDef"   "5308"
                 }
-
             }
-
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.SoulReacher.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_ash_snake"
@@ -53988,8 +54019,6 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "0"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "500"
@@ -54000,9 +54029,6 @@
         "ProjectileSpeed"           "1400"
         "ProjectileModel"           "particles/roshpit/redfall/ash_snake_base_attack.vpcf"
         "AttackRange"   "600"
-        "BountyGoldMin" "150"
-        "BountyGoldMax" "170"
-        "BountyXP" "350"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "70"
@@ -54054,6 +54080,14 @@
 
             }
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.AshSnake.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_ashfall_knight"
@@ -54073,8 +54107,6 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
             "particle"  "particles/units/heroes/hero_medusa/heavens_shield.vpcf"
         }
-        "ArmorPhysical" "8"
-        "MagicalResistance" "15"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1000"
@@ -54083,9 +54115,6 @@
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "100"
-        "BountyGoldMin" "300"
-        "BountyGoldMax" "600"
-        "BountyXP" "400"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "50"
@@ -54153,6 +54182,14 @@
                 }       
             }
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.AshKnight.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_autumn_satyr"
@@ -54169,9 +54206,6 @@
         {
             "particle"  "particles/roshpit/redfall/autumn_impactknightform_iron_dragon.vpcf"
         }
-
-        "ArmorPhysical" "3"
-        "MagicalResistance" "20"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1058"
@@ -54180,9 +54214,6 @@
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "160"
-        "BountyGoldMin" "200"
-        "BountyGoldMax" "300"
-        "BountyXP" "400"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -54224,7 +54255,14 @@
         "Ability1"  "redfall_autumn_satyr_slap"
         "Ability2"  "use_ability_1_target_ai"
         "Ability3"  "dungeon_creep"
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.AutumnSatyr.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_redfall_vulture"
@@ -54241,9 +54279,6 @@
         {
             "particle"  "particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
         }
-
-        "ArmorPhysical" "5"
-        "MagicalResistance" "10"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "858"
@@ -54252,9 +54287,6 @@
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "150"
-        "BountyGoldMin" "200"
-        "BountyGoldMax" "300"
-        "BountyXP" "700"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -54296,6 +54328,14 @@
         "Ability1"  "redfall_autumn_tornado"
         "Ability2"  "use_ability_1_target_ai"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.AutumnVulture.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_autumn_cragnataur"
@@ -54315,8 +54355,6 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Magnatuar"
-        "ArmorPhysical" "25"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1065"
@@ -54325,9 +54363,6 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "165"
-        "BountyGoldMin" "150"
-        "BountyGoldMax" "200"
-        "BountyXP" "700"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -54390,6 +54425,14 @@
                 }
             }
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.Cragnataur.Aggro"
+        "EnemyTier"             "1"
     }
 
     "redfall_crimsyth_cultist"
@@ -54410,8 +54453,6 @@
             "particle"  "particles/dire_fx/dire_lfr_smoke_19sec.vpcf"
             "particle"  "particles/roshpit/redfall/tree_healed.vpcf"
         }
-        "ArmorPhysical" "0"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "110"
@@ -54422,9 +54463,6 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "450"
-        "BountyGoldMin" "400"
-        "BountyGoldMax" "500"
-        "BountyXP" "800"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "50"
@@ -54469,10 +54507,16 @@
                     "Support"   "0.0"
                     "RoamDistance"  "1000.0"
                 }
-
             }
-
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            ""
+        "EnemyTier"             "2"
     }
 
     "redfall_crimsyth_cultist_master"
@@ -54491,8 +54535,6 @@
             "particle"  "particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_g.vpcf"
             "particle"  "particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
         }
-        "ArmorPhysical" "0"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "110"
@@ -54503,9 +54545,6 @@
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "450"
-        "BountyGoldMin" "3000"
-        "BountyGoldMax" "4000"
-        "BountyXP" "4000"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "50"
@@ -54564,10 +54603,16 @@
                     "Support"   "0.0"
                     "RoamDistance"  "1000.0"
                 }
-
             }
-
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            ""
+        "EnemyTier"             "3"
     }
 
     "redfall_autumn_enforcer"
@@ -55230,8 +55275,6 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
             "particle"  "particles/econ/items/sand_king/sandking_barren_crown/sandking_rubyspire_burrowstrike.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "25"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "3040"
@@ -55240,9 +55283,6 @@
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "130"
-        "BountyGoldMin" "50"
-        "BountyGoldMax" "80"
-        "BountyXP" "400"
         "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
         "RingRadius"    "50"
         "CollisionSize" "32"
@@ -55292,6 +55332,14 @@
         "Ability1"  "redfall_armored_crab_beast_ability"
         "Ability2"  "use_ability_1_target_ai"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            ""
+        "EnemyTier"             "1"
     }
 
     "redfall_canyon_bull"
@@ -55918,8 +55966,6 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "7"
-        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/units/heroes/hero_troll_warlord/troll_warlord_base_attack.vpcf"
         "ProjectileSpeed"   "1100"
@@ -55930,9 +55976,6 @@
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
         "AttackRange"   "470"
-        "BountyGoldMin" "50"
-        "BountyGoldMax" "52"
-        "BountyXP" "300"
         "BoundsHullName"  "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "40"
         "CollisionSize" "40"
@@ -55990,6 +56033,14 @@
 
             }
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            ""
+        "EnemyTier"             "1"
     }
 
     "redfall_mist_assassin"
@@ -56580,8 +56631,6 @@
         {
 
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "10"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "840"
         "ProjectileModel"       "particles/units/heroes/hero_luna/luna_base_attack.vpcf"
@@ -56592,9 +56641,6 @@
         "AttackAnimationPoint"  "0.2"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "340"
-        "BountyGoldMin" "5000"
-        "BountyGoldMax" "6000"
-        "BountyXP" "1200"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -56646,6 +56692,14 @@
                 }
             }
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "1"
+        "AggroSound"            "Redfall.AsharaStudent.Aggro"
+        "EnemyTier"             "3"
 
     }
 
@@ -56666,8 +56720,6 @@
             "particle"      "particles/econ/items/lanaya/lanaya_epit_trap/templar_assassin_epit_trap_explosion_shock.vpcf"
             "particle"      "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "10"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "1500"
         "ProjectileModel"       "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
@@ -56678,9 +56730,6 @@
         "AttackAnimationPoint"  "0.7"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "700"
-        "BountyGoldMin" "5000"
-        "BountyGoldMax" "6000"
-        "BountyXP" "12000"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -56757,6 +56806,14 @@
                 }                  
             }
         }
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "0"
+        "AggroSound"            "Redfall.Ashara.Aggro"
+        "EnemyTier"             "3"
     }
 
     "redfall_fenrir"
@@ -56774,8 +56831,6 @@
         {
             "particle"      "particles/generic_gameplay/illusion_killed.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "35"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "700"
@@ -56784,9 +56839,6 @@
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
-        "BountyGoldMin" "15000"
-        "BountyGoldMax" "20000"
-        "BountyXP" "5000"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "RingRadius"    "50"
         "CollisionSize" "24"
@@ -56829,7 +56881,14 @@
         "Ability2"  "alpha_wolf_critical_strike"
         "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
-
+        "RoshpitArmor"          "1337"
+        "RoshpitArmorPierce"    "1337"
+        "RoshpitSpellPierce"    "1337"
+        "RoshpitMagicArmor"     "1337"
+        "RoshpitLevel"          "1337"
+        "RoshpitDominion"       "0"
+        "AggroSound"            "Redfall.Fenrir.Aggro"
+        "EnemyTier"             "3"
     }
 
     "redfall_canyon_feronia"

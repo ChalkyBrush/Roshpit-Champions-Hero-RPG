@@ -125953,6 +125953,14 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 			}
+			"modifier_elite_creep"
+			{
+				"TextureName"		"redfall/enemy_elite"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
 			"modifier_mini_boss"
 			{
 				"TextureName"		"redfall/enemy_mini_boss"
