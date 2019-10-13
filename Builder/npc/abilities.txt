@@ -57171,7 +57171,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"pure_damage"			"100 1000 10000"
+				"pure_damage"			"100 300 1500"
 			}
 			"02"
 			{
@@ -57459,7 +57459,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 9000 140000"
+				"damage"			"200 800 3500"
 			}
 			"02"
 			{
@@ -57474,7 +57474,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"quake_damage"			"1200 12000 300000"
+				"quake_damage"			"800 3500 30000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -57828,12 +57828,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"70 3000 15000"
+				"burn_damage"			"70 210 1200"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1000 25000 100000"
+				"impact_damage"		"350 1200 8000"
 			}
 		}
 
@@ -57919,7 +57919,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"1500 50000 500000"
+				"burn_damage"			"300 1500 8000"
 			}
 		}
 		"Modifiers"
@@ -58080,12 +58080,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"70 3000 15000"
+				"burn_damage"			"120 360 1250"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1000 25000 100000"
+				"impact_damage"		"300 1500 8000"
 			}
 		}
 
@@ -58133,7 +58133,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3000 50000 400000"
+				"damage"				"800 2000 10000"
 			}
 			"02"
 			{
@@ -58148,7 +58148,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"1500 50000 500000"
+				"burn_damage"			"800 2000 10000"
 			}
 		}
 		"OnSpellStart"
@@ -58842,7 +58842,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"50 300 5000"
+				"burn_damage"		"50 150 5000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -59011,7 +59011,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 180000"
+				"damage"				"500 1500 15000"
 			}
 			"02"
 			{
