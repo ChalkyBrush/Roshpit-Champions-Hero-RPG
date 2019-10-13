@@ -717,18 +717,19 @@ end
 function Tanari:SpawnDungeonUnit(unitName, spawnPoint, minDrops, maxDrops, aggroSound, fv, isAggro)
 
     local luck = 0
-    if not Events.SpiritRealm then
-        luck = RandomInt(1, 180)
-    else
-        luck = RandomInt(1, 60)
-    end
-    local unit = ""
-    if luck == 1 then
-        unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
-    else
-        unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
-        Events:AdjustDeathXP(unit)
-    end
+    local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    -- if not Events.SpiritRealm then
+    --     luck = RandomInt(1, 180)
+    -- else
+    --     luck = RandomInt(1, 60)
+    -- end
+    -- local unit = ""
+    -- if luck == 1 then
+    --     unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
+    -- else
+    --     unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    --     Events:AdjustDeathXP(unit)
+    -- end
     local ability = unit:FindAbilityByName("dungeon_creep")
     if ability then
         ability:SetLevel(1)

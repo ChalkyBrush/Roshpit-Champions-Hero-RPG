@@ -132,12 +132,6 @@ function Enemies:InitializeEnemy(unit)
 	local enemyTier = unit.roshpit_attributes.enemy_tier
 	local difficulty = GameState:GetDifficultyFactor()
 	local spirit_realm = Enemies:SpiritRealmNumber(Events.SpiritRealm)
-	print("__________________________")
-	print(unit:GetUnitName())
-	print(unit_level)
-	print(Enemies.EXP_BASE_TABLE[unit_level])
-	print(Enemies.MOB_TIER_EXP_MULT[enemyTier])
-	print("-----")
 	-- exp
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	print("DEATH XP: "..deathXP)
