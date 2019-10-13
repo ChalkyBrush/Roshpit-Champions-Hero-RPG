@@ -132,6 +132,10 @@ function Enemies:InitializeEnemy(unit)
 	local enemyTier = unit.roshpit_attributes.enemy_tier
 	local difficulty = GameState:GetDifficultyFactor()
 	local spirit_realm = Enemies:SpiritRealmNumber(Events.SpiritRealm)
+	if unit_level == 1337 then
+		Notifications:BottomToAll({text = "Unit level is not yet set: "..unit:GetUnitName(), duration = 5.0})
+		unit_level = 120
+	end
 	-- exp
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	print("DEATH XP: "..deathXP)
