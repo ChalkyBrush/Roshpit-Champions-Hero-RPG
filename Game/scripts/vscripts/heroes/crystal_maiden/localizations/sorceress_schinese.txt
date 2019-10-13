@@ -298,7 +298,7 @@
 		"item_rpc_sorceress_glyph_2_1_description" 				"冰枪术将额外发射<% SORCERESS_GLYPH_2_1_Q1_ADDITIONAL_PROJECTILES %>个冰枪。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"火球雕文"
-		"item_rpc_sorceress_glyph_3_1_description" 				"施放火球术后立即发射第2和第3个火球 (outdated, launches <% SORCERESS_GLYPH_3_1_ADDITIONAL_FIREBALLS %> fireballs)。"
+		"item_rpc_sorceress_glyph_3_1_description" 				"施放火球术后立即发射 <% SORCERESS_GLYPH_3_1_ADDITIONAL_FIREBALLS %> 火球。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"奥能强化雕文"
 		"item_rpc_sorceress_glyph_4_1_description" 				"提高魔法少女及其水元素的攻击速度 <% SORCERESS_GLYPH_4_1_BONUS_AS %> /<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>"

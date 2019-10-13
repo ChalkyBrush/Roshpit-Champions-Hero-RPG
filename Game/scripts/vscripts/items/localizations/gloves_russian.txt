@@ -48,7 +48,7 @@
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"<RAINBOW>Proud Gloves</RAINBOW>"
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Слот: Наручи"
 		"item_property_proud_gloves"						"<RAINBOW>Rainbow Strike</RAINBOW>"
-		"property_proud_gloves_description"				"TODO: <RAINBOW>Auto attacks deal the element with the highest bonus as magical damage. Additionally amplifies auto attack damage by item damage bonus.</RAINBOW>"
+		"property_proud_gloves_description"				"TODO: <RAINBOW>Автоатаки получают бонус Элемента с наибольшим показателем усиления и наносят урон магического типа. Усиляется уроном Предметов.</RAINBOW>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
