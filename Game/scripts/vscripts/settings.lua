@@ -45,34 +45,38 @@ USE_CUSTOM_XP_VALUES = true -- Should we use custom XP values to level up heroes
 
 -- Fill this table up with the required XP per level if you want to change it
 XP_PER_LEVEL_TABLE = {}
+local current_sum = 0
 for i = 1, MAX_LEVEL, 1 do
-  if i <= 5 then
-    XP_PER_LEVEL_TABLE[i] = ((i - 1) * (120 + (i - 1) * (120)) / 2)
-  elseif i <= 15 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (i - 5) * 500
-  elseif i <= 25 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (i - 15) * 2000
-  elseif i <= 35 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (i - 25) * 3000
-  elseif i <= 50 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (i - 35) * 10000
-  elseif i <= 60 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (i - 50) * 15000
-  elseif i <= 70 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (i - 60) * 25000
-  elseif i <= 80 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (i - 70) * 35000
-  elseif i <= 90 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (i - 80) * 50000
-  elseif i <= 100 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (50000 * 10) + (i - 90) * 100000
-  elseif i <= 110 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (50000 * 10) + (100000 * 10) + (i - 100) * 300000
-  elseif i <= 120 then
-    XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (50000 * 10) + (100000 * 10) + (300000 * 10) + (i - 110) * 500000
-  end
+  current_sum = current_sum + math.floor(100*(1.08^(i-1)))
+  XP_PER_LEVEL_TABLE[i] = current_sum
+  -- if i <= 5 then
+  --   XP_PER_LEVEL_TABLE[i] = ((i - 1) * (120 + (i - 1) * (120)) / 2)
+  -- elseif i <= 15 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (i - 5) * 500
+  -- elseif i <= 25 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (i - 15) * 2000
+  -- elseif i <= 35 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (i - 25) * 3000
+  -- elseif i <= 50 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (i - 35) * 10000
+  -- elseif i <= 60 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (i - 50) * 15000
+  -- elseif i <= 70 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (i - 60) * 25000
+  -- elseif i <= 80 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (i - 70) * 35000
+  -- elseif i <= 90 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (i - 80) * 50000
+  -- elseif i <= 100 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (50000 * 10) + (i - 90) * 100000
+  -- elseif i <= 110 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (50000 * 10) + (100000 * 10) + (i - 100) * 300000
+  -- elseif i <= 120 then
+  --   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (120 * 5) + (500 * 10) + (2000 * 10) + (3000 * 15) + (10000 * 10) + (15000 * 10) + (25000 * 10) + (35000 * 10) + (50000 * 10) + (100000 * 10) + (300000 * 10) + (i - 110) * 500000
+  -- end
   CustomNetTables:SetTableValue("xp_table", tostring(i), {xpNeeded = XP_PER_LEVEL_TABLE[i]})
 end
+current_sum = nil
 
 ENABLE_FIRST_BLOOD = true -- Should we enable first blood for the first kill in this game?
 HIDE_KILL_BANNERS = false -- Should we hide the kill banners that show when a player is killed?

@@ -407,8 +407,36 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:IsRealHero() then
 		armor = armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
 	end
+
+	local armor_modify = 0
+	if unit:HasModifier("modifier_wind_boss_slow") then
+		armor_modify = CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_wind_boss_slow")
+	end
+	if armor_modify > 0 then
+		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor", {})
+		unit:SetModifierStackCount("modifier_positive_roshpit_armor", Events.GameMaster, armor_modify)
+	elseif armor_modify < 0 then
+		unit:RemoveModifierByName("modifier_positive_roshpit_armor")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_armor", {})
+		unit:SetModifierStackCount("modifier_negative_roshpit_armor", Events.GameMaster, armor_modify)
+	else
+		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
+		unit:RemoveModifierByName("modifier_positive_roshpit_armor")
+	end
+	armor = armor + armor_modify
+	armor = math.max(armor, 0)
 	unit:SetRoshpitArmor(armor)
 	return armor
+end
+
+function CustomAttributes:GetArmorLossFromModifierStacks(unit, special_value_name, modifier_name)
+	local modifier = unit:FindModifierByName(modifier_name)
+	local ability = modifier:GetAbility()
+	local caster = modifier:GetCaster()
+	local stacks = math.max(modifier:GetStackCount(), 1)
+	local reduction = ability:GetSpecialValueFor(special_value_name)
+	return reduction*stacks
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
@@ -417,6 +445,21 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:IsRealHero() then
 		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
 	end
+	local magic_armor_modify = 0
+	if magic_armor_modify > 0 then
+		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
+		unit:SetModifierStackCount("modifier_positive_roshpit_magic_armor", Events.GameMaster, magic_armor_modify)
+	elseif magic_armor_modify < 0 then
+		unit:RemoveModifierByName("modifier_positive_roshpit_magic_armor")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_magic_armor", {})
+		unit:SetModifierStackCount("modifier_negative_roshpit_magic_armor", Events.GameMaster, magic_armor_modify)
+	else
+		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
+		unit:RemoveModifierByName("modifier_positive_roshpit_magic_armor")
+	end
+	magic_armor = magic_armor + magic_armor_modify
+	magic_armor = math.max(magic_armor, 0)
 	unit:SetRoshpitMagicArmor(magic_armor)
 	return magic_armor
 end
@@ -445,11 +488,6 @@ function CDOTA_BaseNPC:SetRoshpitArmor(amount)
 	local unit = self
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor", Events.GameMaster, amount)
-	if amount < 0 then
-		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_armor", {})
-	else
-		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
-	end
 	if unit:IsRealHero() then
 		-- print(unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster))
 	end
@@ -459,9 +497,6 @@ end
 function CDOTA_BaseNPC:GetRoshpitArmor(amount)
 	local mult = 1
 	local unit = self
-	if unit:HasModifier("modifier_negative_roshpit_armor") then
-		mult = -1
-	end
 	local armor = unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster)
 	armor = armor*mult
 	return armor
@@ -471,20 +506,12 @@ function CDOTA_BaseNPC:SetRoshpitMagicArmor(amount)
 	local unit = self
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_magic_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster, amount)
-	if amount < 0 then
-		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_magic_armor", {})
-	else
-		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
-	end
 	return amount
 end
 
 function CDOTA_BaseNPC:GetRoshpitMagicArmor(amount)
 	local mult = 1
 	local unit = self
-	if unit:HasModifier("modifier_negative_roshpit_magic_armor") then
-		mult = -1
-	end
 	local armor = unit:GetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster)
 	armor = armor*mult
 	return armor

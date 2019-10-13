@@ -98309,12 +98309,22 @@
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_positive_roshpit_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 			"modifier_roshpit_magic_armor"
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_negative_roshpit_magic_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_positive_roshpit_magic_armor"
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
@@ -108145,7 +108155,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-10"
 				}
 			}
@@ -108210,7 +108219,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss"		"-10 -50 -250"
+				"armor_loss"		"-100 -300 -1000"
 			}
 
 		}
