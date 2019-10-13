@@ -309,6 +309,9 @@ function GameState:GetPlayerPremiumStatus(playerID)
 end
 
 function GameState:GetPlayerPremiumStatusCount()
+	if GameState.premium_count then
+		return GameState.premium_count
+	end
 	local premiumStatusCount = 0
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 1) then
@@ -316,6 +319,9 @@ function GameState:GetPlayerPremiumStatusCount()
 				premiumStatusCount = premiumStatusCount + 1
 			end
 		end
+	end
+	if #MAIN_HERO_TABLE == RPCItems:GetConnectedPlayerCount() then
+		GameState.premium_count = premiumStatusCount
 	end
 	return premiumStatusCount
 end

@@ -117,6 +117,11 @@ Enemies.SPIRIT_REALM_CONSTANTS[1]["max_hp"] = 2
 Enemies.EXP_LEVEL_DIFFERENTIAL = 10
 Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL = 0.1
 
+Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER = 0.3
+
+Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER = 0.1
+Enemies.EXTRA_EXP_PER_PASS_PLAYER = 0.2
+
 Enemies.EXP_BASE_TABLE = {}
 for i = 0, 120 , 1 do
 	Enemies.EXP_BASE_TABLE[i]= math.ceil(8.5*(1.05^i)) + (i-1)
@@ -141,6 +146,7 @@ function Enemies:InitializeEnemy(unit)
 	end
 	-- exp
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
+	local deathXP = deathXP + (deathXP * (math.max(0, RPCItems:GetConnectedPlayerCount() - 1)*Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER)) + deathXP*GameState:GetPlayerPremiumStatusCount()*Enemies.EXTRA_EXP_PER_PASS_PLAYER
 	unit.roshpit_attributes.deathXP = deathXP
 	unit:SetDeathXP(0)
 	-- gold bounty
@@ -166,7 +172,7 @@ function Enemies:InitializeEnemy(unit)
 
 	-- HP
 	local newHealth = (unit:GetMaxHealth()*Enemies.DIFFICULTY_HEALTH_MULT[difficulty][enemyTier] + Enemies.DIFFICULTY_HEALTH_FLAT[difficulty][enemyTier])*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["max_hp"]
-	newHealth = newHealth + newHealth * 0.3 * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
+	newHealth = newHealth + newHealth * Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
 	unit:SetMaxHealth(newHealth)
 	unit:SetBaseMaxHealth(newHealth)
