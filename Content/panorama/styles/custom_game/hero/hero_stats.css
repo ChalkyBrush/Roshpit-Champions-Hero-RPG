@@ -202,3 +202,11 @@
 .unit_attributes_for_heroes{
 	horizontal-align:left;
 }
+
+.stat_bonus{
+	color: #F75959;
+}
+
+.stat_negative{
+	color: #2EB82E;
+}

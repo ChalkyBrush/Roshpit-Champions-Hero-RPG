@@ -1,5 +1,5 @@
 mQueryUnit = 0
-mAttributesHash = {modifier_roshpit_level: null, modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null}
+mAttributesHash = {modifier_roshpit_level: null, modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_positive_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_positive_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null}
 
 function InitializeHeroStatsOnce(){
 	$.Schedule( 3, InitializeHeroStats );
@@ -23,6 +23,8 @@ function get_attributes_for_query_unit(queryUnit){
 	var number_of_buffs = Entities.GetNumBuffs( queryUnit )
 	mAttributesHash["modifier_negative_roshpit_armor"] = 0
 	mAttributesHash["modifier_negative_roshpit_magic_armor"] = 0
+	mAttributesHash["modifier_positive_roshpit_armor"] = 0
+	mAttributesHash["modifier_positive_roshpit_magic_armor"] = 0
 	mAttributesHash["modifier_roshpit_level"] = 0
 	mAttributesHash["modifier_roshpit_armor"] = 0
 	mAttributesHash["modifier_roshpit_magic_armor"] = 0
@@ -35,9 +37,13 @@ function get_attributes_for_query_unit(queryUnit){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_negative_roshpit_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  }else if(buffName == "modifier_positive_roshpit_armor"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_roshpit_magic_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_negative_roshpit_magic_armor"){
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  }else if(buffName == "modifier_positive_roshpit_magic_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_roshpit_armor_pierce"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
@@ -76,8 +82,32 @@ function UnitStats40(){
 	}
 	// if (!(mQueryUnit == queryUnit)){
 	$('#unit_attribute_armor_label').text = mAttributesHash["modifier_roshpit_armor"]
-	$('#unit_attribute_armor_pierce_label').text = mAttributesHash["modifier_roshpit_armor_pierce"]
+	if (mAttributesHash["modifier_positive_roshpit_armor"] > 0){
+		$('#unit_attribute_armor_label').AddClass('stat_bonus')
+		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
+	}else if (mAttributesHash["modifier_negative_roshpit_armor"] > 0){
+		$('#unit_attribute_armor_label').AddClass('stat_negative')
+		$('#unit_attribute_armor_label').RemoveClass('stat_bonus')
+	}else{
+		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
+		$('#unit_attribute_armor_label').RemoveClass('stat_bonus')
+	}
+
+
 	$('#unit_attribute_magic_armor_label').text = mAttributesHash["modifier_roshpit_magic_armor"]
+	if (mAttributesHash["modifier_positive_roshpit_magic_armor"] > 0){
+		$('#unit_attribute_magic_armor_label').AddClass('stat_bonus')
+		$('#unit_attribute_magic_armor_label').RemoveClass('stat_negative')
+	}else if (mAttributesHash["modifier_negative_roshpit_magic_armor"] > 0){
+		$('#unit_attribute_magic_armor_label').AddClass('stat_negative')
+		$('#unit_attribute_magic_armor_label').RemoveClass('stat_bonus')
+	}else{
+		$('#unit_attribute_magic_armor_label').RemoveClass('stat_negative')
+		$('#unit_attribute_magic_armor_label').RemoveClass('stat_bonus')
+	}
+
+
+	$('#unit_attribute_armor_pierce_label').text = mAttributesHash["modifier_roshpit_armor_pierce"]
 	$('#unit_attribute_spell_pierce_label').text = mAttributesHash["modifier_roshpit_spell_pierce"]
 	// }
 }
