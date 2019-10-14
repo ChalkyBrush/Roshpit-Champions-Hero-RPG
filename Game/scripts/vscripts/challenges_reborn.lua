@@ -1,12 +1,14 @@
 if Challenges == nil then
 	Challenges = class({})
-	Challenges.ParagonDivisor = 1
+	Challenges.ParagonChance = 0
 	Challenges.MagicArmorMult = 1
 	Challenges.SpellPierceMult = 1
 	Challenges.ArmorMult = 1
 	Challenges.ArmorPierceMult = 1
 	Challenges.BonusHPMult = 1
 	Challenges.SpeedMult = 1
+	Challenges.AttackPowerMult = 1
+	Challenges.BossMult = 1
 end
 
 function Challenges:GetChallengeFromRoshpitServer()
@@ -50,13 +52,28 @@ function Challenges:CheckSpawn()
 	if Challenges.Crusader then
 		return false
 	end
-	local challenges_list = {Challenges.main_challenge, Challenges.web_challenge}
+	local challenges_list = {Challenges.main_challenge}
+
+	if Challenges:ShouldSpawnForWebPremium() then
+		challenges_list = {Challenges.main_challenge, Challenges.web_challenge}
+	end
+
 	for i = 1, #challenges_list, 1 do
 		local full_challenge = challenges_list[i]
 		local challenge_table = challenges_list[i]["challenge"]
 		if Challenges:HeroMatch(full_challenge) and Challenges:MapMatch(challenge_table) and Challenges:DifficultyModMatch(challenge_table) and Challenges:IsThereAtLeastOneUnclearedPlayer(challenges_list[i]) then
 			Challenges:SpawnByMap()
 		end
+	end
+end
+
+function Challenges:ShouldSpawnForWebPremium()
+	local player_one_id = MAIN_HERO_TABLE[1]:GetPlayerOwnerID()
+	local web_prem = CustomNetTables:GetTableValue("premium_pass", "web-"..tostring(player_one_id))
+	if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) == 1 and web_prem and web_prem.premium == 1 then
+		return true
+	else
+		return false
 	end
 end
 
@@ -162,7 +179,7 @@ function Challenges:SpawnByMap()
 	if GetMapName() == "rpc_tanari_jungle" then
 		Challenges:SpawnCrusaderNow(Vector(-4416, 1069), Vector(-1, 0))
 	elseif GetMapName() == "rpc_redfall_ridge" then
-		Challenges:SpawnCrusaderNow(Vector(-13530, -15232), Vector(0,1))
+		Challenges:SpawnCrusaderNow(Vector(-14230, -15232), Vector(0,1))
 	elseif GetMapName() == "rpc_winterblight_mountain" then
 		Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
 	elseif GetMapName() == "rpc_roshpit_arena" then
@@ -243,7 +260,11 @@ function Challenges:PanoramaInput(msg)
 			Challenges.ActiveChallenge = Challenges.main_challenge
 		end
 		if msg.challenge_type == "web" and Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) then
-			Challenges.ActiveChallenge = Challenges.web_challenge
+			if Challenges:ShouldSpawnForWebPremium() then
+				Challenges.ActiveChallenge = Challenges.web_challenge
+			else
+				return false
+			end
 		end
 		StartAnimation(Challenges.Crusader, {duration = 2.5, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.8})
 		EmitSoundOn("Challenges.Crusader.VOStart", Challenges.Crusader)
@@ -268,6 +289,7 @@ function Challenges:PanoramaInput(msg)
 				end
 			end
 		end
+		Challenges:SetChallengeParameters()
 	elseif msg.event_type == "purchase_exp_orb" then
 		local item = nil
 		local playerID = msg.PlayerID
@@ -467,8 +489,68 @@ function Challenges:SetChallengeClears()
 	end)
 end
 
+function Challenges:SetChallengeParameters()
+	if not Challenges.ActiveChallenge then
+		return false
+	end
+	for i = 1, #Challenges.ActiveChallenge["mods"], 1 do
+		local mod = Challenges.ActiveChallenge["mods"][i]
+		if mod["mod_type"] == "no_deaths" then
+			Challenges.NoDeaths = 0
+		elseif mod["mod_type"] == "mob_health" then
+			Challenges.BonusHPMult = 1 + mod["int1"]/100
+		elseif mod["mod_type"] == "mob_attack_power" then
+			Challenges.AttackPowerMult = 1 + mod["int1"]/100
+		elseif mod["mod_type"] == "mob_armor" then
+			Challenges.ArmorMult = 1 + mod["int1"]/100
+		elseif mod["mod_type"] == "mob_armor_pierce" then
+			Challenges.ArmorPierceMult = 1 + mod["int1"]/100
+		elseif mod["mod_type"] == "mob_magic_armor" then
+			Challenges.MagicArmorMult = 1 + mod["int1"]/100
+		elseif mod["mod_type"] == "mob_spell_pierce" then
+			Challenges.SpellPierceMult = 1 + mod["int1"]/100
+		elseif mod["mod_type"] == "paragon_rate" then
+			Challenges.ParagonChance = mod["int1"]/100
+		elseif mod["mod_type"] == "mob_cooldown_reduction" then
+			Challenges.MobCDReduction = mod["int1"]
+		elseif mod["mod_type"] == "ability_disable" then
+			Challenges.AbilityDisable = mod["int1"] - 1
+		elseif mod["mod_type"] == "super_boss" then
+			Challenges.BossMult = 1 + mod["int1"]/100
+		elseif mod["mod_type"] == "mob_speed" then
+			Challenges.MobSpeed = mod["int1"]
+		end
+	end
+end
+
 function Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier)
 	if not Challenges.ActiveChallenge then
 		return false
 	end
+
+	-- unit.roshpit_attributes.deathXP = unit.roshpit_attributes.deathXP*Paragon.EXP_MULT
+
+	-- -- attack damage
+	-- local base_damage = unit:GetAverageTrueAttackDamage(unit)
+	-- local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
+	-- local newDamage = base_damage*Paragon.PARAGON_ATTACK_MULT
+	-- unit:SetBaseDamageMin(newDamage-damageDiff)
+	-- unit:SetBaseDamageMax(newDamage)
+
+	-- -- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
+	-- local newArmor = unit.roshpit_attributes.roshpit_armor*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+	-- unit:SetBaseRoshpitArmor(newArmor, false)
+	-- local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+	-- unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
+	-- local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+	-- unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
+	-- local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+	-- unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
+
+	-- -- HP
+	-- local newHealth = unit:GetMaxHealth()*Paragon.PARAGON_HEALTH_MULT
+	-- newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	-- unit:SetMaxHealth(newHealth)
+	-- unit:SetBaseMaxHealth(newHealth)
+	-- unit:SetHealth(newHealth)
 end

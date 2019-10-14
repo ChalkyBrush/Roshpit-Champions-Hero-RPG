@@ -957,7 +957,7 @@ function CustomAbilities:ClickOpenDialogue(msg)
 				if Challenges:AreConditionsValidForChallenge(Challenges.main_challenge) then
 					main_match = 1
 				end
-				if Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) then
+				if Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) and Challenges:ShouldSpawnForWebPremium() then
 					web_match = 1
 				end
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_crusader", {player=playerID, main_challenge = Challenges.main_challenge, web_challenge = Challenges.web_challenge, main_match = main_match, web_match = web_match} )

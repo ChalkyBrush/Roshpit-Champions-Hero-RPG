@@ -218,6 +218,7 @@ function Glyphs:GetPlayerResources(playerID)
 		if premiumStatus then
 			CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1})
 			CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID})
+			Challenges:CheckSpawn()
 		end
 	end)
 end

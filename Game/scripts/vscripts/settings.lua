@@ -80,8 +80,6 @@ for i = 1, MAX_LEVEL, 1 do
   -- end
   -- CustomNetTables:SetTableValue("xp_table", tostring(i), {xpNeeded = XP_PER_LEVEL_TABLE[i]})
 end
-print("qqww")
-DeepPrintTable(XP_PER_LEVEL_TABLE)
 current_sum = nil
 
 ENABLE_FIRST_BLOOD = true -- Should we enable first blood for the first kill in this game?
