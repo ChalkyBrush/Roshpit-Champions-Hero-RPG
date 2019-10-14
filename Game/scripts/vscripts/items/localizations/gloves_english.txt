@@ -45,7 +45,7 @@
 		"property_scorched_gauntlet_description_2"	"<% HIGH_FLAME_GAUNTLET_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% of your attack power + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% HIGH_FLAME_GAUNTLET_STUN_DUR %> seconds, and creating another fire zone."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"<RAINBOW>Proud Gloves</RAINBOW>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
 		"item_property_proud_gloves"												"<RAINBOW>Rainbow Strike</RAINBOW>"
 		"property_proud_gloves_description"											"<RAINBOW>Auto attacks deal the element with the highest bonus as magical damage. Additionally amplifies auto attack damage by item damage bonus.</RAINBOW>"
