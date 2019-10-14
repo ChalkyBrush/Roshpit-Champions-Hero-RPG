@@ -590,10 +590,10 @@ function Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier)
 	unit:SetHealth(newHealth)
 
 	if Challenges.MobCDReduction then
-		Events:GetGameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_cd_reduce", {})
+		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_cd_reduce", {})
 	end
 	if Challenges.MobSpeed then
-		Events:GetGameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_mob_speed", {})
+		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_mob_speed", {})
 		unit:SetModifierStackCount("modifier_challenge_mob_speed", Events.GameMaster, Challenges.MobSpeed)
 	end
 end

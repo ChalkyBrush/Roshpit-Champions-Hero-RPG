@@ -69,12 +69,14 @@ function UnitStats40(){
 		$('#unit_attributes').AddClass('unit_attributes_for_heroes')
 
 		var heroAttributes = CustomNetTables.GetTableValue( "hero_index", queryUnit.toString()+"_attributes" );
-		$('#strength_label').text = heroAttributes.strength
-		$('#agility_label').text = heroAttributes.agility
-		$('#intelligence_label').text = heroAttributes.intelligence	
-		$('#spirit_label').text = heroAttributes.spirit		
-		$.Msg("update level label")
-		GameUI.level_label.text = Entities.GetLevel( queryUnit )
+		if (!(heroAttributes===undefined)){
+			$('#strength_label').text = heroAttributes.strength
+			$('#agility_label').text = heroAttributes.agility
+			$('#intelligence_label').text = heroAttributes.intelligence	
+			$('#spirit_label').text = heroAttributes.spirit		
+			$.Msg("update level label")
+			GameUI.level_label.text = Entities.GetLevel( queryUnit )
+		}
 	}else{
 		$('#hero_attributes').style.visibility = "collapse"
 		$('#unit_attributes').style.horizontalAlign = "right"

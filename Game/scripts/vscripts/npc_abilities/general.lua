@@ -57,7 +57,7 @@ function general_hero_think(event)
 			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_ms_thinker", {})
 		end
 	end
-	CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_roshpit_stats", {})
+	-- CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_roshpit_stats", {})
 	
 	-- CustomAttributes:CalcMovespeed(target)
 end
