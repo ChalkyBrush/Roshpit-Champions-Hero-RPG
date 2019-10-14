@@ -499,61 +499,109 @@ function Challenges:SetChallengeParameters()
 	for i = 1, #Challenges.ActiveChallenge["mods"], 1 do
 		local mod = Challenges.ActiveChallenge["mods"][i]
 		if mod["mod_type"] == "no_deaths" then
+			-- done
 			Challenges.NoDeaths = 0
 		elseif mod["mod_type"] == "mob_health" then
+			-- done
 			Challenges.BonusHPMult = 1 + mod["int1"]/100
 		elseif mod["mod_type"] == "mob_attack_power" then
+			-- done
 			Challenges.AttackPowerMult = 1 + mod["int1"]/100
 		elseif mod["mod_type"] == "mob_armor" then
+			-- done
 			Challenges.ArmorMult = 1 + mod["int1"]/100
 		elseif mod["mod_type"] == "mob_armor_pierce" then
+			-- done
 			Challenges.ArmorPierceMult = 1 + mod["int1"]/100
 		elseif mod["mod_type"] == "mob_magic_armor" then
+			-- done
 			Challenges.MagicArmorMult = 1 + mod["int1"]/100
 		elseif mod["mod_type"] == "mob_spell_pierce" then
+			-- done
 			Challenges.SpellPierceMult = 1 + mod["int1"]/100
 		elseif mod["mod_type"] == "paragon_rate" then
+			-- done
 			Challenges.ParagonChance = mod["int1"]/100
 		elseif mod["mod_type"] == "mob_cooldown_reduction" then
-			Challenges.MobCDReduction = mod["int1"]
+			-- done
+			Challenges.MobCDReduction = 1 - mod["int1"]/100
 		elseif mod["mod_type"] == "ability_disable" then
 			Challenges.AbilityDisable = mod["int1"] - 1
+			Challenges:DisableHeroAbilityInit()
 		elseif mod["mod_type"] == "super_boss" then
+			-- done
 			Challenges.BossMult = 1 + mod["int1"]/100
 		elseif mod["mod_type"] == "mob_speed" then
+			-- done
 			Challenges.MobSpeed = mod["int1"]
 		end
 	end
+end
+
+function Challenges:DisableHeroAbilityInit()
+	Timers:CreateTimer(0, function()
+		local index = Challenges.AbilityDisable
+		if index == 3 then
+			index = DOTA_R_SLOT
+		end
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			local hero = MAIN_HERO_TABLE[i]
+			local ability_to_disable = hero:GetAbilityByIndex(index)
+			if ability_disable and IsValidEntity(ability_to_disable) then
+				if ability_disable:IsActivated() then
+					ability_disable:SetActivated(false)
+				end
+			end
+		end
+		return 0.5
+	end)
 end
 
 function Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier)
 	if not Challenges.ActiveChallenge then
 		return false
 	end
-
-	-- unit.roshpit_attributes.deathXP = unit.roshpit_attributes.deathXP*Paragon.EXP_MULT
-
+	local boss_mult = 0
+	if unit:GetUnitName() == Challenges.ActiveChallenge["challenge"]["objective"] then
+		boss_mult = 1
+	end
 	-- -- attack damage
-	-- local base_damage = unit:GetAverageTrueAttackDamage(unit)
-	-- local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
-	-- local newDamage = base_damage*Paragon.PARAGON_ATTACK_MULT
-	-- unit:SetBaseDamageMin(newDamage-damageDiff)
-	-- unit:SetBaseDamageMax(newDamage)
+	local base_damage = unit:GetAverageTrueAttackDamage(unit)
+	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
+	local newDamage = base_damage*Challenges.AttackPowerMult + base_damage*boss_mult*Challenges.BossMult
+	unit:SetBaseDamageMin(newDamage-damageDiff)
+	unit:SetBaseDamageMax(newDamage)
 
 	-- -- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
-	-- local newArmor = unit.roshpit_attributes.roshpit_armor*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
-	-- unit:SetBaseRoshpitArmor(newArmor, false)
-	-- local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
-	-- unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
-	-- local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
-	-- unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
-	-- local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
-	-- unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
+	local newArmor = unit.roshpit_attributes.roshpit_armor*Challenges.ArmorMult + unit.roshpit_attributes.roshpit_armor*boss_mult*Challenges.BossMult
+	unit:SetBaseRoshpitArmor(newArmor, false)
+	local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Challenges.MagicArmorMult +unit.roshpit_attributes.roshpit_magic_armor*boss_mult*Challenges.BossMult
+	unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
+	local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce*Challenges.ArmorPierceMult + unit.roshpit_attributes*boss_mult*Challenges.BossMult
+	unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
+	local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Challenges.SpellPierceMult  + unit.roshpit_attributes*boss_mult*Challenges.BossMult
+	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 	-- -- HP
-	-- local newHealth = unit:GetMaxHealth()*Paragon.PARAGON_HEALTH_MULT
-	-- newHealth = math.min(newHealth, (2 ^ 30) - 10)
-	-- unit:SetMaxHealth(newHealth)
-	-- unit:SetBaseMaxHealth(newHealth)
-	-- unit:SetHealth(newHealth)
+	local newHealth = unit:GetMaxHealth()*Challenges.BonusHPMult + unit:GetMaxHealth()*boss_mult*Challenges.BossMult
+	newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	unit:SetMaxHealth(newHealth)
+	unit:SetBaseMaxHealth(newHealth)
+	unit:SetHealth(newHealth)
+
+	if Challenges.MobCDReduction then
+		Events:GetGameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_cd_reduce", {})
+	end
+	if Challenges.MobSpeed then
+		Events:GetGameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_mob_speed", {})
+		unit:SetModifierStackCount("modifier_challenge_mob_speed", Events.GameMaster, Challenges.MobSpeed)
+	end
+end
+
+function Challenges:HeroDied()
+	if Challenges.NoDeaths == 0 then
+		CustomGameEventManager:Send_ServerToAllClients("enter_equinox", {})
+		Notifications:BottomToAll({text = "ui_challenge_failed", duration = 7})
+		Challenges.NoDeaths = 1
+	end
 end

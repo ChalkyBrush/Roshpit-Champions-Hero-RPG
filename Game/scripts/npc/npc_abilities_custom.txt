@@ -98362,6 +98362,29 @@
 					}
 				}
 			}
+			"modifier_challenge_cd_reduce"
+			{
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				// Any ability (including items) was used by the unit with this modifier.
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"challenge_mob_ability_execute"
+						"target"        "TARGET"
+					}
+				}
+			}
+			"modifier_challenge_mob_speed"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1" 
+				}
+			}
 		}
 		"AbilitySpecial"
 		{

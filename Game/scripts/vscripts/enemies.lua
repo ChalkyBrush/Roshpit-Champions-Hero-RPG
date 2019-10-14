@@ -200,6 +200,10 @@ function Enemies:ParagonChance(unit)
 	if Events.SpiritRealm then
 		baseChance = 90
 	end
+	if Challenges.ActiveChallenge then
+		local divisor = math.max(((Challenges.ParagonChance/100)+1), 1)
+		baseChance = baseChance/divisor
+	end
 	local luck = RandomInt(1, baseChance)
 	if luck == 1 then
 		Paragon:AddParagonUnit(unit)

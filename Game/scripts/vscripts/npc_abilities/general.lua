@@ -788,3 +788,19 @@ function challenge_win_float_think(event)
 	end
 	target:SetAbsOrigin(target:GetAbsOrigin()+Vector(0,0,lift_force))
 end
+
+function challenge_mob_ability_execute(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.unit
+	if Challenges.MobCDReduction then
+		local executedAbility = event.event_ability
+		local currentCD = executedAbility:GetCooldownTimeRemaining()
+		executedAbility:EndCooldown()
+		local cd = currentCD*Challenges.MobCDReduction
+		if target:HasModifier("modifier_hood_of_lords_lua") then
+			cd = cd + 1
+		end
+		executedAbility:StartCooldown(cd)
+	end
+end
