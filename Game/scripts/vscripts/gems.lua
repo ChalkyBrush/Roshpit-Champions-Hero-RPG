@@ -8,10 +8,109 @@ Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 2
 Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 4
 
 function Gems:GemForgerPossibleSpawnEvent(event_name)
-	local reward = 0
+	if Gems.GemForgerSpawned then
+		return false
+	end
+	local spawn_args = nil
+	if GameState:IsTanariJungle() then
+		if event_name == "wind_temple_boss" or event_name == "water_temple_boss" or event_name == "flame_worshipper_kolthun" then
+			if not Gems.TanariGemForgerKills then
+				Gems.TanariGemForgerKills = 0
+			end
+			Gems.TanariGemForgerKills = Gems.TanariGemForgerKills + 1
+			local luck = RandomInt(1, 6 - Gems.TanariGemForgerKills)
+			if luck == 1 then
+				spawn_args = Gems:GetRewardAndSpawnPositionByEventName(event_name)
+			end
+		else
+			spawn_args = Gems:GetRewardAndSpawnPositionByEventName(event_name)
+		end
+	elseif GameState:IsRedfallRidge() then
+		if event_name == "redfall_canyon_boss" or event_name == "redfall_shipyard_boss" then
+			if not Gems.RedfallBasicBossesKilled then
+				Gems.RedfallBasicBossesKilled = 0
+			end
+			Gems.RedfallBasicBossesKilled = Gems.RedfallBasicBossesKilled + 1
+			local luck = RandomInt(1, 5 - Gems.RedfallBasicBossesKilled)
+			if luck == 1 then
+				spawn_args = Gems:GetRewardAndSpawnPositionByEventName(event_name)
+			end
+		else
+			spawn_args = Gems:GetRewardAndSpawnPositionByEventName(event_name)
+		end		
+	else
+		spawn_args = Gems:GetRewardAndSpawnPositionByEventName(event_name)
+	end
+	if spawn_args and spawn_args["reward"] then
+		local reward = spawn_args["reward"]*Gems.BaseRewardDifficultyMult[GameState:GetDifficultyFactor()]
+		Gems:SpawnGemForger(spawn_args["position"], spawn_args["fv"], reward)
+	end
 end
 
-function Gems:GetGemBaseReward(event_name)
+function Gems:GetRewardAndSpawnPositionByEventName(event_name)
+	local spawn_args = {}
+	if event_name == "wind_temple_boss" then
+		spawn_args["position"] = Vector(7520, 9024)
+		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["reward"] = 6
+	elseif event_name == "water_temple_boss" then
+		spawn_args["position"] = Vector(-3834, 11554)
+		spawn_args["fv"] = Vector(Vector(0,-1))
+		spawn_args["reward"] = 6
+	elseif event_name == "flame_worshipper_kolthun" then
+		spawn_args["position"] = Vector(6272, -8384)
+		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["reward"] = 7	
+	elseif event_name == "fire_temple_spirit_boss" then
+		spawn_args["position"] = Vector(-15040, -3904)
+		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["reward"] = 9		
+	elseif event_name == "water_temple_spirit_boss" then
+		spawn_args["position"] = Vector(14400, -2432)
+		spawn_args["fv"] = Vector(Vector(-1,1))
+		spawn_args["reward"] = 9	
+	elseif event_name == "wind_temple_spirit_boss" then
+		spawn_args["position"] = Vector(11200, 2880)
+		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["reward"] = 9	
+	elseif event_name == "tanari_ancient_hero" then
+		spawn_args["position"] = Vector(3520, -1856)
+		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["reward"] = 12
+	elseif event_name == "redfall_crimsyth_castle_boss" then
+		spawn_args["position"] = Vector(-960, 4096)
+		spawn_args["fv"] = Vector(Vector(1,-1))
+		spawn_args["reward"] = 10
+	elseif event_name == "redfall_shipyard_boss" then
+		spawn_args["position"] = Vector(14606, 11392)
+		spawn_args["fv"] = Vector(Vector(0,-1))
+		spawn_args["reward"] = 8
+	elseif event_name == "redfall_canyon_boss" then
+		spawn_args["position"] = Vector(-14874, 12864)
+		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["reward"] = 7
+	elseif event_name ==  "redfall_ancient_tree" then
+		spawn_args["position"] = Vector(-12736, -12288)
+		spawn_args["fv"] = Vector(Vector(1,-1))
+		spawn_args["reward"] = 12	
+	elseif event_name == "winterblight_cavern_boss_tiamat" then	
+		spawn_args["position"] = Vector(-8832, 6016)
+		spawn_args["fv"] = Vector(Vector(1,1))
+		spawn_args["reward"] = 12	
+	elseif event_name == "azalea_boss" then	
+		spawn_args["position"] = Vector(-640, -14336)
+		spawn_args["fv"] = Vector(Vector(1,-1))
+		spawn_args["reward"] = 12	
+	elseif event_name == "arena_pit_of_trials_final_boss" then	
+		spawn_args["position"] = Vector(3904, -13248)
+		spawn_args["fv"] = Vector(Vector(0.3,-1))
+		spawn_args["reward"] = 13	
+	elseif event_name == "seafortress_final_boss" then	
+		spawn_args["position"] = Vector(-12154, 11310)
+		spawn_args["fv"] = Vector(Vector(0.5,-0.5))
+		spawn_args["reward"] = 14
+	end
+	return spawn_args
 end
 
 function Gems:RandomlySetSocketsForItem(item)
