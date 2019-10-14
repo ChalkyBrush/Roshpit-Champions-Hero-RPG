@@ -34,7 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"<% SLIPFINN_Q2_ARMOR %>"
 			}
 		}
 	}
@@ -54,7 +54,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"<% SLIPFINN_Q3_HEIGHT_SQ_MULT %>"
 			}
 		}
 	}
@@ -74,7 +74,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.07"
+				"property_one"			"<% SLIPFINN_Q4_SHADOW_WATER_AMP_PER_AGI %>"
 			}
 		}
 	}
@@ -135,7 +135,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"<% SLIPFINN_W2_POST_MITI %>"
 			}
 		}
 	}
@@ -155,7 +155,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% SLIPFINN_W3_BONUS_ATTACK_DAMAGE %>"
 			}
 		}
 	}
@@ -175,7 +175,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"<% SLIPFINN_W4_JUMP_FORCE %>"
 			}
 		}
 	}
@@ -226,12 +226,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"<% SLIPFINN_E2_HEALTH %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"<% SLIPFINN_E2_HEALTH_REGEN %>"
 			}
 		}
 	}
@@ -271,7 +271,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% SLIPFINN_E4_STEADFAST_IGNORE_CHANCE / 10 %>"
 			}
 		}
 	}
@@ -291,7 +291,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% SLIPFINN_R1_DAMAGE_INCREASE %>"
 			}
 		}
 	}
@@ -311,7 +311,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% SLIPFINN_R2_STUN_DURATION %>"
 			}
 		}
 	}
@@ -331,7 +331,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% SLIPFINN_R3_POST_MITI %>"
 			}
 		}
 	}

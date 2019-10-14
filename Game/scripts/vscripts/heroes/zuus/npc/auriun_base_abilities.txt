@@ -131,7 +131,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% AURIUN_Q3_ARMOR_BONUS %>"
 				}
 			}
 			"modifier_auriun_rune_q_3_thinker"
@@ -243,7 +243,7 @@
         		"EffectName"		"particles/roshpit/auriun/auriun_rune_w_3_heal.vpcf"
         		"EffectAttachType"	"follow_origin"
 
-        		"ThinkInterval"  "0.2"
+        		"ThinkInterval"  "<% AURIUN_W3_TICK_RATE %>"
         		"OnIntervalThink"
         		{
         			"RunScript"

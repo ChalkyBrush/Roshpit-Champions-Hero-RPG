@@ -391,7 +391,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"提高大地、火焰和寒冰能量的层数上限至<% WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"战斗雕文"
-		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击将对目标周围所有敌人造成 <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% 攻击伤害的魔法伤害。"
+		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"生态雕文"
 		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害会增加 <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> 火焰能量。 每层寒冰能量加深敌人受到的魔法伤害 <% WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT %>%（计算在敌人减伤之后）"

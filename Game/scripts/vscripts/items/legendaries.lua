@@ -5700,8 +5700,23 @@ function RPCItems:RollTemporalWarpBoots(deathLocation)
     else
         Elements:RollElementAttribute(item, RPC_ELEMENT_TIME, 1.6, 2, 20, 2)
     end
-
+	local luck = RandomInt(1, 26)
+	if luck < 9 then
+	item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
+		item.newItemTable.property3 = math.ceil(value * 0.85)
+		item.newItemTable.property3name = runeName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+	elseif luck < 13 then
+		item.newItemTable.hasRunePoints = true
+		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
+		item.newItemTable.property3 = math.min(math.floor(value * 1.75), 90)
+		item.newItemTable.property3name = propertyName
+		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+	else
     RPCItems:RollFootProperty3(item, 0)
+	end
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation

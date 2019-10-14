@@ -159,9 +159,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"			"Redfall Runners"
 		"item_property_redfall_runners"							"Crackling Leaves"
-		"property_redfall_runners_description"					"TODO: Each % of missing health increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
+		"property_redfall_runners_description"					"Каждый % отсутствующего здоровья увеличивает скорость перемещения на <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> и лимит скорости на <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
 		"DOTA_Tooltip_modifier_redfall_runners"					"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"TODO: Increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> per %% of missing health."
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Каждый процент отсутствующего здоровья увеличивает скорость перемещения на <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> и лимит скорости на <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"

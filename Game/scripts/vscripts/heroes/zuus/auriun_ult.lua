@@ -17,7 +17,7 @@ function channel_succeed(event)
 			allAllies[i]:SetHealth(allAllies[i]:GetMaxHealth() * 0.4)
 			ability:ApplyDataDrivenModifier(caster, allAllies[i], "modifier_auriun_ult_effect", {duration = ultEffectDuration})
 			if r_4_level > 0 then
-				local shieldStacks = Runes:Procs(r_4_level, 25, 1)
+				local shieldStacks = Runes:Procs(r_4_level, AURIUN_R4_SHIELD_CHANCE, 1)
 				if shieldStacks > 0 then
 					local shieldAbility = nil
 					if caster:HasAbility("heavens_shield") then
@@ -40,7 +40,7 @@ function channel_succeed(event)
 		for _, ally in pairs(allies) do
 			ability:ApplyDataDrivenModifier(caster, ally, "modifier_auriun_ult_effect", {duration = ultEffectDuration})
 			if r_4_level > 0 then
-				local shieldStacks = Runes:Procs(r_4_level, 25, 1)
+				local shieldStacks = Runes:Procs(r_4_level, AURIUN_R4_SHIELD_CHANCE, 1)
 				if shieldStacks > 0 then
 					local shieldAbility = nil
 					if caster:HasAbility("heavens_shield") then
@@ -90,7 +90,7 @@ function passive_think(event)
 	local r_1_level = caster:GetRuneValue("r", 1)
 	if r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_auriun_rune_r_1", {})
-		local damageGain = math.floor(caster:GetIntellect() * 0.05 * r_1_level)
+		local damageGain = math.floor(caster:GetIntellect() * AURIUN_R1_INT_TO_ATTACK_DMG * r_1_level)
 		caster:SetModifierStackCount("modifier_auriun_rune_r_1", ability, damageGain)
 	else
 		caster:RemoveModifierByName("modifier_auriun_rune_r_1")
@@ -127,7 +127,7 @@ function auriun_ult_attack_land(event)
 	local target = event.target
 	local r_1_level = attacker:GetRuneValue("r", 1)
 	if r_1_level > 0 then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * AURIUN_R1_HOLY_DMG_PER_ATT * r_1_level
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * AURIUN_R1_MODIFIER_DMG_PER_ATTACK * r_1_level
 		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NORMAL)
 		if attacker:HasModifier("modifier_auriun_glyph_7_1") then
 			local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, AURIUN_GLYPH_7_1_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

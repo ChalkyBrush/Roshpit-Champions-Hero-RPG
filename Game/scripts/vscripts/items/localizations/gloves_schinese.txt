@@ -40,10 +40,10 @@
 		"property_scorched_gauntlet_description_2"	"攻击时有<% HIGH_FLAME_GAUNTLET_CHANCE %>%几率产生一片焦土，每秒对范围内所有敌人造成 <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% 攻击力+ <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% 攻击力的伤害、 <br>眩晕敌人 <% HIGH_FLAME_GAUNTLET_STUN_DUR %> 秒并且留下一片新的焦土。"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"荣耀护手"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"部位：手"
-		"item_property_proud_gloves"						"彩虹打击"
-		"property_proud_gloves_description"				"TODO: <RAINBOW>Auto attacks deal the element with the highest bonus as magical damage. Additionally amplifies auto attack damage by item damage bonus.</RAINBOW>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"                              "荣耀护手"
+        "DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"                  "部位：手"
+        "item_property_proud_gloves"                        "彩虹打击"
+        "property_proud_gloves_description"             "TODO: <RAINBOW>自动攻击会对元素造成最高的魔法伤害加成. 另外通过物品伤害加成会增加此自动攻击的伤害.</RAINBOW>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"埃辛诺斯之爪"
@@ -164,7 +164,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
+		"property_mordiggus_description"					"增加所有税后伤害 <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% 根据每失去百分比的血量. 每次施法吸取 <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% 的最大生命值, 并且每次攻击吸取 <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% 的最大生命值. 生命值汲取效果不会将你的生命值降低至最大生命值的 <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"

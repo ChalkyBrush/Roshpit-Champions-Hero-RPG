@@ -8,7 +8,7 @@ function start_holy_arcana(event)
 		point = event.target:GetAbsOrigin()
 	end
 	local modifierName = "modifier_holy_wrath_buff"
-	local allies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 280, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, AURIUN_ARCANA_1_Q_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #allies == 0 then
 		local nearbyAllies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 2000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
 		if #nearbyAllies > 0 then
@@ -35,7 +35,7 @@ function start_holy_arcana(event)
 	local q_4_level = caster:GetRuneValue("q", 4)
 	ability.q_4_level = q_4_level
 	if q_4_level > 0 then
-		local duration = 5
+		local duration = AURIUN_ARCANA_1_Q4_DURATION
 		duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_holy_wrath_d_a_buff", {duration = duration})
 		caster:SetModifierStackCount("modifier_holy_wrath_d_a_buff", caster, q_4_level)
@@ -101,7 +101,7 @@ function heavens_shield_spark_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = ability.q_1_level * 30000 + 50000
+	local damage = ability.q_1_level * AURIUN_ARCANA_1_Q1_DAMAGE + AURIUN_ARCANA_1_Q1_DAMAGE_BASE
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 end
 
@@ -111,7 +111,7 @@ function start_shadow_arcana(event)
 	local point = event.target_points[1]
 	Filters:CastSkillArguments(1, caster)
 	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(point, caster), "shadow_trap", {duration = 7})
-	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(point, caster), "shadow_trap", {duration = 7})
+	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(point, caster), "shadow_trap", {duration = AURIUN_ARCANA_2_Q_DURATION})
 
 	EmitSoundOnLocationWithCaster(point, "Auriun.ShadowTrap", caster)
 
@@ -135,7 +135,7 @@ function shadow_trap_think(event)
 	local ability = event.ability
 	local target = event.target
 	if ability.q_1_level > 0 then
-		local damage = 50000 + ability.q_1_level * 30000
+		local damage = AURIUN_ARCANA_2_Q1_DAMAGE_BASE + ability.q_1_level * AURIUN_ARCANA_2_Q1_DAMAGE
 		CustomAbilities:QuickAttachParticle("particles/roshpit/auriun/shadow_rain_attack.vpcf", target, 3.5)
 		Timers:CreateTimer(0.45, function()
 			Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)

@@ -391,26 +391,26 @@ function slipfinn_jump_think(event)
 						for _, enemy in pairs(enemies) do
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
 							if ability.w_2_level > 0 then
-								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_visible", {duration = 10})
+								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_visible", {duration = SLIPFINN_W2_DURATION})
 								local newStacks = enemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
 								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster, newStacks)
 
-								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_invisible", {duration = 10})
+								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_invisible", {duration = SLIPFINN_W2_DURATION})
 								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks * ability.w_2_level)
 							end
 						end
 					end
 				end
 				if ability.w_2_level > 0 then
-					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_visible", {duration = 10})
+					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_visible", {duration = SLIPFINN_W2_DURATION})
 					local newStacks = jumpEnemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
 					jumpEnemy:SetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster, newStacks)
 
-					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_invisible", {duration = 10})
+					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_invisible", {duration = SLIPFINN_W2_DURATION})
 					jumpEnemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks * ability.w_2_level)
 				end
 				if ability.w_3_level > 0 then
-					local duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+					local duration = Filters:GetAdjustedBuffDuration(caster, SLIPFINN_W3_DURATION, false)
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_agitated_visible", {duration = duration})
 					local newStacks = caster:GetModifierStackCount("modifier_slipfinn_agitated_visible", caster) + 1
 					caster:SetModifierStackCount("modifier_slipfinn_agitated_visible", caster, newStacks)
@@ -501,8 +501,8 @@ function bog_roller_e_4_explosion(caster, radius)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				local stun_duration = SLIPFINN_E4_STUN_DURATION * e_4_level
-				local damage = (SLIPFINN_E4_DAMAGE_ATK_POWER_PCT / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * e_4_level
+				local stun_duration = SLIPFINN_ARCANA_1_E4_STUN_DURATION * e_4_level
+				local damage = (SLIPFINN_ARCANA_1_E4_LAND_DAMAGE_PER_ATTACK_PCT / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * e_4_level
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WATER, RPC_ELEMENT_SHADOW)
 				Filters:ApplyStun(caster, stun_duration, enemy)
 			end

@@ -42,7 +42,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% 攻击力"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] 阴郁之影"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"跳跃至某敌人头顶时，敌人获得一层阴郁之影 buff，加深黑礁守卫对那个 被踩的敌人 的伤害。（伤害加深计算在敌人减伤之后）buff 持续 10秒。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"跳跃至某敌人头顶时，敌人获得一层阴郁之影 buff，加深黑礁守卫对那个 被踩的敌人 的伤害。（伤害加深计算在敌人减伤之后）buff 持续 <% SLIPFINN_W2_DURATION %>秒。"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"每层 buff 伤害加深"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
 
@@ -50,7 +50,7 @@
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"受到来自黑礁守卫的伤害被加深"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] 汹涌之潮"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"跳跃至敌人头顶时，将提高 % 攻击力。持续 12 秒，再次跳跃至敌人头顶时刷新攻击力加成和持续时间。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"跳跃至敌人头顶时，将提高 % 攻击力。持续 <% SLIPFINN_W3_DURATION %> 秒，再次跳跃至敌人头顶时刷新攻击力加成和持续时间。"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"每层攻击力提高"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
 
