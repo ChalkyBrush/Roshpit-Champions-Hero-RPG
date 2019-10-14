@@ -2647,18 +2647,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% for each 10 points of Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every 0.2 seconds for 3 seconds."
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Heal Per 0.2 Seconds"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every <font color='#ccff66'>0.2</font> seconds for <font color='#ccff66'>3</font> seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Heal Per <font color='#ccff66'>0.2</font> Seconds"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% of original heal"	
 
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"Energizing Light"		
-    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Healing every 0.2 seconds"
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Healing every <font color='#ccff66'>0.2</font> seconds"
 
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] Blinding Shadows"
-    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Enemies struck by Shadow Flare have an increased Miss Chance and decreased Movespeed. Stacks up to 5 times and lasts 7 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Enemies struck by Shadow Flare have an increased Miss Chance and decreased Movespeed. Stacks up to <font color='#ccff66'>5</font> times and lasts <font color='#ccff66'>7</font> seconds."
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"Miss Chance per Stack"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"Movespeed Loss per Stack"
@@ -2776,7 +2776,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% for each 10 attributes."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for 5 seconds that increases mana regen and allows you to teleport when issuing a move order. 1 second cooldown on the teleport."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for <font color='#ccff66'>5</font> seconds that increases mana regen and allows you to teleport when issuing a move order. <font color='#ccff66'>1</font> second cooldown on the teleport."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"Max Teleport Distance"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"Mana Regen"
@@ -2801,7 +2801,7 @@
     	"DOTA_Tooltip_shadow_trap_aura_Description"								"Rooted"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] Umbral Waves"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Enemies trapped in Shadow Bind are struck by shadow waves every 0.6 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Enemies trapped in Shadow Bind are struck by shadow waves every <font color='#ccff66'>0.6</font> seconds."
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"Damage"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
@@ -2816,7 +2816,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% for each 10 attributes."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"Auriun enters Shadow Form for 18 seconds upon casting his Ultimate ability. In Shadow Form, all post-mitigation magic damage is enhanced and mana regen is increased."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"Auriun enters Shadow Form for <font color='#ccff66'>18</font> seconds upon casting his Ultimate ability. In Shadow Form, all post-mitigation magic damage is enhanced and mana regen is increased."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Magic Damage Enhance"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Mana Regen"
@@ -9171,7 +9171,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% of Attack Power"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts 10 seconds. Enemies hit by Dark Bog gain 1 stack."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts <font color='#ccff66'>10</font> seconds. Enemies hit by Dark Bog gain 1 stack."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Post-mitigation damage taken per stack"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
 
@@ -9179,7 +9179,7 @@
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Taking increased post-mitigation damage from Slipfinn"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts 12 seconds, and jumping resets the bonus."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts <font color='#ccff66'>12</font> seconds, and jumping resets the bonus."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"Attack Power Bonus per Stack"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
 
@@ -9283,14 +9283,14 @@
 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed burst that decays over its duration. This speed burst also whips up a short-lived cyclone of murky water that damages nearby enemies."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed slow that decays over its duration. This speed burst also whips up a short-lived cyclone of murky water that damages nearby enemies."
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Damage"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% of Attack Power"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Speed Burst"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Roll Speed Slow"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
-        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed boost and damaging nearby enemies" 
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed slow and damaging nearby enemies" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Gain bonus attack damage during Bog Roller. All attacks deal an additional instance of magical <font color=\"#3894FF\">Water</font> damage."

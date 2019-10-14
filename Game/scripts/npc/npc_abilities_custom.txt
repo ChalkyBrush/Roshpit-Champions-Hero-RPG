@@ -59495,12 +59495,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"1"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"60"
+				"property_two_base"			"0"
 			}
 			"04"
 			{
@@ -67047,7 +67047,7 @@
 						"EffectName"		"particles/roshpit/auriun/shadow_trap.vpcf"
 						"EffectAttachType"	"follow_origin"
 						"Target"			"TARGET"
-						"Duration"			"6"
+						"Duration"			"7"
 						"ControlPoints"
 						{
 							"00" "0 0 0"
@@ -67985,7 +67985,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
 				}
 			}
 		}
@@ -68105,7 +68105,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0"
 			}
 		}
 		"Modifiers"
@@ -68207,7 +68207,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.0"
+				"property_one"			"2"
 			}
 		}
 		"Modifiers"
