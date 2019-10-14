@@ -4054,6 +4054,7 @@ function Events:TutorialServerEvent(hero, code1, code2)
 end
 
 function Events:MainBossSlain(boss_name)
+	Gems:GemForgerPossibleSpawnEvent(boss_name)
 	Challenges:MainBossSlainEvent(boss_name)
 end
 

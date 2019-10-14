@@ -7,11 +7,11 @@ Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 1
 Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 2
 Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 4
 
-function Gems:GemsPossibleSpawnEvent()
+function Gems:GemForgerPossibleSpawnEvent(event_name)
 	local reward = 0
 end
 
-function Gems:GetGemBaseReward()
+function Gems:GetGemBaseReward(event_name)
 end
 
 function Gems:RandomlySetSocketsForItem(item)

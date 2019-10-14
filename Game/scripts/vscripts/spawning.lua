@@ -55,15 +55,16 @@ function Spawning:SpawnUnit(args)
 	if Beacons.packs == true then
 		luck = 2
 	end
-	local unit = ""
-	if luck == 1 and args.canBeParagon and args.canBeParagonSolo then
-		unit = Paragon:SpawnParagonUnit(args.unitName, args.spawnPoint)
-	elseif luck == 2 and args.canBeParagon and args.canBeParagonPack then
-		unit = Paragon:SpawnParagonPack(args.unitName, args.spawnPoint)
-	else
-		unit = CreateUnitByName(args.unitName, args.spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
-		Events:AdjustDeathXP(unit)
-	end
+	-- local unit = ""
+	-- if luck == 1 and args.canBeParagon and args.canBeParagonSolo then
+	-- 	unit = Paragon:SpawnParagonUnit(args.unitName, args.spawnPoint)
+	-- elseif luck == 2 and args.canBeParagon and args.canBeParagonPack then
+	-- 	unit = Paragon:SpawnParagonPack(args.unitName, args.spawnPoint)
+	-- else
+	-- 	unit = CreateUnitByName(args.unitName, args.spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	-- 	Events:AdjustDeathXP(unit)
+	-- end
+	local unit = CreateUnitByName(args.unitName, args.spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 	unit.itemLevel = args.itemLevel
 	Spawning:SetDropModifier(unit, args.deathModifier)
 	if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then

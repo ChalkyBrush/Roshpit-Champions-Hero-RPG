@@ -1320,9 +1320,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     attacker.element1 = element1
     attacker.element2 = element2
     local damageMult = 0
-    print("Damage: "..damage)
-    print("Element1: "..element1)
-    print("Element2: "..element2)
+    -- print("Damage: "..damage)
+    -- print("Element1: "..element1)
+    -- print("Element2: "..element2)
     if attacker:HasModifier("modifier_sorceress_immortal_fire_avatar") or attacker:HasModifier("modifier_sorceress_immortal_ice_avatar") then
         attacker = attacker.origCaster
     end
