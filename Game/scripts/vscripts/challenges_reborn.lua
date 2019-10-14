@@ -218,10 +218,10 @@ function Challenges:PanoramaInput(msg)
 	print("START CHALLENGE")
 	print(msg.challenge_type)
 	CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
-	if Challenges.ActiveChallenge then
-		return false
-	end
 	if msg.event_type == "start" then
+		if Challenges.ActiveChallenge then
+			return false
+		end
 		if Challenges.Crusader.disabled then
 			return false
 		end
@@ -465,4 +465,10 @@ function Challenges:SetChallengeClears()
 		local resultTable = JSON:decode(result.Body)
 		print(resultTable)
 	end)
+end
+
+function Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier)
+	if not Challenges.ActiveChallenge then
+		return false
+	end
 end

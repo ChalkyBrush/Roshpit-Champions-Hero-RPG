@@ -181,12 +181,24 @@ function Enemies:InitializeEnemy(unit)
 	local health_regen = unit:GetHealthRegen()
 	unit:SetBaseHealthRegen(health_regen*Enemies.DIFFICULTY_HEALTH_MULT[difficulty][enemyTier])
 
+	Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier, difficulty)
+	Enemies:ParagonChance(unit)
 	-- ability levels
 	for i = 0, 6, 1 do
 		local ability = unit:GetAbilityByIndex(i)
 		if ability then
 			ability:SetLevel(difficulty)
 		end
+	end
+end
+
+function Enemies:ParagonChance(unit)
+	local baseChance = 180
+	if Events.SpiritRealm then
+		baseChance = 90
+	end
+	local luck = RandomInt(1, baseChance)
+	if luck == 1 then
 	end
 end
 

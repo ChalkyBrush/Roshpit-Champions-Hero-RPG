@@ -143,9 +143,7 @@ end
 
 function Paragon:AddParagonUnit(unit)
 	local affixIndexTable = Paragon:GetUniqueAffixIndexTable(GameState:GetDifficultyFactor())
-	Events:AdjustDeathXP(unit)
-	Paragon:AdjustParagonPowerSolo(unit)
-	unit.bossStatus = true
+	-- Paragon:AdjustParagonPowerSolo(unit)
 	unit.solo = true
 	unit.paragon = true
 	unit.affixes = {}
@@ -161,6 +159,43 @@ function Paragon:AddParagonUnit(unit)
 	end)
 	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo", {})
 	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo_visual", {})
+	Paragon:AdjustParagonPower(unit, "gold")
+end
+
+Paragon.PARAGON_ATTACK_MULT = 2
+Paragon.PARAGON_HEALTH_MULT = 3
+Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT = 2 
+Paragon.EXP_MULT = 5
+
+function Paragon:AdjustParagonPower(unit, paragon_type)
+	if paragon_type == "gold" then
+		-- EXP
+		unit.roshpit_attributes.deathXP = unit.roshpit_attributes.deathXP*Paragon.EXP_MULT
+
+		-- attack damage
+		local base_damage = unit:GetAverageTrueAttackDamage(unit)
+		local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
+		local newDamage = base_damage*Paragon.PARAGON_ATTACK_MULT
+		unit:SetBaseDamageMin(newDamage-damageDiff)
+		unit:SetBaseDamageMax(newDamage)
+
+		-- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
+		local newArmor = unit.roshpit_attributes.roshpit_armor*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+		unit:SetBaseRoshpitArmor(newArmor, false)
+		local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+		unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
+		local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+		unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
+		local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Paragon.ROSHPIT_ATTRIBUTES_INCREASE_MULT
+		unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
+
+		-- HP
+		local newHealth = unit:GetMaxHealth()*Paragon.PARAGON_HEALTH_MULT
+		newHealth = math.min(newHealth, (2 ^ 30) - 10)
+		unit:SetMaxHealth(newHealth)
+		unit:SetBaseMaxHealth(newHealth)
+		unit:SetHealth(newHealth)
+	end
 end
 
 function Paragon:AdjustParagonPowerSolo(unit)
