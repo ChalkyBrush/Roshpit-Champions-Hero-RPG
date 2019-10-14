@@ -7,46 +7,47 @@ Paragon.affixModifierTable = {"modifier_paragon_fire_breathing", "modifier_parag
 "modifier_paragon_hasty", "modifier_paragon_crippling", "modifier_paragon_light_infused", "modifier_paragon_shielding", "modifier_paragon_magic_barrier", "modifier_paragon_blinking"}
 
 function Paragon:SpawnParagonPack(unit_name, location)
-	local luck = RandomInt(1, 5)
-	local packSize = 3
-	if luck == 5 then
-		packSize = 4
-	end
-	local paragonUnitTable = {}
-	local affixIndexTable = Paragon:GetUniqueAffixIndexTable(GameState:GetDifficultyFactor())
-	local paragonDummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
-	paragonDummy:NoHealthBar()
-	for i = 1, packSize, 1 do
-		local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-		FindClearSpaceForUnit(unit, location, false)
-		Events:AdjustDeathXP(unit)
-		Paragon:AdjustParagonPower(unit)
-		unit.packSize = packSize
-		unit.affixes = {}
-		unit.buddiesSlain = 0
-		unit.bossStatus = true
-		unit.solo = false
-		unit.paragon = true
-		unit.paragonDummy = paragonDummy
-		table.insert(paragonUnitTable, unit)
-	end
-	paragonDummy.buddiesTable = paragonUnitTable
-	paragonDummy.roshpit_attributes = paragonUnitTable[1].roshpit_attributes
-	for j = 1, #paragonUnitTable, 1 do
-		local paragonUnit = paragonUnitTable[j]
-		local paragonAbility = paragonUnit:AddAbility("paragon_abilities")
-		paragonAbility:SetLevel(1)
-		Timers:CreateTimer(0.5, function()
-			for i = 1, #affixIndexTable, 1 do
-				paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, Paragon.affixModifierTable[affixIndexTable[i]], {})
-				table.insert(paragonUnit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
-			end
-		end)
-		paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, "modifier_paragon_pack", {})
-		paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, "modifier_paragon_pack_visual", {})
-	end
-	return paragonDummy
-
+	-- local luck = RandomInt(1, 5)
+	-- local packSize = 3
+	-- if luck == 5 then
+	-- 	packSize = 4
+	-- end
+	-- local paragonUnitTable = {}
+	-- local affixIndexTable = Paragon:GetUniqueAffixIndexTable(GameState:GetDifficultyFactor())
+	-- local paragonDummy = CreateUnitByName("npc_dummy_unit", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	-- paragonDummy:NoHealthBar()
+	-- for i = 1, packSize, 1 do
+	-- 	local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	-- 	FindClearSpaceForUnit(unit, location, false)
+	-- 	Events:AdjustDeathXP(unit)
+	-- 	Paragon:AdjustParagonPower(unit)
+	-- 	unit.packSize = packSize
+	-- 	unit.affixes = {}
+	-- 	unit.buddiesSlain = 0
+	-- 	unit.bossStatus = true
+	-- 	unit.solo = false
+	-- 	unit.paragon = true
+	-- 	unit.paragonDummy = paragonDummy
+	-- 	table.insert(paragonUnitTable, unit)
+	-- end
+	-- paragonDummy.buddiesTable = paragonUnitTable
+	-- paragonDummy.roshpit_attributes = paragonUnitTable[1].roshpit_attributes
+	-- for j = 1, #paragonUnitTable, 1 do
+	-- 	local paragonUnit = paragonUnitTable[j]
+	-- 	local paragonAbility = paragonUnit:AddAbility("paragon_abilities")
+	-- 	paragonAbility:SetLevel(1)
+	-- 	Timers:CreateTimer(0.5, function()
+	-- 		for i = 1, #affixIndexTable, 1 do
+	-- 			paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, Paragon.affixModifierTable[affixIndexTable[i]], {})
+	-- 			table.insert(paragonUnit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
+	-- 		end
+	-- 	end)
+	-- 	paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, "modifier_paragon_pack", {})
+	-- 	paragonAbility:ApplyDataDrivenModifier(paragonUnit, paragonUnit, "modifier_paragon_pack_visual", {})
+	-- end
+	-- return paragonDummy
+	local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	return unit
 end
 
 function Paragon:GetUniqueAffixIndexTable(difficulty)
@@ -119,25 +120,25 @@ function Paragon:AdjustParagonPower(unit)
 end
 
 function Paragon:SpawnParagonUnit(unit_name, location)
-	local affixIndexTable = Paragon:GetUniqueAffixIndexTable(GameState:GetDifficultyFactor())
+	-- local affixIndexTable = Paragon:GetUniqueAffixIndexTable(GameState:GetDifficultyFactor())
 	local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-	Events:AdjustDeathXP(unit)
-	Paragon:AdjustParagonPowerSolo(unit)
-	unit.bossStatus = true
-	unit.solo = true
-	unit.paragon = true
-	unit.affixes = {}
+	-- Events:AdjustDeathXP(unit)
+	-- Paragon:AdjustParagonPowerSolo(unit)
+	-- unit.bossStatus = true
+	-- unit.solo = true
+	-- unit.paragon = true
+	-- unit.affixes = {}
 
-	local paragonAbility = unit:AddAbility("paragon_abilities")
-	paragonAbility:SetLevel(1)
-	Timers:CreateTimer(0.5, function()
-		for i = 1, #affixIndexTable, 1 do
-			paragonAbility:ApplyDataDrivenModifier(unit, unit, Paragon.affixModifierTable[affixIndexTable[i]], {})
-			table.insert(unit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
-		end
-	end)
-	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo", {})
-	paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo_visual", {})
+	-- local paragonAbility = unit:AddAbility("paragon_abilities")
+	-- paragonAbility:SetLevel(1)
+	-- Timers:CreateTimer(0.5, function()
+	-- 	for i = 1, #affixIndexTable, 1 do
+	-- 		paragonAbility:ApplyDataDrivenModifier(unit, unit, Paragon.affixModifierTable[affixIndexTable[i]], {})
+	-- 		table.insert(unit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
+	-- 	end
+	-- end)
+	-- paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo", {})
+	-- paragonAbility:ApplyDataDrivenModifier(unit, unit, "modifier_paragon_solo_visual", {})
 	return unit
 end
 

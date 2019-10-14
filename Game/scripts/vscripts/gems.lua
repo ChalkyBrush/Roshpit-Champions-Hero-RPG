@@ -2,6 +2,18 @@ if Gems == nil then
 	Gems = class({})
 end
 
+Gems.BaseRewardDifficultyMult = {}
+Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 1
+Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 2
+Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 4
+
+function Gems:GemsPossibleSpawnEvent()
+	local reward = 0
+end
+
+function Gems:GetGemBaseReward()
+end
+
 function Gems:RandomlySetSocketsForItem(item)
 end
 

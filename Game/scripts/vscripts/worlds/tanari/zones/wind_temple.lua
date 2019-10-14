@@ -1017,6 +1017,7 @@ end
 
 function Tanari:SpawnWindTempleSpiritBoss()
 	local guardian = Events:SpawnBoss("wind_temple_spirit_boss", Vector(12992, 1536))
+
 	Tanari.WindTemple.SpiritBoss = guardian
 	guardian.type = ENEMY_TYPE_BOSS
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})

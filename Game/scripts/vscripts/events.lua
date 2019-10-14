@@ -2450,58 +2450,58 @@ function Events:TownSiegeXP(unit)
 end
 
 function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
-	local difficulty = GameState:GetDifficultyFactor()
-	if IsValidEntity(unit) then
-		local minDamage = unit:GetBaseDamageMin()
-		local maxDamage = unit:GetBaseDamageMax()
-		local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
-		unit:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
-		unit:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
-		local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
-		if difficulty > DIFFICULTY_ELITE then
-			healthAdjustment = healthAdjustment + healthFactor * 1600000
-			local armor = unit:GetPhysicalArmorValue(false)
-			unit:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
-			unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
-		end
-		local newHealth = unit:GetMaxHealth() + healthAdjustment
-		newHealth = math.min(newHealth, (2 ^ 30) - 10)
-		unit:SetMaxHealth(newHealth)
-		unit:SetBaseMaxHealth(newHealth)
-		unit:SetHealth(newHealth)
-		unit:Heal(newHealth, unit)
-		if bHealthbar then
-			CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
-			unit.mainBoss = true
-		end
-		unit.bossStatus = true
-	else
-		for i = 1, #unit, 1 do
-			local minDamage = unit[i]:GetBaseDamageMin()
-			local maxDamage = unit[i]:GetBaseDamageMax()
-			local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
-			unit[i]:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
-			unit[i]:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
-			local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
-			if difficulty > DIFFICULTY_ELITE then
-				healthAdjustment = healthAdjustment + healthFactor * 1600000
-				local armor = unit[i]:GetPhysicalArmorValue(false)
-				unit[i]:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
-				unit[i]:SetPhysicalArmorBaseValue(unit[i]:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
-			end
-			local newHealth = unit[i]:GetMaxHealth() + healthAdjustment
-			newHealth = math.min(newHealth, (2 ^ 30) - 10)
-			unit[i]:SetMaxHealth(newHealth)
-			unit[i]:SetBaseMaxHealth(newHealth)
-			unit[i]:SetHealth(newHealth)
-			unit[i]:Heal(newHealth, unit[i])
-			if bHealthbar then
-				CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit[i]:GetUnitName(), bossMaxHealth = unit[i]:GetMaxHealth(), bossId = tostring(unit[i])})
-				unit[i].mainBoss = true
-			end
-			unit[i].bossStatus = true
-		end
-	end
+	-- local difficulty = GameState:GetDifficultyFactor()
+	-- if IsValidEntity(unit) then
+	-- 	local minDamage = unit:GetBaseDamageMin()
+	-- 	local maxDamage = unit:GetBaseDamageMax()
+	-- 	local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
+	-- 	unit:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
+	-- 	unit:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
+	-- 	local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
+	-- 	if difficulty > DIFFICULTY_ELITE then
+	-- 		healthAdjustment = healthAdjustment + healthFactor * 1600000
+	-- 		local armor = unit:GetPhysicalArmorValue(false)
+	-- 		unit:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
+	-- 		unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
+	-- 	end
+	-- 	local newHealth = unit:GetMaxHealth() + healthAdjustment
+	-- 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	-- 	unit:SetMaxHealth(newHealth)
+	-- 	unit:SetBaseMaxHealth(newHealth)
+	-- 	unit:SetHealth(newHealth)
+	-- 	unit:Heal(newHealth, unit)
+	-- 	if bHealthbar then
+	-- 		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
+	-- 		unit.mainBoss = true
+	-- 	end
+	-- 	unit.bossStatus = true
+	-- else
+	-- 	for i = 1, #unit, 1 do
+	-- 		local minDamage = unit[i]:GetBaseDamageMin()
+	-- 		local maxDamage = unit[i]:GetBaseDamageMax()
+	-- 		local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
+	-- 		unit[i]:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
+	-- 		unit[i]:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
+	-- 		local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
+	-- 		if difficulty > DIFFICULTY_ELITE then
+	-- 			healthAdjustment = healthAdjustment + healthFactor * 1600000
+	-- 			local armor = unit[i]:GetPhysicalArmorValue(false)
+	-- 			unit[i]:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
+	-- 			unit[i]:SetPhysicalArmorBaseValue(unit[i]:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
+	-- 		end
+	-- 		local newHealth = unit[i]:GetMaxHealth() + healthAdjustment
+	-- 		newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	-- 		unit[i]:SetMaxHealth(newHealth)
+	-- 		unit[i]:SetBaseMaxHealth(newHealth)
+	-- 		unit[i]:SetHealth(newHealth)
+	-- 		unit[i]:Heal(newHealth, unit[i])
+	-- 		if bHealthbar then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit[i]:GetUnitName(), bossMaxHealth = unit[i]:GetMaxHealth(), bossId = tostring(unit[i])})
+	-- 			unit[i].mainBoss = true
+	-- 		end
+	-- 		unit[i].bossStatus = true
+	-- 	end
+	-- end
 end
 
 function Events:spawnUnit(unitName, spawnPoint, quantity)
@@ -2533,7 +2533,6 @@ end
 
 function Events:SpawnBoss(unitName, spawnPoint)
 	local boss = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
-	Events:AdjustDeathXP(boss)
 	boss.mainBoss = true
 	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	return boss
