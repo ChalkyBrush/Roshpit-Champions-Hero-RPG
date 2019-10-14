@@ -193,12 +193,19 @@ function Enemies:InitializeEnemy(unit)
 end
 
 function Enemies:ParagonChance(unit)
+	if unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_MINI_BOSS then
+		return false
+	end
 	local baseChance = 180
 	if Events.SpiritRealm then
 		baseChance = 90
 	end
 	local luck = RandomInt(1, baseChance)
 	if luck == 1 then
+		Paragon:AddParagonUnit(unit)
+		return true	
+	else
+		return false
 	end
 end
 
