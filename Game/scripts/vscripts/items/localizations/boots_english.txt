@@ -1,4 +1,4 @@
-		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
+﻿		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_property_slinger_boot"				"Bladeslinger"
 		"property_slinger_boots_description"		"Every <% BLADESLINGER_ATT_INTERVAL %> seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
 
@@ -157,10 +157,10 @@
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
-		"item_property_redfall_runners"					"Crackling Leaves"
+		"item_property_redfall_runners"					"Fight or Flight"
 		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
 		"DOTA_Tooltip_modifier_redfall_runners"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> per %% of missing health."
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Movespeed increased based on missing health"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
@@ -201,7 +201,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <% ALARANA_MAGIC_POST_MITI %>% for  <% ALARANA_ICE_ENCASE_DURATION %> seconds. If total damage blocked exceeds <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x your Max Health."
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <% ALARANA_MAGIC_POST_MITI %>% for <% ALARANA_ICE_ENCASE_DURATION %> seconds. If total damage blocked exceeds <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"
