@@ -74,7 +74,7 @@ function alpha_dash_think(event)
 		Timers:CreateTimer(1.2, function()
 			caster:RemoveModifierByName("modifier_redfall_alpha_charging")
 		end)
-		ApplyDamage({victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+		ApplyDamage({victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
 	end
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), event.ability.targetPosition) < 170 then
 		caster:RemoveModifierByName("modifier_redfall_alpha_charging")

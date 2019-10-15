@@ -162,6 +162,7 @@ function Enemies:InitializeEnemy(unit)
 	unit:SetBaseDamageMax(newDamage)
 
 	-- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
+	unit:SetPhysicalArmorBaseValue(0)
 	local newArmor = unit.roshpit_attributes.roshpit_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	unit:SetBaseRoshpitArmor(newArmor, false)
 	local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]

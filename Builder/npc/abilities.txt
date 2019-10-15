@@ -30524,7 +30524,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_RAZE_1"
 		"AbilityTextureName"			"nevermore_requiem"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"1000 5000 28000"
+		"AbilityDamage"					"500 2000 12000"
 		"AbilityCastRange"				"1200"
 		"MaxLevel"	"3"
 		"OnAbilityPhaseStart"
@@ -40275,7 +40275,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"500 24000 100000"
+		"AbilityDamage"					"80 300 1200"
 
 
 		// Precache
@@ -40299,7 +40299,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 24000 100000"
+				"damage"				"60 270 1200"
 			}
 			"02"
 			{
@@ -40605,13 +40605,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"drow_ranger_marksmanship"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"				"60 2700 26000"
+				"damage_per_tick"				"20 120 900"
 			}
 			"02"
 			{
@@ -40675,7 +40676,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%damage_per_tick"
 					}
 				}
@@ -40761,7 +40762,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"300 15000 150000"
+				"damage"						"115 385 2815"
 			}
 			"02"
 			{
@@ -40813,7 +40814,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1500 60000 300000"
+		"AbilityDamage"					"240 800 4000"
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -40835,7 +40836,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 60000 300000"
+				"damage"				"240 800 4000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -41140,7 +41141,7 @@
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"12 10 8"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"	"600 25000 150000"
+		"AbilityDamage"	"155 450 3400"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -41164,7 +41165,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"500 25000 180000"
+				"damage"						"155 450 3400"
 			}
 			"02"
 			{
@@ -41210,7 +41211,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"500 25000 180000"
+				"damage"						"100 500 3000"
 			}
 			"02"
 			{
@@ -41320,7 +41321,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1500 12000 40000"
+		"AbilityDamage"					"250 1000 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41540,7 +41541,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 30000 200000"
+		"AbilityDamage"					"225 800 3200"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41619,7 +41620,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"brewmaster_thunder_clap"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityDamage"					"1000 6000 45000"
 
 		// Precache
@@ -41724,7 +41725,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 250000"
+		"AbilityDamage"					"300 1200 6400"
 
 
 		// Precache
@@ -42020,13 +42021,13 @@
 		"AbilityTextureName"	"earthshaker/sltv__earthshaker_ability_icons/earthshaker_aftershock"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"1500 30000 180000"
+		"AbilityDamage"			"200 650 2500"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_dps"			"60 1000 12000"
+				"burn_dps"			"20 65 250"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -42218,7 +42219,7 @@
 		"AbilityTextureName"	"nevermore_shadowraze3_demon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"3000 40000 300000"
+		"AbilityDamage"			"240 800 4000"
 
 		"OnProjectileHitUnit"
 		{
@@ -42282,7 +42283,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"250 3500 30000"
+				"damage"			"40 160 650"
 			}
 		}
 		"Modifiers"
@@ -42442,7 +42443,7 @@
 		"AbilityTextureName"	"nevermore_shadowraze3_demon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"2000 10000 200000"
+		"AbilityDamage"			"220 700 2400"
 		"Modifiers"
 		{
 			"modifier_autumn_mage_boss_passive"
@@ -43389,7 +43390,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 15000 400000"
+		"AbilityDamage"					"250 800 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -43464,7 +43465,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 35000 350000"
+		"AbilityDamage"					"250 800 4000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -43718,7 +43719,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"190000"
+		"AbilityDamage"					"1000 3000 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -44432,7 +44433,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"immolation_damage"				"600 4000 25000"
+				"immolation_damage"				"50 200 900"
 			}
 			"02"
 			{
@@ -44579,7 +44580,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"whirling_damage"			"1500 18000 120000"
+				"whirling_damage"			"160 500 2700"
 			}
 			"03"
 			{
@@ -44674,12 +44675,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"300 4000 15000"
+				"burn_damage"			"40 120 500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"2400 24000 70000"
+				"impact_damage"		"180 400 1400"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -44716,6 +44717,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"kunkka_tidebringer"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -45591,7 +45593,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"8000 50000 350000"
+		"AbilityDamage"					"150 500 2800"
 
 		"OnOwnerDied"
 		{
@@ -45618,7 +45620,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 60000 350000"
+				"damage"				"150 500 2800"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -45757,12 +45759,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"2000 5000 80000"
+				"damage_min"				"150 500 2000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"10000 100000 600000"
+				"damage_max"				"400 1400 6000"
 			}
 			"03"
 			{
@@ -45782,8 +45784,9 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_hellfire_blast"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilityDamage"			"3000 10000 65000"
+		"AbilityDamage"			"140 420 2100"
 		"AbilitySpecial"
 		{
 			"01"
@@ -45875,7 +45878,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_VICTORY"
 		"AbilityTextureName"			"antimage_mana_void"
 		"AOERadius"						"1300"
-		"AbilityDamage"					"8000 35000 140000"
+		"AbilityDamage"					"500 2000 11000"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -46157,7 +46160,7 @@
 		"AbilityTextureName"	"necrolyte_death_pulse"
 		"AOERadius"		"1650"
 		"MaxLevel"	"3"
-		"AbilityDamage"		"1000 10000 100000"
+		"AbilityDamage"		"85 225 1350"
 		"AbilitySpecial"
 		{
 			"01"
@@ -46391,12 +46394,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 10000 100000"
+				"damage"				"200 1000 8000"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"50 1000 10000"
+				"armor_reduction"		"0"
 			}
 			"05"
 			{
@@ -47186,12 +47189,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"500 5000 25000"
+				"burn_damage"			"50 150 1000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1600 28000 130000"
+				"impact_damage"		"400 1200 5000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47253,7 +47256,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3500 20000 180000"
+				"damage"				"400 1400 6000"
 			}
 			"02"
 			{
@@ -47674,14 +47677,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ember_spirit_searing_chains"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"500 8000 80000"
+		"AbilityDamage"			"100 400 1600"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"burn_dps"		"600 3000 31500"
+				"burn_dps"		"40 120 480"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47834,7 +47837,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"4000 30000 260000"
+		"AbilityDamage"					"1000 3000 21000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -47904,7 +47907,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3000 25000 350000"
+				"damage"			"300 1000 4000"
 			}
 			"02"
 			{
@@ -48183,7 +48186,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 240000"
+				"damage"				"900 2500 12000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -48349,7 +48352,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shrapnel_damage"		"1000 4000 25000"
+				"shrapnel_damage"		"400 1400 7500"
 				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
 			}
 			"04"
@@ -48903,7 +48906,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"3000 15000 165000"
+				"damage"					"900 3000 18000"
 			}
 			"04"
 			{
@@ -48938,7 +48941,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"1000 5000 35000"
+				"burn_damage"			"100 350 1500"
 			}
 			"02"
 			{
@@ -49114,7 +49117,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2500 17000 150000"
+				"damage"				"800 2400 12000"
 			}
 			"02"
 			{
@@ -51964,7 +51967,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"meteor_damage"			"8000 40000 255000"
+				"meteor_damage"			"2000 8000 40000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -56751,7 +56754,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000000"
+				"damage"			"40000"
 			}
 		}
 
@@ -56872,7 +56875,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"		"100000"
+				"damage_per_tick"		"3000"
 			}
 		}
 
