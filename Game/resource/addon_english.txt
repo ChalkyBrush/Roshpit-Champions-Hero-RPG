@@ -566,9 +566,9 @@
 		"ui_difficulty_select"	"Difficulty Select"
 		"ui_difficulty_select_tip"	"(Lobby Host Only)"
 
-		"ui_normal_tip"			"Level 1-50"
-		"ui_elite_tip"			"Level 50-100"
-		"ui_legend_tip"			"Level 100+"
+		"ui_normal_tip"			"Level 1-40"
+		"ui_elite_tip"			"Level 40-80"
+		"ui_legend_tip"			"Level 80+"
 
 		"ui_level_up"			"Level UP"
 
