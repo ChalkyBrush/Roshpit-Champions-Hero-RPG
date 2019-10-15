@@ -30524,7 +30524,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_RAZE_1"
 		"AbilityTextureName"			"nevermore_requiem"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"1000 5000 28000"
+		"AbilityDamage"					"500 2000 12000"
 		"AbilityCastRange"				"1200"
 		"MaxLevel"	"3"
 		"OnAbilityPhaseStart"
@@ -47189,12 +47189,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"500 5000 25000"
+				"burn_damage"			"50 150 1000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1600 28000 130000"
+				"impact_damage"		"400 1200 5000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47256,7 +47256,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3500 20000 180000"
+				"damage"				"400 1400 6000"
 			}
 			"02"
 			{
@@ -47677,14 +47677,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ember_spirit_searing_chains"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"500 8000 80000"
+		"AbilityDamage"			"100 400 1600"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"burn_dps"		"600 3000 31500"
+				"burn_dps"		"40 120 480"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47837,7 +47837,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"4000 30000 260000"
+		"AbilityDamage"					"1000 3000 21000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -47907,7 +47907,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3000 25000 350000"
+				"damage"			"300 1000 4000"
 			}
 			"02"
 			{
@@ -51967,7 +51967,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"meteor_damage"			"8000 40000 255000"
+				"meteor_damage"			"2000 8000 40000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -56754,7 +56754,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000000"
+				"damage"			"40000"
 			}
 		}
 
@@ -56875,7 +56875,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"		"100000"
+				"damage_per_tick"		"3000"
 			}
 		}
 
