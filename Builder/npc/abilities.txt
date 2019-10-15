@@ -40275,7 +40275,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"500 24000 100000"
+		"AbilityDamage"					"80 300 1200"
 
 
 		// Precache
@@ -40299,7 +40299,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 24000 100000"
+				"damage"				"60 270 1200"
 			}
 			"02"
 			{
@@ -40605,13 +40605,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"drow_ranger_marksmanship"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"				"60 2700 26000"
+				"damage_per_tick"				"20 120 900"
 			}
 			"02"
 			{
@@ -40675,7 +40676,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%damage_per_tick"
 					}
 				}
@@ -40761,7 +40762,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"300 15000 150000"
+				"damage"						"115 385 2815"
 			}
 			"02"
 			{
@@ -40813,7 +40814,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1500 60000 300000"
+		"AbilityDamage"					"240 800 4000"
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -40835,7 +40836,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 60000 300000"
+				"damage"				"240 800 4000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -41140,7 +41141,7 @@
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"12 10 8"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"	"600 25000 150000"
+		"AbilityDamage"	"155 450 3400"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -41164,7 +41165,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"500 25000 180000"
+				"damage"						"155 450 3400"
 			}
 			"02"
 			{
@@ -41210,7 +41211,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"500 25000 180000"
+				"damage"						"100 500 3000"
 			}
 			"02"
 			{
@@ -41320,7 +41321,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1500 12000 40000"
+		"AbilityDamage"					"250 1000 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41540,7 +41541,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 30000 200000"
+		"AbilityDamage"					"225 800 3200"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41619,7 +41620,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"brewmaster_thunder_clap"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityDamage"					"1000 6000 45000"
 
 		// Precache
@@ -41724,7 +41725,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 250000"
+		"AbilityDamage"					"300 1200 6400"
 
 
 		// Precache
@@ -42020,13 +42021,13 @@
 		"AbilityTextureName"	"earthshaker/sltv__earthshaker_ability_icons/earthshaker_aftershock"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"1500 30000 180000"
+		"AbilityDamage"			"200 650 2500"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_dps"			"60 1000 12000"
+				"burn_dps"			"20 65 250"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -42218,7 +42219,7 @@
 		"AbilityTextureName"	"nevermore_shadowraze3_demon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"3000 40000 300000"
+		"AbilityDamage"			"240 800 4000"
 
 		"OnProjectileHitUnit"
 		{
@@ -42282,7 +42283,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"250 3500 30000"
+				"damage"			"40 160 650"
 			}
 		}
 		"Modifiers"
@@ -42442,7 +42443,7 @@
 		"AbilityTextureName"	"nevermore_shadowraze3_demon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"2000 10000 200000"
+		"AbilityDamage"			"220 700 2400"
 		"Modifiers"
 		{
 			"modifier_autumn_mage_boss_passive"
