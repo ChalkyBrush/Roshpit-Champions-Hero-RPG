@@ -48186,7 +48186,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 240000"
+				"damage"				"900 2500 12000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -48352,7 +48352,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shrapnel_damage"		"1000 4000 25000"
+				"shrapnel_damage"		"400 1400 7500"
 				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
 			}
 			"04"
@@ -48906,7 +48906,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"3000 15000 165000"
+				"damage"					"900 3000 18000"
 			}
 			"04"
 			{
@@ -48941,7 +48941,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"1000 5000 35000"
+				"burn_damage"			"100 350 1500"
 			}
 			"02"
 			{
@@ -49117,7 +49117,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2500 17000 150000"
+				"damage"				"800 2400 12000"
 			}
 			"02"
 			{
