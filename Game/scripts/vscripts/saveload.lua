@@ -454,7 +454,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
 		local affixCount = 0
 		--print("TU78A")
-		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") then
+		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") then
 			--print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
