@@ -45,10 +45,10 @@
 		"property_scorched_gauntlet_description_2"	"<% HIGH_FLAME_GAUNTLET_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% of your attack power + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% HIGH_FLAME_GAUNTLET_STUN_DUR %> seconds, and creating another fire zone."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"<RAINBOW>Proud Gloves</RAINBOW>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
-		"item_property_proud_gloves"												"<RAINBOW>Rainbow Strike</RAINBOW>"
-		"property_proud_gloves_description"											"<RAINBOW>Auto attacks deal the element with the highest bonus as magical damage. Additionally amplifies auto attack damage by item damage bonus.</RAINBOW>"
+		"item_property_proud_gloves"										"<RAINBOW>Prismatic Pride</RAINBOW>"//a.k.a. queer hands for the straight man
+		"property_proud_gloves_description"									"<RAINBOW>The element of your autoattack is changed from Normal to match your single highest elemental damage bonus, and it now deals Magical damage instead of Physical. Additionally, those damage instances are multiplied by your Item Damage bonus, but are not considered instances of Item Damage.</RAINBOW>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
@@ -78,7 +78,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% SCARECROW_GLOVES_MPREGEN_PER_INT %> Mana Regen."
+		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% SCARECROW_GLOVES_MPREGEN_PER_INT %> mana regen."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
@@ -95,12 +95,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Gain <% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> Health Regen for each missing point of health. Gain <% PHOENIX_GLOVES_ATT_DMG_PER_HP %> base attack damage for each current point of health."
+		"property_phoenix_gloves_description"		"Gain <% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> health regen for each missing point of health. Gain <% PHOENIX_GLOVES_ATT_DMG_PER_HP %> base attack damage for each current point of health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <% SPIRIT_GLOVE_INT_TO_HEAL %>x your Intelligence per <% SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% SPIRIT_GLOVE_DURATION %> seconds."
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <% SPIRIT_GLOVE_INT_TO_HEAL %>x your Intelligence every <% SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% SPIRIT_GLOVE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <% SPIRIT_GLOVE_HEAL_INTERVAL %> second."
 		
@@ -221,7 +221,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
 		"item_property_malachite_shade"						"Verdant Flow"
-		 "property_malachite_shade_description"					"Mana and Health Regen is increased by 15% of your Agility. Base Attack damage is increased by 100% of your health regen and mana regen."
+		 "property_malachite_shade_description"					"Mana regen and health regen are both increased by 15% of your Agility. Base Attack damage is increased by 100% of your health regen and mana regen."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"

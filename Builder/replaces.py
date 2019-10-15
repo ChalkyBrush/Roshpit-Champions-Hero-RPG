@@ -83,13 +83,12 @@ def parse(file_path, constants, settings, warnings, encoding="utf-8"):
         "start": '<RAINBOW>',
         "end": '</RAINBOW>',
         'colors': [
-            '#9400D3',
-            '#4B0082',
-            '#0000FF',
-            '#00FF00',
-            '#FFFF00',
-            '#FF7F00',
-            '#FF0000',
+            '#F60000',
+            '#FF8C00',
+            '#FFEE00',
+            '#4DE94C',
+            '#3783FF',
+            '#6B1FFE',
         ]
     }
     for statement in re.findall('(?<=' + re.escape(rainbow['start']) + ')(.*?)(?=' + re.escape(rainbow['end']) + ')', content):

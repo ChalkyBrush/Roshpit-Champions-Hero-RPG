@@ -3044,18 +3044,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% 每10点智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] 圣光"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"受到快速治疗的友军将获得一个buff，进行持续治疗。每0.2秒治疗 %% 快速治疗的治疗量，持续3秒。"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"每0.2秒治疗"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"受到快速治疗的友军将获得一个buff，进行持续治疗。每<font color='#ccff66'>0.2</font>秒治疗 %% 快速治疗的治疗量，持续<font color='#ccff66'>3</font>秒。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"每<font color='#ccff66'>0.2</font>秒治疗"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% 初始治疗值"	
 
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"圣光"		
-    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"每0.2秒治疗一次"
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"每<font color='#ccff66'>0.2</font>秒治疗一次"
 
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"圣光"
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"获得攻击力，最大5层。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] 致盲阴影"
-    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"敌人每次被暗影火炬击中，获得一层debuff提高攻击丢失几率并降低移动速度，持续7秒。最高可叠加至5层。"
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"敌人每次被暗影火炬击中，获得一层debuff提高攻击丢失几率并降低移动速度，持续<font color='#ccff66'>7</font>秒。最高可叠加至<font color='#ccff66'>5</font>层。"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"每层攻击丢失几率"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"每层移动速度降低"
@@ -3171,7 +3171,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% 每10点属性值"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] 圣灵"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"施放天堂之力后，获得一个buff，持续5秒。buff提高魔法恢复速度，并且在玩家做出移动指令时，俄瑞恩将直接传送到目标点，传送技能有1秒的冷却时间。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"施放天堂之力后，获得一个buff，持续<font color='#ccff66'>5</font>秒。buff提高魔法恢复速度，并且在玩家做出移动指令时，俄瑞恩将直接传送到目标点，传送技能有<font color='#ccff66'>1</font>秒的冷却时间。"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"最远传送距离"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"魔法恢复速度提高"
@@ -3196,7 +3196,7 @@
     	"DOTA_Tooltip_shadow_trap_aura_Description"								"被缠绕"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] 本影浪潮"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"被暗影所束缚的敌人将每0.6秒受到一次暗影打击。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"被暗影所束缚的敌人将每<font color='#ccff66'>0.6</font>秒受到一次暗影打击。"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"打击伤害"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
@@ -3211,7 +3211,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% 每10点属性值"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] 暗黑形态"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"俄瑞恩在施放终极技能（R大招）之后进入暗黑形态10秒。在暗黑形态下魔法恢复速度提高并且敌人所受到的全部魔法伤害将加深。（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"俄瑞恩在施放终极技能（R大招）之后进入暗黑形态<font color='#ccff66'>18</font>秒。在暗黑形态下魔法恢复速度提高并且敌人所受到的全部魔法伤害将加深。（计算在敌人减伤之后）"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"魔法伤害加深"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"魔法恢复速度提高"
@@ -4227,9 +4227,9 @@
         "item_property_chernobog_immortal_weapon"                       "恶魔之魂"
         "property_chernobog_immortal_weapon_description"                "恶魔猎人受到最大的%伤害临界值减少 <font color='#ccff66'>2</font>%。"
         
-        "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "卡律布迪斯的下颚"
+		 "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "卡律布迪斯的下颚"
         "item_property_chernobog_immortal_weapon2"                             "虚空"
-        "property_chernobog_immortal_weapon2_description"                      "每损失 1% 的生命，加深对敌人的伤害 <font color='#ccff66'>1.5</font>%（伤害加深计算在敌人减伤之后）"
+        "property_chernobog_immortal_weapon2_description"                      "每损失 1% 的最大生命值,增加基础技能伤害和道具伤害 <font color='#ccff66'>1.5</font>%"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "恶魔的不洁之爪"
         "item_property_chernobog_immortal_weapon3"                             "吸血渴望"
@@ -6374,7 +6374,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"提高大地、火焰和寒冰能量的层数上限至<font color='#ccff66'>5</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"战斗雕文"
-		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击将对目标周围所有敌人造成 <font color='#ccff66'>800</font>% 攻击伤害的魔法伤害。"
+		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>800</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>460</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"生态雕文"
 		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害会增加 <font color='#ccff66'>2</font> 火焰能量。 每层寒冰能量加深敌人受到的魔法伤害 <font color='#ccff66'>5</font>%（计算在敌人减伤之后）"
@@ -7540,8 +7540,8 @@
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"守护者雕文"
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"当使用山丘守护时所有伤害减少 <font color='#ccff66'>30</font>%。"
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"灾难雕文"
-		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage."
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"        "灾难雕文"
+        "item_rpc_mountain_protector_glyph_3_1_description"                 "@Ability4 可以对魔免单位造成纯粹伤害."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"山丘之力雕文"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"<font color='#ccff66'>25</font>% 有几率释放2道超声波。"
@@ -8886,7 +8886,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% 攻击力"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] 阴郁之影"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"跳跃至某敌人头顶时，敌人获得一层阴郁之影 buff，加深黑礁守卫对那个 被踩的敌人 的伤害。（伤害加深计算在敌人减伤之后）buff 持续 10秒。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"跳跃至某敌人头顶时，敌人获得一层阴郁之影 buff，加深黑礁守卫对那个 被踩的敌人 的伤害。（伤害加深计算在敌人减伤之后）buff 持续 <font color='#ccff66'>10</font>秒。"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"每层 buff 伤害加深"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
 
@@ -8894,7 +8894,7 @@
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"受到来自黑礁守卫的伤害被加深"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] 汹涌之潮"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"跳跃至敌人头顶时，将提高 % 攻击力。持续 12 秒，再次跳跃至敌人头顶时刷新攻击力加成和持续时间。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"跳跃至敌人头顶时，将提高 % 攻击力。持续 <font color='#ccff66'>12</font> 秒，再次跳跃至敌人头顶时刷新攻击力加成和持续时间。"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"每层攻击力提高"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
 
@@ -9808,7 +9808,7 @@
 		"item_rpc_sorceress_glyph_2_1_description" 				"冰枪术将额外发射<font color='#ccff66'>2</font>个冰枪。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"火球雕文"
-		"item_rpc_sorceress_glyph_3_1_description" 				"施放火球术后立即发射第2和第3个火球 (outdated, launches <font color='#ccff66'>4</font> fireballs)。"
+		"item_rpc_sorceress_glyph_3_1_description" 				"施放火球术后立即发射 <font color='#ccff66'>4</font> 火球。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"奥能强化雕文"
 		"item_rpc_sorceress_glyph_4_1_description" 				"提高魔法少女及其水元素的攻击速度 <font color='#ccff66'>260</font> /<font color='#ccff66'>500</font>"
@@ -11945,7 +11945,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"
 		"item_property_sange"						"战斗大师S"
-		"property_sange_description"				"每点敏捷值额外提高<font color='#ccff66'>25</font>点最大生命值。"
+		"property_sange_description"				"每点敏捷值额外提高<font color='#ccff66'>25</font>点最大生命值,並且提高最大魔法值 <font color='#ccff66'>5</font>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"沙丘之靴"
@@ -12054,9 +12054,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"蓝龙胫甲"
 		"item_property_dragon_greaves"				"龙舞"
-		"property_dragon_greaves_description"		"每移动<font color='#ccff66'>1200</font>码，获得 % BLUE_DRAGON_GREAVES_EVASION %>% 闪避并提高 <font color='#ccff66'>450</font>% 的攻击力，持续<font color='#ccff66'>7.5</font>秒。"
+		"property_dragon_greaves_description"		"每移动<font color='#ccff66'>1200</font>码，获得 <font color='#ccff66'>85</font>% 闪避并提高 <font color='#ccff66'>450</font>% 的攻击力，持续<font color='#ccff66'>7.5</font>秒。"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"龙舞"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "% BLUE_DRAGON_GREAVES_EVASION %>%% 闪避并提高 <font color='#ccff66'>450</font>%% 的攻击力"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>85</font>%% 闪避并提高 <font color='#ccff66'>450</font>%% 的攻击力"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"橡胶靴"
@@ -12096,11 +12096,11 @@
 		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"巨型猎人的魔法免疫"
 		
 		 
-    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"落红流火的赛跑者"
-		"item_property_redfall_runners"					"嘎吱作响的叶子"
-		"property_redfall_runners_description"					"TODO: Each % of missing health increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font>."
-		"DOTA_Tooltip_modifier_redfall_runners_buff"		"嘎吱作响的叶子"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"TODO: Increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font> per %% of missing health."
+    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "落红流火的赛跑者"
+        "item_property_redfall_runners"                 "嘎吱作响的叶子"
+        "property_redfall_runners_description"                  "每失去百分一的血量就增加移速 <font color='#ccff66'>5</font> 以及增加移速上限 <font color='#ccff66'>5</font>."
+        "DOTA_Tooltip_modifier_redfall_runners_buff"        "嘎吱作响的叶子"
+         "DOTA_Tooltip_modifier_redfall_runners_Description"    "增加移速I<font color='#ccff66'>5</font> 以及增加移速上限 <font color='#ccff66'>5</font> 根据每 %% 的丢失血量."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
@@ -12530,11 +12530,11 @@
 		"property_direwolf_description"					"每 <font color='#ccff66'>10</font> 点主属性提高基础攻击力 <font color='#ccff66'>20</font>，护甲值 <font color='#ccff66'>1</font>，基础技能伤害 <font color='#ccff66'>0.1</font>%。该装备无法重铸。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"亚特兰帝斯之甲"	
-		"item_property_armor_of_atlantis"											"钢筋铁骨"
-		"property_armor_of_atlantis_Description"								"TODO: You get <font color='#ccff66'>1.5</font>% damage reduction per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%."
-		"DOTA_Tooltip_modifier_armor_of_atlantis"								"钢筋铁骨"
-		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"					"TODO: Take <font color='#ccff66'>1.5</font>%% reduced damage per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%%."
+		 "DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"                       "亚特兰帝斯之甲"
+        "item_property_armor_of_atlantis"                                           "钢筋铁骨"
+        "property_armor_of_atlantis_Description"                                "获得 <font color='#ccff66'>1.5</font>% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <font color='#ccff66'>81</font>%. 致死伤害减少至 <font color='#ccff66'>70</font>%."
+        "DOTA_Tooltip_modifier_armor_of_atlantis"                               "钢筋铁骨"
+        "DOTA_Tooltip_modifier_armor_of_atlantis_Description"                   "获得 <font color='#ccff66'>1.5</font>%% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <font color='#ccff66'>81</font>%%. 致死伤害减少至 <font color='#ccff66'>70</font>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"圣堂光之袍"	
@@ -12666,10 +12666,10 @@
 		"property_scorched_gauntlet_description_2"	"攻击时有<font color='#ccff66'>20</font>%几率产生一片焦土，每秒对范围内所有敌人造成 <font color='#ccff66'>150</font>% 攻击力+ <font color='#ccff66'>25</font>x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 <font color='#ccff66'>250</font>% 攻击力的伤害、 <br>眩晕敌人 <font color='#ccff66'>1.6</font> 秒并且留下一片新的焦土。"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"荣耀护手"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"部位：手"
-		"item_property_proud_gloves"						"彩虹打击"
-		"property_proud_gloves_description"				"TODO: <font color=\"#9400D3\">A</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">o</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">c</font><font color=\"#00FF00\">k</font><font color=\"#FFFF00\">s</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">d</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">e</font><font color=\"#FF0000\">n</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">w</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">h</font><font color=\"#0000FF\">e</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">h</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">h</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">b</font><font color=\"#FF0000\">o</font><font color=\"#9400D3\">n</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">s</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">m</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">g</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">c</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">l</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">d</font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">m</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">g</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\">.</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">A</font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">n</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">l</font><font color=\"#FF0000\">y</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">m</font><font color=\"#00FF00\">p</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">f</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">u</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">o</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">c</font><font color=\"#9400D3\">k</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">d</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">b</font><font color=\"#00FF00\">y</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">m</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">m</font><font color=\"#FF0000\">a</font><font color=\"#9400D3\">g</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">b</font><font color=\"#FFFF00\">o</font><font color=\"#FF7F00\">n</font><font color=\"#FF0000\">u</font><font color=\"#9400D3\">s</font><font color=\"#4B0082\">.</font>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"                              "荣耀护手"
+        "DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"                  "部位：手"
+        "item_property_proud_gloves"                        "彩虹打击"
+        "property_proud_gloves_description"             "TODO: <font color=\"#F60000\">自</font><font color=\"#FF8C00\">动</font><font color=\"#FFEE00\">攻</font><font color=\"#4DE94C\">击</font><font color=\"#3783FF\">会</font><font color=\"#6B1FFE\">对</font><font color=\"#F60000\">元</font><font color=\"#FF8C00\">素</font><font color=\"#FFEE00\">造</font><font color=\"#4DE94C\">成</font><font color=\"#3783FF\">最</font><font color=\"#6B1FFE\">高</font><font color=\"#F60000\">的</font><font color=\"#FF8C00\">魔</font><font color=\"#FFEE00\">法</font><font color=\"#4DE94C\">伤</font><font color=\"#3783FF\">害</font><font color=\"#6B1FFE\">加</font><font color=\"#F60000\">成</font><font color=\"#FF8C00\">.</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">另</font><font color=\"#3783FF\">外</font><font color=\"#6B1FFE\">通</font><font color=\"#F60000\">过</font><font color=\"#FF8C00\">物</font><font color=\"#FFEE00\">品</font><font color=\"#4DE94C\">伤</font><font color=\"#3783FF\">害</font><font color=\"#6B1FFE\">加</font><font color=\"#F60000\">成</font><font color=\"#FF8C00\">会</font><font color=\"#FFEE00\">增</font><font color=\"#4DE94C\">加</font><font color=\"#3783FF\">此</font><font color=\"#6B1FFE\">自</font><font color=\"#F60000\">动</font><font color=\"#FF8C00\">攻</font><font color=\"#FFEE00\">击</font><font color=\"#4DE94C\">的</font><font color=\"#3783FF\">伤</font><font color=\"#6B1FFE\">害</font><font color=\"#F60000\">.</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"埃辛诺斯之爪"
@@ -12790,7 +12790,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <font color='#ccff66'>6</font>% for each missing percent of health. Each spell cast drains <font color='#ccff66'>20</font>% of max life, and each attack drains <font color='#ccff66'>7</font>% of max life. Health drain can't reduce health below <font color='#ccff66'>30</font>%."
+		"property_mordiggus_description"					"增加所有税后伤害 <font color='#ccff66'>6</font>% 根据每失去百分比的血量. 每次施法吸取 <font color='#ccff66'>20</font>% 的最大生命值, 并且每次攻击吸取 <font color='#ccff66'>7</font>% 的最大生命值. 生命值汲取效果不会将你的生命值降低至最大生命值的 <font color='#ccff66'>30</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
@@ -13111,15 +13111,15 @@
 		"property_blackfeather_description"			"每隔4秒召唤一只乌鸦，乌鸦拥有玩家5倍总攻击力的基础攻击力并可降低敌人目标的护甲40点，每只乌鸦持续10秒。"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"									"幽灵王冠"
-		"item_property_wraith_crown"						"幽灵暗潮"					
-		"property_wraith_crown_description"								"TODO: While having equal or less than <font color='#ccff66'>35</font>% of max health casting @Ability1 will give you <font color='#ccff66'>65</font>% magic resistance for <font color='#ccff66'>2</font>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <font color='#ccff66'>1.5</font>s) and casting @Ability 3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font>s."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"TODO: Gives <font color='#ccff66'>65</font>%% magic resistance."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"TODO: Gives <font color='#ccff66'>75</font>%% evasion."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"TODO: Can't disjoint projectiles currently."
+    	"DOTA_Tooltip_ability_item_rpc_wraith_crown"                                    "幽灵王冠"
+        "item_property_wraith_crown"                        "幽灵暗潮"                 
+        "property_wraith_crown_description"                             "当血量等于或少于 <font color='#ccff66'>35</font>% of 最大生命值时施放 @Ability1 会给予 <font color='#ccff66'>65</font>% 的魔抗 <font color='#ccff66'>2</font>秒, 施放 @Ability2 会躲避弹道 (每次触发不能超过 <font color='#ccff66'>1.5</font>秒) 并且施放 @Ability 3 会给予 <font color='#ccff66'>75</font>% 的闪避 持续 <font color='#ccff66'>3</font>秒."
+        "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"             "幽灵的魔法祝福"
+        "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description" "给予 <font color='#ccff66'>65</font>%% 魔抗."
+        "DOTA_Tooltip_modifier_wraith_crown_evasion_buff"               "幽魂的回避祝福"
+        "DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"   "给予 <font color='#ccff66'>75</font>%% 闪避."
+        "DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"           "分离的幽灵祝福"
+        "DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"   "躲避弹道."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"
@@ -13420,7 +13420,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
 		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害<font color='#ccff66'>50</font>%。生命值将不会超过最大生命值的<font color='#ccff66'>50</font>。 每100点缺失的血量提高装备伤害 0.01% 。该装备无法重铸。"
+		"property_raven_idol_description2"			"减少受到的所有伤害<font color='#ccff66'>50</font>%. 你的血量不能超过 <font color='#ccff66'>35</font>% 的最大生命值. 提升装备伤害 <font color='#ccff66'>10</font>% 基于失去的血量."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"

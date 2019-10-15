@@ -2768,18 +2768,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% for each 10 points of Intelligence"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every 0.2 seconds for 3 seconds."
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Heal Per 0.2 Seconds"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Gain a buff after being touched by flash heal that heals a % of the original heal every <font color='#ccff66'>0.2</font> seconds for <font color='#ccff66'>3</font> seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Heal Per <font color='#ccff66'>0.2</font> Seconds"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% of original heal"	
 
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"Energizing Light"		
-    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Healing every 0.2 seconds"
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Healing every <font color='#ccff66'>0.2</font> seconds"
 
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] Blinding Shadows"
-    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Enemies struck by Shadow Flare have an increased Miss Chance and decreased Movespeed. Stacks up to 5 times and lasts 7 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Enemies struck by Shadow Flare have an increased Miss Chance and decreased Movespeed. Stacks up to <font color='#ccff66'>5</font> times and lasts <font color='#ccff66'>7</font> seconds."
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"Miss Chance per Stack"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"Movespeed Loss per Stack"
@@ -2897,7 +2897,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% for each 10 attributes."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for 5 seconds that increases mana regen and allows you to teleport when issuing a move order. 1 second cooldown on the teleport."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for <font color='#ccff66'>5</font> seconds that increases mana regen and allows you to teleport when issuing a move order. <font color='#ccff66'>1</font> second cooldown on the teleport."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"Max Teleport Distance"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"Mana Regen"
@@ -2922,7 +2922,7 @@
     	"DOTA_Tooltip_shadow_trap_aura_Description"								"Rooted"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] Umbral Waves"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Enemies trapped in Shadow Bind are struck by shadow waves every 0.6 seconds."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Enemies trapped in Shadow Bind are struck by shadow waves every <font color='#ccff66'>0.6</font> seconds."
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"Damage"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
@@ -2937,7 +2937,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% for each 10 attributes."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"Auriun enters Shadow Form for 18 seconds upon casting his Ultimate ability. In Shadow Form, all post-mitigation magic damage is enhanced and mana regen is increased."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"Auriun enters Shadow Form for <font color='#ccff66'>18</font> seconds upon casting his Ultimate ability. In Shadow Form, all post-mitigation magic damage is enhanced and mana regen is increased."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Magic Damage Enhance"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Mana Regen"
@@ -9292,7 +9292,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% of Attack Power"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts 10 seconds. Enemies hit by Dark Bog gain 1 stack."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts <font color='#ccff66'>10</font> seconds. Enemies hit by Dark Bog gain 1 stack."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Post-mitigation damage taken per stack"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
 
@@ -9300,7 +9300,7 @@
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Taking increased post-mitigation damage from Slipfinn"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts 12 seconds, and jumping resets the bonus."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts <font color='#ccff66'>12</font> seconds, and jumping resets the bonus."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"Attack Power Bonus per Stack"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
 
@@ -9404,14 +9404,14 @@
 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed burst that decays over its duration. This speed burst also whips up a short-lived cyclone of murky water that damages nearby enemies."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "Using Prone while in Bog Roller provides a 2 second speed slow that decays over its duration. This speed burst also whips up a short-lived cyclone of murky water that damages nearby enemies."
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Damage"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% of Attack Power"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Speed Burst"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Roll Speed Slow"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
-        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed boost and damaging nearby enemies" 
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed slow and damaging nearby enemies" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Gain bonus attack damage during Bog Roller. All attacks deal an additional instance of magical <font color=\"#3894FF\">Water</font> damage."
@@ -12036,10 +12036,10 @@
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
-		"item_property_redfall_runners"					"Crackling Leaves"
+		"item_property_redfall_runners"					"Fight or Flight"
 		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font>."
 		"DOTA_Tooltip_modifier_redfall_runners"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font> per %% of missing health."
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Movespeed increased based on missing health"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
@@ -12080,7 +12080,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <font color='#ccff66'>75</font>% for  <font color='#ccff66'>8</font> seconds. If total damage blocked exceeds <font color='#ccff66'>4</font>x your Max Health, the shield shatters. On shattering, root all nearby enemies and deal damage equal to <font color='#ccff66'>100</font>x your Max Health."
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <font color='#ccff66'>75</font>% for <font color='#ccff66'>8</font> seconds. If total damage blocked exceeds <font color='#ccff66'>4</font>x your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <font color='#ccff66'>100</font>x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"
@@ -12461,10 +12461,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"			"Armor of Atlantis"	
-		"item_property_armor_of_atlantis"								"Chasm Forge"
-		"property_armor_of_atlantis_Description"					"You get <font color='#ccff66'>1.5</font>% damage reduction per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%."
-		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
-		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Take <font color='#ccff66'>1.5</font>%% reduced damage per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%%."
+		"item_property_armor_of_atlantis"								"Indomitable"
+		"property_armor_of_atlantis_Description"					"You gain <font color='#ccff66'>1.5</font>% damage reduction for every 1% of missing health. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are further reduced by <font color='#ccff66'>70</font>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Indomitable"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Gaining damage reduction based on missing health, and lethal blows are further mitigated"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
@@ -12575,10 +12575,10 @@
 		"property_scorched_gauntlet_description_2"	"<font color='#ccff66'>20</font>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <font color='#ccff66'>150</font>% of your attack power + <font color='#ccff66'>25</font>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <font color='#ccff66'>250</font>% of your attack power to enemies in an area upon landing, stunning those affected for <font color='#ccff66'>1.6</font> seconds, and creating another fire zone."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"<font color=\"#9400D3\">P</font><font color=\"#4B0082\">r</font><font color=\"#0000FF\">o</font><font color=\"#00FF00\">u</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">G</font><font color=\"#9400D3\">l</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">v</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">s</font>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
-		"item_property_proud_gloves"												"<font color=\"#9400D3\">R</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">i</font><font color=\"#00FF00\">n</font><font color=\"#FFFF00\">b</font><font color=\"#FF7F00\">o</font><font color=\"#FF0000\">w</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">S</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">r</font><font color=\"#FFFF00\">i</font><font color=\"#FF7F00\">k</font><font color=\"#FF0000\">e</font>"
-		"property_proud_gloves_description"											"<font color=\"#9400D3\">A</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">o</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">c</font><font color=\"#00FF00\">k</font><font color=\"#FFFF00\">s</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">d</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">e</font><font color=\"#FF0000\">n</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">w</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">h</font><font color=\"#0000FF\">e</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">h</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">h</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">b</font><font color=\"#FF0000\">o</font><font color=\"#9400D3\">n</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">s</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">m</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">g</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">c</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">l</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">d</font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">m</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">g</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\">.</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">A</font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">n</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">l</font><font color=\"#FF0000\">y</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">m</font><font color=\"#00FF00\">p</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">f</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">u</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">o</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">c</font><font color=\"#9400D3\">k</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">d</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">b</font><font color=\"#00FF00\">y</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">m</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">m</font><font color=\"#FF0000\">a</font><font color=\"#9400D3\">g</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">b</font><font color=\"#FFFF00\">o</font><font color=\"#FF7F00\">n</font><font color=\"#FF0000\">u</font><font color=\"#9400D3\">s</font><font color=\"#4B0082\">.</font>"
+		"item_property_proud_gloves"										"<font color=\"#F60000\">P</font><font color=\"#FF8C00\">r</font><font color=\"#FFEE00\">i</font><font color=\"#4DE94C\">s</font><font color=\"#3783FF\">m</font><font color=\"#6B1FFE\">a</font><font color=\"#F60000\">t</font><font color=\"#FF8C00\">i</font><font color=\"#FFEE00\">c</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">P</font><font color=\"#6B1FFE\">r</font><font color=\"#F60000\">i</font><font color=\"#FF8C00\">d</font><font color=\"#FFEE00\">e</font>"//a.k.a. queer hands for the straight man
+		"property_proud_gloves_description"									"<font color=\"#F60000\">T</font><font color=\"#FF8C00\">h</font><font color=\"#FFEE00\">e</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">e</font><font color=\"#6B1FFE\">l</font><font color=\"#F60000\">e</font><font color=\"#FF8C00\">m</font><font color=\"#FFEE00\">e</font><font color=\"#4DE94C\">n</font><font color=\"#3783FF\">t</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">o</font><font color=\"#FF8C00\">f</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">y</font><font color=\"#3783FF\">o</font><font color=\"#6B1FFE\">u</font><font color=\"#F60000\">r</font><font color=\"#FF8C00\"> </font><font color=\"#FFEE00\">a</font><font color=\"#4DE94C\">u</font><font color=\"#3783FF\">t</font><font color=\"#6B1FFE\">o</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">t</font><font color=\"#FFEE00\">t</font><font color=\"#4DE94C\">a</font><font color=\"#3783FF\">c</font><font color=\"#6B1FFE\">k</font><font color=\"#F60000\"> </font><font color=\"#FF8C00\">i</font><font color=\"#FFEE00\">s</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">c</font><font color=\"#6B1FFE\">h</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">n</font><font color=\"#FFEE00\">g</font><font color=\"#4DE94C\">e</font><font color=\"#3783FF\">d</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">f</font><font color=\"#FF8C00\">r</font><font color=\"#FFEE00\">o</font><font color=\"#4DE94C\">m</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">N</font><font color=\"#F60000\">o</font><font color=\"#FF8C00\">r</font><font color=\"#FFEE00\">m</font><font color=\"#4DE94C\">a</font><font color=\"#3783FF\">l</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">t</font><font color=\"#FF8C00\">o</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">m</font><font color=\"#3783FF\">a</font><font color=\"#6B1FFE\">t</font><font color=\"#F60000\">c</font><font color=\"#FF8C00\">h</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">y</font><font color=\"#3783FF\">o</font><font color=\"#6B1FFE\">u</font><font color=\"#F60000\">r</font><font color=\"#FF8C00\"> </font><font color=\"#FFEE00\">s</font><font color=\"#4DE94C\">i</font><font color=\"#3783FF\">n</font><font color=\"#6B1FFE\">g</font><font color=\"#F60000\">l</font><font color=\"#FF8C00\">e</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">h</font><font color=\"#3783FF\">i</font><font color=\"#6B1FFE\">g</font><font color=\"#F60000\">h</font><font color=\"#FF8C00\">e</font><font color=\"#FFEE00\">s</font><font color=\"#4DE94C\">t</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\">l</font><font color=\"#FF8C00\">e</font><font color=\"#FFEE00\">m</font><font color=\"#4DE94C\">e</font><font color=\"#3783FF\">n</font><font color=\"#6B1FFE\">t</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">l</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">d</font><font color=\"#3783FF\">a</font><font color=\"#6B1FFE\">m</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">g</font><font color=\"#FFEE00\">e</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">b</font><font color=\"#6B1FFE\">o</font><font color=\"#F60000\">n</font><font color=\"#FF8C00\">u</font><font color=\"#FFEE00\">s</font><font color=\"#4DE94C\">,</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">a</font><font color=\"#F60000\">n</font><font color=\"#FF8C00\">d</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">i</font><font color=\"#3783FF\">t</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">n</font><font color=\"#FF8C00\">o</font><font color=\"#FFEE00\">w</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">d</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">l</font><font color=\"#FFEE00\">s</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">M</font><font color=\"#6B1FFE\">a</font><font color=\"#F60000\">g</font><font color=\"#FF8C00\">i</font><font color=\"#FFEE00\">c</font><font color=\"#4DE94C\">a</font><font color=\"#3783FF\">l</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">d</font><font color=\"#FF8C00\">a</font><font color=\"#FFEE00\">m</font><font color=\"#4DE94C\">a</font><font color=\"#3783FF\">g</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\"> </font><font color=\"#FF8C00\">i</font><font color=\"#FFEE00\">n</font><font color=\"#4DE94C\">s</font><font color=\"#3783FF\">t</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">d</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">o</font><font color=\"#3783FF\">f</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">P</font><font color=\"#FF8C00\">h</font><font color=\"#FFEE00\">y</font><font color=\"#4DE94C\">s</font><font color=\"#3783FF\">i</font><font color=\"#6B1FFE\">c</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">l</font><font color=\"#FFEE00\">.</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">A</font><font color=\"#6B1FFE\">d</font><font color=\"#F60000\">d</font><font color=\"#FF8C00\">i</font><font color=\"#FFEE00\">t</font><font color=\"#4DE94C\">i</font><font color=\"#3783FF\">o</font><font color=\"#6B1FFE\">n</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">l</font><font color=\"#FFEE00\">l</font><font color=\"#4DE94C\">y</font><font color=\"#3783FF\">,</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">t</font><font color=\"#FF8C00\">h</font><font color=\"#FFEE00\">o</font><font color=\"#4DE94C\">s</font><font color=\"#3783FF\">e</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">d</font><font color=\"#FF8C00\">a</font><font color=\"#FFEE00\">m</font><font color=\"#4DE94C\">a</font><font color=\"#3783FF\">g</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\"> </font><font color=\"#FF8C00\">i</font><font color=\"#FFEE00\">n</font><font color=\"#4DE94C\">s</font><font color=\"#3783FF\">t</font><font color=\"#6B1FFE\">a</font><font color=\"#F60000\">n</font><font color=\"#FF8C00\">c</font><font color=\"#FFEE00\">e</font><font color=\"#4DE94C\">s</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">a</font><font color=\"#F60000\">r</font><font color=\"#FF8C00\">e</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">m</font><font color=\"#3783FF\">u</font><font color=\"#6B1FFE\">l</font><font color=\"#F60000\">t</font><font color=\"#FF8C00\">i</font><font color=\"#FFEE00\">p</font><font color=\"#4DE94C\">l</font><font color=\"#3783FF\">i</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\">d</font><font color=\"#FF8C00\"> </font><font color=\"#FFEE00\">b</font><font color=\"#4DE94C\">y</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">y</font><font color=\"#F60000\">o</font><font color=\"#FF8C00\">u</font><font color=\"#FFEE00\">r</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">I</font><font color=\"#6B1FFE\">t</font><font color=\"#F60000\">e</font><font color=\"#FF8C00\">m</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">D</font><font color=\"#3783FF\">a</font><font color=\"#6B1FFE\">m</font><font color=\"#F60000\">a</font><font color=\"#FF8C00\">g</font><font color=\"#FFEE00\">e</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">b</font><font color=\"#6B1FFE\">o</font><font color=\"#F60000\">n</font><font color=\"#FF8C00\">u</font><font color=\"#FFEE00\">s</font><font color=\"#4DE94C\">,</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">b</font><font color=\"#F60000\">u</font><font color=\"#FF8C00\">t</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">a</font><font color=\"#3783FF\">r</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\"> </font><font color=\"#FF8C00\">n</font><font color=\"#FFEE00\">o</font><font color=\"#4DE94C\">t</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">c</font><font color=\"#F60000\">o</font><font color=\"#FF8C00\">n</font><font color=\"#FFEE00\">s</font><font color=\"#4DE94C\">i</font><font color=\"#3783FF\">d</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\">r</font><font color=\"#FF8C00\">e</font><font color=\"#FFEE00\">d</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">i</font><font color=\"#6B1FFE\">n</font><font color=\"#F60000\">s</font><font color=\"#FF8C00\">t</font><font color=\"#FFEE00\">a</font><font color=\"#4DE94C\">n</font><font color=\"#3783FF\">c</font><font color=\"#6B1FFE\">e</font><font color=\"#F60000\">s</font><font color=\"#FF8C00\"> </font><font color=\"#FFEE00\">o</font><font color=\"#4DE94C\">f</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">I</font><font color=\"#F60000\">t</font><font color=\"#FF8C00\">e</font><font color=\"#FFEE00\">m</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">D</font><font color=\"#6B1FFE\">a</font><font color=\"#F60000\">m</font><font color=\"#FF8C00\">a</font><font color=\"#FFEE00\">g</font><font color=\"#4DE94C\">e</font><font color=\"#3783FF\">.</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
@@ -12608,7 +12608,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Each point of Intelligence additionally grants <font color='#ccff66'>0.5</font> Mana Regen."
+		"property_scarecrow_description"			"Each point of Intelligence additionally grants <font color='#ccff66'>0.5</font> mana regen."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
@@ -12625,12 +12625,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> Health Regen for each missing point of health. Gain <font color='#ccff66'>1</font> base attack damage for each current point of health."
+		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> health regen for each missing point of health. Gain <font color='#ccff66'>1</font> base attack damage for each current point of health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <font color='#ccff66'>7</font>x your Intelligence per <font color='#ccff66'>1</font> second for <font color='#ccff66'>12</font> seconds."
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <font color='#ccff66'>7</font>x your Intelligence every <font color='#ccff66'>1</font> second for <font color='#ccff66'>12</font> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <font color='#ccff66'>1</font> second."
 		
@@ -12751,7 +12751,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
 		"item_property_malachite_shade"						"Verdant Flow"
-		 "property_malachite_shade_description"					"Mana and Health Regen is increased by 15% of your Agility. Base Attack damage is increased by 100% of your health regen and mana regen."
+		 "property_malachite_shade_description"					"Mana regen and health regen are both increased by 15% of your Agility. Base Attack damage is increased by 100% of your health regen and mana regen."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
@@ -12949,7 +12949,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<font color='#ccff66'>95</font>% of damage taken is removed from mana before health. 1 point of mana can absorb <font color='#ccff66'>5</font> damage. Can't reduce mana below <font color='#ccff66'>10</font>%."
+		"property_emerald_douli_description"		"<font color='#ccff66'>95</font>% of damage taken is removed from mana before health. 1 point of mana can absorb <font color='#ccff66'>5</font> damage. This effect cannot reduce mana below <font color='#ccff66'>10</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
@@ -13033,14 +13033,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
-		"item_property_wraith_crown"							"Wraithtide"					
-		"property_wraith_crown_description"						"While having equal or less than <font color='#ccff66'>35</font>% of max health casting @Ability1 will give you <font color='#ccff66'>65</font>% magic resistance for <font color='#ccff66'>2</font>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <font color='#ccff66'>1.5</font>s) and casting @Ability 3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font>s."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"Gives <font color='#ccff66'>65</font>%% magic resistance."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
+		"item_property_wraith_crown"							"Ethereal Form"					
+		"property_wraith_crown_description"						"While your health is less than or equal to <font color='#ccff66'>35</font>% of maximum, your spells can grant you temporary buffs:<br>@Ability1 grants <font color='#ccff66'>65</font>% Magic Resistance for <font color='#ccff66'>2</font> seconds; @Ability2 will instantly disjoint all incoming projectiles (<font color='#ccff66'>1.5</font>-second cooldown); and @Ability3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font> seconds."
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Ethereal Magic Resistance"
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"Gives <font color='#ccff66'>65</font>%% Magic Resistance."
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Ethereal Evasion"
 		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"Gives <font color='#ccff66'>75</font>%% evasion."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles currently."
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Ethereal Displacement Cooldown"
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles again... yet."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
@@ -13409,7 +13409,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
 		"item_property_epsilon_eyeglass"					"Extended Scope"
-		"property_epsilon_eyeglass_description"			"Increases attack range by <font color='#ccff66'>240</font> (RANGED ONLY), increases vision radius by <font color='#ccff66'>800</font>, and adds <font color='#ccff66'>1500</font> to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00<font color='#ccff66'>1</font> * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is <font color='#ccff66'>5000</font>, while short distance is always calculated as <font color='#ccff66'>700</font>."
+		"property_epsilon_eyeglass_description"			"Increases attack range by <font color='#ccff66'>240</font> (RANGED ONLY), increases vision radius by <font color='#ccff66'>800</font>, and adds <font color='#ccff66'>1500</font> to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00<font color='#ccff66'>1</font> * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is <font color='#ccff66'>5000</font>, and the minimum distance value is <font color='#ccff66'>700</font> even for close-range attacks."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"

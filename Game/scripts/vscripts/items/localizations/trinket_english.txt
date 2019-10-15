@@ -182,7 +182,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
 		"item_property_epsilon_eyeglass"					"Extended Scope"
-		"property_epsilon_eyeglass_description"			"Increases attack range by <% EPSILON_EYEGLASS_ATTACK_RANGE %> (RANGED ONLY), increases vision radius by <% EPSILON_EYEGLASS_VISION_RADIUS %>, and adds <% EPSILON_EYEGLASS_PROJECTILE_SPEED %> to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000 %> * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>, while short distance is always calculated as <% EPSILON_EYEGLASS_MIN_RANGE %>."
+		"property_epsilon_eyeglass_description"			"Increases attack range by <% EPSILON_EYEGLASS_ATTACK_RANGE %> (RANGED ONLY), increases vision radius by <% EPSILON_EYEGLASS_VISION_RADIUS %>, and adds <% EPSILON_EYEGLASS_PROJECTILE_SPEED %> to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000 %> * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>, and the minimum distance value is <% EPSILON_EYEGLASS_MIN_RANGE %> even for close-range attacks."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"

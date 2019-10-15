@@ -2741,18 +2741,18 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% за 10 очков Интеллекта"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Цель, попавшая под исцеляющий эффект (W) Flash Heal получает бафф на 3 секунды, который дополнительно исцеляет цель каждые 0.2 секунды."
-    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Исцеление каждые 0.2 секунды"
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Цель, попавшая под исцеляющий эффект (W) Flash Heal получает бафф на <font color='#ccff66'>3</font> секунды, который дополнительно исцеляет цель каждые <font color='#ccff66'>0.2</font> секунды."
+    	"DOTA_Tooltip_ability_auriun_rune_w_3_property_one"			"Исцеление каждые <font color='#ccff66'>0.2</font> секунды"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_suffix"				"% от изначального лечения"	
 
     	"DOTA_Tooltip_modifier_auriun_c_b_heal"						"Energizing Light"		
-    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Исцеляется каждые 0.2 секунды"
+    	"DOTA_Tooltip_modifier_auriun_c_b_heal_Description"			"Исцеляется каждые <font color='#ccff66'>0.2</font> секунды"
 
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible"				"Energizing Light"
     	//"DOTA_Tooltip_modifier_auriun_rune_w_3_visible_Description"	"Gaining attack damage. Max 5 stacks."
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_4"						"[W4] Blinding Shadows"
-    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Враги, задетые [W1] получают дебафф, который заставляет их промахиваться при атаках и замедляться. Эффект складывается до 5 раз, длится 7 секунд."
+    	"DOTA_Tooltip_ability_auriun_rune_w_4_Description"			"Враги, задетые [W1] получают дебафф, который заставляет их промахиваться при атаках и замедляться. Эффект складывается до <font color='#ccff66'>5</font> раз, длится <font color='#ccff66'>7</font> секунд."
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_one"			"Шанс промаха за стак"
     	"DOTA_Tooltip_ability_auriun_rune_w_4_suffix"				"%"		
     	"DOTA_Tooltip_ability_auriun_rune_w_4_property_two"			"Замедление передвижения за стак"
@@ -2870,7 +2870,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% за каждые 10 очков атрибутов."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"При прочтении @Ability1, герой на 5 секунд восстанавливает больше маны и имеет возможность совершить одну телепортацию в секунду на небольшое расстояние. Телепортация срабатывает когда был отдан приказ на движение."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"При прочтении @Ability1, герой на <font color='#ccff66'>5</font> секунд восстанавливает больше маны и имеет возможность совершить одну телепортацию в <font color='#ccff66'>1</font> секунду на небольшое расстояние. Телепортация срабатывает когда был отдан приказ на движение."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_one"				"Макс. дальность телепортации"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_property_two"				"Доп. реген. маны"
@@ -2895,7 +2895,7 @@
     	"DOTA_Tooltip_shadow_trap_aura_Description"								"Обездвижен"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2"						"[Q1] Umbral Waves"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Враги, обездвиженные ямой теней каждые 0.6 секунд получают урон от потока теней."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_Description"			"Враги, обездвиженные ямой теней каждые <font color='#ccff66'>0.6</font> секунд получают урон от потока теней."
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_property_one"			"Урон"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_arcana2_suffix"				""  	
 
@@ -2910,7 +2910,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% за каждые 10 очков атрибутов."
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на 18 секунд. В этом состоянии магический пост-резистный урон увеличен, регенерация маны увеличена."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на <font color='#ccff66'>18</font> секунд. В этом состоянии магический пост-резистный урон увеличен, регенерация маны увеличена."
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Усиление магического урона"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Доп. реген. маны"
@@ -8640,7 +8640,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% от урона героя"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, увеличивающий получаемый ими пост-резистный урон от Slipfinn. Эффект длится 10 секунд. Враги, получившие урон от [W1] получают по 1 заряду"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, увеличивающий получаемый ими пост-резистный урон от Slipfinn. Эффект длится <font color='#ccff66'>10</font> секунд. Враги, получившие урон от [W1] получают по 1 заряду"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Доп. пост-резистный урон за заряд"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
 
@@ -8648,7 +8648,7 @@
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Получает дополнительный пост-резистный урон от Slipfinn"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Прыгая по вражеским головам, герой получает % бонус к урону. Длительность эффекта: 12 секунд. Последующие прыжки обновляют время действия."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Прыгая по вражеским головам, герой получает % бонус к урону. Длительность эффекта: <font color='#ccff66'>12</font> секунд. Последующие прыжки обновляют время действия."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_property_one"						"Доп. урон за заряд"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_suffix"								"%"
 
@@ -8751,14 +8751,14 @@
 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] Turbine"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "@Ability1 даст ускорение внутри панциря на 2 секунды, а все ближайшие противникики дополнительно получают урон от водного потока."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "@Ability1 даст замедление вращения панциря на 2 секунды, а все ближайшие противникики дополнительно получают урон от водного лезвия вокруг героя."
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Урон"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% от силы Атаки"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Ускорение"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Замедление Вращения"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
-        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает ускорение и наносит урон по противникам поблизости" 
+        "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает замедление и наносит урон по противникам поблизости" 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1"                          "[E2] Sparkling Dagger"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Дает Бонусную Атаку во время Bog Roller. Атаки нанесут дополнительно удар магическим уроном <font color=\"#3894FF\">Воды</font>."
@@ -11891,9 +11891,9 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"			"Redfall Runners"
 		"item_property_redfall_runners"							"Crackling Leaves"
-		"property_redfall_runners_description"					"TODO: Each % of missing health increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font>."
+		"property_redfall_runners_description"					"Каждый % отсутствующего здоровья увеличивает скорость перемещения на <font color='#ccff66'>5</font> и лимит скорости на <font color='#ccff66'>5</font>."
 		"DOTA_Tooltip_modifier_redfall_runners"					"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"TODO: Increases movement speed by <font color='#ccff66'>5</font> and movement speed limit by <font color='#ccff66'>5</font> per %% of missing health."
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Каждый процент отсутствующего здоровья увеличивает скорость перемещения на <font color='#ccff66'>5</font> и лимит скорости на <font color='#ccff66'>5</font>"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
@@ -12317,9 +12317,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"						"Armor of Atlantis"	
 		"item_property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"					"TODO: You get <font color='#ccff66'>1.5</font>% damage reduction per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%."
+		"property_armor_of_atlantis_Description"					"Сопротивление урону повышается на <font color='#ccff66'>1.5</font>% за каждый отсутствующий процент здоровья. Максимальный бонус сопротивления не может быть выше <font color='#ccff66'>81</font>%. Урон, который потенциально смертелен будет снижен на <font color='#ccff66'>70</font>%."
 		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
-		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"TODO: Take <font color='#ccff66'>1.5</font>%% reduced damage per percent of health missing. This damage reduction can't be higher than <font color='#ccff66'>81</font>%%. Damage instances that would kill you are reduced by <font color='#ccff66'>70</font>%%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Сопротивление урону повышается на <font color='#ccff66'>1.5</font>%% за каждый отсутствующий процент здоровья. Максимальный бонус сопротивления не может быть выше <font color='#ccff66'>81</font>%%. Урон, который потенциально смертелен будет снижен на <font color='#ccff66'>70</font>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
@@ -12431,10 +12431,10 @@
 		"property_scorched_gauntlet_description_2"	"С <font color='#ccff66'>20</font>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <font color='#ccff66'>150</font>% урона героя + <font color='#ccff66'>25</font>x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <font color='#ccff66'>250</font>% от урона героя в небольшой области и оглушает задетые цели на <font color='#ccff66'>1.6</font> сек, дополнительно поджигая землю под ними."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"<font color=\"#9400D3\">P</font><font color=\"#4B0082\">r</font><font color=\"#0000FF\">o</font><font color=\"#00FF00\">u</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">G</font><font color=\"#9400D3\">l</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">v</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">s</font>"
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Слот: Наручи"
-		"item_property_proud_gloves"						"<font color=\"#9400D3\">R</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">i</font><font color=\"#00FF00\">n</font><font color=\"#FFFF00\">b</font><font color=\"#FF7F00\">o</font><font color=\"#FF0000\">w</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">S</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">r</font><font color=\"#FFFF00\">i</font><font color=\"#FF7F00\">k</font><font color=\"#FF0000\">e</font>"
-		"property_proud_gloves_description"				"TODO: <font color=\"#9400D3\">A</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">t</font><font color=\"#00FF00\">o</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">c</font><font color=\"#00FF00\">k</font><font color=\"#FFFF00\">s</font><font color=\"#FF7F00\"> </font><font color=\"#FF0000\">d</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">l</font><font color=\"#00FF00\">e</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">e</font><font color=\"#FF0000\">n</font><font color=\"#9400D3\">t</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">w</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">h</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">t</font><font color=\"#4B0082\">h</font><font color=\"#0000FF\">e</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">h</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">h</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">b</font><font color=\"#FF0000\">o</font><font color=\"#9400D3\">n</font><font color=\"#4B0082\">u</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">s</font><font color=\"#FF0000\"> </font><font color=\"#9400D3\">m</font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">g</font><font color=\"#00FF00\">i</font><font color=\"#FFFF00\">c</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">l</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">d</font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">m</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">g</font><font color=\"#FF0000\">e</font><font color=\"#9400D3\">.</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">A</font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">d</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">o</font><font color=\"#0000FF\">n</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">l</font><font color=\"#FF0000\">y</font><font color=\"#9400D3\"> </font><font color=\"#4B0082\">a</font><font color=\"#0000FF\">m</font><font color=\"#00FF00\">p</font><font color=\"#FFFF00\">l</font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">f</font><font color=\"#9400D3\">i</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\">s</font><font color=\"#00FF00\"> </font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">u</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">o</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">a</font><font color=\"#00FF00\">t</font><font color=\"#FFFF00\">t</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">c</font><font color=\"#9400D3\">k</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">d</font><font color=\"#00FF00\">a</font><font color=\"#FFFF00\">m</font><font color=\"#FF7F00\">a</font><font color=\"#FF0000\">g</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\"> </font><font color=\"#0000FF\">b</font><font color=\"#00FF00\">y</font><font color=\"#FFFF00\"> </font><font color=\"#FF7F00\">i</font><font color=\"#FF0000\">t</font><font color=\"#9400D3\">e</font><font color=\"#4B0082\">m</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">d</font><font color=\"#FFFF00\">a</font><font color=\"#FF7F00\">m</font><font color=\"#FF0000\">a</font><font color=\"#9400D3\">g</font><font color=\"#4B0082\">e</font><font color=\"#0000FF\"> </font><font color=\"#00FF00\">b</font><font color=\"#FFFF00\">o</font><font color=\"#FF7F00\">n</font><font color=\"#FF0000\">u</font><font color=\"#9400D3\">s</font><font color=\"#4B0082\">.</font>"
+		"item_property_proud_gloves"						"<font color=\"#F60000\">R</font><font color=\"#FF8C00\">a</font><font color=\"#FFEE00\">i</font><font color=\"#4DE94C\">n</font><font color=\"#3783FF\">b</font><font color=\"#6B1FFE\">o</font><font color=\"#F60000\">w</font><font color=\"#FF8C00\"> </font><font color=\"#FFEE00\">S</font><font color=\"#4DE94C\">t</font><font color=\"#3783FF\">r</font><font color=\"#6B1FFE\">i</font><font color=\"#F60000\">k</font><font color=\"#FF8C00\">e</font>"
+		"property_proud_gloves_description"				"TODO: <font color=\"#F60000\">А</font><font color=\"#FF8C00\">в</font><font color=\"#FFEE00\">т</font><font color=\"#4DE94C\">о</font><font color=\"#3783FF\">а</font><font color=\"#6B1FFE\">т</font><font color=\"#F60000\">а</font><font color=\"#FF8C00\">к</font><font color=\"#FFEE00\">и</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">п</font><font color=\"#6B1FFE\">о</font><font color=\"#F60000\">л</font><font color=\"#FF8C00\">у</font><font color=\"#FFEE00\">ч</font><font color=\"#4DE94C\">а</font><font color=\"#3783FF\">ю</font><font color=\"#6B1FFE\">т</font><font color=\"#F60000\"> </font><font color=\"#FF8C00\">б</font><font color=\"#FFEE00\">о</font><font color=\"#4DE94C\">н</font><font color=\"#3783FF\">у</font><font color=\"#6B1FFE\">с</font><font color=\"#F60000\"> </font><font color=\"#FF8C00\">Э</font><font color=\"#FFEE00\">л</font><font color=\"#4DE94C\">е</font><font color=\"#3783FF\">м</font><font color=\"#6B1FFE\">е</font><font color=\"#F60000\">н</font><font color=\"#FF8C00\">т</font><font color=\"#FFEE00\">а</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">с</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">н</font><font color=\"#FF8C00\">а</font><font color=\"#FFEE00\">и</font><font color=\"#4DE94C\">б</font><font color=\"#3783FF\">о</font><font color=\"#6B1FFE\">л</font><font color=\"#F60000\">ь</font><font color=\"#FF8C00\">ш</font><font color=\"#FFEE00\">и</font><font color=\"#4DE94C\">м</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">п</font><font color=\"#F60000\">о</font><font color=\"#FF8C00\">к</font><font color=\"#FFEE00\">а</font><font color=\"#4DE94C\">з</font><font color=\"#3783FF\">а</font><font color=\"#6B1FFE\">т</font><font color=\"#F60000\">е</font><font color=\"#FF8C00\">л</font><font color=\"#FFEE00\">е</font><font color=\"#4DE94C\">м</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">у</font><font color=\"#F60000\">с</font><font color=\"#FF8C00\">и</font><font color=\"#FFEE00\">л</font><font color=\"#4DE94C\">е</font><font color=\"#3783FF\">н</font><font color=\"#6B1FFE\">и</font><font color=\"#F60000\">я</font><font color=\"#FF8C00\"> </font><font color=\"#FFEE00\">и</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">н</font><font color=\"#6B1FFE\">а</font><font color=\"#F60000\">н</font><font color=\"#FF8C00\">о</font><font color=\"#FFEE00\">с</font><font color=\"#4DE94C\">я</font><font color=\"#3783FF\">т</font><font color=\"#6B1FFE\"> </font><font color=\"#F60000\">у</font><font color=\"#FF8C00\">р</font><font color=\"#FFEE00\">о</font><font color=\"#4DE94C\">н</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">м</font><font color=\"#F60000\">а</font><font color=\"#FF8C00\">г</font><font color=\"#FFEE00\">и</font><font color=\"#4DE94C\">ч</font><font color=\"#3783FF\">е</font><font color=\"#6B1FFE\">с</font><font color=\"#F60000\">к</font><font color=\"#FF8C00\">о</font><font color=\"#FFEE00\">г</font><font color=\"#4DE94C\">о</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">т</font><font color=\"#F60000\">и</font><font color=\"#FF8C00\">п</font><font color=\"#FFEE00\">а</font><font color=\"#4DE94C\">.</font><font color=\"#3783FF\"> </font><font color=\"#6B1FFE\">У</font><font color=\"#F60000\">с</font><font color=\"#FF8C00\">и</font><font color=\"#FFEE00\">л</font><font color=\"#4DE94C\">я</font><font color=\"#3783FF\">е</font><font color=\"#6B1FFE\">т</font><font color=\"#F60000\">с</font><font color=\"#FF8C00\">я</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">у</font><font color=\"#3783FF\">р</font><font color=\"#6B1FFE\">о</font><font color=\"#F60000\">н</font><font color=\"#FF8C00\">о</font><font color=\"#FFEE00\">м</font><font color=\"#4DE94C\"> </font><font color=\"#3783FF\">П</font><font color=\"#6B1FFE\">р</font><font color=\"#F60000\">е</font><font color=\"#FF8C00\">д</font><font color=\"#FFEE00\">м</font><font color=\"#4DE94C\">е</font><font color=\"#3783FF\">т</font><font color=\"#6B1FFE\">о</font><font color=\"#F60000\">в</font><font color=\"#FF8C00\">.</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
@@ -12555,7 +12555,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"TODO: Increases all Post-Mitigation damage dealt by <font color='#ccff66'>6</font>% for each missing percent of health. Each spell cast drains <font color='#ccff66'>20</font>% of max life, and each attack drains <font color='#ccff66'>7</font>% of max life. Health drain can't reduce health below <font color='#ccff66'>30</font>%."
+		"property_mordiggus_description"					"Увеличивает пост-резистный урон на <font color='#ccff66'>6</font>% за каждый отсутствующий процент здоровья. Произнесение заклинаний отнимает у героя <font color='#ccff66'>20</font>% здоровья от максимума, каждая атака отнимает у героя <font color='#ccff66'>7</font>% здоровья от максимума. Отнятие здоровья перестает работать, если здоровье героя ниже <font color='#ccff66'>30</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
@@ -12807,7 +12807,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"TODO: <font color='#ccff66'>95</font>% of damage taken is removed from mana before health. 1 point of mana can absorb <font color='#ccff66'>5</font> damage. Can't reduce mana below <font color='#ccff66'>10</font>%."
+		"property_emerald_douli_description"		"<font color='#ccff66'>95</font>% отнимается из маны вместо здоровья. 1 очко маны может поглотить <font color='#ccff66'>5</font> урона. Эффект не работает при показателе маны ниже <font color='#ccff66'>10</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
@@ -12886,13 +12886,13 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"					"Wraith Crown"
 		"item_property_wraith_crown"									"Wraithtide"					
-		"property_wraith_crown_description"								"TODO: While having equal or less than <font color='#ccff66'>35</font>% of max health casting @Ability1 will give you <font color='#ccff66'>65</font>% magic resistance for <font color='#ccff66'>2</font>s, casting @Ability2 will disjoint projectiles (can't trigger more than once every <font color='#ccff66'>1.5</font>s) and casting @Ability 3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font>s."
+		"property_wraith_crown_description"								"Если показатель здоровья равен или ниже <font color='#ccff66'>35</font>% от максимума, прочтение @Ability1 даст <font color='#ccff66'>65</font>% магического сопротивления на <font color='#ccff66'>2</font> сек., прочтение @Ability2 сбросит летящие в персонажа снаряды (перезарядка <font color='#ccff66'>1.5</font> сек.) и прочтение @Ability 3 даст <font color='#ccff66'>75</font>% уклонения на <font color='#ccff66'>3</font> сек."
 		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"TODO: Gives <font color='#ccff66'>65</font>%% magic resistance."
+		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"<font color='#ccff66'>65</font>%% сопротивление магии."
 		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"TODO: Gives <font color='#ccff66'>75</font>%% evasion."
+		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"<font color='#ccff66'>75</font>%% уклонение."
 		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"TODO: Can't disjoint projectiles currently."
+		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Сброс летящих снарядов перезаряжается."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
