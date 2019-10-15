@@ -1,4 +1,4 @@
-﻿		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
+		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_property_slinger_boot"				"Bladeslinger"
 		"property_slinger_boots_description"		"Every <% BLADESLINGER_ATT_INTERVAL %> seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
 

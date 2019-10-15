@@ -262,7 +262,7 @@ function Arena:SpawnArenaOutsideEntities()
 	local attendant = Events:SpawnTownNPC(Vector(-1728, -10752), "arena_attendee_one", Vector(-1, -1), nil, nil, nil, 1.0, true, "arena_attendant")
 	table.insert(Arena.OutsideEntitiesTable, attendant)
 
-	Timers:CreateTimer(3, function()
+	Timers:CreateTimer(4, function()
 		local unit = Events:SpawnTownNPC(Vector(-2944, -8088), "arena_entrance_fan", Vector(0, -1), nil, nil, nil, 1.0, true, "arena_fan")
 		table.insert(Arena.OutsideEntitiesTable, unit)
 
@@ -283,7 +283,7 @@ function Arena:SpawnArenaOutsideEntities()
 		table.insert(Arena.OutsideEntitiesTable, Arena.ChallengerAttendant)
 
 	end)
-	Timers:CreateTimer(5, function()
+	Timers:CreateTimer(9, function()
 		Arena.NewbieGuardTable = {}
 		local unit = Events:SpawnTownNPC(Vector(-8414, -2700), "arena_guard", Vector(1, 0), nil, nil, nil, 0.85, false, nil)
 		unit.basePos = unit:GetAbsOrigin()
