@@ -55051,12 +55051,12 @@
              "soundfile"       "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
         }
         "DefaultState"  "Invade"
-        "ArmorPhysical" "2"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "35000"
-        "AttackDamageMax"   "36000"
+        "AttackDamageMin"   "110"
+        "AttackDamageMax"   "115"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
@@ -55073,10 +55073,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "940000"
+        "StatusHealth"  "890"
         "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "300"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -55116,7 +55116,13 @@
             }
 
         }
- 
+        "RoshpitArmor"          "51"
+        "RoshpitArmorPierce"    "150"
+        "RoshpitSpellPierce"    "101"
+        "RoshpitMagicArmor"     "38"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
     "redfall_farmland_spawner"
@@ -55134,8 +55140,8 @@
             "particle"  "particles/units/heroes/hero_beastmaster/beastmaster_call_boar_glow_base.vpcf"
         }
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "30"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "0"
@@ -55155,10 +55161,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "90000"
+        "StatusHealth"  "1500"
         "StatusHealthRegen" "1"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -55189,7 +55195,13 @@
         }
         "Ability1"          "redfall_farmland_spawner_ability"
         "Ability2"          "dungeon_creep"
-        
+        "RoshpitArmor"          "110"
+        "RoshpitArmorPierce"    "0"
+        "RoshpitSpellPierce"    "0"
+        "RoshpitMagicArmor"     "110"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"         
     }
 
     "redfall_pumpkin_flower"
@@ -55211,8 +55223,8 @@
         "MagicalResistance" "40"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "8800"
-        "AttackDamageMax"   "9800"
+        "AttackDamageMin"   "58"
+        "AttackDamageMax"   "60"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
@@ -55227,10 +55239,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "64000"
+        "StatusHealth"  "450"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -55260,7 +55272,13 @@
 
         }
         "Ability1"  "dungeon_creep"
-
+        "RoshpitArmor"          "52"
+        "RoshpitArmorPierce"    "67"
+        "RoshpitSpellPierce"    "21"
+        "RoshpitMagicArmor"     "88"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_WEAK_CREEP %>" 
     }
 
     "redfall_farmlands_thief"
@@ -55284,8 +55302,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "67000"
-        "AttackDamageMax"   "72000"
+        "AttackDamageMin"   "115"
+        "AttackDamageMax"   "118"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.36"
         "AttackAcquisitionRange"    "0"
@@ -55299,10 +55317,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "640000"
+        "StatusHealth"  "820"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "5"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -55350,6 +55368,13 @@
 
         }
         "Ability1"  "dungeon_creep"
+        "RoshpitArmor"          "88"
+        "RoshpitArmorPierce"    "120"
+        "RoshpitSpellPierce"    "38"
+        "RoshpitMagicArmor"     "68"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
     "redfall_harvest_wraith"
@@ -55369,12 +55394,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
             "particle"  "particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
         }
-        "ArmorPhysical" "30"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "70000"
-        "AttackDamageMax"   "80000"
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "100"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -55389,7 +55414,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "810000"
+        "StatusHealth"  "900"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -55445,6 +55470,13 @@
 
         "Ability1"  "redfall_harvest_wraith_ability"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "100"
+        "RoshpitArmorPierce"    "100"
+        "RoshpitSpellPierce"    "100"
+        "RoshpitMagicArmor"     "100"
+        "RoshpitLevel"          "16"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
     "redfall_farmlands_flame_panda"
@@ -55467,8 +55499,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "27000"
-        "AttackDamageMax"   "32000"
+        "AttackDamageMin"   "70"
+        "AttackDamageMax"   "70"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.36"
         "AttackAcquisitionRange"    "0"
@@ -55482,7 +55514,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "340000"
+        "StatusHealth"  "900"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -55511,6 +55543,13 @@
         }
         "Ability1"  "redfall_farm_panda_immolation"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "120"
+        "RoshpitArmorPierce"    "110"
+        "RoshpitSpellPierce"    "115"
+        "RoshpitMagicArmor"     "135"
+        "RoshpitLevel"          "16"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
     "redfall_farmlands_corn_harvester"
@@ -55535,8 +55574,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "80000"
-        "AttackDamageMax"   "90000"
+        "AttackDamageMin"   "150"
+        "AttackDamageMax"   "150"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -55550,10 +55589,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "910000"
+        "StatusHealth"  "1200"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "1000"
-        "StatusManaRegen"   "20"
+        "StatusManaRegen"   "30"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "farmland_shredder_blade"
@@ -55606,6 +55645,13 @@
             }
 
         }
+        "RoshpitArmor"          "152"
+        "RoshpitArmorPierce"    "200"
+        "RoshpitSpellPierce"    "120"
+        "RoshpitMagicArmor"     "140"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
     "redfall_twisted_pumpkin"
@@ -55624,12 +55670,12 @@
             "particle"  "particles/units/heroes/hero_jakiro/fireball.vpcf"
         }
 
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "18"
-        "AttackDamageMax"   "28"
+        "AttackDamageMin"   "30"
+        "AttackDamageMax"   "30"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "2000"
@@ -55642,7 +55688,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "300"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "85000"
+        "StatusHealth"  "510"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -55676,6 +55722,13 @@
         }
         "Ability1"  "redfall_pumpkin_ai"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "24"
+        "RoshpitArmorPierce"    "36"
+        "RoshpitSpellPierce"    "106"
+        "RoshpitMagicArmor"     "112"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
     "redfall_chibi_bear"
@@ -55698,8 +55751,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "54000"
-        "AttackDamageMax"   "62000"
+        "AttackDamageMin"   "94"
+        "AttackDamageMax"   "98"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.2"
         "AttackAcquisitionRange"    "0"
@@ -55714,10 +55767,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "395"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "580000"
+        "StatusHealth"  "1300"
         "StatusHealthRegen" "0.25"
 
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "1000"
@@ -55751,6 +55804,13 @@
             }
 
         }
+        "RoshpitArmor"          "168"
+        "RoshpitArmorPierce"    "115"
+        "RoshpitSpellPierce"    "66"
+        "RoshpitMagicArmor"     "124"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "redfall_crymsith_duelist"
@@ -55775,8 +55835,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "130000"
-        "AttackDamageMax"   "140000"
+        "AttackDamageMin"   "130"
+        "AttackDamageMax"   "135"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -55790,7 +55850,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1210000"
+        "StatusHealth"  "1080"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "100"
         "StatusManaRegen"   "2"
@@ -55841,6 +55901,13 @@
             }
 
         }
+        "RoshpitArmor"          "165"
+        "RoshpitArmorPierce"    "142"
+        "RoshpitSpellPierce"    "48"
+        "RoshpitMagicArmor"     "98"
+        "RoshpitLevel"          "17"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "redfall_crimsyth_bandit"
@@ -55867,8 +55934,8 @@
         "MagicalResistance" "20"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "100000"
-        "AttackDamageMax"   "105000"
+        "AttackDamageMin"   "120"
+        "AttackDamageMax"   "120"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -55882,9 +55949,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "715000"
+        "StatusHealth"  "980"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "100"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -55943,6 +56010,13 @@
         "Ability2"  "redfall_riki_bandit_ai"
         "Ability3"  "use_ability_1_target_ai"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "105"
+        "RoshpitArmorPierce"    "122"
+        "RoshpitSpellPierce"    "121"
+        "RoshpitMagicArmor"     "105"
+        "RoshpitLevel"          "17"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "redfall_farmlands_crymsith_taskmaster"
@@ -55965,8 +56039,8 @@
         "MagicalResistance" "25"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "80000"
-        "AttackDamageMax"   "90000"
+        "AttackDamageMin"   "95"
+        "AttackDamageMax"   "95"
         "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -55982,9 +56056,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "350"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "940000"
+        "StatusHealth"  "1200"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -56039,6 +56113,13 @@
                 }             
             }
         }
+        "RoshpitArmor"          "75"
+        "RoshpitArmorPierce"    "202"
+        "RoshpitSpellPierce"    "141"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "17"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "redfall_meepo_farmer"
@@ -56134,6 +56215,13 @@
 
             }
         }
+        "RoshpitArmor"          "75"
+        "RoshpitArmorPierce"    "75"
+        "RoshpitSpellPierce"    "75"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "10"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "redfall_crimsyth_recruiter"
@@ -56154,14 +56242,14 @@
             "particle"  "particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
             "particle"  "particles/generic_hero_status/status_invisibility_start.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "75"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel" "particles/units/heroes/hero_lion/lion_base_attack.vpcf"
         "ProjectileSpeed"   "500"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "27000"
-        "AttackDamageMax"   "34000"
+        "AttackDamageMin"   "135"
+        "AttackDamageMax"   "145"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
@@ -56176,7 +56264,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "285"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "734200"
+        "StatusHealth"  "1080"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "1000"
         "StatusManaRegen"   "-30"
@@ -56224,6 +56312,13 @@
         }
         "Ability1"  "redfall_crimsyth_recriter_ai"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "84"
+        "RoshpitArmorPierce"    "165"
+        "RoshpitSpellPierce"    "130"
+        "RoshpitMagicArmor"     "214"
+        "RoshpitLevel"          "17"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "redfall_demon_farmer"
@@ -56248,12 +56343,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "95555"
-        "AttackDamageMax"   "10545"
+        "AttackDamageMin"   "180"
+        "AttackDamageMax"   "190"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -56267,10 +56362,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "2734400"
+        "StatusHealth"  "2400"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "50"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -56297,6 +56392,13 @@
 
             }
         }
+        "RoshpitArmor"          "180"
+        "RoshpitArmorPierce"    "166"
+        "RoshpitSpellPierce"    "166"
+        "RoshpitMagicArmor"     "220"
+        "RoshpitLevel"          "20"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "redfall_shipyard_crimsyth_blood_hunter"

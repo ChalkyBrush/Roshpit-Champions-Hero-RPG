@@ -43719,7 +43719,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"190000"
+		"AbilityDamage"					"1000 3000 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -44433,7 +44433,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"immolation_damage"				"600 4000 25000"
+				"immolation_damage"				"50 200 900"
 			}
 			"02"
 			{
@@ -44580,7 +44580,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"whirling_damage"			"1500 18000 120000"
+				"whirling_damage"			"160 500 2700"
 			}
 			"03"
 			{
@@ -44675,12 +44675,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"300 4000 15000"
+				"burn_damage"			"40 120 500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"2400 24000 70000"
+				"impact_damage"		"180 400 1400"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -44717,6 +44717,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"kunkka_tidebringer"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
