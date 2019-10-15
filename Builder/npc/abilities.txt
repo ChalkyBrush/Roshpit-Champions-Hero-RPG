@@ -45593,7 +45593,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"8000 50000 350000"
+		"AbilityDamage"					"150 500 2800"
 
 		"OnOwnerDied"
 		{
@@ -45620,7 +45620,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 60000 350000"
+				"damage"				"150 500 2800"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -45759,12 +45759,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"2000 5000 80000"
+				"damage_min"				"150 500 2000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"10000 100000 600000"
+				"damage_max"				"400 1400 6000"
 			}
 			"03"
 			{
@@ -45784,8 +45784,9 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_hellfire_blast"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilityDamage"			"3000 10000 65000"
+		"AbilityDamage"			"140 420 2100"
 		"AbilitySpecial"
 		{
 			"01"
@@ -45877,7 +45878,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_VICTORY"
 		"AbilityTextureName"			"antimage_mana_void"
 		"AOERadius"						"1300"
-		"AbilityDamage"					"8000 35000 140000"
+		"AbilityDamage"					"500 2000 11000"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -46159,7 +46160,7 @@
 		"AbilityTextureName"	"necrolyte_death_pulse"
 		"AOERadius"		"1650"
 		"MaxLevel"	"3"
-		"AbilityDamage"		"1000 10000 100000"
+		"AbilityDamage"		"85 225 1350"
 		"AbilitySpecial"
 		{
 			"01"
@@ -46393,12 +46394,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 10000 100000"
+				"damage"				"200 1000 8000"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"50 1000 10000"
+				"armor_reduction"		"0"
 			}
 			"05"
 			{
