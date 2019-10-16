@@ -7532,7 +7532,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"500 5000 225000"
+				"damage"				"150 500 1750"
 			}
 			"02"
 			{
@@ -7601,7 +7601,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3500 150000"
+				"damage"			"90 280 1250"
 			}
 		}
 
