@@ -13061,7 +13061,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 5000 500000"
+				"damage"			"75 275 1800"
 			}
 			"02"
 			{
@@ -13120,7 +13120,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_pct_target_max_health"			"5 15 25"
+				"damage_pct_target_max_health"			"4 8 12"
 			}
 		}
 		"Modifiers"
@@ -13163,7 +13163,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"10000 50000 800000"
+				"damage"			"1000 5000 40000"
 			}
 		}
 		"Modifiers"
@@ -13299,7 +13299,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"4000 90000 540000"
+				"damage"	"500 2000 15000"
 			}
 			"01"
 			{
@@ -13378,7 +13378,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"8"
+				"duration"	"5"
 			}
 		}
 		"OnSpellStart"
@@ -13591,7 +13591,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"5000 75000 600000"
+		"AbilityDamage"					"750 2500 14000"
 
 		// Cost
 		//-------------------------------------------------------
@@ -13636,12 +13636,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"back_damage"			"1000 5000 100000"
+				"back_damage"			"250 750 6800"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"main_damage"			"10000 50000 500000"
+				"main_damage"			"2000 6000 50000"
 			}
 		}
 		"Modifiers"
@@ -13886,7 +13886,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"2000 24000 250000"
+				"damage"	"220 720 7400"
 			}
 		}
 	}
@@ -14354,7 +14354,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"4000 24000 225000"
+				"damage"				"400 1350 14000"
 			}
 			"02"
 			{
