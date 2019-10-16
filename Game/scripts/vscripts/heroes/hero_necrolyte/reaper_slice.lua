@@ -139,6 +139,10 @@ function dot_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	if target.dummy then
+		print("Target is a dummy.")
+		return
+	end
 	local damage = ability.r1_damage
 	local r2_level = caster:GetRuneValue("r", 2)
 	local procs = Runes:Procs(r2_level, VENOMORT_ARCANA_1_R2_INSTANCES_FOR_R1, 1)
