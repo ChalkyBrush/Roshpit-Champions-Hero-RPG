@@ -71718,7 +71718,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"600 10000 150000"
+				"damage"			"60 300 2400"
 			}
 			"03"
 			{
@@ -71838,7 +71838,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"120 3000 150000"
+				"damage"			"20 100 600"
 			}
 			"02"
 			{
@@ -72905,7 +72905,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_VERSUS"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1200"
-		"AbilityDamage"					"300 5000 200000"
+		"AbilityDamage"					"60 240 1000"
 		"precache"
 		{
 			"particle"		"particles/roshpit/mystic_assassin/mystic_wave.vpcf"
@@ -73386,7 +73386,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"150 1500 150000"
+				"damage"			"30 110 800"
 			}
 			"02"
 			{
@@ -73498,7 +73498,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 1000000"
+				"damage"			"85 300 2800"
 			}
 		}
 
@@ -73745,7 +73745,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2500 30000 400000"
+				"damage"			"80 400 2000"
 			}
 		}
 
@@ -73836,7 +73836,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"500 2500 60000"
+		"AbilityDamage"					"60 300 2800"
 
 		// Cost
 		//-------------------------------------------------------
@@ -74587,12 +74587,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"20 240 1000"
+				"max_stacks"			"10 100 1000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1 10 100"
+				"damage"			"1 4 70"
 			}
 		}
 		"Modifiers"
@@ -74803,7 +74803,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_burn"			"8 1000 8000"
+				"mana_burn"			"4 20 100"
 			}
 		}
 		"Modifiers"
@@ -75008,7 +75008,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"50 200 1000"
+				"damage"			"10 40 300"
 			}
 			"02"
 			{
@@ -75234,7 +75234,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"				"500 10000 175000"
+				"damage"				"70 280 1500"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -75348,7 +75348,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2500 50000 1000000"
+				"damage"			"100 325 2650"
 			}
 		}
 
@@ -75761,12 +75761,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"wave_damage"			"300 8000 45000"
+				"wave_damage"			"75 300 1800"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"40 400 4000"
+				"burn_damage"			"10 40 240"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -75912,7 +75912,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"nova_damage"			"300 7500 350000"
+				"nova_damage"			"100 400 2500"
 				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_2"
 			}
 		}
@@ -75958,7 +75958,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_second_tooltip"			"200 5000 180000"
+				"damage_per_second_tooltip"			"50 210 1000"
 			}
 			"02"
 			{
@@ -75969,7 +75969,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"hero_damage_tooltip"			"150 200 250 300"
+				"hero_damage_tooltip"			"50 210 1000"
 			}
 			"04"
 			{
@@ -75979,12 +75979,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"creep_damage_tooltip"	"1000"
+				"creep_damage_tooltip"	"50 210 1000"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage"			"200 5000 180000"
+				"damage"			"50 210 1000"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -76875,7 +76875,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"		"500 10000 250000"
+				"damage"		"80 300 2000"
 			}
 		}
 
@@ -77616,7 +77616,7 @@
 		
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"2000 100000 7500000"
+		"AbilityDamage"					"500 2200 12000"
 		
 		// Special
 		//-------------------------------------------------------
@@ -78277,7 +78277,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"2000 20000 500000"
+				"damage"	"240 800 3000"
 			}
 			"03"
 			{
@@ -78762,7 +78762,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"500 5000 225000"
+				"damage"				"150 500 1750"
 			}
 			"02"
 			{
@@ -78831,7 +78831,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3500 150000"
+				"damage"			"90 280 1250"
 			}
 		}
 
@@ -78928,7 +78928,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3000 100000"
+				"damage"			"60 200 2400"
 			}
 		}
 		"Modifiers"
@@ -79370,7 +79370,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_star"			"300 5000 75000"
+				"damage_per_star"			"65 200 1200"
 			}
 			"02"
 			{
@@ -79483,7 +79483,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 145000"
+				"damage"			"75 225 1000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -79546,7 +79546,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 3000 65000"
+				"damage"			"75 250 1800"
 			}
 			"02"
 			{
@@ -79749,7 +79749,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ice_damage"			"3000 55000 250000"
+				"ice_damage"			"300 1000 10000"
 			}
 			"02"
 			{
@@ -79898,7 +79898,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"2000 30000 500000"
+				"nova_damage"			"180 700 8000"
 			}
 		}
 		"Modifiers"
@@ -80207,7 +80207,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3500 150000"
+				"damage"			"65 200 1500"
 			}
 		}
 
@@ -80297,7 +80297,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 5000 350000"
+				"damage"			"200 600 6000"
 			}
 			"02"
 			{
@@ -80461,7 +80461,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 8000 350000"
+				"damage"			"300 1000 11000"
 			}
 		}
 		"Modifiers"
@@ -80792,7 +80792,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"575000"
+				"damage"			"20000"
 			}
 		}
 		"OnOwnerDied"
@@ -80940,7 +80940,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2500 50000 1000000"
+				"damage"			"250 750 12500"
 			}
 		}
 
@@ -82749,7 +82749,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"3000 15000 200000"
+				"poison_damage"			"300 1000 15000"
 			}
 		}
 		"Modifiers"
@@ -83092,7 +83092,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"strike_damage"				"3000 30000 180000"
+				"strike_damage"				"320 800 8000"
 				"LinkedSpecialBonus"		"special_bonus_unique_disruptor_3"
 			}
 		}
@@ -83130,7 +83130,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"arc_damage"			"1000 10000 100000"
+				"arc_damage"			"250 800 6000"
 				"LinkedSpecialBonus"	"special_bonus_unique_zeus_2"
 			}
 			"02"
@@ -83172,7 +83172,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 50000 200000"
+		"AbilityDamage"					"450 1400 11000"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -83356,7 +83356,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 10000 100000"
+				"damage"			"100 350 4500"
 			}
 			"03"
 			{
@@ -83425,7 +83425,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"3000 30000 300000"
+				"damage_per_tick"			"300 900 9800"
 			}
 			"02"
 			{
@@ -83529,7 +83529,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1550 14500 235000"
+				"damage"			"350 1000 10000"
 			}
 		}
 		"OnOwnerDied"
@@ -117827,7 +117827,7 @@
 		"AbilityManaCost"				"0"
 
 		//Damage
-		"AbilityDamage"					"1000 5000 35000"
+		"AbilityDamage"					"60 300 2200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -121077,12 +121077,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"300 20000 200000"
+				"strike_damage"			"100 400 7000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_damage"			"100 1000 10000"
+				"tick_damage"			"40 125 1050"
 			}
 			"04"
 			{
@@ -150216,7 +150216,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"stomp_damage"					"1000 30000 200000"
+				"stomp_damage"					"400 1200 12000"
 			}
 		}
 	}

@@ -35085,12 +35085,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"300 20000 200000"
+				"strike_damage"			"100 400 7000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_damage"			"100 1000 10000"
+				"tick_damage"			"40 125 1050"
 			}
 			"04"
 			{

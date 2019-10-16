@@ -85686,8 +85686,8 @@
             "particle"     "particles/econ/events/league_teleport_2014/teleport_end_dust_league.vpcf"
             "particle"     "particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_frostbite_snow_explode.vpcf"
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "ProjectileModel"   "particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_base_attack.vpcf"
         "ProjectileSpeed"   "600"
@@ -85709,7 +85709,7 @@
         "MovementSpeed" "220"
         "MovementTurnRate"  "2"
         "FollowRange"   "0"
-        "StatusHealth"  "6000"
+        "StatusHealth"  "200"
         "StatusHealthRegen" "0"
         "StatusMana"    "0"
         "StatusManaRegen"   "0"
@@ -85719,6 +85719,13 @@
         "VisionDaytimeRange"    "0"
         "VisionNighttimeRange"  "0"
         "AttackDesire"  "1.5"
+        "RoshpitArmor"          "16"
+        "RoshpitArmorPierce"    "0"
+        "RoshpitSpellPierce"    "0"
+        "RoshpitMagicArmor"     "28"
+        "RoshpitLevel"          "2"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_snow_crab"
@@ -85736,12 +85743,12 @@
 
         }
 
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "88"
-        "AttackDamageMax"   "98"
+        "AttackDamageMin"   "5"
+        "AttackDamageMax"   "6"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
@@ -85756,10 +85763,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1400"
+        "StatusHealth"  "40"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -85789,7 +85796,13 @@
 
         }
         "Ability1"  "dungeon_creep"
-
+        "RoshpitArmor"          "10"
+        "RoshpitArmorPierce"    "3"
+        "RoshpitSpellPierce"    "1"
+        "RoshpitMagicArmor"     "8"
+        "RoshpitLevel"          "1"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_seal"
@@ -85811,8 +85824,8 @@
         "MagicalResistance" "25"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "80"
-        "AttackDamageMax"   "100"
+        "AttackDamageMin"   "18"
+        "AttackDamageMax"   "20"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "100"
@@ -85826,10 +85839,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "2800"
+        "StatusHealth"  "140"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "seafortress_ghost_seal_ability"
@@ -85853,6 +85866,13 @@
             }
 
         }
+        "RoshpitArmor"          "21"
+        "RoshpitArmorPierce"    "14"
+        "RoshpitSpellPierce"    "10"
+        "RoshpitMagicArmor"     "32"
+        "RoshpitLevel"          "3"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_mountain_ogre"
@@ -85874,12 +85894,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "100"
-        "AttackDamageMax"   "115"
+        "AttackDamageMin"   "26"
+        "AttackDamageMax"   "30"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "100"
@@ -85893,10 +85913,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "8200"
+        "StatusHealth"  "210"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "400"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "winterblight_ogre_armor"
@@ -85921,6 +85941,13 @@
             }
 
         }
+        "RoshpitArmor"          "34"
+        "RoshpitArmorPierce"    "22"
+        "RoshpitSpellPierce"    "8"
+        "RoshpitMagicArmor"     "38"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_ancient_monolith"
@@ -85943,8 +85970,8 @@
         {
             "particle"  "particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl2_dest.vpcf"
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "ProjectileModel"   "particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_base_attack.vpcf"
         "ProjectileSpeed"   "600"
@@ -85976,6 +86003,13 @@
         "VisionDaytimeRange"    "0"
         "VisionNighttimeRange"  "0"
         "AttackDesire"  "1.5"
+        "RoshpitArmor"          "40"
+        "RoshpitArmorPierce"    "0"
+        "RoshpitSpellPierce"    "0"
+        "RoshpitMagicArmor"     "40"
+        "RoshpitLevel"          "3"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_ice_champion_raxxus"
@@ -85997,12 +86031,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "100"
-        "AttackDamageMax"   "115"
+        "AttackDamageMin"   "36"
+        "AttackDamageMax"   "36"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "100"
@@ -86016,9 +86050,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "410"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "18200"
+        "StatusHealth"  "310"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -86045,6 +86079,13 @@
             }
 
         }
+        "RoshpitArmor"          "32"
+        "RoshpitArmorPierce"    "48"
+        "RoshpitSpellPierce"    "42"
+        "RoshpitMagicArmor"     "34"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "2"
     }
 
     "descent_of_winterblight_aertega"
@@ -86072,12 +86113,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "99"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "29500000"
-        "AttackDamageMax"   "32000000"
+        "AttackDamageMin"   "2000"
+        "AttackDamageMax"   "2000"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "2500"
@@ -86091,10 +86132,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "93400000"
+        "StatusHealth"  "14000"
         "StatusHealthRegen" "10"
         "StatusMana"    "200000"
-        "StatusManaRegen"   "300000"
+        "StatusManaRegen"   "1000"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "DrawParticlesWhileHidden" "1"
@@ -86139,6 +86180,13 @@
 
             }
         }
+        "RoshpitArmor"          "245"
+        "RoshpitArmorPierce"    "320"
+        "RoshpitSpellPierce"    "420"
+        "RoshpitMagicArmor"     "400"
+        "RoshpitLevel"          "34"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "descent_of_winterblight_torturok"
@@ -86172,8 +86220,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Tidehunter"
-        "ArmorPhysical" "6"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1550"
@@ -86190,7 +86238,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "14000000"
+        "StatusHealth"  "21000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -86253,6 +86301,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "400"
+        "RoshpitArmorPierce"    "390"
+        "RoshpitSpellPierce"    "200"
+        "RoshpitMagicArmor"     "440"
+        "RoshpitLevel"          "34"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "descent_of_winterblight_ozubu"
@@ -86280,12 +86335,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Broodmother"
-        "ArmorPhysical" "25"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2065000"
-        "AttackDamageMax"   "2425000"
+        "AttackDamageMin"   "2300"
+        "AttackDamageMax"   "2300"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -86300,7 +86355,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "3600400"
+        "StatusHealth"  "17800"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -86355,6 +86410,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "225"
+        "RoshpitArmorPierce"    "520"
+        "RoshpitSpellPierce"    "360"
+        "RoshpitMagicArmor"     "240"
+        "RoshpitLevel"          "34"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "ozubu_spiderling"
@@ -86376,8 +86438,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "12000"
-        "AttackDamageMax"   "24000"
+        "AttackDamageMin"   "340"
+        "AttackDamageMax"   "350"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "3500"
@@ -86391,7 +86453,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "520"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "58000"
+        "StatusHealth"  "2400"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -86422,6 +86484,13 @@
         "Ability1"  "ozubu_spiderling_passive"
         "Ability2"  "sea_fortress_leaflet_passive"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "205"
+        "RoshpitArmorPierce"    "380"
+        "RoshpitSpellPierce"    "200"
+        "RoshpitMagicArmor"     "210"
+        "RoshpitLevel"          "33"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "aggressive_monster"
@@ -86439,12 +86508,12 @@
             "particle"  "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
         }
 
-        "ArmorPhysical" "3"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "68"
-        "AttackDamageMax"   "78"
+        "AttackDamageMin"   "16"
+        "AttackDamageMax"   "17"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
@@ -86459,10 +86528,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "2850"
+        "StatusHealth"  "125"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "5"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -86494,7 +86563,13 @@
         "Ability1"  "dungeon_creep"
         "Ability2"  "mountain_critter_ai"
         "Ability3"  "juggernaut_blade_dance"
-
+        "RoshpitArmor"          "16"
+        "RoshpitArmorPierce"    "28"
+        "RoshpitSpellPierce"    "10"
+        "RoshpitMagicArmor"     "24"
+        "RoshpitLevel"          "3"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "mountain_assassin"
@@ -86517,12 +86592,12 @@
             "particle"  "particles/econ/events/winter_major_2017/dagon_wm07.vpcf"
         }
 
-        "ArmorPhysical" "3"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "180"
-        "AttackDamageMax"   "280"
+        "AttackDamageMin"   "24"
+        "AttackDamageMax"   "26"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "1000"
@@ -86537,9 +86612,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "14500"
+        "StatusHealth"  "135"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -86573,6 +86648,13 @@
         "Ability2"  "mountain_assassin_ability"
         "Ability3"  "assassin_charge_blast"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "26"
+        "RoshpitArmorPierce"    "30"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "16"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "ice_beetle"
@@ -86593,13 +86675,13 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "120"
-        "AttackDamageMax"   "160"
+        "AttackDamageMin"   "19"
+        "AttackDamageMax"   "20"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.6"
         "AttackAcquisitionRange"    "0"
@@ -86611,17 +86693,13 @@
         "RingRadius"    "50"
         "CollisionSize" "24"
         "FormationRank" "2"
-        "GoldCost"  "205"
-        "LumberCost"    "30"
-        "FoodCost"  "3"
-        "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "350"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "12260"
+        "StatusHealth"  "145"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "5"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -86666,6 +86744,13 @@
             }
 
         }
+        "RoshpitArmor"          "42"
+        "RoshpitArmorPierce"    "18"
+        "RoshpitSpellPierce"    "2"
+        "RoshpitMagicArmor"     "12"
+        "RoshpitLevel"          "3"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_wolf"
@@ -86683,12 +86768,12 @@
             "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
         }
 
-        "ArmorPhysical" "3"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "148"
-        "AttackDamageMax"   "188"
+        "AttackDamageMin"   "32"
+        "AttackDamageMax"   "32"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
@@ -86703,10 +86788,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "4850"
+        "StatusHealth"  "125"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "80"
+        "StatusManaRegen"   "2"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -86738,7 +86823,13 @@
         "Ability1"  "dungeon_creep"
         "Ability2"  "winterblight_wolf_ability"
         "Ability3"  "alpha_wolf_critical_strike"
-
+        "RoshpitArmor"          "18"
+        "RoshpitArmorPierce"    "38"
+        "RoshpitSpellPierce"    "9"
+        "RoshpitMagicArmor"     "14"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_ice_crystal"
@@ -86758,8 +86849,8 @@
             "particle"  "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_c_ti5.vpcf"
         }
 
-        "ArmorPhysical" "3"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "148"
@@ -86811,7 +86902,13 @@
 
         }
         "Ability1"  "winterblight_ice_crystal"
-
+        "RoshpitArmor"          "20"
+        "RoshpitArmorPierce"    "14"
+        "RoshpitSpellPierce"    "18"
+        "RoshpitMagicArmor"     "24"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_living_ice"
@@ -86837,15 +86934,15 @@
 
         // Armor
         //--------------------------------
-        "ArmorPhysical"             "5"         // Physical protection.
-        "MagicalResistance"         "30"        // Magical protection.
+        "ArmorPhysical"             "0"         // Physical protection.
+        "MagicalResistance"         "0"        // Magical protection.
 
         // Attack
         //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "20"
-        "AttackDamageMax"   "30"
+        "AttackDamageMin"   "10"
+        "AttackDamageMax"   "12"
         "AttackRate"    "3"
         "AttackAnimationPoint"  "0.17"
         "AttackAcquisitionRange"    "0"
@@ -86875,7 +86972,7 @@
 
         // Status
         //--------------------------------
-        "StatusHealth"              "24400"       // Base health.
+        "StatusHealth"              "70"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
@@ -86911,6 +87008,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "18"
+        "RoshpitArmorPierce"    "8"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "20"
+        "RoshpitLevel"          "3"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_mountain_dweller"
@@ -86929,12 +87033,12 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "5"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "125"
-        "AttackDamageMax"   "140"
+        "AttackDamageMin"   "32"
+        "AttackDamageMax"   "34"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
@@ -86949,9 +87053,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "5400"
-        "StatusHealthRegen" "0.25"
-        "StatusMana"    "1000"
+        "StatusHealth"  "195"
+        "StatusHealthRegen" "0.5"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -86996,6 +87100,13 @@
         "Ability2"  "normal_steadfast"
         "Ability3"  "winterblight_mountain_dweller_passive"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "22"
+        "RoshpitArmorPierce"    "14"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "32"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "frostiok"
@@ -87018,8 +87129,8 @@
         "MagicalResistance" "35"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1550"
-        "AttackDamageMax"   "1850"
+        "AttackDamageMin"   "26"
+        "AttackDamageMax"   "27"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -87032,10 +87143,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "24000"
+        "StatusHealth"  "230"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -87088,6 +87199,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "30"
+        "RoshpitArmorPierce"    "12"
+        "RoshpitSpellPierce"    "9"
+        "RoshpitMagicArmor"     "35"
+        "RoshpitLevel"          "5"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_icewrack_marauder"
@@ -87106,12 +87224,12 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "3"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "150"
-        "AttackDamageMax"   "250"
+        "AttackDamageMin"   "25"
+        "AttackDamageMax"   "29"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
@@ -87126,10 +87244,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "3000"
+        "StatusHealth"  "195"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"              "DOTA_TEAM_NEUTRALS"
@@ -87181,6 +87299,13 @@
         "Ability4"  "normal_steadfast"
         "Ability5"  "winterblight_marauder_passive"
         "Ability6"  "dungeon_creep"
+        "RoshpitArmor"          "24"
+        "RoshpitArmorPierce"    "52"
+        "RoshpitSpellPierce"    "4"
+        "RoshpitMagicArmor"     "12"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_chilling_colossus"
@@ -87201,12 +87326,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
-        "ArmorPhysical" "8"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "805"
-        "AttackDamageMax"   "845"
+        "AttackDamageMin"   "56"
+        "AttackDamageMax"   "56"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -87221,10 +87346,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "240"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "54400"
+        "StatusHealth"  "360"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -87272,6 +87397,13 @@
             }
 
         }
+        "RoshpitArmor"          "52"
+        "RoshpitArmorPierce"    "24"
+        "RoshpitSpellPierce"    "18"
+        "RoshpitMagicArmor"     "45"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_norgok_the_ice_rider"
@@ -87295,12 +87427,12 @@
             "particle"  "particles/roshpit/winterblight/norgok_aura_ring.vpcf"
             "particle"  "particles/roshpit/items/ice_quill_explosion.vpcf"
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "3000"
+        "AttackDamageMin"   "88"
+        "AttackDamageMax"   "90"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -87319,10 +87451,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "65000"
+        "StatusHealth"  "440"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "40"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -87376,7 +87508,13 @@
             }
 
         }
-
+        "RoshpitArmor"          "64"
+        "RoshpitArmorPierce"    "55"
+        "RoshpitSpellPierce"    "42"
+        "RoshpitMagicArmor"     "58"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
 
     }
 
@@ -87399,12 +87537,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Earthshaker"
-        "ArmorPhysical" "25"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "265"
-        "AttackDamageMax"   "325"
+        "AttackDamageMin"   "41"
+        "AttackDamageMax"   "42"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -87419,10 +87557,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "30400"
+        "StatusHealth"  "185"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "235"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -87472,6 +87610,13 @@
 
             }
         }
+        "RoshpitArmor"          "37"
+        "RoshpitArmorPierce"    "21"
+        "RoshpitSpellPierce"    "8"
+        "RoshpitMagicArmor"     "42"
+        "RoshpitLevel"          "5"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_frigid_growth"
@@ -87495,11 +87640,11 @@
         "Ability4"  "dungeon_creep"
         "Ability5"  "use_ability_1_no_target_ai"
         "Ability6"  ""
-        "ArmorPhysical" "1500"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"   "900"
-        "AttackDamageMax"   "1200"
+        "AttackDamageMin"   "41"
+        "AttackDamageMax"   "42"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.253"
@@ -87524,7 +87669,7 @@
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
         "FollowRange"   "0"
-        "StatusHealth"  "60000"
+        "StatusHealth"  "210"
         "StatusHealthRegen" "0"
         "StatusMana"    "0"
         "StatusManaRegen"   "0"
@@ -87556,6 +87701,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "52"
+        "RoshpitArmorPierce"    "13"
+        "RoshpitSpellPierce"    "21"
+        "RoshpitMagicArmor"     "42"
+        "RoshpitLevel"          "5"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_ice_summoner"
@@ -87576,12 +87728,12 @@
             "particle"  "particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf"
             "particle"  "particles/act_2/blob_launch_impact_hit_smoke.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "65"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1000"
-        "AttackDamageMax"   "1000"
+        "AttackDamageMin"   "38"
+        "AttackDamageMax"   "38"
         "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -87597,10 +87749,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "34000"
+        "StatusHealth"  "210"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "50"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "winterblight_summoner_blink"
@@ -87655,6 +87807,13 @@
                 }         
             }
         }
+        "RoshpitArmor"          "9"
+        "RoshpitArmorPierce"    "15"
+        "RoshpitSpellPierce"    "41"
+        "RoshpitMagicArmor"     "62"
+        "RoshpitLevel"          "5"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_summon_a"
@@ -87674,12 +87833,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "6"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "350.0"
-        "AttackDamageMax"   "450.0"
+        "AttackDamageMin"   "17"
+        "AttackDamageMax"   "18"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.2"
         "AttackAcquisitionRange"    "2000"
@@ -87696,10 +87855,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "410"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "7800"
+        "StatusHealth"  "120"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -87726,6 +87885,13 @@
         "Ability1"          "armor_break"
         "Ability2"          "winterblight_generic_chill_attack_passive"
         "Ability3"          "dungeon_creep"
+        "RoshpitArmor"          "12"
+        "RoshpitArmorPierce"    "24"
+        "RoshpitSpellPierce"    "31"
+        "RoshpitMagicArmor"     "32"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_dashing_swordsman"
@@ -87747,12 +87913,12 @@
             "particle"      "particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
             "particle"      "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
         }
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "2200"
+        "AttackDamageMin"   "48"
+        "AttackDamageMax"   "48"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -87766,10 +87932,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "32800"
+        "StatusHealth"  "195"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -87830,6 +87996,13 @@
         "Ability4"  "creature_black_king_bar"
         "Ability5"  "dungeon_creep"
         "Ability6"  "use_ability_1_position_ai"
+        "RoshpitArmor"          "42"
+        "RoshpitArmorPierce"    "36"
+        "RoshpitSpellPierce"    "18"
+        "RoshpitMagicArmor"     "32"
+        "RoshpitLevel"          "6"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_mistral_assassin"
@@ -87853,8 +88026,8 @@
             "particle"  "particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf"
         }
 
-        "ArmorPhysical" "5"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "200"
@@ -87872,10 +88045,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.2"
-        "StatusHealth"  "16600"
+        "StatusHealth"  "215"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
 
@@ -87931,6 +88104,13 @@
             }
 
         }
+        "RoshpitArmor"          "40"
+        "RoshpitArmorPierce"    "56"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "22"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_frost_orchid"
@@ -87949,12 +88129,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
         }
         "SoundSet"                  "hero_Crystal" 
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "140"
-        "AttackDamageMax"   "180"
+        "AttackDamageMin"   "27"
+        "AttackDamageMax"   "29"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -87971,10 +88151,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
         "MovementSpeed" "410"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "28000"
+        "StatusHealth"  "185"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "00"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -88000,6 +88180,13 @@
         }
         "Ability1"          "winterblight_generic_chill_attack_passive"
         "Ability2"          "dungeon_creep"
+        "RoshpitArmor"          "32"
+        "RoshpitArmorPierce"    "38"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "24"
+        "RoshpitLevel"          "5"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_winterbear"
@@ -88018,13 +88205,13 @@
         {
             "particle"  "particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_debuff.vpcf"
         }
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1400"
-        "AttackDamageMax"   "1500"
-        "AttackRate"    "0.6"
+        "AttackDamageMin"   "48"
+        "AttackDamageMax"   "54"
+        "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
@@ -88037,10 +88224,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "72800"
+        "StatusHealth"  "285"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "5"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -88068,6 +88255,13 @@
         "Ability1"  "winterblight_bear_passive"
         "Ability2"  "normal_steadfast"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "64"
+        "RoshpitArmorPierce"    "26"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "46"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_void_spawn"
@@ -88086,12 +88280,12 @@
         {
             "particle"  "particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff_beams.vpcf"
         }
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "150"
-        "AttackDamageMax"   "200"
+        "AttackDamageMin"   "35"
+        "AttackDamageMax"   "39"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -88105,7 +88299,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "72800"
+        "StatusHealth"  "175"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -88132,6 +88326,13 @@
             }
         }
         "Ability1"  "dungeon_creep"
+        "RoshpitArmor"          "34"
+        "RoshpitArmorPierce"    "36"
+        "RoshpitSpellPierce"    "18"
+        "RoshpitMagicArmor"     "42"
+        "RoshpitLevel"          "5"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_ice_satyr"
@@ -88150,12 +88351,12 @@
         {
 
         }
-        "ArmorPhysical" "2"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "150"
-        "AttackDamageMax"   "200"
+        "AttackDamageMin"   "36"
+        "AttackDamageMax"   "38"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -88171,9 +88372,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "12800"
+        "StatusHealth"  "185"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "500"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -88199,6 +88400,13 @@
         }
         "Ability1"  "winter_satyr_heal"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "10"
+        "RoshpitArmorPierce"    "12"
+        "RoshpitSpellPierce"    "52"
+        "RoshpitMagicArmor"     "66"
+        "RoshpitLevel"          "6"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_icetaur"
@@ -88217,12 +88425,12 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "220"
-        "AttackDamageMax"   "240"
+        "AttackDamageMin"   "35"
+        "AttackDamageMax"   "36"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -88236,7 +88444,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "32800"
+        "StatusHealth"  "275"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -88264,6 +88472,13 @@
         }
         "Ability1"  "winterblight_endurance"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "58"
+        "RoshpitArmorPierce"    "36"
+        "RoshpitSpellPierce"    "7"
+        "RoshpitMagicArmor"     "54"
+        "RoshpitLevel"          "6"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_frostbite_spiderling"
@@ -88287,8 +88502,8 @@
         "MagicalResistance" "50"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "220"
-        "AttackDamageMax"   "240"
+        "AttackDamageMin"   "20"
+        "AttackDamageMax"   "21"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -88302,10 +88517,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "9800"
+        "StatusHealth"  "165"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "2"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -88330,6 +88545,13 @@
         }
         "Ability1"  "winterblight_frostbite_attack"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "21"
+        "RoshpitArmorPierce"    "32"
+        "RoshpitSpellPierce"    "18"
+        "RoshpitMagicArmor"     "26"
+        "RoshpitLevel"          "6"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_rider_of_azalea"
@@ -88350,14 +88572,14 @@
             "particle"  "particles/roshpit/sorceress/shield_shatter.vpcf"
             "particle"  "particles/roshpit/winterblight/luna_shield.vpcf"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "840"
         "ProjectileModel"       "particles/units/heroes/hero_luna/luna_base_attack.vpcf"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "300"
-        "AttackDamageMax"   "350"
+        "AttackDamageMin"   "54"
+        "AttackDamageMax"   "54"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.2"
         "AttackAcquisitionRange"    "0"
@@ -88372,9 +88594,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "350"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "75000"
+        "StatusHealth"  "285"
         "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
+        "StatusMana"    "300"
         "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1000"
         "VisionNighttimeRange"  "1000"
@@ -88417,7 +88639,13 @@
                 }
             }
         }
-
+        "RoshpitArmor"          "36"
+        "RoshpitArmorPierce"    "46"
+        "RoshpitSpellPierce"    "52"
+        "RoshpitMagicArmor"     "56"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azure_sorceress"
@@ -88441,8 +88669,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "3000"
+        "AttackDamageMin"   "45"
+        "AttackDamageMax"   "47"
         "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -88459,9 +88687,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "103400"
+        "StatusHealth"  "260"
         "StatusHealthRegen" "10"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -88506,6 +88734,13 @@
 
             }
         }
+        "RoshpitArmor"          "18"
+        "RoshpitArmorPierce"    "32"
+        "RoshpitSpellPierce"    "57"
+        "RoshpitMagicArmor"     "66"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_frost_avatar"
@@ -88526,12 +88761,12 @@
             "particle"  "particles/econ/items/antimage/antimage_weapon_basher_ti5/leshrac_wall_burn.vpcf"
             "particle"  "particles/units/heroes/hero_invoker/invoker_emp.vpcf"
         }
-        "ArmorPhysical" "5"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2204"
-        "AttackDamageMax"   "3050"
+        "AttackDamageMin"   "75"
+        "AttackDamageMax"   "75"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -88545,10 +88780,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "395"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "120000"
+        "StatusHealth"  "300"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -88598,6 +88833,13 @@
             }
 
         }
+        "RoshpitArmor"          "32"
+        "RoshpitArmorPierce"    "26"
+        "RoshpitSpellPierce"    "42"
+        "RoshpitMagicArmor"     "76"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_frost_elemental"
@@ -88620,8 +88862,8 @@
         "MagicalResistance" "5"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1500"
-        "AttackDamageMax"   "2000"
+        "AttackDamageMin"   "56"
+        "AttackDamageMax"   "60"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -88637,9 +88879,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "90000"
+        "StatusHealth"  "330"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "100"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -88693,6 +88935,13 @@
             }
 
         }
+        "RoshpitArmor"          "44"
+        "RoshpitArmorPierce"    "31"
+        "RoshpitSpellPierce"    "42"
+        "RoshpitMagicArmor"     "66"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_frost_frigid_hulk"
@@ -88715,8 +88964,8 @@
         "MagicalResistance" "5"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4500"
-        "AttackDamageMax"   "6000"
+        "AttackDamageMin"   "90"
+        "AttackDamageMax"   "90"
         "AttackRate"    "1.22"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -88730,10 +88979,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "290"
         "MovementTurnRate"  "0.7"
-        "StatusHealth"  "90000"
+        "StatusHealth"  "700"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "ice_hulk_passive"
@@ -88763,6 +89012,13 @@
             }
 
         }
+        "RoshpitArmor"          "98"
+        "RoshpitArmorPierce"    "56"
+        "RoshpitSpellPierce"    "16"
+        "RoshpitMagicArmor"     "56"
+        "RoshpitLevel"          "9"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalean_priest"
@@ -88787,11 +89043,11 @@
             "particle"  "particles/roshpit/seafortress/big_dust.vpcf"
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "300"
-        "AttackDamageMax"   "400"
+        "AttackDamageMin"   "45"
+        "AttackDamageMax"   "46"
         "AttackRate"    "1.15"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -88805,9 +89061,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "125000"
+        "StatusHealth"  "310"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "500"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -88857,6 +89113,13 @@
             }
 
         }
+        "RoshpitArmor"          "21"
+        "RoshpitArmorPierce"    "24"
+        "RoshpitSpellPierce"    "56"
+        "RoshpitMagicArmor"     "76"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalea_frost_titan"
@@ -88880,12 +89143,12 @@
             "particle"  "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
             "particle"  "particles/roshpit/winterblight/azalea_orb.vpcf"
         }
-        "ArmorPhysical" "30"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "6000"
-        "AttackDamageMax"   "7000"
+        "AttackDamageMin"   "112"
+        "AttackDamageMax"   "112"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -88899,9 +89162,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "500000"
+        "StatusHealth"  "1000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -88961,6 +89224,13 @@
 
             }
         }
+        "RoshpitArmor"          "61"
+        "RoshpitArmorPierce"    "44"
+        "RoshpitSpellPierce"    "36"
+        "RoshpitMagicArmor"     "89"
+        "RoshpitLevel"          "10"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
     }
 
     "winterblight_dimension_walker"
@@ -88980,12 +89250,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
             "particle"  "particles/items_fx/courier_shield_b.vpcf"
         }
-        "ArmorPhysical" "5"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2400"
-        "AttackDamageMax"   "3400"
+        "AttackDamageMin"   "30"
+        "AttackDamageMax"   "32"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "3000"
@@ -89002,9 +89272,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "80000"
+        "StatusHealth"  "670"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -89039,6 +89309,13 @@
             }
 
         }
+        "RoshpitArmor"          "41"
+        "RoshpitArmorPierce"    "72"
+        "RoshpitSpellPierce"    "64"
+        "RoshpitMagicArmor"     "72"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_puck"
@@ -89062,8 +89339,8 @@
         "MagicalResistance" "90"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1500"
-        "AttackDamageMax"   "2000"
+        "AttackDamageMin"   "81"
+        "AttackDamageMax"   "81"
         "AttackRate"    "2"
         "AttackAnimationPoint"  "0.27"
         "AttackAcquisitionRange"    "0"
@@ -89080,10 +89357,10 @@
         "MovementSpeed" "300"
         "MovementTurnRate"  "0.4"
         "ShouldDoFlyHeightVisual"   "1"
-        "StatusHealth"  "17200"
+        "StatusHealth"  "345"
         "StatusHealthRegen" "100"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "0"
+        "StatusMana"    "450"
+        "StatusManaRegen"   "30"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -89126,7 +89403,13 @@
 
             }
         }
-
+        "RoshpitArmor"          "28"
+        "RoshpitArmorPierce"    "14"
+        "RoshpitSpellPierce"    "56"
+        "RoshpitMagicArmor"     "64"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "frost_whelpling"
@@ -89149,9 +89432,9 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "4000"
-        "AttackRate"    "2"
+        "AttackDamageMin"   "48"
+        "AttackDamageMax"   "52"
+        "AttackRate"    "1.8"
         "AttackAnimationPoint"  "0.27"
         "AttackAcquisitionRange"    "99999"
         "AttackRange"   "540"
@@ -89166,10 +89449,10 @@
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.4"
         "ShouldDoFlyHeightVisual"   "1"
-        "StatusHealth"  "946200"
+        "StatusHealth"  "415"
         "StatusHealthRegen" "100"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "0"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -89202,7 +89485,13 @@
 
             }
         }
-
+        "RoshpitArmor"          "49"
+        "RoshpitArmorPierce"    "44"
+        "RoshpitSpellPierce"    "56"
+        "RoshpitMagicArmor"     "72"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_frost_creep"
@@ -89221,12 +89510,12 @@
         {
 
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1500"
-        "AttackDamageMax"   "2000"
+        "AttackDamageMin"   "52"
+        "AttackDamageMax"   "56"
         "AttackRate"    "1.22"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -89240,10 +89529,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "290"
         "MovementTurnRate"  "0.7"
-        "StatusHealth"  "65000"
+        "StatusHealth"  "245"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "50"
+        "StatusManaRegen"   "1"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "winterblight_generic_chill_attack_passive"
@@ -89273,6 +89562,13 @@
             }
 
         }
+        "RoshpitArmor"          "62"
+        "RoshpitArmorPierce"    "54"
+        "RoshpitSpellPierce"    "26"
+        "RoshpitMagicArmor"     "32"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalea_zealot"
@@ -89292,12 +89588,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
             "particle"  "particles/roshpit/winterblight/zealot_wave.vpcf"
         }
-        "ArmorPhysical" "5"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "24000"
-        "AttackDamageMax"   "34000"
+        "AttackDamageMin"   "82"
+        "AttackDamageMax"   "82"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "3000"
@@ -89314,7 +89610,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "80000"
+        "StatusHealth"  "865"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -89359,6 +89655,13 @@
             }
 
         }
+        "RoshpitArmor"          "100"
+        "RoshpitArmorPierce"    "84"
+        "RoshpitSpellPierce"    "100"
+        "RoshpitMagicArmor"     "100"
+        "RoshpitLevel"          "9"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "winterblight_cold_seer"
@@ -89379,12 +89682,12 @@
             "particle"  "particles/roshpit/winterblight/cold_seer_icefall.vpcf"
             "particle"  "particles/roshpit/winterblight/cold_seer_wave_burn.vpcf"
         }
-        "ArmorPhysical" "7"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "800"
-        "AttackDamageMax"   "900"
+        "AttackDamageMin"   "54"
+        "AttackDamageMax"   "56"
         "AttackRate"    "0.3"
         "AttackAnimationPoint"  "0.6"
         "AttackAcquisitionRange"    "0"
@@ -89398,9 +89701,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "350"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "80000"
+        "StatusHealth"  "520"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "500"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -89462,7 +89765,13 @@
             }
 
         }
-
+        "RoshpitArmor"          "54"
+        "RoshpitArmorPierce"    "22"
+        "RoshpitSpellPierce"    "62"
+        "RoshpitMagicArmor"     "85"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_softwalker"
@@ -89485,8 +89794,8 @@
         "MagicalResistance" "35"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2400"
-        "AttackDamageMax"   "2400"
+        "AttackDamageMin"   "90"
+        "AttackDamageMax"   "90"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.6"
         "AttackAcquisitionRange"    "0"
@@ -89500,10 +89809,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "125000"
+        "StatusHealth"  "680"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "40"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -89560,7 +89869,13 @@
             }
 
         }
-
+        "RoshpitArmor"          "64"
+        "RoshpitArmorPierce"    "45"
+        "RoshpitSpellPierce"    "54"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "8"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalea_archer"
@@ -89579,14 +89894,14 @@
         {
 
         }
-        "ArmorPhysical" "3"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "1500"
         "ProjectileModel"       "particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "150"
-        "AttackDamageMax"   "200"
+        "AttackDamageMin"   "32"
+        "AttackDamageMax"   "32"
         "AttackRate"    "0.4"
         "AttackAnimationPoint"  "0.7"
         "AttackAcquisitionRange"    "0"
@@ -89601,10 +89916,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "8122040"
+        "StatusHealth"  "215"
         "StatusHealthRegen" "10"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "0"
         "VisionNighttimeRange"  "0"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -89649,7 +89964,13 @@
                 }
             }
         }
-
+        "RoshpitArmor"          "24"
+        "RoshpitArmorPierce"    "92"
+        "RoshpitSpellPierce"    "42"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "7"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_maiden_of_azalea"
@@ -89685,8 +90006,8 @@
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"   "500"
-        "AttackDamageMax"   "500"
+        "AttackDamageMin"   "24"
+        "AttackDamageMax"   "26"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.3"
@@ -89702,12 +90023,12 @@
         "CollisionSize" "0"
         "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "StatusHealth"  "150000"
+        "StatusHealth"  "450"
         "StatusHealthRegen" "0"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
         "StatusMana"    "10000"
-        "StatusManaRegen"   "10000"
+        "StatusManaRegen"   "20"
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -89743,6 +90064,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "28"
+        "RoshpitArmorPierce"    "34"
+        "RoshpitSpellPierce"    "94"
+        "RoshpitMagicArmor"     "125"
+        "RoshpitLevel"          "9"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_zefnar"
@@ -89765,12 +90093,12 @@
             "particle"      "particles/roshpit/winterblight/zefnar_root_debuff.vpcf"
             "particle"      "particles/roshpit/winterblight/zefnar_meteor_attack.vpcf"
         }
-        "ArmorPhysical" "30"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "8000"
-        "AttackDamageMax"   "9000"
+        "AttackDamageMin"   "120"
+        "AttackDamageMax"   "120"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -89782,7 +90110,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "50000"
+        "StatusHealth"  "1000"
         "StatusHealthRegen" "0"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -89850,6 +90178,13 @@
             }
 
         }
+        "RoshpitArmor"          "66"
+        "RoshpitArmorPierce"    "66"
+        "RoshpitSpellPierce"    "66"
+        "RoshpitMagicArmor"     "66"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
     }
 
     "winterblight_syphist"
@@ -89870,12 +90205,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ArcWarden"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3555"
-        "AttackDamageMax"   "4555"
+        "AttackDamageMin"   "75"
+        "AttackDamageMax"   "75"
         "AttackRate"    "1.7"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -89892,10 +90227,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "900000"
-        "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusHealth"  "300"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -89937,6 +90272,13 @@
         }
         "Ability1"          "winterblight_syphon"
         "Ability2"          "dungeon_creep"
+        "RoshpitArmor"          "48"
+        "RoshpitArmorPierce"    "54"
+        "RoshpitSpellPierce"    "62"
+        "RoshpitMagicArmor"     "65"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_source_revenant"
@@ -89977,10 +90319,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "300"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "175000"
+        "StatusHealth"  "500"
         "StatusHealthRegen" "3"
-        "StatusMana"    "100000"
-        "StatusManaRegen"   "-5000"
+        "StatusMana"    "10000"
+        "StatusManaRegen"   "-500"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -90022,6 +90364,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "56"
+        "RoshpitArmorPierce"    "64"
+        "RoshpitSpellPierce"    "72"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "12"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_skater_fiend"
@@ -90045,8 +90394,8 @@
         "MagicalResistance" "50"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "10000"
-        "AttackDamageMax"   "12000"
+        "AttackDamageMin"   "94"
+        "AttackDamageMax"   "94"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -90063,9 +90412,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "218000"
+        "StatusHealth"  "565"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -90113,7 +90462,13 @@
                 }
             }
         }
-
+        "RoshpitArmor"          "68"
+        "RoshpitArmorPierce"    "34"
+        "RoshpitSpellPierce"    "42"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_source_assembly"
@@ -90132,8 +90487,8 @@
         {
             "model" "models/winterblight/azalea_cup.vmdl"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "100"
@@ -90143,8 +90498,8 @@
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "700"
         "ProjectileModel"           "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
-        "StatusMana"    "1000000"
-        "StatusManaRegen"   "-30000"
+        "StatusMana"    "100000"
+        "StatusManaRegen"   "-3000"
         "AttackRange"   "800"
         "BountyGoldMin" "150"
         "BountyGoldMax" "200"
@@ -90155,10 +90510,8 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "445000"
+        "StatusHealth"  "980"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"              "source_revenant_passive"
@@ -90206,6 +90559,13 @@
             }
 
         }
+        "RoshpitArmor"          "78"
+        "RoshpitArmorPierce"    "44"
+        "RoshpitSpellPierce"    "94"
+        "RoshpitMagicArmor"     "105"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "2"
     }
 
     "winterblight_azalea_highguard"
@@ -90230,8 +90590,8 @@
         "ProjectileSpeed"       "800"
         "ProjectileModel"       "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "2500"
+        "AttackDamageMin"   "92"
+        "AttackDamageMax"   "93"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -90245,10 +90605,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "335"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "268000"
+        "StatusHealth"  "745"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "0"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "normal_steadfast"
@@ -90304,6 +90664,13 @@
             }
 
         }
+        "RoshpitArmor"          "98"
+        "RoshpitArmorPierce"    "74"
+        "RoshpitSpellPierce"    "82"
+        "RoshpitMagicArmor"     "115"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalea_mindbreaker"
@@ -90322,14 +90689,14 @@
         {
             "particle"  "particles/winterblight/mindbreaker_attack.vpcf"
         }
-        "ArmorPhysical" "40"
-        "MagicalResistance" "65"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "800"
         "ProjectileModel"       "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "2500"
+        "AttackDamageMin"   "68"
+        "AttackDamageMax"   "69"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -90343,10 +90710,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "355"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "268000"
+        "StatusHealth"  "645"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "0"
-        "StatusManaRegen"   "20"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "winterblight_mind_breaker_damage"
@@ -90401,6 +90768,13 @@
             }
 
         }
+        "RoshpitArmor"          "88"
+        "RoshpitArmorPierce"    "64"
+        "RoshpitSpellPierce"    "70"
+        "RoshpitMagicArmor"     "104"
+        "RoshpitLevel"          "12"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_ghost_striker"
@@ -90423,12 +90797,12 @@
             "particle"  "particles/units/heroes/hero_antimage/antimage_blink_start.vpcf"
             "particle"          "particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf"
         }
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "780"
-        "AttackDamageMax"   "1100"
+        "AttackDamageMin"   "85"
+        "AttackDamageMax"   "87"
         "AttackRate"    "0.5"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -90440,9 +90814,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1200"
+        "StatusHealth"  "730"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -90502,6 +90876,13 @@
         "Ability2"  "serengaard_antimage_blink_custom"
         "Ability3"  "redfall_ghost_mace"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "78"
+        "RoshpitArmorPierce"    "114"
+        "RoshpitSpellPierce"    "64"
+        "RoshpitMagicArmor"     "87"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalea_secret_keeper"
@@ -90521,14 +90902,14 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/items_fx/desolator_projectile.vpcf"
         "ProjectileSpeed"   "1100"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "3000"
+        "AttackDamageMin"   "85"
+        "AttackDamageMax"   "85"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
@@ -90543,9 +90924,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "6000000"
+        "StatusHealth"  "640"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "100"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -90596,6 +90977,13 @@
 
             }
         }
+        "RoshpitArmor"          "67"
+        "RoshpitArmorPierce"    "104"
+        "RoshpitSpellPierce"    "72"
+        "RoshpitMagicArmor"     "74"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_thorcrux"
@@ -90617,8 +91005,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3000"
-        "AttackDamageMax"   "4000"
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "100"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
@@ -90635,9 +91023,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "600000"
+        "StatusHealth"  "925"
         "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
+        "StatusMana"    "500"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -90670,6 +91058,13 @@
         "Ability2"  "normal_steadfast"
         "Ability3"  "ability_mega_haste"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "82"
+        "RoshpitArmorPierce"    "94"
+        "RoshpitSpellPierce"    "102"
+        "RoshpitMagicArmor"     "135"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "2"
     }
 
     "azalea_spineback"
@@ -90688,12 +91083,12 @@
         {
             "soundfile" "soundevents/voscripts/game_sounds_vo_bristleback.vsndevts"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200"
-        "AttackDamageMax"   "1300"
+        "AttackDamageMin"   "48"
+        "AttackDamageMax"   "48"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -90706,10 +91101,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "290"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "240000"
+        "StatusHealth"  "620"
         "StatusHealthRegen" "10"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -90761,6 +91156,13 @@
         "Ability2"  "winterblight_generic_chill_attack_passive"
         "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "118"
+        "RoshpitArmorPierce"    "65"
+        "RoshpitSpellPierce"    "24"
+        "RoshpitMagicArmor"     "66"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_crippling_wraith"
@@ -90780,12 +91182,12 @@
             "particle"  "particles/units/heroes/hero_silencer/silencer_global_silence.vpcf"
             "particle"  "particles/roshpit/redfall/cliff_splash.vpcf"
         }
-        "ArmorPhysical" "30"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "7000"
-        "AttackDamageMax"   "8000"
+        "AttackDamageMin"   "72"
+        "AttackDamageMax"   "72"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -90800,10 +91202,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "301000"
-        "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusHealth"  "920"
+        "StatusHealthRegen" "2"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -90849,6 +91251,13 @@
         "Ability1"  "winterblight_crippling_return"
         "Ability2"  "winterblight_generic_chill_attack_passive"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "68"
+        "RoshpitArmorPierce"    "54"
+        "RoshpitSpellPierce"    "72"
+        "RoshpitMagicArmor"     "93"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_armored_knight"
@@ -90867,12 +91276,12 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
         }
-        "ArmorPhysical" "35"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3000"
-        "AttackDamageMax"   "4000"
+        "AttackDamageMin"   "67"
+        "AttackDamageMax"   "70"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -90886,10 +91295,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "400000"
+        "StatusHealth"  "850"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "4"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
 
@@ -90947,6 +91356,13 @@
 
             }
         }
+        "RoshpitArmor"          "155"
+        "RoshpitArmorPierce"    "91"
+        "RoshpitSpellPierce"    "46"
+        "RoshpitMagicArmor"     "78"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalea_chrolonus"
@@ -90967,12 +91383,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_FacelessVoid"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3222.0"
-        "AttackDamageMax"   "4333.0"
+        "AttackDamageMin"   "90"
+        "AttackDamageMax"   "92"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -90987,9 +91403,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "900000"
+        "StatusHealth"  "1300"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "100"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -91046,6 +91462,13 @@
         "Ability4"          "fire_temple_frenzy"
         "Ability5"          "winterblight_generic_chill_attack_passive"
         "Ability6"          "dungeon_creep"
+        "RoshpitArmor"          "98"
+        "RoshpitArmorPierce"    "95"
+        "RoshpitSpellPierce"    "65"
+        "RoshpitMagicArmor"     "135"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
     }
 
     "winterblight_crystal_malefor"
@@ -91066,12 +91489,12 @@
             "particle"  "particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"
         }
         "SoundSet"      "Hero_Leshrac"
-        "ArmorPhysical" "10"
-        "MagicalResistance" "65"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4000"
-        "AttackDamageMax"   "5000"
+        "AttackDamageMin"   "58"
+        "AttackDamageMax"   "58"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -91088,9 +91511,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "550"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "420000"
+        "StatusHealth"  "580"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -91136,6 +91559,13 @@
 
             }
         }
+        "RoshpitArmor"          "72"
+        "RoshpitArmorPierce"    "135"
+        "RoshpitSpellPierce"    "110"
+        "RoshpitMagicArmor"     "120"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_candy_crush_blue_spirit"
@@ -91157,12 +91587,12 @@
             "model"             "models/winterblight/candy_crush_blue.vmdl"
             "particle"          "particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "8000"
-        "AttackDamageMax"   "10200"
+        "AttackDamageMin"   "45"
+        "AttackDamageMax"   "46"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -91176,9 +91606,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "340000"
+        "StatusHealth"  "240"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "20"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -91223,6 +91653,13 @@
             }
 
         }
+        "RoshpitArmor"          "50"
+        "RoshpitArmorPierce"    "42"
+        "RoshpitSpellPierce"    "35"
+        "RoshpitMagicArmor"     "55"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_candy_crush_green_spirit"
@@ -91243,12 +91680,12 @@
             "particle"  "particles/units/heroes/hero_wisp/tether_green.vpcf"
             "particle"  "particles/econ/items/ancient_apparition/ancient_apparation_ti8/ancient_ice_vortex_ti8_ring_spiral.vpcf"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "8000"
-        "AttackDamageMax"   "10200"
+        "AttackDamageMin"   "24"
+        "AttackDamageMax"   "25"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -91262,10 +91699,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "340000"
+        "StatusHealth"  "215"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "creature_black_king_bar"
@@ -91300,6 +91737,13 @@
                 }       
             }
         }
+        "RoshpitArmor"          "60"
+        "RoshpitArmorPierce"    "22"
+        "RoshpitSpellPierce"    "25"
+        "RoshpitMagicArmor"     "65"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_candy_crush_red_spirit"
@@ -91319,12 +91763,12 @@
             "model"             "models/winterblight/candy_crush_red.vmdl"
         }
 
-        "ArmorPhysical" "18"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1000"
-        "AttackDamageMax"   "2000"
+        "AttackDamageMin"   "24"
+        "AttackDamageMax"   "26"
         "AttackRate"    "0.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -91339,10 +91783,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "450000"
+        "StatusHealth"  "200"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "50"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -91379,6 +91823,13 @@
         "Ability3"          "antimage_spell_shield"
         "Ability4"          "slithereen_featherguard_ai"
         "Ability5"          "dungeon_creep"
+        "RoshpitArmor"          "24"
+        "RoshpitArmorPierce"    "62"
+        "RoshpitSpellPierce"    "27"
+        "RoshpitMagicArmor"     "35"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_candy_crush_yellow_spirit"
@@ -91400,8 +91851,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "9000"
-        "AttackDamageMax"   "10000"
+        "AttackDamageMin"   "24"
+        "AttackDamageMax"   "28"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -91417,10 +91868,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "240"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "97500"
+        "StatusHealth"  "175"
         "StatusHealthRegen" "10"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "armor_break"
@@ -91463,6 +91914,13 @@
 
             }
         }
+        "RoshpitArmor"          "29"
+        "RoshpitArmorPierce"    "26"
+        "RoshpitSpellPierce"    "45"
+        "RoshpitMagicArmor"     "65"
+        "RoshpitLevel"          "11"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_candy_crush_magenta_spirit"
@@ -91481,12 +91939,12 @@
         {
             "model" "models/winterblight/candy_crush_magenta.vmdl"
         }
-        "ArmorPhysical" "2"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "6000"
-        "AttackDamageMax"   "8200"
+        "AttackDamageMin"   "42"
+        "AttackDamageMax"   "42"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -91501,7 +91959,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "340000"
+        "StatusHealth"  "315"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -91531,6 +91989,13 @@
 
             }
         }
+        "RoshpitArmor"          "42"
+        "RoshpitArmorPierce"    "32"
+        "RoshpitSpellPierce"    "48"
+        "RoshpitMagicArmor"     "65"
+        "RoshpitLevel"          "12"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_candy_crush_teal_spirit"
@@ -91549,12 +92014,12 @@
         {
             "model" "models/winterblight/candy_crush_teal.vmdl"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "12000"
-        "AttackDamageMax"   "14200"
+        "AttackDamageMin"   "50"
+        "AttackDamageMax"   "50"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -91568,10 +92033,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1040000"
+        "StatusHealth"  "400"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"          "creature_roknar"
@@ -91603,6 +92068,13 @@
     
             }
         }
+        "RoshpitArmor"          "72"
+        "RoshpitArmorPierce"    "22"
+        "RoshpitSpellPierce"    "18"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "12"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_candy_crush_orange_spirit"
@@ -91622,12 +92094,12 @@
             "model" "models/winterblight/candy_crush_orange.vmdl"
             "particle"  "particles/base_attacks/ranged_tower_bad.vpcf"
         }
-        "ArmorPhysical" "2"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "12000"
-        "AttackDamageMax"   "16200"
+        "AttackDamageMin"   "50"
+        "AttackDamageMax"   "50"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -91642,9 +92114,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "410"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1040000"
+        "StatusHealth"  "520"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -91673,6 +92145,13 @@
 
             }
         }
+        "RoshpitArmor"          "72"
+        "RoshpitArmorPierce"    "26"
+        "RoshpitSpellPierce"    "14"
+        "RoshpitMagicArmor"     "75"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0"
     }
 
     "winterblight_azalea_spectral_witch"
@@ -91692,12 +92171,12 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "4"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "8000"
-        "AttackDamageMax"   "10000"
+        "AttackDamageMin"   "90"
+        "AttackDamageMax"   "90"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -91714,10 +92193,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "318000"
+        "StatusHealth"  "385"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -91757,7 +92236,13 @@
                 }
             }
         }
-
+        "RoshpitArmor"          "52"
+        "RoshpitArmorPierce"    "66"
+        "RoshpitSpellPierce"    "84"
+        "RoshpitMagicArmor"     "95"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_puck_guard"
@@ -91781,8 +92266,8 @@
         "MagicalResistance" "25"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "18000"
-        "AttackDamageMax"   "20000"
+        "AttackDamageMin"   "135"
+        "AttackDamageMax"   "135"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -91796,10 +92281,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "480000"
+        "StatusHealth"  "1000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -91853,6 +92338,13 @@
         "Ability1"  "winterblight_puck_guard_passive"
         "Ability2"  "armor_break"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "145"
+        "RoshpitArmorPierce"    "155"
+        "RoshpitSpellPierce"    "62"
+        "RoshpitMagicArmor"     "125"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_air_spirit"
@@ -91874,12 +92366,12 @@
              "particle"     "particles/units/heroes/hero_tusk/tusk_ice_shards_projectile.vpcf"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3400"
-        "AttackDamageMax"   "4400"
+        "AttackDamageMin"   "62"
+        "AttackDamageMax"   "63"
         "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -91893,14 +92385,10 @@
         "RingRadius"    "50"
         "CollisionSize" "16"
         "FormationRank" "2"
-        "GoldCost"  "205"
-        "LumberCost"    "30"
-        "FoodCost"  "3"
-        "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
         "MovementSpeed" "270"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "145000"
+        "StatusHealth"  "470"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -91941,6 +92429,13 @@
             }
 
         }
+        "RoshpitArmor"          "35"
+        "RoshpitArmorPierce"    "75"
+        "RoshpitSpellPierce"    "108"
+        "RoshpitMagicArmor"     "95"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_azalea_frost_cruxal"
@@ -91975,8 +92470,8 @@
         "MagicalResistance" "15"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "18445"
-        "AttackDamageMax"   "25555"
+        "AttackDamageMin"   "180"
+        "AttackDamageMax"   "180"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -91991,9 +92486,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "904400"
+        "StatusHealth"  "1600"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -92042,6 +92537,13 @@
             }
 
         }
+        "RoshpitArmor"          "125"
+        "RoshpitArmorPierce"    "145"
+        "RoshpitSpellPierce"    "78"
+        "RoshpitMagicArmor"     "135"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
     }
 
     "winterblight_demon_spirit"
@@ -92066,8 +92568,8 @@
         "ProjectileModel" "particles/base_attacks/arkimus_archon_form.vpcf"
         "ProjectileSpeed"   "500"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2700"
-        "AttackDamageMax"   "3400"
+        "AttackDamageMin"   "110"
+        "AttackDamageMax"   "120"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.34"
         "AttackAcquisitionRange"    "0"
@@ -92082,7 +92584,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "375"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "273421"
+        "StatusHealth"  "1100"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "1000"
         "StatusManaRegen"   "0"
@@ -92138,6 +92640,13 @@
         "Ability4"  "luna_taskmaster_shield"
         "Ability5"  "use_ability_1_no_target_ai"
         "Ability6"  "dungeon_creep"
+        "RoshpitArmor"          "74"
+        "RoshpitArmorPierce"    "92"
+        "RoshpitSpellPierce"    "128"
+        "RoshpitMagicArmor"     "145"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_maze_ghost"
@@ -92288,12 +92797,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
         }
 
-        "ArmorPhysical" "18"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1000"
-        "AttackDamageMax"   "2000"
+        "AttackDamageMin"   "130"
+        "AttackDamageMax"   "130"
         "AttackRate"    "0.5"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -92308,7 +92817,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "450000"
+        "StatusHealth"  "845"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "50"
@@ -92355,6 +92864,13 @@
         "Ability3"          "juggernaut_blade_dance"
         "Ability4"          "fire_temple_frenzy"
         "Ability5"          "dungeon_creep"
+        "RoshpitArmor"          "125"
+        "RoshpitArmorPierce"    "49"
+        "RoshpitSpellPierce"    "46"
+        "RoshpitMagicArmor"     "115"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_shrine_megmus"
@@ -92378,8 +92894,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200"
-        "AttackDamageMax"   "2200" 
+        "AttackDamageMin"   "95"
+        "AttackDamageMax"   "95" 
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -92396,7 +92912,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "290"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1304820"
+        "StatusHealth"  "1100"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -92427,6 +92943,13 @@
         "Ability2"      "water_manifestation_passive"
         "Ability3"      "use_ability_1_no_target_ai"
         "Ability4"      "dungeon_creep"
+        "RoshpitArmor"          "55"
+        "RoshpitArmorPierce"    "74"
+        "RoshpitSpellPierce"    "135"
+        "RoshpitMagicArmor"     "55"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "rupthold_the_glutton"
@@ -92449,12 +92972,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
-        "ArmorPhysical" "4"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "9555"
-        "AttackDamageMax"   "10545"
+        "AttackDamageMin"   "190"
+        "AttackDamageMax"   "190"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.36"
         "AttackAcquisitionRange"    "0"
@@ -92468,9 +92991,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "857240"
+        "StatusHealth"  "1800"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -92498,6 +93021,13 @@
 
             }
         }
+        "RoshpitArmor"          "115"
+        "RoshpitArmorPierce"    "99"
+        "RoshpitSpellPierce"    "84"
+        "RoshpitMagicArmor"     "155"
+        "RoshpitLevel"          "16"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
     }
 
     "rupthold_ghost"
@@ -92520,8 +93050,8 @@
         "MagicalResistance" "15"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3555"
-        "AttackDamageMax"   "4054"
+        "AttackDamageMin"   "62"
+        "AttackDamageMax"   "62"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -92537,9 +93067,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "857240"
+        "StatusHealth"  "385"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -92565,6 +93095,13 @@
 
             }
         }
+        "RoshpitArmor"          "45"
+        "RoshpitArmorPierce"    "110"
+        "RoshpitSpellPierce"    "78"
+        "RoshpitMagicArmor"     "115"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "azalea_grave_summoner"
@@ -92584,11 +93121,11 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4004"
-        "AttackDamageMax"   "5004"
+        "AttackDamageMin"   "110"
+        "AttackDamageMax"   "115"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "100"
@@ -92604,9 +93141,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "545000"
+        "StatusHealth"  "890"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -92652,6 +93189,13 @@
             }
 
         }
+        "RoshpitArmor"          "80"
+        "RoshpitArmorPierce"    "88"
+        "RoshpitSpellPierce"    "98"
+        "RoshpitMagicArmor"     "125"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_blue_gargoyle"
@@ -92678,15 +93222,15 @@
 
         // Armor
         //--------------------------------
-        "ArmorPhysical"             "10"         // Physical protection.
-        "MagicalResistance"         "33"        // Magical protection.
+        "ArmorPhysical"             "0"         // Physical protection.
+        "MagicalResistance"         "0"        // Magical protection.
 
         // Attack
         //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3000"
-        "AttackDamageMax"   "5000"
+        "AttackDamageMin"   "50"
+        "AttackDamageMax"   "50"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.17"
         "AttackAcquisitionRange"    "100"
@@ -92716,7 +93260,7 @@
 
         // Status
         //--------------------------------
-        "StatusHealth"              "86000"       // Base health.
+        "StatusHealth"              "430"       // Base health.
         "StatusHealthRegen"         "10"      // Health regeneration rate.
         "StatusMana"                "0"         // Base mana.
         "StatusManaRegen"           "0"         // Mana regeneration rate.
@@ -92760,6 +93304,13 @@
                 }             
             }
         }
+        "RoshpitArmor"          "135"
+        "RoshpitArmorPierce"    "125"
+        "RoshpitSpellPierce"    "40"
+        "RoshpitMagicArmor"     "145"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "azalea_dragoon"
@@ -92779,12 +93330,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Juggernaut"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "777.0"
-        "AttackDamageMax"   "777.0"
+        "AttackDamageMin"   "111"
+        "AttackDamageMax"   "111.0"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -92799,10 +93350,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "550"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "120000"
+        "StatusHealth"  "720"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "2"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -92855,6 +93406,13 @@
         "Ability1"          "winterblight_azalea_dragoon_passive"
         "Ability2"          "winterblight_regression_strike"
         "Ability3"          "dungeon_creep"
+        "RoshpitArmor"          "160"
+        "RoshpitArmorPierce"    "65"
+        "RoshpitSpellPierce"    "62"
+        "RoshpitMagicArmor"     "92"
+        "RoshpitLevel"          "16"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "azalea_knife_scraper"
@@ -92875,12 +93433,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
             "particle"  "particles/units/heroes/hero_siren/siren_net.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3500"
-        "AttackDamageMax"   "3620"
+        "AttackDamageMin"   "92"
+        "AttackDamageMax"   "92"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -92894,10 +93452,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "500000"
+        "StatusHealth"  "735"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "2"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -92959,6 +93517,13 @@
         "Ability2"  "winterblight_azalea_knife_passive"
         "Ability3"  "use_ability_1_target_ai"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "42"
+        "RoshpitArmorPierce"    "145"
+        "RoshpitSpellPierce"    "51"
+        "RoshpitMagicArmor"     "98"
+        "RoshpitLevel"          "15"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_buzuki"
@@ -92979,14 +93544,14 @@
             "particle"  "particles/units/heroes/hero_lion/lion_spell_voodoo.vpcf"
             "particle"  "particles/roshpit/winterblight/blue_finger.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "75"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel" "particles/base_attacks/ranged_tower_good.vpcf"
         "ProjectileSpeed"   "800"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2700"
-        "AttackDamageMax"   "3400"
+        "AttackDamageMin"   "155"
+        "AttackDamageMax"   "155"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.42"
         "AttackAcquisitionRange"    "0"
@@ -93001,7 +93566,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "375"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1200000"
+        "StatusHealth"  "1700"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "1000"
         "StatusManaRegen"   "0"
@@ -93053,6 +93618,13 @@
         "Ability4"  "normal_steadfast"
         "Ability5"  "regression_strike"
         "Ability6"  "dungeon_creep"
+        "RoshpitArmor"          "72"
+        "RoshpitArmorPierce"    "86"
+        "RoshpitSpellPierce"    "147"
+        "RoshpitMagicArmor"     "155"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "winterblight_azertia"
@@ -93082,8 +93654,8 @@
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"   "1500"
-        "AttackDamageMax"   "1500"
+        "AttackDamageMin"   "165"
+        "AttackDamageMax"   "165"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.3"
@@ -93099,7 +93671,7 @@
         "CollisionSize" "0"
         "BoundsHullName"    "DOTA_HULL_SIZE_SMALL"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "StatusHealth"  "150000"
+        "StatusHealth"  "1600"
         "StatusHealthRegen" "0"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
@@ -93144,6 +93716,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "76"
+        "RoshpitArmorPierce"    "106"
+        "RoshpitSpellPierce"    "127"
+        "RoshpitMagicArmor"     "145"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "winterblight_torphet"
@@ -93180,8 +93759,8 @@
         //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "20"
-        "AttackDamageMax"   "30"
+        "AttackDamageMin"   "90"
+        "AttackDamageMax"   "100"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.37"
         "AttackAcquisitionRange"    "0"
@@ -93211,7 +93790,7 @@
 
         // Status
         //--------------------------------
-        "StatusHealth"              "24400"       // Base health.
+        "StatusHealth"              "2000"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
@@ -93255,6 +93834,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "142"
+        "RoshpitArmorPierce"    "116"
+        "RoshpitSpellPierce"    "117"
+        "RoshpitMagicArmor"     "105"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "azalea_fencer"
@@ -93275,12 +93861,12 @@
             "particle"  "particles/units/heroes/hero_pangolier/pangolier_heartpiercer_debuff.vpcf"
             "particle"  "particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_overhead.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4500"
-        "AttackDamageMax"   "5620"
+        "AttackDamageMin"   "65"
+        "AttackDamageMax"   "68"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -93294,10 +93880,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "500000"
+        "StatusHealth"  "980"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "500"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -93343,6 +93929,13 @@
         "Ability2"  "armor_break"
         "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "82"
+        "RoshpitArmorPierce"    "176"
+        "RoshpitSpellPierce"    "77"
+        "RoshpitMagicArmor"     "105"
+        "RoshpitLevel"          "17"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_mystery_pixie"
@@ -93365,8 +93958,8 @@
         "MagicalResistance" "25"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4004"
-        "AttackDamageMax"   "5004"
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "100"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "100"
@@ -93382,7 +93975,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1545000"
+        "StatusHealth"  "1000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -93423,6 +94016,13 @@
             }
 
         }
+        "RoshpitArmor"          "50"
+        "RoshpitArmorPierce"    "100"
+        "RoshpitSpellPierce"    "150"
+        "RoshpitMagicArmor"     "150"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "pixie_minion"
@@ -93442,12 +94042,12 @@
             "particle"  "particles/roshpit/mountain_protector/steelforge_start_teleport_ti7_out.vpcf"
         }
 
-        "ArmorPhysical" "6"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "880"
-        "AttackDamageMax"   "1080"
+        "AttackDamageMin"   "40"
+        "AttackDamageMax"   "40"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
@@ -93462,7 +94062,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "480"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "221780"
+        "StatusHealth"  "500"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "0"
         "StatusManaRegen"   "20"
@@ -93495,7 +94095,13 @@
 
         }
         "Ability1"  "winterblight_pixie_mystery_summon"
-
+        "RoshpitArmor"          "20"
+        "RoshpitArmorPierce"    "80"
+        "RoshpitSpellPierce"    "40"
+        "RoshpitMagicArmor"     "40"
+        "RoshpitLevel"          "14"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "0"
     }
 
     "winterblight_azalea_riftbreaker"
@@ -93514,12 +94120,12 @@
         {
             "particle"  "particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
         }
-        "ArmorPhysical" "20"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "5000"
-        "AttackDamageMax"   "7000"
+        "AttackDamageMin"   "125"
+        "AttackDamageMax"   "125"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -93533,9 +94139,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "680000"
+        "StatusHealth"  "1100"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -93592,6 +94198,13 @@
         "Ability3"  "armor_break"  
         "Ability4"  "use_ability_1_target_ai"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "150"
+        "RoshpitArmorPierce"    "90"
+        "RoshpitSpellPierce"    "60"
+        "RoshpitMagicArmor"     "140"
+        "RoshpitLevel"          "17"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_star_seeker"
@@ -93621,8 +94234,8 @@
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"   "1000"
-        "AttackDamageMax"   "1000"
+        "AttackDamageMin"   "45"
+        "AttackDamageMax"   "55"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.3"
@@ -93647,7 +94260,7 @@
         "MovementSpeed" "300"
         "MovementTurnRate"  "2"
         "FollowRange"   "0"
-        "StatusHealth"  "60000"
+        "StatusHealth"  "480"
         "StatusHealthRegen" "0"
         "StatusMana"    "0"
         "StatusManaRegen"   "0"
@@ -93681,6 +94294,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "58"
+        "RoshpitArmorPierce"    "67"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "180"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "azalea_spine_splitter"
@@ -93700,12 +94320,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
             "particle"  "particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3000"
-        "AttackDamageMax"   "4000"
+        "AttackDamageMin"   "240"
+        "AttackDamageMax"   "260"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -93719,10 +94339,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "500"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "700000"
+        "StatusHealth"  "880"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "5"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"          "winterblight_spinesplitter_passive"
@@ -93775,6 +94395,13 @@
 
             }
         }
+        "RoshpitArmor"          "148"
+        "RoshpitArmorPierce"    "27"
+        "RoshpitSpellPierce"    "45"
+        "RoshpitMagicArmor"     "90"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "stargazer_orin"
@@ -93803,8 +94430,8 @@
         "ProjectileModel"     "particles/base_attacks/ranged_tower_good.vpcf"
         "ProjectileSpeed"   "700"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "100650"
-        "AttackDamageMax"   "100850"
+        "AttackDamageMin"   "220"
+        "AttackDamageMax"   "220"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.48"
         "AttackAcquisitionRange"    "0"
@@ -93819,10 +94446,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1020000"
+        "StatusHealth"  "2200"
         "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "5000"
+        "StatusManaRegen"   "50"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -93868,6 +94495,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "100"
+        "RoshpitArmorPierce"    "97"
+        "RoshpitSpellPierce"    "165"
+        "RoshpitMagicArmor"     "180"
+        "RoshpitLevel"          "18"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "winter_snow_spirit"
@@ -93887,12 +94521,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "75000.0"
-        "AttackDamageMax"   "85000.0"
+        "AttackDamageMin"   "145"
+        "AttackDamageMax"   "145"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.2"
         "AttackAcquisitionRange"    "2000"
@@ -93909,10 +94543,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "410"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "7800"
+        "StatusHealth"  "515"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -93938,6 +94572,13 @@
         }
         "Ability1"          "charging_taskmaster_shield"
         "Ability2"          "dungeon_creep"
+        "RoshpitArmor"          "84"
+        "RoshpitArmorPierce"    "67"
+        "RoshpitSpellPierce"    "81"
+        "RoshpitMagicArmor"     "82"
+        "RoshpitLevel"          "16"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "azalea_boss"
@@ -93959,14 +94600,14 @@
             "particle"      "particles/roshpit/winterblight/azalea_indicator_ring.vpcf"
             "particle"      "particles/roshpit/winterblight/boss_exploding.vpcf"
         }
-        "ArmorPhysical" "35"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/roshpit/winterblight/azalea_base_attack_large.vpcf"
         "ProjectileSpeed"   "1000"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "5001"
-        "AttackDamageMax"   "7001"
+        "AttackDamageMin"   "300"
+        "AttackDamageMax"   "300"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.33"
         "AttackAcquisitionRange"    "100"
@@ -93980,7 +94621,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "3365000"
+        "StatusHealth"  "3400"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -94016,6 +94657,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "145"
+        "RoshpitArmorPierce"    "134"
+        "RoshpitSpellPierce"    "176"
+        "RoshpitMagicArmor"     "180"
+        "RoshpitLevel"          "20"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "4"
     }
 
     "giga_ice_revenant"
@@ -94035,12 +94683,12 @@
             "particle"  "particles/econ/items/jakiro/jakiro_ti8_immortal_head/jakiro_ti8_dual_breath_ice.vpcf"
             "particle"  "particles/units/heroes/hero_jakiro/jakiro_ice_path.vpcf"
         }
-        "ArmorPhysical" "100"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "200000"
-        "AttackDamageMax"   "300000"
+        "AttackDamageMin"   "245"
+        "AttackDamageMax"   "245"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -94057,9 +94705,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "500"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1800000"
+        "StatusHealth"  "1800"
         "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -94105,6 +94753,13 @@
         "Ability3"  "ability_mega_haste"
         "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "154"
+        "RoshpitArmorPierce"    "125"
+        "RoshpitSpellPierce"    "115"
+        "RoshpitMagicArmor"     "102"
+        "RoshpitLevel"          "17"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
     }
 
     "winterblight_altar_of_ice_apparition"
@@ -94218,6 +94873,13 @@
             }
 
         }
+        "RoshpitArmor"          "25"
+        "RoshpitArmorPierce"    "25"
+        "RoshpitSpellPierce"    "25"
+        "RoshpitMagicArmor"     "25"
+        "RoshpitLevel"          "10"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_heartfreezer"
@@ -94242,7 +94904,7 @@
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "80"
-        "AttackDamageMax"   "100"
+        "AttackDamageMax"   "85"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -94259,7 +94921,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "240000"
+        "StatusHealth"  "1300"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "0"
         "StatusManaRegen"   "20"
@@ -94305,6 +94967,13 @@
         "Ability3"          "luna_taskmaster_shield"
         "Ability4"          "use_ability_1_position_ai"
         "Ability5"          "dungeon_creep"
+        "RoshpitArmor"          "115"
+        "RoshpitArmorPierce"    "148"
+        "RoshpitSpellPierce"    "164"
+        "RoshpitMagicArmor"     "155"
+        "RoshpitLevel"          "19"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_mountain_lord"
@@ -94323,12 +94992,12 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
         }
-        "ArmorPhysical" "30"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "6000"
-        "AttackDamageMax"   "7000"
+        "AttackDamageMin"   "184"
+        "AttackDamageMax"   "185"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -94342,7 +95011,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1000000"
+        "StatusHealth"  "1800"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -94402,6 +95071,13 @@
 
             }
         }
+        "RoshpitArmor"          "205"
+        "RoshpitArmorPierce"    "188"
+        "RoshpitSpellPierce"    "94"
+        "RoshpitMagicArmor"     "135"
+        "RoshpitLevel"          "20"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_tuskar_villager"
@@ -94421,8 +95097,8 @@
             "model" "models/creeps/ice_biome/tuskfolk/tuskfolk001a_f.vmdl"
             "model" "models/creeps/ice_biome/tuskfolk/tuskfolk001c_f.vmdl"
         }
-        "ArmorPhysical" "30"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "100"
@@ -94440,7 +95116,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1000000"
+        "StatusHealth"  "1000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -94470,12 +95146,12 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
             "particle"      "particles/roshpit/chernobog/demon_hunter.vpcf"
         }
-        "ArmorPhysical" "2"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "26000"
-        "AttackDamageMax"   "32000"
+        "AttackDamageMin"   "1000"
+        "AttackDamageMax"   "1000"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -94490,9 +95166,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1073000"
+        "StatusHealth"  "5000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -94542,6 +95218,13 @@
         "Ability1"  "winterblight_azheran_passive"
         "Ability2"  "seafortress_dark_sunder"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "245"
+        "RoshpitArmorPierce"    "298"
+        "RoshpitSpellPierce"    "145"
+        "RoshpitMagicArmor"     "165"
+        "RoshpitLevel"          "21"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
         
     }
 
@@ -94565,8 +95248,8 @@
         "MagicalResistance" "50"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "170400"
-        "AttackDamageMax"   "180000"
+        "AttackDamageMin"   "350"
+        "AttackDamageMax"   "350"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.44"
         "AttackAcquisitionRange"    "0"
@@ -94582,7 +95265,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "41000000"
+        "StatusHealth"  "3000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -94615,6 +95298,13 @@
             }
 
         }
+        "RoshpitArmor"          "155"
+        "RoshpitArmorPierce"    "200"
+        "RoshpitSpellPierce"    "195"
+        "RoshpitMagicArmor"     "185"
+        "RoshpitLevel"          "20"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
     }
 
     "winterblight_captain_reynar_ghost"
@@ -94633,8 +95323,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "12"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "175"
@@ -94653,7 +95343,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "26400"
+        "StatusHealth"  "5000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -94695,6 +95385,13 @@
             }
 
         }
+        "RoshpitArmor"          "100"
+        "RoshpitArmorPierce"    "125"
+        "RoshpitSpellPierce"    "115"
+        "RoshpitMagicArmor"     "135"
+        "RoshpitLevel"          "10"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "winterblight_grand_stalacorr"
@@ -94713,12 +95410,12 @@
         {
 
         }
-        "ArmorPhysical" "20"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "700000.0"
-        "AttackDamageMax"   "800000.0"
+        "AttackDamageMin"   "900"
+        "AttackDamageMax"   "900"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.82"
         "AttackAcquisitionRange"    "0"
@@ -94733,9 +95430,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "38000"
+        "StatusHealth"  "8000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -94771,7 +95468,13 @@
             }
 
         }
-
+        "RoshpitArmor"          "355"
+        "RoshpitArmorPierce"    "221"
+        "RoshpitSpellPierce"    "145"
+        "RoshpitMagicArmor"     "255"
+        "RoshpitLevel"          "20"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
     }
 
     "winterblight_scouring_sherpa"
@@ -94796,8 +95499,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1070"
-        "AttackDamageMax"   "1090"
+        "AttackDamageMin"   "115"
+        "AttackDamageMax"   "115"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
@@ -94812,10 +95515,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "350"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "228200"
+        "StatusHealth"  "980"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -94868,6 +95571,13 @@
 
             }
         }
+        "RoshpitArmor"          "134"
+        "RoshpitArmorPierce"    "128"
+        "RoshpitSpellPierce"    "95"
+        "RoshpitMagicArmor"     "145"
+        "RoshpitLevel"          "19"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_skating_zealot"
@@ -94888,18 +95598,18 @@
             "particle"  "particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"
         }
         "SoundSet"      "Hero_Leshrac"
-        "ArmorPhysical" "10"
-        "MagicalResistance" "65"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "3000"
+        "AttackDamageMin"   "325"
+        "AttackDamageMax"   "325"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
         "ProjectileModel"           "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_base_attack_tormented.vpcf"
-        "AttackRange"   "460"
+        "AttackRange"   "560"
         "BountyGoldMin" "250"
         "BountyGoldMax" "250"
         "BountyXP" "1100"
@@ -94910,10 +95620,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "350"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "220000"
+        "StatusHealth"  "745"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
 
@@ -94954,6 +95664,13 @@
 
             }
         }
+        "RoshpitArmor"          "154"
+        "RoshpitArmorPierce"    "68"
+        "RoshpitSpellPierce"    "145"
+        "RoshpitMagicArmor"     "165"
+        "RoshpitLevel"          "19"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "winterblight_relict"
@@ -94971,12 +95688,12 @@
 
         }
 
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1568"
-        "AttackDamageMax"   "1700"
+        "AttackDamageMin"   "135"
+        "AttackDamageMax"   "150"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.42"
         "AttackAcquisitionRange"    "0"
@@ -94991,7 +95708,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "448400"
+        "StatusHealth"  "1080"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -95027,6 +95744,13 @@
         "Ability3"  "normal_steadfast"
         "Ability4"  "dungeon_creep"
         "Ability5"  "use_ability_1_position_ai"
+        "RoshpitArmor"          "164"
+        "RoshpitArmorPierce"    "148"
+        "RoshpitSpellPierce"    "85"
+        "RoshpitMagicArmor"     "155"
+        "RoshpitLevel"          "20"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
 
     }
 
@@ -95046,12 +95770,12 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "22500"
-        "AttackDamageMax"   "22600"
+        "AttackDamageMin"   "210"
+        "AttackDamageMax"   "220"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -95065,8 +95789,8 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "500"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "900000"
-        "StatusHealthRegen" "0"
+        "StatusHealth"  "1240"
+        "StatusHealthRegen" "2"
         "StatusMana"    "1000"
         "StatusManaRegen"   "25"
         "VisionDaytimeRange"    "1400"
@@ -95126,6 +95850,13 @@
                 }             
             }
         }
+        "RoshpitArmor"          "194"
+        "RoshpitArmorPierce"    "188"
+        "RoshpitSpellPierce"    "76"
+        "RoshpitMagicArmor"     "125"
+        "RoshpitLevel"          "20"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
     }
 
     "ice_haunter"
@@ -95142,8 +95873,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000"
-        "AttackDamageMax"   "4000"
+        "AttackDamageMin"   "165"
+        "AttackDamageMax"   "165"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
@@ -95165,9 +95896,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "460000"
+        "StatusHealth"  "880"
         "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -95208,7 +95939,13 @@
                 }             
             }
         }
- 
+        "RoshpitArmor"          "101"
+        "RoshpitArmorPierce"    "125"
+        "RoshpitSpellPierce"    "146"
+        "RoshpitMagicArmor"     "175"
+        "RoshpitLevel"          "21"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_stone_guardian"
@@ -95230,8 +95967,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "140"
-        "AttackDamageMax"   "180"
+        "AttackDamageMin"   "120"
+        "AttackDamageMax"   "120"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.1"
         "AttackAcquisitionRange"    "0"
@@ -95278,6 +96015,13 @@
         "Ability1"          "winterblight_rock_guardian_passive"
         "Ability2"          "armor_break_ultra"
         "Ability3"          "dungeon_creep"
+        "RoshpitArmor"          "300"
+        "RoshpitArmorPierce"    "145"
+        "RoshpitSpellPierce"    "0"
+        "RoshpitMagicArmor"     "300"
+        "RoshpitLevel"          "21"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_merkurio"
@@ -95297,12 +96041,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_monkey_king.vsndevts"
             "soundfile" "soundevents/game_sounds_draghor.vsndevts"
         }
-        "ArmorPhysical" "30"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "28000"
-        "AttackDamageMax"   "32000"
+        "AttackDamageMin"   "280"
+        "AttackDamageMax"   "290"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -95316,9 +96060,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "2400000"
+        "StatusHealth"  "3200"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -95367,6 +96111,13 @@
             }
 
         }
+        "RoshpitArmor"          "184"
+        "RoshpitArmorPierce"    "195"
+        "RoshpitSpellPierce"    "186"
+        "RoshpitMagicArmor"     "205"
+        "RoshpitLevel"          "23"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2" 
     }
 
     "winterblight_cavern_guide"
@@ -95471,6 +96222,13 @@
 
         }
         "DrawParticlesWhileHidden" "1"
+        "RoshpitArmor"          "200"
+        "RoshpitArmorPierce"    "200"
+        "RoshpitSpellPierce"    "200"
+        "RoshpitMagicArmor"     "200"
+        "RoshpitLevel"          "30"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2" 
     }
 
     "winterblight_cavern_centaur"
@@ -95492,12 +96250,12 @@
             "particle"  "particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_track_haste.vpcf"
             "particle"  "particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf"
         }
-        "ArmorPhysical" "60"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "50000"
-        "AttackDamageMax"   "50200"
+        "AttackDamageMin"   "280"
+        "AttackDamageMax"   "280"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -95511,10 +96269,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1200000"
+        "StatusHealth"  "2000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "5"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -95581,6 +96339,13 @@
         "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
         "Ability6"  "use_ability_1_no_target_ai"
+        "RoshpitArmor"          "245"
+        "RoshpitArmorPierce"    "215"
+        "RoshpitSpellPierce"    "71"
+        "RoshpitMagicArmor"     "205"
+        "RoshpitLevel"          "24"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "azalea_mana_null"
@@ -95604,8 +96369,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "11360"
-        "AttackDamageMax"   "11600" 
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "100" 
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -95620,7 +96385,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "290"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "112358"
+        "StatusHealth"  "100"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "100"
         "StatusManaRegen"   "0"
@@ -95666,6 +96431,13 @@
         "Ability3"      "winterblight_crystal_meditation"
         "Ability3"      "use_ability_1_position_ai"
         "Ability4"      "dungeon_creep"
+        "RoshpitArmor"          "155"
+        "RoshpitArmorPierce"    "145"
+        "RoshpitSpellPierce"    "201"
+        "RoshpitMagicArmor"     "235"
+        "RoshpitLevel"          "25"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_blood_wraith"
@@ -95688,8 +96460,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "100200"
-        "AttackDamageMax"   "200200" 
+        "AttackDamageMin"   "310"
+        "AttackDamageMax"   "320" 
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -95704,7 +96476,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1300000"
+        "StatusHealth"  "1300"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "100"
         "StatusManaRegen"   "0"
@@ -95750,6 +96522,13 @@
         "Ability3"      "normal_steadfast"
         "Ability4"      "use_ability_1_target_ai"
         "Ability5"      "dungeon_creep"
+        "RoshpitArmor"          "125"
+        "RoshpitArmorPierce"    "155"
+        "RoshpitSpellPierce"    "165"
+        "RoshpitMagicArmor"     "285"
+        "RoshpitLevel"          "25"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_cavern_ultra_ice"
@@ -95777,16 +96556,16 @@
 
         // Armor
         //--------------------------------
-        "ArmorPhysical"             "5"         // Physical protection.
-        "MagicalResistance"         "30"        // Magical protection.
+        "ArmorPhysical"             "0"         // Physical protection.
+        "MagicalResistance"         "0"        // Magical protection.
 
         // Attack
         //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "20"
-        "AttackDamageMax"   "30"
-        "AttackRate"    "1.2"
+        "AttackDamageMin"   "240"
+        "AttackDamageMax"   "240"
+        "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.37"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "500"
@@ -95815,7 +96594,7 @@
 
         // Status
         //--------------------------------
-        "StatusHealth"              "3024400"       // Base health.
+        "StatusHealth"              "2500"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
@@ -95859,6 +96638,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "250"
+        "RoshpitArmorPierce"    "250"
+        "RoshpitSpellPierce"    "250"
+        "RoshpitMagicArmor"     "250"
+        "RoshpitLevel"          "25"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2" 
     }
 
     "drill_digger"
@@ -95879,12 +96665,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Magnatuar"
-        "ArmorPhysical" "35"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "865000"
-        "AttackDamageMax"   "955000"
+        "AttackDamageMin"   "265"
+        "AttackDamageMax"   "275"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -95899,10 +96685,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1600400"
+        "StatusHealth"  "1900"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "500"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -95955,6 +96741,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "175"
+        "RoshpitArmorPierce"    "260"
+        "RoshpitSpellPierce"    "142"
+        "RoshpitMagicArmor"     "145"
+        "RoshpitLevel"          "25"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winter_cavern_bat"
@@ -95973,12 +96766,12 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "400400"
-        "AttackDamageMax"   "500400"
+        "AttackDamageMin"   "190"
+        "AttackDamageMax"   "200"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -95994,9 +96787,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "945000"
+        "StatusHealth"  "1100"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -96022,6 +96815,13 @@
             }
 
         }
+        "RoshpitArmor"          "196"
+        "RoshpitArmorPierce"    "200"
+        "RoshpitSpellPierce"    "112"
+        "RoshpitMagicArmor"     "185"
+        "RoshpitLevel"          "23"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "cavern_pantheon_knight"
@@ -96039,12 +96839,12 @@
         {
             "soundfile"       "soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"   
         }
-        "ArmorPhysical" "120"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "150000"
-        "AttackDamageMax"   "200000"
+        "AttackDamageMin"   "175"
+        "AttackDamageMax"   "185"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -96058,10 +96858,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1600000"
+        "StatusHealth"  "1900"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "15"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -96120,6 +96920,13 @@
         "Ability1"  "pantheon_deceptive_light"
         "Ability2"  "winterblight_armor_softening"
         "Ability3"  "dungeon_creep"
+        "RoshpitArmor"          "290"
+        "RoshpitArmorPierce"    "210"
+        "RoshpitSpellPierce"    "185"
+        "RoshpitMagicArmor"     "208"
+        "RoshpitLevel"          "24"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "barbed_mole"
@@ -96140,12 +96947,12 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_bristleback.vsndevts"
         }
 
-        "ArmorPhysical" "45"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "600000"
-        "AttackDamageMax"   "600000"
+        "AttackDamageMin"   "435"
+        "AttackDamageMax"   "435"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -96159,10 +96966,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "82000"
+        "StatusHealth"  "2100"
         "StatusHealthRegen" "10"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "400"
+        "StatusManaRegen"   "4"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -96220,6 +97027,13 @@
             }
 
         }
+        "RoshpitArmor"          "360"
+        "RoshpitArmorPierce"    "280"
+        "RoshpitSpellPierce"    "75"
+        "RoshpitMagicArmor"     "144"
+        "RoshpitLevel"          "25"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_cloaked_phantasm"
@@ -96242,8 +97056,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "200000"
-        "AttackDamageMax"   "300000"
+        "AttackDamageMin"   "245"
+        "AttackDamageMax"   "245"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -96260,9 +97074,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "8065000"
+        "StatusHealth"  "1640"
         "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -96302,6 +97116,13 @@
         "Ability4"  "normal_steadfast"
         "Ability5"  "use_ability_1_position_ai"
         "Ability6"  "dungeon_creep"
+        "RoshpitArmor"          "195"
+        "RoshpitArmorPierce"    "189"
+        "RoshpitSpellPierce"    "263"
+        "RoshpitMagicArmor"     "270"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_boar"
@@ -96319,12 +97140,12 @@
             "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
         }
 
-        "ArmorPhysical" "3"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "32148"
-        "AttackDamageMax"   "35188"
+        "AttackDamageMin"   "180"
+        "AttackDamageMax"   "190"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
@@ -96339,10 +97160,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "234850"
+        "StatusHealth"  "2000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -96374,7 +97195,13 @@
         "Ability1"  "dungeon_creep"
         "Ability2"  "winterblight_tanky"
         "Ability3"  "winterblight_endurance"
-
+        "RoshpitArmor"          "315"
+        "RoshpitArmorPierce"    "181"
+        "RoshpitSpellPierce"    "81"
+        "RoshpitMagicArmor"     "235"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_corporeal_revenant"
@@ -96394,12 +97221,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
             "particle"  "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
         }
-        "ArmorPhysical" "6"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "132000"
-        "AttackDamageMax"   "140000"
+        "AttackDamageMin"   "350"
+        "AttackDamageMax"   "350"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -96413,7 +97240,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1280000"
+        "StatusHealth"  "1880"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "500"
         "StatusManaRegen"   "100"
@@ -96473,6 +97300,13 @@
             }
 
         }
+        "RoshpitArmor"          "181"
+        "RoshpitArmorPierce"    "284"
+        "RoshpitSpellPierce"    "165"
+        "RoshpitMagicArmor"     "325"
+        "RoshpitLevel"          "27"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_cavern_beguiler"
@@ -96495,12 +97329,12 @@
             "particle"  "particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
             "particle"  "particles/roshpit/auriun/heavens_shield_shadow_oval_highlight.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "32500"
-        "AttackDamageMax"   "38620"
+        "AttackDamageMin"   "164"
+        "AttackDamageMax"   "186"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -96514,10 +97348,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "800000"
+        "StatusHealth"  "1400"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -96579,6 +97413,13 @@
         "Ability2"  "winterblight_disappearing_act"
         "Ability3"  "use_ability_1_target_ai"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "285"
+        "RoshpitArmorPierce"    "360"
+        "RoshpitSpellPierce"    "115"
+        "RoshpitMagicArmor"     "145"
+        "RoshpitLevel"          "25"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_fungal_shaman"
@@ -96601,8 +97442,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "17500"
-        "AttackDamageMax"   "19000"
+        "AttackDamageMin"   "175"
+        "AttackDamageMax"   "195"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -96618,9 +97459,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "975000"
+        "StatusHealth"  "1600"
         "StatusHealthRegen" "10"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -96665,6 +97506,13 @@
 
             }
         }
+        "RoshpitArmor"          "165"
+        "RoshpitArmorPierce"    "205"
+        "RoshpitSpellPierce"    "215"
+        "RoshpitMagicArmor"     "315"
+        "RoshpitLevel"          "24"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "crystarium_heart_slayer"
@@ -96687,8 +97535,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "26000"
-        "AttackDamageMax"   "28000"
+        "AttackDamageMin"   "345"
+        "AttackDamageMax"   "345"
         "AttackRate"    "1.12"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -96703,11 +97551,10 @@
         "CollisionSize" "70"
         "FormationRank" "2"
 
-        "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "520"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "926000"
+        "StatusHealth"  "1820"
         "StatusHealthRegen" "0"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -96762,6 +97609,13 @@
 
             }
         }
+        "RoshpitArmor"          "140"
+        "RoshpitArmorPierce"    "215"
+        "RoshpitSpellPierce"    "275"
+        "RoshpitMagicArmor"     "345"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "fungal_minion"
@@ -96784,8 +97638,8 @@
         "MagicalResistance" "50"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "288"
-        "AttackDamageMax"   "398"
+        "AttackDamageMin"   "110"
+        "AttackDamageMax"   "115"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -96800,10 +97654,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "355200"
+        "StatusHealth"  "1400"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"
@@ -96834,6 +97688,13 @@
         }
         "Ability1"  "winterblight_fungal_minion"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "150"
+        "RoshpitArmorPierce"    "175"
+        "RoshpitSpellPierce"    "165"
+        "RoshpitMagicArmor"     "245"
+        "RoshpitLevel"          "24"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
 
     }
 
@@ -96853,12 +97714,12 @@
         {
            "soundfile" "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
         }
-        "ArmorPhysical" "3"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "100000"
-        "AttackDamageMax"   "400000"
+        "AttackDamageMin"   "385"
+        "AttackDamageMax"   "390"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -96872,10 +97733,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "500"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "560000"
+        "StatusHealth"  "1700"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "300"
+        "StatusManaRegen"   "10"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "Ability1"      "relict_monkey_leap"
@@ -96921,89 +97782,13 @@
             }
 
         }
-    }
-
-    "winterblight_syphist"
-    {
-        "BaseClass" "npc_dota_creature"
-        "Model" "models/heroes/faceless_void/faceless_void.vmdl"
-        "ModelScale"    "0.9"
-        "Level" "1"
-        "HealthBarOffset"   "170"
-        "precache"
-        {
-
-        }
-        "HasInventory"  "0"
-        "SelectionGroup"    "Dark_Fighter"
-        "DefaultState"  "Invade"
-        "PathfindingSearchDepthScale" "0.2"
-        "SoundSet"                  "Hero_ArcWarden"
-        "ArmorPhysical" "12"
-        "MagicalResistance" "0"
-        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3555"
-        "AttackDamageMax"   "4555"
-        "AttackRate"    "1.7"
-        "AttackAnimationPoint"  "0.4"
-        "AttackAcquisitionRange"    "0"
-        "AttackRange"   "150"
-        "BountyGoldMin" "600"
-        "BountyGoldMax" "800"
-        "BountyXP" "3400"
-        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
-        "RingRadius"    "50"
-        "CollisionSize" "24"
-        "FormationRank" "2"
-        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed" "400"
-        "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1300000"
-        "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
-        "VisionDaytimeRange"    "1400"
-        "VisionNighttimeRange"  "800"
-        "TeamName"  "DOTA_TEAM_NEUTRALS"
-        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Creature"
-        {
-            "DisableClumpingBehavior"   "1"
-            "States"
-            {
-                "Invade"
-                {
-                    "Name"  "Invade"
-                    "Aggression"    "50.0"
-                    "Avoidance" "0.0"
-                    "Support"   "0.0"
-                    "RoamDistance"  "1000.0"
-                }
-            }
-            "AttachWearables"
-            {
-                "Wearable1"
-                {
-                    "ItemDef"   "7377"
-                }
-
-                "Wearable2"
-                {
-                    "ItemDef"   "6282"
-                }
-
-                "Wearable3"
-                {
-                    "ItemDef"   "7378"
-                }
-
-            }
-        }
-        "Ability1"          "winterblight_syphon"
-        "Ability2"          "dungeon_creep"
+        "RoshpitArmor"          "190"
+        "RoshpitArmorPierce"    "245"
+        "RoshpitSpellPierce"    "125"
+        "RoshpitMagicArmor"     "155"
+        "RoshpitLevel"          "25"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "reclusive_mundunugu"
@@ -97025,12 +97810,12 @@
             "particle"  "particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_flash_light.vpcf"
         }
         
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "140000"
-        "AttackDamageMax"   "160000"
+        "AttackDamageMin"   "480"
+        "AttackDamageMax"   "480"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "220"
@@ -97046,10 +97831,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "6160000"
+        "StatusHealth"  "3800"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusManaRegen"   "40"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"       
         "Ability1"              "winterblight_spirit_ring"
@@ -97104,6 +97889,13 @@
             }
 
         }
+        "RoshpitArmor"          "205"
+        "RoshpitArmorPierce"    "245"
+        "RoshpitSpellPierce"    "255"
+        "RoshpitMagicArmor"     "295"
+        "RoshpitLevel"          "28"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_crystalist"
@@ -97123,13 +97915,13 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "24000"
-        "AttackDamageMax"   "28000"
+        "AttackDamageMin"   "315"
+        "AttackDamageMax"   "330"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.6"
         "AttackAcquisitionRange"    "0"
@@ -97144,9 +97936,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "350"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "327260"
+        "StatusHealth"  "2600"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "400"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -97201,6 +97993,13 @@
             }
 
         }
+        "RoshpitArmor"          "226"
+        "RoshpitArmorPierce"    "184"
+        "RoshpitSpellPierce"    "145"
+        "RoshpitMagicArmor"     "315"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_zect_rider"
@@ -97231,8 +98030,8 @@
         "ProjectileModel"   "particles/units/heroes/hero_disruptor/disruptor_base_attack.vpcf"
         "ProjectileSpeed"   "600"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200.0"
-        "AttackDamageMax"   "1500.0"
+        "AttackDamageMin"   "220"
+        "AttackDamageMax"   "225"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -97247,9 +98046,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "395"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "340000"
+        "StatusHealth"  "1650"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "800"
         "StatusManaRegen"   "80"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -97297,6 +98096,13 @@
         "Ability3"          "zect_rider_lightning_bolt"
         "Ability4"          "zect_rider_passive"
         "Ability5"          "dungeon_creep"
+        "RoshpitArmor"          "110"
+        "RoshpitArmorPierce"    "100"
+        "RoshpitSpellPierce"    "345"
+        "RoshpitMagicArmor"     "375"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_mushroom_pixie"
@@ -97321,8 +98127,8 @@
         "ProjectileModel"   "particles/units/heroes/hero_dark_willow/dark_willow_base_attack.vpcf"
         "ProjectileSpeed"   "600"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4200.0"
-        "AttackDamageMax"   "4500.0"
+        "AttackDamageMin"   "285"
+        "AttackDamageMax"   "300"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -97337,9 +98143,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "425"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "520000"
+        "StatusHealth"  "2000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "80"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -97389,6 +98195,13 @@
         "Ability2"          "redfall_hell_bandit_ability"
         "Ability3"          "use_ability_1_target_ai"
         "Ability4"          "dungeon_creep"
+        "RoshpitArmor"          "110"
+        "RoshpitArmorPierce"    "170"
+        "RoshpitSpellPierce"    "245"
+        "RoshpitMagicArmor"     "275"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "crystarium_brood_spider"
@@ -97409,12 +98222,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Broodmother"
-        "ArmorPhysical" "25"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "116500"
-        "AttackDamageMax"   "132500"
+        "AttackDamageMin"   "265"
+        "AttackDamageMax"   "275"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -97429,9 +98242,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1600400"
+        "StatusHealth"  "2200"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -97483,6 +98296,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "201"
+        "RoshpitArmorPierce"    "270"
+        "RoshpitSpellPierce"    "255"
+        "RoshpitMagicArmor"     "215"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_icixel"
@@ -97502,13 +98322,13 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
             "particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "130040"
-        "AttackDamageMax"   "150080"
-        "AttackRate"    "0.9"
+        "AttackDamageMin"   "390"
+        "AttackDamageMax"   "400"
+        "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "140"
@@ -97522,9 +98342,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "3215670"
+        "StatusHealth"  "2250"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -97565,6 +98385,13 @@
         "Ability2"  "winterblight_frost_colossus_passive"
         "Ability3"  "use_ability_1_target_ai"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "310"
+        "RoshpitArmorPierce"    "190"
+        "RoshpitSpellPierce"    "215"
+        "RoshpitMagicArmor"     "125"
+        "RoshpitLevel"          "26"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_toki_toki"
@@ -97588,8 +98415,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "12000"
-        "AttackDamageMax"   "14000"
+        "AttackDamageMin"   "345"
+        "AttackDamageMax"   "350"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
@@ -97606,7 +98433,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "390"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "3250000"
+        "StatusHealth"  "2700"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "0"
         "StatusManaRegen"   "20"
@@ -97658,6 +98485,13 @@
         "Ability1"          "winterblight_shroom_procurement"
         "Ability2"          "luna_taskmaster_shield"
         "Ability3"          "dungeon_creep"
+        "RoshpitArmor"          "162"
+        "RoshpitArmorPierce"    "145"
+        "RoshpitSpellPierce"    "285"
+        "RoshpitMagicArmor"     "315"
+        "RoshpitLevel"          "27"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_demented_mushroom"
@@ -97682,8 +98516,8 @@
             "particle"  "particles/roshpit/winterblight/demented_shroom_proj.vpcf"
             "particle"  "particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "95"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageMin"   "0"
         "AttackDamageMax"   "0"
@@ -97703,7 +98537,7 @@
         "MovementSpeed" "220"
         "MovementTurnRate"  "2"
         "FollowRange"   "0"
-        "StatusHealth"  "1000000"
+        "StatusHealth"  "3000"
         "StatusHealthRegen" "0"
         "StatusMana"    "0"
         "StatusManaRegen"   "0"
@@ -97713,6 +98547,13 @@
         "VisionDaytimeRange"    "0"
         "VisionNighttimeRange"  "0"
         "AttackDesire"  "1.5"
+        "RoshpitArmor"          "100"
+        "RoshpitArmorPierce"    "0"
+        "RoshpitSpellPierce"    "300"
+        "RoshpitMagicArmor"     "250"
+        "RoshpitLevel"          "27"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1" 
     }
 
     "winterblight_ghost_of_aurora"

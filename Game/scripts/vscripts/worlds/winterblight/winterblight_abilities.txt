@@ -11519,7 +11519,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"3000 15000 200000"
+				"poison_damage"			"300 1000 15000"
 			}
 		}
 		"Modifiers"
@@ -11862,7 +11862,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"strike_damage"				"3000 30000 180000"
+				"strike_damage"				"320 800 8000"
 				"LinkedSpecialBonus"		"special_bonus_unique_disruptor_3"
 			}
 		}
@@ -11900,7 +11900,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"arc_damage"			"1000 10000 100000"
+				"arc_damage"			"250 800 6000"
 				"LinkedSpecialBonus"	"special_bonus_unique_zeus_2"
 			}
 			"02"
@@ -11942,7 +11942,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 50000 200000"
+		"AbilityDamage"					"450 1400 11000"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -12126,7 +12126,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 10000 100000"
+				"damage"			"100 350 4500"
 			}
 			"03"
 			{
@@ -12195,7 +12195,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"3000 30000 300000"
+				"damage_per_tick"			"300 900 9800"
 			}
 			"02"
 			{
@@ -12299,7 +12299,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1550 14500 235000"
+				"damage"			"350 1000 10000"
 			}
 		}
 		"OnOwnerDied"
