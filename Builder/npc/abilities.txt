@@ -64224,7 +64224,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"stomp_damage"					"1000 30000 200000"
+				"stomp_damage"					"400 1200 12000"
 			}
 		}
 	}
