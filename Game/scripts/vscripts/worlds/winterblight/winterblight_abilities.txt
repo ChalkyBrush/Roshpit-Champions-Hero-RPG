@@ -6386,7 +6386,7 @@
 		
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"2000 100000 7500000"
+		"AbilityDamage"					"500 2200 12000"
 		
 		// Special
 		//-------------------------------------------------------
@@ -7047,7 +7047,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"2000 20000 500000"
+				"damage"	"240 800 3000"
 			}
 			"03"
 			{
@@ -7698,7 +7698,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3000 100000"
+				"damage"			"60 200 2400"
 			}
 		}
 		"Modifiers"
@@ -8140,7 +8140,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_star"			"300 5000 75000"
+				"damage_per_star"			"65 200 1200"
 			}
 			"02"
 			{
@@ -8253,7 +8253,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 145000"
+				"damage"			"75 225 1000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -8316,7 +8316,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 3000 65000"
+				"damage"			"75 250 1800"
 			}
 			"02"
 			{
@@ -8519,7 +8519,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ice_damage"			"3000 55000 250000"
+				"ice_damage"			"300 1000 10000"
 			}
 			"02"
 			{
@@ -8668,7 +8668,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"2000 30000 500000"
+				"nova_damage"			"180 700 8000"
 			}
 		}
 		"Modifiers"
@@ -8977,7 +8977,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3500 150000"
+				"damage"			"65 200 1500"
 			}
 		}
 
@@ -9067,7 +9067,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 5000 350000"
+				"damage"			"200 600 6000"
 			}
 			"02"
 			{
@@ -9231,7 +9231,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 8000 350000"
+				"damage"			"300 1000 11000"
 			}
 		}
 		"Modifiers"
@@ -9562,7 +9562,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"575000"
+				"damage"			"20000"
 			}
 		}
 		"OnOwnerDied"
@@ -9710,7 +9710,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2500 50000 1000000"
+				"damage"			"250 750 12500"
 			}
 		}
 
