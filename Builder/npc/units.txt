@@ -50591,8 +50591,8 @@
         "RoshpitArmorPierce"    "18"
         "RoshpitSpellPierce"    "8"
         "RoshpitMagicArmor"     "32"
-        "RoshpitLevel"          "1337"
-        "RoshpitDominion"       "4"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
         "AggroSound"            "Redfall.WoodDweller.Aggro"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }

@@ -496,44 +496,44 @@ function Challenges:SetChallengeParameters()
 	if not Challenges.ActiveChallenge then
 		return false
 	end
-	for i = 1, #Challenges.ActiveChallenge["mods"], 1 do
-		local mod = Challenges.ActiveChallenge["mods"][i]
+	for _, mod in pairs(Challenges.ActiveChallenge["mods"]) do
+		DeepPrintTable(mod)
 		if mod["mod_type"] == "no_deaths" then
 			-- done
 			Challenges.NoDeaths = 0
 		elseif mod["mod_type"] == "mob_health" then
 			-- done
-			Challenges.BonusHPMult = 1 + mod["int1"]/100
+			Challenges.BonusHPMult = 1 + mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_attack_power" then
 			-- done
-			Challenges.AttackPowerMult = 1 + mod["int1"]/100
+			Challenges.AttackPowerMult = 1 + mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_armor" then
 			-- done
-			Challenges.ArmorMult = 1 + mod["int1"]/100
+			Challenges.ArmorMult = 1 + mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_armor_pierce" then
 			-- done
-			Challenges.ArmorPierceMult = 1 + mod["int1"]/100
+			Challenges.ArmorPierceMult = 1 + mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_magic_armor" then
 			-- done
-			Challenges.MagicArmorMult = 1 + mod["int1"]/100
+			Challenges.MagicArmorMult = 1 + mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_spell_pierce" then
 			-- done
-			Challenges.SpellPierceMult = 1 + mod["int1"]/100
+			Challenges.SpellPierceMult = 1 + mod["mod_int1"]/100
 		elseif mod["mod_type"] == "paragon_rate" then
 			-- done
-			Challenges.ParagonChance = mod["int1"]/100
+			Challenges.ParagonChance = mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_cooldown_reduction" then
 			-- done
-			Challenges.MobCDReduction = 1 - mod["int1"]/100
+			Challenges.MobCDReduction = 1 - mod["mod_int1"]/100
 		elseif mod["mod_type"] == "ability_disable" then
-			Challenges.AbilityDisable = mod["int1"] - 1
+			Challenges.AbilityDisable = mod["mod_int1"] - 1
 			Challenges:DisableHeroAbilityInit()
 		elseif mod["mod_type"] == "super_boss" then
 			-- done
-			Challenges.BossMult = 1 + mod["int1"]/100
+			Challenges.BossMult = 1 + mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_speed" then
 			-- done
-			Challenges.MobSpeed = mod["int1"]
+			Challenges.MobSpeed = mod["mod_int1"]
 		end
 	end
 end
@@ -577,9 +577,9 @@ function Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier)
 	unit:SetBaseRoshpitArmor(newArmor, false)
 	local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Challenges.MagicArmorMult +unit.roshpit_attributes.roshpit_magic_armor*boss_mult*Challenges.BossMult
 	unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
-	local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce*Challenges.ArmorPierceMult + unit.roshpit_attributes*boss_mult*Challenges.BossMult
+	local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce*Challenges.ArmorPierceMult + unit.roshpit_attributes.roshpit_armor_pierce*boss_mult*Challenges.BossMult
 	unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
-	local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Challenges.SpellPierceMult  + unit.roshpit_attributes*boss_mult*Challenges.BossMult
+	local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Challenges.SpellPierceMult  + unit.roshpit_attributes.roshpit_spell_pierce*boss_mult*Challenges.BossMult
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 	-- -- HP

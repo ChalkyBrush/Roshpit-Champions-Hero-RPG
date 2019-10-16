@@ -39460,7 +39460,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"30 5000 50000"
+				"damage_per_stack"				"30 150 1500"
 			}
 		}
 
@@ -41187,7 +41187,7 @@
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"12 10 8"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"	"500 25000 180000"
+		"AbilityDamage"	"100 500 3000"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"

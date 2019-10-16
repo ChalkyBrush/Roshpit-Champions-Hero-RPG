@@ -6898,7 +6898,7 @@ Env.LavaHit
                               "value1"        "sounds/vo/sven/sven_ability_warcry_01.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "2.35000"  }
+                    "volume"            {   "value"     "1.45000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.000000"  }
@@ -6930,7 +6930,7 @@ Env.LavaHit
                               "value0"        "sounds/weapons/hero/sven/warcry.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.85000"  }
+                    "volume"            {   "value"     "1.35000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.200000"  }

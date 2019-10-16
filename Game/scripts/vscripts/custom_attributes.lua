@@ -1300,7 +1300,7 @@ function CustomAttributes:CalculatedElementBonuses(victim, attacker)
 	local elements = {}
 	local damageDealt = 1000
 	for i=1, RPC_ELEMENT_COUNT, 1 do
-		elements[i] = Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, i, RPC_ELEMENT_NONE, false) / damageDealt
+		elements[i] = (Filters:ElementalDamage(victim, attacker, damageDealt * 100, DAMAGE_TYPE_PURE, 0, i, RPC_ELEMENT_NONE, false) / damageDealt) - 100
 	end
 	if IsEnemy then
 		for k, v in pairs(elements) do

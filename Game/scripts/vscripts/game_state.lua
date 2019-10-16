@@ -4225,10 +4225,10 @@ function GameState:FilterDamage(filterTable)
 	-- end
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			if victim:IsHero() then
-				-- print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
-			end
+			-- if victim:IsHero() then
+			-- 	-- print("TAKE DAMAGE: "..filterTable["damage"])
+			-- 	filterTable["damage"] = 0
+			-- end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
