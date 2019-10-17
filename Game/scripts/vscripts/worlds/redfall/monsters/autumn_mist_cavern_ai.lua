@@ -925,10 +925,12 @@ function redfall_canyon_boss_death_check(event)
 				caster.deathStart = true
 				CanyonBossDeath(caster, ability)
 				Events:MainBossSlain(caster:GetUnitName())
+				Enemies:EnemySlain(caster, nil)
 			else
 				CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 				caster:ForceKill(false)
 				Events:MainBossSlain(caster:GetUnitName())
+				Enemies:EnemySlain(caster, nil)
 			end
 		end
 	end

@@ -1014,6 +1014,7 @@ function redfall_shipyard_boss_death_check(event)
 		if caster:GetHealth() < 50 then
 			caster.deathStart = true
 			Events:MainBossSlain(caster:GetUnitName())
+			Enemies:EnemySlain(caster, nil)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
 			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 			caster.deathStart = true

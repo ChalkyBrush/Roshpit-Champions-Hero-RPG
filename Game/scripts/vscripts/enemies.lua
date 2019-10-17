@@ -225,7 +225,7 @@ function Enemies:EnemySlain(unit, killingUnit)
 	local baseEXP = unit.roshpit_attributes.deathXP
 	local direct_killer = nil
 	local give_exp_to_direct_killer = true
-	if killingUnit:IsHero() then
+	if killingUnit and killingUnit:IsHero() then
 		direct_killer = killingUnit
 	end
 	if baseEXP > 0 then

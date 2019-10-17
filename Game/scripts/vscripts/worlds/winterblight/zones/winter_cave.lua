@@ -4666,6 +4666,7 @@ function Winterblight:TiamatBossDie(boss)
 		end
 	end)
 	Timers:CreateTimer(8, function()
+		Enemies:EnemySlain(boss, nil)
 		Events:MainBossSlain(boss:GetUnitName())
 		-- EmitSoundOn("Winterblight.AzaleaBoss.Death2.VO", boss)
 		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(boss)})
