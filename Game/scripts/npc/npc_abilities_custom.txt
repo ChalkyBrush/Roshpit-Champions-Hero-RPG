@@ -120409,7 +120409,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"550000"
+		"AbilityDamage"					"2500 7500 6000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -120526,7 +120526,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityTextureName"			"antimage_mana_void"
 		"AOERadius"						"1300"
-		"AbilityDamage"					"450000"
+		"AbilityDamage"					"2400 7200 60000"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"OnAbilityPhaseStart"
@@ -120761,7 +120761,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500000"
+		"AbilityDamage"					"1000 3000 35000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -120910,7 +120910,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_damage"				"2000 30000 300000"
+				"shock_damage"				"1000 4000 45000"
 				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
 			}
 			"04"
@@ -121157,7 +121157,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"6000"
+				"damage_per_tick"			"100 300 3000"
 			}
 		}
 		"Modifiers"
@@ -121356,7 +121356,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"200 1000 20000"
+				"damage"					"200 800 6000"
 			}
 			"05"
 			{
@@ -121366,7 +121366,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"16"
+				"duration_scepter"			"6"
 			}
 			"07"
 			{
@@ -121553,7 +121553,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"heal"						"1000000"
+				"heal"						"3000"
 			}
 			"04"
 			{
@@ -121601,7 +121601,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 150000"
+		"AbilityDamage"					"200 800 7000"
 
 
 		// Precache
@@ -121901,7 +121901,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 10000 95000"
+				"damage"				"500 2000 18000"
 			}
 			"03"
 			{
@@ -122077,7 +122077,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"5000 15000 250000"
+				"damage"					"500 2000 24000"
 			}
 			"02"
 			{
@@ -122103,14 +122103,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"dragon_knight_dragon_blood"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"bleed_damage"			"500 1800 18000"
 			}
 		}
 		"Modifiers"
@@ -122161,7 +122161,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%bleed_damage"
 					}
 				}
@@ -122182,7 +122182,7 @@
 		"AbilityTextureName"			"winter_wyvern_splinter_blast"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"600 2100 7000"
+		"AbilityDamage"					"600 1500 7000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -143118,7 +143118,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 150000"
+				"damage"				"200 800 7000"
 			}
 			"02"
 			{
