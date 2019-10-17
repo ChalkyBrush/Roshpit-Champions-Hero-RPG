@@ -481,7 +481,7 @@ function lich_boss_projectile_hit(event)
 	local caster = event.caster
 	local sound = "Hero_Pugna.NetherBlast"
 	EmitSoundOn(sound, target)
-	local damage = Events:GetAdjustedAbilityDamage(4000, 45000, 0)
+	local damage = event.damage
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end

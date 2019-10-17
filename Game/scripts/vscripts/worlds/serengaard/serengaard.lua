@@ -630,7 +630,7 @@ function Serengaard:NextWave()
 			Serengaard:SpawnWaveUnit("wraithguard_elite", SERENGAARD_SPAWN_POINTS[i], 3, 62, 9.0, false)
 		end
 		for i = 1, #SERENGAARD_SPAWN_POINTS, 1 do
-			Serengaard:SpawnWaveUnit("castle_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 11, 64, 1.5, false)
+			Serengaard:SpawnWaveUnit("serengaard_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 11, 64, 1.5, false)
 		end
 		StartMusic("Serengaard.Music.Wave.21_30", 110)
 	elseif Serengaard.wave == 24 then
@@ -645,7 +645,7 @@ function Serengaard:NextWave()
 			Serengaard:SpawnWaveUnit("wraithguard_elite", SERENGAARD_SPAWN_POINTS[i], 2, 62, 4.0, false)
 		end
 		for i = 1, #SERENGAARD_SPAWN_POINTS, 1 do
-			Serengaard:SpawnWaveUnit("castle_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 4, 54, 2.5, false)
+			Serengaard:SpawnWaveUnit("serengaard_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 4, 54, 2.5, false)
 		end
 		for i = 1, #SERENGAARD_SPAWN_POINTS, 1 do
 			Serengaard:SpawnWaveUnit("serengaard_gazbin_mercenary", SERENGAARD_SPAWN_POINTS[i], 2, 58, 1.9, false)

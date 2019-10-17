@@ -44,7 +44,7 @@ function charge_think(event)
 
 		for _, enemy in pairs(enemies) do
 			if not enemy:HasModifier("modifier_stunned") then
-				local damage = Events:GetAdjustedAbilityDamage(10000, 150000, 0)
+				local damage = event.damage
 				ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 				enemy:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
 				--enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.5})

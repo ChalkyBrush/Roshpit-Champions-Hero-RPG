@@ -128,6 +128,8 @@ for i = 0, 120 , 1 do
 	Enemies.EXP_BASE_TABLE[i]= math.ceil(7.5*(1.05^i)) + (i-1)
 end
 
+Enemies.SERENGAARD_EXP_ADJUSTMENT = 0.5
+
 function Enemies:SpiritRealmNumber(spirit_realm)
 	if spirit_realm then
 		return 1
@@ -148,6 +150,9 @@ function Enemies:InitializeEnemy(unit)
 	-- exp
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	local deathXP = deathXP + (deathXP * (math.max(0, RPCItems:GetConnectedPlayerCount() - 1)*Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER)) + deathXP*GameState:GetPlayerPremiumStatusCount()*Enemies.EXTRA_EXP_PER_PASS_PLAYER
+	if GameState:IsSerengaard() then
+		deathXP = deathXP * Enemies.SERENGAARD_EXP_ADJUSTMENT
+	end
 	unit.roshpit_attributes.deathXP = deathXP
 	unit:SetDeathXP(0)
 	-- gold bounty

@@ -76,7 +76,7 @@ function wraithguard_hellfire_strike(event)
 	local ability = event.ability
 	local caster = event.caster
 	EmitSoundOn("Hero_SkeletonKing.Hellfire_BlastImpact", target)
-	local damage = Events:GetAdjustedAbilityDamage(14000, 15000, 0)
+	local damage = event.damage
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	PopupDamage(target, damage)
 	target:AddNewModifier(caster, nil, "modifier_stunned", {duration = 1.2})

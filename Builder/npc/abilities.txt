@@ -1426,7 +1426,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 30000 120000"
+				"damage"				"50 200 2500"
 			}
 			"04"
 			{
@@ -1611,7 +1611,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 10000 25000"
+				"damage"				"200 800 10000"
 			}
 			"04"
 			{
@@ -2734,7 +2734,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"300 5000 60500"
+				"damage_per_second"		"75 325 5000"
 			}
 			"02"
 			{
@@ -3314,7 +3314,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal_per_tick"			"150 750 4000"
+				"heal_per_tick"			"100 400 5000"
 			}
 		}
 		"OnSpellStart"
@@ -3639,7 +3639,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_loss"			"-1000 -20000 -50000"
+				"damage_loss"			"-100 -1000 -5000"
 			}
 			"02"
 			{
@@ -5974,6 +5974,15 @@
 				"ScriptFile"	"ai/castle/castle.lua"
 				"Function"		"wraithguard_hellfire_strike"
 				"Target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 900 9000"
 			}
 		}
 
@@ -6385,7 +6394,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"bleed_damage"			"100 1000 10000"
 			}
 		}
 		"Modifiers"
@@ -11402,7 +11411,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 8000 70000"
+				"damage"				"80 280 3400"
 			}
 		}
 
@@ -13257,7 +13266,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 400 600 800"
+				"damage"				"280 1000 10000"
 			}
 		}
 
@@ -13335,6 +13344,7 @@
 	                {
 						"ScriptFile"	"ai/hellhound/hellhound_charge.lua"
 						"Function"		"charge_think"
+						"damage"		"%damage"
 	                }
         		}
         		"States"
@@ -13422,7 +13432,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1500 15000 150000"
+				"damage"			"180 600 6000"
 			}
 		}
 		"LevelsBetweenUpgrades" "0"
@@ -14884,7 +14894,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"4000 30000 18000"
+				"damage"			"200 800 8000"
 			}
 		}
 		"OnSpellStart"
@@ -15320,7 +15330,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 15000 45000 50000"
+		"AbilityDamage"					"120 500 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -18396,12 +18406,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"initial_damage"		"3080 20000 80000"
+				"initial_damage"		"400 1400 14000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dot_damage"			"500 5000 15000"
+				"dot_damage"			"80 250 2400"
 			}
 		}
 		"Modifiers"
@@ -18528,12 +18538,21 @@
 				"ScriptFile"	"ai/phoenix_nest/phoenix_nest.lua"
 				"Function"		"lich_boss_projectile_hit"
 				"target"		"TARGET"
+				"damage"		"%damage"
 			}
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_lich_boss_cold"
 				"Target" 		"TARGET"
 				"Duration"		"3.5"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 1500 15000"
 			}
 		}
 	}
@@ -18595,7 +18614,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 4000 10000"
+				"damage"				"110 320 3200"
 			}
 			"02"
 			{
@@ -52765,7 +52784,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 2000 20000"
+		"AbilityDamage"					"50 300 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -52788,7 +52807,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"-3 -100 -1200"
+				"armor_reduction"	"0"
 			}
 			"04"
 			{
@@ -52921,7 +52940,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 20000 120000"
+				"damage"				"100 500 5000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -53042,7 +53061,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilityDamage"					"100 12000 55000"
+		"AbilityDamage"					"100 400 4000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -53254,7 +53273,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 15000 145000"
+				"damage"				"220 800 8000"
 			}
 		}
 
@@ -53465,7 +53484,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 20000 200000"
+				"damage"				"400 1300 13000"
 			}
 			"02"
 			{
@@ -53599,7 +53618,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage"				"600 10000 200000"
+				"shard_damage"				"200 600 6000"
 			}
 			"03"
 			{
@@ -53666,7 +53685,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 25000 250000"
+				"damage"				"500 1500 15000"
 			}
 			"02"
 			{
@@ -53801,7 +53820,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strike_dmg"			"3000 20000 150000"
+				"strike_dmg"			"280 800 9000"
 			}
 			"02"
 			{
@@ -53888,7 +53907,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 50000 360000"
+		"AbilityDamage"					"800 2400 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
