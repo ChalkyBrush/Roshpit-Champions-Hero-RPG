@@ -37781,7 +37781,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"death_prophet_carrion_swarm"
-		"AbilityDamage"			"20000"
+		"AbilityDamage"			"250 750 7500"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -38443,7 +38443,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 25000 150000"
+		"AbilityDamage"					"2000 6000 36000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -38575,7 +38575,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"5000 15000 300000"
+				"damage"					"1000 4000 45000"
 			}
 			"02"
 			{
@@ -49896,7 +49896,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2000 10000 50000"
+				"damage"			"1000 3000 14000"
 			}
 			"02"
 			{
