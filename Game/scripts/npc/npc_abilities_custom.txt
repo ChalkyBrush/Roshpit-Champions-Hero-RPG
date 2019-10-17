@@ -122853,7 +122853,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chains_damage"					"100 2000 55000"
+				"chains_damage"					"100 2000 35000"
 			}
 			"04"
 			{
@@ -122952,12 +122952,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_burn"		"1.0"
+				"damage_per_burn"		"3.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_per_hit"			"1500 10000 40000"
+				"mana_per_hit"			"200 500 1400"
 			}
 		}
 	}
@@ -123240,7 +123240,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"far_damage"			"500 4000 25000"
+				"far_damage"			"200 600 7000"
 			}
 			"02"
 			{
@@ -123265,7 +123265,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"near_damage"			"1000 10000 80000"
+				"near_damage"			"1000 3000 24000"
 			}
 			"07"
 			{
@@ -123370,12 +123370,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"60000"
+				"damage_min"				"1000 3000 30000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"140000"
+				"damage_max"				"60000"
 			}
 			"03"
 			{
