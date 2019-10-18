@@ -191,12 +191,15 @@
 	transition-duration: 0.12s;
 	transition-timing-function:ease-in-out;
 	horizontal-align:center;
-	color:#CCC;
 	margin-top:-5px;
 	vertical-align: bottom;
 
 	border-radius:2px;
 	text-align: center;
+}
+
+.attribute_neutral{
+	color:#CCC;
 }
 
 .unit_attributes_for_heroes{

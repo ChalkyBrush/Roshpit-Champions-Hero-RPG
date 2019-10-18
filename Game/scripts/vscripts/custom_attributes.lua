@@ -533,11 +533,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor", {})
-		unit:SetModifierStackCount("modifier_positive_roshpit_armor", Events.GameMaster, armor_modify)
+		unit:SetModifierStackCount("modifier_positive_roshpit_armor", Events.GameMaster, math.abs(armor_modify))
 	elseif armor_modify < 0 then
 		unit:RemoveModifierByName("modifier_positive_roshpit_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_armor", {})
-		unit:SetModifierStackCount("modifier_negative_roshpit_armor", Events.GameMaster, armor_modify)
+		unit:SetModifierStackCount("modifier_negative_roshpit_armor", Events.GameMaster, math.abs(armor_modify))
 	else
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		unit:RemoveModifierByName("modifier_positive_roshpit_armor")
@@ -644,11 +644,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
-		unit:SetModifierStackCount("modifier_positive_roshpit_magic_armor", Events.GameMaster, magic_armor_modify)
+		unit:SetModifierStackCount("modifier_positive_roshpit_magic_armor", Events.GameMaster, math.abs(magic_armor_modify))
 	elseif magic_armor_modify < 0 then
 		unit:RemoveModifierByName("modifier_positive_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_magic_armor", {})
-		unit:SetModifierStackCount("modifier_negative_roshpit_magic_armor", Events.GameMaster, magic_armor_modify)
+		unit:SetModifierStackCount("modifier_negative_roshpit_magic_armor", Events.GameMaster, math.abs(magic_armor_modify))
 	else
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		unit:RemoveModifierByName("modifier_positive_roshpit_magic_armor")

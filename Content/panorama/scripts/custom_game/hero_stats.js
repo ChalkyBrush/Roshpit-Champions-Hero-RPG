@@ -30,12 +30,16 @@ function get_attributes_for_query_unit(queryUnit){
 	mAttributesHash["modifier_roshpit_magic_armor"] = 0
 	mAttributesHash["modifier_roshpit_armor_pierce"] = 0
 	mAttributesHash["modifier_roshpit_spell_pierce"] = 0
-	for (i = 0; i < number_of_buffs; i++) {
+	$.Msg("**#*$#*$*#$*#*$")
+	for (i = 0; i < number_of_buffs+1; i++) {
 	  // var buff = Entities.GetBuff( queryUnit, i)
 	  var buffName = Buffs.GetName( queryUnit, i )
+
+	  $.Msg(buffName)
 	  if (buffName == "modifier_roshpit_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_negative_roshpit_armor"){
+	  	$.Msg("NEGATIVE ROSHPIT ARMOR")
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
 	  }else if(buffName == "modifier_positive_roshpit_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
@@ -74,7 +78,6 @@ function UnitStats40(){
 			$('#agility_label').text = heroAttributes.agility
 			$('#intelligence_label').text = heroAttributes.intelligence	
 			$('#spirit_label').text = heroAttributes.spirit		
-			$.Msg("update level label")
 			GameUI.level_label.text = Entities.GetLevel( queryUnit )
 		}
 	}else{
@@ -88,10 +91,15 @@ function UnitStats40(){
 	if (mAttributesHash["modifier_positive_roshpit_armor"] > 0){
 		$('#unit_attribute_armor_label').AddClass('stat_bonus')
 		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
+		$('#unit_attribute_armor_label').RemoveClass('attribute_neutral')
 	}else if (mAttributesHash["modifier_negative_roshpit_armor"] > 0){
+		$.Msg("NEGATIVE ARMOR?")
 		$('#unit_attribute_armor_label').AddClass('stat_negative')
 		$('#unit_attribute_armor_label').RemoveClass('stat_bonus')
+		$('#unit_attribute_armor_label').RemoveClass('attribute_neutral')
 	}else{
+		$.Msg("neutral ARMOR?")
+		$('#unit_attribute_armor_label').AddClass('attribute_neutral')
 		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
 		$('#unit_attribute_armor_label').RemoveClass('stat_bonus')
 	}
@@ -101,10 +109,13 @@ function UnitStats40(){
 	if (mAttributesHash["modifier_positive_roshpit_magic_armor"] > 0){
 		$('#unit_attribute_magic_armor_label').AddClass('stat_bonus')
 		$('#unit_attribute_magic_armor_label').RemoveClass('stat_negative')
+		$('#unit_attribute_magic_armor_label').RemoveClass('attribute_neutral')
 	}else if (mAttributesHash["modifier_negative_roshpit_magic_armor"] > 0){
 		$('#unit_attribute_magic_armor_label').AddClass('stat_negative')
 		$('#unit_attribute_magic_armor_label').RemoveClass('stat_bonus')
+		$('#unit_attribute_magic_armor_label').RemoveClass('attribute_neutral')
 	}else{
+		$('#unit_attribute_magic_armor_label').AddClass('attribute_neutral')
 		$('#unit_attribute_magic_armor_label').RemoveClass('stat_negative')
 		$('#unit_attribute_magic_armor_label').RemoveClass('stat_bonus')
 	}
@@ -112,6 +123,9 @@ function UnitStats40(){
 
 	$('#unit_attribute_armor_pierce_label').text = mAttributesHash["modifier_roshpit_armor_pierce"]
 	$('#unit_attribute_spell_pierce_label').text = mAttributesHash["modifier_roshpit_spell_pierce"]
+
+	$('#unit_attribute_armor_pierce_label').AddClass('attribute_neutral')
+	$('#unit_attribute_spell_pierce_label').AddClass('attribute_neutral')
 	// }
 }
 
