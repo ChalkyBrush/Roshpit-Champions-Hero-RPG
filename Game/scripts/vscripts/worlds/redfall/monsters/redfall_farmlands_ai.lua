@@ -703,6 +703,8 @@ function recruiter_attack_land(event)
 	target:SetModifierStackCount("modifier_crimsyth_recruiter_armor_loss", attacker, armorStacks)
 	local attackStacks = attacker:GetModifierStackCount("modifier_crimsyth_recruiter_attack_gain", attacker) + 1
 	attacker:SetModifierStackCount("modifier_crimsyth_recruiter_attack_gain", attacker, attackStacks)
+	target:CalculateAndSaveRoshpitAttributes()
+	attacker:CalculateAndSaveRoshpitAttributes()
 end
 
 function FarmlandsEastTrigger1()

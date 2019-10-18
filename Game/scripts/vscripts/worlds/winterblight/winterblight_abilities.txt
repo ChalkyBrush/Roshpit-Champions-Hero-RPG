@@ -9,7 +9,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 1500"
+				"eow_armor"			"5 20 100"
 			}
 		}
 		"Modifiers"
@@ -266,8 +266,25 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"2"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}				
 			}
 			"modifier_confusional_spores"
@@ -453,10 +470,6 @@
 				"EffectAttachType"	"attach_origin"
 				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority"  "100"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -2402,11 +2415,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"movespeed"			"100 150 200"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"				"30 500 10000"
-			}
 		}
 		"Modifiers"
 		{
@@ -2468,7 +2476,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"250"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "200"
 				}
@@ -6321,16 +6328,18 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss_per_stack"
-				}
 				"OnCreated"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
 						"Function"		"AmplifyDamageParticleCruxal"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 
@@ -6340,6 +6349,12 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
 						"Function"		"EndAmplifyDamageParticleCruxal"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -6812,7 +6827,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"50 500 5000"
+				"armor"			"50 800 8000"
 			}
 		}
 		"Modifiers"
@@ -6856,7 +6871,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_outgoing"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -9647,7 +9679,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8000"
 				}
 			}
 			"modifier_stalacorr_flail"
@@ -9755,7 +9786,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"10 300 1500"
+				"armor_and_magic_armor"				"10 80 500"
 			}
 			"02"
 			{
@@ -9796,8 +9827,25 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_percent" 
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}

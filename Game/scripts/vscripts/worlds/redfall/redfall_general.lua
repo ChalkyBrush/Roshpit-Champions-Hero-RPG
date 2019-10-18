@@ -474,6 +474,7 @@ function ancient_tree_projectile_hit(event)
 	end
 	local newStacks = target:GetModifierStackCount("modifier_ancient_tree_vision", caster) + stackIncrease
 	target:SetModifierStackCount("modifier_ancient_tree_vision", caster, newStacks)
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function ancient_tree_summon(event)

@@ -71239,7 +71239,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 1500"
+				"eow_armor"			"5 20 100"
 			}
 		}
 		"Modifiers"
@@ -71496,8 +71496,25 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"2"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}				
 			}
 			"modifier_confusional_spores"
@@ -71683,10 +71700,6 @@
 				"EffectAttachType"	"attach_origin"
 				"StatusEffectName" 		"particles/status_fx/status_effect_guardian_angel.vpcf"
 				"StatusEffectPriority"  "100"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -73632,11 +73645,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"movespeed"			"100 150 200"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor"				"30 500 10000"
-			}
 		}
 		"Modifiers"
 		{
@@ -73698,7 +73706,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"250"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "200"
 				}
@@ -77551,16 +77558,18 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss_per_stack"
-				}
 				"OnCreated"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
 						"Function"		"AmplifyDamageParticleCruxal"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 
@@ -77570,6 +77579,12 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters"
 						"Function"		"EndAmplifyDamageParticleCruxal"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -78042,7 +78057,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"50 500 5000"
+				"armor"			"50 800 8000"
 			}
 		}
 		"Modifiers"
@@ -78086,7 +78101,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_outgoing"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -80877,7 +80909,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8000"
 				}
 			}
 			"modifier_stalacorr_flail"
@@ -80985,7 +81016,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"10 300 1500"
+				"armor_and_magic_armor"				"10 80 500"
 			}
 			"02"
 			{
@@ -81026,8 +81057,25 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_percent" 
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -113749,7 +113797,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"			"-30 -300 -2000"
+				"armor_reduction"			"-150 -500 -5000"
 			}
 			"02"
 			{
@@ -113803,9 +113851,23 @@
 				{
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -114151,7 +114213,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_per_stack"			"10 40 150"
+				"armor_per_stack"			"30 100 400"
 			}
 		}
 		"Modifiers"
@@ -114174,9 +114236,23 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -114319,7 +114395,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"100 700 2000"
+				"armor"				"100 300 1500"
 			}
 			"02"
 			{
@@ -114349,8 +114425,25 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -116017,7 +116110,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"			"10 80 250"
+				"armor_and_magic_armor_bonus"			"30 100 500"
 			}
 			"02"
 			{
@@ -116056,9 +116149,26 @@
 				"IsBuff"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_power_bonus_percent"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -118485,7 +118595,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss_per_stack"		"-250"
+				"armor_loss_per_stack"		"-500"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -118522,10 +118632,6 @@
 				"IsDebuff"			"1"
 				"IsStunDebuff"			"1"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss_per_stack"
-				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -118535,6 +118641,21 @@
 						"EffectAttachType"			"follow_origin"
 						"EffectLifeDurationScale"	"1"
 						"EffectAlphaScale"			"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -120627,6 +120748,14 @@
 		"AbilityTextureName"	"dragon_knight_dragon_blood"
 		"MaxLevel"	"1"
 		"IsHidden"	"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_per_stack"			"30 75 300"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_arena_champion_gladiator_passive"
@@ -120654,9 +120783,23 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -123081,11 +123224,6 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_bonus"		"3000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"health_regen_percent"		"1.5"
 			}
 		}
@@ -123108,7 +123246,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%armor_bonus"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen_percent"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"95"
 				}
@@ -123159,7 +123296,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"1400"
+				"armor_bonus"		"200 800 2400"
 			}
 		}
 		"OnOwnerDied"
@@ -123179,7 +123316,6 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%armor_bonus"
 				}
 				"ThinkInterval"  "4.0"
 				"OnIntervalThink"
@@ -123188,6 +123324,24 @@
 					{
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 						"Function"		"lies_arbiter_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -124162,10 +124316,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/units/heroes/hero_undying/undying_tombstone_ambient.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3000"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -125565,10 +125715,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon_offhand/bloodseeker_eztzhok_offhand_ambient_arc_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -126598,14 +126744,9 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"5 500 10000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"health_regen_percent"				"1 2 3"
 			}
-			"06"
+			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage_percentage"				"10 100 400"
@@ -126674,7 +126815,6 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%health_regen_percent"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percentage"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"80"
@@ -126798,7 +126938,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_reduce"		"-10 -600 -3500"
+				"armor_reduce"		"-10 -300 -1500"
 			}
 		}
 		"Modifiers"
@@ -126846,11 +126986,21 @@
 						"EffectAttachType"  "attach_hitloc"
 						"Target"            "TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"OnIntervalThink"
 				{
@@ -128018,7 +128168,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_per_instance"			"1 10 100"
+				"armor_per_instance"			"10 30 90"
 			}
 		}
 		"Modifiers"
@@ -128057,7 +128207,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_per_instance"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_per_instance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -129746,7 +129913,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_break"			"-6000"
+				"armor_break"			"-9000"
 			}
 		}
 		"Modifiers"
@@ -129806,10 +129973,23 @@
 
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -130498,10 +130678,6 @@
 				"IsHidden"		"1"
 				"IsBuff"		"1"
 				"OverrideAnimation"     "ACT_DOTA_IDLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -131387,7 +131563,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduce_per_hit"			"-3 -25 -100"
+				"armor_reduce_per_hit"			"-8 -50 -225"
 			}
 			"02"
 			{
@@ -131421,12 +131597,26 @@
 			{
 				"EffectName"	"particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
-				}
 				"IsHidden"	"0"
 				"TextureName"	"misc/armor_reduction"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
 			{
@@ -132069,6 +132259,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"			"1.5 2.0 2.5"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"protection_while_casting"			"30000"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -132137,9 +132332,23 @@
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30000"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -132317,10 +132526,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
@@ -134256,7 +134461,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"100 800 2000"
+				"armor"				"300 1000 4000"
 			}
 		}
 
@@ -134269,10 +134474,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -134280,6 +134481,24 @@
 					{
 						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
 						"Function"		"warflayer_attack_land"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -137517,7 +137736,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"20 300 2000"
+				"armor"				"200 600 2400"
 			}
 		}
 
@@ -137530,9 +137749,23 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -137860,7 +138093,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduce_per_hit"			"-2 -10 -40"
+				"armor_reduce_per_hit"			"-10 -30 -150"
 			}
 			"02"
 			{
@@ -137894,10 +138127,6 @@
 				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
-				}
 				"IsHidden"	"0"
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
@@ -139865,11 +140094,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"500 1500 15000"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_loss"				"-10 -300 -3000"
-			}
 		}
 
 		"OnSpellStart"
@@ -139952,7 +140176,6 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-20"
 				}
 			}
@@ -140147,10 +140370,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -142677,15 +142896,6 @@
 		"AbilityTextureName"	"treant_overgrowth"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -142710,7 +142920,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss"			"-200"
+				"armor_and_magic_armor_loss"			"-125"
 			}
 			"03"
 			{
@@ -142777,7 +142987,24 @@
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "-70"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "-70"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_ancient_tree_round_2"
@@ -143885,12 +144112,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"100 1000 10000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"15 35 85"
+				"armor_and_magic_armor"			"300 1000 4000"
 			}
 			"06"
 			{
@@ -143940,8 +144162,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_attack_damage"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resist"
 				}
 				"EffectName"	"particles/roshpit/tanari/fire_buff_owner.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -143951,6 +144171,21 @@
 					{
 						"EffectName"	"Tanari.FireSpirit.BuffApply"
 						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -144078,10 +144313,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon_offhand/bloodseeker_eztzhok_offhand_ambient_arc_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -144873,11 +145104,6 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 2500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"burn_damage"			"150 3000 15000"
 			}
 		}
@@ -144897,10 +145123,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -145371,7 +145593,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"powered_up_armor"			"0.1 0.3 1"
+				"powered_up_armor_and_magic_armor"			"0.2 1 3"
 			}
 		}
 		"Modifiers"
@@ -145529,7 +145751,24 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%powered_up_as"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%powered_up_ms" 
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%powered_up_atk"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%powered_up_armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_triboss_in_battle"
@@ -147102,10 +147341,6 @@
 				"IsHidden"		"1"
 				"IsBuff"		"1"
 				"OverrideAnimation"     "ACT_DOTA_IDLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
@@ -148087,7 +148322,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_stormshield_cloak"
+			"modifier_creature_stormshield"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -148100,6 +148335,12 @@
 						"Function"		"stormshield_cloak_initialize"
 						"target"		"TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"OnDestroy"
 				{
@@ -148109,11 +148350,12 @@
 						"Function"		"stormshield_cloak_end"
 						"target"		"TARGET"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "75"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"OnDeath"
 				{
@@ -150292,9 +150534,23 @@
 				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_vengeful/vengeful_wave_of_terror_recipient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -151108,12 +151364,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"30 300 1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"			"20"
+				"armor_and_magic_armor"			"30 300 1000"
 			}
 		}
 		"Modifiers"
@@ -151146,10 +151397,23 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -151342,17 +151606,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_percent"	"-5"
+				"movespeed_percent"	"-10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_loss"	"-1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resist_loss"	"-20"
+				"armor_and_magic_armor_loss"			"-300 -1500 -5000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -151396,6 +151655,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"300 1000 8000"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_and_magic_armor_loss"			"-300 -1500 -5000"
+			}
 		}
 		"Modifiers"
 		{
@@ -151429,12 +151693,16 @@
 						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
 						"Function"		"whirlpool_end"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-5"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"-1000"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-20"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10"
 				}
 			}
 		}
@@ -152485,7 +152753,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"5000"
 				}
 			}
 			"modifier_stalacorr_flail"

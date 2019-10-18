@@ -15,6 +15,7 @@ function gang_up_think(event)
 	if stacks > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gangup_stack", {})
 		caster:SetModifierStackCount("modifier_gangup_stack", caster, stacks)
+		caster:CalculateAndSaveRoshpitAttributes()
 	else
 		caster:RemoveModifierByName("modifier_gangup_stack")
 	end

@@ -454,6 +454,78 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_terrasic_fire_key_holder_steam_physical") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_stack", "modifier_terrasic_fire_key_holder_steam_physical")
 	end
+	if unit:HasModifier("modifier_blackguard_cripple") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduction", "modifier_blackguard_cripple")
+	end
+	if unit:HasModifier("modifier_fire_temple_armor_gain_stacks") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_stack", "modifier_fire_temple_armor_gain_stacks")
+	end
+	if unit:HasModifier("modifier_fire_temple_red_dragon_blood_effect") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_fire_temple_red_dragon_blood_effect")
+	end
+	if unit:HasModifier("modifier_death_ability_buff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor_bonus", "modifier_death_ability_buff")
+	end
+	if unit:HasModifier("modifier_drill_spike_enemy") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss_per_stack", "modifier_drill_spike_enemy")
+	end
+	if unit:HasModifier("modifier_champion_gladiator_passive_stacking") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss_per_stack", "modifier_champion_gladiator_passive_stacking")
+	end
+	if unit:HasModifier("modifier_lies_arbiter_passive") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_lies_arbiter_passive")
+	end
+	if unit:HasModifier("modifier_forest_ranger_bleed") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduce", "modifier_forest_ranger_bleed")
+	end
+	if unit:HasModifier("modifier_canyon_predator_effect") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_instance", "modifier_forest_ranger_bleed")
+	end
+	if unit:HasModifier("modifier_fire_god_armor_break") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_fire_god_armor_break")
+	end
+	if unit:HasModifier("modifier_crimsyth_recruiter_armor_loss") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduce_per_hit", "modifier_crimsyth_recruiter_armor_loss")
+	end
+	if unit:HasModifier("modifier_shipyard_gatekeeper_casting") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "protection_while_casting", "modifier_shipyard_gatekeeper_casting")
+	end
+	if unit:HasModifier("modifier_warflayer_passive") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_warflayer_passive")
+	end
+	if unit:HasModifier("modifier_ancient_tree_vision") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor_loss", "modifier_ancient_tree_vision")
+	end
+	if unit:HasModifier("modifier_fire_spirit_enraged") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_fire_spirit_enraged")
+	end
+	if unit:HasModifier("modifier_triboss_powered_up_multiple") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "powered_up_armor_and_magic_armor", "modifier_triboss_powered_up_multiple")
+	end
+	if unit:HasModifier("modifier_creature_stormshield") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_creature_stormshield")
+	end
+	if unit:HasModifier("modifier_sea_terror_armor_loss") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_sea_terror_armor_loss")
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stacks") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_chitinous_skin_stacks")
+	end
+	if unit:HasModifier("modifier_sea_prophet_whirlpool_within") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor_loss", "modifier_sea_prophet_whirlpool_within")
+	end
+	if unit:HasModifier("modifier_edge_of_winter_2_armor_evasion") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "eow_armor", "modifier_edge_of_winter_2_armor_evasion")
+	end
+	if unit:HasModifier("modifier_cruxal_armor_loss") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss_per_stack", "modifier_cruxal_armor_loss")
+	end
+	if unit:HasModifier("modifier_bladewielder_force") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_bladewielder_force")
+	end
+	if unit:HasModifier("modifier_gangup_stack") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_gangup_stack")
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -503,7 +575,31 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_during_cast", "modifier_tomb_healing_shield")
 	end
 	if unit:HasModifier("modifier_terrasic_fire_key_holder_steam_magical") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_stack", "modifier_terrasic_fire_key_holder_steam_magical")
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_stack", "modifier_terrasic_fire_key_holder_steam_magical")
+	end
+	if unit:HasModifier("modifier_death_ability_buff") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor_bonus", "modifier_death_ability_buff")
+	end
+	if unit:HasModifier("modifier_shipyard_gatekeeper_casting") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "protection_while_casting", "modifier_shipyard_gatekeeper_casting")
+	end
+	if unit:HasModifier("modifier_ancient_tree_vision") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor_loss", "modifier_ancient_tree_vision")
+	end
+	if unit:HasModifier("modifier_fire_spirit_enraged") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_fire_spirit_enraged")
+	end
+	if unit:HasModifier("modifier_triboss_powered_up_multiple") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "powered_up_armor_and_magic_armor", "modifier_triboss_powered_up_multiple")
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stacks") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_chitinous_skin_stacks")
+	end
+	if unit:HasModifier("modifier_sea_prophet_whirlpool_within") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor_loss", "modifier_sea_prophet_whirlpool_within")
+	end
+	if unit:HasModifier("modifier_gangup_stack") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_gangup_stack")
 	end
 
 	if magic_armor_modify > 0 then

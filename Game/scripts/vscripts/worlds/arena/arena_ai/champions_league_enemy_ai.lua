@@ -139,6 +139,9 @@ function drill_spike_hit(event)
 	local currentStacks = caster:GetModifierStackCount("modifier_drill_spike_self", caster)
 	local newStacks = currentStacks + 1
 	caster:SetModifierStackCount("modifier_drill_spike_self", caster, newStacks)
+
+	target:CalculateAndSaveRoshpitAttributes()
+	caster:CalculateAndSaveRoshpitAttributes()
 end
 
 function bear_summoning_think(event)

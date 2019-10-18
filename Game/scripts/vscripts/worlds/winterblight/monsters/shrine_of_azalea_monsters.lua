@@ -1503,6 +1503,7 @@ function cruxal_attack_land(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_cruxal_armor_loss", {duration = 7})
 	local stacks = target:GetModifierStackCount("modifier_cruxal_armor_loss", caster)
 	target:SetModifierStackCount("modifier_cruxal_armor_loss", caster, stacks + 1)
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function cruxal_think(event)
@@ -2020,6 +2021,7 @@ function torphet_powering_up_think(event)
 	target:SetModelScale(target:GetModelScale() + 0.01)
 	local newStacks = target:GetModifierStackCount("modifier_triboss_powered_up_multiple", caster) + 1
 	target:SetModifierStackCount("modifier_triboss_powered_up_multiple", casters, newStacks)
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function tri_boss_think(event)

@@ -106,6 +106,7 @@ function predator_passive_damage(event)
 	local modifier = caster:FindModifierByName("modifier_canyon_predator_effect")
 	if modifier then
 		modifier:IncrementStackCount()
+		caster:CalculateAndSaveRoshpitAttributes()
 	end
 end
 

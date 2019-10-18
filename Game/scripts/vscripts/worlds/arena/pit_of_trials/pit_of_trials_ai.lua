@@ -214,6 +214,7 @@ function gladiator_take_damage(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_champion_gladiator_passive_stacking", {duration = 5})
 	local newStacks = caster:GetModifierStackCount("modifier_champion_gladiator_passive_stacking", caster) + 1
 	caster:SetModifierStackCount("modifier_champion_gladiator_passive_stacking", caster, newStacks)
+	caster:CalculateAndSaveRoshpitAttributes()
 end
 
 function gladiator_die(event)
@@ -1618,20 +1619,22 @@ end
 
 function lies_arbiter_die(event)
 	local caster = event.caster
-	EmitSoundOn("Arena.LiesArbiter.Death", caster)
-	for j = 1, 200, 1 do
-		Timers:CreateTimer(j*0.03, function()
-			Arena.arbiterBridge:SetAbsOrigin(Arena.arbiterBridge:GetAbsOrigin()+Vector(0,0,10))
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		EmitSoundOn("Arena.LiesArbiter.Death", caster)
+		for j = 1, 200, 1 do
+			Timers:CreateTimer(j*0.03, function()
+				Arena.arbiterBridge:SetAbsOrigin(Arena.arbiterBridge:GetAbsOrigin()+Vector(0,0,10))
+			end)
+		end
+		Timers:CreateTimer(6, function()
+			local blockers = Entities:FindAllByNameWithin("LiesAntiBridgeBlocker", Vector(3713, 15393, 160+Arena.ZFLOAT), 3000)
+			for k = 1, #blockers, 1 do
+				UTIL_Remove(blockers[k])
+			end
+			Arena:SpawnLiesTreasureRoom()
+			EmitSoundOnLocationWithCaster(Vector(3713, 15393, 160+Arena.ZFLOAT), "Arena.WaterTemple.SwitchEnd", Arena.ArenaMaster)
 		end)
 	end
-	Timers:CreateTimer(6, function()
-		local blockers = Entities:FindAllByNameWithin("LiesAntiBridgeBlocker", Vector(3713, 15393, 160+Arena.ZFLOAT), 3000)
-		for k = 1, #blockers, 1 do
-			UTIL_Remove(blockers[k])
-		end
-		Arena:SpawnLiesTreasureRoom()
-		EmitSoundOnLocationWithCaster(Vector(3713, 15393, 160+Arena.ZFLOAT), "Arena.WaterTemple.SwitchEnd", Arena.ArenaMaster)
-	end)
 end
 
 function lies_treasure_bird_think(event)

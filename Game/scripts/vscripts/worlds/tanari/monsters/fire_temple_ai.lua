@@ -141,6 +141,7 @@ function armor_gain_on_attack_attacked(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_fire_temple_armor_gain_stacks", {duration = 7})
 	local currentStacks = caster:GetModifierStackCount("modifier_fire_temple_armor_gain_stacks", caster)
 	caster:SetModifierStackCount("modifier_fire_temple_armor_gain_stacks", caster, currentStacks + 1)
+	caster:CalculateAndSaveRoshpitAttributes()
 end
 
 function FireTempleRoom1Trigger1(event)
@@ -725,6 +726,7 @@ function temple_protector_die(event)
 				allies[i].modelScale = allies[i].modelScale + 0.07
 				allies[i]:SetModelScale(allies[i].modelScale)
 				allies[i]:Heal(allies[i]:GetMaxHealth() * healPercent, allies[i])
+				allies[i]:CalculateAndSaveRoshpitAttributes()
 			end
 		end
 	end

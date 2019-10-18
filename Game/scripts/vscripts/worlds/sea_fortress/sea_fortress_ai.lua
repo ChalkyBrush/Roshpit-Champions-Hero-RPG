@@ -3341,6 +3341,7 @@ function chitinous_skin_think(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_chitinous_skin_stacks", {})
 		local newStacks = math.min(target:GetModifierStackCount("modifier_chitinous_skin_stacks", caster) + 1, 20)
 		target:SetModifierStackCount("modifier_chitinous_skin_stacks", caster, newStacks)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end
 
@@ -3352,6 +3353,7 @@ function chitinous_skin_take_damage(event)
 	local newStacks = target:GetModifierStackCount("modifier_chitinous_skin_stacks", caster) - 1
 	if newStacks > 0 then
 		target:SetModifierStackCount("modifier_chitinous_skin_stacks", caster, newStacks)
+		target:CalculateAndSaveRoshpitAttributes()
 	else
 		caster:RemoveModifierByName("modifier_chitinous_skin_stacks")
 	end
