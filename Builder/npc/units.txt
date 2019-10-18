@@ -75255,12 +75255,12 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
             "particle"      "particles/roshpit/chernobog/demon_hunter.vpcf"
         }
-        "ArmorPhysical" "2"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "5540000"
-        "AttackDamageMax"   "6540000"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "12000"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -75275,7 +75275,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "8730000"
+        "StatusHealth"  "42000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -75326,6 +75326,13 @@
         }
         "Ability1"  "seafortress_dark_sunder"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "610"
+        "RoshpitArmorPierce"    "265"
+        "RoshpitSpellPierce"    "215"
+        "RoshpitMagicArmor"     "580"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
         
     }
 
@@ -75351,12 +75358,12 @@
             "particle"  "particles/roshpit/seafortress/ink_blast_proj.vpcf"
             "particle"  "particles/roshpit/squid_goo.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "600400"
-        "AttackDamageMax"   "800400"
+        "AttackDamageMin"   "3400"
+        "AttackDamageMax"   "3400"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.32"
         "AttackAcquisitionRange"    "0"
@@ -75371,10 +75378,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "300"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "1585000"
+        "StatusHealth"  "21850"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "1000"
+        "StatusManaRegen"   "50"
         "VisionDaytimeRange"    "2000"
         "VisionNighttimeRange"  "2000"
         "Ability1"              "seafortress_ink_blast"
@@ -75424,6 +75431,13 @@
             }
 
         }
+        "RoshpitArmor"          "320"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "545"
+        "RoshpitMagicArmor"     "580"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_sea_maiden"
@@ -75448,14 +75462,14 @@
             "particle"  "particles/econ/events/fall_major_2015/teleport_end_fallmjr_2015.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/econ/items/leshrac/leshrac_tormented_staff/leshrac_base_attack_tormented.vpcf"
         "ProjectileSpeed"   "600"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "500100"
-        "AttackDamageMax"   "700100"
+        "AttackDamageMin"   "10700"
+        "AttackDamageMax"   "10700"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -75469,7 +75483,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "13650000"
+        "StatusHealth"  "52000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -75505,6 +75519,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "410"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "365"
+        "RoshpitMagicArmor"     "540"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_centaur"
@@ -75525,12 +75546,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
             "particle"  "particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
         }
-        "ArmorPhysical" "60"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4000000"
-        "AttackDamageMax"   "4020000"
+        "AttackDamageMin"   "8800"
+        "AttackDamageMax"   "8800"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -75544,9 +75565,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "9000000"
+        "StatusHealth"  "32000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "400"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -75607,6 +75628,13 @@
         "Ability3"  "normal_steadfast"
         "Ability4"  "use_ability_1_no_target_ai"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "520"
+        "RoshpitArmorPierce"    "285"
+        "RoshpitSpellPierce"    "145"
+        "RoshpitMagicArmor"     "580"
+        "RoshpitLevel"          "47"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_soul_splicer"
@@ -75630,8 +75658,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "220400"
-        "AttackDamageMax"   "305000"
+        "AttackDamageMin"   "7800"
+        "AttackDamageMax"   "7800"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -75645,7 +75673,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "395"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "5000000"
+        "StatusHealth"  "17000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -75699,6 +75727,13 @@
             }
 
         }
+        "RoshpitArmor"          "325"
+        "RoshpitArmorPierce"    "585"
+        "RoshpitSpellPierce"    "345"
+        "RoshpitMagicArmor"     "480"
+        "RoshpitLevel"          "47"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "sea_fortress_fairy_dragon"
@@ -75722,12 +75757,12 @@
         "SelectionGroup"    "bone_horror"
         "PathfindingSearchDepthScale" "0.2"
         "DefaultState"  "Invade"
-        "ArmorPhysical" "5"
-        "MagicalResistance" "99"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "15000"
-        "AttackDamageMax"   "20000"
+        "AttackDamageMin"   "2600"
+        "AttackDamageMax"   "2600"
         "AttackRate"    "2"
         "AttackAnimationPoint"  "0.27"
         "AttackAcquisitionRange"    "0"
@@ -75802,7 +75837,13 @@
                 }
             }
         }
-
+        "RoshpitArmor"          "245"
+        "RoshpitArmorPierce"    "185"
+        "RoshpitSpellPierce"    "545"
+        "RoshpitMagicArmor"     "650"
+        "RoshpitLevel"          "47"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seabinder_olaf"
@@ -75825,8 +75866,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1400000"
-        "AttackDamageMax"   "1600000"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "13000"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "220"
@@ -75842,7 +75883,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "400"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "6160000"
+        "StatusHealth"  "58000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -75902,6 +75943,13 @@
             }
 
         }
+        "RoshpitArmor"          "555"
+        "RoshpitArmorPierce"    "555"
+        "RoshpitSpellPierce"    "555"
+        "RoshpitMagicArmor"     "555"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_temple_assassin"
@@ -75920,12 +75968,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2600000"
-        "AttackDamageMax"   "2800000"
+        "AttackDamageMin"   "10000"
+        "AttackDamageMax"   "10000"
         "AttackRate"    "1.12"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -75943,7 +75991,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "300"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "92600000"
+        "StatusHealth"  "14200"
         "StatusHealthRegen" "0"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -75998,6 +76046,13 @@
 
             }
         }
+        "RoshpitArmor"          "265"
+        "RoshpitArmorPierce"    "585"
+        "RoshpitSpellPierce"    "245"
+        "RoshpitMagicArmor"     "620"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_giga_ocean_elemental"
@@ -76023,16 +76078,16 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "2"         // Physical protection.
-        "MagicalResistance"         "20"        // Magical protection.
+        "ArmorPhysical"             "0"         // Physical protection.
+        "MagicalResistance"         "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "400000"
-        "AttackDamageMax"   "500000"
-        "AttackRate"    "1"
+        "AttackDamageMin"   "15000"
+        "AttackDamageMax"   "15000"
+        "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.43"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "580"
@@ -76061,7 +76116,7 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"              "8824400"       // Base health.
+        "StatusHealth"              "40000"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
@@ -76108,6 +76163,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "355"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "545"
+        "RoshpitMagicArmor"     "320"
+        "RoshpitLevel"          "46"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_blazing_assassin"
@@ -76138,8 +76200,8 @@
         "ProjectileModel"   "particles/items_fx/desolator_projectile.vpcf"
         "ProjectileSpeed"   "1100"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2000000"
-        "AttackDamageMax"   "3000000"
+        "AttackDamageMin"   "9000"
+        "AttackDamageMax"   "9000"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
@@ -76154,7 +76216,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "90000000"
+        "StatusHealth"  "12800"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -76208,6 +76270,13 @@
 
             }
         }
+        "RoshpitArmor"          "305"
+        "RoshpitArmorPierce"    "565"
+        "RoshpitSpellPierce"    "245"
+        "RoshpitMagicArmor"     "420"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_kray_beast"
@@ -76227,12 +76296,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
             "particle"  "particles/econ/items/magnataur/shock_of_the_anvil/magnataur_shockanvil.vpcf"
         }
-        "ArmorPhysical" "1000"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3040000"
-        "AttackDamageMax"   "5080000"
+        "AttackDamageMin"   "3200"
+        "AttackDamageMax"   "3300"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -76247,9 +76316,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "21567000"
+        "StatusHealth"  "32150"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -76290,6 +76359,13 @@
         "Ability2"  "seafortress_chitinous_skin"
         "Ability3"  "use_ability_1_position_ai"
         "Ability4"  "dungeon_creep"
+        "RoshpitArmor"          "740"
+        "RoshpitArmorPierce"    "185"
+        "RoshpitSpellPierce"    "140"
+        "RoshpitMagicArmor"     "600"
+        "RoshpitLevel"          "47"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_disciple_of_poseidon"
@@ -76309,12 +76385,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_monkey_king.vsndevts"
             "particle"  "particles/roshpit/voltex/lightning_dash_trail.vpcf"
         }
-        "ArmorPhysical" "30"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2800000"
-        "AttackDamageMax"   "3200000"
+        "AttackDamageMin"   "7800"
+        "AttackDamageMax"   "7800"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -76328,9 +76404,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "24000000"
+        "StatusHealth"  "24000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -76380,6 +76456,13 @@
             }
 
         }
+        "RoshpitArmor"          "340"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "340"
+        "RoshpitMagicArmor"     "300"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_sea_prophet"
@@ -76406,12 +76489,12 @@
             "particle"  "particles/econ/events/ti7/teleport_start_ti7_core.vpcf"
             "particle"  "particles/econ/events/ti7/blink_dagger_start_ti7_splash.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "13400000"
-        "AttackDamageMax"   "15400000"
+        "AttackDamageMin"   "11500"
+        "AttackDamageMax"   "12000"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -76428,7 +76511,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "10850000"
+        "StatusHealth"  "49000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -76486,6 +76569,13 @@
             }
 
         }
+        "RoshpitArmor"          "420"
+        "RoshpitArmorPierce"    "415"
+        "RoshpitSpellPierce"    "540"
+        "RoshpitMagicArmor"     "600"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_aqua_dragoon"
@@ -76504,14 +76594,14 @@
         {
             "particle"  "particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "840"
         "ProjectileModel"       "particles/units/heroes/hero_luna/luna_base_attack.vpcf"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1111250"
-        "AttackDamageMax"   "1111470"
+        "AttackDamageMin"   "8700"
+        "AttackDamageMax"   "9300"
         "AttackRate"    "0.4"
         "AttackAnimationPoint"  "0.2"
         "AttackAcquisitionRange"    "0"
@@ -76526,9 +76616,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "5204000"
-        "StatusHealthRegen" "0"
-        "StatusMana"    "2000"
+        "StatusHealth"  "19800"
+        "StatusHealthRegen" "10"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1000"
         "VisionNighttimeRange"  "1000"
@@ -76570,6 +76660,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "325"
+        "RoshpitArmorPierce"    "585"
+        "RoshpitSpellPierce"    "520"
+        "RoshpitMagicArmor"     "400"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_blood_drinker"
@@ -76602,8 +76699,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "450"
-        "AttackDamageMax"   "540"
+        "AttackDamageMin"   "2500"
+        "AttackDamageMax"   "2500"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -76617,7 +76714,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "70000"
+        "StatusHealth"  "12670"
         "StatusHealthRegen" "1"
         "StatusMana"    "0"
         "StatusManaRegen"   "0"
@@ -76680,6 +76777,13 @@
             }
 
         }
+        "RoshpitArmor"          "315"
+        "RoshpitArmorPierce"    "645"
+        "RoshpitSpellPierce"    "445"
+        "RoshpitMagicArmor"     "320"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_water_bug"
@@ -76699,12 +76803,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Weaver"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "300000.0"
-        "AttackDamageMax"   "500000.0"
+        "AttackDamageMin"   "5800"
+        "AttackDamageMax"   "5800"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -76721,7 +76825,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "410"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "20000000"
+        "StatusHealth"  "19000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -76778,6 +76882,13 @@
         "Ability2"          "armor_break_ultra"
         "Ability3"          "ability_magic_immune_break"
         "Ability4"          "dungeon_creep"
+        "RoshpitArmor"          "395"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "245"
+        "RoshpitMagicArmor"     "320"
+        "RoshpitLevel"          "47"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_saltwater_demon"
@@ -76799,14 +76910,14 @@
             "particle"      "particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "75"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel" "particles/units/heroes/hero_lion/lion_base_attack.vpcf"
         "ProjectileSpeed"   "500"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2700000"
-        "AttackDamageMax"   "3400000"
+        "AttackDamageMin"   "8688"
+        "AttackDamageMax"   "8688"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -76821,7 +76932,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "375"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "2734200"
+        "StatusHealth"  "32000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "1000"
         "StatusManaRegen"   "0"
@@ -76876,6 +76987,13 @@
         "Ability3"  "seafortress_saltwater_demon_aura"
         "Ability4"  "vault_lord_mana_spill"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "400"
+        "RoshpitArmorPierce"    "385"
+        "RoshpitSpellPierce"    "575"
+        "RoshpitMagicArmor"     "550"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_sea_passage_titan"
@@ -76896,12 +77014,12 @@
             "particle"  "particles/units/heroes/hero_spectre/spectre_death.vpcf"
             "particle"  "particles/dire_fx/tower_bad_face_end_sparks.vpcf"
         }
-        "ArmorPhysical" "120"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3800000"
-        "AttackDamageMax"   "4000000"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "12000"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -76915,7 +77033,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "24800000"
+        "StatusHealth"  "48000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -76974,6 +77092,13 @@
         "Ability3"  "normal_steadfast"
         "Ability4"  "use_ability_1_position_ai"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "625"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "445"
+        "RoshpitMagicArmor"     "520"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_poseidon_zealot"
@@ -76993,12 +77118,12 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_monkey_king.vsndevts"
             "particle"  "particles/roshpit/voltex/lightning_dash_trail.vpcf"
         }
-        "ArmorPhysical" "30"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2800000"
-        "AttackDamageMax"   "3200000"
+        "AttackDamageMin"   "9000"
+        "AttackDamageMax"   "9000"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -77012,7 +77137,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "240000000"
+        "StatusHealth"  "34000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77067,6 +77192,13 @@
             }
 
         }
+        "RoshpitArmor"          "420"
+        "RoshpitArmorPierce"    "565"
+        "RoshpitSpellPierce"    "420"
+        "RoshpitMagicArmor"     "380"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_raging_bladewarrior"
@@ -77085,12 +77217,12 @@
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
         }
-        "ArmorPhysical" "45"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3400000"
-        "AttackDamageMax"   "4000000"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "12000"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -77104,7 +77236,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "480"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "17004000"
+        "StatusHealth"  "21000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77164,6 +77296,13 @@
         "Ability3"  "ability_stun_immunity"
         "Ability4"  "ability_mega_haste"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "520"
+        "RoshpitArmorPierce"    "565"
+        "RoshpitSpellPierce"    "220"
+        "RoshpitMagicArmor"     "180"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_ahn_qhir"
@@ -77184,12 +77323,12 @@
             "particle"      "particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_blade_fury.vpcf"
             "particle"      "particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_blade_fury.vpcf"
         }
-        "ArmorPhysical" "45"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3400000"
-        "AttackDamageMax"   "4000000"
+        "AttackDamageMin"   "16000"
+        "AttackDamageMax"   "16000"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "0"
@@ -77203,7 +77342,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "500"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "17004000"
+        "StatusHealth"  "61000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77263,6 +77402,13 @@
         "Ability3"  "juggernaut_blade_dance"
         "Ability4"  "normal_steadfast"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "520"
+        "RoshpitArmorPierce"    "565"
+        "RoshpitSpellPierce"    "220"
+        "RoshpitMagicArmor"     "180"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_water_summoner"
@@ -77282,14 +77428,14 @@
         {
 
         }
-        "ArmorPhysical" "25"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
         "ProjectileSpeed"   "600"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3001000"
-        "AttackDamageMax"   "4001000"
+        "AttackDamageMin"   "6700"
+        "AttackDamageMax"   "7000"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.32"
         "AttackAcquisitionRange"    "100"
@@ -77304,7 +77450,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "390"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "2950000"
+        "StatusHealth"  "26500"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77347,6 +77493,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "320"
+        "RoshpitArmorPierce"    "265"
+        "RoshpitSpellPierce"    "520"
+        "RoshpitMagicArmor"     "580"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_troll_axemaster"
@@ -77365,12 +77518,12 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "500020"
-        "AttackDamageMax"   "600450"
+        "AttackDamageMin"   "9000"
+        "AttackDamageMax"   "9200"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
@@ -77385,7 +77538,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "54000000"
+        "StatusHealth"  "29000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77443,6 +77596,13 @@
         "Ability3"  "troll_warlord_fervor"
         "Ability4"  "life_stealer_rage"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "450"
+        "RoshpitArmorPierce"    "522"
+        "RoshpitSpellPierce"    "241"
+        "RoshpitMagicArmor"     "480"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "sapphire_dragon"
@@ -77462,11 +77622,11 @@
 
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4004000"
-        "AttackDamageMax"   "5004000"
+        "AttackDamageMin"   "9000"
+        "AttackDamageMax"   "9000"
         "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -77480,14 +77640,10 @@
         "RingRadius"    "50"
         "CollisionSize" "16"
         "FormationRank" "2"
-        "GoldCost"  "205"
-        "LumberCost"    "30"
-        "FoodCost"  "3"
-        "BuildTime" "26"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "10450000"
+        "StatusHealth"  "24670"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77517,6 +77673,13 @@
             }
 
         }
+        "RoshpitArmor"          "420"
+        "RoshpitArmorPierce"    "465"
+        "RoshpitSpellPierce"    "420"
+        "RoshpitMagicArmor"     "580"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_slicer"
@@ -77541,8 +77704,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4000000"
-        "AttackDamageMax"   "5000000"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "12000"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -77556,9 +77719,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "450"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "18000000"
+        "StatusHealth"  "11400"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "1000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -77618,6 +77781,13 @@
             }
 
         }
+        "RoshpitArmor"          "320"
+        "RoshpitArmorPierce"    "625"
+        "RoshpitSpellPierce"    "220"
+        "RoshpitMagicArmor"     "380"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_sea_dragon_warrior"
@@ -77636,12 +77806,12 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
         }
-        "ArmorPhysical" "50"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3500000"
-        "AttackDamageMax"   "4000000"
+        "AttackDamageMin"   "17500"
+        "AttackDamageMax"   "17500"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "1000"
@@ -77657,7 +77827,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "500"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "80000000"
+        "StatusHealth"  "67000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77703,6 +77873,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "460"
+        "RoshpitArmorPierce"    "515"
+        "RoshpitSpellPierce"    "520"
+        "RoshpitMagicArmor"     "580"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_dark_spirit"
@@ -77723,12 +77900,12 @@
             "particle"  "particles/units/heroes/hero_warlock/charge_of_light.vpcf"
         }
 
-        "ArmorPhysical" "5"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3000000"
-        "AttackDamageMax"   "4000000"
+        "AttackDamageMin"   "16666"
+        "AttackDamageMax"   "16666"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -77742,7 +77919,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "480"
         "MovementTurnRate"  "0.2"
-        "StatusHealth"  "32212600"
+        "StatusHealth"  "66600"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77799,6 +77976,13 @@
             }
 
         }
+        "RoshpitArmor"          "500"
+        "RoshpitArmorPierce"    "422"
+        "RoshpitSpellPierce"    "476"
+        "RoshpitMagicArmor"     "500"
+        "RoshpitLevel"          "51"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_wandering_pirate"
@@ -77826,8 +78010,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2060000"
-        "AttackDamageMax"   "2440000"
+        "AttackDamageMin"   "8000"
+        "AttackDamageMax"   "8600"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -77841,8 +78025,8 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "10000000"
-        "StatusHealthRegen" "0.25"
+        "StatusHealth"  "29000"
+        "StatusHealthRegen" "10"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
@@ -77890,6 +78074,13 @@
             }
 
         }
+        "RoshpitArmor"          "482"
+        "RoshpitArmorPierce"    "495"
+        "RoshpitSpellPierce"    "320"
+        "RoshpitMagicArmor"     "590"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_wandering_ghost"
@@ -77908,12 +78099,12 @@
         {
 
         }
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2060000"
-        "AttackDamageMax"   "2440000"
+        "AttackDamageMin"   "1000"
+        "AttackDamageMax"   "1000"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -77927,7 +78118,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "240"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "10000000"
+        "StatusHealth"  "10000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -77973,6 +78164,13 @@
             }
 
         }
+        "RoshpitArmor"          "482"
+        "RoshpitArmorPierce"    "495"
+        "RoshpitSpellPierce"    "320"
+        "RoshpitMagicArmor"     "590"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "sea_fortress_barnacle_colossus"
@@ -77991,12 +78189,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
-        "ArmorPhysical" "4"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "9555500"
-        "AttackDamageMax"   "10545000"
+        "AttackDamageMin"   "16000"
+        "AttackDamageMax"   "16000"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -78010,7 +78208,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "22734400"
+        "StatusHealth"  "84000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78042,6 +78240,13 @@
 
             }
         }
+        "RoshpitArmor"          "500"
+        "RoshpitArmorPierce"    "500"
+        "RoshpitSpellPierce"    "365"
+        "RoshpitMagicArmor"     "500"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_deckhand"
@@ -78062,12 +78267,12 @@
             "particle"  "particles/units/heroes/hero_riki/riki_tricks.vpcf"
             "particle"  "particles/units/heroes/hero_riki/riki_blink_strike.vpcf"
         }
-        "ArmorPhysical" "60"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3500"
-        "AttackDamageMax"   "3620"
+        "AttackDamageMin"   "5500"
+        "AttackDamageMax"   "5620"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
@@ -78081,7 +78286,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "10000000"
+        "StatusHealth"  "24200"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78147,6 +78352,13 @@
         "Ability3"  "redfall_bandit_blink_strike"
         "Ability4"  "arena_riki_ult"
         "Ability5"  "dungeon_creep"
+        "RoshpitArmor"          "513"
+        "RoshpitArmorPierce"    "543"
+        "RoshpitSpellPierce"    "261"
+        "RoshpitMagicArmor"     "344"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_zombied_seafarer"
@@ -78170,8 +78382,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200000"
-        "AttackDamageMax"   "1400000"
+        "AttackDamageMin"   "6700"
+        "AttackDamageMax"   "6700"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
@@ -78188,7 +78400,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "390"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "340000000"
+        "StatusHealth"  "18400"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "0"
         "StatusManaRegen"   "20"
@@ -78240,6 +78452,13 @@
         "Ability1"          "seafortress_curse_of_the_deep"
         "Ability2"          "use_ability_1_position_ai"
         "Ability3"          "dungeon_creep"
+        "RoshpitArmor"          "280"
+        "RoshpitArmorPierce"    "295"
+        "RoshpitSpellPierce"    "445"
+        "RoshpitMagicArmor"     "490"
+        "RoshpitLevel"          "48"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_drowned_wraith"
@@ -78257,12 +78476,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4004000"
-        "AttackDamageMax"   "5004000"
+        "AttackDamageMin"   "3200"
+        "AttackDamageMax"   "3200"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "100"
@@ -78276,7 +78495,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "6450000"
+        "StatusHealth"  "10400"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78303,6 +78522,13 @@
             }
 
         }
+        "RoshpitArmor"          "255"
+        "RoshpitArmorPierce"    "315"
+        "RoshpitSpellPierce"    "245"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "46"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_WEAK_CREEP %>"
     }
 
     "seafortress_stalacorr"
@@ -78321,12 +78547,12 @@
         {
 
         }
-        "ArmorPhysical" "20"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "7000000.0"
-        "AttackDamageMax"   "8000000.0"
+        "AttackDamageMin"   "17000"
+        "AttackDamageMax"   "17000"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.82"
         "AttackAcquisitionRange"    "0"
@@ -78341,7 +78567,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "38000"
+        "StatusHealth"  "56000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78379,7 +78605,13 @@
             }
 
         }
-
+        "RoshpitArmor"          "680"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "295"
+        "RoshpitMagicArmor"     "590"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_rain_gargoyle"
@@ -78405,15 +78637,15 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "50"         // Physical protection.
-        "MagicalResistance"         "33"        // Magical protection.
+        "ArmorPhysical"             "0"         // Physical protection.
+        "MagicalResistance"         "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "300000"
-        "AttackDamageMax"   "500000"
+        "AttackDamageMin"   "5000"
+        "AttackDamageMax"   "5000"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.17"
         "AttackAcquisitionRange"    "100"
@@ -78443,7 +78675,7 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"              "600"       // Base health.
+        "StatusHealth"              "17000"       // Base health.
         "StatusHealthRegen"         "10"      // Health regeneration rate.
         "StatusMana"                "0"         // Base mana.
         "StatusManaRegen"           "0"         // Mana regeneration rate.
@@ -78487,6 +78719,13 @@
                 }             
             }
         }
+        "RoshpitArmor"          "580"
+        "RoshpitArmorPierce"    "345"
+        "RoshpitSpellPierce"    "245"
+        "RoshpitMagicArmor"     "520"
+        "RoshpitLevel"          "46"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_ghost_seal"
@@ -78504,12 +78743,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4004000"
-        "AttackDamageMax"   "5004000"
+        "AttackDamageMin"   "6000"
+        "AttackDamageMax"   "6400"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "100"
@@ -78523,7 +78762,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "6450000"
+        "StatusHealth"  "32000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78551,6 +78790,13 @@
             }
 
         }
+        "RoshpitArmor"          "480"
+        "RoshpitArmorPierce"    "315"
+        "RoshpitSpellPierce"    "265"
+        "RoshpitMagicArmor"     "590"
+        "RoshpitLevel"          "47"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_big_blue_furbolg"
@@ -78574,8 +78820,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4000000"
-        "AttackDamageMax"   "5000000"
+        "AttackDamageMin"   "9000"
+        "AttackDamageMax"   "9000"
         "AttackRate"    "0.7"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
@@ -78589,7 +78835,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "180000000"
+        "StatusHealth"  "40000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78624,6 +78870,13 @@
             }
 
         }
+        "RoshpitArmor"          "200"
+        "RoshpitArmorPierce"    "400"
+        "RoshpitSpellPierce"    "400"
+        "RoshpitMagicArmor"     "200"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_dark_reef_guard"
@@ -78647,8 +78900,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1000000"
-        "AttackDamageMax"   "2000000"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "13000"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
@@ -78662,7 +78915,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "340"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "58000000"
+        "StatusHealth"  "34500"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78703,6 +78956,13 @@
             }
 
         }
+        "RoshpitArmor"          "580"
+        "RoshpitArmorPierce"    "495"
+        "RoshpitSpellPierce"    "428"
+        "RoshpitMagicArmor"     "540"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "dark_reef_elite"
@@ -78721,12 +78981,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "12445000"
-        "AttackDamageMax"   "15555000"
+        "AttackDamageMin"   "18000"
+        "AttackDamageMax"   "18000"
         "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -78741,7 +79001,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "320"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "60440000"
+        "StatusHealth"  "53400"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78788,6 +79048,13 @@
                 }  
             }
         }
+        "RoshpitArmor"          "610"
+        "RoshpitArmorPierce"    "595"
+        "RoshpitSpellPierce"    "528"
+        "RoshpitMagicArmor"     "620"
+        "RoshpitLevel"          "51"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "sea_fortress_featherguard"
@@ -78812,8 +79079,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "800000.0"
-        "AttackDamageMax"   "900000.0"
+        "AttackDamageMin"   "4600"
+        "AttackDamageMax"   "4700"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -78828,7 +79095,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "44000000"
+        "StatusHealth"  "18800"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78885,6 +79152,13 @@
         "Ability2"          "juggernaut_blade_dance"
         "Ability3"          "slithereen_featherguard_ai"
         "Ability4"          "dungeon_creep"
+        "RoshpitArmor"          "320"
+        "RoshpitArmorPierce"    "785"
+        "RoshpitSpellPierce"    "525"
+        "RoshpitMagicArmor"     "500"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "dark_reef_skhultoth"
@@ -78907,12 +79181,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "15"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "11445000"
-        "AttackDamageMax"   "12555000"
+        "AttackDamageMin"   "25000"
+        "AttackDamageMax"   "25000"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -78927,7 +79201,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "800"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "90440000"
+        "StatusHealth"  "74000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -78966,6 +79240,13 @@
  
             }
         }
+        "RoshpitArmor"          "700"
+        "RoshpitArmorPierce"    "595"
+        "RoshpitSpellPierce"    "485"
+        "RoshpitMagicArmor"     "650"
+        "RoshpitLevel"          "51"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_ocean_centaur"
@@ -78984,12 +79265,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "15"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2244500"
-        "AttackDamageMax"   "2555500"
+        "AttackDamageMin"   "12000"
+        "AttackDamageMax"   "12000"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
@@ -79042,6 +79323,13 @@
  
             }
         }
+        "RoshpitArmor"          "560"
+        "RoshpitArmorPierce"    "425"
+        "RoshpitSpellPierce"    "305"
+        "RoshpitMagicArmor"     "550"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_oceanrunner_arkguil"
@@ -79060,12 +79348,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "40"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "2244500"
-        "AttackDamageMax"   "2555500"
+        "AttackDamageMin"   "18000"
+        "AttackDamageMax"   "19000"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
@@ -79080,7 +79368,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "750"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "9044000"
+        "StatusHealth"  "58000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79126,6 +79414,13 @@
                 }  
             }
         }
+        "RoshpitArmor"          "600"
+        "RoshpitArmorPierce"    "445"
+        "RoshpitSpellPierce"    "325"
+        "RoshpitMagicArmor"     "600"
+        "RoshpitLevel"          "49"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "seafortress_boss_siltbreaker"
@@ -79146,12 +79441,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "35"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "22445000"
-        "AttackDamageMax"   "25555000"
+        "AttackDamageMin"   "26000"
+        "AttackDamageMax"   "26000"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
@@ -79166,7 +79461,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "420"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "300440000"
+        "StatusHealth"  "84000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79206,6 +79501,13 @@
  
             }
         }
+        "RoshpitArmor"          "510"
+        "RoshpitArmorPierce"    "645"
+        "RoshpitSpellPierce"    "625"
+        "RoshpitMagicArmor"     "700"
+        "RoshpitLevel"          "51"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "seafortress_boss_silver_sea_giant"
@@ -79226,12 +79528,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "35"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "22445000"
-        "AttackDamageMax"   "25555000"
+        "AttackDamageMin"   "30000"
+        "AttackDamageMax"   "30000"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
@@ -79246,7 +79548,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "90440000"
+        "StatusHealth"  "100000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79283,6 +79585,13 @@
  
             }
         }
+        "RoshpitArmor"          "900"
+        "RoshpitArmorPierce"    "500"
+        "RoshpitSpellPierce"    "300"
+        "RoshpitMagicArmor"     "900"
+        "RoshpitLevel"          "51"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "seafortress_shadow_of_bahamut"
@@ -79303,12 +79612,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "3500000"
-        "AttackDamageMax"   "7000000"
+        "AttackDamageMin"   "27000"
+        "AttackDamageMax"   "27000"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "2500"
@@ -79322,10 +79631,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "33400000"
+        "StatusHealth"  "94000"
         "StatusHealthRegen" "10"
         "StatusMana"    "200000"
-        "StatusManaRegen"   "300000"
+        "StatusManaRegen"   "200000"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "DrawParticlesWhileHidden" "1"
@@ -79381,6 +79690,13 @@
 
             }
         }
+        "RoshpitArmor"          "600"
+        "RoshpitArmorPierce"    "625"
+        "RoshpitSpellPierce"    "740"
+        "RoshpitMagicArmor"     "750"
+        "RoshpitLevel"          "52"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "seafortress_oracle_of_the_sea"
@@ -79403,12 +79719,12 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "29500000"
-        "AttackDamageMax"   "32000000"
+        "AttackDamageMin"   "27000"
+        "AttackDamageMax"   "27000"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "2500"
@@ -79485,6 +79801,13 @@
 
             }
         }
+        "RoshpitArmor"          "500"
+        "RoshpitArmorPierce"    "600"
+        "RoshpitSpellPierce"    "750"
+        "RoshpitMagicArmor"     "750"
+        "RoshpitLevel"          "51"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "seafortress_ocean_diviner"
@@ -79510,8 +79833,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4000000"
-        "AttackDamageMax"   "5000000"
+        "AttackDamageMin"   "8700"
+        "AttackDamageMax"   "8700"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.29"
         "AttackAcquisitionRange"    "0"
@@ -79528,7 +79851,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "300"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "50000000"
+        "StatusHealth"  "48000"
         "StatusHealthRegen" "3"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79574,6 +79897,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "480"
+        "RoshpitArmorPierce"    "545"
+        "RoshpitSpellPierce"    "700"
+        "RoshpitMagicArmor"     "700"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "seafortress_squidcicle"
@@ -79596,8 +79926,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "40000"
-        "AttackDamageMax"   "50000"
+        "AttackDamageMin"   "9000"
+        "AttackDamageMax"   "9000"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.29"
         "AttackAcquisitionRange"    "0"
@@ -79614,7 +79944,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "50000000"
+        "StatusHealth"  "14600"
         "StatusHealthRegen" "3"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79641,6 +79971,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "420"
+        "RoshpitArmorPierce"    "565"
+        "RoshpitSpellPierce"    "425"
+        "RoshpitMagicArmor"     "500"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_WEAK_CREEP %>"
     }
 
     "seafortress_archon_wizard"
@@ -79661,12 +79998,12 @@
             "particle"  "particles/roshpit/arkimus/archon_flare_ambient.vpcf"
             "particle"  "particles/roshpit/arkimus/channel_energy.vpcf"
         }
-        "ArmorPhysical" "800"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "4000000"
-        "AttackDamageMax"   "5000000"
+        "AttackDamageMin"   "18000"
+        "AttackDamageMax"   "19000"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.29"
         "AttackAcquisitionRange"    "0"
@@ -79683,7 +80020,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "520"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "50000000"
+        "StatusHealth"  "94000"
         "StatusHealthRegen" "3"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79733,6 +80070,13 @@
                 }
             }
         }
+        "RoshpitArmor"          "480"
+        "RoshpitArmorPierce"    "605"
+        "RoshpitSpellPierce"    "595"
+        "RoshpitMagicArmor"     "650"
+        "RoshpitLevel"          "51"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "sea_fortress_archon_golem"
@@ -79751,12 +80095,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
-        "ArmorPhysical" "4"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "955550"
-        "AttackDamageMax"   "1054500"
+        "AttackDamageMin"   "14000"
+        "AttackDamageMax"   "14000"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -79770,7 +80114,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "32734400"
+        "StatusHealth"  "48000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79800,6 +80144,13 @@
 
             }
         }
+        "RoshpitArmor"          "780"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "415"
+        "RoshpitMagicArmor"     "750"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "sea_fortress_paladin_golem"
@@ -79819,12 +80170,12 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "35"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "22445000"
-        "AttackDamageMax"   "25555000"
+        "AttackDamageMin"   "13000"
+        "AttackDamageMax"   "13000"
         "AttackRate"    "1.1"
         "AttackAnimationPoint"  "0.45"
         "AttackAcquisitionRange"    "0"
@@ -79839,7 +80190,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "90440000"
+        "StatusHealth"  "68000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79878,6 +80229,13 @@
  
             }
         }
+        "RoshpitArmor"          "810"
+        "RoshpitArmorPierce"    "515"
+        "RoshpitSpellPierce"    "485"
+        "RoshpitMagicArmor"     "650"
+        "RoshpitLevel"          "50"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
 
@@ -79905,11 +80263,11 @@
             "particle"  "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_gods_strength.vpcf"
         }
         "ArmorPhysical" "320"
-        "MagicalResistance" "75"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200000"
-        "AttackDamageMax"   "1500000"
+        "AttackDamageMin"   "34000"
+        "AttackDamageMax"   "34000"
         "AttackRate"    "1.0"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -79923,7 +80281,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "440"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "100000000"
+        "StatusHealth"  "120000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -79986,6 +80344,13 @@
 
             }
         }
+        "RoshpitArmor"          "750"
+        "RoshpitArmorPierce"    "580"
+        "RoshpitSpellPierce"    "500"
+        "RoshpitMagicArmor"     "750"
+        "RoshpitLevel"          "52"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_BOSS %>"
     }
 
     //MISC
