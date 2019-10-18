@@ -40825,7 +40825,7 @@
         "RoshpitMagicArmor"     "340"
         "RoshpitLevel"          "32"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_19"
@@ -40931,7 +40931,7 @@
         "RoshpitMagicArmor"     "240"
         "RoshpitLevel"          "33"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_18"
@@ -41037,7 +41037,7 @@
         "RoshpitMagicArmor"     "370"
         "RoshpitLevel"          "34"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_17"
@@ -41138,7 +41138,7 @@
         "RoshpitMagicArmor"     "470"
         "RoshpitLevel"          "35"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "arena_league_challenger_17_fire"
@@ -41455,7 +41455,7 @@
         "RoshpitMagicArmor"     "420"
         "RoshpitLevel"          "36"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_15"
@@ -41568,7 +41568,7 @@
         "RoshpitMagicArmor"     "320"
         "RoshpitLevel"          "37"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "arena_guard"
@@ -41762,7 +41762,7 @@
         "RoshpitMagicArmor"     "420"
         "RoshpitLevel"          "38"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_13"
@@ -41865,7 +41865,7 @@
         "RoshpitMagicArmor"     "380"
         "RoshpitLevel"          "39"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_13_a"
@@ -42248,7 +42248,7 @@
         "RoshpitMagicArmor"     "280"
         "RoshpitLevel"          "40"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_11"
@@ -42352,7 +42352,7 @@
         "RoshpitMagicArmor"     "490"
         "RoshpitLevel"          "41"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_10"
@@ -42463,7 +42463,7 @@
         "RoshpitMagicArmor"     "590"
         "RoshpitLevel"          "42"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_9"
@@ -42570,7 +42570,7 @@
         "RoshpitMagicArmor"     "690"
         "RoshpitLevel"          "43"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_8"
@@ -42668,7 +42668,7 @@
         "RoshpitMagicArmor"     "640"
         "RoshpitLevel"          "44"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_7"
@@ -42756,7 +42756,7 @@
         "RoshpitMagicArmor"     "670"
         "RoshpitLevel"          "45"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_6"
@@ -42860,7 +42860,7 @@
         "RoshpitMagicArmor"     "650"
         "RoshpitLevel"          "46"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_6_battle"
@@ -42964,7 +42964,7 @@
         "RoshpitMagicArmor"     "650"
         "RoshpitLevel"          "46"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "arena_nightmare_spectre"
@@ -43628,7 +43628,7 @@
         "RoshpitMagicArmor"     "650"
         "RoshpitLevel"          "46"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_5"
@@ -43733,7 +43733,7 @@
         "RoshpitMagicArmor"     "660"
         "RoshpitLevel"          "47"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_4"
@@ -43844,7 +43844,7 @@
         "RoshpitMagicArmor"     "680"
         "RoshpitLevel"          "48"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_3_a"
@@ -43941,7 +43941,7 @@
         "RoshpitMagicArmor"     "750"
         "RoshpitLevel"          "49"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_3_b"
@@ -44035,7 +44035,7 @@
         "RoshpitMagicArmor"     "700"
         "RoshpitLevel"          "49"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_2"
@@ -44135,7 +44135,7 @@
         "RoshpitMagicArmor"     "800"
         "RoshpitLevel"          "50"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     "champion_league_challenger_1"
@@ -44247,7 +44247,7 @@
         "RoshpitMagicArmor"     "1000"
         "RoshpitLevel"          "52"
         "RoshpitDominion"       "0"
-        "EnemyTier"             "<% ENEMY_TYPE_MINIBOSS %>"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
     }
 
     //PIT OF TRIALS

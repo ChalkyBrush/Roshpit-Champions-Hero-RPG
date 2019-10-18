@@ -804,3 +804,8 @@ function challenge_mob_ability_execute(event)
 		executedAbility:StartCooldown(cd)
 	end
 end
+
+function utility_recalculate_roshpit_attributes(event)
+	local target = event.target
+	target:CalculateAndSaveRoshpitAttributes()
+end

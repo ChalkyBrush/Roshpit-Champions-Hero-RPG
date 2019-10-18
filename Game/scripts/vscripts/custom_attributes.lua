@@ -302,14 +302,15 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 end
 
 function CDOTA_BaseNPC:GetInitialRoshpitLevel(team)
+	local unit_level = self:GetKeyValue("RoshpitLevel") + (GameState:GetDifficultyFactor()-1)*34
 	if team == DOTA_TEAM_NEUTRALS then
-		local unit_level = unit:GetKeyValue("RoshpitLevel") + (GameState:GetDifficultyFactor()-1)*34
 		if GameState:IsRPCArena() then
-			unit:GetKeyValue("PitCreep") == 1 and Arena and Arena.PitLevel then
-			unit_level = unit_level + Arena.PitLevel
+			if self:GetKeyValue("PitCreep") == 1 and Arena and Arena.PitLevel then
+				unit_level = unit_level + Arena.PitLevel
+			end
 		end
-		return unit_level
 	end
+	return unit_level
 end
 
 function CDOTA_BaseNPC:SetEnemyType()
@@ -423,6 +424,37 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_wind_boss_slow") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_wind_boss_slow")
 	end
+	if unit:HasModifier("modifier_arena_grave_chill_target") then
+		armor_modify = armor_modify - CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_steal", "modifier_arena_grave_chill_target")
+	end
+	if unit:HasModifier("modifier_arena_grave_chill_caster") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_steal", "modifier_arena_grave_chill_caster")
+	end
+	if unit:HasModifier("create_acid_spray_armor_reduction_aura") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduction", "create_acid_spray_armor_reduction_aura")
+	end
+	if unit:HasModifier("modifier_tomb_healing_shield") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_during_cast", "modifier_tomb_healing_shield")
+	end
+	if unit:HasModifier("modifier_goremaw_battlehunger") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_goremaw_battlehunger")
+	end
+	if unit:HasModifier("modifier_armor_break_custom") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_armor_break_custom")
+	end
+	if unit:HasModifier("modifier_grizzled_tank_debuff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_grizzled_tank_debuff")
+	end
+	if unit:HasModifier("modifier_executioner_buff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_gain", "modifier_executioner_buff")
+	end
+	if unit:HasModifier("modifier_armor_melt_custom") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduction", "modifier_armor_melt_custom")
+	end
+	if unit:HasModifier("modifier_terrasic_fire_key_holder_steam_physical") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_stack", "modifier_terrasic_fire_key_holder_steam_physical")
+	end
+
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor", {})
@@ -441,7 +473,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	return armor
 end
 
-function CustomAttributes:GetArmorLossFromModifierStacks(unit, special_value_name, modifier_name)
+function CustomAttributes:GetAbilityValueFromSpecial(unit, special_value_name, modifier_name)
 	local modifier = unit:FindModifierByName(modifier_name)
 	local ability = modifier:GetAbility()
 	local caster = modifier:GetCaster()
@@ -460,6 +492,18 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	local magic_armor_modify = 0
 	if unit:HasModifier("modifier_flamespitting") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_flamespitting")
+	end
+	if unit:HasModifier("modifier_arena_grave_chill_target") then
+		magic_armor_modify = magic_armor_modify - CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_steal", "modifier_arena_grave_chill_target")
+	end
+	if unit:HasModifier("modifier_arena_grave_chill_caster") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_steal", "modifier_arena_grave_chill_caster")
+	end
+	if unit:HasModifier("modifier_tomb_healing_shield") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_during_cast", "modifier_tomb_healing_shield")
+	end
+	if unit:HasModifier("modifier_terrasic_fire_key_holder_steam_magical") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_stack", "modifier_terrasic_fire_key_holder_steam_magical")
 	end
 
 	if magic_armor_modify > 0 then

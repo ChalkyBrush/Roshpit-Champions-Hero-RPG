@@ -87375,10 +87375,23 @@
 						"Target"	"TARGET"
 					}
 				}
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -87418,7 +87431,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 30000 120000"
+				"damage"				"50 200 2500"
 			}
 			"04"
 			{
@@ -87560,10 +87573,23 @@
 						"Target"	"TARGET"
 					}
 				}
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -87603,7 +87629,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 10000 25000"
+				"damage"				"200 800 10000"
 			}
 			"04"
 			{
@@ -88726,7 +88752,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"300 5000 60500"
+				"damage_per_second"		"75 325 5000"
 			}
 			"02"
 			{
@@ -89306,7 +89332,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal_per_tick"			"150 750 4000"
+				"heal_per_tick"			"100 400 5000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_during_cast"			"300 1000 10000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"magic_armor_during_cast"			"300 1000 10000"
 			}
 		}
 		"OnSpellStart"
@@ -89345,11 +89381,6 @@
 	            	"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 	            	"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
 	            }
-	            "Properties"
-	            {
-	            	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "500"
-	                "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "90"
-	            }
 	            "OnIntervalThink"
 	            {
 	            	"FireSound"
@@ -89374,6 +89405,24 @@
 						"HealAmount"	"%heal_per_tick"
 					}
 	            }
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_tomb_heal_effect"
 			{
@@ -89631,7 +89680,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_loss"			"-1000 -20000 -50000"
+				"damage_loss"			"-100 -1000 -5000"
 			}
 			"02"
 			{
@@ -91966,6 +92015,15 @@
 				"ScriptFile"	"ai/castle/castle.lua"
 				"Function"		"wraithguard_hellfire_strike"
 				"Target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 900 9000"
 			}
 		}
 
@@ -92377,7 +92435,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"bleed_damage"			"100 1000 10000"
 			}
 		}
 		"Modifiers"
@@ -96066,11 +96124,6 @@
 						"EffectAlphaScale"			"1"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "40"
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "100"
-				}
 			}
 			"modifier_body_hurricane"
 			{
@@ -96698,14 +96751,9 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"warcry_armor"		"5 20 50"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"warcry_movespeed"	"12"
 			}
-			"03"
+			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"warcry_radius"		"900"
@@ -96772,7 +96820,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"200.0"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%warcry_armor"
 				}
 			}
 			"modifier_howling"
@@ -97312,7 +97359,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_bonus"				"14 300 1500"
+				"armor_bonus"				"100 400 2400"
 			}
 			"02"
 			{
@@ -97333,7 +97380,7 @@
 		{
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_battle_hunger"
+				"ModifierName"	"modifier_goremaw_battlehunger"
 				"Target" 		"CASTER"
 				"Duration"		"5"
 			}
@@ -97342,7 +97389,7 @@
 
 		"Modifiers"
 		{
-			"modifier_battle_hunger"
+			"modifier_goremaw_battlehunger"
 			{
 				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
 				"StatusEffectPriority"  "10"
@@ -97355,12 +97402,26 @@
 						"EffectAttachType"  "follow_overhead"
 						"Target"            "TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attackspeed"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -97394,7 +97455,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 8000 70000"
+				"damage"				"80 280 3400"
 			}
 		}
 
@@ -99115,8 +99176,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"4"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"4"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"40"
 				}
 			}
@@ -99138,7 +99197,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_break"			"-40 -350 -1000"
+				"armor_break"			"-100 -400 -2000"
 			}
 		}
 		"Modifiers"
@@ -99161,12 +99220,24 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -99184,7 +99255,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_break"			"-100 -500 -3500"
+				"armor_break"			"-250 -800 -4000"
 			}
 		}
 		"Modifiers"
@@ -99208,9 +99279,23 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 
 			}
@@ -99249,7 +99334,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 400 600 800"
+				"damage"				"280 1000 10000"
 			}
 		}
 
@@ -99327,6 +99412,7 @@
 	                {
 						"ScriptFile"	"ai/hellhound/hellhound_charge.lua"
 						"Function"		"charge_think"
+						"damage"		"%damage"
 	                }
         		}
         		"States"
@@ -99414,7 +99500,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1500 15000 150000"
+				"damage"			"180 600 6000"
 			}
 		}
 		"LevelsBetweenUpgrades" "0"
@@ -100377,10 +100463,6 @@
 					}
 				}
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-10"
-				}
 			}
 		}
 
@@ -100876,7 +100958,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"4000 30000 18000"
+				"damage"			"200 800 8000"
 			}
 		}
 		"OnSpellStart"
@@ -101312,7 +101394,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 15000 45000 50000"
+		"AbilityDamage"					"120 500 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -102732,7 +102814,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"-10 -500 -3000"
+				"armor"				"-50 -250 -700"
 			}
 		}
 		"Modifiers"
@@ -102764,7 +102846,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-90"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -104388,12 +104487,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"initial_damage"		"3080 20000 80000"
+				"initial_damage"		"400 1400 14000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dot_damage"			"500 5000 15000"
+				"dot_damage"			"80 250 2400"
 			}
 		}
 		"Modifiers"
@@ -104520,12 +104619,21 @@
 				"ScriptFile"	"ai/phoenix_nest/phoenix_nest.lua"
 				"Function"		"lich_boss_projectile_hit"
 				"target"		"TARGET"
+				"damage"		"%damage"
 			}
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_lich_boss_cold"
 				"Target" 		"TARGET"
 				"Duration"		"3.5"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 1500 15000"
 			}
 		}
 	}
@@ -104587,7 +104695,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 4000 10000"
+				"damage"				"110 320 3200"
 			}
 			"02"
 			{
@@ -105211,10 +105319,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"
-				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -108175,10 +108279,25 @@
 						"EffectColorA"				"255 255 255"
 						"EffectAlphaScale"			"1"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-10"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_wind_temple_boss_dying"
@@ -110406,7 +110525,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_gain"		"25 520 1500"
+				"armor_gain"		"225 750 3000"
 			}
 		}
 		"Modifiers"
@@ -110453,9 +110572,23 @@
 				"IsDebuff"	"0"
 				"EffectName"	"particles/units/heroes/hero_legion_commander/cheiftain_buff_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_gain"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -112911,7 +113044,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"-40 -400 -2000"
+				"armor_reduction"		"-120 -400 -2600"
 			}
 		}
 		"Modifiers"
@@ -112935,9 +113068,23 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 
 			}
@@ -113498,12 +113645,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_per_stack"	"5 20 70"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mr_per_stack"			"3"
+				"armor_per_stack"	"10 30 150"
 			}
 		}
 		"Modifiers"
@@ -113518,10 +113660,6 @@
 				"Passive"	"0"
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -113530,18 +113668,37 @@
 						"Function"		"steam_end"
 						"type"			"DAMAGE_TYPE_PHYSICAL"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnStackCountChanged"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_terrasic_fire_key_holder_steam_magical"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%mr_per_stack"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -113549,6 +113706,30 @@
 						"ScriptFile"	"worlds/tanari/monsters/terrasic_crater_ai"
 						"Function"		"steam_end"
 						"type"			"DAMAGE_TYPE_MAGICAL"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnStackCountChanged"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -125140,12 +125321,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_steal"			"5000"
+				"armor_steal"			"300 1000 5000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist_steal"		"75"
+				"magic_armor_steal"		"300 1000 5000"
 			}
 		}
 
@@ -125197,13 +125378,25 @@
 							"TARGET"	"attach_origin"
 						}
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-140"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-5000"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-75"
 				}
 			}
 			"modifier_arena_grave_chill_caster"
@@ -125227,13 +125420,25 @@
 							"TARGET"	"attach_origin"
 						}
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "140"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5000"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"75"
 				}
 			}
 		}
@@ -138757,7 +138962,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 2000 20000"
+		"AbilityDamage"					"50 300 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -138780,7 +138985,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"-3 -100 -1200"
+				"armor_reduction"	"0"
 			}
 			"04"
 			{
@@ -138913,7 +139118,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 20000 120000"
+				"damage"				"100 500 5000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -139034,7 +139239,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilityDamage"					"100 12000 55000"
+		"AbilityDamage"					"100 400 4000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -139246,7 +139451,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 15000 145000"
+				"damage"				"220 800 8000"
 			}
 		}
 
@@ -139457,7 +139662,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 20000 200000"
+				"damage"				"400 1300 13000"
 			}
 			"02"
 			{
@@ -139591,7 +139796,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage"				"600 10000 200000"
+				"shard_damage"				"200 600 6000"
 			}
 			"03"
 			{
@@ -139658,7 +139863,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 25000 250000"
+				"damage"				"500 1500 15000"
 			}
 			"02"
 			{
@@ -139793,7 +139998,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strike_dmg"			"3000 20000 150000"
+				"strike_dmg"			"280 800 9000"
 			}
 			"02"
 			{
@@ -139880,7 +140085,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 50000 360000"
+		"AbilityDamage"					"800 2400 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

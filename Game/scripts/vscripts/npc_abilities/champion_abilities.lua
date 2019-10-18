@@ -174,13 +174,14 @@ function activate_great_wall(event)
 	local caster = event.caster
 	local baseArmor = caster:GetPhysicalArmorValue(false)
 
-	local armorMult = 4
+	local armorMult = 3
 	if GameState:GetDifficultyFactor() == 2 then
-		armorMult = 10
+		armorMult = 4
 	elseif GameState:GetDifficultyFactor() == 3 then
-		armorMult = 25
+		armorMult = 5
 	end
-	caster:SetPhysicalArmorBaseValue(baseArmor * armorMult)
+	local newArmor = unit.roshpit_attributes.roshpit_armor*armorMult
+	unit:SetBaseRoshpitArmor(newArmor, false)
 end
 
 function activate_gargantuan(event)
