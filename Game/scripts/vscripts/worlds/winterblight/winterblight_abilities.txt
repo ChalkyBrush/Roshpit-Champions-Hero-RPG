@@ -10169,10 +10169,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-10"
-				}
 			}
 			"modifier_heavy_boulder_pushback"
 			{

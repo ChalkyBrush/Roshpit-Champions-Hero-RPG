@@ -526,6 +526,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_gangup_stack") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_gangup_stack")
 	end
+	if unit:HasModifier("modifier_colossus_rage") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -600,6 +603,42 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_gangup_stack") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_gangup_stack")
+	end
+	if unit:HasModifier("modifier_royal_guard_magic_shell") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magical_resistance", "modifier_royal_guard_magic_shell")
+	end
+	if unit:HasModifier("modifier_goremaw_electricity") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resist", "modifier_goremaw_electricity")
+	end
+	if unit:HasModifier("modifier_blackguard_cultist_ai") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resistance", "modifier_blackguard_cultist_ai")
+	end
+	if unit:HasModifier("modifier_war_rally_effect") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_war_rally_effect")
+	end
+	if unit:HasModifier("modifier_karzhun_shield") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resist", "modifier_karzhun_shield")
+	end
+	if unit:HasModifier("modifier_rakash_ai") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resist", "modifier_rakash_ai")
+	end
+	if unit:HasModifier("modifier_autumn_mage_debuff") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resist_loss", "modifier_autumn_mage_debuff")
+	end
+	if unit:HasModifier("modifier_shredder_passive_think") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resist", "modifier_shredder_passive_think")
+	end
+	if unit:HasModifier("modifier_cannibal_ai") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resist", "modifier_cannibal_ai")
+	end
+	if unit:HasModifier("modifier_channeling_water_torrent") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_while_channeling", "modifier_channeling_water_torrent")
+	end
+	if unit:HasModifier("modifier_dark_spirit_passive") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_resist", "modifier_dark_spirit_passive")
+	end
+	if unit:HasModifier("modifier_colossus_rage") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
 	end
 
 	if magic_armor_modify > 0 then

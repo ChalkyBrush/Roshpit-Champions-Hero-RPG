@@ -4218,6 +4218,7 @@ function colossus_take_damage(event)
 	if percentage > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_colossus_rage", {})
 		caster:SetModifierStackCount("modifier_colossus_rage", caster, percentage)
+		caster:CalculateAndSaveRoshpitAttributes()
 	end
 	caster:SetRenderColor(255, 255 - (2.55 * percentage), 255 - (2.55 * percentage))
 end

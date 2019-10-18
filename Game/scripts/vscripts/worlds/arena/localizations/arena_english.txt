@@ -310,7 +310,7 @@
 		"DOTA_Tooltip_ability_arena_wild_axes"						"Wild Axes"
 		"DOTA_Tooltip_ability_arena_wild_axes_Description"			"Warlord throws axes at the enemy"
 		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
-		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Warlord gets 1 percent of magical resistance for each percent of lost HP."
+		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Warlord gets 200 magic armor for each percent of lost HP."
 		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
 		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Magic Resist increased."
 		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
@@ -481,9 +481,9 @@
 		"arena_pit_conquest_priest_of_karzhun"							"Priest of Kar'zhun"
 
 		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield"			"Shield of Kar'zhun"
-		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_Description"	"Zaps enemies who damage the shield-bearer, and protect against magical attacks."
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_Description"	"Zaps enemies who damage the shield-bearer, and protects against magical attacks."
 		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_damage_return"	"DAMAGE RETURN % OF MAX HEALTH:"
-		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_magic_resist"	"MAGIC RESIST:"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_magic_resist"	"MAGIC ARMOR:"
 
 		"arena_pit_conquest_helob"												"Helob"
 
@@ -509,9 +509,8 @@
 
 		"DOTA_Tooltip_modifier_karzhun_aura_stackable"					"Force Of Kar'zhun"
 
-		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"Magic Shield"
-		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"Provides passive Magic Resistance"
-		"DOTA_Tooltip_ability_arena_temple_explorer_passive_magic_resist"	"MAGIC RESIST:"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"Temple Explorer"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"Exploring the mysteries of conquest"
 		
 		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova"							"Poison Nova"
 		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova_Description"				"A spreading ring of poison that does damage over time to enemy units around."
@@ -523,7 +522,6 @@
 		"DOTA_Tooltip_ability_arena_conquest_feedback_Description"	"Whenever nearby enemies' mana are reduced, shock them with pure damage based on the mana lost. Also provides passive magic resistance to the owner."
 
 		"DOTA_Tooltip_ability_arena_conquest_feedback_damage_per_mana"	   "DAMAGE PER MANA:"
-		"DOTA_Tooltip_ability_arena_conquest_feedback_magic_resist" 		"MAGIC RESIST:"
 
 		"DOTA_Tooltip_modifier_fairy_dragon_feedback"						"Feedback"
 		"DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"Whenever your mana is reduced you will get shocked by mana reverb."

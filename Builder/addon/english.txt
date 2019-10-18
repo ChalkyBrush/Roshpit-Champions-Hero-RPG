@@ -1102,7 +1102,7 @@
 		"DOTA_Tooltip_modifier_paragon_light_infused_Description"	"Granted the ability to heal allied target for 30%% of max HP (7%% for Paragon Units)."
 
 		"DOTA_Tooltip_modifier_paragon_magic_barrier"				"Magic Barrier"
-		"DOTA_Tooltip_modifier_paragon_magic_barrier_Description"	"30%% Magic Resistance for 6 seconds. 13 seconds cooldown."
+		"DOTA_Tooltip_modifier_paragon_magic_barrier_Description"	"Gain Magic Immunity for 3 seconds. 12 second cooldown."
 
 		"DOTA_Tooltip_modifier_paragon_shielding"					"Shielding"
 		"DOTA_Tooltip_modifier_paragon_shielding_Description"		"Granth the shield which makes Paragon immune to spells and attacks. 4 seconds duration, 11 seconds cooldown."
@@ -1111,7 +1111,7 @@
 		"DOTA_Tooltip_modifier_paragon_shield_Description"			"Invulnerable"	
 
 		"DOTA_Tooltip_modifier_paragon_magic_barrier_effect"		"Magic Barrier"
-		"DOTA_Tooltip_modifier_paragon_magic_barrier_effect_Description"	"Taking 0 Magic Damage"
+		"DOTA_Tooltip_modifier_paragon_magic_barrier_effect_Description"	"Immune to Magic"
 
 		"DOTA_Tooltip_modifier_paragon_blinking"					"Blinking"
 		"DOTA_Tooltip_modifier_paragon_blinking_Description"		"Blinks in a random direction every 6 seconds."

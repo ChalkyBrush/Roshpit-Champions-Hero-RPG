@@ -800,8 +800,8 @@
 		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight_Description"	"Jumps toward the target location and deal magic damage in an AOE at the landing point."
 
 		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai"					"Flesh Heap"
-		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_Description"		"Increases magic resistance"
-		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_magic_resist"	"MAGIC RESIST:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_Description"		"Increases magic armor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_magic_resist"	"MAGIC ARMOR:"
 
 		"DOTA_Tooltip_ability_castle_sorceress_blink_ability"				"Sparkle Dash"
 		"DOTA_Tooltip_ability_castle_sorceress_blink_ability_Description"	"Quickly dodge in a random direction."

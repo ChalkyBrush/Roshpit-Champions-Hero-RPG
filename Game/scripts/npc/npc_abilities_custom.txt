@@ -81399,10 +81399,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-10"
-				}
 			}
 			"modifier_heavy_boulder_pushback"
 			{
@@ -97500,10 +97496,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"03"
+			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"80 280 3400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resist"				"120 600 7000"
 			}
 		}
 
@@ -97541,10 +97542,21 @@
 						"ScriptFile"	"ai/goremaw_shaman/goremaw_electricity"
 						"Function"		"start_electricity"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"States"
 				{
@@ -99937,7 +99949,6 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
 				    "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "2"
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	  "2400"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"40"
 				}
 			}
 
@@ -100088,10 +100099,6 @@
 						"ScriptFile"	"ai/graveyard_boss/graveyard_boss_skill"
 						"Function"		"start_attack"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
 				}
 				"States"
 				{
@@ -105606,19 +105613,15 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"ThinkInterval"  	"13.0"
+				"ThinkInterval"  	"12.0"
 				"OnIntervalThink"
 				{
 					"ApplyModifier"
 					{
 						"ModifierName"	"modifier_paragon_magic_barrier_effect"
 						"Target" 		"TARGET"
-						"Duration"		"6"
+						"Duration"		"3"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "30"
 				}
 			}
 			"modifier_paragon_magic_barrier_effect"
@@ -105633,6 +105636,10 @@
 						"EffectName"	"Paragon.MagicBarrierActivate"
 						"Target" 		"TARGET"
 					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_paragon_blinking"
@@ -107082,10 +107089,6 @@
 						"mana_drain_percent"	"10"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "75"
-				}
 			}
 		}
 
@@ -107566,10 +107569,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"			"50"
-				}
 				"ThinkInterval"  "0.8"
 				"OnIntervalThink"
 				{
@@ -109693,6 +109692,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"antimage_spell_shield"
 		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magical_resistance"			"1000 5000 30000"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_royal_guard_ai"
@@ -109715,9 +109722,23 @@
 				"IsBuff"	"1"
 				"EffectName" "particles/items_fx/immunity_sphere_buff.vpcf"
 				"EffectAttachType"	"attach_light"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "95"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -111637,11 +111658,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_per_mana"			"5 10 15"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 30 50"
-			}
 		}
 		"Modifiers"
 		{
@@ -111656,10 +111672,6 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"OnAttacked"
 				{
 					"RunScript"
@@ -113980,7 +113992,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"	"10 25 40"
+				"magic_resistance"	"100 400 1000"
 			}
 		}
 		"Modifiers"
@@ -113998,9 +114010,23 @@
 						"Function"		"blackguard_cultist_think"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -115610,11 +115636,7 @@
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 35 60"
-			}
+
 		}
 		"Modifiers"
 		{
@@ -115622,10 +115644,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 			}
 			"modifier_solos_entrance"
 			{
@@ -117392,11 +117410,6 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"			"0 60 99"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"radius"			"750"
 			}
 		}
@@ -117427,10 +117440,6 @@
 				"IsDebuff"			"0"
 				"EffectName"		"particles/econ/courier/courier_onibi/courier_onibi_green_lvl4_ambient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
-				}
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{
@@ -118210,11 +118219,6 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"80"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"damage_return"			"5"
 			}
 		}
@@ -118224,10 +118228,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "80"
-				}
 				"OnAttackLanded"
 				{
 					"Damage"
@@ -119317,7 +119317,11 @@
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
-
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_armor"					"200"
+			}			
 		}
 		"Modifiers"
 		{
@@ -119355,9 +119359,23 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "1"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_war_rally_axe_throwing"
@@ -119782,8 +119800,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"99"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "5"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "15"
 				}
 			}
 		}
@@ -121433,7 +121450,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"90"
+				"magic_resist"			"2000"
 			}
 		}
 		"Modifiers"
@@ -121453,9 +121470,23 @@
 						"damage_percent"	"%damage_return"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 
 			}
@@ -121714,11 +121745,7 @@
 		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"99"
-			}
+
 		}
 
 		"Modifiers"
@@ -121738,10 +121765,6 @@
 						"Function"		"temple_explorier_think"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 			}
 
 		}
@@ -121756,11 +121779,7 @@
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"	"10 35 60"
-			}
+
 		}
 		"Modifiers"
 		{
@@ -121776,10 +121795,6 @@
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 						"Function"		"arena_temple_shaman_think"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
 				}
 			}
 		}
@@ -122104,11 +122119,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_per_mana"			"5 10 15"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 30 50"
-			}
 		}
 		"Modifiers"
 		{
@@ -122123,10 +122133,6 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 			}
 
 			"modifier_fairy_dragon_feedback"
@@ -123247,7 +123253,6 @@
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen_percent"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"95"
 				}
 			}
 		}
@@ -123370,10 +123375,6 @@
 				"IsHidden"	"1"
 				"EffectName"	"particles/econ/courier/courier_bajie/courier_bajie_sparkles.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resist"
-				}
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{
@@ -125390,7 +125391,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"35 65 95"
+				"magic_resist"			"300 1000 5000"
 			}
 		}
 		"Modifiers"
@@ -125403,9 +125404,23 @@
 				"StatusEffectPriority"  "10"
 				"EffectName"			"particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient.vpcf"
 				"EffectAttachType"		"follow_origin"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -128626,7 +128641,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist_loss"			"-30 -60 -90"
+				"magic_resist_loss"			"-60 -240 -2000"
 			}
 			"01"
 			{
@@ -128665,9 +128680,23 @@
 						"Target"            "TARGET"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist_loss"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -130873,7 +130902,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"magic_resist"				"30 60 96"
+				"magic_resist"				"500 2500 10000"
 			}
 		}
 
@@ -130892,9 +130921,23 @@
 						"Function"		"shredder_passive_think"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -131935,7 +131978,6 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"			"50"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%attack_damage_bonus"
 				}
 				"ThinkInterval"  "0.8"
@@ -133516,7 +133558,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "35"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -137235,7 +137276,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "50"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"50"
 				}
 			}
 		}
@@ -137866,7 +137906,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"				"20 50 80"
+				"magic_resist"				"200 1000 5000"
 			}
 		}
 		"OnOwnerDied"
@@ -137886,10 +137926,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"ThinkInterval"  "1.4"
 				"OnIntervalThink"
 				{
@@ -137897,6 +137933,24 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/water_temple_ai"
 						"Function"		"jailer_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -139556,7 +139610,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "100"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
 				}
 				"OnCreated"
@@ -142600,6 +142653,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"bonus_movement_speed" "-30 -60 -95"
 			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magic_armor_while_channeling" "400 4000 15000"
+			}
 		}
 
 		"OnSpellStart"
@@ -142657,9 +142715,23 @@
 						"Function"		"prison_channel_think"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "80"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_water_channel_in_area"
@@ -143398,11 +143470,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_return"			"1"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"50"
-			}
 		}
 		"Modifiers"
 		{
@@ -143420,10 +143487,6 @@
 						"Function"		"karzhun_shield_take_damage"
 						"damage_percent"	"%damage_return"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
 				}
 
 			}
@@ -143695,11 +143758,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_return"			"1"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 15 25"
-			}
 		}
 		"Modifiers"
 		{
@@ -143707,10 +143765,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"ThinkInterval"  "1.5"
 				"OnIntervalThink"
 				{
@@ -152340,7 +152394,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"50"
+				"magic_resist"			"300 1000 5000"
 			}
 		}
 		"Modifiers"
@@ -152352,7 +152406,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_dark_spirit_prepare"
@@ -152470,7 +152541,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"magic_resist"		"0.5"
+				"physical_and_magic_armor"		"5"
 			}
 		}
 		"Modifiers"
@@ -152513,7 +152584,24 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "5"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"5"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"0.5"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -153201,10 +153289,6 @@
 				"IsDebuff"	"0"
 				"IsHidden" "1"
 				"EffectName"	"particles/act_2/siltbreaker_beam_channel.vpcf"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "100"
-				}
 			}
 			"modifier_dark_reef_massive_buff"
 			{

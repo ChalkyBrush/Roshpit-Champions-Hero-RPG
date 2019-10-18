@@ -336,6 +336,7 @@ function war_rally_think(event)
 	if stacks > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_war_rally_effect", {})
 		caster:SetModifierStackCount("modifier_war_rally_effect", caster, stacks)
+		caster:CalculateAndSaveRoshpitAttributes()
 	else
 		caster:RemoveModifierByName("modifier_war_rally_effect")
 	end
