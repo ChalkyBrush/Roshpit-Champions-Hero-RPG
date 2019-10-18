@@ -41699,7 +41699,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "800"
+        "StatusHealth"  "400"
         "StatusHealthRegen" "10"
         "StatusMana"    "200"
         "StatusManaRegen"   "20"
@@ -41716,7 +41716,7 @@
         "RoshpitArmorPierce"    "10"
         "RoshpitSpellPierce"    "8"
         "RoshpitMagicArmor"     "24"
-        "RoshpitLevel"          "5"
+        "RoshpitLevel"          "6"
         "EnemyTier"      "1"
         "Creature"
         {

@@ -30,31 +30,31 @@ function get_attributes_for_query_unit(queryUnit){
 	mAttributesHash["modifier_roshpit_magic_armor"] = 0
 	mAttributesHash["modifier_roshpit_armor_pierce"] = 0
 	mAttributesHash["modifier_roshpit_spell_pierce"] = 0
-	$.Msg("**#*$#*$*#$*#*$")
-	for (i = 0; i < number_of_buffs+1; i++) {
-	  // var buff = Entities.GetBuff( queryUnit, i)
-	  var buffName = Buffs.GetName( queryUnit, i )
 
+	for (i = 0; i < number_of_buffs; i++) {
+	  var buff = Entities.GetBuff( queryUnit, i)
+	  var buffName = Buffs.GetName( queryUnit, buff )
 	  $.Msg(buffName)
 	  if (buffName == "modifier_roshpit_armor"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_negative_roshpit_armor"){
 	  	$.Msg("NEGATIVE ROSHPIT ARMOR")
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	$.Msg(buff)
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_positive_roshpit_armor"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_roshpit_magic_armor"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_negative_roshpit_magic_armor"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_positive_roshpit_magic_armor"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_roshpit_armor_pierce"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_roshpit_spell_pierce"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if (buffName == "modifier_roshpit_level"){
-	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, i )
+	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }
 	}
 	mQueryUnit = queryUnit
@@ -93,12 +93,10 @@ function UnitStats40(){
 		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
 		$('#unit_attribute_armor_label').RemoveClass('attribute_neutral')
 	}else if (mAttributesHash["modifier_negative_roshpit_armor"] > 0){
-		$.Msg("NEGATIVE ARMOR?")
 		$('#unit_attribute_armor_label').AddClass('stat_negative')
 		$('#unit_attribute_armor_label').RemoveClass('stat_bonus')
 		$('#unit_attribute_armor_label').RemoveClass('attribute_neutral')
 	}else{
-		$.Msg("neutral ARMOR?")
 		$('#unit_attribute_armor_label').AddClass('attribute_neutral')
 		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
 		$('#unit_attribute_armor_label').RemoveClass('stat_bonus')
@@ -205,8 +203,6 @@ function UpdateHeroStats(){
 		// $.Msg("-----------update to other unit?-----------")
 		// $.Msg("update to other unit?")
 		if (queryUnit > 0){
-			$.Msg(Math.round(Entities.GetHealthThinkRegen( queryUnit )))
-			$.Msg(Entities.GetUnitName( queryUnit ))
 			if (GameUI.HealthRegenLabel){
 				GameUI.HealthRegenLabel.text = "+"+Math.round(Entities.GetHealthThinkRegen( queryUnit ))
 				GameUI.ManaRegenLabel.text = "+"+Math.round(Entities.GetManaThinkRegen( queryUnit ))
