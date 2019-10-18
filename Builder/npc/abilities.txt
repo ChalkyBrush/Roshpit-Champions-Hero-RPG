@@ -62867,7 +62867,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"55000"
+				"damage"			"10000"
 			}
 		}
 		"Modifiers"
@@ -63001,7 +63001,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300000"
+				"damage"			"20000"
 			}
 			"02"
 			{
@@ -63404,7 +63404,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 10000 100000"
+		"AbilityDamage"					"300 1000 10000"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -63492,7 +63492,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2000 50000 225000"
+				"damage"			"1000 3000 30000"
 			}
 			"07"
 			{
@@ -63605,12 +63605,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"quill_base_damage"		"500 50000 1000000"
+				"quill_base_damage"		"100 300 3000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"quill_stack_damage"	"500 50000 2000000"
+				"quill_stack_damage"	"100 300 3000"
 			}
 			"04"
 			{
@@ -63663,17 +63663,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 20000 70000"
+				"damage"				"300 1000 15000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_unit"		"1000 100000 1000000"
+				"damage_per_unit"		"50 250 1000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_hero"		"10000 1000000 10000000"
+				"damage_per_hero"		"250 1250 5000"
 			}
 			"04"
 			{
@@ -63820,7 +63820,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"15000 60000 250000"
+				"damage"			"600 1500 15000"
 			}
 		}
 		"Modifiers"
@@ -64122,12 +64122,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"5000 25000 100000"
+				"damage_min"				"300 1200 12000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"10000 300000 800000"
+				"damage_max"				"600 2400 24000"
 			}
 			"03"
 			{
@@ -64153,7 +64153,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"80000"
+				"damage"			"15000"
 			}
 		}
 		"Modifiers"
