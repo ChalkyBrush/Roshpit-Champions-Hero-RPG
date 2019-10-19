@@ -1200,40 +1200,40 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		hero.saveSlot = results.save_slot
 
 		local rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = results.rune_a_a
+		rune_ability.rune_level = math.min(results.rune_a_a, Runes.MAX_LEVEL_T1)
 		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = results.rune_a_b
+		rune_ability.rune_level = math.min(results.rune_a_b, Runes.MAX_LEVEL_T1)
 		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = results.rune_a_c
+		rune_ability.rune_level = math.min(results.rune_a_c, Runes.MAX_LEVEL_T1)
 		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = results.rune_a_d
+		rune_ability.rune_level = math.min(results.rune_a_d, Runes.MAX_LEVEL_T1)
 
 		local rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = results.rune_b_a
+		rune_ability.rune_level = math.min(results.rune_b_a, Runes.MAX_LEVEL_T2)
 		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = results.rune_b_b
+		rune_ability.rune_level = math.min(results.rune_b_b, Runes.MAX_LEVEL_T2)
 		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = results.rune_b_c
+		rune_ability.rune_level = math.min(results.rune_b_c, Runes.MAX_LEVEL_T2)
 		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = results.rune_b_d
+		rune_ability.rune_level = math.min(results.rune_b_d, Runes.MAX_LEVEL_T2)
 
 		local rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = results.rune_c_a
+		rune_ability.rune_level = math.min(results.rune_c_a, Runes.MAX_LEVEL_T3)
 		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = results.rune_c_b
+		rune_ability.rune_level = math.min(results.rune_c_b, Runes.MAX_LEVEL_T3)
 		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = results.rune_c_c
+		rune_ability.rune_level = math.min(results.rune_c_c, Runes.MAX_LEVEL_T3)
 		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = results.rune_c_d
+		rune_ability.rune_level = math.min(results.rune_c_d, Runes.MAX_LEVEL_T3)
 
 		local rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = results.rune_d_a
+		rune_ability.rune_level = math.min(results.rune_d_a, Runes.MAX_LEVEL_T4)
 		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = results.rune_d_b
+		rune_ability.rune_level = math.min(results.rune_d_b, Runes.MAX_LEVEL_T4)
 		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = results.rune_d_c
+		rune_ability.rune_level = math.min(results.rune_d_c, Runes.MAX_LEVEL_T4)
 		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = results.rune_d_d
+		rune_ability.rune_level = math.min(results.rune_d_d, Runes.MAX_LEVEL_T4)
 
 		SaveLoad:ApplyAllRunes(hero, playerID)
 		

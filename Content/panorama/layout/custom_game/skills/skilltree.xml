@@ -43,8 +43,8 @@
 				</Panel>
 			</Panel>
 		</Panel>
-		<Label id="ability_points_up" text="+1"/>
-		<Label id="rune_points_up" text="+2"/>
+		<Label id="ability_points_up" text="+1" class="invisible"/>
+		<Label id="rune_points_up" text="+2" class="invisible"/>
 	</Panel>
 
 </root>
