@@ -23,7 +23,7 @@
 
 #rune_level_container{
 	width:100%;
-	flow-children:right;
+	flow-children:down;
 	text-align: center;
 }
 
@@ -36,6 +36,21 @@
 	width:100%;
 }
 
+#rune_level_detail{
+	font-size:14px;
+	color:#CCCCCC;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	text-shadow: 2px 2px 2px solid black;
+	text-align: center;
+	background-color: #111;
+	border-radius:6px;
+	horizontal-align:center;
+	padding-left:25px;
+	padding-right:25px;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-bottom:4px;
+}
 
 #rune_level_value{
 	font-size:20px;
@@ -138,4 +153,9 @@
 	width:100%;
 	margin-top:6px;
 	margin-bottom:6px;
+}
+
+#level_cost_tip{
+	margin-top:8px;
+	color:white;
 }

@@ -51,14 +51,26 @@
 
 .points_up{
 	horizontal-align:right;
-	color:#7DFF12;
+	color:#FFFFFF;
 	font-size:16px;
-	vertical-align: center;
+/*	vertical-align: center;*/
 	margin-bottom:2px;
 
-	text-shadow: 1px 1px 2px 3 #00000066;
+	text-shadow: 1px 1px 2px #000000;
 	text-transform:uppercase;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	background-color:#0d1f4d;
+	padding-left:6px;
+	padding-right:6px;
+	margin-right:6px;
+	border-radius:6px;
+	border:1px solid #111111;
+	box-shadow: 1px 1px 1px #000000;
+}
+
+.points_up:hover{
+	border:1px solid #222222;
+	background-color:#1c2f75;
 }
 
 #skilltree_parent{
@@ -91,7 +103,7 @@
 	flow-children: right;
 }
 
-#rune_list
+#rune_list_tier1
 {
 	flow-children: right;
 }
@@ -134,7 +146,10 @@
 	text-shadow: 1px 1px 2px 3 #00000066;
 	text-transform:uppercase;
 	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	height:35px;
 }
+
+
 
 .AbilityPanel.no_ability
 {
@@ -287,3 +302,43 @@
 	border: 6px solid yellow;
 }
 
+
+.none{
+	visibility: collapse;
+}
+
+#ability_points_up{
+	horizontal-align:right;
+	position: -15px 10px 0px;
+	color:white;
+	font-weight:bold;
+}
+
+@keyframes 'pointsPopUpAnimation'{
+  0%   { position: -15px 10px 0px;opacity:1; }
+  100% { position: -15px -20px 0px;opacity:0; }
+}
+
+.ability_up_animate{
+    animation-name: pointsPopUpAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;	
+}
+
+#rune_points_up{
+	horizontal-align:right;
+	position: -15px 115px 0px;
+	color:white;
+	font-weight:bold;
+}
+
+@keyframes 'runesPopUpAnimation'{
+  0%   { position: -15px 115px 0px;opacity:1; }
+  100% { position: -15px 90px 0px;opacity:0; }
+}
+
+.rune_up_animate{
+    animation-name: runesPopUpAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;	
+}

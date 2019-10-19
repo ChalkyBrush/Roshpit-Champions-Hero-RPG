@@ -1,6 +1,46 @@
+var COST_LEVEL_UP_RUNES = [1,1,2,4]
+var MAX_PER_TIER = [40, 40, 20, 10]
+
+function get_base_rune_level(rune, queryUnit){
+	var number_of_buffs = Entities.GetNumBuffs( queryUnit )
+	var rune_name = Abilities.GetAbilityName( rune );
+	var letter = "q"
+	var level = 0
+	if (rune_name.indexOf("_q_") > -1){
+		letter = "q"
+	}else if(rune_name.indexOf("_w_") > -1){
+		letter = "w"
+	}else if(rune_name.indexOf("_e_") > -1){
+		letter = "e"
+	}else if(rune_name.indexOf("_r_") > -1){
+		letter = "d"
+	}
+	for (var loop_index = 0; loop_index < number_of_buffs; loop_index++) {
+	  var buff = Entities.GetBuff( queryUnit, loop_index)
+	  var buffName = Buffs.GetName( queryUnit, buff )	
+	  if (buffName == "modifier_rune_points_"+letter){
+	  	level = Buffs.GetStackCount( queryUnit, buff )
+	  }
+	}
+	return level
+}
+
+function get_rune_tier_by_name(rune){
+	var rune_name = Abilities.GetAbilityName( rune );
+	$.Msg("DFDSFDSFDSF")
+	$.Msg(rune_name)
+	if ((rune_name.indexOf("_q_1") > -1) || (rune_name.indexOf("_w_1") > -1) || (rune_name.indexOf("_e_1") > -1) || (rune_name.indexOf("_r_1") > -1)){
+		return 1
+	}else if((rune_name.indexOf("_q_2") > -1) || (rune_name.indexOf("_w_2") > -1) || (rune_name.indexOf("_e_2") > -1) || (rune_name.indexOf("_r_2") > -1)){
+		return 2
+	}else if((rune_name.indexOf("_q_3") > -1) || (rune_name.indexOf("_w_3") > -1) || (rune_name.indexOf("_e_3") > -1) || (rune_name.indexOf("_r_3") > -1)){
+		return 3
+	}else if((rune_name.indexOf("_q_4") > -1) || (rune_name.indexOf("_w_4") > -1) || (rune_name.indexOf("_e_4") > -1) || (rune_name.indexOf("_r_4") > -1)){
+		return 4
+	}
+}
+
 function initializeTooltip(func){
-	// $.Msg(func)
-	// $.Msg("INIT TOOLTIP")
 	var rune = GameUI.CustomUIConfig.runeTooltip
 	var abilityNameInternal = Abilities.GetAbilityName( rune );
 
@@ -13,13 +53,25 @@ function initializeTooltip(func){
 	var title = abilityName
 	$('#tooltip_title').text = title
 
-	var baseLevel = Abilities.GetLevel(rune)
+	var baseLevel = get_base_rune_level(rune, Abilities.GetCaster( rune ))
 	var rune_bonus = GetRuneBonus(queryUnit, GetRuneSlot(abilityNameInternal))
 	var total_level = baseLevel + rune_bonus
 	var level_line = "Level: "+total_level
 	$('#rune_level_title').text = "<font color='#DDDDDD'>Level</font> "+total_level
-	// $('#rune_level_value').text = total_level
 
+	var rune_tier = get_rune_tier_by_name(rune)
+	var max_level = MAX_PER_TIER[rune_tier-1]
+	if (rune_bonus > 0){
+		$('#rune_level_detail').text = baseLevel+"<font color='#7DFF12'>+"+rune_bonus+"</font>"+"/"+max_level
+	}else{
+		$('#rune_level_detail').text = baseLevel+"/"+max_level
+	}
+	if (!(baseLevel == max_level)){
+		$('#level_cost_tip').text = $.Localize("rune_points_cost_tip").replace("@points", COST_LEVEL_UP_RUNES[rune_tier-1])
+		$('#level_cost_tip').RemoveClass("invisible")
+	}else{
+		$('#level_cost_tip').AddClass("invisible")
+	}
 	var blockCount = 0
 	var baseAbilityIndex = Abilities.GetLevelSpecialValueFor( rune, "base_ability", 1)
 	if (baseAbilityIndex == 4){

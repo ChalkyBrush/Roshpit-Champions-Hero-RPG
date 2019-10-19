@@ -87,7 +87,7 @@ function voltex_rune_e_1(hero, ability)
 	local ability = runeUnit:FindAbilityByName("voltex_rune_e_1")
 	local abilityLevel = ability:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_1")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = hero:GetRuneValue("e", 1)
 	local player = caster:GetPlayerOwner()
 	if totalLevel > 0 then
 		ConjureImage(caster, player, ability)

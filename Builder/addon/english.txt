@@ -512,8 +512,11 @@
 		"shop_roll_strength"		"Higher chance to roll Strength"
 		"shop_title_gheed"			"Gheed's Gambling Outpost"
 
-		"runic_points"			"Runic Points"
+		"runic_points"			"Rune Points"
+		"runic_points_help"		"<br>Can level up runes on the 4x4 grid below your base abilities. When your base ability level increases, a new tier of runes beneath that ability is unlocked.<br>Shift+Click on a rune to pour as many points as you can into it.<br>Alt+Click on a rune to disable it.<br><br>Tier 1 runes cost 1 point to upgrade, and have a maximum level of 40.<br><br>Tier 2 runes cost 1 point to upgrade, have a maximum level of 40.<br><br>Tier 3 runes cost 2 points to upgrade, have a maximum level of 20.<br><br>Tier 4 runes cost 4 points to upgrade, have a maximum level of 10."
+		"rune_points_cost_tip"	"*Costs @points rune points to upgrade."
 		"skill_points"			"Skill Points"
+		"skill_points_help"		"Can increase the level of a Base Ability by 1 with each skill point."
 		"ui_base_skills"		"Base Skills"
 		"ui_runes"				"Runes"
 		"ui_future_patch"		"More Runes in future updates"

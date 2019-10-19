@@ -95,25 +95,25 @@ function use_reanimation_stone(event)
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit2:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit3:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit4:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 
@@ -123,10 +123,8 @@ function use_reanimation_stone(event)
 			caster[letter .. tier .. '_level'] = 0
 		end
 	end
-	local runePoints = (caster:GetLevel() - 1) * 2 + 3
-	local abilityPoints = math.floor(caster:GetLevel() / 5)
-	CustomNetTables:SetTableValue("player_stats", tostring(caster:GetPlayerOwnerID()), {skillPoints = abilityPoints, runePoints = runePoints})
-	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "AbilityUp", {playerId = caster:GetPlayerOwnerID()})
+
+	Runes:UpdateHeroSkillAndRunePoints(caster)
 end
 
 function stackable_pickup(event)

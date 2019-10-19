@@ -163,8 +163,8 @@ function SaveLoad:SaveCharacter(msg)
 	local player = PlayerResource:GetPlayer(playerID)
 	local cheats = Convars:GetBool("sv_cheats")
 	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(playerID))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
+	local current_rune_points = 0
+	local current_skill_points = 0
 	local runeUnit1 = hero.runeUnit
 	local runeUnit2 = hero.runeUnit2
 	local runeUnit3 = hero.runeUnit3
@@ -179,22 +179,22 @@ function SaveLoad:SaveCharacter(msg)
 		url = url.."&level="..hero:GetLevel()
 		url = url.."&steam_id="..PlayerResource:GetSteamAccountID(playerID)
 		url = url.."&current_xp="..hero:GetCurrentXP()
-		url = url.."&rune_a_a="..runeUnit1:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
-		url = url.."&rune_a_b="..runeUnit1:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-		url = url.."&rune_a_c="..runeUnit1:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()
-		url = url.."&rune_a_d="..runeUnit1:GetAbilityByIndex(DOTA_D_SLOT):GetLevel()
-		url = url.."&rune_b_a="..runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
-		url = url.."&rune_b_b="..runeUnit2:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-		url = url.."&rune_b_c="..runeUnit2:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()
-		url = url.."&rune_b_d="..runeUnit2:GetAbilityByIndex(DOTA_D_SLOT):GetLevel()
-		url = url.."&rune_c_a="..runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
-		url = url.."&rune_c_b="..runeUnit3:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-		url = url.."&rune_c_c="..runeUnit3:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()
-		url = url.."&rune_c_d="..runeUnit3:GetAbilityByIndex(DOTA_D_SLOT):GetLevel()
-		url = url.."&rune_d_a="..runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
-		url = url.."&rune_d_b="..runeUnit4:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-		url = url.."&rune_d_c="..runeUnit4:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()
-		url = url.."&rune_d_d="..runeUnit4:GetAbilityByIndex(DOTA_D_SLOT):GetLevel()
+		url = url.."&rune_a_a="..runeUnit1:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_a_b="..runeUnit1:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_a_c="..runeUnit1:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_a_d="..runeUnit1:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_a="..runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_b="..runeUnit2:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_c="..runeUnit2:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_b_d="..runeUnit2:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_a="..runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_b="..runeUnit3:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_c="..runeUnit3:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_c_d="..runeUnit3:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_a="..runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_b="..runeUnit4:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_c="..runeUnit4:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		url = url.."&rune_d_d="..runeUnit4:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
 		url = url.."&ability1level="..hero:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()
 		url = url.."&ability2level="..hero:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
 		url = url.."&ability3level="..hero:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()
@@ -1199,25 +1199,41 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		hero.roshpitID = results.id
 		hero.saveSlot = results.save_slot
 
-		hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(results.rune_a_a)
-		hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(results.rune_a_b)
-		hero.runeUnit:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.rune_a_c)
-		hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT):SetLevel(results.rune_a_d)
+		local rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT)
+		rune_ability.rune_level = results.rune_a_a
+		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT)
+		rune_ability.rune_level = results.rune_a_b
+		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_E_SLOT)
+		rune_ability.rune_level = results.rune_a_c
+		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT)
+		rune_ability.rune_level = results.rune_a_d
 
-		hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(results.rune_b_a)
-		hero.runeUnit2:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(results.rune_b_b)
-		hero.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.rune_b_c)
-		hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT):SetLevel(results.rune_b_d)
+		local rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT)
+		rune_ability.rune_level = results.rune_b_a
+		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_W_SLOT)
+		rune_ability.rune_level = results.rune_b_b
+		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT)
+		rune_ability.rune_level = results.rune_b_c
+		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT)
+		rune_ability.rune_level = results.rune_b_d
 
-		hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(results.rune_c_a)
-		hero.runeUnit3:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(results.rune_c_b)
-		hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.rune_c_c)
-		hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT):SetLevel(results.rune_c_d)
+		local rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT)
+		rune_ability.rune_level = results.rune_c_a
+		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_W_SLOT)
+		rune_ability.rune_level = results.rune_c_b
+		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT)
+		rune_ability.rune_level = results.rune_c_c
+		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT)
+		rune_ability.rune_level = results.rune_c_d
 
-		hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(results.rune_d_a)
-		hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(results.rune_d_b)
-		hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.rune_d_c)
-		hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT):SetLevel(results.rune_d_d)
+		local rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT)
+		rune_ability.rune_level = results.rune_d_a
+		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT)
+		rune_ability.rune_level = results.rune_d_b
+		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT)
+		rune_ability.rune_level = results.rune_d_c
+		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT)
+		rune_ability.rune_level = results.rune_d_d
 
 		SaveLoad:ApplyAllRunes(hero, playerID)
 		
@@ -1227,7 +1243,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		hero:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.ability3level)
 		hero:GetAbilityByIndex(DOTA_R_SLOT):SetLevel(results.ability4level)
 
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID), {skillPoints = results.ability_points, runePoints = results.rune_points})
+		Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 
 	end
 
@@ -1699,8 +1715,8 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					end
 				end)
 				Timers:CreateTimer(2.4, function()
-					CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-					CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
+					local hero = GameState:GetHeroByPlayerID(playerID)
+					Runes:UpdateHeroSkillAndRunePoints(hero)
 				end)
 				if player.previewHero then
 					UTIL_Remove(player.previewHero)

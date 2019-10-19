@@ -66,7 +66,7 @@
 				</Panel>
 				<Label id="rune_text" text="Runes" html="true"></Label>
 				<Panel class="RuneOverlayRoot">
-					<Panel id="rune_list" />
+					<Panel id="rune_list_tier1" />
 				</Panel>
 				<Panel class="RuneOverlayRoot">
 					<Panel id="rune_list_tier2" />

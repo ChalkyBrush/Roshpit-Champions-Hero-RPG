@@ -11,7 +11,7 @@
 			<Label id="tooltip_title"></Label>
 			<Panel id="rune_level_container">
 				<Label id="rune_level_title" html="true"></Label>
-<!-- 				<Label id="rune_level_value"></Label> -->
+				<Label id="rune_level_detail" html="true"></Label>
 			</Panel>
 
 				<Panel class="properties_special_base_ability" id="base_ability_container">
@@ -41,6 +41,7 @@
           <Label id="next_level_text_3" class="rune_value" html="true"></Label>
           <Label id="next_level_text_4" class="rune_value" html="true"></Label>
 				</Panel>
+				<Label id="level_cost_tip" html="true"></Label>
 		</Panel>		
 	</Panel>
 

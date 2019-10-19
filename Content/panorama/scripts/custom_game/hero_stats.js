@@ -34,12 +34,9 @@ function get_attributes_for_query_unit(queryUnit){
 	for (i = 0; i < number_of_buffs; i++) {
 	  var buff = Entities.GetBuff( queryUnit, i)
 	  var buffName = Buffs.GetName( queryUnit, buff )
-	  $.Msg(buffName)
 	  if (buffName == "modifier_roshpit_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_negative_roshpit_armor"){
-	  	$.Msg("NEGATIVE ROSHPIT ARMOR")
-	  	$.Msg(buff)
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )
 	  }else if(buffName == "modifier_positive_roshpit_armor"){
 	  	mAttributesHash[buffName] = Buffs.GetStackCount( queryUnit, buff )

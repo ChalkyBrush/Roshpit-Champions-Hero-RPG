@@ -15,7 +15,7 @@ function Challenges:GetChallengeFromRoshpitServer()
 	if Challenges.main_challenge then
 		return false
 	end
-	-- if GameState:GetDifficultyFactor() == 3 then
+	if GameState:GetDifficultyFactor() == 3 then
 		local url = ROSHPIT_URL.."/champions/get_challenges?"
 		local steamIDS = ""
 		for i = 1, PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS), 1 do
@@ -38,7 +38,7 @@ function Challenges:GetChallengeFromRoshpitServer()
 			--print(resultTable)
 			Challenges:ProcessChallengeResult(resultTable)
 		end)
-	-- end
+	end
 end
 
 function Challenges:ProcessChallengeResult(result)

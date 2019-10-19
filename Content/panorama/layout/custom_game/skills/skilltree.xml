@@ -16,17 +16,21 @@
 			</Panel>
 			<Panel id="skilltree_container" hittest="false">
 				<Label class="skill_tree_label" id="basic_skills_text" text="ui_base_skills" html="true" hittest="false">
-					<Label class="points_up" id="basic_skills_text_up" text="" html="true" hittest="false"></Label>
+					<Label class="points_up" id="basic_skills_text_up" text="" html="true" hittest="true"
+						onmouseover="basic_skill_points_tooltip()"
+						onmouseout="basic_skill_points_tooltip_end()"></Label>
 				</Label>
 				
 				<Panel class="AbilityOverlayRoot">
 					<Panel id="ability_list" />
 				</Panel>
 				<Label class="skill_tree_label" id="rune_text" text="ui_runes" html="true" hittest="false">
-					<Label class="points_up" id="runes_text_up" text="" html="true" hittest="false"></Label>
+					<Label class="points_up" id="runes_text_up" text="" html="true" hittest="true"
+						onmouseover="rune_points_tooltip()"
+						onmouseout="rune_points_tooltip_end()"></Label>
 				</Label>
 				<Panel class="RuneOverlayRoot">
-					<Panel id="rune_list" />
+					<Panel id="rune_list_tier1" />
 				</Panel>
 				<Panel class="RuneOverlayRoot">
 					<Panel id="rune_list_tier2" />
@@ -39,6 +43,8 @@
 				</Panel>
 			</Panel>
 		</Panel>
+		<Label id="ability_points_up" text="+1"/>
+		<Label id="rune_points_up" text="+2"/>
 	</Panel>
 
 </root>

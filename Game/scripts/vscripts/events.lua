@@ -919,20 +919,12 @@ end
 function Events:HeroLevelUp(player, hero, level)
 	hero:SetAbilityPoints(0)
 
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	-- if not player_stats then
-	--   return false
-	-- end
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
-	if level % 5 == 0 then
-		CustomNetTables:SetTableValue("player_stats", tostring(player:GetPlayerID()), {skillPoints = current_skill_points + 1, runePoints = current_rune_points + 2})
-	else
-		CustomNetTables:SetTableValue("player_stats", tostring(player:GetPlayerID()), {skillPoints = current_skill_points, runePoints = current_rune_points + 2})
+	Runes:UpdateHeroSkillAndRunePoints(hero)
+	local skill_points = 0
+	if level%5 == 0 then
+		skill_points = 1
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {})
+	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {skill_points = skill_points, rune_points = Runes.RUNE_POINTS_PER_LEVEL})
 	if level % 40 == 0 then
 		Stars:StarEventPlayer("power_up", hero)
 	end
@@ -1201,39 +1193,11 @@ function Events:ChangeRuneState(msg)
 		end
 		Events:TutorialServerEvent(unit, "2_1", 2)
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = playerid})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = playerid})
+	Runes:UpdateHeroSkillAndRunePoints(unit)
 end
 
 function Events:LevelUpRune(keys)
-	local PlayerID = keys.playerID
-	local player = PlayerResource:GetPlayer(PlayerID)
-	local ability = EntIndexToHScript(keys.ability)
-	local unit = EntIndexToHScript(keys.unit)
-	--print("LEVELUP RUNE")
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
-	local hero = player:GetAssignedHero()
-	local bAllow = true
-	if not unit:GetPlayerOwnerID() == PlayerID then
-		if unit:IsHero() then
-			bAllow = false
-		end
-	end
-	--print(unit:GetPlayerOwnerID())
-	--print(PlayerID)
-	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
-		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - 1})
-		local newLevel = ability:GetLevel() + 1
-		ability:SetLevel(newLevel)
-		EmitSoundOnClient("ui.crafting_gem_applied", player)
-		Runes:apply_runes(ability, unit, PlayerID)
-	else
-		EmitSoundOnClient("General.Cancel", player)
-	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
+	Runes:LevelUpRune(keys)
 end
 
 function Events:LevelUpRuneMax(keys)
@@ -1241,11 +1205,16 @@ function Events:LevelUpRuneMax(keys)
 	local player = PlayerResource:GetPlayer(PlayerID)
 	local ability = EntIndexToHScript(keys.ability)
 	local unit = EntIndexToHScript(keys.unit)
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
+
+
+
 	local hero = player:GetAssignedHero()
 	local bAllow = true
+
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+	local current_rune_points = points.rune_points
+	local current_skill_points = points.ability_points
+
 	if not unit:GetPlayerOwnerID() == PlayerID then
 		if unit:IsHero() then
 			bAllow = false
@@ -1253,18 +1222,18 @@ function Events:LevelUpRuneMax(keys)
 	end
 	--print(unit:GetPlayerOwnerID())
 	--print(PlayerID)
-	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
-		local levelsToSet = math.min(current_rune_points, 20 - ability:GetLevel())
-		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - levelsToSet})
-		local newLevel = ability:GetLevel() + levelsToSet
-		ability:SetLevel(newLevel)
+	local max_rune_level = Runes:GetMaxRuneLevel(ability, hero)
+	local cost_per_rune_level = Runes:GetRuneCostPerLevel(ability, hero)
+	if current_rune_points >= cost_per_rune_level and ability.rune_level < max_rune_level and hero:IsAlive() and bAllow then
+		local levelsToSet = math.min(math.floor(current_rune_points/cost_per_rune_level), (max_rune_level - ability.rune_level))
+		local newLevel = ability.rune_level + levelsToSet
+		ability.rune_level = newLevel
 		EmitSoundOnClient("ui.crafting_gem_applied", player)
 		Runes:apply_runes(ability, unit, PlayerID)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
+	Runes:UpdateHeroSkillAndRunePoints(hero)
 end
 
 function Events:LevelUpAbility(keys)
@@ -1272,11 +1241,12 @@ function Events:LevelUpAbility(keys)
 	local player = PlayerResource:GetPlayer(PlayerID)
 	local ability = EntIndexToHScript(keys.ability)
 	local unit = EntIndexToHScript(keys.unit)
-
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
 	local hero = player:GetAssignedHero()
+
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+	local current_rune_points = points.rune_points
+	local current_skill_points = points.ability_points
+	
 	local bAllow = true
 	if not unit:GetPlayerOwnerID() == PlayerID then
 		if unit:IsHero() then
@@ -1284,15 +1254,14 @@ function Events:LevelUpAbility(keys)
 		end
 	end
 	if current_skill_points > 0 and ability:GetLevel() < 7 and hero:IsAlive() and hero:GetLevel() >= -5 + 10 * ability:GetLevel() and bAllow then
-		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points - 1, runePoints = current_rune_points})
 		local newLevel = ability:GetLevel() + 1
 		ability:SetLevel(newLevel)
 		EmitSoundOnClient("ui.crafting_gem_applied", player)
+		Runes:UpdateHeroSkillAndRunePoints(hero)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
+	Runes:UpdateHeroSkillAndRunePoints(hero)
 end
 
 function Events:CreateRuneUnits(heroEntity, playerID)
@@ -1383,7 +1352,7 @@ function Events:SetupHeroes(heroEntity)
 	heroEntity.castPointQ = heroEntity:GetAbilityByIndex(DOTA_Q_SLOT):GetCastPoint()
 	heroEntity.castPointW = heroEntity:GetAbilityByIndex(DOTA_W_SLOT):GetCastPoint()
 	-- Timers:CreateTimer(6, function()
-	CustomNetTables:SetTableValue("player_stats", tostring(ownerID), {skillPoints = 0, runePoints = 3})
+	CustomNetTables:SetTableValue("player_stats", tostring(ownerID), {skillPoints = 0, runePoints = Runes.STARTING_RUNE_POINTS})
 	Events:CreateRuneUnits(heroEntity, ownerID)
 	heroEntity.InventoryUnit = CreateUnitByName("inventory_unit", Vector(-8000, 2000), true, heroEntity, PlayerResource:GetPlayer(ownerID), heroEntity:GetTeamNumber())
 	heroEntity.InventoryUnit:AddAbility("town_unit"):SetLevel(1)
