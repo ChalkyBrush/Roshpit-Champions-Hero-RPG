@@ -22832,7 +22832,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"650 3400 10000 35000 80000 240000 600000"
+		"AbilityDamage"					"60 120 180 240 300 360 420"
 
 		// Cost
 		//-------------------------------------------------------
@@ -23101,7 +23101,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 210 300 400 600 1000 2000"
+		"AbilityManaCost"				"30 60 90 120 150 180 210"
 
 		// Special
 		//-------------------------------------------------------
@@ -23115,7 +23115,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"820 3580 8200 20400 62000 124000 256000"
+				"damage"					"50 100 150 250 300 350 400"
 			}
 			"03"
 			{
@@ -23334,7 +23334,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_dmg"			"250 1000 4000 8000 15000 24000 36000"
+				"base_dmg"			"20 40 60 80 100 120 140"
 			}
 
 			"05"
@@ -23380,7 +23380,7 @@
 			"14"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_shred"			"-100 -300 -600 -1000 -2000 -5000 -10000"
+				"armor_shred"			"-40 -80 -120 -160 -200 -240 -280"
 			}
 		}
 
@@ -23506,10 +23506,23 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_shred"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -23890,7 +23903,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"850 3400 10000 25000 100000 200000 350000"
+				"damage"	"100 300 500 700 900 1100 1300"
 			}
 
 			"03"

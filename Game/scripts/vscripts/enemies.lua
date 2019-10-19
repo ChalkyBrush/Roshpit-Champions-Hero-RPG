@@ -22,18 +22,19 @@ Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_ELITE_CREEP] = 1
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_MINI_BOSS] = 1
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_BOSS] = 1
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_MAJOR_BOSS] = 1
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_WEAK_CREEP] = 2
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_NORMAL_CREEP] = 3
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_ELITE_CREEP] = 5
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MINI_BOSS] = 7
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_BOSS] = 10
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MAJOR_BOSS] = 20
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_WEAK_CREEP] = 5
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_NORMAL_CREEP] = 12
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_ELITE_CREEP] = 40
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 65
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 80
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 100
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_WEAK_CREEP] = 1.5
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_NORMAL_CREEP] = 1.5
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_ELITE_CREEP] = 2
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MINI_BOSS] = 2
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_BOSS] = 2.5
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MAJOR_BOSS] = 2.5
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_WEAK_CREEP] = 2
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_NORMAL_CREEP] = 3
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_ELITE_CREEP] = 3
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 3.5
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 4
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 4
+Enemies.FLAT_DAMAGE_BONUS_PER_LEVEL_AFTER_NORMAL = 10
 
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST = {}
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_NORMAL] = {}
@@ -57,6 +58,8 @@ Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_ELITE_
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 5
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 6
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 7
+
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL_AFTER_NORMAL = 4
 
 Enemies.DIFFICULTY_HEALTH_FLAT = {}
 Enemies.DIFFICULTY_HEALTH_FLAT[DIFFICULTY_NORMAL] = {}
@@ -138,7 +141,24 @@ function Enemies:SpiritRealmNumber(spirit_realm)
 	end
 end
 
+function Enemies:GetFlatDamageBonusForDifficulty(unit, base_level)
+	if GameState:GetDifficultyFactor() > 1 then
+		return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_DAMAGE_BONUS_PER_LEVEL_AFTER_NORMAL
+	else
+		return 0
+	end
+end
+
+function Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level)
+	if GameState:GetDifficultyFactor() > 1 then
+		return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL_AFTER_NORMAL
+	else
+		return 0
+	end
+end
+
 function Enemies:InitializeEnemy(unit)
+	local base_level = unit:GetKeyValue("RoshpitLevel")
 	local unit_level = unit.roshpit_attributes.roshpit_level
 	local enemyTier = unit.roshpit_attributes.enemy_tier
 	local difficulty = GameState:GetDifficultyFactor()
@@ -162,19 +182,19 @@ function Enemies:InitializeEnemy(unit)
 	-- attack damage
 	local base_damage = unit:GetAverageTrueAttackDamage(unit)
 	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
-	local newDamage = Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]
+	local newDamage = (Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage + Enemies:GetFlatDamageBonusForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]
 	unit:SetBaseDamageMin(newDamage-damageDiff)
 	unit:SetBaseDamageMax(newDamage)
 
 	-- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
 	unit:SetPhysicalArmorBaseValue(0)
-	local newArmor = unit.roshpit_attributes.roshpit_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	local newArmor = (unit.roshpit_attributes.roshpit_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	unit:SetBaseRoshpitArmor(newArmor, false)
-	local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	local newMagicArmor = (unit.roshpit_attributes.roshpit_magic_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
-	local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	local newArmorPierce = (unit.roshpit_attributes.roshpit_armor_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
-	local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	local newSpellPierce = (unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 	-- HP

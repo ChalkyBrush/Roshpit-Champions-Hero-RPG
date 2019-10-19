@@ -6537,7 +6537,7 @@
 		
 		"DOTA_Tooltip_ability_second_heartbeat"										"Second Heartbeat"
 		"DOTA_Tooltip_ability_second_heartbeat_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker's heart pulses with pure flame, dealing damage to all enemies in front of him."
-		"DOTA_Tooltip_ability_second_heartbeat_Lore"									""
+		"DOTA_Tooltip_ability_second_heartbeat_Lore"									"Base Ability: W"
     	"DOTA_Tooltip_ability_second_heartbeat_damage"									"DAMAGE:"
 
 		"DOTA_Tooltip_ability_flamewaker_rune_w_1"								"[W1] Incendiary Blade"
@@ -6569,7 +6569,7 @@
 		
 		"DOTA_Tooltip_ability_heat_wave"										"Heat Wave"
 		"DOTA_Tooltip_ability_heat_wave_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. Enemies close to flamewaker during heatwave have reduced armor."
-		"DOTA_Tooltip_ability_heat_wave_Lore"									""
+		"DOTA_Tooltip_ability_heat_wave_Lore"									"Base Ability: E"
     	"DOTA_Tooltip_ability_heat_wave_max_ms"									"MOVESPEED CAP:"
     	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"ATTACK DAMAGE:"
     	"DOTA_Tooltip_ability_heat_wave_movespeed"								"MOVESPEED:"
@@ -6627,7 +6627,7 @@
 		
 		"DOTA_Tooltip_ability_cataclysm"									"Cataclysm"
 		"DOTA_Tooltip_ability_cataclysm_Description"						"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#AF843D\">Earth</font><br>Channels an overload of fire for 2 seconds, and then releases a massive explosion dealing damage, stunning, and slowing all targets surrounding the caster."
-		"DOTA_Tooltip_ability_cataclysm_Lore"								""
+		"DOTA_Tooltip_ability_cataclysm_Lore"								"Base Ability: R"
 		"DOTA_Tooltip_ability_cataclysm_damage"							"DAMAGE:"
     	"DOTA_Tooltip_ability_cataclysm_radius"							"RADIUS:"
     	"DOTA_Tooltip_ability_cataclysm_stun_duration"					"STUN DURATION:"

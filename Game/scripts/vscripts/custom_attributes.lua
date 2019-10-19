@@ -529,6 +529,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_colossus_rage") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
 	end
+	if unit:HasModifier("modifier_heat_wave_armor_shred") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_heat_wave_armor_shred")
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
