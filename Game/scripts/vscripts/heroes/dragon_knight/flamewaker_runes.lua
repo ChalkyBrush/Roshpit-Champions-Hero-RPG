@@ -30,9 +30,7 @@ function a_b(event)
 	local damage = event.damage
 	local target = event.target
 	target:RemoveModifierByName("modifier_flamewaker_rune_w_1_burn")
-	local abilityLevel = ability:GetLevel()
-	local bonusLevels = Runes:GetTotalBonus(caster, "w_1")
-	local totalLevel = bonusLevels + abilityLevel
+	local totalLevel = caster:GetRuneValue("w", 1)
 	damage = damage * totalLevel + 50
 
 	local damageTable = {
@@ -50,8 +48,8 @@ function rune_q_2(event)
 	local runeUnit = caster.runeUnit2
 	local ability = runeUnit:FindAbilityByName("flamewaker_rune_q_2")
 	if ability.q_2_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
-		ability.heal = ability.heal + ability.q_2_level * 40
+		local duration = Filters:GetAdjustedBuffDuration(caster, FLAMEWAKER_Q2_HEAL_DURATION, false)
+		ability.heal = ability.q_2_level * FLAMEWAKER_Q2_HEAL_PER_TICK_PER_UNIT
 		ability:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_q_2_heal_effect", {duration = duration})
 	end
 
@@ -146,7 +144,7 @@ function flamewaker_r_2(event)
 		local r_2_level = caster:GetRuneValue("r", 2)
 		local fv = caster:GetForwardVector()
 		ability.r_2_level = r_2_level
-		ability.r_2_damage = ability.r_2_level * FLAMEWAKER_R2_SCALE * (FLAMEWAKER_R2_INNER_SCALE_BASE * getCasterItemsTotalLevel(caster, 110)) ^ FLAMEWAKER_R2_DMG_EXP_SCALE_BASE
+		ability.r_2_damage = ability.r_2_level * FLAMEWAKER_R2_DAMAGE
 		if r_2_level > 0 then
 			EmitSoundOn("Flamewaker.SecondHeartbeat", caster)
 			local count = 50
@@ -202,11 +200,9 @@ function flamewaker_r_2_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = math.max(ability.r_2_damage, 10)
-	for i = 1, FLAMEWAKER_R2_INSTANCE_OF_DAMAGE_COUNT, 1 do
-		--print(damage)
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	end
+	local damage = ability.r_2_damage
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+
 end
 
 function a_d(event)

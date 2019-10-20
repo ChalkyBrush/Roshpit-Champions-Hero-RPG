@@ -8,6 +8,7 @@ function CastSunRay(event)
     ability.deltaTime = 0
     ability.rune_e_1 = rune_e_1(caster)
     caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "flamewaker")
+    flamewaker_rune_e_4(caster, ability)
     local pathLength = event.path_length
     local numThinkers = event.num_thinkers
     local thinkerStep = event.thinker_step
@@ -175,7 +176,20 @@ function CastSunRay(event)
         return deltaTime
 
     end, 0.0)
+    
+end
 
+function flamewaker_rune_e_4(caster, ability)
+    local e_4_level = caster:GetRuneValue("e", 4)
+    for i = 0, 6, 1 do
+        local check_ability = caster:GetAbilityByIndex(i)
+        if check_ability and IsValidEntity(check_ability) then
+            if check_ability:GetAbilityName() ~= ability:GetAbilityName() then
+                local CDreduce = FLAMEWAKER_E4_CD_REDUCTION*e_4_level
+                Filters:ReduceCooldownGeneric(caster, check_ability, CDreduce)
+            end
+        end
+    end
 end
 
 function rune_e_1(caster)
@@ -195,17 +209,11 @@ function rune_e_1_damage(event)
     local target = event.target
     if ability.rune_e_1 then
         local runeAbility = caster.runeUnit4:FindAbilityByName("flamewaker_rune_e_4")
-        local e_4_level = caster:GetRuneValue("e", 4)
         local damage = ability.rune_e_1 * FLAMEWAKER_E1_DMG
         if ability.glyphed then
             damage = damage * FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT
         end
         CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
-        if e_4_level > 0 then
-            target.flamewaker_d_c_burn = damage * 1.0 * e_4_level
-            runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, target, "modifier_flamewaker_rune_e_4", {duration = 4})
-            target:SetModifierStackCount("modifier_flamewaker_rune_e_4", runeAbility, e_4_level)
-        end
         Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
     end
 
@@ -567,7 +575,7 @@ end
 function dragon_rage_b_c_think(event)
     local caster = event.caster.hero
     local level = event.ability.e_2_level
-    local damage = (level * 1200 + caster:GetAgility() * 2 * level)
+    local damage = (level * FLAMEWAKER_E2_IMMOLATION_BASE + caster:GetAgility() * (FLAMEWAKER_E2_IMMOLATION_BONUS_DAMAGE_AGILITY/100) * level)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do

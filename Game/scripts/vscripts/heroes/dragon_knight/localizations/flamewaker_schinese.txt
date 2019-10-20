@@ -144,9 +144,9 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] 火焰漩涡"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"施放大灾变时同时释放一股火焰漩涡。每道火焰造成7次伤害，该伤害基于装备最低等级要求总和的四次方。（100级装备看做110级）"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"施放大灾变时同时释放一股火焰漩涡"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"伤害"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"*(<% FLAMEWAKER_R2_INNER_SCALE_BASE %>*(装备最低等级要求总和))^<% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						""
 
 		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] 群山之力"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"成功引导大灾变后，增加力量值，持续12秒。"
@@ -183,7 +183,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"移动速度提高"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"敌人所受到的伤害提高（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			"%"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			""
 
     	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect"					"火焰浪涌"
     	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect_Description"		"提高移动速度并且对敌人伤害加深"
@@ -256,7 +256,7 @@
 		"item_rpc_flamewaker_glyph_3_1_description" 			"[W1]造成伤害的同时会对目标附加[W3] 。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"蓝焰雕文"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 <% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x 的总属性值加 <% FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL %>% 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %>。"
+		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 <% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"灼热之心雕文"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间<% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %>倍。"

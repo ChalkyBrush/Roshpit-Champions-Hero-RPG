@@ -437,7 +437,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"60 120 180 240 300 360 420"
+		"AbilityDamage"					"120 240 360 480 600 720 840"
 
 		// Cost
 		//-------------------------------------------------------
@@ -847,9 +847,14 @@
 				"TextureName"		"abaddon_death_coil"
 				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-8"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_flamewaker_glyph_4_1_effect"

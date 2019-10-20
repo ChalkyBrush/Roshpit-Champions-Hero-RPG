@@ -1748,13 +1748,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 		end
 	end
-	if victim:HasModifier("modifier_dragonflame_shield") then
-		local dragonflame = victim:FindAbilityByName("flamewaker_dragonflame")
-		if dragonflame then
-			local reduction = (100 - dragonflame:GetSpecialValueFor("damage_reduce")) / 100
-			damage = damage * reduction
-		end
-	end
 	if victim:HasModifier("modifier_overload_damage_resistance") then
 		damage = damage * 0.1
 	end
@@ -1982,19 +1975,6 @@ function GameState:FilterDamage(filterTable)
 				CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/archer_crit.vpcf", victim, 0.6)
 				attacker.element1 = RPC_ELEMENT_UNDEAD
 				filterTable["entindex_inflictor_const"] = attacker.hero:FindAbilityByName("ekkan_summon_skeleton"):GetEntityIndex()
-			end
-		end
-		filterTable.damage = filterTable.damage * (1 - ((0.05 * armor) / (1 + 0.05 * abs(armor))))
-
-		if victim:HasModifier("heatwave_fire_damage") then
-			local armor = victim:GetPhysicalArmorValue(false)
-			if armor < 0 then
-				local heatwave_ability = victim:FindModifierByName("heatwave_fire_damage"):GetAbility()
-				if heatwave_ability.rune_e_1 then
-					local armor_current = armor
-					local premit_enhance = math.min(FLAMEWAKER_E1_PREMIT * heatwave_ability.rune_e_1 * math.abs(armor_current), heatwave_ability.rune_e_1 * 2)
-					filterTable.damage = filterTable.damage + filterTable.damage * premit_enhance
-				end
 			end
 		end
 	end
@@ -2504,18 +2484,6 @@ function GameState:FilterDamage(filterTable)
 		local damageIncrease = stacks * HYDROXIS_R4_DMG_AMP_PCT/100
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * damageIncrease
 	end
-	if attacker:HasModifier("modifier_flamewaker_arcana1") then
-		local self_mult = 0
-		local stack_mult = 0
-		if attacker:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
-			self_mult = 0.03 * attacker:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect", attacker)
-		end
-		if victim:HasModifier("modifier_flamewaker_arcana_b_a_effect_stacking_invisible") then
-			stack_mult = 0.005 * victim:GetModifierStackCount("modifier_flamewaker_arcana_b_a_effect_stacking_invisible", attacker)
-		end
-		local multIncrease = math.max(self_mult, stack_mult)
-		mult = mult + multIncrease
-	end
 	if attacker:HasModifier("modifier_voltex_immortal_weapon_1") then
 		mult = mult + VOLTEX_IMMORTAL_WEAPON_1_POST_MITI_BONUS
 	end
@@ -2542,14 +2510,6 @@ function GameState:FilterDamage(filterTable)
 			local stacks = modifier:GetStackCount()
 			local multIncrease = 0.05 * stacks
 			mult = mult + multIncrease
-		end
-	end
-	if attacker:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
-		modifier = attacker:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
-		if victim:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
-			local stacks = modifier:GetAbility().q_4_level
-			local damageReduc = math.min(stacks * 0.015, 0.9)
-			filterTable["damage"] = filterTable["damage"] * (1 - damageReduc)
 		end
 	end
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then

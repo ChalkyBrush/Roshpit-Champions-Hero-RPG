@@ -140,9 +140,9 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_r_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_2"								"[R2] Flaming Vortex"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"При успешном прочтении @Ability4 выпускает волны огня по спирали. Каждая волная наносит <% FLAMEWAKER_R2_INSTANCE_OF_DAMAGE_COUNT %> порций урона, а урон базируется на уровне надетых предметов в 4 степени. (Предметы 100 уровня считаются за 110). "
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_Description"					"При успешном прочтении @Ability4 выпускает волны огня по спирали."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_2_property_one"					"Урон"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						"* (<% FLAMEWAKER_R2_INNER_SCALE_BASE %> * (Total Gear Levels)) ^ <% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_2_suffix"						""
 
 		"DOTA_Tooltip_ability_flamewaker_rune_r_3"								"[R3] Mountain's Energy"
     	"DOTA_Tooltip_ability_flamewaker_rune_r_3_Description"					"По завершении прочтения @Ability4, Flamewaker получает дополнительные очки Силы на 12 секунд."
@@ -179,7 +179,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"Доп. скорость передвижения"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"Усиление пост-резистного урона"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			"%"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			""
 
     	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect"					"Flame Surge"
     	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect_Description"		"Увеличена скорость передвижения и наносит дополнительный урон."
@@ -252,7 +252,7 @@
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Глиф синего пламени"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x от суммы всех атрибутов плюс <% FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL %>% от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> на <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> сек."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> на <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Глиф горячих сердец"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %> раза."

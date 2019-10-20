@@ -6,7 +6,7 @@ function begin_second_heartbeat(event)
 	local forwardVector = caster:GetForwardVector()
 	local fv = forwardVector
 	local w_2_level = rune_w_2(caster)
-	local rangeblast = w_2_level * 10
+	local rangeblast = w_2_level * FLAMEWAKER_W2_RANGE
 	if rangeblast > 1000 then
 		rangeblast = 1000
 	end
@@ -32,16 +32,17 @@ function second_heartbeat_damage(event)
 	local ability = event.ability
 	local damage = event.damage
 	if caster:HasModifier("modifier_flamewaker_glyph_4_1") then
-		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL + OverflowProtectedGetAverageTrueAttackDamage(caster) * FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL/100) * ability:GetLevel()
+		damage = damage + ((caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL * ability:GetLevel())
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = FLAMEWAKER_GLYPH_4_1_SLOW_DURATION})
 	end
-	damage = damage * (1 + 0.2 * ability.w_2_level)
+	damage = damage * (1 + (FLAMEWAKER_W2_DAMAGE_BONUS_PCT/100) * ability.w_2_level)
 	if ability.w_3_level > 0 then
 		local additional_armorLoss = math.ceil(1.0 * ability.w_3_level)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_searing_heat", {duration = 6})
 		local current_stack = target:GetModifierStackCount("modifier_searing_heat", ability)
 		local stacks = math.min(current_stack + additional_armorLoss, 10000)
 		target:SetModifierStackCount("modifier_searing_heat", ability, stacks)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

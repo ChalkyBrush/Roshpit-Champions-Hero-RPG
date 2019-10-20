@@ -12424,6 +12424,26 @@
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
 			}
+			"modifier_positive_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_positive_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_negative_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_negative_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
 			"modifier_roshpit_level"
 			{
 				"IsHidden"	"1"

@@ -21792,12 +21792,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"strength_mult"	"50 90 120 200 300 440 600"
+				"strength_mult"	"1 2 3 4 5 6 7"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"		"3000 8000 30000 80000 160000 280000 600000"
+				"damage"		"120 240 360 480 600 720 840"
 			}
 			"04"
 			{
@@ -21826,123 +21826,127 @@
         		"strength_mult"	"%strength_mult"
 			}
 		}
-        "Modifiers"
-        {
-        	"modifier_flamewaker_arcana_passive"
-        	{
-        		"IsHidden"	"1"
-        		"Passive"	"1"
-        		"ThinkInterval"  "0.3"
-        		"OnIntervalThink"
-        		{
-					"RunScript"
-					{
-		        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-		        		"Function"		"arcana_ability_think"
-					}
-        		}
-        		"OnDestroy"
-        		{
-        			"RemoveModifier"
-        			{
-        				"ModifierName"	"modifier_flamewaker_arcana_a_a_effect"
-        				"Target" 		"TARGET"
-        			}
-        			"RemoveModifier"
-        			{
-        				"ModifierName"	"modifier_flamewaker_arcana_d_a_effect"
-        				"Target" 		"TARGET"
-        			}
-        			"RemoveModifier"
-        			{
-        				"ModifierName"	"modifier_flamewaker_arcana_b_a_effect"
-        				"Target" 		"TARGET"
-        			}
-        		}
-        	}
-        	"modifier_flamewaker_arcana_q_free_cast"
-        	{
-        		"IsHidden"	"0"
-        	}
-        	"modifier_flamewaker_arcana_a_a_effect"
-        	{
-        		"IsHidden"	"1"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0.4"
-        		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "2"
-        		}
-        	}
-        	"modifier_flamewaker_arcana_b_a_effect"
-        	{
-        		"IsHidden"	"0"
-        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
-        		}
-        	}
-        	"modifier_flamewaker_arcana_b_a_effect_stacking_visible"
-        	{
-        		"IsHidden" "0"
-        		"IsDebuff" "1"
-        		"IsStunDebuff" "1"
-        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
-        	}
-        	"modifier_flamewaker_arcana_b_a_effect_stacking_invisible"
-        	{
-        		"IsHidden"	"1"
-        	}
-        	"modifier_flamewaker_arcana_d_a_effect"
-        	{
-        		"IsHidden"	"1"
-        		"OnCreated"
-        		{
-        			"AttachEffect"
-					{
-						"EffectName"        "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "CASTER"
-						"ControlPointEntities"
-						{
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-						}
-					}
-        		}
-        		"Aura"          	"modifier_flamewaker_arcana_d_a_aura"
-        		"Aura_Radius"   	"280"
-        		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-        		"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-        	}
-        	"modifier_flamewaker_arcana_d_a_aura"
-        	{
-        		"IsHidden"	"0"
-        		"IsDebuff"	"1"
-        		"IsStunDebuff"	"1"
-        		"TextureName"	"flamewaker/flamewaker_d_a_arcana1"
-        		"OnCreated"
-        		{
-        			"RunScript"
-        			{
-        				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-        				"Function"		"d_a_stun"
-        				"target"		"TARGET"
-        			}
-        		}
-        	}
-        	"modifier_flamewaker_arcana_d_a_immune"
-        	{
-        		"IsHidden"	"1"
-        	}
-        }
+                "Modifiers"
+                {
+                	"modifier_flamewaker_arcana_passive"
+                	{
+                		"IsHidden"	"1"
+                		"Passive"	"1"
+                		"ThinkInterval"  "0.3"
+                		"OnIntervalThink"
+                		{
+        					"RunScript"
+        					{
+        		        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+        		        		"Function"		"arcana_ability_think"
+        					}
+                		}
+                		"OnDestroy"
+                		{
+                			"RemoveModifier"
+                			{
+                				"ModifierName"	"modifier_flamewaker_arcana_a_a_effect"
+                				"Target" 		"TARGET"
+                			}
+                			"RemoveModifier"
+                			{
+                				"ModifierName"	"modifier_flamewaker_arcana_d_a_effect"
+                				"Target" 		"TARGET"
+                			}
+                			"RemoveModifier"
+                			{
+                				"ModifierName"	"modifier_flamewaker_arcana_b_a_effect"
+                				"Target" 		"TARGET"
+                			}
+                		}
+                	}
+                	"modifier_flamewaker_arcana_q_free_cast"
+                	{
+                		"IsHidden"	"0"
+                	}
+                	"modifier_flamewaker_arcana_a_a_effect"
+                	{
+                		"IsHidden"	"1"
+                		"Properties"
+                		{
+                			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
+                		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1"
+                		}
+                	}
+                	"modifier_flamewaker_arcana_b_a_effect"
+                	{
+                		"IsHidden"	"0"
+                		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+                		"Properties"
+                		{
+                			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
+                		}
+                	}
+                	"modifier_flamewaker_arcana_d_a_effect"
+                	{
+                		"IsHidden"	"1"
+                		"OnCreated"
+                		{
+                			"AttachEffect"
+        					{
+        						"EffectName"        "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
+        						"EffectAttachType"  "follow_origin"
+        						"Target"            "CASTER"
+        						"ControlPointEntities"
+        						{
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        						}
+        					}
+                		}
+                		"Aura"          	"modifier_flamewaker_arcana_d_a_aura"
+                		"Aura_Radius"   	"280"
+                		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+                		"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+                	}
+                	"modifier_flamewaker_arcana_d_a_aura"
+                	{
+                		"IsHidden"	"0"
+                		"IsDebuff"	"1"
+                		"IsStunDebuff"	"1"
+                		"TextureName"	"flamewaker/flamewaker_d_a_arcana1"
+                		"OnCreated"
+                		{
+                			"RunScript"
+                			{
+                				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+                				"Function"		"d_a_stun"
+                				"target"		"TARGET"
+                			}
+                                        "RunScript"
+                                        {
+                                                "ScriptFile"    "npc_abilities/general.lua"
+                                                "Function"              "utility_recalculate_roshpit_attributes"
+                                                "target"                "TARGET"
+                                        }
+                		}
+                                "OnDestroy"
+                                {
+                                        "RunScript"
+                                        {
+                                                "ScriptFile"    "npc_abilities/general.lua"
+                                                "Function"              "utility_recalculate_roshpit_attributes"
+                                                "target"                "TARGET"
+                                        }
+                                }
+                	}
+                	"modifier_flamewaker_arcana_d_a_immune"
+                	{
+                		"IsHidden"	"1"
+                	}
+                }
 	}
 
 
@@ -21963,12 +21967,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -21993,7 +21997,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"3"
+				"property_two"			"80"
 			}
 		}
 	}
@@ -22034,24 +22038,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"10"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.5"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-120"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_max"		"90"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"1"
 			}
-			"05"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
@@ -22102,12 +22101,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"base_damage"				"80 240 400 800 3000 9000 20000"
+				"base_damage"				"10 25 40 55 70 85 100"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_dmg_bonus"				"20 25 30 35 40 45 50"
+				"attack_dmg_bonus"				"5"
 			}
 			"03"
 			{
@@ -22117,12 +22116,12 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_reduce"				"95"
+				"armor_and_magic_armor"				"500 1000 1500 2000 2500 3000 3500"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_shred"				"-50 -100 -250 -500 -1000 -2000 -3500"
+				"armor_shred"				"-5 -10 -15 -20 -25 -30 -35"
 			}
 		}
 		"OnToggleOn"
@@ -22189,10 +22188,6 @@
 			"modifier_dragonflame_armor_shred"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_shred"
-				}
 			}
 			"modifier_dragonflame_freeze_effect"
 			{
@@ -22258,8 +22253,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "90"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"
 				}
 			}
 			"modifier_d_b_attack_power"
@@ -22303,7 +22297,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"125"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -22324,12 +22318,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3000"
+				"property_one"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"90"
+				"property_two"			"50"
 			}
 		}
 	}
@@ -22350,7 +22344,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -22386,7 +22380,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -22832,7 +22826,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"60 120 180 240 300 360 420"
+		"AbilityDamage"					"120 240 360 480 600 720 840"
 
 		// Cost
 		//-------------------------------------------------------
@@ -23242,9 +23236,14 @@
 				"TextureName"		"abaddon_death_coil"
 				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-8"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_flamewaker_glyph_4_1_effect"
@@ -23854,7 +23853,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "25"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"0"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
 				}
@@ -23951,12 +23950,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"15"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"8"
 			}
 
 		}
@@ -23983,7 +23982,6 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%property_two"
 				}
 			}
@@ -24006,7 +24004,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -24058,12 +24056,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"800"
+				"property_two"			"65"
 			}
 			"03"
 			{
@@ -24098,7 +24096,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0.1"
 			}
 		}
 		"Modifiers"
@@ -24172,7 +24170,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -24182,7 +24180,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -24202,7 +24200,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-12"
+				"property_one"			"-10"
 			}
 		}
 	}
@@ -24223,7 +24221,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"50"
+				"property_one"			"40"
 			}
 		}
 		"Modifiers"
@@ -24236,7 +24234,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "40"
 				}
 			}
 			"modifier_flamewaker_rune_w_4_cooldown"
@@ -24265,12 +24263,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_one"			"40"
 			}
 			"02"
 			{
@@ -24302,12 +24295,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1200"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"10"
 			}
 			"03"
 			{
@@ -24357,12 +24350,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"8"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"10"
 			}
 		}
 		"Modifiers"
@@ -24436,23 +24429,12 @@
 		"AbilityTextureName"	"batrider_firefly"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-120"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"property_one"			"0.2"
 			}
 		}
 		"Modifiers"
@@ -24499,7 +24481,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -24519,7 +24501,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4"
+				"property_one"			"25"
 			}
 			"03"
 			{
@@ -24559,7 +24541,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"260"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -24579,7 +24561,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"0.01"
 			}
 		}
 	}
@@ -98472,6 +98454,26 @@
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_positive_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_positive_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_negative_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_negative_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
 			}
 			"modifier_roshpit_level"
 			{

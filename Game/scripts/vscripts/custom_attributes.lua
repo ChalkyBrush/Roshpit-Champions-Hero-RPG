@@ -39,7 +39,6 @@ CustomAttributes.MAGIC_ARMOR_PER_SPIRIT = 1
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 1
 
-CustomAttributes.FLAMEWAKER_R3_STRENGTH = 260
 CustomAttributes.CONJUROR_E1_AGI = 25
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
@@ -532,6 +531,23 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_heat_wave_armor_shred") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_heat_wave_armor_shred")
 	end
+	if unit:GetUnitName() == "npc_dota_hero_dragon_knight" then
+		armor_modify = armor_modify + unit:GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
+	end
+	if unit:HasModifier("modifier_searing_heat") then
+		local modifier = unit:FindModifierByName("modifier_searing_heat")
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED
+	end
+	if unit:HasModifier("modifier_dragonflame_shield") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
+	end
+	if unit:HasModifier("modifier_dragonflame_armor_shred") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_dragonflame_armor_shred")
+	end
+	if unit:HasModifier("modifier_b_b_shimmer") then
+		local modifier = unit:FindModifierByName("modifier_b_b_shimmer")
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_Q2_ARMOR
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -643,6 +659,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_colossus_rage") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "physical_and_magic_armor", "modifier_colossus_rage")
 	end
+	if unit:HasModifier("modifier_dragonflame_shield") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
+	end
 
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
@@ -668,6 +687,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:IsRealHero() then
 		armor_pierce = armor_pierce + unit:GetAgility()*CustomAttributes.ARMOR_PIERCE_PER_AGI
 	end
+	local armor_pierce_modify = 0
+	if unit:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
+		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetCaster():GetRuneValue("q", 4)*FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION
+	end
+	if armor_pierce_modify > 0 then
+		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor_pierce", {})
+		unit:SetModifierStackCount("modifier_positive_roshpit_armor_pierce", Events.GameMaster, math.abs(armor_pierce_modify))
+	elseif armor_pierce_modify < 0 then
+		unit:RemoveModifierByName("modifier_positive_roshpit_armor_pierce")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_armor_pierce", {})
+		unit:SetModifierStackCount("modifier_negative_roshpit_armor_pierce", Events.GameMaster, math.abs(armor_pierce_modify))
+	else
+		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
+		unit:RemoveModifierByName("modifier_positive_roshpit_armor_pierce")
+	end
+	armor_pierce = math.max(armor_pierce + armor_pierce_modify, 0)
 	unit:SetRoshpitArmorPierce(armor_pierce)
 	return armor_pierce
 end
@@ -678,6 +715,28 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:IsRealHero() then
 		spell_pierce = spell_pierce + unit:GetIntellect()*CustomAttributes.SPELL_PIERCE_PER_INT
 	end
+	local spell_pierce_modify = 0
+	if unit:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
+		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA_Q2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
+		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetCaster():GetRuneValue("q", 4)*FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION
+	end
+	if spell_pierce_modify > 0 then
+		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_spell_pierce", {})
+		unit:SetModifierStackCount("modifier_positive_roshpit_spell_pierce", Events.GameMaster, math.abs(spell_pierce_modify))
+	elseif spell_pierce_modify < 0 then
+		unit:RemoveModifierByName("modifier_positive_roshpit_spell_pierce")
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_negative_roshpit_spell_pierce", {})
+		unit:SetModifierStackCount("modifier_negative_roshpit_spell_pierce", Events.GameMaster, math.abs(spell_pierce_modify))
+	else
+		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
+		unit:RemoveModifierByName("modifier_positive_roshpit_spell_pierce")
+	end
+	spell_pierce = math.max(spell_pierce + spell_pierce_modify, 0)
 	unit:SetRoshpitSpellPierce(spell_pierce)
 	return spell_pierce
 end
@@ -754,7 +813,7 @@ function CustomAttributes:SetAttributes(hero)
 	local heroName = hero:GetUnitName()
 	if hero:HasModifier("modifier_flamewaker_rune_r_3") then
 		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
-		str_bonus = str_bonus + CustomAttributes.FLAMEWAKER_R3_STRENGTH * stacks
+		str_bonus = str_bonus + FLAMEWAKER_R3_STRENGTH * stacks
 	end
 	if hero:HasModifier("modifier_voltex_glyph_2_1_effect_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_voltex_glyph_2_1_effect_invisible", hero)

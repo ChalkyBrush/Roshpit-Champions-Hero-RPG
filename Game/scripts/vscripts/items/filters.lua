@@ -2024,13 +2024,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_dragon_knight" then
             if attacker.r_4_level then
-                fireMult = fireMult + 0.0015 * attacker:GetStrength() / 10 * attacker.r_4_level
+                fireMult = fireMult + FLAMEWAKER_R4_FIRE_DAMAGE_FROM_STR/100 * attacker:GetStrength() * attacker.r_4_level
             end
             if attacker:HasModifier("modifier_flamewaker_arcana2_passive") then
                 if victim:IsStunned() or victim:IsFakeStunned() then
                     local w_1_level = attacker:GetRuneValue("w", 1)
                     if w_1_level > 0 then
-                        fireMult = fireMult + 1.25 * w_1_level
+                        fireMult = fireMult + (FLAMEWAKER_ARCANA2_Q1_FIRE_AMP_AGAINST_STUNNED/100) * w_1_level
                     end
                 end
             end
@@ -2152,7 +2152,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_EARTH or element2 == RPC_ELEMENT_EARTH then
         if unitName == "npc_dota_hero_dragon_knight" then
             if attacker.r_4_level then
-                mult = mult + 0.0015 * attacker:GetStrength() / 10 * attacker.r_4_level
+                mult = mult + FLAMEWAKER_R4_FIRE_DAMAGE_FROM_STR/100 * attacker:GetStrength() * attacker.r_4_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_earth_charge") then

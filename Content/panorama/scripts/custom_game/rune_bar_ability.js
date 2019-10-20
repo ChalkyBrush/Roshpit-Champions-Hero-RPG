@@ -8,6 +8,7 @@ var r_BaseRuneLevel = 0
 var x = null
 
 var COST_LEVEL_UP_RUNES = [1,1,2,4]
+var MAX_RUNE_LEVELS = [40, 40, 20, 10]
 
 function SetAbility( ability, queryUnit, bInLevelUp, mainHero, ability_level)
 {
@@ -24,7 +25,7 @@ function SetAbility( ability, queryUnit, bInLevelUp, mainHero, ability_level)
 	var player_stats = CustomNetTables.GetTableValue( "player_stats", playerID.toString() );
 	var runePoints = player_stats.runePoints
 	var tier = $.GetContextPanel().GetAttributeInt( "tier", 0)
-	if (runePoints >= COST_LEVEL_UP_RUNES[tier-1]){
+	if ((runePoints >= COST_LEVEL_UP_RUNES[tier-1]) && (ability_level < MAX_RUNE_LEVELS[tier-1])){
 		bInLevelUp = true;
 	}
 	

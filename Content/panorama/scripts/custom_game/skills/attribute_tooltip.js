@@ -259,7 +259,7 @@ function initializeTooltip(func){
 	for ( var i = 1; i <= 18; ++i ){
 		var board = $('#element'+i)
 		board.FindChildTraverse('element_title'+i).SetImage("file://{images}/custom_game/ui/elements/element"+i+".png")
-		board.FindChildTraverse('element_value'+i).text = GameUI.StatQueryData.elements[i]+"%"
+		board.FindChildTraverse('element_value'+i).text = Math.round(GameUI.StatQueryData.elements[i])+"%"
 	}
 	
 	// HANDLE NON HERO

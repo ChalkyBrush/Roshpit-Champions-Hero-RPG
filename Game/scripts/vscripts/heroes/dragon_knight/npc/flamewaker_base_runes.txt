@@ -15,12 +15,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% FLAMEWAKER_Q1_ARMOR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"<% FLAMEWAKER_Q1_HEALTH_REGEN %>"
 			}
 
 		}
@@ -47,7 +47,6 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%property_two"
 				}
 			}
@@ -70,7 +69,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% FLAMEWAKER_Q2_HEAL_PER_TICK_PER_UNIT %>"
 			}
 			"02"
 			{
@@ -122,12 +121,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% FLAMEWAKER_Q3_STRENGTH_ADDED_TO_LAVA_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"800"
+				"property_two"			"<% FLAMEWAKER_Q3_FLAT_LAVA_DPS %>"
 			}
 			"03"
 			{
@@ -236,7 +235,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% FLAMEWAKER_W2_RANGE %>"
 			}
 			"02"
 			{
@@ -246,7 +245,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"<% FLAMEWAKER_W2_DAMAGE_BONUS_PCT %>"
 			}
 		}
 	}
@@ -333,11 +332,6 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% FLAMEWAKER_E1_PREMIT * 100 %>"
-			}
-			"02"
-			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"3"
 			}
@@ -366,12 +360,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1200"
+				"property_one"			"<% FLAMEWAKER_E2_IMMOLATION_BASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"<% FLAMEWAKER_E2_IMMOLATION_BONUS_DAMAGE_AGILITY %>"
 			}
 			"03"
 			{
@@ -500,23 +494,12 @@
 		"AbilityTextureName"	"batrider_firefly"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-120"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"property_one"			"<% FLAMEWAKER_E4_CD_REDUCTION %>"
 			}
 		}
 		"Modifiers"
@@ -583,7 +566,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_R2_DMG_EXP_SCALE_BASE %>"
+				"property_one"			"<% FLAMEWAKER_R2_DAMAGE %>"
 			}
 			"03"
 			{
@@ -623,7 +606,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"260"
+				"property_one"			"<% FLAMEWAKER_R3_STRENGTH %>"
 			}
 		}
 	}
@@ -643,7 +626,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% FLAMEWAKER_R4_FIRE_DAMAGE_FROM_STR %>"
 			}
 		}
 	}
