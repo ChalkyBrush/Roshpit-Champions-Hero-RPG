@@ -240,49 +240,49 @@
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Глиф битвы"
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Glyph of Combat"
         "item_rpc_axe_glyph_1_1_description"                "Снижает весь получаемый урон на <% RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "(T2) Глиф шокового удара"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "(T2) Glyph of Shock Expansion"
         "item_rpc_axe_glyph_2_1_description"                "Умение (W) @Ability2 выпускает 9 волн во всех направлениях."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "(T3) Глиф порыва"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "(T3) Glyph of the Dervish"
         "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на <% RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION * 100 %>% и составляет 0.09 секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "(T4) Глиф кругового удара"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "(T4) Glyph of the Helix"
         "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "(T5) Глиф импульса" // lower pitch base sound high pitch strike sound
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "(T5) Glyph of Impact"
         "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до <% RED_GENERAL_GLYPH_5_1_Q_STUN %> сек., но урон от этой способности увеличен в <% RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP %> раз(а)."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "(T6) Глиф мускульной силы"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "(T6) Glyph of Multi-Dunk"
         "item_rpc_axe_glyph_6_1_description"                "Умение (R) @Ability4 применяется <% RED_GENERAL_GLYPH_6_1_DUNKS_COUNT %> раз(а), вместо одного."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Глиф героического сражения"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Glyph of Heroic Warfare"
         "item_rpc_axe_glyph_7_1_description"                "Убирает бонус к урону от (Q) @Ability1, но сокращает время перезарядки умения до <% RED_GENERAL_GLYPH_7_1_Q_CD %> секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1-2) Глиф Heel Stomp"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1-2) Glyph of Heel Stomp"
         "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Глиф ржавой стали"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Glyph of Ruptured Steel"
         "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> за заряд."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3-2) Глиф неистового гнева"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3-2) Glyph of Adamantium Rageа"
         "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою <% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %> заряда(ов) вместо 1, если целью атаки является босс."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Глиф красного циклона"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Glyph of the Red Cyclone"
         "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Глиф натиска"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Glyph of Stampede"
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> секунд урон умения (W) @Ability2 будет увеличен на <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Глиф сокращения"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Glyph of Reduction"
         "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%, но снижает шанс получения щита до <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% за каждое очко руны, вместо <% RED_GENERAL_E4_PROC_CHANCE %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Глиф ярости"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, а количество получаемых зарядов увеличено до <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>. Половина зарядов активна постоянно."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "(Immortal) Glyph of the Marshall"

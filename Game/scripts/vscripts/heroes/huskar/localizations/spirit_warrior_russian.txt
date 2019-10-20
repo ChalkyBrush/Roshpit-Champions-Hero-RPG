@@ -264,31 +264,31 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"% за каждые 10 очков атрибутов"
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"(T1) Глиф духовного продвижения"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"(T1) Glyph of Spiritual Mobility"
 		"item_rpc_spirit_warrior_glyph_1_1_description" 				"Увеличивает скорость прыжка в сторону Древнего Духа на <% SPIRIT_WARRIOR_GLYPH_1_1_E_JUMP_SPEED_INCREASE_PCT %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_2_1"		"(T2) Глиф горящей души"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_2_1"		"(T2) Glyph of Soulfire"
 		"item_rpc_spirit_warrior_glyph_2_1_description" 				"Пока активно умение (Q) Flameblood Weapon, умение (W) @Ability2 применяет эффект ожогов всем задетым врагам."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_3_1"		"(T3) Глиф Древних"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_3_1"		"(T3) Glyph of Ancestors"
 		"item_rpc_spirit_warrior_glyph_3_1_description" 				"Увеличивает количество призываемых Древних Духов до <% SPIRIT_WARRIOR_GLYPH_3_1_MAX_SPIRITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_4_1"		"(T4) Глиф пророчества Ветра"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_4_1"		"(T4) Glyph of the Wind Prophecy"
 		"item_rpc_spirit_warrior_glyph_4_1_description" 				"После прыжка к Древнему Духу с помощью (E) @Ability3, руна [E1] Wind Edict автоматически применяется <% SPIRIT_WARRIOR_GLYPH_4_1_E1_REPEATS %> раз с интервалом в <% SPIRIT_WARRIOR_GLYPH_4_1_E1_REPEAT_INTERVAL %> сек."
 
 		"DOTA_Tooltip_modifier_spirit_glyph_root"						"Earthbind"
 		"DOTA_Tooltip_modifier_spirit_glyph_root_Description"			"Связан"
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_1"		"(T5) Глиф восстанавливающейся души"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_1"		"(T5) Glyph of Replenishing Soul"
 		"item_rpc_spirit_warrior_glyph_5_1_description" 				"Герой восстанавливает <% SPIRIT_WARRIOR_GLYPH_5_1_W_HIT_MANACOST_PCT_RESTORE %>% маны от стоимости умения (W) @Ability2 за каждого задетого врага."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_6_1"		"(T6) Глиф Древних чар"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_6_1"		"(T6) Glyph of Ancient Enhancement"
 		"item_rpc_spirit_warrior_glyph_6_1_description" 				"Герой может применить на себя одновременно (Q) Flameblood и (Q) Windstrike Weapon."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"(T7) Глиф Титана Душ"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"(T7) Glyph of Soul Weapons"
 		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Увеличивает время действия умения (R) @Ability4 на <% SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"(Immortal) Глиф вихря"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"(Immortal) Glyph of Storm Helix"
 		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Находясь рядом с бурей от [E3] герой каждые <% SPIRIT_WARRIOR_GLYPH_5_A_STACK_INTERVAL %> секунды получает заряды, которые увеличивают его скорость атаки на <% SPIRIT_WARRIOR_GLYPH_5_A_AS_PER_STACK %>, урон на <% SPIRIT_WARRIOR_GLYPH_5_A_BONUS_DMG_PER_STACK_PCT %>% и дальность атаки на <% SPIRIT_WARRIOR_GLYPH_5_A_ATTACK_RANGE_PER_STACK %>."
 
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"Storm Helix"

@@ -374,33 +374,33 @@
 
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"(T1) Глиф Многогранности"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"(T1) Glyph of Versatility"
 		"item_rpc_warlord_glyph_1_1_description" 				"(E) Earth Slam, Arctic Sprint, и Firedrop после прочтения меняют текущий элемент."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"(T2) Глиф Блестящих Топоров"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"(T2) Glyph of Chromatic Axes"
 		"item_rpc_warlord_glyph_2_1_description" 				"При успешной атаке, герой получает по 1 заряду Земли, Льда и Огня."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"(T3) Глиф Движущегося Камня"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"(T3) Glyph of Roaming Stone"
 		"item_rpc_warlord_glyph_3_1_description" 				"Убирает замедляющий эффект в (Q) Stoneform"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"(T4) Глиф засады"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"(T4) Glyph of Ambush"
 		"item_rpc_warlord_glyph_4_1_description" 				"Попадая по врагу брошенным топором, герой прыгает к нему, нанося @glyph_property1 кратный критический урон. Перезаряжается @glyph_property2 сек."
 
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"Ambush Cooldown"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"(T5) Глиф неистовой бойни"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"(T5) Glyph of Savage Combat"
 		"item_rpc_warlord_glyph_5_1_description" 				"Каждый убитый враг увеличивает основной урон на <% WARLORD_GLYPH_5_1_BONUS_ATTACK_DMG_PER_KILL %>%, складывается до <% WARLORD_GLYPH_5_1_MAX_STACKS %> раз. Длится <% WARLORD_GLYPH_5_1_DURATION %> сек. Обновляется при убийстве."
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"Savage Combat"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"Убивая врагов, основной урон увеличивается."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"(T6) Глиф Элементальной Емкости"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"(T6) Glyph of Elemental Capacity"
 		"item_rpc_warlord_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов Земли, Льда и Огня на <% WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES %>."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"(T7) Глиф войны"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"(T7) Glyph of Warfare"
 		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %>."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"(Immortal) Глиф термогенезиса"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"(Immortal) Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"При получении урона герой получает <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> зарядов Огня. Каждый заряд Льда увеличивает пост-резистный исходящий урон на <% WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT %>%."
 
 		//Weapons

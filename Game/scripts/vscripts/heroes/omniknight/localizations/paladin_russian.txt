@@ -257,28 +257,28 @@
 
 		//Glyphs
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"(T1) Глиф воскрешения"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"(T1) Glyph of Resurrection"
 		"item_rpc_paladin_glyph_1_1_description" 				"Снижает время перезарядки E1 Second Coming до @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Глиф святого гнева"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Glyph of Consecration"
 		"item_rpc_paladin_glyph_2_1_description" 				"(Q) Heroic Fury становится переключаемой способностью."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Глиф всевышнего"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Glyph of Command"
 		"item_rpc_paladin_glyph_3_1_description" 				"Knight's Disciple становятся полностью контролируемыми юнитами, скорость их передвижения увеличена до 800. Правый щелчок по способности переключит тип AI юнита."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Глиф неизбежного рока"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Glyph of Unwavering Justice"
 		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя, и дополнительно применяет x5 зарядов Holy Fire."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Глиф святого величия"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Glyph of Holy Authority"
 		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и Holy Fire на 200%. 9 дополнительных зарядов Holy Fire при каждом успешном ударе."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Глиф величия"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Glyph of Nobility"
 		"item_rpc_paladin_glyph_6_1_description" 				"Герой растространяет ауру повышения скорости передвижения на @glyph_property1."
 
 		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
 		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Скорость передвижения увеличена"
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"(T7) Глиф усердия"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"(T7) Glyph of Zeal"
 		"item_rpc_paladin_glyph_7_1_description" 				"С каждой атакой есть шанс @glyph_property1%, что герой без задержки атакует соседнюю цель."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"(Immortal) Глиф святого гнева"

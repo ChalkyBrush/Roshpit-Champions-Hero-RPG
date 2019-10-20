@@ -369,31 +369,31 @@
 	"property_jex_immortal_weapon3_description"                      "Все способности с элементом <font color=\"#C25DFC\">Космос</font> получают @special_property1 дополнительный Технологический уровень. Способности с двойным элементом <font color=\"#C25DFC\">Космос</font> получают @special_property2 дополнительных Технологических уровня."
 
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"Glyph of Biosynthesis"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"(T1) Glyph of Biosynthesis"
 	"item_rpc_jex_glyph_1_1_description" 				"Растения автоматически собираются в @glyph_property1 радиусе от Jex."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"Glyph of Transmission"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"(T2) Glyph of Transmission"
 	"item_rpc_jex_glyph_2_1_description" 				"Союзные герои могут использовать порталы от Earth's Gate."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"Glyph of Mega Shock"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"(T3) Glyph of Mega Shock"
 	"item_rpc_jex_glyph_3_1_description" 				"Враги, пораженные ударом от Wrath of Lightning получают штраф замедления в @glyph_property1 на @glyph_property2 сек."
 
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow"	"Wrath of Lightning"
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow_Description"	"Замедлен"
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"Glyph of Voltaic Flora"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"(T4) Glyph of Voltaic Flora"
 	"item_rpc_jex_glyph_4_1_description" 				"Увеличивает скорость атаки у Charged Sproutlings и Thunder Blossoms на @glyph_property1."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"Glyph of Binding Roots"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"(T5) Glyph of Binding Roots"
 	"item_rpc_jex_glyph_5_1_description" 				"Противники задетые Root Weaver наносят сниженный на @glyph_property1% урон."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"Glyph of Pulsar"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"(T6) Glyph of Pulsar"
 	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser разрушает неуязвимость к магии, с некоторыми исключениями."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"Glyph of Entropy"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"(T7) Glyph of Entropy"
 	"item_rpc_jex_glyph_7_1_description" 				"Пока работает Cosmic Surge, противникам поблизости в радиусе @glyph_property2 наносится урон в @glyph_property1% от силы атаки чистым типом урона каждые 0.8 секунды. Урон считается уроном спобобности @Ability3, и имеет элементы <font color=\"#C25DFC\">Космос</font> / <font color=\"#5CCDF9\">Молния</font>."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"(Immortal) Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Увеличивает показатель Технологических уровней на всех способностях Jex на @glyph_property1."
 	
 	//FIRE ARCANA

@@ -298,31 +298,31 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"(T1) Глиф леса"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"(T1) Glyph of Forestry"
 		"item_rpc_djanghor_glyph_1_1_description" 				"Большой удар от (W) Jin'bo сбрасывает время перезарядки для (E) Monkey Leap."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"(T2) Глиф охоты"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"(T2) Glyph of Hunting"
 		"item_rpc_djanghor_glyph_2_1_description" 				"Пока герой находится в форме волка, атаки с <% DJANGHOR_GLYPH_2_1_CHANCE %>% шансом будут усилены на <% DJANGHOR_GLYPH_2_1_BONUS_DAMAGE_PCT %>%. Эффект продолжит действовать в течении <% DJANGHOR_GLYPH_2_1_EFFECT_LINGERING %> секунд после трансформации."
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"Wolf Critical Strike"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Шанс на критическую атаку."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"(T3) Глиф уклонения"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"(T3) Glyph of Elusion"
 		"item_rpc_djanghor_glyph_3_1_description" 				"<% DJANGHOR_GLYPH_3_1_WOLF_EVASION %>% уклонение в форме волка, <% DJANGHOR_GLYPH_3_1_MONKEY_EVASION %>% уклонение в форме обезьяны."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"(T4) Глиф защищённого оборотня"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"(T4) Glyph of Protective Shapeshifter"
 		"item_rpc_djanghor_glyph_4_1_description" 				"Завершение любой трансформации дарует герою <% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %> зарядов щита, полностью поглощающего урон. Длительность щита <% DJANGHOR_GLYPH_4_1_DURATION %> секунд."
 
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"Shapeshifter's Shield"
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"Каждый заряд полностью поглощает любой входящий урон"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"(T5) Глиф дикого зверя"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"(T5) Glyph of Animal Acoustics"
 		"item_rpc_djanghor_glyph_5_1_description" 				"Снижает время перезарядки (Q) @Ability1 на <% DJANGHOR_GLYPH_5_1_Q_CD_RED %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"(T6) Глиф лесного пробуждения"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"(T6) Glyph of Forest Blessing"
 		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые <% DJANGHOR_GLYPH_6_1_CLEANCE_INTERVAL %> сек. Способности перемещения Battle Charge и Legendary Charge применяют руну [E3] при касте."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Глиф терзаний"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Glyph of Mauling"
 		"item_rpc_djanghor_glyph_7_1_description" 				"С <% DJANGHOR_GLYPH_7_1_BASH_CHANCE %>% шансом атака в форме медведя может оглушить цель на <% DJANGHOR_GLYPH_7_1_BASH_DURATION %> сек. и нанести увеличенный на <% DJANGHOR_GLYPH_7_1_BASH_BONUS_DAMAGE_PCT %>% урон. Эффект продолжит действовать в течении 15 секунд после трансформации. War Stomp снижает броню целей так же как и Rend, на последуюшие <% DJANGHOR_GLYPH_7_1_ARMOR_LOSS_DURATION %> секунд."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
