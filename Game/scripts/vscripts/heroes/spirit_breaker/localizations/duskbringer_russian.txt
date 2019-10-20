@@ -220,7 +220,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунд. Пораженные Phantom Plasma тоже загораются."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"Урон в секунду"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Урон от Ловкости"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Урон от Силы"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix_two"			"x"
 		
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
