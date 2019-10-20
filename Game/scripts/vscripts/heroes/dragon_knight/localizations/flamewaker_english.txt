@@ -103,7 +103,7 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_one"					"Base Damage"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix"						""
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_two"					"Extra Damage"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix_two"					"x Agility"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix_two"					"% of Agility"
 
 		"DOTA_Tooltip_flamewaker_rune_e_2_buff" 								"Dragon Rage"
 		"DOTA_Tooltip_flamewaker_rune_e_2_buff_description" 					"Burning nearby enemies."
