@@ -26,6 +26,7 @@ function Foot:add_modifiers(hero, inventory_unit, item)
 	foot_ability.base_ability = 0
 	foot_ability.item_damage = 0
 	foot_ability.max_health = 0
+	foot_ability.attack_damage = 0
 	if item.newItemTable.property1name then
 		local property1 = RPCItems:AdjustAttributeValue(hero, item.newItemTable.property1)
 		Foot:action(item.newItemTable.property1name, property1, hero, inventory_unit, foot_ability, item)
@@ -99,6 +100,9 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 	elseif propertyName == "item_damage" then
 		foot_ability.item_damage = foot_ability.item_damage + propertyValue
 		Foot:addBasicModifier(foot_ability.item_damage, hero, inventory_unit, "modifier_foot_item_damage_inc", foot_ability)
+	elseif propertyName == "attack_damage" then
+		foot_ability.attack_damage = foot_ability.attack_damage + Amulet:AdjustAttackPowerBonus(hero, propertyValue)
+		Foot:addBasicModifier(foot_ability.attack_damage, hero, inventory_unit, "modifier_foot_attack_damage", foot_ability)
 	elseif propertyName == "ghost_walk" then
 		Foot:addBasicModifier(1, hero, inventory_unit, "modifier_foot_unit_walk", foot_ability)
 	elseif propertyName == "dunetread" then
@@ -258,6 +262,7 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_foot_base_ability_damage")
 	hero:RemoveModifierByName("modifier_foot_item_damage_inc")
 	hero:RemoveModifierByName("modifier_foot_max_health")
+	hero:RemoveModifierByName("modifier_foot_attack_damage")
 
 	hero:RemoveModifierByName("modifier_dunetread_boots")
 	hero:RemoveModifierByName("modifier_violet_boots")

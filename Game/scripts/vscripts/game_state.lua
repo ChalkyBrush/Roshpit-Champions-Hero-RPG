@@ -2519,7 +2519,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_warlord_arcana2") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			local mult_bonus = attacker:GetRuneValue("q", 3)*(WARLORD_ARCANA2_Q1_POST_MIT/100)
+			local mult_bonus = attacker:GetRuneValue("q", 1)*(WARLORD_ARCANA2_Q1_POST_MIT/100)
 			mult = mult + mult_bonus
 		end
 	end

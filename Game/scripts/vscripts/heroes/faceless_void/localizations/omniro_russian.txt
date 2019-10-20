@@ -353,26 +353,26 @@
 		"property_omniro_immortal_weapon3_description"                      "Активирует элемент <font color=\"#3289C7\">Dragon</font>. Эффект Omni Mace применяет бафф, увеличивающий урон всех элементов. Орб-эффект обновляет заряды на других элементах."
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"Glyph of Consistency"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"(T1) Glyph of Consistency"
 		"item_rpc_omniro_glyph_1_1_description" 				"Стандартный цикл элементов будет пропускать элементы без зарядов (кроме случая, когда зарядов нет ни у одного из элементов)."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"Glyph of Chromatic Pathing"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"(T2) Glyph of Chromatic Pathing"
 		"item_rpc_omniro_glyph_2_1_description" 				"Увеличивает количество полей от @Ability3 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"Glyph of Planar Stalking"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"(T3) Glyph of Planar Stalking"
 		"item_rpc_omniro_glyph_3_1_description" 				"@Ability4 наносит @glyph_property1 дополнительных удара."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"Glyph of Galvanization"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"(T4) Glyph of Galvanization"
 		"item_rpc_omniro_glyph_4_1_description" 				"Добавляет @glyph_property1 уровней к Нормальному элементу и ускоряет его зарядку на @glyph_property2%."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"Glyph of Inspiration"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"(T5) Glyph of Inspiration"
 		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 элемента с наименьшими рунами получают @glyph_property2 дополнительный заряд (исключая элементы <font color=\"#DDDDDD\">Нормальный</font> и <font color=\"#3289C7\">Дракон</font>)."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"Glyph of Sapping"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"(T6) Glyph of Sapping"
 		"item_rpc_omniro_glyph_6_1_description" 				"Атака по противнику восстановит @glyph_property1% заряда для текущего элемента."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"Glyph of Elemental Specialization"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"(T7) Glyph of Elemental Specialization"
 		"item_rpc_omniro_glyph_7_1_description" 				"Элемент с наивысшим уровнем (кроме элемента<font color=\"#3289C7\">Дракон</font>) получает @glyph_property1 дополнительных заряда."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"Glyph of Chromaticity"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"(Immortal) Glyph of Chromaticity"
 		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента<font color=\"#3289C7\">Дракон</font>)получает <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% бонус урона, второй по счету получает <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, третий <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, и четвертый <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>."

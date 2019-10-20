@@ -511,7 +511,7 @@ function RPCItems:RollHandProperty4(item, xpBounty)
         item.newItemTable.property4name = "attack_damage"
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_bonus_attack_damage", "#343EC9", 4)
     elseif luck >= 70 and luck < 80 then
-        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 7, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
+        value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
         item.newItemTable.property4 = value
         item.newItemTable.property4name = "health_regen"
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_health_regen", "#6AA364", 4)
