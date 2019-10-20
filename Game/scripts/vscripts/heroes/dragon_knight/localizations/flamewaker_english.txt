@@ -152,9 +152,9 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_r_3_description" 				"Increased Strength."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_4"								"[R4] Volcano Blood"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"Increases <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> damage based on Flamewaker's strength."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"Increases <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> damage."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_4_property_one"					"Fire and Earth Damage Bonus"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"% per Strength"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"%"
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"Dragon Fire"

@@ -23853,7 +23853,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "6"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"0"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
 				}
@@ -24481,7 +24481,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -24560,8 +24560,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -95899,6 +95899,16 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_foot_attack_damage"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+				}
 			}
 			"modifier_foot_cosmos"
 			{

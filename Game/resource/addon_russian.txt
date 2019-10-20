@@ -2283,28 +2283,28 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"							"сек."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"(T1) Глиф концентрированной энергии"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"(T1) Glyph of Energy Focus"
 		"item_rpc_arkimus_glyph_1_1_description" 				"Энергосферы от (E) Energy Field появляются на минимально возможном радиусе."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"(T2) Глиф прилива маны"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"(T2) Glyph of Mana Tide"
 		"item_rpc_arkimus_glyph_2_1_description" 				"Увеличивает регенерацию маны на <font color='#ccff66'>1200</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"(T3) Глиф энергосфер"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"(T3) Glyph of Energy Cells"
 		"item_rpc_arkimus_glyph_3_1_description" 				"(R) Energy field дополнительно выпускает <font color='#ccff66'>2</font> энергосфер(ы)."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"(T4) Глиф акробатики"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"(T4) Glyph of Acrobatics"
 		"item_rpc_arkimus_glyph_4_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (E) Orbital Leap на <font color='#ccff66'>1</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"(T5) Глиф магического щита"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"(T5) Glyph of Mana Shield"
 		"item_rpc_arkimus_glyph_5_1_description" 				"<font color='#ccff66'>90</font>% от получаемого урона затратит ману, вместо здоровья. Получаемый магический урон снижен на <font color='#ccff66'>90</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"(T6) Глиф заряженного прыжка"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"(T6) Glyph of Coil Warping"
 		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на <font color='#ccff66'>1</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Глиф тайного электрошока"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Glyph of Arcane Electrocution"
 		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <font color='#ccff66'>1000</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Глиф энергетического разделения"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
 
 
@@ -2614,34 +2614,34 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Глиф Безопасных Стрел"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_1_1"		"(T1) Glyph of Headless Arrows"
 		"item_rpc_astral_glyph_1_1_description" 				"@Ability2 больше не наносит урона, но количество стрел учетверено, угол покрытия сильно увеличен. Длительность баффа от руны [W1] удвоена."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Глиф Воздушного Гребня"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"(T2) Glyph of Aerial Crests"
 		"item_rpc_astral_glyph_2_1_description" 				"Урон призванного Феникса увеличен в <font color='#ccff66'>3</font> раз(а), а все задетые им враги замедляются на <font color='#ccff66'>100</font>."
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"Phoenix Slow"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"Замедлен"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Глиф Сфокусированного Залпа"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_3_1"		"(T3) Glyph of Focus Fire"
 		"item_rpc_astral_glyph_3_1_description" 				"(W) @Ability2 выпускает только <font color='#ccff66'>9</font> стрел, но они наносят увеличенный в <font color='#ccff66'>2</font> раз(а) урон. Шанс появления зачарованной стрелы увеличен до <font color='#ccff66'>40</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Глиф Мерцающих Огней"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_4_1"		"(T4) Glyph of Flickering Lights"
 		"item_rpc_astral_glyph_4_1_description" 				"Перезарядка и задержка @Ability3 равны всего половине времени, но все баффы от рун @Ability3 и продление @Ability1 снижены на <font color='#ccff66'>25</font>%. Убирает время каста @Ability3."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Глиф Лунного Заряда"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_1"		"(T5) Glyph of Lunar Channeling"
 		"item_rpc_astral_glyph_5_1_description" 				"@Ability4 само себя заряжает при касте, а перезарядка снижена на <font color='#ccff66'>5</font> секунд."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Глиф Разделяющихся Стрел"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_6_1"		"(T6) Glyph of Splitting Arrows"
 		"item_rpc_astral_glyph_6_1_description" 				"Стрелы от обычных атак разделяются при попадании и могут поразить до <font color='#ccff66'>10</font> дополнительных целей."
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"(T7) Глиф Серебряных Звёзд"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"(T7) Glyph of Silver Stars"
 		"item_rpc_astral_glyph_7_1_description" 				"Во время произнесения (R) @Ability4, герой уворачивается от 100% атак. (R) @Ability4, [R1], и [R2] наносят <font color='#ccff66'>10</font>-кратный урон."
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"Silver Stars"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Глиф Параллакса"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Glyph of Parallax Arrows"
 		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на <font color='#ccff66'>400000</font>."
 		
 		//Weapons
@@ -2944,7 +2944,7 @@
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_7_1"		"(T7) Glyph of Smite"
 		"item_rpc_auriun_glyph_7_1_description" 				"[R1] взрываются и наносят урон в радиусе <font color='#ccff66'>240</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"(Immortal) Глиф разоряющей тени"
+		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"(Immortal) Glyph of Shadow Flay"
 		"item_rpc_auriun_glyph_5_a_description" 				"Все ближайшие враги оказываются под влиянием Разоряющей Тени, которая наносит им урон каждые <font color='#ccff66'>0.5</font> сек., равный <font color='#ccff66'>100</font>x Интеллекта героя и замедляющей их на <font color='#ccff66'>20</font>%. <font color='#ccff66'>1</font>% от нанесённого урона исцеляет Auriun."
 		
 		//Weapons
@@ -3222,49 +3222,49 @@
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Глиф битвы"
+		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Glyph of Combat"
         "item_rpc_axe_glyph_1_1_description"                "Снижает весь получаемый урон на <font color='#ccff66'>30</font>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "(T2) Глиф шокового удара"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "(T2) Glyph of Shock Expansion"
         "item_rpc_axe_glyph_2_1_description"                "Умение (W) @Ability2 выпускает 9 волн во всех направлениях."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "(T3) Глиф порыва"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "(T3) Glyph of the Dervish"
         "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на <font color='#ccff66'>50</font>% и составляет 0.09 секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "(T4) Глиф кругового удара"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "(T4) Glyph of the Helix"
         "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере <font color='#ccff66'>60</font>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "(T5) Глиф импульса" // lower pitch base sound high pitch strike sound
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "(T5) Glyph of Impact"
         "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до <font color='#ccff66'>0.03</font> сек., но урон от этой способности увеличен в <font color='#ccff66'>3</font> раз(а)."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "(T6) Глиф мускульной силы"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "(T6) Glyph of Multi-Dunk"
         "item_rpc_axe_glyph_6_1_description"                "Умение (R) @Ability4 применяется <font color='#ccff66'>3</font> раз(а), вместо одного."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Глиф героического сражения"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "(T7) Glyph of Heroic Warfare"
         "item_rpc_axe_glyph_7_1_description"                "Убирает бонус к урону от (Q) @Ability1, но сокращает время перезарядки умения до <font color='#ccff66'>1.5</font> секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1-2) Глиф Heel Stomp"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "(T1-2) Glyph of Heel Stomp"
         "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на <font color='#ccff66'>0.08</font> секунды."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Глиф ржавой стали"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Glyph of Ruptured Steel"
         "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -<font color='#ccff66'>250</font> за заряд."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3-2) Глиф неистового гнева"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "(T3-2) Glyph of Adamantium Rageа"
         "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою <font color='#ccff66'>4</font> заряда(ов) вместо 1, если целью атаки является босс."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Глиф красного циклона"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Glyph of the Red Cyclone"
         "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на <font color='#ccff66'>50</font>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Глиф натиска"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Glyph of Stampede"
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие <font color='#ccff66'>9</font> секунд урон умения (W) @Ability2 будет увеличен на <font color='#ccff66'>200</font>%"
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Глиф сокращения"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Glyph of Reduction"
         "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до <font color='#ccff66'>90</font>%, но снижает шанс получения щита до <font color='#ccff66'>100</font>% за каждое очко руны, вместо <font color='#ccff66'>150</font>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Глиф ярости"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до <font color='#ccff66'>75</font>, а количество получаемых зарядов увеличено до <font color='#ccff66'>3</font>. Половина зарядов активна постоянно."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "(Immortal) Glyph of the Marshall"
@@ -3568,30 +3568,30 @@
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_linger"				"Ether Breach"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"(T1) Глиф доблести"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_1_1"		"(T1) Glyph of Valor"
 		"item_rpc_bahamut_glyph_1_1_description" 				"Снижает весь получаемый физический урон на <font color='#ccff66'>30</font>%"
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_2_1"		"(T2) Глиф Gigawall"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_2_1"		"(T2) Glyph of Gigawall"
 		"item_rpc_bahamut_glyph_2_1_description" 				"Создаёт Wall of Impunity по окончании (R) Megaflare, через которую герой автоматически проходит."
 
 		//New Rune c_d: while channeling megaflare, all nearby enemies have slowed movespeed and attack speed
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"(T3) Глиф разделения"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_3_1"		"(T3) Glyph of Separation"
 		"item_rpc_bahamut_glyph_3_1_description" 				"(W) Judgement действует вокруг героя(вместо атаки впереди) на <font color='#ccff66'>30</font>% большем радиусе."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"(T4) Глиф барьера"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_4_1"		"(T4) Glyph of Barriers"
 		"item_rpc_bahamut_glyph_4_1_description" 				"Увеличивает время действия (Q) Wall of Impunity на <font color='#ccff66'>2</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"(T5) Глиф изоляции"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_1"		"(T5) Glyph of Isolation"
 		"item_rpc_bahamut_glyph_5_1_description" 				"Увеличивает продолжительность R4 Solitary Shell на <font color='#ccff66'>3</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"(T6) Глиф гордости"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_6_1"		"(T6) Glyph of Pride"
 		"item_rpc_bahamut_glyph_6_1_description" 				"[E3] становится пассивной, и не замедляет. Каждый <font color='#ccff66'>5</font> импульс оглушает цели на <font color='#ccff66'>1.5</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"(T7) Глиф вздымающихся волн"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"(T7) Glyph of Surging"
 		"item_rpc_bahamut_glyph_7_1_description" 				"Увеличивает радиус [E3] на <font color='#ccff66'>40</font>%"
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"(Immortal) Глиф бесконечных граней"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"(Immortal) Glyph of Multiwall"
 		"item_rpc_bahamut_glyph_5_a_description" 				"Каждые <font color='#ccff66'>4</font> сек. герой получает заряд, позволяющий установить дополнительную стену от (Q) Wall of Impunity."
 
 		"DOTA_Tooltip_ability_modifier_bahamut_5_a_cooldown"	"Перезарядка дополнительного использования умения (Q)"
@@ -4397,28 +4397,30 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_4_arcana4_suffix"				"%"
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"(T1) Глиф сжигающего пламени"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"(T1) Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Ваш огненный элементаль увеличивает свою скорость атаки на <font color='#ccff66'>140</font> и урон на <font color='#ccff66'>200</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"(T2) Глиф призыва"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"(T2) Glyph of Conjuring"
 		"item_rpc_conjuror_glyph_2_1_description" 				"Увеличивает показатель макс. здоровья всех элементалей на <font color='#ccff66'>80</font>%"
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"(T3) Глиф настигающей тени"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"(T3) Glyph of Encroaching Shadow"
 		"item_rpc_conjuror_glyph_3_1_description" 				"Находясь под действием (R) Call of the elements, умение (E) Shadow Gate перезаряжается <font color='#ccff66'>4</font> сек. (Элементаль тьмы должен быть жив по окончании прочтения (R) Call of the elements)"
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"(T4) Глиф длинной тени"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"(T4) Glyph of Distant Shadows"
 		"item_rpc_conjuror_glyph_4_1_description" 				"Увеличивает дальность атаки вашего элементаля тени на <font color='#ccff66'>420</font>."
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect"		"Glyph of Distant Shadows"
+		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect_Description"	"Дальность атаки увеличена."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"(T5) Глиф дрожащей земли"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"(T5) Glyph of Trembling Earth"
 		"item_rpc_conjuror_glyph_5_1_description" 				"Радиус умения (Q) Earthquake увеличен на <font color='#ccff66'>80</font>, а длительность свободного создания землетрясения увеличен на <font color='#ccff66'>1.5</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"(T6) Глиф огнемёта"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"(T6) Glyph of Flamethrower"
 		"item_rpc_conjuror_glyph_6_1_description" 				"С каждым критическим ударом ваш элементаль огня создаёт огненную воронку, наносящую в <font color='#ccff66'>5</font> раз(а) больше урона (от крита)."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"(T7) Глиф бессмертной земли"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"(T7) Glyph of Immortal Earth"
 		"item_rpc_conjuror_glyph_7_1_description" 				"Когда элементаль земли погибнет, он будет автоматически мгновенно перепризван."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"(Immortal) Глиф призывания"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"(Immortal) Glyph of Summoning"
 		"item_rpc_conjuror_glyph_5_a_description" 				"Весь пост-резистный урон, наносимый героем и его элементалями увеличен на <font color='#ccff66'>200</font>%."
 		
 		//Weapons
@@ -4630,28 +4632,28 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"(T1) Глиф Криогенной Заморозки"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"(T1) Glyph of Cryogenation"
 		"item_rpc_dinath_glyph_1_1_description" 				"Увеличивает длительность заморозки @Ability4 на <font color='#ccff66'>1.5</font> секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"(T2) Глиф Эфемерности "
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"(T2) Glyph of Aeriform"
 		"item_rpc_dinath_glyph_2_1_description" 				"Удерживает высоту во время зарядки @Ability4. Максимальная вертикаль полёта увеличена на <font color='#ccff66'>35</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"(T3) Глиф Второй Глотки"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"(T3) Glyph of the Gizzard"
 		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 имеет дополнительно <font color='#ccff66'>2</font> заряда."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"(T4) Глиф Стремительного Дрейка"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"(T4) Glyph of Sweeping Drake"
 		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 получает дополнительный каст каждые <font color='#ccff66'>7</font> секунд."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"(T5) Глиф Полыни"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"(T5) Glyph of the Tarragon"
 		"item_rpc_dinath_glyph_5_1_description" 				"Нанесение атаки снижает перезарядку способностей на <font color='#ccff66'>0.1</font> секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"(T6) Глиф Бедствия"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"(T6) Glyph of Calamity"
 		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на <font color='#ccff66'>1000</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"(T7) Глиф Дракона Маны"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"(T7) Glyph of the Mana Dragon"
 		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на <font color='#ccff66'>1000</font>x от текущей маны, и атаки восстанавливают <font color='#ccff66'>1</font>% от максимальной маны."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"(Immortal) Глиф Золотых Чешуек"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"(Immortal) Glyph of Golden Scales"
 		"item_rpc_dinath_glyph_5_a_description" 				"Полученный магический либо чистый урон дает иммунитет к заклинаниям на <font color='#ccff66'>3</font> секунды. Перезарядка <font color='#ccff66'>5</font> секунд."
 		
 		//Weapons
@@ -4984,31 +4986,31 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"(T1) Глиф леса"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"(T1) Glyph of Forestry"
 		"item_rpc_djanghor_glyph_1_1_description" 				"Большой удар от (W) Jin'bo сбрасывает время перезарядки для (E) Monkey Leap."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"(T2) Глиф охоты"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"(T2) Glyph of Hunting"
 		"item_rpc_djanghor_glyph_2_1_description" 				"Пока герой находится в форме волка, атаки с <font color='#ccff66'>20</font>% шансом будут усилены на <font color='#ccff66'>1000</font>%. Эффект продолжит действовать в течении <font color='#ccff66'>7</font> секунд после трансформации."
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"Wolf Critical Strike"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Шанс на критическую атаку."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"(T3) Глиф уклонения"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"(T3) Glyph of Elusion"
 		"item_rpc_djanghor_glyph_3_1_description" 				"<font color='#ccff66'>60</font>% уклонение в форме волка, <font color='#ccff66'>30</font>% уклонение в форме обезьяны."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"(T4) Глиф защищённого оборотня"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"(T4) Glyph of Protective Shapeshifter"
 		"item_rpc_djanghor_glyph_4_1_description" 				"Завершение любой трансформации дарует герою <font color='#ccff66'>7</font> зарядов щита, полностью поглощающего урон. Длительность щита <font color='#ccff66'>12</font> секунд."
 
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"Shapeshifter's Shield"
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"Каждый заряд полностью поглощает любой входящий урон"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"(T5) Глиф дикого зверя"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"(T5) Glyph of Animal Acoustics"
 		"item_rpc_djanghor_glyph_5_1_description" 				"Снижает время перезарядки (Q) @Ability1 на <font color='#ccff66'>3</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"(T6) Глиф лесного пробуждения"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"(T6) Glyph of Forest Blessing"
 		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые <font color='#ccff66'>2</font> сек. Способности перемещения Battle Charge и Legendary Charge применяют руну [E3] при касте."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Глиф терзаний"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Glyph of Mauling"
 		"item_rpc_djanghor_glyph_7_1_description" 				"С <font color='#ccff66'>25</font>% шансом атака в форме медведя может оглушить цель на <font color='#ccff66'>1.5</font> сек. и нанести увеличенный на <font color='#ccff66'>400</font>% урон. Эффект продолжит действовать в течении 15 секунд после трансформации. War Stomp снижает броню целей так же как и Rend, на последуюшие <font color='#ccff66'>20</font> секунд."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
@@ -5268,7 +5270,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунд. Пораженные Phantom Plasma тоже загораются."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"Урон в секунду"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Урон от Ловкости"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Урон от Силы"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix_two"			"x"
 		
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
@@ -6054,33 +6056,33 @@
 
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"(T1) Глиф Многогранности"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"(T1) Glyph of Versatility"
 		"item_rpc_warlord_glyph_1_1_description" 				"(E) Earth Slam, Arctic Sprint, и Firedrop после прочтения меняют текущий элемент."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"(T2) Глиф Блестящих Топоров"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"(T2) Glyph of Chromatic Axes"
 		"item_rpc_warlord_glyph_2_1_description" 				"При успешной атаке, герой получает по 1 заряду Земли, Льда и Огня."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"(T3) Глиф Движущегося Камня"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"(T3) Glyph of Roaming Stone"
 		"item_rpc_warlord_glyph_3_1_description" 				"Убирает замедляющий эффект в (Q) Stoneform"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"(T4) Глиф засады"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"(T4) Glyph of Ambush"
 		"item_rpc_warlord_glyph_4_1_description" 				"Попадая по врагу брошенным топором, герой прыгает к нему, нанося @glyph_property1 кратный критический урон. Перезаряжается @glyph_property2 сек."
 
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"Ambush Cooldown"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"(T5) Глиф неистовой бойни"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"(T5) Glyph of Savage Combat"
 		"item_rpc_warlord_glyph_5_1_description" 				"Каждый убитый враг увеличивает основной урон на <font color='#ccff66'>4</font>%, складывается до <font color='#ccff66'>50</font> раз. Длится <font color='#ccff66'>9</font> сек. Обновляется при убийстве."
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"Savage Combat"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"Убивая врагов, основной урон увеличивается."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"(T6) Глиф Элементальной Емкости"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"(T6) Glyph of Elemental Capacity"
 		"item_rpc_warlord_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов Земли, Льда и Огня на <font color='#ccff66'>5</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"(T7) Глиф войны"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"(T7) Glyph of Warfare"
 		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <font color='#ccff66'>800</font>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <font color='#ccff66'>460</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"(Immortal) Глиф термогенезиса"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"(Immortal) Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"При получении урона герой получает <font color='#ccff66'>2</font> зарядов Огня. Каждый заряд Льда увеличивает пост-резистный исходящий урон на <font color='#ccff66'>5</font>%."
 
 		//Weapons
@@ -6645,31 +6647,31 @@
 
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"(T1) Глиф алмазной кожи"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"(T1) Glyph of Diamond Skin"
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Враги, атакующие вас могут быть оглушены с шансом <font color='#ccff66'>50</font>% на <font color='#ccff66'>1</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Глиф кратеров"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Glyph of Cratering"
 		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до <font color='#ccff66'>5</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Глиф расплавления"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Глиф синего пламени"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Glyph of Blue Flame"
 		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<font color='#ccff66'>0.1</font>x от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font> на <font color='#ccff66'>3</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Глиф горячих сердец"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Glyph of Charred Hearts"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <font color='#ccff66'>1.5</font> раза."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Глиф горного массива"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Glyph of Mountain's Core"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"В течение <font color='#ccff66'>7</font> сек. после прочтения (R) Cataclysm, основной урон будет увеличен на <font color='#ccff66'>100</font>%."
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Урон увеличен на <font color='#ccff66'>100</font>%%."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"(T7) Глиф пылающего океана"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"(T7) Glyph of Flaming Sea"
 		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в <font color='#ccff66'>3</font> раз(а) больше урона."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"(Immortal) Глиф драконьей кожи"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"(Immortal) Glyph of Dragon Skin"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более <font color='#ccff66'>30</font>% от макс. здоровья. Если уровень здоровья ниже <font color='#ccff66'>50</font>%, входящий урон не отнимет более <font color='#ccff66'>15</font>% от макс. здоровья."
 
 		//Weapons
@@ -6703,14 +6705,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
 		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"
-		"property_flamewaker_immortal_weapon_description"					"После успешного прочтения (R) @Ability4 герой получит <font color='#ccff66'>50</font> зарядов щита, сокращающего входящий урон на <font color='#ccff66'>90</font>%."
+		"property_flamewaker_immortal_weapon_description"					"После успешного прочтения (R) @Ability4 герой получит <font color='#ccff66'>50</font> зарядов щита, сокращающего входящий урон на <font color='#ccff66'>50</font>%."
 
 		"DOTA_Tooltip_modifier_volcano_shield"							"Volcano Shield"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Входящий урон снижен на <font color='#ccff66'>90</font>%%"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Входящий урон снижен на <font color='#ccff66'>50</font>%%"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
-    	"property_flamewaker_immortal_weapon2_description"						"Каждое очко Ловкости увеличивает базовый урон на <font color='#ccff66'>6</font>. Пока активно умение (E) @Ability3, герой получает бонус: <font color='#ccff66'>50000</font> очков Ловкости."
+    	"property_flamewaker_immortal_weapon2_description"						"Каждое очко Ловкости увеличивает базовый урон на <font color='#ccff66'>0.1</font>. Пока активно умение (E) @Ability3, герой получает бонус: <font color='#ccff66'>1000</font> очков Ловкости."
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
@@ -6961,28 +6963,28 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"				"%"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"(T1) Глиф земного разлома"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"(T1) Glyph of Tectonics"
 		"item_rpc_hydroxis_glyph_1_1_description" 				"Спустя <font color='#ccff66'>2</font> секунды после прочтения (R) @Ability4, это умение применяется снова."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"(T2) Глиф фонтанов"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"(T2) Glyph of Gushing"
 		"item_rpc_hydroxis_glyph_2_1_description" 				"Во время движения (E) Slipstream, [E1] применяет (W) Water Bombs на <font color='#ccff66'>50</font>% чаще."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"(T3) Глиф исцеляющих вод"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"(T3) Glyph of Healing Waters"
 		"item_rpc_hydroxis_glyph_3_1_description" 				"Исцеление от [Q2] происходит в <font color='#ccff66'>2</font> раза чаще."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"(T4) Глиф шторма"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"(T4) Glyph of Jetsam"
 		"item_rpc_hydroxis_glyph_4_1_description" 				"Увеличивает урон [E2] в <font color='#ccff66'>3</font> раза."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"(T5) Глиф пара"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"(T5) Glyph of Vapor"
 		"item_rpc_hydroxis_glyph_5_1_description" 				"С <font color='#ccff66'>15</font>% шансом атаки от [W1] нанесут дополнительный магический урон Воды, равный <font color='#ccff66'>4</font>% урона героя."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"(T6) Глиф погружения"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"(T6) Glyph of Submergence"
 		"item_rpc_hydroxis_glyph_6_1_description" 				"Увеличивает радиус Drowning Pool на <font color='#ccff66'>200</font>. Дополнительно убирает время прочтения для (R) Oceal Quake."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"(T7) Глиф морского бога"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"(T7) Glyph of the Sea God"
 		"item_rpc_hydroxis_glyph_7_1_description" 				"Увеличивает длительность Poseidon's Fury на <font color='#ccff66'>5</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"(Immortal) Глиф сверкающего моря"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"(Immortal) Glyph of the Sparkling Sea"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"Каждый заряд [Q2] способен поглотить любой входящий магический или чистый урон."
 		
 		//Weapons
@@ -7683,28 +7685,28 @@
 		"property_omniro_immortal_weapon3_description"                      "Активирует элемент <font color=\"#3289C7\">Dragon</font>. Эффект Omni Mace применяет бафф, увеличивающий урон всех элементов. Орб-эффект обновляет заряды на других элементах."
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"Glyph of Consistency"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"(T1) Glyph of Consistency"
 		"item_rpc_omniro_glyph_1_1_description" 				"Стандартный цикл элементов будет пропускать элементы без зарядов (кроме случая, когда зарядов нет ни у одного из элементов)."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"Glyph of Chromatic Pathing"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"(T2) Glyph of Chromatic Pathing"
 		"item_rpc_omniro_glyph_2_1_description" 				"Увеличивает количество полей от @Ability3 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"Glyph of Planar Stalking"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"(T3) Glyph of Planar Stalking"
 		"item_rpc_omniro_glyph_3_1_description" 				"@Ability4 наносит @glyph_property1 дополнительных удара."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"Glyph of Galvanization"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"(T4) Glyph of Galvanization"
 		"item_rpc_omniro_glyph_4_1_description" 				"Добавляет @glyph_property1 уровней к Нормальному элементу и ускоряет его зарядку на @glyph_property2%."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"Glyph of Inspiration"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"(T5) Glyph of Inspiration"
 		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 элемента с наименьшими рунами получают @glyph_property2 дополнительный заряд (исключая элементы <font color=\"#DDDDDD\">Нормальный</font> и <font color=\"#3289C7\">Дракон</font>)."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"Glyph of Sapping"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"(T6) Glyph of Sapping"
 		"item_rpc_omniro_glyph_6_1_description" 				"Атака по противнику восстановит @glyph_property1% заряда для текущего элемента."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"Glyph of Elemental Specialization"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"(T7) Glyph of Elemental Specialization"
 		"item_rpc_omniro_glyph_7_1_description" 				"Элемент с наивысшим уровнем (кроме элемента<font color=\"#3289C7\">Дракон</font>) получает @glyph_property1 дополнительных заряда."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"Glyph of Chromaticity"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"(Immortal) Glyph of Chromaticity"
 		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента<font color=\"#3289C7\">Дракон</font>)получает <font color='#ccff66'>1500</font>% бонус урона, второй по счету получает <font color='#ccff66'>1000</font>%, третий <font color='#ccff66'>500</font>, и четвертый <font color='#ccff66'>250</font>."
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
@@ -7966,28 +7968,28 @@
 
 		//Glyphs
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"(T1) Глиф воскрешения"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_1"		"(T1) Glyph of Resurrection"
 		"item_rpc_paladin_glyph_1_1_description" 				"Снижает время перезарядки E1 Second Coming до @glyph_property1 сек."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Глиф святого гнева"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_1"		"(T2) Glyph of Consecration"
 		"item_rpc_paladin_glyph_2_1_description" 				"(Q) Heroic Fury становится переключаемой способностью."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Глиф всевышнего"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"(T3) Glyph of Command"
 		"item_rpc_paladin_glyph_3_1_description" 				"Knight's Disciple становятся полностью контролируемыми юнитами, скорость их передвижения увеличена до 800. Правый щелчок по способности переключит тип AI юнита."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Глиф неизбежного рока"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"(T4) Glyph of Unwavering Justice"
 		"item_rpc_paladin_glyph_4_1_description" 				"(W) Justice Overwhelming не отталкивает героя, и дополнительно применяет x5 зарядов Holy Fire."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Глиф святого величия"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"(T5) Glyph of Holy Authority"
 		"item_rpc_paladin_glyph_5_1_description" 				"Увеличивает урон от (W) Justice Overwhelming и Holy Fire на 200%. 9 дополнительных зарядов Holy Fire при каждом успешном ударе."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Глиф величия"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"(T6) Glyph of Nobility"
 		"item_rpc_paladin_glyph_6_1_description" 				"Герой растространяет ауру повышения скорости передвижения на @glyph_property1."
 
 		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"Nobility Aura"
 		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"Скорость передвижения увеличена"
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"(T7) Глиф усердия"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"(T7) Glyph of Zeal"
 		"item_rpc_paladin_glyph_7_1_description" 				"С каждой атакой есть шанс @glyph_property1%, что герой без задержки атакует соседнюю цель."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"(Immortal) Глиф святого гнева"
@@ -8541,31 +8543,31 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"(T1) Глиф беспокойства"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"(T1) Glyph of Flurry"
 		"item_rpc_sephyr_glyph_1_1_description" 				"Увеличивает максимальное количество одновременно существующих беспокойных духов на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"(T2) Глиф уклоняющихся ветров"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"(T2) Glyph of Evasive Winds"
 		"item_rpc_sephyr_glyph_2_1_description" 				"Увеличивает уклонение от физических атак на @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"(T3) Глиф Нефали"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"(T3) Glyph of Nefali"
 		"item_rpc_sephyr_glyph_3_1_description" 				"Увеличивает радиус действия благословенного ветра (R) @Ability4 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"(T4) Глиф пробивания"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"(T4) Glyph of Piercing Reach"
 		"item_rpc_sephyr_glyph_4_1_description" 				"Увеличивает дальность (W) @Ability2 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"(T5) Глиф ослепляющего света"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"(T5) Glyph of Blinding Light"
 		"item_rpc_sephyr_glyph_5_1_description" 				"Умение (Q) @Ability1 замораживает врагов на месте на @glyph_property1 сек., оглушение от умения происходит после заморозки."
 
 		"DOTA_Tooltip_modifier_lightbomb_freeze"				"Blinding Light"
 		"DOTA_Tooltip_modifier_lightbomb_freeze_Description"	"Заморожен"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"(T6) Глиф Богини Ветра"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"(T6) Glyph of the Wind Goddess"
 		"item_rpc_sephyr_glyph_6_1_description" 				"С @glyph_property1% шансом, герой игнорирует любой входящий урон."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"(T7) Глиф воздушного иммунитета"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"(T7) Glyph of Aerial Immunity"
 		"item_rpc_sephyr_glyph_7_1_description" 				"Наделяет героя иммунитетом к магии, пока он находится на отметке @glyph_property1 или выше от земли."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"(Immortal) Глиф Святых Ветров"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"(Immortal) Glyph of the Divine Winds"
 		"item_rpc_sephyr_glyph_5_a_description" 				"Снижаемый урон от (R) @Ability4 увеличивается на @glyph_property1%."
 		
 		//Weapons
@@ -8783,28 +8785,28 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"(T1) Глиф скольжения"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_1_1"		"(T1) Glyph of Sliding"
 		"item_rpc_slipfinn_glyph_1_1_description" 				"Снижает трение о землю на <font color='#ccff66'>40</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"(T2) Глиф далеких прыжков"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_2_1"		"(T2) Glyph of Long Jumps"
 		"item_rpc_slipfinn_glyph_2_1_description" 				"Увеличивает подъемную силу при Дальнем прыжке на <font color='#ccff66'>8</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"(T3) Глиф отскока"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_3_1"		"(T3) Glyph of Bouncing"
 		"item_rpc_slipfinn_glyph_3_1_description" 				"Увеличивает базовую высоту отскока по приземлении на голову врагу на <font color='#ccff66'>15</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"(T4) Глиф свободного падения"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_4_1"		"(T4) Glyph of Freefall"
 		"item_rpc_slipfinn_glyph_4_1_description" 				"Сокращает время на переворот и удар о землю на <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"(T5) Глиф пролома"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_1"		"(T5) Glyph of Crashing"
 		"item_rpc_slipfinn_glyph_5_1_description" 				"Увеличивает длительность оглушения от Ground Pound на <font color='#ccff66'>1.8</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"(T6) Глиф одержимости"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"(T6) Glyph of Binding Possession"
 		"item_rpc_slipfinn_glyph_6_1_description" 				"Враги, которых пытается захватить герой с помощью (R) Possessive Bubble парализуются до конца прочтения. Время оглушения по высвобождению врага из пузыря увеличивается на <font color='#ccff66'>1.5</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"(T7) Глиф ускользающего беглеца"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"(T7) Glyph of Slipping"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Герой не может быть оглушен во время прыжков и бега в тени."
 
-		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"(Immortal) Глиф прыгуна"
+		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_5_a"		"(Immortal) Glyph of the Puddle Jumper"
 		"item_rpc_slipfinn_glyph_5_a_description" 				"Радиус попадания по вражеским головам увеличен на <font color='#ccff66'>60</font>%."
 		
 		//Weapons
@@ -9523,22 +9525,22 @@
     	"DOTA_Tooltip_modifier_fire_avatar_Description"							"Весь стихийный урон становится Огненным. Огненный урон увеличен."
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"(T1) Глиф ледяных ветров"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"(T1) Glyph of Freezing Winds"
 		"item_rpc_sorceress_glyph_1_1_description" 				"(Q) Blizzard наносит в <font color='#ccff66'>2</font> раз(а) больше урона и дополнительно замедляет скорость передвижения и атаки целей на <font color='#ccff66'>100</font>/<font color='#ccff66'>100</font>."
 
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"Freezing Winds"
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"Скорость атаки и передвижения снижена"	
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"(T2) Глиф Ice Shards"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"(T2) Glyph of Ice Shards"
 		"item_rpc_sorceress_glyph_2_1_description" 				"Каждое прочтение [Q1] также выпускает еще <font color='#ccff66'>2</font> копья (конусом)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"(T3) Глиф огненной волны"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"(T3) Glyph of Fire Bolt"
 		"item_rpc_sorceress_glyph_3_1_description" 				"Выпускает <font color='#ccff66'>4</font> [R1] вместо одного сразу после прочтения."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"(T4) Глиф тайного зачарования"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"(T4) Glyph of Arcane Enhancement"
 		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на <font color='#ccff66'>260</font> /<font color='#ccff66'>500</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"(T5) Глиф потока мудрости"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"(T5) Glyph of Arcane Torrent"
 		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный <font color='#ccff66'>5</font>х урона (W) @Ability2. [W1] накладывает <font color='#ccff66'>4</font> щита, а не 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
@@ -9549,34 +9551,34 @@
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"Arcane Torrent"
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_1"		"(T6) Глиф белых бурь"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_1"		"(T6) Glyph of White Tempests"
 		"item_rpc_sorceress_glyph_6_1_description" 				"На прочтение (Q) @Ability1 не тратится время."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"(T7) Глиф огненного хаоса"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"(T7) Glyph of Chaotic Magic"
 		"item_rpc_sorceress_glyph_7_1_description" 				"Усиливает мощь умения (R) @Ability4 в <font color='#ccff66'>1.5</font> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"(Immortal) Глиф заморозки"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"(Immortal) Glyph of Frostbite"
 		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до <font color='#ccff66'>20</font>x."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"(T1-2)Глиф кристаллизации"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"(T1-2) Glyph of Crystallization"
 		"item_rpc_sorceress_glyph_1_2_description" 				"Элементаль воды с <font color='#ccff66'>15</font>% шансом заморозит атакуемую цель на <font color='#ccff66'>1</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"(T2-2)Глиф острого льда"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"(T2-2) Glyph of Razor Ice"
 		"item_rpc_sorceress_glyph_2_2_description" 				"Шанс взрыва ледяного копья увеличен до <font color='#ccff66'>40</font>%, базовый урон увеличен в <font color='#ccff66'>1.5</font> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"(T3-2)Глиф просвещенной магии"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"(T3-2) Glyph of Enlightened Magic"
 		"item_rpc_sorceress_glyph_3_2_description" 				"Бонус регенерации маны и интеллекта от руны [W3] увеличен в <font color='#ccff66'>2</font> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"(T4-2)Глиф тайной вибрации"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"(T4-2) Glyph of Arcane Vibration"
 		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только <font color='#ccff66'>7</font> зарядов Flicker. Сброс перезарядки ультимейта происходит гарантированно."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"(T5-2)Глиф смягчения"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"(T5-2) Glyph of Softening"
 		"item_rpc_sorceress_glyph_5_2_description" 				"Sorceress добавляет на <font color='#ccff66'>50</font>% меньше времени к иммунитету врагов к оглушению."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"(T6-2)Глиф выжигания"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"(T6-2) Glyph of Scorching"
 		"item_rpc_sorceress_glyph_6_2_description" 				"Снижение сопротивления к стихии Огня от руны [R3] сильнее на <font color='#ccff66'>2</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"(T7-2)Глиф тайного прочтения"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"(T7-2) Glyph of Arcane Channelling"
 		"item_rpc_sorceress_glyph_7_2_description" 				"Увеличивает урон от (W) @Ability2 в <font color='#ccff66'>2.5</font> раз(а), а к его текущей стоимости добавляется <font color='#ccff66'>5</font>% от макс. маны."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Книга Глифов Sorceress"
@@ -9888,31 +9890,31 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"% за каждые 10 очков атрибутов"
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"(T1) Глиф духовного продвижения"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"(T1) Glyph of Spiritual Mobility"
 		"item_rpc_spirit_warrior_glyph_1_1_description" 				"Увеличивает скорость прыжка в сторону Древнего Духа на <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_2_1"		"(T2) Глиф горящей души"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_2_1"		"(T2) Glyph of Soulfire"
 		"item_rpc_spirit_warrior_glyph_2_1_description" 				"Пока активно умение (Q) Flameblood Weapon, умение (W) @Ability2 применяет эффект ожогов всем задетым врагам."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_3_1"		"(T3) Глиф Древних"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_3_1"		"(T3) Glyph of Ancestors"
 		"item_rpc_spirit_warrior_glyph_3_1_description" 				"Увеличивает количество призываемых Древних Духов до <font color='#ccff66'>5</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_4_1"		"(T4) Глиф пророчества Ветра"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_4_1"		"(T4) Glyph of the Wind Prophecy"
 		"item_rpc_spirit_warrior_glyph_4_1_description" 				"После прыжка к Древнему Духу с помощью (E) @Ability3, руна [E1] Wind Edict автоматически применяется <font color='#ccff66'>4</font> раз с интервалом в <font color='#ccff66'>0.75</font> сек."
 
 		"DOTA_Tooltip_modifier_spirit_glyph_root"						"Earthbind"
 		"DOTA_Tooltip_modifier_spirit_glyph_root_Description"			"Связан"
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_1"		"(T5) Глиф восстанавливающейся души"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_1"		"(T5) Glyph of Replenishing Soul"
 		"item_rpc_spirit_warrior_glyph_5_1_description" 				"Герой восстанавливает <font color='#ccff66'>15</font>% маны от стоимости умения (W) @Ability2 за каждого задетого врага."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_6_1"		"(T6) Глиф Древних чар"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_6_1"		"(T6) Glyph of Ancient Enhancement"
 		"item_rpc_spirit_warrior_glyph_6_1_description" 				"Герой может применить на себя одновременно (Q) Flameblood и (Q) Windstrike Weapon."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"(T7) Глиф Титана Душ"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"(T7) Glyph of Soul Weapons"
 		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Увеличивает время действия умения (R) @Ability4 на <font color='#ccff66'>40</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"(Immortal) Глиф вихря"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"(Immortal) Glyph of Storm Helix"
 		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Находясь рядом с бурей от [E3] герой каждые <font color='#ccff66'>0.5</font> секунды получает заряды, которые увеличивают его скорость атаки на <font color='#ccff66'>25</font>, урон на <font color='#ccff66'>15</font>% и дальность атаки на <font color='#ccff66'>15</font>."
 
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"Storm Helix"
@@ -10823,37 +10825,37 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"(T1) Глиф Magnetic Blur"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"(T1) Glyph of Magnetic Blur"
 		"item_rpc_voltex_glyph_1_1_description" 				"Во время действия (Q) Overcharge, уклонение увеличено на <font color='#ccff66'>80</font>%."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"(T1) Magnetic Blur"
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"Уклоняется от атак"	
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"(T2) Глиф Magnetic Haste"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"(T2) Glyph of Magnetic Haste"
 		"item_rpc_voltex_glyph_2_1_description" 				"Во время действия (Q) Overcharge, увеличивает Ловкость на <font color='#ccff66'>100</font>% и скорость передвижения на <font color='#ccff66'>200</font>."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "(T2)Magnetic Haste"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"Ловкость и скорость передвижения увеличены"
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_1"		"(T3) Глиф молний"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_1"		"(T3) Glyph of Atmospheric Electricity"
 		"item_rpc_voltex_glyph_3_1_description" 				"[E3] Heaven's Charge сбрасывает время перезарядки (Q) Overcharge."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"(T4) Глиф нестабильного напряжения"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"(T4) Glyph of Unstable Voltage"
 		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <font color='#ccff66'>9</font> электрических зарядов, наносящих <font color='#ccff66'>2</font>x магического урона от базовой атаки."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"(T5) Глиф заряженных сражений"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"(T5) Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Увеличивает продолжительность действия руны [R3] на <font color='#ccff66'>12</font> сек. и увеличивает основной урон во время действия [R3] на <font color='#ccff66'>50</font>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1"	"Charged Combat"
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"Урон увеличен"
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"(T6) Глиф неистового гнева"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"(T6) Glyph of Vengeful Skies"
 		"item_rpc_voltex_glyph_6_1_description" 				"Увеличивает урон от умения (R) Static Field в <font color='#ccff66'>10</font> раз(а) и руны [R1] в <font color='#ccff66'>30</font> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"(T7) Глиф взрывного заряда"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"(T7) Glyph of Explosive Static"
 		"item_rpc_voltex_glyph_7_1_description" 				"Прочтение (W) Static стоит 100% вашей маны и перезаряжается <font color='#ccff66'>8</font> секунд. При этом врагам наносится увеличенный в <font color='#ccff66'>200</font> раз(а) урон и они оглушаются на <font color='#ccff66'>2.5</font> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"(Immortal) Глиф проводимости"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"(Immortal) Glyph of Conductivity"
 		"item_rpc_voltex_glyph_5_a_description" 			"Увеличивает длительность эффекта от (Q) @Ability1 на <font color='#ccff66'>100</font>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"
@@ -11550,31 +11552,31 @@
 	"property_jex_immortal_weapon3_description"                      "Все способности с элементом <font color=\"#C25DFC\">Космос</font> получают @special_property1 дополнительный Технологический уровень. Способности с двойным элементом <font color=\"#C25DFC\">Космос</font> получают @special_property2 дополнительных Технологических уровня."
 
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"Glyph of Biosynthesis"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"(T1) Glyph of Biosynthesis"
 	"item_rpc_jex_glyph_1_1_description" 				"Растения автоматически собираются в @glyph_property1 радиусе от Jex."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"Glyph of Transmission"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"(T2) Glyph of Transmission"
 	"item_rpc_jex_glyph_2_1_description" 				"Союзные герои могут использовать порталы от Earth's Gate."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"Glyph of Mega Shock"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"(T3) Glyph of Mega Shock"
 	"item_rpc_jex_glyph_3_1_description" 				"Враги, пораженные ударом от Wrath of Lightning получают штраф замедления в @glyph_property1 на @glyph_property2 сек."
 
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow"	"Wrath of Lightning"
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow_Description"	"Замедлен"
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"Glyph of Voltaic Flora"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"(T4) Glyph of Voltaic Flora"
 	"item_rpc_jex_glyph_4_1_description" 				"Увеличивает скорость атаки у Charged Sproutlings и Thunder Blossoms на @glyph_property1."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"Glyph of Binding Roots"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"(T5) Glyph of Binding Roots"
 	"item_rpc_jex_glyph_5_1_description" 				"Противники задетые Root Weaver наносят сниженный на @glyph_property1% урон."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"Glyph of Pulsar"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"(T6) Glyph of Pulsar"
 	"item_rpc_jex_glyph_6_1_description" 				"Galaxy Laser разрушает неуязвимость к магии, с некоторыми исключениями."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"Glyph of Entropy"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"(T7) Glyph of Entropy"
 	"item_rpc_jex_glyph_7_1_description" 				"Пока работает Cosmic Surge, противникам поблизости в радиусе @glyph_property2 наносится урон в @glyph_property1% от силы атаки чистым типом урона каждые 0.8 секунды. Урон считается уроном спобобности @Ability3, и имеет элементы <font color=\"#C25DFC\">Космос</font> / <font color=\"#5CCDF9\">Молния</font>."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"Glyph of Techno Supremacy"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"(Immortal) Glyph of Techno Supremacy"
 	"item_rpc_jex_glyph_5_a_description" 				"Увеличивает показатель Технологических уровней на всех способностях Jex на @glyph_property1."
 	
 	//FIRE ARCANA
@@ -13239,7 +13241,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
 		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
-		"property_ancient_waterstone_description"			"Урон, напрямую наносимый предметами увеличен на <font color='#ccff66'>400</font>%"
+		"property_ancient_waterstone_description"			"Урон, напрямую наносимый предметами увеличен на <font color='#ccff66'>900</font>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"

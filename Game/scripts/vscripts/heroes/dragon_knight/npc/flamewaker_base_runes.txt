@@ -625,8 +625,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_R4_FIRE_DAMAGE_FROM_STR %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% FLAMEWAKER_R4_FIRE_DAMAGE_AMP %>"
 			}
 		}
 	}

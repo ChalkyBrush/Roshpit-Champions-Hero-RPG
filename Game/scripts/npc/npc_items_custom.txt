@@ -9582,7 +9582,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "6"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.1"
 				}
 			}
 			"modifier_flamewaker_weapon_agility"

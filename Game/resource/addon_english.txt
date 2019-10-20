@@ -6644,9 +6644,9 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_r_3_description" 				"Increased Strength."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_4"								"[R4] Volcano Blood"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"Increases <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> damage based on Flamewaker's strength."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"Increases <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> damage."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_4_property_one"					"Fire and Earth Damage Bonus"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"% per Strength"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"%"
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"Dragon Fire"
@@ -6791,14 +6791,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"Ragnarok"
 		"item_property_flamewaker_immortal_weapon"							"Volcano Shield"
-		"property_flamewaker_immortal_weapon_description"					"Casting @Ability4 applies a <font color='#ccff66'>50</font> charge shield that reduces damage taken by <font color='#ccff66'>90</font>%."
+		"property_flamewaker_immortal_weapon_description"					"Casting @Ability4 applies a <font color='#ccff66'>50</font> charge shield that reduces damage taken by <font color='#ccff66'>50</font>%."
 
 		"DOTA_Tooltip_modifier_volcano_shield"							"Volcano Shield"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Damage taken reduced by <font color='#ccff66'>90</font>%%"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"Damage taken reduced by <font color='#ccff66'>50</font>%%"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"Ancient Flamerunner Blade"
     	"item_property_flamewaker_immortal_weapon2"								"Inner Dragon"
-    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by <font color='#ccff66'>6</font>. While @Ability3 is active, gain <font color='#ccff66'>50000</font> agility."
+    	"property_flamewaker_immortal_weapon2_description"						"Each point of Agility increases base attack power by <font color='#ccff66'>0.1</font>. While @Ability3 is active, gain <font color='#ccff66'>1000</font> agility."
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"Gladius"
     	"item_property_flamewaker_immortal_weapon3"								"Meteor Break"
@@ -13338,7 +13338,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
 		"item_property_raven_idol2"					"Black Soul"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by <font color='#ccff66'>50</font>%. Your health can not go above <font color='#ccff66'>35</font>% of your max. Increases item damage dealt by <font color='#ccff66'>10</font>% for each missing percent of health."
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by <font color='#ccff66'>65</font>%. Your health can not go above <font color='#ccff66'>35</font>% of your max. Increases item damage dealt by <font color='#ccff66'>10</font>% for each missing percent of health."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
@@ -13382,7 +13382,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
 		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
-		"property_ancient_waterstone_description"			"Damage dealt directly by items is increased by <font color='#ccff66'>400</font>%."
+		"property_ancient_waterstone_description"			"Damage dealt directly by items is increased by <font color='#ccff66'>900</font>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"

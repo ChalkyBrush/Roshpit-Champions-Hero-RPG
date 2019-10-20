@@ -6974,14 +6974,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_1"	"诸神之黄昏"
 		"item_property_flamewaker_immortal_weapon"							"火山盾"
-		"property_flamewaker_immortal_weapon_description"					"施放 @Ability4 将获得 <font color='#ccff66'>50</font> 层护盾，抵挡伤害，伤害减免 <font color='#ccff66'>90</font>%"
+		"property_flamewaker_immortal_weapon_description"					"施放 @Ability4 将获得 <font color='#ccff66'>50</font> 层护盾，抵挡伤害，伤害减免 <font color='#ccff66'>50</font>%"
 
 		"DOTA_Tooltip_modifier_volcano_shield"							"火山盾"
-		"DOTA_Tooltip_modifier_volcano_shield_Description"				"伤害减免 <font color='#ccff66'>90</font>%%"
+		"DOTA_Tooltip_modifier_volcano_shield_Description"				"伤害减免 <font color='#ccff66'>50</font>%%"
 		
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_2"			"上古之刃"
     	"item_property_flamewaker_immortal_weapon2"								"龙之心"
-    	"property_flamewaker_immortal_weapon2_description"						"每点敏捷值提高 <font color='#ccff66'>6</font> 点攻击力。在 @Ability3 技能开启时提高 <font color='#ccff66'>50000</font> 点敏捷值。"
+    	"property_flamewaker_immortal_weapon2_description"						"每点敏捷值提高 <font color='#ccff66'>0.1</font> 点攻击力。在 @Ability3 技能开启时提高 <font color='#ccff66'>1000</font> 点敏捷值。"
 
     	"DOTA_Tooltip_ability_item_rpc_flamewaker_immortal_weapon_3"			"角斗士之剑"
     	"item_property_flamewaker_immortal_weapon3"								"流星蝴蝶剑"
@@ -13463,7 +13463,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"水之石"
 		"item_property_ancient_waterstone"					"水之女神的祝福"
-		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <font color='#ccff66'>400</font>%"
+		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <font color='#ccff66'>900</font>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"风暴猎鹰指环"
