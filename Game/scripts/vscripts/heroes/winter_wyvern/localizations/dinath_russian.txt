@@ -169,28 +169,28 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_4_arcana1_suffix_two"					"%"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"(T1) Глиф Криогенной Заморозки"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_1_1"		"(T1) Glyph of Cryogenation"
 		"item_rpc_dinath_glyph_1_1_description" 				"Увеличивает длительность заморозки @Ability4 на <% DINATH_GLYPH_1_1_FREEZE_DURATION_INCREASE %> секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"(T2) Глиф Эфемерности "
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_2_1"		"(T2) Glyph of Aeriform"
 		"item_rpc_dinath_glyph_2_1_description" 				"Удерживает высоту во время зарядки @Ability4. Максимальная вертикаль полёта увеличена на <% DINATH_GLYPH_2_1_FLY_HEIGHT_INCREASE %>."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"(T3) Глиф Второй Глотки"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_3_1"		"(T3) Glyph of the Gizzard"
 		"item_rpc_dinath_glyph_3_1_description" 				"@Ability1 имеет дополнительно <% DINATH_GLYPH_3_1_Q_CHARGES_INCREASE %> заряда."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"(T4) Глиф Стремительного Дрейка"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_4_1"		"(T4) Glyph of Sweeping Drake"
 		"item_rpc_dinath_glyph_4_1_description" 				"@Ability3 получает дополнительный каст каждые <% DINATH_GLYPH_4_1_E_FREE_CAST_INTERVAL %> секунд."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"(T5) Глиф Полыни"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_1"		"(T5) Glyph of the Tarragon"
 		"item_rpc_dinath_glyph_5_1_description" 				"Нанесение атаки снижает перезарядку способностей на <% DINATH_GLYPH_5_1_CD_REDUCTION_PER_ATTACK %> секунды."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"(T6) Глиф Бедствия"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"(T6) Glyph of Calamity"
 		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на <% DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"(T7) Глиф Дракона Маны"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"(T7) Glyph of the Mana Dragon"
 		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на <% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>x от текущей маны, и атаки восстанавливают <% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>% от максимальной маны."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"(Immortal) Глиф Золотых Чешуек"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"(Immortal) Glyph of Golden Scales"
 		"item_rpc_dinath_glyph_5_a_description" 				"Полученный магический либо чистый урон дает иммунитет к заклинаниям на <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION %> секунды. Перезарядка <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD %> секунд."
 		
 		//Weapons

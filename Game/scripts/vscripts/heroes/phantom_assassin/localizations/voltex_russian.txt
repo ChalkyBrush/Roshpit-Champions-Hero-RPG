@@ -244,37 +244,37 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"(T1) Глиф Magnetic Blur"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_1_1"		"(T1) Glyph of Magnetic Blur"
 		"item_rpc_voltex_glyph_1_1_description" 				"Во время действия (Q) Overcharge, уклонение увеличено на <% VOLTEX_GLYPH_1_1_EVASION %>%."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect"			"(T1) Magnetic Blur"
 		"DOTA_Tooltip_modifier_voltex_glyph_1_1_effect_Description"	"Уклоняется от атак"	
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"(T2) Глиф Magnetic Haste"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_2_1"		"(T2) Glyph of Magnetic Haste"
 		"item_rpc_voltex_glyph_2_1_description" 				"Во время действия (Q) Overcharge, увеличивает Ловкость на <% VOLTEX_GLYPH_2_1_AGILITY_BONUS * 100 %>% и скорость передвижения на <% VOLTEX_GLYPH_2_1_MS_BONUS %>."
 
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible" "(T2)Magnetic Haste"
 		"DOTA_Tooltip_modifier_voltex_glyph_2_1_effect_visible_Description"	"Ловкость и скорость передвижения увеличены"
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_1"		"(T3) Глиф молний"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_3_1"		"(T3) Glyph of Atmospheric Electricity"
 		"item_rpc_voltex_glyph_3_1_description" 				"[E3] Heaven's Charge сбрасывает время перезарядки (Q) Overcharge."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"(T4) Глиф нестабильного напряжения"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"(T4) Glyph of Unstable Voltage"
 		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <% VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS %> электрических зарядов, наносящих <% VOLTEX_GLYPH_4_1_ATTACK_TO_DMG %>x магического урона от базовой атаки."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"(T5) Глиф заряженных сражений"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"(T5) Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Увеличивает продолжительность действия руны [R3] на <% VOLTEX_GLYPH_5_1_DURATION_INCREASE %> сек. и увеличивает основной урон во время действия [R3] на <% VOLTEX_GLYPH_5_1_ATT_PCT %>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1"	"Charged Combat"
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"Урон увеличен"
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"(T6) Глиф неистового гнева"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"(T6) Glyph of Vengeful Skies"
 		"item_rpc_voltex_glyph_6_1_description" 				"Увеличивает урон от умения (R) Static Field в <% VOLTEX_GLYPH_6_1_R_DAMAGE_AMP %> раз(а) и руны [R1] в <% VOLTEX_GLYPH_6_1_R1_DAMAGE_AMP %> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"(T7) Глиф взрывного заряда"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"(T7) Glyph of Explosive Static"
 		"item_rpc_voltex_glyph_7_1_description" 				"Прочтение (W) Static стоит 100% вашей маны и перезаряжается <% VOLTEX_GLYPH_7_1_W_CD %> секунд. При этом врагам наносится увеличенный в <% VOLTEX_GLYPH_7_1_DMG_MULT %> раз(а) урон и они оглушаются на <% VOLTEX_GLYPH_7_1_STUN_DURATION %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"(Immortal) Глиф проводимости"
+		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"(Immortal) Glyph of Conductivity"
 		"item_rpc_voltex_glyph_5_a_description" 			"Увеличивает длительность эффекта от (Q) @Ability1 на <% VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT %>%."
 
 		"DOTA_Tooltip_modifier_voltex_rune_e_2_slow_glyphed"	"Electron Effect"

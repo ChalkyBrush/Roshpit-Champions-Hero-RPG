@@ -242,31 +242,31 @@
 
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"(T1) Глиф алмазной кожи"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"(T1) Glyph of Diamond Skin"
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Враги, атакующие вас могут быть оглушены с шансом <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% на <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Глиф кратеров"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"(T2) Glyph of Cratering"
 		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до <% FLAMEWAKER_GLYPH_2_1_Q_CD %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Глиф расплавления"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"(T3) Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Глиф синего пламени"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Glyph of Blue Flame"
 		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x от суммы всех атрибутов плюс <% FLAMEWAKER_GLYPH_4_1_ATTACK_DAMAGE_TO_W_DAMAGE_PCT_PER_LVL %>% от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> на <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Глиф горячих сердец"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Glyph of Charred Hearts"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %> раза."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Глиф горного массива"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"(T6) Glyph of Mountain's Core"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"В течение <% FLAMEWAKER_GLYPH_6_1_DURATION %> сек. после прочтения (R) Cataclysm, основной урон будет увеличен на <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>%."
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Урон увеличен на <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>%%."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"(T7) Глиф пылающего океана"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"(T7) Glyph of Flaming Sea"
 		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %> раз(а) больше урона."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"(Immortal) Глиф драконьей кожи"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"(Immortal) Glyph of Dragon Skin"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP * 100 %>% от макс. здоровья. Если уровень здоровья ниже <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH * 100 %>%, входящий урон не отнимет более <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP * 100 %>% от макс. здоровья."
 
 		//Weapons
