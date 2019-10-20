@@ -6616,7 +6616,7 @@
 		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Surge of Fire"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Flamewaker's other ability cooldowns are reduced when activating Heat Wave."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Cooldown Reduction"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						""
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						" seconds"
 		
 		"DOTA_Tooltip_ability_cataclysm"									"Cataclysm"
 		"DOTA_Tooltip_ability_cataclysm_Description"						"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#AF843D\">Earth</font><br>Channels an overload of fire for 2 seconds, and then releases a massive explosion dealing damage, stunning, and slowing all targets surrounding the caster."

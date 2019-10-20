@@ -1,196 +1,6 @@
 require("/heroes/dragon_knight/flamewaker_constants")
 
-function CastSunRay(event)
 
-    local caster = event.caster
-    local ability = event.ability
-    Filters:CastSkillArguments(3, caster)
-    ability.deltaTime = 0
-    ability.rune_e_1 = rune_e_1(caster)
-    caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "flamewaker")
-    flamewaker_rune_e_4(caster, ability)
-    local pathLength = event.path_length
-    local numThinkers = event.num_thinkers
-    local thinkerStep = event.thinker_step
-    local thinkerRadius = event.thinker_radius
-    local forwardMoveSpeed = event.forward_move_speed
-    local turnRateInitial = event.turn_rate_initial
-    local turnRate = event.turn_rate
-    local initialTurnDuration = event.initial_turn_max_duration
-    local modifierCasterName = event.modifier_caster_name
-    local modifierThinkerName = event.modifier_thinker_name
-    local modifierIgnoreTurnRateName = event.modifier_ignore_turn_rate_limit_name
-
-    local casterOrigin = caster:GetAbsOrigin()
-
-    caster.sun_ray_is_moving = true
-    caster.sun_ray_hp_at_start = caster:GetHealth()
-
-    -- Create thinkers
-    local vThinkers = {}
-    for i = 1, numThinkers do
-        local thinker = CreateUnitByName("npc_dummy_unit", casterOrigin, false, caster, caster, caster:GetTeam())
-        vThinkers[i] = thinker
-
-        thinker:SetDayTimeVisionRange(thinkerRadius)
-        thinker:SetNightTimeVisionRange(thinkerRadius)
-
-        ability:ApplyDataDrivenModifier(caster, thinker, modifierThinkerName, {})
-    end
-
-    local endcap = vThinkers[numThinkers]
-
-    -- Create particle FX
-    local particleName = "particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
-    local particleVector = caster:GetAbsOrigin() - (caster:GetForwardVector() * pathLength)
-    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
-    ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true)
-    ability.sunParticle = pfx
-
-    -- Attach a loop sound to the endcap
-    local endcapSoundName = "Hero_Phoenix.SunRay.Beam"
-    StartSoundEvent(endcapSoundName, endcap)
-
-    -- Swap sub ability
-    local main_ability_name = ability:GetAbilityName()
-    local sub_ability_name = event.sub_ability_name
-    -- caster:SwapAbilities( main_ability_name, sub_ability_name, false, true )
-
-    -- Enable the toggle ability
-    -- caster:SwapAbilities( event.toggle_move_empty_ability_name, event.toggle_move_ability_name, false, true )
-
-    --
-    -- Note: The turn speed
-    --
-    --  Original's actual turn speed = 277.7735 (at initial) and 22.2218 [deg/s].
-    --  We can achieve this weird value by using this formula.
-    --    actual_turn_rate = turn_rate / (0.0333..) * 0.03
-    --
-    --  And, initial turn buff ends when the delta yaw gets 0 or 0.75 seconds elapsed.
-    --
-    turnRateInitial = turnRateInitial / (1 / 30) * 0.03
-    turnRate = turnRate / (1 / 30) * 0.03
-
-    -- Update
-    local deltaTime = 0.03
-
-    local lastAngles = caster:GetAngles()
-    local isInitialTurn = true
-    local elapsedTime = 0.0
-
-    caster:SetContextThink(DoUniqueString("updateSunRay"), function ()
-
-        -- OnInterrupted :
-        --  Destroy FXs and the thinkers.
-        if not caster:HasModifier(modifierCasterName) then
-            ParticleManager:DestroyParticle(pfx, false)
-            StopSoundEvent(endcapSoundName, endcap)
-
-            for i = 1, numThinkers do
-                vThinkers[i]:RemoveSelf()
-            end
-
-            return nil
-        end
-
-        --
-        -- "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" is seems to be broken.
-        -- So here we fix the yaw angle manually in order to clamp the turn speed.
-        --
-        -- If the hero has "modifier_ignore_turn_rate_limit_datadriven" modifier,
-        -- we shouldn't change yaw from here.
-        --
-
-        -- Calculate the turn speed limit.
-        local deltaYawMax
-        if isInitialTurn then
-            deltaYawMax = turnRateInitial * deltaTime
-        else
-            deltaYawMax = turnRate * deltaTime
-        end
-
-        -- Calculate the delta yaw
-        local currentAngles = caster:GetAngles()
-        local deltaYaw = RotationDelta(lastAngles, currentAngles).y
-        local deltaYawAbs = math.abs(deltaYaw)
-
-        if deltaYawAbs > deltaYawMax and not caster:HasModifier(modifierIgnoreTurnRateName) then
-            -- Clamp delta yaw
-            local yawSign = (deltaYaw < 0) and - 1 or 1
-            local yaw = lastAngles.y + deltaYawMax * yawSign
-
-            currentAngles.y = yaw -- Never forget!
-
-            -- Update the yaw
-            caster:SetAngles(currentAngles.x, currentAngles.y, currentAngles.z)
-        end
-
-        lastAngles = currentAngles
-
-        -- Update the turning state.
-        elapsedTime = elapsedTime + deltaTime
-
-        if isInitialTurn then
-            if deltaYawAbs == 0 then
-                isInitialTurn = false
-            end
-            if elapsedTime >= initialTurnDuration then
-                isInitialTurn = false
-            end
-        end
-
-        -- Current position & direction
-        local casterOrigin = caster:GetAbsOrigin()
-        local casterForward = caster:GetForwardVector()
-
-        local obstruction = WallPhysics:FindNearestObstruction(casterOrigin)
-        local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, casterOrigin, caster)
-        if caster.sun_ray_is_moving and not blockUnit then
-            casterOrigin = casterOrigin + casterForward * forwardMoveSpeed * deltaTime
-            casterOrigin = GetGroundPosition(casterOrigin, caster)
-            caster:SetAbsOrigin(casterOrigin)
-            if ability.rune_e_1 > 0 then
-                if ability.deltaTime % 6 == 0 then
-                    --ability:ApplyDataDrivenThinker(caster, casterOrigin, "fire_thinker", {duration = 4})
-                    CustomAbilities:QuickAttachThinker(ability, caster, casterOrigin, "fire_thinker", {duration = 4})
-                end
-            end
-            ability.deltaTime = ability.deltaTime + deltaTime * 100
-
-        end
-
-        -- Update thinker positions
-        local endcapPos = casterOrigin + casterForward * pathLength
-        endcapPos = GetGroundPosition(endcapPos, nil)
-        endcapPos.z = endcapPos.z + 92
-        endcap:SetAbsOrigin(endcapPos)
-
-        for i = 1, numThinkers - 1 do
-            local thinker = vThinkers[i]
-            thinker:SetAbsOrigin(casterOrigin + casterForward * (thinkerStep * (i - 1)))
-        end
-
-        -- Update particle FX
-        ParticleManager:SetParticleControl(pfx, 1, endcapPos)
-
-        return deltaTime
-
-    end, 0.0)
-    
-end
-
-function flamewaker_rune_e_4(caster, ability)
-    local e_4_level = caster:GetRuneValue("e", 4)
-    for i = 0, 6, 1 do
-        local check_ability = caster:GetAbilityByIndex(i)
-        if check_ability and IsValidEntity(check_ability) then
-            if check_ability:GetAbilityName() ~= ability:GetAbilityName() then
-                local CDreduce = FLAMEWAKER_E4_CD_REDUCTION*e_4_level
-                Filters:ReduceCooldownGeneric(caster, check_ability, CDreduce)
-            end
-        end
-    end
-end
 
 function rune_e_1(caster)
 
@@ -240,6 +50,23 @@ function rune_e_3(event)
         create_dragon(caster, fv, casterOrigin - fv * 250, totalLevel, runeAbility, runeUnit)
     end
 
+end
+
+function flamewaker_rune_e_4(caster, ability)
+    local e_4_level = caster:GetRuneValue("e", 4)
+    print("E 4")
+    if e_4_level > 0 then
+        for i = 0, 6, 1 do
+            local check_ability = caster:GetAbilityByIndex(i)
+            if check_ability and IsValidEntity(check_ability) then
+                if check_ability:GetAbilityName() ~= ability:GetAbilityName() then
+                    print("REDUCE CD")
+                    local CDreduce = FLAMEWAKER_E4_CD_REDUCTION*e_4_level
+                    Filters:ReduceCooldownGeneric(caster, check_ability, CDreduce)
+                end
+            end
+        end
+    end
 end
 
 function create_dragon(caster, fv, position, totalLevel, runeAbility, runeUnit)
@@ -475,6 +302,7 @@ function CastNewHeatwave(event)
 
     rune_e_2(caster)
     rune_e_3(caster)
+    flamewaker_rune_e_4(caster, ability)
 
     if caster:HasModifier("modifier_flamewaker_immortal_weapon_2") then
         caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_flamewaker_weapon_agility", {duration = duration})
