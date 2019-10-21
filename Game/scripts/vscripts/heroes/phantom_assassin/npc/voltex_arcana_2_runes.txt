@@ -13,7 +13,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% VOLTEX_ARCANA_2_DAMAGE_PCT_ATK_POWER %>"
 			}
 			"02"
 			{
@@ -45,8 +45,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.0"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% VOLTEX_ARCANA2_Q2_PIERCE %>"
 			}
 		}
 	}
@@ -82,7 +82,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% VOLTEX_ARCANA2_Q4_DURATION_GROW%>"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% VOLTEX_ARCANA2_Q4_DURATION_BASE %>"
 			}
 		}
 	}

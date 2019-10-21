@@ -99,7 +99,7 @@ function ConjureImage(caster, player, ability)
 	local origin = caster:GetAbsOrigin() + RandomVector(100)
 	local e_1_level = caster:GetRuneValue("e", 1)
 	local duration = e_1_level * VOLTEX_E1_DUR + VOLTEX_E1_BASE_DUR
-	local incomingDamage = VOLTEX_E1_BASE_INCOMMING_DMG_MULT
+	local incomingDamage = VOLTEX_E1_INCOMING_DAMAGE_ILLUSION
 	if not ability.illusions_table then
 		ability.illusions_table = {}
 	else
@@ -144,15 +144,8 @@ function ConjureImage(caster, player, ability)
 	overCharge:SetLevel(caster:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel())
 	overCharge:ApplyDataDrivenModifier(illusion, illusion, "modifier_gods_strength_datadriven", {duration = duration})
 
-	local newHealth = caster:GetMaxHealth() * 5
-	illusion:SetMaxHealth(newHealth)
-	illusion:SetBaseMaxHealth(newHealth)
-	illusion:SetHealth(newHealth)
-	illusion:Heal(newHealth, illusion)
-	local newArmor = caster:GetPhysicalArmorValue(false) * 5
-	illusion:SetPhysicalArmorBaseValue(newArmor)
-	local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 5
-	Filters:SetAttackDamage(illusion, newDamage)
+	local attack_damage_inherit = VOLTEX_E1_ATTACK_POWER/100
+	illusion:AdjustSummon(caster, true, VOLTEX_E1_INHERITED_HEALTH, attack_damage_inherit, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR)
 
 	if caster:HasModifier("modifier_voltex_rune_r_3_avatar") then
 		local runeAbility = caster.runeUnit3:FindAbilityByName("voltex_rune_r_3")

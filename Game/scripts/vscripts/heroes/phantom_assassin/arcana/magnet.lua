@@ -118,7 +118,8 @@ function magnet_hit(event)
 			table.insert(ability.target_table, target)
 		end
 		local q_4_level = caster:GetRuneValue("q", 4)
-		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, q_4_level * 0.1, false)
+		local duration = VOLTEX_ARCANA2_Q4_DURATION_BASE + VOLTEX_ARCANA2_Q4_DURATION_GROW*q_4_level
+		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 		if q_4_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_magnet_q_4", {duration = d_a_duration})
 		end
@@ -136,12 +137,10 @@ function magnet_thinker(event)
 			local target = ability.target_table[1]
 			table.remove(ability.target_table, 1)
 			if IsValidEntity(target) and target:IsAlive() then
-				local q_2_level = caster:GetRuneValue("q", 2)
-				local procs = Runes:Procs(q_2_level, 1, 1)
-				if procs > 0 then
-					Filters:CleanseStuns(caster)
-					Filters:CleanseSilences(caster)
-				end
+
+				Filters:CleanseStuns(caster)
+				Filters:CleanseSilences(caster)
+
 				local ogPosition = caster:GetAbsOrigin()
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 0.12})
 				local tpRange = math.min(caster:Script_GetAttackRange(), 320)
@@ -224,7 +223,7 @@ function magnet_bolt(attacker, bolt_origin, ability, target, q_1_level)
 				ability.particleCount = ability.particleCount - 1
 			end)
 		end
-		local damage = q_1_level * OverflowProtectedGetAverageTrueAttackDamage(attacker) * 0.15
+		local damage = q_1_level * OverflowProtectedGetAverageTrueAttackDamage(attacker) * (VOLTEX_ARCANA_2_DAMAGE_PCT_ATK_POWER/100)
 		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	end
 end

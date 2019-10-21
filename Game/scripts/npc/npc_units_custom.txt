@@ -6061,8 +6061,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200"
-        "AttackDamageMax"   "1800"
+        "AttackDamageMin"   "48"
+        "AttackDamageMax"   "48"
         "AttackRate"    "1.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "99999"
@@ -6077,10 +6077,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "280"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "8400"
+        "StatusHealth"  "500"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"              "DOTA_TEAM_NEUTRALS"
@@ -6103,7 +6103,13 @@
         }
         "Ability1"  "golem_split"
         "Ability2"  "tidehunter_kraken_shell"
-
+        "RoshpitArmor"          "62"
+        "RoshpitArmorPierce"    "21"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "78"
+        "RoshpitLevel"          "6"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
 
     }
 
@@ -6123,8 +6129,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "450"
-        "AttackDamageMax"   "670"
+        "AttackDamageMin"   "22"
+        "AttackDamageMax"   "22"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "99999"
@@ -6139,10 +6145,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "330"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "3500"
+        "StatusHealth"  "210"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"              "DOTA_TEAM_NEUTRALS"
@@ -6164,7 +6170,13 @@
             }
         }
         "Ability1"  "golem_split"
-
+        "RoshpitArmor"          "42"
+        "RoshpitArmorPierce"    "11"
+        "RoshpitSpellPierce"    "10"
+        "RoshpitMagicArmor"     "58"
+        "RoshpitLevel"          "5"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
 
     }
 
@@ -6184,8 +6196,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "170"
-        "AttackDamageMax"   "190"
+        "AttackDamageMin"   "11"
+        "AttackDamageMax"   "11"
         "AttackRate"    "0.6"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "99999"
@@ -6200,10 +6212,10 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "380"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1600"
+        "StatusHealth"  "170"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
-        "StatusManaRegen"   "20"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"              "DOTA_TEAM_NEUTRALS"
@@ -6224,7 +6236,13 @@
 
             }
         }
-
+        "RoshpitArmor"          "36"
+        "RoshpitArmorPierce"    "10"
+        "RoshpitSpellPierce"    "12"
+        "RoshpitMagicArmor"     "38"
+        "RoshpitLevel"          "4"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0" 
 
     }
 

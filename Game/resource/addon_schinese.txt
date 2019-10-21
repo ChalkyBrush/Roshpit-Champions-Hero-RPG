@@ -11073,7 +11073,7 @@
 		"item_rpc_voltex_glyph_6_1_description" 				"提高静电场的伤害 <font color='#ccff66'>10</font>x 和雷霆风暴的伤害 <font color='#ccff66'>30</font>x"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"静电爆炸雕文"
-		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为<font color='#ccff66'>8</font>秒，造成 <font color='#ccff66'>200</font>x 伤害并眩晕敌人 <font color='#ccff66'>2.5</font> 秒。"
+		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为<font color='#ccff66'>8</font>秒，造成 <font color='#ccff66'>20</font>x 伤害并眩晕敌人 <font color='#ccff66'>2.5</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"离子雕文"
 		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间 <font color='#ccff66'>100</font> 秒。"
@@ -11097,7 +11097,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"重力伏特"
 		"item_property_voltex_immortal_weapon"							"重力伏特"
-		"property_voltex_immortal_weapon_description"					"加深敌人所有受到的伤害 <font color='#ccff66'>50</font>% （伤害加深计算在敌人减伤之后）"
+		"property_voltex_immortal_weapon_description"					"Gain <font color='#ccff66'>600</font> Strength."
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"阿卡狄亚之剑"
 

@@ -48,6 +48,15 @@ function add_free_casts(event)
 		local newStacks = math.min(stackCount + 1, maxStacks)
 		caster:SetModifierStackCount("modifier_lightning_dash_freecast", caster, newStacks)
 	end
+
+	local e_3_level = caster:GetRuneValue("e", 3)
+	if e_3_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_lightning_dash_regen", {})
+		local regen = caster:GetAgility()*VOLTEX_ARCANA1_E3_REGEN_PER_AGI
+		caster:SetModifierStackCount("modifier_voltex_lightning_dash_regen", caster, regen)
+	else
+		caster:RemoveModifierByName("modifier_voltex_lightning_dash_regen")
+	end
 end
 
 function dash_think(event)

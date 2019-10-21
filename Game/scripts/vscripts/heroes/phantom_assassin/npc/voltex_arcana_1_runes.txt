@@ -94,8 +94,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"VOLTEX_ARCANA_E4_LIGHTNING_AMP"
 			}
 		}
 	}

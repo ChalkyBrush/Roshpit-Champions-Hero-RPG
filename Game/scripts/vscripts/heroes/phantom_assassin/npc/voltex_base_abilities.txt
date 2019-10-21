@@ -49,12 +49,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"proc_targets"				"9 12 15 18 21 24 27"
+				"proc_targets"				"9 10 11 12 13 14 15"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"proc_damage"				"880 2880 8220 16680 24420 42680 82440"
+				"proc_damage"				"60 120 180 240 300 360 420"
 			}
 			"04"
 			{
@@ -142,6 +142,18 @@
 				"IsBuff"	"1"
 				"IsHidden"	"1"
 			}
+			"modifier_voltex_q_4_paralyze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"50"
+			}
 		}
 	}
 
@@ -166,7 +178,7 @@
 	    "AbilityDamage" 	"%damage"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"120 300 500 900 1600 3400 5000"
+		"AbilityManaCost"	"30 60 90 120 150 180 210"
 
 	    // Special
 	    //-------------------------------------------
@@ -180,7 +192,7 @@
 	        "02"
 	        {
 	        	"var_type" "FIELD_INTEGER"
-	        	"damage" "240 700 2000 8000 20000 35000 75000"
+	        	"damage" "35 65 95 125 155 185 215"
 	        }
 	    }
 
@@ -402,7 +414,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"land_damage"			"1000 5000 14000 40000 80000 200000 500000"
+				"land_damage"			"180 380 580 780 980 1180 1380"
 			}
 		}
 
@@ -782,11 +794,28 @@
 				"IsDebuff"			"0"
 				"IsPurgable"		"0"
 			}
-			"modifier_voltex_static_field_post_mitigation"
+			"modifier_voltex_static_field_spell_armor_reduce"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_voltex_rune_r_2_passive"
 			{
@@ -808,10 +837,23 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% VOLTEX_R2_ARMOR_LOSS %>"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -821,7 +863,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"430 1020 2080 5200 15400 45200 85800"
+				"damage"	"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
@@ -831,7 +873,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"post_mitigation_per_spark"	"11 13 15 17 19 21 23"
+				"magic_armor_reduction_per_stack"	"-30 -60 -90 -120 -150 -180 -210"
 			}
 		}
 	}

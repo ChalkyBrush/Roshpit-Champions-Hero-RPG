@@ -23560,7 +23560,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -52235,21 +52235,9 @@
 				"IsBuff"	"1"
 				"ThinkInterval"  "0.1"
 				"TextureName"	"voltex/voltex_rune_e_3_arcana1"
-				"OnIntervalThink"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"regen_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"regen_end"
-					}
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
 				}
 			}
 			"modifier_voltex_lightning_dash_regen_hidden"
@@ -52280,7 +52268,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -52309,7 +52297,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -52361,8 +52349,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"VOLTEX_ARCANA_E4_LIGHTNING_AMP"
 			}
 		}
 	}
@@ -52578,7 +52566,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -52610,8 +52598,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.0"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"80"
 			}
 		}
 	}
@@ -52647,7 +52635,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.5"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"1"
 			}
 		}
 	}
@@ -52705,12 +52698,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"proc_targets"				"9 12 15 18 21 24 27"
+				"proc_targets"				"9 10 11 12 13 14 15"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"proc_damage"				"880 2880 8220 16680 24420 42680 82440"
+				"proc_damage"				"60 120 180 240 300 360 420"
 			}
 			"04"
 			{
@@ -52798,6 +52791,18 @@
 				"IsBuff"	"1"
 				"IsHidden"	"1"
 			}
+			"modifier_voltex_q_4_paralyze"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"50"
+			}
 		}
 	}
 
@@ -52822,7 +52827,7 @@
 	    "AbilityDamage" 	"%damage"
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"120 300 500 900 1600 3400 5000"
+		"AbilityManaCost"	"30 60 90 120 150 180 210"
 
 	    // Special
 	    //-------------------------------------------
@@ -52836,7 +52841,7 @@
 	        "02"
 	        {
 	        	"var_type" "FIELD_INTEGER"
-	        	"damage" "240 700 2000 8000 20000 35000 75000"
+	        	"damage" "35 65 95 125 155 185 215"
 	        }
 	    }
 
@@ -53058,7 +53063,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"land_damage"			"1000 5000 14000 40000 80000 200000 500000"
+				"land_damage"			"180 380 580 780 980 1180 1380"
 			}
 		}
 
@@ -53438,11 +53443,28 @@
 				"IsDebuff"			"0"
 				"IsPurgable"		"0"
 			}
-			"modifier_voltex_static_field_post_mitigation"
+			"modifier_voltex_static_field_spell_armor_reduce"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_voltex_rune_r_2_passive"
 			{
@@ -53464,10 +53486,23 @@
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -53477,7 +53512,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"430 1020 2080 5200 15400 45200 85800"
+				"damage"	"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
@@ -53487,7 +53522,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"post_mitigation_per_spark"	"11 13 15 17 19 21 23"
+				"magic_armor_reduction_per_stack"	"-30 -60 -90 -120 -150 -180 -210"
 			}
 		}
 	}
@@ -53507,7 +53542,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"20"
 			}
 		}
 		"Modifiers"
@@ -53516,10 +53551,6 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
-				}
 			}
 		}
 	}
@@ -53539,8 +53570,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.01"
 			}
 		}
 
@@ -53555,28 +53586,17 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"slardar_amplify_damage"
+		"AbilityTextureName"	"lina_laguna_blade"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4"
+				"property_one"			"1"
 			}
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"4"
-			}
-			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"1"
@@ -53592,11 +53612,6 @@
 
 				"EffectName"		"particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-4"
-				}
 			}
 		}
 	}
@@ -53608,20 +53623,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"zuus_lightning_bolt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.03"
 			}
 		}
 	}
@@ -53639,8 +53649,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -53668,22 +53678,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"45"
+				"property_two"			"2"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_three"		"6"
+				"property_three"		"5"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_four"			"10"
+				"property_four"			"0.5"
 			}
 		}
 		"Modifiers"
@@ -53719,7 +53729,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"1"
 			}
 			"04"
 			{
@@ -53749,7 +53759,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -53777,12 +53787,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"40"
+				"property_two"			"10"
 			}
 		}
 	}
@@ -53811,12 +53816,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"22500"
+				"property_two"			"30"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"300"
+				"property_two_base"		"20"
 			}
 			"05"
 			{
@@ -53849,7 +53854,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"150"
 			}
 			"02"
 			{
@@ -53888,8 +53893,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -53918,12 +53923,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"730"
+				"property_two"			"60"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"1200"
+				"property_two_base"		"100"
 			}
 			"05"
 			{
@@ -53952,17 +53957,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"210"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"800"
+				"property_one"			"1"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"20"
 			}
 			"04"
 			{
@@ -53990,12 +53990,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2400"
+				"property_one"			"60"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"50"
 			}
 		}
 		"Modifiers"
@@ -54067,8 +54067,7 @@
 				"IsHidden"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"3"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"2400"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"60"
 				}
 			}
 			"modifier_voltex_rune_r_3_buff_glyph_5_1"
@@ -54099,12 +54098,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_one"			"0.1"
 			}
 		}
 		"Modifiers"
@@ -54122,7 +54116,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.2"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.1"
 				}
 			}
 		}

@@ -300,6 +300,31 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 	unit:CalculateAndSaveRoshpitAttributes()
 end
 
+function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, armor_mult, magic_armor_mult, armor_pierce_mult, spell_pierce_mult)
+	local summon = self
+	if bDoHeroMult then
+		local newHealth = caster:GetMaxHealth() * hp_mult
+		summon:SetMaxHealth(newHealth)
+		summon:SetBaseMaxHealth(newHealth)
+		summon:SetHealth(newHealth)
+		summon:Heal(newHealth, summon)
+
+		local newArmor = caster:GetRoshpitArmor() * armor_mult
+		summon:SetBaseRoshpitArmor(newArmor)
+		local newMagicArmor = caster:GetRoshpitMagicArmor() * magic_armor_mult
+		summon:SetBaseRoshpitMagicArmor(newMagicArmor)
+		local newArmorPierce = caster:GetRoshpitArmorPierce() * armor_pierce_mult
+		summon:SetBaseRoshpitArmorPierce(newArmorPierce)
+		local newSpellPierce = caster:GetRoshpitSpellPierce() * spell_pierce_mult
+		summon:SetBaseRoshpitSpellPierce(newSpellPierce)
+
+		local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * attack_mult
+		Filters:SetAttackDamage(summon, newDamage)
+		summon:CalculateAndSaveRoshpitAttributes()
+	end
+	return true
+end
+
 function CDOTA_BaseNPC:GetInitialRoshpitLevel(team)
 	local unit_level = self:GetKeyValue("RoshpitLevel") + (GameState:GetDifficultyFactor()-1)*34
 	if team == DOTA_TEAM_NEUTRALS then
@@ -548,6 +573,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_b_b_shimmer")
 		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_Q2_ARMOR
 	end
+	if unit:HasModifier("modifier_voltex_rune_q_1_buff") then
+		local modifier = unit:FindModifierByName("modifier_voltex_rune_q_1_buff")
+		armor_modify = armor_modify + modifier:GetStackCount()*VOLTEX_Q1_ARMOR
+	end
+	if unit:HasModifier("modifier_voltex_rune_r_2_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_voltex_rune_r_2_armor_loss")
+		armor_modify = armor_modify + modifier:GetStackCount()*VOLTEX_R2_ARMOR_LOSS
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -662,6 +695,21 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_dragonflame_shield") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
 	end
+	if unit:HasModifier("modifier_voltex_static_field_spell_armor_reduce") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduction_per_stack", "modifier_voltex_static_field_spell_armor_reduce")
+	end
+	if unit:HasModifier("modifier_voltex_rune_q_1_buff") then
+		local modifier = unit:FindModifierByName("modifier_voltex_rune_q_1_buff")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*VOLTEX_Q1_ARMOR
+	end
+	if unit:HasModifier("modifier_voltex_d_b_debuff") then
+		local modifier = unit:FindModifierByName("modifier_voltex_d_b_debuff")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*VOLTEX_W4_MAGIC_ARMOR_REDUCE
+	end
+	if unit:HasModifier("modifier_voltex_rune_r_3_buff") then
+		local modifier = unit:FindModifierByName("modifier_voltex_rune_r_3_buff")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*VOLTEX_R3_MAGIC_ARMOR
+	end
 
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
@@ -692,6 +740,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetCaster():GetRuneValue("q", 4)*FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION
 	end
+	if unit:HasModifier("modifier_voltex_magnet") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("q", 2)*VOLTEX_ARCANA2_Q2_PIERCE
+	end
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor_pierce", {})
@@ -715,6 +766,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:IsRealHero() then
 		spell_pierce = spell_pierce + unit:GetIntellect()*CustomAttributes.SPELL_PIERCE_PER_INT
 	end
+	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
+		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
+	end
 	local spell_pierce_modify = 0
 	if unit:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
 		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
@@ -724,6 +778,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetCaster():GetRuneValue("q", 4)*FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION
 	end
+	if unit:HasModifier("modifier_voltex_magnet") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("q", 2)*VOLTEX_ARCANA2_Q2_PIERCE
+	end
+
+
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_spell_pierce", {})
@@ -751,7 +810,7 @@ function CDOTA_BaseNPC:SetRoshpitArmor(amount)
 	return amount
 end
 
-function CDOTA_BaseNPC:GetRoshpitArmor(amount)
+function CDOTA_BaseNPC:GetRoshpitArmor()
 	local mult = 1
 	local unit = self
 	local armor = unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster)
@@ -766,7 +825,7 @@ function CDOTA_BaseNPC:SetRoshpitMagicArmor(amount)
 	return amount
 end
 
-function CDOTA_BaseNPC:GetRoshpitMagicArmor(amount)
+function CDOTA_BaseNPC:GetRoshpitMagicArmor()
 	local mult = 1
 	local unit = self
 	local armor = unit:GetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster)
@@ -781,7 +840,7 @@ function CDOTA_BaseNPC:SetRoshpitArmorPierce(amount)
 	return amount
 end
 
-function CDOTA_BaseNPC:GetRoshpitArmorPierce(amount)
+function CDOTA_BaseNPC:GetRoshpitArmorPierce()
 	local unit = self
 	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
 	return armor_pierce
@@ -794,7 +853,7 @@ function CDOTA_BaseNPC:SetRoshpitSpellPierce(amount)
 	return amount
 end
 
-function CDOTA_BaseNPC:GetRoshpitSpellPierce(amount)
+function CDOTA_BaseNPC:GetRoshpitSpellPierce()
 	local unit = self
 	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
 	return armor_pierce
@@ -938,6 +997,9 @@ function CustomAttributes:SetAttributes(hero)
 		if hero:HasModifier("modifier_warlord_rune_q_4_intelligence") then
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_intelligence", CustomAttributes.WARLORD_Q4_STATS)
 		end
+	end
+	if hero:HasModifier("modifier_voltex_immortal_weapon_1") then
+		str_bonus = str_bonus + VOLTEX_IMMORTAL_WEAPON_1_STR
 	end
 	if hero:HasModifier("modifier_bahamut_rune_q_4") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_q_4", CustomAttributes.BAHAMUT_Q4_INT)

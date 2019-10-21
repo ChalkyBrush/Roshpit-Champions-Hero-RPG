@@ -21,10 +21,6 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
-				}
 			}
 		}
 	}
@@ -44,8 +40,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_Q2_BASE_LIGHTNING_DMG_PER_AGI * 100 %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% VOLTEX_Q2_SPELL_PIERCE_PER_AGI %>"
 			}
 		}
 
@@ -60,28 +56,17 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"slardar_amplify_damage"
+		"AbilityTextureName"	"lina_laguna_blade"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_Q3_ARMOR_LOSS_PER_STACK %>"
+				"property_one"			"<% VOLTEX_Q3_ATK_DAMAGE_ADDED_TO_Q %>"
 			}
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_Q3_DMG_PER_ATT * 100 %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"<% RPC_ELEMENT_LIGHTNING %>"
-			}
-			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"1"
@@ -97,11 +82,6 @@
 
 				"EffectName"		"particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% VOLTEX_Q3_ARMOR_LOSS_PER_STACK %>"
-				}
 			}
 		}
 	}
@@ -113,20 +93,15 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"lina_laguna_blade"
+		"AbilityTextureName"	"zuus_lightning_bolt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_Q4_ADD_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% VOLTEX_Q4_PARALYZE_DURATION %>"
 			}
 		}
 	}
@@ -144,7 +119,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% VOLTEX_W1_DMG_PER_ATT_PER_LVL * 100 %>"
 			}
 			"02"
@@ -254,7 +229,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_W4_INCR_MAGIC_DMG_TAKEN_PCT %>"
+				"property_one"			"<% VOLTEX_W4_MAGIC_ARMOR_REDUCE %>"
 			}
 		}
 	}
@@ -282,12 +257,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_E1_OUTGOING_DMG_MULT * 100 %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"<% VOLTEX_E1_BASE_OUTGOING_DMG_MULT * 100 %>"
+				"property_two"			"<% VOLTEX_E1_ATTACK_POWER %>"
 			}
 		}
 	}
@@ -393,8 +363,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_E4_LIGHTNING_PCT_PER_AGI * 100 * 10 %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% VOLTEX_E4_LIGHTNING_AMP %>"
 			}
 		}
 	}
@@ -457,12 +427,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VOLTEX_R2_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% VOLTEX_R2_BASE_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% VOLTEX_R2_DMG_PER_ATT%>"
 			}
 			"03"
 			{
@@ -500,7 +465,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% VOLTEX_R3_MAGIC_RES %>"
+				"property_two"			"<% VOLTEX_R3_MAGIC_ARMOR %>"
 			}
 		}
 		"Modifiers"
@@ -572,7 +537,6 @@
 				"IsHidden"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"<% VOLTEX_R3_MAGIC_RES %>"
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"<% VOLTEX_R3_ATT_BONUS %>"
 				}
 			}
@@ -604,12 +568,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VOLTEX_R4_ADD_DMG_PER_ATT * 100 %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% VOLTEX_R4_ATT_PCT %>"
+				"property_one"			"<% VOLTEX_R4_ATT_PCT %>"
 			}
 		}
 		"Modifiers"

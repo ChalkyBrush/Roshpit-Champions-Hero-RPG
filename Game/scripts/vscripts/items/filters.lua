@@ -2196,18 +2196,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_phantom_assassin" then
             if attacker:HasAbility("voltex_azure_leap") or attacker:HasAbility("voltex_rune_e_3_heavens_charge") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
-                mult = mult + attacker:GetAgility() * e_4_level * VOLTEX_E4_LIGHTNING_PCT_PER_AGI
+                mult = mult + e_4_level * (VOLTEX_E4_LIGHTNING_AMP/100)
             elseif attacker:HasAbility("voltex_lightning_dash") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
-                mult = mult + attacker:GetAgility() * e_4_level * VOLTEX_ARCANA_E4_LIGHTNING_PCT_PER_AGI
-            end
-            if attacker:HasAbility("voltex_overcharge") then
-                if bIsRealDamage then
-                    local q_2_level = attacker:GetRuneValue("q", 2)
-                    if q_2_level > 0 then
-                        damage = damage + attacker:GetAgility() * VOLTEX_Q2_BASE_LIGHTNING_DMG_PER_AGI * q_2_level
-                    end
-                end
+                mult = mult + e_4_level * (VOLTEX_ARCANA_E4_LIGHTNING_AMP/100)
             end
         elseif unitName == "npc_dota_hero_antimage" then
             if attacker:HasModifier("modifier_arkimus_glyph_7_1") then

@@ -296,7 +296,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"重力伏特"
 		"item_property_voltex_immortal_weapon"							"重力伏特"
-		"property_voltex_immortal_weapon_description"					"加深敌人所有受到的伤害 <% VOLTEX_IMMORTAL_WEAPON_1_POST_MITI_BONUS * 100 %>% （伤害加深计算在敌人减伤之后）"
+		"property_voltex_immortal_weapon_description"					"Gain <% VOLTEX_IMMORTAL_WEAPON_1_STR %> Strength."
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"阿卡狄亚之剑"
 

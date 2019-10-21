@@ -76,17 +76,18 @@ function voltex_static_field_spark_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = event.damage
-	if ability.r_4_level then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.1 * ability.r_4_level
-	end
+	-- if ability.r_4_level then
+	-- 	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.1 * ability.r_4_level
+	-- end
 	voltex_rune_r_4_increment(caster, ability)
 	if caster:HasModifier("modifier_voltex_glyph_6_1") then
 		damage = damage * VOLTEX_GLYPH_6_1_R_DAMAGE_AMP
 	end
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_voltex_static_field_post_mitigation", {duration = 10})
-	local stacks = target:GetModifierStackCount("modifier_voltex_static_field_post_mitigation", caster)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_voltex_static_field_spell_armor_reduce", {duration = 10})
+	local stacks = target:GetModifierStackCount("modifier_voltex_static_field_spell_armor_reduce", caster)
 	local newStacks = math.min(stacks + 1, 50)
-	target:SetModifierStackCount("modifier_voltex_static_field_post_mitigation", caster, newStacks)
+	target:SetModifierStackCount("modifier_voltex_static_field_spell_armor_reduce", caster, newStacks)
+	target:CalculateAndSaveRoshpitAttributes()
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	if caster:HasModifier("modifier_voltex_immortal_weapon_3") then
 		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_voltex_immortal_paralysis", {duration = VOLTEX_IMMORTAL_WEAPON_3_PARALYSIS_DURATION})
@@ -99,15 +100,15 @@ function voltex_rune_r_1(caster, ability)
 	if r_1_level > 0 then
 		local damage = VOLTEX_R1_BASE_DMG + VOLTEX_R1_DMG * r_1_level
 		local r_4_level = caster:GetRuneValue("r", 4)
-		if r_4_level then
-			damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * VOLTEX_R4_ADD_DMG_PER_ATT * r_4_level
-		end
+		-- if r_4_level then
+		-- 	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * VOLTEX_R4_ADD_DMG_PER_ATT * r_4_level
+		-- end
 		if caster:HasModifier("modifier_voltex_glyph_6_1") then
 			damage = damage * VOLTEX_GLYPH_6_1_R1_DAMAGE_AMP
 		end
 		local maxLightning = r_1_level + 3
 		if maxLightning > 40 then
-			damage = damage * (maxLightning / 40)
+			-- damage = damage * (maxLightning / 40)
 			maxLightning = 40
 		end
 		for i = 1, maxLightning, 1 do
@@ -150,7 +151,7 @@ function voltex_rune_r_2_onattacklanded(event)
 	local luck = RandomInt(1, 100)
 	local r_2_level = attacker:GetRuneValue("r", 2)
 	if r_2_level > 0 and luck <= VOLTEX_R2_CHANCE then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (VOLTEX_R2_BASE_DMG_PER_ATT + VOLTEX_R2_DMG_PER_ATT * r_2_level)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * ((VOLTEX_R2_DMG_PER_ATT/100) * r_2_level)
 		Filters:ApplyStun(attacker, 0.2, target)
 		Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 		-- Renders the particle on the target

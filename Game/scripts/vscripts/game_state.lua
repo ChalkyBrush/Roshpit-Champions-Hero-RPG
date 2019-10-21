@@ -1995,13 +1995,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
 		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
 	end
-	if attacker:GetUnitName() == "voltex_rune_e_1_illusion" then
-		--Changes the attacker to hero, so that its cerdited to him
-		filterTable["entindex_attacker_const"] = attacker.hero:GetEntityIndex()
-		attacker = EntIndexToHScript(filterTable["entindex_attacker_const"])
-		local e_1_level = attacker:GetRuneValue("e", 1)
-		filterTable["damage"] = filterTable["damage"] * (VOLTEX_E1_BASE_OUTGOING_DMG_MULT + VOLTEX_E1_OUTGOING_DMG_MULT * e_1_level)
-	end
+
 	local damagetype = filterTable["damagetype_const"]
 
 	local mult = 1
@@ -2317,22 +2311,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "intellect") * 5, 0)
 		end
 	end
-	--chrolonus boss also uses the passive, have to check for ability
-	if victim:HasModifier("modifier_voltex_arcana1_passive") and victim:HasAbility("voltex_lightning_dash") then
-		local dash = victim:FindAbilityByName("voltex_lightning_dash")
-		local damage = filterTable["damage"]
-		local e_3_level = victim:GetRuneValue("e", 3)
-		if e_3_level > 0 then
-			if not dash.regen then
-				dash.regen = 0
-			end
-			local addedRegen = math.ceil(damage * 0.025 * e_3_level)
-			dash.regen = math.min(500000000 - (victim:GetHealthRegen() - dash.regen), dash.regen + addedRegen)
-			dash:ApplyDataDrivenModifier(victim, victim, "modifier_voltex_lightning_dash_regen", {duration = 3})
-			dash:ApplyDataDrivenModifier(victim, victim, "modifier_voltex_lightning_dash_regen_hidden", {duration = 3})
-			victim:SetModifierStackCount("modifier_voltex_lightning_dash_regen_hidden", victim, dash.regen)
-		end
-	end
+
 	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
 		local modifier = victim:FindModifierByName("modifier_jex_q_cosmic_cosmic_postmitigation")
 		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", modifier:GetCaster())
@@ -2399,15 +2378,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local multIncrease = ASTRAL_RANGER_E1_POSTMIT_PCT/100 * stacks
 		mult = mult + multIncrease
-	end
-	if victim:HasModifier("modifier_voltex_static_field_post_mitigation") then
-		local modifier = victim:FindModifierByName("modifier_voltex_static_field_post_mitigation")
-		if modifier:GetCaster() == attacker then
-			local stack_value = modifier:GetAbility():GetSpecialValueFor("post_mitigation_per_spark")
-			local stacks = modifier:GetStackCount()
-			local multIncrease = (stack_value / 100) * stacks
-			mult = mult + multIncrease
-		end
 	end
 	if victim:HasModifier("crystal_arrow_ad_aura") then
 		local modifier = victim:FindModifierByName("crystal_arrow_ad_aura")
@@ -2483,9 +2453,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local damageIncrease = stacks * HYDROXIS_R4_DMG_AMP_PCT/100
 		filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * damageIncrease
-	end
-	if attacker:HasModifier("modifier_voltex_immortal_weapon_1") then
-		mult = mult + VOLTEX_IMMORTAL_WEAPON_1_POST_MITI_BONUS
 	end
 	if attacker:HasModifier("modifier_machinal_jump_c_c_amp") then
 		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
@@ -2879,15 +2846,6 @@ function GameState:FilterDamage(filterTable)
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PHYSICAL then
 			local stacks = modifier:GetStackCount()
 			filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * 0.07 * stacks
-		end
-	end
-	if victim:HasModifier("modifier_voltex_d_b_debuff") then
-		modifier = victim:FindModifierByName("modifier_voltex_d_b_debuff")
-		if damagetype == DAMAGE_TYPE_MAGICAL then
-			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-				local stacks = modifier:GetStackCount()
-				filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * 0.2 * stacks
-			end
 		end
 	end
 	if attacker:HasModifier("modifier_golden_war_plate") then

@@ -95,7 +95,7 @@
 		"DOTA_Tooltip_ability_voltex_rune_e_3_heavens_charge_Lore"							""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_1"								"[E1] Lightning Remnant"
-    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex. <br/> Иллюзии наследуют следующие атрибуты Voltex: <br/> <% VOLTEX_E1_INHERITED_HEALTH %>x Здоровье <br/> <% VOLTEX_E1_INHERITED_ARMOR %>x Броня <br/> <% VOLTEX_E1_INHERITED_ATT %>x Урон <br/> Базовая скорость атаки: <% VOLTEX_E1_BAT %> сек."
+    	"DOTA_Tooltip_ability_voltex_rune_e_1_Description"					"В начале и в конце прыжка Voltex создаёт иллюзию. Иллюзия активирует Overcharge такого же уровня как и у Voltex. <br/> Иллюзии наследуют следующие атрибуты Voltex: <br/> <% VOLTEX_E1_INHERITED_HEALTH %>x Здоровье <br/> <% VOLTEX_E1_INHERITED_ARMOR %>x Броня <br/> Базовая скорость атаки: <% VOLTEX_E1_BAT %> сек."
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_one"					"Длительность иллюзий"
     	"DOTA_Tooltip_ability_voltex_rune_e_1_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_e_1_property_two"					"Урон"
@@ -309,7 +309,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"Gravity Volt"
 		"item_property_voltex_immortal_weapon"							"Gravity Volt"
-		"property_voltex_immortal_weapon_description"					"Весь пост-резистный урон увеличен на <% VOLTEX_IMMORTAL_WEAPON_1_POST_MITI_BONUS * 100 %>%."
+		"property_voltex_immortal_weapon_description"					"Gain <% VOLTEX_IMMORTAL_WEAPON_1_STR %> Strength."
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"Blade of Arcadia"
 
