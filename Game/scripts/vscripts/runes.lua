@@ -520,8 +520,8 @@ function CDOTA_BaseNPC:GetBaseRuneValue(letter, tier)
 	if runeUnit then
 		local runeAbility = runeUnit:GetAbilityByIndex(index)
 		if runeAbility then
-			if runeAbility:IsActivated() and runeAbility.rune_level then
-				local rune_level = runeAbility.rune_level
+			if runeAbility.rune_level then
+				rune_level = runeAbility.rune_level
 			end
 		end
 	end

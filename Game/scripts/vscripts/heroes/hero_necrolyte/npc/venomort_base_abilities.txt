@@ -131,6 +131,7 @@
 				"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
 				"Function"		"cast"
 				"damage"        "%damage"
+				"radius"		"%range"
 			}
 		}
 		"Modifiers"

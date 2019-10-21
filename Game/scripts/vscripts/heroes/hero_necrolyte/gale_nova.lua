@@ -5,7 +5,7 @@ function cast(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.damage
-	local radius = VENOMORT_Q_RANGE
+	local radius = event.radius
 	local duration = VENOMORT_Q_DEBUFF_DURATION
 
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.3})

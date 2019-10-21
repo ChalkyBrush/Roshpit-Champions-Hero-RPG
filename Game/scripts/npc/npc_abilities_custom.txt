@@ -24800,6 +24800,7 @@
 				"ScriptFile"	"heroes/hero_necrolyte/gale_nova.lua"
 				"Function"		"cast"
 				"damage"        "%damage"
+				"radius"		"%range"
 			}
 		}
 		"Modifiers"
@@ -25205,7 +25206,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "50"
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "5"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.15"
 				}
             }
@@ -25493,7 +25494,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -25601,7 +25602,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"8"
 			}
             "02"
             {
@@ -25653,7 +25654,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"5"
 			}
 			"02"
 			{
