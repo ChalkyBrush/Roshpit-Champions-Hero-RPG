@@ -96,6 +96,10 @@
 						"Function"		"magnet_attack_land"
 					}
 				}
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 			"modifier_disable_player"
 			{

@@ -34,10 +34,10 @@ end
 function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	local number_of_rune_points_hero_should_have = (hero:GetLevel()-1)*Runes.RUNE_POINTS_PER_LEVEL + Runes.STARTING_RUNE_POINTS
 
-	local t1_total = hero:GetRuneValue("q", 1) + hero:GetRuneValue("w", 1) + hero:GetRuneValue("e", 1) + hero:GetRuneValue("r", 1)
-	local t2_total = hero:GetRuneValue("q", 2) + hero:GetRuneValue("w", 2) + hero:GetRuneValue("e", 2) + hero:GetRuneValue("r", 2)
-	local t3_total = hero:GetRuneValue("q", 3) + hero:GetRuneValue("w", 3) + hero:GetRuneValue("e", 3) + hero:GetRuneValue("r", 3)
-	local t4_total = hero:GetRuneValue("q", 4) + hero:GetRuneValue("w", 4) + hero:GetRuneValue("e", 4) + hero:GetRuneValue("r", 4)
+	local t1_total = hero:GetBaseRuneValue("q", 1) + hero:GetBaseRuneValue("w", 1) + hero:GetBaseRuneValue("e", 1) + hero:GetBaseRuneValue("r", 1)
+	local t2_total = hero:GetBaseRuneValue("q", 2) + hero:GetBaseRuneValue("w", 2) + hero:GetBaseRuneValue("e", 2) + hero:GetBaseRuneValue("r", 2)
+	local t3_total = hero:GetBaseRuneValue("q", 3) + hero:GetBaseRuneValue("w", 3) + hero:GetBaseRuneValue("e", 3) + hero:GetBaseRuneValue("r", 3)
+	local t4_total = hero:GetBaseRuneValue("q", 4) + hero:GetBaseRuneValue("w", 4) + hero:GetBaseRuneValue("e", 4) + hero:GetBaseRuneValue("r", 4)
 
 	local rune_points_spent = 0
 	rune_points_spent = rune_points_spent + t1_total*Runes.COST_TO_LEVEL_T1
@@ -484,6 +484,44 @@ function CDOTA_BaseNPC:GetRuneValue(letter, tier)
 				local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
 				local totalLevel = abilityLevel + bonusLevel
 				rune_level = totalLevel
+			end
+		end
+	end
+	return rune_level
+end
+
+function CDOTA_BaseNPC:GetBaseRuneValue(letter, tier)
+	local index = 0
+	if letter == "q" then
+		index = 0
+	elseif letter == "w" then
+		index = 1
+	elseif letter == "e" then
+		index = 2
+	elseif letter == "r" then
+		index = 3
+	end
+	local runeUnit = ""
+	if self:HasModifier("modifier_sorceress_immortal_ice_avatar") or self:HasModifier("modifier_sorceress_immortal_fire_avatar") then
+		self = self.origCaster
+	end
+	if tier == 1 then
+		runeUnit = self.runeUnit
+	elseif tier == 2 then
+		runeUnit = self.runeUnit2
+	elseif tier == 3 then
+		runeUnit = self.runeUnit3
+	elseif tier == 4 then
+		runeUnit = self.runeUnit4
+	end
+
+	local rune_level = 0
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	if runeUnit then
+		local runeAbility = runeUnit:GetAbilityByIndex(index)
+		if runeAbility then
+			if runeAbility:IsActivated() and runeAbility.rune_level then
+				local rune_level = runeAbility.rune_level
 			end
 		end
 	end

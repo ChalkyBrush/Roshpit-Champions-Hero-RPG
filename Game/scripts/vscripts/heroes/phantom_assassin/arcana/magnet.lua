@@ -145,7 +145,7 @@ function magnet_thinker(event)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_disable_player", {duration = 0.12})
 				local tpRange = math.min(caster:Script_GetAttackRange(), 320)
 				local targetPosition = target:GetAbsOrigin() + RandomVector(1) * tpRange
-				caster:SetAbsOrigin(GetGroundPosition(targetPosition, caster))
+				-- caster:SetAbsOrigin(GetGroundPosition(targetPosition, caster))
 				local fv = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 				caster:SetForwardVector(fv)
 				EmitSoundOn("Voltex.MagnetTeleport", caster)
@@ -166,7 +166,7 @@ function magnet_thinker(event)
 	else
 		if not caster:HasModifier("modifier_magnet_travelling") then
 			caster:RemoveModifierByName("modifier_voltex_magnet")
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+			-- FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 			local q_4_level = caster:GetRuneValue("q", 4)
 			local d_a_duration = Filters:GetAdjustedBuffDuration(caster, q_4_level * 0.1, false)
 			if q_4_level > 0 then
