@@ -795,6 +795,7 @@ function Filters:BeginRChannel(caster)
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
+            Filters:EndRChannel(caster)
         end)
     end
     if caster:HasModifier("modifier_galaxy_orb") then
