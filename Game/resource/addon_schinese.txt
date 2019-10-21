@@ -13463,7 +13463,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"水之石"
 		"item_property_ancient_waterstone"					"水之女神的祝福"
-		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <font color='#ccff66'>400</font>%"
+		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <font color='#ccff66'>900</font>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"风暴猎鹰指环"
