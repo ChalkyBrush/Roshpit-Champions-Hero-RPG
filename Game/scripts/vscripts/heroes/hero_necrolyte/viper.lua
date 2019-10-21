@@ -47,7 +47,7 @@ function cast(event)
         multiplier = multiplier + r2_level * VENOMORT_R2_VIPER_SCALE_PERCENT / 100
     end
 
-    local armor = caster:GetPhysicalArmorValue(false)
+    local armor = caster:GetRoshpitArmor()
     local lifetime = VENOMORT_R_DURATION
     local attackspeed = 100
 
@@ -91,7 +91,7 @@ function cast(event)
     viper:Heal(health * multiplier, viper)
     viper:SetBaseDamageMin(damage * multiplier)
     viper:SetBaseDamageMax(damage * multiplier)
-    viper:SetPhysicalArmorBaseValue(armor * multiplier)
+    viper:SetBaseRoshpitArmor(armor * multiplier)
 end
 function attack_land(event)
     local caster

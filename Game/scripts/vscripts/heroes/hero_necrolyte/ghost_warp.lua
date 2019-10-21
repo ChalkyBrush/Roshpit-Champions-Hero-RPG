@@ -101,7 +101,7 @@ function ghost_warp_take_damage(event)
 	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")
 
 	local e2_level = caster:GetRuneValue("e", 2)
-	local e2_damage = e2_level * VENOMORT_E2_DAMAGE_PER_LEVEL * caster:GetLevel()
+	local e2_damage = e2_level * VENOMORT_E2_DAMAGE_PER_LEVEL
 
 	if e2_level == 0 then
 		return

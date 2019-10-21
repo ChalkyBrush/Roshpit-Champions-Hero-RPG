@@ -583,6 +583,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_voltex_rune_r_2_armor_loss")
 		armor_modify = armor_modify + modifier:GetStackCount()*VOLTEX_R2_ARMOR_LOSS
 	end
+	if unit:HasModifier("modifier_venomort_arcana2_armor") then
+		local modifier = unit:FindModifierByName("modifier_venomort_arcana2_armor")
+		armor_modify = armor_modify + modifier:GetStackCount()*VENOMORT_ARCANA_1_R4_ARMOR_BONUS
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
