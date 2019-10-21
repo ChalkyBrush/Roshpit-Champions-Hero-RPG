@@ -95766,6 +95766,16 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_foot_attack_damage"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+				}
+			}
 			"modifier_foot_cosmos"
 			{
 				"Passive"	"0"

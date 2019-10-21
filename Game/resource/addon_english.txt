@@ -13216,7 +13216,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
 		"item_property_raven_idol2"					"Black Soul"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by <font color='#ccff66'>50</font>%. Your health can not go above <font color='#ccff66'>35</font>% of your max. Increases item damage dealt by <font color='#ccff66'>10</font>% for each missing percent of health."
+		"property_raven_idol_description2"			"Reduce damage taken from all sources by <font color='#ccff66'>65</font>%. Your health can not go above <font color='#ccff66'>35</font>% of your max. Increases item damage dealt by <font color='#ccff66'>10</font>% for each missing percent of health."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
@@ -13260,7 +13260,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
 		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
-		"property_ancient_waterstone_description"			"Damage dealt directly by items is increased by <font color='#ccff66'>400</font>%."
+		"property_ancient_waterstone_description"			"Damage dealt directly by items is increased by <font color='#ccff66'>900</font>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
