@@ -9947,7 +9947,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "30"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "15"
 				}
 			}
 		}
@@ -9956,7 +9956,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -10071,7 +10071,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"90"
+				"property_one"			"30"
 			}
 		}
 	}
@@ -10115,7 +10115,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"80"
 			}
 		}
 	}
@@ -10426,7 +10426,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"300"
+				"property_two"			"200"
 			}
 		}
 	}

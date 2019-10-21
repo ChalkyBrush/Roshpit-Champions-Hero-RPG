@@ -10971,7 +10971,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						" per affected enemy"
 		
 		"DOTA_Tooltip_ability_venomort_rune_w_4"							"[W4] Euthanasia"
-    	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"Enemies take increased post-mitigation damage from Venomort for each 1% of their maximum health they're missing."
+    	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"Enemies take increased damage from Venomort for each 1% of their maximum health they're missing."
     	"DOTA_Tooltip_ability_venomort_rune_w_4_property_one"				"Enhanced Damage"
     	"DOTA_Tooltip_ability_venomort_rune_w_4_suffix"						"% for every 1% of missing HP"
 		
@@ -11002,14 +11002,14 @@
 		"DOTA_Tooltip_modifier_venomort_rune_e_1_description" 				"Venomort's old E1 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] Acid Armor"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Enemies who damage Venomort are covered in corrosive acid, dealing damage every <font color='#ccff66'>0.1</font> seconds for <font color='#ccff66'>5</font> seconds. The base damage is multiplied by Venomort's hero level. Pierces Spell Immunity."
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Enemies who damage Venomort are covered in corrosive acid, dealing damage every <font color='#ccff66'>0.1</font> seconds for <font color='#ccff66'>5</font> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"Damage"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"x hero level"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						""
 
 		
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_3"							"[E3] Death's Advocate"
-    	"DOTA_Tooltip_ability_venomort_rune_e_3_Description"				"Venomort shares his knowledge of anatomy with all allies in a 900-unit radius, increasing their deadliness."
+    	"DOTA_Tooltip_ability_venomort_rune_e_3_Description"				"Venomort shares his knowledge of anatomy with all allies in a 900-unit radius, increasing their attack power."
     	"DOTA_Tooltip_ability_venomort_rune_e_3_property_one"				"Bonus Attack Damage Aura"
     	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix"						"%"
     	"DOTA_Tooltip_ability_venomort_rune_e_3_property_two"				""
@@ -11144,7 +11144,7 @@
   		"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2"						"[Q1] Frostbite Venom"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Each time an enemy is damaged by Frostvenom Grasp they gain a stack of Frostbite Venom. Each stack deals damage on a 0.1 second interval. The indicated base damage value is multiplied by Venomort's hero level."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					"per Hero Level every 0.1s"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					""
 
   		"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2"						"[Q2] Icemeter"
     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_Description"			"Frostvenom Grasp's target search radius expands, and the original burst sends Venomort sliding forward."
@@ -11187,7 +11187,7 @@
 		"item_rpc_venomort_glyph_5_1_description" 				"Multiplies the effectiveness of [W3] by @glyph_property1."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"Glyph of Enfeeblement"
-		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced taken damage to Venomort for <font color='#ccff66'>15</font> seconds."
+		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced damage to Venomort for <font color='#ccff66'>15</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"Glyph of the Snake Charmer"
 		"item_rpc_venomort_glyph_7_1_description" 				"Increases the duration of all units summoned by any of Venomort's spells or runes (but not from other sources) by @glyph_property1 seconds, and increases their base attack speed by @glyph_property2."
@@ -11214,7 +11214,7 @@
 		"item_rpc_venomort_glyph_6_2_description" 				"All units summoned by any of Venomort's spells or runes (but not from other sources) have the Steadfast property."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"Glyph of Sudden Death"
-		"item_rpc_venomort_glyph_7_2_description" 				"Venomort deals @glyph_property2% increased post-mitigation damage to units whose current health is over @glyph_property1% of their maximum."
+		"item_rpc_venomort_glyph_7_2_description" 				"Venomort deals @glyph_property2% increased damage to units whose current health is over @glyph_property1% of their maximum."
 		
         "DOTA_Tooltip_ability_item_rpc_venomort_glyph_book"                     "Venomort Glyph Book"
 		
@@ -11478,7 +11478,7 @@
     	"property_voltex_arcana2_description"								"Replaces @Ability1 and all of its runes with Thermion Magnet."
 
     	"DOTA_Tooltip_ability_voltex_magnet"						"Thermion Magnet"
-    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"Voltex throws a heated ion toward the target location. Each enemy that is struck by it is magnetized, allowing Voltex to pull herself toward them immediately and perform an attack on them. Enemies who are hit by the ion are briefly paralyzed. Voltex is immune to damage while travelling to and attacking magnetized enemies. Cleanses stuns and silences before each attack is attempted."
+    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"Voltex throws a heated ion toward the target location. Each enemy that is struck by it is magnetized, allowing Voltex to immediately perform an attack on them with no range restriction. Enemies who are hit by the ion are briefly paralyzed. Cleanses stuns and silences before each attack is attempted."
     	"DOTA_Tooltip_ability_voltex_magnet_cast_range"				"CAST RANGE:"
     	"DOTA_Tooltip_ability_voltex_magnet_freeze_duration"		"PARALYZE DURATION:"
 

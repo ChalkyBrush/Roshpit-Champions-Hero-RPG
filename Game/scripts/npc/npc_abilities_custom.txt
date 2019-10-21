@@ -24256,7 +24256,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"120"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"135"
 				}
 		    }
 			"modifier_reaper_slice_shield"
@@ -24276,7 +24276,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"2 5 8 11 14 17 20"
+				"damage_mult"			"0.2 0.25 0.3 0.35 0.4 0.45 0.5"
 			}
 		}
 	}
@@ -24394,7 +24394,7 @@
 			"02"
             {
                     "var_type"                             "FIELD_INTEGER"
-                    "property_two"                         "120"
+                    "property_two"                         "135"
             }
 		}
 	}
@@ -24445,7 +24445,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"		"600 2000 6000 25000 80000 180000 480000"
+				"damage"		"100 180 260 340 420 500 580"
 			}
 			"03"
 			{
@@ -24562,7 +24562,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2000"
+				"property_one"			"40"
 			}
 			"02"
 			{
@@ -24660,7 +24660,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -24771,7 +24771,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "300 1500 6000 25000 150000 350000 1000000"
+				"damage"			    "30 65 100 135 170 205 240"
 			}
 			"04"
 			{
@@ -24833,7 +24833,7 @@
 				"IsStunDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-7"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-6"
 				}
 
 			}
@@ -24879,7 +24879,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 240 360 500 800 1200 2000"
+		"AbilityManaCost"				"60 100 140 180 220 260 300"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -24888,12 +24888,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_slow"			"-100 -120 -140 -160 -180 -200 -220"
+				"movespeed_slow"			"-80 -100 -120 -140 -160 -180 -200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				    "1220 4020 8400 14400 26500 68500 145000"
+				"damage"				    "80 120 160 200 240 280 320"
 			}
 			"03"
 			{
@@ -25182,7 +25182,7 @@
 				"TextureName"	"necrolyte/sullen_hollow/necrophos_death_pulse"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
 				}
             }
 
@@ -25205,7 +25205,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "4000"
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "50"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.15"
 				}
             }
@@ -25367,12 +25367,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "500 1000 5000 16000 70000 210000 500000"
+				"damage"			    "50 100 150 200 250 300 350"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health"			    "10000 20000 60000 132000 740000 1420000 6000000"
+				"health"			    "100 240 380 520 660 800 940"
 			}
 			"03"
 			{
@@ -25408,7 +25408,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -25428,8 +25428,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 		}
 	}
@@ -25451,7 +25451,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"7"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -25493,7 +25493,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -25535,8 +25535,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.3"
 			}
 		}
 	}
@@ -25578,7 +25578,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -25601,7 +25601,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"30"
 			}
             "02"
             {
@@ -25632,7 +25632,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"		"20"
+				"property_one"		"2"
 			}
 		}
 	}
@@ -25653,7 +25653,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4000"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -25681,7 +25681,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"40"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -25753,12 +25753,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300000"
+				"property_one"			"200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25000"
+				"property_two"			"75"
 			}
 		}
 	}

@@ -213,7 +213,7 @@
     	"property_voltex_arcana2_description"								"Replaces @Ability1 and all of its runes with Thermion Magnet."
 
     	"DOTA_Tooltip_ability_voltex_magnet"						"Thermion Magnet"
-    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"Voltex throws a heated ion toward the target location. Each enemy that is struck by it is magnetized, allowing Voltex to pull herself toward them immediately and perform an attack on them. Enemies who are hit by the ion are briefly paralyzed. Voltex is immune to damage while travelling to and attacking magnetized enemies. Cleanses stuns and silences before each attack is attempted."
+    	"DOTA_Tooltip_ability_voltex_magnet_Description"			"Voltex throws a heated ion toward the target location. Each enemy that is struck by it is magnetized, allowing Voltex to immediately perform an attack on them with no range restriction. Enemies who are hit by the ion are briefly paralyzed. Cleanses stuns and silences before each attack is attempted."
     	"DOTA_Tooltip_ability_voltex_magnet_cast_range"				"CAST RANGE:"
     	"DOTA_Tooltip_ability_voltex_magnet_freeze_duration"		"PARALYZE DURATION:"
 
