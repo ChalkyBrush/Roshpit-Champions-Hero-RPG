@@ -557,7 +557,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_shred", "modifier_heat_wave_armor_shred")
 	end
 	if unit:GetUnitName() == "npc_dota_hero_dragon_knight" then
-		armor_modify = armor_modify + unit:GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
+		if unit:HasAbility("seismic_flare") then
+			armor_modify = armor_modify + unit:GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
+		end
 	end
 	if unit:HasModifier("modifier_searing_heat") then
 		local modifier = unit:FindModifierByName("modifier_searing_heat")
