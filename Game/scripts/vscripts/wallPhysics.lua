@@ -301,7 +301,6 @@ function WallPhysics:JumpFixedDistanceWithBlocking(unit, forwardVector, distance
 				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_mobility_blocked", {duration = 1.5})
 				unit:SetOrigin(newPosition - forwardVector * propulsion)
 			end
-			CustomAbilities:HeroicLeapThink(unit)
 
 		end)
 	end
@@ -320,7 +319,6 @@ function WallPhysics:JumpFixedDistanceWithBlocking(unit, forwardVector, distance
 				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_mobility_blocked", {duration = 1.5})
 				unit:SetOrigin(newPosition - forwardVector * propulsion)
 			end
-			CustomAbilities:HeroicLeapThink(unit)
 			if fallLoop > liftDuration then
 				unit:RemoveModifierByName("modifier_jumping")
 				FindClearSpaceForUnit(unit, currentPosition, false)

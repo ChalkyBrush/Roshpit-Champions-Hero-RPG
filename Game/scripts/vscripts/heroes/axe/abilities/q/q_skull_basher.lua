@@ -4,7 +4,7 @@ local HeroicLeap = require('heroes/axe/abilities/q/q3_heroic_leap')
 local ReduceResist = require('heroes/axe/abilities/q/q4_reduce_resist')
 local CycloneStorm = require('heroes/axe/abilities/e/e2_cyclone_storm')
 
-function start(event)
+function red_general_ability_base_q_start(event)
     local caster = event.caster
     local ability = event.ability
     local abilityLevel = ability:GetLevel()
@@ -42,7 +42,6 @@ function start(event)
     Timers:CreateTimer(0.3, function()
         ability.lifting = false
     end)
-    --print("--NEW JUMP--")
 
     if caster:HasModifier("modifier_axe_glyph_7_1") then
         local newCD = RED_GENERAL_GLYPH_7_1_Q_CD
@@ -79,14 +78,6 @@ function heroic_leap_think(event)
     if caster:GetAbsOrigin().z < (GetGroundHeight(caster:GetAbsOrigin(), caster) + math.abs(ability.jump_velocity) + 20) and not ability.lifting then
         caster:RemoveModifierByName("modfier_axe_jumping")
         caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster))
-        -- elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 54 and not ability.lifting then
-        -- if not ability.jumpAnimated then
-        -- EndAnimation(caster)
-        -- Timers:CreateTimer(0.03, function()
-        -- StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_FORCESTAFF_END, rate=1.0})
-        -- end)
-        -- ability.jumpAnimated = true
-        -- end
     end
 end
 
@@ -94,11 +85,6 @@ function drop(event)
     local caster = event.caster
     local ability = event.ability
     local location = caster:GetAbsOrigin()
-
-    -- Timers:CreateTimer(0.06, function()
-    --     -- EndAnimation(caster)
-    --     FindClearSpaceForUnit(caster, location, false)
-    -- end)
 
     caster:RemoveModifierByName("modifier_whirlwind_flying_portion")
 
@@ -111,7 +97,7 @@ function drop(event)
     FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 end
 
-function attackLand(event)
+function red_general_ability_base_q_attackLand(event)
     local caster = event.attacker
     local ability = event.ability
     local hero = caster
@@ -138,7 +124,6 @@ function attackLand(event)
             end
 
             ReduceResist.applyDebuff(caster, enemy, ability)
-            --ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
         end
     end
     EmitSoundOn("Hero_ElderTitan.EchoStomp", targetUnit)

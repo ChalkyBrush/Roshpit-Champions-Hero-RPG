@@ -1,6 +1,7 @@
 require('heroes/axe/init')
 local SkullBasher = require('heroes/axe/abilities/q/q_skull_basher')
-function attackLand(event, q2_think)
+function red_general_ability_base_q_attackLand(event, q2_think)
+    print("111111|:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     local caster = event.caster
     local ability = event.ability
     local target = event.target
@@ -55,8 +56,9 @@ function attackLand(event, q2_think)
     caster:SetModifierStackCount(invisibleModifier, caster, newStacks * runesCount)
 end
 
-function q2_think(event)
+function red_general_ability_base_q2_think(event)
+    print("222222|:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     if event.caster:HasModifier("modifier_axe_glyph_7_2") then
-        attackLand(event, true)
+        red_general_ability_base_q_attackLand(event, true)
     end
 end

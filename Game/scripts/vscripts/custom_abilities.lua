@@ -157,24 +157,6 @@ function CustomAbilities:AxeSunderB_D(sunderAbility, caster, slamPoint)
 	end
 end
 
-function CustomAbilities:HeroicLeapThink(target)
-	local skullBasher = target:FindAbilityByName("stun_attack")
-	skullBasher:ApplyDataDrivenModifier(target, target, "modifier_stun_attack", {duration = skullBasher:GetDuration()})
-	if target:HasModifier("modifier_axe_rune_w_3_visible") then
-		local runeUnit = target.runeUnit3
-		local runeAbility = runeUnit:FindAbilityByName("axe_rune_w_3")
-		local duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
-		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_visible", {duration = duration})
-		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_invisible", {duration = duration})
-	end
-	if target:HasModifier("modifier_axe_rune_q_2_stacker") then
-		local runeUnit = target.runeUnit2
-		local runeAbility = runeUnit:FindAbilityByName("axe_rune_q_2")
-		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_q_2_stacker", {duration = duration})
-	end
-end
-
 function CustomAbilities:IceQuill(event)
 
 	local ability = event.ability
