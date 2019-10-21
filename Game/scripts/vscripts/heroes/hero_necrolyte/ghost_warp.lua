@@ -95,7 +95,7 @@ function ghost_warp_take_damage(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local duration = VENONORT_E2_DURATION
-	if attacker:GetTeamNumber() == caster:GetTeamNumber() then
+	if attacker and attacker:GetTeamNumber() == caster:GetTeamNumber() then
 		return false
 	end
 	local has_weapon3 = caster:HasModifier("modifier_venomort_immortal_weapon_3")

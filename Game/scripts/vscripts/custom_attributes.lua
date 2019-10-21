@@ -1052,6 +1052,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
+		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_conjuror_arcana2") then
 		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
