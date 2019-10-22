@@ -46147,6 +46147,7 @@
             "particle"  "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf"
             "particle"  "particles/units/heroes/hero_drow/drow_dust_hit.vpcf"
             "particle"  "particles/roshpit/astral_ranger/astral_d_b2.vpcf"
+            "particle"  "particles/roshpit/astral/white_hands.vpcf"
         }
 
         // Casting
@@ -46276,6 +46277,8 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "TextureName"   "medusa/blueice_abilityicons/medusa_split_shot"
+                "EffectName"    "particles/roshpit/astral/white_hands.vpcf"
+                "EffectAttachType"  "attach_origin"
             }
             "modifier_astral_a_b_invisible"
             {
@@ -49698,7 +49701,7 @@
 			"11"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"	"240 1500 3500 15000 30000 55000 95000"
+				"damage_per_tick"	"25 55 85 115 145 175 205"
 			}
 			"12"
 			{
@@ -49713,7 +49716,7 @@
 			"14"
 			{
 				"var_type" "FIELD_INTEGER"
-				"impact_damage" "1000 5000 12000 25000 50000 100000 200000"
+				"impact_damage" "100 200 300 400 500 600 700"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -49875,7 +49878,7 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "30"
 				}
 			}
 			"modifier_eon_channel_enemy"
@@ -49883,7 +49886,7 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-1000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-30"
 				}
 			}
 			"modifier_epoch_glyph_1_1_effect"
@@ -49937,7 +49940,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"	"100 150 300 600 1000 1500"
+				"damage_per_tick"	"25 55 85 115 145 175 205"
 			}
 			"03"
 			{
@@ -50052,7 +50055,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"	"100 150 300 600 1000 1500"
+				"damage_per_tick"	"25 55 85 115 145 175 205"
 			}
 			"03"
 			{
@@ -50175,7 +50178,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"	"100 150 300 600 1000 1500"
+				"damage_per_tick"	"25 55 85 115 145 175 205"
 			}
 			"05"
 			{
@@ -50264,7 +50267,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"	"100 150 300 600 1000 1500"
+				"damage_per_tick"	"25 55 85 115 145 175 205"
 			}
 			"03"
 			{
@@ -50416,7 +50419,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"280 725 2200 5400 10300 20000 35000"
+				"damage"					"90 215 340 465 590 715 830"
 			}
 			"06"
 			{
@@ -50593,7 +50596,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"280 725 2200 5400 10300 20000 35000"
+				"damage"					"90 215 340 465 590 715 830"
 			}
 		}
 
@@ -50659,7 +50662,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 200 480 960 2000 4200 7000"
+		"AbilityManaCost"				"35 65 95 125 155 185 215"
 
 		// Special
 		//-------------------------------------------------------
@@ -50674,7 +50677,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"						"500 2000 8000 20000 50000 100000 160000"
+				"damage"						"55 105 155 205 255 305 355"
 			}
 			"03"
 			{
@@ -51203,7 +51206,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"1800 5400 14000 28000 60000 200000 450000"
+				"damage"	"150 350 550 750 950 1150 1350"
 			}
 
 			"03"
@@ -51283,12 +51286,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"1"
 			}
 			"03"
 			{

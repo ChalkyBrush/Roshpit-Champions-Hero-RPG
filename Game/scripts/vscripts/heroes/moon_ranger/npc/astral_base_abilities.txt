@@ -293,6 +293,7 @@
             "particle"  "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf"
             "particle"  "particles/units/heroes/hero_drow/drow_dust_hit.vpcf"
             "particle"  "particles/roshpit/astral_ranger/astral_d_b2.vpcf"
+            "particle"  "particles/roshpit/astral/white_hands.vpcf"
         }
 
         // Casting
@@ -422,6 +423,8 @@
                 "IsHidden"          "0"
                 "IsDebuff"          "0"
                 "TextureName"   "medusa/blueice_abilityicons/medusa_split_shot"
+                "EffectName"    "particles/roshpit/astral/white_hands.vpcf"
+                "EffectAttachType"  "attach_origin"
             }
             "modifier_astral_a_b_invisible"
             {
