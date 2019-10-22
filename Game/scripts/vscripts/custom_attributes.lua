@@ -737,6 +737,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_astral_rune_e_1_visible") then
 		local modifier = unit:FindModifierByName("modifier_astral_rune_e_1_invisible")
+		print("MAGIC ARMOR MODIFY?")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_E1_MAGIC_ARMOR_REDUCE
 	end
 	if unit:HasModifier("modifier_astral_c_c_visible") then

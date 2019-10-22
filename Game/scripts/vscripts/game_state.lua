@@ -2373,12 +2373,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if victim:HasModifier("modifier_astral_rune_e_1_visible") then
-		local modifier = victim:FindModifierByName("modifier_astral_rune_e_1_invisible")
-		local stacks = modifier:GetStackCount()
-		local multIncrease = ASTRAL_RANGER_E1_POSTMIT_PCT/100 * stacks
-		mult = mult + multIncrease
-	end
 	if victim:HasModifier("modifier_rockfall_post_mit") then
 		mult = mult + 1.25
 	end
