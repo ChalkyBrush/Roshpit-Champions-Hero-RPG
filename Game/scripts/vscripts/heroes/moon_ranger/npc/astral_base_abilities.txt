@@ -747,6 +747,24 @@
 						"Function"		"think"
 					}
 				}
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "npc_abilities/general.lua"
+                        "Function"      "utility_recalculate_roshpit_attributes"
+                        "target"        "TARGET"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "npc_abilities/general.lua"
+                        "Function"      "utility_recalculate_roshpit_attributes"
+                        "target"        "TARGET"
+                    }
+                }
 			}
 		}
 	}
