@@ -358,7 +358,9 @@ end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	local hero = self
+	print(hero:GetUnitName())
 	local strength = hero:GetKeyValue("RoshpitStrength", nil)
+	print(strength)
 	strength = strength + self:GetLevel()*hero:GetKeyValue("RoshpitStrengthGain", nil)
 	hero.strength_custom = math.floor(strength)
 end
@@ -626,8 +628,12 @@ function CustomAttributes:GetAbilityValueFromSpecial(unit, special_value_name, m
 	local ability = modifier:GetAbility()
 	local caster = modifier:GetCaster()
 	local stacks = math.max(modifier:GetStackCount(), 1)
-	local reduction = ability:GetSpecialValueFor(special_value_name)
-	return reduction*stacks
+	if ability then
+		local reduction = ability:GetSpecialValueFor(special_value_name)
+		return reduction*stacks
+	else
+		return 0
+	end
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
@@ -907,10 +913,12 @@ function CDOTA_BaseNPC:GetRoshpitSpellPierce()
 end
 
 function CustomAttributes:SetAttributes(hero)
+
 	local strength = hero.strength_custom
 	local agility = hero.agility_custom
 	local intelligence = hero.intellect_custom
 	local spirit = hero.spirit_custom
+
 
 	local str_bonus = 0
 	local agi_bonus = 0

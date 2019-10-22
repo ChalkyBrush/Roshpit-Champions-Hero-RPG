@@ -224,7 +224,7 @@
 		"RoshpitSpiritGain"		"1.9"
 	}
 
-	"astral_ranger"
+	"astral"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_drow_ranger"
@@ -278,7 +278,7 @@
 		"RoshpitSpiritGain"		"1.9"
 	}
 
-	"epoch_guardian"
+	"epoch"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_obsidian_destroyer"
@@ -1191,7 +1191,7 @@
 		"DrawParticlesWhileHidden" "1"
 	}
 
-	"zhonik"
+	"zonik"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_dark_seer"

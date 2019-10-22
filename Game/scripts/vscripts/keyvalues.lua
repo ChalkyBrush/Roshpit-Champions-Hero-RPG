@@ -138,6 +138,7 @@ function CDOTA_BaseNPC:GetKeyValue(key, level)
     if level then 
     	return GetUnitKV(self:GetUnitName(), key, level)
     else
+        print(self:GetUnitName())
     	local value = GetUnitKV(self:GetUnitName(), key)
     	if value then
     		return GetUnitKV(self:GetUnitName(), key) 

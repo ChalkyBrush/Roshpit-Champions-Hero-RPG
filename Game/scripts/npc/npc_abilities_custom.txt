@@ -46085,7 +46085,7 @@
                 "IsDebuff"          "0"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+                    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "20"
                 }
             }
 
@@ -47110,7 +47110,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -47216,7 +47216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.04"
 			}
 		}
 
@@ -105500,7 +105500,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aoe_damage"			"100 500 2500"
+				"aoe_damage"			"40 150 1500"
 			}
 		}
 		"Modifiers"

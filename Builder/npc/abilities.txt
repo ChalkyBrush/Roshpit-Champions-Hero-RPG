@@ -20232,7 +20232,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aoe_damage"			"100 500 2500"
+				"aoe_damage"			"40 150 1500"
 			}
 		}
 		"Modifiers"
