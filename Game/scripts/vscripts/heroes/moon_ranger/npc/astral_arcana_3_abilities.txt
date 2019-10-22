@@ -238,6 +238,12 @@
                         "Function"      "crystal_arrow_slow_start"
                         "target"        "TARGET"
                     }
+                    "RunScript"
+                    {
+                        "ScriptFile"    "npc_abilities/general.lua"
+                        "Function"      "utility_recalculate_roshpit_attributes"
+                        "target"        "TARGET"
+                    }
                 }
                 "OnDestroy"
                 {
@@ -245,6 +251,12 @@
                     {
                         "ScriptFile"    "heroes/moon_ranger/abilities/arcana/crystal_arrow.lua"
                         "Function"      "crystal_arrow_slow_end"
+                        "target"        "TARGET"
+                    }
+                    "RunScript"
+                    {
+                        "ScriptFile"    "npc_abilities/general.lua"
+                        "Function"      "utility_recalculate_roshpit_attributes"
                         "target"        "TARGET"
                     }
                 }
@@ -258,7 +270,7 @@
                 "EffectAttachType" "follow_origin"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "8"
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "<% ASTRAL_RANGER_ARCANA3_Q2_ATK_POWER_PCT %>"
                 }
             }
             "modifier_crystal_arrow_chilled"

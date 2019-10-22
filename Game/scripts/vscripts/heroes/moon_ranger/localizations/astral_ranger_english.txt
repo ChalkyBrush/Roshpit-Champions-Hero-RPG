@@ -19,7 +19,7 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"Astral Ranger gains attack range in her Moon Shroud."
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] Biting Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a <% ASTRAL_RANGER_Q2_PROC_CHANCE %>% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Steadfast threshold is multiplied by <% ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD %> against this rune."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"Your attacks have a <% ASTRAL_RANGER_Q2_PROC_CHANCE %>% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor."
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"Star Impact Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% of attack power"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"Armor Loss"
@@ -67,12 +67,12 @@
     	"DOTA_Tooltip_ability_astral_rune_w_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_4"							"[W4] Cluster Arrow"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Each time an enemy is hit by @Ability2, they receive a stacking debuff that enhances Post-Mitigation damage taken from Astral Ranger. Stacks up to <% ASTRAL_RANGER_W4_MAX_STACKS_COUNT %> times."
-    	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"Damage Enhance"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					"% per stack"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Each time an enemy is hit by @Ability2, they receive a stacking magic armor loss debuff. Stacks up to <% ASTRAL_RANGER_W4_MAX_STACKS_COUNT %> times."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					" per Stack"
 
     	"DOTA_Tooltip_modifier_astral_d_b_visible"						"Cluster Arrow"
-    	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"Taking increased damage from Astral Ranger"
+    	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"Reduced Magic Armor"
 		
 		"DOTA_Tooltip_ability_star_blink"								"Astral Rift"
 		"DOTA_Tooltip_ability_star_blink_Description"					"Element: <font color=\"#C25DFC\">Cosmic</font><br>Drops a star at the target location, stunning units in the area. After 2 seconds, the Ranger is teleported to the star's impact point."
@@ -82,9 +82,9 @@
     	"DOTA_Tooltip_ability_star_blink_star_aoe"						"RADIUS:"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_1"							"[E1] Pegasus"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"Summons an aspect of the Pegasus when casting @Ability3, which sweeps over enemies along the path between Astral Ranger and the target point. Affected enemies are rooted and take increased post-mitigation damage. This vulnerability debuff can stack up to <% ASTRAL_RANGER_E1_MAX_STACKS_COUNT %> times."
-    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Post-Mitigation Amp"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					"%"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"Summons an aspect of the Pegasus when casting @Ability3, which sweeps over enemies along the path between Astral Ranger and the target point. Affected enemies are rooted and have reduced Magic Armor."
+    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_1_property_two"				"Root Duration"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" seconds"
 
@@ -103,22 +103,24 @@
 		
 		
 		"DOTA_Tooltip_ability_astral_rune_e_3"							"[E3] Astral Shroud"
-    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"After casting @Ability3, the Astral Ranger becomes cloaked in a veil that reduces all damage taken by 75%, and further adds 95% Magic Resistance. The shroud also removes any stuns and silences every 0.5 seconds while active."
+    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"After casting @Ability3, the Astral Ranger becomes cloaked in a veil that reduces all damage taken by <% ASTRAL_RANGER_E3_DAMAGE_REDUCTION %>% and adds magic armor. The shroud also removes any stuns and silences every 0.5 seconds while active."
     	"DOTA_Tooltip_ability_astral_rune_e_3_property_one"				"Duration"
     	"DOTA_Tooltip_ability_astral_rune_e_3_suffix"					" seconds"
+        "DOTA_Tooltip_ability_astral_rune_e_3_property_two"             "Magic Armor"
+        "DOTA_Tooltip_ability_astral_rune_e_3_suffix_two"                   ""
 		
 		"DOTA_Tooltip_modifier_astral_c_c_visible"							"Astral Shroud"
-		"DOTA_Tooltip_modifier_astral_c_c_visible_description" 			"Increased damage resistance and stun and silence resistance."
+		"DOTA_Tooltip_modifier_astral_c_c_visible_description" 			"Increased resistance and stun and silence resistance."
 		
 		"DOTA_Tooltip_ability_astral_rune_e_4"							"[E4] Shooting Star"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Passively increases all attributes. All <font color=\"#C25DFC\">Cosmic</font> damage is increased by attributes."
+    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Passively increases all attributes and all <font color=\"#C25DFC\">Cosmic</font> damage."
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_one"				"Attribute Bonus"
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"Cosmic Damage Bonus"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% for each 10 points of Attributes"
+    	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
-		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Bonus Cosmic damage amplification from All Attributes, and attributes increased."
+		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Bonus Cosmic damage amplification, and attributes increased."
 		
 		"DOTA_Tooltip_modifier_astral_rune_e_4_visible"					"Shooting Star"
     	"DOTA_Tooltip_modifier_astral_rune_e_4_visible_Description"		"Extra Stats and increased cosmic damage."
@@ -130,7 +132,7 @@
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"LIFT DURATION:"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_1"							"[R1] Starstorm"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"While channeling @Ability4, numerous fallen stars rain down upon nearby enemies. Each star reduces the target's resistance to <font color=\"#C25DFC\">Cosmic</font> damage by 10% for 7 seconds."
+    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"While channeling @Ability4, numerous fallen stars rain down upon nearby enemies."
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_one"				"Maximum Stars"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"Damage Per Star"
@@ -174,7 +176,7 @@
     	"DOTA_Tooltip_ability_astral_rune_q_1_arcana1_suffix"				""  	
 
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1"							"[Q2] Crushing Stars"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks. Steadfast threshold is multiplied by 5 against this rune."
+    	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_Description"				"Your attacks have a 20% chance to drop a star on the enemy that deals Pure damage based on attack power, and lowers the target's armor. Can trigger from Split Attacks."
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_property_one"				"Star Impact Damage"
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_suffix"					"% of attack power"
     	"DOTA_Tooltip_ability_astral_rune_q_2_arcana1_property_two"				"Armor Loss"
@@ -184,7 +186,7 @@
     	"DOTA_Tooltip_modifier_astral_b_a_arcana_armor_loss_Description"	"Reduced Armor"
 
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1"							"[Q3] Lunar Empowerment II"
-    	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_Description"				"Astral Ranger gains increased attack damage while standing on a Astral Cloud."
+    	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_Description"				"Astral Ranger gains increased % attack damage while standing on a Astral Cloud."
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_astral_rune_q_3_arcana1_suffix"					"%"
 
@@ -217,37 +219,35 @@
     	"DOTA_Tooltip_ability_astral_rune_w_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2"							"[W3] Cosmic Blast"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_Description"				"Each arrow from Shot of Apollo has a 20% chance to deal additional magic damage and add a limitless stacking debuff that reduces <font color=\"#C25DFC\">Cosmic</font> resistance for 10 seconds."
+    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_Description"				"Each arrow from Shot of Apollo has a 20% chance to deal additional magic damage."
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_suffix"					"% of attack power"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_property_two"				"Cosmic Resist Loss"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_suffix_two"					"% per stack"
 
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible"							"Cosmic Blast"
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible_Description"				"Reduced Cosmic Resistance"	
 
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2"							"[W4] Focus Fire"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Focusing on a single target, Astral Ranger increases all post-mitigation damage dealt towards the targeted enemy for 8 seconds, stacking up to 50 times. Changing targets with Shot of Apollo resets this effect."
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"Post-Mitigation"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					"% per stack"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Focusing on a single target, Astral Ranger increases armor pierce for 8 seconds, stacking up to 50 times. Changing targets with Shot of Apollo resets this effect."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"Armor Pierce"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					""
 
     	"DOTA_Tooltip_modifier_apollo_post_mit_visible"							"Focus Fire"
-    	"DOTA_Tooltip_modifier_apollo_post_mit_visible_Description"				"Increased Post-Mitigation damage against the Shot of Apollo target"	
+    	"DOTA_Tooltip_modifier_apollo_post_mit_visible_Description"				"Increased Armor Pierce"	
 
       	"item_property_astral_arcana3"										"Crystal Arrow"
     	"property_astral_arcana3_description"								"Replaces @Ability4 and all of its runes with Crystal Arrow."
 
     	"DOTA_Tooltip_ability_crystal_arrow"						"Crystal Arrow"
-    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Element: <font color=\"#87D9FF\">Ice</font> / <font color=\"#C25DFC\">Cosmic</font><br>Astral Ranger draws a frostbitten arrow and rises towards the sky. When the channel completes, shoot Azalea's blessed arrow toward the target location, dealing area damage that ignores steadfast."
+    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Element: <font color=\"#87D9FF\">Ice</font> / <font color=\"#C25DFC\">Cosmic</font><br>Astral Ranger draws a frostbitten arrow and rises towards the sky. When the channel completes, shoot Azalea's blessed arrow toward the target location, dealing area damage."
     	"DOTA_Tooltip_ability_crystal_arrow_damage"					"DAMAGE:"
 
     	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3"						"[R1] Azalea's Window"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_Description"			"When you begin casting Crystal Arrow, create a 450 radius area at the target location that grants vision. Enemies standing in the area take increased post-mitigation damage from Astral Ranger. Only 1 window can be active at a time."
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_property_one"			"Post-mitigation Damage Increase"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_suffix"				"%"  	
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_Description"			"When you begin casting Crystal Arrow, create a 450 radius area at the target location that grants vision. Enemies standing in the area have reduced armor and magic armor."
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_property_one"			"Armor and Magic Armor Reduce"
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_suffix"				""  	
 
     	"DOTA_Tooltip_crystal_arrow_ad_aura"								"Azalea's Window"
-    	"DOTA_Tooltip_crystal_arrow_ad_aura_Description"					"Taking increased post-mitigation damage from Astral Ranger"
+    	"DOTA_Tooltip_crystal_arrow_ad_aura_Description"					"Reduced Armor and Magic Armor"
 
     	"DOTA_Tooltip_ability_astral_rune_r_2_arcana3"							"[R2] Crystalys"
     	"DOTA_Tooltip_ability_astral_rune_r_2_arcana3_Description"				"Gain % attack power bonus for 7 seconds after firing a Crystal Arrow. Additionally a % of attack power is added to Crystal Arrow's damage."

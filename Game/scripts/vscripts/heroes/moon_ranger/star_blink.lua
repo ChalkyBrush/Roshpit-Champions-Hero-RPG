@@ -162,8 +162,9 @@ function rune_e_1_strike(event)
     ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_e_1_invisible", {duration = ability.rootDuration})
     ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_rune_e_1_visible", {duration = ability.rootDuration})
 
-    target:SetModifierStackCount("modifier_astral_rune_e_1_visible", caster, newStacks);
-    target:SetModifierStackCount("modifier_astral_rune_e_1_invisible", caster, newStacks * ability.level);
+    target:SetModifierStackCount("modifier_astral_rune_e_1_visible", caster, newStacks)
+    target:SetModifierStackCount("modifier_astral_rune_e_1_invisible", caster, newStacks * ability.level)
+    target:CalculateAndSaveRoshpitAttributes()
     --print('stacksCount')
     --print(newStacks)
     --print(newStacks * ability.level)

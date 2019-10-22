@@ -2361,10 +2361,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             cosmosMult = cosmosMult + DINATH_GLYPH_6_1_FIRE_ICE_LIGHTING_COSMIC_AMP/100
         end
         if unitName == "npc_dota_hero_drow_ranger" then
-            cosmosMult = cosmosMult + 0.0007 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
-            if victim:HasModifier("modifier_apollo_c_b_proc_invisible") then
-                cosmosMult = cosmosMult + 0.01 * victim:GetModifierStackCount("modifier_apollo_c_b_proc_invisible", attacker)
+            if attacker:HasAbility("star_blink") then
+                cosmosMult = cosmosMult + (ASTRAL_RANGER_E4_COSMIC_AMP/100)*attacker:GetRuneValue("e", 4)
             end
+            -- if victim:HasModifier("modifier_apollo_c_b_proc_invisible") then
+            --     cosmosMult = cosmosMult + 0.01 * victim:GetModifierStackCount("modifier_apollo_c_b_proc_invisible", attacker)
+            -- end
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local q_4_level = attacker:GetRuneValue("q", 4)
@@ -2398,10 +2400,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_hand_cosmos", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
-        if victim:HasModifier("modifier_starfall_a_d_visible") then
-            local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
-            cosmosMult = cosmosMult + stacks * 0.1
-        end
+        -- if victim:HasModifier("modifier_starfall_a_d_visible") then
+        --     local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
+        --     cosmosMult = cosmosMult + stacks * 0.1
+        -- end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if attacker.e_2_level then
                 cosmosMult = cosmosMult + attacker.e_2_level * 0.5

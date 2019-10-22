@@ -14,6 +14,7 @@ require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/winter_wyvern/dinath_constants")
 require("/heroes/beastmaster/warlord_constants")
+require("/heroes/moon_ranger/astral_ranger_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -50,7 +51,7 @@ CustomAttributes.ZHONIK_ARCANA_R4_AGI = ZHONIK_R4_ARCANA_BONUS_AGI
 CustomAttributes.DJANGHOR_R4_STATS = 500
 CustomAttributes.DJANGHOR_R4_ARCANA_STATS = 200
 CustomAttributes.AXE_Q3_STATS = 14
-CustomAttributes.ASTRAL_E4_STATS = 160
+
 CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
 CustomAttributes.WARLORD_Q4_STATS = 900
 CustomAttributes.BAHAMUT_Q4_INT = 365
@@ -587,6 +588,20 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_venomort_arcana2_armor")
 		armor_modify = armor_modify + modifier:GetStackCount()*VENOMORT_ARCANA_1_R4_ARMOR_BONUS
 	end
+	if unit:HasModifier("modifier_astral_b_a_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_astral_b_a_armor_loss")
+		armor_modify = armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_Q2_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_astral_b_a_arcana_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_astral_b_a_arcana_armor_loss")
+		armor_modify = armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA1_Q2_ARMOR_LOSS
+	end
+	if unit:HasModifier("crystal_arrow_ad_aura") then
+		local modifier = unit:FindModifierByName("crystal_arrow_ad_aura")
+		local caster = modifier:GetCaster()
+		local r_1_value = caster:GetRuneValue("r", 1)
+		armor_modify = armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -716,6 +731,23 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_voltex_rune_r_3_buff")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*VOLTEX_R3_MAGIC_ARMOR
 	end
+	if unit:HasModifier("modifier_astral_d_b_visible") then
+		local modifier = unit:FindModifierByName("modifier_astral_d_b_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_W4_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_astral_rune_e_1_visible") then
+		local modifier = unit:FindModifierByName("modifier_astral_rune_e_1_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_E1_MAGIC_ARMOR_REDUCE
+	end
+	if unit:HasModifier("modifier_astral_c_c_visible") then
+		magic_armor_modify = magic_armor_modify + unit:GetRuneValue("e", 3)*ASTRAL_RANGER_E3_MAGIC_ARMOR
+	end
+	if unit:HasModifier("crystal_arrow_ad_aura") then
+		local modifier = unit:FindModifierByName("crystal_arrow_ad_aura")
+		local caster = modifier:GetCaster()
+		local r_1_value = caster:GetRuneValue("r", 1)
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
+	end
 
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
@@ -749,6 +781,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_voltex_magnet") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("q", 2)*VOLTEX_ARCANA2_Q2_PIERCE
 	end
+	if unit:HasModifier("modifier_apollo_post_mit_invisible") then
+		if unit:HasAbility("shot_of_apollo") then
+			local modifier = unit:FindModifierByName("modifier_apollo_post_mit_invisible")
+			armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA2_W_4_ARMOR_PIERCE
+		end
+	end
+
+
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor_pierce", {})
@@ -889,12 +929,14 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks
 		agi_bonus = agi_bonus + stacks
 		int_bonus = int_bonus + stacks
+		spirit_bonus = spirit_bonus + stacks
 	end
 	if hero:HasModifier("modifier_apollo_stats_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_apollo_stats_invisible", hero)
-		str_bonus = str_bonus + stacks * CustomAttributes.ASTRAL_W1_ARCANA2_STATS
-		agi_bonus = agi_bonus + stacks * CustomAttributes.ASTRAL_W1_ARCANA2_STATS
-		int_bonus = int_bonus + stacks * CustomAttributes.ASTRAL_W1_ARCANA2_STATS
+		str_bonus = str_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
+		agi_bonus = agi_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
+		int_bonus = int_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
+		spirit_bonus = spirit_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
@@ -986,9 +1028,10 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_astral_d_c_visible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_astral_d_c_visible")
-		str_bonus = str_bonus + stacks * CustomAttributes.ASTRAL_E4_STATS
-		agi_bonus = agi_bonus + stacks * CustomAttributes.ASTRAL_E4_STATS
-		int_bonus = int_bonus + stacks * CustomAttributes.ASTRAL_E4_STATS
+		str_bonus = str_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
+		agi_bonus = agi_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
+		int_bonus = int_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
+		spirit_bonus = spirit_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 	end
 	-- if hero:HasModifier("modifier_arcane_intellect_visible") then
 	-- int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)

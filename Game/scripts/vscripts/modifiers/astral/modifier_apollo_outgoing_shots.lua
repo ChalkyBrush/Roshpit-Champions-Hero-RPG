@@ -35,13 +35,13 @@ function modifier_apollo_outgoing_shots:OnAttackLanded()
 					local luck = RandomInt(1, 100)
 					if luck <= procChance then
 						CustomAbilities:QuickAttachParticle("particles/roshpit/astral/apollo_proc_start_ti7_lvl2.vpcf", target, 1)
-						local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.12 * ability.w_3_level
+						local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ASTRAL_RANGER_ARCANA2_W_3_DAMAGE_PCT_ATK_POWER * ability.w_3_level
 						Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-						target:AddNewModifier(caster, ability, "modifier_apollo_c_b_proc_visible", {duration = 10})
-						local newStacks = target:GetModifierStackCount("modifier_apollo_c_b_proc_visible", caster) + 1
-						target:SetModifierStackCount("modifier_apollo_c_b_proc_visible", caster, newStacks)
-						target:AddNewModifier(caster, ability, "modifier_apollo_c_b_proc_invisible", {duration = 10})
-						target:SetModifierStackCount("modifier_apollo_c_b_proc_invisible", caster, newStacks * ability.w_3_level)
+						-- target:AddNewModifier(caster, ability, "modifier_apollo_c_b_proc_visible", {duration = 10})
+						-- local newStacks = target:GetModifierStackCount("modifier_apollo_c_b_proc_visible", caster) + 1
+						-- target:SetModifierStackCount("modifier_apollo_c_b_proc_visible", caster, newStacks)
+						-- target:AddNewModifier(caster, ability, "modifier_apollo_c_b_proc_invisible", {duration = 10})
+						-- target:SetModifierStackCount("modifier_apollo_c_b_proc_invisible", caster, newStacks * ability.w_3_level)
 						EmitSoundOn("Astral.ApolloProc", target)
 					end
 				end

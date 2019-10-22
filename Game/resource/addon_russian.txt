@@ -2642,7 +2642,7 @@
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"(Immortal) Glyph of Parallax Arrows"
-		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на <font color='#ccff66'>400000</font>."
+		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на <font color='#ccff66'>1500</font>."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"

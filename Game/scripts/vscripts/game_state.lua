@@ -1819,7 +1819,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * 0.8
 	end
 	if victim:HasModifier("modifier_astral_c_c_visible") then
-		damage = damage * 0.25
+		damage = damage * (1 - (ASTRAL_RANGER_E3_DAMAGE_REDUCTION/100))
 	end
 	if victim:HasModifier("modifier_ancient_rain") then
 		local ancientRain = victim:FindAbilityByName("spirit_warrior_ancient_rain")
@@ -2379,23 +2379,8 @@ function GameState:FilterDamage(filterTable)
 		local multIncrease = ASTRAL_RANGER_E1_POSTMIT_PCT/100 * stacks
 		mult = mult + multIncrease
 	end
-	if victim:HasModifier("crystal_arrow_ad_aura") then
-		local modifier = victim:FindModifierByName("crystal_arrow_ad_aura")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local abil = modifier:GetAbility()
-			mult = mult + abil.r_1_level * 0.05
-		end
-	end
 	if victim:HasModifier("modifier_rockfall_post_mit") then
 		mult = mult + 1.25
-	end
-	if victim:HasModifier("modifier_astral_d_b_visible") then
-		modifier = victim:FindModifierByName("modifier_astral_d_b_invisible")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.009 * stacks
-			mult = mult + multIncrease
-		end
 	end
 	if attacker:HasModifier("modifier_bahamut_arcana_post_mit") then
 		local bahamut = attacker:FindModifierByName("modifier_bahamut_arcana_post_mit"):GetCaster()
@@ -2527,14 +2512,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
 		local stacks = attacker:GetModifierStackCount("modifier_hydroxis_basin_d_d", attacker)
 		mult = mult + HYDROXIS_ARCANA_R4_POST_MITI_PCT/100 * stacks
-	end
-	if attacker:HasModifier("modifier_apollo_post_mit_invisible") then
-		if attacker:HasAbility("shot_of_apollo") then
-			if attacker:FindAbilityByName("shot_of_apollo").w_4_target == victim then
-				local stacks = attacker:GetModifierStackCount("modifier_apollo_post_mit_invisible", attacker)
-				mult = mult + 0.007 * stacks
-			end
-		end
 	end
 	if attacker:HasModifier("modifier_jex_root_weave_debuff") then
 		if attacker:FindModifierByName("modifier_jex_root_weave_debuff"):GetCaster():HasModifier("modifier_jex_glyph_5_1") then
@@ -3490,100 +3467,19 @@ function GameState:FilterDamage(filterTable)
 
 
 	if victim:HasModifier("modifier_steadfast") then
-		local threshold_abil = {
-			moon_shroud = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD,
-			astral_arcana_ability = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD
-		}
-		local thresholdMult = 1
-		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
-			thresholdMult = 10
-			mult = mult + thresholdMult - 1
-			divisor = divisor + thresholdMult - 1
-		end
-		if damageData.steadfastThresholdMult then
-			thresholdMult = thresholdMult + damageData.steadfastThresholdMult
-		end
-		if filterTable.entindex_inflictor_const then
-			for ability_name, thresh in pairs(threshold_abil) do
-				if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == ability_name then
-					thresholdMult = thresholdMult + thresh - 1
-				end
-			end
-		end
-		if attacker:GetName() == 'npc_dota_hero_juggernaut' and attacker:FindAbilityByName('seinaru_odachi_leap') then
-			if mult == 1 then
-				thresholdMult = thresholdMult + attacker:GetRuneValue("e", 3) * SEINARU_E3_THRESHOLD
-			elseif attacker:HasModifier('modifier_seinaru_glyph_4_1') then
-				thresholdMult = thresholdMult + attacker:GetRuneValue("e", 3) * SEINARU_E3_THRESHOLD / SEINARU_GLYPH4_THRESHOLD_RUNE_REDUCE
-			end
-		end
-		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * MOUNTAIN_PROTECTOR_ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
-		end
-		if attacker:HasModifier("modifier_slipfinn_passive") then
-			local e_4_level = attacker:GetRuneValue("e", 4)
-			local luck = RandomInt(1, 1000)
-			if luck < SLIPFINN_E4_STEADFAST_IGNORE_CHANCE * e_4_level then
-				thresholdMult = 10000
-			end
-		end
-		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			if not attacker.ignore_steadfast and not damageData.ignoreSteadfast then
-				filterTable["damage"] = CustomAbilities:Steadfast(filterTable["damage"], victim, thresholdMult)
-			end
-		end
+		local modifier = victim:FindModifierByName("modifier_steadfast")
+		local damage_reduce = modifier:GetAbility():GetSpecialValueFor("damage_reduce")/100
+		filterTable["damage"] = filterTable["damage"]*(1-damage_reduce)
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
-		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			if not attacker.ignore_steadfast and not damageData.ignoreSteadfast then
-				filterTable["damage"] = CustomAbilities:AncientSteadfast(filterTable["damage"], victim)
-			end
-		end
+		local modifier = victim:FindModifierByName("modifier_steadfast")
+		local damage_reduce = modifier:GetAbility():GetSpecialValueFor("damage_reduce")/100
+		filterTable["damage"] = filterTable["damage"]*(1-damage_reduce)
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
-		local threshold_abil = {
-			moon_shroud = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD,
-			astral_arcana_ability = ASTRAL_RANGER_Q2_STEADFAST_THRESHOLD
-		}
-		local thresholdMult = 1
-		if attacker:HasModifier("modifier_neutral_glyph_4_2") then
-			thresholdMult = 30
-			mult = mult + thresholdMult - 1
-			divisor = divisor + thresholdMult - 1
-		end
-
-		if damageData.megaSteadfastThresholdMult then
-			thresholdMult = thresholdMult + damageData.megaSteadfastThresholdMult
-		end
-		if filterTable.entindex_inflictor_const then
-			for ability_name, thresh in pairs(threshold_abil) do
-				if EntIndexToHScript(filterTable.entindex_inflictor_const):GetName() == ability_name then
-					thresholdMult = thresholdMult + thresh - 1
-				end
-			end
-		end
-		if attacker:GetName() == 'npc_dota_hero_juggernaut' and attacker:FindAbilityByName('seinaru_odachi_leap') then
-			if mult == 1 then
-				thresholdMult = thresholdMult + attacker:GetRuneValue("e", 3) * SEINARU_E3_THRESHOLD
-			elseif attacker:HasModifier('modifier_seinaru_glyph_4_1') then
-				thresholdMult = thresholdMult + attacker:GetRuneValue("e", 3) * SEINARU_E3_THRESHOLD / SEINARU_GLYPH4_THRESHOLD_RUNE_REDUCE
-			end
-		end
-		if attacker:HasModifier("modifier_rockfall_passive") then
-			thresholdMult = 1 + attacker:GetRuneValue("e", 4) * MOUNTAIN_PROTECTOR_ARCANA3_E4_THRESHOLD_INCREASE_PERCENT / 100
-		end
-		if attacker:HasModifier("modifier_slipfinn_passive") then
-			local e_4_level = attacker:GetRuneValue("e", 4)
-			local luck = RandomInt(1, 1000)
-			if luck < SLIPFINN_E4_STEADFAST_IGNORE_CHANCE * e_4_level then
-				thresholdMult = 10000
-			end
-		end
-		if not attacker:HasModifier("modifier_backstab_jumping") and applyEffects then
-			if not attacker.ignore_steadfast and not damageData.ignoreSteadfast then
-				filterTable["damage"] = CustomAbilities:MegaSteadfast(filterTable["damage"], victim, thresholdMult)
-			end
-		end
+		local modifier = victim:FindModifierByName("modifier_steadfast")
+		local damage_reduce = modifier:GetAbility():GetSpecialValueFor("damage_reduce")/100
+		filterTable["damage"] = filterTable["damage"]*(1-damage_reduce)
 	end
 	if attacker.ignore_steadfast then
 		attacker.ignore_steadfast = false

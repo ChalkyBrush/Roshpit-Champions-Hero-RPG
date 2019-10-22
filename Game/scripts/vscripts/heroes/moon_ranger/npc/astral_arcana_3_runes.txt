@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE %>"
 			}
 		}
 	}
@@ -31,12 +31,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA3_Q2_ATK_POWER_PCT %>"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% ASTRAL_RANGER_ARCANA3_Q2_ATK_DAMAGE_ADDED_TO_ARROW %>"
 			}
 		}
 	}

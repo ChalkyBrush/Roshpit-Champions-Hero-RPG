@@ -2957,7 +2957,7 @@
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% 闪避"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"箭头雕文"
-		"item_rpc_astral_glyph_5_a_description" 				"增加基础攻击伤害 <font color='#ccff66'>400000</font>。"
+		"item_rpc_astral_glyph_5_a_description" 				"增加基础攻击伤害 <font color='#ccff66'>1500</font>。"
 		
 		//Weapons
 		"astral_weapon_01"			"秘银符文弓"

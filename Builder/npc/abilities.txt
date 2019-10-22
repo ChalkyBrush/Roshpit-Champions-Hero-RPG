@@ -28690,7 +28690,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_damage"				"5 4 3"
+				"damage_reduce"				"20 35 50"
 			}
 		}
 		"Modifiers"
@@ -44470,8 +44470,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"max_damage"				"0.3 0.2 0.1"
+				"var_type"			"FIELD_INTEGER"
+				"damage_reduce"				"70 80 90"
 			}
 		}
 		"Modifiers"
@@ -51474,8 +51474,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"max_damage"				"2.0 1.0 0.5"
+				"var_type"			"FIELD_INTEGER"
+				"damage_reduce"				"35 50 65"
 			}
 		}
 		"Modifiers"

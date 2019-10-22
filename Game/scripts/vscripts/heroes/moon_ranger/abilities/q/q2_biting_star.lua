@@ -59,9 +59,11 @@ function attackLand(event)
                     ability = caster:FindAbilityByName("astral_arcana_ability")
                     ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_arcana_armor_loss", {duration = 6})
                     target:SetModifierStackCount("modifier_astral_b_a_arcana_armor_loss", ability, q_2_level)
+                    target:CalculateAndSaveRoshpitAttributes()
                 else
                     ability:ApplyDataDrivenModifier(caster, target, "modifier_astral_b_a_armor_loss", {duration = 6})
                     target:SetModifierStackCount("modifier_astral_b_a_armor_loss", ability, q_2_level)
+                    target:CalculateAndSaveRoshpitAttributes()
                 end
             end
         end)
