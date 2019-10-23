@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"<% WARLORD_Q1_HP_REGEN %>"
 			}
 
 		}
@@ -52,7 +52,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"9"
+				"property_one"			"<% WARLORD_Q2_ARMOR_INCR_PCT %>"
 			}
 		}
 
@@ -93,7 +93,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"<% - WARLORD_Q3_ARMOR_RED %>"
 			}
 		}
 
@@ -150,7 +150,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"900"
+				"property_one"			"<% WARLORD_Q4_ALL_ATTRIBUTES %>"
 			}
 		}
 		"Modifiers"
@@ -193,17 +193,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% WARLORD_W1_RADIUS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"240"
+				"property_one_base"		"<% WARLORD_W1_RADIUS_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"<% WARLORD_W1_STUN_DUR %>"
 			}
 		}
 	}
@@ -224,17 +224,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% WARLORD_W2_FREEZE_DUR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1.0"
+				"property_one_base"		"<% WARLORD_W2_FREEZE_DUR_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"7"
+				"property_two"			"<% WARLORD_W2_INCR_PHYS_AND_MAG_DMG_TAKEN_PCT %>"
 			}
 		}
 	}
@@ -255,12 +255,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% WARLORD_W3_RADIUS_INCR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"40"
+				"property_two"			"<% WARLORD_W3_DMG_BONUS_PER_BASEATT * 100 %>"
 			}
 		}
 	}
@@ -281,12 +281,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"<% WARLORD_W4_DMG_BONUS_PER_DMG * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"<% WARLORD_W4_DMG_BONUS_PER_BASEATT * 100 %>"
 			}
 		}
 	}
@@ -307,12 +307,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% WARLORD_E1_MAX_EARTH_CHARGES %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% WARLORD_E1_ARMOR_PER_EARTH_CHARGE %>"
 			}
 		}
 	}
@@ -333,12 +333,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"<% WARLORD_E2_INTERVAL_BASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"<% WARLORD_E2_W_BONUS_DMG_PCT %>"
 			}
 		}
 	}
@@ -360,32 +360,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15400"
+				"property_one"			"<% WARLORD_E3_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"10000"
+				"property_one_base"		"<% WARLORD_E3_DMG_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"<% WARLORD_E3_TARGETS %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"3"
+				"property_two_base"		"<% WARLORD_E3_TARGETS_BASE %>"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"base_ability"			"<% BASE_ABILITY_E %>"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"element_one"			"<% RPC_ELEMENT_FIRE %>"
 			}
 		}
 	}
@@ -406,7 +406,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"<% WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * 100 * 10 %>"
 			}
 		}
 	}
@@ -428,17 +428,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"<% WARLORD_R1_HEAL_PER_R_HEAL * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.03"
+				"property_two"			"<% WARLORD_R1_DMG_PER_BASE_ATT %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
+				"element_one"			"<% RPC_ELEMENT_EARTH %>"
 			}
 		}
 		"Modifiers"
@@ -478,7 +478,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-5"
+				"property_one"			"<% WARLORD_R2_POST_MIT_PCT %>"
 			}
 		}
 	}
@@ -499,7 +499,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.0"
+				"property_one"			"<% WARLORD_R3_ATT_DMG_BONUS_PER_FIRE_CHARGE_PCT %>"
 			}
 		}
 		"Modifiers"
@@ -512,7 +512,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% WARLORD_R3_ATT_DMG_BONUS_PER_FIRE_CHARGE_PCT %>"
 				}
 			}
 		}
@@ -534,7 +534,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"740"
+				"property_one"			"<% WARLORD_R4_ATT_DMG_BONUS_PER_CHARGE %>"
 			}
 		}
 		"Modifiers"
@@ -547,7 +547,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "740"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% WARLORD_R4_ATT_DMG_BONUS_PER_CHARGE %>"
 				}
 			}
 			"modifier_warlord_rune_r_4_visible"

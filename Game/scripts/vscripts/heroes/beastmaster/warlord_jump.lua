@@ -133,12 +133,12 @@ function rune_e_3(caster, ability)
 	if totalLevel > 0 then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		local projectileCount = 0
-		ability.e_3_damage = 10000 + totalLevel * 15400
+		ability.e_3_damage = WARLORD_E3_DMG_BASE + totalLevel * WARLORD_E3_DMG
 		caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
 		for _, enemy in pairs(enemies) do
 			projectileCount = projectileCount + 1
 			c_c_projectile(enemy, caster, ability)
-			if projectileCount > 3 + totalLevel then
+			if projectileCount > WARLORD_E3_TARGETS_BASE + totalLevel * WARLORD_E3_TARGETS then
 				break
 			end
 		end
@@ -303,15 +303,14 @@ function iceSprintThink(event)
 	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	local newPosition = position + caster:GetForwardVector() * forwardSpeed
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + caster:GetForwardVector() * 95), caster)
-	if ability.interval % 3 == 0 then
+	if ability.interval % (math.floor(WARLORD_E2_INTERVAL_BASE / 0.03)) == 0 then
 		local baseDamage = event.damage
-		baseDamage = baseDamage + 0.0007 * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) / 10 * ability.e_4_level * baseDamage
 		iceSprintBlast(caster, newPosition, event.radius, baseDamage, ability)
-	end
-	if ability.interval % 3 == 0 and ability.e_2_level > 0 then
-		caster:GiveMana(ability.e_2_level * 150)
-		PopupMana(caster, ability.e_2_level * 150)
-		CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
+		if ability.e_2_level > 0 then
+			caster:GiveMana(ability.e_2_level * WARLORD_E2_MANA_RESTORE)
+			PopupMana(caster, ability.e_2_level * WARLORD_E2_MANA_RESTORE)
+			CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
+		end
 	end
 	if not blockUnit then
 		caster:SetOrigin(newPosition)

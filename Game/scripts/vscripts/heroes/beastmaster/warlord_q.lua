@@ -51,7 +51,7 @@ function warlord_ice_shell(event)
 	if q_2_level > 0 then
 		local runeAbility = caster.runeUnit2:FindAbilityByName("warlord_rune_q_2")
 
-		local armorBonus = q_2_level * 0.09 * (Filters:GetBaseBaseArmor(caster))
+		local armorBonus = q_2_level * (WARLORD_Q2_ARMOR_INCR_PCT / 100) * (Filters:GetBaseBaseArmor(caster))
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_warlord_rune_q_2_visible", {duration = duration})
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_warlord_rune_q_2_invisible", {duration = duration})
 		caster:SetModifierStackCount("modifier_warlord_rune_q_2_invisible", caster.runeUnit2, armorBonus)
@@ -59,7 +59,7 @@ function warlord_ice_shell(event)
 
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "warlord")
 	if q_4_level > 0 then
-		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
+		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, WARLORD_Q4_DUR_BASE, false)
 		local runeAbility = caster.runeUnit4:FindAbilityByName("warlord_rune_q_4")
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_q_4_intelligence", {duration = d_a_duration})
 		caster:SetModifierStackCount("modifier_warlord_rune_q_4_intelligence", caster.runeUnit4, q_4_level)
@@ -68,7 +68,7 @@ end
 
 function warlord_flame_rush(event)
 	local caster = event.caster
-	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
+	local duration = WARLORD_Q3_DUR_BASE
 	Filters:CastSkillArguments(1, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)

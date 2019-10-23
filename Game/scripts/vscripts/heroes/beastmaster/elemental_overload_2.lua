@@ -51,13 +51,13 @@ function overload_start(event)
 			earthSound = "Warlord.Ulti.Earth2"
 		end
 		EmitSoundOn(earthSound, caster)
-		local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "warlord")
-		if a_d_level > 0 then
+		local r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "warlord")
+		if r_1_level > 0 then
 			local a_d_ability = caster.runeUnit:FindAbilityByName("warlord_rune_r_1")
 			local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 			a_d_ability:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_warlord_rune_r_1", {duration = a_d_duration})
-			a_d_ability.heal = healAmount * 0.015 * a_d_level
-			a_d_ability.r_1_level = a_d_level
+			a_d_ability.heal = healAmount * WARLORD_R1_HEAL_PER_R_HEAL * r_1_level
+			a_d_ability.r_1_level = r_1_level
 			a_d_ability.earthCharges = earthCharges
 		end
 	end
@@ -224,7 +224,7 @@ function warlord_a_d_think(event)
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	local aoeDamage = OverflowProtectedGetAverageTrueAttackDamage(target) * 0.03 * ability.earthCharges
+	local aoeDamage = OverflowProtectedGetAverageTrueAttackDamage(target) * WARLORD_R1_DMG_PER_BASE_ATT * ability.earthCharges
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		--print("WARLORD A_D")

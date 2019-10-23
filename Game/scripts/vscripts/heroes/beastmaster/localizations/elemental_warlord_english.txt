@@ -1,13 +1,13 @@
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell, and Flame Rush"
 
     	"DOTA_Tooltip_modifier_warlord_earth_charge"					"Earth Charge"
-    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Each earth charge increases earth damage by 6%%. Earth Charges are unleashed with Elemental Overload (R)"
+    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Each earth charge increases earth damage by <% WARLORD_EARTH_CHARGE_ELEMENT_BONUS_PCT %>%%. Earth Charges are unleashed with Elemental Overload (R)"
 
     	"DOTA_Tooltip_modifier_warlord_ice_charge"						"Ice Charge"
-    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Each ice charge increases ice damage by 6%%. Ice Charges are unleashed with Elemental Overload (R)"
+    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Each ice charge increases ice damage by <% WARLORD_ICE_CHARGE_ELEMENT_BONUS_PCT %>%%. Ice Charges are unleashed with Elemental Overload (R)"
 
     	"DOTA_Tooltip_modifier_warlord_fire_charge"						"Fire Charge"
-    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Each fire charge increases fire damage by 6%%. Fire Charges are unleashed with Elemental Overload (R)"
+    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Each fire charge increases fire damage by <% WARLORD_FIRE_CHARGE_ELEMENT_BONUS_PCT %>%%. Fire Charges are unleashed with Elemental Overload (R)"
 
     	"DOTA_Tooltip_ability_warlord_stone_form"						"Stone Form"
     	"DOTA_Tooltip_ability_warlord_stone_form_Description"			"Warlord's Skin turns into stone, repelling all negative magical effects."
@@ -66,7 +66,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"Increased armor"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] Wrath of Fire"
-    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target, 12 seconds duration."
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target, <% WARLORD_Q3_DUR_BASE %> seconds duration."
     	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"Armor Loss"
     	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" per stack"
 
@@ -77,7 +77,7 @@
     	"DOTA_Tooltip_ability_modifier_warlord_rune_q_3_visible_Description"	"Reduced armor"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_4"							"[Q4] Elemental Vitality"
-    	"DOTA_Tooltip_ability_warlord_rune_q_4_Description"				"Stone Form, Ice Shell, and Flame Rush increase stats for 20 seconds on cast. Earth increases Strength, Ice increases Intelligence, and Fire increases Agility."
+    	"DOTA_Tooltip_ability_warlord_rune_q_4_Description"				"Stone Form, Ice Shell, and Flame Rush increase stats for <% WARLORD_Q4_DUR_BASE %> seconds on cast. Earth increases Strength, Ice increases Intelligence, and Fire increases Agility."
     	"DOTA_Tooltip_ability_warlord_rune_q_4_property_one"			"Attribute Bonus"
     	"DOTA_Tooltip_ability_warlord_rune_q_4_suffix"					""
 
@@ -126,7 +126,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_w_1_suffix_two"				" seconds"
 		
 		"DOTA_Tooltip_ability_warlord_rune_w_2"							"[W2] Frozen Steel"
-    	"DOTA_Tooltip_ability_warlord_rune_w_2_Description"				"Enemies who are hit by a 2nd ice axe while still slowed from the 1st are completely frozen and stunned. Frozen enemies take increased physical and magical damage from all sources. Enemies gain freeze immunity for 4 seconds after thawing."
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_Description"				"Enemies who are hit by a 2nd ice axe while still slowed from the 1st are completely frozen and stunned. Frozen enemies take increased physical and magical damage from all sources. Enemies gain freeze immunity for <% WARLORD_W2_IMMUNITY_DUR %> seconds after thawing."
     	"DOTA_Tooltip_ability_warlord_rune_w_2_property_one"			"Freeze Duration"
     	"DOTA_Tooltip_ability_warlord_rune_w_2_suffix"					""
     	"DOTA_Tooltip_ability_warlord_rune_w_2_property_two"			"Frozen Physical and Magic Amp"
@@ -186,9 +186,9 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
 
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] Ice Floe"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Warlord restores mana every 0.1 seconds during Arctic Sprint. Axes thrown during Arctic Sprint have increased Base Damage."
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Warlord restores mana every <% WARLORD_E2_INTERVAL_BASE %> seconds during Arctic Sprint. Axes thrown during Arctic Sprint have increased Base Damage."
     	"DOTA_Tooltip_ability_warlord_rune_e_2_property_one"			"Mana Restore"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" every 0.1 seconds"
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" every <% WARLORD_E2_INTERVAL_BASE %> seconds"
         "DOTA_Tooltip_ability_warlord_rune_e_2_property_two"            "Additional Axe Throw Damage"
         "DOTA_Tooltip_ability_warlord_rune_e_2_suffix_two"               "% during Arctic Sprint"
 
