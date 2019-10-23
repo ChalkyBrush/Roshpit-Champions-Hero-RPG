@@ -53,7 +53,6 @@ CustomAttributes.DJANGHOR_R4_ARCANA_STATS = 200
 CustomAttributes.AXE_Q3_STATS = 14
 
 CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
-CustomAttributes.WARLORD_Q4_STATS = 900
 CustomAttributes.BAHAMUT_Q4_INT = 365
 CustomAttributes.BAHAMUT_R4_STATS = 7
 CustomAttributes.AURIUN_E2_INT = AURIUN_E2_INT_INCREASE
@@ -1047,13 +1046,13 @@ function CustomAttributes:SetAttributes(hero)
 	-- end
 	if heroName == "npc_dota_hero_beastmaster" then
 		if hero:HasModifier("modifier_warlord_rune_q_4_strength") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_strength", CustomAttributes.WARLORD_Q4_STATS)
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_strength", WARLORD_Q4_ALL_ATTRIBUTES)
 		end
 		if hero:HasModifier("modifier_warlord_rune_q_4_agility") then
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_agility", CustomAttributes.WARLORD_Q4_STATS)
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_agility", WARLORD_Q4_ALL_ATTRIBUTES)
 		end
 		if hero:HasModifier("modifier_warlord_rune_q_4_intelligence") then
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_intelligence", CustomAttributes.WARLORD_Q4_STATS)
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_intelligence", WARLORD_Q4_ALL_ATTRIBUTES)
 		end
 	end
 	if hero:HasModifier("modifier_voltex_immortal_weapon_1") then

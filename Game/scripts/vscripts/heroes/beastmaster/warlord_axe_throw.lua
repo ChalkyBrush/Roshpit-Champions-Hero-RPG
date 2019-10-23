@@ -252,8 +252,8 @@ function earthAxeStrike(event)
 	local pureDamage = 0
 	if ability.w_4_level > 0 then
 
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.2 * ability.w_4_level
-		pureDamage = damage * 0.025 * ability.w_4_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * WARLORD_W4_DMG_BONUS_PER_BASEATT * ability.w_4_level
+		pureDamage = damage * WARLORD_W4_DMG_BONUS_PER_DMG * ability.w_4_level
 	end
 
 	local stun_duration = event.stun_duration
@@ -282,8 +282,8 @@ function earthAxeStrike(event)
 	end)
 	local w_1_level = Runes:GetTotalRuneLevel(caster, 1, "w_1", "warlord")
 	if w_1_level > 0 then
-		local radius = w_1_level * 4 + 240
-		local stunDuration = w_1_level * 0.05
+		local radius = w_1_level * WARLORD_W1_RADIUS + WARLORD_W1_RADIUS_BASE
+		local stunDuration = w_1_level * WARLORD_W1_STUN_DUR
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -363,8 +363,8 @@ function iceAxeStrike(event)
 	local pureDamage = 0
 	if ability.w_4_level > 0 then
 
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.02 * ability.w_4_level
-		pureDamage = damage * 0.025 * ability.w_4_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * WARLORD_W4_DMG_BONUS_PER_BASEATT * ability.w_4_level
+		pureDamage = damage * WARLORD_W4_DMG_BONUS_PER_DMG * ability.w_4_level
 	end
 
 	local radius = event.radius
@@ -372,7 +372,7 @@ function iceAxeStrike(event)
 	local freezeDuration = 0
 	local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "warlord")
 	if w_2_level > 0 then
-		freezeDuration = 1 + 0.1 * w_2_level
+		freezeDuration = WARLORD_W2_FREEZE_DUR_BASE + WARLORD_W2_FREEZE_DUR * w_2_level
 	end
 	local stun_duration = event.stun_duration
 	local position = target:GetAbsOrigin()
@@ -426,13 +426,13 @@ function fireAxeStrike(event)
 	local position = target:GetAbsOrigin()
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "warlord")
 	if w_3_level > 0 then
-		radius = radius + w_3_level * 5
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.4 * w_3_level
+		radius = radius + w_3_level * WARLORD_W3_RADIUS_INCR
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * WARLORD_W3_DMG_BONUS_PER_BASEATT * w_3_level
 	end
 	if ability.w_4_level > 0 then
 
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.02 * ability.w_4_level
-		pureDamage = damage * 0.025 * ability.w_4_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * WARLORD_W4_DMG_BONUS_PER_BASEATT * ability.w_4_level
+		pureDamage = damage * WARLORD_W4_DMG_BONUS_PER_DMG * ability.w_4_level
 	end
 	EmitSoundOn("Hero_Invoker.SunStrike.Ignite", target)
 	local particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"

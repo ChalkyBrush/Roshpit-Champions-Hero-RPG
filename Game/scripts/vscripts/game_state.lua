@@ -2454,7 +2454,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_warlord_b_d_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			local multIncrease = 0.05 * stacks
+			local multIncrease = WARLORD_R2_POST_MIT_PCT / 100 * stacks
 			mult = mult + multIncrease
 		end
 	end
@@ -2816,7 +2816,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_ice_throw_b_b_frozen")
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PHYSICAL then
 			local stacks = modifier:GetStackCount()
-			filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * 0.07 * stacks
+			filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * WARLORD_W2_INCR_PHYS_AND_MAG_DMG_TAKEN_PCT / 100 * stacks
 		end
 	end
 	if attacker:HasModifier("modifier_golden_war_plate") then
