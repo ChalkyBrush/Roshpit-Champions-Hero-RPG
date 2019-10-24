@@ -111,6 +111,7 @@ function epoch_r_1(caster, target_location, duration, ability)
     caster:SetModifierStackCount("modifier_eternity_flood_r_1_visible", caster, r_1_level)
 
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternity_flood_r_1_invisible", {duration = a_d_duration})
+    
     --ability:ApplyDataDrivenModifier(caster, caster, "modifier_eternity_flood_r_1_invisible_str_and_agi", {duration = a_d_duration})
 
   end
@@ -146,7 +147,7 @@ function epoch_r_1_buff_think(event)
 
   local r_1_level = caster:GetModifierStackCount("modifier_eternity_flood_r_1_visible", caster)
 
-  local percent_damage_stacks = caster:GetMana() * r_1_level * EPOCH_R1_DMG_PCT / 1000
+  local percent_damage_stacks = caster:GetMana() * r_1_level * EPOCH_R1_DMG_PCT / EPOCH_R1_PER_MANA
   caster:SetModifierStackCount("modifier_eternity_flood_r_1_invisible", caster, percent_damage_stacks)
 
   --local missingManaStacks = ((caster:GetMaxMana()-caster:GetMana())/caster:GetMaxMana())*10

@@ -1544,10 +1544,6 @@
 				"TextureName"		"rubick/harlequin_icons/rubick_telekinesis_land"
 				"IsHidden"	"1"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
-				}
 			}
 			"modifier_eternity_flood_r_1_invisible_str_and_agi"
 			{

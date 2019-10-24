@@ -13,7 +13,7 @@ function epoch_attack_start(event)
 	elseif caster:HasAbility("epoch_arcana_ability") then
 		ability.q_3_damage = epoch_arcana_q_3_get_damage(caster, caster.runeUnit3, false)
 	end
-	if ability.q_3_damage then
+	if ability.q_3_damage and ability.q_3_damage > 0 then
 		projectileEffect = "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
 	end
 	caster:SetRangedProjectileName(projectileEffect)

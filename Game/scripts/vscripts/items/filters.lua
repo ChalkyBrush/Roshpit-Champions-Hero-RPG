@@ -2280,7 +2280,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local d_d_level = attacker:GetRuneValue("r", 4)
             if d_d_level > 0 then
                 ----print("OD HERE2 r4: "..r_4_level)
-                mult = mult + attacker:GetManaRegen() * d_d_level * EPOCH_R4_ELEM_TIME / 1000
+                mult = mult + attacker:GetManaRegen() * d_d_level * EPOCH_R4_ELEM_TIME / 100
             end
         end
         if victim:HasModifier("modifier_tempo_flux_invisible") then

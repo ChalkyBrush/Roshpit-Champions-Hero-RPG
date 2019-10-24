@@ -93,7 +93,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% - WARLORD_Q3_ARMOR_RED %>"
+				"property_one"			"<% WARLORD_Q3_ARMOR_RED %>"
 			}
 		}
 

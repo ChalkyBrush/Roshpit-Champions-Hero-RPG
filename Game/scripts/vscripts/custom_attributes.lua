@@ -745,7 +745,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_astral_rune_e_1_visible") then
 		local modifier = unit:FindModifierByName("modifier_astral_rune_e_1_invisible")
-		print("MAGIC ARMOR MODIFY?")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_E1_MAGIC_ARMOR_REDUCE
 	end
 	if unit:HasModifier("modifier_astral_c_c_visible") then
@@ -755,7 +754,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("crystal_arrow_ad_aura")
 		local caster = modifier:GetCaster()
 		local r_1_value = caster:GetRuneValue("r", 1)
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
+		magic_armor_modify = magic_armor_modify + r_1_value*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
+	end
+	if unit:HasModifier("modifier_epoch_rune_w_2_visible") then
+		local modifier = unit:FindModifierByName("modifier_epoch_rune_w_2_visible")
+		local caster = modifier:GetCaster()
+		local w_2_value = caster:GetRuneValue("w", 2)
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*w_2_value*EPOCH_W2_MAGIC_ARMOR_REDUCTION
 	end
 
 	if magic_armor_modify > 0 then

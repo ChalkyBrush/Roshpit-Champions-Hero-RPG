@@ -194,12 +194,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% EPOCH_W2_POST_MITI_PCT %>"
+				"property_one"			"<% EPOCH_W2_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -359,7 +354,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% EPOCH_E3_ATTACK_DAMAGE_PCT %>"
 				}
 			}
 		}

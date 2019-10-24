@@ -16197,7 +16197,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"15"
 			}
 		}
 
@@ -16333,7 +16333,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1.0"
+				"property_one_base"		"1"
 			}
 			"03"
 			{
@@ -16437,7 +16437,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -16582,7 +16582,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-5"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -16603,7 +16603,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.0"
+				"property_one"			"1"
 			}
 		}
 		"Modifiers"
@@ -51137,10 +51137,6 @@
 				"TextureName"		"rubick/harlequin_icons/rubick_telekinesis_land"
 				"IsHidden"	"1"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
-				}
 			}
 			"modifier_eternity_flood_r_1_invisible_str_and_agi"
 			{
@@ -51315,7 +51311,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"0.01"
 			}
 			"02"
 			{
@@ -51433,12 +51429,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_one"			"-5"
 			}
 		}
 	}
@@ -51598,7 +51589,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "80"
 				}
 			}
 		}
@@ -51617,7 +51608,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -51635,7 +51626,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.05"
 			}
 			"02"
 			{
@@ -51658,12 +51649,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"5"
 			}
 		}
 
@@ -51698,7 +51689,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -51726,7 +51717,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"0.01"
 			}
 		}
 	}

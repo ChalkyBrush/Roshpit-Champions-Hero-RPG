@@ -34,7 +34,7 @@
     	"DOTA_Tooltip_modifier_eon_channel_enemy_Description"					"Attack damage stolen"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_3"									"[Q3] Aeon Strike"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"Attacking drains 1% of Epoch Guardian's maximum mana to deal an additional instance of damage on impact based on the amount of mana drained."
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"Attacking drains <% EPOCH_Q3_BASE_MANA_DRAIN_PCT %>% of Epoch Guardian's maximum mana to deal an additional instance of damage on impact based on the amount of mana drained."
     	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"						"Damage"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"							"x Mana Drained"
 
@@ -59,14 +59,12 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% of maximum mana"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Enemies hit by @Ability2 have their Armor reduced for 6 seconds, to a minimum of -1000 Armor. For each point of Armor below 0, the target takes increased post-mitigation Magical and Pure damage from Epoch Guardian."
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Armor Reduction"
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Enemies hit by @Ability2 have their Magic Armor reduced for <% EPOCH_W2_DURATION %> seconds. Stacks up to <% EPOCH_W2_MAX_STACKS %> times."
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Magic Armor Reduction"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix"					""
-     	"DOTA_Tooltip_ability_epoch_rune_w_2_property_two"				"Additional Magic and Pure Damage"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix_two"				"% for every 10 armor below 0"
 
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible"					"Origination"
-    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Reduced Armor. For each point of armor below 0, take increased magic and pure damage from Epoch Guardian."
+    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Reduced Magic Armor."
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"Each cast of @Ability2 increases Intelligence, to a maximum of 10 stacks. Attacking consumes a stack and restores health."
@@ -109,7 +107,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Time's Eye"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"After teleporting to @Ability3, gain multiple attack projectiles and 100% bonus attack damage for 6 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"After teleporting to @Ability3, gain multiple attack projectiles and <% EPOCH_E3_ATTACK_DAMAGE_PCT %>% bonus attack damage for 6 seconds."
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Max Targets"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
 
@@ -133,9 +131,9 @@
 		"DOTA_Tooltip_modifier_eternity_flood_locked_description" 				"Frozen in time."
 
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tempo"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Casting @Ability4 increases attack damage based on your current mana. This buff's base duration is 10 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"Casting @Ability4 applies a buff that increases attack damage by a % based on your current mana. This buff's base duration is 10 seconds."
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"Damage Increase %"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" for every 1000 mana"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" for every <% EPOCH_R1_PER_MANA %> mana"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"Additional buff duration"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" seconds"
 
@@ -164,7 +162,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Tides of Time"
     	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Epoch Guardian's current mana regen stat increases all <font color=\"#B5FFB7\">Temporal</font> damage dealt."
     	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Temporal Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"% for each 10 Mana regen"	
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"% for each Mana regen"	
 
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"Tides of Time"
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible_Description"		"Gaining Attack Damage"

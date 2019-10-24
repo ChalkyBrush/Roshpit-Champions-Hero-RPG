@@ -2362,17 +2362,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
 		mult = mult + MUGATO_POST_MITI_PCT/100
 	end
-	if victim:HasModifier("modifier_epoch_rune_w_2_visible") then
-		if victim:GetPhysicalArmorValue(false) < 0 then
-			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-				modifier = victim:FindModifierByName("modifier_epoch_rune_w_2_visible")
-				if attacker:GetRuneValue("w", 2) > 0 then
-					local multIncrease = attacker:GetRuneValue("w", 2) * EPOCH_W2_POST_MITI_PCT * math.abs(victim:GetPhysicalArmorValue(false)) / 10
-					mult = mult + multIncrease / 100
-				end
-			end
-		end
-	end
 	if victim:HasModifier("modifier_rockfall_post_mit") then
 		mult = mult + 1.25
 	end
