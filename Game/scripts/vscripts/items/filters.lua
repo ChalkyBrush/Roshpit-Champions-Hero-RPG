@@ -2070,7 +2070,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 fireMult = fireMult + stacks * 0.06
             end
             if attacker.e_4_level then
-                fireMult = fireMult + 0.0005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
+                fireMult = fireMult + WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
@@ -2161,7 +2161,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks * 0.06
             end
             if attacker.e_4_level then
-                mult = mult + 0.0005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
+                mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level then
@@ -2443,7 +2443,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + stacks * 0.06
             end
             if attacker.e_4_level then
-                mult = mult + 0.0005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
+                mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_hailstorm") then

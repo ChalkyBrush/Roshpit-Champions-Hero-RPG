@@ -337,16 +337,16 @@ function elemental_axe_attack_land(event)
 		maxCharges = maxCharges + additionalMaxCharges
 	end
 	if element == "earth" then
-		local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "warlord")
-		if a_c_level > 0 then
-			maxCharges = maxCharges + a_c_level
+		local e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "warlord")
+		if e_1_level > 0 then
+			maxCharges = maxCharges + e_1_level * WARLORD_E1_MAX_EARTH_CHARGES
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_earth_charge", {})
 		local newStacks = math.min(caster:GetModifierStackCount("modifier_warlord_earth_charge", caster) + charges, maxCharges)
 		caster:SetModifierStackCount("modifier_warlord_earth_charge", caster, newStacks)
-		if a_c_level > 0 then
+		if e_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_e_1_effect", {})
-			caster:SetModifierStackCount("modifier_warlord_rune_e_1_effect", caster, newStacks * a_c_level * 5)
+			caster:SetModifierStackCount("modifier_warlord_rune_e_1_effect", caster, newStacks * e_1_level * WARLORD_E1_ARMOR_PER_EARTH_CHARGE)
 		end
 	elseif element == "ice" then
 
