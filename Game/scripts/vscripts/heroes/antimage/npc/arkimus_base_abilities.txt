@@ -143,7 +143,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-35"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% ARKIMUS_Q1_ARMOR_REDUCTION %>"
 				}
 			}
 			"modifier_zonis_c_a_magic_resist"
@@ -156,7 +156,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-1.2"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% ARKIMUS_Q3_MAGIC_RESIST_REDUCTION %>"
 				}
 			}
 		}
@@ -523,7 +523,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "1.2"
+				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "<% ARKIMUS_E4_EVASION %>"
 				}
 			}
 		}
@@ -700,7 +700,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ARKIMUS_R1_BONUS_DMG %>"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "3"
+				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% ARKIMUS_R1_MANA_REGEN %>"
 				}
 			}
 			"modifier_energy_field_c_d_shield"

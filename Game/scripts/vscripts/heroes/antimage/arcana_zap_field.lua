@@ -59,7 +59,7 @@ function zap_field_modifier_thinker(event)
 	if ability.interval == 6 then
 		ability.interval = 0
 		local damage = event.damage + event.int_damage * caster:GetIntellect()
-		local searchRadius = 500
+		local searchRadius = ARKIMUS_ARCANA_Q_AOE
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.ZonisLightning", caster)
@@ -71,8 +71,8 @@ function zap_field_modifier_thinker(event)
 						ability.particleCount = ability.particleCount - 1
 					end)
 				end
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun_arcana1", {duration = 0.2})
-				Filters:ApplyStun(caster, 0.2, enemy)
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun_arcana1", {duration = ARKIMUS_ARCANA_Q_STUN})
+				Filters:ApplyStun(caster, ARKIMUS_ARCANA_Q_STUN, enemy)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
 			end
 		end

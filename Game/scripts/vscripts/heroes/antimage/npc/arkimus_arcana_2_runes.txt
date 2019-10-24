@@ -46,7 +46,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_ARCANA2_R2_BASE_DMG %>"
+				"property_two"			"<% ARKIMUS_ARCANA_R_R2_BASE_DMG_PER_MANA_PCT %>"
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_ARCANA2_R3_ELEMENTS_PCT * 100%>"
+				"property_one"			"<% ARKIMUS_ARCANA_R_R3_ELEMENTS_PCT * 100%>"
 			}
 		}
 	}

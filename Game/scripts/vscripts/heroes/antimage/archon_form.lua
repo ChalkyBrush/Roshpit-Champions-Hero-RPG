@@ -40,7 +40,7 @@ function channel_complete(event)
 	ability.r_2_level = caster:GetRuneValue("r", 2)
 	if ability.r_2_level > 0 then
 		local stats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
-		local manaRegen = stats * 0.01 * ability.r_2_level
+		local manaRegen = stats * ARKIMUS_ARCANA_R_R2_MANA_REGEN_PER_ATTRIBUTE_PCT/100 * ability.r_2_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archone_b_d_mana_regen", {duration = duration})
 		caster:SetModifierStackCount("modifier_archone_b_d_mana_regen", caster, manaRegen)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archone_b_d_attack_power", {duration = duration})
@@ -55,7 +55,7 @@ function archon_form_thinking(event)
 	local caster = event.caster
 	local ability = event.ability
 	if ability.r_2_level > 0 then
-		local atkPower = ARKIMUS_ARCANA2_R2_BASE_DMG/100 * caster:GetMana() * ability.r_2_level
+		local atkPower = ARKIMUS_ARCANA_R_R2_BASE_DMG_PER_MANA_PCT/100 * caster:GetMana() * ability.r_2_level
 		caster:SetModifierStackCount("modifier_archone_b_d_attack_power", caster, atkPower)
 	end
 end
@@ -89,7 +89,7 @@ function archon_attack_land(event)
 	end
 
 	if ability.r_1_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archon_a_d_field_thinker", {duration = 3})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archon_a_d_field_thinker", {duration = ARKIMUS_ARCANA_R_R1_DURATION})
 		if WallPhysics:GetDistance2d(ability.aoePosition, target:GetAbsOrigin()) > 80 then
 			if ability.pfx then
 				ParticleManager:DestroyParticle(ability.pfx, false)
@@ -97,7 +97,7 @@ function archon_attack_land(event)
 			end
 			ability.pfx = ParticleManager:CreateParticle("particles/roshpit/arkimus/archon_flare_ambient.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(ability.pfx, 0, target:GetAbsOrigin())
-			ParticleManager:SetParticleControl(ability.pfx, 1, Vector(220, 220, 220))
+			ParticleManager:SetParticleControl(ability.pfx, 1, Vector(ARKIMUS_ARCANA_R_R1_AOE, ARKIMUS_ARCANA_R_R1_AOE, ARKIMUS_ARCANA_R_R1_AOE))
 			ability.aoePosition = GetGroundPosition(target:GetAbsOrigin(), target)
 			EmitSoundOnLocationWithCaster(ability.aoePosition, "Arkimus.ArchonFlare.Start", caster)
 			EmitSoundOn("Arkimus.ArchonFlare.Go", target)
@@ -126,8 +126,8 @@ function a_d_field_thinker_think(event)
 		local flarePos = ability.aoePosition + RandomVector(RandomInt(0, 160))
 		CustomAbilities:QuickParticleAtPoint("particles/roshpit/arkimus/archon_flare_ambient_hit.vpcf", flarePos, 1)
 	end
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.03 * ability.r_1_level
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), ability.aoePosition, nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ARKIMUS_ARCANA_R_R1_DMG_OF_ATTACK_POWER_PCT/100 * ability.r_1_level
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), ability.aoePosition, nil, ARKIMUS_ARCANA_R_R1_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	for k, v in pairs(enemies) do
 		if v.dummy then table.remove(enemies, k) end
 	end
@@ -175,7 +175,7 @@ function archon_form_attack_start(event)
 		if target.dummy then
 		else
 			local luck = RandomInt(1, 1000)
-			if luck <= ability.r_4_level * 5 then
+			if luck <= ability.r_4_level * ARKIMUS_ARCANA_R_R4_CHANCE_DIV_1000 then
 				Filters:PerformAttackSpecial(caster, target, true, true, true, false, true, false, false)
 			end
 		end
