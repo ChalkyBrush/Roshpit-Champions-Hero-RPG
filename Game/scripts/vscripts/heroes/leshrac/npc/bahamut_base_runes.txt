@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_Q1_MANA_PER_TICK * BAHAMUT_Q1_SELF_TICK_INTERVAL %>"
+				"property_one"			"<% BAHAMUT_Q1_MANA_PER_TICK / BAHAMUT_Q1_SELF_TICK_INTERVAL %>"
 			}
 			"02"
 			{
