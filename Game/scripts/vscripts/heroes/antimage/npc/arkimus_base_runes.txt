@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"<% ARKIMUS_Q1_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -74,7 +74,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-1.2"
+				"property_one"			"-<% ARKIMUS_Q3_MAGIC_RESIST_REDUCTION %>"
 			}
 		}
 	}
@@ -97,7 +97,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.15"
+				"property_two"			"<% ARKIMUS_Q4_COIL_ADD_DURATION %>"
 			}
 		}
 	}
@@ -115,7 +115,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"<% ARKIMUS_W1_ARCANE_DMG_TO_ATTACK_DAMAGE_PCT %>"
 			}
 			"02"
 			{
@@ -138,7 +138,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% ARKIMUS_W2_ARCANE_BONUS_PER_STACK_PCT %>"
 			}
 		}
 	}
@@ -193,17 +193,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"<% ARKIMUS_E1_DMG_OF_ATTACK_POWER_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"<% ARKIMUS_E1_RADIUS %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"300"
+				"property_two_base"		"<% ARKIMUS_E1_RADIUS_BASE %>"
 			}
 			"04"
 			{
@@ -237,7 +237,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% ARKIMUS_E2_HEAL_PER_MANA_GAIN %>"
 			}
 		}
 	}
@@ -278,7 +278,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.2"
+				"property_two"			"<% ARKIMUS_E4_EVASION %>"
 			}
 		}
 	}
@@ -319,7 +319,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"<% ARKIMUS_R2_ATTACK_POWER_TO_R_PCT %>"
 			}
 		}
 	}
@@ -357,7 +357,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"<% ARKIMUS_R4_ARCANE_AMP_PER_AGI %>"
 			}
 		}
 	}

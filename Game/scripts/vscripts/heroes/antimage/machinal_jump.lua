@@ -91,15 +91,15 @@ function jump_end(event)
 		WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	end)
 	if ability.e_1_level > 0 then
-		local searchRadius = 300 + ability.e_1_level * 2
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.3 * ability.e_1_level
+		local searchRadius = ARKIMUS_E1_RADIUS_BASE + ability.e_1_level * ARKIMUS_E1_RADIUS
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ARKIMUS_E1_DMG_OF_ATTACK_POWER_PCT/100 * ability.e_1_level
 
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				CreateZonisBeam(caster:GetAbsOrigin(), enemy:GetAbsOrigin() + Vector(0, 0, 50))
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
-				Filters:ApplyStun(caster, 0.2, enemy)
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = ARKIMUS_E1_STUN})
+				Filters:ApplyStun(caster, ARKIMUS_E1_STUN, enemy)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
 			end
 		else
@@ -111,7 +111,7 @@ function jump_end(event)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.JumpLightning", caster)
 	end
 	if ability.e_3_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
+		local duration = Filters:GetAdjustedBuffDuration(caster, ARKIMUS_E3_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump_c_c_amp", {duration = duration})
 		caster:SetModifierStackCount("modifier_machinal_jump_c_c_amp", caster, ability.e_3_level)
 	end
@@ -132,7 +132,7 @@ function jump_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local stackCount = caster:GetModifierStackCount("modifier_machinal_jump_freecast", caster)
-	local maxStacks = 2
+	local maxStacks = ARKIMUS_E_FREE_CASTS
 	if caster:HasModifier("modifier_arkimus_glyph_4_1") then
 		maxStacks = maxStacks + ARKIMUS_GLYPH_4_1_E_FREE_CAST
 	end
@@ -161,7 +161,7 @@ function jump_passive_think_2(event)
 		local manaDifferential = caster:GetMana() - ability.lastMana
 		if manaDifferential > 0 then
 
-			local heal = manaDifferential * e_2_level
+			local heal = manaDifferential * e_2_level * ARKIMUS_E2_HEAL_PER_MANA_GAIN
 			--print("HEAL: "..heal)
 			Filters:ApplyHeal(caster, caster, heal, true, false)
 		end

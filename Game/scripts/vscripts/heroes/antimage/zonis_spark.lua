@@ -35,7 +35,7 @@ function spark_start(event)
 	ability.q_2_level = caster:GetRuneValue("q", 2)
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	ability.q_4_level = caster:GetRuneValue("q", 4)
-	local duration = 7 + ability.q_4_level * 0.15
+	local duration = ARKIMUS_Q_COIL_BASE_DURATION + ability.q_4_level * ARKIMUS_Q4_COIL_ADD_DURATION
 	local loops = math.floor(duration * 10)
 	Timers:CreateTimer(0.1, function()
 		CustomAbilities:QuickAttachParticle("particles/roshpit/arkimus/zonis_end.vpcf", caster, 3)
@@ -79,17 +79,17 @@ end
 function zonis_damage(enemy, caster, damage, ability)
 	damage = damage + damage * ARKIMUS_Q4_ADD_DMG_PCT * ability.q_4_level
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
-	Filters:ApplyStun(caster, 0.2, enemy)
+	Filters:ApplyStun(caster, ARKIMUS_Q_STUN, enemy)
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
 	if ability.q_1_level > 0 then
 		if enemy.dummy then
 		else
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_a_a_armor_loss", {duration = 8})
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_a_a_armor_loss", {duration = ARKIMUS_Q1_DURATION})
 			enemy:SetModifierStackCount("modifier_zonis_a_a_armor_loss", caster, ability.q_1_level)
 		end
 	end
 	if ability.q_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_c_a_magic_resist", {duration = 8})
+		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_c_a_magic_resist", {duration = ARKIMUS_Q3_DURATION})
 		enemy:SetModifierStackCount("modifier_zonis_c_a_magic_resist", caster, ability.q_3_level)
 	end
 end
@@ -144,7 +144,7 @@ function zonis_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local stackCount = caster:GetModifierStackCount("modifier_zonis_freecast", caster)
-	local maxStacks = 2
+	local maxStacks = ARKIMUS_Q_FREE_CASTS
 	if caster:HasModifier("modifier_arkimus_glyph_6_1") then
 		maxStacks = maxStacks + ARKIMUS_GLYPH_6_1_Q_FREE_CAST
 	end

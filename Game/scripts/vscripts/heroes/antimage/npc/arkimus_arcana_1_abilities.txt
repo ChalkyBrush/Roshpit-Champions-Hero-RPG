@@ -36,7 +36,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"16"
+				"duration"			"<% ARKIMUS_ARCANA_Q_DURATION %>"
 			}
 			"02"
 			{
