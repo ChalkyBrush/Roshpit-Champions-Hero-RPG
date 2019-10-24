@@ -71,7 +71,7 @@ function rune_q_2_clap_start(event)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf", caster, 3)
 	local damage = caster:GetHealth() * CONJUROR_Q2_CLAP_DAMAGE_OF_ASPECT_HP_PCT/100 * event.rune_q_2_level
 	local point = caster:GetAbsOrigin()
-	local radius = 380
+	local radius = CONJUROR_Q2_RADIUS
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for i = 1, #enemies, 1 do
@@ -83,8 +83,8 @@ function rune_q_2_clap_start(event)
 end
 
 function earth_aspect_take_damage(event)
-	local luck = RandomInt(1, 20)
-	if luck <= 3 then
+	local luck = RandomInt(1, 100)
+	if luck <= CONJUROR_Q2_CHANCE then
 		local caster = event.caster
 		local ability = event.ability
 		local target = event.target

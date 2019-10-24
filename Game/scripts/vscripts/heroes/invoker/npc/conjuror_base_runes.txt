@@ -86,7 +86,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"360"
+				"radius"					"<% CONJUROR_Q2_RADIUS %>"
 			}
 			"02"
 			{
