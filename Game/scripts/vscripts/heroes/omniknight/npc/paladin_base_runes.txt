@@ -163,7 +163,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% PALADIN_Q4_HOLY_PCT_PER_ATTR * 100 * 10 %>"
+				"property_two"			"<% PALADIN_Q4_HOLY_AMP * 100%>"
 			}
 		}
 	}
@@ -248,7 +248,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% PALADIN_W3_DMG_PER_INT %>"
 			}
 			"02"
@@ -382,7 +382,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% PALADIN_E2_DMG_PER_ATT * 100 %>"
 			}
 			"02"
@@ -480,7 +480,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% PALADIN_E4_POSTMIT * 100 %>"
+				"property_one"			"<% PALADIN_E4_MAGIC_ARMOR %>"
 			}
 		}
 	}

@@ -2294,7 +2294,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_omniknight" then
             if attacker:HasAbility("heroic_fury") then
                 local q_4_level = attacker:GetRuneValue("q", 4)
-                mult = mult + 0.0004 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level
+                mult = mult + PALADIN_Q4_HOLY_AMP*q_4_level
+            end
+            if attacker:HasAbility("paladin_crusader_comet") then
+                local e_4_level = attacker:GetRuneValue("e", 4)
+                mult = mult + e_4_level*PALADIN_ARCANA2_E4_HOLY_AMP_PER_SPIRIT*attacker:GetSpirit()
             end
         elseif unitName == "npc_dota_hero_leshrac" then
             if attacker.e_4_level then

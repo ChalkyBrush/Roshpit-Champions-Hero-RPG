@@ -40,7 +40,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"210 580 1500 3000 6500 9000 15000"
+		"AbilityManaCost"				"60 110 160 210 260 310 360"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -69,7 +69,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"740 2100 7000 35000 70000 150000 400000"
+				"damage"			"120 320 520 720 920 1120 1320"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -543,9 +543,23 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"rpc/paladin_r_1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% PALADIN_R1_ARMOR %>"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -555,7 +569,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"heal_per_tick_percent"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+				"heal_per_tick_percent"			"0.6 0.7 0.8 0.9 1.0 1.1"
 			}
 			"02"
 			{
@@ -636,7 +650,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"280 1200 1900 3000 5000 10000 24000"
+				"damage"					"35 65 95 125 155 185 215"
 			}
 			"03"
 			{
@@ -646,7 +660,7 @@
 			"04"
 			{
 				"var_type" 				"FIELD_FLOAT"
-				"heal_percent" 			"3.0 4.0 5.0 6.0 7.0 8.0 9.0"
+				"heal_percent" 			"3.0 3.5 4.0 4.5 5.0 5.5 6.0"
 			}
 			"05"
 			{
@@ -656,7 +670,7 @@
 			"06"
 			{
 				"var_type" 				"FIELD_INTEGER"
-				"attack_damage_bonus"	"50 75 100 125 150 175 200"
+				"attack_damage_bonus"	"12 15 18 21 24 27 30"
 			}
 			"07"
 			{
@@ -1081,8 +1095,6 @@
 			"modifier_paladin_d_c"
 			{
 				"TextureName"	"rpc/paladin_e_4"
-				"IsDebuff"		"1"
-				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"EffectName"	"particles/roshpit/paladin/paladin_d_c_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -1214,7 +1226,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"heal_per_tick_percent"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+				"heal_per_tick_percent"			"0.6 0.7 0.8 0.9 1.0 1.1 1.2"
 			}
 			"02"
 			{
@@ -1278,8 +1290,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.4"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% PALADIN_R2_ATT_PCT_PER_STACK %>"
 				}
 			}
 			"modifier_paladin_rune_r_2_hidden_block"

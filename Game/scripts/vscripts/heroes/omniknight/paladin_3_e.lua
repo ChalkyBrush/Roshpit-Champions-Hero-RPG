@@ -42,6 +42,7 @@ function paladin_e_dash_start(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)
 
 	end
+	paladin_rune_e_4(caster, ability)
 end
 
 function paladin_e_dash_think(event)
@@ -163,15 +164,15 @@ function paladin_rune_e_3_falcon_hit(event)
 	Timers:CreateTimer(1.0, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	paladin_rune_e_4(caster, ability, target)
+
 end
 
-function paladin_rune_e_4(caster, ability, target)
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "paladin")
-	if d_c_level > 0 then
-		local d_c_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_d_c", {duration = d_c_duration})
-		target:SetModifierStackCount("modifier_paladin_d_c", caster, d_c_level)
+function paladin_rune_e_4(caster, ability)
+	local e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "paladin")
+	if e_4_level > 0 then
+		local e_4_duration = Filters:GetAdjustedBuffDuration(caster, PALADIN_E4_DURATION, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_d_c", {duration = e_4_duration})
+		caster:SetModifierStackCount("modifier_paladin_d_c", caster, e_4_level)
 	end
 end
 

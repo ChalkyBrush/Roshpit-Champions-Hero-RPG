@@ -11,7 +11,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% PALADIN_ARCANA_W1_ATT_PCT %>"
 			}
 		}
@@ -68,7 +68,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% PALADIN_ARCANA_W3_ADD_DMG_PER_ARMOR %>"
 			}
 		}

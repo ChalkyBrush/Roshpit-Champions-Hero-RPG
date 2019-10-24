@@ -603,6 +603,19 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local r_1_value = caster:GetRuneValue("r", 1)
 		armor_modify = armor_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA3_ARMOR_AND_SPELL_PIERCE_REDUCE
 	end
+	if unit:HasModifier("modifier_paladin_r_1_aura_armor_stacks") then
+		local modifier = unit:FindModifierByName("modifier_paladin_r_1_aura_armor_stacks")
+		armor_modify = armor_modify + modifier:GetStackCount()*PALADIN_R1_ARMOR
+	end
+	if unit:HasModifier("modifier_paladin_rune_r_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_paladin_rune_r_2_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*PALADIN_R2_ARMOR_PER_STACK
+	end
+	if unit:HasModifier("modifier_paladin_c_b_armor") then
+		local modifier = unit:FindModifierByName("modifier_paladin_c_b_armor")
+		armor_modify = armor_modify + modifier:GetStackCount()*PALADIN_ARCANA_W3_ARMOR
+	end
+
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -762,6 +775,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local w_2_value = caster:GetRuneValue("w", 2)
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*w_2_value*EPOCH_W2_MAGIC_ARMOR_REDUCTION
 	end
+	if unit:HasModifier("modifier_paladin_d_c") then
+		local modifier = unit:FindModifierByName("modifier_paladin_d_c")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*PALADIN_E4_MAGIC_ARMOR
+	end
+
+
 
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
@@ -777,8 +796,23 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	magic_armor = magic_armor + magic_armor_modify
 	magic_armor = math.max(magic_armor, 0)
+
+	if unit:HasModifier("modifier_paladin_glyph_6_2") then
+		magic_armor = magic_armor*(1+(PALADIN_GLYPH_6_2_MAGIC_ARMOR_PCT/100))
+	end
+
 	unit:SetRoshpitMagicArmor(magic_armor)
 	return magic_armor
+end
+
+function CDOTA_BaseNPC:GetPhysicalArmorValue(bIncludeBonus)
+	local unit = self
+	return unit:GetRoshpitArmor()
+end
+
+function CDOTA_BaseNPC:GetPhysicalArmorBaseValue()
+	local unit = self
+	return unit.roshpit_attributes.roshpit_armor
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
@@ -848,6 +882,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:GetUnitName() == "npc_dota_hero_obsidian_destroyer" and unit:HasAbility("epoch_arcana_ability") then
 		local q_2_level = unit:GetRuneValue("q", 2)
 		spell_pierce_modify = spell_pierce_modify + q_2_level*EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE
+	end
+	if unit:GetUnitName() == "npc_dota_hero_omniknight" and unit:HasAbility("paladin_crusader_comet") then
+		local e_4_level = unit:GetRuneValue("e", 4)
+		spell_pierce_modify = spell_pierce_modify + e_4_level*PALADIN_ARCANA2_E4_SPELL_PIERCE_PER_SPIRIT*unit:GetSpirit()
 	end
 
 

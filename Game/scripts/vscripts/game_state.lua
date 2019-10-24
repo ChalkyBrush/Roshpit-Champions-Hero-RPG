@@ -1816,7 +1816,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_knights_disciple_heal") then
-		damage = damage * 0.8
+		damage = damage * (1 - PALADIN_BASE_Q_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL)
 	end
 	if victim:HasModifier("modifier_astral_c_c_visible") then
 		damage = damage * (1 - (ASTRAL_RANGER_E3_DAMAGE_REDUCTION/100))
@@ -1961,7 +1961,7 @@ function GameState:FilterDamage(filterTable)
 			armor = 0
 		end
 		if attacker:GetUnitName() == "paladin_disciple" then
-			Filters:TakeArgumentsAndApplyDamage(victim, attacker.paladin, Filters:OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin) * 10, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(victim, attacker.paladin, Filters:OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin) * PALADIN_GLYPH_5_2_ATTACK_MULT, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			return false
 		end
 		if attacker:GetUnitName() == "ekkan_skeleton_archer" then
@@ -2467,10 +2467,6 @@ function GameState:FilterDamage(filterTable)
 		local w_2_level = attacker:GetRuneValue("w", 2)
 		mult = mult + MOUNTAIN_PROTECTOR_W2_POSTMIT_PCT / 100 * w_2_level
 	end
-	if attacker:HasModifier("modifier_paladin_glyph_6_2") then
-		local immortalOrArcanaCount = RPCItems:GetEquippedItemsBelowRarity(attacker, 5)
-		mult = mult + immortalOrArcanaCount * PALADIN_GLYPH_6_2_POST_MITI_PER_GEAR_PIECE_PCT/100
-	end
 	if attacker:HasModifier("modfier_razor_band_stacks") then
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
 		local stacks = modifier:GetStackCount()
@@ -2663,13 +2659,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = Filters:AuriunImmortalWeapon1(filterTable["damage"], victim)
 	end
 
-	if victim:HasModifier("modifier_paladin_d_c") then
-		modifier = victim:FindModifierByName("modifier_paladin_d_c")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			mult = mult + 0.25 * stacks
-		end
-	end
 	if victim:HasModifier("modifier_lightbomb_postmit") then
 		modifier = victim:FindModifierByName("modifier_lightbomb_postmit")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -2697,10 +2686,6 @@ function GameState:FilterDamage(filterTable)
 			local stacks = modifier:GetStackCount()
 			mult = mult + SLIPFINN_W2_POST_MITI/100 * stacks
 		end
-	end
-	if attacker:HasModifier("modifier_paladin_d_c_postmit") then
-		local stacks = attacker:GetModifierStackCount("modifier_paladin_d_c_postmit", attacker)
-		mult = mult + 0.01 * stacks
 	end
 	if victim:HasModifier("modifier_tachyon_amp") then
 		modifier = victim:FindModifierByName("modifier_tachyon_amp")
@@ -3846,8 +3831,8 @@ function GameState:FilterDamage(filterTable)
 				if not victim:HasModifier("modifier_paladin_heal_on_lethal_cooldown") then
 					local arcanaAbility = victim:FindAbilityByName("paladin_crusader_comet")
 					arcanaAbility:ApplyDataDrivenModifier(victim, victim, "modifier_paladin_heal_on_lethal_cooldown", {duration = 5})
-					local healAmount = e_1_level * 5000
-					local manaRestore = e_1_level * 1000
+					local healAmount = e_1_level * PALADIN_ARCANA_E1_HEAL
+					local manaRestore = e_1_level * PALADIN_ARCANA_E1_MANA_RESTORE
 					EmitSoundOn("Paladin.ArcanaACHeal", victim)
 					Filters:ApplyHeal(victim, victim, healAmount, true)
 					victim:GiveMana(manaRestore)

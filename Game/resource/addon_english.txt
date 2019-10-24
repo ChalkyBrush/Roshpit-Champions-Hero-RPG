@@ -8398,11 +8398,11 @@
     	"DOTA_Tooltip_modifier_paladin_q3_shield_Description"		"Absorbs the next instance of damage and zaps the shield breaker."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] Holy Crusader"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Any overhealing done by Paladin creates a shield that absorbs damage. Additionally all <font color=\"#F6FFB5\">Holy</font> damage is enhanced by attributes."
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"Any overhealing done by Paladin creates a shield that absorbs damage. Passively increases all <font color=\"#F6FFB5\">Holy</font> damage."
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"Max Shield Absorb"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% of target Max Health"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% of shield bearer's Max Health"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"Holy Damage Increase"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% for each 10 points of Attributes"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_ability_justice_overwhelming"								"Justice Overwhelming"
 		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"Element: <font color=\"#F6FFB5\">Holy</font><br>A wave of pure Holy Justice blasts from the Paladin's hand. The force pushes him back and deals damage in a cone."
@@ -8420,7 +8420,7 @@
 		"DOTA_Tooltip_modifier_paladin_rune_w_1_description" 			"Taking Holy/Fire magical damage over time."
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_2"							"[W2] Healing Command"
-    	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Justice Overwhelming also heals yourself and allies that it hits for a % of its base damage."
+    	"DOTA_Tooltip_ability_paladin_rune_w_2_Description"				"Justice Overwhelming also heals yourself and allies based on % of its base damage."
     	"DOTA_Tooltip_ability_paladin_rune_w_2_property_one"			"Heal Amount"
     	"DOTA_Tooltip_ability_paladin_rune_w_2_suffix"					"% of Ability Damage"
 		
@@ -8435,7 +8435,7 @@
     	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"Disarmed"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"Holy Fire can stack with successive strikes from Justice Overwhelming. Each stack deals 20% more damage than the previous."
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"Holy Fire can stack with successive strikes from Justice Overwhelming. Each stack deals <font color='#ccff66'>1</font>% more damage than the previous."
     	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"Max Stacks"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
 
@@ -8483,24 +8483,24 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% of attack damage"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] Flutter"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Enemies hit by Light's Falcon receive a debuff that increases post-mitigation damage taken from the Paladin. Lasts 8 seconds."
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Damage Amp"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"Gain Magic Armor for <font color='#ccff66'>6</font> seconds after casting @Ability3."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"Magic Armor"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					""
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"Flutter"
-    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Taking increased damage from Paladin"
+    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Increased Magic Armor"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by 20%."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by <font color='#ccff66'>0.1</font>%."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
-    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"%% of max life/0.2s:"
+    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"% MAX LIFE RESTORED EVERY 0.2 SECONDS:"
 
 		"DOTA_Tooltip_modifier_holy_ult_aura" 							"Holy Sanctuary"
-		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Moovespeed."
+		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Movespeed."
 
 		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
-		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by 20%"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by <font color='#ccff66'>10</font>%"
 		
 		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Knight's Disciple has a 1000 AOE armor enhancing aura."
@@ -8608,9 +8608,11 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_suffix"				" seconds"
 
   		"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2"						"[E4] Spirit of Resolution"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"A percentage of <font color=\"#F6FFB5\">Holy</font> damage amplification is also applies to post-mitigation damage."
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"Post-Mitigation Damage"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				" % of Holy Damage Amplification"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"Spirit increases <font color=\"#F6FFB5\">Holy</font> damage amplification and Spell Pierce."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"Holy Damage Amp"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				"% of Spirit"
+        "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_two"        "Spell Pierce"
+        "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix_two"          " per Spirit"
 
 		//Glyphs
 
@@ -8624,10 +8626,10 @@
 		"item_rpc_paladin_glyph_3_1_description" 				"@Ability4 becomes fully controllable and increases their movespeed to <font color='#ccff66'>800</font>. Right-clicking the ability turns on his automatic AI."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"Glyph of Unwavering Justice"
-		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provide <font color='#ccff66'>5</font>x stack generation. "
+		"item_rpc_paladin_glyph_4_1_description" 				"Justice Overwhelming has no self-knockback effect and provides <font color='#ccff66'>2</font>x stack generation."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"Glyph of Holy Authority"
-		"item_rpc_paladin_glyph_5_1_description" 				"Increases the damage of Justice Overwhelming and Holy Fire by 200%, also each hit provide an additional 9 stacks."
+		"item_rpc_paladin_glyph_5_1_description" 				"Increases the damage of Justice Overwhelming and Holy Fire by <font color='#ccff66'>1.2</font>x, also each hit provides an additional <font color='#ccff66'>1</font> stacks."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"Glyph of Nobility"
 		"item_rpc_paladin_glyph_6_1_description" 				"Grants a <font color='#ccff66'>70</font> increased movespeed aura."
@@ -8651,19 +8653,19 @@
         "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by <font color='#ccff66'>50</font>%. Bonus only updated on weapon equip."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "Glyph of Conviction"
-        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <font color='#ccff66'>1</font>% of damage dealt."
+        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <font color='#ccff66'>0.1</font>% of damage dealt."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "Glyph of Fanaticism"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to 10x Paladin's attack power."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to <font color='#ccff66'>1</font>x Paladin's attack power."
 
-        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "Glyph of Vestigial Value"
-        "item_rpc_paladin_glyph_6_2_description"                "Each piece of gear that is mythical rarity or below that is equipped increases post-mitigation damage output by < PALADIN_GLYPH_6_2_POST_MITI_PER_GEAR_PIECE_PCT %>%."
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "Glyph of Magic Protection"
+        "item_rpc_paladin_glyph_6_2_description"                "Magic Armor is increased by <font color='#ccff66'>100</font>%."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "Glyph of Heaven's Sentinel"
-        "item_rpc_paladin_glyph_7_2_description"                "Decreases damage taken by <font color='#ccff66'>99</font>%, and decreases damage dealt by <font color='#ccff66'>99.9</font>%."
+        "item_rpc_paladin_glyph_7_2_description"                "Decreases damage taken by <font color='#ccff66'>90</font>%, and decreases damage dealt by <font color='#ccff66'>99</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"Glyph of Holy Wrath"
 		"item_rpc_paladin_glyph_5_a_description" 				"Knight's Disciple's Holy Bolt hits enemies in a <font color='#ccff66'>520</font> AOE and hits the primary target twice."

@@ -74,17 +74,7 @@ function fireCone(args)
 end
 
 function paladin_get_w_1_level(caster, ability)
-	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_1")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
-	local totalLevel = abilityLevel + bonusLevel
-	ability.w_1_damage = (150 + totalLevel * 5000) / 2
-	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
-	if caster:HasModifier("modifier_paladin_glyph_5_1") then
-		ability.w_1_damage = ability.w_1_damage * PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP
-	end
-	return totalLevel
+	return caster:GetRuneValue("w", 1)
 end
 
 function paladin_get_w_2_level(caster)

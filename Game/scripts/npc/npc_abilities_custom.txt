@@ -32337,7 +32337,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 			"01"
 			{
@@ -32370,7 +32370,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
 				}
 			}
 			"modifier_soul_sear_visible_enemy"
@@ -67811,7 +67811,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"210 580 1500 3000 6500 9000 15000"
+		"AbilityManaCost"				"60 110 160 210 260 310 360"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -67840,7 +67840,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"740 2100 7000 35000 70000 150000 400000"
+				"damage"			"120 320 520 720 920 1120 1320"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -68314,9 +68314,23 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"rpc/paladin_r_1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "45"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -68326,7 +68340,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"heal_per_tick_percent"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+				"heal_per_tick_percent"			"0.6 0.7 0.8 0.9 1.0 1.1"
 			}
 			"02"
 			{
@@ -68407,7 +68421,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"280 1200 1900 3000 5000 10000 24000"
+				"damage"					"35 65 95 125 155 185 215"
 			}
 			"03"
 			{
@@ -68417,7 +68431,7 @@
 			"04"
 			{
 				"var_type" 				"FIELD_FLOAT"
-				"heal_percent" 			"3.0 4.0 5.0 6.0 7.0 8.0 9.0"
+				"heal_percent" 			"3.0 3.5 4.0 4.5 5.0 5.5 6.0"
 			}
 			"05"
 			{
@@ -68427,7 +68441,7 @@
 			"06"
 			{
 				"var_type" 				"FIELD_INTEGER"
-				"attack_damage_bonus"	"50 75 100 125 150 175 200"
+				"attack_damage_bonus"	"12 15 18 21 24 27 30"
 			}
 			"07"
 			{
@@ -68852,8 +68866,6 @@
 			"modifier_paladin_d_c"
 			{
 				"TextureName"	"rpc/paladin_e_4"
-				"IsDebuff"		"1"
-				"IsStunDebuff"		"1"
 				"IsHidden"		"0"
 				"EffectName"	"particles/roshpit/paladin/paladin_d_c_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -68985,7 +68997,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"heal_per_tick_percent"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+				"heal_per_tick_percent"			"0.6 0.7 0.8 0.9 1.0 1.1 1.2"
 			}
 			"02"
 			{
@@ -69049,8 +69061,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.4"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.01"
 				}
 			}
 			"modifier_paladin_rune_r_2_hidden_block"
@@ -69210,7 +69221,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -69229,7 +69240,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"80"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -69270,7 +69281,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"1"
 			}
 			"04"
 			{
@@ -69357,12 +69368,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"7"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"4"
 			}
 		}
 	}
@@ -69381,12 +69392,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"25"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"150"
+				"property_one_base"		"10"
 			}
 			"03"
 			{
@@ -69429,7 +69440,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -69447,13 +69458,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"0.03"
 			}
 			"03"
 			{
@@ -69581,18 +69592,18 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"15"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"100"
+				"property_two_base"		"10"
 			}
 			"04"
 			{
@@ -69646,7 +69657,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -69679,7 +69690,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"100"
 			}
 		}
 	}
@@ -69697,7 +69708,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45"
+				"property_one"			"25"
 			}
 		}
 	}
@@ -69715,7 +69726,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"0.01"
 			}
 			"02"
 			{
@@ -69739,7 +69750,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"800"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -69767,7 +69778,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.15"
 			}
 			"02"
 			{
@@ -69814,7 +69825,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 80000 150000 250000 500000"
+				"damage"				"120 160 200 240 280 320 360"
 			}
 			"02"
 			{
@@ -69970,10 +69981,6 @@
 				"IsHidden"	"0"
 				"TextureName"	"paladin/paladin_rune_w_3_arcana1"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
-				}
 			}
 			"modifier_penance_projectiles"
 			{
@@ -70081,8 +70088,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.5"
 			}
 		}
 	}
@@ -70101,12 +70108,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"0.3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"1"
 			}
 			"03"
 			{
@@ -70134,12 +70141,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"50"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.01"
 			}
 		}
 	}
@@ -70157,12 +70164,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"15"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -70215,12 +70222,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"	"3000 12000 35000 80000 160000 350000 600000"
+				"base_damage"	"200 420 640 860 1080 1300 1520"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_from_str"	"20 40 80 160 240 320 400"
+				"var_type"				"FIELD_FLOAT"
+				"damage_from_str"	"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
 			}
 		}
 
@@ -70389,7 +70396,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"100"
 			}
 		}
 	}
@@ -70407,7 +70419,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"0.2"
 			}
 		}
 	}
@@ -70448,7 +70460,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
 			}
 		}
 	}
