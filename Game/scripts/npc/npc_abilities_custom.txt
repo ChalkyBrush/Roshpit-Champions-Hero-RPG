@@ -40902,20 +40902,6 @@
 				"property_two"			"1200"
 			}
 		}
-		"Modifiers"
-		{
-			"modifier_bahamut_a_a_mana_restore"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_one"
-				}
-			}
-		}
 	}
 
 	"bahamut_rune_q_2"
@@ -40947,7 +40933,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
 				}
 			}
 		}
@@ -41049,7 +41035,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "12"
 				}
 			}
 		}
