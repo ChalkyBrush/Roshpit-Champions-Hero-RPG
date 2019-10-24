@@ -6393,7 +6393,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"Eye of Chronos"
 		"item_property_epoch_immortal_weapon"								"Eye of Chronos"
-		"property_epoch_immortal_weapon_description"						"Каждое прочтение (W) Genesis orb выпускает параллельно еще <font color='#ccff66'>2</font> сферы, урон умения увеличен <font color='#ccff66'>2</font>x."
+		"property_epoch_immortal_weapon_description"						"Каждое прочтение (W) Genesis orb выпускает параллельно еще <font color='#ccff66'>2</font> сферы, урон умения увеличен <font color='#ccff66'>1.5</font>x."
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"Staff of the Eternal Guardian"
     	"item_property_epoch_immortal_weapon2"								"Guardian of Eternity"
     	"property_epoch_immortal_weapon2_description"						"Если умение (R) @Ability4 перезаряжается и герой погибает, умение произносится сразу в месте гибели, а Epoch Guardian перерождается спустя <font color='#ccff66'>3</font> сек. При возрождении сбрасывается время перезарядки всех умений, кроме (R) @Ability4. В этом случае время перезарядки (R) @Ability4 будет увеличено в <font color='#ccff66'>1.5</font> раз(а)."

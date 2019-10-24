@@ -801,6 +801,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*ASTRAL_RANGER_ARCANA2_W_4_ARMOR_PIERCE
 		end
 	end
+	if unit:GetUnitName() == "npc_dota_hero_obsidian_destroyer" and unit:HasAbility("epoch_arcana_ability") then
+		local q_2_level = unit:GetRuneValue("q", 2)
+		armor_pierce_modify = armor_pierce_modify + q_2_level*EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE
+	end
 
 
 	if armor_pierce_modify > 0 then
@@ -840,6 +844,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_voltex_magnet") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("q", 2)*VOLTEX_ARCANA2_Q2_PIERCE
+	end
+	if unit:GetUnitName() == "npc_dota_hero_obsidian_destroyer" and unit:HasAbility("epoch_arcana_ability") then
+		local q_2_level = unit:GetRuneValue("q", 2)
+		spell_pierce_modify = spell_pierce_modify + q_2_level*EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE
 	end
 
 

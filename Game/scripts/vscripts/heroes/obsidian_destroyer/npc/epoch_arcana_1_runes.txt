@@ -36,7 +36,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_ARCANA_Q2_POST_MITI_PCT %>"
+				"property_one"			"<% EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE %>"
 			}
 		}
 	}

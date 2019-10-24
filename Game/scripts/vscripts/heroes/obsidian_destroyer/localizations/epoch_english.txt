@@ -180,7 +180,7 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"Rooted"	
 
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1"						"[Q1] Eternal Void"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"Enemies damaged by Epoch Guardian while affected by @Ability1 will experience part of the damage again when the effect ends. This instance of damage ignores Steadfast, and is based on the total pre-mitigation damage Epoch Guardian dealt to the target while the debuff was active. Subsequent casts of @Ability1 will not refresh Eternal Void's duration."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"Enemies damaged by Epoch Guardian while affected by @Ability1 will experience part of the damage again when the effect ends. This instance of damage is based on the total pre-mitigation damage Epoch Guardian dealt to the target while the debuff was active. Subsequent casts of @Ability1 will not refresh Eternal Void's duration."
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_property_one"			"Damage Multiplier"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_suffix"				"%"  	
 
@@ -188,12 +188,12 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_q_1_effect_Description"			"Building Damage"	
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Tachyon Effect"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"All post-mitigation damage dealt to enemy units is increased by a factor of summ caster and target armor values."
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Post-Mitigation Damage Enhance"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					"% for every 1000 base armor"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Increases Spell Pierce and Armor Pierce."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Bonus Spell Pierce"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Aeon Blast"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"Epoch Guardian's attacks drain 1% of mana and deal extra pure damage based on mana drained. His maximum mana pool increases his base damage."
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"Epoch Guardian's attacks drain <% EPOCH_ARCANA_Q3_BASE_MANA_DRAIN_PCT %>% of mana and deal extra pure damage based on mana drained. His maximum mana pool increases his base damage."
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix"					"x Mana Drained"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"Extra Base Attack Damage"

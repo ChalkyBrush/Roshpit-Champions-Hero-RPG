@@ -6658,7 +6658,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_1"			"克罗诺斯之眼"
 		"item_property_epoch_immortal_weapon"								"克罗诺斯之眼"
-		"property_epoch_immortal_weapon_description"						"创世纪之球平行发射额外的<font color='#ccff66'>2</font>个球造成<font color='#ccff66'>2</font>x伤害."
+		"property_epoch_immortal_weapon_description"						"创世纪之球平行发射额外的<font color='#ccff66'>2</font>个球造成<font color='#ccff66'>1.5</font>x伤害."
 		"DOTA_Tooltip_ability_item_rpc_epoch_immortal_weapon_2"				"永恒守卫神杖"
     	"item_property_epoch_immortal_weapon2"								"永恒的守护者"
     	"property_epoch_immortal_weapon2_description"						"死亡时，如果 @Ability4 的冷却时间结束，将立即在死亡位置释放，并且 <font color='#ccff66'>3</font> 秒后，时光守卫重生。重生时，除 @Ability4 技能外，其余技能冷却时间刷新，但是 @Ability4 技能的冷却时间变为原来的 <font color='#ccff66'>1.5</font>x 。"
