@@ -2029,6 +2029,9 @@ function GameState:FilterDamage(filterTable)
 		-- end
 		-- end
 	end
+	if applyEffects then
+		filterTable["damage"] = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damagetype, filterTable["damage"])
+	end
 	modifier = attacker:FindModifierByName('modifier_chernobog_glyph_t71_passive')
 	if modifier then
 		mult = mult + modifier:GetPostmitigationAmplify({})

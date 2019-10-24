@@ -636,7 +636,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	return armor
 end
 
-function CustomAttributes:AdjustDamageForCustomAttributes(attacker, victim, damage_type, damage)
+function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damage_type, damage)
+	if damage_type == DAMAGE_TYPE_PHYSICAL then
+		local mult = math.min((255 + attacker:GetRoshpitArmorPierce())/(255 + victim:GetRoshpitArmor()), 2)
+		return damage*mult
+	elseif damage_type == DAMAGE_TYPE_MAGICAL then
+		local mult = math.min((255 + attacker:GetRoshpitSpellPierce())/(255 + victim:GetRoshpitMagicArmor()), 2)
+		return damage*mult
+	end
 end
 
 function CustomAttributes:GetAbilityValueFromSpecial(unit, special_value_name, modifier_name)
