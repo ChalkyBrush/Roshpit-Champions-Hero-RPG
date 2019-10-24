@@ -62,19 +62,19 @@ function WallAllyBuff(event)
 				local attachPoint = wallCenter + wallNinety * RandomInt(-maxBound, maxBound)
 				EmitSoundOnLocationWithCaster(attachPoint, "Hero_VengefulSpirit.ProjectileImpact", caster)
 				CreateLightningBeam(attachPoint + Vector(0, 0, 100), caster:GetAbsOrigin() + Vector(0, 0, 80))
-				caster:GiveMana(q_1_level * 3)
-				PopupMana(caster, q_1_level * 3)
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana", {duration = 20})
-				local stacks = math.min(caster:GetModifierStackCount("modifier_bahamut_wall_max_mana", caster) + 1, 600)
+				caster:GiveMana(q_1_level * BAHAMUT_Q1_MANA_PER_TICK)
+				PopupMana(caster, q_1_level * BAHAMUT_Q1_MANA_PER_TICK)
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana", {duration = BAHAMUT_Q1_MANAPOOL_STACKS_DURATION})
+				local stacks = math.min(caster:GetModifierStackCount("modifier_bahamut_wall_max_mana", caster) + 1, BAHAMUT_Q1_MANAPOOL_STACKS_PER_TICK)
 				caster:SetModifierStackCount("modifier_bahamut_wall_max_mana", caster, stacks)
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana_invisible", {duration = 20})
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_wall_max_mana_invisible", {duration = BAHAMUT_Q1_MANAPOOL_STACKS_DURATION})
 				caster:SetModifierStackCount("modifier_bahamut_wall_max_mana_invisible", caster, stacks * q_1_level)
 			end
 		end
 		if a_d_level then
 			if a_d_level > 0 and hasChargingOrSlide(caster, event.guarantee) then
 				--print("GOT IN CONDITION!")
-				local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+				local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, BAHAMUT_R1_DURATION, false)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_charge_of_light_hyper_state", {duration = hyperStateDuration})
 				caster:SetModifierStackCount("modifier_charge_of_light_hyper_state", ability, a_d_level)
 				EmitSoundOn("DOTA_Item.AbyssalBlade.Activate", caster)
@@ -155,7 +155,7 @@ function leshrac_attack_start(event)
 	local target = event.target
 	local caster = event.attacker
 	local ability = event.ability
-	local radius = 700
+	local radius = BAHAMUT_W2_RADIUS
 	if ability.w_2_level and not target:IsNull() then
 		if ability.w_2_level > 0 and target:HasModifier("modifier_leshrac_nuke_judged") then
 			local targetPoint = target:GetAbsOrigin()
@@ -228,7 +228,7 @@ function d_d_shell_think(event)
 	local target = event.target
 	local ability = event.ability
 	local d_d_level = ability.r_4_level
-	local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 9, false)
+	local d_d_duration = Filters:GetAdjustedBuffDuration(caster, BAHAMUT_R4_DURATION, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_bahamut_rune_r_4_buff_visible", {duration = d_d_duration})
 	local current_stack = target:GetModifierStackCount("modifier_bahamut_rune_r_4_buff_visible", ability)
 	local newStack = current_stack + 1
@@ -238,7 +238,7 @@ function d_d_shell_think(event)
 	target:SetModifierStackCount("modifier_bahamut_rune_r_4_buff_invisible", ability, newStack * d_d_level)
 	if target:HasModifier("modifier_charge_of_light_hyper_state") then
 		local wallAbility = target:FindAbilityByName("leshrac_wall")
-		local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
+		local hyperStateDuration = Filters:GetAdjustedBuffDuration(caster, BAHAMUT_R1_DURATION, false)
 		wallAbility:ApplyDataDrivenModifier(target, target, "modifier_charge_of_light_hyper_state", {duration = hyperStateDuration})
 	end
 	caster = target

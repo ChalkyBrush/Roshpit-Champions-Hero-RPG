@@ -44,7 +44,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"1188"
+				"speed"					"<% BAHAMUT_ARCANA_W_BASE_SPEED %>"
 			}
 
 		}

@@ -2278,22 +2278,22 @@ function GameState:FilterDamage(filterTable)
 			modifier = attacker:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
 			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 				local stacks = modifier:GetStackCount()
-				local multIncrease = 0.06 * stacks
+				local multIncrease = BAHAMUT_ARCANA_W_W2_POST_MITI/100 * stacks
 				mult = mult + multIncrease
 			end
 		end
 		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
 			local w_1_level = attacker:GetRuneValue("w", 1)
 			if w_1_level > 0 then
-				local healAmount = math.ceil(filterTable["damage"] * 0.001 / 100 * w_1_level)
+				local healAmount = math.ceil(filterTable["damage"] * BAHAMUT_ARCANA_W_W1_LIFESTEAL_PCT/100 / BAHAMUT_ARCANA_W_W1_DMG_DIVISOR * w_1_level)
 				if healAmount > attacker:GetMaxHealth() - attacker:GetHealth() then
 					local allyHealAmount = healAmount - (attacker:GetMaxHealth() - attacker:GetHealth())
 					local arcanaAbility = attacker:FindAbilityByName("bahamut_arcana_orb")
 					arcanaAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_spellvamp_healing", {duration = 0.3})
-					local allies = FindUnitsInRadius(attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+					local allies = FindUnitsInRadius(attacker:GetTeamNumber(), attacker:GetAbsOrigin(), nil, BAHAMUT_ARCANA_W_W1_OVERHEAL_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 					if #allies > 0 then
 						for _, ally in pairs(allies) do
-							Filters:ApplyHeal(attacker, ally, allyHealAmount / 10, true)
+							Filters:ApplyHeal(attacker, ally, allyHealAmount / BAHAMUT_ARCANA_W_W1_OVERHEAL_TO_ALLIES_PCT, true)
 						end
 					end
 				end
@@ -2368,7 +2368,7 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_bahamut_arcana_post_mit") then
 		local bahamut = attacker:FindModifierByName("modifier_bahamut_arcana_post_mit"):GetCaster()
 		local stacks = attacker:GetModifierStackCount("modifier_bahamut_arcana_post_mit", bahamut)
-		mult = mult + stacks * 0.06
+		mult = mult + stacks * BAHAMUT_ARCANA_R_R2_POST_MITI/100
 	end
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
 		modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")

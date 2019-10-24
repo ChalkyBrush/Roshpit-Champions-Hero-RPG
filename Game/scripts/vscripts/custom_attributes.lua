@@ -15,6 +15,7 @@ require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/winter_wyvern/dinath_constants")
 require("/heroes/beastmaster/warlord_constants")
 require("/heroes/moon_ranger/astral_ranger_constants")
+require("/heroes/leshrac/bahamut_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -53,8 +54,8 @@ CustomAttributes.DJANGHOR_R4_ARCANA_STATS = 200
 CustomAttributes.AXE_Q3_STATS = 14
 
 CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
-CustomAttributes.BAHAMUT_Q4_INT = 365
-CustomAttributes.BAHAMUT_R4_STATS = 7
+CustomAttributes.BAHAMUT_Q4_INT = BAHAMUT_Q4_INT_BONUS
+CustomAttributes.BAHAMUT_R4_STATS = BAHAMUT_R4_STATS_PER_TICK
 CustomAttributes.AURIUN_E2_INT = AURIUN_E2_INT_INCREASE
 CustomAttributes.AURIUN_E3_STATS = AURIUN_E3_ATTRIBUTES_INCREASE
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = 180

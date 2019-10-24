@@ -127,7 +127,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"ThinkInterval"  	"0.1"
+				"ThinkInterval"  	"<% BAHAMUT_ARCANA_R_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -157,7 +157,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% BAHAMUT_ARCANA_R_SLOW %>"
 				}
 			}
 			"modifier_leshrac_arcana_b_d_effect"
@@ -171,7 +171,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"16"
+				"duration"				"<% BAHAMUT_ARCANA_R_DURATION %>"
 			}
 			"02"
 			{

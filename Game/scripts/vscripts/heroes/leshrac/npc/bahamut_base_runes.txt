@@ -15,26 +15,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"<% BAHAMUT_Q1_MANA_PER_TICK * BAHAMUT_Q1_SELF_TICK_INTERVAL %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_bahamut_a_a_mana_restore"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_one"
-				}
+				"property_two"			"<% BAHAMUT_Q1_MANAPOOL_STACKS_PER_TICK * BAHAMUT_Q1_MANAPOOL_PER_STACK %>"
 			}
 		}
 	}
@@ -55,7 +41,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% BAHAMUT_Q2_ATTACK_RANGE %>"
 			}
 		}
 		"Modifiers"
@@ -68,7 +54,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% BAHAMUT_Q2_ATTACK_RANGE %>"
 				}
 			}
 		}
@@ -90,7 +76,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% BAHAMUT_Q3_MS_SLOW %>"
 			}
 		}
 	}
@@ -111,7 +97,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"<% BAHAMUT_Q4_INT_BONUS %>"
 			}
 		}
 		"Modifiers"
@@ -170,7 +156,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT %>"
 				}
 			}
 		}
@@ -387,7 +373,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"<% BAHAMUT_E4_HOLY_AMP_PER_ATT %>"
 			}
 		}
 	}
@@ -476,12 +462,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% BAHAMUT_R3_MS_SLOW %>"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"<% BAHAMUT_R3_AS_SLOW %>"
 			}
 		}
 	}
@@ -502,7 +488,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"<% BAHAMUT_R4_STATS_PER_TICK %>"
 			}
 		}
 		"Modifiers"
@@ -532,7 +518,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% BAHAMUT_R4_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
