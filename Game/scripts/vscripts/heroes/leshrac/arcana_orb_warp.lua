@@ -62,7 +62,7 @@ function dash_think(event)
 		forwardSpeed = 0
 	else
 		if caster:HasModifier("modifier_light_charging") then
-			forwardSpeed = forwardSpeed * BAHAMUT_ARCANA_2_W4_R_SPEED_MULT
+			forwardSpeed = forwardSpeed * BAHAMUT_ARCANA_W_W4_R_SPEED_MULT
 		else
 			if distance_for_slowing < 200 then
 				forwardSpeed = 24
@@ -75,7 +75,7 @@ function dash_think(event)
 	end
 	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	if w_4_level > 0 then
-		local stacks = forwardSpeed * 33 * BAHAMUT_ARCANA_2_W4_AMP_BASE_PCT * w_4_level * ability:GetLevel()
+		local stacks = forwardSpeed * 33 * BAHAMUT_ARCANA_W_W4_AMP_BASE_PCT * w_4_level * ability:GetLevel()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp", {})
 		caster:FindModifierByName("modifier_bahamut_arcana_w4_amp"):SetStackCount(stacks)
 	else
@@ -98,7 +98,7 @@ function dash_think(event)
 			if #allies > 0 then
 				for _, ally in pairs(allies) do
 					if not ally:HasModifier("modifier_bahamut_arcana_post_mit") then
-						ability:ApplyDataDrivenModifier(caster, ally, "modifier_bahamut_arcana_post_mit", {duration = 7})
+						ability:ApplyDataDrivenModifier(caster, ally, "modifier_bahamut_arcana_post_mit", {duration = BAHAMUT_ARCANA_W_W2_DURATION})
 						ally:SetModifierStackCount("modifier_bahamut_arcana_post_mit", caster, ability.w_2_level)
 						CustomAbilities:QuickAttachParticle("particles/roshpit/bahamut/bahamut_arcana_postmit_heal_core.vpcf", ally, 1)
 					else
@@ -122,7 +122,7 @@ function dash_think(event)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					if not enemy:HasModifier("modifier_arcana2_purity_freeze") then
-						local freezeDuration = ability.w_3_level * 0.02
+						local freezeDuration = ability.w_3_level * BAHAMUT_ARCANA_W_W3_PARALYSIS
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcana2_purity_freeze", {duration = freezeDuration})
 						if bUltNuke then
 							local arcanaAbility = caster:FindAbilityByName("bahamut_arcana_ulti")
@@ -153,7 +153,7 @@ function dash_end(event)
 	local ability = event.ability
 	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_light_charging") then
 		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_2_W4_AMP_LINGER_DURATION})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W_W4_AMP_LINGER_DURATION})
 		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", ability, stacks)
 	end
 	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")

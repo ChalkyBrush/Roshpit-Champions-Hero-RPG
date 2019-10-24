@@ -120,7 +120,7 @@ function charge_end(event)
 	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_bahamut_sphere_of_divinity") then
 		local orb = caster:FindAbilityByName("bahamut_arcana_orb")
 		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
-		orb:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_2_W4_AMP_LINGER_DURATION})
+		orb:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W_W4_AMP_LINGER_DURATION})
 		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", orb, stacks)
 	end
 	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")

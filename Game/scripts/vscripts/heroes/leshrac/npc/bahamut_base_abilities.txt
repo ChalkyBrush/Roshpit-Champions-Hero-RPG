@@ -235,7 +235,7 @@
 				"IsStunDebuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
-				"ThinkInterval"	"0.05"
+				"ThinkInterval"	"<% BAHAMUT_Q1_SELF_TICK_INTERVAL %>"
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnIntervalThink"
 				{
@@ -292,7 +292,7 @@
 				"Duration"		"0.3"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-12"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% BAHAMUT_Q3_MS_SLOW %>"
 				}
 			}
 			"modifier_charge_of_light_hyper_state"
@@ -338,7 +338,7 @@
 				"IsHidden"							"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "2"
+					"MODIFIER_PROPERTY_MANA_BONUS" "<% BAHAMUT_Q1_MANAPOOL_PER_STACK %>"
 				}
 				"OnCreated"
 				{
@@ -919,8 +919,8 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% BAHAMUT_R3_AS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% BAHAMUT_R3_MS_SLOW %>"
 				}
 			}
 			"modifier_bahamut_charge_of_light_postmitigation"
