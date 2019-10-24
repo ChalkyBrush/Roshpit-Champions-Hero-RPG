@@ -52,7 +52,7 @@ function shadow_deity(event)
 		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
-	aspectHealth = aspectHealth * (1 + q_1_level * 0.05)
+	aspectHealth = aspectHealth * (1 + q_1_level * CONJUROR_Q1_ASPECT_HP_BONUS_PCT/100)
 	Timers:CreateTimer(0.05, function()
 		caster.shadowAspect:SetMaxHealth(aspectHealth)
 		caster.shadowAspect:SetBaseMaxHealth(aspectHealth)

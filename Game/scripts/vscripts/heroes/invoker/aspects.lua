@@ -40,7 +40,7 @@ function aspect_global_think(event)
 		local e_3_level = conjuror:GetRuneValue("e", 3)
 		local ability = conjuror:FindAbilityByName("summon_shadow_aspect")
 		if e_3_level > 0 then
-			local totalStats = (conjuror:GetStrength() + conjuror:GetAgility() + conjuror:GetIntellect()) * e_3_level * 0.15
+			local totalStats = (conjuror:GetStrength() + conjuror:GetAgility() + conjuror:GetIntellect()) * e_3_level * CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT/100
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_c_c_damage", {})
 			target:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(totalStats)
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_rune_e_3_range", {})
@@ -100,7 +100,7 @@ function earth_aspect(event)
 		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
-	aspectHealth = aspectHealth * (1 + q_1_level * 0.05)
+	aspectHealth = aspectHealth * (1 + q_1_level * CONJUROR_Q1_ASPECT_HP_BONUS_PCT/100)
 	Timers:CreateTimer(0.05, function()
 		caster.earthAspect:SetMaxHealth(aspectHealth)
 		caster.earthAspect:SetBaseMaxHealth(aspectHealth)
@@ -192,7 +192,7 @@ function fire_aspect(event)
 		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
-	aspectHealth = aspectHealth * (1 + q_1_level * 0.05)
+	aspectHealth = aspectHealth * (1 + q_1_level * CONJUROR_Q1_ASPECT_HP_BONUS_PCT/100)
 	Timers:CreateTimer(0.05, function()
 		caster.fireAspect:SetMaxHealth(aspectHealth)
 		caster.fireAspect:SetBaseMaxHealth(aspectHealth)
@@ -272,7 +272,7 @@ function shadow_aspect(event)
 		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
-	aspectHealth = aspectHealth * (1 + q_1_level * 0.05)
+	aspectHealth = aspectHealth * (1 + q_1_level * CONJUROR_Q1_ASPECT_HP_BONUS_PCT/100)
 	Timers:CreateTimer(0.05, function()
 		caster.shadowAspect:SetMaxHealth(aspectHealth)
 		caster.shadowAspect:SetBaseMaxHealth(aspectHealth)
@@ -690,7 +690,7 @@ function shadow_aspect_attack(event)
 	local target = event.target
 	local ability = event.ability
 	ability.damage = damage
-	ability.pureDamage = damage * 0.12 * attacker.e_4_level
+	ability.pureDamage = damage * CONJUROR_E4_ATTACK_PURE_PCT/100 * attacker.e_4_level
 	ability.attacker = attacker
 	local projectileParticle = "particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"
 	if attacker.e_4_level > 0 then

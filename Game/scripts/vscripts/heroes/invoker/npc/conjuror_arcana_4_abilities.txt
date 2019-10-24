@@ -140,7 +140,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% CONJUROR_E3_BONUS_ATTACK_RANGE %>"
 				}
 			}
 			"modifier_conjuror_c_d_slow_effect"
