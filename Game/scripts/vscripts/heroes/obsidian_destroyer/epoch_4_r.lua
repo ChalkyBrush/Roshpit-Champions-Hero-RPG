@@ -51,6 +51,7 @@ end
 function new_lock(units, target_location, caster, damage, duration, ability, stun_duration)
   EmitSoundOn("Epoch.UltiExplode", caster)
 
+  CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf", target_location, 3)
   for _, unit in ipairs(units) do
     Filters:TakeArgumentsAndApplyDamage(unit, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
     local knockVector = ((unit:GetAbsOrigin() - target_location) * Vector(1, 1, 0)):Normalized()
@@ -80,7 +81,7 @@ function VacuumStart(keys)
   local duration = keys.duration
   target.vacuum_start_time = GameRules:GetGameTime()
   epoch_r_1(caster, target_location, duration, ability)
-  StartAnimation(caster, {duration = 0.6, activity = ACT_DOTA_ATTACK, rate = 1.8})
+  StartAnimation(caster, {duration = 1.2, activity = ACT_DOTA_ATTACK, rate = 1.4})
 
   local particleName = "particles/econ/items/enigma/enigma_world_chasm/time_ulti.vpcf"
   local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
@@ -88,6 +89,7 @@ function VacuumStart(keys)
   Timers:CreateTimer(duration, function()
     ParticleManager:DestroyParticle(particle1, false)
   end)
+  CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf", caster:GetAbsOrigin(), 3)
   Filters:CastSkillArguments(4, caster)
 end
 

@@ -85,14 +85,35 @@ function UnitStats40(){
 			$('#strength_label').text = heroAttributes.strength
 			$('#agility_label').text = heroAttributes.agility
 			$('#intelligence_label').text = heroAttributes.intelligence	
-			$('#spirit_label').text = heroAttributes.spirit		
+			$('#spirit_label').text = Math.round(heroAttributes.spirit*100)/100
 			GameUI.level_label.text = Entities.GetLevel( queryUnit )
+			GameUI.level_label.style.color = "#E7D291"
+			GameUI.level_label.style.textShadow = "0px 0px 3px 3.7 #EC780E24"
 		}
 	}else{
 		$('#hero_attributes').style.visibility = "collapse"
 		$('#unit_attributes').style.horizontalAlign = "right"
 		$('#unit_attributes').RemoveClass('unit_attributes_for_heroes')
 		GameUI.level_label.text = mAttributesHash["modifier_roshpit_level"]
+		var player_hero = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() )
+		var base_level =  Entities.GetLevel( player_hero )
+		var level_diff = mAttributesHash["modifier_roshpit_level"] - base_level
+		if ((level_diff < -15)){
+			GameUI.level_label.style.color = "#135924"
+			GameUI.level_label.style.textShadow = "0px 0px 4px #014210"			
+		}else if (level_diff < - 5){
+			GameUI.level_label.style.color = "#4da845"
+			GameUI.level_label.style.textShadow = "0px 0px 5px #036319"
+		}else if ((level_diff) > 5 && (level_diff < 15)){
+			GameUI.level_label.style.color = "#cf5723"
+			GameUI.level_label.style.textShadow = "0px 0px 5px #693a00"
+		}else if (level_diff > 15){
+			GameUI.level_label.style.color = "#c40e0e"
+			GameUI.level_label.style.textShadow = "0px 0px 4px #6e0000"
+		}else{
+			GameUI.level_label.style.color = "#E7D291"
+			GameUI.level_label.style.textShadow = "0px 0px 3px 3.7 #EC780E24"			
+		}
 	}
 	// if (!(mQueryUnit == queryUnit)){
 	$('#unit_attribute_armor_label').text = mAttributesHash["modifier_roshpit_armor"]

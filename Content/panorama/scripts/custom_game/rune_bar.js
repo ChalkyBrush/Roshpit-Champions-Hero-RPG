@@ -111,6 +111,11 @@ function UpdateRuneList()
 					runePanel.SetAttributeInt( "index", i );
 					runePanel.SetAttributeInt( "tier", tier );
 					runePanel.SetAttributeInt( "mainHero", mainHero );
+					var ability_index = i
+					if (i == 3){
+						ability_index = 5
+					}
+					runePanel.SetAttributeInt( "ability_index", ability_index );
 				}
 
 				// update the panel for the current unit / ability
@@ -128,6 +133,11 @@ function UpdateRuneList()
 					runePanel.SetAttributeInt( "index", i );
 					runePanel.SetAttributeInt( "tier", tier );
 					runePanel.SetAttributeInt( "mainHero", mainHero );
+					var ability_index = i
+					if (i == 3){
+						ability_index = 5
+					}
+					runePanel.SetAttributeInt( "ability_index", ability_index );
 				}
 
 				// update the panel for the current unit / ability
@@ -145,6 +155,11 @@ function UpdateRuneList()
 					runePanel.SetAttributeInt( "index", i );
 					runePanel.SetAttributeInt( "tier", tier );
 					runePanel.SetAttributeInt( "mainHero", mainHero );
+					var ability_index = i
+					if (i == 3){
+						ability_index = 5
+					}
+					runePanel.SetAttributeInt( "ability_index", ability_index );
 				}
 
 				// update the panel for the current unit / ability
@@ -162,6 +177,11 @@ function UpdateRuneList()
 					runePanel.SetAttributeInt( "index", i );
 					runePanel.SetAttributeInt( "tier", tier );
 					runePanel.SetAttributeInt( "mainHero", mainHero );
+					var ability_index = i
+					if (i == 3){
+						ability_index = 5
+					}
+					runePanel.SetAttributeInt( "ability_index", ability_index );
 				}
 
 				// update the panel for the current unit / ability

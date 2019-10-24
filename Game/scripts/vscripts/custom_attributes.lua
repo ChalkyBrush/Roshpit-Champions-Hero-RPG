@@ -623,6 +623,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	return armor
 end
 
+function CustomAttributes:AdjustDamageForCustomAttributes(attacker, victim, damage_type, damage)
+end
+
 function CustomAttributes:GetAbilityValueFromSpecial(unit, special_value_name, modifier_name)
 	local modifier = unit:FindModifierByName(modifier_name)
 	local ability = modifier:GetAbility()

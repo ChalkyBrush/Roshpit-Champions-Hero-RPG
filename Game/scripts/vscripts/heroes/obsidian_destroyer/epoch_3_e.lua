@@ -19,7 +19,7 @@ function onWarpFire(event)
 		ability.castLocation = caster:GetAbsOrigin()
 		local targetPoint = ability.castLocation + ability.forwardVector * 300
 		fireOrb(ability:GetLevel(), caster, targetPoint, ability.castLocation, ability, e_4_level)
-		EmitSoundOn("Hero_Oracle.FalsePromise.Cast", caster)
+		EmitSoundOn("Epoch.DistortionOrb", caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_warp", nil)
 		if caster:HasModifier("modifier_epoch_immortal_weapon_3") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_no_damage", nil)
