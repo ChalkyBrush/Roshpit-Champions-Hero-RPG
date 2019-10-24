@@ -40,7 +40,7 @@ CustomAttributes.MAGIC_ARMOR_PER_SPIRIT = 1
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 1
 
-CustomAttributes.CONJUROR_E1_AGI = 25
+CustomAttributes.CONJUROR_E1_AGI = CONJUROR_E1_BONUS_AGI
 CustomAttributes.WARLORD_W2_STATS = 60
 CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH = 250
 CustomAttributes.HYDROXIS_E4_AGI_INT = 350

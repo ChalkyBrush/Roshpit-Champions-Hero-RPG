@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% CONJUROR_ARCANA_R1_DAMAGE_SPLASH_PCT %>"
 			}
 			"02"
 			{
@@ -46,12 +46,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% CONJUROR_ARCANA_R2_DAMAGE_PER_ATTACK_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"<% CONJUROR_ARCANA_R2_STUN %>"
 			}
 			"03"
 			{
@@ -81,7 +81,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% CONJUROR_ARCANA_R3_STACK_CHANCE %>"
 			}
 		}
 	}
@@ -101,7 +101,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"<% CONJUROR_ARCANA_R4_DURATION %>"
 			}
 		}
 	}

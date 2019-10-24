@@ -112,7 +112,7 @@
 				"EffectAttachType"  "follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1500"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% CONJUROR_Q3_HP_REGEN %>"
 				}
 				"OnCreated"
 				{
@@ -565,7 +565,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% CONJUROR_E3_BONUS_ATTACK_RANGE %>"
 				}
 			}
 			"modifier_conjuror_c_d_slow_effect"
@@ -575,8 +575,8 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-8"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% CONJUROR_R3_AS_REDUCTION %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% CONJUROR_R3_MS_REDUCTION %>"
 				}
 			}
 			"modifier_conjuror_glyph_5_a_summon"
@@ -644,7 +644,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CONJUROR_Q1_ARMOR_AURA %>"
 				}
 			}
 			"modifier_earth_aspect_a_a_effect"
@@ -935,7 +935,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CONJUROR_R2_BONUS_DMG_PCT %>"
 				}
 			}
 			"modifier_fire_aspect_b_d_range"
@@ -945,7 +945,7 @@
 				"EffectAttachType"	"origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "500"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% CONJUROR_R2_BONUS_ATTACK_RANGE %>"
 				}
 			}
 			"modifier_fire_aspect_b_d_armor_shred"
@@ -958,7 +958,7 @@
 				"TextureName"	"ember_spirit_sleight_of_fist"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1000"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% CONJUROR_R2_ARMOR_SHRED %>"
 				}
 			}
 			"modifier_shadow_aspect_c_d_slow_attack"
@@ -997,7 +997,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"20"
+				"duration"				"<% CONJUROR_R_DURATION_BASE %>"
 			}
 		}
 	}
@@ -1021,7 +1021,7 @@
 
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
 
-		"AbilityCastRange"				"500"
+		"AbilityCastRange"				"<% CONJUROR_Q_CAST_RANGE %>"
 		"AbilityCastPoint"				"0.45"
 		"AOERadius"						"%radius"
 

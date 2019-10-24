@@ -13,8 +13,8 @@ function shadow_gate_cast(event)
 	end
 	if b_c_level > 0 then
 		local fv = (target - casterOrigin):Normalized() * Vector(1, 1, 0)
-		ability.e_2_damage = b_c_level * 1000 + 1000 + caster:GetAgility() * 4 * b_c_level
-		ability.e_4_pure_damage = ability.e_2_damage * 0.15 * ability.e_4_level
+		ability.e_2_damage = b_c_level * CONJUROR_E2_DAMAGE + CONJUROR_E2_BASE_DAMAGE + caster:GetAgility() * CONJUROR_E2_ADDITIONAL_DAMAGE_PER_AGI * b_c_level
+		ability.e_4_pure_damage = ability.e_2_damage * CONJUROR_E4_E2_PURE_PCT/100 * ability.e_4_level
 		arc_piece_shadow(casterOrigin, fv, ability, caster, lanceParticle)
 		arc_piece_shadow(casterOrigin + WallPhysics:rotateVector(fv, math.pi / 2) * 50 - fv * 50, fv, ability, caster, lanceParticle)
 		arc_piece_shadow(casterOrigin + WallPhysics:rotateVector(fv, -math.pi / 2) * 50 - fv * 50, fv, ability, caster, lanceParticle)

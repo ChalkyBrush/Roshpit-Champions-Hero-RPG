@@ -2079,7 +2079,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level then
-                fireMult = fireMult + 0.0015 * attacker:GetStrength() / 10 * attacker.q_4_level
+                fireMult = fireMult + CONJUROR_Q4_EARTH_AND_FIRE_AMP_PER_STR/100 * attacker:GetStrength() / 10 * attacker.q_4_level
             end
             if victim:HasModifier("modifier_conjuror_w_4_burn") then
                 if attacker:HasAbility("summon_fire_aspect") then
@@ -2165,7 +2165,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level then
-                mult = mult + 0.0015 * attacker:GetStrength() / 10 * attacker.q_4_level
+                mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP_PER_STR/100 * attacker:GetStrength() / 10 * attacker.q_4_level
             end
             if attacker:HasModifier("modifier_conjuror_arcana3") and attacker.q_3_level then
                 mult = mult + 0.0001 * (attacker:GetMaxHealth() / 100) * attacker.q_3_level

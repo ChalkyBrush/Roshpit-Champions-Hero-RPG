@@ -69,7 +69,7 @@ function rune_q_2_clap_start(event)
 	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 0.8})
 	EmitSoundOn("Conjuror.ThunderClap", caster)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf", caster, 3)
-	local damage = caster:GetHealth() * 0.05 * event.rune_q_2_level
+	local damage = caster:GetHealth() * CONJUROR_Q2_CLAP_DAMAGE_OF_ASPECT_HP_PCT/100 * event.rune_q_2_level
 	local point = caster:GetAbsOrigin()
 	local radius = 380
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)

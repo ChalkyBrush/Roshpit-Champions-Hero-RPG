@@ -15,12 +15,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% CONJUROR_Q1_ASPECT_HP_BONUS_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"<% CONJUROR_Q1_ARMOR_AURA %>"
 			}
 		}
 	}
@@ -42,7 +42,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% CONJUROR_Q2_CLAP_DAMAGE_OF_ASPECT_HP_PCT %>"
 			}
 			"02"
 			{
@@ -186,7 +186,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1500"
+				"property_one"			"<% CONJUROR_Q3_HP_REGEN %>"
 			}
 		}
 		"Modifiers"
@@ -225,7 +225,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% CONJUROR_Q4_EARTH_AND_FIRE_AMP_PER_STR %>"
 			}
 		}
 	}
@@ -377,7 +377,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"<% CONJUROR_W2_ARMOR_REDUCTION %>"
 			}
 		}
 		"Modifiers"
@@ -432,7 +432,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% CONJUROR_W2_ARMOR_REDUCTION %>"
 				}
 			}
 		}
@@ -532,7 +532,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25"
+				"property_two"			"<% CONJUROR_E1_BONUS_AGI %>"
 			}
 		}
 	}
@@ -554,17 +554,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"<% CONJUROR_E2_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"1000"
+				"property_one_base"		"<% CONJUROR_E2_BASE_DAMAGE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"<% CONJUROR_E2_ADDITIONAL_DAMAGE_PER_AGI %>"
 			}
 			"04"
 			{
@@ -595,12 +595,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT %>"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"<% CONJUROR_E3_BONUS_ATTACK_RANGE %>"
 			}
 		}
 	}
@@ -622,12 +622,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% CONJUROR_E4_ATTACK_PURE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"<% CONJUROR_E4_E2_PURE_PCT %>"
 			}
 			"03"
 			{
@@ -659,12 +659,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% CONJUROR_R1_Q_AMP_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"<% CONJUROR_R1_STUN %>"
 			}
 			"03"
 			{
@@ -700,7 +700,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-1000"
+				"property_two"			"-<% CONJUROR_R2_ARMOR_SHRED %>"
 			}
 		}
 	}
@@ -721,12 +721,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-8"
+				"property_one"			"-<% CONJUROR_R3_AS_REDUCTION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-8"
+				"property_two"			"-<% CONJUROR_R3_MS_REDUCTION %>"
 			}
 		}
 	}
@@ -747,7 +747,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"<% CONJUROR_R4_R_DUR_INCREASE %>"
 			}
 		}
 	}
