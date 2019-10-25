@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_ARCANA1_W1_POST_AMP_PERCENT %>"
+				"property_one"			"<% TRAPPER_ARCANA_W_W1_POST_AMP_PERCENT %>"
 			}
 		}
 	}
@@ -34,7 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_ARCANA_W2_NORMAL_PCT * 100 %>"
+				"property_one"			"<% TRAPPER_ARCANA_W_W2_NORMAL_PCT * 100 %>"
 			}
 		}
 	}
@@ -54,7 +54,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_ARCANA1_W3_AGI_DAMAGE %>"
+				"property_one"			"<% TRAPPER_ARCANA_W_W3_AGI_DAMAGE %>"
 			}
 			"02"
 			{
@@ -84,7 +84,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"<% TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT %>"
 			}
 		}
 	}

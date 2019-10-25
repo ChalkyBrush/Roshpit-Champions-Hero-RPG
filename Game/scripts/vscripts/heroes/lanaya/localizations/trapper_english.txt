@@ -199,7 +199,7 @@
     	"DOTA_Tooltip_ability_trapper_arcana_lasso_whip_range"				"RANGE:"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1"						"[W1] Deadly Poison"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Venom Whip poison stacks additionally increase all post-mitigation damage taken by the victim from any source. Maximum <% TRAPPER_ARCANA1_W1_MAX_STACKS %> stacks."
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Venom Whip poison stacks additionally increase all post-mitigation damage taken by the victim from any source. Maximum <% TRAPPER_ARCANA_W_W1_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Post-Mitigation Damage Bonus"
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"% per stack"
 

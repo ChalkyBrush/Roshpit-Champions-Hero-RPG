@@ -1995,7 +1995,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:HasModifier("modifier_trapper_arcana1") then
             local w_2_level = attacker:GetRuneValue("w", 2)
-            normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W2_NORMAL_PCT
+            normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W_W2_NORMAL_PCT
         end
         if unitName == "npc_dota_hero_axe" then
             if victim:HasModifier("modifier_axe_rune_q_4_invisible") then
@@ -2076,7 +2076,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                fireMult = fireMult + 0.0003 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                fireMult = fireMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level then
@@ -2232,7 +2232,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                mult = mult + 0.0003 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                mult = mult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
             end
         end
         if attacker:HasModifier("modifier_helm_poison") then
@@ -2673,7 +2673,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                waterMult = waterMult + 0.0003 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                waterMult = waterMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
             end
         elseif unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
