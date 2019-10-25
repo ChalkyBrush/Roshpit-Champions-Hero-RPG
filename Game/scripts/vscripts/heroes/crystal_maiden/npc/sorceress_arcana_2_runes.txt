@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12000"
+				"property_one"			"<% SORCERESS_ARCANA2_Q1_BASE_DMG_PER_LEVEL %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"5000"
+				"property_one_base"		"<% SORCERESS_ARCANA2_Q1_BASE_DMG %>"
 			}
 			"03"
 			{
@@ -58,7 +58,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_ARCANA2_Q2_PCT %>"
+				"property_one"			"<% SORCERESS_ARCANA2_Q2_DAMAGE %>"
 			}
 			"02"
 			{
@@ -90,7 +90,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"20"
+				"property_one"			"<% SORCERESS_ARCANA2_Q3_DAMAGE_PCT * 100 %>"
 			}
 			"02"
 			{
@@ -121,12 +121,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_one"			"<% SORCERESS_ARCANA2_Q4_FIRE_AMP %>"
 			}
 		}
 	}

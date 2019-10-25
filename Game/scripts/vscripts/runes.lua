@@ -1282,10 +1282,10 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 			hero:RemoveModifierByName(modifier:GetName())
 		end
 	end
-	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
+	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot).rune_level
 	hero:RemoveAbility(oldAbility)
 	local newAbility = hero:AddAbility(newAbility)
 	newAbility:SetLevel(abilityLevel)
@@ -1324,10 +1324,10 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	if abilitySlot == DOTA_R_SLOT then
 		abilitySlot = 3
 	end
-	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
+	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot).rune_level
 	local modifiers = hero:FindAllModifiers()
 	for _, modifier in pairs(modifiers) do
 		if modifier:GetAbility() == existingAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then

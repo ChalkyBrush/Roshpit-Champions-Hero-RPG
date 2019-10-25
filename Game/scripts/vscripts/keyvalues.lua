@@ -138,7 +138,6 @@ function CDOTA_BaseNPC:GetKeyValue(key, level)
     if level then 
     	return GetUnitKV(self:GetUnitName(), key, level)
     else
-        print(self:GetUnitName())
     	local value = GetUnitKV(self:GetUnitName(), key)
     	if value then
     		return GetUnitKV(self:GetUnitName(), key) 
@@ -153,8 +152,8 @@ function CDOTA_BaseNPC_Hero:GetKeyValue(key, level)
     if level then 
         return GetUnitKV(unitName, key, level)
     else
+        
         local value = GetUnitKV(unitName, key)
-        print(value)
         if value then
             return GetUnitKV(unitName, key) 
         else

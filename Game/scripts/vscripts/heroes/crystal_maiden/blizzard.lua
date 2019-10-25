@@ -48,7 +48,7 @@ function rune_q_1(caster, ability)
 	local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_1")
 	local abilityLevel = runeAbility:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("q", 1)
 	if totalLevel > 0 then
 		local iceLance = caster:FindAbilityByName("ice_lance")
 		if not iceLance then
@@ -76,7 +76,7 @@ function rune_q_3(caster, ability)
 	local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_3")
 	local abilityLevel = runeAbility:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("q", 3)
 	if totalLevel > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ice_block", {duration = 5})
 		caster:SetModifierStackCount("modifier_ice_block", ability, totalLevel)

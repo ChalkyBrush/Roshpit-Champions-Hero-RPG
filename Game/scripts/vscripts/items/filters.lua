@@ -1853,7 +1853,8 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
         end
         -- print("damage_type "..tostring(damage_type))
     end
-
+    print("DAMAGE:")
+    print(damage)
     for i = 1, instances do
         ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
     end
@@ -2038,11 +2039,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.r_4_level and not attacker:HasModifier("modifier_sorceress_arcana1") then
-                fireMult = fireMult + SORCERESS_R4_FIRE_AMP_PER_ATR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                fireMult = fireMult + SORCERESS_R4_FIRE_AMP * attacker.r_4_level
             end
             if attacker:HasModifier("modifier_fire_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_fire_avatar", attacker)
-                fireMult = fireMult + stacks * 0.2
+                fireMult = fireMult + stacks * (SORCERESS_ARCANA2_Q4_FIRE_AMP/100)
             end
         end
         if attacker:HasModifier("modifier_flametongue") then
@@ -2431,7 +2432,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker:HasAbility("blizzard") then
                 local q_4_level = attacker:GetRuneValue("q", 4)
-                mult = mult + 0.0004 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level
+                mult = mult + (SORCERESS_Q4_ICE_AMP/100)*q_4_level
             end
             if attacker:HasModifier("modifier_ice_avatar") then
                 local stacks = attacker:GetModifierStackCount("modifier_ice_avatar", attacker)
@@ -2482,7 +2483,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 			if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
                 stacks = stacks * SORCERESS_GLYPH_6_2_R3_MULT
             end
-            mult = mult + stacks * 0.005
+            mult = mult + stacks * SORCERESS_ARCANA1_R3_ICE_RESIST_LOSS
         end
     end
     if element1 == RPC_ELEMENT_ARCANE or element2 == RPC_ELEMENT_ARCANE then
@@ -2494,11 +2495,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_trinket_arcane") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_arcane", attacker.InventoryUnit)
             mult = mult + stacks / 100
-        end
-        if victim:HasModifier("modifier_sorceress_rune_w_2_invisible") then
-            local modifier = victim:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
-            local multIncrease = modifier:GetStackCount() * 0.05
-            mult = mult + multIncrease
         end
         if victim:HasModifier("modifier_storm_weapon_b_b_invisible") then
             local modifier = victim:FindModifierByName("modifier_storm_weapon_b_b_invisible")
@@ -4035,7 +4031,7 @@ function Filters:ShatterArcaneShell(victim, attacker)
     else
         EmitSoundOn("Sorceress.ArcaneShellZap", attacker)
         local w_1_level = Runes:GetTotalRuneLevel(victim, 1, "w_1", "sorceress")
-        local damage = 0.2 * w_1_level * victim:GetIntellect()
+        local damage = w_1_level * victim:GetIntellect() * SORCERESS_W1_DMG_INT_MULT
         Filters:TakeArgumentsAndApplyDamage(attacker, victim, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 
         local particleName = "particles/roshpit/sorceress_arcane_shield_blast.vpcf"

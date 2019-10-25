@@ -40,7 +40,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"130 230 560 1040 2080 4400 7000"
+		"AbilityManaCost"				"50 85 120 155 190 225 260"
 
 		// Special
 		//-------------------------------------------------------
@@ -54,7 +54,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				"100 200 400 800 1200 1600 2000"
+				"damage"				"10 15 20 25 30 35 40"
 			}
 		}
 
@@ -208,7 +208,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
 				"TextureName"		"silencer/bts_silencer_ability/silencer_last_word"
 				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -217,7 +216,6 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 			}
 			"modifier_ring_of_fire_ignite"
 			{
@@ -301,7 +299,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"wave_damage"			"1500 9000 28000 70000 130000 240000 480000"
+				"wave_damage"			"100 300 500 700 900 1100 1300"
 			}
 			"05"
 			{
@@ -321,7 +319,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ice_resist_loss"			"50 100 150 200 250 300 350"
+				"ice_resist_loss"			"8 16 24 32 40 48 56"
 			}
 		}
 
@@ -534,7 +532,7 @@
 			"02"
             {
             	"var_type"					"FIELD_FLOAT"
-            	"amp"					    "40 60 100 150 200 250 300"
+            	"amp"					    "40 50 60 70 80 90 100"
             }
 		}
 
@@ -690,7 +688,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"45 100 200 300 400 600 800 1000"
+		"AbilityManaCost"				"15 45 75 105 135 165 195"
 
 		// Special
 		//-------------------------------------------------------
@@ -838,7 +836,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 240 500 800 1200 3000 6000"
+		"AbilityManaCost"				"50 100 150 200 250 300 350"
 
 		// Special
 		//-------------------------------------------------------
@@ -1188,7 +1186,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"1000 4000 9000 20000 54000 95000 165000"
+				"damage"	"100 250 400 550 700 850 1000"
 			}
 
 			"03"
@@ -1321,12 +1319,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"1200 2400 6000 13000 17500 20500 26000"
+				"mana_drain_per_second"		"50 90 130 170 210 250 290"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				"100 200 400 800 1200 1600 2000"
+				"damage"				"7 10 13 16 19 22 25"
 			}
 		}
 	}

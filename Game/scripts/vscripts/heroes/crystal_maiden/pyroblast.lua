@@ -111,7 +111,7 @@ function rune_r_1(caster, ability)
 	local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_1")
 	local abilityLevel = runeAbility:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "r_1")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("r", 1)
 	if totalLevel > 0 and not caster:HasModifier("modifier_clear_cast") then
 		local fireball = caster:FindAbilityByName("fireball")
 		if not fireball then
@@ -160,7 +160,7 @@ function pyroblast_impact(event)
 	end
 	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.r_4_level*damage
 	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	if ability.rune_r_2_level > 0 then
+	if ability.rune_r_2_level > 0 and filterDamage then
 		applyIgnite(caster, ability, filterDamage, target, ability.rune_r_2_level, 6)
 	end
 	Filters:ApplyStun(caster, stun_duration, target)

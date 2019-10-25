@@ -20965,12 +20965,12 @@
         {
             "particle"     "particles/econ/items/lion/lion_demon_drain/lion_spell_mana_drain_demon.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "800"
-        "AttackDamageMax"   "1500"
+        "AttackDamageMin"   "34"
+        "AttackDamageMax"   "36"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "99999"
@@ -21025,7 +21025,12 @@
         "Ability2"  "dungeon_creep"
         "Ability3"  "knockback_immunity"
         "Ability4"  "desert_ruins_ability"
-
+        "RoshpitArmor"          "37"
+        "RoshpitArmorPierce"    "44"
+        "RoshpitSpellPierce"    "41"
+        "RoshpitMagicArmor"     "74"
+        "RoshpitLevel"          "8"
+        "EnemyTier"      "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 
     "ruins_golden_skullbone"
@@ -21047,8 +21052,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "1200"
-        "AttackDamageMax"   "2400"
+        "AttackDamageMin"   "400"
+        "AttackDamageMax"   "400"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "1"
         "AttackAcquisitionRange"    "0"
@@ -21067,7 +21072,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "290"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "36000"
+        "StatusHealth"  "4000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -21103,7 +21108,12 @@
         "Ability2"  "dungeon_creep"
         "Ability3"  "knockback_immunity"
         "Ability4"  "desert_ruins_ability"
-
+        "RoshpitArmor"          "300"
+        "RoshpitArmorPierce"    "425"
+        "RoshpitSpellPierce"    "325"
+        "RoshpitMagicArmor"     "500"
+        "RoshpitLevel"          "35"
+        "EnemyTier"      "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     "ruins_venomous_burrower"

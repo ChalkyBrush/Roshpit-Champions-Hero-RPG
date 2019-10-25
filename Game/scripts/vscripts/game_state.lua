@@ -2011,6 +2011,7 @@ function GameState:FilterDamage(filterTable)
 	local applyEffects = true
 	local applySturdyHornEffect = true
 
+
 	if filterTable["entindex_inflictor_const"] then
 		local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])
 		if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
@@ -2030,7 +2031,7 @@ function GameState:FilterDamage(filterTable)
 		-- end
 	end
 	if applyEffects then
-		filterTable["damage"] = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damagetype, filterTable["damage"])
+		filterTable["damage"] = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damagetype, filterTable["damage"], filterTable["entindex_inflictor_const"])
 	end
 	modifier = attacker:FindModifierByName('modifier_chernobog_glyph_t71_passive')
 	if modifier then
@@ -2716,20 +2717,6 @@ function GameState:FilterDamage(filterTable)
 					attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_sea_oracle_particle_lock", {duration = 1.0})
 				end
 			end
-		end
-	end
-	if Filters:IsIceFrozen(victim) and attacker:HasModifier('modifier_frost_nova_passive') then
-		if attacker.q_2_level then
-			mult = mult + 0.035 * attacker.q_2_level
-		end
-	end
-	if Filters:IsFireBurning(victim) and attacker:HasModifier('modifier_fire_ring_passive') then
-		if attacker.q2_level then
-			local localMult = SORCERESS_ARCANA2_Q2_PCT/100 * attacker.q2_level
-			if victim:HasModifier("modifier_ring_of_fire_burn") then
-				localMult = localMult * SORCERESS_ARCANA2_Q2_AMP_IN_RING
-			end
-			mult = mult + localMult
 		end
 	end
 

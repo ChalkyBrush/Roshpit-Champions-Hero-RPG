@@ -16869,14 +16869,12 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"sorceress/sorceress_rune_r_3_arcana1"
 			}
 			"modifier_tornado_ice_resist_loss_invisible"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 			}
 			"modifier_ice_avatar"
 			{
@@ -16946,7 +16944,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2000 5000 25000 100000 200000 400000"
+				"damage"			"80 180 280 380 480 580 680"
 			}
 			"02"
 			{
@@ -17053,7 +17051,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.3"
 			}
 		}
 	}
@@ -17114,7 +17112,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3200 12000 30000 65000 100000 165000 350000"
+				"damage"			"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
@@ -17139,7 +17137,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"4"
 
 		// Cost
 		//-------------------------------------------------------
@@ -17308,7 +17306,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 240 500 800 1200 3000 6000"
+		"AbilityManaCost"				"100 200 300 400 500 600 700"
 
 		// Special
 		//-------------------------------------------------------
@@ -17415,12 +17413,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12000"
+				"property_one"			"80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"5000"
+				"property_one_base"		"100"
 			}
 			"03"
 			{
@@ -17435,7 +17433,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"120"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -17457,7 +17455,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"200"
 			}
 			"02"
 			{
@@ -17520,12 +17518,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"550"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -17574,7 +17567,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"130 230 560 1040 2080 4400 7000"
+		"AbilityManaCost"				"50 85 120 155 190 225 260"
 
 		// Special
 		//-------------------------------------------------------
@@ -17588,7 +17581,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				"100 200 400 800 1200 1600 2000"
+				"damage"				"10 15 20 25 30 35 40"
 			}
 		}
 
@@ -17742,7 +17735,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
 				"TextureName"		"silencer/bts_silencer_ability/silencer_last_word"
 				"EffectName"		"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -17751,7 +17743,6 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 			}
 			"modifier_ring_of_fire_ignite"
 			{
@@ -17835,7 +17826,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"wave_damage"			"1500 9000 28000 70000 130000 240000 480000"
+				"wave_damage"			"100 300 500 700 900 1100 1300"
 			}
 			"05"
 			{
@@ -17855,7 +17846,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"ice_resist_loss"			"50 100 150 200 250 300 350"
+				"ice_resist_loss"			"8 16 24 32 40 48 56"
 			}
 		}
 
@@ -18068,7 +18059,7 @@
 			"02"
             {
             	"var_type"					"FIELD_FLOAT"
-            	"amp"					    "40 60 100 150 200 250 300"
+            	"amp"					    "40 50 60 70 80 90 100"
             }
 		}
 
@@ -18167,7 +18158,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
 				}
 			}
 			"modifier_clear_cast"
@@ -18224,7 +18215,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"45 100 200 300 400 600 800 1000"
+		"AbilityManaCost"				"15 45 75 105 135 165 195"
 
 		// Special
 		//-------------------------------------------------------
@@ -18372,7 +18363,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 240 500 800 1200 3000 6000"
+		"AbilityManaCost"				"50 100 150 200 250 300 350"
 
 		// Special
 		//-------------------------------------------------------
@@ -18722,7 +18713,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"1000 4000 9000 20000 54000 95000 165000"
+				"damage"	"100 250 400 550 700 850 1000"
 			}
 
 			"03"
@@ -18855,12 +18846,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"1200 2400 6000 13000 17500 20500 26000"
+				"mana_drain_per_second"		"50 90 130 170 210 250 290"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				"100 200 400 800 1200 1600 2000"
+				"damage"				"7 10 13 16 19 22 25"
 			}
 		}
 	}
@@ -18954,12 +18945,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12000"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"24000"
+				"property_one_base"		"40"
 			}
 			"03"
 			{
@@ -18989,8 +18980,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"120"
 			}
 			"02"
 			{
@@ -19052,7 +19043,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -19084,7 +19075,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"0.1"
 			}
 			"04"
 			{
@@ -19148,12 +19139,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"4"
 			}
 		}
 		"Modifiers"
@@ -19165,7 +19156,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 
 				"Aura"          	"modifier_arcane_intellect_effect_invisible"
-				"Aura_Radius"   	"2000"
+				"Aura_Radius"   	"1600"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -19284,12 +19275,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8000"
+				"property_one"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"50000"
+				"property_one_base"		"10"
 			}
 		}
 	}
@@ -19310,7 +19301,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"10"
 			}
 		}
 		"Modifiers"
@@ -19363,7 +19354,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -19395,12 +19386,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8000"
+				"property_one"			"80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"80000"
+				"property_one_base"		"60"
 			}
 			"03"
 			{
@@ -19519,7 +19510,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"10"
 			}
 		}
 	}

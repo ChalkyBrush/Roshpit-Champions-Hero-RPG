@@ -9799,7 +9799,7 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"寒风雕文"
-		"item_rpc_sorceress_glyph_1_1_description" 				"暴风雪造成 <font color='#ccff66'>2</font>x 伤害并额外降低移动速度和攻击速度 <font color='#ccff66'>100</font>/<font color='#ccff66'>100</font>"
+		"item_rpc_sorceress_glyph_1_1_description" 				"暴风雪造成 <font color='#ccff66'>1.5</font>x 伤害并额外降低移动速度和攻击速度 <font color='#ccff66'>100</font>/<font color='#ccff66'>100</font>"
 
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"寒风"
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"暴风雪额外降低移动速度和攻击速度"	
@@ -9811,13 +9811,13 @@
 		"item_rpc_sorceress_glyph_3_1_description" 				"施放火球术后立即发射 <font color='#ccff66'>4</font> 火球。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"奥能强化雕文"
-		"item_rpc_sorceress_glyph_4_1_description" 				"提高魔法少女及其水元素的攻击速度 <font color='#ccff66'>260</font> /<font color='#ccff66'>500</font>"
+		"item_rpc_sorceress_glyph_4_1_description" 				"提高魔法少女及其水元素的攻击速度 <font color='#ccff66'>210</font> /<font color='#ccff66'>300</font>"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"奥术洪流雕文"
-		"item_rpc_sorceress_glyph_5_1_description" 				"将 @Ability2 替换为奥术洪流，在远距离吟唱施法，对目标敌人造成 <font color='#ccff66'>5</font>x @Ability2 的伤害。"
+		"item_rpc_sorceress_glyph_5_1_description" 				"将 @Ability2 替换为奥术洪流，在远距离吟唱施法，对目标敌人造成 <font color='#ccff66'>2</font>x @Ability2 的伤害。"
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"奥术洪流"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 <font color='#ccff66'>0.2</font> 秒将发射弹道攻击最近的敌人。伤害为 <font color='#ccff66'>5</font>x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至<font color='#ccff66'>4</font>层。"
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 <font color='#ccff66'>0.2</font> 秒将发射弹道攻击最近的敌人。伤害为 <font color='#ccff66'>2</font>x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至<font color='#ccff66'>4</font>层。"
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"距离："
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"奥术洪流"
@@ -9829,7 +9829,7 @@
 		"item_rpc_sorceress_glyph_7_1_description" 				"炎爆术被替换为 <font color='#ccff66'>1.5</font>x 伤害的混爆术。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"冰霜雕文"
-		"item_rpc_sorceress_glyph_5_a_description" 				"冰枪伤害乘数 <font color='#ccff66'>20</font>x 当敌人被冻住。"
+		"item_rpc_sorceress_glyph_5_a_description" 				"冰枪伤害乘数 <font color='#ccff66'>5</font>x 当敌人被冻住。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"冰晶雕文"
 		"item_rpc_sorceress_glyph_1_2_description" 				"水精灵有 <font color='#ccff66'>15</font>% 概率冻结敌人 <font color='#ccff66'>1</font> 秒。"

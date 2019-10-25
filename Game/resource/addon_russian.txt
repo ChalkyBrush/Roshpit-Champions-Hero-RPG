@@ -9526,7 +9526,7 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"(T1) Glyph of Freezing Winds"
-		"item_rpc_sorceress_glyph_1_1_description" 				"(Q) Blizzard наносит в <font color='#ccff66'>2</font> раз(а) больше урона и дополнительно замедляет скорость передвижения и атаки целей на <font color='#ccff66'>100</font>/<font color='#ccff66'>100</font>."
+		"item_rpc_sorceress_glyph_1_1_description" 				"(Q) Blizzard наносит в <font color='#ccff66'>1.5</font> раз(а) больше урона и дополнительно замедляет скорость передвижения и атаки целей на <font color='#ccff66'>100</font>/<font color='#ccff66'>100</font>."
 
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"Freezing Winds"
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"Скорость атаки и передвижения снижена"	
@@ -9538,13 +9538,13 @@
 		"item_rpc_sorceress_glyph_3_1_description" 				"Выпускает <font color='#ccff66'>4</font> [R1] вместо одного сразу после прочтения."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"(T4) Glyph of Arcane Enhancement"
-		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на <font color='#ccff66'>260</font> /<font color='#ccff66'>500</font>."
+		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на <font color='#ccff66'>210</font> /<font color='#ccff66'>300</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"(T5) Glyph of Arcane Torrent"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный <font color='#ccff66'>5</font>х урона (W) @Ability2. [W1] накладывает <font color='#ccff66'>4</font> щита, а не 3."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный <font color='#ccff66'>2</font>х урона (W) @Ability2. [W1] накладывает <font color='#ccff66'>4</font> щита, а не 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые <font color='#ccff66'>0.2</font> секунды. Урон снарядов равен <font color='#ccff66'>5</font>х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые <font color='#ccff66'>0.2</font> секунды. Урон снарядов равен <font color='#ccff66'>2</font>х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"ДАЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_arcane_torrent_mana_drain_per_second" "ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
 		"DOTA_Tooltip_ability_arcane_torrent_damage"			"БАЗОВЫЙ УРОН(ARCANE EXPLOSION), % ОТ ТЕКУЩЕЙ МАНЫ:"
@@ -9558,7 +9558,7 @@
 		"item_rpc_sorceress_glyph_7_1_description" 				"Усиливает мощь умения (R) @Ability4 в <font color='#ccff66'>1.5</font> раз(а)."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"(Immortal) Glyph of Frostbite"
-		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до <font color='#ccff66'>20</font>x."
+		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до <font color='#ccff66'>5</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"(T1-2) Glyph of Crystallization"
 		"item_rpc_sorceress_glyph_1_2_description" 				"Элементаль воды с <font color='#ccff66'>15</font>% шансом заморозит атакуемую цель на <font color='#ccff66'>1</font> сек."

@@ -52,6 +52,7 @@ function begin_firestorm(event)
 		if ability:GetCooldownTimeRemaining() > 0 then
 			caster.sunlance = true
 			CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_fire_arcana_q", "sorceress_sun_lance", 0)
+			print(" REPLACE SUN LANCE?")
 		end
 	end
 	ability.q_4_level = caster:GetRuneValue("q", 4)
@@ -123,18 +124,12 @@ function firestorm_channel_think(event)
 	end)
 	for i = 0, 5, 1 do
 		Timers:CreateTimer(i * 0.5, function()
+			GridNav:DestroyTreesAroundPoint(position, radius, false)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sorceress_firestorm", {duration = 10})
 					local damage = event.damage
-					if ability.q_4_level then
-						if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-							damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
-						else
-							damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
-						end
-					end
 					if caster:HasModifier("modifier_sorceress_glyph_1_1") then
 						damage = damage * SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT
 					end
@@ -156,13 +151,6 @@ function sorceress_firestorm_debuff_think(event)
 	local luck = RandomInt(1, 6)
 	if luck == 1 then
 		local damage = event.damage
-		if ability.q_4_level then
-			if caster:HasModifier("modifier_sorceress_immortal_ice_avatar") then
-				damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster.origCaster:GetIntellect()
-			else
-				damage = damage + ability.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
-			end
-		end
 		if caster:HasModifier("modifier_sorceress_glyph_1_1") then
 			damage = damage * SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT
 		end
@@ -171,7 +159,20 @@ function sorceress_firestorm_debuff_think(event)
 end
 
 function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
-	--CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", target, 3)
+	if ability then
+		if not ability.particle_count then
+			ability.particle_count = 0
+		end
+		print(ability.particle_count)
+		if ability.particle_count < 10 then
+			CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", target, 3)
+			print("particle")
+			ability.particle_count = ability.particle_count + 1
+			Timers:CreateTimer(2, function()
+				ability.particle_count = ability.particle_count - 1
+			end)
+		end
+	end
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 160, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		--EmitSoundOn("Sorceress.Firestorm.Impact", target)

@@ -636,13 +636,34 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	return armor
 end
 
-function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damage_type, damage)
+function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damage_type, damage, ability_index)
+	local armor_pierce = attacker:GetRoshpitArmorPierce()
+	local spell_pierce = attacker:GetRoshpitSpellPierce()
+
+	-- SPECIFIC ADJUSTMENTS BELOW
+	-- if ability_index then
+	-- 	local ability = EntIndexToHScript(ability_index)
+	-- 	if ability and IsValidEntity(ability) then
+	-- 		if ability:GetAbilityName() == "ice_lance" then
+	-- 			local q_2_level = attacker:GetRuneVanle("q", 2)
+	-- 			spell_pierce = spell_pierce + SORCERESS_Q2_ICE_LANCE_BONUS_SPELL_PIERCE*q_2_level
+	-- 		end
+	-- 	end
+	-- end
+	-- attacker:HasModifier('modifier_frost_nova_passive') and Filters:IsIceFrozen(victim) then
+	-- 	local q_2_level = attacker:GetRuneValue("q", 2)
+	-- 	spell_pierce = spell_pierce + SORCERESS_Q2_ICE_LANCE_BONUS_SPELL_PIERCE*q_2_level
+	-- end
+
+	-- MAIN PART BELOW
 	if damage_type == DAMAGE_TYPE_PHYSICAL then
-		local mult = math.min((255 + attacker:GetRoshpitArmorPierce())/(255 + victim:GetRoshpitArmor()), 2)
+		local mult = math.min((255 + armor_pierce)/(255 + victim:GetRoshpitArmor()), 2)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_MAGICAL then
-		local mult = math.min((255 + attacker:GetRoshpitSpellPierce())/(255 + victim:GetRoshpitMagicArmor()), 2)
+		local mult = math.min((255 + spell_pierce)/(255 + victim:GetRoshpitMagicArmor()), 2)
 		return damage*mult
+	elseif damage_type == DAMAGE_TYPE_PURE then
+		return damage
 	end
 end
 
@@ -786,6 +807,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_paladin_d_c") then
 		local modifier = unit:FindModifierByName("modifier_paladin_d_c")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*PALADIN_E4_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_sorceress_rune_w_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SORCERESS_W2_MAGIC_ARMOR_LOSS
 	end
 
 
