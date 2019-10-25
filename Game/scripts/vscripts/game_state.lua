@@ -1773,8 +1773,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_shapeshift_year_beast_r_3") then
 		local modifier = victim:FindModifierByName("modifier_shapeshift_year_beast_r_3")
-		local reduction = modifier:GetAbility().r_3_level * DJANGHOR_R3_ARCANA_RESIST_PCT
-		reduction = math.min(reduction, DJANGHOR_R3_ARCANA_RESIST_MAX_PCT)
+		local reduction = modifier:GetAbility().r_3_level * DJANGHOR_ARCANA_R_R3_RESIST_PCT
+		reduction = math.min(reduction, DJANGHOR_ARCANA_R_R3_RESIST_MAX_PCT)
 		damage = damage * (1 - reduction)
 	end
 	if victim:HasModifier("modifier_ancient_tree_passive") then

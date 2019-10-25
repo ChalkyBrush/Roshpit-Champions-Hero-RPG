@@ -240,7 +240,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if casterName == "npc_dota_hero_monkey_king" then
         if caster:HasModifier("modifier_bear_c_d") then
             local r_3_level = caster:GetRuneValue("r", 3)
-            mult = mult + DJANGHOR_R3_BEAR_ITEM_DAMAGE_PCT * r_3_level
+            mult = mult + DJANGHOR_R3_BEAR_ITEM_DAMAGE_PCT/100 * r_3_level
         end
     end
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
@@ -1461,7 +1461,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_hawk_c_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_hawk_c_d", attacker)
-            damageMult = damageMult + 0.12 * current_stack
+            damageMult = damageMult + DJANGHOR_R3_BIRD_BAD_PCT/100 * current_stack
         end
         if attacker:HasModifier("modifier_rockfall_passive") then
             if Util.BaseType:IsAbilityBaseType(slot) then
@@ -2741,7 +2741,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
         if unitName == "npc_dota_hero_monkey_king" then
             local w_4_level = attacker:GetRuneValue("w", 4)
-            mult = mult + 0.005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+            mult = mult + DJANGHOR_W4_NATURE_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
         end
         if attacker:HasModifier("modifier_trinket_nature") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_nature", attacker.InventoryUnit)
@@ -2750,7 +2750,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_monkey_a_c_effect") then
             local e_1_level = attacker:GetRuneValue("e", 1)
             if e_1_level > 0 then
-                mult = mult + mult * 0.03 * e_1_level
+                mult = mult + mult * DJANGHOR_E1_NATURE_AMP_PCT/100 * e_1_level
             end
         end
         if unitName == "npc_dota_hero_arc_warden" then

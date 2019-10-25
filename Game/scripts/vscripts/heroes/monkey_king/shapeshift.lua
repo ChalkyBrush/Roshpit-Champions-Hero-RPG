@@ -270,18 +270,18 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = 7})
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_b_d", {duration = DJANGHOR_R2_LINGER})
 	end
 	if caster:HasModifier("modifier_hawk_c_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = 15})
+		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_hawk_c_d", {duration = DJANGHOR_R3_LINGER})
 	end
 	if caster:HasModifier("modifier_bear_c_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
-		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {duration = 15})
+		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bear_c_d", {duration = DJANGHOR_R3_LINGER})
 	end
 	if caster:HasModifier("modifier_glyph_2_critical") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
@@ -302,27 +302,27 @@ function monkey_form(event)
 		if caster:HasModifier("modifier_djanghor_arcana1") then
 			bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
 		end
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {duration = 15})
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glyph_7_bash", {duration = DJANGHOR_GLYPH_7_1_EFFECT_LINGER})
 	end
 	if caster:HasModifier("modifier_shapeshift_cat_d_d") then
 		local wolfShiftAbility = caster:FindAbilityByName("draghor_shapeshift_cat")
-		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {duration = 25})
+		wolfShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_cat_d_d", {duration = DJANGHOR_R4_LINGER})
 	end
 	if caster:HasModifier("modifier_shapeshift_bear_d_d") then
 		local bearShiftAbility = caster:FindAbilityByName("draghor_shapeshift_bear")
-		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {duration = 25})
+		bearShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_bear_d_d", {duration = DJANGHOR_R4_LINGER})
 	end
 	if caster:HasModifier("modifier_shapeshift_crow_d_d") then
 		local hawkShiftAbility = caster:FindAbilityByName("draghor_shapeshift_crow")
-		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {duration = 25})
+		hawkShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_crow_d_d", {duration = DJANGHOR_R4_LINGER})
 	end
 	if caster:HasModifier("modifier_year_beast_b_d_health") then
 		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
-		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {duration = 25})
+		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {duration = DJANGHOR_ARCANA_R_R2_LINGER})
 	end
 	if caster:HasModifier("modifier_shapeshift_yearbeast_d_d") then
 		local ybShiftAbility = caster:FindAbilityByName("draghor_shapeshift_year_beast")
-		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {duration = 25})
+		ybShiftAbility:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_yearbeast_d_d", {duration = DJANGHOR_ARCANA_R_R4_LINGER})
 	end
 	local colorVector = Vector(0.45, 0.8, 0.6)
 	local springParticle = "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_death_base.vpcf"
@@ -475,8 +475,8 @@ function general_shapeshift_think(event)
 		local attackBonus = attribute * a_d_level * DJANGHOR_R1_ATTACK_POWER_PER_STAT
 		if caster:HasModifier("modifier_shapeshift_year_beast") then
 			local b_d_level = caster:GetRuneValue("r", 2)
-			attackBonus = attribute * a_d_level * DJANGHOR_R1_ARCANA_ATTACK_POWER
-			local healthBonus = attribute * DJANGHOR_R2_ARCANA_HEALTH_PER_ATTRIBUTE * b_d_level
+			attackBonus = attribute * a_d_level * DJANGHOR_ARCANA_R_R1_ATTACK_POWER
+			local healthBonus = attribute * DJANGHOR_ARCANA_R_R2_HEALTH_PER_ATTRIBUTE * b_d_level
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_year_beast_b_d_health", {})
 			caster:SetModifierStackCount("modifier_year_beast_b_d_health", caster, healthBonus)
 		end
