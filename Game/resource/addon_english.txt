@@ -4008,6 +4008,8 @@
 		"DOTA_Tooltip_ability_summon_earth_aspect_Description"				"Summons an Earth Aspect from beneath the ground. He absorbs 50% of all damage taken by the caster. Earth Aspect cannot attack. While the Earth Aspect is alive, you are able to cast Earthquake."
 		"DOTA_Tooltip_ability_summon_earth_aspect_Lore"						""
 		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_health"			"EARTH ASPECT HEALTH:"
+		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_armor"				"ASPECT ARMOR:"
+		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_magic_armor"		"ASPECT MAGIC ARMOR:"
 		
 		"DOTA_Tooltip_ability_earthquake"									"Earthquake"
 		"DOTA_Tooltip_ability_earthquake_Description"						"Element: <font color=\"#AF843D\">Earth</font><br>Creates a powerful tremor at the target location and underneath your Earth Aspect, stunning and damaging targets. After Earthquake's first cast, you can keep casting it again freely for 1.5 seconds before it goes on cooldown."
@@ -4064,6 +4066,10 @@
 		"DOTA_Tooltip_ability_summon_fire_aspect_Lore"						""
 		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_health"					"FIRE ASPECT HEALTH:"
 		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_damage"					"ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_armor"				"ASPECT ARMOR:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_magic_armor"		"ASPECT MAGIC ARMOR:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_armor_pierce"		"ASPECT ARMOR PIERCE:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_spell_pierce"		"ASPECT SPELL PIERCE:"
 
 		"DOTA_Tooltip_ability_immolation"									"Immolation"
 		"DOTA_Tooltip_ability_immolation_Description"						"Element: <font color=\"#EF4126\">Fire</font><br>Launches an arc of flame in front of the Conjuror. Additionally, your fire elemental explodes in a column of fire dealing damage to nearby enemies."
@@ -4116,7 +4122,10 @@
 		"DOTA_Tooltip_ability_summon_shadow_aspect_Lore"					""
 		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_health"					"SHADOW ASPECT HEALTH:"
 		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_damage"					"ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_attack_splits"	"ATTACK SPLITS:"	
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_armor"			"ASPECT ARMOR:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_attack_splits"	"ATTACK SPLITS:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_armor_pierce"		"ASPECT ARMOR PIERCE:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_spell_pierce"		"ASPECT SPELL PIERCE:"	
 		
 
 		"DOTA_Tooltip_ability_shadow_gate"									"Shadow Gate"
