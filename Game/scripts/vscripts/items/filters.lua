@@ -1512,7 +1512,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetStrength() / CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR)
+                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetStrength())
             end
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
@@ -1580,7 +1580,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetIntellect() / CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR)
+                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetIntellect())
             end
         end
         if attacker:HasModifier("modifier_duskbringer_immortal_weapon_2") then
@@ -1653,7 +1653,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
-                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetAgility() / CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR)
+                damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetAgility())
             end
         end
         damage = damage * (1 + damageMult)
