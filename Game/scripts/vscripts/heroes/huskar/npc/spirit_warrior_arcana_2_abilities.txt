@@ -112,7 +112,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "<% SPIRIT_WARRIOR_W1_ARCANA_BONUS_HP %>"
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "<% SPIRIT_WARRIOR_ARCANA_W1_BONUS_HP %>"
 				}
 			}
 			"modifier_javelin_root"

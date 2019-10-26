@@ -26,7 +26,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-15"
+				"property_two"			"-<% SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF %>"
 			}
 			"04"
 			{
@@ -52,22 +52,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"65"
+				"property_one_base"			"<% SPIRIT_WARRIOR_Q2_REDUCTION_BASE * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% SPIRIT_WARRIOR_Q2_REDUCTION * 100 %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"95"
+				"property_one_max"			"<% SPIRIT_WARRIOR_Q2_REDUCTION_CAP * 100 %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.8"
+				"property_two"			"<% SPIRIT_WARRIOR_Q2_EVASION %>"
 			}
 		}
 	}
@@ -89,7 +89,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% SPIRIT_WARRIOR_Q3_DMG_PCT %>"
 			}
 			"02"
 			{
@@ -120,12 +120,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"<% SPIRIT_WARRIOR_Q4_FIRE_AMP_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.03"
+				"property_two"			"<% SPIRIT_WARRIOR_Q4_WIND_AMP_PER_AGI %>"
 			}
 		}
 	}
@@ -331,7 +331,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
 			}
 		}
 	}
@@ -352,7 +352,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
 			}
 		}
 		"Modifiers"
@@ -381,7 +381,7 @@
 				"EffectAttachType" 		"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"12"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
 				}
 				"OnCreated"
 				{
@@ -534,7 +534,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% SPIRIT_WARRIOR_E4_WIND_PER_INT_PCT %>"
 			}
 		}
 	}
@@ -555,7 +555,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"<% SPIRIT_WARRIOR_R1_LIFESTEAL_PCT %>"
 			}
 		}
 	}
@@ -576,7 +576,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% SPIRIT_WARRIOR_R2_BONUS_DMG_PCT %>"
 			}
 		}
 	}
@@ -598,7 +598,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% SPIRIT_WARRIOR_R3_ATTACK_POWER_TO_DAMAGE %>"
 			}
 			"02"
 			{
@@ -634,7 +634,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% SPIRIT_WARRIOR_R4_AS_BOOST %>"
 			}
 		}
 	}

@@ -1583,7 +1583,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_flametongue_q_2_fire_shield") then
 		if victim.q_2_level and victim.q_2_level > 0 then
-			local reduction = 1 - math.min((0.65 + 0.001 * victim.q_2_level), 0.95)
+			local reduction = 1 - math.min((SPIRIT_WARRIOR_Q2_REDUCTION_BASE + SPIRIT_WARRIOR_Q2_REDUCTION * victim.q_2_level), SPIRIT_WARRIOR_Q2_REDUCTION_CAP)
 			damage = damage * reduction
 		end
 	end

@@ -71,7 +71,7 @@ function ancient_rain_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if ability.r_2_level > 0 then
-		local damage = ability.r_2_level * 0.35 * OverflowProtectedGetAverageTrueAttackDamage(caster)
+		local damage = ability.r_2_level * SPIRIT_WARRIOR_ARCANA_R2_ATTACK_POWER_TO_DMG_PCT/100 * OverflowProtectedGetAverageTrueAttackDamage(caster)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "SpiritWarrior.RainLightning", caster)
@@ -97,7 +97,7 @@ end
 function ancient_rain_regen_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	local healAmount = caster:GetMaxHealth() * 0.003 * ability.r_1_level
+	local healAmount = caster:GetMaxHealth() * SPIRIT_WARRIOR_ARCANA_R1_HEAL_PCT/100 * ability.r_1_level
 	Filters:ApplyHeal(caster, caster, healAmount, true)
 end
 
@@ -128,7 +128,7 @@ function blazing_javelin_cast(event)
 	local fv = ((point - spellStartPoint) * Vector(1, 1, 0)):Normalized()
 	local solidFV = fv
 	local w_3_level = caster:GetRuneValue("w", 3)
-	local procs = Runes:Procs(w_3_level, 10, 1)
+	local procs = Runes:Procs(w_3_level, SPIRIT_WARRIOR_ARCANA_W3_MULTIPLE_THROW_CHANCE, 1)
 	ability:SetActivated(false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_javelin_root", {duration = 0.15 * procs})
 	for i = 0, procs, 1 do
@@ -223,7 +223,7 @@ function javelin_hit(event)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NORMAL)
 	local w_2_level = ability.w_2_level
 	if w_2_level > 0 then
-		local mult = w_2_level * SPIRIT_WARRIOR_W2_ARCANA_PCT/100
+		local mult = w_2_level * SPIRIT_WARRIOR_ARCANA_W2_PCT/100
 		if caster:HasModifier("modifier_flametongue") then
 			local eventTable = {}
 			eventTable.caster = caster
@@ -273,7 +273,7 @@ function blazing_javelin_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local w_1_level = caster:GetRuneValue("w", 1)
-	local damageBonus = (caster:GetMaxHealth() - caster:GetHealth()) * SPIRIT_WARRIOR_W1_ARCANA_BASE_DMG_PER_HP * w_1_level
+	local damageBonus = (caster:GetMaxHealth() - caster:GetHealth()) * SPIRIT_WARRIOR_ARCANA_W1_BASE_DMG_PER_HP * w_1_level
 	if damageBonus > 1 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_warrior_arcana2_attack_damage", {})
 		caster:SetModifierStackCount("modifier_spirit_warrior_arcana2_attack_damage", caster, damageBonus)
@@ -474,7 +474,7 @@ function reachSpirit(caster, ability, spiritPosition)
 				end)
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), spiritPosition, nil, 410, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
-					local damage = SPIRIT_WARRIOR_E1_ARCANA_DMG * a_c_level
+					local damage = SPIRIT_WARRIOR_ARCANA_E1_DMG * a_c_level
 					for _, enemy in pairs(enemies) do
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 					end
@@ -485,7 +485,7 @@ function reachSpirit(caster, ability, spiritPosition)
 	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
 		EmitSoundOnLocationWithCaster(spiritPosition, "SpiritWarrior.TempestHaze", caster)
-		local duration = SPIRIT_WARRIOR_E3_ARCANA_DURATION_BASE + c_c_level * SPIRIT_WARRIOR_E3_ARCANA_DURATION
+		local duration = SPIRIT_WARRIOR_ARCANA_E3_DURATION_BASE + c_c_level * SPIRIT_WARRIOR_ARCANA_E3_DURATION
 		local stormParticle = ParticleManager:CreateParticle("particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(stormParticle, 0, spiritPosition)
 		ParticleManager:SetParticleControl(stormParticle, 1, Vector(800, 2, 2))
@@ -495,7 +495,7 @@ function reachSpirit(caster, ability, spiritPosition)
 		--ability:ApplyDataDrivenThinker(caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 		CustomAbilities:QuickAttachThinker(ability, caster, spiritPosition, "modifier_tempest_haze_aura_thinker_friendly", {duration = duration})
 
-		ability.e_3_damage_tick = SPIRIT_WARRIOR_E3_ARCANA_DPS * c_c_level * 0.5
+		ability.e_3_damage_tick = SPIRIT_WARRIOR_ARCANA_E3_DPS * c_c_level * 0.5
 	end
 	-- "particles/roshpit/spirit_warrior/tempest_haze_storm.vpcf"
 

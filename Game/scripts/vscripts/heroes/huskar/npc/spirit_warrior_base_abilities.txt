@@ -150,7 +150,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF %>"
 				}
 			}
 			"modifier_flametongue_q_2_fire_shield"
@@ -254,7 +254,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.8"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% SPIRIT_WARRIOR_Q2_EVASION %>"
 				}
 			}
 		}
@@ -735,7 +735,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SPIRIT_WARRIOR_R4_AS_BOOST %>"
 				}
 			}
 			"modifier_ancient_vigor_regen"
