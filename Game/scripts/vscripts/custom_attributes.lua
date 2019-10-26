@@ -812,6 +812,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SORCERESS_W2_MAGIC_ARMOR_LOSS
 	end
+	if unit:HasModifier("modifier_call_of_earth") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_call_of_earth")
+	end
 
 
 
