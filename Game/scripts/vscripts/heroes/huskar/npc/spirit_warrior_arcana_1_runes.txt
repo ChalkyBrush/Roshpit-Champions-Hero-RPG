@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_R1_HEAL_PCT %>"
 			}
 		}
 	}
@@ -35,7 +35,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_R2_ATTACK_POWER_TO_DMG_PCT %>"
 			}
 			"02"
 			{
@@ -71,7 +71,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_R3_CURR_HP_TO_DMG_PCT %>"
 			}
 			"02"
 			{
@@ -106,7 +106,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_R4_WATER_AMP_PER_ATTRIBUTE %>"
 			}
 		}
 	}

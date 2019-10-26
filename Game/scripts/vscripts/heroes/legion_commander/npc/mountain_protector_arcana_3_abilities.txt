@@ -43,7 +43,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"self_damage"	"0.5"
+				"self_damage"	"<% MOUNTAIN_PROTECTOR_ARCANA3_E_SELF_DMG_PCT %>"
 			}
 			"03"
 			{

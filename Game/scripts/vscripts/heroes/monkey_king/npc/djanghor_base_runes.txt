@@ -95,7 +95,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% DJANGHOR_W1_DAMAGE_MULT * 100 %>"
 			}
 			"02"
 			{
@@ -136,7 +136,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"<% DJANGHOR_W3_ATTACK_PERCENT_ADDED_TO_TORNADO_AND_STOMP * 100 %>"
 			}
 		}
 	}
@@ -154,7 +154,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% DJANGHOR_W4_NATURE_AMP_PER_ATTRIBUTE_PCT %>"
 			}
 		}
 	}
@@ -172,7 +172,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"<% DJANGHOR_E1_NATURE_AMP_PCT %>"
 			}
 		}
 	}
@@ -190,12 +190,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"<% DJANGHOR_E2_JINBO_BOOST_IN_LEAP * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"5"
+				"property_two"			"<% DJANGHOR_E2_R_FREECAST_STACK_CHANCE %>"
 			}
 		}
 	}
@@ -213,7 +213,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% DJANGHOR_E3_CLEANCE_CHANCE %>"
 			}
 		}
 	}
@@ -231,7 +231,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% DJANGHOR_E4_DURATION_INCREASE %>"
 			}
 		}
 	}
@@ -267,7 +267,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"<% DJANGHOR_R2_BONUS_HP %>"
 			}
 		}
 	}
@@ -285,7 +285,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% DJANGHOR_R3_BIRD_BAD_PCT %>"
 			}
 		}
 	}
@@ -303,7 +303,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"<% DJANGHOR_R4_BONUS_ATTRIBUTE %>"
 			}
 		}
 	}

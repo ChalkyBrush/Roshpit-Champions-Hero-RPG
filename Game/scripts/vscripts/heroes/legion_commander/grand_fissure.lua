@@ -19,7 +19,7 @@ function channel_complete(event)
     local ability = event.ability
     local target = event.target_points[1]
     local mainAOE = event.radius
-    local explosionAOE = 300
+    local explosionAOE = MOUNTAIN_PROTECTOR_R_EXPL_AOE
     local damage = event.damage
     Filters:CastSkillArguments(4, caster)
 
@@ -66,13 +66,13 @@ function mountain_protector_r_3_thinker(event)
     local caster = event.caster
 	local ability = event.ability
 	local r_3_level = caster:GetRuneValue("r", 3)
-    local damage = r_3_level * (5000 + ability:GetCaster():GetStrength() * 5)
+    local damage = r_3_level * (MOUNTAIN_PROTECTOR_R3_DAMAGE + ability:GetCaster():GetStrength() * MOUNTAIN_PROTECTOR_R3_DAMAGE_PER_STR)
 
     Filters:TakeArgumentsAndApplyDamage(event.target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
 function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ability, canBD, e_1_bonus_stun_duration)
-    local stun_duration = 1.5
+    local stun_duration = MOUNTAIN_PROTECTOR_R_BASE_STUN
     damage = damage * amp
     -- if not ability.r_4_level then
     -- ability.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "mountain_protector")
@@ -112,7 +112,7 @@ function aeon_fracture_explosion(caster, position, damage, amp, explosionAOE, ab
             if canBD then
                 local r_2_level = caster:GetRuneValue("r", 2)
                 if r_2_level > 0 then
-                    local b_d_duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
+                    local b_d_duration = Filters:GetAdjustedBuffDuration(caster, MOUNTAIN_PROTECTOR_R2_DURATION, false)
                     local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_r_2")
                     runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_r_2_visible", {duration = b_d_duration})
                     local currentStacks = caster:GetModifierStackCount("modifier_mountain_protector_rune_r_2_visible", caster.runeUnit2)

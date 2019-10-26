@@ -15,12 +15,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_ATTACK_POWER_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_STR %>"
 			}
 			"03"
 			{
