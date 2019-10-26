@@ -240,7 +240,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if casterName == "npc_dota_hero_monkey_king" then
         if caster:HasModifier("modifier_bear_c_d") then
             local r_3_level = caster:GetRuneValue("r", 3)
-            mult = mult + DJANGHOR_R3_BEAR_ITEM_DAMAGE_PCT * r_3_level
+            mult = mult + DJANGHOR_R3_BEAR_ITEM_DAMAGE_PCT/100 * r_3_level
         end
     end
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
@@ -1461,7 +1461,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_hawk_c_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_hawk_c_d", attacker)
-            damageMult = damageMult + 0.12 * current_stack
+            damageMult = damageMult + DJANGHOR_R3_BIRD_BAD_PCT/100 * current_stack
         end
         if attacker:HasModifier("modifier_rockfall_passive") then
             if Util.BaseType:IsAbilityBaseType(slot) then
@@ -1995,7 +1995,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:HasModifier("modifier_trapper_arcana1") then
             local w_2_level = attacker:GetRuneValue("w", 2)
-            normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W2_NORMAL_PCT
+            normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W_W2_NORMAL_PCT
         end
         if unitName == "npc_dota_hero_axe" then
             if victim:HasModifier("modifier_axe_rune_q_4_invisible") then
@@ -2059,11 +2059,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_huskar" then
             if attacker.q_4_level then
-                fireMult = fireMult + 0.0003 * attacker:GetStrength() / 10 * attacker.q_4_level
+                fireMult = fireMult + SPIRIT_WARRIOR_Q4_FIRE_AMP_PER_STR/100 * attacker:GetStrength() / 10 * attacker.q_4_level
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana2") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                fireMult = fireMult + spirit_warrior_arcana_w4 / 100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                fireMult = fireMult + SPIRIT_WARRIOR_ARCANA_W4_FIRE_AMP_PER_ATTRIBUTE / 100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_fire_charge") then
@@ -2076,7 +2076,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                fireMult = fireMult + 0.0003 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                fireMult = fireMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level then
@@ -2098,7 +2098,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then
-                    fireMult = fireMult + 0.0005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    fireMult = fireMult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_PER_STR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_axe" then
@@ -2174,11 +2174,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then
-                    mult = mult + 0.0005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_PER_STR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             elseif attacker:HasAbility("mountain_protector_hailstorm") then
                 if attacker.r_4_level then
-                    mult = mult + 0.0008 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             end
         end
@@ -2232,7 +2232,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                mult = mult + 0.0003 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                mult = mult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
             end
         end
         if attacker:HasModifier("modifier_helm_poison") then
@@ -2453,7 +2453,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_hailstorm") then
                 if attacker.r_4_level then
-                    mult = mult + 0.0008 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_vengefulspirit" then
@@ -2586,16 +2586,16 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local e_4_level = attacker:GetRuneValue("e", 4)
             if attacker:HasModifier("modifier_spirit_warrior_arcana3") then
                 if e_4_level > 0 then
-                    mult = mult + 0.0008 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * e_4_level
+                    mult = mult + SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP_PER_ATTRIBUTE/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * e_4_level
                 end
             else
                 if e_4_level then
-                    mult = mult + 0.0015 * attacker:GetIntellect() / 10 * e_4_level
+                    mult = mult + SPIRIT_WARRIOR_E4_WIND_PER_INT_PCT/100 * attacker:GetIntellect() / 10 * e_4_level
                 end
             end
             local q_4_level = attacker:GetRuneValue("q", 4)
             if q_4_level then
-                mult = mult + 0.0003 * attacker:GetAgility() / 10 * q_4_level
+                mult = mult + SPIRIT_WARRIOR_Q4_WIND_AMP_PER_AGI/100 * attacker:GetAgility() / 10 * q_4_level
             end
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
@@ -2673,13 +2673,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                waterMult = waterMult + 0.0003 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                waterMult = waterMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
             end
         elseif unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
                 local d_d_arcana_level = attacker:GetRuneValue("r", 4)
                 if d_d_arcana_level > 0 then
-                    waterMult = waterMult + 0.0008 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * d_d_arcana_level
+                    waterMult = waterMult + SPIRIT_WARRIOR_ARCANA_R4_WATER_AMP_PER_ATTRIBUTE/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * d_d_arcana_level
                 end
             end
         elseif unitName == "npc_dota_hero_slark" then
@@ -2741,7 +2741,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
         if unitName == "npc_dota_hero_monkey_king" then
             local w_4_level = attacker:GetRuneValue("w", 4)
-            mult = mult + 0.005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+            mult = mult + DJANGHOR_W4_NATURE_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
         end
         if attacker:HasModifier("modifier_trinket_nature") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_nature", attacker.InventoryUnit)
@@ -2750,7 +2750,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_monkey_a_c_effect") then
             local e_1_level = attacker:GetRuneValue("e", 1)
             if e_1_level > 0 then
-                mult = mult + mult * 0.03 * e_1_level
+                mult = mult + mult * DJANGHOR_E1_NATURE_AMP_PCT/100 * e_1_level
             end
         end
         if unitName == "npc_dota_hero_arc_warden" then

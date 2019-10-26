@@ -1583,7 +1583,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_flametongue_q_2_fire_shield") then
 		if victim.q_2_level and victim.q_2_level > 0 then
-			local reduction = 1 - math.min((0.65 + 0.001 * victim.q_2_level), 0.95)
+			local reduction = 1 - math.min((SPIRIT_WARRIOR_Q2_REDUCTION_BASE + SPIRIT_WARRIOR_Q2_REDUCTION * victim.q_2_level), SPIRIT_WARRIOR_Q2_REDUCTION_CAP)
 			damage = damage * reduction
 		end
 	end
@@ -1773,8 +1773,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_shapeshift_year_beast_r_3") then
 		local modifier = victim:FindModifierByName("modifier_shapeshift_year_beast_r_3")
-		local reduction = modifier:GetAbility().r_3_level * DJANGHOR_R3_ARCANA_RESIST_PCT
-		reduction = math.min(reduction, DJANGHOR_R3_ARCANA_RESIST_MAX_PCT)
+		local reduction = modifier:GetAbility().r_3_level * DJANGHOR_ARCANA_R_R3_RESIST_PCT
+		reduction = math.min(reduction, DJANGHOR_ARCANA_R_R3_RESIST_MAX_PCT)
 		damage = damage * (1 - reduction)
 	end
 	if victim:HasModifier("modifier_ancient_tree_passive") then
@@ -2702,7 +2702,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_hailstorm_enemy_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.09 * stacks
+			mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R3_POST_MITI/100 * stacks
 		end
 	end
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then
@@ -3357,7 +3357,7 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local ability = modifier:GetAbility()
 		local w_1_level = ability.w_1_level
-		mult = mult + TRAPPER_ARCANA1_W1_POST_AMP_PERCENT/100 * w_1_level * math.min(stacks, TRAPPER_ARCANA1_W1_MAX_STACKS)
+		mult = mult + TRAPPER_ARCANA_W_W1_POST_AMP_PERCENT/100 * w_1_level * math.min(stacks, TRAPPER_ARCANA_W_W1_MAX_STACKS)
 	end
 
 	--SEINARU

@@ -16,7 +16,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_E1_ARCANA_DMG %>"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E1_DMG %>"
 			}
 			"02"
 			{
@@ -74,17 +74,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_E3_ARCANA_DPS %>"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E3_DPS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_E3_ARCANA_DURATION %>"
+				"property_two"			"<% SPIRIT_WARRIOR_ARCANA_E3_DURATION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"<% SPIRIT_WARRIOR_E3_ARCANA_DURATION_BASE %>"
+				"property_two_base"			"<% SPIRIT_WARRIOR_ARCANA_E3_DURATION_BASE %>"
 			}
 			"04"
 			{
@@ -194,7 +194,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP_PER_ATTRIBUTE %>"
 			}
 		}
 	}

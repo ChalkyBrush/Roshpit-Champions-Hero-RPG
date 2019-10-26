@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_R1_ARCANA_ATTACK_POWER %>"
+				"property_one"			"<% DJANGHOR_ARCANA_R_R1_ATTACK_POWER %>"
 			}
 		}
 	}
@@ -30,7 +30,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% DJANGHOR_ARCANA_R_R2_HEALTH_PER_ATTRIBUTE %>"
 			}
 		}
 	}
@@ -48,12 +48,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% DJANGHOR_ARCANA_R_R3_RESIST_PCT * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"90"
+				"property_one_max"			"<% DJANGHOR_ARCANA_R_R3_RESIST_MAX_PCT * 100 %>"
 			}
 		}
 	}
@@ -71,7 +71,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% DJANGHOR_ARCANA_R_R4_BONUS_ATTRIBUTE %>"
 			}
 		}
 	}

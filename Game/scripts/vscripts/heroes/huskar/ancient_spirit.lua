@@ -279,7 +279,7 @@ function ancient_spirit_attack_hit(event)
 	local attacker = event.attacker
 	local target = event.target
 	local origCaster = attacker.origCaster
-	local damage = attacker.r_3_level * 0.5 * OverflowProtectedGetAverageTrueAttackDamage(origCaster)
+	local damage = attacker.r_3_level * SPIRIT_WARRIOR_R3_ATTACK_POWER_TO_DAMAGE/100 * OverflowProtectedGetAverageTrueAttackDamage(origCaster)
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_WIND)
 end
 

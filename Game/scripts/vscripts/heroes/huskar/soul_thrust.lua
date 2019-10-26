@@ -28,17 +28,17 @@ function cast_soul_thrust(event)
 	end
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "spirit_warrior")
 	if w_3_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.005 * w_3_level * ability:GetLevel()
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * SPIRIT_WARRIOR_W3_ATTACK_POWER_TO_DMG_PCT/100 * w_3_level * ability:GetLevel()
 	end
-	local w_3_mult = 0.01 * w_3_level
+	local w_3_mult = SPIRIT_WARRIOR_W3_Q_MULT_PCT/100 * w_3_level
 	local stun_duration = 0
 	if caster:HasModifier("modifier_spirit_warrior_d_b") then
 		caster:RemoveModifierByName("modifier_spirit_warrior_d_b")
 		local w_4_level = caster:GetRuneValue("w", 4)
-		local rune_mult = 2.0 * w_4_level
+		local rune_mult = SPIRIT_WARRIOR_W4_DMG_INCR_PCT/100 * w_4_level
 		damage = damage * (1 + (w_4_level))
 		w_3_mult = w_3_mult + w_3_mult * rune_mult
-		stun_duration = 0.1 * w_4_level
+		stun_duration = SPIRIT_WARRIOR_W4_STUN * w_4_level
 		local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/spirit_warrior_d_b_pop.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx2, 0, centerPoint)
 		ParticleManager:SetParticleControl(pfx2, 1, centerPoint)
@@ -126,11 +126,11 @@ function cast_soul_thrust(event)
 	local w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "spirit_warrior")
 	if w_2_level > 0 then
 		local runeAbility = caster.runeUnit2:FindAbilityByName("spirit_warrior_rune_w_2")
-		local duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
+		local duration = Filters:GetAdjustedBuffDuration(caster, SPIRIT_WARRIOR_W2_DURATION, false)
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_spirit_warrior_rune_w_2_visible", {duration = duration})
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_spirit_warrior_rune_w_2_invisible", {duration = duration})
 		local currentStacks = caster:GetModifierStackCount("modifier_spirit_warrior_rune_w_2_visible", caster.runeUnit2)
-		local newStacks = math.min(currentStacks + 1, 3)
+		local newStacks = math.min(currentStacks + 1, SPIRIT_WARRIOR_W2_MAX_STACKS)
 		caster:SetModifierStackCount("modifier_spirit_warrior_rune_w_2_visible", caster.runeUnit2, newStacks)
 		caster:SetModifierStackCount("modifier_spirit_warrior_rune_w_2_invisible", caster.runeUnit2, newStacks * w_2_level * ability:GetLevel())
 		local particleName = "particles/econ/items/outworld_devourer/od_shards_exile/spirit_warrior_b_b.vpcf"

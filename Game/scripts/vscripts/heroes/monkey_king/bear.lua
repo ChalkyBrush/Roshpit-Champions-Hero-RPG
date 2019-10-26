@@ -98,7 +98,7 @@ function begin_bear_charge(event)
 	if caster:HasModifier("modifier_djanghor_glyph_6_1") then
 		local c_c_level = caster:GetRuneValue("e", 3)
 		if c_c_level > 0 then
-			local procs = Runes:Procs(c_c_level, 5, 1)
+			local procs = Runes:Procs(c_c_level, DJANGHOR_E3_CLEANCE_CHANCE, 1)
 			if procs > 0 then
 				local particle = false
 				for i = 1, procs, 1 do

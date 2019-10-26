@@ -195,7 +195,7 @@
     	"DOTA_Tooltip_ability_trapper_arcana_lasso_whip_range"				"ДАЛЬНОСТЬ:"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1"						"[W1] Deadly Poison"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Заряды (W) Venom Whip наносят увеличенный пост-резистный урон жертве. Максимум <% TRAPPER_ARCANA1_W1_MAX_STACKS %> стаков."
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Заряды (W) Venom Whip наносят увеличенный пост-резистный урон жертве. Максимум <% TRAPPER_ARCANA_W_W1_MAX_STACKS %> стаков."
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Доп. пост-резистный урон за заряд"
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"%"
 
