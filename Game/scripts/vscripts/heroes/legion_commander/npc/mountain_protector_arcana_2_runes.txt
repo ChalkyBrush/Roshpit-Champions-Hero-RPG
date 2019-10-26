@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R1_STR_BONUS %>"
 			}
 		}
 	}
@@ -69,7 +69,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"9.0"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R3_POST_MITI %>"
 			}
 		}
 	}
@@ -89,7 +89,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT %>"
 			}
 		}
 	}

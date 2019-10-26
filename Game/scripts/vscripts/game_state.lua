@@ -2702,7 +2702,7 @@ function GameState:FilterDamage(filterTable)
 		modifier = victim:FindModifierByName("modifier_hailstorm_enemy_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
-			mult = mult + 0.09 * stacks
+			mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R3_POST_MITI/100 * stacks
 		end
 	end
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then

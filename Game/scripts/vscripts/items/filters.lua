@@ -2098,7 +2098,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then
-                    fireMult = fireMult + 0.0005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    fireMult = fireMult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_PER_STR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_axe" then
@@ -2174,11 +2174,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then
-                    mult = mult + 0.0005 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_PER_STR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             elseif attacker:HasAbility("mountain_protector_hailstorm") then
                 if attacker.r_4_level then
-                    mult = mult + 0.0008 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             end
         end
@@ -2453,7 +2453,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_hailstorm") then
                 if attacker.r_4_level then
-                    mult = mult + 0.0008 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_vengefulspirit" then

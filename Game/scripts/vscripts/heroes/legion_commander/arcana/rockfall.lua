@@ -61,7 +61,7 @@ function begin_rockfall(event)
 	local glissadeAbility = caster:FindAbilityByName("mountain_protector_volcanic_glissade")
 	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
-		local procs = Runes:Procs(c_c_level, 7, 1)
+		local procs = Runes:Procs(c_c_level, MOUNTAIN_PROTECTOR_ARCANA3_E3_FREECAST_STACK_CHANCE, 1)
 		if procs > 0 then
 			glissadeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glissade_freecast", {})
 			caster:SetModifierStackCount("modifier_glissade_freecast", caster, procs)
