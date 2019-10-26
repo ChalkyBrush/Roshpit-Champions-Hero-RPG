@@ -4518,7 +4518,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "Tricor Orb"
         "item_property_conjuror_immortal_weapon2"                             "Universal Balance"
-        "property_conjuror_immortal_weapon2_description"                      "Each point of Strength increases damage of @Ability1 by <font color='#ccff66'>0.01</font>%, each point of Intelligence increases damage of @Ability2 by <font color='#ccff66'>0.01</font>%. Each point of Agility increases damage of @Ability3 by <font color='#ccff66'>0.01</font>%."  
+        "property_conjuror_immortal_weapon2_description"                      "Each point of Strength increases damage of @Ability1 by <font color='#ccff66'>0.1</font>%, each point of Intelligence increases damage of @Ability2 by <font color='#ccff66'>0.1</font>%. Each point of Agility increases damage of @Ability3 by <font color='#ccff66'>0.1</font>%."  
 
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
