@@ -2393,9 +2393,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * (100-ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION)/100
 		end
 	end
-	if attacker:HasModifier("modifier_conjuror_glyph_5_a") or attacker:HasModifier("modifier_conjuror_glyph_5_a_summon") then
-		mult = mult + CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT/100
-	end
 	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
 		mult = mult + BUZUKIS_FINGER_POST_MITI/100
 	end

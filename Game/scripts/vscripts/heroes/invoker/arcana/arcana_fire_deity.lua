@@ -54,6 +54,12 @@ function fire_deity(event)
 		caster.fireAspect:SetBaseMaxHealth(aspectHealth)
 		caster.fireAspect:SetHealth(aspectHealth)
 		caster.fireAspect:Heal(aspectHealth, caster.fireAspect)
+		caster.fireAspect:SetRoshpitLevel(caster:GetLevel())
+		caster.fireAspect:SetBaseRoshpitArmor(event.armor)
+		caster.fireAspect:SetBaseRoshpitMagicArmor(event.magic_armor)
+		caster.fireAspect:SetBaseRoshpitArmorPierce(event.armor_pierce)
+		caster.fireAspect:SetBaseRoshpitSpellPierce(event.spell_pierce)
+		caster.fireAspect:CalculateAndSaveRoshpitAttributes()
 		common_aspect_effects(caster, ability, caster.fireAspect)
 	end)
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
@@ -309,7 +315,7 @@ function fire_deity_spell_impact(event)
 	local ability = event.ability
 	local target = event.target
 	local mult = caster.conjuror:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster.conjuror) * mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.damage_percentage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

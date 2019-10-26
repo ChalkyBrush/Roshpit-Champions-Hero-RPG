@@ -59,9 +59,9 @@
 		"DOTA_Tooltip_modifier_aspect_earth_well_Description"				"Health Regen increased."
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] Earth and Fire"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Conjuror's Strength increases <font color=\"#AF843D\">Earth</font> damage and <font color=\"#EF4126\">Fire</font> damage."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Damage Increase"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_suffix"						"% for each 10 points of Strength"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"Increases all <font color=\"#AF843D\">Earth</font> damage and <font color=\"#EF4126\">Fire</font> damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"Fire and Earth Amp"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_summon_fire_aspect"							"Fire Aspect"
 		"DOTA_Tooltip_ability_summon_fire_aspect_Description"				"Summons a Fire Aspect from a conjured flame. The Fire Aspect deals great damage as a melee fighter, and can not take more than 20% of his max health in a single instance of damage. While the Fire Aspect is alive, you are able to cast Immolation."
@@ -173,14 +173,14 @@
 		"DOTA_Tooltip_ability_call_of_elements_Description"					"Creates an elemental buff for the Conjuror and each of his aspects. Each summoned aspect provides a different elemental power. If there are no aspects alive, this ability has no effect."
 		"DOTA_Tooltip_ability_call_of_elements_Lore"						""
 		"DOTA_Tooltip_ability_call_of_elements_health_regen"				"HEALTH REGEN (Earth):"
-		"DOTA_Tooltip_ability_call_of_elements_magic_resist"				"MAGIC RESIST (Earth):"
+		"DOTA_Tooltip_ability_call_of_elements_magic_armor"					"MAGIC ARMOR (Earth):"
 		"DOTA_Tooltip_ability_call_of_elements_attack_speed"				"ATTACK SPEED (Shadow):"
 		"DOTA_Tooltip_ability_call_of_elements_movespeed"					"MOVESPEED (Shadow):"
 		"DOTA_Tooltip_ability_call_of_elements_bonus_damage"				"ATTACK DAMAGE (Fire):"
 		"DOTA_Tooltip_ability_call_of_elements_duration"					"DURATION:"
 
 		"DOTA_Tooltip_modifier_call_of_earth"								"Call of Earth"
-		"DOTA_Tooltip_modifier_call_of_earth_Description"					"Increased health regen and magic resist"
+		"DOTA_Tooltip_modifier_call_of_earth_Description"					"Increased health regen and magic armor"
 
 		"DOTA_Tooltip_modifier_call_of_fire"								"Call of Fire"
 		"DOTA_Tooltip_modifier_call_of_fire_Description"					"Increased attack damage"
@@ -297,7 +297,8 @@
     	"DOTA_Tooltip_modifier_fire_ray_buff_Description"			"Increased attack speed and dealing extra fire damage on attack."
 		
     	"DOTA_Tooltip_ability_fire_deity_fire_ability"						"Infernal Spiral"
-    	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"A cone of fire damages all enemies in a line."
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability_Description"			"A cone of fire damages all enemies in a line based on the Fire Deity's attack power."
+    	"DOTA_Tooltip_ability_fire_deity_fire_ability_damage_percentage"	"% DAMAGE AS % OF FIRE DIETY'S ATTACK POWER:"
 
   		"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2"						"[W1] Burning Insight"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_Description"			"Flame Laser's buff also increases base attack damage. Additionally Conjuror gains % attack damage bonus from intelligence passively."
@@ -307,7 +308,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_arcana2_suffix_two"				"% for each 10 points of intelligence"	
 
   		"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2"						"[W2] Origin Flame"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_Description"			"Adds a flat increase to <font color=\"#EF4126\">Fire</font> amplification. Also a portion of Agility is added to Flame Laser's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_Description"			"Increases all <font color=\"#EF4126\">Fire</font> damage. Also a portion of Agility is added to Flame Laser's base damage."
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_one"		"Fire Amplification"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_suffix"				"%"
     	"DOTA_Tooltip_ability_conjuror_rune_w_2_arcana2_property_two"		"Agility added to Flame Laser Damage"
@@ -363,7 +364,7 @@
     	"DOTA_Tooltip_modifier_earth_shock_attack_reduce_Description"		"Reduced Attack Damage"
 
     	"DOTA_Tooltip_ability_earth_deity_grand_guardian"					"Grand Guardian"
-    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Roll the target ally into a boulder and pull them towards the Earth Deity. While inside the deity, gain increased health regen and all abilities are disabled. If Conjuror is in the Deity, Earth Shock is not disabled and has increased cast range and no cooldown. The deity is immune to magic and has +100000 armor while grand guardian is active, and he cannot move. Earth Deity can roll the guarded ally away which ends Grand Guardian. If Conjuror take lethal damage and this ability is not on cooldown, the Earth Deity grabs conjuror immediately and saves his life."
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Roll the target ally into a boulder and pull them towards the Earth Deity. While inside the deity, gain increased health regen and all abilities are disabled. If Conjuror is in the Deity, Earth Shock is not disabled and has increased cast range and no cooldown. The deity is immune to magic and has +<% CONJUROR_ARCANA3_GRAND_GUARDIAN_ARMOR %> armor while grand guardian is active, and he cannot move. Earth Deity can roll the guarded ally away which ends Grand Guardian. If Conjuror take lethal damage and this ability is not on cooldown, the Earth Deity grabs conjuror immediately and saves his life."
 
     	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
     	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Magic Immunity and increased armor."
@@ -386,11 +387,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_2_arcana3_suffix_two"			"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3"							"[Q3] Earthen EMP"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"Max Health increases <font color=\"#AF843D\">Earth</font> damage. Attack damage is added to Earth Shock's base damage."
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"Earth Amp"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"% for each 100 Max Health"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_two"				"Attack Damage Added to Earth Shock"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix_two"					"%"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_Description"				"Attack damage is added to Earth Shock's base damage."
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_property_one"				"Attack Damage Added to Earth Shock"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_3_arcana3_suffix"						"%"
 
   		"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3"						"[Q4] Mud Slash"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_arcana3_Description"			"Enemies effected by Earth Shock's attack damage reduction debuff deal reduced damage of all types."
@@ -449,9 +448,9 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"<font color=\"#7F4F84\">Shadow</font> damage is increased by agility. All agility from rolls on Gear is enhanced."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"Increases <font color=\"#7F4F84\">Shadow</font> damage. All agility from rolls on Gear is enhanced."
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"Shadow Amplification"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"% for each 10 points of Agility"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"Agility Enhanced from Gear Rolls"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix_two"					"%"
 
@@ -488,7 +487,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"Your Earth Aspect is resummoned immediately upon death."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"Glyph of Summoning"
-		"item_rpc_conjuror_glyph_5_a_description" 				"ALL post-mitigation damage dealt by conjuror and his aspects is increased by <% CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT %>%."
+		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %>% for Conjuror and his Summons."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"
@@ -521,7 +520,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "Tricor Orb"
         "item_property_conjuror_immortal_weapon2"                             "Universal Balance"
-        "property_conjuror_immortal_weapon2_description"                      "Each <% CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR %> points of Strength increases damage of @Ability1 by <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%, each <% CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR %> points of Intelligence increases damage of @Ability2 by <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%. Each <% CONJUROR_IMMORTAL_WEAPON_2_ATTRIBUTE_DIVISOR %> points of Agility increases damage of @Ability3 by <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%."  
+        "property_conjuror_immortal_weapon2_description"                      "Each point of Strength increases damage of @Ability1 by <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%, each point of Intelligence increases damage of @Ability2 by <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%. Each point of Agility increases damage of @Ability3 by <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%."  
 
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"

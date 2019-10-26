@@ -28473,8 +28473,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_damage_mult"			"1 3 5 7 9 11 13"
+				"var_type"				"FIELD_FLOAT"
+				"attack_damage_mult"			"1 1.5 2.0 2.5 3.0 3.5"
 			}
 			"02"
 			{
@@ -28644,7 +28644,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -28674,8 +28674,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -28730,7 +28730,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -28759,7 +28759,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+		"AbilityManaCost"				"120 250 400 600 800 1000 1200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -28768,22 +28768,32 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"7000 17000 40000 80000 140000 300000 1000000"
+				"aspect_health"				"600 1200 2400 4200 6600 9600 13200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"1500 5000 20000 40000 70000 200000 1000000"
+				"aspect_damage"				"150 360 570 780 990 1200 1410"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"50 100 300 600 1200 2000 5000"
+				"aspect_armor"				"80 240 480 800 1200 1680 2240"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"90"
+				"aspect_magic_armor"		"80 240 480 800 1200 1680 2240"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor_pierce"		"100 200 400 700 1100 1600 2200"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_spell_pierce"		"100 200 350 550 800 1100 1450"
 			}
 		}
 
@@ -28810,6 +28820,10 @@
 				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
 				"Function"		"fire_deity"
 				"aspect_health"	"%aspect_health"
+				"armor"			"%aspect_armor"
+				"magic_armor"	"%aspect_magic_armor"
+				"armor_pierce"	"%aspect_armor_pierce"
+				"spell_pierce"	"%aspect_spell_pierce"
 			}
 		}
 		"Modifiers"
@@ -28846,8 +28860,8 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "140"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "200"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				}
 			}
 			"modifier_conjuror_glyph_5_a_summon"
@@ -28934,29 +28948,29 @@
 		"AbilityCooldown"				"0"
 		"AbilityDuration"				"%duration"
 
-		"AbilityManaCost"				"200 340 500 700 1000 1400 2000"
+		"AbilityManaCost"				"100 180 260 340 420 500 580"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3000 10000 30000 80000 200000 400000 650000"
+				"damage"				"120 200 280 360 440 520 600"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal_pct"				"5.0 5.5 6.0 6.5 7.0 7.5 8.0"
+				"heal_pct"				"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"				"80 100 120 140 160 180 200"
+				"attack_speed"				"30 40 50 60 70 80 90"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_attack_damage"				"100 200 300 400 500 600 700"
+				"buff_attack_damage"				"10 15 20 25 30 35 40"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -29046,7 +29060,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "40"
 				}
 			}
 
@@ -29083,7 +29097,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_percentage"			"100"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -29101,6 +29122,7 @@
 				"ScriptFile"	"heroes/invoker/arcana/arcana_fire_deity.lua"
 				"Function"		"fire_deity_spell_impact"
 				"target"		"TARGET"
+				"damage_percentage"	"%damage_percentage"
 			}
 		}
 		"Modifiers"
@@ -29128,12 +29150,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10000"
+				"property_one"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.03"
+				"property_two"			"0.01"
 			}
 		}
 	}
@@ -29154,12 +29176,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -29181,7 +29203,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"60"
+				"property_one"			"10"
 			}
 			"03"
 			{
@@ -29250,31 +29272,31 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+		"AbilityManaCost"				"240 400 520 380 500 600 800"
 
 		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"20000 60000 100000 200000 500000 1000000 2500000"
+				"aspect_health"				"1000 3000 6000 10000 15000 21000 28000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"1500 5000 20000 40000 70000 200000 1000000"
+				"aspect_armor"				"100 300 500 900 1300 1900 2600"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"100 300 600 1200 2000 5000 10000"
+				"aspect_magic_armor"		"100 300 500 900 1300 1900 2600"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"75"
+				"aspect_damage"				"80 180 300 440 60 780 980"
 			}
 		}
 
@@ -29302,6 +29324,8 @@
 				"Function"		"earth_deity"
 				"aspect_health"	"%aspect_health"
 				"aspect_damage"	"%aspect_damage"
+				"armor"			"%aspect_armor"
+				"magic_armor"	"%aspect_magic_armor"
 			}
 		}
 		"Modifiers"
@@ -29316,8 +29340,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
 			}
@@ -29353,8 +29375,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
 			}
@@ -29530,7 +29550,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"580 2800 6000 12000 25000 50000 125000"
+				"damage"				"100 250 400 550 700 850 1000"
 			}
 			"02"
 			{
@@ -29540,7 +29560,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_reduce"				"-30 -35 -40 -45 -50 -55 -60"
+				"attack_reduce"				"-20 -23 -26 -29 -32 -35 -38"
 			}
 			"04"
 			{
@@ -29690,10 +29710,6 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100000"
 				}
 				"OnDestroy"
 				{
@@ -29846,7 +29862,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -29887,12 +29903,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1800"
+				"property_one"			"75"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -29913,12 +29929,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_one"			"1.5"
 			}
 		}
 	}
@@ -29972,7 +29983,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+		"AbilityManaCost"				"100 240 380 520 660 800 940"
 
 		// Special
 		//-------------------------------------------------------
@@ -29981,22 +29992,32 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"2500 5000 12000 30000 60000 100000 500000"
+				"aspect_health"				"400 1000 1800 2800 4000 5400 7000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"600 2400 5500 20000 40000 100000 500000"
+				"aspect_damage"				"100 240 420 640 900 1200 1560"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"5 50 100 300 600 1200 2000"
+				"aspect_armor"				"40 120 240 400 600 840 1120"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"90"
+				"aspect_magic_resist"		"40 120 240 400 600 840 1120"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor_pierce"		"200 400 700 1100 1600 2200 2900"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_spell_pierce"		"100 200 400 700 1100 1600 2200"
 			}
 		}
 
@@ -30066,7 +30087,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "0.01"
 				}
 			}
 			"modifier_conjuror_c_c_damage"
@@ -30330,7 +30351,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 				}
 			}
 		}
@@ -30500,13 +30521,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"3"
 			}
 			"03"
 			{
@@ -30537,7 +30558,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -30558,12 +30579,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"300"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -30584,7 +30605,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -30703,7 +30724,7 @@
 				"EffectAttachType"  "follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1500"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "25"
 				}
 				"OnCreated"
 				{
@@ -30947,8 +30968,8 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "140"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "200"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				}
 			}
 			"modifier_conjuror_glyph_5_a_summon"
@@ -31153,7 +31174,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"  "0.01"
 				}
 			}
 			"modifier_conjuror_c_c_damage"
@@ -31257,10 +31278,6 @@
 				"EffectAttachType"	"follow_origin"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
-				}
 			}
 			"modifier_earth_aspect_a_a_effect"
 			{
@@ -31549,7 +31566,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 				}
 			}
 			"modifier_fire_aspect_b_d_range"
@@ -31566,14 +31583,9 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"EffectName"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
 				"EffectAttachType"	"origin"
 				"TextureName"	"ember_spirit_sleight_of_fist"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1000"
-				}
 			}
 			"modifier_shadow_aspect_c_d_slow_attack"
 			{
@@ -32021,7 +32033,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -32165,7 +32177,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1500"
+				"property_one"			"25"
 			}
 		}
 		"Modifiers"
@@ -32204,7 +32216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -32226,17 +32238,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2510"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"600"
+				"property_one_base"		"40"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.12"
+				"property_two"			"0.01"
 			}
 			"04"
 			{
@@ -32351,7 +32363,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"10"
 			}
 			"01"
 			{
@@ -32384,7 +32396,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
 				}
 			}
 			"modifier_soul_sear_visible_enemy"
@@ -32470,12 +32482,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"150"
+				"property_two"			"15"
 			}
 			"03"
 			{
@@ -32505,13 +32517,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.01"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -32574,7 +32586,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1.5"
 			}
 			"01"
 			{
@@ -32601,12 +32613,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"3"
 			}
 			"03"
 			{
@@ -32638,7 +32650,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -32674,12 +32686,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-1000"
+				"property_two"			"--90"
 			}
 		}
 	}

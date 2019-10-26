@@ -4398,10 +4398,10 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"(T1) Glyph of Blazing Fire"
-		"item_rpc_conjuror_glyph_1_1_description" 				"Ваш огненный элементаль увеличивает свою скорость атаки на <font color='#ccff66'>140</font> и урон на <font color='#ccff66'>200</font>%."
+		"item_rpc_conjuror_glyph_1_1_description" 				"Ваш огненный элементаль увеличивает свою скорость атаки на <font color='#ccff66'>100</font> и урон на <font color='#ccff66'>100</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"(T2) Glyph of Conjuring"
-		"item_rpc_conjuror_glyph_2_1_description" 				"Увеличивает показатель макс. здоровья всех элементалей на <font color='#ccff66'>80</font>%"
+		"item_rpc_conjuror_glyph_2_1_description" 				"Увеличивает показатель макс. здоровья всех элементалей на <font color='#ccff66'>60</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"(T3) Glyph of Encroaching Shadow"
 		"item_rpc_conjuror_glyph_3_1_description" 				"Находясь под действием (R) Call of the elements, умение (E) Shadow Gate перезаряжается <font color='#ccff66'>4</font> сек. (Элементаль тьмы должен быть жив по окончании прочтения (R) Call of the elements)"
@@ -4421,7 +4421,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"Когда элементаль земли погибнет, он будет автоматически мгновенно перепризван."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"(Immortal) Glyph of Summoning"
-		"item_rpc_conjuror_glyph_5_a_description" 				"Весь пост-резистный урон, наносимый героем и его элементалями увеличен на <font color='#ccff66'>200</font>%."
+		"item_rpc_conjuror_glyph_5_a_description" 				"Весь пост-резистный урон, наносимый героем и его элементалями увеличен на <font color='#ccff66'>0</font>%."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"

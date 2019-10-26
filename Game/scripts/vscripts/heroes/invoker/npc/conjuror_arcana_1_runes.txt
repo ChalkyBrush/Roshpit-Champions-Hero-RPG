@@ -45,7 +45,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CONJUROR_ARCANA_R2_DAMAGE_PER_ATTACK_PCT %>"
 			}
 			"02"

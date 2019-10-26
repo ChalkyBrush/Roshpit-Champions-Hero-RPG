@@ -65,24 +65,22 @@ function begin_deity(event)
 	local armor_mult = event.armor_mult
 	local health_mult = event.health_mult
 
-	local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster) * attack_mult
-	dmg = math.max(1, dmg)
-	dmg = math.min(dmg, 2000000000)
 
-	ability:ApplyDataDrivenModifier(caster, summon, "modifier_deity_green_damage", {duration = -1})
-	summon:SetModifierStackCount("modifier_deity_green_damage", ability, dmg)
+	-- ability:ApplyDataDrivenModifier(caster, summon, "modifier_deity_green_damage", {duration = -1})
+	-- summon:SetModifierStackCount("modifier_deity_green_damage", ability, dmg)
 
-	Filters:SetAttackDamage(summon, 1)
+	-- Filters:SetAttackDamage(summon, 1)
 	summon.elemental_deity = true
-	summon:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue(false) * armor_mult)
-	local health = math.floor(caster:GetMaxHealth() * health_mult)
-	health = math.min(health, 250000000)
-	summon:SetMaxHealth(health)
-	summon:SetBaseMaxHealth(health)
-	summon:SetHealth(health)
-	summon:Heal(health, summon)
+	-- summon:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue(false) * armor_mult)
+	-- local health = math.floor(caster:GetMaxHealth() * health_mult)
+	-- health = math.min(health, 250000000)
+	-- summon:SetMaxHealth(health)
+	-- summon:SetBaseMaxHealth(health)
+	-- summon:SetHealth(health)
+	-- summon:Heal(health, summon)
+	summon:AdjustSummon(caster, true, health_mult, attack_mult, armor_mult, armor_mult, armor_mult, armor_mult)
 	common_aspect_effects(caster, ability, summon)
-	summon:AddAbility("normal_steadfast"):SetLevel(3)
+	summon:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	Filters:CastSkillArguments(4, caster)
 end
 

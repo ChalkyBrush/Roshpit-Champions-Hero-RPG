@@ -4718,10 +4718,10 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"烈火雕文"
-		"item_rpc_conjuror_glyph_1_1_description" 				"你的火元素将提高 <font color='#ccff66'>140</font> 攻击速度和 <font color='#ccff66'>200</font>% 额外攻击力。"
+		"item_rpc_conjuror_glyph_1_1_description" 				"你的火元素将提高 <font color='#ccff66'>100</font> 攻击速度和 <font color='#ccff66'>100</font>% 额外攻击力。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"魔术雕文"
-		"item_rpc_conjuror_glyph_2_1_description" 				"提高所有元素生物的最大生命值 <font color='#ccff66'>80</font>%"
+		"item_rpc_conjuror_glyph_2_1_description" 				"提高所有元素生物的最大生命值 <font color='#ccff66'>60</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"暗影雕文"
 		"item_rpc_conjuror_glyph_3_1_description" 				"当暗之呼唤激活时，暗影之门的冷却时间变为 <font color='#ccff66'>4</font> 秒。"
@@ -4739,7 +4739,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"你的土元素将在死亡后立即复活。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"召唤雕文"
-		"item_rpc_conjuror_glyph_5_a_description" 				"召唤师和它的全部位面生物将造成<font color='#ccff66'>200</font>%的伤害。（计算在敌人减伤之后）"
+		"item_rpc_conjuror_glyph_5_a_description" 				"召唤师和它的全部位面生物将造成<font color='#ccff66'>0</font>%的伤害。（计算在敌人减伤之后）"
 		
 		//Weapons
 		"conjuror_weapon_01"			"土魔法球"

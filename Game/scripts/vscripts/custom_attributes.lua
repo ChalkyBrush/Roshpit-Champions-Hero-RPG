@@ -616,6 +616,17 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_paladin_c_b_armor")
 		armor_modify = armor_modify + modifier:GetStackCount()*PALADIN_ARCANA_W3_ARMOR
 	end
+	if unit:HasModifier("modifier_conjuror_q_1_buff") then
+		local modifier = unit:FindModifierByName("modifier_conjuror_q_1_buff")
+		armor_modify = armor_modify + modifier:GetStackCount()*CONJUROR_Q1_ARMOR_AURA
+	end
+	if unit:HasModifier("modifier_fire_aspect_b_d_armor_shred") then
+		local modifier = unit:FindModifierByName("modifier_fire_aspect_b_d_armor_shred")
+		armor_modify = armor_modify + modifier:GetStackCount()*CONJUROR_R2_ARMOR_SHRED
+	end
+	if unit:HasModifier("modifier_deity_grand_guardian") then
+		armor_modify = armor_modify + CONJUROR_ARCANA3_GRAND_GUARDIAN_ARMOR
+	end
 
 
 	if armor_modify > 0 then
@@ -875,6 +886,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local q_2_level = unit:GetRuneValue("q", 2)
 		armor_pierce_modify = armor_pierce_modify + q_2_level*EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE
 	end
+	if unit:HasModifier("modifier_conjuror_glyph_5_a") or unit:HasModifier("modifier_conjuror_glyph_5_a_summon") then
+		armor_pierce_modify = armor_pierce_modify + CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE
+	end
 
 
 	if armor_pierce_modify > 0 then
@@ -923,7 +937,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local e_4_level = unit:GetRuneValue("e", 4)
 		spell_pierce_modify = spell_pierce_modify + e_4_level*PALADIN_ARCANA2_E4_SPELL_PIERCE_PER_SPIRIT*unit:GetSpirit()
 	end
-
+	if unit:HasModifier("modifier_conjuror_glyph_5_a") or unit:HasModifier("modifier_conjuror_glyph_5_a_summon") then
+		spell_pierce_modify = spell_pierce_modify + CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

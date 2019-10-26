@@ -666,10 +666,6 @@
 				"EffectAttachType"	"follow_origin"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CONJUROR_Q1_ARMOR_AURA %>"
-				}
 			}
 			"modifier_earth_aspect_a_a_effect"
 			{
@@ -975,14 +971,9 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"EffectName"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
 				"EffectAttachType"	"origin"
 				"TextureName"	"ember_spirit_sleight_of_fist"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% CONJUROR_R2_ARMOR_SHRED %>"
-				}
 			}
 			"modifier_shadow_aspect_c_d_slow_attack"
 			{

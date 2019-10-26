@@ -2080,7 +2080,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level then
-                fireMult = fireMult + CONJUROR_Q4_EARTH_AND_FIRE_AMP_PER_STR/100 * attacker:GetStrength() / 10 * attacker.q_4_level
+                fireMult = fireMult + CONJUROR_Q4_EARTH_AND_FIRE_AMP * attacker.q_4_level
             end
             if victim:HasModifier("modifier_conjuror_w_4_burn") then
                 if attacker:HasAbility("summon_fire_aspect") then
@@ -2165,11 +2165,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
-            if attacker.q_4_level then
-                mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP_PER_STR/100 * attacker:GetStrength() / 10 * attacker.q_4_level
-            end
-            if attacker:HasModifier("modifier_conjuror_arcana3") and attacker.q_3_level then
-                mult = mult + 0.0001 * (attacker:GetMaxHealth() / 100) * attacker.q_3_level
+            if attacker.q_4_level and attacker:HasAbility("summon_earth_aspect") then
+                mult = mult + CONJUROR_Q4_EARTH_AND_FIRE_AMP * attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
@@ -2556,7 +2553,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasAbility("summon_shadow_deity") then
                 local e_3_level = attacker:GetRuneValue("e", 3)
                 if e_3_level > 0 then
-                    mult = mult + ((CONJUROR_ARCANA_E3_SHADOW_AMP / 100) * attacker:GetAgility() / 10) * e_3_level
+                    mult = mult + (CONJUROR_ARCANA_E3_SHADOW_AMP / 100)* e_3_level
                 end
             end
         end

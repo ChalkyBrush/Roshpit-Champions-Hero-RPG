@@ -113,11 +113,11 @@ function Weapons:InitialWeapon(hero, item_variant, itemName)
 	item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
 	Weapons:SetWeaponTable(item)
 	if item_variant == "item_rpc_conjuror_weapon_00" then
-		item.newItemTable.property1 = 2000
+		item.newItemTable.property1 = 50
 		item.newItemTable.property1name = "aspect_health"
-		RPCItems:SetPropertyValues(item, 2000, "#item_aspect_health", "#343EC9", 1)
+		RPCItems:SetPropertyValues(item, 50, "#item_aspect_health", "#343EC9", 1)
 	else
-		RPCItems:SetPropertyValues(item, 100, "#item_bonus_attack_damage", "#343EC9", 1)
+		RPCItems:SetPropertyValues(item, 10, "#item_bonus_attack_damage", "#343EC9", 1)
 	end
 	RPCItems:ItemUpdateCustomNetTables(item)
 	Weapons:Equip(hero, item)

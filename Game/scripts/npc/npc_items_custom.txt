@@ -12334,12 +12334,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"140"
+				"property_one"			"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"100"
 			}
 		}
 	}
@@ -12378,7 +12378,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"60"
 			}
 		}
 	}

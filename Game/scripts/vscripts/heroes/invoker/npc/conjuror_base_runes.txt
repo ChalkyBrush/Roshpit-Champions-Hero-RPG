@@ -225,7 +225,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_Q4_EARTH_AND_FIRE_AMP_PER_STR %>"
+				"property_one"			"<% CONJUROR_Q4_EARTH_AND_FIRE_AMP %>"
 			}
 		}
 	}
@@ -526,7 +526,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CONJUROR_E1_BONUS_DMG_PCT %>"
 			}
 			"02"

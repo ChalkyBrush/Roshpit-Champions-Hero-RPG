@@ -20,31 +20,31 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+		"AbilityManaCost"				"240 400 520 380 500 600 800"
 
 		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"20000 60000 100000 200000 500000 1000000 2500000"
+				"aspect_health"				"1000 3000 6000 10000 15000 21000 28000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"1500 5000 20000 40000 70000 200000 1000000"
+				"aspect_armor"				"100 300 500 900 1300 1900 2600"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"100 300 600 1200 2000 5000 10000"
+				"aspect_magic_armor"		"100 300 500 900 1300 1900 2600"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"75"
+				"aspect_damage"				"80 180 300 440 60 780 980"
 			}
 		}
 
@@ -72,6 +72,8 @@
 				"Function"		"earth_deity"
 				"aspect_health"	"%aspect_health"
 				"aspect_damage"	"%aspect_damage"
+				"armor"			"%aspect_armor"
+				"magic_armor"	"%aspect_magic_armor"
 			}
 		}
 		"Modifiers"
@@ -86,8 +88,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
 			}
@@ -123,8 +123,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
 			}
@@ -300,7 +298,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"580 2800 6000 12000 25000 50000 125000"
+				"damage"				"100 250 400 550 700 850 1000"
 			}
 			"02"
 			{
@@ -310,7 +308,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_reduce"				"-30 -35 -40 -45 -50 -55 -60"
+				"attack_reduce"				"-20 -23 -26 -29 -32 -35 -38"
 			}
 			"04"
 			{
@@ -460,10 +458,6 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100000"
 				}
 				"OnDestroy"
 				{
