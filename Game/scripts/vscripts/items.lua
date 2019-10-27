@@ -342,7 +342,7 @@ SUFFIX_EXP_TABLE = {"of Training", "of Greater Training", "of Adept Training", "
 
 function RPCItems:RollPotionProperty1(item, xpBounty)
 	local luck = RandomInt(0, 100)
-	value, suffixLevel = RPCItems:RollAttribute(xpBounty, 2, 10, 3, 8, item.newItemTable.rarity, false, nil)
+	value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 8, 3, 8, item.newItemTable.rarity, false, nil)
 	item.newItemTable.property1 = value
 	item.newItemTable.property1name = "heal"
 	suffix = SUFFIX_HEAL_TABLE[suffixLevel]
@@ -364,7 +364,7 @@ function RPCItems:RollPotionProperty2(item, xpBounty)
 	local luck = RandomInt(1, 3)
 	local prefix = ""
 	if luck <= 2 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 5, 20, 3, 8, item.newItemTable.rarity, false, nil)
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 9, 3, 8, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property2 = value
 		item.newItemTable.property2name = "heal"
 		prefix = PREFIX_HEAL_TABLE[prefixLevel]
@@ -385,7 +385,7 @@ function RPCItems:RollPotionProperty3(item, xpBounty)
 	local luck = RandomInt(1, 3)
 	local name = ""
 	if luck <= 2 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 5, 20, 3, 8, item.newItemTable.rarity, false, nil)
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 3, 12, 3, 8, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property3 = value
 		item.newItemTable.property3name = "heal"
 		prefix = PREFIX_HEAL_TABLE[prefixLevel]
@@ -406,7 +406,7 @@ function RPCItems:RollPotionProperty4(item, xpBounty)
 	local luck = RandomInt(1, 3)
 	local name = ""
 	if luck <= 2 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 5, 20, 3, 8, item.newItemTable.rarity, false, nil)
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 4, 16, 3, 8, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property4 = value
 		item.newItemTable.property4name = "heal"
 		prefix = PREFIX_HEAL_TABLE[prefixLevel]
