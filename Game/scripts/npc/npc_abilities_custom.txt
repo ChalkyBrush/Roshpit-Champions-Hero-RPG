@@ -40355,7 +40355,7 @@
 				"IsHidden"							"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
+					"MODIFIER_PROPERTY_MANA_BONUS" "5"
 				}
 				"OnCreated"
 				{
@@ -40982,12 +40982,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"60"
+				"property_two"			"5"
 			}
 		}
 	}

@@ -21,9 +21,7 @@ end
 function rune_q_2(caster)
 	local runeUnit = caster.runeUnit2
 	local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_q_2")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("q", 2)
 	if totalLevel > 0 then
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_bahamut_b_a_buff", {})
 		caster:SetModifierStackCount("modifier_bahamut_b_a_buff", runeAbility, totalLevel)
