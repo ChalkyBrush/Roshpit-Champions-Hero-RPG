@@ -232,11 +232,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one_base"		"<% WARLORD_W2_FREEZE_DUR_BASE %>"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% WARLORD_W2_INCR_PHYS_AND_MAG_DMG_TAKEN_PCT %>"
-			}
 		}
 	}
 
@@ -308,12 +303,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_E1_MAX_EARTH_CHARGES %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% WARLORD_E1_ARMOR_PER_EARTH_CHARGE %>"
+				"property_one"			"<% WARLORD_E1_MAGIC_ARMOR_PER_EARTH_CHARGE %>"
 			}
 		}
 	}

@@ -13933,7 +13933,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"60"
 			}
 		}
 	}
@@ -16330,11 +16330,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one_base"		"1"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
-			}
 		}
 	}
 
@@ -16406,12 +16401,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -40010,7 +40000,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"130 180 400 1000 2000 3500 7000"
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
 
 		// Special
 		//-------------------------------------------------------
@@ -40024,7 +40014,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				"1200 2460 5800 13400 30000 72000 240000"
+				"damage"				"90 220 350 480 610 740 870"
 			}
 		}
 
@@ -40141,7 +40131,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"340 1600 5400 12000 20000 34000 55000"
+				"damage"				"30 80 130 180 230 280 330"
 			}
 			"02"
 			{
@@ -40912,7 +40902,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 5000 15000 30000 60000 150000 350000"
+				"damage"				"160 380 600 820 1040 1260 1480"
 			}
 			"02"
 			{

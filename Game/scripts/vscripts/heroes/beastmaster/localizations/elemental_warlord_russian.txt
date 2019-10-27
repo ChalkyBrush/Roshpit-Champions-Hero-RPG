@@ -401,7 +401,7 @@
 		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"(Immortal) Glyph of Thermogenesis"
-		"item_rpc_warlord_glyph_5_a_description" 				"При получении урона герой получает <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> зарядов Огня. Каждый заряд Льда увеличивает пост-резистный исходящий урон на <% WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT %>%."
+		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> Fire Charges. Each active Ice Charge increases Spell Pierce <% WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE %>."
 
 		//Weapons
 		"warlord_weapon_01"			"Mighty Axes"

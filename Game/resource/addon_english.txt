@@ -6039,7 +6039,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_suffix"				"% of Attack Power"
 
   		"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1"						"[R2] Chilling Edge"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Attacks during Enchant Tomahawk leave the target with a chilling debuff for 6 seconds that deals damage every 0.5 seconds based on Warlord's total attributes. The debuff also slows movespeed by 20%. If the target is below <font color='#ccff66'>0</font>% for bosses), these damage instances will be multiplied by <font color='#ccff66'>200</font> and release an explosion that applies this debuff to all nearby enemies."
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Attacks during Enchant Tomahawk leave the target with a chilling debuff for 6 seconds that deals damage every 0.5 seconds based on Warlord's total attributes. The debuff also slows movespeed by 20%. If the target is below <font color='#ccff66'>30</font>)% max HP (<font color='#ccff66'>15</font>% for bosses), these damage instances will be multiplied by <font color='#ccff66'>200</font> and release an explosion that applies this debuff to all nearby enemies."
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_property_one"		"Damage Per Tick"
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_suffix"				"x Sum of Attributes"
 

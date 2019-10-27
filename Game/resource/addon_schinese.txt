@@ -6377,7 +6377,7 @@
 		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>30</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>460</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"生态雕文"
-		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害会增加 <font color='#ccff66'>2</font> 火焰能量。 每层寒冰能量加深敌人受到的魔法伤害 <font color='#ccff66'>0</font>%（计算在敌人减伤之后）"
+		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <font color='#ccff66'>2</font> Fire Charges. Each active Ice Charge increases Spell Pierce <font color='#ccff66'>40</font>."
 
 		//Weapons
 		"warlord_weapon_01"			"威武巨斧"
