@@ -874,7 +874,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"20 60 100 140 180 220 260"
+		"AbilityManaCost"				"60 120 180 240 300 360 420"
 
 		// Special
 		//-------------------------------------------------------
@@ -1044,7 +1044,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"20 60 100 140 180 220 260"
+		"AbilityManaCost"				"60 120 180 240 300 360 420"
 
 		// Special
 		//-------------------------------------------------------
@@ -1222,7 +1222,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"20 60 100 140 180 220 260"
+		"AbilityManaCost"				"60 120 180 240 300 360 420"
 
 		// Special
 		//-------------------------------------------------------
@@ -2016,6 +2016,15 @@
 				"Passive"	"0"
 				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex_b.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_overload_damage_resistance"
 			{

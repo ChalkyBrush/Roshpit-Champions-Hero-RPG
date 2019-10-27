@@ -337,7 +337,7 @@ function elemental_axe_attack_land(event)
 		maxCharges = maxCharges + additionalMaxCharges
 	end
 	if element == "earth" then
-		-- local e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "warlord")
+		local e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "warlord")
 		-- if e_1_level > 0 then
 		-- 	maxCharges = maxCharges + e_1_level * WARLORD_E1_MAX_EARTH_CHARGES
 		-- end

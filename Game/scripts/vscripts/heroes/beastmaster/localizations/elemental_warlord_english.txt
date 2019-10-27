@@ -215,8 +215,8 @@
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Restore a % of the initial heal every 1 second for 8 seconds after casting Elemental Overload. Additionally for the duration, all enemies in a 1000 radius take damage each second."
-    	"DOTA_Tooltip_ability_warlord_rune_r_1_property_one"			"% of Initial Heal"
-    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_property_one"			"Heal per second"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix"					"% of Initial Heal"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_property_two"			"AOE Damage Per Second"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix_two"				" per Earth Charge consumed"
 

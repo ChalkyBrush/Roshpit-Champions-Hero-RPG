@@ -90,6 +90,7 @@ function overload_start(event)
 				if b_d_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_warlord_b_d_effect", {duration = 8})
 					enemy:SetModifierStackCount("modifier_warlord_b_d_effect", caster, b_d_level)
+					enemy:CalculateAndSaveRoshpitAttributes()
 				end
 			end
 		end
