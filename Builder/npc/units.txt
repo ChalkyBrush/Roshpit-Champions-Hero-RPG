@@ -248,8 +248,8 @@
         "Ability7"  ""
         "Ability8"  ""
         "ConsideredHero"   "1"
-        "ArmorPhysical" "100"
-        "MagicalResistance" "80"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageMin"   "0"
         "AttackDamageMax"   "0"
@@ -304,7 +304,7 @@
         "SelectionGroup"    "bone_horror"
         "PathfindingSearchDepthScale" "0.2"
         "DefaultState"  "Invade"
-        "ArmorPhysical" "100"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -375,7 +375,7 @@
             "particle"  "particles/units/heroes/hero_invoker/invoker_forged_spirit_projectile.vpcf"
         }
         "ConsideredHero"   "1"
-        "ArmorPhysical" "50"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageMin"   "0"
@@ -1885,8 +1885,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "3"         // Physical protection.
-        "MagicalResistance"         "30"        // Magical protection.
+        "ArmorPhysical" "0"         // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -2005,7 +2005,7 @@
         // Armor
         //----------------------------------------------------------------
         "ArmorPhysical"             "0"         // Physical protection.
-        "MagicalResistance"         "20"        // Magical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -2143,8 +2143,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "2"         // Physical protection.
-        "MagicalResistance"         "20"        // Magical protection.
+        "ArmorPhysical" "0"         // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -2942,7 +2942,7 @@
         // Armor
         //----------------------------------------------------------------
         "ArmorPhysical"             "0"         // Physical protection.
-        "MagicalResistance"         "24"        // Magical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -5893,8 +5893,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "4"     // Physical protection.
-        "MagicalResistance"             "20"        // Magical protection.
+        "ArmorPhysical" "0"     // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -6009,8 +6009,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "4"     // Physical protection.
-        "MagicalResistance"             "10"        // Magical protection.
+        "ArmorPhysical" "0"     // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
         "vscripts"                  "ai/desert_ghost.lua"
         "PathfindingSearchDepthScale" "0.2"
 
@@ -6279,7 +6279,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -6377,7 +6377,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -6557,7 +6557,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -8852,7 +8852,7 @@
             "particle" "particles/units/heroes/hero_doom_bringer/doom_weapon_blur_hyhy.vpcf"
             "particle" "particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp.vpcf"
         }
-        "ArmorPhysical" "100"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -8941,7 +8941,7 @@
         "PathfindingSearchDepthScale" "0.2"
 
         "ArmorPhysical" "0"
-        "MagicalResistance" "40"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "5000"
@@ -9208,7 +9208,7 @@
         {
             
         }
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -9624,8 +9624,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "3"         // Physical protection.
-        "MagicalResistance"         "33"        // Magical protection.
+        "ArmorPhysical" "0"         // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
         "PathfindingSearchDepthScale" "0.2"
 
         // Attack
@@ -10668,7 +10668,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -12351,8 +12351,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "4"     // Physical protection.
-        "MagicalResistance"             "10"        // Magical protection.
+        "ArmorPhysical" "0"     // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
         "PathfindingSearchDepthScale" "0.2"
 
         // Attack
@@ -12716,7 +12716,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts"
             "soundfile" "soundevents/voscripts/game_sounds_vo_faceless_void.vsndevts"
         }
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -12987,8 +12987,8 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 
         }
-        "ArmorPhysical" "22"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "7000"
@@ -13236,7 +13236,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
             "soundfile" "soundevents/voscripts/game_sounds_vo_bane.vsndevts"
         }
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -13620,7 +13620,7 @@
         {
             "soundfile" "soundevents/voscripts/game_sounds_vo_doom_bringer.vsndevts"
         }
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -13799,7 +13799,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
             "model"     "models/items/wards/esl_wardchest_ward_of_foresight/esl_wardchest_ward_of_foresight.vmdl"
         }
-        "ArmorPhysical" "6"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -14408,7 +14408,7 @@
         {
 
         }
-        "ArmorPhysical" "40"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -14483,7 +14483,7 @@
         {
             "model"    "models/heroes/pedestal/effigy_pedestal_ti5_dire.vmdl"
         }
-        "ArmorPhysical" "40"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -14590,7 +14590,7 @@
             "particle"      "particles/econ/items/effigies/status_fx_effigies/jade_effigy_ambient_radiant.vpcf"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts" 
         }
-        "ArmorPhysical" "40"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -15162,7 +15162,7 @@
            "particle"         "particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_ti_5.vpcf"
         }
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -15280,8 +15280,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "4"     // Physical protection.
-        "MagicalResistance"             "40"        // Magical protection.
+        "ArmorPhysical" "0"     // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -16228,8 +16228,8 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
             "particle"  "particles/units/heroes/hero_skeletonking/hellfireblast_linear.vpcf"
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "300"
@@ -16430,8 +16430,8 @@
             "particle"  "particles/econ/items/antimage/antimage_weapon_basher_ti5/leshrac_wall_burn.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
         }
-        "ArmorPhysical" "3"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "90000"
@@ -16978,7 +16978,7 @@
         {
             "soundfile"       "soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
         }
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -17051,7 +17051,7 @@
             "soundfile" "soundevents/soundevents_conquest.vsndevts" 
         }
 
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -17438,7 +17438,7 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
         }
-        "ArmorPhysical" "2"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -17514,7 +17514,7 @@
             "particle"  "particles/units/heroes/hero_undying/undying_loadout.vpcf"
             "particle"  "particles/items3_fx/courtyard_summoner_shield.vpcf"
         }
-        "ArmorPhysical" "2"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -17827,7 +17827,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -17961,7 +17961,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18046,7 +18046,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18137,7 +18137,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18226,7 +18226,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18325,8 +18325,8 @@
         "Ability6"  ""
         "Ability7"  ""
         "Ability8"  ""
-        "ArmorPhysical" "32"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageMin"   "120000"
         "AttackDamageMax"   "200000"
@@ -18410,7 +18410,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18460,7 +18460,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18552,7 +18552,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18605,8 +18605,8 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "82000"
@@ -18693,7 +18693,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18747,7 +18747,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18802,7 +18802,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -18874,7 +18874,7 @@
             "particle"        "particles/units/heroes/hero_bane/bane_projectile.vpcf"
             "particle"        "particles/units/heroes/hero_faceless_void/faceless_void_timedialate.vpcf"
         }
-        "ArmorPhysical" "2"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -19065,7 +19065,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -20043,7 +20043,7 @@
         "PathfindingSearchDepthScale" "0.2"
         "DefaultState"  "Invade"
         "ArmorPhysical" "0"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1000"
@@ -20144,7 +20144,7 @@
             "particle"  "particles/units/heroes/hero_life_stealer/life_stealer_rage_cast.vpcf"
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "15"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "6000"
@@ -20295,7 +20295,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"      "Hero_LifeStealer"
-        "ArmorPhysical" "11"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -20379,7 +20379,7 @@
             "soundfile"  "soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "10"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "3000"
@@ -20476,7 +20476,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -20548,7 +20548,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -20624,7 +20624,7 @@
             "particle"   "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
             "particle"   "particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
         }
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -20723,8 +20723,8 @@
         "DefaultState"  "Invade"
 
 
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "800"
@@ -20809,8 +20809,8 @@
         "Ability6"  ""
         "Ability7"  ""
         "Ability8"  ""
-        "ArmorPhysical" "1"
-        "MagicalResistance" "28"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageMin"   "9000"
         "AttackDamageMax"   "12000"
@@ -21213,7 +21213,7 @@
         "PathfindingSearchDepthScale" "0.2"
         "DefaultState"  "Invade"
         "ArmorPhysical" "0"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1000"
@@ -21301,7 +21301,7 @@
         "PathfindingSearchDepthScale" "0.2"
         "DefaultState"  "Invade"
         "ArmorPhysical" "0"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "10000"
@@ -21381,7 +21381,7 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
         }
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -21562,7 +21562,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
             "particle"  "particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear.vpcf"
         }
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -21646,8 +21646,8 @@
             "particle"  "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
         }
-        "ArmorPhysical" "55"
-        "MagicalResistance" "35"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "30000"
@@ -21903,7 +21903,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -22338,8 +22338,8 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "50"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "700"
@@ -22720,7 +22720,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -22790,8 +22790,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
 
-        "ArmorPhysical" "10"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "44"
@@ -22995,8 +22995,8 @@
         {
             "soundfile" "soundevents/voscripts/game_sounds_vo_earth_spirit.vsndevts"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1215.0"
@@ -23086,8 +23086,8 @@
             "soundfile" "soundevents/voscripts/game_sounds_vo_earth_spirit.vsndevts"
             "particle"  "particles/items_fx/regen_aura.vpcf"
         }
-        "ArmorPhysical" "16"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "6215.0"
@@ -23257,8 +23257,8 @@
      
 
 
-        "ArmorPhysical"             "5"         // Physical protection.
-        "MagicalResistance"         "20"        // Magical protection.
+        "ArmorPhysical" "0"         // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -23720,7 +23720,7 @@
         {
             "soundfile" "soundevents/voscripts/game_sounds_vo_life_stealer.vsndevts"
         }
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -23866,8 +23866,8 @@
         {
 
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "3000"
@@ -23958,8 +23958,8 @@
         {
 
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "5000"
@@ -24139,7 +24139,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"       "particles/units/heroes/hero_invoker/invoker_forged_spirit_projectile.vpcf"
@@ -24195,8 +24195,8 @@
         {
 
         }
-        "ArmorPhysical" "5"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "5400"
@@ -24453,7 +24453,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"       "particles/units/heroes/hero_invoker/invoker_forged_spirit_projectile.vpcf"
@@ -25061,7 +25061,7 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
         }
-        "ArmorPhysical" "50"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -25276,7 +25276,7 @@
         {
 
         }
-        "ArmorPhysical" "50"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -26862,7 +26862,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Rubick"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"     "particles/units/heroes/hero_rubick/rubick_base_attack.vpcf"
@@ -26977,8 +26977,8 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "30"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "110"
@@ -27056,8 +27056,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "12"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "175"
@@ -27132,8 +27132,8 @@
         {
             "soundfile" "soundevents/voscripts/game_sounds_vo_earth_spirit.vsndevts"
         }
-        "ArmorPhysical" "20"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "200"
@@ -27221,7 +27221,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -27900,7 +27900,7 @@
             "particle"      "particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
         }
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -28194,7 +28194,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "35"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -28294,8 +28294,8 @@
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "60"
@@ -28382,7 +28382,7 @@
             "particle"      "particles/items/cannon/breath_of_wind.vpcf"
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "80"
@@ -28723,8 +28723,8 @@
 
         }
         "SoundSet"              "Hero_PhantomAssassin"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "85"
@@ -29093,7 +29093,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
-        "ArmorPhysical" "5"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -29184,7 +29184,7 @@
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
         "ArmorPhysical" "0"
-        "MagicalResistance" "60"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "170"
@@ -29462,7 +29462,7 @@
         "BaseClass" "npc_dota_creature"
         "Model" "models/wind_temple_boss_staff.vmdl"
         "SoundSet"              "Hero_SkywrathMage"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "precache"
         {
@@ -30082,8 +30082,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "2"         // Physical protection.
-        "MagicalResistance"         "20"        // Magical protection.
+        "ArmorPhysical" "0"         // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -30187,8 +30187,8 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "2"         // Physical protection.
-        "MagicalResistance"         "20"        // Magical protection.
+        "ArmorPhysical" "0"         // Physical protection.
+        "MagicalResistance" "0"        // Magical protection.
 
         // Attack
         //----------------------------------------------------------------
@@ -30678,7 +30678,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -31278,7 +31278,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_NagaSiren"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -31776,7 +31776,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -32071,8 +32071,8 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "20"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "300"
@@ -32439,7 +32439,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -32536,8 +32536,8 @@
              "soundfile" "soundevents/voscripts/game_sounds_vo_furion.vsndevts"
              "particle" "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "150"
@@ -32739,8 +32739,8 @@
         {
             "soundfile" "soundevents/voscripts/game_sounds_vo_bristleback.vsndevts"
         }
-        "ArmorPhysical" "22"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "180"
@@ -33075,7 +33075,7 @@
             "particle"  "particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf"
             "particle"  "particles/units/heroes/hero_legion_commander/cheiftain_buff_buff.vpcf"
         }
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -33765,8 +33765,8 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
-        "ArmorPhysical" "45"
+        "MagicalResistance" "0"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -33958,7 +33958,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_FacelessVoid"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -34341,7 +34341,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_FacelessVoid"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -34439,7 +34439,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -34605,8 +34605,8 @@
         {
             "soundfile" "soundevents/voscripts/game_sounds_vo_bristleback.vsndevts"
         }
-        "ArmorPhysical" "22"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "220"
@@ -34784,7 +34784,7 @@
         {
 
         }
-        "ArmorPhysical" "30"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -34871,7 +34871,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -34952,8 +34952,8 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
-        "ArmorPhysical" "15"
+        "MagicalResistance" "0"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -35113,7 +35113,7 @@
 
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "360"
@@ -35187,7 +35187,7 @@
             "particle"  "particles/units/heroes/hero_lina/big_tracking_fireball.vpcf"
             "particle"  "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_loadout_ribbon.vpcf"
         }
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -35287,7 +35287,7 @@
         {
             "particle"   "particles/items_fx/battlefury_cleave.vpcf"
         }
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -35814,7 +35814,7 @@
         {
 
         }
-        "ArmorPhysical" "8"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -36009,7 +36009,7 @@
             "particle"  "particles/units/heroes/hero_warlock/warlock_rain_of_chaos.vpcf"
             "particle"  "particles/items3_fx/phoenix_shieldshield.vpcf"
         }
-        "ArmorPhysical" "8"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/units/heroes/hero_warlock/warlock_base_attack.vpcf"
@@ -36113,8 +36113,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "25"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "700"
@@ -36189,8 +36189,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Range"
-        "ArmorPhysical" "12"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "800"
@@ -36264,7 +36264,7 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
         }
-        "ArmorPhysical" "6"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -36477,7 +36477,7 @@
 
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "340"
@@ -36661,7 +36661,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -36840,8 +36840,8 @@
         {
             "soundfile"  "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
         }
-        "ArmorPhysical" "32"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "760"
@@ -36941,7 +36941,7 @@
         {
 
         }
-        "ArmorPhysical" "2"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -37509,8 +37509,8 @@
             "particle"  "particles/units/heroes/hero_keeper_of_the_light/fire_temple_agility_debuff.vpcf"
             "particle"  "particles/units/heroes/hero_juggernaut/juggernaut_omni_slash_trail.vpcf"
         }
-        "ArmorPhysical" "25"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "800"
@@ -37946,8 +37946,8 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "20"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "600"
@@ -38018,7 +38018,7 @@
             "particle"      "particles/items_fx/darkness_aura.vpcf"
             "particle"      "particles/econ/items/luna/luna_lucent_ti5/luna_lucent_beam_impact_shared_ti_5.vpcf"
         }
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -38321,8 +38321,8 @@
         {
             "particle"      "particles/units/heroes/hero_morphling/lava_burst_target.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "430"
@@ -38698,8 +38698,8 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1400"
@@ -38887,7 +38887,7 @@
             "particle"  "particles/items3_fx/twig_of_enlightened_shield.vpcf"
             "particle"  "particles/econ/items/pugna/pugna_ward_ti5/wind_prophet_shield.vpcf"
         }
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -38993,8 +38993,8 @@
             "particle"  "particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
         }
-        "ArmorPhysical" "60"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1400"
@@ -39102,8 +39102,8 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "50"
-        "ArmorPhysical" "90"
+        "MagicalResistance" "0"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -39301,8 +39301,8 @@
         {
             "particle"  "particles/econ/courier/courier_onibi/courier_onibi_green_lvl4_ambient.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "220"
@@ -39402,8 +39402,8 @@
         "PathfindingSearchDepthScale"  "0.2"
         "SoundSet"                  "Hero_Morphling"
 
-        "ArmorPhysical" "12"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "640"
@@ -39611,7 +39611,7 @@
             "model"     "models/items/courier/shagbark/shagbark.vmdl"
             "model"     "models/courier/smeevil/smeevil.vmdl"
         }
-        "ArmorPhysical" "8"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -39714,7 +39714,7 @@
         {
             "model" "models/heroes/furion/furion.vmdl"
         }
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -39876,7 +39876,7 @@
         {
 
         }
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -39958,7 +39958,7 @@
         {
 
         }
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -40112,7 +40112,7 @@
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
         }
-        "ArmorPhysical" "25"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -40205,7 +40205,7 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
         }
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -40380,7 +40380,7 @@
         {
 
         }
-        "ArmorPhysical" "25"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -40556,8 +40556,8 @@
              "particle" "particles/units/heroes/hero_morphling/morphling_death.vpcf"
              "particle" "particles/world_environmental_fx/water_splash_rocks_generic.vpcf"
         }
-        "ArmorPhysical" "1"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "22400"
@@ -40874,7 +40874,7 @@
         }
 
         "ArmorPhysical" "0"
-        "MagicalResistance" "10"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1600"
@@ -41181,7 +41181,7 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "100"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -41313,7 +41313,7 @@
         
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"       "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
@@ -41805,8 +41805,8 @@
         {
             "particle"  "particles/units/heroes/hero_ursa/ursa_overpower_cast.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "5400"
@@ -41910,8 +41910,8 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
 
-        "ArmorPhysical" "45"
-        "MagicalResistance" "70"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1500"
@@ -42097,8 +42097,8 @@
         {
 
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "600"
         "ProjectileModel"       "particles/econ/items/shadow_fiend/sf_desolation/sf_base_attack_desolation_desolator.vpcf"
@@ -42296,7 +42296,7 @@
             "particle"  "particles/econ/events/ti6/radiance_owner_ti6.vpcf"
             "particle"  "particles/items2_fx/radiance.vpcf"
         }
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -42509,8 +42509,8 @@
             "particle"  "particles/roshpit/arena/mana_drain_aura.vpcf"
             "particle"  "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison_end.vpcf"
         }
-        "ArmorPhysical" "20"
-        "MagicalResistance" "65"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "800"
         "ProjectileModel"       "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf"
@@ -42717,8 +42717,8 @@
             "particle"  "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf"
             "particle"  "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf"
         }
-        "ArmorPhysical" "15"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "12000"
@@ -42904,7 +42904,7 @@
             "soundfile" "soundevents/voscripts/game_sounds_vo_bane.vsndevts"
             "particle"  "particles/roshpit/weather/nightmare_rain_econ_weather_pestilence.vpcf"
         }
-        "ArmorPhysical" "10"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -43889,7 +43889,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"     "particles/units/heroes/hero_rubick/rubick_base_attack.vpcf"
@@ -43984,7 +43984,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"     "particles/units/heroes/hero_rubick/rubick_base_attack.vpcf"
@@ -45081,7 +45081,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Melee"
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -45867,7 +45867,7 @@
             "particle"          "particles/units/heroes/hero_medusa/carbuncle_ruby_shell.vpcf"
             "particle"         "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
         }
-        "ArmorPhysical" "2"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -46264,7 +46264,7 @@
             "particle"  "particles/status_fx/status_effect_repel.vpcf"
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "60"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "6000"
@@ -47005,7 +47005,7 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "120"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "800"
@@ -47572,8 +47572,8 @@
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
         }
-        "ArmorPhysical" "12"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "20000"
@@ -48217,7 +48217,7 @@
             "particle"  "particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
         }
         "DrawParticlesWhileHidden" "1"
-        "ArmorPhysical" "18"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -48590,7 +48590,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -48669,7 +48669,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -48848,7 +48848,7 @@
             "soundfile"       "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
             "particle"         "particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
         }
-        "ArmorPhysical" "120"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -49130,7 +49130,7 @@
             "particle"   "particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
 
         }
-        "ArmorPhysical" "40"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -50513,8 +50513,8 @@
             "particle"      "particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf"
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
         }
-        "ArmorPhysical" "12"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "14000"
@@ -50784,8 +50784,8 @@
             "particle"      "particles/roshpit/boss/pit_lord_strike.vpcf"
             "particle"      "particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_ti_5.vpcf"
         }
-        "ArmorPhysical" "2"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "26000"
@@ -54092,7 +54092,7 @@
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
         "ArmorPhysical" "0"
-        "MagicalResistance" "60"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "125"
@@ -54284,8 +54284,8 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "110"
@@ -54464,8 +54464,8 @@
             "particle"          "particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf"
             "particle"          "particles/econ/courier/courier_trail_hw_2012/courier_trail_hw_2012_ghosts.vpcf"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "94"
@@ -54569,7 +54569,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -54741,8 +54741,8 @@
         {
 
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "115"
@@ -55205,7 +55205,7 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/units/heroes/hero_templar_assassin/templar_assassin_base_attack.vpcf"
@@ -56204,8 +56204,8 @@
             "particle"  "particles/econ/events/fall_major_2016/blink_dagger_start_fm06.vpcf"
             "particle"  "particles/econ/events/fall_major_2016/blink_dagger_end_fm06.vpcf"
         }
-        "ArmorPhysical" "3700"
-        "MagicalResistance" "99"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "840"
         "ProjectileModel"       "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
@@ -56460,8 +56460,8 @@
             "particle"  "particles/roshpit/redfall/autumn_spawn.vpcf"
         }
 
-        "ArmorPhysical" "1"
-        "MagicalResistance" "40"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "58"
@@ -56988,7 +56988,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "16"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -57171,8 +57171,8 @@
             "particle"  "particles/units/heroes/hero_meepo/meepo_poof_flash_.vpcf"
             "particle"  "particles/roshpit/redfall/prism_strike.vpcf"
         }
-        "ArmorPhysical" "60"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "120"
@@ -57276,8 +57276,8 @@
         {
 
         }
-        "ArmorPhysical" "4"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "95"
@@ -58030,7 +58030,7 @@
             "model"  "models/props_items/basher.vmdl"
             "model" "models/items/faceless_void/voidhammer/voidhammer.vmdl"
         }
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -58866,8 +58866,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
         "SoundSet"              "Hero_SkeletonKing"
-        "ArmorPhysical" "8"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "280000"
@@ -59040,7 +59040,7 @@
         
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "3"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -59316,8 +59316,8 @@
             "particle"  "particles/econ/events/battlecup/battle_cup_fall_destroy.vpcf"
         }
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "30"
-        "MagicalResistance" "30"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "0"
@@ -60199,8 +60199,8 @@
         "Ability7"  ""
         "Ability8"  ""
         "HasInventory"  "0"
-        "ArmorPhysical" "50"
-        "MagicalResistance" "80"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"           "particles/base_attacks/ranged_tower_good.vpcf"
         "ProjectileSpeed"           "750"
@@ -60266,8 +60266,8 @@
         "Ability7"  ""
         "Ability8"  ""
         "HasInventory"  "0"
-        "ArmorPhysical" "50"
-        "MagicalResistance" "80"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"           "particles/base_attacks/ranged_tower_bad.vpcf"
         "ProjectileSpeed"           "750"
@@ -61935,8 +61935,8 @@
             "model" "models/crimsyth_castle_sword.vmdl"
             "particle"  "particles/dire_fx/bad_ancient002_destroy_fire.vpcf"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "380"
@@ -62221,8 +62221,8 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "3"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "215"
@@ -62402,8 +62402,8 @@
             "particle"  "particles/units/heroes/hero_sniper/sniper_shrapnel.vpcf"
         }
         "SoundSet"  "Hero_Sniper"
-        "ArmorPhysical" "1"
-        "MagicalResistance" "5"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "515"
@@ -62514,8 +62514,8 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
             "model"     "models/rolling_barrel.vmdl"
         }
-        "ArmorPhysical" "8"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "240"
@@ -62609,7 +62609,7 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -63049,7 +63049,7 @@
         "PathfindingSearchDepthScale" "0.2"
 
         "ArmorPhysical" "0"
-        "MagicalResistance" "10"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "340"
@@ -63148,7 +63148,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
             "particle"  "particles/econ/courier/courier_greevil_green/courier_greevil_green_ambient_2.vpcf"
         }
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -63320,7 +63320,7 @@
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
             "particle"      "particles/econ/wards/warlock/ward_warlock/warlock_ambient_ward_explosion.vpcf"
         }
-        "ArmorPhysical" "8"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/units/heroes/hero_warlock/warlock_base_attack.vpcf"
@@ -63514,7 +63514,7 @@
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
         "ArmorPhysical" "0"
-        "MagicalResistance" "60"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "800"
@@ -63592,7 +63592,7 @@
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_ElderTitan"
         "ArmorPhysical" "0"
-        "MagicalResistance" "60"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "7000"
@@ -63657,8 +63657,8 @@
         
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "50"
-        "MagicalResistance" "90"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "200"
@@ -64173,8 +64173,8 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
             "model"     "models/redfall/castle_ball_switch.vmdl"
         }
-        "ArmorPhysical" "7"
-        "MagicalResistance" "70"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "560"
@@ -64618,8 +64618,8 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "15"
-        "MagicalResistance" "60"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "740"
@@ -64720,7 +64720,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Rubick"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"     "particles/units/heroes/hero_rubick/rubick_base_attack.vpcf"
@@ -65391,7 +65391,7 @@
         {
             "particle"  "particles/units/heroes/hero_razor/razor_static_link.vpcf"
         }
-        "ArmorPhysical" "100"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -65484,7 +65484,7 @@
         {
             "soundfile"                       "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
         }
-        "ArmorPhysical" "3"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -65863,7 +65863,7 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
             "particle"  "particles/base_attacks/majinaq_linear.vpcf"
         }
-        "ArmorPhysical" "12"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -65969,8 +65969,8 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "5"
-        "MagicalResistance" "20"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed" "1000"
         "ProjectileModel"   "particles/units/heroes/hero_lone_druid/lone_druid_base_attack.vpcf"
@@ -66690,7 +66690,7 @@
 
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "40400"
@@ -66875,7 +66875,7 @@
         "Ability8"  ""
         "HasInventory"  "0"
         "ArmorPhysical" "0"
-        "MagicalResistance" "100"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"           "particles/base_attacks/ranged_tower_good.vpcf"
         "ProjectileSpeed"           "750"
@@ -67198,8 +67198,8 @@
         "Ability7"  ""
         "Ability8"  ""
         "HasInventory"  "0"
-        "ArmorPhysical" "80"
-        "MagicalResistance" "100"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "ProjectileModel"           "particles/base_attacks/ranged_tower_good.vpcf"
         "ProjectileSpeed"           "750"
@@ -67266,8 +67266,8 @@
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
         }
-        "ArmorPhysical" "5"
-        "MagicalResistance" "75"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "60"
@@ -67374,8 +67374,8 @@
         "Ability7"  ""
         "Ability8"  ""
         "HasInventory"  "0"
-        "ArmorPhysical" "200"
-        "MagicalResistance" "100"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "ProjectileModel"           "particles/base_attacks/ranged_tower_good.vpcf"
         "ProjectileSpeed"           "750"
@@ -67554,7 +67554,7 @@
         "SelectionGroup"    "IcyVenge"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -67873,7 +67873,7 @@
             "particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
         }
-        "ArmorPhysical" "8"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -68624,7 +68624,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -68703,7 +68703,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -68777,7 +68777,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -69415,8 +69415,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Creep_Bad_Range"
-        "ArmorPhysical" "12"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1800"
@@ -69956,7 +69956,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -73047,7 +73047,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -74294,7 +74294,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -74472,8 +74472,8 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "20"
-        "ArmorPhysical" "21"
+        "MagicalResistance" "0"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -75886,7 +75886,7 @@
         {
 
         }
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -76218,7 +76218,7 @@
         }
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileModel"   "particles/items_fx/desolator_projectile.vpcf"
@@ -76719,7 +76719,7 @@
         "SelectionGroup"    "bone_horror"
         "PathfindingSearchDepthScale" "0.2"
         "DefaultState"  "Invade"
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -78030,7 +78030,7 @@
             "particle"  "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
             "particle"  "particles/frostivus_herofx/hyper_state_intro_omnislash_ascension.vpcf"
         }
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -78402,7 +78402,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -80286,7 +80286,7 @@
             "particle"  "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave.vpcf"
             "particle"  "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_gods_strength.vpcf"
         }
-        "ArmorPhysical" "320"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -80558,7 +80558,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -80753,8 +80753,8 @@
         "Ability5"  ""
         "Ability6"  ""
         "Ability7"  ""
-        "ArmorPhysical" "1"
-        "MagicalResistance" "28"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageMin"   "70"
         "AttackDamageMax"   "80"
@@ -81214,8 +81214,8 @@
             "particle"      "particles/units/heroes/hero_earth_spirit/es_attack_blur3.vpcf"
             "particle"      "particles/units/heroes/hero_earth_spirit/es_attack_blur2.vpcf"
         }
-        "ArmorPhysical" "5"
-        "MagicalResistance" "50"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "350"
@@ -81314,7 +81314,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -81400,8 +81400,8 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"                  "Hero_Tidehunter"
-        "ArmorPhysical" "6"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "660"
@@ -81489,8 +81489,8 @@
         {
 
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "99"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "840"
         "ProjectileModel"       "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
@@ -81572,8 +81572,8 @@
         {
             "particle"  "particles/roshpit/tanari/wind_aura_spell_bloodbath_bubbles_.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "99"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "ProjectileSpeed"       "840"
         "ProjectileModel"       "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
@@ -81851,8 +81851,8 @@
         {
             "particle"  "particles/roshpit/tanari/wind_aura_spell_bloodbath_bubbles_.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "99"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "ProjectileSpeed"       "840"
         "ProjectileModel"       "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
@@ -82084,8 +82084,8 @@
             "particle"  "particles/econ/events/ti5/teleport_end_dust_ti5.vpcf"
             "particle"  "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
         }
-        "ArmorPhysical" "100"
-        "MagicalResistance" "10"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "740"
@@ -82657,7 +82657,7 @@
         "SelectionGroup"    "Dark_Fighter"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "MagicalResistance" "65"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "700"
@@ -82756,7 +82756,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -82849,7 +82849,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -82946,7 +82946,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
-        "ArmorPhysical" "4"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -83119,7 +83119,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -83825,7 +83825,7 @@
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale" "0.2"
         "SoundSet"              "Hero_Slardar"  
-        "ArmorPhysical" "15"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -84561,8 +84561,8 @@
             "soundfile"         "soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
             "particle"          "particles/units/heroes/hero_medusa/heavens_shield_oval_highlight2.vpcf"
         }
-        "ArmorPhysical" "6"
-        "MagicalResistance" "15"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1650"
@@ -84661,7 +84661,7 @@
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "ArmorPhysical" "7"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -85053,8 +85053,8 @@
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
             "particle"  "particles/econ/items/sand_king/sandking_barren_crown/sandking_rubyspire_burrowstrike.vpcf"
         }
-        "ArmorPhysical" "10"
-        "MagicalResistance" "25"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "1400"

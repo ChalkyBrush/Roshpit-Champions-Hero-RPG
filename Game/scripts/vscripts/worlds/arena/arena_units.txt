@@ -16,7 +16,7 @@
         	"particle"  "particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf"
         	"particle"	"particles/econ/items/pugna/pugna_ward_ti5/pugna_ward_attack_heavy_ti_5.vpcf"
         }
-        "ArmorPhysical" "1"
+        "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
@@ -99,7 +99,7 @@
             "particle"  "particles/units/heroes/hero_visage/visage_grave_chill_tgt.vpcf"
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "400400"
