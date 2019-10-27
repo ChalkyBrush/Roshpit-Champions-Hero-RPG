@@ -51,9 +51,6 @@ function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, el
     if attacker:HasModifier('modifier_duskbringer_glyph_7_2') then
         element2 = RPC_ELEMENT_GHOST
     end
-    if attacker:GetUnitName() == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-        damage = Filters:Bahamut_DB_rune(attacker, damage, 0, victim)
-    end
     if victim:HasModifier("modifier_item_resistance") then
         if victim.itemReduc then
             damage = damage * victim.itemReduc
@@ -1264,11 +1261,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
     local attackerName = attacker:GetUnitName()
     if not ignore_effects then
-        if attackerName == "npc_dota_hero_leshrac" and not attacker:HasModifier("modifier_bahamut_sphere_of_divinity") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-            if Util.BaseType:IsAbilityBaseType(slot) then
-                damage = Filters:Bahamut_DB_rune(attacker, damage, slot, victim)
-            end
-        end
         if attacker:HasModifier("modifier_shapeshift_year_beast") then
             if Util.BaseType:IsAbilityBaseType(slot) then
                 local c_d_level = attacker:GetRuneValue("r", 3)
@@ -4623,40 +4615,6 @@ function Filters:DarkEmissary(caster)
             CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/ghostfire_blast_e3.vpcf", enemy, 0.5)
         end
     end
-end
-
-function Filters:Bahamut_DB_rune(caster, damage, slot, enemy)
-    local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "bahamut")
-    if caster:HasAbility("leshrac_nuke") then
-        if enemy:HasModifier("modifier_leshrac_nuke_judged") then
-            local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_w_4")
-            local property_one = ability:GetSpecialValueFor("property_one")
-            local property_two = ability:GetSpecialValueFor("property_two")
-            if w_4_level > 0 then
-                local bonusDamage = caster:GetMaxMana() * (property_one / 100) * w_4_level
-                if slot == BASE_ABILITY_W then
-                    bonusDamage = bonusDamage * 10
-                end
-                damage = damage + bonusDamage
-                local manaDrain = math.ceil(caster:GetMaxMana() / 100 * property_two) * w_4_level
-                caster:ReduceMana(manaDrain)
-            end
-        end
-    elseif caster:HasAbility("bahamut_arcana_orb") then
-        local ability = caster.runeUnit4:FindAbilityByName("bahamut_rune_w_4_arcana2")
-        local property_one = ability:GetSpecialValueFor("property_one")
-        local w_4_level = caster:GetRuneValue("w", 4)
-        if w_4_level > 0 then
-            local bonusDamage = (caster:GetMaxMana() - caster:GetMana()) * (property_one / 100) * w_4_level
-            damage = damage + bonusDamage
-        end
-    end
-    return damage
-end
-
-function Filters:Bahamut_DB_runeArcana(caster, damage, slot, enemy)
-
-    return damage
 end
 
 function Filters:BuzukisFinger(caster)

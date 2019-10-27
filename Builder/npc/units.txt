@@ -12710,6 +12710,13 @@
         "Ability2"  "tomb_pudge"
         "Ability3"  "dungeon_creep"
         "Ability4"  "knockback_immunity"
+        "RoshpitArmor"          "62"
+        "RoshpitArmorPierce"    "81"
+        "RoshpitSpellPierce"    "56"
+        "RoshpitMagicArmor"     "124"
+        "RoshpitLevel"          "12"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>" 
     }
 
     "tomb_stalker"

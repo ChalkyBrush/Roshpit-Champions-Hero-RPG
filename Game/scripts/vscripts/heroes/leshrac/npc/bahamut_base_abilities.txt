@@ -76,6 +76,37 @@
 		}
 		"Modifiers"
 		{
+			"modifier_bahamut_base_w_passive_thinker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.06"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_runes.lua"
+						"Function"		"leshrac_w_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_bahamut_w_4_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_bahamut_w_4_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+				}
+			}
 			"modifiers_rune_w_2_modifier"
 			{
 				"Passive"		"1"

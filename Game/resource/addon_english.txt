@@ -3407,9 +3407,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_2"							"[W2] Manifold Judgement"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"Enemies struck by Judgement are affected by Judged. When a Judged unit is attacked by Bahamut - his attacks multiply and also strike all other Judged enemies which deal a % of his base damage."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_one"			"Attack Damage"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix"					"%"	
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_Description"				"Enemies struck by Judgement are affected by Judged. When a Judged unit is attacked by Bahamut - his attacks multiply and also strike all other Judged enemies for a % of his attack damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_suffix"					"% of Attack Damage"	
 
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged"						"Judged"
     	"DOTA_Tooltip_modifier_leshrac_nuke_judged_Description"			"Facing the Judgement of Bahamut"
@@ -3424,11 +3424,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"The base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's current mana. This bonus only applies against targets with the Judged debuff, and the total bonus is multiplied by 10 when applied to the damage of @Ability2 itself (not any of its runes)."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Base Damage Bonus"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% of current mana"		
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"Mana Drained per Amplification"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% of max mana"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"Bahamut gains Attack Power base on his current mana."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Base Attack Power"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"per current mana"
 		
 		
 		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"
@@ -3443,9 +3441,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"When entering the @Ability3 state, a holy sprite is summoned against each enemy in an area in front of Bahamut. The sprite paralyzes its target on contact.<br>Additionally, the damage of [E3] is increased based on how balanced Bahamut's attributes are. The maximum percentile bonus indicated below is only achieved if his attributes are all equal; if they aren't, then a fraction of the bonus is given, determined by dividing the lowest attribute by the highest attribute."
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Max Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"When entering the @Ability3 state, a holy sprite is summoned against each enemy in an area in front of Bahamut. The sprite paralyzes its target on contact and deals damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Damage"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Paralyze Duration"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" seconds"	
 

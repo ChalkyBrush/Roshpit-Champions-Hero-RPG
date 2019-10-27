@@ -142,7 +142,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT %>"
 			}
 		}
@@ -210,7 +210,7 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% BAHAMUT_W3_ATTACK_TO_DMG_PCT %>"
 			}
 			"04"
@@ -252,12 +252,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_W4_DMG_OF_MANA_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% BAHAMUT_W4_MANA_DRAIN_PCT %>"
+				"property_one"			"<% BAHAMUT_W4_ATT_PER_MANA %>"
 			}
 		}
 	}
@@ -293,14 +288,14 @@
 		"AbilityTextureName"	"luna_lucent_beam_alt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT %>"
+				"property_one"			"<% BAHAMUT_E2_DAMAGE %>"
 			}
 			"02"
 			{

@@ -40042,6 +40042,37 @@
 		}
 		"Modifiers"
 		{
+			"modifier_bahamut_base_w_passive_thinker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.06"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/leshrac_runes.lua"
+						"Function"		"leshrac_w_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_bahamut_w_4_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_bahamut_w_4_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+				}
+			}
 			"modifiers_rune_w_2_modifier"
 			{
 				"Passive"		"1"
@@ -41058,8 +41089,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 		}
 		"Modifiers"
@@ -41072,7 +41103,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "12"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
 				}
 			}
 		}
@@ -41095,7 +41126,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -41117,17 +41148,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3020"
+				"property_one"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"5000"
+				"property_one_base"		"20"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 			"04"
 			{
@@ -41168,12 +41199,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_one"			"0.02"
 			}
 		}
 	}
@@ -41209,14 +41235,14 @@
 		"AbilityTextureName"	"luna_lucent_beam_alt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"20"
 			}
 			"02"
 			{
