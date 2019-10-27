@@ -5996,8 +5996,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "10000"
-        "AttackDamageMax"   "20000"
+        "AttackDamageMin"   "800"
+        "AttackDamageMax"   "800"
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"    "99999"
@@ -6014,7 +6014,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "522"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "150000"
+        "StatusHealth"  "3000"
         "StatusHealthRegen" "0"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -6058,6 +6058,13 @@
 
         }
         "Ability1"  "mini_mines_boss_passive"       
+        "RoshpitArmor"          "280"
+        "RoshpitArmorPierce"    "440"
+        "RoshpitSpellPierce"    "420"
+        "RoshpitMagicArmor"     "300"
+        "RoshpitLevel"          "30"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"   
     }
 
 
