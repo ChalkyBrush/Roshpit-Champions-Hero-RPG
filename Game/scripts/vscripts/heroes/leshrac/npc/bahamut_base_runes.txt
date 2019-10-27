@@ -20,7 +20,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_Q1_MANAPOOL_STACKS_PER_TICK * BAHAMUT_Q1_MANAPOOL_PER_STACK %>"
+				"property_two"			"<% BAHAMUT_Q1_MANAPOOL_MAX_STACKS * BAHAMUT_Q1_MANAPOOL_PER_STACK %>"
 			}
 		}
 	}
