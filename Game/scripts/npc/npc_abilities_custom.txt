@@ -32346,12 +32346,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"1"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"18"
 			}
 		}
 		"Modifiers"
@@ -32379,7 +32379,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
 			"modifier_soul_sear_visible_enemy"
@@ -32406,7 +32406,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-20"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-18"
 				}
 			}
 		}
