@@ -3344,12 +3344,12 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = filterTable["damage"]*(1-damage_reduce)
 	end
 	if victim:HasModifier("modifier_ancient_steadfast") then
-		local modifier = victim:FindModifierByName("modifier_steadfast")
+		local modifier = victim:FindModifierByName("modifier_ancient_steadfast")
 		local damage_reduce = modifier:GetAbility():GetSpecialValueFor("damage_reduce")/100
 		filterTable["damage"] = filterTable["damage"]*(1-damage_reduce)
 	end
 	if victim:HasModifier("modifier_mega_steadfast") then
-		local modifier = victim:FindModifierByName("modifier_steadfast")
+		local modifier = victim:FindModifierByName("modifier_mega_steadfast")
 		local damage_reduce = modifier:GetAbility():GetSpecialValueFor("damage_reduce")/100
 		filterTable["damage"] = filterTable["damage"]*(1-damage_reduce)
 	end
