@@ -32231,12 +32231,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"25"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"40"
+				"property_one_base"		"10"
 			}
 			"03"
 			{
@@ -32538,17 +32538,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"1000"
+				"property_one_base"		"20"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
 			}
 			"04"
 			{

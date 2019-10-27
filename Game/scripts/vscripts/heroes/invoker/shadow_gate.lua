@@ -4,7 +4,7 @@ function shadow_gate_cast(event)
 	local target = event.target_points[1]
 	local casterOrigin = caster:GetAbsOrigin()
 	target = WallPhysics:WallSearch(casterOrigin, target, caster)
-	local b_c_level = get_b_c_level(caster)
+	local b_c_level = caster:GetRuneValue("e", 2)
 
 	ability.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "conjuror")
 	local lanceParticle = "particles/units/heroes/hero_phantom_lancer/shadow_flare_phantomlancer_spiritlance_projectile.vpcf"

@@ -563,7 +563,7 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CONJUROR_E2_ADDITIONAL_DAMAGE_PER_AGI %>"
 			}
 			"04"
