@@ -419,6 +419,7 @@ function RPCItems:RollPotionProperty4(item, xpBounty)
 		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_mana_restore", "#1975FF", 4)
 	end
 	return name
+end
 
 function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bountyFactorMax, itemRarity, isFloat, maximumValue)
 	local rarityFactor = RPCItems:GetRarityFactor(itemRarity)
