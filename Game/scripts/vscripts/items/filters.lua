@@ -2323,12 +2323,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local q_3_level = attacker:GetRuneValue("q", 3)
                 mult = mult + stacks * SEPHYR_Q3_HOLY_AMP_PCT/100 * q_3_level
             end
-        elseif unitName == "npc_dota_hero_juggernaut" and attacker:HasAbility("seinaru_odachi_leap") then
-            if victim:GetPhysicalArmorValue(false) < 0 then
+        elseif unitName == "npc_dota_hero_juggernaut" then
+            if attacker:HasAbility("seinaru_odachi_leap") then
                 if attacker.e_4_level and attacker.e_4_level > 0 then
-                    local multIncrease = attacker.e_4_level * SEINARU_E4_HOLY_PCT_PER_NEG_ARMOR * math.abs(victim:GetPhysicalArmorValue(false))
+                    local multIncrease = attacker.e_4_level * SEINARU_E4_HOLY_AMP
                     mult = mult + multIncrease
                 end
+            else
             end
         end
         if attacker:HasModifier("modifier_gilded_soul_buff") then
@@ -2599,7 +2600,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if attacker:HasModifier('modifier_seinaru_glyph_7_1') then
                     mult = mult + SEINARU_W4_WIND_PCT_PER_AGI * (SEINARU_GLYPH7_AGI_PART * attacker:GetAgility() + SEINARU_GLYPH7_STR_PART * attacker:GetStrength()) * attacker.w_4_level
                 else
-                    mult = mult + SEINARU_W4_WIND_PCT_PER_AGI * attacker:GetAgility() * attacker.w_4_level
+                    mult = mult + SEINARU_W4_WIND_AMP * attacker.w_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then

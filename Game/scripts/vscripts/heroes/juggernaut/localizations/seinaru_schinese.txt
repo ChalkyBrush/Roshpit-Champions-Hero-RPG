@@ -51,7 +51,7 @@
     	"Tooltip_seinaru_w"											"圣光之手和卷风"
 	
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] 卷风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"<font color='#CCFF66'>圣光之手</font> 会同时在周身释放风环，受影响的敌人降低攻击速度和移动速度 <% SEINARU_W1_MOV_SLOW_BASE %> 持续 <% SEINARU_W1_DUR_BASE %> 秒. 此外，被W击中的敌人受到来自神圣剑客的税后伤害提高。提高效果为每层符文效果乘以W技能等级. 最大 <% SEINARU_W1_MAX_STACKS_BASE %> 层数."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"				"每层税后伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		

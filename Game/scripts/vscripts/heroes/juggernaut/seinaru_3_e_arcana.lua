@@ -17,8 +17,8 @@ function sunstrider_start(event)
 
 	if ability.e_3_level > 0 then
 		local c_c_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_sunwarrior_vengeance_post_mit", {duration = c_c_duration})
-		caster:SetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", caster, ability.e_3_level)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce", {duration = c_c_duration})
+		caster:SetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce", caster, ability.e_3_level)
 	end
 
 	local maxTargets = targets_count + math.ceil(SEINARU_ARCANA_E1_TARGETS * a_c_level)
@@ -135,7 +135,7 @@ function sunstrider_end(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_lightsworn", {duration = b_c_duration})
 		end
 		Timers:CreateTimer(0.24, function()
-			caster:RemoveModifierByName("modifier_sunstrider_sunwarrior_vengeance_post_mit")
+			caster:RemoveModifierByName("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce")
 		end)
 
 	end)

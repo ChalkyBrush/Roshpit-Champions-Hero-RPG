@@ -627,6 +627,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_deity_grand_guardian") then
 		armor_modify = armor_modify + CONJUROR_ARCANA3_GRAND_GUARDIAN_ARMOR
 	end
+	if unit:HasModifier("modifier_gorudo_rune_r_1") then
+		local modifier = unit:FindModifierByName("modifier_gorudo_rune_r_1")
+		armor_modify = armor_modify + modifier:GetStackCount()*-1
+	end
 
 
 	if armor_modify > 0 then
@@ -826,6 +830,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_call_of_earth") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_call_of_earth")
 	end
+	if unit:HasModifier("modifier_typhoon_w_2_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_typhoon_w_2_magic_armor_loss")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SEINARU_W2_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_seinaru_glyph_7_1") then
+		magic_armor_modify = magic_armor_modify + SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR*unit:GetStrength()
+	end
 
 
 
@@ -862,6 +873,8 @@ function CDOTA_BaseNPC:GetPhysicalArmorBaseValue()
 	return unit.roshpit_attributes.roshpit_armor
 end
 
+
+
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	local unit = self
 	local armor_pierce = unit.roshpit_attributes.roshpit_armor_pierce
@@ -888,6 +901,22 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_conjuror_glyph_5_a") or unit:HasModifier("modifier_conjuror_glyph_5_a_summon") then
 		armor_pierce_modify = armor_pierce_modify + CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_seinaru_q3_spell_and_armor_pierce") then
+		local modifier = unit:FindModifierByName("modifier_seinaru_q3_spell_and_armor_pierce")
+		local ms = unit:GetActualMovespeed()
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SEINARU_Q3_ARMOR_AND_SPELL_PIERCE_PER_MS*ms
+	end
+	if unit:GetUnitName() == "npc_dota_hero_juggernaut" and unit:HasAbility("seinaru_odachi_leap") then
+		local e_3_level = unit:GetRuneValue("e", 3)
+		armor_pierce_modify = armor_pierce_modify + SEINARU_E3_ARMOR_PIERCE*e_3_level
+	end
+	if unit:HasModifier("modifier_seinaru_glyph_7_1") then
+		armor_pierce_modify = armor_pierce_modify + SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR*unit:GetStrength()
+	end
+	if unit:HasModifier("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce") then
+		local modifier = unit:FindModifierByName("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
 	end
 
 
@@ -939,6 +968,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_conjuror_glyph_5_a") or unit:HasModifier("modifier_conjuror_glyph_5_a_summon") then
 		spell_pierce_modify = spell_pierce_modify + CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_seinaru_q3_spell_and_armor_pierce") then
+		local modifier = unit:FindModifierByName("modifier_seinaru_q3_spell_and_armor_pierce")
+		local ms = unit:GetActualMovespeed()
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SEINARU_Q3_ARMOR_AND_SPELL_PIERCE_PER_MS*ms
+	end
+	if unit:HasModifier("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce") then
+		local modifier = unit:FindModifierByName("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
 	end
 
 	if spell_pierce_modify > 0 then
@@ -1052,6 +1090,15 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 		spirit_bonus = spirit_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 	end
+	if hero:GetUnitName() == "npc_dota_hero_juggernaut" then
+		if hero:HasAbility("seinaru_hands_of_hikari") and hero.w_4_level then
+			spirit_bonus = spirit_bonus + hero.w_4_level*SEINARU_W4_SPIRIT
+		end
+		if hero:HasAbility("seinaru_odachi_leap") and hero.e_4_level then
+			agi_bonus = agi_bonus + hero.e_4_level*SEINARU_E4_AGILITY
+		end
+	end
+
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
 	end
@@ -1091,6 +1138,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_machinal_jump_d_c_effect") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_machinal_jump_d_c_effect", ARKIMUS_E4_AGI)
+	end
+	if hero:HasModifier("modifier_gorudo_r_4_strength") then
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_gorudo_r_4_strength", SEINARU_R4_STRENGTH)
 	end
 	if heroName == "npc_dota_hero_monkey_king" then
 		if hero:HasModifier("modifier_shapeshift_cat") then
@@ -1765,6 +1815,16 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
 	modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
 }
+
+function CDOTA_BaseNPC:GetActualMovespeed()
+	local unit = self
+	local movespeed = self:GetBaseMoveSpeed()
+	local actual_movespeed = self:GetMoveSpeedModifier(movespeed, false)
+	if unit.master_move_speed then
+		actual_movespeed = unit.master_move_speed
+	end
+	return actual_movespeed
+end
 
 function CustomAttributes:MSCap(unit)
 	local buffs = unit:FindAllModifiers()

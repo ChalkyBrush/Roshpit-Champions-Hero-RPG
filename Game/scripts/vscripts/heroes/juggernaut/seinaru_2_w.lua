@@ -4,14 +4,14 @@ function hikari_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.heal = event.heal
-
+	StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.2})
 	if not ability.cast_number then
 		ability.cast_number = 0
 	end
 	ability.cast_number = ability.cast_number + 1
 
 	local w_4_level = caster:GetRuneValue("w", 4)
-	ability.heal = ability.heal + SEINARU_W4_ADD_HEAL_PCT_PER_AGI * caster:GetAgility() * w_4_level * ability.heal
+	ability.heal = ability.heal
 	caster.w_4_level = w_4_level
 
 	ability.radius = event.radius
@@ -28,8 +28,12 @@ function hikari_start(event)
 
 	local w_2_level = caster:GetRuneValue("w", 2)
 	if w_2_level > 0 then
-		new_b_b(caster, ability, w_2_level)
+		local luck = RandomInt(1, 100)
+		if luck <= SEINARU_W2_CHANCE then
+			new_b_b(caster, ability, w_2_level)
+		end
 	end
+
 
 end
 
@@ -42,14 +46,17 @@ function new_b_b(caster, ability, w_2_level)
 	EndAnimation(caster)
 	StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_SPAWN, rate = 1.2, translate = "odachi"})
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	local damage = w_2_level * SEINARU_W2_DMG_PER_LVL_PER_HERO_LVL * ability:GetLevel() * caster:GetLevel()
+	local damage = w_2_level * SEINARU_W2_DMG
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			local damage_vs_the_enemy = damage
 			if caster:HasModifier('modifier_seinaru_glyph_5_1') and enemy:HasModifier('modifier_kaze_gust_blind') then
 				damage_vs_the_enemy = damage_vs_the_enemy * SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED
 			end
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_typhoon_w_2_magic_armor_loss", {duration = SEINARU_W2_MAGIC_ARMOR_LOSS_DURATION})
+			enemy:SetModifierStackCount("modifier_typhoon_w_2_magic_armor_loss", caster, w_2_level)
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage_vs_the_enemy, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+			enemy:CalculateAndSaveRoshpitAttributes()
 		end
 	end
 end
@@ -67,7 +74,7 @@ end
 function a_b_smoke(caster, fv, casterOrigin, ability)
 	local start_radius = 180
 	local end_radius = 180
-	local range = ability:GetSpecialValueFor("radius")
+	local range = SEINARU_W1_RANGE_PER_LVL*ability.w_1_level + SEINARU_W1_RANGE_BASE
 	local speed = 450
 	local info =
 	{
@@ -97,12 +104,9 @@ function smoke_hit(event)
 	local ability = event.ability
 	local target = event.target
 	if not target.seinaru_w_cast_number or ability.cast_number ~= target.seinaru_w_cast_number then
-		local newStacks = target:GetModifierStackCount("modifier_seinaru_rune_w_1", caster) + 1
-		newStacks = math.min(newStacks, SEINARU_W1_MAX_STACKS_BASE)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_w_1", {duration = 1.5})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_w_1_invisible", {duration = 1.5})
-		target:SetModifierStackCount("modifier_seinaru_rune_w_1", caster, newStacks)
-		target:SetModifierStackCount("modifier_seinaru_rune_w_1_invisible", caster, newStacks * ability.w_1_level * ability:GetLevel())
+		local damage = SEINARU_W1_DAMAGE*ability.w_1_level
+		print("DAMAGE: "..damage)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hikari_slow", {duration = 1.5})
 		target.seinaru_w_cast_number = ability.cast_number
 	end

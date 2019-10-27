@@ -32765,7 +32765,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_percent_of_atk"		"140 220 300 380 460 540 620"
+				"damage_percent_of_atk"		"40 60 80 100 120 140 160"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
@@ -32921,7 +32921,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
 			"modifier_seinaru_arcana_agility_buff"
@@ -32994,7 +32994,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -33014,7 +33014,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"60"
 			}
 		}
 	}
@@ -33072,7 +33072,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"att_to_dmg"			"20 30 40 50 60 70 80"
+				"att_to_dmg"			"15 20 25 30 35 40 45"
 			}
 		}
 		// Precache
@@ -33143,7 +33143,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "25"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
 				}
 			}
 			"modifier_sunstrider_lightsworn"
@@ -33169,7 +33169,7 @@
 					}
 				}
 			}
-			"modifier_sunstrider_sunwarrior_vengeance_post_mit"
+			"modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -33221,7 +33221,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -33263,7 +33263,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"110"
 			}
 			"02"
 			{
@@ -33296,7 +33296,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"300"
+				"property_two"			"12"
 			}
 		}
 	}
@@ -33318,7 +33318,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1200"
-		"AbilityDamage"					"600 1800 5400 18000 32000 90000 140000"
+		"AbilityDamage"					"60 180 300 420 540 660 780"
 		"precache"
 		{
 			"particle"		"particles/roshpit/seinaru/kaze_gust_wave.vpcf"
@@ -33443,8 +33443,8 @@
         		"IsBuff"	"1"
         		"Properties"
         		{
-        			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"0.5"
-        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"16"
+        			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"0.3"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"0.05"
         		}
         	}
         	"modifier_seinaru_q_2_speed"
@@ -33479,11 +33479,11 @@
         			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-2"
         		}
         	}
-        	"modifier_seinaru_rune_q_3_postmitigation_take"
+        	"modifier_seinaru_q3_spell_and_armor_pierce"
         	{
         		"IsHidden"	"0"
         		"IsBuff"	"1"
-        		"TextureName"	"seinaru/seinaru_c_a"
+        		"TextureName"	"seinaru/seinaru_q_3"
         	}
         }
 	}
@@ -33503,7 +33503,7 @@
 
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.15"
 
 		// Time
 		//-------------------------------------------------------
@@ -33511,7 +33511,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 300 500 1000 1200 1600"
+		"AbilityManaCost"				"40 70 100 130 160 190 220"
 
 		// Special
 		//-------------------------------------------------------
@@ -33520,7 +33520,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal"					"220 480 950 3800 8200 17500 30000"
+				"heal"					"100 200 320 460 720 900 1100"
 			}
 			"02"
 			{
@@ -33618,7 +33618,12 @@
         		"IsHidden"	"1"
         		"IsBuff"	"1"
         	}
-
+        	"modifier_typhoon_w_2_magic_armor_loss"
+        	{
+        		"IsHidden"	"0"
+        		"IsDebuff"	"1"
+        		"TextureName"	"skywrath_mage_concussive_shot"
+        	}
             "modifier_seinaru_rune_w_3_shield"
             {
                 "IsHidden"	"0"
@@ -33699,7 +33704,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1800 4240 16420 65870 256460 839410 1764000"
+				"damage"				"40 100 160 220 280 340 400"
 			}
 		}
 
@@ -33779,11 +33784,6 @@
 						"EffectColorA"				"255 255 255"
 						"EffectAlphaScale"			"1"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "3"
 				}
 
             }
@@ -33977,7 +33977,7 @@
             	"IsHidden"	"1"
             	"Properties"
             	{
-            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "40"
+            		"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "8"
             	}
             }
             "modifier_seinaru_b_c_wakizashi"
@@ -34228,6 +34228,10 @@
 				"IsStunDebuff"	"1"
 				"TextureName"	"seinaru/seinaru_r_2"
 			}
+			"modifier_gorudo_r_4_strength"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_gorudo_rune_r_1"
 			{
 				"IsHidden"	"0"
@@ -34251,10 +34255,12 @@
 						"ScriptFile"	"heroes/juggernaut/seinaru_4_r.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -34269,7 +34275,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"att_per_agi"		"30 40 50 60 70 80 90"
+				"att_per_agi"		"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
 			}
 		}
 	}
@@ -34293,12 +34299,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"16"
+				"property_one"			"0.05"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"0.3"
 			}
 		}
 	}
@@ -34346,7 +34352,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -34368,7 +34374,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -34381,6 +34387,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"furion_teleportation"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -34389,7 +34396,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"140"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"12"
 			}
 		}
 	}
@@ -34411,14 +34438,20 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10000"
+				"property_one"			"90"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-50"
+			}
+			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-			"03"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"12"
@@ -34447,7 +34480,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"0.5"
 			}
 		}
 		"Modifiers"
@@ -34473,12 +34506,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.14"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.14"
+				"property_two"			"25"
 			}
 		}
 	}
@@ -34500,7 +34533,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -34554,7 +34587,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"60"
 			}
 		}
 	}
@@ -34576,12 +34609,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-200"
+				"property_one"			"10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2.5"
+				"property_two"			"50"
 			}
 		}
 	}
@@ -34603,7 +34636,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"480"
+				"property_one"			"40"
 			}
 		}
 	}
@@ -34661,8 +34694,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -34699,7 +34732,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"75"
 			}
 		}
 	}

@@ -4739,7 +4739,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"你的土元素将在死亡后立即复活。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"召唤雕文"
-		"item_rpc_conjuror_glyph_5_a_description" 				"召唤师和它的全部位面生物将造成<font color='#ccff66'>0</font>%的伤害。（计算在敌人减伤之后）"
+		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <font color='#ccff66'>1200</font>% for Conjuror and his Summons."
 		
 		//Weapons
 		"conjuror_weapon_01"			"土魔法球"
@@ -8351,7 +8351,7 @@
     	"Tooltip_seinaru_w"											"圣光之手和卷风"
 	
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] 卷风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"<font color='#CCFF66'>圣光之手</font> 会同时在周身释放风环，受影响的敌人降低攻击速度和移动速度 <font color='#ccff66'>60</font> 持续 <font color='#ccff66'>1.5</font> 秒. 此外，被W击中的敌人受到来自神圣剑客的税后伤害提高。提高效果为每层符文效果乘以W技能等级. 最大 <font color='#ccff66'>4</font> 层数."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that slows attack and movespeed of struck units by <font color='#ccff66'>60</font> for <font color='#ccff66'>2.5</font> seconds."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"				"每层税后伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
@@ -8595,7 +8595,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"鬼丸"
 		"item_property_seinaru_immortal_weapon"								"穿刺攻击"
-		"property_seinaru_immortal_weapon_description"						"每次攻击造成 <font color='#ccff66'>250</font>-码范围的旋风, 伤害量为 <font color='#ccff66'>150</font>% 剑圣的总攻击力的物理 <font color=\"#7AE2A7\">风</font> 元素伤害并且施加 [R1]."
+		"property_seinaru_immortal_weapon_description"						"每次攻击造成 <font color='#ccff66'>250</font>-码范围的旋风, 伤害量为 <font color='#ccff66'>20</font>% 剑圣的总攻击力的物理 <font color=\"#7AE2A7\">风</font> 元素伤害并且施加 [R1]."
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "武藏的藏刀"
         "item_property_seinaru_immortal_weapon2"                             "忍者之心"

@@ -2651,11 +2651,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + multIncrease
 		end
 	end
-	if attacker:HasModifier("modifier_sunstrider_sunwarrior_vengeance_post_mit") then
-		local stacks = attacker:GetModifierStackCount("modifier_sunstrider_sunwarrior_vengeance_post_mit", attacker)
-		local multIncrease = stacks * SEINARU_ARCANA_E3_POSTMIT
-		mult = mult + multIncrease
-	end
+
 	if victim:HasModifier("modifier_auriun_immortal_weapon_1") then
 		filterTable["damage"] = Filters:AuriunImmortalWeapon1(filterTable["damage"], victim)
 	end
@@ -2987,13 +2983,6 @@ function GameState:FilterDamage(filterTable)
 			else
 				filterTable["damage"] = filterTable["damage"] * (1 - SEINARU_R2_DMG_RED)
 			end
-		end
-	end
-	if victim:HasModifier("modifier_gorudo_b_d_inside_ring") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		modifier = victim:FindModifierByName("modifier_gorudo_b_d_inside_ring")
-		if attacker:GetEntityIndex() == modifier:GetCaster():GetEntityIndex() then
-			local r_4_level = attacker:FindAbilityByName("seinaru_gorudo").r_4_level
-			filterTable["damage"] = filterTable["damage"] * (1 + r_4_level * SEINARU_R4_POSTMIT_MULT)
 		end
 	end
 	if filterTable.entindex_inflictor_const and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
@@ -3365,13 +3354,6 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + SEINARU_W1_POSTMIT_PER_STACK_PER_LVL * stacks
 	end
 
-	modifier = victim:FindModifierByName("modifier_seinaru_rune_q_3_postmitigation_take")
-	if modifier then
-		local attacker_movespeed = attacker:GetMoveSpeedModifier(attacker:GetBaseMoveSpeed(), false)
-		local victim_movespeed = victim:GetMoveSpeedModifier(victim:GetBaseMoveSpeed(), false)
-		local movespeed_difference = math.max(attacker_movespeed - victim_movespeed, 0)
-		mult = mult + movespeed_difference * SEINARU_Q3_POSTMIT_PER_MOVESPEED_DIF * modifier:GetStackCount()
-	end
 	modifier = victim:FindModifierByName("modifier_drill_crusher_stack")
 	if modifier and modifier:GetStackCount() == DRILL_CRUSHER_MAX_STACKS_COUNT then
 		mult = mult + DRILL_CRUSHER_POSTMITIGATION

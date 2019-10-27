@@ -502,7 +502,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"你的土元素将在死亡后立即复活。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"召唤雕文"
-		"item_rpc_conjuror_glyph_5_a_description" 				"召唤师和它的全部位面生物将造成<% CONJUROR_GLYPH_5_A_POST_MITIGATION_PCT %>%的伤害。（计算在敌人减伤之后）"
+		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %>% for Conjuror and his Summons."
 		
 		//Weapons
 		"conjuror_weapon_01"			"土魔法球"

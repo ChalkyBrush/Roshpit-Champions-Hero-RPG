@@ -49,7 +49,7 @@
     	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] Circle of Wind"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 высвобождают поток светлой энергии замедляя скорость передвижения и атаки врагов на <% SEINARU_W1_MOV_SLOW_BASE %> на <% SEINARU_W1_DUR_BASE %> секунды. Дополнительно увеличивает наносимый героем пост-резистный урон по задетым врагам. Эффект складывается <% SEINARU_W1_MAX_STACKS_BASE %> раз, сила эффекта умножается на уровень @Ability2."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Доп. пост-резистный урон"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
@@ -240,17 +240,17 @@
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"(T3) Glyph of Resonance"
 		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] наносит урон противникам в радиусе <% SEINARU_GLYPH3_R3_RADIUS %> от первичной цели."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"(T4) Glyph of Yang"
-		"item_rpc_seinaru_glyph_4_1_description" 				"Руны, увеличивающие порог Стойкости позволяют Пост-Резистным эффектам тоже усиливать урон, но только 1/<% SEINARU_GLYPH4_THRESHOLD_RUNE_REDUCE %>от своих значений."
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"       "Glyph of Yin"
+        "item_rpc_seinaru_glyph_4_1_description"                "Increases movespeed by <% SEINARU_GLYPH_4_1_MS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"(T5) Glyph of Bushido" //Red burst particle effect for damage
-		"item_rpc_seinaru_glyph_5_1_description" 				"[W2] наносит <% SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED %>x урона по целям, ослеплённых @Ability1."
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"       "Glyph of Bushido"
+        "item_rpc_seinaru_glyph_5_1_description"                "[W2] deals <% SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED %>x damage against enemies blinded by @Ability1."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"(T6) Glyph of Honor"
-		"item_rpc_seinaru_glyph_6_1_description" 				"[R2] снижает входящий урон на  <% SEINARU_GLYPH6_R2_DMG_RED * 100%>% вместо <% SEINARU_R2_DMG_RED * 100%>%"
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"       "Glyph of Honor"
+        "item_rpc_seinaru_glyph_6_1_description"                "[R2] reduces incoming damage by <% SEINARU_GLYPH6_R2_DMG_RED * 100%>% instead of <% SEINARU_R2_DMG_RED * 100%>%"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"(T7) Glyph of the Ogre"
-		"item_rpc_seinaru_glyph_7_1_description" 				"Изменяет основной атрибут Seinaru с Ловкости на Силу. Эффекты @Ability4 и [W4] используют <% SEINARU_GLYPH7_AGI_PART * 100%>% от Ловкости и <% SEINARU_GLYPH7_STR_PART * 100%>% от Силы для рассчета."
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"       "Glyph of the Ogre"
+        "item_rpc_seinaru_glyph_7_1_description"                "Seinaru's Strength increases Armor Pierce and Magic Armor by <% SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR %>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"(Immortal) Glyph of the Arena"
 		"item_rpc_seinaru_glyph_5_a_description" 				"Кольцо от [R2] следует за героем."

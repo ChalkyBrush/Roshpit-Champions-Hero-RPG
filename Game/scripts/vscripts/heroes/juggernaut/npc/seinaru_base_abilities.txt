@@ -13,7 +13,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1200"
-		"AbilityDamage"					"600 1800 5400 18000 32000 90000 140000"
+		"AbilityDamage"					"60 180 300 420 540 660 780"
 		"precache"
 		{
 			"particle"		"particles/roshpit/seinaru/kaze_gust_wave.vpcf"
@@ -174,11 +174,11 @@
         			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% SEINARU_Q2_MOV_SLOW %>"
         		}
         	}
-        	"modifier_seinaru_rune_q_3_postmitigation_take"
+        	"modifier_seinaru_q3_spell_and_armor_pierce"
         	{
         		"IsHidden"	"0"
         		"IsBuff"	"1"
-        		"TextureName"	"seinaru/seinaru_c_a"
+        		"TextureName"	"seinaru/seinaru_q_3"
         	}
         }
 	}
@@ -198,7 +198,7 @@
 
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.15"
 
 		// Time
 		//-------------------------------------------------------
@@ -206,7 +206,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 300 500 1000 1200 1600"
+		"AbilityManaCost"				"40 70 100 130 160 190 220"
 
 		// Special
 		//-------------------------------------------------------
@@ -215,7 +215,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal"					"220 480 950 3800 8200 17500 30000"
+				"heal"					"100 200 320 460 720 900 1100"
 			}
 			"02"
 			{
@@ -313,7 +313,12 @@
         		"IsHidden"	"1"
         		"IsBuff"	"1"
         	}
-
+        	"modifier_typhoon_w_2_magic_armor_loss"
+        	{
+        		"IsHidden"	"0"
+        		"IsDebuff"	"1"
+        		"TextureName"	"skywrath_mage_concussive_shot"
+        	}
             "modifier_seinaru_rune_w_3_shield"
             {
                 "IsHidden"	"0"
@@ -394,7 +399,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1800 4240 16420 65870 256460 839410 1764000"
+				"damage"				"40 100 160 220 280 340 400"
 			}
 		}
 
@@ -474,11 +479,6 @@
 						"EffectColorA"				"255 255 255"
 						"EffectAlphaScale"			"1"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "3"
 				}
 
             }
@@ -923,6 +923,10 @@
 				"IsStunDebuff"	"1"
 				"TextureName"	"seinaru/seinaru_r_2"
 			}
+			"modifier_gorudo_r_4_strength"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_gorudo_rune_r_1"
 			{
 				"IsHidden"	"0"
@@ -946,10 +950,12 @@
 						"ScriptFile"	"heroes/juggernaut/seinaru_4_r.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -964,7 +970,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"att_per_agi"		"30 40 50 60 70 80 90"
+				"att_per_agi"		"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
 			}
 		}
 	}

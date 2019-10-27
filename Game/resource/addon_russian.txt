@@ -4421,7 +4421,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"Когда элементаль земли погибнет, он будет автоматически мгновенно перепризван."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"(Immortal) Glyph of Summoning"
-		"item_rpc_conjuror_glyph_5_a_description" 				"Весь пост-резистный урон, наносимый героем и его элементалями увеличен на <font color='#ccff66'>0</font>%."
+		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <font color='#ccff66'>1200</font>% for Conjuror and his Summons."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"
@@ -8115,7 +8115,7 @@
     	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] Circle of Wind"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 высвобождают поток светлой энергии замедляя скорость передвижения и атаки врагов на <font color='#ccff66'>60</font> на <font color='#ccff66'>1.5</font> секунды. Дополнительно увеличивает наносимый героем пост-резистный урон по задетым врагам. Эффект складывается <font color='#ccff66'>4</font> раз, сила эффекта умножается на уровень @Ability2."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that slows attack and movespeed of struck units by <font color='#ccff66'>60</font> for <font color='#ccff66'>2.5</font> seconds."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Доп. пост-резистный урон"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
@@ -8219,7 +8219,7 @@
     	"property_seinaru_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на Blade Dash."
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] Samurai Crit"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С <font color='#ccff66'>60</font>% шансом при атаке герой нанесёт критический урон."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"С <font color='#ccff66'>30</font>% шансом при атаке герой нанесёт критический урон."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"Доп. урон крита"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
@@ -8306,17 +8306,17 @@
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"(T3) Glyph of Resonance"
 		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] наносит урон противникам в радиусе <font color='#ccff66'>255</font> от первичной цели."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"(T4) Glyph of Yang"
-		"item_rpc_seinaru_glyph_4_1_description" 				"Руны, увеличивающие порог Стойкости позволяют Пост-Резистным эффектам тоже усиливать урон, но только 1/<font color='#ccff66'>10</font>от своих значений."
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"       "Glyph of Yin"
+        "item_rpc_seinaru_glyph_4_1_description"                "Increases movespeed by <font color='#ccff66'>120</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"(T5) Glyph of Bushido" //Red burst particle effect for damage
-		"item_rpc_seinaru_glyph_5_1_description" 				"[W2] наносит <font color='#ccff66'>2</font>x урона по целям, ослеплённых @Ability1."
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"       "Glyph of Bushido"
+        "item_rpc_seinaru_glyph_5_1_description"                "[W2] deals <font color='#ccff66'>2</font>x damage against enemies blinded by @Ability1."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"(T6) Glyph of Honor"
-		"item_rpc_seinaru_glyph_6_1_description" 				"[R2] снижает входящий урон на  <font color='#ccff66'>90</font>% вместо <font color='#ccff66'>80</font>%"
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"       "Glyph of Honor"
+        "item_rpc_seinaru_glyph_6_1_description"                "[R2] reduces incoming damage by <font color='#ccff66'>65</font>% instead of <font color='#ccff66'>50</font>%"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"(T7) Glyph of the Ogre"
-		"item_rpc_seinaru_glyph_7_1_description" 				"Изменяет основной атрибут Seinaru с Ловкости на Силу. Эффекты @Ability4 и [W4] используют <font color='#ccff66'>60</font>% от Ловкости и <font color='#ccff66'>60</font>% от Силы для рассчета."
+        "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"       "Glyph of the Ogre"
+        "item_rpc_seinaru_glyph_7_1_description"                "Seinaru's Strength increases Armor Pierce and Magic Armor by <font color='#ccff66'>1</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"(Immortal) Glyph of the Arena"
 		"item_rpc_seinaru_glyph_5_a_description" 				"Кольцо от [R2] следует за героем."
@@ -8350,7 +8350,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_1"		"Onimaru"
 		"item_property_seinaru_immortal_weapon"								"Piercing Attacks"
-		"property_seinaru_immortal_weapon_description"						"Атаки наносят дополнительно <font color='#ccff66'>150</font>% физического урона <font color=\"#7AE2A7\">Ветра</font> от показателя общей атаки в радиусе <font color='#ccff66'>250</font> и наложат на пораженных противников эффект [R1]."
+		"property_seinaru_immortal_weapon_description"						"Атаки наносят дополнительно <font color='#ccff66'>20</font>% физического урона <font color=\"#7AE2A7\">Ветра</font> от показателя общей атаки в радиусе <font color='#ccff66'>250</font> и наложат на пораженных противников эффект [R1]."
 		
 		"DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_2"            "Musashi Swiftblade"
         "item_property_seinaru_immortal_weapon2"                             "Five Rings Insight"

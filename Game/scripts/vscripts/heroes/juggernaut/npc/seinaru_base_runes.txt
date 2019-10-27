@@ -68,7 +68,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_Q3_POSTMIT_PER_MOVESPEED_DIF * 100 %>"
+				"property_one"			"<% SEINARU_Q3_ARMOR_AND_SPELL_PIERCE_PER_MS %>"
 			}
 		}
 	}
@@ -103,6 +103,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"furion_teleportation"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 
@@ -111,7 +112,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_W1_POSTMIT_PER_STACK_PER_LVL * 100 %>"
+				"property_one"			"<% SEINARU_W1_RANGE_PER_LVL %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% SEINARU_W1_RANGE_BASE %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SEINARU_W1_DAMAGE %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"12"
 			}
 		}
 	}
@@ -133,14 +154,20 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_W2_DMG_PER_LVL_PER_HERO_LVL %>"
+				"property_one"			"<% SEINARU_W2_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% SEINARU_W2_MAGIC_ARMOR_LOSS %>"
+			}
+			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-			"03"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"12"
@@ -195,12 +222,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEINARU_W4_WIND_PCT_PER_AGI * 100 * 10 %>"
+				"property_one"			"<% SEINARU_W4_WIND_AMP %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_W4_ADD_HEAL_PCT_PER_AGI * 100 * 10 %>"
+				"property_two"			"<% SEINARU_W4_SPIRIT %>"
 			}
 		}
 	}
@@ -276,7 +303,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_E3_THRESHOLD * 100 %>"
+				"property_one"			"<% SEINARU_E3_ARMOR_PIERCE %>"
 			}
 		}
 	}
@@ -298,12 +325,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-<% SEINARU_E4_MAX_NEG_ARMOR %>"
+				"property_one"			"<% SEINARU_E4_HOLY_AMP %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEINARU_E4_HOLY_PCT_PER_NEG_ARMOR * 100 * 10 %>"
+				"property_two"			"<% SEINARU_E4_AGILITY %>"
 			}
 		}
 	}
@@ -383,7 +410,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SEINARU_R3_DMG_PER_ATT * 100 %>"
 			}
 			"02"
@@ -421,7 +448,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_R4_POSTMIT_MULT * 100 %>"
+				"property_one"			"<% SEINARU_R4_STRENGTH %>"
 			}
 		}
 	}

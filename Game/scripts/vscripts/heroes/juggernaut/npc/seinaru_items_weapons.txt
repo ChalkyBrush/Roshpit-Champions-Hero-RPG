@@ -583,7 +583,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"2"
 			}
 			"02"
 			{

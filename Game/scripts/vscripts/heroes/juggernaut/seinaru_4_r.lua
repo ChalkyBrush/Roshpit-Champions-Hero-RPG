@@ -11,9 +11,6 @@ function gorudo_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_gorudo_att_bonus_visible", {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_gorudo_att_bonus_invisible", {duration = duration})
 	local bonus_att_damage = event.att_per_agi * caster:GetAgility()
-	if caster:HasModifier('modifier_seinaru_glyph_7_1') then
-		bonus_att_damage = event.att_per_agi * (SEINARU_GLYPH7_AGI_PART * caster:GetAgility() + SEINARU_GLYPH7_STR_PART * caster:GetStrength())
-	end
 	caster:SetModifierStackCount("modifier_seinaru_gorudo_att_bonus_invisible", caster, bonus_att_damage)
 
 	EmitSoundOn("Seinaru.Gorudo", caster)
@@ -61,6 +58,8 @@ function gorudo_start(event)
 
 			-- end)
 		end)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gorudo_r_4_strength", {duration = ringDuration})
+		caster:SetModifierStackCount("modifier_gorudo_r_4_strength", caster, b_d_level)
 	end
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = caster:GetForwardVector()
@@ -193,17 +192,16 @@ function Seinaru_Apply_E4(attacker, target, ability)
 	if IsValidEntity(target) then
 		local currentStacks = target:GetModifierStackCount("modifier_gorudo_rune_r_1", attacker)
 		local currentArmor = target:GetPhysicalArmorValue(false) + currentStacks
-		local ArmorRed = 0
+		local armor_reduction = 0
 		local r_1_level = attacker:GetRuneValue("r", 1)
 		local e_4_level = attacker:GetRuneValue("e", 4)
-		if attacker:HasAbility("seinaru_odachi_leap") then
-			ArmorRed = math.min(currentArmor + SEINARU_E4_MAX_NEG_ARMOR * e_4_level, r_1_level * SEINARU_R1_ARMOR_RED)
-		else
-			ArmorRed = math.min(currentArmor, r_1_level * SEINARU_R1_ARMOR_RED)
-		end
-		if ArmorRed > 0 then
+
+		armor_reduction = SEINARU_R1_ARMOR_RED * r_1_level
+
+		if armor_reduction > 0 then
 			ability:ApplyDataDrivenModifier(attacker, target, "modifier_gorudo_rune_r_1", {duration = 8})
-			target:SetModifierStackCount("modifier_gorudo_rune_r_1", attacker, ArmorRed)
+			target:SetModifierStackCount("modifier_gorudo_rune_r_1", attacker, armor_reduction)
+			target:CalculateAndSaveRoshpitAttributes()
 		end
 	end
 end

@@ -54,7 +54,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_ARCANA_E3_POSTMIT * 100 %>"
+				"property_one"			"<% SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE %>"
 			}
 			"02"
 			{
@@ -87,7 +87,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SEINARU_ARCANA_E4_HOLY_PCT * 100 %>"
+				"property_two"			"<% SEINARU_ARCANA2_E4_HOLY_AMP %>"
 			}
 		}
 	}
