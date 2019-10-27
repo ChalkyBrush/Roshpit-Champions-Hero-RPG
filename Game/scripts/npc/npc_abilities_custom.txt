@@ -101673,7 +101673,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_loss"		"-100 -1000 -3000"
+				"attack_loss"		"-10 -50 -150"
 			}
 		}
 		"Modifiers"
