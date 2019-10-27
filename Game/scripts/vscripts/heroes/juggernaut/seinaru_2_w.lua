@@ -33,7 +33,7 @@ function hikari_start(event)
 			new_b_b(caster, ability, w_2_level)
 		end
 	end
-
+	EmitSoundOn("Seinaru.HandsOfHikari", caster)
 
 end
 

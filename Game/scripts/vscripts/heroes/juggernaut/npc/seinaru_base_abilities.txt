@@ -243,11 +243,6 @@
 				"heal"			"%heal"
 				"radius"		"%radius"
 			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_Warlock.ShadowWordCastGood"
-				"Target" 		"CASTER"
-			}
 		}
 		"OnProjectileHitUnit"
 		{

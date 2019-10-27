@@ -108,7 +108,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"Holy Amplification"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					"%"
 	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"Agility Bonus"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"40"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				""
 
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
 		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility."
@@ -230,7 +230,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"When @Ability3 goes on cooldown, chance to gain a buff that allows @Ability3 to be cast without cooldown. A chance greater than 100% means you can get multiple stacks. Additionally increases all Holy damage."
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"Chance for Free Cast"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Increased Holy damage:"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=\"#F6FFB5\">Holy</font> Amplification"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
