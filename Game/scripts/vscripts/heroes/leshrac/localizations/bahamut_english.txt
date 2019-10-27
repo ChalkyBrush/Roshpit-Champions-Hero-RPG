@@ -10,7 +10,7 @@
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Losing Attack Damage"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_1"							"[Q1] Remnants of Honor"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"Standing near a summoned wall restores mana to Bahamut, and increases max mana by the same amount."
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"Standing near a summoned wall restores mana to Bahamut, and increases max mana by the same amount. Max <% BAHAMUT_Q1_MANAPOOL_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_one"			"Mana/Sec"
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_two"			"Maximum Mana Pool Increase"

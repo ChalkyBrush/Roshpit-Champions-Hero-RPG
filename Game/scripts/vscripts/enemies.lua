@@ -59,7 +59,10 @@ Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_B
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 8
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 8
 
-Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL_AFTER_NORMAL = 4
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL = {}
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_NORMAL] = 4
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_ELITE] = 10
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_LEGEND] = 20
 
 Enemies.DIFFICULTY_HEALTH_FLAT = {}
 Enemies.DIFFICULTY_HEALTH_FLAT[DIFFICULTY_NORMAL] = {}
@@ -142,11 +145,7 @@ function Enemies:SpiritRealmNumber(spirit_realm)
 end
 
 function Enemies:GetFlatDamageBonusForDifficulty(unit, base_level)
-	if GameState:GetDifficultyFactor() > 1 then
-		return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_DAMAGE_BONUS_PER_LEVEL_AFTER_NORMAL
-	else
-		return 0
-	end
+	return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[GameState:GetDifficultyFactor()]
 end
 
 function Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level)
