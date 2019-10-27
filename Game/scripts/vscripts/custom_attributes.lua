@@ -642,6 +642,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_warlord_rune_q_3_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*WARLORD_Q3_ARMOR_RED
 	end
+	if unit:HasModifier("modifier_duskbringer_rune_e_1_effect") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_e_1_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*DUSKBRINGER_E1_ARMOR
+	end
+	if unit:HasModifier("modifier_duskbringer_arcana_rune_w_2") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_rune_w_2")
+		armor_modify = armor_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA1_W2_ARMORS
+	end
 
 
 	if armor_modify > 0 then
@@ -856,6 +864,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_warlord_b_d_effect")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*WARLORD_R2_MAGIC_ARMOR_REDUCTION
 	end
+	if unit:HasModifier("modifier_ghost_hallow_magic_resist_loss") then
+		local modifier = unit:FindModifierByName("modifier_ghost_hallow_magic_resist_loss")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DUSKBRINGER_W2_MAG_RES_RED
+	end
+	if unit:HasModifier("modifier_duskbringer_arcana_rune_w_2") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_rune_w_2")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA1_W2_ARMORS
+	end
 
 
 
@@ -944,6 +960,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local modifier = unit:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_R2_PIERCES
 	end
+	if unit:HasModifier("modifier_duskbringer_rune_r_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_R2_PIERCES
+	end
 
 
 	if armor_pierce_modify > 0 then
@@ -1024,6 +1044,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_bahamut_arcana_spell_pierce") then
 		local modifier = unit:FindModifierByName("modifier_bahamut_arcana_spell_pierce")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_W_W2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_duskbringer_rune_r_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_R2_PIERCES
+	end
+	if unit:HasModifier("modifier_duskbringer_arcana_q_4") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_q_4")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA2_Q4_SPELL_PIERCE
 	end
 
 	if spell_pierce_modify > 0 then

@@ -156,6 +156,10 @@
                 "IsHidden"  "0"
                 "IsBuff"    "1"
                 "TextureName"       "duskbringer/arcana2/duskbringer_rune_q_4_arcana2"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DUSKBRINGER_ARCANA2_Q4_ATTACK_POWER_PCT %>"
+                }
             }
         }
 	}
@@ -198,12 +202,12 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage"                "10000 40000 100000 240000 560000 900000 2000000"
+                "damage"                "180 400 620 840 1060 1280 1500"
             }
             "02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "additional_damage_atk_power_pct"                "80 120 160 200 240 280 320"
+                "additional_damage_atk_power_pct"                "6 7 8 9 10 11 12"
             }
             "03"
             {
@@ -377,7 +381,12 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "property_one"          "<% DUSKBRINGER_Q4_ARCANA2_POSTMIT%>"
+                "property_one"          "<% DUSKBRINGER_ARCANA2_Q4_SPELL_PIERCE %>"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "property_two"          "<% DUSKBRINGER_ARCANA2_Q4_ATTACK_POWER_PCT %>"
             }
         }
     }

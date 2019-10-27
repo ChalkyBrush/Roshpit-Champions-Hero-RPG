@@ -2632,7 +2632,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_GHOST or element2 == RPC_ELEMENT_GHOST then
         if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
             local r_4_level = attacker:GetRuneValue("r", 4)
-            mult = mult + DUSKBRINGER_R4_GHOST_PCT_PER_STR * attacker:GetStrength() * r_4_level
+            mult = mult + DUSKBRINGER_R4_GHOST_AMP * r_4_level
         end
         if attacker:HasModifier("modifier_hand_ghost") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_ghost", attacker.InventoryUnit)

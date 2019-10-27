@@ -50,12 +50,12 @@ function seven_visions_strike(caster, position, damage, ability)
 			if r_2_level > 0 then
 				local runeAbility = caster.runeUnit2:FindAbilityByName("duskbringer_rune_r_2")
 				local r_2_duration = Filters:GetAdjustedBuffDuration(caster, DUSKBRINGER_R2_BASE_DUR, false)
-				runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, enemy, "modifier_duskbringer_rune_r_2_visible", {duration = r_2_duration})
-				local r_2_current_stacks_visible = enemy:GetModifierStackCount("modifier_duskbringer_rune_r_2_visible", runeAbility)
-				enemy:SetModifierStackCount("modifier_duskbringer_rune_r_2_visible", runeAbility, math.min(r_2_current_stacks_visible + 1, DUSKBRINGER_R2_MAX_STACKS))
-				runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, enemy, "modifier_duskbringer_rune_r_2_invisible", {duration = r_2_duration})
-				local r_2_current_stacks_invisible = enemy:GetModifierStackCount("modifier_duskbringer_rune_r_2_invisible", runeAbility)
-				enemy:SetModifierStackCount("modifier_duskbringer_rune_r_2_invisible", runeAbility, math.min(r_2_current_stacks_invisible + r_2_level, DUSKBRINGER_R2_MAX_STACKS * r_2_level))
+				runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_duskbringer_rune_r_2_visible", {duration = r_2_duration})
+				local r_2_current_stacks_visible = caster:GetModifierStackCount("modifier_duskbringer_rune_r_2_visible", runeAbility)
+				caster:SetModifierStackCount("modifier_duskbringer_rune_r_2_visible", runeAbility, math.min(r_2_current_stacks_visible + 1, DUSKBRINGER_R2_MAX_STACKS))
+				runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_duskbringer_rune_r_2_invisible", {duration = r_2_duration})
+				local r_2_current_stacks_invisible = caster:GetModifierStackCount("modifier_duskbringer_rune_r_2_invisible", runeAbility)
+				caster:SetModifierStackCount("modifier_duskbringer_rune_r_2_invisible", runeAbility, math.min(r_2_current_stacks_invisible + r_2_level, DUSKBRINGER_R2_MAX_STACKS * r_2_level))
 			end
 			if r_3_level > 0 then
 				local runeAbility = caster.runeUnit3:FindAbilityByName("duskbringer_rune_r_3")

@@ -34,12 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DUSKBRINGER_ARCANA_W2_ARMOR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% DUSKBRINGER_ARCANA_W2_MAGIC_PURE_RES_PER_ARMOR * 100 %>"
+				"property_one"			"<% DUSKBRINGER_ARCANA1_W2_ARMORS %>"
 			}
 		}
 	}

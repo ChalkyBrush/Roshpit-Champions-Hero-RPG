@@ -189,9 +189,9 @@ function duskbringer_rune_q_1_think(event)
 		return false
 	end
 	local fireStacks = target:GetModifierStackCount("modifier_duskbringer_rune_q_1", caster)
-	local damage = q_1_level * (DUSKBRINGER_Q1_DMG_PER_STACK + DUSKBRINGER_Q1_DMG_PER_AGI_PER_STACK * caster:GetAgility()) * fireStacks
+	local damage = q_1_level * (DUSKBRINGER_Q1_DMG_PER_STACK) * fireStacks
 	if caster:HasModifier("modifier_duskbringer_arcana2") then
-		damage = q_1_level * (DUSKBRINGER_Q1_ARCANA2_DMG_PER_STACK + DUSKBRINGER_Q1_ARCANA2_DMG_PER_STR_PER_STACK * caster:GetStrength()) * fireStacks
+		damage = q_1_level * (DUSKBRINGER_Q1_ARCANA2_DMG_PER_STACK) * fireStacks
 	end
 	damage = damage + damage * q_4_level * DUSKBRINGER_Q4_ADD_DMG_PCT
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)

@@ -58947,7 +58947,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"140 280 400 900 1600 2400 3200"
+		"AbilityManaCost"				"80 160 240 320 400 480 560"
 
 		// Special
 		//-------------------------------------------------------
@@ -58956,7 +58956,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5400 10000 40000 100000 240000 560000 900000"
+				"damage"				"140 300 460 620 780 940 1100"
 			}
 			"02"
 			{
@@ -59009,10 +59009,6 @@
         		"IsHidden"	"0"
         		"IsBuff"	"1"
         		"TextureName"	"duskbringer/duskbringer_rune_w_2_arcana"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "120"
-        		}
         	}
         	"modifier_duskbringer_arcana_rune_w_4"
         	{
@@ -59026,8 +59022,8 @@
 
         		"Properties"
         		{
-        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20000"
-        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "100"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
         		}
         	}
         	"modifer_duskbringer_d_b_charging_up"
@@ -59061,7 +59057,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -59081,12 +59077,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"120"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -59126,12 +59117,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20000"
+				"property_one"			"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"4"
 			}
 		}
 	}
@@ -59296,6 +59287,10 @@
                 "IsHidden"  "0"
                 "IsBuff"    "1"
                 "TextureName"       "duskbringer/arcana2/duskbringer_rune_q_4_arcana2"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2.5"
+                }
             }
         }
 	}
@@ -59338,12 +59333,12 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage"                "10000 40000 100000 240000 560000 900000 2000000"
+                "damage"                "180 400 620 840 1060 1280 1500"
             }
             "02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "additional_damage_atk_power_pct"                "80 120 160 200 240 280 320"
+                "additional_damage_atk_power_pct"                "6 7 8 9 10 11 12"
             }
             "03"
             {
@@ -59434,12 +59429,12 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "property_one"          "50000"
+                "property_one"          "15"
             }
             "02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "property_two"          "10"
+                "property_two"          "0"
             }
             "03"
             {
@@ -59517,7 +59512,12 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "property_one"          "17"
+                "property_one"          "120"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "property_two"          "2.5"
             }
         }
     }
@@ -59724,10 +59724,23 @@
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-4"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
         }
@@ -60778,12 +60791,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_one"			"6"
 			}
 			"03"
 			{
@@ -60819,7 +60827,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -60866,7 +60874,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"12"
 			}
 		}
 	}
@@ -60887,8 +60895,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 			"02"
 			{
@@ -60919,7 +60932,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"-32"
 			}
 		}
 	}
@@ -60940,7 +60953,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -60961,7 +60974,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"4"
 			}
 		}
 		"Modifiers"
@@ -61020,12 +61033,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3000"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"50"
 			}
 		}
 		"Modifiers"
@@ -61053,7 +61066,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%property_two"
 				}
 				"OnDestroy"
 				{
@@ -61184,7 +61196,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
+				"property_one"			"9"
 			}
 		}
 		"Modifiers"
@@ -61221,7 +61233,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"2"
 			}
 		}
 		"Modifiers"
@@ -61257,7 +61269,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"10"
 			}
 		}
 	}

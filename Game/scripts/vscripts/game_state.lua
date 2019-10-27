@@ -1464,11 +1464,6 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 				damage = damage * reduction
 			end
 		end
-		if victim:HasModifier("modifier_duskbringer_arcana_rune_w_2") then
-			local stackCount = victim:GetModifierStackCount("modifier_duskbringer_arcana_rune_w_2", victim)
-			local consideredArmor = victim:GetPhysicalArmorValue(false) * DUSKBRINGER_ARCANA_W2_MAGIC_PURE_RES_PER_ARMOR * stackCount
-			damage = GameState:GetPostReductionPhysicalDamage(damage, consideredArmor)
-		end
 		if victim:HasModifier("modifier_pure_resist") then
 			local damageReduc = victim:FindModifierByName("modifier_pure_resist"):GetAbility():GetSpecialValueFor("pure_resist")
 			damageReduc = 1 - (damageReduc / 100)
@@ -1691,6 +1686,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		if shouldConsumeShields then
 			CustomAbilities:HitVolcanoShield(victim, attacker)
 		end
+	end
+	if victim:GetUnitName() == "npc_dota_hero_spirit_breaker" and attacker:IsRooted() and victim:HasAbility("ghost_hallow") then
+		local w_4_level = victim:GetRuneValue("w", 4)
+		damage = damage * math.max((1 - w_4_level * DUSKBRINGER_W4_ROOTED_DAMAGE_BLOCK_PCT), 0.05)
 	end
 
 	if victim:HasModifier("modifier_neutral_glyph_5_2") then
@@ -2312,10 +2311,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = attacker:GetModifierStackCount("modifier_omnimace_undead_buff", attacker)
 		local ability = attacker:FindAbilityByName("omniro_omni_mace")
 		mult = mult + (ability:GetSpecialValueFor("undead_special_b") / 100) * stacks
-	end
-	if attacker:HasModifier("modifier_duskbringer_arcana_q_4") then
-		local stacks = attacker:GetModifierStackCount("modifier_duskbringer_arcana_q_4", attacker)
-		mult = mult + 0.17 * stacks
 	end
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
@@ -3255,16 +3250,6 @@ function GameState:FilterDamage(filterTable)
 
 
 	--DUSKBRINGER
-	if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" and victim:IsRooted() then
-		local w_4_level = attacker:GetRuneValue("w", 4)
-		mult = mult + w_4_level * DUSKBRINGER_W4_POSTMIT
-	end
-	modifier = victim:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
-	if modifier then
-		local stacks = modifier:GetStackCount()
-		mult = mult + stacks * DUSKBRINGER_R2_POSTMIT
-
-	end
 
 	if victim:HasModifier("modifier_channeling_water_torrent") then
 		filterTable["damage"] = filterTable["damage"] * 0.01

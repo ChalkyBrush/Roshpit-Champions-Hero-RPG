@@ -5327,7 +5327,7 @@
 		"item_rpc_duskbringer_glyph_3_2_description" 				"Сокращает интервал нанесения урона от умения (Q) @Ability1 на <font color='#ccff66'>50</font>, но также сокращает базовый урон умения на <font color='#ccff66'>0.4</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"(T4-2) Glyph of the Journey"
-		"item_rpc_duskbringer_glyph_4_2_description" 				"При движении герой получает заряды, сокращающие входящий урон на <font color='#ccff66'>3</font>%. Максимум <font color='#ccff66'>30</font> заряда(ов). Длительность действия равна длительности действия зарядов от руны [E1], но за отведенное время теряются все заряды, вместо одного."
+		"item_rpc_duskbringer_glyph_4_2_description" 				"При движении герой получает заряды, сокращающие входящий урон на <font color='#ccff66'>3</font>%. Максимум <font color='#ccff66'>25</font> заряда(ов). Длительность действия равна длительности действия зарядов от руны [E1], но за отведенное время теряются все заряды, вместо одного."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"(T5-2) Glyph of Shared Fate"
 		"item_rpc_duskbringer_glyph_5_2_description" 				"Враги в радиусе <font color='#ccff66'>250</font> от основной атакуемой цели также получают заряды [Q1]."

@@ -31,6 +31,7 @@ function ghost_trap_enter(event)
 		if w_2_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_hallow_magic_resist_loss", {duration = duration})
 			target:SetModifierStackCount("modifier_ghost_hallow_magic_resist_loss", caster, w_2_level)
+			target:CalculateAndSaveRoshpitAttributes()
 		end
 		if caster:HasModifier("modifier_duskbringer_glyph_4_1") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_hallow_disarm", {duration = duration})
@@ -72,7 +73,7 @@ function ghost_trap_a_b_thinker(event)
 	local target = event.target
 	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * DUSKBRINGER_W1_DMG_PER_ATT
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * DUSKBRINGER_W1_DMG_PER_ATT + w_1_level*DUSKBRINGER_W1_BASE_DMG
 		Timers:CreateTimer(0.15, function()
 			if target:IsAlive() then
 				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_flash.vpcf", target:GetAbsOrigin() + Vector(0, 0, 40), 0.2)

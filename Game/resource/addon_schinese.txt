@@ -5633,7 +5633,7 @@
 		"item_rpc_duskbringer_glyph_3_2_description" 				"降低 @Ability1 的伤害间隔 <font color='#ccff66'>50</font>，但是其基础技能伤害降低 <font color='#ccff66'>0.4</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_4_2"		"畅游雕文"
-		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 <font color='#ccff66'>3</font>% ，最高叠加 <font color='#ccff66'>30</font> 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
+		"item_rpc_duskbringer_glyph_4_2_description" 				"移动时，获得一层 buff，每层buff伤害减免 <font color='#ccff66'>3</font>% ，最高叠加 <font color='#ccff66'>25</font> 层。每层buff持续时间与 E1 一样长，但是不移动将一次性丢失全部的 buff 层数。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_5_2"		"共享雕文"
 		"item_rpc_duskbringer_glyph_5_2_description" 				"攻击时，攻击目标 <font color='#ccff66'>250</font> 范围内的全部其他敌人也将叠加一层 冥火枷 的层数。"
