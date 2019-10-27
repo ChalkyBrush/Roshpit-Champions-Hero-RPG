@@ -6026,7 +6026,7 @@
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              "% против оглушенных/замороженных"
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "Пока герой стоит в ледяной зоне от Frost Scathe, он получает прибавку к Интеллекту и весь получаемый урон снижается на <font color='#ccff66'>96</font>%. Щит имеет задержку исчезновения, после того как герой покинет ледяную зону."
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "Пока герой стоит в ледяной зоне от Frost Scathe, он получает прибавку к Интеллекту и весь получаемый урон снижается на <font color='#ccff66'>50</font>%. Щит имеет задержку исчезновения, после того как герой покинет ледяную зону."
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "Задержка:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " сек"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "Бонус Интеллекта"
@@ -6071,7 +6071,7 @@
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"Ambush Cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"(T5) Glyph of Savage Combat"
-		"item_rpc_warlord_glyph_5_1_description" 				"Каждый убитый враг увеличивает основной урон на <font color='#ccff66'>4</font>%, складывается до <font color='#ccff66'>50</font> раз. Длится <font color='#ccff66'>9</font> сек. Обновляется при убийстве."
+		"item_rpc_warlord_glyph_5_1_description" 				"Каждый убитый враг увеличивает основной урон на <font color='#ccff66'>1</font>%, складывается до <font color='#ccff66'>50</font> раз. Длится <font color='#ccff66'>9</font> сек. Обновляется при убийстве."
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"Savage Combat"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"Убивая врагов, основной урон увеличивается."
@@ -6080,10 +6080,10 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов Земли, Льда и Огня на <font color='#ccff66'>5</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"(T7) Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <font color='#ccff66'>800</font>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <font color='#ccff66'>460</font>."
+		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <font color='#ccff66'>30</font>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <font color='#ccff66'>460</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"(Immortal) Glyph of Thermogenesis"
-		"item_rpc_warlord_glyph_5_a_description" 				"При получении урона герой получает <font color='#ccff66'>2</font> зарядов Огня. Каждый заряд Льда увеличивает пост-резистный исходящий урон на <font color='#ccff66'>5</font>%."
+		"item_rpc_warlord_glyph_5_a_description" 				"При получении урона герой получает <font color='#ccff66'>2</font> зарядов Огня. Каждый заряд Льда увеличивает пост-резистный исходящий урон на <font color='#ccff66'>0</font>%."
 
 		//Weapons
 		"warlord_weapon_01"			"Mighty Axes"

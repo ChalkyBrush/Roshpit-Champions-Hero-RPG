@@ -15,8 +15,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% WARLORD_ARCANA1_DMG_PCT * 100 %>"
 			}
 			"02"
 			{
@@ -47,8 +47,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% WARLORD_ARCANA1_R2_DMG_PER_ATTRIBUTES %>"
 			}
 			"02"
 			{
@@ -79,13 +79,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% WARLORD_ARCANA1_R3_DMG_PCT_MAX_HEALTH * 100 %>"
 			}
 			"02"
 			{
@@ -120,7 +115,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"<% WARLORD_ARCANA1_R4_ATK_PER_FIRE_CHARGE %>"
 			}
 		}
 	}

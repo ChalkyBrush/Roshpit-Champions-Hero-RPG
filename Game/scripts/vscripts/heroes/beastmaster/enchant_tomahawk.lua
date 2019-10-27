@@ -75,7 +75,7 @@ function tomahawk_attack_land(event)
 
 	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.3 * a_d_level
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * WARLORD_ARCANA1_DMG_PCT * a_d_level
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -114,10 +114,10 @@ function tomahawk_ice_dot_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local damage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * 2 * ability.r_2_level
-	local threshold = 0.3
-	if target.bossStatus then
-		threshold = 0.15
+	local damage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * WARLORD_ARCANA1_R2_DMG_PER_ATTRIBUTES * ability.r_2_level
+	local threshold = WARLORD_ARCANA1_R2_THRESHOLD
+	if target.roshpit_attributes.enemy_tier and target.roshpit_attributes.enemy_tier >= ENEMY_TYPE_BOSS then
+		threshold = WARLORD_ARCANA1_R2_BOSS_THRESHOLD
 	end
 	if target.dummy then
 		return false
@@ -133,7 +133,7 @@ function tomahawk_ice_dot_think(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		EmitSoundOn("Ability.FrostNova", target)
-		damage = damage * 10000
+		damage = damage * WARLORD_ARCANA1_R2_THRESHOLD_MULTIPLIER
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -198,7 +198,7 @@ function tectonic_take_damage(event)
 			Timers:CreateTimer(1.5, function()
 				ParticleManager:DestroyParticle(particle2, false)
 			end)
-			local damage = ability.r_3_level * caster:GetMaxHealth() * 0.1
+			local damage = ability.r_3_level * caster:GetMaxHealth() * WARLORD_ARCANA1_R3_DMG_PCT_MAX_HEALTH
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do

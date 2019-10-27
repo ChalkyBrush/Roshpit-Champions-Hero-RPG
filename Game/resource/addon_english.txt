@@ -5774,13 +5774,13 @@
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell, and Flame Rush"
 
     	"DOTA_Tooltip_modifier_warlord_earth_charge"					"Earth Charge"
-    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Each earth charge increases earth damage by <font color='#ccff66'>6</font>%%. Earth Charges are unleashed with Elemental Overload (R)"
+    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Each earth charge increases earth damage by <font color='#ccff66'>2</font>%%. Earth Charges are unleashed with Elemental Overload (R)"
 
     	"DOTA_Tooltip_modifier_warlord_ice_charge"						"Ice Charge"
-    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Each ice charge increases ice damage by <font color='#ccff66'>6</font>%%. Ice Charges are unleashed with Elemental Overload (R)"
+    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Each ice charge increases ice damage by <font color='#ccff66'>2</font>%%. Ice Charges are unleashed with Elemental Overload (R)"
 
     	"DOTA_Tooltip_modifier_warlord_fire_charge"						"Fire Charge"
-    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Each fire charge increases fire damage by <font color='#ccff66'>6</font>%%. Fire Charges are unleashed with Elemental Overload (R)"
+    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Each fire charge increases fire damage by <font color='#ccff66'>2</font>%%. Fire Charges are unleashed with Elemental Overload (R)"
 
     	"DOTA_Tooltip_ability_warlord_stone_form"						"Stone Form"
     	"DOTA_Tooltip_ability_warlord_stone_form_Description"			"Warlord's Skin turns into stone, repelling all negative magical effects."
@@ -5831,15 +5831,15 @@
     	"DOTA_Tooltip_modifier_earth_buff_Description"			"Increased HP Regen"
 
 		"DOTA_Tooltip_ability_warlord_rune_q_2"							"[Q2] Enchanted Ice"
-    	"DOTA_Tooltip_ability_warlord_rune_q_2_Description"				"Elemental Warlord has increased armor in Ice Shell. The bonus is armor is calculated as a % of your armor at the time the shield is applied."
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_Description"				"Elemental Warlord has increased armor in Ice Shell."
     	"DOTA_Tooltip_ability_warlord_rune_q_2_property_one"			"Armor Bonus"
-    	"DOTA_Tooltip_ability_warlord_rune_q_2_suffix"					"% of armor when shield is applied"
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_suffix"					" while Ice Shell is active"
 
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible"				"Enchanted Ice"
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"Increased armor"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] Wrath of Fire"
-    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target, <font color='#ccff66'>12</font> seconds duration."
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Attacks during Flame Rush leave a stacking armor loss debuff on the target. Debuff lasts <font color='#ccff66'>12</font> seconds."
     	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"Armor Loss"
     	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" per stack"
 
@@ -5899,11 +5899,9 @@
     	"DOTA_Tooltip_ability_warlord_rune_w_1_suffix_two"				" seconds"
 		
 		"DOTA_Tooltip_ability_warlord_rune_w_2"							"[W2] Frozen Steel"
-    	"DOTA_Tooltip_ability_warlord_rune_w_2_Description"				"Enemies who are hit by a 2nd ice axe while still slowed from the 1st are completely frozen and stunned. Frozen enemies take increased physical and magical damage from all sources. Enemies gain freeze immunity for <font color='#ccff66'>4</font> seconds after thawing."
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_Description"				"Enemies who are hit by a 2nd ice axe while still slowed from the 1st are completely frozen and stunned. Enemies gain freeze immunity for <font color='#ccff66'>4</font> seconds after thawing."
     	"DOTA_Tooltip_ability_warlord_rune_w_2_property_one"			"Freeze Duration"
     	"DOTA_Tooltip_ability_warlord_rune_w_2_suffix"					""
-    	"DOTA_Tooltip_ability_warlord_rune_w_2_property_two"			"Frozen Physical and Magic Amp"
-    	"DOTA_Tooltip_ability_warlord_rune_w_2_suffix_two"				"%"
 
     	"DOTA_Tooltip_modifier_ice_throw_w_2_frozen"					"Frozen Steel"
     	"DOTA_Tooltip_modifier_ice_throw_w_2_frozen_Description"		"Frozen and taking increased magical and physical damage"
@@ -5952,11 +5950,9 @@
 		"DOTA_Tooltip_ability_elemental_overload_damage"					"DAMAGE/SEC:" 
 
 		"DOTA_Tooltip_ability_warlord_rune_e_1"							"[E1] Rumbling Earth"
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_Description"				"Increases the Warlord's max number of Earth Charges. Each active Earth Charge provides additional armor."
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_one"			"Extra Earth Charges"
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix"					""
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_two"			"Armor per Earth Charge"
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_Description"				"Each active Earth Charge provides additional Magic Armor."
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_one"			"Magic Armor"
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix"				     " per Earth Charge"
 
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] Ice Floe"
     	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Warlord restores mana every <font color='#ccff66'>0.1</font> seconds during Arctic Sprint. Axes thrown during Arctic Sprint have increased Base Damage."
@@ -5973,9 +5969,9 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_3_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_warlord_rune_e_4"							"[E4] Elemental Thunder"
-    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"Warlord's Attributes increase the <font color=\"#EF4126\">Fire</font>, <font color=\"#AF843D\">Earth</font> and <font color=\"#87D9FF\">Ice</font> damage."
-    	"DOTA_Tooltip_ability_warlord_rune_e_4_property_one"			"Damage Increase"
-    	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"% for each 10 attributes."
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"Increases Warlord's <font color=\"#EF4126\">Fire</font>, <font color=\"#AF843D\">Earth</font> and <font color=\"#87D9FF\">Ice</font> damage."
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_property_one"			"Elemental Amp"
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
 		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#87D9FF\">Ice</font><br>Releases your elemental charges - Ice charges increase the radius of the Ice Blast, Fire charges release fireballs, and Earth Charges restore health and provide 90% damage reduction. Charges are gained by attacking enemies or by hitting them with throwing axes. Half of all elemental charges are consumed."
@@ -5991,19 +5987,19 @@
 		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Damage taken reduced by 90%"
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
-    	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Restore a % of the initial heal every 1 second for 8 seconds after casting Elemental Overload. Additionally for the duration, all enemies in a 1000 radius take a % of Warlord's attack power as magic damage each second."
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Restore a % of the initial heal every 1 second for 8 seconds after casting Elemental Overload. Additionally for the duration, all enemies in a 1000 radius take damage each second."
     	"DOTA_Tooltip_ability_warlord_rune_r_1_property_one"			"% of Initial Heal"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_warlord_rune_r_1_property_two"			"AOE Damage Per Second"
-    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix_two"				"% of attack power per charge"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix_two"				" per Earth Charge consumed"
 
     	"DOTA_Tooltip_modifier_warlord_rune_r_1"						"Earthen Overload"
     	"DOTA_Tooltip_modifier_warlord_rune_r_1_Description"			"Restoring Health every 1 second and damage nearby enemies"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_2"							"[R2] Crippling Ice"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_Description"				"Enemies frozen by Elemental Overload take increased Post-Mitigation damage from Warlord for 8 seconds."
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_property_one"			"Post-Mitigation Damage Increase"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_Description"				"Enemies frozen by Elemental Overload have reduced Magic Armor for 8 seconds."
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_property_one"			"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_suffix"					""
 
     	"DOTA_Tooltip_modifier_warlord_b_d_effect"						"Crippling Ice"
     	"DOTA_Tooltip_modifier_warlord_b_d_effect_Description"			"Reduced Magic Resist"	
@@ -6043,7 +6039,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_suffix"				"% of Attack Power"
 
   		"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1"						"[R2] Chilling Edge"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Attacks during Enchant Tomahawk leave the target with a chilling debuff for 6 seconds that deals damage every 0.5 seconds based on Warlord's total attributes. The debuff also slows movespeed by 20%. If the target is below 30% max HP (15% for bosses), these damage instances will be multiplied by 10000 and release an explosion that applies this debuff to all nearby enemies."
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Attacks during Enchant Tomahawk leave the target with a chilling debuff for 6 seconds that deals damage every 0.5 seconds based on Warlord's total attributes. The debuff also slows movespeed by 20%. If the target is below <font color='#ccff66'>0</font>% for bosses), these damage instances will be multiplied by <font color='#ccff66'>200</font> and release an explosion that applies this debuff to all nearby enemies."
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_property_one"		"Damage Per Tick"
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_suffix"				"x Sum of Attributes"
 
@@ -6051,11 +6047,9 @@
     	"DOTA_Tooltip_modifier_tomahawk_ice_effect_Description"				"Taking periodic ice damage. Will shatter if health falls low."	
 
   		"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1"						"[R3] Tectonic Pressure"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"When attacking during Tomahawk gain a stack of Tectonic Pressure. Whenever Warlord takes damage, a stack of Tectonic Pressure is consumed and a fireball is launched towards the attacker, damaging everything in its path. Additionally increases the maximum number of active Fire Charges."
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Max Fire Charges"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"				""
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_two"		"Damage"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix_two"			"% of Max Health"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"When attacking during Tomahawk gain a stack of Tectonic Pressure. Whenever Warlord takes damage, a stack of Tectonic Pressure is consumed and a fireball is launched towards the attacker, damaging everything in its path."
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Damage"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"			"% of Max Health"
 
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure"					"Tectonic Pressure"
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure_Description"		"Taking damage will unleash a fireball"
@@ -6113,13 +6107,13 @@
         "DOTA_Tooltip_ability_warlord_flame_wreck_ms_bonus"            "WARLORD MOVESPEED BONUS:"
         "DOTA_Tooltip_ability_warlord_flame_wreck_ms_cap"              "WARLORD MOVESPEED CAP:"
 
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2"                     "[Q1] Brittle Brutality"
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Warlord gains increased post-mitigation damage against enemies who are stunned or frozen."
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_property_one"        "Post-Mitigation Damage"
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              "% against stunned enemies"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2"                     "[Q1] Brutality"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Warlord gains increased Armor Pierce and Spell Pierce."
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_property_one"        "Armor Pierce and Spell Pierce"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              ""
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "While the Warlord is standing in a Frost Scathe area, a frosty coat condenses around him, which increases Intelligence and reduces damage taken by <font color='#ccff66'>96</font>%. The shield has a scaling linger duration after leaving an Ice Scathe area, clinging tighter the longer you remained inside."
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "While the Warlord is standing in a Frost Scathe area, a frosty coat condenses around him, which increases Intelligence and reduces damage taken by <font color='#ccff66'>50</font>%. The shield has a scaling linger duration after leaving an Ice Scathe area."
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "Linger Duration:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " seconds"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "Bonus Intelligence"
@@ -6139,11 +6133,11 @@
         "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power_Description"        "Increased attack power and attack speed"
 
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2"                     "[Q4] Hide of Jormungandr" //Jormungandr is the world-serpent in Norse mythology
-        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Passively increase all attributes. All attributes increase <font color=\"#3289C7\">Dragon</font> damage."
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Passively increase all attributes and <font color=\"#3289C7\">Dragon</font> damage."
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_one"        "Bonus Attributes"
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix"              ""
-        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_two"        "Damage Bonus"
-        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix_two"          "% for each 10 points of Attributes"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_two"        "Dragon Amp"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix_two"          "%"
 
 		//Glyphs
 		
@@ -6162,7 +6156,7 @@
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"Ambush Cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"Glyph of Savage Combat"
-		"item_rpc_warlord_glyph_5_1_description" 				"Each enemy slain increases attack damage by <font color='#ccff66'>4</font>%, stacking up to <font color='#ccff66'>50</font> times. Lasts <font color='#ccff66'>9</font> seconds and refreshes on kill."
+		"item_rpc_warlord_glyph_5_1_description" 				"Each enemy slain increases attack damage by <font color='#ccff66'>1</font>%, stacking up to <font color='#ccff66'>50</font> times. Lasts <font color='#ccff66'>9</font> seconds and refreshes on kill."
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"Savage Combat"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"Increased Attack Damage when slaying enemies"
@@ -6171,10 +6165,10 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Increases the maximum Fire, Ice, and Earth charges by <font color='#ccff66'>5</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>800</font>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <font color='#ccff66'>460</font> AOE around main target. Damage is considered an item damage."
+		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>30</font>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <font color='#ccff66'>460</font> AOE around main target. Damage is considered as item damage."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"Glyph of Thermogenesis"
-		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <font color='#ccff66'>2</font> Fire Charges. Each active Ice Charge increases post-mitigation Magical damage by <font color='#ccff66'>5</font>%"
+		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <font color='#ccff66'>2</font> Fire Charges. Each active Ice Charge increases Spell Pierce <font color='#ccff66'>40</font>."
 
 		//Weapons
 		"warlord_weapon_01"			"Mighty Axes"

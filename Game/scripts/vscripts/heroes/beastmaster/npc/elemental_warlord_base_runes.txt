@@ -52,7 +52,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_Q2_ARMOR_INCR_PCT %>"
+				"property_one"			"<% WARLORD_Q2_ARMOR %>"
 			}
 		}
 
@@ -69,10 +69,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 		}
 	}
@@ -126,9 +122,14 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -285,7 +286,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% WARLORD_W4_DMG_BONUS_PER_BASEATT * 100 %>"
 			}
 		}
@@ -332,8 +333,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_E2_INTERVAL_BASE %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% WARLORD_E2_MANA_RESTORE %>"
 			}
 			"02"
 			{
@@ -406,7 +407,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * 100 * 10 %>"
+				"property_one"			"<% WARLORD_E4_ICE_EARTH_FIRE_BONUS * 100 %>"
 			}
 		}
 	}
@@ -433,7 +434,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% WARLORD_R1_DMG_PER_BASE_ATT %>"
+				"property_two"			"<% WARLORD_R1_DMG_PER_CHARGE %>"
 			}
 			"03"
 			{
@@ -478,7 +479,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% WARLORD_R2_POST_MIT_PCT %>"
+				"property_one"			"<% WARLORD_R2_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}

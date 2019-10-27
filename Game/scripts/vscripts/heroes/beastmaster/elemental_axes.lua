@@ -337,16 +337,16 @@ function elemental_axe_attack_land(event)
 		maxCharges = maxCharges + additionalMaxCharges
 	end
 	if element == "earth" then
-		local e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "warlord")
-		if e_1_level > 0 then
-			maxCharges = maxCharges + e_1_level * WARLORD_E1_MAX_EARTH_CHARGES
-		end
+		-- local e_1_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "warlord")
+		-- if e_1_level > 0 then
+		-- 	maxCharges = maxCharges + e_1_level * WARLORD_E1_MAX_EARTH_CHARGES
+		-- end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_earth_charge", {})
 		local newStacks = math.min(caster:GetModifierStackCount("modifier_warlord_earth_charge", caster) + charges, maxCharges)
 		caster:SetModifierStackCount("modifier_warlord_earth_charge", caster, newStacks)
 		if e_1_level > 0 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_rune_e_1_effect", {})
-			caster:SetModifierStackCount("modifier_warlord_rune_e_1_effect", caster, newStacks * e_1_level * WARLORD_E1_ARMOR_PER_EARTH_CHARGE)
+			caster:SetModifierStackCount("modifier_warlord_rune_e_1_effect", caster, newStacks * e_1_level * WARLORD_E1_MAGIC_ARMOR_PER_EARTH_CHARGE)
 		end
 	elseif element == "ice" then
 
@@ -355,10 +355,10 @@ function elemental_axe_attack_land(event)
 		caster:SetModifierStackCount("modifier_warlord_ice_charge", caster, newStacks)
 
 	elseif element == "fire" then
-		if caster:HasAbility("enhchant_tomahawk") then
-			local additionalMaxCharges = caster:GetRuneValue("r", 3)
-			maxCharges = maxCharges + additionalMaxCharges
-		end
+		-- if caster:HasAbility("enhchant_tomahawk") then
+		-- 	local additionalMaxCharges = caster:GetRuneValue("r", 3)
+		-- 	maxCharges = maxCharges + additionalMaxCharges
+		-- end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_fire_charge", {})
 		local newStacks = math.min(caster:GetModifierStackCount("modifier_warlord_fire_charge", caster) + charges, maxCharges)
 		caster:SetModifierStackCount("modifier_warlord_fire_charge", caster, newStacks)

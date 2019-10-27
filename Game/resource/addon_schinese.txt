@@ -6321,7 +6321,7 @@
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              "% 对眩晕的敌人"
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "在元素督军站在霜结破损区域中时，获得一个护盾，护盾将会增加元素督军的智力值并且降低元素督军受到的伤害<font color='#ccff66'>96</font>%。这个护盾在离开这个区域后会有一个粘滞时间。"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "在元素督军站在霜结破损区域中时，获得一个护盾，护盾将会增加元素督军的智力值并且降低元素督军受到的伤害<font color='#ccff66'>50</font>%。这个护盾在离开这个区域后会有一个粘滞时间。"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "粘滞时间:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " 秒"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "额外智力"
@@ -6365,7 +6365,7 @@
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"伏击冷却中"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"野蛮战斗雕文"
-		"item_rpc_warlord_glyph_5_1_description" 				"每杀死一个敌人提高额外攻击力 <font color='#ccff66'>4</font>%，可叠加至<font color='#ccff66'>50</font>层。持续时间 <font color='#ccff66'>9</font> 秒，击杀后刷新持续时间。"
+		"item_rpc_warlord_glyph_5_1_description" 				"每杀死一个敌人提高额外攻击力 <font color='#ccff66'>1</font>%，可叠加至<font color='#ccff66'>50</font>层。持续时间 <font color='#ccff66'>9</font> 秒，击杀后刷新持续时间。"
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"野蛮战斗"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"杀死敌人后提高额外攻击力。"
@@ -6374,10 +6374,10 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"提高大地、火焰和寒冰能量的层数上限至<font color='#ccff66'>5</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"战斗雕文"
-		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>800</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>460</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
+		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>30</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>460</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"生态雕文"
-		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害会增加 <font color='#ccff66'>2</font> 火焰能量。 每层寒冰能量加深敌人受到的魔法伤害 <font color='#ccff66'>5</font>%（计算在敌人减伤之后）"
+		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害会增加 <font color='#ccff66'>2</font> 火焰能量。 每层寒冰能量加深敌人受到的魔法伤害 <font color='#ccff66'>0</font>%（计算在敌人减伤之后）"
 
 		//Weapons
 		"warlord_weapon_01"			"威武巨斧"

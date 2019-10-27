@@ -2068,10 +2068,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_fire_charge") then
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_fire_charge", attacker)
-                fireMult = fireMult + stacks * 0.06
+                fireMult = fireMult + stacks * (WARLORD_FIRE_CHARGE_ELEMENT_BONUS_PCT/100)
             end
             if attacker.e_4_level then
-                fireMult = fireMult + WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) * attacker.e_4_level
+                fireMult = fireMult + WARLORD_E4_ICE_EARTH_FIRE_BONUS * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
@@ -2159,10 +2159,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_earth_charge") then
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_earth_charge", attacker)
-                mult = mult + stacks * 0.06
+                mult = mult + stacks * (WARLORD_EARTH_CHARGE_ELEMENT_BONUS_PCT/100)
             end
             if attacker.e_4_level then
-                mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) * attacker.e_4_level
+                mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level and attacker:HasAbility("summon_earth_aspect") then
@@ -2330,6 +2330,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + multIncrease
                 end
             else
+                if attacker.e_4_level and attacker.e_4_level > 0 then
+                    local multIncrease = attacker.e_4_level * SEINARU_ARCANA2_E4_HOLY_AMP
+                    mult = mult + multIncrease
+                end
             end
         end
         if attacker:HasModifier("modifier_gilded_soul_buff") then
@@ -2443,10 +2447,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_ice_charge") then
                 local stacks = attacker:GetModifierStackCount("modifier_warlord_ice_charge", attacker)
-                mult = mult + stacks * 0.06
+                mult = mult + stacks * (WARLORD_ICE_CHARGE_ELEMENT_BONUS_PCT/100)
             end
             if attacker.e_4_level then
-                mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS_PER_ATTR * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) * attacker.e_4_level
+                mult = mult + WARLORD_E4_ICE_EARTH_FIRE_BONUS * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_hailstorm") then
@@ -2795,7 +2799,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_beastmaster" and attacker:HasModifier("modifier_warlord_arcana2") then
             local q_4_level = attacker:GetRuneValue("q", 4)
-            mult = mult + WARLORD_ARCANA2_Q4_DRAGON_AMP_PER_ATTRIBUTES * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level        
+            mult = mult + WARLORD_ARCANA2_Q4_DRAGON_AMP * q_4_level        
         end
     end
     if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then

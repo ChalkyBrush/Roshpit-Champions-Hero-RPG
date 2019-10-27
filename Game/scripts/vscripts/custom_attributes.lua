@@ -631,6 +631,17 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_gorudo_rune_r_1")
 		armor_modify = armor_modify + modifier:GetStackCount()*-1
 	end
+	if unit:HasModifier("modifier_fire_armor_sear") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduction", "modifier_fire_armor_sear")
+	end
+	if unit:HasModifier("modifier_warlord_rune_q_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_warlord_rune_q_2_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_warlord_rune_q_3_invisible") then
+		local modifier = unit:FindModifierByName("modifier_warlord_rune_q_3_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*WARLORD_Q3_ARMOR_RED
+	end
 
 
 	if armor_modify > 0 then
@@ -837,6 +848,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_seinaru_glyph_7_1") then
 		magic_armor_modify = magic_armor_modify + SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR*unit:GetStrength()
 	end
+	if unit:HasModifier("modifier_warlord_rune_e_1_effect") then
+		local modifier = unit:FindModifierByName("modifier_warlord_rune_e_1_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_warlord_b_d_effect") then
+		local modifier = unit:FindModifierByName("modifier_warlord_b_d_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*WARLORD_R2_MAGIC_ARMOR_REDUCTION
+	end
 
 
 
@@ -918,6 +937,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local modifier = unit:FindModifierByName("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
 	end
+	if unit:HasModifier("modifier_warlord_arcana2") then
+		armor_pierce_modify = armor_pierce_modify + WARLORD_ARCANA2_Q1_PIERCES*unit:GetRuneValue("q", 1)
+	end
 
 
 	if armor_pierce_modify > 0 then
@@ -977,6 +999,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce") then
 		local modifier = unit:FindModifierByName("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_warlord_arcana2") then
+		spell_pierce_modify = spell_pierce_modify + WARLORD_ARCANA2_Q1_PIERCES*unit:GetRuneValue("q", 1)
+	end
+	if unit:HasModifier("modifier_warlord_glyph_5_a") then
+		if unit:HasModifier("modifier_warlord_ice_charge") then
+			local iceCharges = unit:GetModifierStackCount("modifier_warlord_ice_charge", unit)
+			spell_pierce_modify = spell_pierce_modify + WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE * iceCharges
+		end
 	end
 
 	if spell_pierce_modify > 0 then
@@ -1177,6 +1208,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		agi_bonus = agi_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		int_bonus = int_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+		spirit_bonus = spirit_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", SEINARU_ARCANA_Q3_AGI)

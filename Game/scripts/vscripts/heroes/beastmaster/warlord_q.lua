@@ -51,7 +51,7 @@ function warlord_ice_shell(event)
 	if q_2_level > 0 then
 		local runeAbility = caster.runeUnit2:FindAbilityByName("warlord_rune_q_2")
 
-		local armorBonus = q_2_level * (WARLORD_Q2_ARMOR_INCR_PCT / 100) * (Filters:GetBaseBaseArmor(caster))
+		local armorBonus = q_2_level * WARLORD_Q2_ARMOR
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_warlord_rune_q_2_visible", {duration = duration})
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_warlord_rune_q_2_invisible", {duration = duration})
 		caster:SetModifierStackCount("modifier_warlord_rune_q_2_invisible", caster.runeUnit2, armorBonus)
@@ -97,10 +97,12 @@ function warlord_c_a_attack(event)
 	local ability = event.ability
 	local caster = event.caster
 	local q_3_level = ability.q_3_level
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_visible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_visible", {duration = WARLORD_Q3_DUR_BASE})
 	local newStacks = target:GetModifierStackCount("modifier_warlord_rune_q_3_visible", caster) + 1
 	target:SetModifierStackCount("modifier_warlord_rune_q_3_visible", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_invisible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_invisible", {duration = WARLORD_Q3_DUR_BASE})
 	target:SetModifierStackCount("modifier_warlord_rune_q_3_invisible", caster, newStacks * q_3_level)
+
+	target:CalculateAndSaveRoshpitAttributes()
 end

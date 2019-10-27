@@ -2163,12 +2163,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
 			mult = mult + ALARANA_MAGIC_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_warlord_glyph_5_a") then
-			if attacker:HasModifier("modifier_warlord_ice_charge") then
-				local iceCharges = attacker:GetModifierStackCount("modifier_warlord_ice_charge", attacker)
-				mult = mult + WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT/100 * iceCharges
-			end
-		end
 		if attacker:HasModifier("modifier_shadow_trap_d_a_buff") then
 			local stacks = attacker:GetModifierStackCount("modifier_shadow_trap_d_a_buff", attacker)
 			mult = mult + AURIUN_ARCANA_2_Q4_MAGIC_POST_MITI/100 * stacks
@@ -2440,23 +2434,9 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if victim:HasModifier("modifier_warlord_b_d_effect") then
-		modifier = victim:FindModifierByName("modifier_warlord_b_d_effect")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			local multIncrease = WARLORD_R2_POST_MIT_PCT / 100 * stacks
-			mult = mult + multIncrease
-		end
-	end
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
 			mult = mult + TERRASIC_STONE_PLATE_POST_MITI/100
-		end
-	end
-	if attacker:HasModifier("modifier_warlord_arcana2") then
-		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			local mult_bonus = attacker:GetRuneValue("q", 1)*(WARLORD_ARCANA2_Q1_POST_MIT/100)
-			mult = mult + mult_bonus
 		end
 	end
 	if attacker:HasModifier("modifier_steelforge_passive") then
@@ -2759,13 +2739,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 			local shieldCaster = victim:FindModifierByName("modifier_omniro_nature_shield"):GetCaster()
 			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_omniro_nature_shield")
-		end
-	end
-	if victim:HasModifier("modifier_ice_throw_b_b_frozen") then
-		modifier = victim:FindModifierByName("modifier_ice_throw_b_b_frozen")
-		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PHYSICAL then
-			local stacks = modifier:GetStackCount()
-			filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * WARLORD_W2_INCR_PHYS_AND_MAG_DMG_TAKEN_PCT / 100 * stacks
 		end
 	end
 	if attacker:HasModifier("modifier_golden_war_plate") then

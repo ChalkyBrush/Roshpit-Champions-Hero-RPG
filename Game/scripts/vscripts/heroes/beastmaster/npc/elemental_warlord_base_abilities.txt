@@ -418,7 +418,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 9000 18000 40000 80000 130000 190000"
+				"damage"				"100 220 340 480 600 720 840"
 			}
 			"02"
 			{
@@ -550,7 +550,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2500 10000 22000 50000 80000 150000 250000"
+				"damage"				"80 240 400 560 720 880 1040"
 			}
 			"02"
 			{
@@ -730,7 +730,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 600 3200 5800 10400 16800 29200"
+				"damage"				"30 70 110 150 190 230 270"
 			}
 			"02"
 			{
@@ -874,7 +874,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 190 540 900 1800 2800 4400"
+		"AbilityManaCost"				"20 60 100 140 180 220 260"
 
 		// Special
 		//-------------------------------------------------------
@@ -883,7 +883,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"8600 14400 24200 48000 96000 190000 340000"
+				"damage"				"60 120 180 240 300 360 420"
 			}
 		"02"
 			{
@@ -986,11 +986,6 @@
             	"Passive"			"0"
             	"IsHidden"			"1"
             	"IsDebuff"			"0"
-
-            	"Properties"
-            	{
-            		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-            	}
             }
             "modifier_warlord_axe_motion"
             {
@@ -1049,7 +1044,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 190 540 900 1800 2800 4400"
+		"AbilityManaCost"				"20 60 100 140 180 220 260"
 
 		// Special
 		//-------------------------------------------------------
@@ -1058,7 +1053,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1480 3400 9000 19000 38000 96000 210000"
+				"damage"				"50 100 150 200 250 300 350"
 			}
 			"02"
 			{
@@ -1227,7 +1222,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 190 540 900 1800 2800 4400"
+		"AbilityManaCost"				"20 60 100 140 180 220 260"
 
 		// Special
 		//-------------------------------------------------------
@@ -1236,12 +1231,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2080 7000 17000 34000 74000 168000 294000"
+				"damage"				"70 130 190 250 310 370 430"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"armor_reduction"		"-10 -50 -200 -500 -1000 -2000 -4000"
+				"armor_reduction"		"-50 -150 -250 -350 -450 -550 -650"
 			}
 			"03"
 			{
@@ -1299,11 +1294,6 @@
 
 				"EffectName" "particles/units/heroes/hero_phoenix/phoenix_sunray_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
-				}
 			}
             "modifier_elemental_axe_fire"
             {
@@ -1435,7 +1425,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"move_slow_percentage"				"-25"
+				"move_slow_percentage"				"-30"
 			}
 		}
 		"OnSpellStart"
@@ -1527,7 +1517,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"magic_instances_absorbed"		"2 3 4 5 6 7 8"
+				"magic_instances_absorbed"		"2 3 3 3 4 4 5"
 			}
 			"03"
 			{
@@ -1624,12 +1614,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"basedamage_increase"		"3000 20000 40000 80000 140000 200000 350000"
+				"basedamage_increase"		"60 120 180 240 300 360 420"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attackspeed_increase"		"120 140 160 180 200 220 240"
+				"attackspeed_increase"		"80 90 100 110 120 130 140"
 			}
 			"04"
 			{
@@ -1861,7 +1851,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 1200 2400 4800 7200 13000 18000"
+				"damage"				"100 300 500 700 900 1100 1300"
 			}
 			"02"
 			{
@@ -2041,7 +2031,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"heal_per_earth_charge"	"200 600 1000 2400 7000 10000 14000"
+				"heal_per_earth_charge"	"40 80 120 160 200 240 280"
 			}
 			"02"
 			{
@@ -2056,7 +2046,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"ice_damage"	"2000 16000 40000 80000 160000 300000 600000"
+				"ice_damage"	"100 280 460 640 820 1000 1180"
 			}
 			"05"
 			{
@@ -2066,7 +2056,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"fireball_damage"	"3000 12000 55000 100000 170000 260000 440000"
+				"fireball_damage"	"80 240 400 560 720 880 1040"
 			}
 		}
 	}
