@@ -940,6 +940,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_warlord_arcana2") then
 		armor_pierce_modify = armor_pierce_modify + WARLORD_ARCANA2_Q1_PIERCES*unit:GetRuneValue("q", 1)
 	end
+	if unit:HasModifier("modifier_leshrac_arcana_b_d_effect") then
+		local modifier = unit:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_R2_PIERCES
+	end
 
 
 	if armor_pierce_modify > 0 then
@@ -1012,6 +1016,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_bahamut_mega_flare_pierce") then
 		local modifier = unit:FindModifierByName("modifier_bahamut_mega_flare_pierce")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_R2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_leshrac_arcana_b_d_effect") then
+		local modifier = unit:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_R2_PIERCES
 	end
 
 	if spell_pierce_modify > 0 then

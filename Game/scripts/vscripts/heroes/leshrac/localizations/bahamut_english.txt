@@ -195,9 +195,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_suffix"				"% of Demigod's Vengeance"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1"						"[R2] Power of the Gods"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"While Demigod's Vengeance is active, all post-mitigation magic and pure damage is enhanced."
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"Damage Enhance"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"While Demigod's Vengeance is active, gain Armor Pierce and Spell Pierce."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"Armor Pierce and Spell Pierce"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				""
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] Rise of Champions"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"A portion of Bahamut's  total attributes is added to Demigod's Vengeance bolts."

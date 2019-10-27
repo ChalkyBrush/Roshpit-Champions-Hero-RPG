@@ -2272,14 +2272,6 @@ function GameState:FilterDamage(filterTable)
 				mult = mult + AURIUN_E1_MAGIC_PURE_POST_MITI/100 * attacker.e_1_level
 			end
 		end
-		if attacker:HasModifier("modifier_leshrac_arcana_b_d_effect") then
-			modifier = attacker:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
-			if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-				local stacks = modifier:GetStackCount()
-				local multIncrease = BAHAMUT_ARCANA_W_W2_POST_MITI/100 * stacks
-				mult = mult + multIncrease
-			end
-		end
 		if attacker:HasModifier("modifier_bahamut_arcana_passive") then
 			local w_1_level = attacker:GetRuneValue("w", 1)
 			if w_1_level > 0 then
@@ -2362,11 +2354,6 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_rockfall_post_mit") then
 		mult = mult + 1.25
-	end
-	if attacker:HasModifier("modifier_bahamut_arcana_post_mit") then
-		local bahamut = attacker:FindModifierByName("modifier_bahamut_arcana_post_mit"):GetCaster()
-		local stacks = attacker:GetModifierStackCount("modifier_bahamut_arcana_post_mit", bahamut)
-		mult = mult + stacks * BAHAMUT_ARCANA_R_R2_POST_MITI/100
 	end
 	if victim:HasModifier("modifier_wolf_rend_bleed") then
 		modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")

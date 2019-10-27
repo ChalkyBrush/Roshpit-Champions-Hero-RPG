@@ -39611,7 +39611,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 1200 3000 7400 24700 44800 84000"
+				"damage"				"30 60 90 120 150 180 210"
 			}
 		}
 
@@ -39655,7 +39655,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"35"
 			}
 		}
 	}
@@ -39674,8 +39674,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.01"
 			}
 		}
 	}
@@ -112843,7 +112843,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "50000"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
 			}
 		}

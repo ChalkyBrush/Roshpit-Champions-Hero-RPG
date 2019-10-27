@@ -69,7 +69,7 @@ function leshrac_ult_go(ability, caster, damage, amp, enemy)
 		ability.r_3_level = caster:GetRuneValue("r", 3)
 	end
 	if ability.r_3_level > 0 then
-		damage = damage + ability.r_3_level * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * BAHAMUT_ARCANA_R_R3_ATTRIBUTES_TO_DMG
+		damage = damage + ability.r_3_level * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * BAHAMUT_ARCANA_R_R3_ATTRIBUTES_TO_DMG
 	end
 	if amp then
 		damage = damage * ability.r_1_level * BAHAMUT_ARCANA_R_R1_DMG_OF_W_PCT/100

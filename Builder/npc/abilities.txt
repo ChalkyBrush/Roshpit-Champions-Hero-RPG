@@ -27515,7 +27515,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "50000"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
 			}
 		}
