@@ -31,12 +31,6 @@ end
 function action(propertyName, propertyValue, caster)
 	if propertyName == "heal" then
 		heal(propertyValue, caster)
-	elseif propertyName == "strength" then
-		add_strength(propertyValue, caster)
-	elseif propertyName == "agility" then
-		add_agility(propertyValue, caster)
-	elseif propertyName == "intelligence" then
-		add_intelligence(propertyValue, caster)
 	elseif propertyName == "mana_heal" then
 		restore_mana(propertyValue, caster)
 	elseif propertyName == "exp" then
@@ -54,29 +48,6 @@ function restore_mana(amount, caster)
 	PopupMana(caster, amount)
 end
 
-function add_strength(amount, caster)
-	caster.strength_custom = caster.strength_custom + amount
-	PopupStrTome(caster, amount)
-	if caster:HasModifier("modifier_winterblight_cavern_fighter") then
-		caster.strength_custom = 20
-	end
-end
-
-function add_agility(amount, caster)
-	caster.agility_custom = caster.agility_custom + amount
-	PopupAgiTome(caster, amount)
-	if caster:HasModifier("modifier_winterblight_cavern_fighter") then
-		caster.agility_custom = 20
-	end
-end
-
-function add_intelligence(amount, caster)
-	caster.intellect_custom = caster.intellect_custom + amount
-	PopupIntTome(caster, amount)
-	if caster:HasModifier("modifier_winterblight_cavern_fighter") then
-		caster.intellect_custom = 20
-	end
-end
 
 function add_exp(amount, caster)
 	caster:AddExperience(amount, 0, false, false)

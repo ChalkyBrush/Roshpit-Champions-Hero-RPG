@@ -363,31 +363,13 @@ PREFIX_EXP_TABLE = {"Squire's", "Adventurer's", "Quester's", "Explorer's", "Inqu
 function RPCItems:RollPotionProperty2(item, xpBounty)
 	local luck = RandomInt(0, 100)
 	local prefix = ""
-	if luck < 40 then
+	if luck < 50 then
 		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 200, 400, 3, 8, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property2 = value
 		item.newItemTable.property2name = "heal"
 		prefix = PREFIX_HEAL_TABLE[prefixLevel]
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_health_restore", "#99FF66", 2)
-	elseif luck >= 40 and luck < 50 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 2, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property2 = value
-		item.newItemTable.property2name = "strength"
-		prefix = PREFIX_STRENGTH_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_perm_strength", "#CC0000", 2)
-	elseif luck >= 50 and luck < 60 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 2, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property2 = value
-		item.newItemTable.property2name = "agility"
-		prefix = PREFIX_AGILITY_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_perm_agility", "#2EB82E", 2)
-	elseif luck >= 60 and luck < 70 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 2, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property2 = value
-		item.newItemTable.property2name = "intelligence"
-		prefix = PREFIX_INTELLIGENCE_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_perm_intelligence", "#33CCFF", 2)
-	elseif luck >= 70 and luck <= 100 then
+	elseif luck >= 50 and luck <= 100 then
 		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property2 = value
 		item.newItemTable.property2name = "mana_heal"
@@ -408,42 +390,24 @@ POTION_NAME_TABLE = {"Godly Potion", "Ultra Potion", "Divine Potion", "Mega Poti
 function RPCItems:RollPotionProperty3(item, xpBounty)
 	luck = RandomInt(0, 100)
 	local name = ""
-	if luck < 20 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 100, 300, 3, 8, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "heal"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_health_restore", "#99FF66", 3)
-	elseif luck >= 20 and luck < 35 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 3, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "strength"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_perm_strength", "#CC0000", 3)
-	elseif luck >= 35 and luck < 50 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 3, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "agility"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_perm_agility", "#2EB82E", 3)
-	elseif luck >= 50 and luck < 65 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 3, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "intelligence"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_perm_intelligence", "#33CCFF", 3)
-	elseif luck >= 65 and luck <= 100 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "mana_heal"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_mana_restore", "#1975FF", 3)
+	if luck < 50 then
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 200, 400, 3, 8, item.newItemTable.rarity, false, nil)
+		item.newItemTable.property2 = value
+		item.newItemTable.property2name = "heal"
+		prefix = PREFIX_HEAL_TABLE[prefixLevel]
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_health_restore", "#99FF66", 3)
+	elseif luck >= 50 and luck <= 100 then
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
+		item.newItemTable.property2 = value
+		item.newItemTable.property2name = "mana_heal"
+		prefix = PREFIX_MANA_HEAL_TABLE[prefixLevel]
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_mana_restore", "#1975FF", 3)
 	else
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 7, 30, 4, 8, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "exp"
-		name = POTION_NAME_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_bonus_exp", "#E6B800", 3)
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 7, 28, 1, 5, item.newItemTable.rarity, false, nil)
+		item.newItemTable.property2 = value
+		item.newItemTable.property2name = "exp"
+		prefix = PREFIX_EXP_TABLE[prefixLevel]
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_bonus_exp", "#E6B800", 3)
 	end
 	return name
 end
@@ -452,40 +416,24 @@ POTION_NAME_TABLE2 = {"Godly Elixir", "Ultra Elixir", "Divine Elixir", "Mega Eli
 
 function RPCItems:RollPotionProperty4(item, xpBounty)
 	luck = RandomInt(0, 100)
-	if luck < 20 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 100, 300, 3, 8, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "heal"
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_health_restore", "#99FF66", 4)
-	elseif luck >= 20 and luck < 35 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.newItemTable.rarity, false, nil)
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, value, "item_perm_strength", "#CC0000", 4)
-	elseif luck >= 35 and luck < 50 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "agility"
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_perm_agility", "#2EB82E", 4)
-	elseif luck >= 50 and luck < 65 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "intelligence"
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_perm_intelligence", "#33CCFF", 4)
-	elseif luck >= 65 and luck <= 100 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "mana_heal"
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_mana_restore", "#1975FF", 4)
+	if luck < 50 then
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 200, 400, 3, 8, item.newItemTable.rarity, false, nil)
+		item.newItemTable.property2 = value
+		item.newItemTable.property2name = "heal"
+		prefix = PREFIX_HEAL_TABLE[prefixLevel]
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_health_restore", "#99FF66", 4)
+	elseif luck >= 50 and luck <= 100 then
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
+		item.newItemTable.property2 = value
+		item.newItemTable.property2name = "mana_heal"
+		prefix = PREFIX_MANA_HEAL_TABLE[prefixLevel]
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_mana_restore", "#1975FF", 4)
 	else
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 30, 5, 10, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "exp"
-		local name = POTION_NAME_TABLE2[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_bonus_exp", "#E6B800", 4)
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 7, 28, 1, 5, item.newItemTable.rarity, false, nil)
+		item.newItemTable.property2 = value
+		item.newItemTable.property2name = "exp"
+		prefix = PREFIX_EXP_TABLE[prefixLevel]
+		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_bonus_exp", "#E6B800", 4)
 	end
 	return name
 end
