@@ -90,9 +90,9 @@ function WallAllyBuff(event)
 				local radius = 1100
 				local chargeAbility = caster:FindAbilityByName("charge_of_light")
 				local damage = chargeAbility:GetSpecialValueFor("damage") * (BAHAMUT_R2_BASE_DAMAGE_PCT/100 + b_d_level * BAHAMUT_R2_DAMAGE_PCT/100)
-				local post_mit_duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-				chargeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_charge_of_light_postmitigation", {duration = post_mit_duration})
-				caster:SetModifierStackCount("modifier_bahamut_charge_of_light_postmitigation", caster, b_d_level)
+				local pierce_duration = Filters:GetAdjustedBuffDuration(caster, BAHAMUT_R2_PIERCE_DURATION, false)
+				chargeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_mega_flare_pierce", {duration = pierce_duration})
+				caster:SetModifierStackCount("modifier_bahamut_mega_flare_pierce", caster, b_d_level)
 				Timers:CreateTimer(0.03, function()
 					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					if #enemies > 0 then

@@ -40920,7 +40920,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10"
 				}
 			}
-			"modifier_bahamut_charge_of_light_postmitigation"
+			"modifier_bahamut_mega_flare_pierce"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -41279,12 +41279,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3050"
+				"property_one"			"70"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"3000"
+				"property_one_base"		"40"
 			}
 			"03"
 			{
@@ -41315,7 +41315,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -41363,12 +41363,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"property_one_base"		"20"
 			}
 			"03"
 			{
@@ -41383,7 +41383,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"40"
 			}
 		}
 	}
@@ -41429,8 +41429,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 		}
 		"Modifiers"

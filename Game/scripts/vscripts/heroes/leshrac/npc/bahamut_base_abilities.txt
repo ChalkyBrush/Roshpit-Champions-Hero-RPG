@@ -954,7 +954,7 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% BAHAMUT_R3_MS_SLOW %>"
 				}
 			}
-			"modifier_bahamut_charge_of_light_postmitigation"
+			"modifier_bahamut_mega_flare_pierce"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"

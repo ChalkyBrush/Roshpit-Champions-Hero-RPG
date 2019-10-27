@@ -368,7 +368,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_E4_HOLY_AMP_PER_ATT %>"
+				"property_one"			"<% BAHAMUT_E4_HOLY_AMP * 100 %>"
 			}
 		}
 	}
@@ -436,7 +436,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_R2_POST_MITI_PCT %>"
+				"property_two"			"<% BAHAMUT_R2_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -482,7 +482,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% BAHAMUT_R4_STATS_PER_TICK %>"
 			}
 		}

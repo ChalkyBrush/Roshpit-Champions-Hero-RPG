@@ -1009,6 +1009,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce_modify = spell_pierce_modify + WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE * iceCharges
 		end
 	end
+	if unit:HasModifier("modifier_bahamut_mega_flare_pierce") then
+		local modifier = unit:FindModifierByName("modifier_bahamut_mega_flare_pierce")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_R2_SPELL_PIERCE
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
@@ -1253,6 +1257,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
+		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 	end
 	if hero:HasModifier("modifier_auriun_rune_e_2") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_2", CustomAttributes.AURIUN_E2_INT)

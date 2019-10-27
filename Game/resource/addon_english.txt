@@ -3452,9 +3452,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies at the cost of temporary movespeed. The stated damage is multiplied by total required level of equipped glyphs."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies while it is toggled on."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					"x Level of Equipped Glyphs"		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Deals damage to all nearby enemies at the cost of Movespeed. Using Aberrant Ascension will restore your lost movement speed."
@@ -3491,11 +3491,11 @@
     	"DOTA_Tooltip_modifier_charge_of_light_hyper_state_Description"	"Gaining attack speed and movespeed."
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_2"							"[R2] Crushing Will"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"Charging through a Wall of Impunity with Megaflare deals massive damage to all nearby enemies and stuns them for 1 second. Massively increases post-mitigation damage for 3 seconds after crashing through."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"Charging through a Wall of Impunity with Megaflare deals massive damage to all nearby enemies and stuns them for 1 second. Also increases spell pierce for <font color='#ccff66'>8</font> seconds after crashing through."
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_one"			"Damage"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix"					"% of Megaflare"		
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"Post-Mitigation Amp"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				"%"	
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"Spell Pierce"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 
     	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"Crushing Will"
     	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Post-mitigation damage greatly increased"
@@ -3659,7 +3659,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"Universe Rune"
 		"item_property_bahamut_immortal_weapon"								"World Reach"
-		"property_bahamut_immortal_weapon_description"						"Damage from Abilities and Manifold Judgement have a <font color='#ccff66'>20</font>% chance to be nuked for <font color='#ccff66'>4</font>x the damage dealt as pure damage."
+		"property_bahamut_immortal_weapon_description"						"Damage from Abilities and Manifold Judgement have a <font color='#ccff66'>20</font>% chance to be nuked for <font color='#ccff66'>2</font>x the damage dealt as pure damage."
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "Nucleus Rune"
         "item_property_bahamut_immortal_weapon2"                             "Rising Consciousness"
@@ -3667,7 +3667,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_3"            "Origin Rune"
         "item_property_bahamut_immortal_weapon3"                             "Omega Waller"
-        "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by <font color='#ccff66'>100</font>% and its damage by <font color='#ccff66'>200</font>%"
+        "property_bahamut_immortal_weapon3_description"                      "Increases the length of @Ability1 by <font color='#ccff66'>100</font>% and its damage by <font color='#ccff66'>100</font>%"
 
 
 		//Abilities

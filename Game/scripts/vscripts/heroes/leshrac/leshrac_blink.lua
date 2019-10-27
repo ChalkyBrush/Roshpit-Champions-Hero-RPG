@@ -209,19 +209,19 @@ function prepare_bahamut_pulse(caster)
 end
 
 function bahamut_pulse_calculate_damage(caster)
-	local e_2_level = caster:GetRuneValue("e", 2)
+	-- local e_2_level = caster:GetRuneValue("e", 2)
 	local e_3_level = caster:GetRuneValue("e", 3)
-	local modifiers = caster:FindAllModifiers()
-	local glyphs_level = 0
-	for _, modifier in pairs(modifiers) do
-		local name = modifier:GetName()
-		if name:find("glyph") then
-			local tier, row = name:match("(%d)_(.)")
-			glyphs_level = glyphs_level + 15 * tier
-		end
-	end
-	local e_2_mult = 1 + (e_2_level * BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT / 100 * (math.min(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect()) / math.max(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())))
-	return (e_3_level * BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE) * math.max(1, glyphs_level) * e_2_mult
+	-- local modifiers = caster:FindAllModifiers()
+	-- local glyphs_level = 0
+	-- for _, modifier in pairs(modifiers) do
+	-- 	local name = modifier:GetName()
+	-- 	if name:find("glyph") then
+	-- 		local tier, row = name:match("(%d)_(.)")
+	-- 		glyphs_level = glyphs_level + 15 * tier
+	-- 	end
+	-- end
+	-- local e_2_mult = 1 + (e_2_level * BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT / 100 * (math.min(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect()) / math.max(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())))
+	return (e_3_level * BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE)
 end
 
 function rune_e_3(caster, ability)
