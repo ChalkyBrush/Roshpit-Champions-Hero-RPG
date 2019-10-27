@@ -50,7 +50,7 @@ for i = 1, MAX_LEVEL, 1 do
   XP_PER_LEVEL_TABLE[i] = current_sum
   current_sum = current_sum + math.floor((100*(1.08^(i-1))/10))*10
   if i > 1 then
-    current_sum = current_sum + 20*i
+    current_sum = current_sum + 40*i
   end
   
   -- if i <= 5 then
