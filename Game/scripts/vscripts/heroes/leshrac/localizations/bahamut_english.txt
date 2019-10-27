@@ -120,9 +120,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] Harmony"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Bahamut's attributes increase all <font color=\"#F6FFB5\">Holy</font> damage."
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"% for each 10 Attributes"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Increases all <font color=\"#F6FFB5\">Holy</font> damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"Holy Amp"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"%"
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
@@ -223,12 +223,12 @@
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_suffix"				"% of every 100 damage dealt"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2"						"[W2] Unification"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"Allies touched by Sphere of Divinity gain post-mitigation damage amp for 8 seconds."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"Post-Mitigation Damage Bonus"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"Allies touched by Sphere of Divinity gain Spell Pierce for 8 seconds."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"Spell Pierce"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				""
 
     	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit"						"Unification"
-    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"Increased post-mitigation damage."
+    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"Increased Spell Pierce."
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2"						"[W3] Absolution"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"A brief moment of purity freezes enemies in place when touched by Sphere of Divinity."
@@ -238,12 +238,10 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"Absolution"
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"Frozen"
 
-  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"While outside the @Ability2, the base damage value of all abilities, and all damage dealt directly by items, is increased by a flat amount equal to a multiple of Bahamut's missing mana. While inside the @Ability2 instead, all ability damage is increased based on a multiple of the Sphere's current travel speed. Casting Megaflare while inside the Sphere will multiply its travel speed by <% BAHAMUT_ARCANA_W_W4_R_SPEED_MULT %>, and this rune will treat you as if you are inside the Sphere for the next 5 seconds. The damage bonus based on the Sphere's travel speed is further multiplied by the level of @Ability2."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Base Damage Bonus"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% of missing mana"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Damage Increase"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% of speed"		
+  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Bahamut gains attack damage based on missing mana."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Attack Damage Bonus"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					" each missing mana"	
 
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"						"Ether Breach"
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"			"Increased damage based on Sphere of Divinity's Speed"

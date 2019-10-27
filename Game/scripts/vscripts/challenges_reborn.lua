@@ -381,6 +381,9 @@ function Challenges:MainBossSlainEvent(boss_name)
 	if Challenges.NoDeaths and Challenges.NoDeaths == 1 then
 		return false
 	end
+	if not Challenges.ActiveChallenge then
+		return false
+	end
 	if Challenges.ActiveChallenge["challenge"]["objective"] == boss_name then
 		Challenges.ChallengeCompleted = true
 		Challenges:SetChallengeClears()

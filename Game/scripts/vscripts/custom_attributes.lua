@@ -1021,6 +1021,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local modifier = unit:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_R2_PIERCES
 	end
+	if unit:HasModifier("modifier_bahamut_arcana_spell_pierce") then
+		local modifier = unit:FindModifierByName("modifier_bahamut_arcana_spell_pierce")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_W_W2_SPELL_PIERCE
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

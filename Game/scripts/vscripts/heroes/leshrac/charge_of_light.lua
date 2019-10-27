@@ -117,12 +117,6 @@ function charge_end(event)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local fv = caster:GetForwardVector()
 
-	if caster:HasModifier("modifier_bahamut_arcana_w4_amp") and caster:HasModifier("modifier_bahamut_sphere_of_divinity") then
-		local orb = caster:FindAbilityByName("bahamut_arcana_orb")
-		local stacks = caster:GetModifierStackCount("modifier_bahamut_arcana_w4_amp", caster)
-		orb:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp_linger", {duration = BAHAMUT_ARCANA_W_W4_AMP_LINGER_DURATION})
-		caster:SetModifierStackCount("modifier_bahamut_arcana_w4_amp_linger", orb, stacks)
-	end
 	caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
 	local particle = "particles/units/heroes/hero_warlock/charge_of_light.vpcf"
 	local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, caster)

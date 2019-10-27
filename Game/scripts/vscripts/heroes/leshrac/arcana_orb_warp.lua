@@ -74,14 +74,6 @@ function dash_think(event)
 		end
 	end
 	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
-	if w_4_level > 0 then
-		local stacks = forwardSpeed * 33 * BAHAMUT_ARCANA_W_W4_AMP_BASE_PCT * w_4_level * ability:GetLevel()
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_arcana_w4_amp", {})
-		caster:FindModifierByName("modifier_bahamut_arcana_w4_amp"):SetStackCount(stacks)
-	else
-		caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp")
-		caster:RemoveModifierByName("modifier_bahamut_arcana_w4_amp_linger")
-	end
 	if blockUnit then
 		forwardSpeed = 0
 		caster:RemoveModifierByName("modifier_bahamut_sphere_of_divinity")
@@ -97,9 +89,9 @@ function dash_think(event)
 			local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 			if #allies > 0 then
 				for _, ally in pairs(allies) do
-					if not ally:HasModifier("modifier_bahamut_arcana_post_mit") then
-						ability:ApplyDataDrivenModifier(caster, ally, "modifier_bahamut_arcana_post_mit", {duration = BAHAMUT_ARCANA_W_W2_DURATION})
-						ally:SetModifierStackCount("modifier_bahamut_arcana_post_mit", caster, ability.w_2_level)
+					if not ally:HasModifier("modifier_bahamut_arcana_spell_pierce") then
+						ability:ApplyDataDrivenModifier(caster, ally, "modifier_bahamut_arcana_spell_pierce", {duration = BAHAMUT_ARCANA_W_W2_DURATION})
+						ally:SetModifierStackCount("modifier_bahamut_arcana_spell_pierce", caster, ability.w_2_level)
 						CustomAbilities:QuickAttachParticle("particles/roshpit/bahamut/bahamut_arcana_postmit_heal_core.vpcf", ally, 1)
 					else
 						if ally:GetEntityIndex() == caster:GetEntityIndex() then
@@ -190,3 +182,15 @@ function regen_end(event)
 
 end
 --33888750
+function orb_warp_passive_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local w_4_level = caster:GetRuneValue("w", 4)
+	if w_4_level > 0 then
+		local attack_bonus = (caster:GetMaxMana() - caster:GetMana())*BAHAMUT_ARCANA_W_W4_ATK_DMG_PER_MISSING_MANA
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_w4_attack_damage", {})
+		caster:SetModifierStackCount("modifier_bahamut_w4_attack_damage", caster, attack_bonus)
+	else
+		caster:RemoveModifierByName("modifier_bahamut_w4_attack_damage")
+	end
+end

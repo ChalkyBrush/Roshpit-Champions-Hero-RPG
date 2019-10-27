@@ -2941,19 +2941,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if filterTable.entindex_inflictor_const and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		local ability = attacker:FindAbilityByName(EntIndexToHScript(filterTable.entindex_inflictor_const):GetName())
-		if ability then
-			if attacker:HasModifier("modifier_bahamut_arcana_w4_amp") and not attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-				local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp"):GetStackCount()
-				filterTable["damage"] = filterTable["damage"] * (1 + stacks / 100)
-			end
-			if attacker:HasModifier("modifier_bahamut_arcana_w4_amp_linger") then
-				local stacks = attacker:FindModifierByName("modifier_bahamut_arcana_w4_amp_linger"):GetStackCount()
-				filterTable["damage"] = filterTable["damage"] * (1 + stacks / 100)
-			end
-		end
-	end
 
 	if victim:HasModifier("modifier_fire_mage_ai") then
 		filterTable["damage"] = CustomAbilities:WeaponMelt(damagetype, filterTable["damage"])

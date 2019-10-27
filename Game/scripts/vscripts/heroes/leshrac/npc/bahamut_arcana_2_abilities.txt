@@ -30,7 +30,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"400 700 1200 2400 4000 6000 9000"
+		"AbilityManaCost"				"80 180 280 380 480 580 680"
 
 		// Special
 		//-------------------------------------------------------
@@ -39,7 +39,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mana_drain_per_second"	"75.0 60.0 50.0 40.0 25.0 15.0 5.0"
+				"mana_drain_per_second"	"15"
 			}
 			"02"
 			{
@@ -97,6 +97,23 @@
 				"IsHidden"	"1"
 				"Passive"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.06"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/leshrac/arcana_orb_warp.lua"
+						"Function"		"orb_warp_passive_thinker"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_bahamut_w4_attack_damage"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_spellvamp_healing"
 			{
@@ -115,7 +132,7 @@
 					}
 				}
 			}
-			"modifier_bahamut_arcana_post_mit"
+			"modifier_bahamut_arcana_spell_pierce"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -163,6 +180,14 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"bahamut/bahamut_w_4_arcana2"
+			}
+			"modifier_bahamut_w4_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+				}
 			}
 		}
 	}
