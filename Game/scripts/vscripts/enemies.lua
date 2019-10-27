@@ -110,6 +110,8 @@ Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 40
 Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 60
 Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 80
 
+Enemies.GLOBAL_HEALTH_MULT = 1.5
+
 Enemies.SPIRIT_REALM_CONSTANTS = {}
 Enemies.SPIRIT_REALM_CONSTANTS[0] = {}
 Enemies.SPIRIT_REALM_CONSTANTS[1] = {}
@@ -198,6 +200,9 @@ function Enemies:InitializeEnemy(unit)
 
 	-- HP
 	local newHealth = (unit:GetMaxHealth()*Enemies.DIFFICULTY_HEALTH_MULT[difficulty][enemyTier] + Enemies.DIFFICULTY_HEALTH_FLAT[difficulty][enemyTier])*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["max_hp"]
+	if unit_level > 9 then
+		newHealth = newHealth*Enemies.GLOBAL_HEALTH_MULT
+	end
 	newHealth = newHealth + newHealth * Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
 	unit:SetMaxHealth(newHealth)
