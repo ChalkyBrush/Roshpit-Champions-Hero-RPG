@@ -496,10 +496,10 @@
                             "value0"         "sounds/weapons/hero/warlock/shadowword_cast_heal.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.8000"  }
+                    "volume"            {   "value"     "0.300000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
-                    "pitch"             {   "value"     "0.90000"  }
+                    "pitch"             {   "value"     "1.50000"  }
                     "soundlevel"        {   "value"     "88.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
