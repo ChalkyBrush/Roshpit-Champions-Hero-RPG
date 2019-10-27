@@ -11509,8 +11509,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "6000"
-        "AttackDamageMax"   "10000"
+        "AttackDamageMin"   "100"
+        "AttackDamageMax"   "100"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "99999"
@@ -11529,9 +11529,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "370"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "55000"
+        "StatusHealth"  "1000"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "200"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -11561,6 +11561,13 @@
             }
 
         }
+        "RoshpitArmor"          "140"
+        "RoshpitArmorPierce"    "200"
+        "RoshpitSpellPierce"    "220"
+        "RoshpitMagicArmor"     "150"
+        "RoshpitLevel"          "13"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"   
     }
 
     "arabor_cultist"
