@@ -506,7 +506,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduce", "modifier_forest_ranger_bleed")
 	end
 	if unit:HasModifier("modifier_canyon_predator_effect") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_instance", "modifier_forest_ranger_bleed")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_instance", "modifier_canyon_predator_effect")
 	end
 	if unit:HasModifier("modifier_fire_god_armor_break") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_fire_god_armor_break")
@@ -707,6 +707,7 @@ end
 
 function CustomAttributes:GetAbilityValueFromSpecial(unit, special_value_name, modifier_name)
 	local modifier = unit:FindModifierByName(modifier_name)
+	
 	local ability = modifier:GetAbility()
 	local caster = modifier:GetCaster()
 	local stacks = math.max(modifier:GetStackCount(), 1)
