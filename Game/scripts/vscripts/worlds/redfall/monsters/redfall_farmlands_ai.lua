@@ -561,9 +561,13 @@ function bandit_attack_land(event)
 	if not target then
 		return
 	end
+	if not target:IsHero() then
+		return
+	end
 	local targetGetStrength = target:GetStrength()
 	local targetGetAgility = target:GetAgility()
 	local targetGetIntellect = target:GetIntellect()
+	local targetGetSpirit = target:GetSpirit()
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_riki/riki_backstab.vpcf", target, 2)
 	if targetGetStrength then
 		Timers:CreateTimer(0.1, function()
@@ -602,6 +606,20 @@ function bandit_attack_land(event)
 			local pfx = ParticleManager:CreateParticle("particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target)
 			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(pfx, 1, Vector(50, 50, 255))
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+	end
+	if targetGetSpirit then
+		Timers:CreateTimer(0.4, function()
+			local damage = targetGetSpirit * prismMult
+			ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+			EmitSoundOn("Redfall.Bandit.PrismStrikeImpact", target)
+
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/redfall/prism_strike.vpcf", PATTACH_CUSTOMORIGIN, target)
+			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(255, 50, 255))
 			Timers:CreateTimer(1, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)

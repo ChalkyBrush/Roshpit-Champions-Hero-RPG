@@ -45414,7 +45414,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"prism_strike"		"0.25 1.5 3.0"
+				"prism_strike"		"0.25 0.75 2.0"
 			}
 		}
 		"Modifiers"
