@@ -956,6 +956,7 @@ function Redfall:SpawnBossMinions(boss, previousGeneration)
 			Events:AdjustBossPower(unit, 5 - unit.generation, 5 - unit.generation, false)
 			unit:SetModelScale(0.01)
 			unit:SetRenderColor(255, 255, 0)
+			unit.roshpit_attributes.deathXP = 0
 			if unit.generation == 1 or unit.generation == 2 then
 				unit.threshold = 0.5
 				unit.currentThreshold = 0.5
