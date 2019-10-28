@@ -133,7 +133,7 @@ Enemies.EXP_SHARE_PERCENTAGE = 0.75
 
 Enemies.EXP_BASE_TABLE = {}
 for i = 0, 120 , 1 do
-	Enemies.EXP_BASE_TABLE[i]= math.ceil(7.5*(1.05^i)) + (i-1)
+	Enemies.EXP_BASE_TABLE[i]= math.ceil(7*(1.05^i)) + (i-1)
 end
 
 Enemies.SERENGAARD_EXP_ADJUSTMENT = 0.5
