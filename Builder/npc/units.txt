@@ -21671,8 +21671,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "30000"
-        "AttackDamageMax"   "60000"
+        "AttackDamageMin"   "800"
+        "AttackDamageMax"   "800"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -21738,6 +21738,12 @@
             }
 
         }
+        "RoshpitArmor"          "340"
+        "RoshpitArmorPierce"    "200"
+        "RoshpitSpellPierce"    "240"
+        "RoshpitMagicArmor"     "280"
+        "RoshpitLevel"          "18"
+        "EnemyTier"      "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
 
     //GRIZZLY FALLS

@@ -16841,7 +16841,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"900 5000 150000"
+				"damage"			"300 1000 10000"
 			}
 		}
 		"Modifiers"
