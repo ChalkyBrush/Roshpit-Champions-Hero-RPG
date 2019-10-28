@@ -5062,18 +5062,22 @@ function oracle_attack_land(event)
 		local intStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_int", caster)
 		local strStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_str", caster)
 		local agiStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_agi", caster)
+		local spiStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_spi", caster)
 
 		local newIntStacks = target:GetIntellect() * 0.08
 		local newStrStacks = target:GetStrength() * 0.08
 		local newAgiStacks = target:GetAgility() * 0.08
+		local newSpiStacks = target:GetSpirit() * 0.08
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_int", {duration = 6})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_str", {duration = 6})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_agi", {duration = 6})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_spi", {duration = 6})
 
 		target:SetModifierStackCount("modifier_demon_farmer_aura_int", caster, intStacks + newIntStacks)
 		target:SetModifierStackCount("modifier_demon_farmer_aura_str", caster, strStacks + newStrStacks)
 		target:SetModifierStackCount("modifier_demon_farmer_aura_agi", caster, agiStacks + newAgiStacks)
+		target:SetModifierStackCount("modifier_demon_farmer_aura_spi", caster, spiStacks + newSpiStacks)
 	else
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then

@@ -834,6 +834,7 @@ function demon_farmer_aura_stat_loss(event)
 	local intStacks = math.floor((target:GetIntellect() + target:GetModifierStackCount("modifier_demon_farmer_aura_int", ability)) * percentage)
 	local agiStacks = math.floor((target:GetAgility() + target:GetModifierStackCount("modifier_demon_farmer_aura_agi", ability)) * percentage)
 	local strStacks = math.floor((target:GetStrength() + target:GetModifierStackCount("modifier_demon_farmer_aura_str", ability)) * percentage)
+	local spiStacks = math.floor((target:GetSpirit() + target:GetModifierStackCount("modifier_demon_farmer_aura_spi", ability)) * percentage)
 	if not target:HasModifier("modifier_demon_farmer_aura_str") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_str", {})
 	end
@@ -848,6 +849,12 @@ function demon_farmer_aura_stat_loss(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_int", {})
 	end
 	target:SetModifierStackCount("modifier_demon_farmer_aura_int", ability, intStacks)
+
+	if not target:HasModifier("modifier_demon_farmer_aura_spi") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_spi", {})
+	end
+	target:SetModifierStackCount("modifier_demon_farmer_aura_spi", ability, spiStacks)
+	
 end
 
 function demon_farmer_think(event)

@@ -45797,6 +45797,11 @@
 						"ModifierName"	"modifier_demon_farmer_aura_int"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_demon_farmer_aura_spit"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_demon_farmer_aura_str"
@@ -45808,6 +45813,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_demon_farmer_aura_int"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_demon_farmer_aura_spi"
 			{
 				"IsHidden"	"1"
 			}
@@ -68158,8 +68167,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-
 			}
 			"modifier_demon_farmer_aura_str"
 			{
@@ -68170,6 +68177,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_demon_farmer_aura_int"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_demon_farmer_aura_spi"
 			{
 				"IsHidden"	"1"
 			}
