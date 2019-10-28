@@ -4034,6 +4034,6 @@ function Events:MainBossSlain(boss_name)
 	Challenges:MainBossSlainEvent(boss_name)
 end
 
-require('worlds/winterblight/winterblight')
+require('worlds/redfall/redfall')
 
 

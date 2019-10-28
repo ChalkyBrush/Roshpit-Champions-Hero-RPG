@@ -113,6 +113,7 @@
 		"VisionDaytimeRange"	"0"
 		"VisionNighttimeRange"	"0"
         "PathfindingSearchDepthScale" "0.2"
+        "DrawParticlesWhileHidden" "1"
 	}
 
     "arcane_crystal"
