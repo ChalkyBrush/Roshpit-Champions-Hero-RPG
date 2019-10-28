@@ -123,7 +123,7 @@ Enemies.SPIRIT_REALM_CONSTANTS[1]["roshpit_attribute"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["max_hp"] = 2
 
 Enemies.EXP_LEVEL_DIFFERENTIAL = 5
-Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL = 0.15
+Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL = 0.2
 
 Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER = 0.3
 
@@ -291,7 +291,7 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 	print(exp)
 	print(level_differential)
 	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
-		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), 0.01)
+		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), 0.02)
 		print(exp_mult)
 		exp = exp*exp_mult
 	end
