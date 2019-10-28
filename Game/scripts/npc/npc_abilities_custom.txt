@@ -32199,7 +32199,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -102213,7 +102213,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"900 5000 150000"
+				"damage"			"300 1000 10000"
 			}
 		}
 		"Modifiers"
@@ -130786,7 +130786,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"prism_strike"		"0.25 1.5 3.0"
+				"prism_strike"		"0.25 0.75 2.0"
 			}
 		}
 		"Modifiers"
@@ -131169,6 +131169,11 @@
 						"ModifierName"	"modifier_demon_farmer_aura_int"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_demon_farmer_aura_spit"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_demon_farmer_aura_str"
@@ -131180,6 +131185,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_demon_farmer_aura_int"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_demon_farmer_aura_spi"
 			{
 				"IsHidden"	"1"
 			}
@@ -153530,8 +153539,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-
 			}
 			"modifier_demon_farmer_aura_str"
 			{
@@ -153542,6 +153549,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_demon_farmer_aura_int"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_demon_farmer_aura_spi"
 			{
 				"IsHidden"	"1"
 			}
