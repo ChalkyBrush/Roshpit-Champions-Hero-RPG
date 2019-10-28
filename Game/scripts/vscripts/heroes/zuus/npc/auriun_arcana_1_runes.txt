@@ -80,7 +80,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% AURIUN_ARCANA_1_Q3_ATTRIBUTES_TO_HOLY_AMP_PCT %>"
+				"property_one"			"<% AURIUN_ARCANA_1_Q3_HOLY_AMP * 100 %>"
 			}
 		}
 

@@ -3225,7 +3225,7 @@
 		"item_rpc_auriun_glyph_1_1_description" 				"受生命赐福影响的友军提高 <font color='#ccff66'>200</font> 移动速度，持续 <font color='#ccff66'>4</font> 秒"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"辉耀雕文"
-		"item_rpc_auriun_glyph_2_1_description" 				"所有由装备造成的伤害增加 <font color='#ccff66'>300</font>%。"
+		"item_rpc_auriun_glyph_2_1_description" 				"所有由装备造成的伤害增加 <font color='#ccff66'>200</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"意志雕文"
 		"item_rpc_auriun_glyph_3_1_description" 				"获得天堂之盾时，将清除一个负面的buff。"
@@ -3234,7 +3234,7 @@
 		"item_rpc_auriun_glyph_4_1_description" 				"提高攻击距离 <font color='#ccff66'>280</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"天使雕文"
-		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得 <font color='#ccff66'>65</font>% 的魔法抗性。但是会移除隐身效果"
+		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得 <font color='#ccff66'>500</font>% 的魔法抗性。但是会移除隐身效果"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"闪光雕文"
 		"item_rpc_auriun_glyph_6_1_description" 				"获得天堂之盾后的前 <font color='#ccff66'>2</font> 秒处于无敌状态。"
@@ -3246,7 +3246,7 @@
 		"item_rpc_auriun_glyph_7_1_description" 				"普通攻击时 [R1]会产生爆炸，对周围 <font color='#ccff66'>240</font> 内的敌人造成一次额外伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_a"		"阴影雕文"
-		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 <font color='#ccff66'>100</font>x 宙斯智力值的伤害并且减速 <font color='#ccff66'>20</font>%. <font color='#ccff66'>1</font>% 造成的伤害治疗宙斯."
+		"item_rpc_auriun_glyph_5_a_description" 				"持续用二技能打击周围所有敌人，每秒造成 <font color='#ccff66'>1</font>x 宙斯智力值的伤害并且减速 <font color='#ccff66'>20</font>%. <font color='#ccff66'>1</font>% 造成的伤害治疗宙斯."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_auriun_weapon_00"   "卷轴"
@@ -3276,7 +3276,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_auriun_immortal_weapon_3"            "残暴希律王之典"
         "item_property_auriun_immortal_weapon3"                             "诡诈"
-        "property_auriun_immortal_weapon3_description"                      "施放 @Ability2 将获得魔法免疫，提高基础技能伤害 <font color='#ccff66'>200</font>% ，但是生命回复速度变为 -<font color='#ccff66'>8</font>%。持续 <font color='#ccff66'>10</font> 秒。"
+        "property_auriun_immortal_weapon3_description"                      "施放 @Ability2 将获得魔法免疫，提高基础技能伤害 <font color='#ccff66'>120</font>% ，但是生命回复速度变为 -<font color='#ccff66'>8</font>%。持续 <font color='#ccff66'>10</font> 秒。"
 
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"诡诈"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"魔法免疫并降低生命回复速度"
