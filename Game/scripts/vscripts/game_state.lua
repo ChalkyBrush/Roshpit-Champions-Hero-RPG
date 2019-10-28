@@ -2162,10 +2162,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
 			mult = mult + ALARANA_MAGIC_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_shadow_trap_d_a_buff") then
-			local stacks = attacker:GetModifierStackCount("modifier_shadow_trap_d_a_buff", attacker)
-			mult = mult + AURIUN_ARCANA_2_Q4_MAGIC_POST_MITI/100 * stacks
-		end
 		if victim:HasModifier("modifier_drake_ring_postmit") then
 			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
 				local stacks = victim:GetModifierStackCount("modifier_drake_ring_postmit", attacker)
@@ -2264,11 +2260,6 @@ function GameState:FilterDamage(filterTable)
 					filterTable["damage"] = 0
 					Filters:AzureEmpire(victim, attacker)
 				end
-			end
-		end
-		if attacker:HasModifier("modifier_auriun_passive") then
-			if attacker.e_1_level then
-				mult = mult + AURIUN_E1_MAGIC_PURE_POST_MITI/100 * attacker.e_1_level
 			end
 		end
 		if attacker:HasModifier("modifier_bahamut_arcana_passive") then

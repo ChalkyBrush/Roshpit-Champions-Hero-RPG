@@ -128,10 +128,23 @@
 				"TextureName"		"silencer_global_silence"
 				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% AURIUN_Q3_ARMOR_BONUS %>"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_auriun_rune_q_3_thinker"
@@ -197,7 +210,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 280 500 1200 2400 3400 4500"
+		"AbilityManaCost"				"50 120 190 260 330 400 470"
 
 		// Special
 		//-------------------------------------------------------
@@ -206,7 +219,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal"					"1200 3600 6000 12000 21000 35000 45000"
+				"heal"					"180 360 560 780 1020 1280 1560"
 			}
 			"02"
 			{
@@ -379,10 +392,6 @@
 						"ModifierName"	"modifier_seraph_surge_glyphed"
 						"Target" 		"TARGET"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% AURIUN_GLYPH_5_1_MAGIC_RESIST %>"
 				}
 			}
 		}

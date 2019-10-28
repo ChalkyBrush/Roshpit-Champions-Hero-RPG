@@ -59,7 +59,7 @@ function initialize_flash_heal(event)
 					EmitSoundOnLocationWithCaster(cursorPos, "Auriun.ShadowFlare", caster)
 				end
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), cursorPos, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-				local damage = ability.w_1_level * (AURIUN_W1_DMG + AURIUN_W1_DMG_PER_LVL_PER_HERO_LVL_PER_INT * caster:GetIntellect() * ability:GetLevel() * caster:GetLevel()) + AURIUN_W1_DMG_BASE
+				local damage = ability.w_1_level * (AURIUN_W1_DMG + AURIUN_W1_DMG_PER_INT * caster:GetIntellect()) + AURIUN_W1_DMG_BASE
 				for _, enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 					d_b_apply(caster, enemy, ability.w_4_level, ability.w_4_ability)
@@ -101,6 +101,7 @@ function c_b_effect(caster, ability, target, healAmount)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "auriun")
 	if w_3_level > 0 then
 		ability.auriun_c_b_heal = w_3_level * AURIUN_W3_PART_OF_HEAL_PER_TICK * healAmount
+		print(ability.auriun_c_b_heal)
 		local duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_W3_BASE_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_b_heal", {duration = duration})
 	end

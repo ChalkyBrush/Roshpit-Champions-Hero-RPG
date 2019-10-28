@@ -59431,11 +59431,6 @@
                 "var_type"              "FIELD_INTEGER"
                 "property_one"          "15"
             }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "property_two"          "0"
-            }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
@@ -66023,7 +66018,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "80"
 				}
 			}
 			"modifier_holy_wrath_d_a_cooldown"
@@ -66096,10 +66091,23 @@
 				"TextureName"		"silencer_global_silence"
 				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_auriun_rune_q_3_thinker"
@@ -66154,12 +66162,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30000"
+				"property_one"			"80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"50000"
+				"property_one_base"		"100"
 			}
 			"03"
 			{
@@ -66218,7 +66226,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"12"
 			}
 		}
 
@@ -66250,7 +66258,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"150"
+				"property_two"			"80"
 			}
 		}
 	}
@@ -66336,7 +66344,7 @@
 				"StatusEffectPriority"  "30"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "150"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "80"
 				}
 			}
 			"shadow_trap"
@@ -66463,12 +66471,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30000"
+				"property_one"			"80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"50000"
+				"property_one_base"		"100"
 			}
 			"03"
 			{
@@ -66520,7 +66528,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -66541,12 +66549,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"150"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"150"
+				"property_two"			"80"
 			}
 		}
 	}
@@ -66683,10 +66691,23 @@
 				"TextureName"		"silencer_global_silence"
 				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_auriun_rune_q_3_thinker"
@@ -66752,7 +66773,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 280 500 1200 2400 3400 4500"
+		"AbilityManaCost"				"50 120 190 260 330 400 470"
 
 		// Special
 		//-------------------------------------------------------
@@ -66761,7 +66782,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal"					"1200 3600 6000 12000 21000 35000 45000"
+				"heal"					"180 360 560 780 1020 1280 1560"
 			}
 			"02"
 			{
@@ -66934,10 +66955,6 @@
 						"ModifierName"	"modifier_seraph_surge_glyphed"
 						"Target" 		"TARGET"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "65"
 				}
 			}
 		}
@@ -67214,12 +67231,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"100"
+				"property_two"			"2"
 			}
 			"03"
 			{
@@ -67271,12 +67288,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.4"
+				"property_one"			"80"
 			}
 		}
 		"Modifiers"
@@ -67289,11 +67301,6 @@
 
 				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
-				}
 			}
 		}
 	}
@@ -67314,7 +67321,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"60"
 			}
 		}
 		"Modifiers"
@@ -67345,12 +67352,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1920"
+				"property_one"			"55"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"400"
+				"property_one_base"		"20"
 			}
 			"03"
 			{
@@ -67364,8 +67371,8 @@
 			}
 			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -67386,12 +67393,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.06"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -67412,7 +67419,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"0.5"
 			}
 		}
 		"Modifiers"
@@ -67453,12 +67460,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-1"
+				"property_two"			"-3"
 			}
 		}
 		"Modifiers"
@@ -67491,8 +67498,8 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "0.6"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "2"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-3"
 				}
 			}
 		}
@@ -67514,8 +67521,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"20"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"15"
+			}		
 		}
 		"Modifiers"
 		{
@@ -67554,7 +67566,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"25"
 			}
 		}
 		"Modifiers"
@@ -67606,7 +67618,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"8"
 			}
 		}
 		"Modifiers"
@@ -67652,7 +67664,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.3"
 			}
 			"02"
 			{
@@ -67662,7 +67674,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"800"
+				"property_two"			"12"
 			}
 			"04"
 			{
@@ -67702,12 +67714,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"2"
 			}
 			"03"
 			{

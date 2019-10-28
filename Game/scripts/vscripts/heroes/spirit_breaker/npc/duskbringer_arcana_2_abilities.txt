@@ -300,11 +300,6 @@
                 "var_type"              "FIELD_INTEGER"
                 "property_one"          "<% DUSKBRINGER_Q1_ARCANA2_DMG_PER_STACK %>"
             }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "property_two"          "<% DUSKBRINGER_Q1_ARCANA2_DMG_PER_STR_PER_STACK %>"
-            }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"

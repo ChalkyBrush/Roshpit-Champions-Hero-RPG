@@ -162,10 +162,23 @@
 				"TextureName"		"silencer_global_silence"
 				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% AURIUN_Q3_ARMOR_BONUS %>"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_auriun_rune_q_3_thinker"

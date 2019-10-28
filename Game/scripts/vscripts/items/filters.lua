@@ -590,7 +590,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
     if caster:GetUnitName() == "npc_dota_hero_zuus" then
         local w_2_level = caster:GetRuneValue("w", 2)
         if w_2_level > 0 then
-            healAmount = healAmount + healAmount * AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * caster:GetIntellect() * w_2_level
+            healAmount = healAmount + healAmount * AURIUN_W2_HEALING_AMP * w_2_level
             healAmount = OverflowProtectedMaxHealingValue(healAmount)
         end
     end
@@ -1392,10 +1392,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_venomort_rune_r_4") then
             local current_stack = attacker:GetModifierStackCount("modifier_venomort_rune_r_4", attacker.runeUnit4:FindAbilityByName("venomort_rune_r_4"))
             damageMult = damageMult + 0.1 * current_stack
-        end
-        if attacker:HasModifier("modifier_auriun_rune_q_4_effect") then
-            local current_stack = attacker:GetModifierStackCount("modifier_auriun_rune_q_4_effect", attacker.auriun_d_a_ability)
-            damageMult = damageMult + AURIUN_Q4_BAD/100 * current_stack
         end
 
         if attacker:HasAbility("mountain_protector_emberstone") then
@@ -2298,12 +2294,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_holy_wrath_passive") then
                 local q_3_level = attacker:GetRuneValue("q", 3)
                 if q_3_level then
-                    mult = mult + AURIUN_ARCANA_1_Q3_ATTRIBUTES_TO_HOLY_AMP_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_3_level
+                    mult = mult + AURIUN_ARCANA_1_Q3_HOLY_AMP * q_3_level
                 end
             end
             local w_2_level = attacker:GetRuneValue("w", 2)
             if w_2_level > 0 then
-                mult = mult + AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * attacker:GetIntellect() * w_2_level
+                mult = mult + AURIUN_W2_HEAL_SHADOW_HOLY_AMP * w_2_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_holy_amp") then
@@ -2534,12 +2530,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_shadow_trap_passive") then
                 local q_3_level = attacker:GetRuneValue("q", 3)
                 if q_3_level then
-                    mult = mult + AURIUN_ARCANA_2_Q3_ATTRIBUTES_TO_SHADOW_AMP_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_3_level
+                    mult = mult + AURIUN_ARCANA_2_Q3_SHADOW_AMP * q_3_level
                 end
             end
             local w_2_level = attacker:GetRuneValue("w", 2)
             if w_2_level > 0 then
-                mult = mult + AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * attacker:GetIntellect() * w_2_level
+                mult = mult + AURIUN_W2_HEAL_SHADOW_HOLY_AMP * w_2_level
             end
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)

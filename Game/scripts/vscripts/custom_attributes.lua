@@ -650,6 +650,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_rune_w_2")
 		armor_modify = armor_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA1_W2_ARMORS
 	end
+	if unit:HasModifier("modifier_auriun_rune_q_3_effect") then
+		local modifier = unit:FindModifierByName("modifier_auriun_rune_q_3_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS
+	end
 
 
 	if armor_modify > 0 then
@@ -872,6 +876,17 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_rune_w_2")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA1_W2_ARMORS
 	end
+	if unit:HasModifier("modifier_auriun_rune_q_3_effect") then
+		local modifier = unit:FindModifierByName("modifier_auriun_rune_q_3_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS
+	end
+	if unit:HasModifier("modifier_auriun_passive") then
+		local e_1_level = unit:GetRuneValue("e", 1)
+		magic_armor_modify = magic_armor_modify + e_1_level*AURIUN_E1_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_seraph_surge_glyphed") then
+		magic_armor_modify = magic_armor_modify + AURIUN_GLYPH_5_1_MAGIC_RESIST
+	end
 
 
 
@@ -1053,6 +1068,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_q_4")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA2_Q4_SPELL_PIERCE
 	end
+	if unit:HasModifier("modifier_auriun_passive") then
+		local e_1_level = unit:GetRuneValue("e", 1)
+		spell_pierce_modify = spell_pierce_modify + e_1_level*AURIUN_E1_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_shadow_trap_d_a_buff") then
+		local modifier = unit:FindModifierByName("modifier_shadow_trap_d_a_buff")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*AURIUN_ARCANA_2_Q4_SPELL_PIERCE
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
@@ -1173,7 +1196,10 @@ function CustomAttributes:SetAttributes(hero)
 			agi_bonus = agi_bonus + hero.e_4_level*SEINARU_E4_AGILITY
 		end
 	end
-
+	if hero:HasModifier("modifier_auriun_rune_q_4_effect") then
+		local modifier = hero:FindModifierByName("modifier_auriun_rune_q_4_effect")
+		spirit_bonus = spirit_bonus + modifier:GetStackCount()*AURIUN_Q4_SPIRIT
+	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
 	end
@@ -1306,6 +1332,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
+		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 	end
 	if hero:HasModifier("modifier_auriun_rune_r_3_effect_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_r_3_effect_agility", 1)
