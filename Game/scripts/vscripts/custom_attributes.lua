@@ -717,6 +717,8 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
 		return damage
+	else
+		return damage
 	end
 end
 

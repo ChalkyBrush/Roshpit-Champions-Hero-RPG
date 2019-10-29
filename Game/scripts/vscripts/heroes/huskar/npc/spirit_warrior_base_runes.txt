@@ -78,7 +78,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SPIRIT_WARRIOR_Q3_DMG_PCT %>"
 			}
 			"02"
