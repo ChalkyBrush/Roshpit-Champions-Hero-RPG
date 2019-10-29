@@ -6,6 +6,7 @@ require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
+
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/hero_necrolyte/venomort_constants')
 require('/heroes/nightstalker/chernobog_constants')
@@ -654,6 +655,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_auriun_rune_q_3_effect")
 		armor_modify = armor_modify + modifier:GetStackCount()*AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS
 	end
+
 	if unit:HasModifier("modifier_mark_of_the_claw") then
 		local modifier = unit:FindModifierByName("modifier_mark_of_the_claw")
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_mark_of_the_claw")
@@ -680,6 +682,22 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_wolf_rend_stack")
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_wolf_rend_stack")
 	end
+	if unit:HasModifier("modifier_flametongue_a_a_rune") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_a_a_rune")
+		modifier_caster = modifier:GetCaster()
+		local q_1_level = modifier_caster:GetRuneValue("q", 1)
+		armor_modify = armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF*q_1_level
+	end
+	if unit:HasModifier("modifier_flametongue_q_2_fire_shield") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
+		armor_modify = armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
+	end
+	if unit:HasModifier("modifier_spirit_rune_e_2_buff") then
+		local modifier = unit:FindModifierByName("modifier_spirit_rune_e_2_buff")
+		local all_mods = unit:FindAllModifiersByName("modifier_spirit_rune_e_2_buff")
+		armor_modify = armor_modify + modifier:GetStackCount*#all_mods*SPIRIT_WARRIOR_E2_ARMOR_AURA
+	end
+
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor", {})
@@ -725,6 +743,8 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 		local mult = math.min((255 + spell_pierce)/(255 + victim:GetRoshpitMagicArmor()), 2)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
+		return damage
+	else
 		return damage
 	end
 end
@@ -912,6 +932,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_seraph_surge_glyphed") then
 		magic_armor_modify = magic_armor_modify + AURIUN_GLYPH_5_1_MAGIC_RESIST
 	end
+
 	if unit:HasModifier("modifier_wolf_rend_bleed") then
 		local modifier = unit:FindModifierByName("modifier_wolf_rend_bleed")
 		local caster = modifier:GetCaster()
@@ -932,6 +953,32 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local q_4_level = unit:GetRuneValue("q", 4)
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_increase_rune", "modifier_mark_of_the_talon_rune")*q_4_level*0.05
 	end
+
+	if unit:HasModifier("modifier_trap_magic_resist_loss") then
+		local modifier = unit:FindModifierByName("modifier_trap_magic_resist_loss")
+		if modifier then
+			local trap = modifier:GetCaster()
+			local caster = trap.origCaster
+			if caster then
+				local q_3_level = caster:GetRuneValue("q", 3)
+				magic_armor_modify = magic_armor_modify + TRAPPER_Q3_MAGIC_ARMOR_LOSS*q_3_level
+				if caster:HasModifier("modifier_trapper_glyph_1_2") then
+					magic_armor_modify = magic_armor_modify + TRAPPER_GLYPH_1_2_Q3_PCT_AMP*TRAPPER_Q3_MAGIC_ARMOR_LOSS*q_3_level
+				end
+			end
+		end
+	end
+	if unit:HasModifier("modifier_poison_whip") then
+		local modifier = unit:FindModifierByName("modifier_poison_whip")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK
+	end
+	if unit:HasModifier("modifier_flametongue_q_2_fire_shield") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
+	end
+
+
+
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
@@ -1020,6 +1067,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_duskbringer_rune_r_2_invisible") then
 		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_R2_PIERCES
+	end
+	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
+		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
 	end
 
 	if armor_pierce_modify > 0 then
@@ -1116,6 +1167,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_shadow_trap_d_a_buff") then
 		local modifier = unit:FindModifierByName("modifier_shadow_trap_d_a_buff")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*AURIUN_ARCANA_2_Q4_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
+		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
 	end
 
 	if spell_pierce_modify > 0 then
@@ -1236,6 +1291,11 @@ function CustomAttributes:SetAttributes(hero)
 		if hero:HasAbility("seinaru_odachi_leap") and hero.e_4_level then
 			agi_bonus = agi_bonus + hero.e_4_level*SEINARU_E4_AGILITY
 		end
+	end
+	if hero:GetUnitName == "npc_dota_hero_huskar" then
+		local e_4_level = hero:GetRuneValue("e", 4)
+		int_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
+		spirit_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
 	end
 	if hero:HasModifier("modifier_auriun_rune_q_4_effect") then
 		local modifier = hero:FindModifierByName("modifier_auriun_rune_q_4_effect")

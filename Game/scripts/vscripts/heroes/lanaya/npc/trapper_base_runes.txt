@@ -89,7 +89,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% TRAPPER_Q3_AMP_PERCENT %>"
+				"property_one"			"<% TRAPPER_Q3_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}
@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT * 100 %>"
+				"property_one"			"<% TRAPPER_Q4_AMPLIFY_PERCENT * 100 %>"
 			}
 		}
 	}
@@ -182,11 +182,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% TRAPPER_W3_PROC_CHANCE %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"		    "<% TRAPPER_W3_AMP_INVISIBLE_W * 100 %>"
-			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -216,7 +211,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_W4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% TRAPPER_W4_AMPLIFY_PERCENT * 100 %>"
 			}
 		}
 	}
@@ -272,7 +267,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% TRAPPER_E2_STATS_DAMAGE %>"
 			}
 			"02"
@@ -416,7 +411,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_E4_POST_AMP_PERCENT %>"
+				"property_one"			"<% TRAPPER_E4_PIERCES %>"
 			}
 		}
 	}
@@ -438,7 +433,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"<% TRAPPER_R1_DAMAGE_PCT_OF_MAIN_DAMAGE * 100 %>"
 			}
 			"02"
 			{

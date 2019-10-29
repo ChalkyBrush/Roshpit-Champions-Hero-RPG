@@ -55,7 +55,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% 每10点智力值"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"炸弹"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"元素： <font color=\"#EF4126\">火</font><br>向目标点扔出 <% TRAPPER_W_BOMBS_COUNT %>个炸弹，对爆炸范围内敌人造成伤害和眩晕。"
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"伤害："
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"眩晕持续时间："

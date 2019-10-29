@@ -32,31 +32,31 @@ function Redfall:Debug()
     -- hero.runeUnit3.amulet.r_3 = hero.runeUnit3.amulet.r_3 + 500
     -- Amulet:setRuneBonusNetTable(hero.runeUnit3.amulet.r_3, "rune_r_3", hero)
   end
-  Redfall.Castle = {}
-  Redfall.Castle.BossStatuesActivated = 2
-  Redfall.Castle.FinalSwitchPressed = true
-  Redfall.Shipyard = {}
-  Redfall:SpawnBossRoom()
+  -- Redfall.Castle = {}
+  -- Redfall.Castle.BossStatuesActivated = 2
+  -- Redfall.Castle.FinalSwitchPressed = true
+  -- Redfall.Shipyard = {}
+  -- Redfall:SpawnBossRoom()
   local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
   local drop = CreateItemOnPositionSync(Vector(-15168, -14976), item)
   local position = Vector(-15168, -14976)
   Redfall:DropEnchantedLeaf(position)
   RPCItems:DropItem(item, Vector(-15168, -14976))
   -- Dungeons.itemLevel = 300
-  RPCItems:RollWorldTreesFlowerCache(Vector(-15168, -14976))
-  RPCItems:RollRedOctoberBoots(Vector(-15168, -14976), true)
-  -- Glyphs:DropArcaneCrystals(Vector(-15168, -14976), 1.0)
-  -- RPCItems:RollPhoenixEmblem(Vector(-15168, -14976))
-  -- Redfall:SpawnRedRaven(Vector(-15168, -14976), RandomVector(1))
-  Redfall:GiveBurgundyFirefly(MAIN_HERO_TABLE[1])
-  Arena = {}
-  Arena.PitLevel = 7
-  Weapons:RollLegendWeapon1(Vector(-15168, -14976), "sephyr")
-  Weapons:RollLegendWeapon2(Vector(-15168, -14976), "sephyr")
-  Weapons:RollLegendWeapon3(Vector(-15168, -14976), "sephyr")
-  RPCItems:RollWindDeityCrown(Vector(-15168, -14976), true, 7)
-  -- Redfall:GiveVermillionBundle(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
-  Redfall:GiveShipyardKey(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
+  -- RPCItems:RollWorldTreesFlowerCache(Vector(-15168, -14976))
+  -- RPCItems:RollRedOctoberBoots(Vector(-15168, -14976), true)
+  -- -- Glyphs:DropArcaneCrystals(Vector(-15168, -14976), 1.0)
+  -- -- RPCItems:RollPhoenixEmblem(Vector(-15168, -14976))
+  -- -- Redfall:SpawnRedRaven(Vector(-15168, -14976), RandomVector(1))
+  -- Redfall:GiveBurgundyFirefly(MAIN_HERO_TABLE[1])
+  -- Arena = {}
+  -- Arena.PitLevel = 7
+  -- Weapons:RollLegendWeapon1(Vector(-15168, -14976), "sephyr")
+  -- Weapons:RollLegendWeapon2(Vector(-15168, -14976), "sephyr")
+  -- Weapons:RollLegendWeapon3(Vector(-15168, -14976), "sephyr")
+  -- RPCItems:RollWindDeityCrown(Vector(-15168, -14976), true, 7)
+  -- -- Redfall:GiveVermillionBundle(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
+  -- Redfall:GiveShipyardKey(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
   -- Redfall:GiveDemonRelic(MAIN_HERO_TABLE[1], Vector(-15168, -14976))
   -- RPCItems:RollStormcrackHelm(Vector(-15168, -14976), false)
   -- RPCItems:RollHalcyonSoulGlove(Vector(-15168, -14976))
@@ -140,8 +140,28 @@ function Redfall:Debug()
 end
 
 function Redfall:Debug2()
+      local position = MAIN_HERO_TABLE[1]:GetAbsOrigin()
+      local dummy = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+      dummy:AddAbility("ability_blue_effect"):SetLevel(1)
+      dummy:SetAbsOrigin(dummy:GetAbsOrigin() + Vector(0, 0, 1200))
+      local pfx = CustomAbilities:QuickAttachParticle("particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", dummy, 10)
+      ParticleManager:SetParticleControl(pfx, 14, Vector(1,1,1))
+      ParticleManager:SetParticleControl(pfx, 15, Vector(0,30,255))
+      print("SPAWN LILY")
+      WallPhysics:Jump(dummy, Vector(1, 1), 0, 0, 0, 0.05)
+      Timers:CreateTimer(10, function()
+        local unit = Redfall:SpawnWaterLily(dummy:GetAbsOrigin(), RandomVector(1), false)
+        unit:SetAbsOrigin(dummy:GetAbsOrigin())
+        unit:SetAbsOrigin(unit:GetAbsOrigin() - Vector(0, 0, 40))
+        EmitSoundOn("Redfall.Aqualily.Spawn", unit)
+        CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf", unit, 4)
+        -- StartAnimation(unit, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
+        UTIL_Remove(dummy)
+      end)
+  -- print("HELLO?")
+  -- Events:MainBossSlain("redfall_crimsyth_castle_boss")
   -- Redfall:InitiateCrimsythCastleIntro()
-  Redfall:InitiateDebugRedfall()
+  -- Redfall:InitiateDebugRedfall()
   -- Redfall:SpawnCanyonBoss()
   -- Redfall:SpawnAshara(Vector(1244, -14776), Vector(0,-1))
   --     for i = 1, #MAIN_HERO_TABLE, 1 do

@@ -263,6 +263,7 @@ function b_c_start(event)
 		local caster = event.caster
 		local target = event.target
 		target:SetModifierStackCount("modifier_spirit_rune_e_2_buff", caster, ability.level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end
 
@@ -317,7 +318,7 @@ function tempest_haze_friendly_think(event)
 		local glyph = modifier:GetAbility()
 		local buffDuration = Filters:GetAdjustedBuffDuration(caster, 6, false)
 		glyph:ApplyDataDrivenModifier(glyphUnit, target, "modifier_spirit_warrior_glyph_5_a_effect", {duration = buffDuration})
-		local newStacks = target:GetModifierStackCount("modifier_spirit_warrior_glyph_5_a_effect", glyphUnit) + 1
+		local newStacks = math.min(target:GetModifierStackCount("modifier_spirit_warrior_glyph_5_a_effect", glyphUnit) + 1, SPIRIT_WARRIOR_GLYPH_5_A_MAX_STACKS)
 		target:SetModifierStackCount("modifier_spirit_warrior_glyph_5_a_effect", glyphUnit, newStacks)
 	end
 end

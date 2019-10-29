@@ -12,22 +12,22 @@ for modifierPath, modifier in pairs(modifiers) do
     LinkLuaModifier(modifier, "heroes/lanaya/modifiers/"..modifierPath, LUA_MODIFIER_MOTION_NONE)
 end
 function t31_add_main(event)
-    local caster = event.caster.hero
-    local ability = event.ability
-    caster:AddNewModifier(caster, ability, modifiers.t31_main, {})
+    -- local caster = event.caster.hero
+    -- local ability = event.ability
+    -- caster:AddNewModifier(caster, ability, modifiers.t31_main, {})
 end
 function t31_remove_main(event)
-    local caster = event.caster.hero
-    caster:RemoveModifierByName(modifiers.t31_main)
+    -- local caster = event.caster.hero
+    -- caster:RemoveModifierByName(modifiers.t31_main)
 end
 function t32_add_main(event)
-    local caster = event.caster.hero
-    local ability = event.ability
-    caster:AddNewModifier(caster, ability, modifiers.t31_main, {})
+    -- local caster = event.caster.hero
+    -- local ability = event.ability
+    -- caster:AddNewModifier(caster, ability, modifiers.t31_main, {})
 end
 function t32_remove_main(event)
-    local caster = event.caster.hero
-    caster:RemoveModifierByName(modifiers.t31_main)
+    -- local caster = event.caster.hero
+    -- caster:RemoveModifierByName(modifiers.t31_main)
 end
 function t51_think(event)
     local caster = event.caster.hero

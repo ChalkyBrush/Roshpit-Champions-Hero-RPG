@@ -10641,7 +10641,7 @@
     	"DOTA_Tooltip_modifier_poison_trap_effect_Description"		"Taking Poison Damage"
 		
 		"DOTA_Tooltip_ability_trapper_rune_q_1"						"[Q1] Poison Trap"
-    	"DOTA_Tooltip_ability_trapper_rune_q_1_Description"			"Fulminating Trap is replaced with Poison Trap on use. Enemies within Poison Trap gain a stack of poison every 0.5 seconds, and take damage based on the stack for 6 seconds once leaving the trap. Maximum of 10 poison stacks."
+    	"DOTA_Tooltip_ability_trapper_rune_q_1_Description"			"Fulminating Trap is replaced with Poison Trap on use. Enemies within Poison Trap gain a stack of poison every 0.5 seconds, and take damage based on the stack for 6 seconds once leaving the trap. Maximum of <font color='#ccff66'>20</font> poison stacks."
     	"DOTA_Tooltip_ability_trapper_rune_q_1_property_one"		"Damage per second"
     	"DOTA_Tooltip_ability_trapper_rune_q_1_suffix"				" per stack"	
 		
@@ -10657,23 +10657,24 @@
 		"DOTA_Tooltip_modifier_torrent_trap_immunity"				"Torrent Trap Immunity"
 		
 		"DOTA_Tooltip_ability_trapper_rune_q_3"                     "[Q3] Elemental Pit"
-        "DOTA_Tooltip_ability_trapper_rune_q_3_Description"         "Enemies within a Fulminating Trap take increased <font color=\"#EF4126\">Fire</font> and <font color=\"#37DD3D\">Poison</font> and <font color=\"#3894FF\">Water</font> damage from all sources."
+        "DOTA_Tooltip_ability_trapper_rune_q_3_Description"         "Enemies within any trap have reduced Magic Armor."
         "DOTA_Tooltip_ability_trapper_rune_q_3_property_one"        "Elemental Damage Enhance"
         "DOTA_Tooltip_ability_trapper_rune_q_3_suffix"              "%"
 		
 		"DOTA_Tooltip_modifier_fulminating_magic_resist_loss"		"Elemental Pit"		
-    	"DOTA_Tooltip_modifier_fulminating_magic_resist_loss_Description"	"Taking increased Fire, Water, and Poison damage within Fulminating Trap"
+    	"DOTA_Tooltip_modifier_trap_magic_resist_loss_Description"	"Losing Magic Resistance"
 
 		"DOTA_Tooltip_ability_trapper_rune_q_4"						"[Q4] Cunning Trapper"
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_Description"			"Trapper's Intelligence increases the damage of Fulminating, Poison and Torrent Traps."
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_property_one"		"Damage Bonus"
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% for each 10 points of Intelligence"
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_Description"			"Increases all @Ability1 [Q] Base Damage."
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_property_one"		"Base Ability Damage"
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"Explosive Bomb"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Tosses <font color='#ccff66'>3</font> volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"DAMAGE:"
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"STUN DURATION:"
+        "DOTA_Tooltip_ability_explosive_bomb_number_of_bombs"            "BOMB COUNT:"
 		
 		"DOTA_Tooltip_ability_smoke_bomb"							"Smoke Bomb"
     	"DOTA_Tooltip_ability_smoke_bomb_Description"				"Tosses a smoke-filled bomb at the target location. After 3 seconds, the bomb releases a continuous stream of smoke. Enemies within the smoke have 100% miss chance, and cannot detect Trapper if she is stealthed."
@@ -10688,26 +10689,26 @@
 		"DOTA_Tooltip_ability_trapper_rune_w_2"						"[W2] Nerve Gas"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_Description"			"Enemies standing within a Smoke Bomb take damage every 0.3 seconds."
     	"DOTA_Tooltip_ability_trapper_rune_w_2_property_one"		"Gas Damage"
-    	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				" per hero level"
+    	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				""
 		
-		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Enhanced Munitions"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Each Explosive Bomb has a chance to survive its initial explosion and detonate a second time after <font color='#ccff66'>1</font> second. Each subsequent explosion deals only <font color='#ccff66'>80</font>% of the damage of the previous one. A chance greater than 100% indicates multiple successive explosions. Additionally increases the damage of [W2]."
+		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Explosives Expert"
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Each Explosive Bomb has a chance to survive its initial explosion and detonate a second time after <font color='#ccff66'>1</font> second. Each subsequent explosion deals only <font color='#ccff66'>80</font>% of the damage of the previous one. A chance greater than 100% indicates multiple successive explosions."
     	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"Multi-Blast Chance"
         "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
-        "DOTA_Tooltip_ability_trapper_rune_w_3_property_two"		"Nerve Gas Damage Bonus"
-        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix_two"				"%"
 		
-		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] Explosives Expert"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"All of Trapper's attributes increase the damage of Explosive Bombs and [W2]."
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_property_one"		"Damage Bonus"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_suffix"				"% for each 10 points of attributes"
+		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] Enhanced Munitions"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"Increases @Ability2 [W] Base Ability Damage."
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_property_one"		"Base Ability Damage"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_vanish"						"Vanish"
-    	"DOTA_Tooltip_ability_trapper_vanish_Description"			"Trapper immediately disappears in a cloud of smoke, moving much more quickly. While Vanished, Trapper is invisible and cannot be detected by any means."
+    	"DOTA_Tooltip_ability_trapper_vanish_Description"			"Trapper immediately disappears in a cloud of smoke and prowls with enhanced movespeed. While Vanished, Trapper is invisible and cannot be detected by any means."
     	"DOTA_Tooltip_ability_trapper_vanish_Lore"					""
     	"DOTA_Tooltip_ability_trapper_vanish_duration"				"DURATION:"
     	"DOTA_Tooltip_ability_trapper_vanish_movespeed_bonus"	    "Bonus Movespeed:"
     	"DOTA_Tooltip_ability_trapper_vanish_movespeed_cap"	    "Increased Movespeed Cap:"
+
+        "DOTA_Tooltip_modifier_trapper_vanish"                      "Vanish"
 
 		"DOTA_Tooltip_ability_trapper_rune_e_1"						"[E1] Veiled Assault"
     	"DOTA_Tooltip_ability_trapper_rune_e_1_Description"			"Trapper gains increased attack damage when Vanished."
@@ -10718,7 +10719,7 @@
     	"DOTA_Tooltip_modifier_trapper_rune_e_1_effect_Description"	"Gaining Attack Damage while Vanished"
 		
       	"DOTA_Tooltip_ability_trapper_rune_e_2"						"[E2] Decoy"
-    	"DOTA_Tooltip_ability_trapper_rune_e_2_Description"			"When Trapper enters Vanish, she creates an uncontrollable illusion that lasts <font color='#ccff66'>10</font> seconds. This Decoy does not act, but it is immune to all Magic and Pure damage. After taking <font color='#ccff66'>10</font> attacks or expiring, it will explode, damaging enemies in a <font color='#ccff66'>550</font> radius. This damage ignores Steadfast."
+    	"DOTA_Tooltip_ability_trapper_rune_e_2_Description"			"When Trapper enters Vanish, she creates an uncontrollable illusion that lasts <font color='#ccff66'>10</font> seconds. This Decoy does not act, but it is immune to all Magic and Pure damage. After taking <font color='#ccff66'>10</font> attacks or expiring, it will explode, damaging enemies in a <font color='#ccff66'>550</font> radius."
         "DOTA_Tooltip_ability_trapper_rune_e_2_property_one"        "Damage"
         "DOTA_Tooltip_ability_trapper_rune_e_2_suffix"              "x All Attributes"		
 
@@ -10737,9 +10738,9 @@
     	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix_two"			""
 		
 		"DOTA_Tooltip_ability_trapper_rune_e_4"                     "[E4] Element of Surprise"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "While invisible, Trapper deals increased post-mitigation damage."
-        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "Post-Mitigation Damage Bonus"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_suffix"              "%"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "While invisible, Trapper has increased Armor Pierce and Spell Pierce."
+        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "Armor Pierce and Spell Pierce"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_suffix"              ""
 		
 		"DOTA_Tooltip_modifier_vanish_paralyze"						"Paralyzing Dust"
     	"DOTA_Tooltip_modifier_vanish_paralyze_Description"			"Paralyzed"
@@ -10762,7 +10763,7 @@
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"DAMAGE MULTIPLIER:"
 		
 		"DOTA_Tooltip_ability_trapper_rune_r_1"						"[R1] Chrysanthemum"
-    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Successfully executing a Backstab releases bladed petals against all nearby enemies. These fragments deal damage based on Backstab's damage, and they also ignore Steadfast."
+    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Successfully executing a Backstab releases bladed petals against all nearby enemies as well as the initial target. These fragments deal damage based on Backstab's damage, and they also ignore Steadfast."
     	"DOTA_Tooltip_ability_trapper_rune_r_1_property_one"		"Split Damage"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_suffix"				"%"	
 		
@@ -10802,7 +10803,7 @@
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_radius"				"RADIUS:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_range"				"RANGE:"
     	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_move_slow_per_stack"		"MOVE SLOW PER STACK:"
-    	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_attack_mult_per_stack"	"DAMAGE PER STACK AS A % OF ATTACK DAMAGE"
+    	"DOTA_Tooltip_ability_trapper_arcana_venom_whip_attack_mult_per_stack"	"% DAMAGE PER STACK AS A % OF ATTACK DAMAGE:"
 
     	"DOTA_Tooltip_modifier_poison_whip"							"Venom Whip"
     	"DOTA_Tooltip_modifier_poison_whip_Description"				"Taking <font color=\"#37DD3D\">Poison</font> damage and reduced movespeed."	
@@ -10814,9 +10815,9 @@
     	"DOTA_Tooltip_ability_trapper_arcana_lasso_whip_range"				"RANGE:"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1"						"[W1] Deadly Poison"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Venom Whip poison stacks additionally increase all post-mitigation damage taken by the victim from any source. Maximum <font color='#ccff66'>50</font> stacks."
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Post-Mitigation Damage Bonus"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"% per stack"
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Venom Whip poison stacks additionally decrease the victim's Magic Armor. Maximum <font color='#ccff66'>50</font> stacks."
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Magic Armor Loss"
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				""
 
   		"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1"						"[W2] Dexterity"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"Increases all <font color=\"#FFFFFF\">Normal</font> damage."
@@ -10829,9 +10830,9 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_arcana1_suffix"              "x Agility"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1"						"[W4] Elemental Trickery"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"The sum of Trappers's Attributes increase<br><font color=\"#EF4126\">Fire</font>, <font color=\"#3894FF\">Water</font> and <font color=\"#37DD3D\">Poison</font> damage."
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"		"Damage Increase"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"% for each 10 attributes"
+        "DOTA_Tooltip_ability_trapper_rune_w_4_Description"         "Increases all <font color=\"#EF4126\">Fire</font>, <font color=\"#37DD3D\">Poison</font> and <font color=\"#3894FF\">Water</font> damage."
+        "DOTA_Tooltip_ability_trapper_rune_w_4_property_one"        "Elemental Amp"
+        "DOTA_Tooltip_ability_trapper_rune_w_4_suffix"              "%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "Glyph of Sneaking"
@@ -10841,16 +10842,16 @@
         "item_rpc_trapper_glyph_2_1_description"                "While vanished, restore @glyph_property1% of your max health every 0.1 seconds."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "Glyph of Tinkering"
-        "item_rpc_trapper_glyph_3_1_description"                "Increases the radius of @Ability2 by <font color='#ccff66'>200</font>, and adds <font color='#ccff66'>2</font> more Explosive Bombs per cast. Enemies damaged by an Explosive Bomb are coated in a numbing agent that reduces their next <font color='#ccff66'>3</font> instances of damage dealt to Trapper to 0. Being damaged by another Explosive Bomb will reset the stack count."
+        "item_rpc_trapper_glyph_3_1_description"                "Increases the radius of @Ability2 by <font color='#ccff66'>120</font>, and adds <font color='#ccff66'>1</font> more Explosive Bomb per cast."
 
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "Glyph of Death Strike"
         "item_rpc_trapper_glyph_4_1_description"                "Backstab deals @glyph_property1x damage to Paragon creatures."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "Glyph of the Mad Bomber"
-        "item_rpc_trapper_glyph_5_1_description"                "Attempt to cast @Ability2 for free every time you move <font color='#ccff66'>1400</font> distance. Smoke Bombs last <font color='#ccff66'>1.5</font> times longer and have <font color='#ccff66'>2</font>x radius."
+        "item_rpc_trapper_glyph_5_1_description"                "Attempt to cast @Ability2 for free every time you move <font color='#ccff66'>1400</font> distance. Smoke Bombs last <font color='#ccff66'>1.5</font> times longer and have <font color='#ccff66'>1.5</font>x radius."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "Glyph of Craftsmanship"
-        "item_rpc_trapper_glyph_6_1_description"                "All damage dealt directly by items has Normal added as an additional element. Normal damage dealt by items is multiplied by <font color='#ccff66'>4</font>."
+        "item_rpc_trapper_glyph_6_1_description"                "Increases all <font color=\"#DDDDDD\">Normal</font> damage by <font color='#ccff66'>100</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "Glyph of Trapping"
         "item_rpc_trapper_glyph_7_1_description"                "You can have 2 traps of each type active at a time."
@@ -10859,13 +10860,13 @@
         "item_rpc_trapper_glyph_5_a_description"                "Upgrades @Ability1. Fulminating Trap deals <font color='#ccff66'>50</font>% more damage. Poison Trap maximum stack count increased to <font color='#ccff66'>15</font>. Net Trap has <font color='#ccff66'>2</font>x root duration. Torrent Trap needs only <font color='#ccff66'>1</font> seconds to erupt at a target."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "Glyph of the Pyre Lord"
-        "item_rpc_trapper_glyph_1_2_description"                "The effect of [Q3] is doubled."
+        "item_rpc_trapper_glyph_1_2_description"                "The effect of [Q3] is increased by <font color='#ccff66'>50</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "Glyph of Talons"
         "item_rpc_trapper_glyph_2_2_description"                "The damage from [E3] is applied to the primary target of your attacks."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "Glyph of Disorientation"
-        "item_rpc_trapper_glyph_3_2_description"                "Enemies damaged by @Ability1 have their damage output reduced by @glyph_property1% for <font color='#ccff66'>5</font> seconds."
+        "item_rpc_trapper_glyph_3_2_description"                "Enemies inside Smoke Bomb becomed disoriented, making them walk in random directions for short distances."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "Glyph of the Orchid"
         "item_rpc_trapper_glyph_4_2_description"                "Enemies affected by Net Trap are additionally silenced and disarmed."

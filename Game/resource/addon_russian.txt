@@ -10007,7 +10007,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% за каждые 10 очков Интеллекта"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"Explosive Bomb"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Стихия: <font color=\"#C25DFC\">Нормальный</font><br>Бросает <font color='#ccff66'>3</font> бомбы в указанную точку. Взрыв наносит урон и оглушает цели."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"ВРЕМЯ ОГЛУШЕНИЯ:"
@@ -10174,7 +10174,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "(T3) Glyph of Tinkering"
-        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <font color='#ccff66'>200</font>, и добавляет <font color='#ccff66'>2</font> бомбы за каст. Противники, задетые взрывом, будут контужены и не смогут нанести урон по Trapper следующими <font color='#ccff66'>3</font> порциями урона. Урон от бомб обновляет контузию."
+        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <font color='#ccff66'>120</font>, и добавляет <font color='#ccff66'>1</font> бомбы за каст. Противники, задетые взрывом, будут контужены и не смогут нанести урон по Trapper следующими <font color='#ccff66'>0</font> порциями урона. Урон от бомб обновляет контузию."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"
@@ -10183,7 +10183,7 @@
         "item_rpc_trapper_glyph_4_1_description"                "Применяя (R)Backstab на монстров парагона, будет нанесён увеличенный в @glyph_property1 раз(а) урон."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "(T5) Glyph of the Mad Bomber"
-        "item_rpc_trapper_glyph_5_1_description"                "Бросает @Ability2 каждые <font color='#ccff66'>1400</font> пройденной дистанции. Smoke Bomb производит газ <font color='#ccff66'>1.5</font> раз дольше и имеет <font color='#ccff66'>2</font>x радиус газа."
+        "item_rpc_trapper_glyph_5_1_description"                "Бросает @Ability2 каждые <font color='#ccff66'>1400</font> пройденной дистанции. Smoke Bomb производит газ <font color='#ccff66'>1.5</font> раз дольше и имеет <font color='#ccff66'>1.5</font>x радиус газа."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "(T6) Glyph of Craftsmanship"
         "item_rpc_trapper_glyph_6_1_description"                "Весь урон, напрямую наносимый предметами получает дополнительную <font color=\"#DDDDDD\">Нормальную</font> стихию. В обмен на этот бонус, урон <font color=\"#DDDDDD\">Нормальной</font> стихии снижается на @glyph_property1%"

@@ -352,39 +352,55 @@ end
 
 function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, player, heroString)
 	local ability = runeUnit:AddAbility(heroString.."_rune_q_1")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit:AddAbility(heroString.."_rune_w_1")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit:AddAbility(heroString.."_rune_e_1")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit:AddAbility(heroString.."_rune_r_1")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 
 	local ability = runeUnit2:AddAbility(heroString.."_rune_q_2")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit2:AddAbility(heroString.."_rune_w_2")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit2:AddAbility(heroString.."_rune_e_2")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit2:AddAbility(heroString.."_rune_r_2")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 
 	local ability = runeUnit3:AddAbility(heroString.."_rune_q_3")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit3:AddAbility(heroString.."_rune_w_3")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit3:AddAbility(heroString.."_rune_e_3")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit3:AddAbility(heroString.."_rune_r_3")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 
 	local ability = runeUnit4:AddAbility(heroString.."_rune_q_4")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit4:AddAbility(heroString.."_rune_w_4")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit4:AddAbility(heroString.."_rune_e_4")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 	local ability = runeUnit4:AddAbility(heroString.."_rune_r_4")
+	ability:SetLevel(1)
 	ability.rune_level = 0
 end
 

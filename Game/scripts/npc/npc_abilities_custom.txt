@@ -18462,7 +18462,7 @@
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"17.0"
 		"AbilityChannelTime"	"2.0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT_STATUE"
 		"AbilityDamage"	"%damage"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -18698,7 +18698,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 180 260 340 420 500 580"
+				"damage"	"160 380 600 820 1040 1260 1480"
 			}
 
 			"03"
@@ -34749,7 +34749,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"180 400 800 1400 2000 2400 2800"
+		"AbilityManaCost"				"100 200 300 400 500 600 700"
 
 		// Special
 		//-------------------------------------------------------
@@ -34772,8 +34772,8 @@
 			}
 			"04"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_mult_per_stack"			"30 50 70 90 130 180 240"
+				"var_type"			"FIELD_FLOAT"
+				"attack_mult_per_stack"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
 			}
 			"05"
 			{
@@ -34856,7 +34856,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"180 400 800 1400 2000 2800 4000"
+		"AbilityManaCost"				"60 120 180 240 300 360 420"
 
 		// Special
 		//-------------------------------------------------------
@@ -34959,7 +34959,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
+				"property_one"			"-5"
 			}
 		}
 	}
@@ -34979,7 +34979,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -34999,7 +34999,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"350"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
@@ -35029,7 +35029,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -35057,15 +35057,15 @@
 		//-------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"1.2"
+		"AbilityCastPoint"				"0.5"
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"0.2"
+		"AbilityCooldown"				"1.0"
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"280 600 1000 1400 1800 2200 2600"
+		"AbilityManaCost"				"80 120 160 360 480 600 900"
 
 		"precache"
 		{
@@ -35086,15 +35086,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2400 8400 48000 430000 4655000 20000000 35000000"
+				"damage"				"120 260 400 540 680 820 960"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"stun_duration"			"0.4"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"number_of_bombs"			"1 1 1 2 2 2 3"
+			}
 		}
-
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/lanaya/explosive_bomb.lua"
+				"Function"		"bomb_throw_animation"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -35104,6 +35116,7 @@
         		"Target"		"POINT"
         		"damage"		"%damage"
         		"stun_duration"	"%stun_duration"
+        		"number_of_bombs"	"%number_of_bombs"
 			}
 		}
 	}
@@ -35208,7 +35221,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"180 400 800 1400 2000 4800 9000"
+		"AbilityManaCost"				"80 180 280 380 480 580 680"
 
 		// Special
 		//-------------------------------------------------------
@@ -35277,7 +35290,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"180 260 400 800 1100 1400 2000"
+		"AbilityManaCost"				"80"
 
 		// Special
 		//-------------------------------------------------------
@@ -35368,7 +35381,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3000 16000 42000 120000 320000 685000 1000000"
+				"damage"				"60 200 340 480 620 780 920"
 			}
 		}
 
@@ -35457,13 +35470,21 @@
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 			}
-			"modifier_fulminating_magic_resist_loss"
+			"modifier_trap_magic_resist_loss"
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 
 		}
@@ -35641,6 +35662,22 @@
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_trap_magic_resist_loss"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -35785,7 +35822,22 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
 				}
 			}
-
+			"modifier_trap_magic_resist_loss"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -35930,7 +35982,22 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
 				}
 			}
-
+			"modifier_trap_magic_resist_loss"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -36118,6 +36185,7 @@
 		"precache"
 		{
 			"particle"			"particles/units/heroes/hero_templar_assassin/templar_assassin_meld_attack.vpcf"
+			"particle"			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf"
 			"soundfile"			"sounds/weapons/hero/templar_assassin/meld.vsnd"
 			"soundfile"			"sounds/weapons/hero/templar_assassin/meld_attack.vsnd"
 			"soundfile"			"sounds/weapons/hero/templar_assassin/meld_end.vsnd"
@@ -36395,7 +36463,7 @@
 
         		"Properties"
         		{
-        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1000"
+        			"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "4"
         		}
         	}
 			"modifier_trapper_rune_r_4_bonus_agi"
@@ -36637,7 +36705,7 @@
 			    "IsHidden"  "1"
 			    "Properties"
 			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "45"
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "10"
 			    }
 
 			    "OnAttackLanded"
@@ -36656,7 +36724,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_mult"	"70 90 110 130 150 170 190"
+				"damage_mult"	"8 9 10 11 12 13 14"
 			}
 		}
 	}
@@ -36753,7 +36821,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2500"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -36785,7 +36853,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50000"
+				"property_one"			"110"
 			}
 			"02"
 			{
@@ -36826,7 +36894,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"-60"
 			}
 		}
 	}
@@ -36847,7 +36915,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"20"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -36868,7 +36936,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -36890,7 +36958,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"45"
 			}
 			"02"
 			{
@@ -36918,11 +36986,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"		    "10"
 			}
 			"03"
 			{
@@ -36953,7 +37016,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -36974,7 +37037,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"2"
 			}
 		}
 		"Modifiers"
@@ -37009,8 +37072,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"900"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.06"
 			}
 			"02"
 			{
@@ -37069,7 +37132,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_one"				"36"
+				"property_one"				"8"
 			}
 			"02"
 			{
@@ -37153,7 +37216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"110"
 			}
 		}
 	}
@@ -37206,7 +37269,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"4"
 			}
 		}
 		"Modifiers"
@@ -37249,7 +37312,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"45"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -37270,7 +37333,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"90"
 			}
 		}
 	}

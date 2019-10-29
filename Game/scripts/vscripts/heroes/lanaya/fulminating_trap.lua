@@ -25,7 +25,6 @@ function trap_start(event)
 	trap.origAbility = ability
 	trap.damage = event.damage / 2
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	trap.damage = trap.damage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trap.damage
 	if caster:HasModifier("modifier_trapper_glyph_5_a") then
 		trap.damage = trap.damage * TRAPPER_GLYPH_5_A_FULMINATING_AMP
 	end
@@ -42,9 +41,7 @@ function trap_start(event)
 
 	trap:RemoveAbility("templar_assassin_self_trap")
 	trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
-	if caster:HasModifier("modifier_trapper_glyph_1_2") then
-		trap.q_3_level = trap.q_3_level * T12_AMPLIFY
-	end
+
 
 	local trapAbility = trap:AddAbility("fuliminating_trap_passive")
 	trapAbility:SetLevel(1)
@@ -110,9 +107,7 @@ function trap_start_poison(event)
 	trap.origCaster = caster
 
 	trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
-	if caster:HasModifier("modifier_trapper_glyph_1_2") then
-		trap.q_3_level = trap.q_3_level * T12_AMPLIFY
-	end
+
 	-- Places the trap in the list and increments the total
 	ability.current_traps = ability.current_traps + 1
 	table.insert(ability.traps, trap)
@@ -133,8 +128,8 @@ function trap_start_poison(event)
 
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "trapper")
 	trapAbility.poisonDamage = q_1_level * TRAPPER_Q1_DAMAGE
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	trapAbility.poisonDamage = trapAbility.poisonDamage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.poisonDamage
+	-- local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
+	-- trapAbility.poisonDamage = trapAbility.poisonDamage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.poisonDamage
 	--print("poison damage " .. trapAbility.poisonDamage)
 	-- Plays the sounds
 	-- EmitSoundOn(keys.sound, caster)
@@ -180,8 +175,9 @@ function trap_think(event)
 			ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_burn_effect", {duration = 0.5})
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/fulminating_effect.vpcf", enemy, 0.5)
 			if q_3_level > 0 then
-				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-				enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
+				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_trap_magic_resist_loss", {duration = 1.0})
+				enemy:SetModifierStackCount("modifier_trap_magic_resist_loss", ability, q_3_level)
+				enemy:CalculateAndSaveRoshpitAttributes()
 			end
 		end
 		EmitSoundOn("Trapper.FulminatingHit", trap)
@@ -220,9 +216,7 @@ function trap_start_net(event)
 	trap.origCaster = caster
 
 	trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
-	if caster:HasModifier("modifier_trapper_glyph_1_2") then
-		trap.q_3_level = trap.q_3_level * T12_AMPLIFY
-	end
+
 	Filters:CastSkillArguments(1, caster)
 	-- Places the trap in the list and increments the total
 	ability.current_traps = ability.current_traps + 1
@@ -300,8 +294,9 @@ function net_trap_think(event)
 					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_net_trap_immunity", {duration = 11})
 				end
 				if q_3_level > 0 then
-					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-					enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
+					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_trap_magic_resist_loss", {duration = 1.0})
+					enemy:SetModifierStackCount("modifier_trap_magic_resist_loss", ability, q_3_level)
+					enemy:CalculateAndSaveRoshpitAttributes()
 				end
 			end
 		end
@@ -331,8 +326,9 @@ function poison_trap_think(event)
 			enemy:SetModifierStackCount("modifier_poison_trap_effect", ability, newStacks)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/poison_trap_effect.vpcf", enemy, 0.5)
 			if q_3_level > 0 then
-				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-				enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
+				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_trap_magic_resist_loss", {duration = 1.0})
+				enemy:SetModifierStackCount("modifier_trap_magic_resist_loss", ability, q_3_level)
+				enemy:CalculateAndSaveRoshpitAttributes()
 			end
 		end
 		EmitSoundOn("Trapper.PoisonTrapHit", trap)
@@ -379,9 +375,7 @@ function trap_start_torrent(event)
 	trap.origCaster = caster
 
 	trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
-	if caster:HasModifier("modifier_trapper_glyph_1_2") then
-		trap.q_3_level = trap.q_3_level * T12_AMPLIFY
-	end
+
 	-- Places the trap in the list and increments the total
 	ability.current_traps = ability.current_traps + 1
 	table.insert(ability.traps, trap)
@@ -403,8 +397,8 @@ function trap_start_torrent(event)
 	local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "trapper")
 	trapAbility.q_2_level = q_2_level
 	trapAbility.q_2_damage = q_2_level * TRAPPER_Q2_DAMAGE
-	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
-	trapAbility.q_2_damage = trapAbility.q_2_damage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.q_2_damage
+	-- local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
+	-- trapAbility.q_2_damage = trapAbility.q_2_damage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.q_2_damage
 	-- Plays the sounds
 	-- EmitSoundOn(keys.sound, caster)
 	-- EmitSoundOn(keys.sound2, trap)
@@ -474,8 +468,9 @@ function torrent_trap_think(event)
 				end
 
 				if q_3_level > 0 then
-					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_magic_resist_loss", {duration = 1.0})
-					enemy:SetModifierStackCount("modifier_fulminating_magic_resist_loss", ability, q_3_level)
+					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_trap_magic_resist_loss", {duration = 1.0})
+					enemy:SetModifierStackCount("modifier_trap_magic_resist_loss", ability, q_3_level)
+					enemy:CalculateAndSaveRoshpitAttributes()
 				end
 			end
 		end
