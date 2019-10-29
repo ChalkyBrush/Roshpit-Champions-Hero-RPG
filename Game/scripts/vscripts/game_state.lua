@@ -2565,7 +2565,7 @@ function GameState:FilterDamage(filterTable)
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			modifier = victim:FindModifierByName("modifier_tempest_haze_effect_friendly")
 			if modifier:GetCaster():GetEntityIndex() == victim:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * 0.2
+				filterTable["damage"] = filterTable["damage"] * (1 - SPIRIT_WARRIOR_E3_DAMAGE_REDUCTION)
 			end
 		end
 	end

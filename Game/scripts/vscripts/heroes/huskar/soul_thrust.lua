@@ -82,7 +82,6 @@ function cast_soul_thrust(event)
 					flametongueEvent.ability = caster:FindAbilityByName("spirit_warrior_flametongue")
 					flametongueEvent.pure_damage = flametongueEvent.ability:GetSpecialValueFor("flat_pure_damage")
 					flametongueEvent.mult = w_3_mult
-					flametongueEvent.negative_armor_amp = flametongueEvent.ability:GetSpecialValueFor("negative_armor_amp")
 					flametongue_attack_land(flametongueEvent)
 				end
 			end
@@ -132,7 +131,7 @@ function cast_soul_thrust(event)
 		local currentStacks = caster:GetModifierStackCount("modifier_spirit_warrior_rune_w_2_visible", caster.runeUnit2)
 		local newStacks = math.min(currentStacks + 1, SPIRIT_WARRIOR_W2_MAX_STACKS)
 		caster:SetModifierStackCount("modifier_spirit_warrior_rune_w_2_visible", caster.runeUnit2, newStacks)
-		caster:SetModifierStackCount("modifier_spirit_warrior_rune_w_2_invisible", caster.runeUnit2, newStacks * w_2_level * ability:GetLevel())
+		caster:SetModifierStackCount("modifier_spirit_warrior_rune_w_2_invisible", caster.runeUnit2, newStacks * w_2_level )
 		local particleName = "particles/econ/items/outworld_devourer/od_shards_exile/spirit_warrior_b_b.vpcf"
 		if not runeAbility.pfx then
 			runeAbility.pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)

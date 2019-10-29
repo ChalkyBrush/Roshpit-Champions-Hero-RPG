@@ -215,12 +215,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% SPIRIT_WARRIOR_W3_ATTACK_POWER_TO_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"<% SPIRIT_WARRIOR_W3_Q_MULT_PCT %>"
 			}
 		}
 	}
@@ -241,12 +241,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"<% SPIRIT_WARRIOR_W3_Q_MULT_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"<% SPIRIT_WARRIOR_W4_DMG_INCR_PCT %>"
 			}
 		}
 		"Modifiers"
@@ -284,7 +284,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% SPIRIT_WARRIOR_E1_BONUS_WINDSRIKE_PCT %>"
 			}
 			"02"
@@ -364,16 +364,21 @@
 				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"			"particles/items_fx/spirit_warrior_b_c_aura_ring.vpcf"
 				"EffectAttachType" 		"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% SPIRIT_WARRIOR_E2_ARMOR_AURA %>"
-				}
 				"OnCreated"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/huskar/ancient_spirit.lua"
 						"Function"		"b_c_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
 						"target"		"TARGET"
 					}
 				}
@@ -519,7 +524,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_E4_WIND_PER_INT_PCT %>"
+				"property_one"			"<% SPIRIT_WARRIOR_E4_SPIRIT_AND_INT %>"
 			}
 		}
 	}

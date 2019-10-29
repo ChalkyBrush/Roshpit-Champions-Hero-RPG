@@ -2575,10 +2575,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if e_4_level > 0 then
                     mult = mult + SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP_PER_ATTRIBUTE/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * e_4_level
                 end
-            else
-                if e_4_level then
-                    mult = mult + SPIRIT_WARRIOR_E4_WIND_PER_INT_PCT/100 * attacker:GetIntellect() / 10 * e_4_level
-                end
             end
             local q_4_level = attacker:GetRuneValue("q", 4)
             mult = mult + SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * q_4_level

@@ -130,6 +130,15 @@
 						"negative_armor_amp"	"%negative_armor_amp"
 					}
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_flametongue_b_a_rune_visible"
 			{

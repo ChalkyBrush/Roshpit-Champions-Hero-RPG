@@ -263,6 +263,7 @@ function b_c_start(event)
 		local caster = event.caster
 		local target = event.target
 		target:SetModifierStackCount("modifier_spirit_rune_e_2_buff", caster, ability.level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end
 
