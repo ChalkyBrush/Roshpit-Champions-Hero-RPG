@@ -255,12 +255,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_bonus"			"100 200 500 1000 3000 6000 10000"
+				"agility_bonus"			"40 60 100 160 180 200 240"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"resist"			"70"
+				"resist"			"<% DJANGHOR_WOLF_MAG_PURE_RED * 100 %>"
 			}
 		}
 	}
@@ -465,12 +465,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strength_bonus"			"100 200 500 1000 3000 6000 10000"
+				"strength_bonus"			"40 60 100 160 180 200 240"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"resist"			"30"
+				"resist"			"<% DJANGHOR_BEAR_PHYS_PURE_RED * 100 %>"
 			}
 		}
 	}
@@ -665,12 +665,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_bonus"			"100 200 500 1000 3000 6000 10000"
+				"int_bonus"			"40 60 100 160 180 200 240"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"block"			"5"
+				"block"			"<% DJANGHOR_BIRD_PURE_MAG_BLOCK %>"
 			}
 		}
 	}
@@ -713,7 +713,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"80 100 120 140 160 180 200"
 			}
 		}
 		"OnSpellStart"
@@ -805,7 +805,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base"			"300 1000 5000 20000 40000 80000 160000"
+				"attack_damage_base"			"30 50 100 400 900 1100 1300"
 			}
 			"03"
 			{
@@ -815,7 +815,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base_rune"			"15 50 250 800 2000 4000 8000"
+				"attack_damage_base_rune"			"1.5 2.5 5 20 4.5 5.5 6.5"
 			}
 		}
 		"Modifiers"
@@ -898,7 +898,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"health_regen"			"30 80 150 250 500 1000 1500"
+				"health_regen"			"10 25 55 75 120 200 250"
 			}
 			"03"
 			{
@@ -908,7 +908,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"health_regen_rune"			"1.5 4.0 7.5 12.5 25 50 75"
+				"health_regen_rune"			"0.5 1.25 2.75 3.75 6 10 12.5"
 			}
 		}
 		"Modifiers"
@@ -923,7 +923,6 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen"
 				}
 			}
@@ -934,7 +933,6 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus_rune"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen_rune"
 				}
 			}
@@ -991,12 +989,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"post_mitigation_magic"			"25 50 75 100 125 150 175"
+				"magic_armor_increase"			"30 60 200 400 700 1000 1400"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"mana_regen_rune"			"1.5 3 5 7.5 12 20 35"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magic_armor_increase_rune"			"1.5 3.0 10 20 35 50 70"
 			}
 		}
 		"Modifiers"
@@ -1074,7 +1077,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"70 90 110 140 170 200 220"
 			}
 			"02"
 			{
@@ -1318,7 +1321,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent"		"150 200 250 300 350 400 450"
+				"damage_increase_percent"		"10 20 30 45 60 75 90"
 			}
 			"02"
 			{
@@ -1328,7 +1331,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent_ally"		"15 30 45 60 75 90 105"
+				"damage_increase_percent_ally"		"10 15 20 30 45 60 75"
 			}
 		}
 		"Modifiers"
@@ -1425,7 +1428,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed_increase"		"420 450 500 550 600 660 710"
+				"movespeed_increase"		"710"
 			}
 			"02"
 			{
@@ -1542,7 +1545,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"10 20 40 50 70 80 100"
 			}
 			"02"
 			{
@@ -1553,6 +1556,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"bleed_duration"			"12"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -1587,10 +1595,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 			"modifier_wolf_rend_bleed"
 			{
@@ -1657,7 +1661,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"30 70 150 450 1000 3000 5000"
+				"armor_bonus"		"30 70 150 350 400 700 900"
 			}
 		}
 		"Modifiers"
@@ -1681,10 +1685,6 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
-				}
 			}
 			"modifier_bear_regen"
 			{
@@ -1762,12 +1762,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"		"600 1500 5000 15000 50000 100000 200000"
+				"damage"		"120 200 400 620 1300 2000 2800"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"			"0.45 0.5 0.55 0.6 0.65 0.7 0.75"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
 			}
 		}
 		"Modifiers"
@@ -1778,10 +1783,6 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"	"djanghor/war_stomp"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -1973,7 +1974,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 60000 140000 300000 650000"
+				"damage"				"120 180 220 250 300 400 500"
 			}
 			"02"
 			{
@@ -1983,7 +1984,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"postmitigation"			"100 200 300 400 500 600 700"
+				"magic_armor_reduction"			"-100 -200 -300 -400 -500 -600 -700"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -2059,7 +2060,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 400 700 1200 1700 2600"
+		"AbilityManaCost"				"100 200 400 550 800 1200 1500"
 
 		// Special
 		//-------------------------------------------------------
@@ -2078,12 +2079,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 5000 12000 40000 90000 150000"
+				"damage"			"30 100 220 340 550 900 1500"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
+				"int_mult"			"2.0 2.5 3.0 1.2 1.4 1.6 1.8"
 			}
 		}
 		"OnAbilityPhaseStart"

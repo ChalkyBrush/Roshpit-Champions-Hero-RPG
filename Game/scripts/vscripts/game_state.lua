@@ -1453,7 +1453,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_draghor_shapeshift_bear_lua") then
-			damage = damage * 0.7
+			damage = damage * (1-DJANGHOR_BEAR_PHYS_PURE_RED)
 		end
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -1475,7 +1475,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * damageReduc
 		end
 		if victim:HasModifier("modifier_draghor_shapeshift_cat_lua") then
-			damage = damage * 0.3
+			damage = damage * (1-DJANGHOR_WOLF_MAG_PURE_RED)
 		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
 			damage = damage * (100-FEATHERWHITE_MAGIC_AND_PURE_REDUCTION)/100
@@ -2197,14 +2197,6 @@ function GameState:FilterDamage(filterTable)
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
 		end
-		if attacker:HasModifier("modifier_mark_of_the_talon") then
-			local talonAbility = attacker:FindModifierByName("modifier_mark_of_the_talon"):GetAbility()
-			local multIncrease = talonAbility:GetLevelSpecialValueFor("post_mitigation_magic", talonAbility:GetLevel() - 1) / 100
-			if talonAbility.q_4_level then
-				multIncrease = multIncrease + multIncrease * talonAbility.q_4_level * 0.05
-			end
-			mult = mult + multIncrease
-		end
 		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
 			mult = mult + (BLACK_MAGE_MAGIC_POST_MITI)/100
 		end
@@ -2288,7 +2280,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * e_3_level * ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
 		end
 		if victim:HasModifier("modifier_draghor_shapeshift_hawk_lua") then
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "intellect") * 5, 0)
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "intellect") * DJANGHOR_BIRD_PURE_MAG_BLOCK, 0)
 		end
 	end
 
@@ -2341,13 +2333,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_rockfall_post_mit") then
 		mult = mult + 1.25
 	end
-	if victim:HasModifier("modifier_wolf_rend_bleed") then
-		modifier = victim:FindModifierByName("modifier_wolf_rend_bleed")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local multIncrease = DJANGHOR_W2_POST_MIT_PCT / 100 * modifier:GetAbility().w_2_level
-			mult = mult + multIncrease
-		end
-	end
 
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
@@ -2377,11 +2362,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.15 * stacks
 		mult = mult + multIncrease
-	end
-
-	local modifier = victim:FindModifierByName("modifier_draghor_hawk_screech")
-	if modifier then
-		mult = mult + modifier:GetStackCount()
 	end
 
 	if attacker:HasModifier("modifier_drowning_pool_actual_effect") then
