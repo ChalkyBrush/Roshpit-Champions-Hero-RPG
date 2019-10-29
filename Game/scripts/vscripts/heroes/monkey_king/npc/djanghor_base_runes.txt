@@ -118,7 +118,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DJANGHOR_W2_POST_MIT_PCT %>"
+				"property_one"			"<% DJANGHOR_W2_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -154,7 +154,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% DJANGHOR_W4_NATURE_AMP_PER_ATTRIBUTE_PCT %>"
+				"property_one"			"<% DJANGHOR_W4_NATURE_AMP * 100 %>"
 			}
 		}
 	}

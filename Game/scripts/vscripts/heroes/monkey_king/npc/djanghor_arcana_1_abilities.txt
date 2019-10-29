@@ -250,7 +250,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"all_attributes_bonus"			"100 200 500 1000 3000 6000 10000"
+				"all_attributes_bonus"			"80 120 150 200 220 240 280"
 			}
 		}
 	}
@@ -296,7 +296,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 60000 140000 300000 650000"
+				"damage"				"50 75 100 200 300 420 650"
 			}
 			"02"
 			{
@@ -306,7 +306,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"postmitigation"			"100 200 300 400 500 600 700"
+				"magic_armor_reduction"			"-100 -200 -300 -400 -500 -600 -700"
 			}
 			"04"
 			{
@@ -316,7 +316,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"30 70 150 450 1000 3000 5000"
+				"armor_bonus"		"30 70 150 450 1000 1200 1800"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -382,10 +382,6 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
-				}
 			}
 			"modifier_bear_regen"
 			{
@@ -454,7 +450,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"60 90 90 100 120 140 180"
 			}
 			"02"
 			{
@@ -479,12 +475,17 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 5000 12000 40000 90000 150000"
+				"damage"			"30 120 300 500 700 900 1500"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"int_mult"			"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -533,10 +534,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
-				}
 			}
 			"modifier_wolf_rend_bleed"
 			{
@@ -825,7 +822,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stomp_damage"		"600 1500 5000 15000 50000 100000 200000"
+				"stomp_damage"		"45 70 100 150 500 1000 2000"
 			}
 			"03"
 			{

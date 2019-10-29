@@ -6,6 +6,7 @@ require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
+
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/hero_necrolyte/venomort_constants')
 require('/heroes/nightstalker/chernobog_constants')
@@ -654,6 +655,33 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_auriun_rune_q_3_effect")
 		armor_modify = armor_modify + modifier:GetStackCount()*AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS
 	end
+
+	if unit:HasModifier("modifier_mark_of_the_claw") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_claw")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_mark_of_the_claw")
+	end
+	if unit:HasModifier("modifier_mark_of_the_claw_rune") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_claw_rune")
+		local q_4_level = unit:GetRuneValue("q", 4)
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus_rune", "modifier_mark_of_the_claw_rune")*q_4_level*0.05
+	end
+	if unit:HasModifier("modifier_bear_armor_buff") then
+		local modifier = unit:FindModifierByName("modifier_bear_armor_buff")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_bear_armor_buff")
+	end
+	if unit:HasModifier("modifier_wolf_rend_bleed") then
+		local modifier = unit:FindModifierByName("modifier_wolf_rend_bleed")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_wolf_rend_bleed")
+	end
+	if unit:HasModifier("modifier_bear_rend_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_bear_rend_armor_loss")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_bear_rend_armor_loss")
+	end
+	
+	if unit:HasModifier("modifier_wolf_rend_stack") then
+		local modifier = unit:FindModifierByName("modifier_wolf_rend_stack")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_wolf_rend_stack")
+	end
 	if unit:HasModifier("modifier_flametongue_a_a_rune") then
 		local modifier = unit:FindModifierByName("modifier_flametongue_a_a_rune")
 		modifier_caster = modifier:GetCaster()
@@ -669,7 +697,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local all_mods = unit:FindAllModifiersByName("modifier_spirit_rune_e_2_buff")
 		armor_modify = armor_modify + modifier:GetStackCount*#all_mods*SPIRIT_WARRIOR_E2_ARMOR_AURA
 	end
-
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -905,6 +932,28 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_seraph_surge_glyphed") then
 		magic_armor_modify = magic_armor_modify + AURIUN_GLYPH_5_1_MAGIC_RESIST
 	end
+
+	if unit:HasModifier("modifier_wolf_rend_bleed") then
+		local modifier = unit:FindModifierByName("modifier_wolf_rend_bleed")
+		local caster = modifier:GetCaster()
+		local w_2_value = caster:GetRuneValue("w", 2)
+		magic_armor_modify = magic_armor_modify + DJANGHOR_W2_MAGIC_ARMOR_REDUCTION * w_2_value
+	end
+	
+	if unit:HasModifier("modifier_draghor_hawk_screech") then
+		local modifier = unit:FindModifierByName("modifier_draghor_hawk_screech")
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduction", "modifier_draghor_hawk_screech")
+	end
+	if unit:HasModifier("modifier_mark_of_the_talon") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_talon")
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_increase", "modifier_mark_of_the_talon")
+	end
+	if unit:HasModifier("modifier_mark_of_the_talon_rune") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_talon_rune")
+		local q_4_level = unit:GetRuneValue("q", 4)
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_increase_rune", "modifier_mark_of_the_talon_rune")*q_4_level*0.05
+	end
+
 	if unit:HasModifier("modifier_trap_magic_resist_loss") then
 		local modifier = unit:FindModifierByName("modifier_trap_magic_resist_loss")
 		if modifier then
@@ -927,6 +976,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
 	end
+
 
 
 	if magic_armor_modify > 0 then
@@ -1022,7 +1072,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
 	end
-
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
