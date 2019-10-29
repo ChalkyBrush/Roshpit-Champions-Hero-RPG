@@ -654,6 +654,16 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_auriun_rune_q_3_effect")
 		armor_modify = armor_modify + modifier:GetStackCount()*AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS
 	end
+	if unit:HasModifier("modifier_flametongue_a_a_rune") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_a_a_rune")
+		modifier_caster = modifier:GetCaster()
+		local q_1_level = modifier_caster:GetRuneValue("q", 1)
+		armor_modify = armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF*q_1_level
+	end
+	if unit:HasModifier("modifier_flametongue_q_2_fire_shield") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
+		armor_modify = armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
+	end
 
 
 	if armor_modify > 0 then
@@ -906,7 +916,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_poison_whip")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK
 	end
-
+	if unit:HasModifier("modifier_flametongue_q_2_fire_shield") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
+	end
 
 
 	if magic_armor_modify > 0 then

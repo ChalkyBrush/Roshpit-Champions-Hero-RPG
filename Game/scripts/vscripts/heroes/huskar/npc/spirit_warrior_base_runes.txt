@@ -26,7 +26,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-<% SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF %>"
+				"property_two"			"<% SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF %>"
 			}
 			"04"
 			{
@@ -52,19 +52,9 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"<% SPIRIT_WARRIOR_Q2_REDUCTION_BASE * 100 %>"
+				"property_one"			"<% SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS %>"
 			}
 			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_Q2_REDUCTION * 100 %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"<% SPIRIT_WARRIOR_Q2_REDUCTION_CAP * 100 %>"
-			}
-			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% SPIRIT_WARRIOR_Q2_EVASION %>"
@@ -120,12 +110,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_Q4_FIRE_AMP_PER_STR %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_Q4_WIND_AMP_PER_AGI %>"
+				"property_one"			"<% SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * 100 %>"
 			}
 		}
 	}

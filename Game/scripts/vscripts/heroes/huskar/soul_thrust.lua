@@ -67,9 +67,9 @@ function cast_soul_thrust(event)
 				local flametongueAbility = caster:FindAbilityByName("spirit_warrior_flametongue")
 				flametongueAbility.q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "spirit_warrior")
 				if flametongueAbility.q_1_level > 0 then
-					flametongueAbility:ApplyDataDrivenModifier(caster, enemy, "modifier_flametongue_a_a_rune", {duration = 5})
+					flametongueAbility:ApplyDataDrivenModifier(caster, enemy, "modifier_flametongue_a_a_rune", {duration = SPIRIT_WARRIOR_Q1_BURN_DURATION})
 					local stacks = enemy:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
-					local newStacks = math.min(stacks + 1, 50)
+					local newStacks = math.min(stacks + 1, SPIRIT_WARRIOR_Q1_MAX_STACKS)
 					enemy:SetModifierStackCount("modifier_flametongue_a_a_rune", caster, newStacks)
 				end
 			end

@@ -48,6 +48,7 @@ function flametongue_start(event)
 	caster.q_2_level = ability.q_2_level
 	if ability.q_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_flametongue_q_2_fire_shield", {duration = duration})
+		caster:SetModifierStackCount("modifier_flametongue_q_2_fire_shield", caster, ability.q_2_level)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/heroes/spirit_warrior/flameblood_fire_shield.vpcf", caster, 2)
 		-- CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/crimsyth_elite_magic.vpcf", caster:GetAbsOrigin()+Vector(0,0,100)+caster:GetForwardVector()*150, 1.5)
 	end
@@ -55,14 +56,11 @@ end
 
 function flametongue_attack_land(event)
 	local target = event.target
-	local damage = event.pure_damage
+	local damage = event.damage
 	local attacker = event.attacker
 	local ability = event.ability
 	local caster = event.caster
 	local mult = event.mult
-	if target:GetPhysicalArmorValue(false) < 0 then
-		damage = damage + (event.negative_armor_amp / 100) * math.abs(target:GetPhysicalArmorValue(false)) * damage
-	end
 	damage = damage * mult
 	EmitSoundOn("SpiritWarrior.FlametongueImpact", target)
 	CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
@@ -70,20 +68,10 @@ function flametongue_attack_land(event)
 	--print(ability.q_1_level)
 	if ability.q_1_level > 0 then
 		--print("FIRE EFFECT?")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_a_a_rune", {duration = 5})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_a_a_rune", {duration = SPIRIT_WARRIOR_Q1_BURN_DURATION})
 		local stacks = target:GetModifierStackCount("modifier_flametongue_a_a_rune", caster)
 		local newStacks = math.min(stacks + 1, SPIRIT_WARRIOR_Q1_MAX_STACKS)
 		target:SetModifierStackCount("modifier_flametongue_a_a_rune", caster, newStacks)
-	end
-	if ability.q_1_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_b_a_rune_visible", {duration = SPIRIT_WARRIOR_Q1_BURN_DURATION})
-		local stacks = target:GetModifierStackCount("modifier_flametongue_b_a_rune_visible", caster)
-		local newStacks = stacks + 1
-		target:SetModifierStackCount("modifier_flametongue_b_a_rune_visible", caster, newStacks)
-
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue_b_a_rune_invisible", {duration = SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF_DURATION})
-		local armorLossStacks = newStacks * ability.q_1_level
-		target:SetModifierStackCount("modifier_flametongue_b_a_rune_invisible", caster, armorLossStacks)
 	end
 end
 

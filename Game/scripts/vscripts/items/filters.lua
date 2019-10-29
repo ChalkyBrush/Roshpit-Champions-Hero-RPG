@@ -2054,7 +2054,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_huskar" then
             if attacker.q_4_level then
-                fireMult = fireMult + SPIRIT_WARRIOR_Q4_FIRE_AMP_PER_STR/100 * attacker:GetStrength() / 10 * attacker.q_4_level
+                fireMult = fireMult + SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * attacker.q_4_level
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana2") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
@@ -2581,9 +2581,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
             local q_4_level = attacker:GetRuneValue("q", 4)
-            if q_4_level then
-                mult = mult + SPIRIT_WARRIOR_Q4_WIND_AMP_PER_AGI/100 * attacker:GetAgility() / 10 * q_4_level
-            end
+            mult = mult + SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * q_4_level
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
                 if attacker:HasModifier('modifier_seinaru_glyph_7_1') then

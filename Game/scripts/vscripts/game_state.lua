@@ -1576,12 +1576,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_gravelfoot_buff") then
 		damage = damage * (100-GRAVELFOOT_DMG_REDUCTION)/100
 	end
-	if victim:HasModifier("modifier_flametongue_q_2_fire_shield") then
-		if victim.q_2_level and victim.q_2_level > 0 then
-			local reduction = 1 - math.min((SPIRIT_WARRIOR_Q2_REDUCTION_BASE + SPIRIT_WARRIOR_Q2_REDUCTION * victim.q_2_level), SPIRIT_WARRIOR_Q2_REDUCTION_CAP)
-			damage = damage * reduction
-		end
-	end
 	if victim:HasModifier("modifier_jex_magic_immunity") then
 		local barrier_ability = victim:FindModifierByName("modifier_jex_magic_immunity"):GetAbility()
 		local reduce_pct = barrier_ability:GetSpecialValueFor("q_4_damage_reduction_pct")
@@ -2768,9 +2762,9 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_soul_thrust_effect") then
-		modifier = attacker:FindModifierByName("modifier_soul_thrust_effect"):GetCaster()
-		if modifier:GetEntityIndex() == victim:GetEntityIndex() then
-			filterTable["damage"] = filterTable["damage"] * 0.5
+		modifier_caster = attacker:FindModifierByName("modifier_soul_thrust_effect"):GetCaster()
+		if modifier_caster:GetEntityIndex() == victim:GetEntityIndex() then
+			filterTable["damage"] = filterTable["damage"] * (1 - SPIRIT_WARRIOR_W_DAMAGE_REDUCTION)
 		end
 	end
 
