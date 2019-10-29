@@ -888,6 +888,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_seraph_surge_glyphed") then
 		magic_armor_modify = magic_armor_modify + AURIUN_GLYPH_5_1_MAGIC_RESIST
 	end
+	if unit:HasModifier("modifier_trap_magic_resist_loss") then
+		local modifier = unit:FindModifierByName("modifier_trap_magic_resist_loss")
+		if modifier then
+			local trap = modifier:GetCaster()
+			local caster = trap.origCaster
+			if caster then
+				local q_3_level = caster:GetRuneValue("q", 3)
+				magic_armor_modify = magic_armor_modify + TRAPPER_Q3_MAGIC_ARMOR_LOSS*q_3_level
+				if caster:HasModifier("modifier_trapper_glyph_1_2") then
+					magic_armor_modify = magic_armor_modify + TRAPPER_GLYPH_1_2_Q3_PCT_AMP*TRAPPER_Q3_MAGIC_ARMOR_LOSS*q_3_level
+				end
+			end
+		end
+	end
+	if unit:HasModifier("modifier_poison_whip") then
+		local modifier = unit:FindModifierByName("modifier_poison_whip")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK
+	end
 
 
 
@@ -979,6 +997,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_duskbringer_rune_r_2_invisible") then
 		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_R2_PIERCES
+	end
+	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
+		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
 	end
 
 
@@ -1076,6 +1098,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_shadow_trap_d_a_buff") then
 		local modifier = unit:FindModifierByName("modifier_shadow_trap_d_a_buff")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*AURIUN_ARCANA_2_Q4_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
+		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
 	end
 
 	if spell_pierce_modify > 0 then

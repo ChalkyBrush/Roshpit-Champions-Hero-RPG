@@ -19,15 +19,15 @@
 		//-------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"1.2"
+		"AbilityCastPoint"				"0.5"
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"0.2"
+		"AbilityCooldown"				"1.0"
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"280 600 1000 1400 1800 2200 2600"
+		"AbilityManaCost"				"80 120 160 360 480 600 900"
 
 		"precache"
 		{
@@ -48,15 +48,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2400 8400 48000 430000 4655000 20000000 35000000"
+				"damage"				"120 260 400 540 680 820 960"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"stun_duration"			"0.4"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"number_of_bombs"			"1 1 1 2 2 2 3"
+			}
 		}
-
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/lanaya/explosive_bomb.lua"
+				"Function"		"bomb_throw_animation"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -66,6 +78,7 @@
         		"Target"		"POINT"
         		"damage"		"%damage"
         		"stun_duration"	"%stun_duration"
+        		"number_of_bombs"	"%number_of_bombs"
 			}
 		}
 	}
@@ -170,7 +183,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"180 400 800 1400 2000 4800 9000"
+		"AbilityManaCost"				"80 180 280 380 480 580 680"
 
 		// Special
 		//-------------------------------------------------------
@@ -239,7 +252,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"180 260 400 800 1100 1400 2000"
+		"AbilityManaCost"				"80"
 
 		// Special
 		//-------------------------------------------------------
@@ -330,7 +343,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3000 16000 42000 120000 320000 685000 1000000"
+				"damage"				"60 200 340 480 620 780 920"
 			}
 		}
 
@@ -419,13 +432,21 @@
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
 			}
-			"modifier_fulminating_magic_resist_loss"
+			"modifier_trap_magic_resist_loss"
 			{
 				"Passive"	"0"
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 
 		}
@@ -603,6 +624,22 @@
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_trap_magic_resist_loss"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -747,7 +784,22 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
 				}
 			}
-
+			"modifier_trap_magic_resist_loss"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -892,7 +944,22 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
 				}
 			}
-
+			"modifier_trap_magic_resist_loss"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"batrider_flaming_lasso"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -1080,6 +1147,7 @@
 		"precache"
 		{
 			"particle"			"particles/units/heroes/hero_templar_assassin/templar_assassin_meld_attack.vpcf"
+			"particle"			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf"
 			"soundfile"			"sounds/weapons/hero/templar_assassin/meld.vsnd"
 			"soundfile"			"sounds/weapons/hero/templar_assassin/meld_attack.vsnd"
 			"soundfile"			"sounds/weapons/hero/templar_assassin/meld_end.vsnd"
@@ -1618,7 +1686,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_mult"	"70 90 110 130 150 170 190"
+				"damage_mult"	"8 9 10 11 12 13 14"
 			}
 		}
 	}

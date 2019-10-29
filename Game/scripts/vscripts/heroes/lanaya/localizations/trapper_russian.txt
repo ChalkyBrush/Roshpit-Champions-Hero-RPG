@@ -55,7 +55,7 @@
     	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% за каждые 10 очков Интеллекта"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"Explosive Bomb"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Стихия: <font color=\"#C25DFC\">Нормальный</font><br>Бросает <% TRAPPER_W_BOMBS_COUNT %> бомбы в указанную точку. Взрыв наносит урон и оглушает цели."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"ВРЕМЯ ОГЛУШЕНИЯ:"

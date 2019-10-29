@@ -3250,29 +3250,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 	end
 
-	--TRAPPER
-	modifier = attacker:FindModifierByName("modifier_trapper_d_c_post_amp")
-	if modifier then
-		local stacks = modifier:GetStackCount()
-		mult = mult + stacks * TRAPPER_E4_POST_AMP_PERCENT/100
-	end
-
-	modifier = victim:FindModifierByName("modifier_poison_whip")
-	if modifier then
-		local stacks = modifier:GetStackCount()
-		local ability = modifier:GetAbility()
-		local w_1_level = ability.w_1_level
-		mult = mult + TRAPPER_ARCANA_W_W1_POST_AMP_PERCENT/100 * w_1_level * math.min(stacks, TRAPPER_ARCANA_W_W1_MAX_STACKS)
-	end
-
-	--SEINARU
-
-	modifier = victim:FindModifierByName("modifier_seinaru_rune_w_1_invisible")
-	if modifier then
-		local stacks = modifier:GetStackCount()
-		mult = mult + SEINARU_W1_POSTMIT_PER_STACK_PER_LVL * stacks
-	end
-
 	modifier = victim:FindModifierByName("modifier_drill_crusher_stack")
 	if modifier and modifier:GetStackCount() == DRILL_CRUSHER_MAX_STACKS_COUNT then
 		mult = mult + DRILL_CRUSHER_POSTMITIGATION

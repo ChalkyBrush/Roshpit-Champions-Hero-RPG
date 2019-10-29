@@ -45,9 +45,6 @@ function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, el
         return
     end
     local mult = 1
-    if attacker:HasModifier("modifier_trapper_glyph_6_1") then
-        element2 = RPC_ELEMENT_NORMAL
-    end
     if attacker:HasModifier('modifier_duskbringer_glyph_7_2') then
         element2 = RPC_ELEMENT_GHOST
     end
@@ -1477,6 +1474,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
 
     if slot == BASE_ABILITY_Q then
+        if attacker:GetUnitName() == "npc_dota_hero_templar_assassin" then
+            if attacker:HasAbility("fulminating_trap") then
+                damageMult = damageMult + TRAPPER_Q4_AMPLIFY_PERCENT*attacker:GetRuneValue("q", 4)
+            end
+        end
         if attacker:HasModifier("modifier_body_violet_guard") then
             damageMult = damageMult + 3
         elseif attacker:HasModifier("modifier_body_violet_guard2") then
@@ -1596,6 +1598,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_astral_glyph_1_1") then
             damage = 0
+        end
+        if attacker:GetUnitName() == "npc_dota_hero_templar_assassin" then
+            if attacker:HasAbility("explosive_bomb") then
+                damageMult = damageMult + TRAPPER_W4_AMPLIFY_PERCENT*attacker:GetRuneValue("w", 4)
+            end
         end
         damage = damage * (1 + damageMult)
         if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
@@ -2002,8 +2009,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)
             normalMult = normalMult + stacks / 100
         end
-        if attacker:HasModifier('modifier_trapper_glyph_6_1') and slot == BASE_ITEM then
-            normalMult = normalMult * TRAPPER_GLYPH_6_1_NORMAL_ITEM_AMPLIFY
+        if attacker:HasModifier('modifier_trapper_glyph_6_1') then
+            normalMult = normalMult * TRAPPER_GLYPH_6_1_NORMAL_AMP
         end
         mult = mult + normalMult
     end
@@ -2064,7 +2071,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                fireMult = fireMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                fireMult = fireMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * w_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker.q_4_level then
@@ -2120,11 +2127,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if victim:HasModifier("fire_walker_aura") then
             fireMult = fireMult + 6
-        end
-        if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
-            local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
-            fireMult = fireMult + multIncrease
         end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker:HasModifier("modifier_jex_arcana1") then
@@ -2217,7 +2219,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                mult = mult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                mult = mult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * w_4_level
             end
         end
         if attacker:HasModifier("modifier_helm_poison") then
@@ -2227,11 +2229,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_weapon_poison") then
             local stacks = attacker:GetModifierStackCount("modifier_weapon_poison", attacker.InventoryUnit)
             mult = mult + stacks / 100
-        end
-        if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
-            local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
-            mult = mult + multIncrease
         end
     end
     if element1 == RPC_ELEMENT_TIME or element2 == RPC_ELEMENT_TIME then
@@ -2663,7 +2660,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_templar_assassin" then
             if attacker:HasModifier("modifier_trapper_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                waterMult = waterMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                waterMult = waterMult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * w_4_level
             end
         elseif unitName == "npc_dota_hero_huskar" then
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
@@ -2693,11 +2690,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_hand_water") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_water", attacker.InventoryUnit)
             waterMult = waterMult + stacks / 100
-        end
-        if victim:HasModifier("modifier_fulminating_magic_resist_loss") then
-            local modifier = victim:FindModifierByName("modifier_fulminating_magic_resist_loss")
-            local multIncrease = modifier:GetStackCount() * TRAPPER_Q3_AMP_PERCENT/100
-            waterMult = waterMult + multIncrease
         end
         if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then
             local modifier = victim:FindModifierByName("modifier_flood_basin_enemy_inside_water_stacks")
