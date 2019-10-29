@@ -177,29 +177,29 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_suffix"				"% of Max Health"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1"						"[R2] Rain Storm"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"While Ancient Rain is active, the closest group of enemies within 1000 radius is zapped by lightning every 0.5 seconds."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"While Ancient Rain is active, the closest group of enemies within a <% SPIRIT_WARRIOR_ARCANA_R2_RADIUS %> radius are zapped by lightning every 0.5 seconds."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_property_one"			"Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_suffix"				"% of attack power"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1"						"[R3] Waterheart Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"While Ancient Rain is on cooldown, Spirit Warrior has a new spell Waterheart Weapon. Waterheart Weapon is a targetable buff makes attacks deal additional pure damage based on attacker's current health. Additionally all post-mitigation damage is enhanced while the buff is active."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"While Ancient Rain is on cooldown, Spirit Warrior has a new spell Waterheart Weapon. Waterheart Weapon is a targetable buff makes attacks deal additional pure damage based on attacker's current health. Additionally increases Armor Pierce while the buff is active."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_one"		"Impact Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix"				"% of current health"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Post-mitigation Damage Amp"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Armor Pierce"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			""
 
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon_Description"		"Cast a buff on an ally that increases post mitigation magic damage, and causes attacks to deal additional pure damage based on current health."
 
     	"DOTA_Tooltip_modifier_waterheart_weapon"								"Waterheart Weapon"
-    	"DOTA_Tooltip_modifier_waterheart_weapon_Description"					"Dealing bonus pure damage based on current health, and increased post-mitigation magic damage."
+    	"DOTA_Tooltip_modifier_waterheart_weapon_Description"					"Dealing bonus pure damage based on current health, and increased armor pierce."
 
     	"spirit_warrior_arcana1_r"												"Ancient Rain & Waterheart Weapon"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1"						"[R4] Water Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"All <font color=\"#3894FF\">Water</font> damage is amplified by Spirit Warrior's attributes."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"Increases all <font color=\"#3894FF\">Water</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"Water Damage Amp"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"% for each 10 points of Attributes"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"%"
 
        	"item_property_spirit_warrior_arcana2"										"Blazing Javelin"
     	"property_spirit_warrior_arcana2_description"								"Replaces @Ability2 and all of its runes with Blazing Javelin."
@@ -227,9 +227,9 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2"						"[W4] Fire Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"All <font color=\"#EF4126\">Fire</font> damage is amplified by Spirit Warrior's attributes."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"Increases all <font color=\"#EF4126\">Fire</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"Fire Damage Amp"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				"% for each 10 points of Attributes"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				"%"
 
        	"item_property_spirit_warrior_arcana3"										"Ancient Spirit Elite"
     	"property_spirit_warrior_arcana3_description"								"Replaces @Ability3 and all of its runes with Ancient Spirit Elite."
@@ -260,9 +260,9 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_suffix_two"			" seconds"	
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3"						"[E4] Wind Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"All <font color=\"#7AE2A7\">Wind</font> damage is amplified by Spirit Warrior's attributes."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"Increases all <font color=\"#7AE2A7\">Wind</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"Wind Damage Amp"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"% for each 10 points of Attributes"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"%"
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"Glyph of Spiritual Mobility"

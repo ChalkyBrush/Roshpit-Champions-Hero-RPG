@@ -2058,7 +2058,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_spirit_warrior_arcana2") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
-                fireMult = fireMult + SPIRIT_WARRIOR_ARCANA_W4_FIRE_AMP_PER_ATTRIBUTE / 100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * w_4_level
+                fireMult = fireMult + SPIRIT_WARRIOR_ARCANA_W4_FIRE_AMP * w_4_level
             end
         elseif unitName == "npc_dota_hero_beastmaster" then
             if attacker:HasModifier("modifier_warlord_fire_charge") then
@@ -2573,7 +2573,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local e_4_level = attacker:GetRuneValue("e", 4)
             if attacker:HasModifier("modifier_spirit_warrior_arcana3") then
                 if e_4_level > 0 then
-                    mult = mult + SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP_PER_ATTRIBUTE/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * e_4_level
+                    mult = mult + SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP * e_4_level
                 end
             end
             local q_4_level = attacker:GetRuneValue("q", 4)
@@ -2660,7 +2660,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_spirit_warrior_arcana1") then
                 local d_d_arcana_level = attacker:GetRuneValue("r", 4)
                 if d_d_arcana_level > 0 then
-                    waterMult = waterMult + SPIRIT_WARRIOR_ARCANA_R4_WATER_AMP_PER_ATTRIBUTE/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * d_d_arcana_level
+                    waterMult = waterMult + SPIRIT_WARRIOR_ARCANA_R4_WATER_AMP * d_d_arcana_level
                 end
             end
         elseif unitName == "npc_dota_hero_slark" then

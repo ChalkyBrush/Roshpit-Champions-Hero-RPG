@@ -25886,14 +25886,6 @@
 					}
 				}
 			}
-			"modifier_ancient_rain_armor"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
-			}
 			"modifier_ancient_rain_regen"
 			{
 				"IsHidden"	"1"
@@ -25930,22 +25922,22 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"60"
+				"duration"	"45"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_reduction_percent"	"60 65 70 75 80 85 90"
+				"damage_reduction_percent"	"35"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attackspeed"	"130 160 190 220 250 280 310"
+				"attackspeed"	"120 140 160 180 200 220 240"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"armor_per_missing_health"	"0.15 0.20 0.25 0.3 0.35 0.4 0.45"
+				"armor_and_magic_armor"	"100 250 400 550 700 850 1000"
 			}
 		}
 	}
@@ -26055,7 +26047,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.04"
 			}
 		}
 	}
@@ -26111,13 +26103,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"40"
 			}
 			"03"
 			{
@@ -26147,7 +26139,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"13"
 			}
 		}
 	}
@@ -26175,11 +26167,11 @@
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0.0"
-		"AbilityCastRange"				"600 800 1000 1200 1400 1600 1800"
+		"AbilityCastRange"				"700 800 900 1000 1100 1200 1300"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+		"AbilityManaCost"				"120 280 420 680 920 1160 1400"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -26193,7 +26185,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"1200 1300 1400 1500 1600 1700 1800"
+				"cast_range"				"1000 1100 1200 1300 1400 1500 1600"
 			}
 		}
 
@@ -26268,7 +26260,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "2000"
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "80"
 				}
 			}
 			"modifier_javelin_root"
@@ -26311,12 +26303,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"0.01"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2000"
+				"property_two"			"80"
 			}
 		}
 	}
@@ -26336,7 +26328,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -26376,7 +26368,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"0.13"
 			}
 		}
 	}
@@ -26629,7 +26621,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8800"
+				"property_one"			"140"
 			}
 			"02"
 			{
@@ -26660,12 +26652,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2000"
+				"property_one"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"15"
 			}
 		}
 	}
@@ -26687,7 +26679,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12000"
+				"property_one"			"70"
 			}
 			"02"
 			{
@@ -26807,7 +26799,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"0.13"
 			}
 		}
 	}
@@ -26857,8 +26849,7 @@
 				"EffectAttachType" 		"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"					"2000"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"10"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"					"50"
 				}
 				"OnCreated"
 				{
@@ -27972,7 +27963,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"70"
 			}
 			"02"
 			{

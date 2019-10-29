@@ -83,15 +83,6 @@ function ancient_rain_think(event)
 			end
 		end
 	end
-	local armor_per_missing_health = event.armor_per_missing_health
-	local missingHealth = caster:GetHealth()
-	local armorBonus = math.floor(missingHealth * armor_per_missing_health / 200)
-	if armorBonus > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain_armor", {})
-		caster:SetModifierStackCount("modifier_ancient_rain_armor", caster, armorBonus)
-	else
-		caster:RemoveModifierByName("modifier_ancient_rain_armor")
-	end
 end
 
 function ancient_rain_regen_think(event)
@@ -144,13 +135,14 @@ function blazing_javelin_cast(event)
 			if i == procs then
 				ability:SetActivated(true)
 			end
-			local particle = "particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear.vpcf"
+			local particle = "particles/econ/items/mars/mars_ti9_immortal/mars_ti9_immortal_spear.vpcf"
 			local start_radius = 155
 			local end_radius = 155
 			local range = event.cast_range
 			local speed = 1200
 
-			EmitSoundOn("Hero_TrollWarlord.PreAttack", caster)
+			EmitSoundOn("SpiritWarrior.BlazingJavelin.ThrowBase", caster)
+			EmitSoundOn("SpiritWarrior.BlazingJavelin.ThrowBurn", caster)
 
 			local casterOrigin = caster:GetAbsOrigin()
 

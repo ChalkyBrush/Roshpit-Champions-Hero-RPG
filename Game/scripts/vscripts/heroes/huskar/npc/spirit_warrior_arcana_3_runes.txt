@@ -47,12 +47,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2000"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E2_HEALTH %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"<% SPIRIT_WARRIOR_ARCANA_E2_ARMOR %>"
 			}
 		}
 	}
@@ -194,7 +194,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP_PER_ATTRIBUTE %>"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP %>"
 			}
 		}
 	}
@@ -244,8 +244,7 @@
 				"EffectAttachType" 		"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"					"2000"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"10"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"					"<% SPIRIT_WARRIOR_ARCANA_E2_HEALTH %>"
 				}
 				"OnCreated"
 				{

@@ -2400,12 +2400,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100)*stacks
 	end
-	if attacker:HasModifier("modifier_waterheart_weapon") then
-		local waterheart = attacker:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
-		if waterheart then
-			mult = mult + SPIRIT_WARRIOR_ARCANA_R3_POST_MITI_PCT/100 * waterheart.r_3_level
-		end
-	end
 
 	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
 		if attacker.r_4_level then

@@ -696,7 +696,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_spirit_rune_e_2_buff")
 		local all_mods = unit:FindAllModifiersByName("modifier_spirit_rune_e_2_buff")
 		local all_mods_count = #all_mods
-		armor_modify = armor_modify + modifier:GetStackCount()*all_mods_count*SPIRIT_WARRIOR_E2_ARMOR_AURA
+		local caster = modifier:GetCaster()
+		local armor_mod = SPIRIT_WARRIOR_E2_ARMOR_AURA
+		if caster:GetUnitName() == "spirit_warrior_spirit_elite" then
+			armor_mod = SPIRIT_WARRIOR_ARCANA_E2_ARMOR
+		end
+		armor_modify = armor_modify + modifier:GetStackCount()*all_mods_count*armor_mod
+	end
+	if unit:HasModifier("modifier_ancient_rain") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_ancient_rain")
 	end
 
 	if armor_modify > 0 then
@@ -977,6 +985,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
 	end
+	if unit:HasModifier("modifier_ancient_rain") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_ancient_rain")
+	end
 
 
 
@@ -1072,6 +1083,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
 		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
+	end
+	if unit:HasModifier("modifier_waterheart_weapon") then
+		local waterheart = unit:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
+		if waterheart then
+			armor_pierce_modify = armor_pierce_modify + SPIRIT_WARRIOR_ARCANA_R3_ARMOR_PIERCE * waterheart.r_3_level
+		end
 	end
 
 	if armor_pierce_modify > 0 then
