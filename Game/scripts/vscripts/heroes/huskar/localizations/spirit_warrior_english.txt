@@ -312,7 +312,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_1"		"Windpiercer"
 		"item_property_spirit_warrior_immortal_weapon"								"Windpiercer"
-		"property_spirit_warrior_immortal_weapon_description"						"Flameblood and Windstrike weapons last 10 seconds longer and deal 100% increased damage."
+		"property_spirit_warrior_immortal_weapon_description"						"Flameblood and Windstrike weapons last <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DURATION_BONUS %> seconds longer and have <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DAMAGE_AMP_PCT %>% increased Base Ability Damage."
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_2"            "Jade Halberd"
 
