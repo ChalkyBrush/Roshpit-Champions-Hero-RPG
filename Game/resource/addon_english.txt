@@ -4794,7 +4794,7 @@
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon"								"Mark of the Talon"
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_Description"					"Increases mana regen and post-mitigation magic damage. Allows for shapeshifting into Hawk form."
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_mana_regen"						"MANA REGEN:"
-		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_post_mitigation_magic"			"POST MITIGATION MAGIC DAMAGE:"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_magic_armor_increase"			"MAGIC BLOCK:"
 
 		"DOTA_Tooltip_modifier_mark_of_the_talon"										"Mark of the Talon"
 		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"Increased mana regen and post-mitigation magic damage. Allows shapeshifting into Hawk form."	
@@ -4832,10 +4832,11 @@
 		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Absolute movement speed increased, cannot be slowed."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
-		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Element: <font color=\"#DDDDDD\">Normal</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power. Each Rend reduces enemy armor by 50%, stacking up to 2 times. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time."
+		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Element: <font color=\"#DDDDDD\">Normal</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power. Rend hit decreases enemy Armor. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time."
 		"DOTA_Tooltip_ability_draghor_wolf_rend_damage_mult"							"DAMAGE AS % OF ATTACK POWER:"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_damage"							"BLEED DAMAGE AS % OF ATTACK POWER:"	
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_duration"							"BLEED DURATION:"
+		"DOTA_Tooltip_ability_draghor_wolf_rend_rend_armor_reduction"					"ARMOR REDUCTION:"
 
 		"DOTA_Tooltip_modifier_wolf_rend_stack"											"Rend"
 		"DOTA_Tooltip_modifier_wolf_rend_stack_Description"								"Reduced armor. At 2 stacks, the next rend will cause bleeding."
@@ -4868,11 +4869,11 @@
 		"DOTA_Tooltip_ability_draghor_hawk_screech"									"Screech"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#69BC71\">Nature</font><br>A sonic wave damages enemies in a cone, and applies a debuff that makes them take increased post-mitigation damage from all sources."
 		"DOTA_Tooltip_ability_draghor_hawk_screech_damage"							"DAMAGE:"
-		"DOTA_Tooltip_ability_draghor_hawk_screech_postmitigation"					"POST-MITIGATION AMP:"
+		"DOTA_Tooltip_ability_draghor_hawk_screech_magic_armor_reduction"					"MAGIC ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_debuff_duration"					"DEBUFF DURATION:"
 
 		"DOTA_Tooltip_modifier_draghor_hawk_screech"								"Screech"
-		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"Taking increased post-mitigation damage from all sources."
+		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"Magic armor reduced."
 
 		"DOTA_Tooltip_ability_draghor_hawk_tornado"									"Aerial Tornado"
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"Element: <font color=\"#7AE2A7\">Wind</font> / <font color=\"#69BC71\">Nature</font><br> A violent tornado is conjured from Djanghor's wings, launching forward. Enemies hit by the tornado are slowed."
@@ -4928,9 +4929,9 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Rupture"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend take increased post-mitigation damage from Djanghor."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Post-Mitigation Damage"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend have their Magic Armor reduced."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Magic Armor reduction"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] Nature's Wrath"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"Djanghor's attack damage is added to Aerial Tornado and War Stomp."
@@ -5004,9 +5005,9 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"ATTRIBUTE BONUS IN YEAR BEAST FORM:"
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"Thunderous Roar"
-		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#69BC71\">Nature</font><br>A sonic wave damages enemies in a cone, and applies a debuff that makes them take increased post-mitigation damage from all sources. All enemies hit by the wave are taunted and forced to attack Djanghor for a duration. Gain bonus armor for the taunt duration."
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#69BC71\">Nature</font><br>A sonic wave damages enemies in a cone, and applies a debuff that makes them lose Magic Armor value. All enemies hit by the wave are taunted and forced to attack Djanghor for a duration. Gain bonus armor for the taunt duration."
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_damage"							"DAMAGE:"
-		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_postmitigation"					"POST-MITIGATION AMP:"
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_magic_armor_reduction"					"MAGIC ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_debuff_duration"					"DEBUFF DURATION:"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_duration"							"TAUNT DURATION:"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_armor_bonus"						"ARMOR BONUS:"
@@ -5015,7 +5016,7 @@
 		"DOTA_Tooltip_modifier_wolf_howl_flat_w_2_Description"										"Increased Attack Power"	
 
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale"										"Rending Gale"
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"Element: <font color=\"#DDDDDD\">Normal</font><br><font color=\"#7AE2A7\">Wind</font> / <font color=\"#69BC71\">Nature</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power and launching tornados. Each Rend reduces enemy armor by 50%, stacking up to 2 times. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time. Enemies hit by tornados can also bleed, and are also slowed."
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"Element: <font color=\"#DDDDDD\">Normal</font><br><font color=\"#7AE2A7\">Wind</font> / <font color=\"#69BC71\">Nature</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power and launching tornados. Rend hit reduces enemy Armor. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time. Enemies hit by tornados can also bleed, and are also slowed."
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage_mult"							"CLAW DAMAGE AS % OF ATTACK POWER:"
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_damage"							"BLEED DAMAGE AS % OF ATTACK POWER:"	
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_duration"						"BLEED DURATION:"
@@ -5023,6 +5024,7 @@
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_attack_speed"							"TORNADO ATTACKSPEED REDUCTION:"
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage"								"TORNADO BASE DAMAGE:"
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_int_mult"								"TORNADO ADDITIONAL DAMAGE INTELLIGENCE MULTIPLER:"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_rend_armor_reduction"						"ARMOR REDUCTION:"
 
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge"									"Legendary Charge"
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_Description"						"Charge toward the target location. Enemies in Djanghor's path are stunned and pushed along with the charge. At the end of the charge, gain bonus movespeed and movespeed cap."
@@ -5067,13 +5069,13 @@
 		"item_rpc_djanghor_glyph_1_1_description" 				"Hitting an enemy with a large hit from Jin'bo refreshes the cooldown of Monkey Leap."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"Glyph of Hunting"
-		"item_rpc_djanghor_glyph_2_1_description" 				"In wolf form attacks have a <font color='#ccff66'>20</font>% chance of having +<font color='#ccff66'>1000</font>% bonus attack damage. Effects persists for <font color='#ccff66'>7</font> seconds after shifting out."
+		"item_rpc_djanghor_glyph_2_1_description" 				"In wolf form attacks have a <font color='#ccff66'>20</font>% chance of having +<font color='#ccff66'>60</font>% bonus attack damage. Effects persists for <font color='#ccff66'>7</font> seconds after shifting out."
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"Wolf Critical Strike"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Attacks have a chance to deal additional damage."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"Glyph of Elusion"
-		"item_rpc_djanghor_glyph_3_1_description" 				"<font color='#ccff66'>60</font>% evasion in Wolf form, <font color='#ccff66'>30</font>% evasion in Monkey form."
+		"item_rpc_djanghor_glyph_3_1_description" 				"<font color='#ccff66'>35</font>% evasion in Wolf form, <font color='#ccff66'>25</font>% evasion in Monkey form."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"Glyph of Protective Shapeshifter"
 		"item_rpc_djanghor_glyph_4_1_description" 				"Finishing a Shapeshift applies a shield that absorbs <font color='#ccff66'>7</font> instances of damage. Lasts <font color='#ccff66'>12</font> seconds."
@@ -5088,7 +5090,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Every <font color='#ccff66'>2</font> seconds, Djanghor cleanses 1 enemy debuff from himself. Any of Djanghor's animal form spells that make him charge to a location will apply [E3] when cast."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a <font color='#ccff66'>25</font>% chance to bash the target, dealing <font color='#ccff66'>400</font>% increased damage and stunning for <font color='#ccff66'>1.5</font> seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend for <font color='#ccff66'>20</font> seconds."
+		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a <font color='#ccff66'>25</font>% chance to bash the target, dealing <font color='#ccff66'>50</font>% increased damage and stunning for <font color='#ccff66'>1.5</font> seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend for <font color='#ccff66'>20</font> seconds."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."
@@ -10282,22 +10284,21 @@
 		
 
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color=\"#EF4126\">Fire</font> damage. Enemies take additional damage from Flameblood while their armor is negative."
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color=\"#EF4126\">Fire</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ATTACK DAMAGE BONUS %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"BUFF DURATION:"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
         "DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "FIRE DAMAGE AMP: %"
-        "DOTA_Tooltip_ability_spirit_warrior_flametongue_negative_armor_amp"            "EXTRA FLAMEBLOOD DAMAGE PER NEGATIVE ARMOR: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"
     	"DOTA_Tooltip_modifier_flametongue_Description"				"Increased attack damage and a flat magic damage bonus on attack"
 
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust"			"Soul Thrust"
-    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal 50% reduced damage to Spirit Warrior for 7 seconds. Casting this ability causes one of Spirit Warrior's active ancient spirits to run towards his position."	
+    	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_Description"	"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#7AE2A7\">Wind</font><br>The Spirit Warrior slams his spear into the ground in front of him, creating a damaging soul explosion. Damage is enhanced by Flameblood Weapon. Enemies hit by Soul Thrust deal <font color='#ccff66'>30</font>% reduced damage to Spirit Warrior for 7 seconds. Casting this ability causes one of Spirit Warrior's active ancient spirits to run towards his position."	
     	"DOTA_Tooltip_ability_spirit_warrior_soul_thrust_damage"		"DAMAGE:"
 
     	"DOTA_Tooltip_modifier_soul_thrust_effect"					"Soul Thrust"
-    	"DOTA_Tooltip_modifier_soul_thrust_effect_Description"		"Dealing 50%% reduced damage to Spirit Warrior."
+    	"DOTA_Tooltip_modifier_soul_thrust_effect_Description"		"Dealing <font color='#ccff66'>30</font>%% reduced damage to Spirit Warrior."
 
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit"		"Ancient Spirit"
     	"DOTA_Tooltip_ability_spirit_warrior_ancient_spirit_Description"	"Creates an ancient spirit that runs to the target location. Casting this ability near an existing ancient spirit allows the caster to leap to the target location. Cooldown only applies to spirit summoning, not leaping. Casting [W] ability makes 1 of your active spirits run towards Spirit Warrior."
@@ -10314,32 +10315,29 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Increased attack speed and damage."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff and for 5 seconds and a stacking armor debuff for 10 seconds. Max 50 burn stacks but no limit on armor loss stacks. The burn damage is amplified by negative armor the same as its base skill Flameblood."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff and for <font color='#ccff66'>6</font> seconds and a stacking armor debuff for 10 seconds. Max <font color='#ccff66'>30</font> stacks."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per tick per burn stack"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Armor loss per stack"   
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
 
     	"DOTA_Tooltip_modifier_flametongue_q_1_rune"				"Burning Flameblood"
-    	"DOTA_Tooltip_modifier_flametongue_q_1_rune_Description"	"Taking burn damage with each stack"
+    	"DOTA_Tooltip_modifier_flametongue_q_1_rune_Description"	"Taking burn damage with each stack with reduced armor."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Fire and Wind Shield"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Casting Flameblood or Windstrike Weapon applies Fire or Wind Shield to Spirit Warrior. Fire Shield reduces all damage taken, and Wind Shield adds evasion."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Fire Shield Damage Reduction"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		"%"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Casting Flameblood or Windstrike Weapon applies Fire or Wind Shield to Spirit Warrior. Fire Shield adds armor and magic armor, and Wind Shield adds evasion."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Fire Shield Armor and Magic Armor"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		""
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_two" "Wind Shield Evasion"
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix_two"   "%"
 
-    	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible"		"Flameblood Armor Melt"
-    	"DOTA_Tooltip_modifier_flametongue_b_a_rune_visible_Description"	"Reduced physical armor"
-
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] Windstrike Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"Adds the Windstrike Weapon ability after a flameblood cast. Windstrike attacks deal additional pure damage based on recipient's attack power. Windstrike has an additional 1% damage amplication for each point of armor that the target has. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"Adds the Windstrike Weapon ability after a flameblood cast. Windstrike attacks deal additional pure damage based on recipient's attack power.Windstrike and Flameblood cannot be active at the same time on the same target."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Additional Pure Damage"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% of attack damage"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"Windstrike Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Element: <font color=\"#7AE2A7\">Wind</font><br>Applies a wind buff to a target ally that makes attacks deal additional pure damage based on the attacker's attack power. Windstrike has an additional 1% damage amplication for each point of armor that the target has. Windstrike and Flameblood cannot be active at the same time on the same target."
+    	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_Description"	"Element: <font color=\"#7AE2A7\">Wind</font><br>Applies a wind buff to a target ally that makes attacks deal additional pure damage based on the attacker's attack power. Windstrike and Flameblood cannot be active at the same time on the same target."
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_attackspeed"	"ATTACKSPEED BONUS"
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"BUFF DURATION:"
 
@@ -10347,11 +10345,9 @@
     	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"Attacks deal additional pure damage based on attack power"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] Inner Flame"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"<font color=\"#EF4126\">Fire</font> damage is increased by Strength and <font color=\"#7AE2A7\">Wind</font> damage is increased by Agility."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Bonus Fire Damage"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"% for each 10 points of Strength"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_two"	"Bonus Wind Damage"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix_two"	"% for each 10 points of Agility"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Increases <font color=\"#EF4126\">Fire</font> damage and <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Fire and Wind Amp"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1"				"[W1] Temperament"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Gain attack damage for each point of missing mana"
@@ -10362,7 +10358,7 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Gaining attack damage for missing mana"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2"				"[W2] Soul Render"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_Description"  "Casting Soul Thrust increases attack damage for 5 seconds. Stacks up to 3 times. The stated bonus is multiplied by Soul Thrust's level."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_Description"  "Casting Soul Thrust increases attack damage for 5 seconds. Stacks up to 3 times."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_property_one"	"Attack Damage"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_suffix"		""
 
@@ -10377,7 +10373,7 @@
         "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "% Weapon Strike Bonus"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "After leaping to an Ancient Spirit, gain a buff where the next Soul Thrust deals increased damage and stuns. The damage increase also applies to [W3] flameblood and windstrike hits."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "After leaping to an Ancient Spirit, gain a buff where the next Soul Thrust deals increased damage and stuns. The damage increase also applies to [W3] Flameblood and Windstrike hits."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_one"	"Damage Increase"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix"		"%"
         "DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_two" "Stun Duration"   
@@ -10405,7 +10401,7 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff_Description"	"Increased armor from a nearby Ancient Spirit"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3"				"[E3] Tempest Haze"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes 80% reduced Magical and Pure Damage while standing within the Tempest."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes <font color='#ccff66'>0.5</font>% reduced Magical and Pure Damage while standing within the Tempest."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_one"	"DPS"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix"		""
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_two"	"Duration"	
@@ -10420,9 +10416,9 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_3_debuff_Description"	"Slowed by a nearby Ancient Spirit"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4"				"[E4] Primal Revelations"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_Description"  "Spirit Warrior's Intelligence increases all <font color=\"#7AE2A7\">Wind</font> Damage."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_property_one"	"Damage Bonus"	
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_suffix"		"% for each 10 Intelligence"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_Description"  "Increases Spirit Warriors Intelligence and Spirit."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_property_one"	"Spirit and Intelligence"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_suffix"		""	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1"				"[R1] Troll Blood"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_Description"	"Passively adds a lifesteal effect from all damage dealt. A % of damage dealt is healed over 5 seconds."
@@ -10579,7 +10575,7 @@
 		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Increases the duration of @Ability4 by <font color='#ccff66'>40</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"Glyph of Storm Helix"
-		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Standing within Tempest Haze adds a stack of Storm Helix every <font color='#ccff66'>0.5</font> seconds which increases attack speed by <font color='#ccff66'>25</font>, attack damage by <font color='#ccff66'>15</font>% and attack range by <font color='#ccff66'>15</font>."
+		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Standing within Tempest Haze adds a stack of Storm Helix every <font color='#ccff66'>0.5</font> seconds which increases attack speed by <font color='#ccff66'>10</font>, attack damage by <font color='#ccff66'>3</font>% and attack range by <font color='#ccff66'>20</font>."
 
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"Storm Helix"
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"Increased attack damage and attack speed"
@@ -10601,7 +10597,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_1"		"Windpiercer"
 		"item_property_spirit_warrior_immortal_weapon"								"Windpiercer"
-		"property_spirit_warrior_immortal_weapon_description"						"Flameblood and Windstrike weapons last 10 seconds longer and deal 100% increased damage."
+		"property_spirit_warrior_immortal_weapon_description"						"Flameblood and Windstrike weapons last <font color='#ccff66'>20</font> seconds longer and have <font color='#ccff66'>60</font>% increased Base Ability Damage."
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_2"            "Jade Halberd"
 

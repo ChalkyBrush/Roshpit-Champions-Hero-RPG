@@ -4990,13 +4990,13 @@
 		"item_rpc_djanghor_glyph_1_1_description" 				"Большой удар от (W) Jin'bo сбрасывает время перезарядки для (E) Monkey Leap."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"(T2) Glyph of Hunting"
-		"item_rpc_djanghor_glyph_2_1_description" 				"Пока герой находится в форме волка, атаки с <font color='#ccff66'>20</font>% шансом будут усилены на <font color='#ccff66'>1000</font>%. Эффект продолжит действовать в течении <font color='#ccff66'>7</font> секунд после трансформации."
+		"item_rpc_djanghor_glyph_2_1_description" 				"Пока герой находится в форме волка, атаки с <font color='#ccff66'>20</font>% шансом будут усилены на <font color='#ccff66'>60</font>%. Эффект продолжит действовать в течении <font color='#ccff66'>7</font> секунд после трансформации."
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"Wolf Critical Strike"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Шанс на критическую атаку."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"(T3) Glyph of Elusion"
-		"item_rpc_djanghor_glyph_3_1_description" 				"<font color='#ccff66'>60</font>% уклонение в форме волка, <font color='#ccff66'>30</font>% уклонение в форме обезьяны."
+		"item_rpc_djanghor_glyph_3_1_description" 				"<font color='#ccff66'>35</font>% уклонение в форме волка, <font color='#ccff66'>25</font>% уклонение в форме обезьяны."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"(T4) Glyph of Protective Shapeshifter"
 		"item_rpc_djanghor_glyph_4_1_description" 				"Завершение любой трансформации дарует герою <font color='#ccff66'>7</font> зарядов щита, полностью поглощающего урон. Длительность щита <font color='#ccff66'>12</font> секунд."
@@ -5011,7 +5011,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые <font color='#ccff66'>2</font> сек. Способности перемещения Battle Charge и Legendary Charge применяют руну [E3] при касте."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"С <font color='#ccff66'>25</font>% шансом атака в форме медведя может оглушить цель на <font color='#ccff66'>1.5</font> сек. и нанести увеличенный на <font color='#ccff66'>400</font>% урон. Эффект продолжит действовать в течении 15 секунд после трансформации. War Stomp снижает броню целей так же как и Rend, на последуюшие <font color='#ccff66'>20</font> секунд."
+		"item_rpc_djanghor_glyph_7_1_description" 				"С <font color='#ccff66'>25</font>% шансом атака в форме медведя может оглушить цель на <font color='#ccff66'>1.5</font> сек. и нанести увеличенный на <font color='#ccff66'>50</font>% урон. Эффект продолжит действовать в течении 15 секунд после трансформации. War Stomp снижает броню целей так же как и Rend, на последуюшие <font color='#ccff66'>20</font> секунд."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Шанс оглушить цель при атаке и нанести дополнительный урон."
@@ -9915,7 +9915,7 @@
 		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Увеличивает время действия умения (R) @Ability4 на <font color='#ccff66'>40</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"(Immortal) Glyph of Storm Helix"
-		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Находясь рядом с бурей от [E3] герой каждые <font color='#ccff66'>0.5</font> секунды получает заряды, которые увеличивают его скорость атаки на <font color='#ccff66'>25</font>, урон на <font color='#ccff66'>15</font>% и дальность атаки на <font color='#ccff66'>15</font>."
+		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Находясь рядом с бурей от [E3] герой каждые <font color='#ccff66'>0.5</font> секунды получает заряды, которые увеличивают его скорость атаки на <font color='#ccff66'>10</font>, урон на <font color='#ccff66'>3</font>% и дальность атаки на <font color='#ccff66'>20</font>."
 
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"Storm Helix"
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"Урон и скорость атаки увеличены"

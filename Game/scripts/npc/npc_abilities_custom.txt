@@ -26895,27 +26895,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_increase"		"50 80 110 140 170 200 230"
+				"damage_increase"		"8 10 12 14 16 18 20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"60"
+				"duration"				"40"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"flat_pure_damage"				"1000 4800 7500 12000 22000 34000 56000"
+				"flat_damage"				"40 60 80 100 120 140 160"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"fire_damage_amp"		"50 100 200 500 1000 3000 5000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"negative_armor_amp"	"3.0 4.5 6.0 7.5 9.0 10.5 12"
+				"fire_damage_amp"		"10 15 20 25 30 35 40"
 			}
 		}
 		// Precache
@@ -26988,9 +26983,8 @@
 					{
 						"ScriptFile"	"heroes/huskar/flametongue.lua"
 						"Function"		"flametongue_attack_land"
-						"pure_damage"	"%flat_pure_damage"
+						"damage"	"%flat_damage"
 						"mult"			"1"
-						"negative_armor_amp"	"%negative_armor_amp"
 					}
 				}
 			}
@@ -27013,6 +27007,15 @@
 						"negative_armor_amp"	"%negative_armor_amp"
 					}
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_flametongue_b_a_rune_visible"
 			{
@@ -27025,10 +27028,6 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
-				}
 			}
 			"modifier_flametongue_q_2_fire_shield"
 			{
@@ -27055,7 +27054,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"60"
+				"duration"				"40"
 			}
 			"02"
 			{
@@ -27131,7 +27130,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.8"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.5"
 				}
 			}
 		}
@@ -27162,7 +27161,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3000 12000 25000 60000 120000 240000 600000"
+				"damage"			"75 155 235 315 395 475 555"
 			}
 		}
 		"AbilityCastPoint"				"0.3"
@@ -27173,7 +27172,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 240 400 700 1100 1700 3200"
+		"AbilityManaCost"				"50 100 150 200 250 300 350"
 
 		// Special
 		//-------------------------------------------------------
@@ -27612,7 +27611,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "22"
 				}
 			}
 			"modifier_ancient_vigor_regen"
@@ -27678,12 +27677,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"flat_damage"	"500 2000 6000 15000 25000 35000 50000"
+				"flat_damage"	"40 70 100 130 160 190 220"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attackspeed" "200 220 240 260 280 300 320"
+				"attackspeed" "140 150 160 170 180 190 200"
 			}
 
 		}
@@ -27709,17 +27708,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"285"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"220"
+				"property_one_base"		"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-15"
+				"property_two"			"-4"
 			}
 			"04"
 			{
@@ -27745,22 +27744,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"65"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_max"			"95"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.8"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -27781,8 +27770,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -27813,12 +27802,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.03"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -27839,7 +27823,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"0.01"
 			}
 		}
 		"Modifiers"
@@ -27874,7 +27858,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"640"
+				"property_one"			"15"
 			}
 		}
 		"Modifiers"
@@ -27923,7 +27907,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -27949,12 +27933,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"30"
 			}
 		}
 		"Modifiers"
@@ -27988,12 +27972,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4400"
+				"property_one"			"35"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 			"02"
 			{
@@ -28024,7 +28008,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -28045,7 +28029,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"10"
 			}
 		}
 		"Modifiers"
@@ -28072,16 +28056,21 @@
 				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"			"particles/items_fx/spirit_warrior_b_c_aura_ring.vpcf"
 				"EffectAttachType" 		"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"12"
-				}
 				"OnCreated"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/huskar/ancient_spirit.lua"
 						"Function"		"b_c_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
 						"target"		"TARGET"
 					}
 				}
@@ -28106,7 +28095,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"35"
 			}
 			"02"
 			{
@@ -28227,7 +28216,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"35"
 			}
 		}
 	}
@@ -28248,7 +28237,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -28269,7 +28258,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -28291,7 +28280,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -28327,7 +28316,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"22"
 			}
 		}
 	}

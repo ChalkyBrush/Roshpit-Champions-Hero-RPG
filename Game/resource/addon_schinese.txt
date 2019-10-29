@@ -5297,13 +5297,13 @@
 		"item_rpc_djanghor_glyph_1_1_description" 				"金箍棒的强力一击击中敌人将刷新筋斗云的冷却。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"狩猎雕文"
-		"item_rpc_djanghor_glyph_2_1_description" 				"在狼形态下，攻击有 <font color='#ccff66'>20</font>% 的概率获得 +<font color='#ccff66'>1000</font>% 的攻击力。变换为其他形态之后效果仍持续 <font color='#ccff66'>7</font>秒。"
+		"item_rpc_djanghor_glyph_2_1_description" 				"在狼形态下，攻击有 <font color='#ccff66'>20</font>% 的概率获得 +<font color='#ccff66'>60</font>% 的攻击力。变换为其他形态之后效果仍持续 <font color='#ccff66'>7</font>秒。"
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"狼之利爪"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"攻击有概率造成额外伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"模糊雕文"
-		"item_rpc_djanghor_glyph_3_1_description" 				"狼形态下有 <font color='#ccff66'>60</font>% 概率闪避，孙悟空本体形态下有 <font color='#ccff66'>30</font>% 概率闪避。"
+		"item_rpc_djanghor_glyph_3_1_description" 				"狼形态下有 <font color='#ccff66'>35</font>% 概率闪避，孙悟空本体形态下有 <font color='#ccff66'>25</font>% 概率闪避。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"七十二变雕文"
 		"item_rpc_djanghor_glyph_4_1_description" 				"变身结束后获得 <font color='#ccff66'>7</font> 层护盾，每层护盾吸收一次伤害。持续 <font color='#ccff66'>12</font>秒。"
@@ -5318,7 +5318,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"每 <font color='#ccff66'>2</font> 秒，清除一次来自于敌人的负面debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"抨击雕文"
-		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 <font color='#ccff66'>25</font>% 的概率攻击眩晕敌人，并且所造成的伤害提高 <font color='#ccff66'>400</font>% 。眩晕持续 <font color='#ccff66'>1.5</font> 秒。变换为其它形态后，buff仍持续 15 秒。 战争践踏将会和撕裂一样降低敌人的护甲。"
+		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 <font color='#ccff66'>25</font>% 的概率攻击眩晕敌人，并且所造成的伤害提高 <font color='#ccff66'>50</font>% 。眩晕持续 <font color='#ccff66'>1.5</font> 秒。变换为其它形态后，buff仍持续 15 秒。 战争践踏将会和撕裂一样降低敌人的护甲。"
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"抨击"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"攻击时有概率眩晕敌人并造成额外伤害"
@@ -10181,7 +10181,7 @@
 		"item_rpc_spirit_warrior_glyph_7_1_description" 				"提高远古活力的持续时间 <font color='#ccff66'>40</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"風暴螺旋雕文"
-		"item_rpc_spirit_warrior_glyph_5_a_description" 				"站在暴风雨中每 <font color='#ccff66'>0.5</font> 秒获得一层風暴螺旋buff。每层buff提高攻击速度 <font color='#ccff66'>25</font>，提高攻击力 <font color='#ccff66'>15</font>% 并且提高攻击距离 <font color='#ccff66'>15</font>。"
+		"item_rpc_spirit_warrior_glyph_5_a_description" 				"站在暴风雨中每 <font color='#ccff66'>0.5</font> 秒获得一层風暴螺旋buff。每层buff提高攻击速度 <font color='#ccff66'>10</font>，提高攻击力 <font color='#ccff66'>3</font>% 并且提高攻击距离 <font color='#ccff66'>20</font>。"
 
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"風暴螺旋"
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect_Description"	"攻击力和攻击速度提高"

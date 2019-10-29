@@ -695,7 +695,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_spirit_rune_e_2_buff") then
 		local modifier = unit:FindModifierByName("modifier_spirit_rune_e_2_buff")
 		local all_mods = unit:FindAllModifiersByName("modifier_spirit_rune_e_2_buff")
-		armor_modify = armor_modify + modifier:GetStackCount*#all_mods*SPIRIT_WARRIOR_E2_ARMOR_AURA
+		local all_mods_count = #all_mods
+		armor_modify = armor_modify + modifier:GetStackCount()*all_mods_count*SPIRIT_WARRIOR_E2_ARMOR_AURA
 	end
 
 	if armor_modify > 0 then
@@ -1292,7 +1293,7 @@ function CustomAttributes:SetAttributes(hero)
 			agi_bonus = agi_bonus + hero.e_4_level*SEINARU_E4_AGILITY
 		end
 	end
-	if hero:GetUnitName == "npc_dota_hero_huskar" then
+	if hero:GetUnitName() == "npc_dota_hero_huskar" then
 		local e_4_level = hero:GetRuneValue("e", 4)
 		int_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
 		spirit_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
