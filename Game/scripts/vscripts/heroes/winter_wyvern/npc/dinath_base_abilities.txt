@@ -368,7 +368,7 @@
 			{
 				"IsHidden"	"1"
 			}
-			"modifier_hyperbeam_postmit"
+			"modifier_hyperbeam_magic_armor_reduction"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
@@ -506,12 +506,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_base"	"800 8000 35000 60000 200000 400000 800000"
+				"damage_base"	"<% DINATH_Q_DAMAGE_FLAT %>"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_attack_power"	"90 110 130 150 170 190 210"
+				"damage_attack_power"	"<% DINATH_Q_DAMAGE_PCT %>"
 			}
 		}
 	}
@@ -530,7 +530,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AOERadius"						"210 235 250 265 280 295 320"
 		"AbilityCastRange"				"1000"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"precache"
 		{
 			"particle"		"particles/roshpit/dinath/drake_ring_ring.vpcf"
@@ -547,7 +547,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 400 800 1600 3200 6000"
+		"AbilityManaCost"				"100 200 400 800 1000 1500 1800"
 
 		// Special
 		//-------------------------------------------------------
@@ -566,7 +566,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"50 70 90 110 130 150 170"
+				"damage_mult"				"<% DINATH_W_DAMAGE_PCT %>"
 			}
 		}
 		"OnSpellStart"
@@ -626,7 +626,7 @@
 					}
 				}
 			}
-			"modifier_drake_ring_postmit"
+			"modifier_drake_ring_armor_reduction"
 			{
 				"IsHidden"	"1"
 			}
@@ -674,7 +674,7 @@
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastRange"				"3000"
+		"AbilityCastRange"				"<% DINATH_E_CAST_RANGE %>"
 
 
 		// Precache
@@ -688,7 +688,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cast_range"			"3000"
+				"cast_range"			"<% DINATH_E_CAST_RANGE %>"
 			}
 		}
 		// Casting

@@ -729,6 +729,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_hailstorm_armor_and_magic_armor_loss")
 		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
     end
+	if unit:HasModifier("modifier_drake_ring_armor_reduction") then
+		local modifier = unit:FindModifierByName("modifier_drake_ring_armor_reduction")
+		armor_modify = armor_modify + modifier:GetStackCount() * DINATH_W2_ARMOR_REDUCTION
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -1033,8 +1037,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     	local e_1_level = unit:GetRuneValue("e", 1)
     	magic_armor_modify = magic_armor_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
     end
-
-
+	if unit:HasModifier("modifier_hyperbeam_magic_armor_reduction") then
+		local modifier = unit:FindModifierByName("modifier_hyperbeam_magic_armor_reduction")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DINATH_R2_MAGIC_ARMOR_REDUCTION
+    end
 
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")

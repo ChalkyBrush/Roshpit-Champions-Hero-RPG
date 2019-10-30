@@ -116,8 +116,8 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"税后伤害提高"
     	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
 
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit"								"细胞坏死"
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit_Description"					"受到来自帝纳斯的全部税后伤害提高"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"细胞坏死"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"受到来自帝纳斯的全部税后伤害提高"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] 能量节点"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"提高破坏死光的光球充能速率。（充能时间并不减少，所以光球会更大）"

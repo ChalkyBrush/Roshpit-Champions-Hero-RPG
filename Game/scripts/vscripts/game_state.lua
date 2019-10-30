@@ -2156,14 +2156,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
 			mult = mult + ALARANA_MAGIC_POST_MITI/100
 		end
-		if victim:HasModifier("modifier_drake_ring_postmit") then
-			if attacker:GetUnitName() == "npc_dota_hero_winter_wyvern" then
-				local stacks = victim:GetModifierStackCount("modifier_drake_ring_postmit", attacker)
-				mult = mult + DINATH_W2_POST_MITI_MAGIC * stacks
-				--print("STACK INCREASE")
-				--print(stacks)
-			end
-		end
 		if attacker:HasModifier("modifier_jex_nature_cosmic_w") then
 			local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
 			if not ability.tech_level then
@@ -2574,13 +2566,6 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetCaster():GetRuneValue("w", 1)
 			mult = mult + 0.05 * stacks
-		end
-	end
-	if victim:HasModifier("modifier_hyperbeam_postmit") then
-		modifier = victim:FindModifierByName("modifier_hyperbeam_postmit")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			mult = mult + DINATH_R2_POST_MITI * stacks
 		end
 	end
 	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then

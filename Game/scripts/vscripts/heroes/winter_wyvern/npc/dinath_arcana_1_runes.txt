@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% DINATH_ARCANA_W1_BONUS_ATTACK_DAMAGE * 100 %>"
 			}
 		}
 	}
@@ -34,7 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% DINATH_ARCANA_W2_ICE_AMP_PER_100_MS_PCT %>"
 			}
 		}
 	}
@@ -54,12 +54,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% DINATH_ARCANA_W3_MOVESPEED_BONUS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% DINATH_ARCANA_W3_MOVESPEED_CAP_BONUS %>"
 			}
 		}
 	}
@@ -79,12 +79,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"<% DINATH_ARCANA_W4_ATTACK_RADIUS_INCREASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"<% DINATH_ARCANA_W4_CHANCE_FOR_TARGET %>"
 			}
 		}
 	}
