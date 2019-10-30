@@ -62,6 +62,7 @@ function bear_warstomp(event)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
 	EmitSoundOn("Draghor.Bear.Warstomp", caster)
 	-- FindClearSpaceForUnit(caster, position, false)
+	ability.w_2_level = caster:GetRuneValue("w", 2)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -71,8 +72,11 @@ function bear_warstomp(event)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bear_rend_armor_loss", {duration = 20})
 				local shredStacks = enemy:GetModifierStackCount("modifier_bear_rend_armor_loss", caster)
 				local newStacks = math.min(2, shredStacks + 1)
-				local armorLoss = (enemy:GetPhysicalArmorValue(false) + enemy:GetModifierStackCount("modifier_bear_rend_armor_loss", caster)) * 0.5
-				enemy:SetModifierStackCount("modifier_bear_rend_armor_loss", caster, armorLoss * newStacks)
+				enemy:SetModifierStackCount("modifier_bear_rend_armor_loss", caster, newStacks)
+				if ability.w_2_level > 0 then
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bear_rend_health_regen_loss", {duration = 12})
+					enemy:SetModifierStackCount("modifier_bear_rend_health_regen_loss", caster, ability.w_2_level)
+				end
 			end
 		end
 	end

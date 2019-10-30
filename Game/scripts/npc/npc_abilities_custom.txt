@@ -41734,7 +41734,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "80"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -41850,7 +41850,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 75 100 200 300 420 650"
+				"damage"				"100 200 300 400 500 600 700"
 			}
 			"02"
 			{
@@ -41870,7 +41870,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"30 70 150 450 1000 1200 1800"
+				"armor_bonus"		"50 225 400 575 750 925 1100"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -42004,12 +42004,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"60 90 90 100 120 140 180"
+				"damage_mult"			"70 75 80 85 90 95 100"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"			"5 8 11 14 17 20 23"
+				"bleed_damage"			"10 12 14 16 18 20 22"
 			}
 			"03"
 			{
@@ -42029,12 +42029,12 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 120 300 500 700 900 1500"
+				"damage"			"30 120 210 300 390 480 570"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
+				"int_mult"			"0.80 0.85 0.90 0.95 1.00 1.05 1.1"
 			}
 			"08"
 			{
@@ -42376,7 +42376,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stomp_damage"		"45 70 100 150 500 1000 2000"
+				"stomp_damage"		"220 360 500 640 780 920 1140"
 			}
 			"03"
 			{
@@ -42477,7 +42477,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"0.02"
 			}
 		}
 	}
@@ -42512,8 +42512,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0.5"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.2"
 			}
 			"02"
 			{
@@ -42990,7 +42990,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "80"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -43350,17 +43350,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base"			"30 50 100 400 900 1100 1300"
+				"attack_damage_base"			"30 60 120 210 330 480 760"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed_rune"			"3 3.75 4.5 5.25 6.0 7.25 8.5"
+				"attack_speed_rune"			"3 3.75 4.5 5.25 6.0 6.75 7.5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base_rune"			"1.5 2.5 5 20 4.5 5.5 6.5"
+				"attack_damage_base_rune"			"1.5 3.0 6 10.5 16.5 24 38"
 			}
 		}
 		"Modifiers"
@@ -43529,7 +43529,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_regen"			"30 60 100 150 240 400 700"
+				"mana_regen"			"30 60 100 150 210 280 360"
 			}
 			"02"
 			{
@@ -43539,7 +43539,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"mana_regen_rune"			"1.5 3 5 7.5 12 20 35"
+				"mana_regen_rune"			"1.5 3 5 7.5 10.5 14 18"
 			}
 			"04"
 			{
@@ -43622,7 +43622,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"70 90 110 140 170 200 220"
+				"damage_mult"			"70 75 80 85 90 95 100"
 			}
 			"02"
 			{
@@ -43822,8 +43822,25 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"djanghor/djanghor_rune_e_1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -43866,7 +43883,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent"		"10 20 30 45 60 75 90"
+				"damage_increase_percent"		"20 25 30 35 40 45 50"
 			}
 			"02"
 			{
@@ -43876,7 +43893,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent_ally"		"10 15 20 30 45 60 75"
+				"damage_increase_percent_ally"		"5 10 15 20 25 30 35"
 			}
 		}
 		"Modifiers"
@@ -44090,12 +44107,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"10 20 40 50 70 80 100"
+				"damage_mult"			"60 65 70 75 80 85 90"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"			"5 8 11 14 17 20 23"
+				"bleed_damage"			"8 10 12 14 16 18 20"
 			}
 			"03"
 			{
@@ -44140,6 +44157,24 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_wolf_rend_bleed"
 			{
@@ -44158,6 +44193,14 @@
 						"Function"		"rend_bleed_think"
 						"target"		"TARGET"
 					}
+				}
+			}
+			"modifier_wolf_rend_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-12"
 				}
 			}
 		}
@@ -44230,6 +44273,24 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_bear_regen"
 			{
@@ -44307,7 +44368,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"		"120 200 400 620 1300 2000 2800"
+				"damage"		"120 260 400 540 680 820 1040"
 			}
 			"02"
 			{
@@ -44328,6 +44389,14 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"	"djanghor/war_stomp"
+			}
+			"modifier_bear_rend_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-12"
+				}
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -44519,7 +44588,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 180 220 250 300 400 500"
+				"damage"				"120 220 320 420 520 620 720"
 			}
 			"02"
 			{
@@ -44569,10 +44638,27 @@
         		"Passive"			"0"
         		"IsHidden"			"0"
         		"IsDebuff"			"1"
-        		"IsStunDebuff"			"1"
 
         		"EffectName"		"particles/roshpit/draghor/hawk_screech_debuff_knockback_debuff.vpcf"
         		"EffectAttachType"	"follow_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
         	}
         }
 	}
@@ -44605,7 +44691,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 400 550 800 1200 1500"
+		"AbilityManaCost"				"100 200 350 550 800 1100 1450"
 
 		// Special
 		//-------------------------------------------------------
@@ -44624,12 +44710,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 100 220 340 550 900 1500"
+				"damage"			"30 100 170 240 310 380 450"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"2.0 2.5 3.0 1.2 1.4 1.6 1.8"
+				"int_mult"			"0.7 0.75 0.80 0.85 0.90 0.95 1.00"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -44812,8 +44898,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0.7"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.8"
 			}
 			"02"
 			{
@@ -44896,7 +44982,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -44919,7 +45005,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-10"
+				"property_one"			"-12"
 			}
 		}
 	}
@@ -44973,7 +45059,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"-45"
 			}
 		}
 	}
@@ -45068,7 +45154,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"60"
 			}
 		}
 	}
@@ -45104,7 +45190,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"24"
+				"property_one"			"35"
 			}
 		}
 	}

@@ -296,7 +296,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 75 100 200 300 420 650"
+				"damage"				"100 200 300 400 500 600 700"
 			}
 			"02"
 			{
@@ -316,7 +316,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"30 70 150 450 1000 1200 1800"
+				"armor_bonus"		"50 225 400 575 750 925 1100"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -450,12 +450,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"60 90 90 100 120 140 180"
+				"damage_mult"			"70 75 80 85 90 95 100"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"			"5 8 11 14 17 20 23"
+				"bleed_damage"			"10 12 14 16 18 20 22"
 			}
 			"03"
 			{
@@ -475,12 +475,12 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 120 300 500 700 900 1500"
+				"damage"			"30 120 210 300 390 480 570"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
+				"int_mult"			"0.80 0.85 0.90 0.95 1.00 1.05 1.1"
 			}
 			"08"
 			{
@@ -822,7 +822,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stomp_damage"		"45 70 100 150 500 1000 2000"
+				"stomp_damage"		"220 360 500 640 780 920 1140"
 			}
 			"03"
 			{

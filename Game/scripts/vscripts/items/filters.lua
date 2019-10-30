@@ -2723,12 +2723,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_trinket_nature", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
-        if victim:HasModifier("modifier_monkey_a_c_effect") then
-            local e_1_level = attacker:GetRuneValue("e", 1)
-            if e_1_level > 0 then
-                mult = mult + mult * DJANGHOR_E1_NATURE_AMP_PCT/100 * e_1_level
-            end
-        end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker.q_2_level then
                 mult = mult + attacker.q_2_level * 0.5

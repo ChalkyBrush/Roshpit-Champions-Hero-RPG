@@ -35,6 +35,7 @@ Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 3.5
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 4
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 4
 Enemies.FLAT_DAMAGE_BONUS_PER_LEVEL_AFTER_NORMAL = 10
+Enemies.GLOBAL_DAMAGE_ADJUST = 0.5
 
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST = {}
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_NORMAL] = {}
@@ -183,7 +184,7 @@ function Enemies:InitializeEnemy(unit)
 	-- attack damage
 	local base_damage = unit:GetAverageTrueAttackDamage(unit)
 	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
-	local newDamage = (Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage + Enemies:GetFlatDamageBonusForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]
+	local newDamage = (Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage + Enemies:GetFlatDamageBonusForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]*Enemies.GLOBAL_DAMAGE_ADJUST
 	unit:SetBaseDamageMin(newDamage-damageDiff)
 	unit:SetBaseDamageMax(newDamage)
 

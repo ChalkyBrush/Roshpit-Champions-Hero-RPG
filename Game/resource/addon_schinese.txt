@@ -5318,7 +5318,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"每 <font color='#ccff66'>2</font> 秒，清除一次来自于敌人的负面debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"抨击雕文"
-		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 <font color='#ccff66'>25</font>% 的概率攻击眩晕敌人，并且所造成的伤害提高 <font color='#ccff66'>50</font>% 。眩晕持续 <font color='#ccff66'>1.5</font> 秒。变换为其它形态后，buff仍持续 15 秒。 战争践踏将会和撕裂一样降低敌人的护甲。"
+		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 <font color='#ccff66'>25</font>% 的概率攻击眩晕敌人，并且所造成的伤害提高 <font color='#ccff66'>80</font>% 。眩晕持续 <font color='#ccff66'>1.5</font> 秒。变换为其它形态后，buff仍持续 15 秒。 战争践踏将会和撕裂一样降低敌人的护甲。"
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"抨击"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"攻击时有概率眩晕敌人并造成额外伤害"
@@ -5344,11 +5344,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "狼牙棒"
         "item_property_djanghor_immortal_weapon"                             "金刚狼"
-        "property_djanghor_immortal_weapon_description"                      "在狼形态下，每点敏捷值额外提高 <font color='#ccff66'>5</font> 点攻击力。@Ability2 将打击一条直线上的所有敌人，并且在狼形态下，其主要元素属性变为 自然元素。"
+        "property_djanghor_immortal_weapon_description"                      "在狼形态下，每点敏捷值额外提高 <font color='#ccff66'>3</font> 点攻击力。@Ability2 将打击一条直线上的所有敌人，并且在狼形态下，其主要元素属性变为 自然元素。"
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_2"            "熊爪棍"
         "item_property_djanghor_immortal_weapon2"                             "钢铁熊"
-        "property_djanghor_immortal_weapon2_description"                      "在熊形态下，敌人伤害不超过 100x 最大生命值时，该次伤害将被限制到 <font color='#ccff66'>8</font>% 的最大生命值。"
+        "property_djanghor_immortal_weapon2_description"                      "在熊形态下，敌人伤害不超过 100x 最大生命值时，该次伤害将被限制到 <font color='#ccff66'>16</font>% 的最大生命值。"
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_3"            "鹰隼启示法杖"
         "item_property_djanghor_immortal_weapon3"                             "暴风鸟"

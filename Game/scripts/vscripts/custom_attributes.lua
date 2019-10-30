@@ -666,7 +666,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus_rune", "modifier_mark_of_the_claw_rune")*q_4_level*0.05
 	end
 	if unit:HasModifier("modifier_bear_armor_buff") then
-		local modifier = unit:FindModifierByName("modifier_bear_armor_buff")
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_bear_armor_buff")
 	end
 	if unit:HasModifier("modifier_wolf_rend_bleed") then
@@ -679,7 +678,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	
 	if unit:HasModifier("modifier_wolf_rend_stack") then
-		local modifier = unit:FindModifierByName("modifier_wolf_rend_stack")
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_wolf_rend_stack")
 	end
 	if unit:HasModifier("modifier_flametongue_a_a_rune") then
@@ -706,6 +704,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_ancient_rain") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_ancient_rain")
 	end
+    if unit:HasModifier("modifier_monkey_a_c_effect") then
+    	local modifier = unit:FindModifierByName("modifier_monkey_a_c_effect")
+        local e_1_level = modifier:GetCaster():GetRuneValue("e", 1)
+        if e_1_level > 0 then
+            armor_modify = armor_modify + DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE* e_1_level
+        end
+    end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -941,16 +946,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_seraph_surge_glyphed") then
 		magic_armor_modify = magic_armor_modify + AURIUN_GLYPH_5_1_MAGIC_RESIST
 	end
-
-	if unit:HasModifier("modifier_wolf_rend_bleed") then
-		local modifier = unit:FindModifierByName("modifier_wolf_rend_bleed")
-		local caster = modifier:GetCaster()
-		local w_2_value = caster:GetRuneValue("w", 2)
-		magic_armor_modify = magic_armor_modify + DJANGHOR_W2_MAGIC_ARMOR_REDUCTION * w_2_value
-	end
 	
 	if unit:HasModifier("modifier_draghor_hawk_screech") then
-		local modifier = unit:FindModifierByName("modifier_draghor_hawk_screech")
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduction", "modifier_draghor_hawk_screech")
 	end
 	if unit:HasModifier("modifier_mark_of_the_talon") then
@@ -962,6 +959,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local q_4_level = unit:GetRuneValue("q", 4)
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_increase_rune", "modifier_mark_of_the_talon_rune")*q_4_level*0.05
 	end
+    if unit:HasModifier("modifier_monkey_a_c_effect") then
+    	local modifier = unit:FindModifierByName("modifier_monkey_a_c_effect")
+        local e_1_level = modifier:GetCaster():GetRuneValue("e", 1)
+        if e_1_level > 0 then
+            magic_armor_modify = magic_armor_modify + DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE* e_1_level
+        end
+    end
 
 	if unit:HasModifier("modifier_trap_magic_resist_loss") then
 		local modifier = unit:FindModifierByName("modifier_trap_magic_resist_loss")
@@ -1385,11 +1389,13 @@ function CustomAttributes:SetAttributes(hero)
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 		end
 		if hero:HasModifier("modifier_shapeshift_yearbeast_d_d") then
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
+			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 		end
 	end
 	if hero:HasModifier("modifier_warlord_arcana2") then

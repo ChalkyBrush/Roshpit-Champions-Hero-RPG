@@ -79,7 +79,7 @@
 		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"Absolute movement speed increased, cannot be slowed."
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"Rend"
-		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Element: <font color=\"#DDDDDD\">Normal</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power. Rend hit decreases enemy Armor. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time."
+		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"Element: <font color=\"#DDDDDD\">Normal</font><br>Claws at enemies in front of Djanghor, dealing damage based on attack power. Each rend stack decreases enemy Armor. Max 2 stacks. If an enemy is hit by Rend with 2 stacks they begin to bleed, taking bleed damage over time."
 		"DOTA_Tooltip_ability_draghor_wolf_rend_damage_mult"							"DAMAGE AS % OF ATTACK POWER:"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_damage"							"BLEED DAMAGE AS % OF ATTACK POWER:"	
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_duration"							"BLEED DURATION:"
@@ -91,7 +91,7 @@
 		"DOTA_Tooltip_modifier_modifier_wolf_rend_bleed"								"Rend Bleed"
 
 		"DOTA_Tooltip_ability_djanghor_bear_roar"										"Roar"
-		"DOTA_Tooltip_ability_djanghor_bear_roar_Description"							"A wild roar forces nearby enemies to attack Djanghor, and provides a large armor bonus for the duration."
+		"DOTA_Tooltip_ability_djanghor_bear_roar_Description"							"A wild roar forces nearby enemies to attack Djanghor, and provides an armor bonus for the duration."
 		"DOTA_Tooltip_ability_djanghor_bear_roar_duration"								"TAUNT DURATION:"
 		"DOTA_Tooltip_ability_djanghor_bear_roar_armor_bonus"							"ARMOR BONUS:"
 
@@ -123,7 +123,7 @@
 		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"Magic armor reduced."
 
 		"DOTA_Tooltip_ability_draghor_hawk_tornado"									"Aerial Tornado"
-		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"Element: <font color=\"#7AE2A7\">Wind</font> / <font color=\"#69BC71\">Nature</font><br> A violent tornado is conjured from Djanghor's wings, launching forward. Enemies hit by the tornado are slowed."
+		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"Element: <font color=\"#7AE2A7\">Wind</font> / <font color=\"#69BC71\">Nature</font><br> A violent tornado is conjured from Djanghor's wings and launched forwards. Enemies hit by the tornado are slowed. Base damage is increased by intelligence."
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_bonus_movement_speed"			"MOVESPEED LOSS:"
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_attack_speed"					"ATTACKSPEED LOSS %:"
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_damage"							"BASE DAMAGE:"
@@ -176,8 +176,8 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% of damage dealt"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] Rupture"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend have their Magic Armor reduced."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Magic Armor reduction"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"Enemies bleeding from Rend have reduced Health Regen."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"Health Regen Reduction"
     	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] Nature's Wrath"
@@ -186,17 +186,17 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_suffix"								"% of attack power"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_4"									"[W4] Natural Selection"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Djanghor's attributes increase all <font color=\"#69BC71\">Nature</font> damage."
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"Nature Damage Increase"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% for every 10 points of Attributes"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"Increases all <font color=\"#69BC71\">Nature</font> damage."
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"Nature Damage Amp"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_1"									"[E1] Marshlands"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"After landing from Monkey Leap, leave an acidic pool of organic matter that severely weakens enemies standing within, multiplying all <font color=\"#69BC71\">Nature</font> damage dealt to them. The pool lasts 20 seconds."
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"Nature Damage Amp"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								"%"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"After landing from Monkey Leap, leave an acidic pool of organic matter that exposes weakness of enemies standing within, reducing their Armor and Magic Armor. The pool lasts 20 seconds."
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"Armor and Magic Armor Loss"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								""
 
     	"DOTA_Tooltip_modifier_monkey_a_c_effect"									"Marshlands"
-    	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"Reduced Nature Resistance"
+    	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"Reduced Armor and Magic Armor"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] Juniper Whip"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"Jin'bo has increased base damage when cast during Monkey Leap. If the 3rd strike of Jin'bo hits at least 1 enemy, there is a chance Djanghor will receive a free cast of Shapeshift, removing its channel time. A chance greater than 100% means that multiple stacks can be gained at a time."
@@ -219,7 +219,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_e_4_suffix"								" seconds"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] Savagery"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase base attack damage in each animal form. Bear gains damage from Strength, Wolf from Agility, and Hawk from Intelligence. Djanghor's Monkey form gains attack damage from ALL attributes, but at only half of the indicated value. This rune is activated when shapeshifting into the corresponding form."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase base attack damage in each animal. <br>Bear gains damage from <font color=\"<% COLOR_STRENGTH %>\">Strength</font><br>Wolf gains damage from <font color=\"<% COLOR_AGILITY%>\">Agility</font><br>Hawk gains damage from <font color=\"<% COLOR_INTELLIGENCE %>\">Intelligence</font><br>Monkey form gains damage from <font color=\"<% COLOR_SPIRIT %>\">Spirit</font><br><br>The rune's effect is activated upon shapeshifting."
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Base Attack Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" per attribute"
 
@@ -300,8 +300,8 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health"											"Golden Mane"
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"Increased Health"
 
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Voice"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"All incoming damage is reduced while in @Ability4. Capped at 90%."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] Jade Coat"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"All incoming damage is reduced while in @Ability4. Capped at <% DJANGHOR_ARCANA_R_R3_RESIST_MAX_PCT * 100%>% damage reduction."
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"Additional Resistance"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 

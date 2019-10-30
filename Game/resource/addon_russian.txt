@@ -5011,7 +5011,7 @@
 		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые <font color='#ccff66'>2</font> сек. Способности перемещения Battle Charge и Legendary Charge применяют руну [E3] при касте."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"(T7) Glyph of Mauling"
-		"item_rpc_djanghor_glyph_7_1_description" 				"С <font color='#ccff66'>25</font>% шансом атака в форме медведя может оглушить цель на <font color='#ccff66'>1.5</font> сек. и нанести увеличенный на <font color='#ccff66'>50</font>% урон. Эффект продолжит действовать в течении 15 секунд после трансформации. War Stomp снижает броню целей так же как и Rend, на последуюшие <font color='#ccff66'>20</font> секунд."
+		"item_rpc_djanghor_glyph_7_1_description" 				"С <font color='#ccff66'>25</font>% шансом атака в форме медведя может оглушить цель на <font color='#ccff66'>1.5</font> сек. и нанести увеличенный на <font color='#ccff66'>80</font>% урон. Эффект продолжит действовать в течении 15 секунд после трансформации. War Stomp снижает броню целей так же как и Rend, на последуюшие <font color='#ccff66'>20</font> секунд."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Шанс оглушить цель при атаке и нанести дополнительный урон."
@@ -5037,11 +5037,11 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_1"            "Sabretooth Daibo"
         "item_property_djanghor_immortal_weapon"                             "Alpha Wolf"
-        "property_djanghor_immortal_weapon_description"                      "Добавляет <font color='#ccff66'>5</font> урона за каждое очко Ловкости в форме волка. (W) @Ability2 задевает врагов по линии, а первая стихия умения - Природа, пока герой находится в форме волка."
+        "property_djanghor_immortal_weapon_description"                      "Добавляет <font color='#ccff66'>3</font> урона за каждое очко Ловкости в форме волка. (W) @Ability2 задевает врагов по линии, а первая стихия умения - Природа, пока герой находится в форме волка."
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_2"            "Grizzly Ironclaw Daibo"
         "item_property_djanghor_immortal_weapon2"                             "Ironfur Bear"
-        "property_djanghor_immortal_weapon2_description"                      "Получаемый урон, отнимающий меньше 100х макс. здоровья ограничивается и не отнимет более <font color='#ccff66'>8</font>% от макс. здоровья, пока герой находится в форме медведя."
+        "property_djanghor_immortal_weapon2_description"                      "Получаемый урон, отнимающий меньше 100х макс. здоровья ограничивается и не отнимет более <font color='#ccff66'>16</font>% от макс. здоровья, пока герой находится в форме медведя."
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_3"            "Avian Staff of Enlightenment"
         "item_property_djanghor_immortal_weapon3"                             "Stormcrow"

@@ -47,7 +47,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% DJANGHOR_ARCANA_R_R3_RESIST_PCT * 100 %>"
 			}
 			"02"
