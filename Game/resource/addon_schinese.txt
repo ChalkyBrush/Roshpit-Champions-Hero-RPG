@@ -4885,8 +4885,8 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"税后伤害提高"
     	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
 
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit"								"细胞坏死"
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit_Description"					"受到来自帝纳斯的全部税后伤害提高"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"细胞坏死"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"受到来自帝纳斯的全部税后伤害提高"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] 能量节点"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"提高破坏死光的光球充能速率。（充能时间并不减少，所以光球会更大）"
@@ -4954,10 +4954,10 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 <font color='#ccff66'>0.1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"灾难雕文"
-		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <font color='#ccff66'>1000</font>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <font color='#ccff66'>140</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"龙族魔法"
-		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 <font color='#ccff66'>1000</font>x 当前魔法值, 同时每次攻击可以回复 <font color='#ccff66'>1</font>% 的最大魔法值"
+		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 <font color='#ccff66'>0.1</font>x 当前魔法值, 同时每次攻击可以回复 <font color='#ccff66'>1</font>% 的最大魔法值"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"金色龙鳞"
 		"item_rpc_dinath_glyph_5_a_description" 				"每当受到一次纯粹或魔法伤害的时候，就立刻进入魔法免疫的状态 <font color='#ccff66'>3</font> 秒。 冷却时间 <font color='#ccff66'>5</font> 秒。"
@@ -4979,7 +4979,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "统御者的龍爪"
         "item_property_dinath_immortal_weapon"                             "超负荷"
-        "property_dinath_immortal_weapon_description"                      "@Ability4 的半径增大 <font color='#ccff66'>100</font> ，飞行距离提高 <font color='#ccff66'>1000</font> 。"
+        "property_dinath_immortal_weapon_description"                      "@Ability4 的半径增大 <font color='#ccff66'>50</font> ，飞行距离提高 <font color='#ccff66'>1000</font> 。"
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "维塔利的呼吸"
         "item_property_dinath_immortal_weapon2"                             "极光之盾"

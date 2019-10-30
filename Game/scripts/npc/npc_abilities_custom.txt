@@ -38329,12 +38329,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"24"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-15"
+				"property_two"			"-16"
 			}
 		}
 	}
@@ -42165,6 +42165,14 @@
 						"EffectColorA"				"180 255 150"
 						"EffectAlphaScale"			"0.5"
 					}
+				}
+			}
+			"modifier_wolf_rend_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-12"
 				}
 			}
 		}

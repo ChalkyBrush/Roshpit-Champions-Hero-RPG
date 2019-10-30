@@ -4576,9 +4576,9 @@
     	"DOTA_Tooltip_modifier_drake_ring_a_b_Description"						"Increased attack damage"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2"									"[W2] Spell Sweeper"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"Enemies standing in an Eye of the Drake zone take increased post-mitigation Magical damage from all sources."
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"Post-mitigation magic damage"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"Enemies standing in an Eye of the Drake zone have their Armor value reduced."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"Armor Loss"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3"									"[W3] Basilisk Band"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_Description"						"When an Eye of the Drake is created, any enemies in the area are rooted."
@@ -4640,12 +4640,12 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							"% of attack power"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_2"									"[R2] Cellular Rust"
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Enemies hit by the main, freezing portion of Hyperbeam take increase post-mitigation from Dinath for 7 seconds."
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"Post-Mitigation Damage"
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Enemies hit by the main, freezing portion of Hyperbeam have their Magic Armor value reduced."
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							""
 
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit"								"Cellular Rust"
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit_Description"					"Taking increased post-mitigation damage from Dinath"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"Cellular Rust"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Taking increased post-mitigation damage from Dinath"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] Energy Node"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"Increases the growth rate of a charging Hyperbeam, increasing its potential maximum size."
@@ -4655,7 +4655,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Dinath's attributes increase the power of all <font color=\"#3289C7\">Dragon</font> damage."
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"% for each 10 points of attributes."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
 		//Arcanas
 		"item_property_dinath_arcana1"										"Spire Breath"
@@ -4677,7 +4677,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] Frost Flutter"
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=\"#87D9FF\">Ice</font> Damage is enhanced by Movespeed."
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Ice Damage Bonus"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% of Movespeed"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% per 100 Movespeed"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] Wind Tunnel"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_Description"				"Passively increases movespeed cap. Toggling Spire Breath on or off applies a movespeed buff that decays over time."
@@ -4713,10 +4713,10 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"Landing an attack reduces the cooldown of all other abilities by <font color='#ccff66'>0.1</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"Glyph of Calamity"
-		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=\"#EF4126\">Fire</font>, <font color=\"#87D9FF\">Ice</font>, <font color=\"#5CCDF9\">Lightning</font>, and <font color=\"#C25DFC\">Cosmic</font> damage by <font color='#ccff66'>1000</font>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"Increases <font color=\"#EF4126\">Fire</font>, <font color=\"#87D9FF\">Ice</font>, <font color=\"#5CCDF9\">Lightning</font>, and <font color=\"#C25DFC\">Cosmic</font> damage by <font color='#ccff66'>140</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"Glyph of the Mana Dragon"
-		"item_rpc_dinath_glyph_7_1_description" 				"Damage of @Ability2 is increased by <font color='#ccff66'>1000</font>x current mana, and attacks restore <font color='#ccff66'>1</font>% of max mana."
+		"item_rpc_dinath_glyph_7_1_description" 				"Damage of @Ability2 is increased by <font color='#ccff66'>0.1</font>x current mana, and attacks restore <font color='#ccff66'>1</font>% of max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"Glyph of Golden Scales"
 		"item_rpc_dinath_glyph_5_a_description" 				"Taking an instance of magic or pure damage activates magic immunity for <font color='#ccff66'>3</font> seconds. <font color='#ccff66'>5</font> second cooldown."
@@ -4738,7 +4738,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "Innervation Claw"
         "item_property_dinath_immortal_weapon"                             "Hypercharge"
-        "property_dinath_immortal_weapon_description"                      "@Ability4 starts <font color='#ccff66'>100</font> size larger and travels <font color='#ccff66'>1000</font> farther."
+        "property_dinath_immortal_weapon_description"                      "@Ability4 starts <font color='#ccff66'>50</font> size larger and travels <font color='#ccff66'>1000</font> farther."
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "Breath of Vitali"
         "item_property_dinath_immortal_weapon2"                             "Aurora Shield"
