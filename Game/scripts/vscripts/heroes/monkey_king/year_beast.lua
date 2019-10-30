@@ -118,6 +118,10 @@ function rend_start(event)
 				if not ability.bloodCount then
 					ability.bloodCount = 0
 				end
+				if ability.w_2_level > 0 then
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_health_regen_loss", {duration = 12})
+					enemy:SetModifierStackCount("modifier_wolf_rend_health_regen_loss", caster, ability.w_2_level)
+				end
 				if ability.bloodCount < 9 then
 					ability.bloodCount = ability.bloodCount + 1
 					local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
@@ -218,6 +222,10 @@ function tornado_hit(event)
 		enemy.rendBleed = event.bleed_damage * damage / 100
 		ability.w_2_level = caster:GetRuneValue("w", 2)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
+		if ability.w_2_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_health_regen_loss", {duration = 12})
+			enemy:SetModifierStackCount("modifier_wolf_rend_health_regen_loss", caster, ability.w_2_level)
+		end
 		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
 		ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)

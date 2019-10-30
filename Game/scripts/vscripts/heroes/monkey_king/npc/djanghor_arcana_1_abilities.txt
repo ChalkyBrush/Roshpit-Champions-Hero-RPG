@@ -583,6 +583,14 @@
 					}
 				}
 			}
+			"modifier_wolf_rend_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% DJANGHOR_W2_HEALTH_REGEN_REDUCTION %>"
+				}
+			}
 		}
 	}
 
