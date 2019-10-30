@@ -34,7 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_Q2_POSTMIT * 100 %>"
+				"property_one"			"<% SEPHYR_Q2_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -58,7 +58,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% SEPHYR_Q3_HOLY_AMP_PCT %>"
 			}
 		}
@@ -79,12 +79,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_Q4_HOLY_AMP_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT %>"
+				"property_one"			"<% SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT %>"
 			}
 		}
 	}
@@ -143,7 +138,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SEPHYR_W3_ATTACK_TO_DAMAGE_PCT %>"
 			}
 		}
@@ -224,7 +219,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% SEPHYR_E2_ATTACK_TO_DAMAGE_PCT %>"
 			}
 		}
@@ -295,7 +290,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_R1_HP_REGEN_PER_LVL %>"
+				"property_one"			"<% SEPHYR_R1_HP_REGEN %>"
 			}
 		}
 	}

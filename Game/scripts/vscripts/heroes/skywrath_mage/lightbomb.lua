@@ -149,8 +149,8 @@ function lightbomb_cast(event)
 			for _, enemy in pairs(enemies) do
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_WIND)
 				if q_2_level > 0 then
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lightbomb_postmit", {duration = 7})
-					enemy:SetModifierStackCount("modifier_lightbomb_postmit", caster, q_2_level)
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lightbomb_magic_armor_loss", {duration = 7})
+					enemy:SetModifierStackCount("modifier_lightbomb_magic_armor_loss", caster, q_2_level)
 				end
 			end
 		end
@@ -201,7 +201,7 @@ function sephyr_passive_think(event)
 		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
 		local holyAmp = math.floor(damageHOLY / damageDealt)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sephyr_d_d_attack_damage", {})
-		local attack_percent = (holyAmp * SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT/100) * q_4_level
+		local attack_percent = ((holyAmp-100) * SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT/100) * q_4_level
 		caster:SetModifierStackCount("modifier_sephyr_d_d_attack_damage", caster, attack_percent)
 	else
 		caster:RemoveModifierByName("modifier_sephyr_d_d_attack_damage")

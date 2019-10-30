@@ -19,8 +19,8 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Доп. пост-рез. урон"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
 
-    	"DOTA_Tooltip_modifier_lightbomb_postmit"								"Amplifier"
-    	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"Получает увеличенный пост-резистный урон от Sephyr"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"Amplifier"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Получает увеличенный пост-резистный урон от Sephyr"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font>."
