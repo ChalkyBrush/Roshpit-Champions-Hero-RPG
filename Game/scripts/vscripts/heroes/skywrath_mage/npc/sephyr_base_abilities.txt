@@ -618,12 +618,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"5000 15000 35000 80000 200000 500000 1000000"
+				"base_damage"			"<% SEPHYR_Q_DAMAGE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"			"120 150 180 210 240 270 300"
+				"int_damage"			"<% SEPHYR_Q_DAMAGE_INT_MULT %>"
 			}
 			"04"
 			{
@@ -831,7 +831,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SEPHYR_E2_BONUS_ATTACK_DAMAGE %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
 				}
 			}
 		}
