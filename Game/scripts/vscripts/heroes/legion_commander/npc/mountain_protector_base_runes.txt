@@ -130,7 +130,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_W2_POSTMIT_PCT %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -429,7 +429,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% MOUNTAIN_PROTECTOR_R3_DAMAGE_PER_STR %>"
 			}
 			"03"
@@ -461,7 +461,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_PER_STR_PCT %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_AMP * 100 %>"
 			}
 		}
 	}

@@ -2324,9 +2324,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
 		mult = mult + MUGATO_POST_MITI_PCT/100
 	end
-	if victim:HasModifier("modifier_rockfall_post_mit") then
-		mult = mult + 1.25
-	end
 
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
@@ -2386,15 +2383,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + TERRASIC_STONE_PLATE_POST_MITI/100
 		end
 	end
-	if attacker:HasModifier("modifier_steelforge_passive") then
-		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + MOUNTAIN_PROTECTOR_ARCANA1_W2_POSTMITIGATION_PERCENT / 100 * attacker.w_2_level
-		end
-	end
-	if attacker:HasModifier("modifier_energy_channel") then
-		local w_2_level = attacker:GetRuneValue("w", 2)
-		mult = mult + MOUNTAIN_PROTECTOR_W2_POSTMIT_PCT / 100 * w_2_level
-	end
+
 	if attacker:HasModifier("modfier_razor_band_stacks") then
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
 		local stacks = modifier:GetStackCount()
@@ -2606,13 +2595,6 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + stacks * ZHONIK_Q3_POST_MITI_AMP_PCT / 100
-		end
-	end
-	if victim:HasModifier("modifier_hailstorm_enemy_amp") then
-		modifier = victim:FindModifierByName("modifier_hailstorm_enemy_amp")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R3_POST_MITI/100 * stacks
 		end
 	end
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then

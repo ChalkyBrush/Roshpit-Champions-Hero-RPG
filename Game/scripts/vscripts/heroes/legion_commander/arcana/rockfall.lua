@@ -17,7 +17,7 @@ function begin_rockfall(event)
 	local damage = ability:GetAbilityDamage()
 	damage = damage + event.additional_str_damage * caster:GetStrength()
 	local stun_duration = event.stun_duration
-	local self_damage_percent = event.self_damage
+	local self_damage_percent = MOUNTAIN_PROTECTOR_ARCANA3_E_SELF_DMG_PCT
 	EmitSoundOnLocationWithCaster(target, "MysticAssasin.Rockfall", caster.InventoryUnit)
 	for i = 0, 2, 1 do
 		Timers:CreateTimer(i * 0.18, function()
@@ -43,13 +43,14 @@ function begin_rockfall(event)
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 						Filters:ApplyStun(caster, stun_duration, enemy)
 						ability:ApplyDataDrivenModifier(caster, caster, "modifier_rockfall_min_health", {duration = 0.09})
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_rockfall_post_mit", {duration = 10})
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_rockfall_magic_armor_loss", {duration = 10})
+						enemy:CalculateAndSaveRoshpitAttributes()
 						if enemy.dummy then
 						else
 							--print("SELF DAMAGE")
 							local self_damage = caster:GetMaxHealth() * self_damage_percent / 100
 							--print(self_damage)
-							Filters:ApplyDamageBasic(caster, enemy, self_damage, DAMAGE_TYPE_PURE)
+							Filters:ApplyDamageBasic(caster, caster, self_damage, DAMAGE_TYPE_PURE)
 						end
 					end
 				end

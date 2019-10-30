@@ -160,7 +160,7 @@ function mystic_wave_impact(event)
 						local q_2_duration = Filters:GetAdjustedBuffDuration(caster, MOUNTAIN_PROTECTOR_Q2_DUR, false)
 						ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_visible", {duration = q_2_duration})
 						local currentStacks = target:GetModifierStackCount("modifier_mountain_protector_q_2_visible", caster)
-						local newStacks = currentStacks + MOUNTAIN_PROTECTOR_Q2_STACKS_PER_HIT
+						local newStacks = math.min(currentStacks + MOUNTAIN_PROTECTOR_Q2_STACKS_PER_HIT, MOUNTAIN_PROTECTOR_Q2_MAX_STACKS)
 						target:SetModifierStackCount("modifier_mountain_protector_q_2_visible", caster, newStacks)
 						ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_q_2_invisible", {duration = q_2_duration})
 						target:SetModifierStackCount("modifier_mountain_protector_q_2_invisible", caster, newStacks * ability.q_2_level)

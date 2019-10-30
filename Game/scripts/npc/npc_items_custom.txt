@@ -11049,7 +11049,7 @@
 		"ItemKillable" "0"
 		"precache"
 		{
-			"particle"	"particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear.vpcf"
+			"particle"	"particles/econ/items/mars/mars_ti9_immortal/mars_ti9_immortal_spear.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -16479,8 +16479,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.03"
 				}
 			}
 		}

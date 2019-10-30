@@ -7299,7 +7299,7 @@
 		"item_rpc_mountain_protector_glyph_7_1_description" 				"Пока активно умение (W) @Ability2 все атакующие героя враги с шансом в <font color='#ccff66'>30</font>% будут оглушены на <font color='#ccff66'>1</font> секунду."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"(Immortal) Glyph of Mountain's Peak"
-		"item_rpc_mountain_protector_glyph_5_a_description" 				"Эпицентр (R) @Ability4 следует за героем. Дополнительно увеличивает силу на <font color='#ccff66'>5000</font>."
+		"item_rpc_mountain_protector_glyph_5_a_description" 				"Эпицентр (R) @Ability4 следует за героем. Дополнительно увеличивает силу на <font color='#ccff66'>500</font>."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_00"	"Blade"
@@ -7321,7 +7321,7 @@
 		"property_mountain_protector_immortal_weapon_description"				"Время оглушения от (Q) Shockwave увеличено на <font color='#ccff66'>0.35</font> секунды."
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_2"            "Spine of Skorne"
         "item_property_mountain_protector_immortal_weapon2"                             "Champion's Legacy"
-        "property_mountain_protector_immortal_weapon2_description"                      "Получает бонус к урону в <font color='#ccff66'>1</font>% и <font color='#ccff66'>1</font> брони с каждым убитым врагом, за которого был получен опыт. Накопленный бонус не исчезает в текущей игровой сессии."
+        "property_mountain_protector_immortal_weapon2_description"                      "Получает бонус к урону в <font color='#ccff66'>0.03</font>% и <font color='#ccff66'>0.5</font> брони с каждым убитым врагом, за которого был получен опыт. Накопленный бонус не исчезает в текущей игровой сессии."
  		
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks"								"Champion's Legacy"
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks_Description"					"Бонус к урону и броне"

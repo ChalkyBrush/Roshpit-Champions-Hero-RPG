@@ -7556,7 +7556,7 @@
 		"item_rpc_mountain_protector_glyph_7_1_description" 				"在山丘守护的状态下敌人攻击你会有 <font color='#ccff66'>30</font>% 机率被眩晕<font color='#ccff66'>1</font>秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"峰顶雕文"
-		"item_rpc_mountain_protector_glyph_5_a_description" 				"大招跟随山丘守卫移动，同时增加力量值 <font color='#ccff66'>5000</font>。"
+		"item_rpc_mountain_protector_glyph_5_a_description" 				"大招跟随山丘守卫移动，同时增加力量值 <font color='#ccff66'>500</font>。"
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_00"	"剑"
@@ -7578,7 +7578,7 @@
 		"property_mountain_protector_immortal_weapon_description"				"冲击波的眩晕时间增加<font color='#ccff66'>0.35</font>秒."
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_2"            "史空恩的脊骨"
         "item_property_mountain_protector_immortal_weapon2"                             "王者遗物"
-        "property_mountain_protector_immortal_weapon2_description"                      "每杀死一个敌人（获得了经验值）提高 <font color='#ccff66'>1</font>% 攻击力和 <font color='#ccff66'>1</font> 的护甲值。加成效果持续直到本局结束。"
+        "property_mountain_protector_immortal_weapon2_description"                      "每杀死一个敌人（获得了经验值）提高 <font color='#ccff66'>0.03</font>% 攻击力和 <font color='#ccff66'>0.5</font> 的护甲值。加成效果持续直到本局结束。"
  		
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks"								"王者遗物"
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks_Description"					"提高攻击力和护甲值 %%"

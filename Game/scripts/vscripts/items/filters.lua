@@ -166,12 +166,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_autumnrock_bracer") then
         mult = mult + AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT/100 * (caster:GetHealth() / AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR)
     end
-    if caster:HasModifier("modifier_rockfall_passive") then
-        local a_c_level = caster:GetRuneValue("e", 1)
-        if a_c_level > 0 then
-            mult = mult + MOUNTAIN_PROTECTOR_ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((caster:GetMaxHealth() - caster:GetHealth()) / 1000) * a_c_level
-        end
-    end
     if caster:HasModifier("modifier_depth_crest_armor") then
         if victim and victim:IsStunned() then
             mult = mult + DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / DEPTH_CREST_ARMOR_STR_DIVISOR)
@@ -577,6 +571,10 @@ function Filters:ApplyStun(caster, duration, target)
     if caster:HasModifier("modifier_mountain_protector_glyph_1_1") then
         local glyph_ability = caster:FindModifierByName("modifier_mountain_protector_glyph_1_1"):GetAbility()
         glyph_ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_glyph_1_1_cant_heal", {duration = duration})
+    end
+    if caster:HasModifier("modifier_steelforge_passive") then
+        local ability = caster:FindModifierByName("modifier_steelforge_passive"):GetAbility()
+        ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_arcana1_w_2_slow", {duration = duration*MOUNTAIN_PROTECTOR_ARCANA1_W2_DURATION_MULT})
     end
     if duration > 0 then
         target:AddNewModifier(caster, nil, "modifier_stunned", {duration = duration})
@@ -1258,21 +1256,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
     local attackerName = attacker:GetUnitName()
     if not ignore_effects then
-        if attacker:HasModifier("modifier_shapeshift_year_beast") then
-            if Util.BaseType:IsAbilityBaseType(slot) then
-                local c_d_level = attacker:GetRuneValue("r", 3)
-                if c_d_level > 0 then
-                    local sumAttrs = attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()
-                    damage = damage + sumAttrs * 0.1 * c_d_level
-                end
-            end
-        end
-        if attacker:HasModifier("modifier_rockfall_passive") then
-            local b_c_level = attacker:GetRuneValue("e", 2)
-            if b_c_level > 0 then
-                damage = damage + attacker:GetStrength() * b_c_level * MOUNTAIN_PROTECTOR_ARCANA3_E2_STR_TO_ABILITIES_DAMAGE
-            end
-        end
         -- if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
         --     if not victim.echoLock then
         --         victim.echoLock = true
@@ -1448,14 +1431,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount("modifier_hawk_c_d", attacker)
             damageMult = damageMult + DJANGHOR_R3_BIRD_BAD_PCT/100 * current_stack
         end
-        if attacker:HasModifier("modifier_rockfall_passive") then
-            if Util.BaseType:IsAbilityBaseType(slot) then
-                local a_c_level = attacker:GetRuneValue("e", 1)
-                if a_c_level > 0 then
-                    damageMult = damageMult + MOUNTAIN_PROTECTOR_ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT / 100 * ((attacker:GetMaxHealth() - attacker:GetHealth()) / 1000) * a_c_level
-                end
-            end
-        end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if slot == BASE_ABILITY_E then
                 if attacker.r_1_level then
@@ -1567,6 +1542,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_crest_of_the_umbral_sentinel") then
             Filters:UmbralSentinel(attacker, victim)
+        end
+        if attacker:HasModifier("modifier_mountain_protector_glyph_3_1") then
+            damageMult = damageMult - (MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE/100)
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
@@ -2093,7 +2071,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then
-                    fireMult = fireMult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_PER_STR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    fireMult = fireMult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_AMP * attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_axe" then
@@ -2161,11 +2139,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_aeon_fracture") then
                 if attacker.r_4_level then
-                    mult = mult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_PER_STR_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_R4_EARTH_FIRE_AMP * attacker.r_4_level
                 end
             elseif attacker:HasAbility("mountain_protector_hailstorm") then
                 if attacker.r_4_level then
-                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH * attacker.r_4_level
                 end
             end
         end
@@ -2440,7 +2418,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_legion_commander" then
             if attacker:HasAbility("mountain_protector_hailstorm") then
                 if attacker.r_4_level then
-                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT/100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.r_4_level
+                    mult = mult + MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH * attacker.r_4_level
                 end
             end
         elseif unitName == "npc_dota_hero_vengefulspirit" then

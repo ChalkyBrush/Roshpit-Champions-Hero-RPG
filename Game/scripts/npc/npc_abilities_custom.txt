@@ -29892,7 +29892,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"2.5"
 			}
 		}
 	}
@@ -37359,22 +37359,22 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor"						"30 100 200 400 1000 3000 5000"
+				"armor_and_magic_armor"						"200 600 1000 1400 1800 2200 2600"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_resist"				"45 49 54 60 67 75 84"
+				"damage_resist"				"30"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"regen_percent"		    "5 9 13 17 21 25 35"
+				"regen_percent"		    "5 6 7 8 9 10 11"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"80 120 200 600 1200 1600 2400"
+				"mana_drain_per_second"		"30 60 90 120 150 180 210"
 			}
 		}
 		"OnToggleOn"
@@ -37441,10 +37441,6 @@
 				}
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -37495,6 +37491,18 @@
 					}
 				}
 			}
+			"modifier_mountain_protector_arcana1_w_2_slow"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-5"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
+				}
+			}
 			"modifier_steelforge_passive"
 			{
 				"Passive"			"1"
@@ -37540,13 +37548,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 			"03"
 			{
@@ -37581,7 +37589,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"-5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-5"
 			}
 		}
 	}
@@ -37601,8 +37614,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"75"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -37637,7 +37650,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.3"
 			}
 		}
 	}
@@ -37661,7 +37674,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"5400 18000 45000 110000 240000 540000 900000"
+		"AbilityDamage"				"300 470 640 810 980 1150 1320"
 		"precache"
 		{
 
@@ -37834,11 +37847,19 @@
 					}
 				}
 			}
-			"modifier_hailstorm_enemy_amp"
+			"modifier_hailstorm_armor_and_magic_armor_loss"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_hailstorm_aura_effect"
 			{
@@ -37930,8 +37951,8 @@
 			}
 			"02"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_from_strength"	"100 150 200 250 300 350 400"
+				"var_type"	"FIELD_FLOAT"
+				"damage_from_strength"	"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
 			}
 			"03"
 			{
@@ -37969,7 +37990,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"16"
 			}
 		}
 	}
@@ -38024,7 +38045,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"9"
+				"property_one"			"-45"
 			}
 		}
 	}
@@ -38044,7 +38065,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -38096,17 +38117,17 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"self_damage"	"0.5"
+				"self_damage"	"1"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"additional_str_damage"		"25"
+				"additional_str_damage"		"1"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"post_mitigation"		"125"
+				"magic_armor_reduce"		"-100 -180 -260 -340 -420 -500 -580"
 			}
 
 		}
@@ -38146,11 +38167,29 @@
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
         	}
-        	"modifier_rockfall_post_mit"
+        	"modifier_rockfall_magic_armor_loss"
         	{
         		"IsHidden"	"0"
         		"IsDebuff"	"1"
-        		"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
         	}
 			"modifier_mountain_e_passives_think"
 			{
@@ -38269,7 +38308,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -38290,7 +38329,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"25"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-15"
 			}
 		}
 	}
@@ -38311,7 +38355,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -38332,7 +38376,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"-120"
 			}
 		}
 	}
@@ -38354,7 +38398,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1200"
-		"AbilityDamage"					"2400 10800 41000 135000 400000 680000 1080000"
+		"AbilityDamage"					"120 270 420 570 720 870 1020"
 		"precache"
 		{
 			"particle"		"particles/roshpit/mystic_assassin/mystic_wave.vpcf"
@@ -38432,7 +38476,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "5"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "6"
 				}
         	}
         	"modifier_mountain_protector_q_2_visible"
@@ -38503,17 +38547,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor"						"30 100 200 400 1000 3000 5000"
+				"armor_and_magic_armor"						"200 500 800 1100 1400 1700 2000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resist"				"47 50 53 56 59 62 65"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"60 120 200 400 600 900 1400"
+				"mana_drain_per_second"		"20 40 60 80 100 120 140"
 			}
 		}
 		"OnToggleOn"
@@ -38571,11 +38610,6 @@
 				"IsDebuff"	"0"
 				"EffectName"	"particles/roshpit/mystic_assasin/energy_channel.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -38656,10 +38690,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "150"
-				}
 			}
 			"modifier_protector_w1_regen"
 			{
@@ -38667,7 +38697,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.7"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.3"
 				}
 			}
 		}
@@ -38768,7 +38798,7 @@
 				"TextureName"	"legion_commander_duel"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "15000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "120"
 				}
 			}
 		}
@@ -38838,7 +38868,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"1400 6400 18000 45000 110000 240000 540000"
+		"AbilityDamage"				"100 270 440 610 780 950 1120"
 		"precache"
 		{
 			"particle"			"particles/roshpit/mystic_assassin/grand_fissure_explosion.vpcf"
@@ -39022,7 +39052,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"6"
 			}
 			"01"
 			{
@@ -39048,7 +39078,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"2.5"
 			}
 		}
 	}
@@ -39090,7 +39120,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"30"
 			}
 			"02"
 			{
@@ -39116,7 +39146,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.7"
+				"property_one"			"0.3"
 			}
 		}
 	}
@@ -39137,7 +39167,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"30"
 			}
 		}
 	}
@@ -39159,7 +39189,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
@@ -39195,7 +39225,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"100"
 			}
 		}
 	}
@@ -39217,7 +39247,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -39274,7 +39304,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"16"
 			}
 		}
 		"Modifiers"
@@ -39307,7 +39337,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"25"
 			}
 		}
 	}
@@ -39328,12 +39358,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15000"
+				"property_one"			"120"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"4"
 			}
 		}
 	}
@@ -39354,7 +39384,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -39385,12 +39415,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"3"
 			}
 		}
 		"Modifiers"
@@ -39432,12 +39462,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"60"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.03"
 			}
 			"03"
 			{
@@ -39468,7 +39498,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -41960,7 +41990,7 @@
 				"TextureName"	"djanghor/djanghor_rune_q_2"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "12"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "14"
 				}
 			}
         }
@@ -43929,7 +43959,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "12"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "14"
 				}
 			}
 		}
@@ -44922,7 +44952,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"14"
 			}
 		}
 	}

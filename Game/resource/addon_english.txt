@@ -7671,7 +7671,7 @@
     	"DOTA_Tooltip_modifier_mountain_protector_c_a_daze_Description"	"Reduced Movespeed"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_2"				"[Q2] Shock Absorption"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Each time an enemy is struck by shockwave, they receive additional damage from proceeding shockwaves. Stacks infinitely. Debuff lasts 15 seconds."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Each time an enemy is struck by shockwave, they receive additional damage from proceeding shockwaves. Stacks up to <font color='#ccff66'>100</font> times. Debuff lasts 15 seconds."
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"Damage Enhance"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"%"
 		
@@ -7691,9 +7691,8 @@
         "DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix_two"   "%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"Mountain Guardian"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"Harnesses the protection of the mountains to defend against aggressors. Shockwave consumes 1% of max mana per ability level while in Mountain Guardian stance."
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor"			"ARMOR:"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_magic_resist"	"MAGIC RESIST:"
+    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"Harnesses the protection of the mountains to defend against aggressors. While in this stance, Mountain Protector has increased armor and magic armor, and cannot move. Mana is drained each second while it is active. Shockwave consumes 1% of max mana per ability level while in Mountain Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"			"ARMOR AND MAGIC ARMOR:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"MANA DRAINED PER SECOND:"
 
     	"DOTA_Tooltip_modifier_energy_channel"									"Mountain Guardian"
@@ -7705,9 +7704,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% of max health"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] Guardian's Wrath"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Post Mitigation damage is enhanced while in Mountain's Guardian stance."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Post Mitigation Damage Increase"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Spell Pierce is enhanced while in Mountain's Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Spell Pierce"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Enemies within 500 range of Mountain Guardian are periodically zapped, taking a % of Mountain Protector's attack damage."
@@ -7818,9 +7817,11 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_suffix_two"			"x Strength"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1"						"[W2] Cold Steel"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_Description"			"Increases all post-mitigation damage against enemies who are stunned."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_one"			"Damage Increase"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_Description"			"Whenever Mountain Protector stuns an enemy, additionally slow their movespeed and attack speed for <font color='#ccff66'>2</font>x the duration."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_one"			"Move Slow"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
+        "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "Attack Slow"
+        "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix_two"           ""
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] Steelforge Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"When taking damage during Steelforge Stance, fire a cold beam that deals damage based on attack power that also applies a 0.03s ministun."
@@ -7869,29 +7870,32 @@
     	"DOTA_Tooltip_modifier_frozen_stand_Description"								"Immune to damage"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2"						"[R3] Brittle Winds"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_Description"			"Mountain Protector deals increased post-mitigation damage to all enemies within the Hailstorm."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_property_one"			"Post-Mitigation Damage Increase"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_Description"			"Enemies within Hailstorm have reduced Armor and Magic Armor."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_property_one"			"Armor and Magic Armor Loss"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_suffix"				""
+
+        "DOTA_Tooltip_modifier_hailstorm_armor_and_magic_armor_loss"                    "Brittle Winds"
+        "DOTA_Tooltip_modifier_hailstorm_armor_and_magic_armor_loss_Description"        "Reduced Armor and Magic Armor"  
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2"						"[R4] Frozen Peak"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Mountain Protector's attributes increase <font color=\"#AF843D\">Earth</font> and <font color=\"#87D9FF\">Ice</font> damage."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"Damage Increase"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"% for each 10 points of Attributes"	
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Increases all <font color=\"#AF843D\">Earth</font> and <font color=\"#87D9FF\">Ice</font> damage."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"Earth and Ice Amp"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"%"	
 
     	"item_property_mountain_protector_arcana3"										"Rockfall"
     	"property_mountain_protector_arcana3_description"								"Replaces @Ability3 and all of its runes with Rockfall and Volcanic Glissade."
 
     	"DOTA_Tooltip_ability_mountain_protector_rockfall"								"Rockfall"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#EF4126\">Fire</font><br>Summon 3 sets of lava hot boulders that damage and stun enemies in the target area. Each enemy hit damages Mountain Protector based on her max health, but the damage can not be lethal. Enemies take increased post-mitigation damage from all sources for 10 seconds after being hit by Rockfall."
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Element: <font color=\"#AF843D\">Earth</font> / <font color=\"#EF4126\">Fire</font><br>Summon 3 sets of lava hot boulders that damage and stun enemies in the target area. Each enemy hit damages Mountain Protector based on her max health, but the damage can not be lethal. Enemies have reduced Magic Armor for 10 seconds after being hit by Rockfall."
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_Lore"							""
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_stun_duration"				"STUN DURATION:"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_self_damage"					"SELF DAMAGE (% OF MAX HEALTH):"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_additional_str_damage"		"ADDITIONAL DAMAGE FROM STRENGTH MULTIPLE:"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_post_mitigation"				"POST MITIGATION INCREASE %:"
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_magic_armor_reduce"				"MAGIC ARMOR REDUCE:"
 
-    	"DOTA_Tooltip_modifier_rockfall_post_mit"										"Rockfall"
-    	"DOTA_Tooltip_modifier_rockfall_post_mit_Description"							"Taking increased post-mitigation damage from all sources."
+    	"DOTA_Tooltip_modifier_rockfall_magic_armor_loss"										"Rockfall"
+    	"DOTA_Tooltip_modifier_rockfall_magic_armor_loss_Description"							"Reduced Magic Armor."
 
     	"DOTA_Tooltip_ability_mountain_protector_volcanic_glissade"						"Volcanic Glissade"
     	"DOTA_Tooltip_ability_mountain_protector_volcanic_glissade_Description"			"Mountain Protector surges across the landscape towards the target location at blazing speed."
@@ -7900,14 +7904,16 @@
     	"DOTA_Tooltip_modifier_glissade_freecast"										"Volcanic Glissade Freecast"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3"						"[E1] Crater"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"Each 1000 points of Missing HP increases Base Ability Damage and Item Damage."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"Base Ability and Item Damage"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% for every 1000 missing health"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"Gain Magic Armor and Spell Pierce based on missing health."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"Magic Armor and Spell Pierce"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				" for each 1% of missing health"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] Batholith"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"The base damage value of all abilities is increased by a flat amount, equal to a multiple of Mountain Protector's Strength attribute."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Base Damage Bonus"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x Strength"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Reduces Agility and increases Strength."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Strength Bonus"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				""
+        "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_two"         "Agility Loss"
+        "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix_two"           ""
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"After casting rockfall, gain a chance to gain a free cast of Lava Glissade. Greater than 100% chance means it can proc multiple times."
@@ -7915,9 +7921,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] Titan Breaker"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"Enemies with Steadfast have their max damage taken increased by a percentage."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"Steadfast Threshold Increase"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"If an enemy has more HP than Mountain Protector, Rockfall's Magic Armor reduction is increased."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"Additional Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				" while enemy health is higher"
 		
 		//Glyphs
 		
@@ -7931,7 +7937,7 @@
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"All damage taken is reduced by another <font color='#ccff66'>30</font>% while in @Ability2."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"Glyph of Catastrophe"
-		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage."
+		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage. @Ability4 Base Ability Damage reduced by <font color='#ccff66'>7500</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"Glyph of Mountain Force"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"<font color='#ccff66'>25</font>% chance to launch 2 @Ability1s."
@@ -7946,7 +7952,7 @@
 		"item_rpc_mountain_protector_glyph_7_1_description" 				"Enemies who damage you while in @Ability2 have a <font color='#ccff66'>30</font>% chance to be stunned for <font color='#ccff66'>1</font> second."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"Glyph of Mountain's Peak"
-		"item_rpc_mountain_protector_glyph_5_a_description" 				"@Ability4's center point follows Mountain Protector relative to the cast point. Additionally increases strength by <font color='#ccff66'>5000</font>."
+		"item_rpc_mountain_protector_glyph_5_a_description" 				"@Ability4's center point follows Mountain Protector relative to the cast point. Additionally increases strength by <font color='#ccff66'>500</font>."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_weapon_00"	"Blade"
@@ -7968,7 +7974,7 @@
 		"property_mountain_protector_immortal_weapon_description"				"Shockwave's stun duration is increased by <font color='#ccff66'>0.35</font> seconds."
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_2"            "Spine of Skorne"
         "item_property_mountain_protector_immortal_weapon2"                             "Champion's Legacy"
-        "property_mountain_protector_immortal_weapon2_description"                      "Gain <font color='#ccff66'>1</font>% bonus attack damage and <font color='#ccff66'>1</font> armor when slaying an enemy that rewards XP. Does not expire until end of session."
+        "property_mountain_protector_immortal_weapon2_description"                      "Gain <font color='#ccff66'>0.03</font>% bonus attack damage and <font color='#ccff66'>0.5</font> armor when slaying an enemy that rewards XP. Does not expire until end of session."
  		
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks"								"Champion's Legacy"
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks_Description"					"Increased armor and attack damage %%"

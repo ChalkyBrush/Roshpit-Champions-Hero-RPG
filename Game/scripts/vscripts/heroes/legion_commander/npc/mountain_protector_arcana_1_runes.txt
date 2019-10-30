@@ -14,12 +14,12 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_ATTACK_POWER_PCT %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_STR %>"
 			}
 			"03"
@@ -55,7 +55,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W2_POSTMITIGATION_PERCENT %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W2_MOVE_SLOW %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W2_ATTACK_SLOW %>"
 			}
 		}
 	}
@@ -75,7 +80,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA1_W3_DAMAGE_PERCENT %>"
 			}
 			"02"

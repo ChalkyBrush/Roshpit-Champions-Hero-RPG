@@ -95,7 +95,7 @@ function CDOTA_BaseNPC_Hero:GetStrength()
 		local item = self.handItem
 		strength = item.newItemTable.property1
 	end
-	return tonumber(strength)
+	return math.max(tonumber(strength), 0)
 end
 
 function CDOTA_BaseNPC_Hero:GetAgility()
@@ -105,7 +105,7 @@ function CDOTA_BaseNPC_Hero:GetAgility()
 		local item = self.handItem
 		agility = item.newItemTable.property1
 	end
-	return tonumber(agility)
+	return math.max(tonumber(agility), 0)
 end
 
 function CDOTA_BaseNPC_Hero:GetIntellect()
@@ -115,7 +115,7 @@ function CDOTA_BaseNPC_Hero:GetIntellect()
 		local item = self.handItem
 		intelligence = item.newItemTable.property1
 	end
-	return tonumber(intelligence)
+	return math.max(tonumber(intelligence), 0)
 end
 
 function CDOTA_BaseNPC_Hero:GetSpirit()
@@ -125,7 +125,7 @@ function CDOTA_BaseNPC_Hero:GetSpirit()
 		local item = self.handItem
 		spirit = item.newItemTable.property1
 	end
-	return tonumber(spirit)
+	return math.max(tonumber(spirit), 0)
 end
 
 
@@ -711,6 +711,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
             armor_modify = armor_modify + DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE* e_1_level
         end
     end
+    if unit:HasModifier("modifier_energy_channel") then
+    	armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_energy_channel")
+    end
+    if unit:HasModifier("modifier_steelforge_stance") then
+    	armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_steelforge_stance")
+    end
+    if unit:HasModifier("modifier_protector_d_b_armor_aura_effect") then
+		local modifier = unit:FindModifierByName("modifier_protector_d_b_armor_aura_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_W4
+    end
+    if unit:HasModifier("modifier_immortal_weapon_2_stacks") then
+		local modifier = unit:FindModifierByName("modifier_immortal_weapon_2_stacks")
+		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_ARMOR_PER_KILL
+    end
+    if unit:HasModifier("modifier_hailstorm_armor_and_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_hailstorm_armor_and_magic_armor_loss")
+		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -992,6 +1010,29 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_ancient_rain") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_ancient_rain")
 	end
+    if unit:HasModifier("modifier_energy_channel") then
+    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_energy_channel")
+    end
+    if unit:HasModifier("modifier_steelforge_stance") then
+    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_steelforge_stance")
+    end
+    if unit:HasModifier("modifier_hailstorm_armor_and_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_hailstorm_armor_and_magic_armor_loss")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+    if unit:HasModifier("modifier_rockfall_magic_armor_loss") then
+    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduce", "modifier_rockfall_magic_armor_loss")
+    	local modifier = unit:FindModifierByName("modifier_rockfall_magic_armor_loss")
+    	if unit:GetHealth() > modifier:GetCaster():GetHealth() then
+    		local e_4_level = unit:GetRuneValue("e", 4)
+    		magic_armor_modify = magic_armor_modify + MOUNTAIN_PROTECTOR_ARCANA3_E4_EXTRA_MAGIC_ARMOR_REDUCE_WHEN_HP_HIGHER*e_4_level
+    	end
+    end
+    if unit:HasModifier("modifier_mountain_protector_arcana3") then
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local e_1_level = unit:GetRuneValue("e", 1)
+    	magic_armor_modify = magic_armor_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
+    end
 
 
 
@@ -1194,6 +1235,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
 	end
+	if unit:HasModifier("modifier_energy_channel") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		spell_pierce_modify = spell_pierce_modify + w_2_level*MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE
+	end
+    if unit:HasModifier("modifier_mountain_protector_arcana3") then
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local e_1_level = unit:GetRuneValue("e", 1)
+    	spell_pierce_modify = spell_pierce_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
+    end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
@@ -1334,6 +1384,11 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
 		agi_bonus = agi_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
 		int_bonus = int_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
+	end
+	if hero:HasModifier("modifier_rockfall_passive") then
+		local e_2_level = hero:GetRuneValue("e", 2)
+		str_bonus = str_bonus + MOUNTAIN_PROTECTOR_ARCANA3_E2_STR*e_2_level
+		agi_bonus = agi_bonus + MOUNTAIN_PROTECTOR_ARCANA3_E2_AGI*e_2_level
 	end
 	if hero:HasModifier("modifier_hailstorm_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
