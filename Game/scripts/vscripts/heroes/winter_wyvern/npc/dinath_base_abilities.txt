@@ -374,6 +374,15 @@
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
 				"TextureName"	"dinath/dinath_rune_r_2"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 

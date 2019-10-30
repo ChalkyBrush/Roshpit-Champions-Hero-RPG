@@ -89,6 +89,8 @@ function UnitStats40(){
 			GameUI.level_label.text = Entities.GetLevel( queryUnit )
 			GameUI.level_label.style.color = "#E7D291"
 			GameUI.level_label.style.textShadow = "0px 0px 3px 3.7 #EC780E24"
+
+			GameUI.MovespeedLabel.text = Math.round(heroAttributes.movespeed)
 		}
 	}else{
 		$('#hero_attributes').style.visibility = "collapse"
@@ -114,6 +116,7 @@ function UnitStats40(){
 			GameUI.level_label.style.color = "#E7D291"
 			GameUI.level_label.style.textShadow = "0px 0px 3px 3.7 #EC780E24"			
 		}
+		GameUI.MovespeedLabel.text = Math.round(Entities.GetMoveSpeedModifier(queryUnit, Entities.GetBaseMoveSpeed(queryUnit), false));
 	}
 	// if (!(mQueryUnit == queryUnit)){
 	$('#unit_attribute_armor_label').text = mAttributesHash["modifier_roshpit_armor"]

@@ -4648,7 +4648,7 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"Нанесение атаки снижает перезарядку способностей на <font color='#ccff66'>0.1</font> секунды."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"(T6) Glyph of Calamity"
-		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на <font color='#ccff66'>140</font>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на <font color='#ccff66'>75</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"(T7) Glyph of the Mana Dragon"
 		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на <font color='#ccff66'>0.1</font>x от текущей маны, и атаки восстанавливают <font color='#ccff66'>1</font>% от максимальной маны."

@@ -39,7 +39,7 @@
     	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional pure damage."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"RADIUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"PASSIVE ATTACK RANGE BONUS:"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% PURE DAMAGE BASED ON ATTACK POWER:"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% DAMAGE BASED ON ATTACK POWER:"
 		
 		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] Crystal Breeze"
     	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"3 seconds after placing an Eye of the Drake, gain % bonus attack damage for next 27 seconds. Casting the ability while active removes the buff until 3 seconds elapses again."
@@ -111,7 +111,7 @@
 		"DOTA_Tooltip_ability_dinath_rune_r_1"									"[R1] Hyperstorm"
     	"DOTA_Tooltip_ability_dinath_rune_r_1_Description"						"Hyperbeams zap enemies with electricty if they get too close. Zap radius is based on size of the Hyperbeam. The lightning damage also scales with size and hits on a 0.2 second interval."
     	"DOTA_Tooltip_ability_dinath_rune_r_1_property_one"						"Damage"
-    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							"% of attack power"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							""
 
     	"DOTA_Tooltip_ability_dinath_rune_r_2"									"[R2] Cellular Rust"
     	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Enemies hit by the main, freezing portion of Hyperbeam have their Magic Armor value reduced."
@@ -149,9 +149,9 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] Frost Flutter"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=\"#87D9FF\">Ice</font> Damage is enhanced by Movespeed."
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Ice Damage Bonus"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% per 100 Movespeed"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"Spell Pierce is enhanced by Movespeed."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Spell Pierce"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					" per movespeed"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] Wind Tunnel"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_Description"				"Passively increases movespeed cap. Toggling Spire Breath on or off applies a movespeed buff that decays over time."

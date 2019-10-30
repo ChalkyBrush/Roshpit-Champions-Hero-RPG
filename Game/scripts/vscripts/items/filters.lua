@@ -2426,12 +2426,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local d_d_level = attacker:GetRuneValue("r", 4)
                 mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetAgility() / 10 * d_d_level
             end
-        elseif unitName == "npc_dota_hero_winter_wyvern" then
-            if attacker:HasModifier("modifier_dinath_arcana1") then
-                local movespeed = attacker:GetBaseMoveSpeed()
-                local actualMS = attacker:GetMoveSpeedModifier(movespeed, false)
-                mult = mult + actualMS/100 * DINATH_ARCANA_W2_ICE_AMP_PER_100_MS_PCT/100 * attacker:GetRuneValue("w", 2)
-            end
         end
         if attacker:HasModifier("modifier_trinket_ice") then
             local stacks = attacker:GetModifierStackCount("modifier_trinket_ice", attacker.InventoryUnit)

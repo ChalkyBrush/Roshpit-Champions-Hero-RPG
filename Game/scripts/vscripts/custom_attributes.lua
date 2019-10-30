@@ -1141,6 +1141,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			armor_pierce_modify = armor_pierce_modify + SPIRIT_WARRIOR_ARCANA_R3_ARMOR_PIERCE * waterheart.r_3_level
 		end
 	end
+	if unit:HasModifier("modifier_dinath_arcana1") then
+		local ms = unit:GetActualMovespeed()
+		local w_2_level = unit:GetRuneValue("w", 2)
+		armor_pierce_modify = armor_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
+	end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
@@ -1250,6 +1255,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
     	local e_1_level = unit:GetRuneValue("e", 1)
     	spell_pierce_modify = spell_pierce_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
     end
+	if unit:HasModifier("modifier_dinath_arcana1") then
+		local ms = unit:GetActualMovespeed()
+		local w_2_level = unit:GetRuneValue("w", 2)
+		spell_pierce_modify = spell_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

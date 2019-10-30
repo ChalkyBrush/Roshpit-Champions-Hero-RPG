@@ -285,7 +285,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% DINATH_R1_ATTACK_TO_DAMAGE * 100 %>"
+				"property_one"			"<% DINATH_R1_DAMAGE %>"
 			}
 			"02"
 			{

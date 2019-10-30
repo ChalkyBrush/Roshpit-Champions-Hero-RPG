@@ -64697,7 +64697,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		// Precache
 		//-------------------------------------------------------
@@ -64856,7 +64856,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "8"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
 				}
 			}
 		}
@@ -64880,7 +64880,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -64899,8 +64899,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0.32"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 		}
 	}
@@ -64920,7 +64920,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -65333,6 +65333,15 @@
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
 				"TextureName"	"dinath/dinath_rune_r_2"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 
@@ -65455,7 +65464,7 @@
 				"IsStunDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"-3"
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"-4"
 				}
 			}
 		}
@@ -65465,12 +65474,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_base"	"40 120 300 700 900 1050 1200"
+				"damage_base"	"40 160 280 400 520 640 760"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_attack_power"	"40 50 60 70 100 140 160"
+				"damage_attack_power"	"55 60 65 70 75 80 85"
 			}
 		}
 	}
@@ -65525,7 +65534,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"5 10 15 20 30 45 60"
+				"damage_mult"				"20 24 28 32 36 40 44"
 			}
 		}
 		"OnSpellStart"
@@ -65818,7 +65827,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-3"
+				"property_one"			"-4"
 			}
 		}
 	}
@@ -66009,7 +66018,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -66044,7 +66053,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-10"
+				"property_one"			"-15"
 			}
 		}
 	}
@@ -66084,7 +66093,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 		}
 	}

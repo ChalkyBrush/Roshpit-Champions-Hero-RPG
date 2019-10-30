@@ -4954,7 +4954,7 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"每次造成一次普通攻击，就能降低全部技能的冷却时间 <font color='#ccff66'>0.1</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"灾难雕文"
-		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <font color='#ccff66'>140</font>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"提高 <font color=\"#EF4126\">火</font>, <font color=\"#87D9FF\">冰</font>, <font color=\"#5CCDF9\">电</font>, 和 <font color=\"#C25DFC\">宇宙</font> 元素伤害 <font color='#ccff66'>75</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"龙族魔法"
 		"item_rpc_dinath_glyph_7_1_description" 				"@Ability2 的伤害中加入 <font color='#ccff66'>0.1</font>x 当前魔法值, 同时每次攻击可以回复 <font color='#ccff66'>1</font>% 的最大魔法值"
