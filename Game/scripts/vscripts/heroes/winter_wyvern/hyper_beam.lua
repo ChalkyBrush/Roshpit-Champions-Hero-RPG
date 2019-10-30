@@ -132,8 +132,8 @@ function hyperbeam_orb_thinking(event)
 						enemy:SetModifierStackCount("modifier_hyperbeam_immunity", caster, immunityStacks + 1)
 					end
 					if hyperbeam.r_2_level > 0 then
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hyperbeam_postmit", {duration = 7})
-						enemy:SetModifierStackCount("modifier_hyperbeam_postmit", caster, hyperbeam.r_2_level)
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hyperbeam_magic_armor_reduction", {duration = 7})
+						enemy:SetModifierStackCount("modifier_hyperbeam_magic_armor_reduction", caster, hyperbeam.r_2_level)
 					end
 				end
 			end

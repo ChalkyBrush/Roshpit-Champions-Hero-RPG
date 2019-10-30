@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-5"
+				"property_one"			"-<% DINATH_Q1_MOVESPEED_SLOW %>"
 			}
 		}
 	}
@@ -34,7 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"<% DINATH_Q2_FIRE_DURATION %>"
 			}
 		}
 	}
@@ -54,12 +54,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% DINATH_Q3_CAST_RANGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"500"
+				"property_one_base"			"<% DINATH_Q3_CAST_RANGE_BASE %>"
 			}
 			"03"
 			{
@@ -94,7 +94,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-1.5"
+				"property_one"			"-<% DINATH_Q4_CAST_RATE_REDUCTION %>"
 			}
 		}
 	}
@@ -113,8 +113,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% DINATH_W1_BONUS_ATTACK_DAMAGE * 100 %>"
 			}
 		}
 	}
@@ -134,7 +134,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% DINATH_W2_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -154,12 +154,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"			"0.3"
+				"property_one_base"			"<% DINATH_W3_ROOT_BASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% DINATH_W3_ROOT %>"
 			}
 		}
 	}
@@ -179,7 +179,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% DINATH_W4_RADUIS %>"
 			}
 		}
 	}
@@ -199,7 +199,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% DINATH_E1_ATTACK_SPEED %>"
 			}
 		}
 	}
@@ -219,7 +219,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% DINATH_E2_GEAR_BASE_DAMAGE_AMP * 100 %>"
 			}
 		}
 	}
@@ -239,7 +239,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% DINATH_E3_ATTACK_RANGE %>"
 			}
 		}
 	}
@@ -259,12 +259,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"450"
+				"property_one_base"			"<% DINATH_E4_Z_THRESHOLD_BASE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"				"-3"
+				"property_one"				"-<% DINATH_E4_Z_THRESHOLD_REDUCTION %>"
 			}
 		}
 	}
@@ -285,7 +285,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% DINATH_R1_ATTACK_TO_DAMAGE * 100 %>"
 			}
 			"02"
 			{
@@ -320,7 +320,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"9"
+				"property_one"			"<% DINATH_R2_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -340,7 +340,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% DINATH_R3_CHARGE_RATE * 100 %>"
 			}
 		}
 	}
@@ -360,7 +360,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"<% DINATH_R4_DRAGON_AMP %>"
 			}
 		}
 	}

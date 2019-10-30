@@ -2430,7 +2430,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_dinath_arcana1") then
                 local movespeed = attacker:GetBaseMoveSpeed()
                 local actualMS = attacker:GetMoveSpeedModifier(movespeed, false)
-                mult = mult + actualMS * DINATH_ARCANA_W2_MOVESPEED_TO_ICE_AMP_DIV_BY_100 * attacker:GetRuneValue("w", 2)
+                mult = mult + actualMS/100 * DINATH_ARCANA_W2_ICE_AMP_PER_100_MS_PCT/100 * attacker:GetRuneValue("w", 2)
             end
         end
         if attacker:HasModifier("modifier_trinket_ice") then
@@ -2737,7 +2737,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
         if unitName == "npc_dota_hero_winter_wyvern" then
             local d_d_level = attacker:GetRuneValue("r", 4)
-            mult = mult + DINATH_R4_DRAGON_AMP * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * d_d_level
+            mult = mult + DINATH_R4_DRAGON_AMP/100 * d_d_level
             if bIsRealDamage then
                 if attacker:HasModifier("modifier_dinath_immortal_weapon_3") then
                     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
