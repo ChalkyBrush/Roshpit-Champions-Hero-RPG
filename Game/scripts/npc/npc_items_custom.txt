@@ -28217,7 +28217,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -28256,7 +28256,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"140"
 			}
 		}
 	}
@@ -28295,7 +28295,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
