@@ -3889,7 +3889,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " за каждый 1% усиления стихии Демона"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"                       "[E4] Hunter in the Night"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "Противники в радиусе <font color='#ccff66'>350</font> от героя получают урон от Теней каждые <font color='#ccff66'>0.15</font> сек. Чернобог оставляет за собой невидимые зоны оживленных Теней, которые будут атаковать противников еще некоторое время."
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "Противники в радиусе <font color='#ccff66'>350</font> от героя получают урон от Теней каждые <font color='#ccff66'>0.3</font> сек. Чернобог оставляет за собой невидимые зоны оживленных Теней, которые будут атаковать противников еще некоторое время."
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"          "Урон Теней"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"                "% от урона атаки героя"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"          "Длительность зон"

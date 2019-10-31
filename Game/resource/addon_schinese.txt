@@ -4177,7 +4177,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"                " 每 1% 恶魔元素伤害提高"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"                       "[E4] 哈迪斯·恶魔狩猎"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "暗夜魔王周围的暗影将会撕裂周围<font color='#ccff66'>350</font>范围内的敌人，每 <font color='#ccff66'>0.15</font> 秒攻击一次。暗夜魔王在离开后将会留下隐形空间，在这个空间中敌人将会被攻击，即使在他离开这片区域后。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"           "暗夜魔王周围的暗影将会撕裂周围<font color='#ccff66'>350</font>范围内的敌人，每 <font color='#ccff66'>0.3</font> 秒攻击一次。暗夜魔王在离开后将会留下隐形空间，在这个空间中敌人将会被攻击，即使在他离开这片区域后。"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"          "暗影的伤害"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"                "% 暗夜魔王的总攻击力"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"          "空间持续时间"

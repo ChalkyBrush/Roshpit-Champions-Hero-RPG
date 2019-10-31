@@ -3935,7 +3935,7 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_3_arcana2_suffix"				" per 1% Demon damage bonus"
 
   		"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2"						"[E4] Shadow Master"
-    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies within <font color='#ccff66'>350</font> range every <font color='#ccff66'>0.15</font> seconds. Chernobog leaves behind invisible zones of animated shadows as he moves, which will continue attacking enemies for a brief moment even after he has left the area."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_Description"			"The shadows around Chernobog are permanently animated, and rip into all enemies within <font color='#ccff66'>350</font> range every <font color='#ccff66'>0.3</font> seconds. Chernobog leaves behind invisible zones of animated shadows as he moves, which will continue attacking enemies for a brief moment even after he has left the area."
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_one"			"Shadow Damage"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix"				"% of Chernobog's attack power"
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_property_two"			"Zone Duration"
