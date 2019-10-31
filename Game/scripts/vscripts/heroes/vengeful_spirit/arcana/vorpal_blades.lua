@@ -101,7 +101,7 @@ function vorpal_blades_thinking(event)
 	local damagetype = DAMAGE_TYPE_MAGICAL
 	if event.type == "moon" then
 		element2 = RPC_ELEMENT_ICE
-		damagetype = DAMAGE_TYPE_PURE
+		damagetype = DAMAGE_TYPE_PHYSICAL
 	end
 	for i = 1, #ability.vorpals, 1 do
 		local vorpal = ability.vorpals[i]
@@ -151,6 +151,7 @@ function vorpal_blades_thinking(event)
 								damage = damage + damage*(SOLUNIA_ARCANA_W3_CRIT_DMG/100)*vorpal.w_3_level
 								CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/vorpal_crit_blur.vpcf", vorpal.lock_entity, 3)
 								if caster:HasModifier("modifier_solunia_immortal_weapon_2") then
+									caster.origCaster = caster
 									immo_weapon_2_effect(caster, vorpal.lock_entity)
 								end
 								EmitSoundOn("Solunia.BoomerangCrit", vorpal.lock_entity)

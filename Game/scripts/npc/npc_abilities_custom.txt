@@ -48081,8 +48081,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -61378,7 +61378,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"9200 24000 80000 120000 180000 320000 550000"
+				"damage"			"100 350 600 850 1100 1350 1600"
 			}
 			"02"
 			{
@@ -61513,7 +61513,8 @@
 				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "60"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 				}
 			}
 			"modifier_solar_compression_visible"
@@ -61524,6 +61525,15 @@
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_solar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_solar_compression_invisible"
 			{
@@ -61546,14 +61556,14 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1400"
 		"AOERadius"						"240"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"8000 18000 60000 90000 130000 240000 440000"
+				"damage"			"100 350 600 850 1100 1350 1600"
 			}
 			"02"
 			{
@@ -61625,7 +61635,7 @@
 				"TextureName"	"solunia/solunia_rune_q_1_arcana1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "3000"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "60"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 				}
 			}
@@ -61637,6 +61647,15 @@
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_lunar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_lunar_compression_invisible"
 			{
@@ -61661,7 +61680,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3000"
+				"property_one"			"60"
 			}
 			"02"
 			{
@@ -61684,12 +61703,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.01"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -61710,7 +61729,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"-8"
 			}
 			"02"
 			{
@@ -61736,7 +61755,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.16"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -61881,7 +61900,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+				"damage"	"200 500 800 1100 1400 1700 2000"
 			}
 			"02"
 			{
@@ -62033,7 +62052,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+				"damage"	"200 500 800 1100 1400 1700 2000"
 			}
 			"02"
 			{
@@ -62069,7 +62088,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10000"
+				"property_two"			"400"
 			}
 		}
 	}
@@ -62088,12 +62107,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"35"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"35"
 			}
 			"03"
 			{
@@ -62139,12 +62158,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"40"
 			}
 		}
 	}
@@ -62277,7 +62296,7 @@
 		"MaxLevel"				 "7"
 		"AbilityCastAnimation"	"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"AOERadius"				"600"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -62376,7 +62395,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -62394,12 +62413,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1000"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -62417,7 +62436,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -62435,7 +62454,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -62462,7 +62481,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3400 9200 24000 80000 120000 180000 250000"
+				"damage"			"55 215 375 535 695 855 1015"
 			}
 			"02"
 			{
@@ -62572,7 +62591,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "300"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "2"
 				}
 			}
 		}
@@ -62649,7 +62668,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1400"
 		"AOERadius"						"240"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCooldown"				"9"
 
 		"AbilitySpecial"
@@ -62657,7 +62676,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3400 9200 24000 80000 120000 180000 250000"
+				"damage"			"55 215 375 535 695 855 1015"
 			}
 			"02"
 			{
@@ -62764,7 +62783,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.02"
 				}
 			}
 		}
@@ -62807,7 +62826,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2800 7200 24000 60000 95000 150000 220000"
+				"damage"			"20 60 100 140 180 220 260"
 			}
 		}
 		// Precache
@@ -62833,7 +62852,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+		"AbilityManaCost"				"45 85 125 165 205 245 285"
 
 		// Special
 		//-------------------------------------------------------
@@ -62995,7 +63014,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "120"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "12"
 				}
 			}
 			"modifier_black_widow_invis_range_debuff"
@@ -63137,7 +63156,7 @@
 		"AbilityCastRange"				"1400"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -63149,7 +63168,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2800 7200 24000 60000 95000 150000 220000"
+				"damage"			"20 60 100 140 180 220 260"
 			}
 		}
 		// Precache
@@ -63170,7 +63189,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+		"AbilityManaCost"				"45 85 125 165 205 245 285"
 
 		// Special
 		//-------------------------------------------------------
@@ -63437,6 +63456,24 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1000"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_solunia_warp_flare_immortal_weapon_effect"
 			{
@@ -63651,6 +63688,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1000"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_solunia_warp_flare_immortal_weapon_effect"
@@ -63899,7 +63954,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+				"damage"	"200 500 800 1100 1400 1700 2000"
 			}
 			"02"
 			{
@@ -63921,7 +63976,7 @@
 		"AOERadius"						"450"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -64139,7 +64194,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+				"damage"	"200 500 800 1100 1400 1700 2000"
 			}
 			"02"
 			{
@@ -64166,7 +64221,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"90"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -64199,12 +64254,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -64248,7 +64303,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -64294,7 +64349,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -64311,8 +64366,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.02"
 			}
 		}
 	}
@@ -64334,12 +64389,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"120"
+				"property_one"			"12"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.35"
+				"property_two"			"0.9"
 			}
 			"03"
 			{
@@ -64362,7 +64417,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -64372,7 +64427,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"0.08"
 			}
 			"04"
 			{
@@ -64395,12 +64450,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.05"
 			}
 			"03"
 			{
@@ -64433,7 +64488,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"-50"
 			}
 		}
 	}
@@ -64455,7 +64510,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20000"
+				"property_one"			"800"
 			}
 		}
 		"Modifiers"
@@ -64497,12 +64552,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6000"
+				"property_one"			"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"6000"
+				"property_two"			"300"
 			}
 		}
 	}
@@ -64521,12 +64576,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.6"
+				"property_one"			"0.8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"24"
+				"property_two"			"4"
 			}
 			"03"
 			{
@@ -64596,7 +64651,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"20"
+				"property_two"			"0.5"
 			}
 		}
 	}

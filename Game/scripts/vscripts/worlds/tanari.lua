@@ -79,6 +79,8 @@ function Tanari:Debug()
     local slipper = RPCItems:RollIceFloeSlippers(Vector(-4928, 2048))
 
     Gems:DropSocketForger(Vector(-4928, 2048))
+
+    RPCItems:RollSoluniaArcana3(Vector(-4928, 2048))
     -- RPCItems:RollSlipfinnArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAerithsTear(Vector(-4928, 2048))
 

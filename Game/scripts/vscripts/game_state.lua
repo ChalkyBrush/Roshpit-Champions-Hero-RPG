@@ -1553,7 +1553,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-RESPLENDENT_RUBBER_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
-		damage = damage * 0.05
+		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
 	end
 	if victim:HasModifier("modifier_neutral_glyph_5_1") then
 		damage = damage * 0.65
@@ -2197,16 +2197,8 @@ function GameState:FilterDamage(filterTable)
 			local multIncrease = victim:GetModifierStackCount("modifier_umbral_sentinel_magic_amp", victim.umbral) * CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC/100
 			mult = mult + multIncrease
 		end
-
-		if victim:HasModifier("modifier_solunia_warp_core_aura_solar") then
-			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_solar")
-			mult = mult + modifier:GetAbility().e_3_level * SOLUNIA_E3_POST_MITI_PCT/100
-		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
-		if victim:HasModifier("modifier_solunia_warp_core_aura_lunar") then
-			modifier = victim:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
-			mult = mult + modifier:GetAbility().e_3_level * SOLUNIA_E3_POST_MITI_PCT/100
-		end
+
 
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -3108,18 +3100,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		victim:Heal(healAmount, victim)
 	end
-	if victim:HasModifier("modifier_solar_compression_invisible") then
-		modifier = victim:FindModifierByName("modifier_solar_compression_invisible")
-		local modifierCaster = modifier:GetCaster()
-		local stacks = victim:GetModifierStackCount("modifier_solar_compression_invisible", modifierCaster)
-		mult = mult + stacks * SOLUNIA_ARCANA_Q3_POST_MITI_PCT/100
-	end
-	if victim:HasModifier("modifier_lunar_compression_invisible") then
-		modifier = victim:FindModifierByName("modifier_lunar_compression_invisible")
-		local modifierCaster = modifier:GetCaster()
-		local stacks = victim:GetModifierStackCount("modifier_lunar_compression_invisible", modifierCaster)
-		mult = mult + stacks * SOLUNIA_ARCANA_Q3_POST_MITI_PCT/100
-	end
+
 	if victim:HasModifier("modifier_in_hydrogen_field") then
 		if filterTable["entindex_inflictor_const"] then
 			local ability = EntIndexToHScript(filterTable["entindex_inflictor_const"])

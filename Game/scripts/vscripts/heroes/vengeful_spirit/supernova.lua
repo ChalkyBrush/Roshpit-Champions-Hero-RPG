@@ -161,10 +161,10 @@ function novaExplosion(event)
 	local stun_duration = event.stun_duration
 	local r_4_level = caster:GetRuneValue("r", 4)
 	if r_4_level > 0 then
-		damage = damage + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * SOLUNIA_R4_ADD_DMG_PER_ATTR * r_4_level
+		damage = damage + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * SOLUNIA_R4_ADD_DMG_PER_ATTR * r_4_level
 	end
 	if ability:GetAbilityName() == "solunia_eclipse" then
-		damageType = DAMAGE_TYPE_PURE
+		damageType = DAMAGE_TYPE_PHYSICAL
 		event.element = "lunar"
 	else
 		damageType = DAMAGE_TYPE_MAGICAL

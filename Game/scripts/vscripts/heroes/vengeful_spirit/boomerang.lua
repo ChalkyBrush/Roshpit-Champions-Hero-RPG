@@ -269,7 +269,7 @@ function a_c_explosion(caster, finalMoveVector)
 		EmitSoundOn("Solunia.SolarGlow.Impact", caster)
 		local damageType = DAMAGE_TYPE_MAGICAL
 		if caster:HasModifier("boomerang_passive_lunar") then
-			damageType = DAMAGE_TYPE_PURE
+			damageType = DAMAGE_TYPE_PHYSICAL
 		end
 		local enemies = FindUnitsInRadius(caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -387,7 +387,7 @@ function boomerang_impact(caster, ability, target)
 	local damageType = DAMAGE_TYPE_MAGICAL
 	if IsValidEntity(caster) then
 		if caster:HasModifier("boomerang_passive_lunar") then
-			damageType = DAMAGE_TYPE_PURE
+			damageType = DAMAGE_TYPE_PHYSICAL
 		end
 		local damage = caster.damage
 		if caster.w_1_level > 0 then

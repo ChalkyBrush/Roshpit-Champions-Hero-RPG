@@ -20,7 +20,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"9200 24000 80000 120000 180000 320000 550000"
+				"damage"			"100 350 600 850 1100 1350 1600"
 			}
 			"02"
 			{
@@ -156,6 +156,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% SOLUNIA_ARCANA_Q1_HP_REGEN %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SOLUNIA_ARCANA_Q1_BONUS_ATTACK_PCT %>"
 				}
 			}
 			"modifier_solar_compression_visible"
@@ -166,6 +167,15 @@
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_solar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_solar_compression_invisible"
 			{
@@ -188,14 +198,14 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1400"
 		"AOERadius"						"240"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"8000 18000 60000 90000 130000 240000 440000"
+				"damage"			"100 350 600 850 1100 1350 1600"
 			}
 			"02"
 			{
@@ -279,6 +289,15 @@
 				"EffectName"	"particles/roshpit/solunia/solunia_compression_lunar_heal.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"TextureName"	"solunia/solunia_rune_q_3_arcana1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_lunar_compression_invisible"
 			{

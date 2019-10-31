@@ -21,7 +21,7 @@ function begin_arcana_comet(event)
 	local damageType = DAMAGE_TYPE_MAGICAL
 	if event.sun_moon == "moon" then
 		element2 = RPC_ELEMENT_ICE
-		damageType = DAMAGE_TYPE_PURE
+		damageType = DAMAGE_TYPE_PHYSICAL
 		castParticle = "particles/roshpit/solunia/comet_cast_moon.vpcf"
 		explodeParticle = "particles/roshpit/solunia/lunar_flare_explosion_immortal1.vpcf"
 		starParticle = "particles/roshpit/solunia/comet_moon_attack_attack.vpcf"
@@ -73,7 +73,7 @@ end
 function flareImpact(caster, ability, damage, element2, damageType, position, stun_duration, sun_moon)
 	local damageType = DAMAGE_TYPE_MAGICAL
 	if sun_moon == "moon" then
-		damageType = DAMAGE_TYPE_PURE
+		damageType = DAMAGE_TYPE_PHYSICAL
 		element2 = RPC_ELEMENT_ICE
 	end
 	if caster:HasModifier("modifier_solunia_glyph_3_1") then
@@ -105,6 +105,7 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lunar_compression_invisible", {duration = adjustedBuffDuration})
 					enemy:SetModifierStackCount("modifier_lunar_compression_invisible", caster, newStacks * ability.q_3_level)
 				end
+				enemy:CalculateAndSaveRoshpitAttributes()
 			end
 		end
 	end
@@ -138,13 +139,13 @@ function arcana_passive_think(event)
 	end
 	ability.interval = ability.interval + 1
 
-	if ability.interval == 10 then
-		local q_1_level = caster:GetRuneValue("q", 1)
-		if q_1_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_ultraviolet_damage", {duration = 5})
-			caster:SetModifierStackCount("modifier_solunia_ultraviolet_damage", caster, q_1_level)
-		end
-	end
+	-- if ability.interval == 10 then
+	-- 	local q_1_level = caster:GetRuneValue("q", 1)
+	-- 	if q_1_level > 0 then
+	-- 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_ultraviolet_damage", {duration = 5})
+	-- 		caster:SetModifierStackCount("modifier_solunia_ultraviolet_damage", caster, q_1_level)
+	-- 	end
+	-- end
 	if ability.interval >= 20 then
 		ability.interval = 0
 		ability.q_2_level = caster:GetRuneValue("q", 2)
@@ -156,7 +157,12 @@ function arcana_passive_think(event)
 		if not caster:HasModifier("modifier_polythea_damage") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_polythea_damage", {})
 		end
-		local damageStacks = ability.q_2_level * SOLUNIA_ARCANA_Q2_BASE_ATTACK_PER_HP * caster:GetHealth()
+		local damageStacks = 0
+		if caster.sunMoon == "sun" then
+			damageStacks = ability.q_2_level * SOLUNIA_ARCANA_Q2_BASE_ATTACK_PER_HP * caster:GetHealth()
+		elseif caster.sunMoon == "moon" then
+			damageStacks = ability.q_2_level * SOLUNIA_ARCANA_Q2_BASE_ATTACK_PER_HP_LUNAR * (caster:GetMaxHealth() - caster:GetHealth())
+		end
 		caster:SetModifierStackCount("modifier_polythea_damage", caster, damageStacks)
 	else
 		caster:RemoveModifierByName("modifier_polythea_damage")

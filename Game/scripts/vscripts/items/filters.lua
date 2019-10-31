@@ -53,21 +53,21 @@ function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, el
             damage = damage * victim.itemReduc
         end
     end
-    if attacker:HasModifier("modifier_solunia_arcana2") then
-        local b_d_level = attacker:GetRuneValue("r", 2)
-        if b_d_level > 0 then
-            local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
-            if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = modified_damage * 0.01 * b_d_level
-                local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
-                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
-            else
-                victim.SoluniaBurnSolar = modified_damage * 0.01 * b_d_level
-                local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
-                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
-            end
-        end
-    end
+    -- if attacker:HasModifier("modifier_solunia_arcana2") then
+    --     local b_d_level = attacker:GetRuneValue("r", 2)
+    --     if b_d_level > 0 then
+    --         local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
+    --         if attacker.sunMoon == "moon" then
+    --             victim.SoluniaBurnLunar = modified_damage * 0.01 * b_d_level
+    --             local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
+    --             alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
+    --         else
+    --             victim.SoluniaBurnSolar = modified_damage * 0.01 * b_d_level
+    --             local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
+    --             alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
+    --         end
+    --     end
+    -- end
     damage = damage * mult
 
     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2, false, item)
@@ -1302,12 +1302,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
     if Util.BaseType:IsAbilityBaseType(slot) then
         damageMult = damageMult + heroes.venomort.getBad(attacker)
-        if not ignore_effects and attacker:HasModifier("modifier_solunia_arcana1") then
-            local q_2_level = attacker:GetRuneValue("q", 2)
-            if q_2_level > 0 then
-                damage = damage + attacker:GetHealth() * SOLUNIA_ARCANA_Q2_SPELL_DMG_FLAT_HP_PCT/100 * q_2_level
-            end
-        end
         if attacker:IsRealHero() then
             damageMult = damageMult + attacker:GetSpirit()*(CustomAttributes.BAD_PER_SPIRIT/100)
         end
@@ -2082,7 +2076,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                fireMult = fireMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetStrength() / 10 * d_d_level
+                fireMult = fireMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         end
         if attacker:HasModifier("modifier_trinket_fire") then
@@ -2334,14 +2328,14 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_vengefulspirit" then
             local q_4_level = attacker:GetRuneValue("q", 4)
-            local d_a_mult = SOLUNIA_Q4_COSMIC_AMP_PCT/100
+            local d_a_mult = SOLUNIA_Q4_COSMIC_AMP_PCT
             if attacker:HasModifier("modifier_solunia_arcana1") then
-                d_a_mult = SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT/100
+                d_a_mult = SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT
             end
-            cosmosMult = cosmosMult + d_a_mult * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * q_4_level
+            cosmosMult = cosmosMult + d_a_mult * q_4_level
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                cosmosMult = cosmosMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetIntellect() / 10 * d_d_level
+                cosmosMult = cosmosMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         end
         if attacker:HasModifier("modifier_body_cosmos") then
@@ -2418,7 +2412,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_vengefulspirit" then
             if attacker:HasModifier("modifier_solunia_arcana2") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT/100 * attacker:GetAgility() / 10 * d_d_level
+                mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         end
         if attacker:HasModifier("modifier_trinket_ice") then

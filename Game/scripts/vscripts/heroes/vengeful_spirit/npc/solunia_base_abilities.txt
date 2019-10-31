@@ -20,7 +20,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3400 9200 24000 80000 120000 180000 250000"
+				"damage"			"55 215 375 535 695 855 1015"
 			}
 			"02"
 			{
@@ -207,7 +207,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1400"
 		"AOERadius"						"240"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCooldown"				"9"
 
 		"AbilitySpecial"
@@ -215,7 +215,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3400 9200 24000 80000 120000 180000 250000"
+				"damage"			"55 215 375 535 695 855 1015"
 			}
 			"02"
 			{
@@ -365,7 +365,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2800 7200 24000 60000 95000 150000 220000"
+				"damage"			"20 60 100 140 180 220 260"
 			}
 		}
 		// Precache
@@ -391,7 +391,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+		"AbilityManaCost"				"45 85 125 165 205 245 285"
 
 		// Special
 		//-------------------------------------------------------
@@ -695,7 +695,7 @@
 		"AbilityCastRange"				"1400"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		"AbilitySpecial"
 		{
@@ -707,7 +707,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2800 7200 24000 60000 95000 150000 220000"
+				"damage"			"20 60 100 140 180 220 260"
 			}
 		}
 		// Precache
@@ -728,7 +728,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+		"AbilityManaCost"				"45 85 125 165 205 245 285"
 
 		// Special
 		//-------------------------------------------------------
@@ -995,6 +995,24 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1000"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_solunia_warp_flare_immortal_weapon_effect"
 			{
@@ -1209,6 +1227,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1000"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_solunia_warp_flare_immortal_weapon_effect"
@@ -1457,7 +1493,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+				"damage"	"200 500 800 1100 1400 1700 2000"
 			}
 			"02"
 			{
@@ -1479,7 +1515,7 @@
 		"AOERadius"						"450"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -1697,7 +1733,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 35000 105000 250000 500000 800000"
+				"damage"	"200 500 800 1100 1400 1700 2000"
 			}
 			"02"
 			{

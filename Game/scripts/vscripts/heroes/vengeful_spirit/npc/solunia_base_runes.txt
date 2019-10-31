@@ -158,7 +158,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SOLUNIA_W3_ATTACK_TO_DMG_PCT %>"
 			}
 		}
@@ -280,7 +280,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_E3_POST_MITI_PCT %>"
+				"property_two"			"<% SOLUNIA_E3_ARMOR_LOSS %>"
 			}
 		}
 	}
