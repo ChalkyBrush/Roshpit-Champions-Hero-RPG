@@ -39,7 +39,7 @@
     	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional pure damage."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"RADIUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"PASSIVE ATTACK RANGE BONUS:"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% PURE DAMAGE BASED ON ATTACK POWER:"
+    	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% DAMAGE BASED ON ATTACK POWER:"
 		
 		"DOTA_Tooltip_ability_dinath_rune_w_1"									"[W1] Crystal Breeze"
     	"DOTA_Tooltip_ability_dinath_rune_w_1_Description"						"3 seconds after placing an Eye of the Drake, gain % bonus attack damage for next 27 seconds. Casting the ability while active removes the buff until 3 seconds elapses again."
@@ -50,9 +50,9 @@
     	"DOTA_Tooltip_modifier_drake_ring_a_b_Description"						"Increased attack damage"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2"									"[W2] Spell Sweeper"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"Enemies standing in an Eye of the Drake zone take increased post-mitigation Magical damage from all sources."
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"Post-mitigation magic damage"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"Enemies standing in an Eye of the Drake zone have their Armor value reduced."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"Armor Loss"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3"									"[W3] Basilisk Band"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_Description"						"When an Eye of the Drake is created, any enemies in the area are rooted."
@@ -111,15 +111,15 @@
 		"DOTA_Tooltip_ability_dinath_rune_r_1"									"[R1] Hyperstorm"
     	"DOTA_Tooltip_ability_dinath_rune_r_1_Description"						"Hyperbeams zap enemies with electricty if they get too close. Zap radius is based on size of the Hyperbeam. The lightning damage also scales with size and hits on a 0.2 second interval."
     	"DOTA_Tooltip_ability_dinath_rune_r_1_property_one"						"Damage"
-    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							"% of attack power"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							""
 
     	"DOTA_Tooltip_ability_dinath_rune_r_2"									"[R2] Cellular Rust"
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Enemies hit by the main, freezing portion of Hyperbeam take increase post-mitigation from Dinath for 7 seconds."
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"Post-Mitigation Damage"
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Enemies hit by the main, freezing portion of Hyperbeam have their Magic Armor value reduced."
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							""
 
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit"								"Cellular Rust"
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit_Description"					"Taking increased post-mitigation damage from Dinath"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"Cellular Rust"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Taking increased post-mitigation damage from Dinath"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] Energy Node"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"Increases the growth rate of a charging Hyperbeam, increasing its potential maximum size."
@@ -129,7 +129,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Dinath's attributes increase the power of all <font color=\"#3289C7\">Dragon</font> damage."
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"% for each 10 points of attributes."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
 		//Arcanas
 		"item_property_dinath_arcana1"										"Spire Breath"
@@ -149,9 +149,9 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] Frost Flutter"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=\"#87D9FF\">Ice</font> Damage is enhanced by Movespeed."
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Ice Damage Bonus"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% of Movespeed"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"Spell Pierce is enhanced by Movespeed."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Spell Pierce"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					" per movespeed"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] Wind Tunnel"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_Description"				"Passively increases movespeed cap. Toggling Spire Breath on or off applies a movespeed buff that decays over time."

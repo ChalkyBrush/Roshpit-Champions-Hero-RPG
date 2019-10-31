@@ -73,7 +73,7 @@ function spire_breath_attack_land(event)
 	end
 	local ability = event.ability
 	EmitSoundOn("Dinath.DragonAttack", target)
-	Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_DRAGON, RPC_ELEMENT_ICE)
+	Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_DRAGON, RPC_ELEMENT_ICE)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/dinath/breath_impact_manaburn_basher_ti_5_gold.vpcf", target, 1)
 	if attacker:HasModifier("modifier_dinath_immortal_weapon_2") then
 		local weapon = attacker.weapon

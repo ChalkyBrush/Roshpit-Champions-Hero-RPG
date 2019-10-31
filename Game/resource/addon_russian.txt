@@ -4511,9 +4511,9 @@
     	"DOTA_Tooltip_modifier_drake_ring_a_b_Description"						"Урон атаки увеличен"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2"									"[W2] Spell Sweeper"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"Противники, находящиеся в @Ability2 получают увеличенный магический пост-резистный урон из всех источников."
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"Увеличение магического урона"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"Противники, находящиеся в @Ability2 теряют Броню."
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"Снижение Брони"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3"									"[W3] Basilisk Band"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_Description"						"В момент создания @Ability2 противники внутри обездвиживаются."
@@ -4575,12 +4575,12 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							"% от урона атаки"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_2"									"[R2] Cellular Rust"
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Противники задетые и замороженные основным лучом от @Ability4 получают увеличенный пост-резистный урон от Dinath в течение 7 секунд."
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"Пост-резистный урон "
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"Противники задетые и замороженные основным лучом от @Ability4 теряют Магическую Броню в течение 7 секунд."
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"Снижение магической брони"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							""
 
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit"								"Cellular Rust"
-    	"DOTA_Tooltip_modifier_hyperbeam_postmit_Description"					"Получает увеличенный пост-резистный урон от Dinath "
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"Cellular Rust"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Получает увеличенный пост-резистный урон от Dinath "
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] Energy Node"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"Увеличивает скорость роста заряжаемого @Ability4, увеличивая его максимальный потенциал."
@@ -4590,7 +4590,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] Blood of Tiamat"
     	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"Атрибуты Dinath увеличивают урон от элемента <font color=\"#3289C7\">Дракон</font>."
     	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"Усиление урона"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"% за каждые 10 очков атрибутов."
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
 		//Arcanas
 		"item_property_dinath_arcana1"										"Spire Breath"
@@ -4612,7 +4612,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1"							"[W2] Frost Flutter"
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_Description"				"<font color=\"#87D9FF\">Ледяной</font> урон увеличивается напрямую от скорости передвижения Dinath."
     	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_property_one"				"Бонус урона Льда"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% от скорости передвижения"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_arcana1_suffix"					"% за 100 скорости передвижения"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1"							"[W3] Wind Tunnel"
     	"DOTA_Tooltip_ability_dinath_rune_w_3_arcana1_Description"				"Пассивно увеличивает верхний порог скорости передвижения. Включение или выключение @Ability2 накладывает увеличение скорости передвижения, уменьшающийся со временем."
@@ -4648,10 +4648,10 @@
 		"item_rpc_dinath_glyph_5_1_description" 				"Нанесение атаки снижает перезарядку способностей на <font color='#ccff66'>0.1</font> секунды."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_6_1"		"(T6) Glyph of Calamity"
-		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на <font color='#ccff66'>1000</font>%."
+		"item_rpc_dinath_glyph_6_1_description" 				"Урон элементов <font color=\"#EF4126\">Огонь</font>, <font color=\"#87D9FF\">Лёд</font>, <font color=\"#5CCDF9\">Молния</font>, и <font color=\"#C25DFC\">Космос</font> увеличен на <font color='#ccff66'>75</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"(T7) Glyph of the Mana Dragon"
-		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на <font color='#ccff66'>1000</font>x от текущей маны, и атаки восстанавливают <font color='#ccff66'>1</font>% от максимальной маны."
+		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на <font color='#ccff66'>0.1</font>x от текущей маны, и атаки восстанавливают <font color='#ccff66'>1</font>% от максимальной маны."
 
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"(Immortal) Glyph of Golden Scales"
 		"item_rpc_dinath_glyph_5_a_description" 				"Полученный магический либо чистый урон дает иммунитет к заклинаниям на <font color='#ccff66'>3</font> секунды. Перезарядка <font color='#ccff66'>5</font> секунд."
@@ -4673,7 +4673,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_1"           "Innervation Claw"
         "item_property_dinath_immortal_weapon"                             "Hypercharge"
-        "property_dinath_immortal_weapon_description"                      "@Ability4 начинает заряд с размера, большего на <font color='#ccff66'>100</font> и летит на <font color='#ccff66'>1000</font> дальше."
+        "property_dinath_immortal_weapon_description"                      "@Ability4 начинает заряд с размера, большего на <font color='#ccff66'>50</font> и летит на <font color='#ccff66'>1000</font> дальше."
 
         "DOTA_Tooltip_ability_item_rpc_dinath_immortal_weapon_2"            "Breath of Vitali"
         "item_property_dinath_immortal_weapon2"                             "Aurora Shield"
