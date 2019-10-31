@@ -268,6 +268,12 @@
 					}
 				}
 			}
+			"modifier_demon_hunter_w_2_inner_beast_inactive"	
+			{	
+				"IsHidden"	"0"	
+				"TextureName"	"chernobog/chernobog_rune_w_2"	
+				"Passive"	"0"	
+			}
 			"modifier_demon_hunter_w_2_inner_beast_active"
 			{
 				"IsHidden"	"0"
@@ -288,6 +294,10 @@
 
 				"EffectName"		"particles/roshpit/chernobog/fervor.vpcf"
 				"EffectAttachType"	"follow_overhead"
+			}
+			"modifier_chernobog_rune_w_3_fervor_enemy_invisible"	
+			{	
+				"IsHidden"	"1"	
 			}
 			"modifier_chernobog_rune_w_3_fervor_self_visible"
 			{

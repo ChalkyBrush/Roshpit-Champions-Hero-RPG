@@ -142,7 +142,7 @@ function demon_hunter_a_b_attack(event)
 					caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_self_invisible", caster, stackCount * caster.w3_level)
 
 					if ability.fervorTarget:HasModifier("modifier_chernobog_rune_w_3_fervor_enemy_visible") then
-						local new_stacks = ability.fervorTarget:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_visible") * (1 - CHERNOBOG_W3_STACK_LOSE_PCT/100)
+						local new_stacks = ability.fervorTarget:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_visible"):GetStackCount() * (1 - CHERNOBOG_W3_STACK_LOSE_PCT/100)
 						caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_visible", caster, new_stacks)
 						caster:SetModifierStackCount("modifier_chernobog_rune_w_3_fervor_enemy_invisible", caster, new_stacks * caster.w3_level)						
 					end
