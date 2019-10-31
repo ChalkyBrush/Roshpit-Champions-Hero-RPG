@@ -35,7 +35,7 @@ function init_shadows_values_for_ability(data)
 end
 
 function hasArcana2(caster)
-    return caster:HasAbility('chernobog_3_e_arcana2') or caster:HasAbility('chernobog_3_e_arcana2_swapped')
+    return caster:HasModifier("modifier_chernobog_arcana2")
 end
 
 function getShadowsDuration(caster, baseDuration)

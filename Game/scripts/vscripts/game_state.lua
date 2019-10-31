@@ -3786,7 +3786,7 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-		filterTable["damage"] = 0
+		-- filterTable["damage"] = 0
 	end
 
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then

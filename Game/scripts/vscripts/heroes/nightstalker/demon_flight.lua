@@ -255,6 +255,7 @@ function passive_thinker(event)
 	else
 		caster:RemoveModifierByName("modifier_demonflight_c_c_attack")
 	end
+	caster.e4_level = caster:GetRuneValue("e", 4)
 	if ability.e4_level ~= caster.e4_level then
 		if caster.e4_level > 0 then
 			init_shadows_values_for_ability({
