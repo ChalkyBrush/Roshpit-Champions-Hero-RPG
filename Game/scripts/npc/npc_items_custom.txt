@@ -22736,7 +22736,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "80"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "40"
 				}
 			}
 		}
@@ -22745,7 +22745,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"40"
 			}
 		}
 	}
@@ -22784,7 +22784,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"160"
 			}
 		}
 	}
@@ -22823,7 +22823,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"200"
 			}
 		}
 	}
@@ -23017,7 +23017,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"99.5"
+				"property_one"			"70"
 			}
 		}
 	}

@@ -54017,7 +54017,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 100 140 240 440 1000 2000"
+		"AbilityManaCost"				"80 100 140 240 440 1000 1400"
 
 		// Special
 		//-------------------------------------------------------
@@ -54026,7 +54026,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"400 1000 2500 7000 21000 44000 90000"
+				"damage"					"15 30 140 200 320 400 600"
 			}
 			"02"
 			{
@@ -54041,12 +54041,12 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"160 200 240 280 340 380 420"
+				"crit_mult"					"105 110 120 130 140 150 170"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_chance"					"15"
+				"crit_chance"					"10"
 			}
 		}
 
@@ -54124,7 +54124,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "35"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "6"
 				}
 			}
 			"modifier_icewind_attack_power"
@@ -54163,12 +54163,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.3"
+				"property_two"			"0.01"
 			}
 		}
 	}
@@ -54187,8 +54187,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.02"
 			}
 		}
 	}
@@ -54228,7 +54228,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -54271,7 +54271,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 130 210 440 840 2000 3200"
+		"AbilityManaCost"				"80 110 160 300 600 800 1000"
 
 		// Special
 		//-------------------------------------------------------
@@ -54280,7 +54280,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"200 400 1000 2500 7000 21000 44000"
+				"damage"					"10 20 100 180 280 340 500"
 			}
 		}
 
@@ -54544,7 +54544,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"damage_reduce"	"92 93 94 95 96 97 98"
+				"damage_reduce"	"30 30 35 40 45 50 60"
 			}
 			"03"
 			{
@@ -54724,7 +54724,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "20"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "10"
 				}
 			}
 			"modifier_nefali_c_d_speed"
@@ -54795,8 +54795,8 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-10" 
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-5"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5" 
 				}
 			}
 		}
@@ -54855,12 +54855,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"5000 15000 35000 80000 200000 500000 1000000"
+				"base_damage"			"50 100 160 200 320 400 500"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"			"120 150 180 210 240 270 300"
+				"int_damage"			"0.5"
 			}
 			"04"
 			{
@@ -54951,7 +54951,7 @@
 				"IsBuff"	"1"
 				"TextureName"	"sephyr/sephyr_rune_q_1"
 			}
-			"modifier_lightbomb_postmit"
+			"modifier_lightbomb_magic_armor_loss"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
@@ -55068,7 +55068,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"800"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
 				}
 			}
 		}
@@ -55092,7 +55092,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"125"
+				"property_one"			"7"
 			}
 		}
 	}
@@ -55112,7 +55112,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"-15"
 			}
 		}
 	}
@@ -55136,8 +55136,8 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -55157,12 +55157,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -55202,7 +55197,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"20"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -55221,8 +55216,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
 			}
 		}
 	}
@@ -55242,7 +55237,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"14"
 			}
 		}
 	}
@@ -55268,7 +55263,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1500"
+				"property_two"			"35"
 			}
 			"03"
 			{
@@ -55298,12 +55293,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"800"
+				"property_one"			"1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.01"
 			}
 		}
 	}
@@ -55323,12 +55318,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.5"
+				"property_two"			"0.02"
 			}
 		}
 	}
@@ -55348,12 +55343,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"0.4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"12"
 			}
 		}
 	}
@@ -55373,7 +55368,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -55393,12 +55388,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-8"
+				"property_one"			"-5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-10"
+				"property_two"			"-5"
 			}
 		}
 	}
@@ -55443,12 +55438,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"500"
+				"property_two"			"30"
 			}
 		}
 	}
