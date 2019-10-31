@@ -2277,10 +2277,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + AURIUN_W2_HEAL_SHADOW_HOLY_AMP * w_2_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
-            if attacker:HasModifier("modifier_sephyr_holy_amp") then
-                local stacks = attacker:GetModifierStackCount("modifier_sephyr_holy_amp", caster)
-                mult = mult + stacks * SEPHYR_Q4_HOLY_AMP_PCT/100
-            end
             if attacker:HasModifier("modifier_lightbomb_freecast") then
                 local stacks = attacker:GetModifierStackCount("modifier_lightbomb_freecast", caster)
                 local q_3_level = attacker:GetRuneValue("q", 3)
@@ -2562,12 +2558,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_sephyr_arcana1") then
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
-                    mult = mult + SEPHYR_ARCANA_W4_WIND_AMP_PCT/100 * (attacker:GetIntellect() + attacker:GetStrength() + attacker:GetAgility()) / 10 * w_4_level
+                    mult = mult + SEPHYR_ARCANA_W4_WIND_AMP_PCT/100 * w_4_level
                 end
             else
                 local w_4_level = attacker:GetRuneValue("w", 4)
                 if w_4_level > 0 then
-                    mult = mult + SEPHYR_W4_WIND_AMP_PCT/100 * attacker:GetIntellect() / 10 * w_4_level
+                    mult = mult + SEPHYR_W4_WIND_AMP_PCT/100 * w_4_level
                 end
             end
         end

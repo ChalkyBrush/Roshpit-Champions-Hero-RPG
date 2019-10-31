@@ -33,7 +33,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% SEPHYR_GLYPH_1_1_ADDITIONAL_E1_PUCK %>"
 			}
 		}
 	}
@@ -76,7 +76,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"<% SEPHYR_GLYPH_2_1_EVASION_PCT %>"
 			}
 		}
 	}
@@ -115,7 +115,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"<% SEPHYR_GLYPH_3_1_R_BONUS_RADIUS %>"
 			}
 		}
 	}
@@ -154,7 +154,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"<% SEPHYR_GLYPH_4_1_W_BONUS_RANGE %>"
 			}
 		}
 	}
@@ -193,7 +193,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.4"
+				"property_one"			"<% SEPHYR_GLYPH_5_1_Q_FREEZE_DUR %>"
 			}
 		}
 	}
@@ -232,7 +232,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"<% SEPHYR_GLYPH_6_1_DAMAGE_NEGATION_CHANCE %>"
 			}
 		}
 	}
@@ -309,7 +309,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"380"
+				"property_one"			"<% SEPHYR_GLYPH_7_1_Z_DISTANCE_FOR_IMMUNITY %>"
 			}
 		}
 	}
@@ -348,7 +348,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"99.5"
+				"property_one"			"<% SEPHYR_GLYPH_5_A_R_DMG_REDUCTION_PCT %>"
 			}
 		}
 	}

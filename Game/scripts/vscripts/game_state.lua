@@ -2554,13 +2554,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = Filters:AuriunImmortalWeapon1(filterTable["damage"], victim)
 	end
 
-	if victim:HasModifier("modifier_lightbomb_postmit") then
-		modifier = victim:FindModifierByName("modifier_lightbomb_postmit")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			mult = mult + SEPHYR_Q2_POSTMIT * stacks
-		end
-	end
 	if victim:HasModifier("modifier_stonewall_aura_enemy_effect") then
 		modifier = victim:FindModifierByName("modifier_stonewall_aura_enemy_effect")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then

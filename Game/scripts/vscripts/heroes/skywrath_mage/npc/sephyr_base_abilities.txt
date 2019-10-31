@@ -34,7 +34,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 130 210 440 840 2000 3200"
+		"AbilityManaCost"				"<% SEPHYR_W_MANA_COST %>"
 
 		// Special
 		//-------------------------------------------------------
@@ -43,7 +43,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"200 400 1000 2500 7000 21000 44000"
+				"damage"					"<% SEPHYR_W_DAMAGE %>"
 			}
 		}
 
@@ -307,7 +307,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"damage_reduce"	"92 93 94 95 96 97 98"
+				"damage_reduce"	"<% SEPHYR_R_DAMAGE_REDUCTION %>"
 			}
 			"03"
 			{
@@ -487,7 +487,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% SEPHYR_R1_HP_REGEN_PER_LVL %>"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% SEPHYR_R1_HP_REGEN %>"
 				}
 			}
 			"modifier_nefali_c_d_speed"
@@ -618,12 +618,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"5000 15000 35000 80000 200000 500000 1000000"
+				"base_damage"			"<% SEPHYR_Q_DAMAGE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"			"120 150 180 210 240 270 300"
+				"int_damage"			"<% SEPHYR_Q_DAMAGE_INT_MULT %>"
 			}
 			"04"
 			{
@@ -714,7 +714,7 @@
 				"IsBuff"	"1"
 				"TextureName"	"sephyr/sephyr_rune_q_1"
 			}
-			"modifier_lightbomb_postmit"
+			"modifier_lightbomb_magic_armor_loss"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
@@ -831,7 +831,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SEPHYR_E2_BONUS_ATTACK_DAMAGE %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
 				}
 			}
 		}
