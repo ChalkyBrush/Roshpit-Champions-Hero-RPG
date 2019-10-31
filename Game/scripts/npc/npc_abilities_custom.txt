@@ -54228,7 +54228,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"16"
 			}
 		}
 	}
@@ -54271,7 +54271,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 110 160 300 600 800 1000"
+		"AbilityManaCost"				"60 160 260 360 460 560 660"
 
 		// Special
 		//-------------------------------------------------------
@@ -54724,7 +54724,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "10"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "12"
 				}
 			}
 			"modifier_nefali_c_d_speed"
@@ -54855,11 +54855,11 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"50 100 160 200 320 400 500"
+				"base_damage"			"70 210 350 490 630 770 910"
 			}
 			"03"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_FLOAT"
 				"int_damage"			"0.5"
 			}
 			"04"
@@ -55092,7 +55092,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -55112,7 +55112,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"-30"
 			}
 		}
 	}
@@ -55156,8 +55156,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 		}
 	}
@@ -55177,7 +55177,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"0.03"
 			}
 		}
 	}
@@ -55197,7 +55197,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -55237,7 +55237,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"14"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -55263,7 +55263,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"35"
+				"property_two"			"40"
 			}
 			"03"
 			{
@@ -55298,7 +55298,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0.03"
 			}
 		}
 	}
@@ -55368,7 +55368,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -55443,7 +55443,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"45"
 			}
 		}
 	}

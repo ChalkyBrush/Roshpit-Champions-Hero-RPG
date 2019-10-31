@@ -78,8 +78,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SEPHYR_Q4_HOLY_TO_ATT_BONUS_PCT / 100 %>"
 			}
 		}
 	}
@@ -99,7 +99,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SEPHYR_W1_INT_TO_MANA_REGEN_PCT %>"
+				"property_one"			"<% SEPHYR_W1_INT_TO_MANA_REGEN_PCT / 100 %>"
 			}
 		}
 	}

@@ -659,10 +659,42 @@
                         }
                     }
                     "volume"            {   "value"     "0.52000"  }
-                    "pitch_rand_min"    {   "value"     "-0.0500"  }
-                    "pitch_rand_max"    {   "value"     "0.05000"  }
-                    "pitch"             {   "value"     "1.000000"  }
+                    "pitch_rand_min"    {   "value"     "-0.10000"  }
+                    "pitch_rand_max"    {   "value"     "0.10000"  }
+                    "pitch"             {   "value"     "1.200000"  }
                     "soundlevel"        {   "value"     "83.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "2.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Sephyr.PiercingGaleIce"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/pangolier/heart_piercer.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.22000"  }
+                    "pitch_rand_min"    {   "value"     "-0.1000"  }
+                    "pitch_rand_max"    {   "value"     "0.10000"  }
+                    "pitch"             {   "value"     "3.400000"  }
+                    "soundlevel"        {   "value"     "87.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "2.000000"  }
                 }

@@ -181,6 +181,9 @@ function lightbomb_cast(event)
 		if freeStacks >= 10 then
 			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks - 10)
 			ability:EndCooldown()
+			if freeStacks == 10 then
+				caster:RemoveModifierByName("modifier_lightbomb_freecast")
+			end
 		else
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightbomb_freecast", {})
 			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks + q_3_level*SEPHYR_Q3_STACKS)

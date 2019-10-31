@@ -33,9 +33,9 @@
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 stacks remove the cooldown of Lightbomb"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] Sunny Disposition"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"A portion of <font color=\"#F6FFB5\">Holy</font> Elemental Bonus also amplifies attack damage."
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"Portion of Holy Amp also increasing Attack Damage"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"%"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"Sephyr's <font color=\"#F6FFB5\">Holy</font> amplification also amplifies attack damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"Attack Damage %"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"x Holy Amp"
 		
 		"DOTA_Tooltip_ability_piercing_gale"										"Piercing Gale"
     	"DOTA_Tooltip_ability_piercing_gale_Description"							"Element: <font color=\"#7AE2A7\">Wind</font><br>Sephyr conjures a razor-sharp stream of wind directly in front of him."
@@ -44,7 +44,7 @@
 		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] Bright Eyes"
     	"DOTA_Tooltip_ability_sephyr_rune_w_1_Description"						"Intelligence further increases mana regen."
     	"DOTA_Tooltip_ability_sephyr_rune_w_1_property_one"						"Mana Regen"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_1_suffix"								"% of Intelligence"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_suffix"								" per Intelligence"
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_2"									"[W2] Crosswind"
     	"DOTA_Tooltip_ability_sephyr_rune_w_2_Description"						"Piercing Gales have a 20% chance to do increased damage."
@@ -57,9 +57,9 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_3_suffix"								"%"
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4"									"[W4] Aeromancer"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"Sephyr's intelligence increases <font color=\"#7AE2A7\">Wind</font> damage."
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"Wind Damage Bonus"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"% for every 10 points of Intelligence"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"Increases all <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"Wind Damage Amp"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_sephyr_strafe"										"Strafe"
     	"DOTA_Tooltip_ability_sephyr_strafe_Description"							"When toggled on, Sephyr's facing direction is locked. Issuing a move order while the toggle is active causes him to whirl in that direction on a stream of wind. Each strafe consumes a small amount of mana. Moving to pick up an item turns off the toggle."
@@ -174,7 +174,7 @@
     	"DOTA_Tooltip_modifier_icewind_shield_Description"						"Absorbing damage"		
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1"							"[W4] Grand Aeromancer"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Sephyr's attributes increases <font color=\"#7AE2A7\">Wind</font> damage."
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"Increases all <font color=\"#7AE2A7\">Wind</font> damage."
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"Wind Damage Bonus"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% for every 10 points of Attributes"
 		
