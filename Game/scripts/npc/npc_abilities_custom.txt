@@ -62196,7 +62196,7 @@
 		"AbilityCooldown"				"0.5"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 200 400 800 1600 2600 3400"
+		"AbilityManaCost"				"80 180 280 380 480 580 680"
 		"AbilityCastRange"				"1200"
 
 		"precache"
@@ -62210,7 +62210,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 3000 7000 24000 48000 180000 360000"
+				"damage"				"100 300 500 700 900 1100 1300"
 			}
 			"02"
 			{
@@ -62310,7 +62310,7 @@
 		"AbilityCooldown"				"0.5"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 200 400 800 1600 2600 3400"
+		"AbilityManaCost"				"80 180 280 380 480 580 680"
 		"AbilityCastRange"				"1200"
 
 		"precache"
@@ -62324,7 +62324,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 3000 7000 24000 48000 180000 360000"
+				"damage"				"100 300 500 700 900 1100 1300"
 			}
 			"02"
 			{
@@ -62394,8 +62394,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
 			}
 		}
 	}
@@ -62417,8 +62417,8 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.5"
 			}
 		}
 	}
@@ -62436,7 +62436,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"12"
 			}
 		}
 	}
