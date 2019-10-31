@@ -66,11 +66,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% CHERNOBOG_ARCANA1_R3_SPLIT_CHANCE %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_ARCANA1_R3_POSTMIT * 100 %>"
-			}
 		}
 	}
 
@@ -92,7 +87,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_AGI_PCT %>"
+				"property_two"			"<% CHERNOBOG_ARCANA1_R4_DEMON_AMP * 100 %>"
 			}
 		}
 	}

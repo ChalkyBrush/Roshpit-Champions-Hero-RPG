@@ -48060,7 +48060,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_damage_percent"	"30 50 70 90 110 130 150"
+				"attack_damage_percent"	"70 75 80 85 90 95 100"
 			}
 		}
 	}
@@ -48082,7 +48082,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5>"
+				"property_one"			"2>"
 			}
 			"02"
 			{
@@ -48115,7 +48115,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -48135,11 +48135,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"15"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
-			}
 		}
 	}
 
@@ -48156,12 +48151,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"12"
 			}
 		}
 	}
@@ -48242,7 +48237,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "50"
 				}
 			}
 			"modifier_chernobog_demon_flight"
@@ -48335,7 +48330,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.15"
 				}
 			}
 			"modifier_demonflight_b_c_visible"
@@ -48373,25 +48368,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
 				}
 			}
 		}
@@ -48500,25 +48476,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
 				}
 			}
 		}
@@ -48630,8 +48587,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -48648,8 +48605,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -48709,14 +48666,14 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1400 1550 1700 1850 2000 2150 2300"
-		"AbilityDamage"					"800 2800 7200 24000 80000 150000 250000"
+		"AbilityDamage"					"100 260 420 580 740 900 1060"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"			"1400 1550 1700 1850 2000 2150 2300"
+				"range"			"1100 1250 1400 1550 1700 1850 2000"
 			}
 			"02"
 			{
@@ -48731,7 +48688,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"800 2800 7200 24000 80000 150000 250000"
+				"damage"			"100 260 420 580 740 900 1060"
 			}
 		}
 		// Precache
@@ -48801,7 +48758,7 @@
 				"TextureName"	"chernobog/chernobog_rune_q_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3.5"
 				}
 			}
 		}
@@ -48864,7 +48821,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_damage_taken_percent_of_health"		"9 8 7 6 5 4 3"
+				"max_damage_taken_percent_of_health"		"11 10 9 8 7 6 5"
 			}
 			"04"
 			{
@@ -48879,7 +48836,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_damage_bonus"		"200 300 400 500 600 700 800"
+				"magic_damage_bonus"		"70 75 80 85 90 95 100"
 			}
 		}
 		"OnToggleOn"
@@ -48972,17 +48929,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3600"
-				}
-			}
-			"modifier_demon_hunter_w_2_inner_beast_inactive"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"chernobog/chernobog_rune_w_2"
-				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "200"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "15"
 				}
 			}
 			"modifier_chernobog_rune_w_3_fervor_enemy_visible"
@@ -48995,14 +48942,6 @@
 
 				"EffectName"		"particles/roshpit/chernobog/fervor.vpcf"
 				"EffectAttachType"	"follow_overhead"
-			}
-			"modifier_chernobog_rune_w_3_fervor_enemy_invisible"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"
-				}
 			}
 			"modifier_chernobog_rune_w_3_fervor_self_visible"
 			{
@@ -49020,7 +48959,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "250"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "30"
 				}
 			}
 			"modifier_chernobog_rune_w_4_active"
@@ -49079,12 +49018,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"550 575 600 625 650 675 700"
+				"movespeed_cap"		"550 565 580 595 610 625 640"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"30 50 70 90 110 130 150"
+				"movespeed_bonus"		"20 30 50 60 70 80 90"
 			}
 			"03"
 			{
@@ -49161,7 +49100,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"-16"
 			}
 		}
 	}
@@ -49180,7 +49119,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"600"
+				"property_one"			"40"
 			}
 			"03"
 			{
@@ -49212,8 +49151,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"3.5"
 			}
 		}
 	}
@@ -49230,33 +49169,18 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"		"15"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"		"8"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_three"		"15"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_four"		"8"
+				"property_three"			"4"
 			}
 		}
 	}
@@ -49275,12 +49199,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"15"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.03"
 			}
 			"03"
 			{
@@ -49308,12 +49232,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"60"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3600"
+				"property_two"			"15"
 			}
 		}
 	}
@@ -49331,12 +49255,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"-12"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"250"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -49354,12 +49278,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"450"
+				"property_one"			"65"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"450"
+				"property_two"			"65"
 			}
 		}
 	}
@@ -49376,13 +49300,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"2"
 			}
 		}
 	}
@@ -49401,7 +49325,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -49439,7 +49363,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"110"
 			}
 		}
 	}
@@ -49469,11 +49393,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.05"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"1"
-			}
 		}
 	}
 
@@ -49490,7 +49409,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"2"
 			}
 
 		}
@@ -49512,6 +49431,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"2"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"			"100"
+			}
 		}
 	}
 
@@ -49529,7 +49453,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"450"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -49562,32 +49486,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.05"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1"
+				"property_two"			"1.2"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two_max"			"20"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"1"
-			}
-			"05"
-			{
 				"var_type"				"FIELD_INTEGER"
 				"property_three"		"7"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_four"		    "0.1"
 			}
 		}
 	}

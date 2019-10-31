@@ -72,7 +72,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
+				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "<% CHERNOBOG_ARCANA2_EVASION %>"
 				}
 			}
 			"modifier_chernobog_demon_flight"
@@ -204,25 +204,6 @@
 				{
 					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
-				}
 			}
 		}
 	}
@@ -330,25 +311,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
-				}
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/nightstalker/shadow_walk.lua"
-						"Function"		"nightvision"
-						"target"		"TARGET"
-					}
 				}
 			}
 		}

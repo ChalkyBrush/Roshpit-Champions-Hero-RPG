@@ -1826,8 +1826,6 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
         end
         -- print("damage_type "..tostring(damage_type))
     end
-    print("DAMAGE:")
-    print(damage)
     for i = 1, instances do
         ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
     end

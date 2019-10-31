@@ -22,5 +22,5 @@ function class:RemoveOnDeath()
 end
 function class:GetDemonElementAmplify(data)
     local caster = self:GetCaster()
-    return caster.r4_level * CHERNOBOG_R4_DEMON_AMP_PER_AGI_PCT/100 * caster:GetAgility()
+    return caster.r1_level * CHERNOBOG_R1_DEMON_AMP
 end

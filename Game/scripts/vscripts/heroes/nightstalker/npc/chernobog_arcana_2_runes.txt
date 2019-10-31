@@ -39,7 +39,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CHERNOBOG_ARCANA2_E2_ATT_PCT %>"
 			}
 		}
@@ -57,7 +57,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT %>"
 			}
 		}

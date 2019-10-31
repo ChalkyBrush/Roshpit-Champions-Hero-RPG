@@ -113,7 +113,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"                        "% от урона героя"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3"                               "[E3] Sudden Strike"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "Использование @Ability3 для перемещения за спину противника усилит пост-резистный урон героя на <% CHERNOBOG_E3_POSTMIT_DUR_BASE %> сек. Радиус телепортации обеих активных стоек увеличен."
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "Использование @Ability3 для перемещения за спину противника усилит пост-резистный урон героя на 0 сек. Радиус телепортации обеих активных стоек увеличен."
         "DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"                  "Увеличение радиуса"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                  "Усиление пост-резистного урона"
@@ -273,7 +273,7 @@
         "item_rpc_chernobog_glyph_5_1_description"              "Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% от максимума, и не снижает ману, если ее показатель равен или меньше <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>%."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "(T6) Glyph of Black Rifts"
-        "item_rpc_chernobog_glyph_6_1_description"              "Sudden Strike накладывает метку на всех врагов в <% CHERNOBOG_T61_RADIUS %> радиусе от основной цели."
+        "item_rpc_chernobog_glyph_6_1_description"              "[E3] duration is increased by <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %>."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "(T7) Glyph of Indomitability"
         "item_rpc_chernobog_glyph_7_1_description"              "Снимает эффекты оглушения каждые 0.2 секунды, а после срабатывания увеличивает исходящий пост-резистный урон на <% CHERNOBOG_T71_POSTMIT * 100 %>% в течение <% CHERNOBOG_T71_POSTMIT_DUR %> сек."

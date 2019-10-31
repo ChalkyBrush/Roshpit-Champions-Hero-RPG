@@ -26,7 +26,7 @@ function class:OnIntervalThink()
     local target = self:GetParent()
     local caster = self:GetCaster()
     if caster.q2_level > 0 then
-        local damage = caster.q2_level * CHERNOBOG_Q2_PER_LVL * caster:GetLevel()
+        local damage = caster.q2_level * CHERNOBOG_Q2_DMG
         if caster:HasModifier('modifier_chernobog_glyph_4_1') then
             local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, self:GetRadius(CHERNOBOG_T41_RADIUS), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             for _,enemy in pairs(enemies) do

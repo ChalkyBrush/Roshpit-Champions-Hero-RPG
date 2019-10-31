@@ -29,3 +29,7 @@ function class:OnIntervalThink()
         self.previousPosition = currentPosition
     end
 end
+
+function class:IsHidden()
+    return true
+end

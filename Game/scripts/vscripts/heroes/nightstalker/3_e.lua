@@ -17,6 +17,7 @@ local modifiers = {
     evasion_e4 = 'modifier_chernobog_3_e_evasion_e4',
     bonus_damage_e1 = 'modifier_chernobog_3_e_bonus_damage_e1',
     passive = "modifier_chernobog_3_e_passive",
+    teleportation_buff = "modifier_3_e_teleportation_buff"
 }
 local shadowsModifiers = {
     aura = 'modifier_chernobog_shadows_aura',

@@ -9,9 +9,9 @@ for modifierPath, modifier in pairs(shadowsModifiers) do
 end
 function chenobog_make_right_cooldown(caster, ability, abilityLetter)
     local cooldownAmplify = 1
-    if abilityLetter == 'q' then
-        cooldownAmplify = 1/(1 + caster.q4_level * CHERNOBOG_Q4_CD_REDUCTION_TIMES)
-    end
+    -- if abilityLetter == 'q' then
+    --     cooldownAmplify = 1/(1 + caster.q4_level * CHERNOBOG_Q4_CD_REDUCTION_TIMES)
+    -- end
     Util.Ability:MakeRightCooldown(caster, ability, {
         cooldownAmplify = cooldownAmplify
     })

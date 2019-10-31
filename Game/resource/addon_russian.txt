@@ -3712,7 +3712,7 @@
         "DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"               "Значение брони увеличено"
         
         "DOTA_Tooltip_ability_chernobog_rune_w_3"                               "[W3] Fervor"
-        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"                   "Пока умение @Ability2 не активно, Chernobog снижает броню врагов в радиусе <font color='#ccff66'>200</font> от цели с каждой атакой. Активное умение @Ability2 увеличивает урон героя с каждой атакой. При смене цели теряется <font color='#ccff66'>40</font>% стаков урона, но снижение брони целей не теряется."
+        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"                   "Пока умение @Ability2 не активно, Chernobog снижает броню врагов в радиусе <font color='#ccff66'>200</font> от цели с каждой атакой. Активное умение @Ability2 увеличивает урон героя с каждой атакой. При смене цели теряется <font color='#ccff66'>50</font>% стаков урона, но снижение брони целей не теряется."
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"                  "(Не активно) Снижение брони за атаку"
         "DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"                  "(Активно) Доп. урон за атаку"
@@ -3752,7 +3752,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"                        "% от урона героя"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3"                               "[E3] Sudden Strike"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "Использование @Ability3 для перемещения за спину противника усилит пост-резистный урон героя на <font color='#ccff66'>1</font> сек. Радиус телепортации обеих активных стоек увеличен."
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "Использование @Ability3 для перемещения за спину противника усилит пост-резистный урон героя на 0 сек. Радиус телепортации обеих активных стоек увеличен."
         "DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"                  "Увеличение радиуса"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                  "Усиление пост-резистного урона"
@@ -3912,7 +3912,7 @@
         "item_rpc_chernobog_glyph_5_1_description"              "Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <font color='#ccff66'>50</font>% от максимума, и не снижает ману, если ее показатель равен или меньше <font color='#ccff66'>50</font>%."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "(T6) Glyph of Black Rifts"
-        "item_rpc_chernobog_glyph_6_1_description"              "Sudden Strike накладывает метку на всех врагов в <font color='#ccff66'>500</font> радиусе от основной цели."
+        "item_rpc_chernobog_glyph_6_1_description"              "[E3] duration is increased by <font color='#ccff66'>2</font>."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "(T7) Glyph of Indomitability"
         "item_rpc_chernobog_glyph_7_1_description"              "Снимает эффекты оглушения каждые 0.2 секунды, а после срабатывания увеличивает исходящий пост-резистный урон на <font color='#ccff66'>200</font>% в течение <font color='#ccff66'>4</font> сек."

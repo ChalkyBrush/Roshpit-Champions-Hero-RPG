@@ -12,14 +12,14 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastRange"				"1400 1550 1700 1850 2000 2150 2300"
-		"AbilityDamage"					"800 2800 7200 24000 80000 150000 250000"
+		"AbilityDamage"					"100 260 420 580 740 900 1060"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range"			"1400 1550 1700 1850 2000 2150 2300"
+				"range"			"1100 1250 1400 1550 1700 1850 2000"
 			}
 			"02"
 			{
@@ -34,7 +34,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"800 2800 7200 24000 80000 150000 250000"
+				"damage"			"100 260 420 580 740 900 1060"
 			}
 		}
 		// Precache
@@ -167,7 +167,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_damage_taken_percent_of_health"		"9 8 7 6 5 4 3"
+				"max_damage_taken_percent_of_health"		"11 10 9 8 7 6 5"
 			}
 			"04"
 			{
@@ -182,7 +182,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_damage_bonus"		"200 300 400 500 600 700 800"
+				"magic_damage_bonus"		"70 75 80 85 90 95 100"
 			}
 		}
 		"OnToggleOn"
@@ -278,16 +278,6 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% CHERNOBOG_W2_ATT %>"
 				}
 			}
-			"modifier_demon_hunter_w_2_inner_beast_inactive"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"chernobog/chernobog_rune_w_2"
-				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CHERNOBOG_W2_ARMOR %>"
-				}
-			}
 			"modifier_chernobog_rune_w_3_fervor_enemy_visible"
 			{
 				"Passive"			"0"
@@ -298,14 +288,6 @@
 
 				"EffectName"		"particles/roshpit/chernobog/fervor.vpcf"
 				"EffectAttachType"	"follow_overhead"
-			}
-			"modifier_chernobog_rune_w_3_fervor_enemy_invisible"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% CHERNOBOG_W3_ARMOR_REDUCE %>"
-				}
 			}
 			"modifier_chernobog_rune_w_3_fervor_self_visible"
 			{
@@ -382,12 +364,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"550 575 600 625 650 675 700"
+				"movespeed_cap"		"550 565 580 595 610 625 640"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"30 50 70 90 110 130 150"
+				"movespeed_bonus"		"20 30 50 60 70 80 90"
 			}
 			"03"
 			{

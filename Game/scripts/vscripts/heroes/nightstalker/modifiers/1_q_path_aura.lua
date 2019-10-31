@@ -48,3 +48,7 @@ end
 function class:GetAuraRadius()
     return self:GetRadius(self:GetAbility().width)
 end
+
+function class:IsHidden()
+    return true
+end

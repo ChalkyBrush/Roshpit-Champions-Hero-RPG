@@ -733,6 +733,19 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_drake_ring_armor_reduction")
 		armor_modify = armor_modify + modifier:GetStackCount() * DINATH_W2_ARMOR_REDUCTION
 	end
+    if unit:HasModifier("modifier_chernobog_1_q_path_enemy_effect_q1") then
+    	local caster = unit:FindModifierByName("modifier_chernobog_1_q_path_enemy_effect_q1"):GetCaster()
+    	local q_1_level = caster:GetRuneValue("q", 1)
+    	armor_modify = armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+    if unit:HasModifier("modifier_demon_hunter_w_2_inner_beast_inactive") then
+		local modifier = unit:FindModifierByName("modifier_demon_hunter_w_2_inner_beast_inactive")
+		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W2_ARMOR
+    end
+    if unit:HasModifier("modifier_chernobog_rune_w_3_fervor_enemy_invisible") then
+		local modifier = unit:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W3_ARMOR_REDUCE
+    end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -1037,16 +1050,23 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     	local e_1_level = unit:GetRuneValue("e", 1)
     	magic_armor_modify = magic_armor_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
     end
-
 	if unit:HasModifier("modifier_lightbomb_magic_armor_loss") then
 		local modifier = unit:FindModifierByName("modifier_lightbomb_magic_armor_loss")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
     end
-
 	if unit:HasModifier("modifier_hyperbeam_magic_armor_reduction") then
 		local modifier = unit:FindModifierByName("modifier_hyperbeam_magic_armor_reduction")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DINATH_R2_MAGIC_ARMOR_REDUCTION
     end
+    if unit:HasModifier("modifier_chernobog_1_q_path_enemy_effect_q1") then
+    	local caster = unit:FindModifierByName("modifier_chernobog_1_q_path_enemy_effect_q1"):GetCaster()
+    	local q_1_level = caster:GetRuneValue("q", 1)
+    	print(caster:GetUnitName())
+    	print(q_1_level)
+    	magic_armor_modify = magic_armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+
+
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
@@ -1150,6 +1170,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local ms = unit:GetActualMovespeed()
 		local w_2_level = unit:GetRuneValue("w", 2)
 		armor_pierce_modify = armor_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
+	end
+	if unit:HasModifier('modifier_3_e_teleportation_buff') then
+		local e_3_level = unit:GetRuneValue("e", 3)
+		armor_pierce_modify = armor_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
 	end
 
 	if armor_pierce_modify > 0 then
@@ -1264,6 +1288,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local ms = unit:GetActualMovespeed()
 		local w_2_level = unit:GetRuneValue("w", 2)
 		spell_pierce_modify = spell_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
+	end
+	if unit:HasModifier('modifier_3_e_teleportation_buff') then
+		local e_3_level = unit:GetRuneValue("e", 3)
+		spell_pierce_modify = spell_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
 	end
 
 	if spell_pierce_modify > 0 then

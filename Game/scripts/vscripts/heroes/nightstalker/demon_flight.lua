@@ -229,6 +229,7 @@ end
 function passive_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	caster.e2_level = caster:GetRuneValue("e", 2)
 	if caster.e2_level > 0 then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then

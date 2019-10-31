@@ -5,7 +5,8 @@ local class = modifier_chernobog_3_e_teleportation
 
 local modifiers = {
     cooldown = 'modifier_chernobog_3_e_teleportation_cooldown',
-    enemyEffectE3 = 'modifier_chernobog_3_e_teleportation_enemy_effect_e3'
+    enemyEffectE3 = 'modifier_chernobog_3_e_teleportation_enemy_effect_e3',
+    friendlyE3 = 'modifier_3_e_teleportation_buff'
 }
 
 function class:DeclareFunctions()
@@ -136,7 +137,9 @@ function class:OnOrderAttack(data)
     Filters:CastSkillArguments(3, self:GetCaster())
 
     Timers:CreateTimer(0.15, function()
-        self:ApplyE3Debuff(enemy, nil)
+        -- self:ApplyE3Debuff(enemy, nil)
+        print("ANYTHING?")
+        self:ApplyE3Buff()
         StartAnimation(parent, {duration = 0.3, activity = ACT_DOTA_ATTACK, rate = 3})
         Filters:PerformAttackSpecial(parent, enemy, true, true, true, true, false, false, false)
     end)
@@ -156,7 +159,7 @@ function class:OnOrderMove(data)
     onBlink(parent, self:GetAbility(), parent:GetAbsOrigin(), newPosition)
 
     self:Teleport(newPosition)
-    self:ApplyE3Debuff(nil, newPosition)
+    -- self:ApplyE3Debuff(nil, newPosition)
     self:StartCooldown()
     Filters:CastSkillArguments(3, self:GetCaster())
 
@@ -180,6 +183,21 @@ function class:Teleport(position)
         ParticleManager:DestroyParticle(particle2, false)
         ParticleManager:ReleaseParticleIndex(particle2)
     end)
+end
+
+function class:ApplyE3Buff()
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    if parent.e3_level == nil or parent.e3_level == 0 then
+    else
+        local buffDuration = Filters:GetAdjustedBuffDuration(parent, CHERNOBOG_E3_BUFF_DURATION_BASE, false)
+        if parent:HasModifier("modifier_chernobog_glyph_6_1") then
+            buffDuration = buffDuration + CHERNOBOG_GLYPH_6_1_DURATION_INCREASE
+        end
+        if buffDuration > 0 then
+            parent:AddNewModifier(parent, ability, modifiers.friendlyE3, { duration = buffDuration })
+        end
+    end
 end
 
 function class:ApplyE3Debuff(target, position)

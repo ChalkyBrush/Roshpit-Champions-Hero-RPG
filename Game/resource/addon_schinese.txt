@@ -3985,7 +3985,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_w_2_suffix_two"                    ""
         
         "DOTA_Tooltip_ability_chernobog_rune_w_3"                               "[W3] 激情"
-        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"                   "当恶魔猎人关闭，暗夜魔王每次攻击都会使敌方（主目标和他周围<font color='#ccff66'>200</font>范围内的所有敌人）的护甲降低。开启时，每次攻击攻击力会提高。转换目标激情的层数会减少 <font color='#ccff66'>40</font>% 。（减甲的debuff在转移目标后不会重置。） "
+        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"                   "当恶魔猎人关闭，暗夜魔王每次攻击都会使敌方（主目标和他周围<font color='#ccff66'>200</font>范围内的所有敌人）的护甲降低。开启时，每次攻击攻击力会提高。转换目标激情的层数会减少 <font color='#ccff66'>50</font>% 。（减甲的debuff在转移目标后不会重置。） "
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"                  "每次攻击叠加护甲值减少（关闭时）"
         "DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"                  "每次攻击叠加攻击力提高（开启时）"

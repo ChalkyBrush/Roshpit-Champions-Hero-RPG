@@ -2026,22 +2026,6 @@ function GameState:FilterDamage(filterTable)
 	if applyEffects then
 		filterTable["damage"] = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damagetype, filterTable["damage"], filterTable["entindex_inflictor_const"])
 	end
-	modifier = attacker:FindModifierByName('modifier_chernobog_glyph_t71_passive')
-	if modifier then
-		mult = mult + modifier:GetPostmitigationAmplify({})
-	end
-	modifier = attacker:FindModifierByName('modifier_chernobog_4_r_arcana1_postmit_r3')
-	if modifier then
-		mult = mult + modifier:GetPostmitigationAmplify({ attacker = attacker })
-	end
-	modifier = victim:FindModifierByName('modifier_chernobog_4_r_procession_enemy_effect')
-	if modifier then
-		mult = mult + modifier:GetPostmitigationAmplify({ attacker = attacker })
-	end
-	modifier = victim:FindModifierByName('modifier_chernobog_3_e_teleportation_enemy_effect_e3')
-	if modifier then
-		mult = mult + modifier:GetPostmitigationAmplify({ attacker = attacker })
-	end
 	if victim:HasModifier("modifier_centaur_horns") then
 		if filterTable["entindex_inflictor_const"] then
 			if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() ~= "item_rpc_centaur_horns" then
@@ -2292,12 +2276,7 @@ function GameState:FilterDamage(filterTable)
 		local tricksterFactor = RandomInt(-(TRICKSTER_MASK_ALL_DMG_MULT_MIN * 10) + minBoost, ((TRICKSTER_MASK_ALL_DMG_MULT_MAX * 10) - 10))
 		mult = mult + tricksterFactor / 10
 	end
-	if victim:HasModifier("modifier_nights_procession_a_d_rune") then
-		if attacker:GetUnitName() == "npc_dota_hero_night_stalker" then
-			local multBonus = victim:GetModifierStackCount("modifier_nights_procession_a_d_rune", attacker) * CHERNOBOG_R1_AMP_PCT/100
-			mult = mult + multBonus
-		end
-	end
+
 	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
 		mult = mult + NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF/100
 	end
@@ -3260,10 +3239,6 @@ function GameState:FilterDamage(filterTable)
 	if damageData.postmitigationDamage then
 		filterTable["damage"] = damageData.postmitigationDamage
 	end
-	modifier = victim:FindModifierByName('modifier_chernobog_1_q_path_enemy_effect_q1')
-	if modifier and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
-		filterTable["damage"] = filterTable["damage"] * (1 + modifier:GetExtraPostmitigationAmplify())
-	end
 	if attacker:HasModifier("modifier_helm_odin") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
 		if proc then
@@ -3811,7 +3786,7 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
-		-- filterTable["damage"] = 0
+		filterTable["damage"] = 0
 	end
 
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then
