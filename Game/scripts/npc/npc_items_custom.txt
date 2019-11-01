@@ -7829,7 +7829,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"150"
 			}
 		}
 	}
@@ -7990,7 +7990,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"120"
 			}
 		}
 	}
@@ -8029,7 +8029,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"75"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -8061,7 +8061,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"0.8"
+				"ThinkInterval"  	"1.5"
 				"OnIntervalThink"
 				{
 					"RunScript"

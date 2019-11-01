@@ -218,12 +218,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 25000 60000 200000 1000000 2500000"
+				"damage"	"<% ZHONIK_R_ARCANA_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"ms_mult"	"1"
+				"ms_mult"	"<% ZHONIK_R_ARCANA_SPEED_MULT_TO_R_DAMAGE %>"
 			}
 			"03"
 			{

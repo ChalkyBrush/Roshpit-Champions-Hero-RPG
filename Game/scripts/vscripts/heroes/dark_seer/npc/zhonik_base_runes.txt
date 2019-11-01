@@ -63,7 +63,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_Q3_POST_MITI_AMP_PCT %>"
+				"property_one"			"<% ZHONIK_Q3_MAGIC_ARMOR_RED %>"
 			}
 		}
 	}
@@ -232,7 +232,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ZHONIK_E2_DMG_PER_MANA %>"
 			}
 			"02"
@@ -261,7 +261,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_E3_PHYS_BLOCK_FLAT %>"
+				"property_one"			"<% ZHONIK_E3_MAGIC_ARMOR %>"
 			}
 		}
 	}
@@ -325,12 +325,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_R2_HEALTH_REGEN_PCT %>"
+				"property_one"			"<% ZHONIK_R2_HEALTH_REGEN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ZHONIK_R2_MANA_REGEN_PCT %>"
+				"property_two"			"<% ZHONIK_R2_MANA_REGEN %>"
 			}
 		}
 	}

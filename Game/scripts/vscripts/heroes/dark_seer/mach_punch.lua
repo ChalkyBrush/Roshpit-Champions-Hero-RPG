@@ -44,7 +44,6 @@ function mach_punch_cast(event)
 	CustomAbilities:QuickAttachParticleWithPointFollow("particles/roshpit/zonik/mach_punch_tgt.vpcf", target, 2.6, "attach_hitloc")
 	local damageMult = event.damage_mult
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * damageMult / 100
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_mach_punch_amp", {duration = 0.2})
 	--print("MACH PUNCH GO!")
 	if caster:HasModifier("modifier_temporal_discharge") then
 		local stacks = caster:GetModifierStackCount("modifier_temporal_discharge", caster)
@@ -129,10 +128,10 @@ function mach_punch_think(event)
 			ability.distanceMoved = ability.distanceMoved + distance
 			--print(ability.distanceMoved)
 			ability.lastPos = caster:GetAbsOrigin()
-			if ability.distanceMoved >= 240 then
-				ability.distanceMoved = ability.distanceMoved % 240
+			if ability.distanceMoved >= ZHONIK_W2_DISTANCE_THRESHOLD then
+				ability.distanceMoved = ability.distanceMoved % ZHONIK_W2_DISTANCE_THRESHOLD
 				ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_temporal_discharge", {})
-				local newStacks = math.min(attacker:GetModifierStackCount("modifier_temporal_discharge", attacker) + 1, 20)
+				local newStacks = math.min(attacker:GetModifierStackCount("modifier_temporal_discharge", attacker) + 1, ZHONIK_W2_MAX_STACKS)
 				attacker:SetModifierStackCount("modifier_temporal_discharge", attacker, newStacks)
 			end
 		else
@@ -158,9 +157,6 @@ function mach_punch_think(event)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
 			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster) * w_3_level * ZHONIK_W3_DMG_PER_WHIPLASH
-			if caster:HasModifier("modifier_zonik_immortal_weapon_1") then
-				c_b_damage = c_b_damage * ZHONIK_IMMORTAL_WEAPON_1_W_DMG_MULT
-			end
 			local stun_duration = 0.005 * w_3_level * caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
 			caster:RemoveModifierByName("modifier_mach_punch_whiplash")
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -203,7 +199,7 @@ function zonik_echo_end(event)
 	end
 	if target:IsAlive() then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_backstab_jumping", {duration = 0.2})
-		Filters:TakeArgumentsAndApplyDamage(target, caster, target.zonikEcho, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, target.zonikEcho, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
 		caster:RemoveModifierByName("modifier_backstab_jumping")
 		target.zonikEcho = false
 		CustomAbilities:QuickAttachParticleWithPointFollow("particles/roshpit/zonik/echo.vpcf", target, 2.6, "attach_hitloc")

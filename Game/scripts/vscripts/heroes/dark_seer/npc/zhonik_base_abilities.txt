@@ -19,12 +19,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"22"
+				"duration"				"<% ZHONIK_Q_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 1800 6000 24000 60000 165000 270000"
+				"damage"				"<% ZHONIK_Q_DAMAGE %>"
 			}
 			"03"
 			{
@@ -178,7 +178,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"600 840 1300 1800 2400 4800 9600"
+				"damage_mult"				"<% ZHONIK_W_DAMAGE_PCT %>"
 			}
 		}
 		// Precache
@@ -263,12 +263,6 @@
 					}
 				}
 			}
-			"modifier_mach_punch_amp"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
 			"modifier_temporal_discharge"
 			{
 				"IsHidden" "0"
@@ -326,7 +320,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"1800 2520 3900 5400 7200 14400 28800"
+				"damage_mult"				"<% ZHONIK_W_DAMAGE_PCT %>"
 			}
 		}
 		// Precache
@@ -419,12 +413,6 @@
 						"attack_damage"	"%attack_damage"
 					}
 				}
-			}
-			"modifier_mach_punch_amp"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
 			}
 			"modifier_temporal_discharge"
 			{
@@ -928,7 +916,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 50000 120000 240000 500000 800000"
+				"damage"	"<% ZHONIK_R_DAMAGE %>"
 			}
 			"04"
 			{
@@ -938,7 +926,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"speed_mult"	"0.01 0.05 0.1 0.3 0.5 1.0 3.0"
+				"speed_mult"	"<% ZHONIK_R_MULT %>"
 			}
 		}
 	}

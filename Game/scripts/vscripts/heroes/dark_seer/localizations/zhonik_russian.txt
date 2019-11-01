@@ -32,7 +32,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_mach_punch"								"Mach Punch"
-    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Стихия: <font color=\"#DDDDDD\">Нормальный</font> / <font color=\"#B5FFB7\">Время</font><br>Zhonik замахивается и ударяет по выбранному врагу со всей силы. Цель оглушается и получает урон, зависящий от урона героя. Если скорость передвижения героя выше вражеской, то пост-резистный урон будет увеличен на 1% за каждую единицу скорости в разнице."
+    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Стихия: <font color=\"#DDDDDD\">Нормальный</font> / <font color=\"#B5FFB7\">Время</font><br>Zhonik замахивается и ударяет по выбранному врагу со всей силы. Цель оглушается и получает урон, зависящий от урона героя."
     	"DOTA_Tooltip_ability_zonik_mach_punch_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_zonik_mach_punch_damage_mult"					"МНОЖИТЕЛЬ УРОНА, %:"
 		
@@ -98,7 +98,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_speedball"								"Speedball"
-    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font> / <font color=\"#C25DFC\">Космос</font><br>Zhonik бросается в сторону выбранного врага с дополнительной скоростью и увеличенной максимальной скоростью. При столкновении Zhonik взрывается, оглушая себя на 1 секунду и нанося урон ближайшим врагам. Приказ герою на любое действие отменит рывок от этого умения. Во время рывка перезарядка способности постепенно снижается, и каждый задетый противник уменьшит текущую перезарядку на 0.1 сек. Урон способности умножается на текущую скорость передвижения."	
+    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font> / <font color=\"#C25DFC\">Космос</font><br>Zhonik бросается в сторону выбранного врага с дополнительной скоростью и увеличенной максимальной скоростью. При столкновении Zhonik взрывается, оглушая себя на 1 секунду и нанося урон ближайшим врагам. Приказ герою на любое действие отменит рывок от этого умения. Во время рывка перезарядка способности постепенно снижается, и каждый задетый противник уменьшит текущую перезарядку на 0.1 сек. Скорость передвижения героя в момент столкновения добавляется к урону."	
     	"DOTA_Tooltip_ability_zonik_speedball_movespeed"				"УВЕЛИЧЕНИЕ БАЗОВОЙ И МАКСИМАЛЬНОЙ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_zonik_speedball_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_zonik_speedball_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ВРАГОВ:"
@@ -188,7 +188,7 @@
     	"property_zonik_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Timewarp Missiles."
 
     	"DOTA_Tooltip_ability_timewarp_missles"								"Timewarp Missiles"
-    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Стихия: <font color=\"#B5FFB7\">Время</font><br>За 4 секунды прочтения заклинания, Zhonik генерирует несколько поглощающих время снарядов. Спустя годы после их создания (3.5 секунды для Zhonik), каждый снаряд нацеливается на случайную ближайшую цель, ненадолго оглушая ее при попадании. Наносимый урон умножается на скорость передвижения героя в момент попадания. Через 2 секунды после начала прочтения, Zhonik получает физический и магический иммунитет, который продлится на 2 секунды дольше после окончания прочтения."
+    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Стихия: <font color=\"#B5FFB7\">Время</font><br>За 4 секунды прочтения заклинания, Zhonik генерирует несколько поглощающих время снарядов. Спустя годы после их создания (3.5 секунды для Zhonik), каждый снаряд нацеливается на случайную ближайшую цель, ненадолго оглушая ее при попадании. Скорость передвижения героя в момент попадания добавляется к урону. Через 2 секунды после начала прочтения, Zhonik получает физический и магический иммунитет, который продлится на 2 секунды дольше после окончания прочтения."
     	"DOTA_Tooltip_ability_timewarp_missles_damage"				"БАЗОВЫЙ УРОН:"
     	"DOTA_Tooltip_ability_timewarp_missles_ms_mult"				"МНОЖИТЕЛЬ УРОНА ОТ СКОРОСТИ, Х:"
     	"DOTA_Tooltip_ability_timewarp_missles_create_interval"		"ИНТЕРВАЛ СОЗДАНИЯ СНАРЯДОВ:"
@@ -265,7 +265,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"Sonar Style"
 		"item_property_zonik_immortal_weapon"							"Comet Punch"
-		"property_zonik_immortal_weapon_description"					"Дальность удара для (W) Mach Punch увеличена на <% ZHONIK_IMMORTAL_WEAPON_1_BONUS_RANGE %>, урон увеличен в <% ZHONIK_IMMORTAL_WEAPON_1_W_DMG_MULT %> раза."
+		"property_zonik_immortal_weapon_description"					"Дальность удара для (W) Mach Punch увеличена на <% ZHONIK_IMMORTAL_WEAPON_1_BONUS_RANGE %>, урон способности @Ability2 увеличен на <% ZHONIK_IMMORTAL_WEAPON_1_W_BAD %>%."
 
 		
 

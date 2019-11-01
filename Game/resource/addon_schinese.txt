@@ -11352,7 +11352,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"每层时间能量充能都将提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害 @glyph_property1%。每制造一次 <font color=\"#B5FFB7\">时</font> 元素伤害，消耗一层充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"慌乱拳击雕文"
-		"item_rpc_zonik_glyph_5_a_description" 				"每<font color='#ccff66'>0.8</font>秒向周围随机一个敌人释放一次 @Ability2 。"
+		"item_rpc_zonik_glyph_5_a_description" 				"每<font color='#ccff66'>1.5</font>秒向周围随机一个敌人释放一次 @Ability2 。"
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"
 		
@@ -11374,7 +11374,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"声呐作风"
 		"item_property_zonik_immortal_weapon"							"彗星拳"
-		"property_zonik_immortal_weapon_description"					"马赫速度之拳提高<font color='#ccff66'>500</font>码的攻击距离，并且造成<font color='#ccff66'>3</font>倍的伤害。"
+		"property_zonik_immortal_weapon_description"					"马赫速度之拳提高<font color='#ccff66'>500</font>码的攻击距离，并且造成<font color='#ccff66'>75</font>倍的伤害。"
 
 		
 

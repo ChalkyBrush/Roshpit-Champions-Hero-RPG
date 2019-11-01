@@ -12,7 +12,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ZHONIK_R1_ARCANA_AOE_DMG_PCT %>"
 			}
 			"02"
@@ -41,7 +41,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ZHONIK_R2_ARCANA_MUCH_PUNCH_AMP_PCT %>"
 			}
 			"02"

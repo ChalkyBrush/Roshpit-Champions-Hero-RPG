@@ -11623,7 +11623,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_mach_punch"								"Mach Punch"
-    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#B5FFB7\">Temporal</font><br>Zhonik winds up and punches the target with all of his strength. The target is stunned and takes damage based on his Attack Power. The damage is amplified post-mitigation by 1% for each movespeed point that Zhonik has over his target's."
+    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#B5FFB7\">Temporal</font><br>Zhonik winds up and punches the target with all of his strength. The target is stunned and takes damage based on his Attack Power."
     	"DOTA_Tooltip_ability_zonik_mach_punch_stun_duration"				"STUN DURATION:"
     	"DOTA_Tooltip_ability_zonik_mach_punch_damage_mult"					"ATTACK POWER DAMAGE MULT %:"
 		
@@ -11660,7 +11660,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_lightspeed"								"Lightspeed"
-    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik energizes himself, and begins moving at extreme speeds. This buff increases his movespeed cap and gives him free pathing, allowing him to run over most obstructions. Every 60 distance moved during this effect drains either <font color='#ccff66'>0.75</font> of his maximum mana, or <font color='#ccff66'>450</font>, whichever value is lower. If Zhonik has insufficient mana, Lightspeed is cancelled prematurely."
+    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik energizes himself, and begins moving at extreme speeds. This buff increases his movespeed cap and gives him free pathing, allowing him to run over most obstructions. Every 60 distance moved during this effect drains either <font color='#ccff66'>0.75</font> of his maximum mana, or <font color='#ccff66'>150</font>, whichever value is lower. If Zhonik has insufficient mana, Lightspeed is cancelled prematurely."
     	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"MOVESPEED CAP:"
     	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"DURATION:"
 
@@ -11689,7 +11689,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_speedball"								"Speedball"
-    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#C25DFC\">Cosmic</font><br>Target an enemy unit and charge toward them with bonus movespeed and movespeed cap. On impact, Zhonik explodes, stunning himself for 1 second and damaging nearby enemies. Issuing an order during Speedball cancels the charge. While travelling the cooldown is reduced, and each enemy hit by speedball additionally reduces cooldown by 0.1s. Damage dealt is multiplied by movespeed."	
+    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#C25DFC\">Cosmic</font><br>Target an enemy unit and charge toward them with bonus movespeed and movespeed cap. On impact, Zhonik explodes, stunning himself for 1 second and damaging nearby enemies. Issuing an order during Speedball cancels the charge. While travelling the cooldown is reduced, and each enemy hit by speedball additionally reduces cooldown by 0.1s. Multiplier of current movement speed is added to damage dealt."	
     	"DOTA_Tooltip_ability_zonik_speedball_movespeed"				"BASE MOVESPEED AND MOVESPEED CAP INCREASE:"
     	"DOTA_Tooltip_ability_zonik_speedball_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_zonik_speedball_stun_duration"			"ENEMY STUN DURATION:"
@@ -11779,7 +11779,7 @@
     	"property_zonik_arcana2_description"								"Replaces @Ability4 and all of its runes with Timewarp Missiles."
 
     	"DOTA_Tooltip_ability_timewarp_missles"								"Timewarp Missiles"
-    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Element: <font color=\"#B5FFB7\">Temporal</font><br>Over a 4 second channel, Zhonik generates time-voided Timewarp Missiles. Years after they are created (3.5 seconds in Zhonik's time), each missle locks on to a random nearby target and ministuns on impact. Damage dealt is multiplied by Zhonik's movespeed at the time of impact. 2 seconds into the channel, Zhonik gains physical and magical immunity for the remainder of the channel and for an additional 2 seconds after that."
+    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Element: <font color=\"#B5FFB7\">Temporal</font><br>Over a 4 second channel, Zhonik generates time-voided Timewarp Missiles. Years after they are created (3.5 seconds in Zhonik's time), each missle locks on to a random nearby target and ministuns on impact. Multiplier of current movement speed at the moment of impact is added to damage dealt. 2 seconds into the channel, Zhonik gains physical and magical immunity for the remainder of the channel and for an additional 2 seconds after that."
     	"DOTA_Tooltip_ability_timewarp_missles_damage"				"BASE DAMAGE:"
     	"DOTA_Tooltip_ability_timewarp_missles_ms_mult"				"DAMAGE X MOVESPEED MULTIPLIER:"
     	"DOTA_Tooltip_ability_timewarp_missles_create_interval"		"MISSLE GENERATION INTERVAL:"
@@ -11836,7 +11836,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"Temporal Discharge stacks increase all <font color=\"#B5FFB7\">Temporal</font> damage by @glyph_property1%. When <font color=\"#B5FFB7\">Temporal</font> damage is dealt, 1 stack is consumed."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"Glyph of Flurry Punches"
-		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <font color='#ccff66'>0.8</font> seconds."
+		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <font color='#ccff66'>1.5</font> seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
 		
@@ -11858,7 +11858,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"Sonar Style"
 		"item_property_zonik_immortal_weapon"							"Comet Punch"
-		"property_zonik_immortal_weapon_description"					"Mach Punch has <font color='#ccff66'>500</font> extra attack range and deals <font color='#ccff66'>3</font>x damage."
+		"property_zonik_immortal_weapon_description"					"Mach Punch has <font color='#ccff66'>500</font> extra attack range and has <font color='#ccff66'>75</font>% Base Ability Damage bonus."
 
 		
 

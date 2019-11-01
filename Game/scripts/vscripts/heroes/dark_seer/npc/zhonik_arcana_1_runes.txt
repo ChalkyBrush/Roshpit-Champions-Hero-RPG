@@ -59,7 +59,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_E3_ARCANA_POST_MITI_AMP_PCT %>"
+				"property_one"			"<% ZHONIK_E3_ARCANA_E_BAD_PCT %>"
 			}
 		}
 	}
@@ -77,7 +77,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_E4_ARCANA_ELEMENT_TEMPORAL_PER_ATRI %>"
+				"property_one"			"<% ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT %>"
 			}
 			"02"
 			{

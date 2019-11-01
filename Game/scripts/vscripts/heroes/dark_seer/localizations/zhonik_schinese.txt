@@ -266,7 +266,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"声呐作风"
 		"item_property_zonik_immortal_weapon"							"彗星拳"
-		"property_zonik_immortal_weapon_description"					"马赫速度之拳提高<% ZHONIK_IMMORTAL_WEAPON_1_BONUS_RANGE %>码的攻击距离，并且造成<% ZHONIK_IMMORTAL_WEAPON_1_W_DMG_MULT %>倍的伤害。"
+		"property_zonik_immortal_weapon_description"					"马赫速度之拳提高<% ZHONIK_IMMORTAL_WEAPON_1_BONUS_RANGE %>码的攻击距离，并且造成<% ZHONIK_IMMORTAL_WEAPON_1_W_BAD %>倍的伤害。"
 
 		
 

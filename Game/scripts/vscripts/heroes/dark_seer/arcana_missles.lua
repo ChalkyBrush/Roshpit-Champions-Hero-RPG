@@ -116,7 +116,7 @@ function passive_think(event)
 	local damage = event.damage
 	local baseMS = caster:GetBaseMoveSpeed()
 	local actualMS = caster:GetMoveSpeedModifier(baseMS, false)
-	damage = damage * actualMS
+	damage = damage + actualMS * ZHONIK_R_ARCANA_SPEED_MULT_TO_R_DAMAGE
 	if not ability.r_4_interval then
 		ability.r_4_interval = 0
 	end
@@ -205,7 +205,7 @@ function passive_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_agility", {})
 			caster:SetModifierStackCount("modifier_arcana_missles_d_d_agility", caster, d_d_level)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_attack_power", {})
-			caster:SetModifierStackCount("modifier_arcana_missles_d_d_attack_power", caster, d_d_level * 0.5 * caster:GetAgility())
+			caster:SetModifierStackCount("modifier_arcana_missles_d_d_attack_power", caster, d_d_level * ZHONIK_R4_ATTC_DMG_PER_AGI * caster:GetAgility())
 		else
 			caster:RemoveModifierByName("modifier_arcana_missles_d_d_agility")
 			caster:RemoveModifierByName("modifier_arcana_missles_d_d_attack_power")

@@ -1102,8 +1102,16 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_hydroxis_mist") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_hydroxis_mist")
 	end
-
-
+	if unit:HasModifier("modifier_tachyon_amp") then
+		local modifier = unit:FindModifierByName("modifier_tachyon_amp")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_Q3_MAGIC_ARMOR_RED
+	end
+	if unit:HasModifier("modifier_zonik_lightspeed") then
+		local modifier = unit:FindModifierByName("modifier_zonik_lightspeed")
+		local e_3_level = unit:GetRuneValue("e", 3)
+		magic_armor_modify = magic_armor_modify + ZHONIK_E3_MAGIC_ARMOR*e_3_level
+	end
+	
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
