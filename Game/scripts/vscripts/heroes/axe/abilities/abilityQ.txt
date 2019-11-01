@@ -1,2 +1,0 @@
-require("heroes/axe/red_general_constants")
-

@@ -1,8 +1,9 @@
-require('heroes/axe/init')
+require("heroes/axe/red_general_constants")
+local Helper = require("heroes/util/helper")
 local Helix = require('heroes/axe/glyphs/t41_helix')
 local WAmplify = require('heroes/axe/glyphs/t52_w_amplify')
 
-function stonewall_start(event)
+function red_general_ability_arcana2_w_stonewall_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = event.duration
@@ -116,20 +117,7 @@ function stonewall_start(event)
 	Helix.cast(caster, ability)
 end
 
-function stonewall_friendly_aura_create(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	if caster == target then
-		local w_2_level = caster:GetRuneValue("w", 2)
-		if w_2_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_stonewall_aura_axe_armor_strength", {duration = 7})
-			caster:SetModifierStackCount("modifier_stonewall_aura_axe_armor_strength", caster, w_2_level)
-		end
-	end
-end
-
-function stonewall_passive_attacked(event)
+function red_general_ability_arcana2_w_stonewall_passive_attacked(event)
 	local caster = event.caster
 	local attacker = event.attacker
 	local w_3_level = caster:GetRuneValue("w", 3)
@@ -149,3 +137,17 @@ function stonewall_passive_attacked(event)
 		end
 	end
 end
+
+function red_general_ability_arcana2_w_stonewall_friendly_aura_create(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if caster == target then
+		local w_2_level = caster:GetRuneValue("w", 2)
+		if w_2_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_stonewall_aura_axe_armor_strength", {duration = 7})
+			caster:SetModifierStackCount("modifier_stonewall_aura_axe_armor_strength", caster, w_2_level)
+		end
+	end
+end
+

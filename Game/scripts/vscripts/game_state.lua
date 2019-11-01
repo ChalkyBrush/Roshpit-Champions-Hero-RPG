@@ -2101,9 +2101,9 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if filterTable["entindex_inflictor_const"] then
-		if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "axe_arcana_smash" then
+		if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "red_general_ability_arcana1_r_tectonic_sunder" then
 			local r_1_level = attacker:GetRuneValue("r", 1)
-			mult = mult + 0.1 * r_1_level
+			mult = mult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT * r_1_level
 		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then

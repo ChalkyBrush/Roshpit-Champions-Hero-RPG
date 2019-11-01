@@ -51,11 +51,11 @@
         "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"受到来自赤色上将的普通元素伤害提高"
 		
 		
-		"DOTA_Tooltip_ability_backshock"                                "冲击波"
-        "DOTA_Tooltip_ability_backshock_Description"                    "元素： <font color=\"#DDDDDD\">普通</font><br>向上将身后释放3道冲击波。"
-        "DOTA_Tooltip_ability_backshock_Lore"                           ""
-        "DOTA_Tooltip_ability_backshock_main_damage"                    "每道伤害："
-        "DOTA_Tooltip_ability_backshock_speed"                          "冲击波速度："
+		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "冲击波"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "元素： <font color=\"#DDDDDD\">普通</font><br>向上将身后释放3道冲击波。"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"                    "每道伤害："
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"                          "冲击波速度："
 		
 		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] 余震"
         "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "被冲击波击中的敌人将受到持续伤害，每 0.3秒伤害一次，持续 3秒。"
@@ -86,11 +86,11 @@
  
 		
 		
-		"DOTA_Tooltip_ability_whirlwind"                                "急速狂飙"
-        "DOTA_Tooltip_ability_whirlwind_Description"                    "赤色上将高速旋转，牵引周围的敌人并拖拽着敌人一起向前移动，敌人每 0.18秒被拖拽一次。每一次拖拽敌人，赤色上将都将清除眩晕状态，并且根据所拖拽的敌人数量回复一定的生命值。"
-        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
-        "DOTA_Tooltip_ability_whirlwind_heal"                           "每拖拽一个敌人每次（0.18s）治疗："
-        "DOTA_Tooltip_ability_whirlwind_radius"                         "范围："
+		"DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind"                                "急速狂飙"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Description"                    "赤色上将高速旋转，牵引周围的敌人并拖拽着敌人一起向前移动，敌人每 0.18秒被拖拽一次。每一次拖拽敌人，赤色上将都将清除眩晕状态，并且根据所拖拽的敌人数量回复一定的生命值。"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_heal"                           "每拖拽一个敌人每次（0.18s）治疗："
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_radius"                         "范围："
 		
 		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] 耐力"
         "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "当上将失去生命值时，获得额外的全属性值。"
@@ -127,10 +127,10 @@
 		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
-        "DOTA_Tooltip_ability_sunder"                                   "破甲"
-        "DOTA_Tooltip_ability_sunder_Description"                       "元素： <font color=\"#DDDDDD\">普通</font><br>上将高擎他的武器，持续2.5秒，重击地面，造成的伤害为当前生命值的倍数。"
-        "DOTA_Tooltip_ability_sunder_Lore"                              ""
-        "DOTA_Tooltip_ability_sunder_main_damage"                       "伤害为当前生命值的%："
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "破甲"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "元素： <font color=\"#DDDDDD\">普通</font><br>上将高擎他的武器，持续2.5秒，重击地面，造成的伤害为当前生命值的倍数。"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "伤害为当前生命值的%："
 		
 		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] 狂战士怒吼"
         "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "当施放破甲时，每秒怒吼一次，嘲讽800范围内的敌人，强制敌人攻击你。当狂战士怒吼激活时，赤色上将所受到的来自敌人的所有伤害都将被反弹回敌人。反弹伤害为物理。最大反弹伤害为 20X最大生命值的伤害。"
@@ -173,10 +173,10 @@
 		"item_property_axe_arcana1"                                     "开天辟地"
         "property_axe_arcana1_description"                              "用开天辟地替换 @Ability4 及其所有符文。"
  
-        "DOTA_Tooltip_ability_axe_arcana_smash"                         "开天辟地"
-        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "用巨斧撕裂大地，被撕裂的大地将在 4秒后发生爆炸。"
-        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "伤害为 % 的攻击力："
-        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "眩晕持续时间："
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder"                         "开天辟地"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "用巨斧撕裂大地，被撕裂的大地将在 4秒后发生爆炸。"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_attack_power_mult_percent"   "伤害为 % 的攻击力："
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "眩晕持续时间："
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] 天地崩裂"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "开天辟地对敌人造成的伤害将被加深。（计算在敌人减伤之后）"
@@ -209,10 +209,10 @@
         "item_property_axe_arcana2"                                     "石墙"
         "property_axe_arcana2_description"                              "将 @Ability2 以及他的所有符文替换为石墙"
  
-        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "石墙"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "在赤色上将周围产生一圈石墙。任何站在石墙范围中的友军受到的伤害将会降低。"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "受到伤害降低 %:"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "持续时间:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall"                         "石墙"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_Description"             "在赤色上将周围产生一圈石墙。任何站在石墙范围中的友军受到的伤害将会降低。"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_damage_reduction"   "受到伤害降低 %:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_duration"           "持续时间:"
 
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "石墙"
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "降低受到的伤害"

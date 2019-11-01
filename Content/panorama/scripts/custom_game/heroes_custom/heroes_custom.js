@@ -225,13 +225,13 @@ function getVenoSkill(slot){
 function getAxeSkill(slot){
     var skillName = "";
 	if (slot === 1){
-        skillName = "DOTA_Tooltip_Ability_red_general_skull_basher";
+        skillName = "DOTA_Tooltip_Ability_red_general_ability_base_q_skull_basher";
 	}else if(slot === 2){
-        skillName = "DOTA_Tooltip_Ability_backshock";
+        skillName = "DOTA_Tooltip_Ability_red_general_ability_base_w_backshock";
 	}else if(slot === 3){
-        skillName = "DOTA_Tooltip_Ability_whirlwind";
+        skillName = "DOTA_Tooltip_Ability_red_general_ability_base_e_whirlwind";
 	}else if(slot === 4){
-        skillName = "DOTA_Tooltip_Ability_sunder";
+        skillName = "DOTA_Tooltip_Ability_red_general_ability_base_r_sunder";
 	}
     return skillName;
 }

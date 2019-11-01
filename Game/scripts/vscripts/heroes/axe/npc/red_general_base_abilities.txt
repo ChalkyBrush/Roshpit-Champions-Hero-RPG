@@ -1,5 +1,5 @@
 
-	"red_general_skull_basher"
+	"red_general_ability_base_q_skull_basher"
 	{
 		// General
 		//-------------------------------------------------------
@@ -21,7 +21,7 @@
 
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"0.2 0.2 0.2"
+		"AbilityCastPoint"				"0.2"
 
 		// Time
 		//-------------------------------------------------------
@@ -42,7 +42,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"attack_speed"		"30 45 60 75 90 105 120"
 			}
-
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
@@ -86,8 +85,8 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"		"heroes/axe/abilities/q/q_skull_basher.lua"
-				"Function"			"red_general_ability_base_q_start"
+				"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+				"Function"			"red_general_ability_base_q_skull_basher"
 				"target"			"POINT"
 			}
 		}
@@ -103,8 +102,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/q/q2_berserker_range.lua"
-						"Function"		"red_general_ability_base_q2_think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"		"red_general_rune_base_q_2_think"
 					}
 				}
 			}
@@ -125,22 +124,12 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"		"heroes/axe/abilities/q/q_skull_basher.lua"
+						"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
 						"Function"			"red_general_ability_base_q_attackLand"
 						"Target"			"TARGET"
 						"duration"			"%duration"
 						"aoe_damage"		"%bolt_damage"
 						"base_radius"		"%bolt_aoe"
-					}
-					"TrackingProjectile"
-					{
-						"Target"			"TARGET"
-					    "EffectName"		"particles/econ/items/techies/techies_arcana/techies_base_attack_arcana.vpcf"
-					    "Dodgeable"			"1"
-					    "ProvidesVision"	"1"
-					    "VisionRadius"		"300"
-					    "MoveSpeed"			"3000"
-					    "SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 					}
 					"FireEffect"
 					{
@@ -178,16 +167,16 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/q/q_skull_basher.lua"
-						"Function"		"heroic_leap_think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"		"red_general_ability_base_q_jump_think"
 					}
 				}
 				"OnDestroy"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/q/q_skull_basher.lua"
-						"Function"		"drop"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"		"red_general_ability_base_q_jump_landing"
 						"duration"		"%buff_duration"
 						"sunder_amp"	"%sunder_amp"
 					}
@@ -228,7 +217,161 @@
 		}
 	}
 
-	"whirlwind"
+	"red_general_ability_base_w_backshock"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"axe/axe_shockwave"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle" 	"particles/econ/items/magnataur/shock_of_the_anvil/magnataur_shockanvil.vpcf"
+			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+			"particle"	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
+			"particle"	"particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf"
+			"particle"	"particles/base_attacks/ranged_tower_bad.vpcf"
+			"particle"	"particles/units/heroes/hero_brewmaster/general_heel_stomp.vpcf"
+			"soundfile"	"soundevents/game_sounds_red_general.vsndevts"
+			"particle"	"particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"12 21 30 60 100 150 240"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"start_radius"				"110 110 110 110"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"end_radius"				"300 300 300 300"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"800"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"						"600 700 800 900 1000 1100 1200"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"main_damage"				"50 180 400 900 2000 4000 6800"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"RedGeneral.Backshock"
+				"Target"		"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"		"CASTER"
+			}
+
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_w_spurshock.lua"
+				"Function"		"red_general_ability_base_w_start"
+				"speed"			"%speed"
+				"damage"		"%main_damage"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_w_spurshock.lua"
+				"Function"		"red_general_ability_base_w_projectileHit"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_axe_rune_w_1_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"chaos_knight_reality_rift"
+
+				"EffectName"		"particles/units/heroes/hero_templar_assassin/templar_assassin_ambient_electric.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_w_spurshock.lua"
+						"Function"		"red_general_rune_base_w_1_think"
+					}
+				}
+			}
+			"modifier_axe_rune_w_2_invisible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% RED_GENERAL_W2_MAGIC_RESIST_LOSE %>"
+				}
+			}
+			"modifier_axe_rune_w_2_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"axe/axe_rune_w_2"
+
+				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+	}
+
+	"red_general_ability_base_e_whirlwind"
 	{
 		// General
 		//-------------------------------------------------------
@@ -279,7 +422,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal"				"1000 2000 3200 5400 8000 10000 12000"
+				"heal"				"100 200 320 540 800 1000 1200"
 			}
 			"02"
 			{
@@ -317,24 +460,14 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/axe/abilities/e/e_whirlwind.lua"
-				"Function"		"start"
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+				"Function"		"red_general_ability_base_q_whirlwind_start"
 			}
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_whirlwind_effect"
 				"Target" 		"CASTER"
 				"Duration"		"1.5"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/axe/blade_dash.lua"
-				"Function"		"d_c_projectile_hit"
-				"target"		"TARGET"
 			}
 		}
 		"Modifiers"
@@ -355,8 +488,8 @@
 			        }
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/e/e_whirlwind.lua"
-						"Function"		"think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+						"Function"		"red_general_ability_base_q_whirlwind_think"
 						"heal"		"%heal"
 					}
 				}
@@ -373,8 +506,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/e/e_whirlwind.lua"
-						"Function"		"finish"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+						"Function"		"red_general_ability_base_q_whirlwind_finish"
 					}
 				}
 			}
@@ -411,8 +544,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/e/e1_endurance.lua"
-						"Function"		"think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+						"Function"		"red_general_rune_base_e_1_think"
 					}
 				}
 			}
@@ -447,7 +580,7 @@
 		}
 	}
 
-	"sunder"
+	"red_general_ability_base_r_sunder"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
@@ -531,8 +664,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/r/r_sunder.lua"
-				"Function"		"cast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+				"Function"		"red_general_ability_base_r_sunder_cast"
 				"radius"		"%radius"
 				"targets"       "%targets"
 				"damage"		"%main_damage"
@@ -588,8 +721,8 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/r/r_sunder.lua"
-						"Function"		"startChannel"
+						"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+						"Function"		"red_general_ability_base_r_sunder_startChannel"
 					}
 				}
 				"OnDestroy"
@@ -640,8 +773,8 @@
             	{
                 	"RunScript"
             		{
-            			"ScriptFile"	"heroes/axe/abilities/r/r1_taunt.lua"
-            			"Function"		"takeDamage"
+            			"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+            			"Function"		"red_general_rune_base_r_2_takeDamage"
             			"damage"        "%attack_damage"
             		}
             	}
@@ -674,8 +807,8 @@
                  {
                     "RunScript"
                     {
-                       "ScriptFile"	"heroes/axe/abilities/r/r4_ruptured_steal.lua"
-                       "Function"		"think"
+                       "ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+                       "Function"		"red_general_rune_base_r_4_think"
                     }
                  }
 			}
@@ -713,156 +846,3 @@
 		}
 	}
 
-	"backshock"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"axe/axe_shockwave"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-			"particle" 	"particles/econ/items/magnataur/shock_of_the_anvil/magnataur_shockanvil.vpcf"
-			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
-			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
-			"particle"	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
-			"particle"	"particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf"
-			"particle"	"particles/base_attacks/ranged_tower_bad.vpcf"
-			"particle"	"particles/units/heroes/hero_brewmaster/general_heel_stomp.vpcf"
-			"soundfile"	"soundevents/game_sounds_red_general.vsndevts"
-			"particle"	"particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"120 210 300 600 1000 1500 2400"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"start_radius"				"110 110 110 110"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"end_radius"				"300 300 300 300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"800"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"600 700 800 900 1000 1100 1200"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"500 1800 4000 9000 20000 40000 68000"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"RedGeneral.Backshock"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"		"CASTER"
-			}
-
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/axe/abilities/w/w_spurshock.lua"
-				"Function"		"start"
-				"speed"			"%speed"
-				"damage"		"%main_damage"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/axe/abilities/w/w_spurshock.lua"
-				"Function"		"projectileHit"
-				"Target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_axe_rune_w_1_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"chaos_knight_reality_rift"
-
-				"EffectName"		"particles/units/heroes/hero_templar_assassin/templar_assassin_ambient_electric.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"ThinkInterval"  "0.3"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/axe/abilities/w/w1_dot_damage.lua"
-						"Function"		"think"
-					}
-				}
-			}
-			"modifier_axe_rune_w_2_invisible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% RED_GENERAL_W2_MAGIC_RESIST_LOSE %>"
-				}
-			}
-			"modifier_axe_rune_w_2_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"axe/axe_rune_w_2"
-
-				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-		}
-	}

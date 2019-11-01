@@ -51,11 +51,11 @@
         "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"Получает увеличенный Нормальный урон от The Red General"
 		
 		
-		"DOTA_Tooltip_ability_backshock"                                "Spur Shock"
-        "DOTA_Tooltip_ability_backshock_Description"                    "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General выпускает 3 борозды позади себя."
-        "DOTA_Tooltip_ability_backshock_Lore"                           ""
-        "DOTA_Tooltip_ability_backshock_main_damage"                    "УРОН ЗА ВОЛНУ:"
-        "DOTA_Tooltip_ability_backshock_speed"                          "СКОРОСТЬ ВОЛНЫ:"
+		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "Spur Shock"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General выпускает 3 борозды позади себя."
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"                    "УРОН ЗА ВОЛНУ:"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"                          "СКОРОСТЬ ВОЛНЫ:"
 		
 		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] Aftershock"
         "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "Враги, задетые бороздой от умения @Ability2 получают дополнительный урон каждые 0.3 секуны в течении 3 секунд."
@@ -87,11 +87,11 @@
  
 		
 		
-		"DOTA_Tooltip_ability_whirlwind"                                "Redmist Cyclone"
-        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General начинает быстро вращаться, захватывая всех врагов поблизости (кроме боссов) и перемещаясь с ними вперёд. Каждые 0.18 секунды вращения The Red General снимает с себя эффект оглушения, а захваченные способностью враги исцеляют героя."
-        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
-        "DOTA_Tooltip_ability_whirlwind_heal"                           "ЛЕЧЕНИЕ ЗА ВРАГА ЗА ТИК:"
-        "DOTA_Tooltip_ability_whirlwind_radius"                         "РАДИУС:"
+		"DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind"                                "Redmist Cyclone"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Description"                    "The Red General начинает быстро вращаться, захватывая всех врагов поблизости (кроме боссов) и перемещаясь с ними вперёд. Каждые 0.18 секунды вращения The Red General снимает с себя эффект оглушения, а захваченные способностью враги исцеляют героя."
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_heal"                           "ЛЕЧЕНИЕ ЗА ВРАГА ЗА ТИК:"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_radius"                         "РАДИУС:"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] Endurance"
         "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "Когда Red General теряет здоровье, он получает бонус ко всем атрибутам."
@@ -128,10 +128,10 @@
 		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
-        "DOTA_Tooltip_ability_sunder"                                   "Sunder"
-        "DOTA_Tooltip_ability_sunder_Description"                       "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General поднимает своё оружие вверх и через 2 секунды бьёт о землю перед собой, распространяя ударные волны, наносящие урон врагам в радиусе. Наносимый урон зависит от текущего здоровья героя."
-        "DOTA_Tooltip_ability_sunder_Lore"                              ""
-        "DOTA_Tooltip_ability_sunder_main_damage"                       "УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "Sunder"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General поднимает своё оружие вверх и через 2 секунды бьёт о землю перед собой, распространяя ударные волны, наносящие урон врагам в радиусе. Наносимый урон зависит от текущего здоровья героя."
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
 		
 		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
         "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "При успешном прочтении @Ability4, Red General создаёт мощный импульс в радиусе 800, заставляющий всех врагов атаковать только его. Пока активно, весь получаемый героем урон возвращается обратно в атакующих. Тип возвращаемого урона: физический. Максимальный возвращаемый урон ограничен 20х макс. здоровья героя."
@@ -174,10 +174,10 @@
 		"item_property_axe_arcana1"                                     "Terraforming"
         "property_axe_arcana1_description"                              "Заменяет (R) @Ability4 и все соответствующие руны на (R) Terraforming."
  
-        "DOTA_Tooltip_ability_axe_arcana_smash"                         "Terraforming"
-        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Мощным ударом топора о землю создаёт огромный разлом впереди себя, который взрывается спустя 2 секунды."
-        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "УРОН, % ОТ УРОНА ГЕРОЯ:"
-        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder"                         "Terraforming"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Мощным ударом топора о землю создаёт огромный разлом впереди себя, который взрывается спустя 2 секунды."
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_attack_power_mult_percent"   "УРОН, % ОТ УРОНА ГЕРОЯ:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] Tectonic Force"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Умение @Ability4 наносит увеличенный пост-резистный урон."
@@ -209,10 +209,10 @@
         "item_property_axe_arcana2"                                     "Stonewall"
         "property_axe_arcana2_description"                              "Заменяет @Ability2 и все соответствующие руны на Stonewall."
  
-        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "Stonewall"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "Создает арену из каменных стен вокруг героя. Союзники внутри арены получают сниженный урон от противников."
-        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "ПОНИЖЕНИЕ УРОНА %:"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall"                         "Stonewall"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_Description"             "Создает арену из каменных стен вокруг героя. Союзники внутри арены получают сниженный урон от противников."
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_damage_reduction"   "ПОНИЖЕНИЕ УРОНА %:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_duration"           "ДЛИТЕЛЬНОСТЬ:"
 
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "Stonewall"
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Входящий рон снижен"

@@ -1,5 +1,5 @@
 
-	"axe_arcana_smash"
+	"red_general_ability_arcana1_r_tectonic_sunder"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
@@ -48,8 +48,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"startChannel"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_startChannel"
 				"target"		"POINT"
 				"forks"			"3"
 				"amp"			"1"
@@ -87,8 +87,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"successfullCast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_successfullCast"
 				"target"		"POINT"
 				"forks"			"3"
 				"amp"			"1"
@@ -118,8 +118,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"interruptCast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_interruptCast"
 				"target"		"POINT"
 			}
 
@@ -170,8 +170,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/arcana_ability.lua"
-						"Function"		"axe_arcana_take_damage"
+						"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+						"Function"		"red_general_ability_arcana1_r_take_damage"
 						"damage"		"%attack_damage"
 					}
 				}

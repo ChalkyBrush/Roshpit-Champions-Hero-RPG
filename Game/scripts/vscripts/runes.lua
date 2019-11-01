@@ -1074,9 +1074,9 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_axe_rune_r_4_think")
 			hero:RemoveModifierByName("modifier_axe_rune_r_4_visible")
 			hero:RemoveModifierByName("modifier_axe_rune_r_4_invisible")
-			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "sunder", "axe_arcana_smash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "red_general_ability_base_r_sunder", "red_general_ability_arcana1_r_tectonic_sunder", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 1, "backshock", "axe_stonewall_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, 1, "red_general_ability_base_w_backshock", "red_general_ability_arcana2_w_stonewall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then
@@ -1793,10 +1793,10 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_axe" then
 		hero:RemoveModifierByName("modifier_axe_arcana_passive")
 		if index == 1 then
-			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "sunder", "axe_arcana_smash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "red_general_ability_base_r_sunder", "red_general_ability_arcana1_r_tectonic_sunder", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_stonewall_passive")
-			Runes:EasyRevertArcanaSkills(hero, 1, "backshock", "axe_stonewall_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasyRevertArcanaSkills(hero, 1, "red_general_ability_base_w_backshock", "red_general_ability_arcana2_w_stonewall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then

@@ -1,4 +1,4 @@
-	"axe_stonewall_ability"
+	"red_general_ability_arcana2_w_stonewall"
 	{
 		// General
 		//-------------------------------------------------------
@@ -28,7 +28,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"200 300 600 1000 1500 2400 3600"
+		"AbilityManaCost"				"100 200 300 400 500 600 700"
 
 		// Special
 		//-------------------------------------------------------
@@ -51,8 +51,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
-				"Function"		"stonewall_start"
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_arcana2_w_stonewall"
+				"Function"		"red_general_ability_arcana2_w_stonewall_start"
 				"duration"		"%duration"
 			}
 		}
@@ -68,8 +68,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
-						"Function"		"stonewall_passive_attacked"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_arcana2_w_stonewall"
+						"Function"		"red_general_ability_arcana2_w_stonewall_passive_attacked"
 					}
 				}
 			}
@@ -92,8 +92,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
-						"Function"		"stonewall_friendly_aura_create"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_arcana2_w_stonewall"
+						"Function"		"red_general_ability_arcana2_w_stonewall_friendly_aura_create"
 						"target"		"TARGET"
 					}
 				}

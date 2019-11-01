@@ -1,10 +1,8 @@
-require('heroes/axe/init')
-local CycloneStorm = require('heroes/axe/abilities/e/e2_cyclone_storm')
-local CyclonicShield = require('heroes/axe/abilities/e/e4_cyclonic_shield')
-local WhirlwindDamage = require('heroes/axe/abilities/e/e3_whirlwind_damage')
+require("heroes/axe/red_general_constants")
+local Helper = require("heroes/util/helper")
 local ImmortalWeapon2 = require('heroes/axe/weapons/immortal_weapon_2')
 
-function start(event)
+function red_general_ability_base_q_whirlwind_start(event)
     local hero = event.caster
     local ability = event.ability
 
@@ -14,8 +12,10 @@ function start(event)
     ability.forwardVec = hero:GetForwardVector()
     ability.interval = 0
 
-    CycloneStorm.applyBuff(hero, ability)
-    CyclonicShield.applyShield(hero, ability)
+    red_general_rune_base_e_2_applyBuff(hero, ability)
+
+    red_general_rune_base_e_4_applyShield(hero, ability)
+
     if not hero:HasModifier("modfier_axe_jumping") then
         StartAnimation(hero, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.1})
     else
@@ -36,17 +36,17 @@ function start(event)
 
 end
 
-local function onSpecificIntervalThink(ability, caster, position, heal)
+function red_general_ability_base_q_whirlwind_onSpecificIntervalThink(ability, caster, position, heal)
     Filters:CleanseStuns(caster)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, RED_GENERAL_E_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
     ability.enemies = enemies
     if #enemies > 0 then
         Filters:ApplyHeal(caster, caster, heal * #enemies, true, false)
-        WhirlwindDamage.damageEnemies(caster, enemies)
+        red_general_rune_base_e_3_damageEnemies(caster, enemies)
     end
 end
 
-function think(event)
+function red_general_ability_base_q_whirlwind_think(event)
     local ability = event.ability
     local interval = ability.interval
     local hero = event.caster
@@ -70,7 +70,7 @@ function think(event)
 
     if interval % tickForInterval == 0 then
         local heal = event.heal
-        onSpecificIntervalThink(ability, hero, position, heal)
+        red_general_ability_base_q_whirlwind_onSpecificIntervalThink(ability, hero, position, heal)
     end
 
     if interval % 13 == 0 then
@@ -95,7 +95,7 @@ function think(event)
         if #ability.enemies > 0 then
             for _, enemy in pairs(ability.enemies) do
                 if IsValidEntity(enemy) then
-                    if not enemy.pushLock and not enemy.jumpLock then
+                    if not enemy.pushLock and not enemy.jumpLock and not enemy.dummy then
                         local enemyPosition = enemy:GetAbsOrigin() + hero:GetAbsOrigin() - hero.oldEposition
                         enemy:SetAbsOrigin(enemyPosition)
                     end
@@ -110,7 +110,7 @@ function think(event)
     ability.interval = ability.interval + 1
 end
 
-function finish(event)
+function red_general_ability_base_q_whirlwind_finish(event)
     local ability = event.ability
     local hero = event.caster
     hero.EFV = false
@@ -131,4 +131,75 @@ function finish(event)
             end
         end
     end
+end
+
+function red_general_rune_base_e_1_think(event)
+    local caster = event.caster
+    Helper.initializeAbilityRunes(caster, 'axe', 'e')
+    local runesCount = caster.e_1_level
+
+    if caster.e_1_level <= 0 then
+        return
+    end
+
+    local stacks = math.floor(20 - 20 * (caster:GetHealth() / caster:GetMaxHealth()))
+    local runeAbility = caster.runeUnit:FindAbilityByName("axe_rune_e_1")
+
+    if stacks > 0 then
+        runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_e_1_visible", {})
+        caster:SetModifierStackCount("modifier_axe_rune_e_1_visible", runeAbility, stacks)
+        runeAbility:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_axe_rune_e_1_invisible", {})
+        caster:SetModifierStackCount("modifier_axe_rune_e_1_invisible", runeAbility, stacks * runesCount)
+    else
+        caster:RemoveModifierByName("modifier_axe_rune_e_1_visible")
+        caster:RemoveModifierByName("modifier_axe_rune_e_1_invisible")
+    end
+end
+
+function red_general_rune_base_e_2_applyBuff(caster, ability)
+    if caster.e_2_level > 0 then
+        local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_2_tornado", {duration = b_c_duration})
+        caster:SetModifierStackCount("modifier_axe_rune_e_2_tornado", caster, caster.e_2_level)
+    end
+end
+
+function red_general_rune_base_e_2_refreshBuff(caster)
+    if caster:HasModifier("modifier_axe_rune_e_2_tornado") then
+        local whirlwindAbility = caster:FindAbilityByName("red_general_ability_base_e_whirlwind")
+        local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
+        whirlwindAbility:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_2_tornado", {duration = b_c_duration})
+    end
+end
+
+function red_general_rune_base_e_3_damageEnemies(caster, enemies)
+    if caster.e_3_level > 0 then
+        local damage = caster.e_3_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * RED_GENERAL_E3_DAMAGE_PERCENT / 100
+        for _, enemy in pairs(enemies) do
+            local damageWithWeapon = damage * ImmortalWeapon2.getAmp(caster, enemy)
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damageWithWeapon, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+            EmitSoundOn("RedGeneral.HitSpin", enemy)
+            CustomAbilities:QuickParticleAtPoint("particles/roshpit/solunia/boomerang_impact.vpcf", enemy:GetAbsOrigin() + Vector(0, 0, 100), 0.5)
+        end
+    end
+end
+
+function red_general_rune_base_e_4_applyShield(caster, ability)
+    if caster.e_4_level > 0 then
+        local duration = Filters:GetAdjustedBuffDuration(caster, RED_GENERAL_E4_DURATION, false)
+        local procChance = RED_GENERAL_E4_PROC_CHANCE
+        if caster:HasModifier("modifier_axe_glyph_6_2") then
+            procChance = RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT
+        end
+        local shieldsCount = Runes:Procs(caster.e_4_level, procChance, 1)
+        --print("runes count " .. caster.e_4_level)
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_3_shield", {duration = duration})
+        caster:SetModifierStackCount("modifier_axe_rune_r_3_shield", caster, shieldsCount)
+    end
+end
+
+function red_general_rune_base_e_4_amplifyShieldsCount(caster, ability, amplify)
+    local shieldsCount = caster:GetModifierStackCount("modifier_axe_rune_r_3_shield", ability)
+    shieldsCount = shieldsCount * amplify
+    caster:SetModifierStackCount("modifier_axe_rune_r_3_shield", caster, shieldsCount)
 end

@@ -1584,6 +1584,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks * CustomAttributes.AXE_Q3_STATS
 		agi_bonus = agi_bonus + stacks * CustomAttributes.AXE_Q3_STATS
 		int_bonus = int_bonus + stacks * CustomAttributes.AXE_Q3_STATS
+		spirit_bonus = spirit_bonus + stacks * CustomAttributes.AXE_Q3_STATS
 	end
 	if hero:HasModifier("modifier_astral_d_c_visible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_astral_d_c_visible")
