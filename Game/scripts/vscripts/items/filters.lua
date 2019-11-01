@@ -2222,11 +2222,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_zonik_glyph_7_1") and attacker:HasModifier("modifier_temporal_discharge") then
                 local stacks = attacker:GetModifierStackCount("modifier_temporal_discharge", attacker)
                 mult = mult + stacks * ZHONIK_GLYPH_7_1_ELEMENT_TEMPORAL / 100
-                if stacks - 1 > 0 then
-                    attacker:SetModifierStackCount("modifier_temporal_discharge", attacker, math.ceil(stacks - 1))
-                else
-                    attacker:RemoveModifierByName("modifier_temporal_discharge")
-                end
             end
 			if attacker:HasAbility("zonik_lightspeed") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
@@ -2508,7 +2503,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
-                mult = mult + (SLIPFINN_Q4_SHADOW_WATER_AMP_PER_AGI/100 * attacker:GetAgility() / 10) * attacker.q_4_level
+                mult = mult + SLIPFINN_Q4_SHADOW_WATER_AMP/100 * attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker:HasAbility("summon_shadow_deity") then
@@ -2637,8 +2632,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
-                waterMult = waterMult + SLIPFINN_Q4_SHADOW_WATER_AMP_PER_AGI/100 * attacker:GetAgility() / 10 * attacker.q_4_level
-            end
+					waterMult = waterMult + SLIPFINN_Q4_SHADOW_WATER_AMP/100 * attacker.q_4_level
+			end
         end
         if attacker:HasModifier("modifier_body_water") then
             local stacks = attacker:GetModifierStackCount("modifier_body_water", attacker.InventoryUnit)

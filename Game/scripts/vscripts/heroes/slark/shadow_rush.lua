@@ -87,7 +87,7 @@ function slipfinn_attack_land(event)
 		if a_c_level > 0 then
 			local damage = event.damage * SLIPFINN_E1_MULT * a_c_level
 			-- Timers:CreateTimer(0.05, function()
-			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
 			-- end)
 		end

@@ -8,7 +8,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"slipfinn/arcana1/bog_roller"
 		"AbilityCastAnimation"			"ACT_DOTA_RUN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 
@@ -43,7 +43,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shadow_damage_on_attack"						"100 200 300 400 500 600 700"
+				"shadow_damage_on_attack"						"<% SLIPFINN_ARCANA_1_E_SHADOW_DMG_PCT %>"
 			}
 		}
 		"OnToggleOn"
@@ -208,10 +208,6 @@
 			"modifier_slipfinn_bog_roller_e3"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% SLIPFINN_ARCANA_1_E3_ARMOR_BONUS %>"
-				}
 			}
 		}
 	}
@@ -277,12 +273,12 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SLIPFINN_ARCANA_1_E2_BONUS_DAMAGE_PCT %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% SLIPFINN_ARCANA_1_E2_MODIFIER_DAMAGE_PCT %>"
 			}
 			"03"
@@ -318,7 +314,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_ARCANA_1_E3_POST_MITI_MAGIC %>"
+				"property_two"			"<% SLIPFINN_ARCANA_1_E3_SPELL_PIERCE %>"
 			}
 		}
 	}

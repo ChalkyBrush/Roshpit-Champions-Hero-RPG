@@ -2151,10 +2151,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult + SORCERERS_REGALIA_MAGIC_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_slipfinn_bog_roller_e3") then
-			local stacks = attacker:GetModifierStackCount("modifier_slipfinn_bog_roller_e3", attacker)
-			mult = mult + stacks * SLIPFINN_ARCANA_1_E3_POST_MITI_MAGIC/100
-		end
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult + 0.25
 		end

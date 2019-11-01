@@ -150,9 +150,12 @@ function slipfinn_main_thinker(event)
 				caster:SetModifierStackCount("modifier_slipfinn_b_c_health_regen", caster, ability.e_2_level * healthRegenMult * SLIPFINN_E2_HEALTH_REGEN * caster:GetAgility())
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_b_c_health", {})
 				caster:SetModifierStackCount("modifier_slipfinn_b_c_health", caster, ability.e_2_level * SLIPFINN_E2_HEALTH * caster:GetAgility())
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_e_2_armor", {})
+				caster:SetModifierStackCount("modifier_slipfinn_e_2_armor", caster, ability.e_2_level * SLIPFINN_E2_ARMOR * caster:GetAgility())		
 			else
 				caster:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
 				caster:RemoveModifierByName("modifier_slipfinn_b_c_health")
+				caster:RemoveModifierByName("modifier_slipfinn_e_2_armor")
 			end
 		end
 	end

@@ -42,12 +42,12 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% of Attack Power"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts <% SLIPFINN_W2_DURATION %> seconds. Enemies hit by Dark Bog gain 1 stack."
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Post-mitigation damage taken per stack"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which reduces Magic Armor of that enemy. Lasts <% SLIPFINN_W2_DURATION %> seconds. Enemies hit by Dark Bog gain 1 stack."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"Gloomshade"
-    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Taking increased post-mitigation damage from Slipfinn"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Magical Armor reduced."
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts <% SLIPFINN_W3_DURATION %> seconds, and jumping resets the bonus."
@@ -76,16 +76,18 @@
     	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"CAST RANGE:"
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] Shadow Shank"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Attacks deal an additional instance of pure <font color=\"#7F4F84\">Shadow</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Attacks deal an additional instance of physical <font color=\"#7F4F84\">Shadow</font> damage."
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"Damage"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% of Damage Dealt"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2"									"[E2] Fen Sleeper"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"Agility increases max health and health regen. While prone, the health regen bonus is 2x stronger."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"Agility increases max Health, Health Regen and Armor. While prone, the health regen bonus is 2x stronger."
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_one"						"Max Health"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix"								" per Agility"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_two"						"Health Regen"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_two"							" per Agility"
+		"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_three"						"Bonus Armor"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_three"							" per Agility"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_e_3"									"[E3] Shadow Cloak"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_3_Description"						"Casting Slippery Sprint or Shady Smoke applies a cloak that makes Slipfinn invisible."
@@ -171,11 +173,11 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% of attack power"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Gain bonus armor and Post-Mitigation Magic damage while in Bog Roller."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Gain bonus armor and Spell Pierce while in Bog Roller."
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_one"             "Armor Bonus"
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix"                   ""
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "Post-Mitigation Magic Damage"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               "%"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "Spell Pierce Bonus"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               ""
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] Bayou Blister"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "Landing on the ground after jumping while in Bog Roller creates an area that stuns and deals damage based on attack power. The radius scales with the distance fallen, and is enhanced further when using a prone smash from the air."
