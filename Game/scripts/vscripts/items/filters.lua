@@ -1534,6 +1534,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_cerulean_high_guard") then
             damageMult = damageMult + CERULEAN_HIGHGUARD_BAD/100
         end
+		if attacker:HasModifier("modifier_zonik_immortal_weapon_1") then
+			damageMult = damageMult + ZHONIK_IMMORTAL_WEAPON_1_W_BAD/100
+		end
         if attacker:HasModifier("modifier_crest_of_the_umbral_sentinel") then
             Filters:UmbralSentinel(attacker, victim)
         end
@@ -1602,6 +1605,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_boots_of_ashara") and attacker:GetHealth() / attacker:GetMaxHealth() <= BOOTS_OF_ASHARA_HP_THRESHOLD/100 then
             damageMult = damageMult + BOOTS_OF_ASHARA_BAD_E
         end
+		if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
+			local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
+			local multIncrease = stacks * ZHONIK_E3_ARCANA_E_BAD_PCT / 100
+			damageMult = damageMult + multIncrease
+		end
 
         if attacker:HasModifier("modifier_wind_deity_crown") then
             if not ignore_effects then
@@ -1697,7 +1705,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                         if not victim.zonikEcho then
                             victim.zonikEcho = 0
                         end
-                        victim.zonikEcho = victim.zonikEcho + damage * w_4_level * 0.005
+                        victim.zonikEcho = victim.zonikEcho + damage * w_4_level * ZHONIK_W4_ECHO_DMG_PCT/100
                     end
                 end
             end
@@ -2166,7 +2174,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_arkimus_arcana1_q4") then
                 local stacks = attacker:GetModifierStackCount("modifier_arkimus_arcana1_q4", attacker)
-                mult = mult + 0.002 * attacker:GetAgility() / 10 * stacks
+                mult = mult + ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP /100 * stacks
             end
         end
         if attacker:HasModifier("modifier_hand_lightning") then
@@ -2214,19 +2222,17 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_zonik_glyph_7_1") and attacker:HasModifier("modifier_temporal_discharge") then
                 local stacks = attacker:GetModifierStackCount("modifier_temporal_discharge", attacker)
                 mult = mult + stacks * ZHONIK_GLYPH_7_1_ELEMENT_TEMPORAL / 100
-                if stacks - 1 > 0 then
-                    attacker:SetModifierStackCount("modifier_temporal_discharge", attacker, math.ceil(stacks - 1))
-                else
-                    attacker:RemoveModifierByName("modifier_temporal_discharge")
-                end
+            end
+			if attacker:HasAbility("zonik_lightspeed") then
+                local e_4_level = attacker:GetRuneValue("e", 4)
+                mult = mult + ZHONIK_E4_TEMPORAL_AMP_PCT/100 * e_4_level
+			elseif attacker:HasAbility("zhonik_temporal_field") then
+                local e_4_level = attacker:GetRuneValue("e", 4)
+                mult = mult + ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT / 100 * e_4_level
             end
             if victim:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
                 local stacks = victim:GetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", attacker)
                 mult = mult + stacks * ZHONIK_E1_ARCANA_ELEMENT_TEMPORAL / 100
-            end
-            if attacker:HasAbility("zhonik_temporal_field") then
-                local e_4_level = attacker:GetRuneValue("e", 4)
-                mult = mult + ZHONIK_E4_ARCANA_ELEMENT_TEMPORAL_PER_ATRI / 100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * e_4_level
             end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
             ----print("OD HERE")
@@ -2464,7 +2470,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasAbility("arkimus_energy_field") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                mult = mult + ARKIMUS_R4_ARCANE_AMP_PER_AGI/100 * attacker:GetAgility() / 10 * d_d_level
+                mult = mult + ARKIMUS_R4_ARCANE_AMP/100 * d_d_level
             end
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
                 if bIsRealDamage then
@@ -2497,7 +2503,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
-                mult = mult + (SLIPFINN_Q4_SHADOW_WATER_AMP_PER_AGI/100 * attacker:GetAgility() / 10) * attacker.q_4_level
+                mult = mult + SLIPFINN_Q4_SHADOW_WATER_AMP/100 * attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker:HasAbility("summon_shadow_deity") then
@@ -2626,8 +2632,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
-                waterMult = waterMult + SLIPFINN_Q4_SHADOW_WATER_AMP_PER_AGI/100 * attacker:GetAgility() / 10 * attacker.q_4_level
-            end
+					waterMult = waterMult + SLIPFINN_Q4_SHADOW_WATER_AMP/100 * attacker.q_4_level
+			end
         end
         if attacker:HasModifier("modifier_body_water") then
             local stacks = attacker:GetModifierStackCount("modifier_body_water", attacker.InventoryUnit)

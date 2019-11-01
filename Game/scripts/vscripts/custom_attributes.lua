@@ -762,8 +762,23 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_hydroxis_a_d")
 		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_R1_ARMOR_RED
 	end
-		
-
+	if unit:HasModifier("modifier_shimmer_cape") then
+		local modifier = unit:FindModifierByName("modifier_shimmer_cape")
+		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMOR
+	end
+	if unit:HasModifier("modifier_slipfinn_e_2_armor") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_e_2_armor")
+		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_E2_ARMOR
+	end
+	if unit:HasModifier("modifier_slipfinn_bog_roller_e3") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_bog_roller_e3")
+		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_ARCANA_1_E3_ARMOR_BONUS
+	end
+	if unit:HasModifier("modifier_zonis_a_a_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_zonis_a_a_armor_loss")
+		armor_modify = armor_modify + modifier:GetStackCount()*ARKIMUS_Q1_ARMOR_REDUCTION
+	end
+	
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -1102,8 +1117,31 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_hydroxis_mist") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_hydroxis_mist")
 	end
-
-
+	if unit:HasModifier("modifier_tachyon_amp") then
+		local modifier = unit:FindModifierByName("modifier_tachyon_amp")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_Q3_MAGIC_ARMOR_RED
+	end
+	if unit:HasModifier("modifier_zonik_lightspeed") then
+		local modifier = unit:FindModifierByName("modifier_zonik_lightspeed")
+		local e_3_level = unit:GetRuneValue("e", 3)
+		magic_armor_modify = magic_armor_modify + ZHONIK_E3_MAGIC_ARMOR*e_3_level
+	end
+	if unit:HasModifier("modifier_slipfinn_gloomshade_invisible") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_W2_MAGIC_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_zonis_c_a_magic_resist") then
+		local modifier = unit:FindModifierByName("modifier_zonis_c_a_magic_resist")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_zonis_stun_arcana1") then
+		local caster = unit:FindModifierByName("modifier_zonis_stun_arcana1"):GetCaster()
+		local q_2_level = caster:GetRuneValue("q", 2)
+		magic_armor_modify = magic_armor_modify + q_2_level*ARKIMUS_ARCANA1_Q2_MAGIC_ARMOR_REDUCTION
+	end
+	
+	
+	
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
@@ -1356,7 +1394,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local modifier = unit:FindModifierByName("modifier_hydroxis_basin_d_d")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*HYDROXIS_ARCANA_R4_SPELL_PIERCE
 	end
-	
+	if unit:HasModifier("modifier_slipfinn_bog_roller_e3") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_bog_roller_e3")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SLIPFINN_ARCANA_1_E3_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_machinal_jump_c_c_amp") then
+		local modifier = unit:FindModifierByName("modifier_machinal_jump_c_c_amp")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_SPELL_PIERCE
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
@@ -1526,7 +1571,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)
 	end
 	if hero:HasModifier("modifier_arkimus_arcana1_q4") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", ARKIMUS_ARCANA_Q4_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", ARKIMUS_ARCANA1_Q4_AGI)
 	end
 	if hero:HasModifier("modifier_machinal_jump_d_c_effect") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_machinal_jump_d_c_effect", ARKIMUS_E4_AGI)

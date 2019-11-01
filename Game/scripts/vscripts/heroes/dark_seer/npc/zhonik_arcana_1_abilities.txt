@@ -65,7 +65,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_resistance"				"80"
+				"damage_resistance"				"<% ZHONIK_E_ARCANA_DMG_REDUCTION_PCT %>"
 			}
 			"07"
 			{

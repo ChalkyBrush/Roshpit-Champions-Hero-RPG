@@ -1714,7 +1714,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
-		damage = damage * 0.2
+		damage = damage * (100-ZHONIK_E_ARCANA_DMG_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_damage_resistance") then
 		if victim.damageReduc then
@@ -1983,7 +1983,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
-		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
+		filterTable["damagetype_const"] = DAMAGE_TYPE_PHYSICAL
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
 		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
@@ -2151,10 +2151,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult + SORCERERS_REGALIA_MAGIC_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_slipfinn_bog_roller_e3") then
-			local stacks = attacker:GetModifierStackCount("modifier_slipfinn_bog_roller_e3", attacker)
-			mult = mult + stacks * SLIPFINN_ARCANA_1_E3_POST_MITI_MAGIC/100
-		end
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult + 0.25
 		end
@@ -2237,10 +2233,6 @@ function GameState:FilterDamage(filterTable)
 
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_MAGICAL then
-		if victim:HasModifier("modifier_zonik_lightspeed") then
-			local e_3_level = victim:FindAbilityByName("zonik_lightspeed").e_3_level
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * e_3_level * ZHONIK_E3_PHYS_BLOCK_FLAT, 0)
-		end
 		if victim:HasModifier("modifier_draghor_shapeshift_hawk_lua") then
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "intellect") * DJANGHOR_BIRD_PURE_MAG_BLOCK, 0)
 		end
@@ -2316,15 +2308,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.15 * stacks
 		mult = mult + multIncrease
-	end
-
-	if attacker:HasModifier("modifier_machinal_jump_c_c_amp") then
-		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			local multIncrease = ARKIMUS_E3_POST_MITI/100 * stacks
-			mult = mult + multIncrease
-		end
 	end
 	if victim:HasModifier("modifier_reaper_slice_amp_debuff") then
 		modifier = victim:FindModifierByName("modifier_reaper_slice_amp_debuff")
@@ -2495,11 +2478,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
-		local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
-		local multIncrease = stacks * ZHONIK_E3_ARCANA_POST_MITI_AMP_PCT / 100
-		mult = mult + multIncrease
-	end
 	if attacker:HasModifier("modifier_general_postmitigation") then
 		local stacks = attacker:GetModifierStackCount("modifier_general_postmitigation", Events.GameMaster)
 		local multIncrease = stacks / 100
@@ -2528,13 +2506,6 @@ function GameState:FilterDamage(filterTable)
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
 			local stacks = modifier:GetStackCount()
 			mult = mult + SLIPFINN_W2_POST_MITI/100 * stacks
-		end
-	end
-	if victim:HasModifier("modifier_tachyon_amp") then
-		modifier = victim:FindModifierByName("modifier_tachyon_amp")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			mult = mult + stacks * ZHONIK_Q3_POST_MITI_AMP_PCT / 100
 		end
 	end
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then
@@ -2615,20 +2586,6 @@ function GameState:FilterDamage(filterTable)
 			local movespeedVictim = victim:GetMoveSpeedModifier(movespeed, false)
 			local amp = math.max((movespeedAttacker - movespeedVictim) / 100, 0)
 			mult = mult + amp
-		end
-	end
-	if victim:HasModifier("modifier_mach_punch_amp") then
-		modifier = victim:FindModifierByName("modifier_mach_punch_amp")
-		local modifierCaster = modifier:GetCaster()
-		if attacker:GetEntityIndex() == modifierCaster:GetEntityIndex() then
-			local movespeed = attacker:GetBaseMoveSpeed()
-			local movespeedAttacker = attacker:GetMoveSpeedModifier(movespeed, false)
-			movespeed = victim:GetBaseMoveSpeed()
-			local movespeedVictim = victim:GetMoveSpeedModifier(movespeed, false)
-			-- local amp = math.max((movespeedAttacker-movespeedVictim)/100, 0)
-			local amp = (movespeedAttacker - movespeedVictim) / 100
-			mult = mult + amp
-			victim:RemoveModifierByName("modifier_mach_punch_amp")
 		end
 	end
 	if victim:HasModifier("modifier_enchanted_solar_cape") then
@@ -3062,12 +3019,6 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_exploder_freeze") then
 		filterTable["damage"] = filterTable["damage"] * 5
-	end
-	if victim:HasModifier("modifier_zonis_stun_arcana1") then
-		if attacker:HasAbility("arkimus_zap_ring") then
-			local zapRing = attacker:FindAbilityByName("arkimus_zap_ring")
-			mult = mult + zapRing.q_2_level * ARKIMUS_ARCANA1_Q2_POSTMIT
-		end
 	end
 	if attacker:HasModifier("modifier_world_tree_effect") then
 		mult = mult + WORLD_TREES_CACHE_POST_MITI/100

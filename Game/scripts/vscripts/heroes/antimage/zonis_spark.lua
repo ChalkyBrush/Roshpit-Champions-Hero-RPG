@@ -77,7 +77,7 @@ function spark_start(event)
 end
 
 function zonis_damage(enemy, caster, damage, ability)
-	damage = damage + damage * ARKIMUS_Q4_ADD_DMG_PCT * ability.q_4_level
+	damage = damage + damage * ARKIMUS_Q4_ADD_DMG_PCT/100 * ability.q_4_level
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
 	Filters:ApplyStun(caster, ARKIMUS_Q_STUN, enemy)
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)

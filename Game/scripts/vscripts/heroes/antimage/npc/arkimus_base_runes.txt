@@ -73,8 +73,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-<% ARKIMUS_Q3_MAGIC_RESIST_REDUCTION %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"-<% ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -92,7 +92,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q4_ADD_DMG_PCT * 100 %>"
+				"property_one"			"<% ARKIMUS_Q4_ADD_DMG_PCT %>"
 			}
 			"02"
 			{
@@ -137,7 +137,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ARKIMUS_W2_ARCANE_BONUS_PER_STACK_PCT %>"
 			}
 		}
@@ -155,7 +155,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ARKIMUS_W3_BONUS_DMG %>"
 			}
 		}
@@ -236,7 +236,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ARKIMUS_E2_HEAL_PER_MANA_GAIN %>"
 			}
 		}
@@ -255,7 +255,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_E3_POST_MITI %>"
+				"property_one"			"<% ARKIMUS_E3_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -295,13 +295,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ARKIMUS_R1_BONUS_DMG %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% ARKIMUS_R1_MANA_REGEN %>"
 			}
 		}
 	}
@@ -318,7 +318,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ARKIMUS_R2_ATTACK_POWER_TO_R_PCT %>"
 			}
 		}
@@ -357,7 +357,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_R4_ARCANE_AMP_PER_AGI %>"
+				"property_one"			"<% ARKIMUS_R4_ARCANE_AMP %>"
 			}
 		}
 	}

@@ -177,6 +177,10 @@
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1" 
 				}
 			}
+			"modifier_slipfinn_e_2_armor"
+			{
+				"IsHidden"	"1"
+			}
 		}
 	}
 
@@ -220,12 +224,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 8000 25000 100000 250000 500000 1000000"
+				"damage"			"<% SLIPFINN_Q_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_pure_resist"			"70 75 80 85 90 95 100"
+				"magic_pure_resist"			"<% SLIPFINN_Q_RESIST %>"
 			}
 		}
 		"OnSpellStart"
@@ -285,10 +289,6 @@
 				"TextureName"	"slipfinn/slipfinn_rune_q_2"
 				"EffectName"	"particles/units/heroes/slipfinn/slipfinn_b_a_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% SLIPFINN_Q2_ARMOR %>"
-				}
 			}
 		}
 	}

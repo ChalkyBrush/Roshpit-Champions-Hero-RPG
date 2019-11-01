@@ -63,7 +63,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_Q3_POST_MITI_AMP_PCT %>"
+				"property_one"			"<% ZHONIK_Q3_MAGIC_ARMOR_RED %>"
 			}
 		}
 	}
@@ -193,11 +193,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ZHONIK_W4_ECHO_DMG_PCT %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
 		}
 	}
 
@@ -232,7 +227,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ZHONIK_E2_DMG_PER_MANA %>"
 			}
 			"02"
@@ -261,7 +256,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_E3_PHYS_BLOCK_FLAT %>"
+				"property_one"			"<% ZHONIK_E3_MAGIC_ARMOR %>"
 			}
 		}
 	}
@@ -280,6 +275,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% ZHONIK_E4_MS_CAP_INCREASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% ZHONIK_E4_TEMPORAL_AMP_PCT %>"
 			}
 		}
 	}
@@ -325,12 +325,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_R2_HEALTH_REGEN_PCT %>"
+				"property_one"			"<% ZHONIK_R2_HEALTH_REGEN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% ZHONIK_R2_MANA_REGEN_PCT %>"
+				"property_two"			"<% ZHONIK_R2_MANA_REGEN %>"
 			}
 		}
 	}

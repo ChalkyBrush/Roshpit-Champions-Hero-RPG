@@ -216,7 +216,7 @@ function bog_roller_passive_attack_land(event)
 		ability.particle_count = 0
 	end
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.shadow_damage_on_attack / 100)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	if ability.particle_count <= 10 then
 		CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
 		ability.particle_count = ability.particle_count + 1

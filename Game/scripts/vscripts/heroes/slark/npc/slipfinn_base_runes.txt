@@ -74,7 +74,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_Q4_SHADOW_WATER_AMP_PER_AGI %>"
+				"property_one"			"<% SLIPFINN_Q4_SHADOW_WATER_AMP %>"
 			}
 		}
 	}
@@ -135,7 +135,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_W2_POST_MITI %>"
+				"property_one"			"<% SLIPFINN_W2_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -154,7 +154,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SLIPFINN_W3_BONUS_ATTACK_DAMAGE %>"
 			}
 		}
@@ -190,7 +190,7 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -232,6 +232,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% SLIPFINN_E2_HEALTH_REGEN %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"			"<% SLIPFINN_E2_ARMOR %>"
 			}
 		}
 	}
