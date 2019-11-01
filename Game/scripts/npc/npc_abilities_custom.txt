@@ -19570,7 +19570,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_resistance"				"80"
+				"damage_resistance"				"30"
 			}
 			"07"
 			{
@@ -20082,7 +20082,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 300 600 900 1500 1700 2000"
+				"damage"	"100 300 600 900 1100 1200 1500"
 			}
 			"02"
 			{
@@ -20194,7 +20194,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -20227,7 +20227,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"10 20 30 40 50 60 70"
+				"damage"				"10 20 30 40 70 90 120"
 			}
 			"03"
 			{
@@ -21129,7 +21129,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"speed_mult"	"1.05"
+				"speed_mult"	"0.14 0.19 0.3 0.5 0.6 0.8 1"
 			}
 		}
 	}
@@ -21329,12 +21329,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -21418,6 +21413,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"21"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
 			}
 		}
 	}
@@ -21509,7 +21509,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"0.05"
 			}
 		}
 	}

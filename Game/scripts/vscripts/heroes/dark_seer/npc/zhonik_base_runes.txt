@@ -193,11 +193,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ZHONIK_W4_ECHO_DMG_PCT %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
-			}
 		}
 	}
 
@@ -280,6 +275,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% ZHONIK_E4_MS_CAP_INCREASE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% ZHONIK_E4_TEMPORAL_AMP_PCT %>"
 			}
 		}
 	}

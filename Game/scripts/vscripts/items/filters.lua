@@ -2231,14 +2231,13 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 			if attacker:HasAbility("zonik_lightspeed") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
                 mult = mult + ZHONIK_E4_TEMPORAL_AMP_PCT/100 * e_4_level
+			elseif attacker:HasAbility("zhonik_temporal_field") then
+                local e_4_level = attacker:GetRuneValue("e", 4)
+                mult = mult + ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT / 100 * e_4_level
             end
             if victim:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
                 local stacks = victim:GetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", attacker)
                 mult = mult + stacks * ZHONIK_E1_ARCANA_ELEMENT_TEMPORAL / 100
-            end
-            if attacker:HasAbility("zhonik_temporal_field") then
-                local e_4_level = attacker:GetRuneValue("e", 4)
-                mult = mult + ZHONIK_E4_ARCANA_ELEMENT_TEMPORAL_PER_ATRI / 100 * (attacker:GetStrength() + attacker:GetAgility() + attacker:GetIntellect()) / 10 * e_4_level
             end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
             ----print("OD HERE")

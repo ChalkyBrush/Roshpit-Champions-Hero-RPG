@@ -1714,7 +1714,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
-		damage = damage * 0.2
+		damage = damage * (100-ZHONIK_E_ARCANA_DMG_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_damage_resistance") then
 		if victim.damageReduc then
@@ -2486,7 +2486,7 @@ function GameState:FilterDamage(filterTable)
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			if not victim:HasModifier("modifier_golden_scale_immunity") then
 				local immo_glyph = victim.immo_glyph_data
-				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_black_King_bar_immunity", {duration = DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATvictim:HasModifier("modifier_zonik_lightspeed")ION})
+				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_black_King_bar_immunity", {duration = DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION})
 				immo_glyph.ability:ApplyDataDrivenModifier(immo_glyph.caster, victim, "modifier_golden_scale_immunity", {duration = DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD})
 			end
 		end
