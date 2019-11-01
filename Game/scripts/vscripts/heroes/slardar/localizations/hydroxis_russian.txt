@@ -115,7 +115,7 @@
     	"DOTA_Tooltip_modifier_ocean_quake_slowed_Description"						"Снижение скорости атаки и передвижения"	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони. Урон от @Ability4 и всех [R] рун увеличивается за счёт брони героя. Руны [R2] и [R3] получают лишь <% HYDROXIS_R1_RUNE_MULT * 100 %>% от всего бонуса."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони. Урон от @Ability4 и всех [R] рун увеличивается за счёт брони героя. Руны [R2] и [R3] получают лишь 0% от всего бонуса."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Снижение брони"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"

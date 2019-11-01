@@ -56187,7 +56187,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_two"			"200"
 			}
 		}
 	}
@@ -57125,12 +57125,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"15"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"40"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -57377,12 +57377,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"--65"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
+				"property_one"			"-65"
 			}
 		}
 	}
@@ -57453,7 +57448,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"property_one"			"130"
 			}
 			"02"
 			{
