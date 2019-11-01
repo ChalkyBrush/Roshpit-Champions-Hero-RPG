@@ -284,5 +284,5 @@ function poseidon_wrath_attack_hit(event)
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		damage = damage * (100 + HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT)/100
 	end
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end
