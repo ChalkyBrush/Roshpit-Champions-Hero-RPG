@@ -104,7 +104,7 @@ function farmer1(caster, ability, units)
 		end)
 		for i = 1, #units, 1 do
 			local unit = units[i]
-			Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_redfall_farmer_scene", {duration = 45})
+			Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_redfall_farmer_scene", {duration = 1})
 			unit:Stop()
 			Timers:CreateTimer(11, function()
 				unit.cinemaSceneA = 0
