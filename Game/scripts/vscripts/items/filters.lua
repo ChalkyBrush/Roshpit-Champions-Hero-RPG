@@ -2594,7 +2594,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         local waterMult = 0
         if unitName == "npc_dota_hero_slardar" then
             if attacker.e_4_level then
-                waterMult = waterMult + HYDROXIS_E4_WATER_AMP/100 * (attacker:GetAgility() + attacker:GetIntellect()) / 10 * attacker.e_4_level
+                waterMult = waterMult + HYDROXIS_E4_WATER_AMP * attacker.e_4_level
             end
             if attacker:HasAbility("hydroxis_arcana_ability_1") then
                 if bIsRealDamage then

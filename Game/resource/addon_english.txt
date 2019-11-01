@@ -6820,24 +6820,24 @@
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_2"							"[Q2] Mystic Water Shield"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"Standing in your own @Ability1s adds stacks of [Q2]. Shield lasts 12 seconds and stacks reset when casting the ability again."
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"Shield Armor"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"Shield Armor and Magic Armor"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix"						""
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"Heal Per Tick"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix_two"					""
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"Heal"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix_two"					" every 0.4 seconds"
 		
 		"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible"					"Mystic Water Shield"
-    	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_Description"		"Healing rapidly with increased armor."	
+    	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_Description"		"Healing rapidly with increased armor and magic armor."	
 
     	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_glyphed"					"Mystic Water Shield"
-    	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_glyphed_Description"		"Healing rapidly with increased armor."
+    	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_glyphed_Description"		"Healing rapidly with increased armor and magic armor."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_3"							"[Q3] Ripple"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_Description"				"Enemies drenched by @Ability1 have reduced magic resistance for 8 seconds."
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_property_one"				"Magic Resist Reduction"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_Description"				"Enemies drenched by @Ability1 have reduced Magic Armor for 8 seconds."
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_property_one"				"Magic Armor Reduction"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_3_suffix"						""
 
     	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost"				"Ripple"
-    	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost_Description"	"Reduced magic resistance."	
+    	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost_Description"	"Reduced Magic Armor."	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_4"							"[Q4] Hydrotide"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Increases the base damage of @Ability1 based on all attributes and grants a chance to cast @Ability1 again after a 0.9 second delay. Greater than 100% chance means it will be cast multiple times."
@@ -6878,9 +6878,9 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_w_3_suffix"						"% of attack damage"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_w_4"							"[W4] Overflow"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_Description"				"@Ability2 drains an additional 3% of your max mana on cast, increasing its damage based on mana drained."
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_suffix"						"% for each 100 Mana Drained"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_Description"				"Each point of Current Mana increases Hydroxis' Spell Pierce."
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_property_one"				"Spell Pierce"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_suffix"						" per mana point"
 		
 		"DOTA_Tooltip_ability_hydroxis_slippery_tail"								"Slipstream"
     	"DOTA_Tooltip_ability_hydroxis_slippery_tail_Description"					"Hydroxis weaves toward the target location with great speed and unhindered movement. Additionally gain 100% evasion during the slipstream."
@@ -6905,11 +6905,11 @@
     	"DOTA_Tooltip_modifier_hydroxis_c_c_Description"					"Increased attack speed"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_e_4"							"[E4] Shining Scales"
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Grants bonus agility and intelligence. All <font color=\"#3894FF\">Water</font> damage is amplified by agility and intelligence"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Increases Agility, Intelligence, and <font color=\"#3894FF\">Water</font> damage."
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_one"				"Bonus Agility and Intelligence"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix"						""
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"% for each 10 points of Agility and Intelligence"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"Water Damage Amp"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"%"
 		
 		"DOTA_Tooltip_ability_hydroxis_tsunami"										"Ocean Quake"		
     	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Element: <font color=\"#3894FF\">Water</font> / <font color=\"#AF843D\">Earth</font><br>Hydroxis crashes the ground, revealing a torrent of water that stuns and slows all surrounding enemies. Ability damage is based on strength attribute."	
@@ -6923,11 +6923,9 @@
     	"DOTA_Tooltip_modifier_ocean_quake_slowed_Description"						"Movespeed and Attack Slow"	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Enemies hit by @Ability4 have their armor greatly reduced. Additionally, the damage of the ability and its runes are increased based on your armor, but with [R2] and [R3] receiving only <font color='#ccff66'>60</font>% of the total bonus"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Enemies hit by @Ability4 have their armor greatly reduced."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Armor Loss"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
-        "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Damage increase"
-        "DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix_two"                 "% per 10 armor"
 		
 		"DOTA_Tooltip_modifier_hydroxis_r_1"								"Wave Drench"
 		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Armor reduced, damage from Ocean Quake and its runes amplified."
@@ -6951,14 +6949,14 @@
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)
 		"DOTA_Tooltip_ability_hydroxis_rune_r_4"							"[R4] Drowning Pool"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_Description"				"Casting @Ability4 creates a pool of water for 9 seconds. While inside the water, Hydroxis takes reduced damage and deals increased damage."
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_one"				"Extra damage output"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix"						"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_Description"				"Casting @Ability4 creates a pool of water for 9 seconds. While inside the water, Hydroxis takes reduced damage and has increased Armor Pierce."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_one"				"Armor Pierce Bonus"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix"						""
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_two"				"Reduced damage taken"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix_two"					"%"
 
     	"DOTA_Tooltip_modifier_drowning_pool_actual_effect"					"Drowning Pool"
-    	"DOTA_Tooltip_modifier_drowning_pool_actual_effect_Description"		"Dealing increased damage and taking reduced damage while standing in the pool"	
+    	"DOTA_Tooltip_modifier_drowning_pool_actual_effect_Description"		"Increased Armor Pierce and taking reduced damage while standing in the pool"	
 		
 		//Arcanas
 		
@@ -6991,9 +6989,11 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_w_2_arcana1_suffix"				"% of attack power"
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1"						"[W3] Hydroactive"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_Description"			"Enemies affected by @Ability2 take increased post-mitigation damage from Hydroxis"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_property_one"		"Post-Migitation Increase"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_Description"			"Enemies affected by @Ability2 have reduced Movespeed and Attack Speed"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_property_one"		"Attack Speed Loss"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix"				""
+        "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_property_two"       "Movespeed Loss"
+        "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix_two"         ""
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] Wave Maker"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Enemies hit by <font color=\"#3894FF\">Water</font> damage have @Ability2 debuff applied. Additionally all attacks or [W2] strikes add stacks of base attack damage that last for 10 seconds, up to 30 stacks."
@@ -7043,11 +7043,11 @@
     	"DOTA_Tooltip_modifier_flood_basin_enemy_root_Description"			"Rooted"
 
   		"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2"						"[R4] Aqueous Thaumaturgy"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_Description"			"Passively increases Intelligence and Post-Mitigation damage."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_Description"			"Gain increased Intelligence and Spell Pierce while standing in a Flood Basin."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_one"		"Intelligence"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix"				""
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_two"		"Post-Mitigation Damage"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_two"		"Spell Pierce"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"				""
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"Glyph of Tectonics"
@@ -7063,10 +7063,10 @@
 		"item_rpc_hydroxis_glyph_4_1_description" 				"Flood Slide damage increased <font color='#ccff66'>3</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"Glyph of Vapor"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"Attacks have a <font color='#ccff66'>15</font>% chance for Crescent Wave to deal an additional Water damage instance equal to <font color='#ccff66'>4</font>x of attack power as magic damage."
+		"item_rpc_hydroxis_glyph_5_1_description" 				"Attacks have a <font color='#ccff66'>15</font>% chance for Crescent Wave to deal an additional Water damage instance equal to <font color='#ccff66'>4</font>% of attack power as magic damage."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"Glyph of Submergence"
-		"item_rpc_hydroxis_glyph_6_1_description" 				"Increases the radius of Drowning Pool by <font color='#ccff66'>200</font>. Additionally remove cast time of Ocean Quake."
+		"item_rpc_hydroxis_glyph_6_1_description" 				"Removes the cast time of Ocean Quake, and increases the radius of Drowning Pool by <font color='#ccff66'>200</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"Glyph of the Sea God"
 		"item_rpc_hydroxis_glyph_7_1_description" 				"Increases the duration of Poseidon's Fury by <font color='#ccff66'>5</font> seconds."

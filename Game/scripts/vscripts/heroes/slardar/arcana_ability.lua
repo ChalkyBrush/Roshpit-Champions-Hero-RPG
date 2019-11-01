@@ -99,6 +99,17 @@ end
 function mist_end(event)
 end
 
+function mist_enemy_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible", {})
+		target:SetModifierStackCount("modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible", target, w_3_level)
+	end
+end
+
 function mist_active_think(event)
 	local caster = event.caster
 	local ability = event.ability

@@ -6836,7 +6836,7 @@
     	"DOTA_Tooltip_modifier_ocean_quake_slowed_Description"						"Снижение скорости атаки и передвижения"	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони. Урон от @Ability4 и всех [R] рун увеличивается за счёт брони героя. Руны [R2] и [R3] получают лишь <font color='#ccff66'>60</font>% от всего бонуса."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони. Урон от @Ability4 и всех [R] рун увеличивается за счёт брони героя. Руны [R2] и [R3] получают лишь <font color='#ccff66'>0</font>% от всего бонуса."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Снижение брони"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
         "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"
@@ -6976,7 +6976,7 @@
 		"item_rpc_hydroxis_glyph_4_1_description" 				"Увеличивает урон [E2] в <font color='#ccff66'>3</font> раза."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"(T5) Glyph of Vapor"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"С <font color='#ccff66'>15</font>% шансом атаки от [W1] нанесут дополнительный магический урон Воды, равный <font color='#ccff66'>4</font>% урона героя."
+		"item_rpc_hydroxis_glyph_5_1_description" 				"С <font color='#ccff66'>15</font>% шансом атаки от [W1] нанесут дополнительный магический урон Воды, равный <font color='#ccff66'>0.04</font>% урона героя."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"(T6) Glyph of Submergence"
 		"item_rpc_hydroxis_glyph_6_1_description" 				"Увеличивает радиус Drowning Pool на <font color='#ccff66'>200</font>. Дополнительно убирает время прочтения для (R) Oceal Quake."

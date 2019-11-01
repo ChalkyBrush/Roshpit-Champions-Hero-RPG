@@ -42,12 +42,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resist"				"51 55 59 63 67 71 75"
+				"magic_armor"				"300 600 900 1200 1500 1800 2100"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain"				"40 80 120 180 260 360 500"
+				"mana_drain"				"50 80 110 140 170 200 230"
 			}
 		}
 		"OnToggleOn"
@@ -168,10 +168,6 @@
 				}
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"Aura"          	"modifier_hydroxis_mist_debuff"
 				"Aura_Radius"   	"340"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -208,6 +204,12 @@
 							"TARGET"	"attach_origin"
 							"TARGET"	"attach_origin"
 						}
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"mist_enemy_start"
+						"target"		"TARGET"
 					}
 				}
 				"Properties"
@@ -250,6 +252,23 @@
 							"TARGET"	"attach_origin"
 						}
 					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% HYDROXIS_ARCANA1_W3_ATTACKSPEED_LOSS %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% HYDROXIS_ARCANA1_W3_MOVESPEED_LOSS %>"
 				}
 			}
 			"modifier_hydroxis_d_b_arcana_visible"

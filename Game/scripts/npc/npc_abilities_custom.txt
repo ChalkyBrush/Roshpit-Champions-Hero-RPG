@@ -55419,12 +55419,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resist"				"51 55 59 63 67 71 75"
+				"magic_armor"				"300 600 900 1200 1500 1800 2100"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain"				"40 80 120 180 260 360 500"
+				"mana_drain"				"50 80 110 140 170 200 230"
 			}
 		}
 		"OnToggleOn"
@@ -55545,10 +55545,6 @@
 				}
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"Aura"          	"modifier_hydroxis_mist_debuff"
 				"Aura_Radius"   	"340"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -55585,6 +55581,12 @@
 							"TARGET"	"attach_origin"
 							"TARGET"	"attach_origin"
 						}
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slardar/arcana_ability"
+						"Function"		"mist_enemy_start"
+						"target"		"TARGET"
 					}
 				}
 				"Properties"
@@ -55628,6 +55630,23 @@
 						}
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-15"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-12"
+				}
 			}
 			"modifier_hydroxis_d_b_arcana_visible"
 			{
@@ -55641,7 +55660,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "2500"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "15"
 				}
 			}
 		}
@@ -55693,7 +55712,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -55726,7 +55745,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"-15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"-12"
 			}
 		}
 	}
@@ -55754,7 +55778,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2500"
+				"property_two"			"15"
 			}
 		}
 	}
@@ -56058,12 +56082,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"cast_time"	"20 25 30 35 40 45 50"
+				"cast_time"	"30 35 40 45 50 55 60"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"mana_regen"	"100 500 1000 2000 3000 5000 8000"
+				"mana_regen"	"40 120 200 280 360 440 520"
 			}
 			"03"
 			{
@@ -56094,7 +56118,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"7.5"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -56112,7 +56136,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"0.35"
 			}
 		}
 	}
@@ -56140,7 +56164,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"15"
 			}
 		}
 	}
@@ -56158,12 +56182,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"0"
 			}
 		}
 	}
@@ -56205,7 +56229,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"1200 6000 20000 34000 60000 150000 320000"
+				"damage"						"100 300 500 700 900 1100 1300"
 			}
 			"02"
 			{
@@ -56349,11 +56373,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "12"
-				}
 			}
 			"modifier_hydroxis_c_a_magic_resist_lost"
 			{
@@ -56361,9 +56380,23 @@
 				"IsStunDebuff"	"1"
 				"TextureName"		"hydroxis/hydroxis_q_3"
 				"TextureName"	"leshrac_lightning_storm"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-1.5"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_hydroxis_d_c"
@@ -56398,7 +56431,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+		"AbilityManaCost"				"35 65 95 125 155 185 215"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -56407,7 +56440,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"800 3000 12000 48000 96000 144000 225000"
+				"damage"					"80 200 320 440 560 680 800"
 			}
 			"02"
 			{
@@ -56498,7 +56531,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
 				}
 			}
 			"modifier_water_bomb_w_2_damage_buff_spillover"
@@ -56924,10 +56957,6 @@
 						"Function"		"EndAmplifyDamageParticle"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
-				}
 			}
 			"modifier_hydroxis_b_d"
 			{
@@ -57025,7 +57054,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"strength_damage"	"60 100 150 240 360 500 800"
+				"strength_damage"	"1 2 3 4 5 6 7"
 			}
 			"03"
 			{
@@ -57063,7 +57092,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -57096,12 +57125,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"200"
+				"property_two"			"40"
 			}
 		}
 	}
@@ -57119,7 +57148,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-1.5"
+				"property_one"			"-70"
 			}
 		}
 	}
@@ -57142,8 +57171,8 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.1"
 			}
 		}
 	}
@@ -57162,7 +57191,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -57189,8 +57218,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -57232,7 +57261,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.04"
 			}
 		}
 	}
@@ -57279,7 +57308,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -57325,12 +57354,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"350"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"10"
 			}
 		}
 	}
@@ -57348,12 +57377,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-100"
+				"property_one"			"--65"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0"
 			}
 		}
 	}
@@ -57372,7 +57401,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"85000"
+				"property_one"			"70"
 			}
 			"02"
 			{
@@ -57400,8 +57429,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
@@ -57424,12 +57453,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.5"
+				"property_two"			"3"
 			}
 			"03"
 			{

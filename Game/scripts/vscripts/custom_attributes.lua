@@ -754,6 +754,16 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_lunar_compression_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*SOLUNIA_ARCANA_Q3_ARMOR_LOSS
 	end
+	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_hydroxis_a_d") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_a_d")
+		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_R1_ARMOR_RED
+	end
+		
+
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -1081,6 +1091,17 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_solar_compression_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SOLUNIA_ARCANA_Q3_ARMOR_LOSS
 	end
+	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_hydroxis_c_a_magic_resist_lost") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_c_a_magic_resist_lost")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*HYDROXIS_Q3_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_hydroxis_mist") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_hydroxis_mist")
+	end
 
 
 	if magic_armor_modify > 0 then
@@ -1196,6 +1217,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			local r_2_level = unit:GetRuneValue("r", 2)
 			armor_pierce_modify = armor_pierce_modify + r_2_level*SOLUNIA_ARCANA_R2_PIERCE
 		end
+	end
+	if unit:HasModifier("modifier_drowning_pool_actual_effect") then
+		local r_4_level = unit:GetRuneValue("r", 4)
+		armor_pierce_modify = armor_pierce_modify + r_4_level*HYDROXIS_R4_ARMOR_PIERCE
 	end
 
 	if armor_pierce_modify > 0 then
@@ -1321,6 +1346,17 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce_modify = spell_pierce_modify + r_2_level*SOLUNIA_ARCANA_R2_PIERCE
 		end
 	end
+	if unit:GetUnitName() == "npc_dota_hero_slardar" then
+		if unit:HasAbility("hydroxis_water_blade") then
+			local w_4_level = unit:GetRuneValue("w", 4)
+			spell_pierce_modify = spell_pierce_modify + w_4_level*unit:GetMana()*HYDROXIS_W4_MANA_TO_SPELL_PIERCE
+		end
+	end
+	if unit:HasModifier("modifier_hydroxis_basin_d_d") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_basin_d_d")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*HYDROXIS_ARCANA_R4_SPELL_PIERCE
+	end
+	
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

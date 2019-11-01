@@ -7235,7 +7235,7 @@
 		"item_rpc_hydroxis_glyph_4_1_description" 				"洪水滑动伤害增加 <font color='#ccff66'>3</font>x。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"水汽雕文"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 <font color='#ccff66'>15</font>% 机率触发新月波造成 <font color='#ccff66'>4</font>x 攻击力的魔法伤害。"
+		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 <font color='#ccff66'>15</font>% 机率触发新月波造成 <font color='#ccff66'>0.04</font>x 攻击力的魔法伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"淹沒雕文"
 		"item_rpc_hydroxis_glyph_6_1_description" 				"增加斃命水池的半径 <font color='#ccff66'>200</font>。大招不再需要持续施法"

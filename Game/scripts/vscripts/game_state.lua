@@ -2318,12 +2318,6 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + multIncrease
 	end
 
-	if attacker:HasModifier("modifier_drowning_pool_actual_effect") then
-		modifier = attacker:FindModifierByName("modifier_drowning_pool_actual_effect")
-		local stacks = modifier:GetStackCount()
-		local damageIncrease = stacks * HYDROXIS_R4_DMG_AMP_PCT/100
-		filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * damageIncrease
-	end
 	if attacker:HasModifier("modifier_machinal_jump_c_c_amp") then
 		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -2358,10 +2352,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.06 * attacker.r_4_level
 		end
 	end
-	if attacker:HasModifier("modifier_hydroxis_basin_d_d") then
-		local stacks = attacker:GetModifierStackCount("modifier_hydroxis_basin_d_d", attacker)
-		mult = mult + HYDROXIS_ARCANA_R4_POST_MITI_PCT/100 * stacks
-	end
+
 	if attacker:HasModifier("modifier_jex_root_weave_debuff") then
 		if attacker:FindModifierByName("modifier_jex_root_weave_debuff"):GetCaster():HasModifier("modifier_jex_glyph_5_1") then
 			filterTable["damage"] = filterTable["damage"] * 0.5
@@ -2926,19 +2917,6 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
-	end
-
-	if victim:HasModifier("modifier_hydroxis_mist_debuff") or victim:HasModifier("modifier_hydroxis_mist_debuff_timered") then
-		modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff")
-		if not modifier then
-			modifier = victim:FindModifierByName("modifier_hydroxis_mist_debuff_timered")
-		end
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local w_3_level = attacker:GetRuneValue("w", 3)
-			if w_3_level > 0 then
-				mult = mult + HYDROXIS_ARCANA_W3_POST_MITI_PCT/100 * w_3_level
-			end
-		end
 	end
 
 	if attacker:HasModifier("modifier_crystalline_slippers") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then

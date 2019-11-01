@@ -46,7 +46,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% HYDROXIS_Q2_ARMOR %>"
+				"property_one"			"<% HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR %>"
 			}
 			"02"
 			{
@@ -69,7 +69,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-<% HYDROXIS_Q3_MAGIC_RESIST %>"
+				"property_one"			"<% HYDROXIS_Q3_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}
@@ -92,7 +92,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% HYDROXIS_Q4_ADD_DMG_PER_ATTR %>"
 			}
 		}
@@ -139,7 +139,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% HYDROXIS_W2_BONUS_ATTACK_DMG_PCT %>"
 			}
 		}
@@ -182,7 +182,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% HYDROXIS_W4_DMG_PER_MANA_PCT %>"
+				"property_one"			"<% HYDROXIS_W4_MANA_TO_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -280,7 +280,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% HYDROXIS_E4_WATER_AMP %>"
+				"property_two"			"<% HYDROXIS_E4_WATER_AMP * 100%>"
 			}
 		}
 	}
@@ -350,7 +350,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% HYDROXIS_R3_ATTACK_TO_DMG_PCT %>"
 			}
 			"02"

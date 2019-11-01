@@ -75,7 +75,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% HYDROXIS_ARCANA_W3_POST_MITI_PCT %>"
+				"property_one"			"<% HYDROXIS_ARCANA1_W3_ATTACKSPEED_LOSS %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% HYDROXIS_ARCANA1_W3_MOVESPEED_LOSS %>"
 			}
 		}
 	}

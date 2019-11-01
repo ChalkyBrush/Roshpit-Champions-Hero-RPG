@@ -55,7 +55,7 @@ function channel_complete(event)
 
 			local r_1_level = caster:GetRuneValue("r", 1)
 			ability.r_1_level = r_1_level
-			damage = damage * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * r_1_level * caster:GetPhysicalArmorValue(false))
+
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_EARTH)
@@ -64,6 +64,7 @@ function channel_complete(event)
 					if r_1_level > 0 then
 						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hydroxis_a_d", {duration = slow_duration})
 						enemy:SetModifierStackCount("modifier_hydroxis_a_d", caster, r_1_level)
+						enemy:CalculateAndSaveRoshpitAttributes()
 					end
 				end
 			end
@@ -175,6 +176,7 @@ function EndAmplifyDamageParticle(event)
 		ParticleManager:DestroyParticle(target.AmpDamageParticle, false)
 		target.AmpDamageParticle = nil
 	end
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function tsunami_think(event)
@@ -218,7 +220,7 @@ function tsunami_impact(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local damage = HYDROXIS_R2_DMG * ability.r_2_level * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(false)) * HYDROXIS_R1_RUNE_MULT
+	local damage = HYDROXIS_R2_DMG * ability.r_2_level
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	local slow_duration = event.slow_duration
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_quake_slowed", {duration = slow_duration})
@@ -278,7 +280,7 @@ function poseidon_wrath_attack_hit(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	local damage = ability.r_3_level * HYDROXIS_R3_ATTACK_TO_DMG_PCT/100 * OverflowProtectedGetAverageTrueAttackDamage(caster) * (1 + HYDROXIS_R1_BAD_PCT_PER_ARMOR * ability.r_1_level * caster:GetPhysicalArmorValue(false)) * HYDROXIS_R1_RUNE_MULT
+	local damage = ability.r_3_level * HYDROXIS_R3_ATTACK_TO_DMG_PCT/100 * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_1") then
 		damage = damage * (100 + HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT)/100
 	end
