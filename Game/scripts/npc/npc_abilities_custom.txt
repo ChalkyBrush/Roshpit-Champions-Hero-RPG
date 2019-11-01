@@ -9498,12 +9498,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 500 2000 5000 12000 50000 90000"
+				"damage"			"15 25 40 75 110 150 200"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"		"20 50 80 220 300 360 400"
+				"int_damage"		"0.2"
 			}
 		}
 		"OnSpellStart"
@@ -9615,7 +9615,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"4"
 			}
 		}
 	}
@@ -9633,7 +9633,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"property_one"			"-15"
 			}
 		}
 	}
@@ -9672,12 +9672,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"25"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"10"
 			}
 		}
 	}
@@ -9823,7 +9823,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "280"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -9945,14 +9945,14 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"arkimus/arkimus_rune_r_1_arcana2"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -9980,12 +9980,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"5"
+				"property_two"			"0.7"
 			}
 		}
 	}
@@ -10003,7 +10003,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"7"
 			}
 		}
 	}
@@ -10078,7 +10078,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 500 2000 5000 12000 50000 90000"
+				"damage"			"10 20 35 70 100 140 180"
 			}
 			"02"
 			{
@@ -10176,10 +10176,6 @@
 						"Function"		"EndAmplifyDamageParticle"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-35"
-				}
 			}
 			"modifier_zonis_c_a_magic_resist"
 			{
@@ -10189,10 +10185,6 @@
 				"TextureName"	"arkimus/arkimus_rune_q_3"
 				"EffectName"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-1.2"
-				}
 			}
 		}
 	}
@@ -10241,7 +10233,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"5 7 10 18 25 32 40"
 			}
 			"02"
 			{
@@ -10367,7 +10359,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "30"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.4"
 				}
 			}
 			"modifier_arkimus_c_b_sprinting"
@@ -10686,7 +10678,7 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_reduce"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-%damage_reduce"
 				}
 			}
 			"modifier_energy_field_thinker"
@@ -10734,8 +10726,8 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "3"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.05"
+				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0.2"
 				}
 			}
 			"modifier_energy_field_c_d_shield"
@@ -10752,7 +10744,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 1000 5000 25000 100000 200000 400000"
+				"damage"			"40 90 180 200 240 320 450"
 			}
 			"02"
 			{
@@ -10762,7 +10754,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_reduce"		"-15 -18 -21 -24 -27 -30 -33"
+				"damage_reduce"		"5 8 12 15 18 22 25"
 			}
 		}
 	}
@@ -10783,7 +10775,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"-12"
 			}
 		}
 	}
@@ -10802,7 +10794,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"90000"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -10844,8 +10836,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-1.2"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"--20"
 			}
 		}
 	}
@@ -10863,7 +10855,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -10891,7 +10883,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"50000"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -10908,8 +10900,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.01"
 			}
 		}
 	}
@@ -10926,8 +10918,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.4"
 			}
 		}
 	}
@@ -10945,7 +10937,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"14"
 			}
 		}
 	}
@@ -10964,7 +10956,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -11007,8 +10999,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.04"
 			}
 		}
 	}
@@ -11044,7 +11036,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -11066,13 +11058,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.2"
 			}
 		}
 	}
@@ -11089,8 +11081,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 		}
 	}
@@ -11128,7 +11120,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.12"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -11137,7 +11129,7 @@
 
 
 
-	"axe_arcana_smash"
+	"red_general_ability_arcana1_r_tectonic_sunder"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
@@ -11186,8 +11178,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"startChannel"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_startChannel"
 				"target"		"POINT"
 				"forks"			"3"
 				"amp"			"1"
@@ -11225,8 +11217,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"successfullCast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_successfullCast"
 				"target"		"POINT"
 				"forks"			"3"
 				"amp"			"1"
@@ -11256,8 +11248,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"interruptCast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_interruptCast"
 				"target"		"POINT"
 			}
 
@@ -11308,8 +11300,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/arcana_ability.lua"
-						"Function"		"axe_arcana_take_damage"
+						"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+						"Function"		"red_general_ability_arcana1_r_take_damage"
 						"damage"		"%attack_damage"
 					}
 				}
@@ -11324,7 +11316,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "24000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "400"
 				}
 			}
 			"modifier_prevent_turning_invisible"
@@ -11381,7 +11373,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -11399,7 +11391,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"24000"
+				"property_one"			"400"
 			}
 		}
 	}
@@ -11417,7 +11409,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -11447,7 +11439,7 @@
 
 
 
-	"axe_stonewall_ability"
+	"red_general_ability_arcana2_w_stonewall"
 	{
 		// General
 		//-------------------------------------------------------
@@ -11477,7 +11469,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"200 300 600 1000 1500 2400 3600"
+		"AbilityManaCost"				"100 200 300 400 500 600 700"
 
 		// Special
 		//-------------------------------------------------------
@@ -11500,8 +11492,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
-				"Function"		"stonewall_start"
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_arcana2_w_stonewall"
+				"Function"		"red_general_ability_arcana2_w_stonewall_start"
 				"duration"		"%duration"
 			}
 		}
@@ -11517,8 +11509,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
-						"Function"		"stonewall_passive_attacked"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_arcana2_w_stonewall"
+						"Function"		"red_general_ability_arcana2_w_stonewall_passive_attacked"
 					}
 				}
 			}
@@ -11541,8 +11533,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/arcana2_w/stonewall"
-						"Function"		"stonewall_friendly_aura_create"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_arcana2_w_stonewall"
+						"Function"		"red_general_ability_arcana2_w_stonewall_friendly_aura_create"
 						"target"		"TARGET"
 					}
 				}
@@ -11680,7 +11672,7 @@
 
 
 
-	"red_general_skull_basher"
+	"red_general_ability_base_q_skull_basher"
 	{
 		// General
 		//-------------------------------------------------------
@@ -11702,7 +11694,7 @@
 
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"0.2 0.2 0.2"
+		"AbilityCastPoint"				"0.2"
 
 		// Time
 		//-------------------------------------------------------
@@ -11723,7 +11715,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"attack_speed"		"30 45 60 75 90 105 120"
 			}
-
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
@@ -11767,8 +11758,8 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"		"heroes/axe/abilities/q/q_skull_basher.lua"
-				"Function"			"red_general_ability_base_q_start"
+				"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+				"Function"			"red_general_ability_base_q_skull_basher"
 				"target"			"POINT"
 			}
 		}
@@ -11784,8 +11775,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/q/q2_berserker_range.lua"
-						"Function"		"red_general_ability_base_q2_think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"		"red_general_rune_base_q_2_think"
 					}
 				}
 			}
@@ -11806,22 +11797,12 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"		"heroes/axe/abilities/q/q_skull_basher.lua"
+						"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
 						"Function"			"red_general_ability_base_q_attackLand"
 						"Target"			"TARGET"
 						"duration"			"%duration"
 						"aoe_damage"		"%bolt_damage"
 						"base_radius"		"%bolt_aoe"
-					}
-					"TrackingProjectile"
-					{
-						"Target"			"TARGET"
-					    "EffectName"		"particles/econ/items/techies/techies_arcana/techies_base_attack_arcana.vpcf"
-					    "Dodgeable"			"1"
-					    "ProvidesVision"	"1"
-					    "VisionRadius"		"300"
-					    "MoveSpeed"			"3000"
-					    "SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 					}
 					"FireEffect"
 					{
@@ -11859,16 +11840,16 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/q/q_skull_basher.lua"
-						"Function"		"heroic_leap_think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"		"red_general_ability_base_q_jump_think"
 					}
 				}
 				"OnDestroy"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/q/q_skull_basher.lua"
-						"Function"		"drop"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"		"red_general_ability_base_q_jump_landing"
 						"duration"		"%buff_duration"
 						"sunder_amp"	"%sunder_amp"
 					}
@@ -11882,7 +11863,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"750"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"10"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -11909,7 +11890,161 @@
 		}
 	}
 
-	"whirlwind"
+	"red_general_ability_base_w_backshock"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"axe/axe_shockwave"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle" 	"particles/econ/items/magnataur/shock_of_the_anvil/magnataur_shockanvil.vpcf"
+			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+			"particle"	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
+			"particle"	"particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf"
+			"particle"	"particles/base_attacks/ranged_tower_bad.vpcf"
+			"particle"	"particles/units/heroes/hero_brewmaster/general_heel_stomp.vpcf"
+			"soundfile"	"soundevents/game_sounds_red_general.vsndevts"
+			"particle"	"particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"12 21 30 60 100 150 240"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"start_radius"				"110 110 110 110"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"end_radius"				"300 300 300 300"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"800"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"						"600 700 800 900 1000 1100 1200"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"main_damage"				"50 180 400 900 2000 4000 6800"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"RedGeneral.Backshock"
+				"Target"		"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"		"CASTER"
+			}
+
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_w_spurshock.lua"
+				"Function"		"red_general_ability_base_w_start"
+				"speed"			"%speed"
+				"damage"		"%main_damage"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_w_spurshock.lua"
+				"Function"		"red_general_ability_base_w_projectileHit"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_axe_rune_w_1_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"chaos_knight_reality_rift"
+
+				"EffectName"		"particles/units/heroes/hero_templar_assassin/templar_assassin_ambient_electric.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_w_spurshock.lua"
+						"Function"		"red_general_rune_base_w_1_think"
+					}
+				}
+			}
+			"modifier_axe_rune_w_2_invisible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-0.5"
+				}
+			}
+			"modifier_axe_rune_w_2_visible"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"axe/axe_rune_w_2"
+
+				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+	}
+
+	"red_general_ability_base_e_whirlwind"
 	{
 		// General
 		//-------------------------------------------------------
@@ -11960,7 +12095,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal"				"1000 2000 3200 5400 8000 10000 12000"
+				"heal"				"100 200 320 540 800 1000 1200"
 			}
 			"02"
 			{
@@ -11998,24 +12133,14 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/axe/abilities/e/e_whirlwind.lua"
-				"Function"		"start"
+				"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+				"Function"		"red_general_ability_base_q_whirlwind_start"
 			}
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_whirlwind_effect"
 				"Target" 		"CASTER"
 				"Duration"		"1.5"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/axe/blade_dash.lua"
-				"Function"		"d_c_projectile_hit"
-				"target"		"TARGET"
 			}
 		}
 		"Modifiers"
@@ -12036,8 +12161,8 @@
 			        }
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/e/e_whirlwind.lua"
-						"Function"		"think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+						"Function"		"red_general_ability_base_q_whirlwind_think"
 						"heal"		"%heal"
 					}
 				}
@@ -12054,8 +12179,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/e/e_whirlwind.lua"
-						"Function"		"finish"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+						"Function"		"red_general_ability_base_q_whirlwind_finish"
 					}
 				}
 			}
@@ -12092,8 +12217,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/e/e1_endurance.lua"
-						"Function"		"think"
+						"ScriptFile"	"heroes/axe/abilities/red_general_ability_base_e_whirlwind.lua"
+						"Function"		"red_general_rune_base_e_1_think"
 					}
 				}
 			}
@@ -12122,13 +12247,13 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "40"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
 		}
 	}
 
-	"sunder"
+	"red_general_ability_base_r_sunder"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
@@ -12212,8 +12337,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/r/r_sunder.lua"
-				"Function"		"cast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+				"Function"		"red_general_ability_base_r_sunder_cast"
 				"radius"		"%radius"
 				"targets"       "%targets"
 				"damage"		"%main_damage"
@@ -12269,8 +12394,8 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/abilities/r/r_sunder.lua"
-						"Function"		"startChannel"
+						"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+						"Function"		"red_general_ability_base_r_sunder_startChannel"
 					}
 				}
 				"OnDestroy"
@@ -12306,8 +12431,8 @@
 				"TextureName"		"axe/axe_rune_r_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"5000"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "75"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"200"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"
 				}
 			}
 
@@ -12321,8 +12446,8 @@
             	{
                 	"RunScript"
             		{
-            			"ScriptFile"	"heroes/axe/abilities/r/r1_taunt.lua"
-            			"Function"		"takeDamage"
+            			"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+            			"Function"		"red_general_rune_base_r_2_takeDamage"
             			"damage"        "%attack_damage"
             		}
             	}
@@ -12355,8 +12480,8 @@
                  {
                     "RunScript"
                     {
-                       "ScriptFile"	"heroes/axe/abilities/r/r4_ruptured_steal.lua"
-                       "Function"		"think"
+                       "ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_base_r_sunder.lua"
+                       "Function"		"red_general_rune_base_r_4_think"
                     }
                  }
 			}
@@ -12394,159 +12519,6 @@
 		}
 	}
 
-	"backshock"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"axe/axe_shockwave"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-			"particle" 	"particles/econ/items/magnataur/shock_of_the_anvil/magnataur_shockanvil.vpcf"
-			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
-			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
-			"particle"	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
-			"particle"	"particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf"
-			"particle"	"particles/base_attacks/ranged_tower_bad.vpcf"
-			"particle"	"particles/units/heroes/hero_brewmaster/general_heel_stomp.vpcf"
-			"soundfile"	"soundevents/game_sounds_red_general.vsndevts"
-			"particle"	"particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf"
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"120 210 300 600 1000 1500 2400"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"start_radius"				"110 110 110 110"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"end_radius"				"300 300 300 300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"800"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"600 700 800 900 1000 1100 1200"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"500 1800 4000 9000 20000 40000 68000"
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"RedGeneral.Backshock"
-				"Target"		"CASTER"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"		"CASTER"
-			}
-
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/axe/abilities/w/w_spurshock.lua"
-				"Function"		"start"
-				"speed"			"%speed"
-				"damage"		"%main_damage"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/axe/abilities/w/w_spurshock.lua"
-				"Function"		"projectileHit"
-				"Target"		"TARGET"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_axe_rune_w_1_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"chaos_knight_reality_rift"
-
-				"EffectName"		"particles/units/heroes/hero_templar_assassin/templar_assassin_ambient_electric.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"ThinkInterval"  "0.3"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/axe/abilities/w/w1_dot_damage.lua"
-						"Function"		"think"
-					}
-				}
-			}
-			"modifier_axe_rune_w_2_invisible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-0.5"
-				}
-			}
-			"modifier_axe_rune_w_2_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"axe/axe_rune_w_2"
-
-				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-		}
-	}
 
 
 
@@ -12563,7 +12535,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"16"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -12586,7 +12558,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"750"
+				"property_two"			"10"
 			}
 		}
 		"Modifiers"
@@ -12613,7 +12585,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"750"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"10"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -12639,7 +12611,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -12797,7 +12769,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -12883,7 +12855,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"14"
+				"property_one"			"1"
 			}
 		}
 		"Modifiers"
@@ -12916,7 +12888,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -12935,7 +12907,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"150"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -13032,7 +13004,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -13065,12 +13037,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"75"
+				"property_two"			"10"
 			}
 		}
 		"Modifiers"
@@ -19570,7 +19542,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_resistance"				"80"
+				"damage_resistance"				"30"
 			}
 			"07"
 			{
@@ -19785,7 +19757,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -19804,7 +19776,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -19832,7 +19804,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0"
 			}
 		}
 	}
@@ -19850,7 +19822,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -20082,7 +20054,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 25000 60000 200000 1000000 2500000"
+				"damage"	"100 300 600 900 1100 1200 1500"
 			}
 			"02"
 			{
@@ -20113,8 +20085,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 			"02"
 			{
@@ -20142,8 +20114,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.01"
 			}
 			"02"
 			{
@@ -20189,12 +20161,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
+				"property_one"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -20227,7 +20199,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 1800 6000 24000 60000 165000 270000"
+				"damage"				"10 20 30 40 70 90 120"
 			}
 			"03"
 			{
@@ -20370,7 +20342,7 @@
 		"AbilityTextureName"			"zonik/zonik_mach_punch"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityManaCost"				"160 340 800 1400 2000 3400 6000"
+		"AbilityManaCost"				"10 20 40 80 140 200 280"
 		"AbilitySpecial"
 		{
 			"01"
@@ -20381,7 +20353,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"600 840 1300 1800 2400 4800 9600"
+				"damage_mult"				"20 35 50 65 80 100 120"
 			}
 		}
 		// Precache
@@ -20466,12 +20438,6 @@
 					}
 				}
 			}
-			"modifier_mach_punch_amp"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
 			"modifier_temporal_discharge"
 			{
 				"IsHidden" "0"
@@ -20518,7 +20484,7 @@
 		"AbilityTextureName"			"zonik/comet_punch"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityManaCost"				"160 340 800 1400 2000 3400 6000"
+		"AbilityManaCost"				"10 20 40 80 140 200 280"
 		"AbilitySpecial"
 		{
 			"01"
@@ -20529,7 +20495,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"1800 2520 3900 5400 7200 14400 28800"
+				"damage_mult"				"20 35 50 65 80 100 120"
 			}
 		}
 		// Precache
@@ -20622,12 +20588,6 @@
 						"attack_damage"	"%attack_damage"
 					}
 				}
-			}
-			"modifier_mach_punch_amp"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
 			}
 			"modifier_temporal_discharge"
 			{
@@ -21061,7 +21021,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.1"
 				}
 			}
 			"modifier_speedball_b_d_regen"
@@ -21131,7 +21091,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"3000 10000 50000 120000 240000 500000 800000"
+				"damage"	"140 190 300 580 780 1200 1400"
 			}
 			"04"
 			{
@@ -21141,7 +21101,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"speed_mult"	"0.01 0.05 0.1 0.3 0.5 1.0 3.0"
+				"speed_mult"	"0.14 0.19 0.3 0.5 0.6 0.8 1"
 			}
 		}
 	}
@@ -21162,7 +21122,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -21213,7 +21173,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"-25"
 			}
 		}
 	}
@@ -21231,7 +21191,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.7"
 			}
 			"02"
 			{
@@ -21255,7 +21215,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -21288,7 +21248,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"0.25"
 			}
 		}
 	}
@@ -21307,7 +21267,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"100"
 			}
 			"02"
 			{
@@ -21341,12 +21301,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"6"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -21364,7 +21319,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -21382,8 +21337,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
@@ -21411,7 +21366,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"25"
 			}
 		}
 	}
@@ -21429,7 +21384,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"21"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"10"
 			}
 		}
 	}
@@ -21447,7 +21407,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -21475,7 +21435,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -21516,12 +21476,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"350"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.3"
+				"property_two"			"0.05"
 			}
 		}
 	}
@@ -57626,7 +57586,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "12"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
 				}
 			}
 			"modifier_slipfinn_b_c_health"
@@ -57644,6 +57604,10 @@
 				{
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1" 
 				}
+			}
+			"modifier_slipfinn_e_2_armor"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}
@@ -57688,12 +57652,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 8000 25000 100000 250000 500000 1000000"
+				"damage"			"40 80 120 180 240 320 400"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_pure_resist"			"70 75 80 85 90 95 100"
+				"magic_pure_resist"			"50 55 58 61 64 67 69"
 			}
 		}
 		"OnSpellStart"
@@ -57753,10 +57717,6 @@
 				"TextureName"	"slipfinn/slipfinn_rune_q_2"
 				"EffectName"	"particles/units/heroes/slipfinn/slipfinn_b_a_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
-				}
 			}
 		}
 	}
@@ -58313,7 +58273,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"17"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -58333,7 +58293,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -58373,7 +58333,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.07"
+				"property_one"			"16"
 			}
 		}
 	}
@@ -58394,12 +58354,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3000"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"30"
+				"property_two"			"1"
 			}
 			"02"
 			{
@@ -58434,7 +58394,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"-5"
 			}
 		}
 	}
@@ -58453,8 +58413,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -58489,13 +58449,13 @@
 		"AbilityTextureName"	"slipfinn/slipfinn_rune_e_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -58525,12 +58485,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"0.01"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_three"			"0.03"
 			}
 		}
 	}
@@ -58590,7 +58555,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -58669,7 +58634,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"slipfinn/arcana1/bog_roller"
 		"AbilityCastAnimation"			"ACT_DOTA_RUN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 
@@ -58704,7 +58669,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shadow_damage_on_attack"						"100 200 300 400 500 600 700"
+				"shadow_damage_on_attack"						"1 2 3 4 5 7 8"
 			}
 		}
 		"OnToggleOn"
@@ -58863,16 +58828,12 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.1"
 				}
 			}
 			"modifier_slipfinn_bog_roller_e3"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1000"
-				}
 			}
 		}
 	}
@@ -58893,7 +58854,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -58938,13 +58899,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.02"
 			}
 			"03"
 			{
@@ -58974,7 +58935,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1000"
+				"property_one"			"30"
 			}
 			"02"
 			{
@@ -59005,7 +58966,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"6"
 			}
 			"03"
 			{

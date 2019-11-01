@@ -2225,7 +2225,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% of attack Power"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] Forcefield"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"When Energy Field begins channeling, Arkimus gains a temporary shield that reduces all damage taken by <font color='#ccff66'>90</font>%."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"When Energy Field begins channeling, Arkimus gains a temporary shield that reduces all damage taken by <font color='#ccff66'>30</font>%."
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Duration"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" seconds"
 
@@ -2260,7 +2260,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"Taking damage adds an Induction stack. Each stack reduces damage taken by <font color='#ccff66'>3</font>% independently (meaning there is diminishing returns). Lasts <font color='#ccff66'>60</font> seconds and persists through death"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"Taking damage adds an Induction stack. Each stack reduces damage taken by <font color='#ccff66'>0.5</font>% independently (meaning there is diminishing returns). Lasts <font color='#ccff66'>60</font> seconds and persists through death"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Max Stacks"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
@@ -2281,7 +2281,7 @@
     	"property_arkimus_arcana2_description"								"Replaces @Ability4 and all of its runes with Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +400 attack speed, ranged attacks and takes reduced damage. All damage is converted to PURE damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +<font color='#ccff66'>280</font> attack speed, ranged attacks and takes reduced damage. All damage is converted to PURE damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ATTACK RANGE:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"DURATION:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"DAMAGE RESISTANCE %:"
@@ -2290,7 +2290,7 @@
     	"DOTA_Tooltip_modifier_arkimus_archon_form_Description"									"Increased attack range and damage resistance"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2"									"[R1] Archon Tide"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"Landing an attack in Archon Form creates a persistent 240 radius area for 4 seconds. Enemies within the area take damage every 0.1 seconds based on attack power, and the damage is split amongst all enemies. Only 1 Archon Tide can be active at a time."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"Landing an attack in Archon Form creates a persistent <font color='#ccff66'>240</font> radius area for 4 seconds. Enemies within the area take damage every 0.1 seconds based on attack power, and the damage is split amongst all enemies. Only 1 Archon Tide can be active at a time."
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_property_one"					"Damage Per 0.1s"
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_suffix"							"% of attack power"
 
@@ -2318,22 +2318,22 @@
 		"item_rpc_arkimus_glyph_1_1_description" 				"Energy Field's cells initiate at the smallest possible radius."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"Glyph of Mana Tide"
-		"item_rpc_arkimus_glyph_2_1_description" 				"Increases mana regen by <font color='#ccff66'>1200</font>."
+		"item_rpc_arkimus_glyph_2_1_description" 				"Increases mana regen by <font color='#ccff66'>100</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"Glyph of Energy Cells"
-		"item_rpc_arkimus_glyph_3_1_description" 				"Energy field has an extra <font color='#ccff66'>2</font> cells."
+		"item_rpc_arkimus_glyph_3_1_description" 				"Energy field has an extra <font color='#ccff66'>3</font> cells."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"Glyph of Acrobatics"
 		"item_rpc_arkimus_glyph_4_1_description" 				"Increases the maximum number of Orbital Leap Free Casts by <font color='#ccff66'>1</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"Glyph of Mana Shield"
-		"item_rpc_arkimus_glyph_5_1_description" 				"<font color='#ccff66'>90</font>% of damage taken drains from Mana instead of health, and the mana-damage is reduced by <font color='#ccff66'>90</font>%."
+		"item_rpc_arkimus_glyph_5_1_description" 				"<font color='#ccff66'>30</font>% of damage taken drains from Mana instead of health, and the mana-damage is reduced by <font color='#ccff66'>90</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"Glyph of Coil Warping"
 		"item_rpc_arkimus_glyph_6_1_description" 				"Increases the maximum number of Dimension Coil Free Casts by <font color='#ccff66'>1</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"Glyph of Arcane Electrocution"
-		"item_rpc_arkimus_glyph_7_1_description" 				"Increases all <font color=\"#5CCDF9\">Lightning</font> damage by <font color='#ccff66'>1000</font>%."
+		"item_rpc_arkimus_glyph_7_1_description" 				"Increases all <font color=\"#5CCDF9\">Lightning</font> damage by <font color='#ccff66'>120</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Active Energy Cells absorb 1 instance of Magic or Pure damage and are subsequently destroyed."
@@ -2356,14 +2356,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
-		"property_arkimus_immortal_weapon_description"						"Flash Source deals x<font color='#ccff66'>2</font> damage and stacks [W2] x<font color='#ccff66'>2</font> faster."
+		"property_arkimus_immortal_weapon_description"						"Flash Source deals x<font color='#ccff66'>1.1</font> damage and stacks [W2] x<font color='#ccff66'>2</font> faster."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
         "property_arkimus_immortal_weapon2_description"                      "<font color='#ccff66'>0.5</font>% of all <font color=\"#E1A2E8\">Arcane</font> damage dealt heals Arkimus."
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
-        "property_arkimus_immortal_weapon3_description"                      "Damage taken during Photon Sprint is reduced by <font color='#ccff66'>99</font>%."
+        "property_arkimus_immortal_weapon3_description"                      "Damage taken during Photon Sprint is reduced by <font color='#ccff66'>85</font>%."
 
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
@@ -3013,8 +3013,24 @@
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect"				"Artifice"
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"Magic Immunity and reduced health regen."
 
-		"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
-        "DOTA_Tooltip_ability_stun_attack_Description"                  "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Skull Basher and Berserker Rage durations are refreshed and paused while leaping. Max jump distance: 1200. "
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"Skull Basher"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration. Skull Basher and Berserker Rage durations are refreshed and paused while leaping."
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Lore"					""
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_attack_speed"			"ATTACK SPEED BONUS:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"SPLASH DAMAGE:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"BUFF DURATION:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"STUN DURATION:"
+
+
+
+
+
+
+
+
+
+	"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
+        "DOTA_Tooltip_ability_stun_attack_Description"                  "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Skull Basher and Berserker Rage durations are refreshed and paused while leaping. Max jump distance: 1200."
         "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
         "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "ATTACK SPEED BONUS:"
         "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "SPLASH DAMAGE:"
@@ -3033,12 +3049,12 @@
         "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "STUN DURATION:"
         "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "MAX JUMP RANGE:"
 		
-		"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
+	"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Increases the base damage of Skull Basher by a % of attack damage."
         "DOTA_Tooltip_ability_axe_rune_q_1_property_one"                "Damage Increase"
         "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% of attack damage"
-		
-		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] Berserker Rage"
+	
+	"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] Berserker Rage"
         "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Whenever you land an attack - gain attack speed and base attack damage. If you don't attack for 10 seconds all charges are lost. Max <font color='#ccff66'>50</font> stacks."
         "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "Attack Speed Per Charge"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
@@ -3051,7 +3067,7 @@
         "DOTA_Tooltip_modifier_axe_rune_q_2_visible"                    "Berserker Rage"
         "DOTA_Tooltip_modifier_axe_rune_q_2_visible_Description"        "Gaining Attack Speed and Attack Damage."
 		
-		"DOTA_Tooltip_ability_axe_rune_q_3"                             "[Q3] Heroic Leap"
+	"DOTA_Tooltip_ability_axe_rune_q_3"                             "[Q3] Heroic Leap"
         "DOTA_Tooltip_ability_axe_rune_q_3_Description"                 "Upon landing from a Skull Basher leap, The Red General dishes out an amplified Sunder."
         "DOTA_Tooltip_ability_axe_rune_q_3_property_one"                "Damage"
         "DOTA_Tooltip_ability_axe_rune_q_3_suffix"                      "% of Sunder damage"
@@ -3066,20 +3082,20 @@
         "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"Increased Normal damage taken from The Red General"
 		
 		
-		"DOTA_Tooltip_ability_backshock"                                "Spur Shock"
-        "DOTA_Tooltip_ability_backshock_Description"                    "Element: <font color=\"#DDDDDD\">Normal</font><br>Emits 3 shockwaves behind The Red General."
-        "DOTA_Tooltip_ability_backshock_Lore"                           ""
-        "DOTA_Tooltip_ability_backshock_main_damage"                    "DAMAGE PER WAVE:"
-        "DOTA_Tooltip_ability_backshock_speed"                          "WAVE SPEED:"
+	"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"				"Spur Shock"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"			"Element: <font color=\"#DDDDDD\">Normal</font><br>Emits 3 shockwaves behind The Red General."
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"			""
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"			"DAMAGE PER WAVE:"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"			"WAVE SPEED:"
 		
-		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] Aftershock"
+	"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] Aftershock"
         "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "Enemies hit by Spur Shock are damaged every 0.3 seconds for 3 seconds."
         "DOTA_Tooltip_ability_axe_rune_w_1_property_one"                "Tick Damage"
         "DOTA_Tooltip_ability_axe_rune_w_1_suffix"                      "% of Spur Shock Damage"
 		"DOTA_Tooltip_modifier_axe_rune_w_1_visible"					"Aftershock"
         "DOTA_Tooltip_modifier_axe_rune_w_1_visible_Description"		"Taking additional damage every 0.3 seconds."
 		
-		"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] Nullifying Wavelength"
+	"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] Nullifying Wavelength"
         "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "Enemies damaged by Shockwave receive a stacking Magic Resist loss debuff. Max 3 stacks."
         "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "Magic Resist Reduction"
         "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      "%"
@@ -3087,27 +3103,27 @@
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible"					"Nullifying Wavelength"
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"Reduced Magic Armor"
 		
-		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] Fury"
+	"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] Fury"
         "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "Casting Spur Shock heals The Red General. The healing value is multiplied by Spur Shock's spell level."
         "DOTA_Tooltip_ability_axe_rune_w_3_property_one"                "Heal"
         "DOTA_Tooltip_ability_axe_rune_w_3_suffix"                      "x Spur Shock level"
         "DOTA_Tooltip_ability_axe_rune_w_3_property_two"                "Heal"
         "DOTA_Tooltip_ability_axe_rune_w_3_suffix_two"                  "% Max health"
 		
-		"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] Thunderfoot"
+	"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] Thunderfoot"
         "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "The Red General's strength increases the damage of Spur Shock."
         "DOTA_Tooltip_ability_axe_rune_w_4_property_one"                "Damage Increase"
         "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "% for each 10 points of Strength"
  
 		
 		
-		"DOTA_Tooltip_ability_whirlwind"                                "Redmist Cyclone"
-        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General runs and spins aggressively forward, hooking all nearby units and dragging them along with him as he advances forward (except bosses). Enemies are dragged every 0.18 seconds, and at each of these intervals, The Red General is cleansed of stun effects and restores health for each affected enemy unit."
-        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
-        "DOTA_Tooltip_ability_whirlwind_heal"                           "HEAL PER ENEMY HIT PER TICK:"
-        "DOTA_Tooltip_ability_whirlwind_radius"                         "RADIUS:"
+	"DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind"                                "Redmist Cyclone"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Description"                    "The Red General runs and spins aggressively forward, hooking all nearby units and dragging them along with him as he advances forward (except bosses). Enemies are dragged every 0.18 seconds, and at each of these intervals, The Red General is cleansed of stun effects and restores health for each affected enemy unit."
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_heal"                           "HEAL PER ENEMY HIT PER TICK:"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_radius"                         "RADIUS:"
 		
-		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] Endurance"
+	"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] Endurance"
         "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "As the Red General loses Health, he gains a bonus to all attributes."
         "DOTA_Tooltip_ability_axe_rune_e_1_property_one"                "Bonus to all Stats"
         "DOTA_Tooltip_ability_axe_rune_e_1_suffix"                      " for each 5% missing health"
@@ -3115,7 +3131,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_1_visible"                    "Endurance"
         "DOTA_Tooltip_modifier_axe_rune_e_1_visible_Description"        "Gaining bonus to all attributes based on missing health"
 		
-		"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] Cyclone Storm"
+	"DOTA_Tooltip_ability_axe_rune_e_2"                             "[E2] Cyclone Storm"
         "DOTA_Tooltip_ability_axe_rune_e_2_Description"                 "The cyclical force of The Red General's Redmist Cyclone briefly increases his bonus attack damage. This effect lasts 5 seconds, and is refreshed when casting Skull Basher."
         "DOTA_Tooltip_ability_axe_rune_e_2_property_one"                "Attack Damage Bonus"
         "DOTA_Tooltip_ability_axe_rune_e_2_suffix"                      "%"
@@ -3123,31 +3139,31 @@
         "DOTA_Tooltip_modifier_axe_rune_e_2_tornado"                    "Cyclone Storm"
         "DOTA_Tooltip_modifier_axe_rune_e_2_tornado_Description"        "Increased attack power %%"
 		
-		"DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] Whirlwind"
+	"DOTA_Tooltip_ability_axe_rune_e_3"                             "[E3] Whirlwind"
         "DOTA_Tooltip_ability_axe_rune_e_3_Description"                 "Enemies dragged by Redmist Cyclone are slashed for an instance of Pure damage based on The Red General's total attack damage."
         "DOTA_Tooltip_ability_axe_rune_e_3_property_one"                "Damage"
         "DOTA_Tooltip_ability_axe_rune_e_3_suffix"                      "% of attack damage"
 		
-		"DOTA_Tooltip_modifier_axe_rune_e_3_shield"                     "Cyclonic Shield"
+	"DOTA_Tooltip_modifier_axe_rune_e_3_shield"                     "Cyclonic Shield"
         "DOTA_Tooltip_modifier_axe_rune_e_3_shield_Description"         "Damage taken reduced by 50%%."
  
         "DOTA_Tooltip_modifier_axe_rune_e_3"                            "Cyclonic Parry"
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Increased Magic Resistance and Armor."
 		
-		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
+	"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
         "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by 80%, and 1 stack is lost every time damage is taken."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Shield Chance"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
-		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
+	"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
-        "DOTA_Tooltip_ability_sunder"                                   "Sunder"
-        "DOTA_Tooltip_ability_sunder_Description"                       "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General winds up his weapon for 2 seconds and then smashes the ground in front of him. Damage dealt is based on a multiple of The Red General's Current Health."
-        "DOTA_Tooltip_ability_sunder_Lore"                              ""
-        "DOTA_Tooltip_ability_sunder_main_damage"                       "DAMAGE AS % OF CURRENT HP:"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "Sunder"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General winds up his weapon for 2 seconds and then smashes the ground in front of him. Damage dealt is based on a multiple of The Red General's Current Health."
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "DAMAGE AS % OF CURRENT HP:"
 		
-		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
+	"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
         "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "On cast of Sunder, release an 800-range Taunting pulse every second which makes enemies attack you. While active, all damage The Red General takes from enemies is reflected back at its source as Physical damage. Damage returned is capped at 20x maximum health."
         "DOTA_Tooltip_ability_axe_rune_r_1_property_one"                "Damage Return"
         "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      "x Damage Taken"
@@ -3155,12 +3171,12 @@
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt"						"Berserker's Call"
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt_Description"			"Taunted."
 		
-		"DOTA_Tooltip_ability_axe_rune_r_2"                             "[R2] Tremor"
+	"DOTA_Tooltip_ability_axe_rune_r_2"                             "[R2] Tremor"
         "DOTA_Tooltip_ability_axe_rune_r_2_Description"                 "The waves emitted by Berserker's Call deal damage to enemy units based on a multiple of Sunder's damage."
         "DOTA_Tooltip_ability_axe_rune_r_2_property_one"                "Damage"
         "DOTA_Tooltip_ability_axe_rune_r_2_suffix"                      "% of Sunder"
 		
-		"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] Adrenaline"
+	"DOTA_Tooltip_ability_axe_rune_r_3"                             "[R3] Adrenaline"
         "DOTA_Tooltip_ability_axe_rune_r_3_Description"                 "When The Red General starts to channel Sunder, he immediately gains increased armor and maximum health. 12 seconds duration."
         "DOTA_Tooltip_ability_axe_rune_r_3_property_one"                "Bonus Health"
         "DOTA_Tooltip_ability_axe_rune_r_3_suffix"                      ""
@@ -3173,10 +3189,10 @@
         "DOTA_Tooltip_modifier_axe_rune_r_3"                            "Visceral Force"
         "DOTA_Tooltip_modifier_axe_rune_r_3_description"                "Spur Shocks deal increased damage."
 		
-		"DOTA_Tooltip_modifier_axe_rune_r_3_shield"						"Cyclone Shield"
+	"DOTA_Tooltip_modifier_axe_rune_r_3_shield"						"Cyclone Shield"
         "DOTA_Tooltip_modifier_axe_rune_r_3_shield_Description"			"Taking 80%% reduced damage."	
  
-		"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] Enforcer"
+	"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] Enforcer"
         "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "The Red General's current total percentile damage reduction (not Armor or Magic Resist) increases his post-mitigation damage output. The first stack is gained when percentile damage reduction is between 0% and 50%, and another stack is applied when the total reaches at least 50%, then 75%, 87.5%, 93.75%, 96.875%, and so on. Full damage block (100%) is not included."
         "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "Post-mitigation damage increase"
         "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      "%"
@@ -3184,14 +3200,14 @@
         "DOTA_Tooltip_modifier_axe_rune_r_4_visible"                    "Enforcer"
         "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "Increase post-mitigation damage."
  
-		//Arcanas
-		"item_property_axe_arcana1"                                     "Terraforming"
+	//Arcanas
+	"item_property_axe_arcana1"                                     "Terraforming"
         "property_axe_arcana1_description"                              "Replaces @Ability4 and all of its runes with Terraforming."
  
-        "DOTA_Tooltip_ability_axe_arcana_smash"                         "Terraforming"
-        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General threatens to shatter the surface of the planet. A rupture begins to form, and after 2 seconds it will explode, stunning and damaging all enemy units caught inside the faultline."
-        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "DAMAGE AS % OF ATTACK POWER:"
-        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "STUN DURATION:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder"                         "Terraforming"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "Element: <font color=\"#DDDDDD\">Normal</font><br>The Red General threatens to shatter the surface of the planet. A rupture begins to form, and after 2 seconds it will explode, stunning and damaging all enemy units caught inside the faultline."
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_attack_power_mult_percent"   "DAMAGE AS % OF ATTACK POWER:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "STUN DURATION:"
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] Tectonic Force"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Terraforming deals increased post-mitigation damage."
@@ -3226,10 +3242,10 @@
         "item_property_axe_arcana2"                                     "Stonewall"
         "property_axe_arcana2_description"                              "Replaces @Ability2 and all of its runes with Stonewall."
  
-        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "Stonewall"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "Create a circular wall of stone around The Red General. Any ally standing within the wall's boundaries takes reduced damage."
-        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "DAMAGE REDUCTION %:"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "DURATION:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall"                         "Stonewall"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_Description"             "Create a circular wall of stone around The Red General. Any ally standing within the wall's boundaries takes reduced damage."
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_damage_reduction"   "DAMAGE REDUCTION %:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_duration"           "DURATION:"
 
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "Stonewall"
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Reduces incoming damage"
@@ -3256,8 +3272,8 @@
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "Taunt and Vacuum Radius"
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
-		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "Glyph of Combat"
+	//Glyphs
+	"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "Glyph of Combat"
         "item_rpc_axe_glyph_1_1_description"                "Reduces all damage taken by <font color='#ccff66'>30</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "Glyph of Shock Expansion"
@@ -3305,43 +3321,43 @@
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"
+	"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"
 
-		//Weapons
-		"axe_weapon_00"			"Basic Axe"
-		"axe_weapon_01"			"Mighty Cleaver"
-		"axe_weapon_02"			"Silver Axe"
-		"axe_weapon_03"			"Earthforge Axe"
-		"axe_weapon_11"			"Thorium Edge"
-		"axe_weapon_12"			"Axe of Desolation"
-		"axe_weapon_13"			"Heavy Skullsplitter"
-		"axe_weapon_14"			"Shockwave Sunderer"
-		"axe_weapon_21"			"Battlerage Axe"
-		"axe_weapon_22"			"Crimson Skullsplitter"
-		"axe_weapon_23"			"Mithril Forged Swiftaxe"
-		"axe_weapon_24"			"Hook of the Defiler"
-		"axe_weapon_25"			"Master Deathforge Axe"
-		
-		"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_01"   "Mighty Cleaver"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_02"   "Silver Axe"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_03"   "Earthforge Axe"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_11"   "Thorium Edge"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_12"   "Axe of Desolation"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_13"   "Heavy Skullsplitter"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_14"   "Shockwave Sunderer"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_21"   "Red Battlefury"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_22"   "Crimson Skullsplitter"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_23"   "Mithril Forged Swiftaxe"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_24"   "Hook of the Defiler"
-		"DOTA_Tooltip_ability_item_rpc_axe_weapon_25"   "Master Deathforge Axe"
-		
-		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
-		"item_property_axe_immortal_weapon"								"Combat Veteran"
-		"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>50</font>%"
+	//Weapons
+	"axe_weapon_00"			"Basic Axe"
+	"axe_weapon_01"			"Mighty Cleaver"
+	"axe_weapon_02"			"Silver Axe"
+	"axe_weapon_03"			"Earthforge Axe"
+	"axe_weapon_11"			"Thorium Edge"
+	"axe_weapon_12"			"Axe of Desolation"
+	"axe_weapon_13"			"Heavy Skullsplitter"
+	"axe_weapon_14"			"Shockwave Sunderer"
+	"axe_weapon_21"			"Battlerage Axe"
+	"axe_weapon_22"			"Crimson Skullsplitter"
+	"axe_weapon_23"			"Mithril Forged Swiftaxe"
+	"axe_weapon_24"			"Hook of the Defiler"
+	"axe_weapon_25"			"Master Deathforge Axe"
+	
+	"DOTA_Tooltip_ability_item_rpc_basic_axe"   "Axe"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_00"   "Axe"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_01"   "Mighty Cleaver"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_02"   "Silver Axe"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_03"   "Earthforge Axe"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_11"   "Thorium Edge"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_12"   "Axe of Desolation"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_13"   "Heavy Skullsplitter"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_14"   "Shockwave Sunderer"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_21"   "Red Battlefury"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_22"   "Crimson Skullsplitter"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_23"   "Mithril Forged Swiftaxe"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_24"   "Hook of the Defiler"
+	"DOTA_Tooltip_ability_item_rpc_axe_weapon_25"   "Master Deathforge Axe"
+	
+	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
+	"item_property_axe_immortal_weapon"								"Combat Veteran"
+	"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>50</font>%"
 
-		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
+	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
         "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
         "property_axe_immortal_weapon2_description"                        "While @Ability3 is active, The Red General's movespeed and movespeed cap are both increased by <font color='#ccff66'>300</font>. Additionally increases the damage of Whirlwind against Paragons and bosses by <font color='#ccff66'>200</font>%."
 
@@ -9300,12 +9316,12 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% of Attack Power"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which increases post-mitigation damage dealt by Slipfinn towards that enemy. Lasts <font color='#ccff66'>10</font> seconds. Enemies hit by Dark Bog gain 1 stack."
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Post-mitigation damage taken per stack"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which reduces Magic Armor of that enemy. Lasts <font color='#ccff66'>10</font> seconds. Enemies hit by Dark Bog gain 1 stack."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"Gloomshade"
-    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Taking increased post-mitigation damage from Slipfinn"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"Magical Armor reduced."
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] Agitated Spring"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"Jumping on an enemy's head adds a % attack power bonus. Lasts <font color='#ccff66'>12</font> seconds, and jumping resets the bonus."
@@ -9334,16 +9350,18 @@
     	"DOTA_Tooltip_ability_slipfinn_shadow_warp_cast_range"						"CAST RANGE:"
 		
 		"DOTA_Tooltip_ability_slipfinn_rune_e_1"									"[E1] Shadow Shank"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Attacks deal an additional instance of pure <font color=\"#7F4F84\">Shadow</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_1_Description"						"Attacks deal an additional instance of physical <font color=\"#7F4F84\">Shadow</font> damage."
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_property_one"						"Damage"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% of Damage Dealt"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2"									"[E2] Fen Sleeper"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"Agility increases max health and health regen. While prone, the health regen bonus is 2x stronger."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"Agility increases max Health, Health Regen and Armor. While prone, the health regen bonus is 2x stronger."
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_one"						"Max Health"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix"								" per Agility"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_two"						"Health Regen"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_two"							" per Agility"
+		"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_three"						"Bonus Armor"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_three"							" per Agility"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_e_3"									"[E3] Shadow Cloak"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_3_Description"						"Casting Slippery Sprint or Shady Smoke applies a cloak that makes Slipfinn invisible."
@@ -9429,11 +9447,11 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% of attack power"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Gain bonus armor and Post-Mitigation Magic damage while in Bog Roller."
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Gain bonus armor and Spell Pierce while in Bog Roller."
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_one"             "Armor Bonus"
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix"                   ""
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "Post-Mitigation Magic Damage"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               "%"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "Spell Pierce Bonus"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               ""
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] Bayou Blister"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "Landing on the ground after jumping while in Bog Roller creates an area that stuns and deals damage based on attack power. The radius scales with the distance fallen, and is enhanced further when using a prone smash from the air."
@@ -11612,9 +11630,9 @@
     	"DOTA_Tooltip_ability_zonik_rune_q_2_suffix_two"					""
 
     	"DOTA_Tooltip_ability_zonik_rune_q_3"								"[Q3] Collision Chaos"
-    	"DOTA_Tooltip_ability_zonik_rune_q_3_Description"					"Enemies standing near a Tachyon Shell take increased post-mitigation damage from Zhonik."
-    	"DOTA_Tooltip_ability_zonik_rune_q_3_property_one"					"Post-Mitigation Damage Increase"
-    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						"%"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_Description"					"Enemies standing near a Tachyon Shell have their Magic Armor reduced."
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_property_one"					"Magic Armor Reduction"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						""
 
     	"DOTA_Tooltip_ability_zonik_rune_q_4"								"[Q4] Temporal Dampening"
     	"DOTA_Tooltip_ability_zonik_rune_q_4_Description"					"Allied units carrying a Tachyon shell take reduced damage from all sources. Effect is 2x while it's on Zhonik."
@@ -11623,7 +11641,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_mach_punch"								"Mach Punch"
-    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#B5FFB7\">Temporal</font><br>Zhonik winds up and punches the target with all of his strength. The target is stunned and takes damage based on his Attack Power. The damage is amplified post-mitigation by 1% for each movespeed point that Zhonik has over his target's."
+    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#B5FFB7\">Temporal</font><br>Zhonik winds up and punches the target with all of his strength. The target is stunned and takes damage based on his Attack Power."
     	"DOTA_Tooltip_ability_zonik_mach_punch_stun_duration"				"STUN DURATION:"
     	"DOTA_Tooltip_ability_zonik_mach_punch_damage_mult"					"ATTACK POWER DAMAGE MULT %:"
 		
@@ -11660,7 +11678,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_lightspeed"								"Lightspeed"
-    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik energizes himself, and begins moving at extreme speeds. This buff increases his movespeed cap and gives him free pathing, allowing him to run over most obstructions. Every 60 distance moved during this effect drains either <font color='#ccff66'>0.75</font> of his maximum mana, or <font color='#ccff66'>450</font>, whichever value is lower. If Zhonik has insufficient mana, Lightspeed is cancelled prematurely."
+    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik energizes himself, and begins moving at extreme speeds. This buff increases his movespeed cap and gives him free pathing, allowing him to run over most obstructions. Every 60 distance moved during this effect drains either <font color='#ccff66'>0.75</font> of his maximum mana, or <font color='#ccff66'>150</font>, whichever value is lower. If Zhonik has insufficient mana, Lightspeed is cancelled prematurely."
     	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"MOVESPEED CAP:"
     	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"DURATION:"
 
@@ -11678,18 +11696,20 @@
     	"DOTA_Tooltip_ability_zonik_rune_e_2_suffix"						" per current mana of Zhonik"
 
     	"DOTA_Tooltip_ability_zonik_rune_e_3"								"[E3] Blur"
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_Description"					"During Lightspeed, Zhonik reduces all physical and magical damage taken by a flat amount based on his agility."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Physical and Magical Damage Block"
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						" per Agility"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_Description"					"During Lightspeed, Zhonik gets higher Magical Armor."
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Magical Armor Bonus"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						""
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4"								"[E4] Sonic Rush"
-    	"DOTA_Tooltip_ability_zonik_rune_e_4_Description"					"Further increases the movespeed cap of Zhonik during Lightspeed."
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_Description"					"Further increases the movespeed cap of Zhonik during Lightspeed. Temporal Elemental Damage value increased."
     	"DOTA_Tooltip_ability_zonik_rune_e_4_property_one"					"Movespeed Cap Increase"
     	"DOTA_Tooltip_ability_zonik_rune_e_4_suffix"						""
+		"DOTA_Tooltip_ability_zonik_rune_e_4_property_two"					"Temporal Damage Bonus"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_suffix_two"						""
 
 
     	"DOTA_Tooltip_ability_zonik_speedball"								"Speedball"
-    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#C25DFC\">Cosmic</font><br>Target an enemy unit and charge toward them with bonus movespeed and movespeed cap. On impact, Zhonik explodes, stunning himself for 1 second and damaging nearby enemies. Issuing an order during Speedball cancels the charge. While travelling the cooldown is reduced, and each enemy hit by speedball additionally reduces cooldown by 0.1s. Damage dealt is multiplied by movespeed."	
+    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#C25DFC\">Cosmic</font><br>Target an enemy unit and charge toward them with bonus movespeed and movespeed cap. On impact, Zhonik explodes, stunning himself for 1 second and damaging nearby enemies. Issuing an order during Speedball cancels the charge. While travelling the cooldown is reduced, and each enemy hit by speedball additionally reduces cooldown by 0.1s. Multiplier of current movement speed is added to damage dealt."	
     	"DOTA_Tooltip_ability_zonik_speedball_movespeed"				"BASE MOVESPEED AND MOVESPEED CAP INCREASE:"
     	"DOTA_Tooltip_ability_zonik_speedball_damage"					"DAMAGE:"
     	"DOTA_Tooltip_ability_zonik_speedball_stun_duration"			"ENEMY STUN DURATION:"
@@ -11711,9 +11731,9 @@
     	"DOTA_Tooltip_ability_zonik_rune_r_2"								"[R2] Regen Runner"
     	"DOTA_Tooltip_ability_zonik_rune_r_2_Description"					"Increases health and mana regen by a % of movespeed. Regen is off while rooted or stunned."
     	"DOTA_Tooltip_ability_zonik_rune_r_2_property_one"					"Health Regen"
-    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix"						"% of movespeed"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix"						""
     	"DOTA_Tooltip_ability_zonik_rune_r_2_property_two"					"Mana Regen"
-    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix_two"					"% of movespeed"
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix_two"					""
 
     	"DOTA_Tooltip_ability_zonik_rune_r_3"								"[R3] Pummel"
     	"DOTA_Tooltip_ability_zonik_rune_r_3_Description"					"After Speedball's self-stun ends, have a chance to throw unrestricted Mach Punches at the original target if it is still alive. Greater than 100% means it can proc multiple times."
@@ -11761,17 +11781,17 @@
     	"DOTA_Tooltip_ability_zonik_rune_e_2_arcana1_suffix"				"% of attack power"
 
   		"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1"						"[E3] Time Dilation"
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_Description"  		"While Zhonik is within the Warp Field, he gains a Time Dilation stack every 0.03 seconds. Each stack increases all post-mitigation damage dealt. Max 1000 stacks."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Post-Mitigation Damage Increase"	
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_Description"  		"While Zhonik is within the Warp Field, he gains a Time Dilation stack every 0.03 seconds. Each stack increases Base Ability Damage of @Ability3. Max 1000 stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Base Ability Damage Increase"	
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_suffix"				"% per stack"
 
     	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible"					"Time Dilation"
     	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Gaining post-mitigation damage with each stack"
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1"								"[E4] Supersonic"
-    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_Description"					"All <font color=\"#B5FFB7\">Temporal</font> damage is increased by Zhonik's attributes. Additionally, Zhonik keeps the movespeed buff after leaving the Warp Field for a short duration."
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_Description"					"All <font color=\"#B5FFB7\">Temporal</font> damage is increased. Additionally, Zhonik keeps the movespeed buff after leaving the Warp Field for a short duration."
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_property_one"					"Temporal Damage Bonus"
-    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_suffix"						"% for every 10 Attributes"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_suffix"						"%"
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_property_two"					"Movespeed Sticky Duration"
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_suffix_two"					" seconds"
 
@@ -11779,7 +11799,7 @@
     	"property_zonik_arcana2_description"								"Replaces @Ability4 and all of its runes with Timewarp Missiles."
 
     	"DOTA_Tooltip_ability_timewarp_missles"								"Timewarp Missiles"
-    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Element: <font color=\"#B5FFB7\">Temporal</font><br>Over a 4 second channel, Zhonik generates time-voided Timewarp Missiles. Years after they are created (3.5 seconds in Zhonik's time), each missle locks on to a random nearby target and ministuns on impact. Damage dealt is multiplied by Zhonik's movespeed at the time of impact. 2 seconds into the channel, Zhonik gains physical and magical immunity for the remainder of the channel and for an additional 2 seconds after that."
+    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Element: <font color=\"#B5FFB7\">Temporal</font><br>Over a 4 second channel, Zhonik generates time-voided Timewarp Missiles. Years after they are created (3.5 seconds in Zhonik's time), each missle locks on to a random nearby target and ministuns on impact. Multiplier of current movement speed at the moment of impact is added to damage dealt. 2 seconds into the channel, Zhonik gains physical and magical immunity for the remainder of the channel and for an additional 2 seconds after that."
     	"DOTA_Tooltip_ability_timewarp_missles_damage"				"BASE DAMAGE:"
     	"DOTA_Tooltip_ability_timewarp_missles_ms_mult"				"DAMAGE X MOVESPEED MULTIPLIER:"
     	"DOTA_Tooltip_ability_timewarp_missles_create_interval"		"MISSLE GENERATION INTERVAL:"
@@ -11836,7 +11856,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"Temporal Discharge stacks increase all <font color=\"#B5FFB7\">Temporal</font> damage by @glyph_property1%. When <font color=\"#B5FFB7\">Temporal</font> damage is dealt, 1 stack is consumed."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"Glyph of Flurry Punches"
-		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <font color='#ccff66'>0.8</font> seconds."
+		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <font color='#ccff66'>1.5</font> seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"
 		
@@ -11858,7 +11878,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"Sonar Style"
 		"item_property_zonik_immortal_weapon"							"Comet Punch"
-		"property_zonik_immortal_weapon_description"					"Mach Punch has <font color='#ccff66'>500</font> extra attack range and deals <font color='#ccff66'>3</font>x damage."
+		"property_zonik_immortal_weapon_description"					"Mach Punch has <font color='#ccff66'>500</font> extra attack range and has <font color='#ccff66'>75</font>% Base Ability Damage bonus."
 
 		
 

@@ -2194,7 +2194,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% от урона героя"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] Forcefield"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"В начале прочтения @Ability4 герой ненадолго укрывается щитом, снижающим входящий урон на <font color='#ccff66'>90</font>%."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"В начале прочтения @Ability4 герой ненадолго укрывается щитом, снижающим входящий урон на <font color='#ccff66'>30</font>%."
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" сек."
 
@@ -2229,7 +2229,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на <font color='#ccff66'>3</font>% (работает по закону убывающей полезности). Сохраняется после смерти, длится <font color='#ccff66'>60</font> секунд."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на <font color='#ccff66'>0.5</font>% (работает по закону убывающей полезности). Сохраняется после смерти, длится <font color='#ccff66'>60</font> секунд."
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Макс. зарядов"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
@@ -2250,7 +2250,7 @@
     	"property_arkimus_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +400 к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на чистый. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +<font color='#ccff66'>280</font> к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на Физический. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ДАЛЬНОСТЬ АТАКИ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"ДЛИТЕЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"СОПРОТИВЛЕНИЕ УРОНУ, %:"
@@ -2259,7 +2259,7 @@
     	"DOTA_Tooltip_modifier_arkimus_archon_form_Description"									"Скорость атаки, дальность атаки, урон и сопротивление урону увеличены"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2"									"[R1] Archon Tide"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"При успешной атаке по врагу, на его месте создаётся устойчивая электростатическая область радиусом в 240 на 4 секунды. Враги, попавшие в эту область полуают урон каждые 0.1 секунды, основанный на уроне героя. Получаемый урон разделяется между всеми врагами, находящимися в области. Одновременно может существовать только 1 область."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"При успешной атаке по врагу, на его месте создаётся устойчивая электростатическая область радиусом в <font color='#ccff66'>240</font> на 4 секунды. Враги, попавшие в эту область полуают урон каждые 0.1 секунды, основанный на уроне героя. Получаемый урон разделяется между всеми врагами, находящимися в области. Одновременно может существовать только 1 область."
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_property_one"					"Урон за 0.1 сек."
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_suffix"							"% от урона героя"
 
@@ -2287,22 +2287,22 @@
 		"item_rpc_arkimus_glyph_1_1_description" 				"Энергосферы от (E) Energy Field появляются на минимально возможном радиусе."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"(T2) Glyph of Mana Tide"
-		"item_rpc_arkimus_glyph_2_1_description" 				"Увеличивает регенерацию маны на <font color='#ccff66'>1200</font>."
+		"item_rpc_arkimus_glyph_2_1_description" 				"Увеличивает регенерацию маны на <font color='#ccff66'>100</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"(T3) Glyph of Energy Cells"
-		"item_rpc_arkimus_glyph_3_1_description" 				"(R) Energy field дополнительно выпускает <font color='#ccff66'>2</font> энергосфер(ы)."
+		"item_rpc_arkimus_glyph_3_1_description" 				"(R) Energy field дополнительно выпускает <font color='#ccff66'>3</font> энергосфер(ы)."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"(T4) Glyph of Acrobatics"
 		"item_rpc_arkimus_glyph_4_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (E) Orbital Leap на <font color='#ccff66'>1</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"(T5) Glyph of Mana Shield"
-		"item_rpc_arkimus_glyph_5_1_description" 				"<font color='#ccff66'>90</font>% от получаемого урона затратит ману, вместо здоровья. Получаемый магический урон снижен на <font color='#ccff66'>90</font>%."
+		"item_rpc_arkimus_glyph_5_1_description" 				"<font color='#ccff66'>30</font>% от получаемого урона затратит ману, вместо здоровья. Получаемый магический урон снижен на <font color='#ccff66'>90</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"(T6) Glyph of Coil Warping"
 		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на <font color='#ccff66'>1</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Glyph of Arcane Electrocution"
-		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <font color='#ccff66'>1000</font>%."
+		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <font color='#ccff66'>120</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
@@ -2325,14 +2325,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
-		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит в <font color='#ccff66'>2</font> раз(а) больше урона. Количество зарядов [W2] за удар увеличено в <font color='#ccff66'>2</font> раз(а)."
+		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит в <font color='#ccff66'>1.1</font> раз(а) больше урона. Количество зарядов [W2] за удар увеличено в <font color='#ccff66'>2</font> раз(а)."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
         "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=\"#E1A2E8\">Тайны</font> исцеляет героя."
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
-        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] весь входящий урон снижается на <font color='#ccff66'>99</font>%."
+        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] весь входящий урон снижается на <font color='#ccff66'>85</font>%."
 
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"
@@ -3033,11 +3033,11 @@
         "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"Получает увеличенный Нормальный урон от The Red General"
 		
 		
-		"DOTA_Tooltip_ability_backshock"                                "Spur Shock"
-        "DOTA_Tooltip_ability_backshock_Description"                    "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General выпускает 3 борозды позади себя."
-        "DOTA_Tooltip_ability_backshock_Lore"                           ""
-        "DOTA_Tooltip_ability_backshock_main_damage"                    "УРОН ЗА ВОЛНУ:"
-        "DOTA_Tooltip_ability_backshock_speed"                          "СКОРОСТЬ ВОЛНЫ:"
+		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "Spur Shock"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General выпускает 3 борозды позади себя."
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"                    "УРОН ЗА ВОЛНУ:"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"                          "СКОРОСТЬ ВОЛНЫ:"
 		
 		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] Aftershock"
         "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "Враги, задетые бороздой от умения @Ability2 получают дополнительный урон каждые 0.3 секуны в течении 3 секунд."
@@ -3069,11 +3069,11 @@
  
 		
 		
-		"DOTA_Tooltip_ability_whirlwind"                                "Redmist Cyclone"
-        "DOTA_Tooltip_ability_whirlwind_Description"                    "The Red General начинает быстро вращаться, захватывая всех врагов поблизости (кроме боссов) и перемещаясь с ними вперёд. Каждые 0.18 секунды вращения The Red General снимает с себя эффект оглушения, а захваченные способностью враги исцеляют героя."
-        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
-        "DOTA_Tooltip_ability_whirlwind_heal"                           "ЛЕЧЕНИЕ ЗА ВРАГА ЗА ТИК:"
-        "DOTA_Tooltip_ability_whirlwind_radius"                         "РАДИУС:"
+		"DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind"                                "Redmist Cyclone"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Description"                    "The Red General начинает быстро вращаться, захватывая всех врагов поблизости (кроме боссов) и перемещаясь с ними вперёд. Каждые 0.18 секунды вращения The Red General снимает с себя эффект оглушения, а захваченные способностью враги исцеляют героя."
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_heal"                           "ЛЕЧЕНИЕ ЗА ВРАГА ЗА ТИК:"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_radius"                         "РАДИУС:"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] Endurance"
         "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "Когда Red General теряет здоровье, он получает бонус ко всем атрибутам."
@@ -3110,10 +3110,10 @@
 		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
-        "DOTA_Tooltip_ability_sunder"                                   "Sunder"
-        "DOTA_Tooltip_ability_sunder_Description"                       "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General поднимает своё оружие вверх и через 2 секунды бьёт о землю перед собой, распространяя ударные волны, наносящие урон врагам в радиусе. Наносимый урон зависит от текущего здоровья героя."
-        "DOTA_Tooltip_ability_sunder_Lore"                              ""
-        "DOTA_Tooltip_ability_sunder_main_damage"                       "УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "Sunder"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General поднимает своё оружие вверх и через 2 секунды бьёт о землю перед собой, распространяя ударные волны, наносящие урон врагам в радиусе. Наносимый урон зависит от текущего здоровья героя."
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
 		
 		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
         "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "При успешном прочтении @Ability4, Red General создаёт мощный импульс в радиусе 800, заставляющий всех врагов атаковать только его. Пока активно, весь получаемый героем урон возвращается обратно в атакующих. Тип возвращаемого урона: физический. Максимальный возвращаемый урон ограничен 20х макс. здоровья героя."
@@ -3156,10 +3156,10 @@
 		"item_property_axe_arcana1"                                     "Terraforming"
         "property_axe_arcana1_description"                              "Заменяет (R) @Ability4 и все соответствующие руны на (R) Terraforming."
  
-        "DOTA_Tooltip_ability_axe_arcana_smash"                         "Terraforming"
-        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Мощным ударом топора о землю создаёт огромный разлом впереди себя, который взрывается спустя 2 секунды."
-        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "УРОН, % ОТ УРОНА ГЕРОЯ:"
-        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder"                         "Terraforming"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Мощным ударом топора о землю создаёт огромный разлом впереди себя, который взрывается спустя 2 секунды."
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_attack_power_mult_percent"   "УРОН, % ОТ УРОНА ГЕРОЯ:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] Tectonic Force"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Умение @Ability4 наносит увеличенный пост-резистный урон."
@@ -3191,10 +3191,10 @@
         "item_property_axe_arcana2"                                     "Stonewall"
         "property_axe_arcana2_description"                              "Заменяет @Ability2 и все соответствующие руны на Stonewall."
  
-        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "Stonewall"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "Создает арену из каменных стен вокруг героя. Союзники внутри арены получают сниженный урон от противников."
-        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "ПОНИЖЕНИЕ УРОНА %:"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall"                         "Stonewall"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_Description"             "Создает арену из каменных стен вокруг героя. Союзники внутри арены получают сниженный урон от противников."
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_damage_reduction"   "ПОНИЖЕНИЕ УРОНА %:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_duration"           "ДЛИТЕЛЬНОСТЬ:"
 
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "Stonewall"
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Входящий рон снижен"
@@ -10932,7 +10932,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_mach_punch"								"Mach Punch"
-    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Стихия: <font color=\"#DDDDDD\">Нормальный</font> / <font color=\"#B5FFB7\">Время</font><br>Zhonik замахивается и ударяет по выбранному врагу со всей силы. Цель оглушается и получает урон, зависящий от урона героя. Если скорость передвижения героя выше вражеской, то пост-резистный урон будет увеличен на 1% за каждую единицу скорости в разнице."
+    	"DOTA_Tooltip_ability_zonik_mach_punch_Description"					"Стихия: <font color=\"#DDDDDD\">Нормальный</font> / <font color=\"#B5FFB7\">Время</font><br>Zhonik замахивается и ударяет по выбранному врагу со всей силы. Цель оглушается и получает урон, зависящий от урона героя."
     	"DOTA_Tooltip_ability_zonik_mach_punch_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_zonik_mach_punch_damage_mult"					"МНОЖИТЕЛЬ УРОНА, %:"
 		
@@ -10998,7 +10998,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_speedball"								"Speedball"
-    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font> / <font color=\"#C25DFC\">Космос</font><br>Zhonik бросается в сторону выбранного врага с дополнительной скоростью и увеличенной максимальной скоростью. При столкновении Zhonik взрывается, оглушая себя на 1 секунду и нанося урон ближайшим врагам. Приказ герою на любое действие отменит рывок от этого умения. Во время рывка перезарядка способности постепенно снижается, и каждый задетый противник уменьшит текущую перезарядку на 0.1 сек. Урон способности умножается на текущую скорость передвижения."	
+    	"DOTA_Tooltip_ability_zonik_speedball_Description"					"Стихия: <font color=\"#B5FFB7\">Время</font> / <font color=\"#C25DFC\">Космос</font><br>Zhonik бросается в сторону выбранного врага с дополнительной скоростью и увеличенной максимальной скоростью. При столкновении Zhonik взрывается, оглушая себя на 1 секунду и нанося урон ближайшим врагам. Приказ герою на любое действие отменит рывок от этого умения. Во время рывка перезарядка способности постепенно снижается, и каждый задетый противник уменьшит текущую перезарядку на 0.1 сек. Скорость передвижения героя в момент столкновения добавляется к урону."	
     	"DOTA_Tooltip_ability_zonik_speedball_movespeed"				"УВЕЛИЧЕНИЕ БАЗОВОЙ И МАКСИМАЛЬНОЙ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
     	"DOTA_Tooltip_ability_zonik_speedball_damage"					"УРОН:"
     	"DOTA_Tooltip_ability_zonik_speedball_stun_duration"			"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ ВРАГОВ:"
@@ -11088,7 +11088,7 @@
     	"property_zonik_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Timewarp Missiles."
 
     	"DOTA_Tooltip_ability_timewarp_missles"								"Timewarp Missiles"
-    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Стихия: <font color=\"#B5FFB7\">Время</font><br>За 4 секунды прочтения заклинания, Zhonik генерирует несколько поглощающих время снарядов. Спустя годы после их создания (3.5 секунды для Zhonik), каждый снаряд нацеливается на случайную ближайшую цель, ненадолго оглушая ее при попадании. Наносимый урон умножается на скорость передвижения героя в момент попадания. Через 2 секунды после начала прочтения, Zhonik получает физический и магический иммунитет, который продлится на 2 секунды дольше после окончания прочтения."
+    	"DOTA_Tooltip_ability_timewarp_missles_Description"			"Стихия: <font color=\"#B5FFB7\">Время</font><br>За 4 секунды прочтения заклинания, Zhonik генерирует несколько поглощающих время снарядов. Спустя годы после их создания (3.5 секунды для Zhonik), каждый снаряд нацеливается на случайную ближайшую цель, ненадолго оглушая ее при попадании. Скорость передвижения героя в момент попадания добавляется к урону. Через 2 секунды после начала прочтения, Zhonik получает физический и магический иммунитет, который продлится на 2 секунды дольше после окончания прочтения."
     	"DOTA_Tooltip_ability_timewarp_missles_damage"				"БАЗОВЫЙ УРОН:"
     	"DOTA_Tooltip_ability_timewarp_missles_ms_mult"				"МНОЖИТЕЛЬ УРОНА ОТ СКОРОСТИ, Х:"
     	"DOTA_Tooltip_ability_timewarp_missles_create_interval"		"ИНТЕРВАЛ СОЗДАНИЯ СНАРЯДОВ:"
@@ -11145,7 +11145,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"Заряды [W2] увеличивают весь стихийный урон <font color=\"#B5FFB7\">Времени</font> на @glyph_property1%. Когда стихия <font color=\"#B5FFB7\">Времени</font> наносит урон, тратится 1 заряд."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"(Immortal) Glyph of Flurry Punches"
-		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые <font color='#ccff66'>0.8</font> секунды."
+		"item_rpc_zonik_glyph_5_a_description" 				"Автоматически применяет @Ability2 на случайного противника поблизости каждые <font color='#ccff66'>1.5</font> секунды."
 		
 		//Weapons
 		"DOTA_Tooltip_ability_item_rpc_zonik_weapon_00"		"Punch Glove"
@@ -11165,7 +11165,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"Sonar Style"
 		"item_property_zonik_immortal_weapon"							"Comet Punch"
-		"property_zonik_immortal_weapon_description"					"Дальность удара для (W) Mach Punch увеличена на <font color='#ccff66'>500</font>, урон увеличен в <font color='#ccff66'>3</font> раза."
+		"property_zonik_immortal_weapon_description"					"Дальность удара для (W) Mach Punch увеличена на <font color='#ccff66'>500</font>, урон способности @Ability2 увеличен на <font color='#ccff66'>75</font>%."
 
 		
 
@@ -18368,14 +18368,14 @@
 	"tutorial_master_dialogue_6_4d"										"Это жетон - дополнительная возможность поддержать разработку. На этом закончим урок."
 	
 	"quest_6_challenge_5_desc"											"Roshpit Champions имеет активный канал Discord'а. Там можно пообщаться с игроками и разработчиками. Ссылка: discord.gg/ZUhfMZG"
-	"quest_6_challenge_5_sub_0_summary"									"Найди канал Curator's Library в Дискорде Roshpit. Найди там пароль в Прикрепленных сообщениях (Pinned)."
+	"quest_6_challenge_5_sub_0_summary"									"Найди канал Curator's Library в Дискорде Roshpit. Найди там пароль в Прикрепленных сообщениях (#curators-library, ?Pinned)."
 
 	"tutorial_master_dialogue_6_5a"										"Discord - отличный вариант найти союзников и обсудить вопросы по игре."
 	"tutorial_master_dialogue_6_5b"										"Канал Рошпит находится по ссылке discord.gg/ZUhfMZG. Можешь также найти ее в описании мода."
 	"tutorial_master_dialogue_6_5c"										"Я хочу чтобы ты ее посетил."
 	"tutorial_master_dialogue_6_5d"										"А чтобы доказать, что ты там был, в канале curators-library будет прикреплен пароль."
 
-	"tutorial_quiz_question_19"											"Найди канал Curator's Library в Дискорде Roshpit. Найди там пароль в Прикрепленных сообщениях и скажи мне его, или набери ?pinned в канале."
+	"tutorial_quiz_question_19"											"Найди канал #Curators-library в Дискорде Roshpit и набери ?pinned там, чтобы получить пароль."
 
 	"tutorial_quiz_wrong_6_5_1"											"Проверь прикрепленные сообщения в канале curators-library, в самом низу."
 	"tutorial_quiz_wrong_6_5_2"											"Нет. Зайди в discord.gg/ZUhfMZG, найди канал curators-library, проверь прикрепленные сообщения вверху страницы."

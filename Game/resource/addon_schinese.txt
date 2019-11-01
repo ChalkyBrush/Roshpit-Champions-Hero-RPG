@@ -2519,12 +2519,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% 攻击力"
 
 	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] 力场"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"当开始吟唱能量场时，阿基莫斯获得一个临时护盾，护盾减少受到伤害 <font color='#ccff66'>90</font>%。"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"当开始吟唱能量场时，阿基莫斯获得一个临时护盾，护盾减少受到伤害 <font color='#ccff66'>30</font>%。"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"持续时间"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" 秒"
 
     	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"力场"
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<font color='#ccff66'>90</font>%%"
+    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<font color='#ccff66'>30</font>%%"
 	
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] 螺旋魔术"
@@ -2555,12 +2555,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] 磁感"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"受到伤害时将获得一层磁感buff。每层buff减免阿基莫斯的伤害<font color='#ccff66'>3</font>%。每层伤害减免互为独立（收益递减）。持续 <font color='#ccff66'>60</font> 秒，并且在死后依然存在。"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"受到伤害时将获得一层磁感buff。每层buff减免阿基莫斯的伤害<font color='#ccff66'>0.5</font>%。每层伤害减免互为独立（收益递减）。持续 <font color='#ccff66'>60</font> 秒，并且在死后依然存在。"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"buff 层数上限"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"磁感"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 <font color='#ccff66'>3</font>%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 <font color='#ccff66'>0.5</font>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] 奥法吟唱"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"在电磁流激活状态下，阿基莫斯将获得额外的敏捷值。同时，阿基莫斯的敏捷值将提高所有 <font color=\"#5CCDF9\">电</font> 元素伤害。"
@@ -2611,22 +2611,22 @@
 		"item_rpc_arkimus_glyph_1_1_description" 				"能量子将产生在最小的范围内。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"法力之潮雕文"
-		"item_rpc_arkimus_glyph_2_1_description" 				"魔法恢复速度提高 <font color='#ccff66'>1200</font>。"
+		"item_rpc_arkimus_glyph_2_1_description" 				"魔法恢复速度提高 <font color='#ccff66'>100</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"能量子雕文"
-		"item_rpc_arkimus_glyph_3_1_description" 				"能量场将额外产生 <font color='#ccff66'>2</font> 个能量子。"
+		"item_rpc_arkimus_glyph_3_1_description" 				"能量场将额外产生 <font color='#ccff66'>3</font> 个能量子。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"杂技雕文"
 		"item_rpc_arkimus_glyph_4_1_description" 				"加多 <font color='#ccff66'>1</font> 个轨道飞跃自由施放的最大充能数。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"法力盾雕文"
-		"item_rpc_arkimus_glyph_5_1_description" 				"所受到伤害的 <font color='#ccff66'>90</font>% 将从魔法值中扣除而不是生命值。并且所扣除的魔法值将再减少 <font color='#ccff66'>90</font>%。"
+		"item_rpc_arkimus_glyph_5_1_description" 				"所受到伤害的 <font color='#ccff66'>30</font>% 将从魔法值中扣除而不是生命值。并且所扣除的魔法值将再减少 <font color='#ccff66'>90</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"扭曲折叠雕文"
 		"item_rpc_arkimus_glyph_6_1_description" 				"加多 <font color='#ccff66'>1</font> 个维度扭曲自由施放的最大充能数。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"杨永信雕文"
-		"item_rpc_arkimus_glyph_7_1_description" 				"所有 <font color=\"#5CCDF9\">电</font> 元素伤害提高 <font color='#ccff66'>1000</font>%。"
+		"item_rpc_arkimus_glyph_7_1_description" 				"所有 <font color=\"#5CCDF9\">电</font> 元素伤害提高 <font color='#ccff66'>120</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"带状分离雕文"
 		"item_rpc_arkimus_glyph_5_a_description" 				"每个激活的能量子吸收一次魔法或纯粹伤害，然后被毁坏。"
@@ -2656,7 +2656,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "奥法回路刃"
         "item_property_arkimus_immortal_weapon3"                             "粒子盾"
-        "property_arkimus_immortal_weapon3_description"                      "光子冲刺过程中伤害减免 <font color='#ccff66'>99</font>%"
+        "property_arkimus_immortal_weapon3_description"                      "光子冲刺过程中伤害减免 <font color='#ccff66'>85</font>%"
 
 
 		//Abilities
@@ -3335,11 +3335,11 @@
         "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"受到来自赤色上将的普通元素伤害提高"
 		
 		
-		"DOTA_Tooltip_ability_backshock"                                "冲击波"
-        "DOTA_Tooltip_ability_backshock_Description"                    "元素： <font color=\"#DDDDDD\">普通</font><br>向上将身后释放3道冲击波。"
-        "DOTA_Tooltip_ability_backshock_Lore"                           ""
-        "DOTA_Tooltip_ability_backshock_main_damage"                    "每道伤害："
-        "DOTA_Tooltip_ability_backshock_speed"                          "冲击波速度："
+		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "冲击波"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "元素： <font color=\"#DDDDDD\">普通</font><br>向上将身后释放3道冲击波。"
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_main_damage"                    "每道伤害："
+        "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"                          "冲击波速度："
 		
 		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] 余震"
         "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "被冲击波击中的敌人将受到持续伤害，每 0.3秒伤害一次，持续 3秒。"
@@ -3370,11 +3370,11 @@
  
 		
 		
-		"DOTA_Tooltip_ability_whirlwind"                                "急速狂飙"
-        "DOTA_Tooltip_ability_whirlwind_Description"                    "赤色上将高速旋转，牵引周围的敌人并拖拽着敌人一起向前移动，敌人每 0.18秒被拖拽一次。每一次拖拽敌人，赤色上将都将清除眩晕状态，并且根据所拖拽的敌人数量回复一定的生命值。"
-        "DOTA_Tooltip_ability_whirlwind_Lore"                           ""
-        "DOTA_Tooltip_ability_whirlwind_heal"                           "每拖拽一个敌人每次（0.18s）治疗："
-        "DOTA_Tooltip_ability_whirlwind_radius"                         "范围："
+		"DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind"                                "急速狂飙"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Description"                    "赤色上将高速旋转，牵引周围的敌人并拖拽着敌人一起向前移动，敌人每 0.18秒被拖拽一次。每一次拖拽敌人，赤色上将都将清除眩晕状态，并且根据所拖拽的敌人数量回复一定的生命值。"
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_Lore"                           ""
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_heal"                           "每拖拽一个敌人每次（0.18s）治疗："
+        "DOTA_Tooltip_ability_red_general_ability_base_e_whirlwind_radius"                         "范围："
 		
 		"DOTA_Tooltip_ability_axe_rune_e_1"                             "[E1] 耐力"
         "DOTA_Tooltip_ability_axe_rune_e_1_Description"                 "当上将失去生命值时，获得额外的全属性值。"
@@ -3411,10 +3411,10 @@
 		"DOTA_Tooltip_modifier_axe_rune_e_4_furnace"                    "Deep Furnace"
         "DOTA_Tooltip_modifier_axe_rune_e_4_furnace_Description"        "Casting Spur Shock unleashes charges."
  
-        "DOTA_Tooltip_ability_sunder"                                   "破甲"
-        "DOTA_Tooltip_ability_sunder_Description"                       "元素： <font color=\"#DDDDDD\">普通</font><br>上将高擎他的武器，持续2.5秒，重击地面，造成的伤害为当前生命值的倍数。"
-        "DOTA_Tooltip_ability_sunder_Lore"                              ""
-        "DOTA_Tooltip_ability_sunder_main_damage"                       "伤害为当前生命值的%："
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder"                                   "破甲"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Description"                       "元素： <font color=\"#DDDDDD\">普通</font><br>上将高擎他的武器，持续2.5秒，重击地面，造成的伤害为当前生命值的倍数。"
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_Lore"                              ""
+        "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "伤害为当前生命值的%："
 		
 		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] 狂战士怒吼"
         "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "当施放破甲时，每秒怒吼一次，嘲讽800范围内的敌人，强制敌人攻击你。当狂战士怒吼激活时，赤色上将所受到的来自敌人的所有伤害都将被反弹回敌人。反弹伤害为物理。最大反弹伤害为 20X最大生命值的伤害。"
@@ -3457,10 +3457,10 @@
 		"item_property_axe_arcana1"                                     "开天辟地"
         "property_axe_arcana1_description"                              "用开天辟地替换 @Ability4 及其所有符文。"
  
-        "DOTA_Tooltip_ability_axe_arcana_smash"                         "开天辟地"
-        "DOTA_Tooltip_ability_axe_arcana_smash_Description"             "用巨斧撕裂大地，被撕裂的大地将在 4秒后发生爆炸。"
-        "DOTA_Tooltip_ability_axe_arcana_smash_attack_power_mult_percent"   "伤害为 % 的攻击力："
-        "DOTA_Tooltip_ability_axe_arcana_smash_stun_duration"           "眩晕持续时间："
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder"                         "开天辟地"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_Description"             "用巨斧撕裂大地，被撕裂的大地将在 4秒后发生爆炸。"
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_attack_power_mult_percent"   "伤害为 % 的攻击力："
+        "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "眩晕持续时间："
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] 天地崩裂"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "开天辟地对敌人造成的伤害将被加深。（计算在敌人减伤之后）"
@@ -3493,10 +3493,10 @@
         "item_property_axe_arcana2"                                     "石墙"
         "property_axe_arcana2_description"                              "将 @Ability2 以及他的所有符文替换为石墙"
  
-        "DOTA_Tooltip_ability_axe_stonewall_ability"                         "石墙"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_Description"             "在赤色上将周围产生一圈石墙。任何站在石墙范围中的友军受到的伤害将会降低。"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_damage_reduction"   "受到伤害降低 %:"
-        "DOTA_Tooltip_ability_axe_stonewall_ability_duration"           "持续时间:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall"                         "石墙"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_Description"             "在赤色上将周围产生一圈石墙。任何站在石墙范围中的友军受到的伤害将会降低。"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_damage_reduction"   "受到伤害降低 %:"
+        "DOTA_Tooltip_ability_red_general_ability_arcana2_w_stonewall_duration"           "持续时间:"
 
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect"          "石墙"
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "降低受到的伤害"
@@ -11352,7 +11352,7 @@
 		"item_rpc_zonik_glyph_7_1_description" 				"每层时间能量充能都将提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害 @glyph_property1%。每制造一次 <font color=\"#B5FFB7\">时</font> 元素伤害，消耗一层充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"慌乱拳击雕文"
-		"item_rpc_zonik_glyph_5_a_description" 				"每<font color='#ccff66'>0.8</font>秒向周围随机一个敌人释放一次 @Ability2 。"
+		"item_rpc_zonik_glyph_5_a_description" 				"每<font color='#ccff66'>1.5</font>秒向周围随机一个敌人释放一次 @Ability2 。"
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"
 		
@@ -11374,7 +11374,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_zonik_immortal_weapon_1"			"声呐作风"
 		"item_property_zonik_immortal_weapon"							"彗星拳"
-		"property_zonik_immortal_weapon_description"					"马赫速度之拳提高<font color='#ccff66'>500</font>码的攻击距离，并且造成<font color='#ccff66'>3</font>倍的伤害。"
+		"property_zonik_immortal_weapon_description"					"马赫速度之拳提高<font color='#ccff66'>500</font>码的攻击距离，并且造成<font color='#ccff66'>75</font>倍的伤害。"
 
 		
 
