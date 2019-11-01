@@ -1983,7 +1983,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
-		filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
+		filterTable["damagetype_const"] = DAMAGE_TYPE_PHYSICAL
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
 		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
@@ -2308,15 +2308,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = modifier:GetStackCount()
 		local multIncrease = 0.15 * stacks
 		mult = mult + multIncrease
-	end
-
-	if attacker:HasModifier("modifier_machinal_jump_c_c_amp") then
-		modifier = attacker:FindModifierByName("modifier_machinal_jump_c_c_amp")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			local multIncrease = ARKIMUS_E3_POST_MITI/100 * stacks
-			mult = mult + multIncrease
-		end
 	end
 	if victim:HasModifier("modifier_reaper_slice_amp_debuff") then
 		modifier = victim:FindModifierByName("modifier_reaper_slice_amp_debuff")
@@ -3028,12 +3019,6 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_exploder_freeze") then
 		filterTable["damage"] = filterTable["damage"] * 5
-	end
-	if victim:HasModifier("modifier_zonis_stun_arcana1") then
-		if attacker:HasAbility("arkimus_zap_ring") then
-			local zapRing = attacker:FindAbilityByName("arkimus_zap_ring")
-			mult = mult + zapRing.q_2_level * ARKIMUS_ARCANA1_Q2_POSTMIT
-		end
 	end
 	if attacker:HasModifier("modifier_world_tree_effect") then
 		mult = mult + WORLD_TREES_CACHE_POST_MITI/100

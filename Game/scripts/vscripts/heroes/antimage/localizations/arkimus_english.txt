@@ -190,7 +190,7 @@
     	"property_arkimus_arcana2_description"								"Replaces @Ability4 and all of its runes with Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +400 attack speed, ranged attacks and takes reduced damage. All damage is converted to PURE damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +<% ARKIMUS_ARCANA_R_BONUS_AS %> attack speed, ranged attacks and takes reduced damage. All damage is converted to PURE damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ATTACK RANGE:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"DURATION:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"DAMAGE RESISTANCE %:"
@@ -199,7 +199,7 @@
     	"DOTA_Tooltip_modifier_arkimus_archon_form_Description"									"Increased attack range and damage resistance"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2"									"[R1] Archon Tide"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"Landing an attack in Archon Form creates a persistent 240 radius area for 4 seconds. Enemies within the area take damage every 0.1 seconds based on attack power, and the damage is split amongst all enemies. Only 1 Archon Tide can be active at a time."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"Landing an attack in Archon Form creates a persistent <% ARKIMUS_ARCANA_R_R1_AOE %> radius area for 4 seconds. Enemies within the area take damage every 0.1 seconds based on attack power, and the damage is split amongst all enemies. Only 1 Archon Tide can be active at a time."
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_property_one"					"Damage Per 0.1s"
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_suffix"							"% of attack power"
 

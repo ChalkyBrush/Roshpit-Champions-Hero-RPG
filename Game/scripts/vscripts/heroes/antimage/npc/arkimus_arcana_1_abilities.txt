@@ -41,12 +41,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 500 2000 5000 12000 50000 90000"
+				"damage"			"<% ARKIMUS_ARCANA_Q_DAMAGE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_damage"		"20 50 80 220 300 360 400"
+				"int_damage"		"<% ARKIMUS_ARCANA_Q_DAMAGE_INT_MULT %>"
 			}
 		}
 		"OnSpellStart"

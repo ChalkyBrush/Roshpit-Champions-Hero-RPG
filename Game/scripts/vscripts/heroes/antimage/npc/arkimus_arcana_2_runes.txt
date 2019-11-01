@@ -6,14 +6,14 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"arkimus/arkimus_rune_r_1_arcana2"
 		"MaxLevel"				"20"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"<% ARKIMUS_ARCANA_R_R1_DMG_OF_ATTACK_POWER_PCT %>"
 			}
 			"02"
 			{
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"<% ARKIMUS_ARCANA_R_R2_MANA_REGEN_PER_ATTRIBUTE_PCT %>"
 			}
 			"02"
 			{
@@ -82,7 +82,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"<% ARKIMUS_ARCANA_R_R4_CHANCE_DIV_1000 /10 %>"
 			}
 			"02"
 			{

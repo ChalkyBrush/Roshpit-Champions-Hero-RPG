@@ -2174,7 +2174,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasModifier("modifier_arkimus_arcana1_q4") then
                 local stacks = attacker:GetModifierStackCount("modifier_arkimus_arcana1_q4", attacker)
-                mult = mult + 0.002 * attacker:GetAgility() / 10 * stacks
+                mult = mult + ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP /100 * stacks
             end
         end
         if attacker:HasModifier("modifier_hand_lightning") then
@@ -2470,7 +2470,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasAbility("arkimus_energy_field") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
-                mult = mult + ARKIMUS_R4_ARCANE_AMP_PER_AGI/100 * attacker:GetAgility() / 10 * d_d_level
+                mult = mult + ARKIMUS_R4_ARCANE_AMP/100 * d_d_level
             end
             if attacker:HasModifier("modifier_arkimus_immortal_weapon_2") then
                 if bIsRealDamage then

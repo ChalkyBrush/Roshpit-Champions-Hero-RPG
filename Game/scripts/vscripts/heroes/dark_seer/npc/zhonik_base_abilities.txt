@@ -167,7 +167,7 @@
 		"AbilityTextureName"			"zonik/zonik_mach_punch"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityManaCost"				"160 340 800 1400 2000 3400 6000"
+		"AbilityManaCost"				"<% ZHONIK_W_MANACOST %>"
 		"AbilitySpecial"
 		{
 			"01"
@@ -309,7 +309,7 @@
 		"AbilityTextureName"			"zonik/comet_punch"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityManaCost"				"160 340 800 1400 2000 3400 6000"
+		"AbilityManaCost"				"<% ZHONIK_W_MANACOST %>"
 		"AbilitySpecial"
 		{
 			"01"
