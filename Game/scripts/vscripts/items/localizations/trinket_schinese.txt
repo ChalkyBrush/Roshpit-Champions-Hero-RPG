@@ -306,7 +306,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"旋转剃刀系带"
 		"item_property_razor_band"										"旋转之刃"
-		"property_razor_band_description"								"承受敌人一次伤害后，你将会对敌人造成一次 <% RAZOR_BAND_MAX_HEALTH_DAMAGE %>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <% RAZOR_BAND_ATTACK_POWER_PER_STACK %>% 倍攻击力和 <% RAZOR_BAND_POST_MITIGATION_PER_STACK %>% 税后伤害。每0.3秒对附近的敌人造成一次 <% RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% 攻击力的伤害。每层效果都有独立的<% RAZOR_BAND_STACK_DURATION %> 秒持续时间，并且最大层数不能超过<% RAZOR_BAND_MAX_STACKS %>层。"
+		"property_razor_band_description"								"承受敌人一次伤害后，你将会对自己造成一次 <% RAZOR_BAND_MAX_HEALTH_DAMAGE %>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <% RAZOR_BAND_ATTACK_POWER_PER_STACK %>% 倍攻击力和 <% RAZOR_BAND_POST_MITIGATION_PER_STACK %>% 税后伤害。每0.3秒对附近的敌人造成一次 <% RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% 攻击力的伤害。每层效果都有独立的<% RAZOR_BAND_STACK_DURATION %> 秒持续时间，并且最大层数不能超过<% RAZOR_BAND_MAX_STACKS %>层。"
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"旋转之刃"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"增加攻击力和税后伤害并且每0.3秒对周围的敌人造成一次伤害。"
