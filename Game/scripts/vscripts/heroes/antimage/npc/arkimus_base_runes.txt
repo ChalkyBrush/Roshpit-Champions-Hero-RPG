@@ -74,7 +74,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-<% ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION %>"
+				"property_one"			"<% ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -115,12 +115,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_W1_ARCANE_DMG_TO_ATTACK_DAMAGE_PCT %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_W1_BASE_DMG %>"
+				"property_one"			"<% ARKIMUS_W1_BASE_ATTACK_DMG %>"
 			}
 		}
 	}
@@ -138,7 +133,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_W2_ARCANE_BONUS_PER_STACK_PCT %>"
+				"property_one"			"<% ARKIMUS_W2_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -255,7 +250,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_E3_SPELL_PIERCE %>"
+				"property_one"			"<% ARKIMUS_E3_PIERCES %>"
 			}
 		}
 	}

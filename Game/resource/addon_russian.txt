@@ -2194,7 +2194,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% от урона героя"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] Forcefield"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"В начале прочтения @Ability4 герой ненадолго укрывается щитом, снижающим входящий урон на <font color='#ccff66'>30</font>%."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"В начале прочтения @Ability4 герой ненадолго укрывается щитом, снижающим входящий урон на <font color='#ccff66'>80</font>%."
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" сек."
 
@@ -2229,7 +2229,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на <font color='#ccff66'>0.5</font>% (работает по закону убывающей полезности). Сохраняется после смерти, длится <font color='#ccff66'>60</font> секунд."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на <font color='#ccff66'>1</font>% (работает по закону убывающей полезности). Сохраняется после смерти, длится <font color='#ccff66'>60</font> секунд."
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Макс. зарядов"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
@@ -2250,7 +2250,7 @@
     	"property_arkimus_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +<font color='#ccff66'>280</font> к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на Физический. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +<font color='#ccff66'>250</font> к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на Физический. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ДАЛЬНОСТЬ АТАКИ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"ДЛИТЕЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"СОПРОТИВЛЕНИЕ УРОНУ, %:"
@@ -2302,7 +2302,7 @@
 		"item_rpc_arkimus_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов на свободное прочтение (Q) Dimension Coil на <font color='#ccff66'>1</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"(T7) Glyph of Arcane Electrocution"
-		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <font color='#ccff66'>120</font>%."
+		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <font color='#ccff66'>100</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"(Immortal) Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
@@ -2325,14 +2325,14 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_1"			"Arcanys Wing-Blade"
 		"item_property_arkimus_immortal_weapon"								"Dual Source"
-		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит в <font color='#ccff66'>1.1</font> раз(а) больше урона. Количество зарядов [W2] за удар увеличено в <font color='#ccff66'>2</font> раз(а)."
+		"property_arkimus_immortal_weapon_description"						"(W) Flash Source наносит в <font color='#ccff66'>1.1</font> раз(а) больше урона. Количество зарядов [W2]."
 		"DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_2"            "Arclight Blade"
         "item_property_arkimus_immortal_weapon2"                             "Magnetize"
         "property_arkimus_immortal_weapon2_description"                      "@special_property1% от всего урона <font color=\"#E1A2E8\">Тайны</font> исцеляет героя."
 
         "DOTA_Tooltip_ability_item_rpc_arkimus_immortal_weapon_3"            "Arcane Circuitry Shiv"
         "item_property_arkimus_immortal_weapon3"                             "Photon Shell"
-        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] весь входящий урон снижается на <font color='#ccff66'>85</font>%."
+        "property_arkimus_immortal_weapon3_description"                      "Во время [W3] весь входящий урон снижается на <font color='#ccff66'>90</font>%."
 
 		//Abilities
 		"DOTA_Tooltip_ability_moon_shroud"								"Moon Shroud"

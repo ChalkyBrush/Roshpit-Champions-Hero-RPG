@@ -244,7 +244,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_resist"			"58 60 62 64 66 68 70"
+				"damage_resist"			"<% ARKIMUS_ARCANA_R_DMG_REDUCTION %>"
 			}
 		}
 	}

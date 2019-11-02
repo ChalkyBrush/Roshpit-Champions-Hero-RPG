@@ -39,7 +39,7 @@ function channel_complete(event)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 	ability.r_2_level = caster:GetRuneValue("r", 2)
 	if ability.r_2_level > 0 then
-		local stats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
+		local stats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()
 		local manaRegen = stats * ARKIMUS_ARCANA_R_R2_MANA_REGEN_PER_ATTRIBUTE_PCT/100 * ability.r_2_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archone_b_d_mana_regen", {duration = duration})
 		caster:SetModifierStackCount("modifier_archone_b_d_mana_regen", caster, manaRegen)

@@ -1464,6 +1464,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 Filters:DeathWhisperApply(attacker, victim)
             end
         end
+        if attacker:GetUnitName() == "npc_dota_hero_antimage" then
+            if attacker:HasAbility("arkimus_zonis_spark") then
+                local q_4_level = attacker:GetRuneValue("q", 4)
+                damageMult = damageMult + ARKIMUS_Q4_ADD_DMG_PCT/100
+            end
+        end
         if attacker:HasModifier("modifier_vampiric_breastplate") then
             if not ignore_effects then
                 Filters:VampiricBreastplate(attacker, damage)
@@ -1521,6 +1527,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if attacker:HasModifier("modifier_wild_nature_two") then
                 Filters:WildNatureTwo(attacker, victim)
             end
+        end
+        if attacker:HasModifier("modifier_arkimus_immortal_weapon_1") then
+            damageMult = damageMult + ARKIMUS_IMMORTAL_WEAPON_1_W_MULT
         end
         if attacker:HasModifier("modifier_phantom_sorcerer") then
             damageMult = damageMult + PHANTOM_SORCERER_BAD/100
@@ -2445,19 +2454,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + multIncrease
         end
         if unitName == "npc_dota_hero_antimage" then
-            if attacker:HasAbility("arkimus_storm_weapon") then
-                if bIsRealDamage then
-                    local w_1_level = attacker:GetRuneValue("w", 1)
-                    if w_1_level > 0 then
-                        local specialDamage = damage * mult
-                        local damageBoost = math.min(specialDamage * ARKIMUS_W1_ARCANE_DMG_TO_ATTACK_DAMAGE_PCT/100 * w_1_level, w_1_level * ARKIMUS_W1_BASE_DMG)
-                        local stormAbility = attacker:FindAbilityByName("arkimus_storm_weapon")
-                        stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_visible", {duration = ARKIMUS_W1_DURATION})
-                        stormAbility:ApplyDataDrivenModifier(attacker, attacker, "modifier_damage_boost_a_a_invisible", {duration = ARKIMUS_W1_DURATION})
-                        attacker:SetModifierStackCount("modifier_damage_boost_a_a_invisible", attacker, damageBoost)
-                    end
-                end
-            end
             if attacker:HasAbility("arkimus_energy_field") then
                 local d_d_level = attacker:GetRuneValue("r", 4)
                 mult = mult + ARKIMUS_R4_ARCANE_AMP/100 * d_d_level

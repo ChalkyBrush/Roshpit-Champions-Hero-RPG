@@ -1268,6 +1268,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*HYDROXIS_R4_ARMOR_PIERCE
 	end
+	if unit:HasModifier("modifier_machinal_jump_c_c_amp") then
+		local modifier = unit:FindModifierByName("modifier_machinal_jump_c_c_amp")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_PIERCES
+	end
+	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") and unit:HasModifier("modifier_arkimus_immortal_weapon_1") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		armor_pierce_modify = armor_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
+	end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
@@ -1408,7 +1416,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_machinal_jump_c_c_amp") then
 		local modifier = unit:FindModifierByName("modifier_machinal_jump_c_c_amp")
-		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_SPELL_PIERCE
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_PIERCES
+	end
+	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		spell_pierce_modify = spell_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
 	end
 
 	if spell_pierce_modify > 0 then

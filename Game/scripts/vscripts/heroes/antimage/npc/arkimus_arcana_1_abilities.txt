@@ -45,7 +45,7 @@
 			}
 			"03"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_FLOAT"
 				"int_damage"		"<% ARKIMUS_ARCANA_Q_DAMAGE_INT_MULT %>"
 			}
 		}

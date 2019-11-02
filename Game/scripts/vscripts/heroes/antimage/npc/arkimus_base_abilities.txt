@@ -140,6 +140,12 @@
 						"ScriptFile"	"heroes/antimage/zonis_spark"
 						"Function"		"EndAmplifyDamageParticle"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_zonis_c_a_magic_resist"
@@ -150,6 +156,15 @@
 				"TextureName"	"arkimus/arkimus_rune_q_3"
 				"EffectName"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -295,7 +310,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ARKIMUS_W1_BASE_ATTACK_DMG %>"
 				}
 			}
 			"modifier_storm_weapon_b_b_visible"
