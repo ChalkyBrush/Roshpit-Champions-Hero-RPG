@@ -223,7 +223,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W2_MAGIC_RESIST_LOSE %>"
+				"property_one"			"<% RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION %>"
 			}
 			"02"
 			{

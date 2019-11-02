@@ -120,6 +120,7 @@ function red_general_rune_base_w_1_think(event)
 end
 
 function red_general_rune_base_w_2_applyDebuff(target, caster, ability)
+	-- print("red_general_rune_base_w_2_applyDebuff")
 	local runesCount = caster.w_2_level
 	if runesCount <= 0 then
 		return

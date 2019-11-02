@@ -348,21 +348,16 @@
 			"modifier_axe_rune_w_2_invisible"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
+				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% RED_GENERAL_W2_MAGIC_RESIST_LOSE %>"
-				}
+				"IsStunDebuff"		"1"
 			}
 			"modifier_axe_rune_w_2_visible"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
+				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
+				"IsStunDebuff"		"1"
 				"TextureName"		"axe/axe_rune_w_2"
 
 				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
@@ -759,7 +754,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"<% RED_GENERAL_R3_BONUS_HEALTH %>"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% RED_GENERAL_R3_BONUS_ARMOR %>"
 				}
 			}
 
