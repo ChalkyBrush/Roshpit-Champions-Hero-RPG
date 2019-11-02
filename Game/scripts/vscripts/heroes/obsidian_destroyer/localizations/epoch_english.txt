@@ -160,9 +160,9 @@
     	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding_Description" "Exploding for a percentage of Epoch Guardian's attack damage"	
 
     	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Tides of Time"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Epoch Guardian's current mana regen stat increases all <font color=\"#B5FFB7\">Temporal</font> damage dealt."
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Temporal Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"% for each Mana regen"	
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Increases all <font color=\"#B5FFB7\">Temporal</font> damage."
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Temporal Damage Amp"
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"%"	
 
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"Tides of Time"
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible_Description"		"Gaining Attack Damage"

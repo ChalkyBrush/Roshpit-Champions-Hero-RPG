@@ -482,7 +482,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_R4_ELEM_TIME %>"
+				"property_one"			"<% EPOCH_R4_TIME_AMP * 100 %>"
 			}
 		}
 	}

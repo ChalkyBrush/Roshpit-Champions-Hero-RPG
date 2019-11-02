@@ -2235,7 +2235,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local d_d_level = attacker:GetRuneValue("r", 4)
             if d_d_level > 0 then
                 ----print("OD HERE2 r4: "..r_4_level)
-                mult = mult + attacker:GetManaRegen() * d_d_level * EPOCH_R4_ELEM_TIME / 100
+                mult = mult + d_d_level * EPOCH_R4_TIME_AMP
             end
         end
     end
