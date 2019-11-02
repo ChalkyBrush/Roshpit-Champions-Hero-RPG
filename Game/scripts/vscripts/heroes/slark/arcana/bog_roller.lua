@@ -205,10 +205,9 @@ function bog_roller_passive_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local armor_break_percent = event.armor_break_percent
-	local current_stacks = target:GetModifierStackCount("modifier_slipfinn_bog_roller_armor_break", caster)
-	local stacks = (target:GetPhysicalArmorValue(false) + current_stacks) * (armor_break_percent / 100)
+
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_slipfinn_bog_roller_armor_break", {duration = 10})
-	target:SetModifierStackCount("modifier_slipfinn_bog_roller_armor_break", caster, stacks)
+
 	if target.dummy then
 		return false
 	end
@@ -244,7 +243,7 @@ function bog_roller_razor(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (SLIPFINN_ARCANA_1_E1_CYCLONE_DAMAGE_PER_ATTACK_PCT / 100) * ability.e_1_level
 	for _, enemy in pairs(enemies) do
-		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
+		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
 	end
 end
 

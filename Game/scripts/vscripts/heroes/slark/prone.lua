@@ -142,7 +142,7 @@ function stomp(caster, ability, damage)
 	local heightBonus = 0
 	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then
-		heightBonus = SLIPFINN_Q3_HEIGHT_SQ_MULT * q_3_level * (ability.height ^ 2)
+		heightBonus = SLIPFINN_Q3_DMG_PER_HEIGHT * q_3_level * (ability.height)
 	end
 	local stun_duration = 0.3
 	if caster:HasModifier("modifier_slipfinn_glyph_5_1") then

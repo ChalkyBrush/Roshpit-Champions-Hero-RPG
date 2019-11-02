@@ -2489,7 +2489,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
-                mult = mult + SLIPFINN_Q4_SHADOW_WATER_AMP/100 * attacker.q_4_level
+                mult = mult + SLIPFINN_Q4_SHADOW_WATER_AMP * attacker.q_4_level
             end
         elseif unitName == "npc_dota_hero_invoker" then
             if attacker:HasAbility("summon_shadow_deity") then
@@ -2618,7 +2618,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_slark" then
             attacker.q_4_level = attacker:GetRuneValue("q", 4)
             if attacker.q_4_level then
-					waterMult = waterMult + SLIPFINN_Q4_SHADOW_WATER_AMP/100 * attacker.q_4_level
+				waterMult = waterMult + SLIPFINN_Q4_SHADOW_WATER_AMP * attacker.q_4_level
 			end
         end
         if attacker:HasModifier("modifier_body_water") then

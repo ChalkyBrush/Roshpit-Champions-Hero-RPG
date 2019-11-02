@@ -1276,6 +1276,7 @@ function Runes:EquipArcana(hero, index)
 			end
 			hero:RemoveModifierByName("modifier_slipfinn_b_c_health")
 			hero:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
+			hero:RemoveModifierByName("modifier_slipfinn_shadow_rush_passive")
 			hero:RemoveAbility("slipfinn_shadow_warp")
 			Runes:EasySwapArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end

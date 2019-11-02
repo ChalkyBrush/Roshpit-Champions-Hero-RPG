@@ -137,14 +137,21 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"slipfinn/slipfinn_rune_w_2"
 			}
 			"modifier_slipfinn_gloomshade_invisible"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_slipfinn_agitated_visible"
 			{
@@ -345,6 +352,19 @@
 		}
 		"Modifiers"
 		{
+			"modifier_slipfinn_shadow_rush_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/shadow_rush"
+						"Function"		"shadow_rush_kill"
+					}
+				}
+			}
 			"modifier_slipfinn_shadow_rush"
 			{
 				"Passive"			"0"
@@ -397,6 +417,11 @@
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_slipfinn_e_4_assassin"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
 			}
 		}
 		"OnAbilityPhaseStart"

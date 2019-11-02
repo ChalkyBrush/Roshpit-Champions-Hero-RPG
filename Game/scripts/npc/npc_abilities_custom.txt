@@ -57596,14 +57596,21 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"slipfinn/slipfinn_rune_w_2"
 			}
 			"modifier_slipfinn_gloomshade_invisible"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_slipfinn_agitated_visible"
 			{
@@ -57617,7 +57624,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 				}
 			}
 			"modifier_slipfinn_b_c_health"
@@ -57683,12 +57690,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"40 80 120 180 240 320 400"
+				"damage"			"80 200 320 440 560 680 800"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_pure_resist"			"50 55 58 61 64 67 69"
+				"magic_pure_resist"			"47 50 53 56 59 62 65"
 			}
 		}
 		"OnSpellStart"
@@ -57804,6 +57811,19 @@
 		}
 		"Modifiers"
 		{
+			"modifier_slipfinn_shadow_rush_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/shadow_rush"
+						"Function"		"shadow_rush_kill"
+					}
+				}
+			}
 			"modifier_slipfinn_shadow_rush"
 			{
 				"Passive"			"0"
@@ -57856,6 +57876,11 @@
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_slipfinn_e_4_assassin"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -58324,7 +58349,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"30"
 			}
 		}
 	}
@@ -58344,7 +58369,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -58364,7 +58389,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"16"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -58385,7 +58410,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"45"
 			}
 			"02"
 			{
@@ -58425,7 +58450,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-5"
+				"property_one"			"-15"
 			}
 		}
 	}
@@ -58445,7 +58470,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -58516,7 +58541,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -58565,8 +58590,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"125"
 			}
 		}
 	}
@@ -58606,7 +58631,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -58695,7 +58720,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_break_percent"						"50 60 70 80 90 100 110"
+				"armor_break"						"-400 -500 -600 -700 -800 -900 -1000"
 			}
 			"01"
 			{
@@ -58831,6 +58856,12 @@
 						"ScriptFile"	"heroes/slardar/tsunami.lua"
 						"Function"		"AmplifyDamageParticle"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 
 				"OnDestroy"
@@ -58840,10 +58871,12 @@
 						"ScriptFile"	"heroes/slardar/tsunami.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_bog_roller_speedburst"
@@ -58879,13 +58912,13 @@
 		"AbilityTextureName"	"slipfinn/arcana1/slipfinn_e_1_arcana1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"3"
 			}
 			"02"
 			{
@@ -58936,7 +58969,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -58966,12 +58999,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"25"
 			}
 		}
 	}
@@ -58992,12 +59025,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.25"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"15"
 			}
 			"03"
 			{

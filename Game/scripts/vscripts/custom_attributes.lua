@@ -764,7 +764,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_shimmer_cape") then
 		local modifier = unit:FindModifierByName("modifier_shimmer_cape")
-		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMOR
+		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMORS
 	end
 	if unit:HasModifier("modifier_slipfinn_e_2_armor") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_2_armor")
@@ -777,6 +777,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_zonis_a_a_armor_loss") then
 		local modifier = unit:FindModifierByName("modifier_zonis_a_a_armor_loss")
 		armor_modify = armor_modify + modifier:GetStackCount()*ARKIMUS_Q1_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_slipfinn_bog_roller_armor_break") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_slipfinn_bog_roller_armor_break")
 	end
 	
 
@@ -1147,7 +1150,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local q_2_level = caster:GetRuneValue("q", 2)
 		magic_armor_modify = magic_armor_modify + q_2_level*ARKIMUS_ARCANA1_Q2_MAGIC_ARMOR_REDUCTION
 	end
-	
+	if unit:HasModifier("modifier_shimmer_cape") then
+		local modifier = unit:FindModifierByName("modifier_shimmer_cape")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMORS
+	end	
 	
 	
 	if magic_armor_modify > 0 then
@@ -1275,6 +1281,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") and unit:HasModifier("modifier_arkimus_immortal_weapon_1") then
 		local w_2_level = unit:GetRuneValue("w", 2)
 		armor_pierce_modify = armor_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
 	end
 
 	if armor_pierce_modify > 0 then
@@ -1421,6 +1431,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") then
 		local w_2_level = unit:GetRuneValue("w", 2)
 		spell_pierce_modify = spell_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
 	end
 
 	if spell_pierce_modify > 0 then

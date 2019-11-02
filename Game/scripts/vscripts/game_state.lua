@@ -2501,13 +2501,6 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + 0.05 * stacks
 		end
 	end
-	if victim:HasModifier("modifier_slipfinn_gloomshade_invisible") then
-		modifier = victim:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetStackCount()
-			mult = mult + SLIPFINN_W2_POST_MITI/100 * stacks
-		end
-	end
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then
 		if victim:HasModifier("modifier_sea_oracle_stacker") then
 			local stacks = victim:GetModifierStackCount("modifier_sea_oracle_stacker", attacker.InventoryUnit)

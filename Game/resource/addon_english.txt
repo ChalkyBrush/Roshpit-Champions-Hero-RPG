@@ -9285,8 +9285,8 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_2"									"[Q2] Shimmer Cape"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_Description"						"Gain armor when entering prone position. Effect persists for 4 seconds after leaving prone and activates when doing a Ground Pound."
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_property_one"						"Armor"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_Description"						"Gain Armor and Magic Armor when entering prone position. Effect persists for 4 seconds after leaving prone and activates when doing a Ground Pound."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_property_one"						"Armor and Magic Armor"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_2_suffix"								""
 
     	"DOTA_Tooltip_modifier_shimmer_cape"										"Shimmer Cape"
@@ -9295,7 +9295,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3"									"[Q3] Crushing Heights"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_Description"						"Ground Pound deals additional damage based on the height from the ground when the pound starts."
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_property_one"						"Additional Damage"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x height^2"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x height"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] Murkwood Hunter"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Slipfinn's Agility increases <font color=\"#7F4F84\">Shadow</font> and <font color=\"#3894FF\">Water</font> damage."
@@ -9370,9 +9370,12 @@
     	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak_Description"					"Invisible"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_e_4"									"[E4] Bitter Assassin"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_Description"						"Adds a chance for all damage instances to ignore Steadfast."
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_property_one"						"Chance for damage to ignore Steadfast"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_suffix"								"%"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_Description"						"Gain Armor Pierce and Spell Pierce for <font color='#ccff66'>15</font> seconds after killing an enemy."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_property_one"						"Armor and Spell Pierce"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_suffix"								""
+
+        "DOTA_Tooltip_modifier_slipfinn_e_4_assassin"                               "Bitter Assassin"
+        "DOTA_Tooltip_modifier_slipfinn_e_4_assassin_Description"                   "Increased Armor Pierce and Spell Pierce" 
 		
 		"DOTA_Tooltip_ability_slipfinn_bubble_possession"							"Possession Bubble"
     	"DOTA_Tooltip_ability_slipfinn_bubble_possession_Description"				"After a 1.5 second channel, Slipfinn springs towards the target and captures them in a Possession Bubble. Slipfinn gains a copy of all of their abilities, and damage dealt by copied abilities is considered Base Ability damage for his ultimate. The trapped enemy is disabled."	
@@ -9400,9 +9403,9 @@
 		"DOTA_Tooltip_modifier_slipfinn_release_immunity_Description"				"Immune to damage"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3"									"[R3] Expose Weaknesses"
-    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"After possessing an enemy, gain increased post-mitigation damage towards that type of enemy for the rest of the game session. If an enemy cannot be possessed, the damage bonus against that type of enemy is acquired regardless."
-    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_property_one"						"Session Post-Mitigation Bonus"
-    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_suffix"								"%"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"After possessing an enemy, gain increased damage towards that type of enemy for the rest of the game session. If an enemy cannot be possessed, the damage bonus against that type of enemy is acquired regardless."
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_property_one"						"Session Damage Bonus"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_suffix"								"% against that type of creature"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_4"									"[R4] Sticky Abduction"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_4_Description"						"Gain Base Attack Damage based on the base attack power of a possessed enemy."
@@ -9417,8 +9420,8 @@
 
         "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
         "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Element: <font color=\"#7F4F84\">Shadow</font><br>Slipfinn curls up into a hardy shell that can traverse hazardous terrain and provides magic immunity. While in the shell, Slipfinn barrels forward unrelentingly and attacks the closest nearby enemy every 0.06 seconds.<br>Bog Roller also passively adds an instance of <font color=\"#7F4F84\">Shadow</font> damage to basic attacks, and causes basic attacks to reduce armor. Switching in and out of Bog Roller disjoints projectiles."
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      "% ARMOR BREAK:"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% <font color=\"#7F4F84\">SHADOW</font> DAMAGE ATTACK POWER"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break"      "ARMOR BREAK:"
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% <font color=\"#7F4F84\">SHADOW</font> DAMAGE BASED ON ATTACK POWER"
 
         "DOTA_Tooltip_modifier_slipfinn_bog_roller"                     "Bog Roller"
         "DOTA_Tooltip_modifier_slipfinn_bog_roller_Description"         "Rolling around at a fervid pace"

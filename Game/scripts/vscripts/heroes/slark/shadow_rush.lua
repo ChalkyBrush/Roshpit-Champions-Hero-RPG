@@ -93,3 +93,14 @@ function slipfinn_attack_land(event)
 		end
 	end
 end
+
+function shadow_rush_kill(event)
+	local caster = event.caster
+	local ability = event.ability
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
+		local duration = Filters:GetAdjustedBuffDuration(caster, SLIPFINN_E4_DURATION, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_e_4_assassin", {duration = duration})
+		caster:SetModifierStackCount("modifier_slipfinn_e_4_assassin", caster, e_4_level)
+	end
+end

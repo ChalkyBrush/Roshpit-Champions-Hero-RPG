@@ -395,22 +395,25 @@ function slipfinn_jump_think(event)
 							Filters:TakeArgumentsAndApplyDamage(enemy, caster, a_b_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_SHADOW, RPC_ELEMENT_WATER)
 							if ability.w_2_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_visible", {duration = SLIPFINN_W2_DURATION})
-								local newStacks = enemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
+								local newStacks = math.min(enemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1, SLIPFINN_W2_MAX_STACKS)
 								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster, newStacks)
 
 								ability:ApplyDataDrivenModifier(caster, enemy, "modifier_slipfinn_gloomshade_invisible", {duration = SLIPFINN_W2_DURATION})
 								enemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks * ability.w_2_level)
+
+								enemy:CalculateAndSaveRoshpitAttributes()
 							end
 						end
 					end
 				end
 				if ability.w_2_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_visible", {duration = SLIPFINN_W2_DURATION})
-					local newStacks = jumpEnemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1
+					local newStacks = math.min(jumpEnemy:GetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster) + 1, SLIPFINN_W2_MAX_STACKS)
 					jumpEnemy:SetModifierStackCount("modifier_slipfinn_gloomshade_visible", caster, newStacks)
 
 					ability:ApplyDataDrivenModifier(caster, jumpEnemy, "modifier_slipfinn_gloomshade_invisible", {duration = SLIPFINN_W2_DURATION})
 					jumpEnemy:SetModifierStackCount("modifier_slipfinn_gloomshade_invisible", caster, newStacks * ability.w_2_level)
+					jumpEnemy:CalculateAndSaveRoshpitAttributes()
 				end
 				if ability.w_3_level > 0 then
 					local duration = Filters:GetAdjustedBuffDuration(caster, SLIPFINN_W3_DURATION, false)

@@ -34,7 +34,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SLIPFINN_Q2_ARMOR %>"
+				"property_one"			"<% SLIPFINN_Q2_ARMORS %>"
 			}
 		}
 	}
@@ -54,7 +54,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_Q3_HEIGHT_SQ_MULT %>"
+				"property_one"			"<% SLIPFINN_Q3_DMG_PER_HEIGHT %>"
 			}
 		}
 	}
@@ -74,7 +74,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_Q4_SHADOW_WATER_AMP %>"
+				"property_one"			"<% SLIPFINN_Q4_SHADOW_WATER_AMP * 100 %>"
 			}
 		}
 	}
@@ -275,8 +275,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SLIPFINN_E4_STEADFAST_IGNORE_CHANCE / 10 %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL %>"
 			}
 		}
 	}
