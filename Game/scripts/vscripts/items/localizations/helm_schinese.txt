@@ -13,7 +13,7 @@
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱"
 		 "item_property_shipyard_veil_3"					"灵魂支盾"
-		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。"
+		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为你增加一层能吸收一次伤害的护盾 (<% SHIPYARD_SHIELD_COOLDOWN %> 秒冷却时间). 最大叠加 <% SHIPYARD_VEIL_MAX_STACKS %> 层. 每层增加 @Ability1 的基础技能伤害 <% SHIPYARD_VEIL_BAD_PER_STACK %>%. 当拥有护盾时，伤害你的敌人会受到一次骷髅打击，造成 <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x 你的主属性的魔法伤害."
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"灵魂之盾"
@@ -39,7 +39,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
 		"item_property_ruby_dragon"					"红龙"
-		"property_ruby_dragon_description"			"成功释放 @Ability4 后召唤火龙喷火对敌人造成 @special_property1x 力量值的魔法AOE伤害，并且被火焰灼烧的敌人每0.5秒都会受到 @special_property2x 力量值的持续伤害，持续3秒。"
+		"property_ruby_dragon_description"			"成功释放 @Ability4 召唤一只火龙在你周围巡逻 <% RUBY_DRAGON_DURATION %> 秒.它会对敌人喷火,造成 <% RUBY_DRAGON_IMPACT_DMG_PER_STR %>x 你的力量值的伤害; 被伤害的敌人随后会燃烧 <% RUBY_DRAGON_TICK_DURATION %> 秒,受到 <% RUBY_DRAGON_TICK_DMG_PER_STR %>x 你的力量值 的伤害每 <% RUBY_DRAGON_TICK_INTERVAL %> 秒.每次一个单位被火龙吐息击中, 它会产生一层新的燃烧buff, 且每层燃烧buff 造成伤害和持续时间互相独立"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"半人马角"	
@@ -57,9 +57,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"大自然之帽"
 		"item_property_wild_nature"					"纠缠根须"
-		"property_wild_nature_description"			"敌人攻击你时，有 <% CAP_OF_WILD_NATURE_CHANCE_ONE %>% 几率被定身 <% CAP_OF_WILD_NATURE_DURATION_ONE %> 秒，每秒受到 <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x 倍你的主属性的魔法伤害。"
+		"property_wild_nature_description"			"敌人攻击你时，有 <% CAP_OF_WILD_NATURE_CHANCE_ONE %>% 几率被定身 <% CAP_OF_WILD_NATURE_DURATION_ONE %> 秒，每秒受到 <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x 你的主属性的魔法伤害。"
 		"item_property_wild_nature_two"				"诱捕根须"
-		"property_wild_nature_two_description"		"被 @Ability2 击中的敌人有 <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% 几率被缠绕 <% CAP_OF_WILD_NATURE_DURATION_TWO %> 秒，每秒受到 <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x 倍你的主属性的伤害。"
+		"property_wild_nature_two_description"		"被 @Ability2 击中的敌人有 <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% 几率被缠绕 <% CAP_OF_WILD_NATURE_DURATION_TWO %> 秒，每秒受到 <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x 你的主属性的伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
@@ -98,7 +98,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"翡翠兜里"
 		"item_property_emerald_douli"				"法力护盾"
-		"property_emerald_douli_description"		"TODO: <% EMERALD_DOULI_ABSORBED_DMG_PCT %>% of damage taken is removed from mana before health. 1 point of mana can absorb <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> damage. Can't reduce mana below <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% 受到的伤害被法力护盾吸收. 1点魔法值 可以抵挡 <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> 伤害. 这个效果不会使魔法值低于 <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
@@ -176,7 +176,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"                                    "幽灵王冠"
         "item_property_wraith_crown"                        "幽灵暗潮"                 
-        "property_wraith_crown_description"                             "当血量等于或少于 <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% of 最大生命值时施放 @Ability1 会给予 <% WRAITH_CROWN_MAG_RES_PCT %>% 的魔抗 <% WRAITH_CROWN_MAG_RES_DUR %>秒, 施放 @Ability2 会躲避弹道 (每次触发不能超过 <% WRAITH_CROWN_DISJOINT_CD %>秒) 并且施放 @Ability 3 会给予 <% WRAITH_CROWN_EVASION_PCT %>% 的闪避 持续 <% WRAITH_CROWN_EVASION_DUR %>秒."
+        "property_wraith_crown_description"                             "当血量等于或少于 <% WRAITH_CROWN_HP_THRESHOLD_PCT %>%  最大生命值时施放 @Ability1 会给予 <% WRAITH_CROWN_MAG_RES_PCT %>% 的魔抗 <% WRAITH_CROWN_MAG_RES_DUR %>秒, 施放 @Ability2 会躲避弹道 (每次触发不能超过 <% WRAITH_CROWN_DISJOINT_CD %>秒) 并且施放 @Ability3 会给予 <% WRAITH_CROWN_EVASION_PCT %>% 的闪避 持续 <% WRAITH_CROWN_EVASION_DUR %>秒."
         "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"             "幽灵的魔法祝福"
         "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description" "给予 <% WRAITH_CROWN_MAG_RES_PCT %>%% 魔抗."
         "DOTA_Tooltip_modifier_wraith_crown_evasion_buff"               "幽魂的回避祝福"
@@ -187,7 +187,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"
 		"item_property_demon"						"恶魔之泪"
-		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <% DEMON_MASK_CHANCE %>% 几率释放一道火花，对周围所有单位造成 <% DEMON_MASK_AMP %>x 该技能的伤害。此装备不享受装备伤害加成效果。item_property_nobility"
+		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <% DEMON_MASK_CHANCE %>% 几率释放一道火花，对周围所有单位造成 <% DEMON_MASK_AMP %>x 该技能的伤害。此装备不享受装备伤害加成效果。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"暗哨头冠"
@@ -252,9 +252,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"沉寂圣殿骑士的头盔"
 		"item_property_helm_of_silent_templar"					"沉默瞥视"
-		 "property_helm_of_silent_templar_description"			"施放 @Ability4 沉默自己 <% SILENT_TEMPLAR_DURATION %> 秒。期间攻击速度增加 <% SILENT_TEMPLAR_AS %>，并且普通攻击额外造成 <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% 的魔法伤害。"
+		 "property_helm_of_silent_templar_description"			"施放 @Ability4 沉默自己 <% SILENT_TEMPLAR_DURATION %> 秒。期间攻击速度增加 <% SILENT_TEMPLAR_AS %>，并且普通攻击额外造成 <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% x的魔法伤害。"
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"沉默瞥视"
-		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"被沉默。攻击速度增加240并且普通攻击额外造成600%的魔法伤害"
+		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"被沉默。攻击速度增加240并且普通攻击额外造成6000%的魔法伤害"
 		 
 		
 		
@@ -344,7 +344,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"山岭巨人头盔"
 		"item_property_mountain_giant" 								"稳如泰山"
-		"property_mountain_giant_description"		"提高最大生命值 <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>。 当生命值高于80%时，拥有<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>减伤。"
+		"property_mountain_giant_description"		"提高最大生命值 <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %> %。 当生命值高于80%时，拥有<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%减伤。"
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"奥斯克的链盔"
