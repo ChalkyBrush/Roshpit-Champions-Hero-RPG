@@ -27,17 +27,12 @@ function jex_activate_cinderbark(event)
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_cinderbark", {})
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_charged_mushroom_spawning", {duration = 0.3})
 
-	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * ability.tech_level
-	local armor = caster:GetPhysicalArmorValue(false) * event.armor_mult_per_tech * ability.tech_level
-	local hp = caster:GetMaxHealth() * event.max_health_mult
+	local attack_mult = event.attack_mult_per_tech * tech_level
+	local roshpit_attribute_mult = event.roshpit_attr_per_tech * ability.tech_level
 
-	shroom:SetBaseMaxHealth(hp)
-	shroom:SetMaxHealth(hp)
-	shroom:SetHealth(hp)
 	Events:ColorWearablesAndBase(shroom, Vector(255, 190, 120))
-	shroom:SetPhysicalArmorBaseValue(armor)
-	shroom:SetBaseDamageMin(attack_damage)
-	shroom:SetBaseDamageMax(attack_damage)
+
+	shroom:AdjustSummon(caster, true, event.max_health_mult, attack_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult)
 	if caster:HasModifier("modifier_jex_glyph_4_1") then
 		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_glyph_4_1_as", {})
 	end

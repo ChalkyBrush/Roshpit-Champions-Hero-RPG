@@ -11,7 +11,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
 			}
 		}
@@ -29,8 +29,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% JEX_RUNE_ROW_2_VALUE %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% JEX_RUNE_ROW_2_VALUE * 100 %>"
 			}
 			"02"
 			{
@@ -52,7 +52,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
 			}
 		}
@@ -70,7 +70,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"1"
 			}
 		}
@@ -88,7 +88,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
 			}
 		}
@@ -106,8 +106,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% JEX_RUNE_ROW_2_VALUE %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% JEX_RUNE_ROW_2_VALUE * 100 %>"
 			}
 			"02"
 			{
@@ -129,7 +129,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
 			}
 		}
@@ -147,7 +147,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"1"
 			}
 		}
@@ -164,7 +164,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% JEX_RUNE_ROW_1_VALUE %>"
 			}
 		}
@@ -182,8 +182,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% JEX_RUNE_ROW_2_VALUE %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% JEX_RUNE_ROW_2_VALUE * 100 %>"
 			}
 			"02"
 			{
@@ -205,7 +205,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% JEX_RUNE_ROW_3_VALUE %>"
 			}
 		}
@@ -223,7 +223,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"1"
 			}
 		}
@@ -296,7 +296,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_R4_POSTMIT %>"
+				"property_one"			"<% JEX_RUNE_R4_SPELL_PIERCE %>"
 			}
 		}
 	}

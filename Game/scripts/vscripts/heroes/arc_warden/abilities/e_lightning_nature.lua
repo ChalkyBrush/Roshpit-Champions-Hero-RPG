@@ -20,9 +20,9 @@ function jex_activate_thunder_blossom(event)
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_thunder_blossom", {})
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_thunder_blossom_spawning", {duration = 0.3})
 
-	local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult_per_tech * tech_level
-	local armor = caster:GetPhysicalArmorValue(false) * event.armor_mult_per_tech * tech_level
-	local hp = caster:GetMaxHealth() * event.health_mult
+	local attack_mult = event.attack_mult_per_tech * tech_level
+	local roshpit_attribute_mult = event.roshpit_attr_per_tech * tech_level
+
 	local life_duration = math.max((event.duration_per_tech) * tech_level, 20)
 	local max_chain_targets = event.chain_target_count * tech_level
 
@@ -30,21 +30,18 @@ function jex_activate_thunder_blossom(event)
 		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_thunder_blossom_attack_range", {})
 		shroom:SetModifierStackCount("modifier_jex_thunder_blossom_attack_range", caster, tech_level)
 	end
-	local q_4_level = caster:GetRuneValue("q", 4)
-	if q_4_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_thunder_blossom_magic_resistance", {})
-		shroom:SetModifierStackCount("modifier_thunder_blossom_magic_resistance", caster, q_4_level)
-	end
+
 	if caster:HasModifier("modifier_jex_glyph_4_1") then
 		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_glyph_4_1_as", {})
 	end
-	shroom:SetBaseMaxHealth(hp)
-	shroom:SetMaxHealth(hp)
-	shroom:SetHealth(hp)
-	shroom:SetPhysicalArmorBaseValue(armor)
-	shroom:SetBaseDamageMin(attack_damage)
-	shroom:SetBaseDamageMax(attack_damage)
 
+	shroom:AdjustSummon(caster, true, event.max_health_mult, attack_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult)
+
+	local q_4_level = caster:GetRuneValue("q", 4)
+	if q_4_level > 0 then
+		local new_magic_armor = shroom.roshpit_attributes.roshpit_magic_armor + q_4_blossom_magic_armor*q_4_level
+		shroom:SetBaseRoshpitMagicArmor(new_magic_armor)
+	end
 	shroom.summoner = caster
 	shroom:SetOwner(caster)
 	shroom:SetControllableByPlayer(caster:GetPlayerID(), true)

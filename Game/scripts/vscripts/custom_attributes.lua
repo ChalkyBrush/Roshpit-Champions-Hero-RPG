@@ -64,7 +64,7 @@ CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = RED_GENERAL_ARCANA2_W2_STRENGTH
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = TRAPPER_R4_BONUS_AGI
-CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
+CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = JEX_OAK_INFUSION_Q4_STR
 
 CustomAttributes.RING_OF_NOBILITY = NOBILITY_ALL_ATTRIBUTES
 CustomAttributes.RING_OF_NOBILITY2 = NOBILITY_ALL_ATTRIBUTES_AUGMENTED
@@ -781,6 +781,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_slipfinn_bog_roller_armor_break") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_slipfinn_bog_roller_armor_break")
 	end
+	if unit:HasModifier("modifier_jex_nature_nature_shield_visible") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_jex_nature_nature_shield_visible")
+	end
+	if unit:HasModifier("modifier_jex_portal_armor") then
+		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
+		armor_modify = armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
+	end
 	
 
 	if armor_modify > 0 then
@@ -1154,6 +1161,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_shimmer_cape")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMORS
 	end	
+	if unit:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
+		local modifier = unit:FindModifierByName("modifier_jex_q_cosmic_cosmic_postmitigation")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*JEX_Q_COSMIC_COSMIC_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_jex_portal_armor") then
+		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
+	end
 	
 	
 	if magic_armor_modify > 0 then
@@ -1285,6 +1300,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
+	end
+	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
+		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		if not ability.tech_level then
+			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+		end
+		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
+		armor_pierce_modify = armor_pierce_modify + pierces
 	end
 
 	if armor_pierce_modify > 0 then
@@ -1435,6 +1458,19 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
+	end
+	if unit:GetUnitName() == "npc_dota_hero_arc_warden" then
+		if unit.r_4_level then
+			spell_pierce_modify = spell_pierce_modify + JEX_RUNE_R4_SPELL_PIERCE * unit.r_4_level
+		end
+	end
+	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
+		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		if not ability.tech_level then
+			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+		end
+		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
+		spell_pierce_modify = spell_pierce_modify + pierces
 	end
 
 	if spell_pierce_modify > 0 then

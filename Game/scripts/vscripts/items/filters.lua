@@ -1428,15 +1428,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if slot == BASE_ABILITY_E then
                 if attacker.r_1_level then
-                    damageMult = damageMult + attacker.r_1_level * 0.08
+                    damageMult = damageMult + attacker.r_1_level * (JEX_RUNE_BASE_ABILITY/100)
                 end
             elseif slot == BASE_ABILITY_Q then
                 if attacker.r_2_level then
-                    damageMult = damageMult + attacker.r_2_level * 0.08
+                    damageMult = damageMult + attacker.r_2_level * (JEX_RUNE_BASE_ABILITY/100)
                 end
             elseif slot == BASE_ABILITY_W then
                 if attacker.r_3_level then
-                    damageMult = damageMult + attacker.r_3_level * 0.08
+                    damageMult = damageMult + attacker.r_3_level * (JEX_RUNE_BASE_ABILITY/100)
                 end
             end
         end
@@ -2118,7 +2118,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker:HasModifier("modifier_jex_arcana1") then
                 if attacker.w_2_level then
-                    fireMult = fireMult + attacker.w_2_level * 0.5
+                    fireMult = fireMult + attacker.w_2_level * JEX_RUNE_ROW_2_VALUE
                 end
             end
         end
@@ -2197,7 +2197,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if unitName == "npc_dota_hero_arc_warden" then
             if not attacker:HasModifier("modifier_jex_arcana1") then
                 if attacker.w_2_level then
-                    mult = mult + attacker.w_2_level * 0.5
+                    mult = mult + attacker.w_2_level * JEX_RUNE_ROW_2_VALUE
                 end
             end
         end
@@ -2369,11 +2369,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         -- end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if attacker.e_2_level then
-                cosmosMult = cosmosMult + attacker.e_2_level * 0.5
+                cosmosMult = cosmosMult + attacker.e_2_level * JEX_RUNE_ROW_2_VALUE
             end
             if attacker:HasModifier("modifier_jex_cosmic_surge") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
-                cosmosMult = cosmosMult + e_4_level * 0.5
+                cosmosMult = cosmosMult + e_4_level * JEX_COSMIC_SURGE_E4_COSMIC_AMP
             end
         end
 
@@ -2677,7 +2677,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker.q_2_level then
-                mult = mult + attacker.q_2_level * 0.5
+                mult = mult + attacker.q_2_level * JEX_RUNE_ROW_2_VALUE
             end
         end
     end

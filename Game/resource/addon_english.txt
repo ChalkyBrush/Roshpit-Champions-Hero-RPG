@@ -7183,17 +7183,17 @@
 	"DOTA_Tooltip_modifier_jex_magic_immunity_Description"	"Magic Immune"	
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q"					"Galaxy Laser"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font><br>Jex powers up and fires a galactic laser toward the target location. Enemies closer to the starting point of the beam can take multiple instances of damage depending on the beam's total length. Enemies who are hit by the beam receive a debuff that makes them take increased post-mitigation damage from all sources."
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font><br>Jex powers up and fires a galactic laser toward the target location. Enemies closer to the starting point of the beam can take multiple instances of damage depending on the beam's total length. Enemies who are hit by the beam receive a debuff that makes them lose Magic Armor."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO LASER BASE DAMAGE PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_postmitigation_per_tech"			"%<font color=\"#f4b942\">POST-MITIGATION DAMAGE DEBUFF PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"			"%<font color=\"#f4b942\">MAGIC ARMOR LOSS DEBUFF PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_damage"							"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_cast_range"						"CAST RANGE:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_debuff_duration"					"DEBUFF DURATION:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_e_4_damage_increase_pct"			"%<font color=\"#7DFF12\">[E4] Laser base damage increase</font>:"
 
 	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation"			"Galaxy Laser"
-	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Taking increased post-mitigation damage"
+	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Reduced Magic Armor"
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font><br>A ring of electricity flashes around Jex. All enemies inside the area are struck by a bolt of lightning. If there are fewer enemies than the ability's minimum bolts, some enemies will get hit multiple times."
@@ -7218,9 +7218,9 @@
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Health can't fall below %%min_health"
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>An electrified sproutling warrior is summoned to fight for Jex. The minion inherits armor, magic armor, pierces and attack damage from their summoner, and their attacks have a 30% chance to trigger a chain lightning effect that deals magic damage based on attack power."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">SPROUTLING CHAIN LIGHTNING MAX TARGETS PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_armor_mult_per_tech"		"<font color=\"#f4b942\">SPROUTLING ARMOR AS A MULTIPLE OF JEX'S PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_roshpit_attr_per_tech"		"<font color=\"#f4b942\">SPROUTLING ARMOR/PIERCES AS A MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">SPROUTLING ATTACK DAMAGE AS A MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_health_mult"				"SPROUTLING HEALTH AS A MULTIPLE OF JEX'S:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_duration"					"SPROUTLING DURATION"
@@ -7296,8 +7296,8 @@
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff_Description"	"Reduced attack range and rooted"
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex's elemental modules disrupt natural balance, granting his abilities increased post-mitigation magical damage. Additionally provides bonus base attack damage while active. While the equilibrium shift is toggled on, mana is drained each second and also on each ability cast. If mana falls below the mana cost, Equilibrium Shifter is toggled off."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_post_mitigation_magic_per_tech"	"%<font color=\"#f4b942\">POST-MITIGATION MAGIC DAMAGE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex's elemental modules disrupt natural balance, granting him increased Armor Pierce and Spell Pierce. Additionally provides bonus base attack damage while active. While the equilibrium shift is toggled on, mana is drained each second and also on each ability cast. If mana falls below the mana cost, Equilibrium Shifter is toggled off."
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"%<font color=\"#f4b942\">ARMOR PIERCE AND SPELL PIERCE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">MOVESPEED PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"INCREASED BASE ATTACK DAMAGE:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"MANA COST PER CAST:"
@@ -7320,14 +7320,14 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e"				"Thunder Blossom"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_Description"	"Element: <font color=\"#5CCDF9\">Lightning</font> / <font color=\"#69BC71\">Nature</font><br>Summons an immobile Thunder Blossom at the target location. Blossoms can attack enemies and their attacks have a 30% chance to strike the enemy with a lightning bolt. Jex can be ordered to attack a ThunderBlossom to teleport to it on a 0.3 second delay."
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_duration_per_tech"	"<font color=\"#f4b942\">LIFE DURATION PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_armor_mult_per_tech"	"<font color=\"#f4b942\">ARMOR AS MULTIPLE OF JEX'S PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_roshpit_attr_per_tech"	"<font color=\"#f4b942\">ARMORS/PIERCES AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">ATTACK DAMAGE AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_per_tech"	"<font color=\"#f4b942\">ATTACK RANGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_health_mult"			"MAX HEALTH AS A MULTIPLE OF JEX'S:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"% LIGHTNING DAMAGE AS % OF BLOSSOM'S ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"BASE ATTACK RANGE:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_cast_range"			"CAST RANGE:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Blossom Magic Resistance</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Blossom Bonus Magic Armor</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Lightning bolt damage increase</font>:"
 
 	"DOTA_Tooltip_ability_thunder_blossom_teleport"				"Lightning Tract"
@@ -7340,7 +7340,7 @@
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_radius"				"RADIUS:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_cast_range"			"CAST RANGE:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_base"		"BASE MAX PORTALS:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_q_4_armor"			"<font color=\"#7DFF12\">[Q4] Armor while standing in portal radius</font>:"		
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_q_4_armor"			"<font color=\"#7DFF12\">[Q4] Armor and Magic Armor while standing in portal radius</font>:"		
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_e_4_mana_regen"		"<font color=\"#7DFF12\">[E4] Mana Regen while standing in portal radius</font>:"	
 
 	"DOTA_Tooltip_modifier_jex_portal_aura_inside"			"Earth's Gate"
@@ -7454,9 +7454,9 @@
 	"DOTA_Tooltip_ability_jex_rune_r_3_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_r_4"								"[R4] Base Booster IV"
-	"DOTA_Tooltip_ability_jex_rune_r_4_Description"					"Increases all post-mitigation damage."
-	"DOTA_Tooltip_ability_jex_rune_r_4_property_one"				"Post-mitigation damage"
-	"DOTA_Tooltip_ability_jex_rune_r_4_suffix"						"%"
+	"DOTA_Tooltip_ability_jex_rune_r_4_Description"					"Increases Spell Pierce."
+	"DOTA_Tooltip_ability_jex_rune_r_4_property_one"				"Spell Pierce"
+	"DOTA_Tooltip_ability_jex_rune_r_4_suffix"						""
 
 	//Weapons
 	"DOTA_Tooltip_ability_item_rpc_jex_weapon_00"		"Gun"
@@ -7624,7 +7624,7 @@
     "DOTA_Tooltip_ability_jex_nature_fire_e_Description"	"Summons an immolated treant to fight for Jex. The treant gains permanent attack damage every second while it is alive. While the treant is active, it drains increasing amounts of Jex's mana. If Jex runs out of mana, the treant dies. When the treant dies, it emits a fiery explosion that deals damage based on its final attack power. The treant also has a small AOE magic attack that deals fire damage."
     "DOTA_Tooltip_ability_jex_nature_fire_e_explosion_attack_damage_per_tech"		"%<font color=\"#f4b942\">DETONATION DAMAGE PER TECH FROM CINDERBARK'S ATTACK POWER</font>:"
     "DOTA_Tooltip_ability_jex_nature_fire_e_explosive_attack_damage_per_tech"		"%<font color=\"#f4b942\">CINDERBARK'S ATTACK EXPLOSION DAMAGE, BASED ON CINDERBARK'S ATTACK POWER</font>:"	
-    "DOTA_Tooltip_ability_jex_nature_fire_e_armor_mult_per_tech"					"<font color=\"#f4b942\">ARMOR MULT PER TECH</font>:"
+    "DOTA_Tooltip_ability_jex_nature_fire_e_roshpit_attr_per_tech"					"<font color=\"#f4b942\">ARMORS/PIERCES MULT PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_nature_fire_e_attack_mult_per_tech"					"<font color=\"#f4b942\">ATTACK DAMAGE MULT PER TECH</font>:"
     "DOTA_Tooltip_ability_jex_nature_fire_e_attack_gain_per_second"				"BASE ATTACK DAMAGE GAIN PER SECOND:"
     "DOTA_Tooltip_ability_jex_nature_fire_e_max_health_mult"						"MAX HEALTH MULT:"

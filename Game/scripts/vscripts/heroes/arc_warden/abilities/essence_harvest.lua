@@ -77,7 +77,10 @@ end
 
 function essence_aura_unit_die(event)
 	local unit = event.unit
-	local xp = unit:GetDeathXP()
+	local xp = unit.roshpit_attributes.deathXP
+	if not xp then
+		return false
+	end
 	local caster = event.caster
 	local onibi = caster.onibi
 	get_onibi_essences(caster, onibi)
@@ -131,10 +134,7 @@ function essence_aura_unit_die(event)
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, modifierName, nil)
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, "jex_essence_spawning", {duration = 0.42})
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, "modifier_jex_essence_despawn", {duration = 180})
-		essence_unit.essence_value = math.ceil(RPCItems:GetMaxFactor())
-		if essence_unit.itemLevel then
-			essence_unit.essence_value = essence_unit.essence_value + essence_unit.itemLevel * 2
-		end
+		essence_unit.essence_value = unit.roshpit_attributes.deathXP/10
 		essence_unit.essence_value = math.min(essence_unit.essence_value, caster:GetLevel() * 10)
 		essence_unit.essence_unit = true
 		essence_unit.essence = actual_essence

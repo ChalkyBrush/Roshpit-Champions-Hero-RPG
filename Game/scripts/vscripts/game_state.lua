@@ -2140,14 +2140,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
 			mult = mult + ALARANA_MAGIC_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_jex_nature_cosmic_w") then
-			local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
-			if not ability.tech_level then
-				ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
-			end
-			local postmit = (ability:GetSpecialValueFor("post_mitigation_magic_per_tech") * ability.tech_level) / 100
-			mult = mult + postmit
-		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult + SORCERERS_REGALIA_MAGIC_POST_MITI/100
 		end
@@ -2238,11 +2230,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if victim:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
-		local modifier = victim:FindModifierByName("modifier_jex_q_cosmic_cosmic_postmitigation")
-		local stacks = victim:GetModifierStackCount("modifier_jex_q_cosmic_cosmic_postmitigation", modifier:GetCaster())
-		mult = mult + 0.5 * stacks
-	end
 	if attacker:HasModifier("modifier_omnimace_undead_buff") then
 		local modifier = attacker:FindModifierByName("modifier_omnimace_undead_buff")
 		local stacks = attacker:GetModifierStackCount("modifier_omnimace_undead_buff", attacker)
@@ -2328,12 +2315,6 @@ function GameState:FilterDamage(filterTable)
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
 		local stacks = modifier:GetStackCount()
 		mult = mult + (RAZOR_BAND_POST_MITIGATION_PER_STACK/100)*stacks
-	end
-
-	if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
-		if attacker.r_4_level then
-			mult = mult + 0.06 * attacker.r_4_level
-		end
 	end
 
 	if attacker:HasModifier("modifier_jex_root_weave_debuff") then

@@ -93,8 +93,8 @@ FIXED_RESPAWN_TIME = 40 -- What time should we use for a fixed respawn timer?  U
 FOUNTAIN_CONSTANT_MANA_REGEN = -1 -- What should we use for the constant fountain mana regen?  Use -1 to keep the default dota behavior.
 FOUNTAIN_PERCENTAGE_MANA_REGEN = -1 -- What should we use for the percentage fountain mana regen?  Use -1 to keep the default dota behavior.
 FOUNTAIN_PERCENTAGE_HEALTH_REGEN = -1 -- What should we use for the percentage fountain health regen?  Use -1 to keep the default dota behavior.
-MAXIMUM_ATTACK_SPEED = 890 -- What should we use for the maximum attack speed?
-MINIMUM_ATTACK_SPEED = 61 -- What should we use for the minimum attack speed?
+MAXIMUM_ATTACK_SPEED = 700 -- What should we use for the maximum attack speed?
+MINIMUM_ATTACK_SPEED = 70 -- What should we use for the minimum attack speed?
 
 -- NOTE: You always need at least 2 non-bounty (non-regen while broken) type runes to be able to spawn or your game will crash!
 ENABLED_RUNES = {} -- Which runes should be enabled to spawn in our game mode?
