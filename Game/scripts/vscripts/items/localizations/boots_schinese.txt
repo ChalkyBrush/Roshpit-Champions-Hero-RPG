@@ -100,7 +100,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
 		"item_property_redrock"						"灼热步伐"
-		"property_redrock_description"				"施放 @Ability3 时，在<% REDROCK_DURATION_OF_PULSES %>秒内释放<% REDROCK_NUMBER_OF_PULSES %>股心灵脉冲强制附近敌人攻击你，额外增加<% REDROCK_HP_INCREASE_PCT %>%倍生命值和<% REDROCK_DAMAGE_REDUCTION_PCT %>%伤害减免，持续<% REDROCK_TAUNT_DURATION %>秒。"
+		"property_redrock_description"				"施放 @Ability3 时，在<% REDROCK_DURATION_OF_PULSES %>秒内释放<% REDROCK_NUMBER_OF_PULSES %>股心灵脉冲强制附近敌人攻击你，额外增加<% REDROCK_HP_INCREASE_PCT %>%生命值和<% REDROCK_DAMAGE_REDUCTION_PCT %>%伤害减免，持续<% REDROCK_TAUNT_DURATION %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"共鸣皮靴"
@@ -159,7 +159,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "落红流火的赛跑者"
         "item_property_redfall_runners"                 "嘎吱作响的叶子"
-        "property_redfall_runners_description"                  "每失去百分一的血量就增加移速 <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> 以及增加移速上限 <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
+        "property_redfall_runners_description"                  "每失去1%的血量增加 <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> 移速以及<% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>移速上限."
         "DOTA_Tooltip_modifier_redfall_runners_buff"        "嘎吱作响的叶子"
          "DOTA_Tooltip_modifier_redfall_runners_Description"    "增加移速I<% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> 以及增加移速上限 <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> 根据每 %% 的丢失血量."
 		 
@@ -225,7 +225,7 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"深海靴"	
 		"property_oceanrunner"												"轻盈"
-		"property_oceanrunner_Description"									"每 <% OCEANRUNNER_AGI_TO_BAD %> 点敏捷值提高基础技能伤害 <% OCEANRUNNER_AGI_DIVISOR %>% 。"
+		"property_oceanrunner_Description"									"每 <% OCEANRUNNER_AGI_DIVISOR %> 点敏捷提高基础技能伤害<% OCEANRUNNER_AGI_TO_BAD %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"水晶鞋"	
