@@ -969,7 +969,7 @@
 
 		"item_base_ability"			"基础技能伤害提高 %"
 
-		"item_damage_increase"			"Item Damage % PLACEHOLDER"
+		"item_damage_increase"			"物品伤害提高 % "
 		
 		"property_unit_walking_description"			"该单位移动时将不与其他单位产生碰撞。"
 

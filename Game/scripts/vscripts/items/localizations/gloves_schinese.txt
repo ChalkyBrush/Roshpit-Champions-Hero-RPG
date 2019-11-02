@@ -43,7 +43,7 @@
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"                              "荣耀护手"
         "DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"                  "部位：手"
         "item_property_proud_gloves"                        "彩虹打击"
-        "property_proud_gloves_description"             "TODO: <RAINBOW>自动攻击会对元素造成最高的魔法伤害加成. 另外通过物品伤害加成会增加此自动攻击的伤害.</RAINBOW>"
+        "property_proud_gloves_description"             "<RAINBOW>自动攻击会对元素造成最高的魔法伤害加成. 另外通过物品伤害加成会增加此自动攻击的伤害.</RAINBOW>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"埃辛诺斯之爪"
@@ -164,12 +164,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"增加所有税后伤害 <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% 根据每失去百分比的血量. 每次施法吸取 <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% 的最大生命值, 并且每次攻击吸取 <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% 的最大生命值. 生命值汲取效果不会将你的生命值降低至最大生命值的 <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
+		"property_mordiggus_description"					"增加所有税后伤害 <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% 根据每失去百分比的血量. 每次施法吸取 <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% 的最大生命值, 并且每次攻击吸取 <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% 的最大生命值. 生命值汲取效果不会使你的生命值低于最大生命值的 <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
 		"item_property_ironbound_gloves"					"铁拳"
-		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x倍。"
+		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>倍。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"狂风手套"
@@ -274,7 +274,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"暗黑使者手套"	
 		"property_dark_emissary"												"彩虹迷雾"
-		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在<% DARK_EMISSARY_RADIUS %>码范围内缠绕敌人并造成 <% DARK_EMISSARY_DAMAGE_MULT %>% 乘以玩家攻击力的伤害。将隐身<% DARK_EMISSARY_ROOT_DURATION %>秒。隐身效果具有<% DARK_EMISSARY_INVIS_CD %>秒的冷却时间"
+		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在<% DARK_EMISSARY_RADIUS %>码范围内缠绕敌人并造成 <% DARK_EMISSARY_DAMAGE_MULT %> x玩家攻击力 的伤害。随后隐身<% DARK_EMISSARY_ROOT_DURATION %>秒。隐身效果具有<% DARK_EMISSARY_INVIS_CD %>秒的冷却时间"
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"彩虹迷雾"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"隐形"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"彩虹迷雾"

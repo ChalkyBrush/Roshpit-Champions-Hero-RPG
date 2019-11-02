@@ -113,7 +113,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
 		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害<% RAVEN_IDOL_DMG_REDUCTION %>%. 你的血量不能超过 <% RAVEN_IDOL_HP_TRESHOLD_PCT %>% 的最大生命值. 提升装备伤害 <% RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT %>% 基于失去的血量."
+		"property_raven_idol_description2"			"减少受到的所有伤害<% RAVEN_IDOL_DMG_REDUCTION %>%. 你的血量不能超过 <% RAVEN_IDOL_HP_TRESHOLD_PCT %>% 的最大生命值. 每失去1%血量提升装备伤害 <% RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT %>% ."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
@@ -124,7 +124,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
 		"item_property_volcano_orb"					"火热之心"
-		"property_volcano_orb_description"			"提高所有魔法伤害 <% VOLCANO_ORB_MAGIC_DMG_MULT %>x。该效果与其他税后效果乘法计算。"
+		"property_volcano_orb_description"			"所有魔法伤害提升至<% VOLCANO_ORB_MAGIC_DMG_MULT %>x。该效果与其他税后效果乘法计算。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
@@ -179,7 +179,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
 		"item_property_epsilon_eyeglass"					"扩展范围"
-		"property_epsilon_eyeglass_description"			"增加攻击距离 <% EPSILON_EYEGLASS_ATTACK_RANGE %> 码(只适用于远程英雄)并且增加 <% EPSILON_EYEGLASS_VISION_RADIUS %> 码视野范围，和 <% EPSILON_EYEGLASS_PROJECTILE_SPEED %> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000 %> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>，仍以此距离计算。"
+		"property_epsilon_eyeglass_description"			"增加攻击距离 <% EPSILON_EYEGLASS_ATTACK_RANGE %> 码(只适用于远程英雄)并且增加 <% EPSILON_EYEGLASS_VISION_RADIUS %> 码视野范围，和 <% EPSILON_EYEGLASS_PROJECTILE_SPEED %> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000 %> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>，仍以此距离计算。距离不足700时以700计算"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"芬里尔的犬牙"
@@ -204,7 +204,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"宁静之戒"
 		"item_property_cobalt_serenity"						"宁静"
-		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <% COBALT_SERENITY_INT_TO_HP_REGEN %>% 的智力值。"
+		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <% COBALT_SERENITY_INT_TO_HP_REGEN %>% x智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
@@ -269,7 +269,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"海洋之心"	
 		"property_sparkling_token"												"炽热雾霭"
-		"property_sparkling_token_Description"									"所受到的所有纯粹伤害减少 <% SPARKLING_TOKEN_PURE_DMG_REDUCTION %>%。"
+		"property_sparkling_token_Description"									"受到的所有纯粹伤害减少 <% SPARKLING_TOKEN_PURE_DMG_REDUCTION %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"阿祖赫仑的冰霜之心"
@@ -281,7 +281,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"观星者的法球"
 		"item_property_stargazer"									"观星者之眼"
-		"property_stargazer_description"							"在任意地点发出攻击移动命令创建一个有视野的观星者领域。受到伤害的光圈内部的敌人将被一颗星击中，造成的纯伤害等于该戒指一生中对敌人造成的最高伤害实例的<% STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% 。之后的伤害只能造成<% STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x 的伤害。与高级鉴定相比，将其阈值提高到其正常值的<% STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>x至(<% STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>。观星者领域的最小生成间隔为 <% STARGAZERS_SPHERE_STARFALL_CD %> 秒内置cd.(此物品不受元素伤害加成)，在一个圆圈内发出攻击移动命令会立即将其折叠，形成一个流星，其流星在该区域造成<% STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x你的攻击力并且眩晕此区域的敌人<% STARGAZERS_SPHERE_COOLDOWN %>秒"
+		"property_stargazer_description"							"对任意地点发出攻击移动命令能创建一个有视野的观星者领域。领域拥有该物品增大视野属性范围的顺畅视野。在领域内部受到伤害的敌人将被一颗流星击中，造成等于在该领域持续时间内对敌人造成的最高伤害<% STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% 的纯粹伤害（不包括观星本身）。通过其他途径（元素和装备伤害等）提高的流星伤害不能超过触发流星的伤害的<% STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x 。流星伤害对坚定能提高其 <% STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>x 阈值 (<% STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>x 对高级坚定). 敌人每 <% STARGAZERS_SPHERE_STARFALL_CD %> 秒最多被流星打击一次.对领域发出攻击移动命令能使其立即崩溃，形成一颗陨石落下对范围内敌人造成<% STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x 你的攻击力的伤害并眩晕敌人<% STARGAZERS_SPHERE_METEOR_STUN_DUR %>秒。观星者领域的创建有<% STARGAZERS_SPHERE_COOLDOWN %> 秒内置cd。"
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
 		
@@ -306,7 +306,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"旋转剃刀系带"
 		"item_property_razor_band"										"旋转之刃"
-		"property_razor_band_description"								"承受敌人一次伤害后，你将会对敌人造成一次 <% RAZOR_BAND_MAX_HEALTH_DAMAGE %>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <% RAZOR_BAND_ATTACK_POWER_PER_STACK %>% 倍攻击力和 <% RAZOR_BAND_POST_MITIGATION_PER_STACK %>% 税后伤害。每0.3秒对附近的敌人造成一次 <% RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% 攻击力的伤害。每层效果都有独立的<% RAZOR_BAND_STACK_DURATION %> 秒持续时间，并且最大层数不能超过<% RAZOR_BAND_MAX_STACKS %>层。"
+		"property_razor_band_description"								"承受敌人一次伤害后，你将会对自己造成一次 <% RAZOR_BAND_MAX_HEALTH_DAMAGE %>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <% RAZOR_BAND_ATTACK_POWER_PER_STACK %>% 倍攻击力和 <% RAZOR_BAND_POST_MITIGATION_PER_STACK %>% 税后伤害。每0.3秒对附近的敌人造成一次 <% RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% 攻击力的伤害。每层效果都有独立的<% RAZOR_BAND_STACK_DURATION %> 秒持续时间，并且最大层数不能超过<% RAZOR_BAND_MAX_STACKS %>层。"
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"旋转之刃"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"增加攻击力和税后伤害并且每0.3秒对周围的敌人造成一次伤害。"
