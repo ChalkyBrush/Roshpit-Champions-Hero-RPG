@@ -191,6 +191,7 @@ function enemy_in_field_think(event)
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura_effect_enemy_a_c_invisible", {})
 		target:SetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", caster, newStacks * ability.e_1_level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 	if ability.e_2_level > 0 then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability.e_2_level * ZHONIK_E2_ARCANA_DMG_PCT / 100

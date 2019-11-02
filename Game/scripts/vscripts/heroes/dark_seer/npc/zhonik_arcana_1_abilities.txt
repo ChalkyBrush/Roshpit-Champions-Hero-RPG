@@ -230,14 +230,20 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"zonik/zonik_rune_e_1_arcana1"
 			}
 			"modifier_dummy_aura_effect_enemy_a_c_invisible"
 			{
 				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_zhonic_arcana_c_c_invisible"
 			{

@@ -2230,22 +2230,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local e_4_level = attacker:GetRuneValue("e", 4)
                 mult = mult + ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT / 100 * e_4_level
             end
-            if victim:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
-                local stacks = victim:GetModifierStackCount("modifier_dummy_aura_effect_enemy_a_c_invisible", attacker)
-                mult = mult + stacks * ZHONIK_E1_ARCANA_ELEMENT_TEMPORAL / 100
-            end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
             ----print("OD HERE")
             local d_d_level = attacker:GetRuneValue("r", 4)
             if d_d_level > 0 then
                 ----print("OD HERE2 r4: "..r_4_level)
                 mult = mult + attacker:GetManaRegen() * d_d_level * EPOCH_R4_ELEM_TIME / 100
-            end
-        end
-        if victim:HasModifier("modifier_tempo_flux_invisible") then
-            if unitName == "npc_dota_hero_dark_seer" then
-                local stacks = victim:GetModifierStackCount("modifier_tempo_flux_invisible", attacker)
-                mult = mult + stacks * ZHONIK_R3_ARCANA_ELEMENT_TEMPORAL / 100
             end
         end
     end

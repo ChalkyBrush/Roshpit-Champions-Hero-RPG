@@ -11651,7 +11651,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_w_1_suffix"						"% of Mach Punch"
 
     	"DOTA_Tooltip_ability_zonik_rune_w_2"								"[W2] Temporal Discharge"
-    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Moving 240 units of distance adds a Temporal Charge stack. All stacks are consumed upon casting Mach Punch, and the punch's damage is amplified. Max 20 stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_w_2_Description"					"Moving 240 units of distance adds a Temporal Charge stack. All stacks are consumed upon casting Mach Punch, and the punch's damage is amplified. Max <font color='#ccff66'>20</font> stacks."
     	"DOTA_Tooltip_ability_zonik_rune_w_2_property_one"					"Mach Punch Amp per Stack"
     	"DOTA_Tooltip_ability_zonik_rune_w_2_suffix"						"%"
 
@@ -11669,7 +11669,7 @@
     	"DOTA_Tooltip_modifier_mach_punch_whiplash_Description"				"Once clear of roots and stuns, explode and deal damage and stun."
 
     	"DOTA_Tooltip_ability_zonik_rune_w_4"								"[W4] Echo"
-    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"Base Abilities and Regular Attacks build up echo stacks on the target. After 4 seconds of not building any new stacks, a temporal aftershock damages the enemy and ignores Steadfast. The damage is based on a build up of the damage instances that created the echo stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_w_4_Description"					"Base Abilities and Regular Attacks build up echo stacks on the target. After 4 seconds of not building any new stacks, a temporal aftershock damages the enemy. The damage is based on a build up of the damage instances that created the echo stacks."
     	"DOTA_Tooltip_ability_zonik_rune_w_4_property_one"					"Echo Damage"
     	"DOTA_Tooltip_ability_zonik_rune_w_4_suffix"						"% of the Sum of all Damage taken"
 		
@@ -11678,7 +11678,7 @@
 
 
     	"DOTA_Tooltip_ability_zonik_lightspeed"								"Lightspeed"
-    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik energizes himself, and begins moving at extreme speeds. This buff increases his movespeed cap and gives him free pathing, allowing him to run over most obstructions. Every 60 distance moved during this effect drains either <font color='#ccff66'>0.75</font> of his maximum mana, or <font color='#ccff66'>150</font>, whichever value is lower. If Zhonik has insufficient mana, Lightspeed is cancelled prematurely."
+    	"DOTA_Tooltip_ability_zonik_lightspeed_Description"					"Zhonik energizes himself, and begins moving at extreme speeds. This buff increases his movespeed cap and gives him free pathing, allowing him to run over most obstructions. Every 60 distance moved during this effect drains either <font color='#ccff66'>0.75</font>% of his maximum mana, or <font color='#ccff66'>150</font>, whichever value is lower. If Zhonik has insufficient mana, Lightspeed is cancelled prematurely."
     	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"MOVESPEED CAP:"
     	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"DURATION:"
 
@@ -11701,11 +11701,11 @@
     	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						""
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4"								"[E4] Sonic Rush"
-    	"DOTA_Tooltip_ability_zonik_rune_e_4_Description"					"Further increases the movespeed cap of Zhonik during Lightspeed. Temporal Elemental Damage value increased."
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_Description"					"Further increases the movespeed cap of Zhonik during Lightspeed, and increases all <font color=\"#B5FFB7\">Temporal</font> Damage."
     	"DOTA_Tooltip_ability_zonik_rune_e_4_property_one"					"Movespeed Cap Increase"
     	"DOTA_Tooltip_ability_zonik_rune_e_4_suffix"						""
-		"DOTA_Tooltip_ability_zonik_rune_e_4_property_two"					"Temporal Damage Bonus"
-    	"DOTA_Tooltip_ability_zonik_rune_e_4_suffix_two"						""
+		"DOTA_Tooltip_ability_zonik_rune_e_4_property_two"					"Temporal Damage Amp"
+    	"DOTA_Tooltip_ability_zonik_rune_e_4_suffix_two"						"%"
 
 
     	"DOTA_Tooltip_ability_zonik_speedball"								"Speedball"
@@ -11729,7 +11729,7 @@
     	"DOTA_Tooltip_modifier_speedball_a_d_visible_Description"			"Increased attack damage."
 
     	"DOTA_Tooltip_ability_zonik_rune_r_2"								"[R2] Regen Runner"
-    	"DOTA_Tooltip_ability_zonik_rune_r_2_Description"					"Increases health and mana regen by a % of movespeed. Regen is off while rooted or stunned."
+    	"DOTA_Tooltip_ability_zonik_rune_r_2_Description"					"Increases health and mana regen. Regen is off while rooted or stunned."
     	"DOTA_Tooltip_ability_zonik_rune_r_2_property_one"					"Health Regen"
     	"DOTA_Tooltip_ability_zonik_rune_r_2_suffix"						""
     	"DOTA_Tooltip_ability_zonik_rune_r_2_property_two"					"Mana Regen"
@@ -11753,7 +11753,7 @@
     	"property_zonik_arcana1_description"								"Replaces @Ability3 and all of its runes with Warp Field."
 
     	"DOTA_Tooltip_ability_zhonik_temporal_field"						"Warp Field"
-    	"DOTA_Tooltip_ability_zhonik_temporal_field_Description"			"Zhonik dashes to the target location and creates an 800 radius Warp Field that slows enemies within. While inside the field, Zhonik takes 80% reduced damage and has increased movespeed and movespeed cap. Additionally, while in the field, Zhonik is cleansed of some Stuns and Silences."
+    	"DOTA_Tooltip_ability_zhonik_temporal_field_Description"			"Zhonik dashes to the target location and creates an 800 radius Warp Field that slows enemies within. While inside the field, Zhonik takes <font color='#ccff66'>30</font>% reduced damage and has increased movespeed and movespeed cap. Additionally, while in the field, Zhonik is cleansed of some Stuns and Silences."
     	"DOTA_Tooltip_ability_zhonik_temporal_field_movespeed_cap"				"MOVESPEED CAP:"
     	"DOTA_Tooltip_ability_zhonik_temporal_field_movespeed_bonus"	"BONUS MOVESPEED:"
     	"DOTA_Tooltip_ability_zhonik_temporal_field_duration"	"FIELD DURATION:"
@@ -11769,8 +11769,8 @@
 
   		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] Shattered Time"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Every second that an enemy is within the warp field, they gain a stack of shattered time. Enemies with the Shattered Time debuff take increased <font color=\"#B5FFB7\">Temporal</font> damage from Zhonik. Max 20 stacks."
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Extra Temporal Damage"
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				"% per stack"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Magic Armor Loss"
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				" per stack"
 
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible"			"Shattered Time"
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_a_c_visible_Description"	"Taking increased Temporal damage"
@@ -11818,12 +11818,12 @@
     	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] Tempo Flux"
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, increasing <font color=\"#B5FFB7\">Temporal</font> damage taken from Zhonik."
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Temporal Damage Increase"	
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				"% per stack"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, reducing their Magic Armor."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Magic Armor Loss"	
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				""
 
     	"DOTA_Tooltip_modifier_tempo_flux_visible"							"Tempo Flux"
-    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"Taking increased Temporal damage from Zhonik"
+    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"Reduced Magic Armor"
 
     	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2"								"[R4] Racer"
     	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_Description"					"Increases Zhonik's agility. Each point of agility increases base attack damage."
@@ -11844,7 +11844,7 @@
 		"item_rpc_zonik_glyph_3_1_description" 				"@glyph_property1% chance to punch twice when casting Mach Punch."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"Glyph of Auric Blast"
-		"item_rpc_zonik_glyph_4_1_description" 				"Increases the radius of Sonic Boom by @glyph_property1%."
+		"item_rpc_zonik_glyph_4_1_description" 				"Increases the radius of [W1] by @glyph_property1%."
 
 		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"Glyph of Acceleration"
 		"item_rpc_zonik_glyph_5_1_description" 				"Gain @glyph_property1 movespeed and movespeed cap when Lightspeed is active."
@@ -11883,7 +11883,7 @@
 		
 
     	"DOTA_Tooltip_ability_zonik_comet_punch"								"Comet Punch"
-    	"DOTA_Tooltip_ability_zonik_comet_punch_Description"					"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#B5FFB7\">Temporal</font><br>Zhonik winds up and punches the target with all of his strength. The target is stunned and takes damage based on his Attack Power. The damage is amplified post-mitigation by 1% for each movespeed point that Zhonik has over his target's."
+    	"DOTA_Tooltip_ability_zonik_comet_punch_Description"					"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#B5FFB7\">Temporal</font><br>Zhonik winds up and punches the target with all of his strength. The target is stunned and takes damage based on his Attack Power."
     	"DOTA_Tooltip_ability_zonik_comet_punch_stun_duration"					"STUN DURATION:"
     	"DOTA_Tooltip_ability_zonik_comet_punch_damage_mult"					"ATTACK POWER DAMAGE MULT %:"
 		

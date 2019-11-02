@@ -136,7 +136,15 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_tachyon_slow"
 			{

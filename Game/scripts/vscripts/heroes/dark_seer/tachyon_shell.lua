@@ -96,6 +96,7 @@ function tachyon_shield_think(event)
 					enemy:SetModifierStackCount("modifier_tachyon_amp", caster, ability.q_3_level)
 				end
 			end
+			enemy:CalculateAndSaveRoshpitAttributes()
 		end
 	end
 end

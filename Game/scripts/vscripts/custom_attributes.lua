@@ -1126,6 +1126,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local e_3_level = unit:GetRuneValue("e", 3)
 		magic_armor_modify = magic_armor_modify + ZHONIK_E3_MAGIC_ARMOR*e_3_level
 	end
+	if unit:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
+		local modifier = unit:FindModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_E1_ARCANA_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_tempo_flux_invisible") then
+		local modifier = unit:FindModifierByName("modifier_tempo_flux_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_ARCANA2_R3_MAX_STACKS
+	end
 	if unit:HasModifier("modifier_slipfinn_gloomshade_invisible") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_W2_MAGIC_ARMOR_REDUCTION

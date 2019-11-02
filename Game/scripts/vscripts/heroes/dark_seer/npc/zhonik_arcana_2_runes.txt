@@ -70,7 +70,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ZHONIK_R3_ARCANA_ELEMENT_TEMPORAL %>"
+				"property_one"			"<% ZHONIK_R3_ARCANA_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}

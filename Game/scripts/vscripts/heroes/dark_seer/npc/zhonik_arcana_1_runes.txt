@@ -11,8 +11,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ZHONIK_E1_ARCANA_ELEMENT_TEMPORAL %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% ZHONIK_E1_ARCANA_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}
@@ -30,7 +30,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% ZHONIK_E2_ARCANA_DMG_PCT %>"
 			}
 			"02"

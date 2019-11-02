@@ -157,7 +157,7 @@ function mach_punch_think(event)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
 			local c_b_damage = caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster) * w_3_level * ZHONIK_W3_DMG_PER_WHIPLASH
-			local stun_duration = 0.005 * w_3_level * caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
+			local stun_duration = 0.01 * w_3_level * caster:GetModifierStackCount("modifier_mach_punch_whiplash", caster)
 			caster:RemoveModifierByName("modifier_mach_punch_whiplash")
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
