@@ -154,7 +154,7 @@ function e2_think(event)
 		source = ability,
 		sourceType = BASE_ABILITY_E,
 		damage = ability.e2_damage,
-		damageType = DAMAGE_TYPE_PURE,
+		damageType = DAMAGE_TYPE_MAGICAL,
 		elements = { RPC_ELEMENT_POISON },
 		isDot = true
 	})

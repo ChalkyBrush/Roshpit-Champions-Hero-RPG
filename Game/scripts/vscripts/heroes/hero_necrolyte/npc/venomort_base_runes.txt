@@ -201,7 +201,7 @@
 		"AbilityTextureName"	"venomancer_poison_sting"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		
 
 		"AbilitySpecial"
@@ -214,12 +214,12 @@
             "02"
             {
                 "var_type"				"FIELD_INTEGER"
-                "base_ability"			"3"
+                "base_ability"			"<% BASE_ABILITY_E %>"
             }
             "03"
             {
                 "var_type"				"FIELD_INTEGER"
-                "element_one"			"5"
+                "element_one"			"<% RPC_ELEMENT_POISON %>"
             }
 		}
 	}
