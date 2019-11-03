@@ -7359,7 +7359,7 @@
 		"omniro_lightning_special_description"									"Наносит урон в зависимости от текущих ХП цели."
 		"omniro_lightning_special_a_pretext"										"ДОПОЛНИТЕЛЬНЫЙ УРОН ОТ % ЗДОРОВЬЯ ЦЕЛИ: "												
 
-		"omniro_poison_special_description"									"Отравляет цель на 2 секунды, каждые 0.5 секунды. Наносит <font color='#ccff66'>10</font>x урона, если цель стоит в луже яда от орб-эффекта."
+		"omniro_poison_special_description"									"Отравляет цель на 2 секунды, каждые 0.5 секунды. Наносит <font color='#ccff66'>4</font>x урона, если цель стоит в луже яда от орб-эффекта."
 		"omniro_poison_special_a_pretext"										"УРОН ЯДА ОТ % СИЛЫ АТАКИ: "
 
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Яд"

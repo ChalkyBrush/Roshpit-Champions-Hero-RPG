@@ -969,7 +969,7 @@
 
 		"item_base_ability"			"基础技能伤害提高 %"
 
-		"item_damage_increase"			"Item Damage % PLACEHOLDER"
+		"item_damage_increase"			"物品伤害提高 % "
 		
 		"property_unit_walking_description"			"该单位移动时将不与其他单位产生碰撞。"
 
@@ -7619,7 +7619,7 @@
 
 							
 
-		"omniro_poison_special_description"									"施加一个2秒的DoT，DoT每0.5秒造成一次伤害。当站在毒液沼泽中时造成 <font color='#ccff66'>10</font>x 的伤害。"
+		"omniro_poison_special_description"									"施加一个2秒的DoT，DoT每0.5秒造成一次伤害。当站在毒液沼泽中时造成 <font color='#ccff66'>4</font>x 的伤害。"
 		"omniro_poison_special_a_pretext"										"攻击力 %的DoT伤害 ： "
 
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"全能权杖：毒"
@@ -12039,7 +12039,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
 		"item_property_redrock"						"灼热步伐"
-		"property_redrock_description"				"施放 @Ability3 时，在<font color='#ccff66'>1.5</font>秒内释放<font color='#ccff66'>3</font>股心灵脉冲强制附近敌人攻击你，额外增加<font color='#ccff66'>200</font>%倍生命值和<font color='#ccff66'>50</font>%伤害减免，持续<font color='#ccff66'>5</font>秒。"
+		"property_redrock_description"				"施放 @Ability3 时，在<font color='#ccff66'>1.5</font>秒内释放<font color='#ccff66'>3</font>股心灵脉冲强制附近敌人攻击你，额外增加<font color='#ccff66'>200</font>%生命值和<font color='#ccff66'>50</font>%伤害减免，持续<font color='#ccff66'>5</font>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"共鸣皮靴"
@@ -12098,7 +12098,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "落红流火的赛跑者"
         "item_property_redfall_runners"                 "嘎吱作响的叶子"
-        "property_redfall_runners_description"                  "每失去百分一的血量就增加移速 <font color='#ccff66'>5</font> 以及增加移速上限 <font color='#ccff66'>5</font>."
+        "property_redfall_runners_description"                  "每失去1%的血量增加 <font color='#ccff66'>5</font> 移速以及<font color='#ccff66'>5</font>移速上限."
         "DOTA_Tooltip_modifier_redfall_runners_buff"        "嘎吱作响的叶子"
          "DOTA_Tooltip_modifier_redfall_runners_Description"    "增加移速I<font color='#ccff66'>5</font> 以及增加移速上限 <font color='#ccff66'>5</font> 根据每 %% 的丢失血量."
 		 
@@ -12164,7 +12164,7 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"深海靴"	
 		"property_oceanrunner"												"轻盈"
-		"property_oceanrunner_Description"									"每 <font color='#ccff66'>0.25</font> 点敏捷值提高基础技能伤害 <font color='#ccff66'>10</font>% 。"
+		"property_oceanrunner_Description"									"每 <font color='#ccff66'>10</font> 点敏捷提高基础技能伤害<font color='#ccff66'>0.25</font>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"水晶鞋"	
@@ -12193,7 +12193,7 @@
 
         	"item_property_storm_pacer_sabatons"                        "风暴漫步者"
 
-        	"property_storm_pacer_sabatons_description"                 "当你使用@Ability3时。你将会释放一个影响范围为 <font color='#ccff66'>700</font>元素精华之环，对敌人造成伤害，一共造成2次伤害，一次在扩散时，一次在收缩时。伤害是基于你最近造成的税前伤害，并且这个伤害也会与目标和圆环中心的距离影响，在最近时为 <font color='#ccff66'>0.4</font>x ，在边缘处为 <font color='#ccff66'>4</font>x /没有任何效果能够增加这一次伤害。这个伤害穿透坚定，将坚定的阈值增加至< % PACE_OF_STORM_STEADFAST_THRESHOLD %>x  (或者 <font color='#ccff66'>30</font>x 对于高级坚定)。1 秒冷却时间。"
+        	"property_storm_pacer_sabatons_description"                 "当你使用@Ability3时。你将会释放一个影响范围为 <font color='#ccff66'>700</font>元素精华之环，分别在扩张和收缩时对敌人各造成一次伤害。伤害基于你最近造成的税前伤害，并且这个伤害也会被目标和圆环中心的距离影响，在最近时为 <font color='#ccff66'>0.4</font>x ，在边缘处为 <font color='#ccff66'>4</font>x 。没有任何效果能够增加这一次伤害。此伤害穿透坚定，将坚定的阈值增加至<font color='#ccff66'>10</font>x  ( <font color='#ccff66'>30</font>x 对于高级坚定)。1 秒冷却时间。"
 
 
 
@@ -12279,7 +12279,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"射咒者大衣"
 		"item_property_spellslinger_coat"			"射咒者"
-		"property_spellslinger_coat_description"	"施放 @Ability2 回复 <font color='#ccff66'>35</font>% 该技能的耗蓝量，并且提高 @Ablity2 基础技能伤害 <font color='#ccff66'>100</font>%。"
+		"property_spellslinger_coat_description"	"施放 @Ability2 回复 <font color='#ccff66'>35</font>% 该技能的耗蓝量，并且提高 @Ability2 基础技能伤害 <font color='#ccff66'>100</font>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"末日板甲"
@@ -12450,7 +12450,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"水法师长袍"
 		"item_property_watermage"							"高压水泵"
-		"property_watermage_description"					"当你引导 @Ability4 时，360度喷射水浪，每股水浪造成% WATER_MAGE_ROBES_ATTACK_TO_DMG %>x攻击力或<font color='#ccff66'>30</font>x智力值（较大值）的魔法伤害。同时降低敌人移动速度<font color='#ccff66'>50</font>%。被减速的敌人受到来自施法者的伤害将加深 <font color='#ccff66'>100</font>% （计算在敌人减伤之后）"
+		"property_watermage_description"					"当你引导 @Ability4 时，朝360度喷射水浪，每股水浪造成<font color='#ccff66'>7</font>x攻击力或<font color='#ccff66'>30</font>x智力值（较大值）的魔法伤害。同时降低敌人移动速度<font color='#ccff66'>50</font>%。被减速的敌人受到来自施法者的伤害将加深 <font color='#ccff66'>100</font>% （计算在敌人减伤之后）"
 		"DOTA_Tooltip_modifier_water_mage_slow"			"高压水泵"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"移动速度降低"
 		 
@@ -12669,7 +12669,7 @@
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"                              "荣耀护手"
         "DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"                  "部位：手"
         "item_property_proud_gloves"                        "彩虹打击"
-        "property_proud_gloves_description"             "TODO: <font color=\"#F60000\">自</font><font color=\"#FF8C00\">动</font><font color=\"#FFEE00\">攻</font><font color=\"#4DE94C\">击</font><font color=\"#3783FF\">会</font><font color=\"#6B1FFE\">对</font><font color=\"#F60000\">元</font><font color=\"#FF8C00\">素</font><font color=\"#FFEE00\">造</font><font color=\"#4DE94C\">成</font><font color=\"#3783FF\">最</font><font color=\"#6B1FFE\">高</font><font color=\"#F60000\">的</font><font color=\"#FF8C00\">魔</font><font color=\"#FFEE00\">法</font><font color=\"#4DE94C\">伤</font><font color=\"#3783FF\">害</font><font color=\"#6B1FFE\">加</font><font color=\"#F60000\">成</font><font color=\"#FF8C00\">.</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">另</font><font color=\"#3783FF\">外</font><font color=\"#6B1FFE\">通</font><font color=\"#F60000\">过</font><font color=\"#FF8C00\">物</font><font color=\"#FFEE00\">品</font><font color=\"#4DE94C\">伤</font><font color=\"#3783FF\">害</font><font color=\"#6B1FFE\">加</font><font color=\"#F60000\">成</font><font color=\"#FF8C00\">会</font><font color=\"#FFEE00\">增</font><font color=\"#4DE94C\">加</font><font color=\"#3783FF\">此</font><font color=\"#6B1FFE\">自</font><font color=\"#F60000\">动</font><font color=\"#FF8C00\">攻</font><font color=\"#FFEE00\">击</font><font color=\"#4DE94C\">的</font><font color=\"#3783FF\">伤</font><font color=\"#6B1FFE\">害</font><font color=\"#F60000\">.</font>"
+        "property_proud_gloves_description"             "<font color=\"#F60000\">自</font><font color=\"#FF8C00\">动</font><font color=\"#FFEE00\">攻</font><font color=\"#4DE94C\">击</font><font color=\"#3783FF\">会</font><font color=\"#6B1FFE\">对</font><font color=\"#F60000\">元</font><font color=\"#FF8C00\">素</font><font color=\"#FFEE00\">造</font><font color=\"#4DE94C\">成</font><font color=\"#3783FF\">最</font><font color=\"#6B1FFE\">高</font><font color=\"#F60000\">的</font><font color=\"#FF8C00\">魔</font><font color=\"#FFEE00\">法</font><font color=\"#4DE94C\">伤</font><font color=\"#3783FF\">害</font><font color=\"#6B1FFE\">加</font><font color=\"#F60000\">成</font><font color=\"#FF8C00\">.</font><font color=\"#FFEE00\"> </font><font color=\"#4DE94C\">另</font><font color=\"#3783FF\">外</font><font color=\"#6B1FFE\">通</font><font color=\"#F60000\">过</font><font color=\"#FF8C00\">物</font><font color=\"#FFEE00\">品</font><font color=\"#4DE94C\">伤</font><font color=\"#3783FF\">害</font><font color=\"#6B1FFE\">加</font><font color=\"#F60000\">成</font><font color=\"#FF8C00\">会</font><font color=\"#FFEE00\">增</font><font color=\"#4DE94C\">加</font><font color=\"#3783FF\">此</font><font color=\"#6B1FFE\">自</font><font color=\"#F60000\">动</font><font color=\"#FF8C00\">攻</font><font color=\"#FFEE00\">击</font><font color=\"#4DE94C\">的</font><font color=\"#3783FF\">伤</font><font color=\"#6B1FFE\">害</font><font color=\"#F60000\">.</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"埃辛诺斯之爪"
@@ -12790,12 +12790,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"增加所有税后伤害 <font color='#ccff66'>6</font>% 根据每失去百分比的血量. 每次施法吸取 <font color='#ccff66'>20</font>% 的最大生命值, 并且每次攻击吸取 <font color='#ccff66'>7</font>% 的最大生命值. 生命值汲取效果不会将你的生命值降低至最大生命值的 <font color='#ccff66'>30</font>%."
+		"property_mordiggus_description"					"增加所有税后伤害 <font color='#ccff66'>6</font>% 根据每失去百分比的血量. 每次施法吸取 <font color='#ccff66'>20</font>% 的最大生命值, 并且每次攻击吸取 <font color='#ccff66'>7</font>% 的最大生命值. 生命值汲取效果不会使你的生命值低于最大生命值的 <font color='#ccff66'>30</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"
 		"item_property_ironbound_gloves"					"铁拳"
-		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 <font color='#ccff66'>12</font>x倍。"
+		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 <font color='#ccff66'>12</font>倍。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"狂风手套"
@@ -12900,7 +12900,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"暗黑使者手套"	
 		"property_dark_emissary"												"彩虹迷雾"
-		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在<font color='#ccff66'>400</font>码范围内缠绕敌人并造成 <font color='#ccff66'>240</font>% 乘以玩家攻击力的伤害。将隐身<font color='#ccff66'>5</font>秒。隐身效果具有<font color='#ccff66'>8</font>秒的冷却时间"
+		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在<font color='#ccff66'>400</font>码范围内缠绕敌人并造成 <font color='#ccff66'>240</font> x玩家攻击力 的伤害。随后隐身<font color='#ccff66'>5</font>秒。隐身效果具有<font color='#ccff66'>8</font>秒的冷却时间"
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"彩虹迷雾"
 		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"隐形"
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"彩虹迷雾"
@@ -12950,7 +12950,7 @@
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱"
 		 "item_property_shipyard_veil_3"					"灵魂支盾"
-		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为玩家增加一层护盾，每层护盾可吸收一次伤害，最高 @special_property1 层。同时每层存在的护盾增加 @Ability1 伤害 @special_property2%。护盾被打破，玩家将会对攻击者施放骷颅攻击。<br>骷颅造成 @special_property3x 你的主属性的魔法伤害。"
+		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为你增加一层能吸收一次伤害的护盾 (<font color='#ccff66'>0.1</font> 秒冷却时间). 最大叠加 <font color='#ccff66'>4</font> 层. 每层增加 @Ability1 的基础技能伤害 <font color='#ccff66'>100</font>%. 当拥有护盾时，伤害你的敌人会受到一次骷髅打击，造成 <font color='#ccff66'>10</font>x 你的主属性的魔法伤害."
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"灵魂之盾"
@@ -12976,7 +12976,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
 		"item_property_ruby_dragon"					"红龙"
-		"property_ruby_dragon_description"			"成功释放 @Ability4 后召唤火龙喷火对敌人造成 @special_property1x 力量值的魔法AOE伤害，并且被火焰灼烧的敌人每0.5秒都会受到 @special_property2x 力量值的持续伤害，持续3秒。"
+		"property_ruby_dragon_description"			"成功释放 @Ability4 召唤一只火龙在你周围巡逻 <font color='#ccff66'>15</font> 秒.它会对敌人喷火,造成 <font color='#ccff66'>5000</font>x 你的力量值的伤害; 被伤害的敌人随后会燃烧 <font color='#ccff66'>9</font> 秒,受到 <font color='#ccff66'>1500</font>x 你的力量值 的伤害每 <font color='#ccff66'>0.2</font> 秒.每次一个单位被火龙吐息击中, 它会产生一层新的燃烧buff, 且每层燃烧buff 造成伤害和持续时间互相独立"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"半人马角"	
@@ -12994,9 +12994,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"大自然之帽"
 		"item_property_wild_nature"					"纠缠根须"
-		"property_wild_nature_description"			"敌人攻击你时，有 <font color='#ccff66'>30</font>% 几率被定身 <font color='#ccff66'>3</font> 秒，每秒受到 <font color='#ccff66'>750</font>x 倍你的主属性的魔法伤害。"
+		"property_wild_nature_description"			"敌人攻击你时，有 <font color='#ccff66'>30</font>% 几率被定身 <font color='#ccff66'>3</font> 秒，每秒受到 <font color='#ccff66'>750</font>x 你的主属性的魔法伤害。"
 		"item_property_wild_nature_two"				"诱捕根须"
-		"property_wild_nature_two_description"		"被 @Ability2 击中的敌人有 <font color='#ccff66'>30</font>% 几率被缠绕 <font color='#ccff66'>3</font> 秒，每秒受到 <font color='#ccff66'>750</font>x 倍你的主属性的伤害。"
+		"property_wild_nature_two_description"		"被 @Ability2 击中的敌人有 <font color='#ccff66'>30</font>% 几率被缠绕 <font color='#ccff66'>3</font> 秒，每秒受到 <font color='#ccff66'>750</font>x 你的主属性的伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
@@ -13035,7 +13035,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"翡翠兜里"
 		"item_property_emerald_douli"				"法力护盾"
-		"property_emerald_douli_description"		"TODO: <font color='#ccff66'>95</font>% of damage taken is removed from mana before health. 1 point of mana can absorb <font color='#ccff66'>5</font> damage. Can't reduce mana below <font color='#ccff66'>10</font>%."
+		"property_emerald_douli_description"		"<font color='#ccff66'>95</font>% 受到的伤害被法力护盾吸收. 1点魔法值 可以抵挡 <font color='#ccff66'>5</font> 伤害. 这个效果不会使魔法值低于 <font color='#ccff66'>10</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
@@ -13050,7 +13050,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"
 		"item_property_super_ascendency"			"巨大优势"
-		"property_super_ascendency_description"		"施放 @Ability4 后，普通攻击变为发射火球，攻击距离增加<font color='#ccff66'>800</font>，额外攻击力提高<font color='#ccff66'>150</font>%，攻击速度提高<font color='#ccff66'>300</font>，移动速度提高<font color='#ccff66'>200</font>，继续<％SUPER_ASCENDENCY_MIN_DURATION％>秒或@ Ability4冷却时间 (。每次攻击可以同时攻击<font color='#ccff66'>5</font>个目标，并且每次攻击减少 @Ability4 的冷却时间 <font color='#ccff66'>0.05</font>秒。"
+		"property_super_ascendency_description"		"施放 @Ability4 后，普通攻击变为发射火球，攻击距离增加<font color='#ccff66'>800</font>，额外攻击力提高<font color='#ccff66'>150</font>%，攻击速度提高<font color='#ccff66'>300</font>，移动速度提高<font color='#ccff66'>200</font>。每次攻击可以同时攻击<font color='#ccff66'>5</font>个目标，并且每次攻击减少 @Ability4 的冷却时间 <font color='#ccff66'>0.05</font>秒。巨大优势buff的冷却时间与 @Ability4 相同, 不会低于 <font color='#ccff66'>12</font> 秒"
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"巨大优势"
 		
 		
@@ -13113,7 +13113,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"                                    "幽灵王冠"
         "item_property_wraith_crown"                        "幽灵暗潮"                 
-        "property_wraith_crown_description"                             "当血量等于或少于 <font color='#ccff66'>35</font>% of 最大生命值时施放 @Ability1 会给予 <font color='#ccff66'>65</font>% 的魔抗 <font color='#ccff66'>2</font>秒, 施放 @Ability2 会躲避弹道 (每次触发不能超过 <font color='#ccff66'>1.5</font>秒) 并且施放 @Ability 3 会给予 <font color='#ccff66'>75</font>% 的闪避 持续 <font color='#ccff66'>3</font>秒."
+        "property_wraith_crown_description"                             "当血量等于或少于 <font color='#ccff66'>35</font>%  最大生命值时施放 @Ability1 会给予 <font color='#ccff66'>65</font>% 的魔抗 <font color='#ccff66'>2</font>秒, 施放 @Ability2 会躲避弹道 (每次触发不能超过 <font color='#ccff66'>1.5</font>秒) 并且施放 @Ability3 会给予 <font color='#ccff66'>75</font>% 的闪避 持续 <font color='#ccff66'>3</font>秒."
         "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"             "幽灵的魔法祝福"
         "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description" "给予 <font color='#ccff66'>65</font>%% 魔抗."
         "DOTA_Tooltip_modifier_wraith_crown_evasion_buff"               "幽魂的回避祝福"
@@ -13124,7 +13124,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"
 		"item_property_demon"						"恶魔之泪"
-		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <font color='#ccff66'>15</font>% 几率释放一道火花，对周围所有单位造成 <font color='#ccff66'>15</font>x 该技能的伤害。此装备不享受装备伤害加成效果。item_property_nobility"
+		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <font color='#ccff66'>15</font>% 几率释放一道火花，对周围所有单位造成 <font color='#ccff66'>15</font>x 该技能的伤害。此装备不享受装备伤害加成效果。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"暗哨头冠"
@@ -13189,9 +13189,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"沉寂圣殿骑士的头盔"
 		"item_property_helm_of_silent_templar"					"沉默瞥视"
-		 "property_helm_of_silent_templar_description"			"施放 @Ability4 沉默自己 <font color='#ccff66'>10</font> 秒。期间攻击速度增加 <font color='#ccff66'>240</font>，并且普通攻击额外造成 <font color='#ccff66'>60</font>% 的魔法伤害。"
+		 "property_helm_of_silent_templar_description"			"施放 @Ability4 沉默自己 <font color='#ccff66'>10</font> 秒。期间攻击速度增加 <font color='#ccff66'>240</font>，并且普通攻击额外造成 <font color='#ccff66'>60</font>% x的魔法伤害。"
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"沉默瞥视"
-		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"被沉默。攻击速度增加240并且普通攻击额外造成600%的魔法伤害"
+		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"被沉默。攻击速度增加240并且普通攻击额外造成6000%的魔法伤害"
 		 
 		
 		
@@ -13281,7 +13281,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"山岭巨人头盔"
 		"item_property_mountain_giant" 								"稳如泰山"
-		"property_mountain_giant_description"		"提高最大生命值 <font color='#ccff66'>200</font>。 当生命值高于80%时，拥有<font color='#ccff66'>50</font>减伤。"
+		"property_mountain_giant_description"		"提高最大生命值 <font color='#ccff66'>200</font> %。 当生命值高于80%时，拥有<font color='#ccff66'>50</font>%减伤。"
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"奥斯克的链盔"
@@ -13420,7 +13420,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
 		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害<font color='#ccff66'>50</font>%. 你的血量不能超过 <font color='#ccff66'>35</font>% 的最大生命值. 提升装备伤害 <font color='#ccff66'>10</font>% 基于失去的血量."
+		"property_raven_idol_description2"			"减少受到的所有伤害<font color='#ccff66'>50</font>%. 你的血量不能超过 <font color='#ccff66'>35</font>% 的最大生命值. 每失去1%血量提升装备伤害 <font color='#ccff66'>10</font>% ."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
@@ -13431,7 +13431,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
 		"item_property_volcano_orb"					"火热之心"
-		"property_volcano_orb_description"			"提高所有魔法伤害 <font color='#ccff66'>2.5</font>x。该效果与其他税后效果乘法计算。"
+		"property_volcano_orb_description"			"所有魔法伤害提升至<font color='#ccff66'>2.5</font>x。该效果与其他税后效果乘法计算。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
@@ -13486,7 +13486,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
 		"item_property_epsilon_eyeglass"					"扩展范围"
-		"property_epsilon_eyeglass_description"			"增加攻击距离 <font color='#ccff66'>240</font> 码(只适用于远程英雄)并且增加 <font color='#ccff66'>800</font> 码视野范围，和 <font color='#ccff66'>1500</font> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<font color='#ccff66'>1</font> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <font color='#ccff66'>5000</font>，仍以此距离计算。"
+		"property_epsilon_eyeglass_description"			"增加攻击距离 <font color='#ccff66'>240</font> 码(只适用于远程英雄)并且增加 <font color='#ccff66'>800</font> 码视野范围，和 <font color='#ccff66'>1500</font> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<font color='#ccff66'>1</font> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <font color='#ccff66'>5000</font>，仍以此距离计算。距离不足700时以700计算"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"芬里尔的犬牙"
@@ -13511,7 +13511,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"宁静之戒"
 		"item_property_cobalt_serenity"						"宁静"
-		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <font color='#ccff66'>8</font>% 的智力值。"
+		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <font color='#ccff66'>8</font>% x智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
@@ -13576,7 +13576,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"海洋之心"	
 		"property_sparkling_token"												"炽热雾霭"
-		"property_sparkling_token_Description"									"所受到的所有纯粹伤害减少 <font color='#ccff66'>95</font>%。"
+		"property_sparkling_token_Description"									"受到的所有纯粹伤害减少 <font color='#ccff66'>95</font>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"阿祖赫仑的冰霜之心"
@@ -13588,7 +13588,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"观星者的法球"
 		"item_property_stargazer"									"观星者之眼"
-		"property_stargazer_description"							"在任意地点发出攻击移动命令创建一个有视野的观星者领域。受到伤害的光圈内部的敌人将被一颗星击中，造成的纯伤害等于该戒指一生中对敌人造成的最高伤害实例的<font color='#ccff66'>100</font>% 。之后的伤害只能造成<font color='#ccff66'>10</font>x 的伤害。与高级鉴定相比，将其阈值提高到其正常值的<font color='#ccff66'>10</font>x至(<font color='#ccff66'>30</font>。观星者领域的最小生成间隔为 <font color='#ccff66'>0.5</font> 秒内置cd.(此物品不受元素伤害加成)，在一个圆圈内发出攻击移动命令会立即将其折叠，形成一个流星，其流星在该区域造成<font color='#ccff66'>20</font>x你的攻击力并且眩晕此区域的敌人<font color='#ccff66'>1.5</font>秒"
+		"property_stargazer_description"							"对任意地点发出攻击移动命令能创建一个有视野的观星者领域。领域拥有该物品增大视野属性范围的顺畅视野。在领域内部受到伤害的敌人将被一颗流星击中，造成等于在该领域持续时间内对敌人造成的最高伤害<font color='#ccff66'>100</font>% 的纯粹伤害（不包括观星本身）。通过其他途径（元素和装备伤害等）提高的流星伤害不能超过触发流星的伤害的<font color='#ccff66'>10</font>x 。流星伤害对坚定能提高其 <font color='#ccff66'>10</font>x 阈值 (<font color='#ccff66'>30</font>x 对高级坚定). 敌人每 <font color='#ccff66'>0.5</font> 秒最多被流星打击一次.对领域发出攻击移动命令能使其立即崩溃，形成一颗陨石落下对范围内敌人造成<font color='#ccff66'>20</font>x 你的攻击力的伤害并眩晕敌人<font color='#ccff66'>1</font>秒。观星者领域的创建有<font color='#ccff66'>1.5</font> 秒内置cd。"
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
 		
@@ -13613,7 +13613,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"旋转剃刀系带"
 		"item_property_razor_band"										"旋转之刃"
-		"property_razor_band_description"								"承受敌人一次伤害后，你将会对敌人造成一次 <font color='#ccff66'>1</font>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <font color='#ccff66'>24</font>% 倍攻击力和 <font color='#ccff66'>4</font>% 税后伤害。每0.3秒对附近的敌人造成一次 <font color='#ccff66'>10</font>% 攻击力的伤害。每层效果都有独立的<font color='#ccff66'>8</font> 秒持续时间，并且最大层数不能超过<font color='#ccff66'>100</font>层。"
+		"property_razor_band_description"								"承受敌人一次伤害后，你将会对自己造成一次 <font color='#ccff66'>1</font>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <font color='#ccff66'>24</font>% 倍攻击力和 <font color='#ccff66'>4</font>% 税后伤害。每0.3秒对附近的敌人造成一次 <font color='#ccff66'>10</font>% 攻击力的伤害。每层效果都有独立的<font color='#ccff66'>8</font> 秒持续时间，并且最大层数不能超过<font color='#ccff66'>100</font>层。"
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"旋转之刃"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"增加攻击力和税后伤害并且每0.3秒对周围的敌人造成一次伤害。"

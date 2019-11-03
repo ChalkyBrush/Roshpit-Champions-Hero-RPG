@@ -8025,7 +8025,7 @@
 		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP."
 		"omniro_lightning_special_a_pretext"										"CURRENT HP % DAMAGE:"												
 
-		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <font color='#ccff66'>10</font>x damage when afflicted enemy is also standing in Orb Effect's poison puddle."
+		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <font color='#ccff66'>4</font>x damage when afflicted enemy is also standing in Orb Effect's poison puddle."
 		"omniro_poison_special_a_pretext"										"DOT DAMAGE % OF ATTACK POWER: "
 
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Poison"
