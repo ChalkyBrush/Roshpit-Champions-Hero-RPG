@@ -177,7 +177,7 @@ function red_general_rune_base_q_1_attackLand(event)
 	end
 	local q_4_level = caster:GetRuneValue("q", 4)
 	local base_radius = event.base_radius
-	local radius = base_radius = RED_GENERAL_Q4_RADIUS_INCREASE*q_4_level
+	local radius = base_radius + RED_GENERAL_Q4_RADIUS_INCREASE*q_4_level
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetUnit:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local dealDamage = not caster:HasModifier("modifier_axe_glyph_7_1")
 	for i = 1, #enemies do
