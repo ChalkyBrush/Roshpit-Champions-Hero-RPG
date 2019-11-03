@@ -11326,7 +11326,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "400"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 			"modifier_prevent_turning_invisible"
@@ -11357,7 +11357,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_power_mult_percent"			"600 1000 1400 1800 2200 2600 3000"
+				"attack_power_mult_percent"			"60 80 100 140 180 240 300"
 			}
 			"02"
 			{
@@ -11401,7 +11401,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -11562,7 +11562,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20"
 				}
 			}
 			"modifier_stonewall_aura_enemy"
@@ -11617,12 +11617,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -11641,7 +11641,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -11733,7 +11733,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bolt_damage"		"110 440 1150 2480 7000 14000 24000"
+				"bolt_damage"		"200 400 800 1200 1600 2000 2400"
 			}
 			"04"
 			{
@@ -11873,7 +11873,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"10"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"5"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -12031,21 +12031,16 @@
 			"modifier_axe_rune_w_2_invisible"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
+				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-0.5"
-				}
+				"IsStunDebuff"		"1"
 			}
 			"modifier_axe_rune_w_2_visible"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
+				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
+				"IsStunDebuff"		"1"
 				"TextureName"		"axe/axe_rune_w_2"
 
 				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
@@ -12442,7 +12437,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"200"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"
 				}
 			}
 
@@ -12568,7 +12562,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"5"
 			}
 		}
 		"Modifiers"
@@ -12595,7 +12589,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"10"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"5"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -12621,7 +12615,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -12708,7 +12702,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"20"
 			}
 
 		}
@@ -13052,7 +13046,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"40"
 			}
 		}
 		"Modifiers"
@@ -13081,7 +13075,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"1"
 			}
 		}
 	}

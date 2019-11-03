@@ -3249,8 +3249,8 @@
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Reduces incoming damage"
  
         "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] Walled Ambuscade"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Enemies within Stonewalls take increased post-mitigation damage from The Red General."
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Post-Mitigation Damage"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Enemies within Stonewalls have reduced Armor and Spell Pierce."
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Armor and Spell Pierce"
         "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
  
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] Barrier"
