@@ -159,6 +159,25 @@ function Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level)
 	end
 end
 
+function Enemies:SpawnEnemy(unitName, spawnPoint, aggroSound, fv, isAggro)
+	local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+	if aggroSound then
+		unit.aggroSound = aggroSound
+	end
+	if fv then
+		unit:SetForwardVector(fv)
+	end
+	if isAggro then
+		Dungeons:AggroUnit(unit)
+	end
+	local ability = unit:FindAbilityByName("dungeon_creep")
+	if ability then
+		ability:SetLevel(1)
+		ability:ApplyDataDrivenModifier(unit, unit, "modifier_dungeon_thinker_creep", {})
+	end
+	return unit
+end
+
 function Enemies:InitializeEnemy(unit)
 	local base_level = unit:GetKeyValue("RoshpitLevel")
 	local unit_level = unit.roshpit_attributes.roshpit_level

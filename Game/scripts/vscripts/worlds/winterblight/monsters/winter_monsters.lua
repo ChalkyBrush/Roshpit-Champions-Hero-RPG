@@ -464,7 +464,7 @@ function beetle_underground_think(event)
 			EmitSoundOn("Winterblight.MountainBeetle.Unburrow", caster)
 		end)
 		caster:RemoveModifierByName("modifier_ice_beast_ai")
-		caster:RemoveModifierByName("modifier_cave_shroom_ai")
+		caster:RemoveModifierByName("modifier_redfall_shroomling_ai")
 		StartAnimation(caster, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
 		local ability = event.ability
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shroom_jumping", {duration = 0.74})
