@@ -186,7 +186,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% RED_GENERAL_ARCANA1_R2_BONUS_DAMAGE %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 			"modifier_prevent_turning_invisible"
@@ -217,7 +217,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_power_mult_percent"			"600 1000 1400 1800 2200 2600 3000"
+				"attack_power_mult_percent"			"60 80 100 140 180 240 300"
 			}
 			"02"
 			{

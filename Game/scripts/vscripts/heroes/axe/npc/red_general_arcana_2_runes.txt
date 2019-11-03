@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_ARCANA2_W1_POSTMIT %>"
+				"property_one"			"<% RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE %>"
 			}
 		}
 	}

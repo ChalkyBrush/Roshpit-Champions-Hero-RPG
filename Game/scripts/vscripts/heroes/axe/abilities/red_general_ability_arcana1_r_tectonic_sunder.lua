@@ -215,7 +215,17 @@ function red_general_rune_arcana1_r_2_applyBuff(caster, ability)
 
 	local duration = Filters:GetAdjustedBuffDuration(caster, RED_GENERAL_ARCANA1_R2_DURATION, false)
 
-	Helper.updateStackModifier(caster, caster, ability, 'axe_rune_r_2_arcana1', duration, RED_GENERAL_ARCANA1_R2_MAX_STACKS_COUNT, runesCount)
+	-- Helper.updateStackModifier(caster, caster, ability, 'axe_rune_r_2_arcana1', duration, RED_GENERAL_ARCANA1_R2_MAX_STACKS_COUNT, runesCount)
+	-- modifier_axe_rune_r_2_arcana1_invisible
+	local visibleModifierStacks = 1
+	local modifier = caster:FindModifierByName("modifier_axe_rune_r_2_arcana1_visible")
+	if modifier then
+		visibleModifierStacks = math.min(modifier:GetStackCount() + 1, 5)
+	end
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_2_arcana1_visible", {duration = duration})
+	caster:SetModifierStackCount("modifier_axe_rune_r_2_arcana1_visible", caster, visibleModifierStacks)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_r_2_arcana1_invisible", {duration = duration})
+	caster:SetModifierStackCount("modifier_axe_rune_r_2_arcana1_invisible", caster, visibleModifierStacks * runesCount * RED_GENERAL_ARCANA1_R2_BONUS_DAMAGE)
 end
 
 function red_general_rune_arcana1_r_3_applyDebuff(caster, target, ability)
@@ -224,11 +234,11 @@ function red_general_rune_arcana1_r_3_applyDebuff(caster, target, ability)
 		return
 	end
 	local duration = Filters:GetAdjustedBuffDuration(caster, RED_GENERAL_ARCANA1_R3_DURATION, false)
-
+	local newStackssa = runesCount * RED_GENERAL_ARCANA1_R3_RESIST_REDUCE_PERCENT
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_r_3_arcana1_visible", {duration = duration})
-	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_visible", caster, runesCount)
+	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_visible", caster, newStackssa)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_r_3_arcana1_invisible", {duration = duration})
-	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_invisible", caster, runesCount)
+	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_invisible", caster, newStackssa)
 end
 
 function red_general_rune_arcana1_r_4_getTremorsCount(caster)

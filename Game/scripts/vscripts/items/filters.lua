@@ -24,6 +24,7 @@ require('heroes/slardar/hydroxis_constants')
 require('/heroes/vengeful_spirit/solunia_constants')
 require("/heroes/visage/ekkan_constants")
 require("/heroes/winter_wyvern/dinath_constants")
+require("/heroes/axe/red_general_constants")
 
 require('/items/constants/boots')
 require('/items/constants/chest')
@@ -1984,12 +1985,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local modifier = victim:FindModifierByName("modifier_axe_rune_q_4_invisible")
                 if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
                     local stacks = modifier:GetStackCount()
-                    normalMult = normalMult + stacks * 0.02
+                    normalMult = normalMult + stacks * RED_GENERAL_Q4_RESIST_REDUCE_PROCENT * 0.001
                 end
             end
             if victim:HasModifier("modifier_axe_rune_r_3_arcana1_invisible") then
                 local stacks = victim:GetModifierStackCount("modifier_axe_rune_r_3_arcana1_invisible", attacker)
-                normalMult = normalMult + stacks * 0.15
+                normalMult = normalMult + stacks * 0.01
             end
         end
         if attacker:HasModifier("modifier_weapon_normal") then

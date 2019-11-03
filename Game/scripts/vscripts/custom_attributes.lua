@@ -17,6 +17,7 @@ require("/heroes/winter_wyvern/dinath_constants")
 require("/heroes/beastmaster/warlord_constants")
 require("/heroes/moon_ranger/astral_ranger_constants")
 require("/heroes/leshrac/bahamut_constants")
+require("/heroes/axe/red_general_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -52,7 +53,7 @@ CustomAttributes.ZHONIK_ARCANA_R4_AGI = ZHONIK_R4_ARCANA_BONUS_AGI
 
 CustomAttributes.DJANGHOR_R4_STATS = DJANGHOR_R4_BONUS_ATTRIBUTE
 CustomAttributes.DJANGHOR_R4_ARCANA_STATS = DJANGHOR_ARCANA_R_R4_BONUS_ATTRIBUTE
-CustomAttributes.AXE_Q3_STATS = 14
+CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 
 CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
 CustomAttributes.BAHAMUT_Q4_INT = BAHAMUT_Q4_INT_BONUS
@@ -783,10 +784,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_jex_nature_nature_shield_visible") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_jex_nature_nature_shield_visible")
+	end	
+	if unit:HasModifier("modifier_axe_rune_r_3_visible") then
+		local modifierStacks = unit:FindModifierByName("modifier_axe_rune_r_3_visible"):GetStackCount()
+		armor_modify = armor_modify + modifierStacks * RED_GENERAL_R3_BONUS_ARMOR
+	end
+	if unit:HasModifier("modifier_stonewall_aura_axe_armor_strength") then
+		local modifierStacks = unit:FindModifierByName("modifier_stonewall_aura_axe_armor_strength"):GetStackCount()
+		armor_modify = armor_modify + modifierStacks * RED_GENERAL_ARCANA2_W2_ARMOR
 	end
 	if unit:HasModifier("modifier_jex_portal_armor") then
 		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
 		armor_modify = armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
+	end	
+	if unit:HasModifier("modifier_stonewall_aura_enemy_effect") then
+		local modifier = unit:FindModifierByName("modifier_stonewall_aura_enemy_effect")
+		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
+		print("modifier_stonewall_aura_enemy_effect armor "..tostring(RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1))
+		armor_modify = armor_modify - RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
 	end
 	if unit:HasModifier("modifier_omnimace_earth_buff") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_a", "modifier_omnimace_earth_buff")
@@ -869,6 +884,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 
 	local magic_armor_modify = 0
+	if unit:HasModifier("modifier_axe_rune_w_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_axe_rune_w_2_invisible"):GetStackCount()
+		print("modifier axe "..tostring(modifier))
+		magic_armor_modify = magic_armor_modify - modifier*RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION
+	end
 	if unit:HasModifier("modifier_flamespitting") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_flamespitting")
 	end
@@ -1174,6 +1194,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_jex_portal_armor") then
 		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
+	end	
+	if unit:HasModifier("modifier_stonewall_aura_enemy_effect") then
+		local modifier = unit:FindModifierByName("modifier_stonewall_aura_enemy_effect")
+		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
+		print("modifier_stonewall_aura_enemy_effect magic "..tostring(RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1))
+		magic_armor_modify = magic_armor_modify - RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
 	end
 	if unit:HasModifier("modifier_omnimace_earth_buff") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_b", "modifier_omnimace_earth_buff")
@@ -1711,10 +1737,10 @@ function CustomAttributes:SetAttributes(hero)
 
 	if hero:HasModifier("modifier_axe_rune_e_1_invisible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_axe_rune_e_1_invisible")
-		str_bonus = str_bonus + stacks * CustomAttributes.AXE_Q3_STATS
-		agi_bonus = agi_bonus + stacks * CustomAttributes.AXE_Q3_STATS
-		int_bonus = int_bonus + stacks * CustomAttributes.AXE_Q3_STATS
-		spirit_bonus = spirit_bonus + stacks * CustomAttributes.AXE_Q3_STATS
+		str_bonus = str_bonus + stacks * CustomAttributes.AXE_E1_STATS
+		agi_bonus = agi_bonus + stacks * CustomAttributes.AXE_E1_STATS
+		int_bonus = int_bonus + stacks * CustomAttributes.AXE_E1_STATS
+		spirit_bonus = spirit_bonus + stacks * CustomAttributes.AXE_E1_STATS
 	end
 	if hero:HasModifier("modifier_astral_d_c_visible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_astral_d_c_visible")

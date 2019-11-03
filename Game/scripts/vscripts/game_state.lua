@@ -2244,7 +2244,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_axe_rune_r_4_invisible") then
 		local stacksCount = attacker:GetModifierStackCount("modifier_axe_rune_r_4_invisible", attacker)
-		mult = mult + stacksCount * 0.02
+		mult = mult + stacksCount * RED_GENERAL_R4_POST_AMP_PERCENT * 0.01
 	end
 
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
@@ -2466,13 +2466,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = Filters:AuriunImmortalWeapon1(filterTable["damage"], victim)
 	end
 
-	if victim:HasModifier("modifier_stonewall_aura_enemy_effect") then
-		modifier = victim:FindModifierByName("modifier_stonewall_aura_enemy_effect")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			local stacks = modifier:GetCaster():GetRuneValue("w", 1)
-			mult = mult + 0.05 * stacks
-		end
-	end
 	if attacker:HasModifier("modifier_hood_of_the_sea_oracle") then
 		if victim:HasModifier("modifier_sea_oracle_stacker") then
 			local stacks = victim:GetModifierStackCount("modifier_sea_oracle_stacker", attacker.InventoryUnit)
