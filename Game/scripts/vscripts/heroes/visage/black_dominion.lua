@@ -80,18 +80,7 @@ function dominion_debuff_death(event)
 		summon:SetAcquisitionRange(1600)
 		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		summon:SetForwardVector(fv)
-		local hp = unit:GetMaxHealth()
-		local armor = unit:GetPhysicalArmorBaseValue()
-		local movespeed = unit:GetBaseMoveSpeed()
-		local attackDamage = unit:GetAttackDamage()
-		summon:SetMaxHealth(hp)
-		summon:SetHealth(hp)
-		summon:SetBaseMaxHealth(hp)
 
-		summon:SetPhysicalArmorBaseValue(armor)
-		summon:SetBaseMoveSpeed(movespeed)
-		summon:SetBaseDamageMin(attackDamage)
-		summon:SetBaseDamageMax(attackDamage)
 		summon.attackDamage = attackDamage
 		summon.armor = armor
 		summon.aggro = true
@@ -274,7 +263,11 @@ function dominion_unit_kill(event)
 		local q_3_level = caster:GetRuneValue("q", 3)
 		if unit:GetDeathXP() > 10 then
 			if q_3_level > 0 then
-				attacker.armor = attacker.armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
+				local new_armor = attacker.roshpit_attributes.roshpit_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
+				local new_magic_armor = attacker.roshpit_attributes.roshpit_magic_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
+				unit:SetBaseRoshpitArmor(new_armor)
+				unit:SetBaseRoshpitMagicArmor(new_magic_armor)
+				
 				local damageGainMult = EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE
 				attacker.attackDamage = attacker.attackDamage + q_3_level * damageGainMult
 				attacker:SetPhysicalArmorBaseValue(attacker.armor)
@@ -464,6 +457,7 @@ function swarm_hit(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_swarm_effect", {duration = 12})
 	local q_2_level = caster.hero:GetRuneValue("q", 2)
 	target:SetModifierStackCount("modifier_swarm_effect", caster, q_2_level)
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function swarm_poison_think(event)

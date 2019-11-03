@@ -1958,9 +1958,8 @@ function GameState:FilterDamage(filterTable)
 			local luck = RandomInt(1, 10)
 			if luck <= 3 then
 				filterTable.damage = filterTable.damage * (1 + attacker.w_1_level * EKKAN_W1_CRIT_DMG)
-				local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
+				local damage = Filters:TakeArgumentsAndApplyDamage(victim, attacker.hero, filterTable.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE, true, nil)
 				filterTable["damage"] = damage
-				armor = 0
 				PopupDamage(victim, damage)
 				CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/archer_crit.vpcf", victim, 0.6)
 				attacker.element1 = RPC_ELEMENT_UNDEAD
@@ -2276,10 +2275,6 @@ function GameState:FilterDamage(filterTable)
 		local modifierCaster = attacker:FindModifierByName("modifier_earthshock_damage_reduce"):GetCaster()
 		local stacks = attacker:GetModifierStackCount("modifier_earthshock_damage_reduce", modifierCaster)
 		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"] * math.min((CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT / 100) * stacks, 0.9))
-	end
-	if victim:HasModifier("modifier_swarm_effect") then
-		local multIncrease = victim:GetModifierStackCount("modifier_swarm_effect", victim.umbral) * EKKAN_ARCANA_Q2_POST_MITI
-		mult = mult + multIncrease
 	end
 	if victim:HasModifier("modifier_witch_hat_damage_amp") then
 		modifier = victim:FindModifierByName("modifier_witch_hat_damage_amp")
@@ -2961,9 +2956,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_ekkan_dominion_unit") then
 		if attacker.hero:HasModifier("modifier_ekkan_immortal_weapon_3") then
-			if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-				filterTable["damage"] = filterTable["damage"] * EKKAN_IMMORTAL_WEAPON_3_AMP
-			end
+			filterTable["damage"] = filterTable["damage"] * EKKAN_IMMORTAL_WEAPON_3_AMP
 		end
 	end
 

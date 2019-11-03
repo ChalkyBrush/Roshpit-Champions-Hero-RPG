@@ -100,7 +100,7 @@
 		"AbilityTextureName"	"ekkan/ekkan_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -116,14 +116,9 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"	    "100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"element_one"	    	"17"
 			}
-			"05"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"	    	"2"
@@ -148,7 +143,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% EKKAN_W2_UNDEAD_AMP * 100 %>"
 			}
 		}
@@ -178,9 +173,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"property_three"			"<% EKKAN_W3_MAGIC_ARMOR_LOSS %>"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"17"
@@ -201,12 +201,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EKKAN_W4_MAGIC_RESIST %>"
+				"property_one"			"<% EKKAN_W4_MAGIC_ARMOR %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EKKAN_W4_SKELETON_POST_MITI %>"
+				"property_two"			"<% EKKAN_W4_PIERCES %>"
 			}
 		}
 	}
@@ -269,7 +269,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"				"<% EKKAN_E2_FAMILIAR_ARMOR * 100 %>"
+				"property_two"				"<% EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES * 100 %>"
 			}
 		}
 	}
@@ -346,8 +346,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% EKKAN_R2_DAMAGE * 100 %>"
 			}
 			"02"
 			{

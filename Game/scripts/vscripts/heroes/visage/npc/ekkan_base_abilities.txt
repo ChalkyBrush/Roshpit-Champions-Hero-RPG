@@ -305,7 +305,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"1000 6000 24000 120000 300000 700000 1200000"
+				"skeleton_health"		"140 540 940 1340 1740 2140 2540"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
@@ -503,10 +503,6 @@
 			"modifier_ekkan_d_b_magic_resist"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% EKKAN_W4_MAGIC_RESIST %>"
-				}
 			}
 		}
 	}
@@ -687,10 +683,12 @@
 						"ScriptFile"	"heroes/slardar/tsunami.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% EKKAN_E3_ARMOR_REDUCTION %>"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -936,6 +934,15 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% EKKAN_W3_MOVESPEED_SLOW %>"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}

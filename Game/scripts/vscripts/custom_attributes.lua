@@ -809,6 +809,18 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_omniro_shadow_debuff") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "shadow_special_b", "modifier_omniro_shadow_debuff")
 	end
+	if unit:HasModifier("modifier_familiar_armor_break") then
+		local modifier = unit:FindModifierByName("modifier_familiar_armor_break")
+		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_E3_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_swarm_effect") then
+		local modifier = unit:FindModifierByName("modifier_swarm_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q2_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_black_dominion_d_a_aura_effect") then
+		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
+	end
 	
 
 	if armor_modify > 0 then
@@ -1206,6 +1218,18 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_arcane_orb_magic_resist") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "arcane_orb_b", "modifier_arcane_orb_magic_resist")
+	end
+	if unit:HasModifier("modifier_mage_blast_slow") then
+		local modifier = unit:FindModifierByName("modifier_mage_blast_slow")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_W3_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_swarm_effect") then
+		local modifier = unit:FindModifierByName("modifier_swarm_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q2_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_black_dominion_d_a_aura_effect") then
+		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
 	end
 	
 	

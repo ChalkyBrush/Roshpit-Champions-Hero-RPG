@@ -72,8 +72,15 @@ function cast_raise_skeleton(event)
 
 					skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_unit", {duration = skeletonDuration})
-					local skeleArmor = caster:GetPhysicalArmorValue(false) * event.armor_mult
-					skeleton:SetPhysicalArmorBaseValue(skeleArmor)
+					local skeleArmor = caster.roshpit_attributes.roshpit_armor * event.armor_mult
+					local skeleMagicArmor = caster.roshpit_attributes.roshpit_magic_armor * event.armor_mult + w_4_level*EKKAN_W4_MAGIC_ARMOR
+
+					local skele_armor_pierce = caster.roshpit_attributes.roshpit_armor_pierce + w_4_level*EKKAN_W4_PIERCES
+					local skele_spell_pierce = caster.roshpit_attributes.roshpit_spell_pierce + w_4_level*EKKAN_W4_PIERCES
+					skeleton:SetBaseRoshpitArmor(skeleArmor)
+					skeleton:SetBaseRoshpitMagicArmor(skeleMagicArmor)
+					skeleton:SetBaseRoshpitArmorPierce(skele_armor_pierce)
+					skeleton:SetBaseRoshpitSpellPierce(skele_spell_pierce)
 					skeleton.w_1_level = w_1_level
 					skeleton:SetBaseDamageMin(attackDamage)
 					skeleton:SetBaseDamageMax(attackDamage)
@@ -89,10 +96,6 @@ function cast_raise_skeleton(event)
 					skeleton.w_3_level = w_3_level
 					skeleton.ekkan_dominion = true
 					skeleton.dominion = true
-					if w_4_level > 0 then
-						Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, skeleton, "modifier_general_postmitigation", {})
-						skeleton:SetModifierStackCount("modifier_general_postmitigation", Events.GameMaster, w_4_level * EKKAN_W4_SKELETON_POST_MITI)
-					end
 
 					table.insert(ability.skeleTable, skeleton)
 					local max_skeletons = event.max_skeletons
@@ -222,6 +225,7 @@ function mage_blast_target_point(event)
 				ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR, ability = ability})
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_mage_blast_slow", {duration = 5})
 				enemy:SetModifierStackCount("modifier_mage_blast_slow", caster, caster.w_3_level)
+				enemy:CalculateAndSaveRoshpitAttributes()
 			end
 		end
 		Timers:CreateTimer(5, function()

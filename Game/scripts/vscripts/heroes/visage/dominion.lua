@@ -84,18 +84,11 @@ function dominion_debuff_death(event)
 		if q_2_level > 0 then
 			hp = hp + hp * EKKAN_Q2_BONUS_HP * q_2_level
 			hp = math.min(hp, 2000000000)
+			summon:SetMaxHealth(hp)
+			summon:SetHealth(hp)
+			summon:SetBaseMaxHealth(hp)
 		end
-		local armor = unit:GetPhysicalArmorBaseValue()
-		local movespeed = unit:GetBaseMoveSpeed()
-		local attackDamage = unit:GetAttackDamage()
-		summon:SetMaxHealth(hp)
-		summon:SetHealth(hp)
-		summon:SetBaseMaxHealth(hp)
 
-		summon:SetPhysicalArmorBaseValue(armor)
-		summon:SetBaseMoveSpeed(movespeed)
-		summon:SetBaseDamageMin(attackDamage)
-		summon:SetBaseDamageMax(attackDamage)
 		summon.attackDamage = attackDamage
 		summon.armor = armor
 		summon.aggro = true
@@ -145,15 +138,15 @@ function dominion_debuff_death(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
 		caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
 
-		if caster:HasModifier("modifier_ekkan_glyph_5_a") and dominion_allowed_selfcasted_units(summon:GetUnitName()) then
-			event.attacker = summon
-			for i = 1, EKKAN_GLYPH_5_a_STACKS do
-				dominion_unit_kill(event)
-				if event.unit.dominionLock then
-					event.unit.dominionLock = false
-				end
-			end
-		end
+		-- if caster:HasModifier("modifier_ekkan_glyph_5_a") and dominion_allowed_selfcasted_units(summon:GetUnitName()) then
+		-- 	event.attacker = summon
+		-- 	for i = 1, EKKAN_GLYPH_5_a_STACKS do
+		-- 		dominion_unit_kill(event)
+		-- 		if event.unit.dominionLock then
+		-- 			event.unit.dominionLock = false
+		-- 		end
+		-- 	end
+		-- end
 	end
 end
 
@@ -261,10 +254,12 @@ function dominion_unit_kill(event)
 		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "ekkan")
 		if unit:GetDeathXP() > 10 then
 			if q_3_level > 0 then
-				attacker.armor = attacker.armor + q_3_level * EKKAN_Q3_ARMOR_ADDED
+				local new_armor = attacker.roshpit_attributes.roshpit_armor + q_3_level * EKKAN_Q3_ARMOR_ADDED
+				local new_magic_armor = attacker.roshpit_attributes.roshpit_magic_armor + q_3_level * EKKAN_Q3_ARMOR_ADDED
+				unit:SetBaseRoshpitArmor(new_armor)
+				unit:SetBaseRoshpitMagicArmor(new_magic_armor)
 				local damageGainMult = EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED
 				attacker.attackDamage = attacker.attackDamage + q_3_level * damageGainMult
-				attacker:SetPhysicalArmorBaseValue(attacker.armor)
 				attacker:SetBaseDamageMin(attacker.attackDamage)
 				attacker:SetBaseDamageMax(attacker.attackDamage)
 				EmitSoundOn("Ekkan.DarkJourney", attacker)
@@ -288,7 +283,7 @@ function dominion_zombie_strike_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local luck = RandomInt(1, 20)
+	local luck = RandomInt(1, 10)
 	local origCaster = event.caster.hero
 	if origCaster:GetRuneValue("q", 1) == 0 then --q1
 		return
@@ -321,8 +316,8 @@ function dominion_zombie_strike_attack(event)
 			bProvidesVision = true,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)
-	else
-		dominion_zombie_strike_hit(event)
+	-- else
+	-- 	dominion_zombie_strike_hit(event)
 	end
 end
 

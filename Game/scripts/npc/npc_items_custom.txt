@@ -2812,7 +2812,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "100000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "800"
 				}
 			}
 		}
@@ -2931,7 +2931,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"3"
 			}
 		}
 	}

@@ -5521,12 +5521,12 @@
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"Serving Ekkan"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units deal bonus magic damage to enemies and have a 5% chance on attack to hit enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a 10% chance on attack to damage enemies in a line."
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Crit Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% of dominated unit's attack damage"
 		
 		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"Deal bonus magic damage to enemies and have a 5% chance on attack to hit enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"10% chance on attack to hit enemies in a line."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Dominated enemies have increased max health."
@@ -5534,10 +5534,10 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage and armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"Dark Journey Stacks"
@@ -5557,7 +5557,7 @@
    		"DOTA_Tooltip_ability_ekkan_summon_skeleton_Description"			"Enemies that die within 1500 of Ekkan leave a pile of their bones at their point of death. Ekkan can target an area containing corpses to summon skeleton warriors that will fight for him."
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_max_skeletons"			"MAX SKELETONS:"
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_skeleton_duration"		"SKELETON LIFE DURATION:"
-		"DOTA_Tooltip_ability_ekkan_summon_skeleton_armor_mult"				"SKELETON ARMOR MULTIPLE OF EKKAN'S:"
+		"DOTA_Tooltip_ability_ekkan_summon_skeleton_armor_mult"				"SKELETON ARMOR AND MAGIC ARMOR MULTIPLE OF EKKAN'S:"
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_attack_mult"			"SKELETON ATTACK POWER MULTIPLE OF EKKAN'S:"
 		"DOTA_Tooltip_ability_ekkan_summon_skeleton_skeleton_health"		"SKELETON HEALTH:"
 
@@ -5583,11 +5583,13 @@
         "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        "% per active skeleton"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30% of summoned skeletons spawn as a skeleton mage that casts an AOE magic attack that also slows enemies."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30% of summoned skeletons spawn as a skeleton mage that casts an AOE magic attack that also slows enemies and lowers their magic armor."
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_one"					"Magic Damage AOE"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix"						"% of attack power"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_two"					"Movement slow"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix_two"					""
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_property_three"                "Magic Armor Reduction"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_suffix_three"                  ""
 
     	"DOTA_Tooltip_ability_ekkan_mage_blast"								"Grave Blast"
     	"DOTA_Tooltip_ability_ekkan_mage_blast_Description"					"Damages enemies in an area after 1 second delay and slows their movement speed. Is considered base ability damage for Summon Skeletons."
@@ -5596,11 +5598,11 @@
     	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"Movespeed slowed"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] Cloak of Shadows"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"All skeleton summons and Ekkan gain permanent bonus magic resistance. Summoned Skeletons have increased post-mitigation damage."
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"Magic Resistance"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"All skeleton summons and Ekkan gain permanent bonus Magic Armor, Armor Pierce, and Spell Pierce."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"Magic Armor"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
-        "DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "Skeleton Post Mitigation Damage"
-        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    "%"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "Armor Pierce and Spell Pierce"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    ""
 		
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"Acheron's Portal"
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"Creates a portal at the target location. Stepping in a portal teleports you and your entire army to the other portal after a 1.5 second delay. Any hero can use Ekkan's portal."	
@@ -5616,11 +5618,11 @@
     	"DOTA_Tooltip_ability_ekkan_rune_e_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] Summon Familiars"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"A familiar is raised from the Acheron's Portal that has magic immunity. Has 50% of the max HP of Ekkan. Max 2 familiars."
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"A familiar is raised from the Acheron's Portal that has magic immunity. Has <font color='#ccff66'>50</font>% of the max HP of Ekkan. Max 2 familiars."
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"Attack Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% of Ekkan's Attack Damage"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Armor"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% of Ekkan's Armor"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Armors and Pierces"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% of Ekkan's Armor and Pierces"
 
     	"DOTA_Tooltip_ability_ekkan_rune_e_3"								"[E3] Decomposition"
     	"DOTA_Tooltip_ability_ekkan_rune_e_3_Description"					"Familiars' attacks reduce their target's armor."
@@ -5695,11 +5697,11 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Slowed and losing life"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on the Aphotic Dominion unit's attack power and take increased post-mitigation damage from all sources. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on the Aphotic Dominion unit's attack power and have reduced Armor and Magic Armor. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Base Attack Damage Per Corpse"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Debuff Post-Mitigation Damage"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Armor and Magic Armor Loss"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible"						"Corpse Eater"
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"Gaining attack damage. When this ends, release swarms of poisonous bugs."
@@ -5708,24 +5710,24 @@
     	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and taking increased post-mitigation damage. On death, generate an additional corpse"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent attack damage and armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black"						"Aphotic Journey"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Permanently increased Attack Damage and Armor"	
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Permanently increased Attack Damage, Armor and Magic Armor"	
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] Gravekeeper Aura"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"The Aphotic Dominion unit has an aura that provides bonus attack damage % and armor to nearby summons and Ekkan. Every 5 seconds, the aura pulses, adding a 2 stack shield to all units in range that absorbs 1 instance of damage per stack."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"The Aphotic Dominion unit has an aura that provides bonus attack damage %, Armor and Magic Armor to nearby summons and Ekkan. Every 5 seconds, the aura pulses, adding a 2 stack shield to all units in range that absorbs 1 instance of damage per stack."
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_one"				"Aura Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_suffix"					"%"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_two"				"Aura Armor Bonus"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_two"				"Aura Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_black_dominion_d_a_aura_effect"					"Gravekeeper Aura"
-    	"DOTA_Tooltip_modifier_black_dominion_d_a_aura_effect_Description"		"Increased attack damage and armor"	
+    	"DOTA_Tooltip_modifier_black_dominion_d_a_aura_effect_Description"		"Increased attack damage, armor and magic armor"	
 
     	"DOTA_Tooltip_modifier_black_dominion_shield"							"Gravekeeper Shield"
     	"DOTA_Tooltip_modifier_black_dominion_shield_Description"				"Absorbing Damage."
@@ -5774,7 +5776,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"Soul Reacher"
 		"item_property_ekkan_immortal_weapon"							"Soul Collector"
-		"property_ekkan_immortal_weapon_description"					"Walking over a corpse collects it and adds 100000 base attack damage. Max 6 corpses and corpses last 10 seconds."
+		"property_ekkan_immortal_weapon_description"					"Walking over a corpse collects it and adds <font color='#ccff66'>800</font> base attack damage. Max 6 corpses and corpses last 10 seconds."
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_2"            "Encroaching Reach of Ymir"
         "item_property_ekkan_immortal_weapon2"                             "Gargoyle Command"
@@ -5782,7 +5784,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
-        "property_ekkan_immortal_weapon3_description"                      "Magic and Pure damage dealt directly by Dominion units' base skills is increased by @special_property1x."
+        "property_ekkan_immortal_weapon3_description"                      "Damage directly by Dominion units is increased by @special_property1x."
 
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell, and Flame Rush"
 

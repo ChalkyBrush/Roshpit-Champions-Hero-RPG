@@ -109,19 +109,11 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	familiar:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 	familiar:SetOwner(caster)
 
-	local familiarArmor = caster:GetPhysicalArmorValue(false) * EKKAN_E2_FAMILIAR_ARMOR * b_c_level
-	familiar:SetPhysicalArmorBaseValue(familiarArmor)
-	local attackDamage = math.min(OverflowProtectedGetAverageTrueAttackDamage(caster) * EKKAN_E2_FAMILIAR_ATTACK * b_c_level, (2 ^ 31) - 10)
-
-	familiar:SetBaseDamageMin(attackDamage)
-	familiar:SetBaseDamageMax(attackDamage)
+	familiar:AdjustSummon(caster, true, EKKAN_E2_HP_MULT, EKKAN_E2_FAMILIAR_ATTACK*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level)
 	if not ability.familiarTable then
 		ability.familiarTable = {}
 	end
-	local familiarHealth = math.floor(caster:GetMaxHealth() * 0.5)
-	familiar:SetMaxHealth(familiarHealth)
-	familiar:SetBaseMaxHealth(familiarHealth)
-	familiar:SetHealth(familiarHealth)
+
 	familiar.ekkan_unit = true
 	familiar.ekkan_dominion = true
 	familiar.dominion = true
@@ -300,6 +292,7 @@ function familiar_attack_land(event)
 	if attacker.e_3_level and attacker.e_3_level > 0 then
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_familiar_armor_break", {duration = 12})
 		target:SetModifierStackCount("modifier_familiar_armor_break", attacker, attacker.e_3_level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end
 

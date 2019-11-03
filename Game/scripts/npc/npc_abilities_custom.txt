@@ -7365,8 +7365,8 @@
 				"TextureName"	"ekkan/ekkan_rune_q_4"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "6"
 				}
 			}
 			"modifier_black_dominion_d_a_aura"
@@ -7419,8 +7419,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "150"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4"
 				}
 				"EffectName"	"particles/items_fx/darkness_aura_ring.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -7487,7 +7486,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10000"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "40"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"1"
 				}
 			}
@@ -7507,6 +7506,15 @@
 					{
 						"ScriptFile"	"heroes/visage/black_dominion.lua"
 						"Function"		"swarm_poison_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
 						"target"		"TARGET"
 					}
 				}
@@ -7603,7 +7611,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -7631,12 +7639,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10000"
+				"property_one"			"40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"6"
+				"property_two"			"-70"
 			}
 			"03"
 			{
@@ -7669,12 +7677,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5000"
+				"property_one"			"10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"8"
 			}
 		}
 	}
@@ -7692,12 +7700,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"150"
+				"property_two"			"100"
 			}
 		}
 	}
@@ -7907,8 +7915,8 @@
 				"TextureName"	"ekkan/ekkan_rune_q_4"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "6"
 				}
 			}
 		}
@@ -8011,7 +8019,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"1000 6000 24000 120000 300000 700000 1200000"
+				"skeleton_health"		"140 540 940 1340 1740 2140 2540"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
@@ -8209,10 +8217,6 @@
 			"modifier_ekkan_d_b_magic_resist"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "1.5"
-				}
 			}
 		}
 	}
@@ -8306,7 +8310,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.5"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"
 				}
 			}
 		}
@@ -8393,10 +8397,12 @@
 						"ScriptFile"	"heroes/slardar/tsunami.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -8642,6 +8648,15 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -9046,7 +9061,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -9092,7 +9107,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1200"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -9115,12 +9130,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"6"
 			}
 		}
 	}
@@ -9133,13 +9148,13 @@
 		"AbilityTextureName"	"ekkan/ekkan_rune_w_1"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -9149,14 +9164,9 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"	    "100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"element_one"	    	"17"
 			}
-			"05"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"	    	"2"
@@ -9181,8 +9191,8 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.3"
 			}
 		}
 	}
@@ -9201,7 +9211,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -9211,9 +9221,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
+				"property_three"			"-50"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"17"
@@ -9234,12 +9249,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"120"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"100"
 			}
 		}
 	}
@@ -9297,7 +9312,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -9320,7 +9335,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-100"
+				"property_one"			"--100"
 			}
 		}
 	}
@@ -9338,12 +9353,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.25"
+				"property_one"			"0.35"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -9379,8 +9394,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -9414,7 +9429,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -9447,7 +9462,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 		}
 	}
