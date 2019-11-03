@@ -17,7 +17,8 @@
 
 		"arena_log_capacity"										"Log Capacity"
 		"arena_log_dps"												"DPS"
-		"arena_armor_title"											"Physical Armor"
+		"arena_armor_title"											"Armor"
+		"arena_magic_armor_title"									"Magic Armor"
 		"arena_update_dummy"										"Update Dummy"
 
 		"arena_fan_dialogue_one"									"I'm here to see my favorite fighter, Champion Varaphlas!"

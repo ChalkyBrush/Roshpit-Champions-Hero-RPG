@@ -571,7 +571,7 @@
 	visibility: collapse;
 }
 
-#armor-input-title{
+#armor-input-title, #magic-armor-input-title{
 	margin-top:40px;
 }
 
@@ -590,7 +590,7 @@
 	margin-top:15px;
 }
 
-#armor-input{
+#armor-input, #magic-armor-input{
 	width:50%;
 	text-shadow: 1px 1px 2px 3 #00000066;
 	text-transform:uppercase;

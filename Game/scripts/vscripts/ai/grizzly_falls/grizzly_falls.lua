@@ -398,35 +398,7 @@ function granite_app_think(event)
 	end
 end
 
-function grizzly_cave_shroom_think(event)
-	local caster = event.caster
-	if caster.aggro then
-		local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
-		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, event.caster)
-		ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
-		Timers:CreateTimer(1, function()
-			ParticleManager:DestroyParticle(particle1, false)
-		end)
-		Timers:CreateTimer(0.03, function()
-			EmitSoundOn("Redfall.Shroom.Aggro", caster)
-		end)
-		caster:RemoveModifierByName("modifier_cave_shroom_ai")
-		StartAnimation(caster, {duration = 0.84, activity = ACT_DOTA_SPAWN, rate = 1})
-		local ability = event.ability
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shroom_jumping", {duration = 0.84})
-		local position = caster:GetAbsOrigin()
-		caster.liftVelocity = 21
-		for i = 1, 28, 1 do
-			Timers:CreateTimer(0.03 * i, function()
-				caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, caster.liftVelocity))
-				caster.liftVelocity = caster.liftVelocity - 1.5
-			end)
-		end
-		Timers:CreateTimer(0.84, function()
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-		end)
-	end
-end
+
 
 function medusa_acolyte_think(event)
 	local caster = event.caster

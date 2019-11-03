@@ -207,7 +207,7 @@ function Dungeons:GrizzlyCave2()
 			shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 70))
 			shroom:SetRenderColor(60, 110, 110)
 			local ability = shroom:FindAbilityByName("grizzly_cave_shroom_ai")
-			ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_cave_shroom_ai", {})
+			ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_redfall_shroomling_ai", {})
 		end
 		minX = -10902
 		maxX = -10367
@@ -218,7 +218,7 @@ function Dungeons:GrizzlyCave2()
 			shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 66))
 			shroom:SetRenderColor(60, 110, 110)
 			local ability = shroom:FindAbilityByName("grizzly_cave_shroom_ai")
-			ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_cave_shroom_ai", {})
+			ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_redfall_shroomling_ai", {})
 		end
 	end)
 	Timers:CreateTimer(15, function()
