@@ -3526,7 +3526,7 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "格斗雕文"
-        "item_rpc_axe_glyph_1_1_description"                "降低受到的所有伤害 <font color='#ccff66'>30</font>%"
+        "item_rpc_axe_glyph_1_1_description"                "降低受到的所有伤害 <font color='#ccff66'>25</font>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "冲击扩张雕文"
         "item_rpc_axe_glyph_2_1_description"                "技能冲击波将向四周释放9道冲击波。"
@@ -3535,7 +3535,7 @@
         "item_rpc_axe_glyph_3_1_description"                " @Ability3 拖拽敌人的间隔降低 <font color='#ccff66'>50</font>%，每 0.09秒拖拽并伤害敌人一次。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "螺旋雕文"
-        "item_rpc_axe_glyph_4_1_description"                "施放冲击波时对周围敌人造成 <font color='#ccff66'>60</font>% 总攻击力的物理伤害。该伤害还将乘以冲击波技能的等级数。"
+        "item_rpc_axe_glyph_4_1_description"                "施放冲击波时对周围敌人造成 <font color='#ccff66'>15</font>% 总攻击力的物理伤害。该伤害还将乘以冲击波技能的等级数。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "撞击雕文" // lower pitch base sound high pitch strike sound
         "item_rpc_axe_glyph_5_1_description"                "骷髅锤的眩晕时间变为<font color='#ccff66'>0.03</font>秒，伤害提高 <font color='#ccff66'>3</font>x"
@@ -3550,7 +3550,7 @@
         "item_rpc_axe_glyph_1_2_description"                "被 @Ability2 击中的敌人将被眩晕 <font color='#ccff66'>0.08</font> 秒。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "裂甲雕文"
-        "item_rpc_axe_glyph_2_2_description"                "@Ability1 技能的 [Q4] 符文，每层同时降低敌人护甲 -<font color='#ccff66'>250</font> 。"
+        "item_rpc_axe_glyph_2_2_description"                "@Ability1 技能的 [Q4] 符文，每层同时降低敌人护甲 -<font color='#ccff66'>-750</font> 。"
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"裂甲"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"护甲值降低"	
@@ -3559,13 +3559,13 @@
         "item_rpc_axe_glyph_3_2_description"                "在与 BOSS 战斗时，狂暴之怒每次攻击将叠加 <font color='#ccff66'>4</font> 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "红色龙卷雕文"
-        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 <font color='#ccff66'>50</font>%。"
+        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 <font color='#ccff66'>75</font>%。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "牛仔雕文"
         "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 <font color='#ccff66'>9</font> 秒内，@Ability2 的伤害将提高 <font color='#ccff66'>200</font>% 。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "减伤雕文"
-        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 <font color='#ccff66'>90</font>%，但是获得层数的概率降低至每级符文 <font color='#ccff66'>100</font>% ，而不再是 <font color='#ccff66'>150</font>% 每级。"
+        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 <font color='#ccff66'>80</font>%，但是获得层数的概率降低至每级符文 <font color='#ccff66'>75</font>% ，而不再是 <font color='#ccff66'>150</font>% 每级。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "发狂雕文"
         "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 <font color='#ccff66'>75</font> 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 <font color='#ccff66'>3</font> 层。"
@@ -3595,7 +3595,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "狂战士之斧"
         "item_property_axe_immortal_weapon2"                            "血之狂战士"
-        "property_axe_immortal_weapon2_description"                        "当 E 技能激活时，移动速度提高 <font color='#ccff66'>300</font>。E3 对BOSS和精英怪的伤害提高 <font color='#ccff66'>200</font>%。"
+        "property_axe_immortal_weapon2_description"                        "当 E 技能激活时，移动速度提高 <font color='#ccff66'>200</font>。E3 对BOSS和精英怪的伤害提高 <font color='#ccff66'>200</font>%。"
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "雷霆巨斧"
         "item_property_axe_immortal_weapon3"                            "无限力量"

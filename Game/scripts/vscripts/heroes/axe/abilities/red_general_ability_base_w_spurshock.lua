@@ -126,6 +126,7 @@ function red_general_rune_base_w_2_applyDebuff(target, caster, ability)
 		return
 	end
 	Helper.updateStackModifier(target, caster, ability, "axe_rune_w_2", RED_GENERAL_W2_DURATION, RED_GENERAL_W2_MAX_STACKS_COUNT, runesCount)
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function red_general_rune_base_w_3_start(caster, abilityLevel)
@@ -141,6 +142,6 @@ function red_general_rune_base_w_4_start(caster)
 	if caster.w_4_level <= 0 then
 		return 1
 	else
-		return 1 + RED_GENERAL_W4_AMPLIFY_PERCENT / 100 * caster:GetStrength() / 10 * caster.w_4_level
+		return 1 + RED_GENERAL_W4_AMPLIFY_PERCENT / 100 * caster:GetStrength() * caster.w_4_level
 	end
 end

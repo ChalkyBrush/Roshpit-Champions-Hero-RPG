@@ -60,7 +60,7 @@ function red_general_ability_arcana1_r_startChannel(event)
 				if caster:HasModifier("modifier_axe_glyph_5_a") then
 					damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
 				end
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 				Filters:ApplyStun(caster, stun_duration, enemy)
 			end
 		end
@@ -234,11 +234,12 @@ function red_general_rune_arcana1_r_3_applyDebuff(caster, target, ability)
 		return
 	end
 	local duration = Filters:GetAdjustedBuffDuration(caster, RED_GENERAL_ARCANA1_R3_DURATION, false)
-	local newStackssa = runesCount * RED_GENERAL_ARCANA1_R3_RESIST_REDUCE_PERCENT
+	local new_stacks = runesCount * RED_GENERAL_ARCANA1_R3_RESIST_REDUCE_PERCENT
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_r_3_arcana1_visible", {duration = duration})
-	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_visible", caster, newStackssa)
+	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_visible", caster, new_stacks)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_r_3_arcana1_invisible", {duration = duration})
-	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_invisible", caster, newStackssa)
+	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_invisible", caster, new_stacks)
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function red_general_rune_arcana1_r_4_getTremorsCount(caster)

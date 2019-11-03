@@ -48,7 +48,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_ARCANA1_R3_RESIST_REDUCE_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_ARCANA1_R3_ARMOR_LOSS %>"
 			}
 		}
 	}

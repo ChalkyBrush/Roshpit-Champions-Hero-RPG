@@ -37,7 +37,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_reduction"				"77 80 83 86 89 92 95"
+				"damage_reduction"				"32 35 38 41 44 47 50"
 			}
 			"02"
 			{
@@ -109,10 +109,6 @@
 			"modifier_stonewall_aura_axe_armor_strength"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% RED_GENERAL_ARCANA2_W2_ARMOR %>"
-				}
 			}
 			"modifier_stonewall_aura_enemy"
 			{

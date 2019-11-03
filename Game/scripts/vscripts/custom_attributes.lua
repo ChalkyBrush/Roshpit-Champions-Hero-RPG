@@ -324,7 +324,7 @@ function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, a
 
 		local newDamage = caster:GetAttackDamage() * attack_mult
 		Filters:SetAttackDamage(summon, newDamage)
-		
+
 		summon:CalculateAndSaveRoshpitAttributes()
 	end
 	return true
@@ -802,8 +802,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_stonewall_aura_enemy_effect") then
 		local modifier = unit:FindModifierByName("modifier_stonewall_aura_enemy_effect")
 		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
-		print("modifier_stonewall_aura_enemy_effect armor "..tostring(RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1))
-		armor_modify = armor_modify - RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
+		armor_modify = armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
 	end
 	if unit:HasModifier("modifier_omnimace_earth_buff") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_a", "modifier_omnimace_earth_buff")
@@ -822,6 +821,17 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_black_dominion_d_a_aura_effect") then
 		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
 		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
+	end
+	if unit:GetUnitName() == "npc_dota_hero_axe" and unit:HasAbility("red_general_ability_base_r_sunder") then
+		local r_4_level = unit:GetRuneValue("r", 4)
+		armor_modify = armor_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
+	end
+	if unit:HasModifier("modifier_axe_rune_r_3_arcana1_invisible") then
+		local modifier = unit:FindModifierByName("modifier_axe_rune_r_3_arcana1_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*RED_GENERAL_ARCANA1_R3_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_axe_glyph_2_2_visible") then
+		armor_modify = armor_modify + RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE
 	end
 	
 
@@ -899,9 +909,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 
 	local magic_armor_modify = 0
 	if unit:HasModifier("modifier_axe_rune_w_2_invisible") then
-		local modifier = unit:FindModifierByName("modifier_axe_rune_w_2_invisible"):GetStackCount()
-		print("modifier axe "..tostring(modifier))
-		magic_armor_modify = magic_armor_modify - modifier*RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION
+		local modifier = unit:FindModifierByName("modifier_axe_rune_w_2_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION
 	end
 	if unit:HasModifier("modifier_flamespitting") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_flamespitting")
@@ -1212,8 +1221,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_stonewall_aura_enemy_effect") then
 		local modifier = unit:FindModifierByName("modifier_stonewall_aura_enemy_effect")
 		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
-		print("modifier_stonewall_aura_enemy_effect magic "..tostring(RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1))
-		magic_armor_modify = magic_armor_modify - RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
+		magic_armor_modify = magic_armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
 	end
 	if unit:HasModifier("modifier_omnimace_earth_buff") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_b", "modifier_omnimace_earth_buff")

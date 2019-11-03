@@ -175,7 +175,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_Q4_RESIST_REDUCE_PROCENT %>"
+				"property_one"			"<% RED_GENERAL_Q4_RADIUS_INCREASE %>"
 			}
 
 		}
@@ -331,7 +331,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% RED_GENERAL_E1_ATTRIBUTES_GAIN %>"
 			}
 		}
@@ -383,7 +383,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% RED_GENERAL_E3_DAMAGE_PERCENT %>"
 			}
 			"02"
@@ -548,7 +548,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_R4_POST_AMP_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_R4_ARMOR_PIERCE %>"
 			}
 		}
 	}

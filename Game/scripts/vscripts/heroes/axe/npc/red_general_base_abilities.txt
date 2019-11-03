@@ -27,7 +27,7 @@
 		//-------------------------------------------------------
 		"AbilityCooldown"				"7"
 		"AbilityDuration"				"4.0 4.3 4.6 4.9 5.2 5.5 5.8"
-		"AbilityCastRange"				"900 1000 1100 1200 1300 1400 1500"
+		"AbilityCastRange"				"500"
 
 		// Cost
 		//-------------------------------------------------------
@@ -45,12 +45,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bolt_aoe"			"700"
+				"bolt_aoe"			"500"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bolt_damage"		"200 400 800 1200 1600 2000 2400"
+				"bolt_damage"		"100 300 500 700 900 1100 1300"
 			}
 			"04"
 			{
@@ -255,7 +255,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"12 21 30 60 100 150 240"
+		"AbilityManaCost"				"15 40 65 90 115 140 165"
 
 		// Special
 		//-------------------------------------------------------
@@ -284,7 +284,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"50 180 400 900 2000 4000 6800"
+				"main_damage"				"50 150 250 350 450 550 650"
 			}
 		}
 
@@ -350,14 +350,21 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"		"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_axe_rune_w_2_visible"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"IsStunDebuff"		"1"
 				"TextureName"		"axe/axe_rune_w_2"
 
 				"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_facing_glow.vpcf"
@@ -417,7 +424,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal"				"100 200 320 540 800 1000 1200"
+				"heal"				"60 140 220 300 380 460 540"
 			}
 			"02"
 			{
@@ -552,7 +559,7 @@
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "90"
 				}
 			}
-			"modifier_axe_rune_r_3_shield"
+			"modifier_axe_rune_e_4_shield"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
@@ -833,7 +840,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"main_damage"				"100 200 300 450 550 700 900"
+				"main_damage"				"30 40 50 60 70 80 90"
 			}
 
 

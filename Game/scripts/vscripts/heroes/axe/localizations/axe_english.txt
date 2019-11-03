@@ -81,9 +81,9 @@
         "DOTA_Tooltip_modifier_axe_rune_w_1_visible_Description"		"Taking additional damage every 0.3 seconds."
 		
 	"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] Nullifying Wavelength"
-        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "Enemies damaged by Shockwave receive a stacking Magic Resist loss debuff. Max 3 stacks."
-        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "Magic Resist Reduction"
-        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      "%"
+        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "Enemies damaged by Shockwave receive a stacking Magic Armor loss debuff. Max 3 stacks."
+        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "Magic Armor Loss"
+        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      ""
 
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible"					"Nullifying Wavelength"
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"Reduced Magic Armor"
@@ -98,7 +98,7 @@
 	"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] Thunderfoot"
         "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "The Red General's strength increases the damage of Spur Shock."
         "DOTA_Tooltip_ability_axe_rune_w_4_property_one"                "Damage Increase"
-        "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "% for each 10 points of Strength"
+        "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "% of Strength"
  
 		
 		
@@ -136,7 +136,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Increased Magic Resistance and Armor."
 		
 	"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by 80%, and 1 stack is lost every time damage is taken."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <% AXE_E4_REDUCTION %>%, and 1 stack is lost every time damage is taken."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Shield Chance"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -149,9 +149,9 @@
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "DAMAGE AS % OF CURRENT HP:"
 		
 	"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
-        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "On cast of Sunder, release an 800-range Taunting pulse every second which makes enemies attack you. While active, all damage The Red General takes from enemies is reflected back at its source as Physical damage. Damage returned is capped at 20x maximum health."
+        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "On cast of Sunder, release an 800-range Taunting pulse every second which makes enemies attack you. While active, enemies who damage Red General take damage in retaliation."
         "DOTA_Tooltip_ability_axe_rune_r_1_property_one"                "Damage Return"
-        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      "x Damage Taken"
+        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      ""
 
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt"						"Berserker's Call"
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt_Description"			"Taunted."
@@ -178,12 +178,12 @@
         "DOTA_Tooltip_modifier_axe_rune_r_3_shield_Description"			"Taking 80%% reduced damage."	
  
 	"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] Enforcer"
-        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "The Red General's current total percentile damage reduction (not Armor or Magic Resist) increases his post-mitigation damage output. The first stack is gained when percentile damage reduction is between 0% and 50%, and another stack is applied when the total reaches at least 50%, then 75%, 87.5%, 93.75%, 96.875%, and so on. Full damage block (100%) is not included."
-        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "Post-mitigation damage increase"
-        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      "%"
+        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "Greatly increases Armor Pierce."
+        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "Armor Pierce"
+        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      ""
  
         "DOTA_Tooltip_modifier_axe_rune_r_4_visible"                    "Enforcer"
-        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "Increase post-mitigation damage."
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "Increased Armor Pierce."
  
 	//Arcanas
 	"item_property_axe_arcana1"                                     "Terraforming"
@@ -195,25 +195,25 @@
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "STUN DURATION:"
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] Tectonic Force"
-        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Terraforming deals increased post-mitigation damage."
-        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "Post-Mitigation Damage"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Terraforming has increased Base Damage."
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "Base Ability Damage"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_suffix"              "%"
  
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1"                     "[R2] Aftermath"
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_Description"         "Every enemy unit damaged by Terraforming gives The Red General base attack damage for 12 seconds, to a maximum of 5 stacks. These stacks are gained before Terraforming deals its damage."
-        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_property_one"        "Base Damage Increase"
+        "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_property_one"        "Base Attack Damage Increase"
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1_suffix"              ""
  
         "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power"             "Blistering Rage"
         "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power_Description" "Gaining Attack Power"
  
         "DOTA_Tooltip_ability_axe_rune_r_3_arcana1"                     "[R3] Upheaval"
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "Enemies caught within Terraforming receive increased Normal damage for 9 seconds. This debuff is applied before Terraforming deals its damage."
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "Normal damage taken increase"
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "Enemies caught within Terraforming have reduced armor for 9 seconds. This debuff is applied before Terraforming deals its damage."
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "Armor Reduction"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              ""
  
         "DOTA_Tooltip_modifier_axe_rune_r_3_arcana1_visible"              "Upheaval"
-        "DOTA_Tooltip_modifier_axe_rune_r_3_arcana1_visible_Description" "Increase normal damage taken"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_arcana1_visible_Description" "Reduced Armor"
 
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] Seismic Shock"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "Adds a chance for additional ruptures, while increasing each rupture's radius. Heroic leap can only benefit from half of the bonus."
@@ -236,9 +236,9 @@
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Reduces incoming damage"
  
         "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] Walled Ambuscade"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Enemies within Stonewalls have reduced Armor and Spell Pierce."
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Armor and Spell Pierce"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Enemies within Stonewalls have reduced Armor and Magic Armor."
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Armor and Magic Armor"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              ""
  
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] Barrier"
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "While standing within Stonewalls, The Red General has increased armor and strength."
@@ -283,7 +283,7 @@
         "item_rpc_axe_glyph_1_2_description"                "Enemy units struck by @Ability2 are ministunned for <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> seconds."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "Glyph of Ruptured Steel"
-        "item_rpc_axe_glyph_2_2_description"                "@Ability1's [Q4] rune additionally reduces enemies' armor by -<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> per stack."
+        "item_rpc_axe_glyph_2_2_description"                "Enemies hit by @Ability1 have their armor reduced by <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %>."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Reduced Armor"	
@@ -298,10 +298,10 @@
         "item_rpc_axe_glyph_5_2_description"                "For <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> seconds after successfully casting @Ability4, the damage of @Ability2 is increased by <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "Glyph of Reduction"
-        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E3] to <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%, but decreases the chance of generating a stack to just <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% per rune level instead of <% RED_GENERAL_E4_PROC_CHANCE %>%."
+        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E4] to <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%, but decreases the chance of generating a stack to just <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% per rune level instead of <% RED_GENERAL_E4_PROC_CHANCE %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "Glyph of Rage"
-        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>."
+        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, and you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by <% RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT %>%."

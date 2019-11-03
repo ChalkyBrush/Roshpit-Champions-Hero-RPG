@@ -1669,6 +1669,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_doomplate") then
             Filters:DoomplateApply(attacker, victim)
         end
+        if attacker:HasModifier("modifier_axe_arcana2") then
+            local r_1_level = attacker:GetRuneValue("r", 1)
+            damageMult = damageMult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT*r_1_level
+        end
         if attacker:HasModifier("modifier_ocean_tempest_pallium") and attacker.ocean_tempest and attacker.ocean_tempest.manaDrained then
             --TO DO check for bugs
             local damageIncrease = (attacker.ocean_tempest.manaDrained / OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD) * OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD/100
@@ -1979,19 +1983,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_trapper_arcana1") then
             local w_2_level = attacker:GetRuneValue("w", 2)
             normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W_W2_NORMAL_PCT
-        end
-        if unitName == "npc_dota_hero_axe" then
-            if victim:HasModifier("modifier_axe_rune_q_4_invisible") then
-                local modifier = victim:FindModifierByName("modifier_axe_rune_q_4_invisible")
-                if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-                    local stacks = modifier:GetStackCount()
-                    normalMult = normalMult + stacks * RED_GENERAL_Q4_RESIST_REDUCE_PROCENT * 0.001
-                end
-            end
-            if victim:HasModifier("modifier_axe_rune_r_3_arcana1_invisible") then
-                local stacks = victim:GetModifierStackCount("modifier_axe_rune_r_3_arcana1_invisible", attacker)
-                normalMult = normalMult + stacks * 0.01
-            end
         end
         if attacker:HasModifier("modifier_weapon_normal") then
             local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)

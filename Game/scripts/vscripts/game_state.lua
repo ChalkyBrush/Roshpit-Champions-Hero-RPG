@@ -1565,7 +1565,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION/100
 	end
 	if victim:HasModifier("modifier_whirlwind") and victim:HasModifier("modifier_axe_glyph_4_2") then
-		damage = damage * 0.5
+		damage = damage * (1 - RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT)
 	end
 	if victim:HasModifier("modifier_axe_glyph_1_1") then
 		damage = damage * (100-RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT)/100
@@ -1666,8 +1666,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * reduction
 		end
 	end
-	if victim:HasModifier("modifier_axe_rune_r_3_shield") then
-		damage = damage * 0.2
+	if victim:HasModifier("modifier_axe_rune_e_4_shield") then
+		damage = damage * (1 - AXE_E4_REDUCTION)
 		if victim:HasModifier("modifier_axe_glyph_6_2") then
 			damage = damage * 0.5
 		end
@@ -2096,12 +2096,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if filterTable["entindex_inflictor_const"] then
-		if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() == "red_general_ability_arcana1_r_tectonic_sunder" then
-			local r_1_level = attacker:GetRuneValue("r", 1)
-			mult = mult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT * r_1_level
-		end
-	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		-- local original_damage = filterTable["damage"] --Post reduction
 		-- local inflictor = filterTable["entindex_inflictor_const"]
@@ -2240,10 +2234,6 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
 		mult = mult + NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF/100
-	end
-	if attacker:HasModifier("modifier_axe_rune_r_4_invisible") then
-		local stacksCount = attacker:GetModifierStackCount("modifier_axe_rune_r_4_invisible", attacker)
-		mult = mult + stacksCount * RED_GENERAL_R4_POST_AMP_PERCENT * 0.01
 	end
 
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then

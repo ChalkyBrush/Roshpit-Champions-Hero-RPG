@@ -3223,7 +3223,7 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "(T1) Glyph of Combat"
-        "item_rpc_axe_glyph_1_1_description"                "Снижает весь получаемый урон на <font color='#ccff66'>30</font>%."
+        "item_rpc_axe_glyph_1_1_description"                "Снижает весь получаемый урон на <font color='#ccff66'>25</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "(T2) Glyph of Shock Expansion"
         "item_rpc_axe_glyph_2_1_description"                "Умение (W) @Ability2 выпускает 9 волн во всех направлениях."
@@ -3232,7 +3232,7 @@
         "item_rpc_axe_glyph_3_1_description"                "Время между тиками от умения (E) @Ability3 снижено на <font color='#ccff66'>50</font>% и составляет 0.09 секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "(T4) Glyph of the Helix"
-        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере <font color='#ccff66'>60</font>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
+        "item_rpc_axe_glyph_4_1_description"                "С каждым прочтением (W) @Ability2, Red General совершает мощную круговую атаку, нанося физический урон в размере <font color='#ccff66'>15</font>% от своего общего урона всем врагам поблизости. Урон умножается на уровень прокачки умения (W) @Ability2."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "(T5) Glyph of Impact"
         "item_rpc_axe_glyph_5_1_description"                "Время оглушения от умения (Q) @Ability1 снижено до <font color='#ccff66'>0.03</font> сек., но урон от этой способности увеличен в <font color='#ccff66'>3</font> раз(а)."
@@ -3247,7 +3247,7 @@
         "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на <font color='#ccff66'>0.08</font> секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Glyph of Ruptured Steel"
-        "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -<font color='#ccff66'>250</font> за заряд."
+        "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -<font color='#ccff66'>-750</font> за заряд."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
@@ -3256,13 +3256,13 @@
         "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою <font color='#ccff66'>4</font> заряда(ов) вместо 1, если целью атаки является босс."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Glyph of the Red Cyclone"
-        "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на <font color='#ccff66'>50</font>%."
+        "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на <font color='#ccff66'>75</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Glyph of Stampede"
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие <font color='#ccff66'>9</font> секунд урон умения (W) @Ability2 будет увеличен на <font color='#ccff66'>200</font>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "(T6-2) Glyph of Reduction"
-        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до <font color='#ccff66'>90</font>%, но снижает шанс получения щита до <font color='#ccff66'>100</font>% за каждое очко руны, вместо <font color='#ccff66'>150</font>%."
+        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до <font color='#ccff66'>80</font>%, но снижает шанс получения щита до <font color='#ccff66'>75</font>% за каждое очко руны, вместо <font color='#ccff66'>150</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "(T7-2) Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до <font color='#ccff66'>75</font>, а количество получаемых зарядов увеличено до <font color='#ccff66'>3</font>. Половина зарядов активна постоянно."
@@ -3308,7 +3308,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
         "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
-        "property_axe_immortal_weapon2_description"                        "Пока активно умение (E) @Ability3, скорость передвижения и максимальная скорость передвижения героя увеличены на <font color='#ccff66'>300</font>. Дополнительно увеличивает урон от руны [E3] Whirlwind против монстров парагона и боссов на <font color='#ccff66'>200</font>%."
+        "property_axe_immortal_weapon2_description"                        "Пока активно умение (E) @Ability3, скорость передвижения и максимальная скорость передвижения героя увеличены на <font color='#ccff66'>200</font>. Дополнительно увеличивает урон от руны [E3] Whirlwind против монстров парагона и боссов на <font color='#ccff66'>200</font>%."
 
         "DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_3"            "Ragnar's Thunderax"
         "item_property_axe_immortal_weapon3"                            "Overpower"

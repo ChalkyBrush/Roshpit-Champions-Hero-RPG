@@ -4234,7 +4234,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -4446,30 +4446,35 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-                 "TextureName"            "rpc/axe_d_d"
-                 "Properties"
-                 {
-                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-250"
-                 }
-                 "OnCreated"
-                 {
-                      "RunScript"
-                      {
-                           "ScriptFile"   "heroes/axe/sunder.lua"
-                           "Function"          "AmplifyDamageParticle"
-                      }
-                 }
-
-                 "OnDestroy"
-                 {
-                      "RunScript"
-                      {
-                           "ScriptFile"   "heroes/axe/sunder.lua"
-                           "Function"          "EndAmplifyDamageParticle"
-                      }
-                 }
+				"TextureName"            "rpc/axe_d_d"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+					   "ScriptFile"   "heroes/axe/sunder.lua"
+					   "Function"          "AmplifyDamageParticle"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+					   "ScriptFile"   "heroes/axe/sunder.lua"
+					   "Function"          "EndAmplifyDamageParticle"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -4477,7 +4482,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"250"
+				"property_one"			"-750"
 			}
 		}
 	}
@@ -4555,7 +4560,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"75"
 			}
 		}
 	}
@@ -4644,12 +4649,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"90"
+				"property_one"			"80"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"100"
+				"property_two"			"75"
 			}
 		}
 	}
@@ -5205,7 +5210,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "200"
                 }
 			}
 		}
@@ -5214,7 +5219,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"300"
+				"property_one"			"200"
 			}
 			"02"
 			{
