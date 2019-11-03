@@ -305,7 +305,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"140 540 940 1340 1740 2140 2540"
+				"skeleton_health"		"340 740 1140 1540 1940 2340 2740"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"

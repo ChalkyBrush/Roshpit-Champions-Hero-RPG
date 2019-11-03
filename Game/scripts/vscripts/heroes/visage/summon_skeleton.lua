@@ -41,7 +41,7 @@ function cast_raise_skeleton(event)
 				Timers:CreateTimer(0.2, function()
 					UTIL_Remove(target)
 					local unitName = "castle_skeleton_warrior"
-					local attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * event.attack_mult
+					local attackDamage = caster:GetAttackDamage() * event.attack_mult
 					local luck = RandomInt(1, 10)
 					local applyTexture = true
 					local w_3_level = 0
@@ -50,7 +50,7 @@ function cast_raise_skeleton(event)
 					if luck <= 3 then
 						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
-							attackDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
+							attackDamage = caster:GetAttackDamage() * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
 							applyTexture = true
 						end
 					elseif luck <= 6 then
@@ -72,11 +72,13 @@ function cast_raise_skeleton(event)
 
 					skeletonDuration = Filters:GetAdjustedBuffDuration(caster, skeletonDuration, false)
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_summon_unit", {duration = skeletonDuration})
-					local skeleArmor = caster.roshpit_attributes.roshpit_armor * event.armor_mult
-					local skeleMagicArmor = caster.roshpit_attributes.roshpit_magic_armor * event.armor_mult + w_4_level*EKKAN_W4_MAGIC_ARMOR
+					local skeleArmor = caster:GetRoshpitArmor() * event.armor_mult
+					local skeleMagicArmor = caster:GetRoshpitMagicArmor() * event.armor_mult + w_4_level*EKKAN_W4_MAGIC_ARMOR
 
-					local skele_armor_pierce = caster.roshpit_attributes.roshpit_armor_pierce + w_4_level*EKKAN_W4_PIERCES
-					local skele_spell_pierce = caster.roshpit_attributes.roshpit_spell_pierce + w_4_level*EKKAN_W4_PIERCES
+					local skele_armor_pierce = caster:GetRoshpitArmorPierce() + w_4_level*EKKAN_W4_PIERCES
+					local skele_spell_pierce = caster:GetRoshpitSpellPierce() + w_4_level*EKKAN_W4_PIERCES
+					print(skeleArmor)
+					print("------")
 					skeleton:SetBaseRoshpitArmor(skeleArmor)
 					skeleton:SetBaseRoshpitMagicArmor(skeleMagicArmor)
 					skeleton:SetBaseRoshpitArmorPierce(skele_armor_pierce)
@@ -84,6 +86,7 @@ function cast_raise_skeleton(event)
 					skeleton.w_1_level = w_1_level
 					skeleton:SetBaseDamageMin(attackDamage)
 					skeleton:SetBaseDamageMax(attackDamage)
+
 					if not ability.skeleTable then
 						ability.skeleTable = {}
 					end
@@ -120,12 +123,14 @@ function cast_raise_skeleton(event)
 						ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_ekkan_d_b_magic_resist", {})
 						skeleton:SetModifierStackCount("modifier_ekkan_d_b_magic_resist", caster, w_4_level)
 					end
+					skeleton:SetRoshpitLevel(caster:GetLevel())
 					skeleton.stance = "aggressive"
 					skeleton:SetOwner(caster)
 					FindClearSpaceForUnit(skeleton, skeleton:GetAbsOrigin(), false)
 					ability:ApplyDataDrivenModifier(caster, caster, "modifier_summon_skeleton_counter", {})
 					caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
 					skeleton.owner = caster:GetPlayerOwnerID()
+					skeleton:CalculateAndSaveRoshpitAttributes()
 				end)
 
 				local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, caster)

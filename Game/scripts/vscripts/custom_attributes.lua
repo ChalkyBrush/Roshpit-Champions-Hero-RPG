@@ -321,7 +321,7 @@ function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, a
 		local newSpellPierce = caster:GetRoshpitSpellPierce() * spell_pierce_mult
 		summon:SetBaseRoshpitSpellPierce(newSpellPierce)
 
-		local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * attack_mult
+		local newDamage = caster:GetAttackDamage() * attack_mult
 		Filters:SetAttackDamage(summon, newDamage)
 		summon:CalculateAndSaveRoshpitAttributes()
 	end
