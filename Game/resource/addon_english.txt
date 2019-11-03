@@ -8015,9 +8015,9 @@
 		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"Omni Mace: Fire"	
 		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"Increased Base Attack damage"							
 
-		"omniro_earth_special_description"									"Applies a <font color='#ccff66'>14</font> second buff that increases armor and magic resistance."
+		"omniro_earth_special_description"									"Applies a <font color='#ccff66'>14</font> second buff that increases Armor and Magic Armor."
 		"omniro_earth_special_a_pretext"									"BONUS ARMOR:"		
-		"omniro_earth_special_b_pretext"									"BONUS MAGIC RESISTANCE:"	
+		"omniro_earth_special_b_pretext"									"BONUS MAGIC ARMOR:"	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Earth"
 		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic resistance"									
@@ -8060,8 +8060,9 @@
 		"omniro_arcane_special_description"									"Drains <font color='#ccff66'>20</font>% of max mana to deal an additional instance of damage."
 		"omniro_arcane_special_a_pretext"										"DAMAGE MULT PER MANA USED:"							
 
-		"omniro_shadow_special_description"									"Deal an additional amplified instance of damage and apply a debuff to the target that removes their armor's resistance to physical damage for <font color='#ccff66'>12</font> seconds."
-		"omniro_shadow_special_a_pretext"										"% EXTRA DAMAGE MULTIPLIER:"		
+		"omniro_shadow_special_description"									"Deal an additional amplified instance of damage and apply a debuff to the target that reduces their Armor for <font color='#ccff66'>12</font> seconds."
+		"omniro_shadow_special_a_pretext"										"% EXTRA DAMAGE MULTIPLIER:"
+		"omniro_shadow_special_b_pretext"										"ARMOR REDUCTION:"			
 
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Shadow"		
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor Negated"													
@@ -8072,11 +8073,11 @@
 		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Wind"
 		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Increased Agility"									
 
-		"omniro_ghost_special_description"									"Grants 100% evasion for a short duration."
+		"omniro_ghost_special_description"									"Grants <font color='#ccff66'>70</font>% evasion for a short duration."
 		"omniro_ghost_special_a_pretext"										"EVASION DURATION: "
 
 		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Ghost"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"100%% Evasion"											
+		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"<font color='#ccff66'>70</font>%% Evasion"											
 
 		"omniro_water_special_description"									"Heal a flat amount and gain additional health regen for <font color='#ccff66'>14</font> seconds."
 		"omniro_water_special_a_pretext"									"IMMEDIATE HEAL:"		
@@ -8093,14 +8094,14 @@
 
 		"omniro_nature_special_description"									"Target is rooted and takes damage every 1 second of root time."
 		"omniro_nature_special_a_pretext"									"ROOT DURATION:"		
-		"omniro_nature_special_b_pretext"									"ROOT DAMAGE PER SECOND BASED ON % OF ATTACK POWER:"		
+		"omniro_nature_special_b_pretext"									"ROOT DPS AS % OF ATTACK POWER:"		
 
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Nature"
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Rooted and taking damage each second"		
 
-		"omniro_undead_special_description"									"Target gains a debuff that disables healing. Applies a buff for <font color='#ccff66'>12</font> seconds that increases post-mitigation damage."
+		"omniro_undead_special_description"									"Target gains a debuff that disables healing. Applies a buff for <font color='#ccff66'>12</font> seconds that increases Armor Pierce."
 		"omniro_undead_special_a_pretext"									"HEALING DISABLE DURATION:"		
-		"omniro_undead_special_b_pretext"									"POST MITIGATION BONUS %:"	
+		"omniro_undead_special_b_pretext"									"ARMOR PIERCE:"	
 
 		"omniro_dragon_special_description"									"Applies a <font color='#ccff66'>12</font> second buff that provides increase to all elemental damage."
 		"omniro_dragon_special_a_pretext"									"ELEMENTAL DAMAGE AMP:"		
@@ -8123,11 +8124,11 @@
 		"omniro_fire_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
 		"omniro_earth_orb_description"										"Creates an earthquake that damages and stuns enemies in a <font color='#ccff66'>340</font> AOE."
-		"omniro_earth_orb_a_pretext"										"DAMAGE x STRENGTH:"				
+		"omniro_earth_orb_a_pretext"										"DAMAGE % STRENGTH:"				
 		"omniro_earth_orb_b_pretext"										"STUN DURATION:"			
 
 		"omniro_lightning_orb_description"										"Struck target releases a chain lightning that bounces <font color='#ccff66'>3</font> times. Gains an extra bounce for each of lightning's maximum charges."
-		"omniro_lightning_orb_a_pretext"										"DAMAGE x AGILITY:"			
+		"omniro_lightning_orb_a_pretext"										"DAMAGE % AGILITY:"			
 
 		"omniro_poison_orb_description"										"Creates a <font color='#ccff66'>340</font> radius poison puddle that lasts for <font color='#ccff66'>9</font> seconds. Enemies inside are damaged every 0.5 seconds"
 		"omniro_poison_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
@@ -8143,31 +8144,31 @@
 		"DOTA_Tooltip_modifier_omniro_time_freeze_Description"			"Frozen in time. Will take damage upon end of freeze"
 
 		"omniro_holy_orb_description"									"All enemies in a <font color='#ccff66'>550</font> radius around Omniro take damage based on intelligence and armor. Omniro and his allies are healed for <font color='#ccff66'>2</font>% of the damage."
-		"omniro_holy_orb_a_pretext"										"DAMAGE x INTELLIGENCE:"				
-		"omniro_holy_orb_b_pretext"										"DAMAGE x ARMOR:"
+		"omniro_holy_orb_a_pretext"										"DAMAGE % INTELLIGENCE:"				
+		"omniro_holy_orb_b_pretext"										"DAMAGE % ARMOR:"
 
 		"omniro_cosmic_orb_description"									"Drops a comet on the target that deals damage in <font color='#ccff66'>260</font> radius on a 0.45 second delay. Damage is based on attack power and current health."
 		"omniro_cosmic_orb_a_pretext"										"DAMAGE % ATTACK:"				
-		"omniro_cosmic_orb_b_pretext"										"DAMAGE x MAX HEALTH:"
+		"omniro_cosmic_orb_b_pretext"										"DAMAGE % MAX HEALTH:"
 
-		"omniro_ice_orb_description"									"Creates a larger ice blast with a base radius of <font color='#ccff66'>380</font>, and applies the Omni Mace's slow. Damage is based on all attributes, and the lowest attribute is multiplied by <font color='#ccff66'>10</font>x."
-		"omniro_ice_orb_a_pretext"										"DAMAGE x ALL ATTRIBUTES:"				
+		"omniro_ice_orb_description"									"Creates a larger ice blast with a base radius of <font color='#ccff66'>380</font>, and applies the Omni Mace's slow. Damage is based on all attributes, and the lowest attribute is multiplied by <font color='#ccff66'>2</font>x."
+		"omniro_ice_orb_a_pretext"										"DAMAGE % ALL ATTRIBUTES:"				
 		"omniro_ice_orb_b_pretext"										"ADDITIONAL RADIUS:"
 
-		"omniro_arcane_orb_description"										"Enemies in <font color='#ccff66'>600</font> AOE are hit by <font color='#ccff66'>2</font> pulses of the basic proc and lose magic resist for <font color='#ccff66'>10</font> seconds. Pulse count is increased by Arcane's maximum charges."
+		"omniro_arcane_orb_description"										"Enemies in <font color='#ccff66'>600</font> AOE are hit by <font color='#ccff66'>2</font> pulses of the basic proc and lose Magic Armor for <font color='#ccff66'>10</font> seconds. Pulse count is increased by Arcane's maximum charges."
 		"omniro_arcane_orb_a_pretext"										"ADDITIONAL RADIUS:"				
-		"omniro_arcane_orb_b_pretext"										"MAGIC RESIST LOSS:"
+		"omniro_arcane_orb_b_pretext"										"MAGIC ARMOR LOSS:"
 
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist"					"Omni Orb: Arcane"
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"Reduced Magic Resistance"
 
-		"omniro_shadow_orb_description"									"Creates a splash of shadow in <font color='#ccff66'>500</font> and applies the armor disabling debuff. Deals damage based on attack power."
+		"omniro_shadow_orb_description"									"Creates a splash of shadow in <font color='#ccff66'>500</font> and applies the armor reduction debuff. Deals damage based on attack power."
 		"omniro_shadow_orb_a_pretext"										"DAMAGE x ATTACK:"				
 		"omniro_shadow_orb_b_pretext"										"ADDITIONAL RADIUS:"
 
-		"omniro_wind_orb_description"									"A burst of wind radiates from the target, dealing damage based on attack power and agility and pushing them away."
-		"omniro_wind_orb_a_pretext"										"DAMAGE x ATTACK:"				
-		"omniro_wind_orb_b_pretext"										"DAMAGE x AGILITY:"
+		"omniro_wind_orb_description"									"A burst of wind radiates from the target, dealing damage based on attack power and agility."
+		"omniro_wind_orb_a_pretext"										"DAMAGE % ATTACK:"				
+		"omniro_wind_orb_b_pretext"										"DAMAGE % AGILITY:"
 
 		"omniro_ghost_orb_description"										"Creates a ghastly <font color='#ccff66'>400</font> radius shroud that disarms enemies within and deals damage each second. Base duration is <font color='#ccff66'>1</font> second."
 		"omniro_ghost_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
@@ -8179,7 +8180,7 @@
 		"omniro_water_orb_description"										"A torrent of water knocks up enemies in a <font color='#ccff66'>270</font> radius. While they are launcing into the air, enemies are stunned."
 		"omniro_water_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
-		"omniro_demon_orb_description"										"Deals a large instance of damage that ignores Steadfast."
+		"omniro_demon_orb_description"										"Deals a large instance of damage."
 		"omniro_demon_orb_a_pretext"											"DAMAGE AS % OF ATTACK POWER:"	
 
 		"omniro_nature_orb_description"										"Applies a shield that absorbs instances of damage. Base maximum stacks is <font color='#ccff66'>2</font> and scales with Nature's level. Lasts <font color='#ccff66'>10</font> seconds."
@@ -8191,7 +8192,7 @@
 
 		"omniro_undead_orb_description"										"Throws a skull behind the target that damages enemies in its path and applies the debuff that makes them unable to heal."
 		"omniro_undead_orb_a_pretext"											"DAMAGE % ATTACK POWER:"	
-		"omniro_undead_orb_b_pretext"											"DAMAGE x CURRENT HEALTH:"
+		"omniro_undead_orb_b_pretext"											"DAMAGE % CURRENT HEALTH:"
 
 		"omniro_dragon_orb_description"										"Recharges all other elements to full."
 

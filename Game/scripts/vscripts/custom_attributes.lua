@@ -788,6 +788,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
 		armor_modify = armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
 	end
+	if unit:HasModifier("modifier_omnimace_earth_buff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_a", "modifier_omnimace_earth_buff")
+	end
+	if unit:HasModifier("modifier_omniro_shadow_debuff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "shadow_special_b", "modifier_omniro_shadow_debuff")
+	end
 	
 
 	if armor_modify > 0 then
@@ -1169,6 +1175,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
 	end
+	if unit:HasModifier("modifier_omnimace_earth_buff") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_b", "modifier_omnimace_earth_buff")
+	end
+	if unit:HasModifier("modifier_arcane_orb_magic_resist") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "arcane_orb_b", "modifier_arcane_orb_magic_resist")
+	end
 	
 	
 	if magic_armor_modify > 0 then
@@ -1308,6 +1320,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		end
 		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
 		armor_pierce_modify = armor_pierce_modify + pierces
+	end
+	if unit:HasModifier("modifier_omnimace_undead_buff") then
+		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "undead_special_b", "modifier_omnimace_undead_buff")
 	end
 
 	if armor_pierce_modify > 0 then

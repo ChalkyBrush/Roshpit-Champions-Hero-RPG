@@ -504,6 +504,8 @@ function omni_mace_basic_hit(caster, ability, target, event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_omniro_shadow_debuff", {duration = duration})
 		local shadow_damage = (event.shadow_special_a / 100) * damage * caster.omniro_data[RPC_ELEMENT_SHADOW]["level"]
 		Filters:TakeArgumentsAndApplyDamage(target, caster, shadow_damage, mace_hit_data["damage_type"], BASE_ABILITY_Q, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+		target:SetModifierStackCount("modifier_omniro_shadow_debuff", caster, caster.omniro_data[RPC_ELEMENT_SHADOW]["level"])
+		target:CalculateAndSaveRoshpitAttributes()
 	elseif caster.active_element == RPC_ELEMENT_WIND then
 		local duration = Filters:GetAdjustedBuffDuration(caster, OMNIRO_WIND_SPECIAL_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_wind_buff", {duration = duration})

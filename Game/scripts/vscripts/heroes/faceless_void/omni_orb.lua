@@ -42,7 +42,7 @@ function omni_orb_charge_procced(event, basic_damage)
 
 		EmitSoundOn("Omniro.Orb.Fire", target)
 	elseif caster.active_element == RPC_ELEMENT_EARTH then
-		local damage = (orb_ability:GetSpecialValueFor("earth_orb_a")) * caster:GetStrength() * caster.omniro_data[RPC_ELEMENT_EARTH]["level"]
+		local damage = (orb_ability:GetSpecialValueFor("earth_orb_a")/100) * caster:GetStrength() * caster.omniro_data[RPC_ELEMENT_EARTH]["level"]
 		local radius = OMNIRO_ORB_EARTH_AOE
 		local position = target:GetAbsOrigin()
 		local stun_duration = (orb_ability:GetSpecialValueFor("earth_orb_b")) * caster.omniro_data[RPC_ELEMENT_EARTH]["level"]
@@ -62,7 +62,7 @@ function omni_orb_charge_procced(event, basic_damage)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 	elseif caster.active_element == RPC_ELEMENT_LIGHTNING then
-		local damage = (orb_ability:GetSpecialValueFor("lightning_orb_a")) * caster:GetAgility() * caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"]
+		local damage = (orb_ability:GetSpecialValueFor("lightning_orb_a")/100) * caster:GetAgility() * caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"]
 
 		local chain = {}
 		chain.index_hit = 0
@@ -112,7 +112,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		end
 		EmitSoundOn("Omniro.Orb.Time.Start", target)
 	elseif caster.active_element == RPC_ELEMENT_HOLY then
-		local damage = (orb_ability:GetSpecialValueFor("holy_orb_a")) * caster:GetIntellect() * caster.omniro_data[RPC_ELEMENT_HOLY]["level"] + (orb_ability:GetSpecialValueFor("holy_orb_b")) * caster:GetPhysicalArmorValue(false) * caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
+		local damage = (orb_ability:GetSpecialValueFor("holy_orb_a")/100) * caster:GetIntellect() * caster.omniro_data[RPC_ELEMENT_HOLY]["level"] + (orb_ability:GetSpecialValueFor("holy_orb_b")) * caster:GetRoshpitArmor() * caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
 		EmitSoundOn("Omniro.Orb.Holy", caster)
 		local radius = OMNIRO_ORB_HOLY_AOE
 		local particleName = "particles/units/heroes/hero_elder_titan/paladin_holy_nova.vpcf"
@@ -138,7 +138,7 @@ function omni_orb_charge_procced(event, basic_damage)
 			end
 		end
 	elseif caster.active_element == RPC_ELEMENT_COSMOS then
-		local comet_damage = (orb_ability:GetSpecialValueFor("cosmic_orb_a") / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] + (orb_ability:GetSpecialValueFor("cosmic_orb_b")) * caster:GetMaxHealth() * caster.omniro_data[RPC_ELEMENT_COSMOS]["level"]
+		local comet_damage = (orb_ability:GetSpecialValueFor("cosmic_orb_a") / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_COSMOS]["level"] + (orb_ability:GetSpecialValueFor("cosmic_orb_b")/100) * caster:GetMaxHealth() * caster.omniro_data[RPC_ELEMENT_COSMOS]["level"]
 		local starParticle = "particles/roshpit/solunia/comet_moon_attack_attack.vpcf"
 		local position = target:GetAbsOrigin()
 		local pfx = CustomAbilities:QuickParticleAtPoint(starParticle, position, 3)
@@ -166,14 +166,17 @@ function omni_orb_charge_procced(event, basic_damage)
 		local agi_mult = 1
 		local str_mult = 1
 		local int_mult = 1
-		if caster:GetAgility() < caster:GetStrength() and caster:GetAgility() < caster:GetIntellect() then
+		local spir_mult = 1
+		if caster:GetAgility() < caster:GetStrength() and caster:GetAgility() < caster:GetIntellect() and caster:GetAgility() < caster:GetSpirit() then
 			agi_mult = OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT
-		elseif caster:GetStrength() < caster:GetAgility() and caster:GetStrength() < caster:GetIntellect() then
+		elseif caster:GetStrength() < caster:GetAgility() and caster:GetStrength() < caster:GetIntellect() and caster:GetStrength() < caster:GetSpirit() then
 			str_mult = OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT
-		elseif caster:GetIntellect() < caster:GetStrength() and caster:GetIntellect() < caster:GetAgility() then
+		elseif caster:GetIntellect() < caster:GetStrength() and caster:GetIntellect() < caster:GetAgility() and caster:GetIntellect() < caster:GetSpirit()  then
 			agi_mult = OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT
+		else
+			spir_mult = OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT
 		end
-		local damage = (orb_ability:GetSpecialValueFor("ice_orb_a")) * (caster:GetIntellect() * int_mult + caster:GetStrength() * str_mult + caster:GetAgility() * agi_mult) * caster.omniro_data[RPC_ELEMENT_ICE]["level"]
+		local damage = (orb_ability:GetSpecialValueFor("ice_orb_a")/100) * (caster:GetIntellect() * int_mult + caster:GetStrength() * str_mult + caster:GetAgility() * agi_mult + caster:GetSpirit() * spir_mult) * caster.omniro_data[RPC_ELEMENT_ICE]["level"]
 		ParticleManager:SetParticleControl(pfx, 0, icePoint)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
 		Timers:CreateTimer(2.5, function()
@@ -198,6 +201,7 @@ function omni_orb_charge_procced(event, basic_damage)
 			for _, enemy in pairs(enemies) do
 				orb_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_arcane_orb_magic_resist", {duration = debuff_duration})
 				enemy:SetModifierStackCount("modifier_arcane_orb_magic_resist", caster, caster.omniro_data[RPC_ELEMENT_ARCANE]["level"])
+				enemy:CalculateAndSaveRoshpitAttributes()
 				for i = 1, pulses, 1 do
 					Timers:CreateTimer((i - 1) * 0.5, function()
 						if enemy and IsValidEntity(enemy) then
@@ -230,6 +234,8 @@ function omni_orb_charge_procced(event, basic_damage)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				mace_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_omniro_shadow_debuff", {duration = duration})
+				enemy:SetModifierStackCount("modifier_omniro_shadow_debuff", caster, caster.omniro_data[RPC_ELEMENT_SHADOW]["level"])
+				enemy:CalculateAndSaveRoshpitAttributes()
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 			end
 		end
@@ -239,7 +245,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		local rune_ability = caster.runeUnit3:FindAbilityByName("omniro_rune_e_3")
 		local wind_range = OMNIRO_WIND_ORB_RANGE
 		EmitSoundOn("Omniro.Orb.Wind", target)
-		orb_ability.wind_orb_damage = (orb_ability:GetSpecialValueFor("wind_orb_a") / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_WIND]["level"] + (orb_ability:GetSpecialValueFor("wind_orb_b")) * caster:GetAgility() * caster.omniro_data[RPC_ELEMENT_WIND]["level"]
+		orb_ability.wind_orb_damage = (orb_ability:GetSpecialValueFor("wind_orb_a") / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_WIND]["level"] + (orb_ability:GetSpecialValueFor("wind_orb_b")/100) * caster:GetAgility() * caster.omniro_data[RPC_ELEMENT_WIND]["level"]
 		for i = 1, 8, 1 do
 			local wind_fv = WallPhysics:rotateVector(fv, 2 * math.pi * i / 8)
 			local info =
@@ -330,7 +336,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		local rune_ability = caster.runeUnit4:FindAbilityByName("omniro_rune_r_4")
 		local wind_range = OMNIRO_UNDEAD_ORB_RANGE
 		EmitSoundOn("Omniro.Orb.Undead", target)
-		orb_ability.undead_orb_damage = (orb_ability:GetSpecialValueFor("undead_orb_a") / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] + (orb_ability:GetSpecialValueFor("undead_orb_b")) * caster:GetHealth() * caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"]
+		orb_ability.undead_orb_damage = (orb_ability:GetSpecialValueFor("undead_orb_a") / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"] + (orb_ability:GetSpecialValueFor("undead_orb_b") / 100) * caster:GetHealth() * caster.omniro_data[RPC_ELEMENT_UNDEAD]["level"]
 
 		local undead_fv = fv
 		local info =

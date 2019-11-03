@@ -1950,9 +1950,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
 			armor = 0
 		end
-		if victim:HasModifier("modifier_omniro_shadow_debuff") and armor >= 0 then
-			armor = 0
-		end
 		if attacker:GetUnitName() == "paladin_disciple" then
 			Filters:TakeArgumentsAndApplyDamage(victim, attacker.paladin, Filters:OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin) * PALADIN_GLYPH_5_2_ATTACK_MULT, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			return false
@@ -2230,12 +2227,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if attacker:HasModifier("modifier_omnimace_undead_buff") then
-		local modifier = attacker:FindModifierByName("modifier_omnimace_undead_buff")
-		local stacks = attacker:GetModifierStackCount("modifier_omnimace_undead_buff", attacker)
-		local ability = attacker:FindAbilityByName("omniro_omni_mace")
-		mult = mult + (ability:GetSpecialValueFor("undead_special_b") / 100) * stacks
-	end
 	if attacker:HasModifier("modifier_trickster_mask") then
 		local minBoost = 0
 		if attacker:HasModifier("modifier_boots_of_great_fortune") then

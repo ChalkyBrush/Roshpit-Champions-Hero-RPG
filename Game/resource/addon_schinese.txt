@@ -7746,7 +7746,7 @@
 		"omniro_cosmic_orb_a_pretext"										"攻击力%的伤害："				
 		"omniro_cosmic_orb_b_pretext"										"最大生命值倍数的伤害："
 
-		"omniro_ice_orb_description"									"产生一个基础范围为<font color='#ccff66'>380</font> 的冰霜爆发，并且全能权杖将造成减速。伤害基于全属性和最低的属性<font color='#ccff66'>10</font>x。"
+		"omniro_ice_orb_description"									"产生一个基础范围为<font color='#ccff66'>380</font> 的冰霜爆发，并且全能权杖将造成减速。伤害基于全属性和最低的属性<font color='#ccff66'>2</font>x。"
 		"omniro_ice_orb_a_pretext"										"基于全属性的伤害："				
 		"omniro_ice_orb_b_pretext"										"额外范围："
 
