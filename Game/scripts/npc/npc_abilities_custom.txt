@@ -25580,7 +25580,7 @@
 		"AbilityTextureName"	"venomancer_poison_sting"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		
 
 		"AbilitySpecial"
@@ -103309,7 +103309,7 @@
 		}
 	}
 
-	"grizzly_cave_shroom_ai"
+	"redfall_shroomling_ai"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
@@ -103317,7 +103317,7 @@
 		"MaxLevel"	"1"
 		"Modifiers"
 		{
-			"modifier_cave_shroom_ai"
+			"modifier_redfall_shroomling_ai"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -103326,8 +103326,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"grizzly_cave_shroom_think"
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_shroomling_think"
 					}
 				}
 				"States"

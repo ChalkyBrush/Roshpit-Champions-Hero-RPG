@@ -3072,9 +3072,9 @@
 		
 		
         "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] Brutal Expansion"
-        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Enemy units damaged by Skull Basher will receive increased Normal damage from The Red General. This effect stacks up to 20 times. 10 seconds duration."
-        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Normal damage increase"
-        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Increases the Radius of @Ability1."
+        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Radius Increase"
+        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      ""
 
         "DOTA_Tooltip_modifier_axe_rune_q_4_visible"					"Brutal Expansion"
         "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"Increased Normal damage taken from The Red General"
@@ -13599,7 +13599,8 @@
 
 		"arena_log_capacity"										"Log Capacity"
 		"arena_log_dps"												"DPS"
-		"arena_armor_title"											"Physical Armor"
+		"arena_armor_title"											"Armor"
+		"arena_magic_armor_title"									"Magic Armor"
 		"arena_update_dummy"										"Update Dummy"
 
 		"arena_fan_dialogue_one"									"I'm here to see my favorite fighter, Champion Varaphlas!"

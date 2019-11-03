@@ -25733,7 +25733,7 @@
         }
         "Ability1"  "dungeon_creep"
         "Ability2"  "knockback_immunity"
-        "Ability3"  "grizzly_cave_shroom_ai"
+        "Ability3"  "redfall_shroomling_ai"
 
     }
 
@@ -53454,7 +53454,7 @@
 
         }
         "Ability1"  "dungeon_creep"
-        "Ability2"  "grizzly_cave_shroom_ai"
+        "Ability2"  "redfall_shroomling_ai"
         "RoshpitArmor"          "2"
         "RoshpitArmorPierce"    "5"
         "RoshpitSpellPierce"    "3"
