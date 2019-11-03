@@ -305,6 +305,7 @@ end
 
 function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, armor_mult, magic_armor_mult, armor_pierce_mult, spell_pierce_mult)
 	local summon = self
+	summon:SetRoshpitLevel(caster:GetLevel())
 	if bDoHeroMult then
 		local newHealth = caster:GetMaxHealth() * hp_mult
 		summon:SetMaxHealth(newHealth)
@@ -323,6 +324,7 @@ function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, a
 
 		local newDamage = caster:GetAttackDamage() * attack_mult
 		Filters:SetAttackDamage(summon, newDamage)
+		
 		summon:CalculateAndSaveRoshpitAttributes()
 	end
 	return true
