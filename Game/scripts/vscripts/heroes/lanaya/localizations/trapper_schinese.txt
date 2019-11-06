@@ -286,4 +286,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "七彩碎片"
         "item_property_trapper_immortal_weapon3"                             "暗杀距离"
-        "property_trapper_immortal_weapon3_description"                      "提高所有技能的施法距离 <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>. Cooldowns for @Ability1 and @Ability4 are decreased by <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."
+        "property_trapper_immortal_weapon3_description"                      "提高所有技能的施法距离 <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>.@Ability1 和 @Ability4 的冷却时间减少 <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."
