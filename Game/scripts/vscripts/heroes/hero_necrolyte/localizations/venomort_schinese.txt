@@ -162,10 +162,10 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"吸收伤害"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] 娴熟收割"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"提高开启 @Ability4 时的基础移速，同时，根据@Ability4的符文等级为剧毒巫师减免一定百分比的伤害(最高减伤值90%)"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"@Ability4 开启时提高剧毒巫师的移动速度和护甲值"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"移速提高"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
-        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"                 "伤害减免"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"                 "护甲提高"
         "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix_two"                       ""
 
 
