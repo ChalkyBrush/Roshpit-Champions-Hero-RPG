@@ -1742,11 +1742,11 @@ end
 
 function DungeonCreepDeath(event)
 	local caster = event.caster
-	if caster.minDungeonDrops then
-		if caster.minDungeonDrops > 0 and caster.maxDungeonDrops > 0 then
-			Events:RollExtraItems(caster:GetDeathXP(), caster:GetAbsOrigin(), caster.minDungeonDrops, caster.maxDungeonDrops)
-		end
-	end
+	-- if caster.minDungeonDrops then
+	-- 	if caster.minDungeonDrops > 0 and caster.maxDungeonDrops > 0 then
+	-- 		Events:RollExtraItems(caster:GetDeathXP(), caster:GetAbsOrigin(), caster.minDungeonDrops, caster.maxDungeonDrops)
+	-- 	end
+	-- end
 end
 
 function findEmptyDialogSlot()

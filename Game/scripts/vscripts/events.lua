@@ -1492,9 +1492,7 @@ function GameMode:OnEntityKilled(keys)
 		Enemies:EnemySlain(killedUnit, killerEntity)
 		Events:UpdateKillScores(killedUnit, killerEntity)
 		Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
-		if xpBounty > 0 then
-			RPCItems:RollDrops(killedUnit, killerEntity)
-		end
+		killedUnit:DropItemsOnDeath()
 		-- Weapons:UpdateWeaponXP(xpBounty)
 		-- if killedUnit.minDrops then
 		-- 	Events:RollExtraItems(killedUnit:GetDeathXP(), killedUnit:GetAbsOrigin(), killedUnit.minDrops, killedUnit.maxDrops)

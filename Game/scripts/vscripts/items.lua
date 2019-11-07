@@ -865,7 +865,7 @@ function RPCItems:ItemUpdateCustomNetTables(item)
 	if not item.newItemTable.minLevel then
 		item.newItemTable.minLevel = 1
 	end
-	item.newItemTable.minLevel = math.max(math.min(item.newItemTable.minLevel, 100), 1)
+	item.newItemTable.minLevel = math.max(math.min(item.newItemTable.minLevel, 120), 1)
 
 	if not item.newItemTable.validator then
 		item.newItemTable.validator = RPCItems:GetRandomKey(13)
