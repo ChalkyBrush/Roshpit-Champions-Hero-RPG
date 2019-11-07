@@ -180,8 +180,8 @@ function activate_great_wall(event)
 	elseif GameState:GetDifficultyFactor() == 3 then
 		armorMult = 3
 	end
-	local newArmor = unit.roshpit_attributes.roshpit_armor*armorMult
-	unit:SetBaseRoshpitArmor(newArmor, false)
+	local newArmor = caster.roshpit_attributes.roshpit_armor*armorMult
+	caster:SetBaseRoshpitArmor(newArmor, false)
 end
 
 function activate_gargantuan(event)
