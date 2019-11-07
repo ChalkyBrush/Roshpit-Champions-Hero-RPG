@@ -291,42 +291,17 @@ function replaceConstantsInTooltip(ability, tooltip)
 
 function GetRuneBonus(mainHero, rune_slot)
 {
+	rune_slot = rune_slot.replace("rune_", "")
 	var total_bonus = 0;
-	var values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"_"+rune_slot+"_amulet" );
+	var values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"-rune_bonuses");
+
+	// CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "-rune_bonuses", hero.runes_bonus_table)
 	if (values === undefined){
-	total_bonus = total_bonus;
+		total_bonus = total_bonus;
+	}else if(values[rune_slot] === undefined){
+		total_bonus = total_bonus;
 	}else{
-	total_bonus = total_bonus + parseInt(values.bonus);
-	}
-	values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"_"+rune_slot+"_hand" );
-	if (values === undefined){
-	total_bonus = total_bonus;
-	}else{
-	total_bonus = total_bonus + parseInt(values.bonus);
-	}
-	values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"_"+rune_slot+"_body" );
-	if (values === undefined){
-	total_bonus = total_bonus;
-	}else{
-	total_bonus = total_bonus + parseInt(values.bonus);
-	}
-	values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"_"+rune_slot+"_head" );
-	if (values === undefined){
-	total_bonus = total_bonus;
-	}else{
-	total_bonus = total_bonus + parseInt(values.bonus);
-	}
-	values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"_"+rune_slot+"_weapon" );
-	if (values === undefined){
-	total_bonus = total_bonus;
-	}else{
-	total_bonus = total_bonus + parseInt(values.bonus);
-	}
-	values = CustomNetTables.GetTableValue( "skill_tree", mainHero.toString()+"_"+rune_slot+"_foot" );
-	if (values === undefined){
-	total_bonus = total_bonus;
-	}else{
-	total_bonus = total_bonus + parseInt(values.bonus);
+		total_bonus = total_bonus + parseInt(values[rune_slot]);
 	}
 	return total_bonus
 }

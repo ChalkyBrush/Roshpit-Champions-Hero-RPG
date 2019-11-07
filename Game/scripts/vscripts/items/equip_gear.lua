@@ -30,6 +30,7 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	if item.isLuaItem then
 		item:AddSpecialModifiers(hero)
 	end
+	hero:UpdateRuneBonusesFromGear()
 	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(gear_slot), {itemIndex = item:GetEntityIndex()})
 	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = item:GetEntityIndex(), heroId = hero:GetClassname(), playerId = playerID, pickup = "equip", rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
 	EmitGlobalSound("RPC.EquipItem")
@@ -101,4 +102,23 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 			hero:SetModifierStackCount(modifier_name, inventory_unit, stacks)
 		end
 	end
+end
+
+function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()
+	local hero = self
+	if not hero.runes_bonus_table then
+		hero.runes_bonus_table = {}
+	end
+	for i = 1, #Runes.AllRunesTable, 1 do
+		local rune_bonus = 0
+		local rune_name = Runes.AllRunesTable[i]
+		for gear_slot, slot_name in pairs(RPC_GEAR_SLOT_NAMES) do
+			local modifier_name = "modifier_"..slot_name.."_rune_"..rune_name
+			if hero:HasModifier(modifier_name) then
+				rune_bonus = rune_bonus + hero:GetModifierStackCount(modifier_name, hero.InventoryUnit)
+			end	
+		end
+		hero.runes_bonus_table[rune_name] = rune_bonus
+	end
+	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "-rune_bonuses", hero.runes_bonus_table)
 end

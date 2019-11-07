@@ -15,6 +15,8 @@ Runes.COST_TO_LEVEL_T4 = 4
 Runes.STARTING_RUNE_POINTS = 2
 Runes.RUNE_POINTS_PER_LEVEL = 2
 
+Runes.AllRunesTable = {"q_1", "q_2", "q_3", "q_4", "w_1", "w_2", "w_3", "w_4", "e_1", "e_2", "e_3", "e_4", "r_1", "r_2", "r_3", "r_4"}
+
 function Runes:UpdateHeroSkillAndRunePoints(hero)
 	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	local player = hero:GetPlayerOwner()
@@ -99,10 +101,6 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 	runeUnit2.owner = playerID
 	runeUnit3.owner = playerID
 	runeUnit4.owner = playerID
-	setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
-	Runes:ResetRuneBonuses(hero, "amulet")
-	Runes:ResetRuneBonuses(hero, "hand")
-	Runes:ResetRuneBonuses(hero, "body")
 end
 
 function setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
@@ -296,58 +294,26 @@ function Runes:LevelUpRune(keys)
 end
 
 function Runes:ResetRuneBonuses(hero, slotName)
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_4_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_4_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_4_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_4_"..slotName, {bonus = 0})
 end
 
 function Runes:GetTotalBonus(RuneUnit, rune)
-	if rune == "q_1" then
-		return RuneUnit.amulet.q_1 + RuneUnit.hand.q_1 + RuneUnit.body.q_1 + RuneUnit.head.q_1 + RuneUnit.weapon.q_1 + RuneUnit.foot.q_1
-	elseif rune == "w_1" then
-		return RuneUnit.amulet.w_1 + RuneUnit.hand.w_1 + RuneUnit.body.w_1 + RuneUnit.head.w_1 + RuneUnit.weapon.w_1 + RuneUnit.foot.w_1
-	elseif rune == "e_1" then
-		return RuneUnit.amulet.e_1 + RuneUnit.hand.e_1 + RuneUnit.body.e_1 + RuneUnit.head.e_1 + RuneUnit.weapon.e_1 + RuneUnit.foot.e_1
-	elseif rune == "r_1" then
-		return RuneUnit.amulet.r_1 + RuneUnit.hand.r_1 + RuneUnit.body.r_1 + RuneUnit.head.r_1 + RuneUnit.weapon.r_1 + RuneUnit.foot.r_1
-	elseif rune == "q_2" then
-		return RuneUnit.amulet.q_2 + RuneUnit.hand.q_2 + RuneUnit.body.q_2 + RuneUnit.head.q_2 + RuneUnit.weapon.q_2 + RuneUnit.foot.q_2
-	elseif rune == "w_2" then
-		return RuneUnit.amulet.w_2 + RuneUnit.hand.w_2 + RuneUnit.body.w_2 + RuneUnit.head.w_2 + RuneUnit.weapon.w_2 + RuneUnit.foot.w_2
-	elseif rune == "e_2" then
-		return RuneUnit.amulet.e_2 + RuneUnit.hand.e_2 + RuneUnit.body.e_2 + RuneUnit.head.e_2 + RuneUnit.weapon.e_2 + RuneUnit.foot.e_2
-	elseif rune == "r_2" then
-		return RuneUnit.amulet.r_2 + RuneUnit.hand.r_2 + RuneUnit.body.r_2 + RuneUnit.head.r_2 + RuneUnit.weapon.r_2 + RuneUnit.foot.r_2
-	elseif rune == "q_3" then
-		return RuneUnit.amulet.q_3 + RuneUnit.hand.q_3 + RuneUnit.body.q_3 + RuneUnit.head.q_3 + RuneUnit.weapon.q_3 + RuneUnit.foot.q_3
-	elseif rune == "w_3" then
-		return RuneUnit.amulet.w_3 + RuneUnit.hand.w_3 + RuneUnit.body.w_3 + RuneUnit.head.w_3 + RuneUnit.weapon.w_3 + RuneUnit.foot.w_3
-	elseif rune == "e_3" then
-		return RuneUnit.amulet.e_3 + RuneUnit.hand.e_3 + RuneUnit.body.e_3 + RuneUnit.head.e_3 + RuneUnit.weapon.e_3 + RuneUnit.foot.e_3
-	elseif rune == "r_3" then
-		return RuneUnit.amulet.r_3 + RuneUnit.hand.r_3 + RuneUnit.body.r_3 + RuneUnit.head.r_3 + RuneUnit.weapon.r_3 + RuneUnit.foot.r_3
-	elseif rune == "q_4" then
-		return RuneUnit.amulet.q_4 + RuneUnit.hand.q_4 + RuneUnit.body.q_4 + RuneUnit.head.q_4 + RuneUnit.weapon.q_4 + RuneUnit.foot.q_4
-	elseif rune == "w_4" then
-		return RuneUnit.amulet.w_4 + RuneUnit.hand.w_4 + RuneUnit.body.w_4 + RuneUnit.head.w_4 + RuneUnit.weapon.w_4 + RuneUnit.foot.w_4
-	elseif rune == "e_4" then
-		return RuneUnit.amulet.e_4 + RuneUnit.hand.e_4 + RuneUnit.body.e_4 + RuneUnit.head.e_4 + RuneUnit.weapon.e_4 + RuneUnit.foot.e_4
-	elseif rune == "r_4" then
-		return RuneUnit.amulet.r_4 + RuneUnit.hand.r_4 + RuneUnit.body.r_4 + RuneUnit.head.r_4 + RuneUnit.weapon.r_4 + RuneUnit.foot.r_4
-	end
+	
 end
 
 function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, player, heroString)
@@ -433,18 +399,13 @@ function Runes:GetTotalRuneLevel(caster, tier, runeID, heroName)
 	if runeAbility then
 		if runeAbility:IsActivated() then
 			local abilityLevel = runeAbility.rune_level
-			if string.match(runeID, "arcana1") then
-				runeID = string.gsub(runeID, "_arcana1", "")
-			end
-			local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
+			local bonusLevel = caster:GetRuneBonus(runeID)
 			local totalLevel = abilityLevel + bonusLevel
 			return totalLevel
 		else
 			return 0
 		end
 	else
-		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
-		-- return bonusLevel
 		return 0
 	end
 end
@@ -463,6 +424,20 @@ function Runes:GetRuneAbility(caster, tier, index)
 	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
 	local runeAbility = runeUnit:GetAbilityByIndex(index)
 	return runeAbility
+end
+
+function CDOTA_BaseNPC:GetRuneBonus(rune_identifier)
+	local hero = self
+	if hero.runes_bonus_table then
+		local rune_name = rune_identifier
+		if hero.runes_bonus_table[rune_name] then
+			return hero.runes_bonus_table[rune_name]
+		else
+			return 0
+		end
+	else
+		return 0
+	end
 end
 
 function CDOTA_BaseNPC:GetRuneValue(letter, tier)
@@ -497,7 +472,7 @@ function CDOTA_BaseNPC:GetRuneValue(letter, tier)
 		if runeAbility then
 			if runeAbility:IsActivated() then
 				local abilityLevel = runeAbility.rune_level
-				local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
+				local bonusLevel = self:GetRuneBonus(runeID)
 				local totalLevel = abilityLevel + bonusLevel
 				rune_level = totalLevel
 			end
