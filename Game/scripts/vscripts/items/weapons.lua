@@ -258,78 +258,80 @@ function Weapons:ValidateGear(hero)
 end
 
 function Weapons:UpdateWeaponXP(xpBounty)
-	for i = 1, #MAIN_HERO_TABLE, 1 do
-		Weapons:UpdateWeaponXPPerHero(i, xpBounty)
-	end
-	CustomGameEventManager:Send_ServerToAllClients("xp_earned", {})
+	return false
+	-- for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 	Weapons:UpdateWeaponXPPerHero(i, xpBounty)
+	-- end
+	-- CustomGameEventManager:Send_ServerToAllClients("xp_earned", {})
 end
 
 function Weapons:UpdateWeaponXPPerHero(heroNumber, xpBounty)
-	if MAIN_HERO_TABLE[heroNumber]:IsAlive() then
-		local hero = MAIN_HERO_TABLE[heroNumber]
-		if not hero then
-			print("[UpdateWeaponXPPerHero] hero is null")
-			return
-		end
-		local weapon = hero.weapon
-		if not weapon then
-			print("[UpdateWeaponXPPerHero] weapon is null")
-			return
-		end
-		local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(weapon:GetEntityIndex()))
-		if not itemProperties then
-			print("[UpdateWeaponXPPerHero] no itemDescription")
-			return
-		else
-			if itemProperties.item_slot and itemProperties.item_slot == "weapon" then
-				-- print("[UpdateWeaponXPPerHero] alright its a weapon")
-			else
-				-- print("[UpdateWeaponXPPerHero] it is not a weapon")
-				Weapons:weaponRedirect(hero)
-				return
-			end
-		end
-		-- DeepPrintTable(weapon)
-		if not itemProperties.level or not itemProperties.maxLevel then
-			print("[UpdateWeaponXPPerHero] .level .maxLevel")
-			return
-		else
-			if itemProperties.level == itemProperties.maxLevel then
-				-- print("[UpdateWeaponXPPerHero] max level")
-				return
-			end
-		end
-		weapon.newItemTable = itemProperties
+	return false
+	-- if MAIN_HERO_TABLE[heroNumber]:IsAlive() then
+	-- 	local hero = MAIN_HERO_TABLE[heroNumber]
+	-- 	if not hero then
+	-- 		print("[UpdateWeaponXPPerHero] hero is null")
+	-- 		return
+	-- 	end
+	-- 	local weapon = hero.weapon
+	-- 	if not weapon then
+	-- 		print("[UpdateWeaponXPPerHero] weapon is null")
+	-- 		return
+	-- 	end
+	-- 	local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(weapon:GetEntityIndex()))
+	-- 	if not itemProperties then
+	-- 		print("[UpdateWeaponXPPerHero] no itemDescription")
+	-- 		return
+	-- 	else
+	-- 		if itemProperties.item_slot and itemProperties.item_slot == "weapon" then
+	-- 			-- print("[UpdateWeaponXPPerHero] alright its a weapon")
+	-- 		else
+	-- 			-- print("[UpdateWeaponXPPerHero] it is not a weapon")
+	-- 			Weapons:weaponRedirect(hero)
+	-- 			return
+	-- 		end
+	-- 	end
+	-- 	-- DeepPrintTable(weapon)
+	-- 	if not itemProperties.level or not itemProperties.maxLevel then
+	-- 		print("[UpdateWeaponXPPerHero] .level .maxLevel")
+	-- 		return
+	-- 	else
+	-- 		if itemProperties.level == itemProperties.maxLevel then
+	-- 			-- print("[UpdateWeaponXPPerHero] max level")
+	-- 			return
+	-- 		end
+	-- 	end
+	-- 	weapon.newItemTable = itemProperties
 
-		if not IsValidEntity(weapon) then
-			return
-		end
-		local newBounty = xpBounty
-		if hero:HasModifier("modifier_blacksmiths_tablet") then
-			newBounty = math.floor(newBounty * (1 + BLACKSMITH_TABLE_ADD_WEAPON_EXP))
-		end
-		if weapon.newItemTable.rarity == "immortal" then
-			newBounty = math.ceil(newBounty / 500)
-		end
-		if weapon.newItemTable.level < weapon.newItemTable.maxLevel then
-			weapon.newItemTable.xp = weapon.newItemTable.xp + newBounty
-		end
+	-- 	if not IsValidEntity(weapon) then
+	-- 		return
+	-- 	end
+	-- 	local newBounty = xpBounty
+	-- 	if hero:HasModifier("modifier_blacksmiths_tablet") then
+	-- 		newBounty = math.floor(newBounty * (1 + BLACKSMITH_TABLE_ADD_WEAPON_EXP))
+	-- 	end
+	-- 	if weapon.newItemTable.rarity == "immortal" then
+	-- 		newBounty = math.ceil(newBounty / 500)
+	-- 	end
+	-- 	if weapon.newItemTable.level < weapon.newItemTable.maxLevel then
+	-- 		weapon.newItemTable.xp = weapon.newItemTable.xp + newBounty
+	-- 	end
 
-		if weapon.newItemTable.xp >= Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] and weapon.newItemTable.level < weapon.newItemTable.maxLevel then
-			weapon.newItemTable.xp = newBounty - (Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] - weapon.newItemTable.xp)
-			weapon.newItemTable.xp = math.max(weapon.newItemTable.xp, 0)
+	-- 	if weapon.newItemTable.xp >= Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] and weapon.newItemTable.level < weapon.newItemTable.maxLevel then
+	-- 		weapon.newItemTable.xp = newBounty - (Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] - weapon.newItemTable.xp)
+	-- 		weapon.newItemTable.xp = math.max(weapon.newItemTable.xp, 0)
 
-			weapon.newItemTable.level = math.min(weapon.newItemTable.level + 1, 50)
-			if weapon.newItemTable.xp > Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] then
-				weapon.newItemTable.xp = 0
-			end
+	-- 		weapon.newItemTable.level = math.min(weapon.newItemTable.level + 1, 50)
+	-- 		if weapon.newItemTable.xp > Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] then
+	-- 			weapon.newItemTable.xp = 0
+	-- 		end
 
-			Weapons:LevelUpWeapon(hero, weapon)
-		end
+	-- 		Weapons:LevelUpWeapon(hero, weapon)
+	-- 	end
 
-		Weapons:SetWeaponTable(weapon)
-		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = weapon.newItemTable.xp, level = weapon.newItemTable.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level], maxLevel = weapon.newItemTable.maxLevel, requiredHero = weapon.newItemTable.requiredHero})
-	end
+	-- 	Weapons:SetWeaponTable(weapon)
+	-- 	CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = weapon.newItemTable.xp, level = weapon.newItemTable.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level], maxLevel = weapon.newItemTable.maxLevel, requiredHero = weapon.newItemTable.requiredHero})
+	-- end
 end
 
 function Weapons:LevelUpWeapon(hero, weapon, doNotEquip)

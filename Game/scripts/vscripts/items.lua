@@ -1075,8 +1075,7 @@ function RPCItems:ItemSwapInput(msg)
 		local player = hero:GetPlayerOwner()
 		local heroId = hero:GetClassname()
 		if newGear then
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newGear:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newGear.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newGear.newItemTable.rarity)})
-			RPCItems:EquipItem(slot, hero, inventory_unit, newGear)
+			hero:EquipItem(newGear)
 		end
 		if slot == 1 then
 			hero.weapon = newGear
@@ -1159,13 +1158,10 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 			if IsValidEntity(itemEntity:GetContainer()) then
 				UTIL_Remove(itemEntity:GetContainer())
 			end
-			CustomNetTables:SetTableValue("equipment", tostring(player:GetPlayerID()) .. "-"..tostring(slot), {itemIndex = itemIndexNew})
+			
 			local hero = heroEntity
 			local inventory_unit = heroEntity.InventoryUnit
-			RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = itemEntity:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = itemEntity.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)})
-			EmitGlobalSound("RPC.EquipItem")
-			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
+			hero:EquipItem(itemEntity)
 			if slot == 1 then
 				hero.weapon = itemEntity
 				Weapons:SetWeaponTable(itemEntity)
@@ -1372,7 +1368,7 @@ function RPCItems:AcceptNewItem(keys)
 	local heroId = hero:GetClassname()
 	if newItem then
 		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newItem:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newItem.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newItem.newItemTable.rarity)})
-		RPCItems:EquipItem(slot, hero, inventory_unit, newItem)
+		hero:EquipItem(newItem)
 	end
 	if slot == 1 then
 		hero.weapon = newItem

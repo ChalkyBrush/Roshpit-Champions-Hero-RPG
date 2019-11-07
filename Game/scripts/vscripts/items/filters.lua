@@ -197,29 +197,8 @@ function Filters:AdjustItemDamage(caster, damage, victim)
 		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
 	end
 
-    if caster:HasModifier("modifier_trinket_item_damage_inc") then
-        local current_stack = caster:GetModifierStackCount("modifier_trinket_item_damage_inc", caster.InventoryUnit)
-        mult = mult + 0.01 * current_stack
-    end
-    if caster:HasModifier("modifier_helm_item_damage_inc") then
-        local current_stack = caster:GetModifierStackCount("modifier_helm_item_damage_inc", caster.InventoryUnit)
-        mult = mult + 0.01 * current_stack
-    end
-    if caster:HasModifier("modifier_body_item_damage_inc") then
-        local current_stack = caster:GetModifierStackCount("modifier_body_item_damage_inc", caster.InventoryUnit)
-        mult = mult + 0.01 * current_stack
-    end
-    if caster:HasModifier("modifier_hand_item_damage_inc") then
-        local current_stack = caster:GetModifierStackCount("modifier_hand_item_damage_inc", caster.InventoryUnit)
-        mult = mult + 0.01 * current_stack
-    end
-    if caster:HasModifier("modifier_foot_item_damage_inc") then
-        local current_stack = caster:GetModifierStackCount("modifier_foot_item_damage_inc", caster.InventoryUnit)
-        mult = mult + 0.01 * current_stack
-    end
-    if caster:HasModifier("modifier_weapon_item_damage_inc") then
-        local current_stack = caster:GetModifierStackCount("modifier_weapon_item_damage_inc", caster.InventoryUnit)
-        mult = mult + 0.01 * current_stack
+    if caster:IsHero() then
+        mult = mult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_head_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_weapon_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_hands_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_feet_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_body_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_amulet_item_damage", 1))
     end
 
     if casterName == "npc_dota_hero_spirit_breaker" and caster:HasAbility("whirling_flail") then
@@ -1377,29 +1356,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local mageplateStacks = attacker:GetModifierStackCount("modifier_infused_mageplate_stack", attacker.body)
             damageMult = damageMult + mageplateStacks * 0.05
         end
-        if attacker:HasModifier("modifier_trinket_base_ability_damage") then
-            local current_stack = attacker:GetModifierStackCount("modifier_trinket_base_ability_damage", attacker.InventoryUnit)
-            damageMult = damageMult + 0.01 * current_stack
-        end
-        if attacker:HasModifier("modifier_helm_base_ability_damage") then
-            local current_stack = attacker:GetModifierStackCount("modifier_helm_base_ability_damage", attacker.InventoryUnit)
-            damageMult = damageMult + 0.01 * current_stack
-        end
-        if attacker:HasModifier("modifier_body_base_ability_damage") then
-            local current_stack = attacker:GetModifierStackCount("modifier_body_base_ability_damage", attacker.InventoryUnit)
-            damageMult = damageMult + 0.01 * current_stack
-        end
-        if attacker:HasModifier("modifier_hand_base_ability_damage") then
-            local current_stack = attacker:GetModifierStackCount("modifier_hand_base_ability_damage", attacker.InventoryUnit)
-            damageMult = damageMult + 0.01 * current_stack
-        end
-        if attacker:HasModifier("modifier_foot_base_ability_damage") then
-            local current_stack = attacker:GetModifierStackCount("modifier_foot_base_ability_damage", attacker.InventoryUnit)
-            damageMult = damageMult + 0.01 * current_stack
-        end
-        if attacker:HasModifier("modifier_weapon_base_ability_damage") then
-            local current_stack = attacker:GetModifierStackCount("modifier_weapon_base_ability_damage", attacker.InventoryUnit)
-            damageMult = damageMult + 0.01 * current_stack
+        if attacker:IsHero() then
+            damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
         end
         if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
             local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")

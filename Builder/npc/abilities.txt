@@ -207,6 +207,8 @@
 	##NPC_INVASION##
 	##NPC_FIREBALL##
 
+	##EQUIPMENT_MODIFIER_ABILITIES##
+
 
 	"oracle_ability"
 	{

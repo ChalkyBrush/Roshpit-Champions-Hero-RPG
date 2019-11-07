@@ -205,7 +205,7 @@ function GameMode:OnNPCSpawned(keys)
 				-- gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_disable_player", {})
 			-- end
 		-- end
-		RPCItems:RecalculateStatsBasic(npc)
+		-- RPCItems:RecalculateStatsBasic(npc)
 		--print("RESPAWNING AND MOVING")
 	end
 end
@@ -1068,11 +1068,12 @@ end
 function Events:SetupInventoryUnit(inventory_unit)
 	inventory_unit:AddAbility("town_unit")
 	inventory_unit:FindAbilityByName("town_unit"):SetLevel(1)
-	inventory_unit:FindAbilityByName("helm_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("hand_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("foot_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("body_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("weapon_slot"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_head"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_weapon"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_hands"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_feet"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_body"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_amulet"):SetLevel(1)
 end
 
 function Events:InitializeHero(heroEntity)
@@ -1366,7 +1367,7 @@ function Events:SetupHeroes(heroEntity)
 	heroEntity.InventoryUnit.hero = heroEntity
 	Events:SetupInventoryUnit(heroEntity.InventoryUnit)
 	Events:InitializeHero(heroEntity)
-	Weapons:weaponRedirect(heroEntity)
+	-- Weapons:weaponRedirect(heroEntity)
 
 	-- end)
 	if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -1388,12 +1389,17 @@ function Events:SetupHeroes(heroEntity)
 		Tutorial:GetTutorialFromServer(heroEntity)
 	end
 	if Events.GameMaster then
+		print("APPLY THINKER")
+		print("QQQQ")
 		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
 	else
 		Timers:CreateTimer(3, function()
 			if Events.GameMaster then
 				Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
+				print("APPLY THINKER")
+				print("QQQQ")
 			else
+				print("TRY AGAIN")
 				return 3
 			end
 		end)

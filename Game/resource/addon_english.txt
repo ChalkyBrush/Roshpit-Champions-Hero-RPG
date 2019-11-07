@@ -714,6 +714,9 @@
 		"item_base_ability"			"Base Ability Damage %"
 
 		"item_damage_increase"			"Item Damage %"
+		"item_item_damage"				"Item Damage %"
+
+		"item_attack_damage"				"Base Attack Damage"
 
 		"item_all_runes"							"+ All T1-T3 Runes"
 		"item_all_attributes"						"+ All Attributes"

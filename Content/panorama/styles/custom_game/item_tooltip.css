@@ -251,3 +251,38 @@
 .open_socket_title{
 	margin-top:4px;
 }
+
+#armor-and-magic-armor-row{
+	flow-children:right;
+	horizontal-align:right;
+}
+
+#equipment_attribute_armor{
+	background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+}
+
+#equipment_attribute_armor_pierce{
+	background-image: url("file://{images}/custom_game/ui/armor_pierce.png");
+}
+
+#equipment_attribute_magic_armor{
+	background-image: url("file://{images}/custom_game/ui/magic_armor.png");
+}
+
+#equipment_attribute_spell_pierce{
+	background-image: url("file://{images}/custom_game/ui/spell_pierce.png");
+}
+
+.equipment_attribute_image{
+	width:12px;
+	height:12px;
+/*	horizontal-align:center;*/
+	background-size: contain;
+	vertical-align: center;
+}
+
+.armor-text{
+	color:white;
+	padding-left:2px;
+	padding-right:2px;
+}

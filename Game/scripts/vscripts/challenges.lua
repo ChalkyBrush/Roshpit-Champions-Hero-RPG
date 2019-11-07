@@ -60,7 +60,7 @@ function Challenges:ChiselItem(msg)
 	if Beacons.cheats then
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 		hero:RemoveModifierByName("modifier_cant_equip")
-		Weapons:UnequipItem(hero, item, itemSlot)
+		hero:UnequipItem(item)
 	else
 		local url = ROSHPIT_URL.."/champions/chiselItem?"
 		url = url.."steam_id="..steamID
@@ -83,7 +83,7 @@ function Challenges:ChiselItem(msg)
 				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 				hero:RemoveModifierByName("modifier_cant_equip")
-				Weapons:UnequipItem(hero, item, itemSlot)
+				hero:UnequipItem(item)
 				Statistics.dispatch('items:chisel')
 				Events:TutorialServerEvent(hero, "3_2", 0)
 			end

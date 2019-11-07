@@ -86,6 +86,23 @@ function initializeTooltip(func){
 			}
 		}else{
 			$('#consumable-text').AddClass('invisible')
+			// ARMOR AND MAGIC ARMOR
+			if (itemValues.base_armor > 0){
+				$('#armor-text').RemoveClass('invisible')
+				$('#armor-text').text = itemValues.base_armor
+				$('#equipment_attribute_armor').RemoveClass('invisible')
+			}else{
+				$('#equipment_attribute_armor').AddClass('invisible')
+				$('#armor-text').AddClass('invisible')
+			}
+			if (itemValues.base_magic_armor > 0){
+				$('#magic-armor-text').RemoveClass('invisible')
+				$('#magic-armor-text').text = itemValues.base_magic_armor
+				$('#equipment_attribute_magic_armor').RemoveClass('invisible')
+			}else{
+				$('#magic-armor-text').AddClass('invisible')
+				$('#equipment_attribute_magic_armor').AddClass('invisible')
+			}
 			//PROPERTY1
 			var itemProperty1 = {}
 			itemProperty1.propertyColor = itemValues.property1color

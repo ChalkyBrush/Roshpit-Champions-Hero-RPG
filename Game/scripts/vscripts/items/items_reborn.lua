@@ -1,3 +1,5 @@
+require('items/equip_gear')
+
 RPCItems.DropCounts = {}
 RPCItems.DropCounts[ENEMY_TYPE_WEAK_CREEP] = {}
 RPCItems.DropCounts[ENEMY_TYPE_NORMAL_CREEP] = {}
@@ -54,9 +56,9 @@ RPCItems.DropCounts[ENEMY_TYPE_MAJOR_BOSS][11] = 95
 RPCItems.DropCounts[ENEMY_TYPE_MAJOR_BOSS][12] = 100
 
 RPCItems.RarityChances = {}
-RPCItems.RarityChances[RPC_ITEMS_RARITY_COMMON] = 3500
-RPCItems.RarityChances[RPC_ITEMS_RARITY_UNCOMMON] = 6000
-RPCItems.RarityChances[RPC_ITEMS_RARITY_RARE] = 8000
+RPCItems.RarityChances[RPC_ITEMS_RARITY_COMMON] = 4000
+RPCItems.RarityChances[RPC_ITEMS_RARITY_UNCOMMON] = 7500
+RPCItems.RarityChances[RPC_ITEMS_RARITY_RARE] = 9000
 RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] = 9700
 RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL] = 9996
 RPCItems.RarityChances[RPC_ITEMS_RARITY_ARCANA] = 10000
@@ -72,6 +74,7 @@ function CDOTA_BaseNPC:DropItemsOnDeath()
 		return false
 	end
 	local drop_count = RPCItems:GetEnemyItemDropCount(tier)
+	drop_count = 3
 	for i = 1, drop_count, 1 do
 		local item = RPCItems:RollRandomItem(unit_level)
 		if item then
@@ -323,7 +326,7 @@ RPCItems.AttributesRolls[2]["t4_rune"] = 0.04
 RPCItems.AttributesRolls[3]["t4_rune"] = 0.04
 RPCItems.AttributesRolls[4]["t4_rune"] = 0.04
 
-function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, rarityFactor, minLevel)
+function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, rarityFactor, minLevel, item_slot)
 	if not item.newItemTable then
 		item.newItemTable = {}
 	end
@@ -335,6 +338,7 @@ function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, descripti
 	item.newItemTable.itemDescription = description
 	item.newItemTable.qualityColor = qualityColor
 	item.newItemTable.qualityName = qualityName
+	item.newItemTable.gear_slot = item_slot
 
 	print("RARITY FACTOR: "..rarityFactor)
 	item.newItemTable.rarityFactor = rarityFactor
@@ -343,8 +347,13 @@ function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, descripti
 	RPCItems:ItemUpdateCustomNetTables(item)
 end
 
-function RPCItems:RollGearAttributeValue(item, item_level, property_type, property_slot, multiple)
-	local max_value = RPCItems.AttributesRolls[property_slot][property_type] * item_level * multiple
+function RPCItems:RollGearAttributeValue(item_level, property_type, property_slot, multiple)
+	local max_value = 1
+	if property_slot then
+		max_value = RPCItems.AttributesRolls[property_slot][property_type] * item_level * multiple
+	else
+		max_value = item_level * multiple
+	end
 	local min_attempt = math.floor((max_value/2)/1.45)
 	local max_attempt = math.floor(max_value/1.45)
 	local roll_attempt = RandomInt(min_attempt, max_attempt)
@@ -353,6 +362,7 @@ function RPCItems:RollGearAttributeValue(item, item_level, property_type, proper
 	roll = math.max(roll, 1)
 	return math.floor(roll)
 end
+
 
 RPCItems.BASIC_ITEMS = {}
 
@@ -476,7 +486,7 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
 	    item.newItemTable.gear = true	
 
-	    local property_count = math.max(math.min(rarity + 1, 4), 1)
+	    local property_count = math.max(math.min(rarity, 4), 1)
 	    print("RARITY: "..rarity)
 	    print("PROPERTY COUNT: "..property_count)
 	    for property_slot = 1, property_count, 1 do
@@ -487,7 +497,9 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 				item.newItemTable.itemSuffix = RPCItems.SUFFIX[rollData["property_name"]][RandomInt(1, #RPCItems.SUFFIX[rollData["property_name"]])]
 			end
 	    end
-	    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level)
+	    RPCItems:GrantItemBaseArmor(item, item_level, basic_item_table["armor"])
+	    RPCItems:GrantItemBaseMagicArmor(item, item_level, basic_item_table["magic_armor"])
+	    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
 	    return item
 	else
 	end
@@ -516,7 +528,7 @@ RPCItems.PROPERTY_COLORS["movespeed"] = "#B02020"
 
 function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level)
 	local property_type = RPCItems.REGULAR_PROPERTIES[item_slot][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[item_slot])]
-	local roll = RPCItems:RollGearAttributeValue(item, item_level, property_type, property_slot, 1)
+	local roll = RPCItems:RollGearAttributeValue(item_level, property_type, property_slot, 1)
 	local rollData = {}
 	rollData["property_name"] = property_type
 	rollData["value"] = roll
@@ -577,4 +589,20 @@ function RPCItems:TranslateRuneRoll(property_name)
 		runes_table = {"rune_q_4", "rune_w_4", "rune_e_4", "rune_r_4"}
 	end
 	return runes_table[RandomInt(1, #runes_table)]
+end
+
+function RPCItems:GrantItemBaseArmor(item, item_level, base_factor)
+	local armor = 0
+	if base_factor > 0 then
+		armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*3)
+	end
+	item.newItemTable.base_armor = armor
+end
+
+function RPCItems:GrantItemBaseMagicArmor(item, item_level, base_factor)
+	local magic_armor = 0
+	if base_factor > 0 then
+		magic_armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*3)
+	end
+	item.newItemTable.base_magic_armor = magic_armor
 end

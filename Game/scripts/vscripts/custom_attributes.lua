@@ -449,6 +449,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	local armor = unit.roshpit_attributes.roshpit_armor
 	if unit:IsRealHero() then
 		armor = armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
+		armor = armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor", 1)
 	end
 
 	local armor_modify = 0
@@ -905,6 +906,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	local magic_armor = unit.roshpit_attributes.roshpit_magic_armor
 	if unit:IsRealHero() then
 		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
+		magic_armor = magic_armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_magic_armor", 1)
 	end
 
 	local magic_armor_modify = 0
@@ -1283,6 +1285,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	local armor_pierce = unit.roshpit_attributes.roshpit_armor_pierce
 	if unit:IsRealHero() then
 		armor_pierce = armor_pierce + unit:GetAgility()*CustomAttributes.ARMOR_PIERCE_PER_AGI
+		armor_pierce = armor_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor_pierce", 1)
 	end
 	local armor_pierce_modify = 0
 	if unit:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
@@ -1407,6 +1410,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	local spell_pierce = unit.roshpit_attributes.roshpit_spell_pierce
 	if unit:IsRealHero() then
 		spell_pierce = spell_pierce + unit:GetIntellect()*CustomAttributes.SPELL_PIERCE_PER_INT
+		spell_pierce = spell_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_spell_pierce", 1)
 	end
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
 		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
@@ -1579,6 +1583,7 @@ function CDOTA_BaseNPC:GetRoshpitArmor()
 	local mult = 1
 	local unit = self
 	local armor = unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster)
+
 	armor = armor*mult
 	return armor
 end
@@ -1608,6 +1613,7 @@ end
 function CDOTA_BaseNPC:GetRoshpitArmorPierce()
 	local unit = self
 	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
+	
 	return armor_pierce
 end
 
@@ -1620,8 +1626,9 @@ end
 
 function CDOTA_BaseNPC:GetRoshpitSpellPierce()
 	local unit = self
-	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
-	return armor_pierce
+	local spell_pierce = unit:GetModifierStackCount("modifier_roshpit_spell_pierce", Events.GameMaster)
+	
+	return spell_pierce
 end
 
 function CustomAttributes:SetAttributes(hero)
@@ -1933,29 +1940,35 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ice_scathe_q2_shield", WARLORD_ARCANA2_Q2_INT_BONUS)
 	end
 	-- BASIC ITEMS STATS --
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_intelligence", 1)
+	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_spirit", 1)
 
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_intelligence", 1)
+	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_spirit", 1)
 
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_intelligence", 1)
+	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_intelligence", 1)
+	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_spirit", 1)
 
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_trinket_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_trinket_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_trinket_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_intelligence", 1)
+	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_intelligence", 1)
+	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_spirit", 1)
 
 	-- SPECIAL ITEMS STATS --
 
