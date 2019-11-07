@@ -6,10 +6,10 @@ RPCItems.DropCounts[ENEMY_TYPE_MINI_BOSS] = {}
 RPCItems.DropCounts[ENEMY_TYPE_BOSS] = {}
 RPCItems.DropCounts[ENEMY_TYPE_MAJOR_BOSS] = {}
 
-RPCItems.DropCounts[ENEMY_TYPE_WEAK_CREEP][0] = 95
+RPCItems.DropCounts[ENEMY_TYPE_WEAK_CREEP][0] = 90
 RPCItems.DropCounts[ENEMY_TYPE_WEAK_CREEP][1] = 100
 
-RPCItems.DropCounts[ENEMY_TYPE_NORMAL_CREEP][0] = 70
+RPCItems.DropCounts[ENEMY_TYPE_NORMAL_CREEP][0] = 65
 RPCItems.DropCounts[ENEMY_TYPE_NORMAL_CREEP][1] = 90
 RPCItems.DropCounts[ENEMY_TYPE_NORMAL_CREEP][2] = 100
 
@@ -168,7 +168,10 @@ RPCItems.PREFIX["attack_damage"] = {"Splitting", "Cerberus", "Gryphon", "Thunder
 
 function RPCItems:RollItemLevelFromUnit(unit_level)
 	local unit_level = math.min(unit_level, 100)
-	local iLevel = math.max(RPCItems:GetLogarithmicVarianceValue(unit_level, 0, 0, 0, 0), 1) - 10
+	local iLevel = math.max(RPCItems:GetLogarithmicVarianceValue(unit_level, 0, 0, 0, 0), 1)
+	if iLevel > 50 and iLevel < 100 then
+		iLevel = iLevel - 10
+	end
 	if unit_level >= 100 then
 		iLevel = iLevel + 10
 	end
