@@ -74,7 +74,6 @@ function CDOTA_BaseNPC:DropItemsOnDeath()
 		return false
 	end
 	local drop_count = RPCItems:GetEnemyItemDropCount(tier)
-	drop_count = 3
 	for i = 1, drop_count, 1 do
 		local item = RPCItems:RollRandomItem(unit_level)
 		if item then
@@ -306,25 +305,25 @@ RPCItems.AttributesRolls[2]["item_damage"] = RPCItems.AttributesRolls[2]["base_a
 RPCItems.AttributesRolls[3]["item_damage"] = RPCItems.AttributesRolls[3]["base_ability"]
 RPCItems.AttributesRolls[4]["item_damage"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["t1_rune"] = 0.16
-RPCItems.AttributesRolls[2]["t1_rune"] = 0.16
-RPCItems.AttributesRolls[3]["t1_rune"] = 0.16
-RPCItems.AttributesRolls[4]["t1_rune"] = 0.16
+RPCItems.AttributesRolls[1]["t1_rune"] = 0.17
+RPCItems.AttributesRolls[2]["t1_rune"] = 0.17
+RPCItems.AttributesRolls[3]["t1_rune"] = 0.17
+RPCItems.AttributesRolls[4]["t1_rune"] = 0.17
 
-RPCItems.AttributesRolls[1]["t2_rune"] = 0.16
-RPCItems.AttributesRolls[2]["t2_rune"] = 0.16
-RPCItems.AttributesRolls[3]["t2_rune"] = 0.16
-RPCItems.AttributesRolls[4]["t2_rune"] = 0.16
+RPCItems.AttributesRolls[1]["t2_rune"] = 0.17
+RPCItems.AttributesRolls[2]["t2_rune"] = 0.17
+RPCItems.AttributesRolls[3]["t2_rune"] = 0.17
+RPCItems.AttributesRolls[4]["t2_rune"] = 0.17
 
-RPCItems.AttributesRolls[1]["t3_rune"] = 0.08
-RPCItems.AttributesRolls[2]["t3_rune"] = 0.08
-RPCItems.AttributesRolls[3]["t3_rune"] = 0.08
-RPCItems.AttributesRolls[4]["t3_rune"] = 0.08
+RPCItems.AttributesRolls[1]["t3_rune"] = 0.085
+RPCItems.AttributesRolls[2]["t3_rune"] = 0.085
+RPCItems.AttributesRolls[3]["t3_rune"] = 0.085
+RPCItems.AttributesRolls[4]["t3_rune"] = 0.085
 
-RPCItems.AttributesRolls[1]["t4_rune"] = 0.04
-RPCItems.AttributesRolls[2]["t4_rune"] = 0.04
-RPCItems.AttributesRolls[3]["t4_rune"] = 0.04
-RPCItems.AttributesRolls[4]["t4_rune"] = 0.04
+RPCItems.AttributesRolls[1]["t4_rune"] = 0.0425
+RPCItems.AttributesRolls[2]["t4_rune"] = 0.0425
+RPCItems.AttributesRolls[3]["t4_rune"] = 0.0425
+RPCItems.AttributesRolls[4]["t4_rune"] = 0.0425
 
 function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, rarityFactor, minLevel, item_slot)
 	if not item.newItemTable then
