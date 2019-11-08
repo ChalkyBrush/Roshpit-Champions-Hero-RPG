@@ -53723,7 +53723,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"100"
+				"property_two_base"		"20"
 			}
 			"05"
 			{

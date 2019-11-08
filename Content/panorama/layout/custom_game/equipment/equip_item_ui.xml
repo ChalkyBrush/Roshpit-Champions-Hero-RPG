@@ -64,6 +64,12 @@
 					<Label id="tooltip_quality_left" html="true"/>
 					<Label id="tooltip_quality_right" html="true"/>
 				</Panel>
+				<Panel id="armor-and-magic-armor-row">
+					<Image id="equipment_attribute_armor" class="equipment_attribute_image" hittest="false"/>
+					<Label id="armor-text" class="armor-text" html="true"/>
+					<Image id="equipment_attribute_magic_armor" class="equipment_attribute_image" hittest="false"/>
+					<Label id="magic-armor-text" class="armor-text" html="true"/>
+				</Panel>
 				<Panel class="class-splitter"/>
 				<Panel id="properties_container">
 					<Label id="consumable-text" html="true">

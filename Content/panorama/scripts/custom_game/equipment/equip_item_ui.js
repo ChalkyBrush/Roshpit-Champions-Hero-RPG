@@ -188,6 +188,23 @@ function initializeTooltip(main_panel, item){
 			}
 		}else{
 			main_panel.FindChildTraverse('consumable-text').AddClass('invisible')
+			
+			if (itemValues.base_armor > 0){
+				main_panel.FindChildTraverse('armor-text').RemoveClass('invisible')
+				main_panel.FindChildTraverse('armor-text').text = itemValues.base_armor
+				main_panel.FindChildTraverse('equipment_attribute_armor').RemoveClass('invisible')
+			}else{
+				main_panel.FindChildTraverse('equipment_attribute_armor').AddClass('invisible')
+				main_panel.FindChildTraverse('armor-text').AddClass('invisible')
+			}
+			if (itemValues.base_magic_armor > 0){
+				main_panel.FindChildTraverse('magic-armor-text').RemoveClass('invisible')
+				main_panel.FindChildTraverse('magic-armor-text').text = itemValues.base_magic_armor
+				main_panel.FindChildTraverse('equipment_attribute_magic_armor').RemoveClass('invisible')
+			}else{
+				main_panel.FindChildTraverse('magic-armor-text').AddClass('invisible')
+				main_panel.FindChildTraverse('equipment_attribute_magic_armor').AddClass('invisible')
+			}
 			//PROPERTY1
 			var itemProperty1 = {}
 			itemProperty1.propertyColor = itemValues.property1color
