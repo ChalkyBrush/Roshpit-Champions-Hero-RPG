@@ -223,10 +223,10 @@
 		"DOTA_Tooltip_ability_warlord_rune_r_2"							"[R2] 衰弱之冰"
     	"DOTA_Tooltip_ability_warlord_rune_r_2_Description"				"被元素主宰冻结的敌人受到来自元素督军的税后伤害提高，持续8秒。"
     	"DOTA_Tooltip_ability_warlord_rune_r_2_property_one"			"税后伤害提高"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_suffix"					""
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_suffix"					"%"
 
     	"DOTA_Tooltip_modifier_warlord_b_d_effect"						"衰弱之冰"
-    	"DOTA_Tooltip_modifier_warlord_b_d_effect_Description"			"魔法抗性降低"	
+    	"DOTA_Tooltip_modifier_warlord_b_d_effect_Description"			"受到税后伤害提高"	
 		
 		"DOTA_Tooltip_ability_warlord_rune_r_3"							"[R3] 稳定的火焰"
     	"DOTA_Tooltip_ability_warlord_rune_r_3_Description"				"每层火焰能量将提高督军的攻击力。"
