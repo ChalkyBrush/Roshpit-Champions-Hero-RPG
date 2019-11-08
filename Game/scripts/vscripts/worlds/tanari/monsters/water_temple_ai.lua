@@ -23,7 +23,7 @@ function tanari_ancient_think(event)
 							local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 							for _, enemy in pairs(enemies) do
 								local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
-								local damage = baseDamage * distance / 10
+								local damage = baseDamage * (1 + distance / 1000)
 								ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 								enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.7})
 								EmitSoundOn("Tanari.Ancient.Quake", enemy)

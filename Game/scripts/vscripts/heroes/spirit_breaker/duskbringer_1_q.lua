@@ -141,7 +141,7 @@ function whirling_flail_q1_on_hit(event)
 		local particleName = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_begin_flash.vpcf"
 		local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
 		ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-		local damage = q_1_level * (DUSKBRINGER_Q1_DMG_PER_STACK + DUSKBRINGER_Q1_DMG_PER_AGI_PER_STACK * caster:GetAgility())
+		local damage = q_1_level * DUSKBRINGER_Q1_DMG_PER_STACK
 		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_GHOST, RPC_ELEMENT_FIRE)
 		Timers:CreateTimer(0.4, function()
 			ParticleManager:DestroyParticle(pfx2, false)

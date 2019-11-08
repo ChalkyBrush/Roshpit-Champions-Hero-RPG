@@ -360,7 +360,7 @@
 		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed_Description"	"Скорость атаки и передвижения снижены"
 
 		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai"				"Глубокая заморозка"
-		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"С каждой атакой есть 10% шанс заморозить цель на 4 секунды. Цель не может умереть, пока действует этот эффект."
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"С каждой атакой есть 10% шанс заморозить цель на 4 секунды. Цель не может умереть, пока действует этот эффект. Ледяной змей заморозит себя, если почувствует опасность."
 
 		"DOTA_Tooltip_modifier_lindworm_frost_effect"						"Заморожен"
 		"DOTA_Tooltip_modifier_lindworm_frost_effect_Description"			"Не может быть убит."
