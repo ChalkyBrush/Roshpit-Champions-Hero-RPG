@@ -34,12 +34,7 @@ function paragon_die(event)
 end
 
 function paragon_loot_drop(position)
-	local drops = RandomInt(2, 5)
-	for i = 1, drops, 1 do
-		Timers:CreateTimer(i * 0.3, function()
-			RPCItems:RollItemtype(300, position, 1, 0)
-		end)
-	end
+
 end
 
 function fire_breathing_think(event)
