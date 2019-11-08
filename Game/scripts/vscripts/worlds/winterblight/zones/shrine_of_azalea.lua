@@ -5227,11 +5227,7 @@ function Winterblight:AzaleaBossDie(boss)
 		local luck = RandomInt(1, 3)
 	end)
 	local position = boss:GetAbsOrigin()
-	for i = 1, 18, 1 do
-		Timers:CreateTimer(0.3 * i, function()
-			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	boss:BossDrops(14)
 	Timers:CreateTimer(1, function()
 		local arcanaLuck = RandomInt(1, 195 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.Stones * 25)
 		if arcanaLuck == 1 then

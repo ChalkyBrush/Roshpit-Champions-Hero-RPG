@@ -5179,9 +5179,7 @@ function oracle_buff_start(event)
 end
 
 function tri_boss_die(caster)
-	for i = 0, RandomInt(5, 7), 1 do
-		RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-	end
+	caster:BossDrops(7)
 	if not Seafortress.MainBossesSlain then
 		Seafortress.MainBossesSlain = 0
 	end
@@ -5443,11 +5441,7 @@ function sea_fortress_final_boss_think(event)
 			Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 
 		end)
-		for i = 1, 20, 1 do
-			Timers:CreateTimer(0.5 * i, function()
-				RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-			end)
-		end
+		caster:BossDrops(20)
 		Timers:CreateTimer(3, function()
 			for i = 0, 2, 1 do
 				Timers:CreateTimer(i, function()

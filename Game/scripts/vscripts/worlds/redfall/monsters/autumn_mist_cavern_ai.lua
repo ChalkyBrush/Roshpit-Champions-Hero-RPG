@@ -961,11 +961,7 @@ function CanyonBossDeath(caster, ability)
 			RPCItems:RollEyeOfSeasons(caster:GetAbsOrigin(), false)
 		end
 	end)
-	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(11)
 	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()

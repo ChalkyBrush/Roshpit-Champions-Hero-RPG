@@ -83,6 +83,14 @@ RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_BOSS]["max"] = 8
 RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MAJOR_BOSS]["min"] = 4
 RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MAJOR_BOSS]["max"] = 9
 
+RPCItems.RARITY_BOOSTS = {}
+RPCItems.RARITY_BOOSTS[ENEMY_TYPE_WEAK_CREEP] = 0
+RPCItems.RARITY_BOOSTS[ENEMY_TYPE_NORMAL_CREEP] = 0
+RPCItems.RARITY_BOOSTS[ENEMY_TYPE_ELITE_CREEP] = 1000 
+RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS] = 5000
+RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS] = 7000
+RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MAJOR_BOSS] = 7000
+
 function CDOTA_BaseNPC:DropItemsOnDeath()
 	local unit = self
 	local unit_level = 0
@@ -95,7 +103,7 @@ function CDOTA_BaseNPC:DropItemsOnDeath()
 	end
 	local drop_count = RPCItems:GetEnemyItemDropCount(tier, unit.paragon)
 	for i = 1, drop_count, 1 do
-		local item = RPCItems:RollRandomItem(unit_level)
+		local item = RPCItems:RollRandomItem(unit_level, RPCItems.RARITY_BOOSTS[tier])
 		if item then
 			RPCItems:BasicDropItem(unit:GetAbsOrigin(), item)
 		end
@@ -104,12 +112,48 @@ function CDOTA_BaseNPC:DropItemsOnDeath()
 	local potions_count = RPCItems:GetPotionDrops()
 end
 
+function CDOTA_BaseNPC:BossDrops(quantity)
+	quantity = math.max(quantity + RandomInt(-2, 2), 0)
+	if quantity <= 0 then
+		return false
+	end
+	local unit_level = 0
+	if unit.roshpit_attributes.roshpit_level then
+		unit_level = unit.roshpit_attributes.roshpit_level
+	end
+	local location = self:GetAbsOrigin()
+	for i = 1, quantity, 1 do
+		Timers:CreateTimer(i*0.5, function()
+			RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+		end)
+	end
+end
+
+function CDOTA_BaseNPC:ChestDrops(quantity)
+	quantity = math.max(quantity + RandomInt(-2, 2), 0)
+	if quantity <= 0 then
+		return false
+	end
+	local unit_level = 0
+	if unit.roshpit_attributes.roshpit_level then
+		unit_level = unit.roshpit_attributes.roshpit_level
+	end
+	local location = self:GetAbsOrigin()
+	for i = 1, quantity, 1 do
+		RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+	end
+end
+
 function RPCItems:GetPotionDrops()
 	return 0
 end
 
 function RPCItems:GetEnemyItemDropCount(tier, paragon)
-	local luck = RandomInt(1, 100)
+	local base_roll = 0
+	base_roll = base_roll + RPCItems:GetConnectedPlayerCount()*4
+	base_roll = base_roll + GameState:GetPlayerPremiumStatusCount()*6
+	local luck = RandomInt(base_roll, 100)
+
 	local drop_count = 0
 	for key, value in pairs(RPCItems.DropCounts[tier]) do
 		if luck <= value then
@@ -123,15 +167,15 @@ function RPCItems:GetEnemyItemDropCount(tier, paragon)
 	return drop_count
 end
 
-function RPCItems:RollRandomItemAtLocation(unit_level, location)
-	local item = RPCItems:RollRandomItem(unit_level)
+function RPCItems:RollRandomItemAtLocation(unit_level, location, roll_boost)
+	local item = RPCItems:RollRandomItem(unit_level, roll_boost)
 	RPCItems:BasicDropItem(location, item)
 end
 
-function RPCItems:RollRandomItem(unit_level)
+function RPCItems:RollRandomItem(unit_level, roll_boost)
 	-- TODO - GRANT CHANCE FOR ARCANA AND IMMORTAL DROPS
 	local item = nil
-	local rarityChance = RandomInt(1, 9700)
+	local rarityChance = RandomInt(0+roll_boost, 9700)
 	local rarity = RPC_ITEMS_RARITY_COMMON
 	for key, value in pairs(RPCItems.RarityChances) do
 		if rarityChance <= value then

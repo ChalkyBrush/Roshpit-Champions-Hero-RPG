@@ -3775,11 +3775,7 @@ function orthok_min_health_thinker(event)
 				end)
 				local immortals = 2 + GameState:GetPlayerPremiumStatusCount()
 				RPCItems:RollChainsOfOrthok(icePoint)
-				for i = 1, immortals, 1 do
-					Timers:CreateTimer(i * 0.5, function()
-						RPCItems:RollItemtype(100, icePoint, 5, 100)
-					end)
-				end
+				caster:BossDrops(4)
 				UTIL_Remove(caster)
 			end)
 		end

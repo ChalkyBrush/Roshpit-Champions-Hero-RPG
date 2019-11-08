@@ -24,10 +24,6 @@ function wave_unit_die(event)
 			maxRoll = 4
 		end
 		local deathLocation = event.unit:GetAbsOrigin()
-		local luck = RandomInt(1, maxRoll)
-		if luck == 1 then
-			RPCItems:RollItemtype(300, deathLocation, 0, 0)
-		end
 		local luck = RandomInt(2 + GameState:GetPlayerPremiumStatusCount(), 7200)
 		if luck == 3000 then
 			RPCItems:RollSwampDoctorMask(deathLocation, false)

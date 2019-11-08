@@ -682,7 +682,7 @@ function winterblight_boss_final_death_animation(caster)
 	if caster:GetUnitName() == "winterblight_cavern_gigarraun" then
 		gigarraun_death = true
 	end
-	local immortals = RandomInt(1, 4)
+	local immortals = RandomInt(2, 3)
 	local boss_level = caster.boss_level
 	Timers:CreateTimer(1.9, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
@@ -714,9 +714,7 @@ function winterblight_boss_final_death_animation(caster)
 				EmitSoundOnLocationWithCaster(position, "Winterblight.RealmBreaker.AfterDeath", Events.GameMaster)
 			end)
 		end
-		for i = 1, immortals, 1 do
-			RPCItems:RollItemtype(400, position, 5, 300)
-		end
+		caster:BossDrops(immortals)
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
 			RPCItems:RollWinterblightSkullRing(position)

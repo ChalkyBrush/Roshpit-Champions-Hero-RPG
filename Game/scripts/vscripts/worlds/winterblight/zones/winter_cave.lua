@@ -3227,19 +3227,19 @@ function Winterblight:CavernEventWinItemDrop(level, position)
 	-- else
 	-- 	item_drops = RandomInt(1, 6)
 	-- end
-	item_drops = item_drops + RandomInt(0, 2)
-	if level >= 10 then
-		item_drops = item_drops + RandomInt(0, 2)
-	end
-	if level >= 20 then
-		item_drops = item_drops + RandomInt(1, 2)
-	end
-	if level >= 30 then
-		item_drops = item_drops + RandomInt(1, 2)
-	end
-	for i = 1, item_drops, 1 do
-		RPCItems:RollItemtype(400, position, 5, 300)
-	end
+	-- item_drops = item_drops + RandomInt(0, 2)
+	-- if level >= 10 then
+	-- 	item_drops = item_drops + RandomInt(0, 2)
+	-- end
+	-- if level >= 20 then
+	-- 	item_drops = item_drops + RandomInt(1, 2)
+	-- end
+	-- if level >= 30 then
+	-- 	item_drops = item_drops + RandomInt(1, 2)
+	-- end
+	-- for i = 1, item_drops, 1 do
+
+	-- end
 end
 
 function Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber)
@@ -4613,11 +4613,7 @@ function Winterblight:TiamatBossDie(boss)
 	end)
 	EmitSoundOn("Winterblight.Tiamat.Die.VO", boss)
 	local position = boss:GetAbsOrigin()
-	for i = 1, 18, 1 do
-		Timers:CreateTimer(0.3 * i, function()
-			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 300)
-		end)
-	end
+	boss:BossDrops(17)
 	Timers:CreateTimer(1, function()
 		local max_roll = math.max(130 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.TiamatBossLevel)
 		max_roll = math.max(max_roll, 1)

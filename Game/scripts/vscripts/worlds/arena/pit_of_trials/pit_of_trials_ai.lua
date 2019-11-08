@@ -550,16 +550,16 @@ function gift_of_karzhun_die(event)
 	local particleName = "particles/bahamut/hyper_state_intro_omnislash_ascension_sparks.vpcf"
 	EmitSoundOn("Arena.KarzhunDie", caster)
 	for i = 1, immortals, 1 do
-		Timers:CreateTimer(i, function()
+		Timers:CreateTimer(i*0.5, function()
 			local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, Arena.ArenaMaster )
 			ParticleManager:SetParticleControl( particle1, 0, position)
 			Timers:CreateTimer(3, 
 			function()
 				ParticleManager:DestroyParticle( particle1, false )
 			end)
-			RPCItems:RollItemtype(100, position, 5, 100)
 		end)
 	end
+	caster:BossDrops(immortals)
 	local luck = RandomInt(1000*math.min(caster.stackLevel, 10), 10004)
 	if luck == 10004 then
 		RPCItems:RollConquestStoneFalcon(position)
@@ -1448,6 +1448,7 @@ function use_truth_dust(event)
 	if #treasureChest > 0 then
 		UTIL_Remove(treasureChest[1])
 		local chest = CreateUnitByName("chest", Vector(6357, 15335, 128+Arena.ZFLOAT), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		chest:SetRoshpitLevel(120)
 		chest:SetForwardVector(Vector(-1,0))
 		chest:FindAbilityByName("town_unit"):SetLevel(1)
 		chest:AddAbility("rpc_chest_ability"):SetLevel(1)
@@ -1664,8 +1665,8 @@ function dungeon_chest_think(event)
 			Timers:CreateTimer(2.0, function()
 				for i = 0, RandomInt(5, 7), 1 do
 					EmitSoundOn("General.FemaleLevelUp", chest)
-					RPCItems:RollItemtype(300, chest:GetAbsOrigin(), 1, 0)
 				end
+				chest:ChestDrops(7)
 				local particleName = "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf"
 		      	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, chest )
 		      	local origin = chest:GetAbsOrigin()
@@ -1783,16 +1784,16 @@ function supreme_ogre_die(event)
 		local particleName = "particles/bahamut/hyper_state_intro_omnislash_ascension_sparks.vpcf"
 		EmitSoundOn("Arena.TrueOgre.Death", caster)
 		for i = 1, immortals, 1 do
-			Timers:CreateTimer(i, function()
+			Timers:CreateTimer(i*0.5, function()
 				local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, Arena.ArenaMaster )
 				ParticleManager:SetParticleControl( particle1, 0, position)
 				Timers:CreateTimer(3, 
 				function()
 					ParticleManager:DestroyParticle( particle1, false )
 				end)
-				RPCItems:RollItemtype(100, position, 5, 100)
 			end)
-		end		
+		end	
+		caster:BossDrops(immortals)	
 		local luck = RandomInt(1,3)
 		if luck == 1 then
 			RPCItems:RollFortunesTalismanOfTruth(position)
@@ -3404,11 +3405,7 @@ function pit_boss_final_death(caster, ability)
 		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
 
 	end)
-	for i = 1, 20, 1 do
-		Timers:CreateTimer(0.5*i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(15)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pit_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(9, function()

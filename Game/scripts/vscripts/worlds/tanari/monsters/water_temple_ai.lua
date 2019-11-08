@@ -291,6 +291,7 @@ end
 
 function WaterTempleChest1(trigger)
 	local chest = Tanari.WaterTemple.TempleChest1
+	chest:SetRoshpitLevel(30+GameState:GetDifficultyFactor()*35)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
@@ -299,8 +300,8 @@ function WaterTempleChest1(trigger)
 	Timers:CreateTimer(2.0, function()
 		for i = 0, RandomInt(7, 8 + GameState:GetPlayerPremiumStatusCount()), 1 do
 			EmitSoundOn("General.FemaleLevelUp", chest)
-			RPCItems:RollItemtype(300, chest:GetAbsOrigin(), 1, 0)
 		end
+		chest:ChestDrops(7)
 		local particleName = "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf"
 		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, chest)
 		local origin = chest:GetAbsOrigin()
@@ -1538,11 +1539,7 @@ function water_temple_boss_die_begin(event)
 			RPCItems:RollDepthCrestArmor(caster:GetAbsOrigin())
 		end
 	end)
-	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(13)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()
@@ -2895,11 +2892,7 @@ function water_temple_spirit_boss_die_begin(event)
 	end)
 
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(13)
 	Timers:CreateTimer(3, function()
 		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
 		--print(itemName)

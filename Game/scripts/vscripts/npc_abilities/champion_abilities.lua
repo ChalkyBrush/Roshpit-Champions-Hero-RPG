@@ -34,7 +34,7 @@ function paragon_die(event)
 end
 
 function paragon_loot_drop(position)
-
+	return false
 end
 
 function fire_breathing_think(event)
@@ -77,17 +77,7 @@ end
 function fire_breathing_strike(event)
 	local target = event.target
 	local caster = event.caster
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
-	if caster.solo then
-		damage = damage * 2
-	end
-	local divisor = 480
-	if GameState:GetDifficultyFactor() == 1 then
-		divisor = 60
-	elseif GameState:GetDifficultyFactor() == 2 then
-		divisor = 240
-	end
-	damage = damage / divisor
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end
@@ -158,7 +148,7 @@ end
 function electric_projectile_hit(event)
 	local target = event.target
 	local caster = event.caster
-	local damage = caster:GetAttackDamage() / 320
+	local damage = caster:GetAttackDamage() / 4
 	local sound = "Hero_Zuus.ArcLightning.Target"
 	EmitSoundOn(sound, target)
 	PopupDamage(target, damage)
@@ -221,16 +211,7 @@ function frost_nova_activate(event)
 	end)
 	local ability = event.ability
 	EmitSoundOn("Ability.FrostNova", caster)
-	local divisor = 500
-	if GameState:GetDifficultyFactor() == 1 then
-		divisor = 50
-	elseif GameState:GetDifficultyFactor() == 2 then
-		divisor = 300
-	end
-	local damage = caster:GetAttackDamage() / divisor
-	if caster.solo then
-		damage = damage * 2.5
-	end
+	local damage = caster:GetAttackDamage()*4
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local freezeDuration = 2.5
 	if #enemies > 0 then

@@ -366,12 +366,8 @@ function ancient_boss_die_begin(event)
 			RPCItems:RollFireDeityCrown(casterOrigin, bSpirit, paragonBonus)
 		end
 	end)
-	local itemDropCount = 12 + GameState:GetPlayerPremiumStatusCount() * 3
-	for i = 1, itemDropCount, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, casterOrigin, 1, 0)
-		end)
-	end
+	local itemDropCount = 12
+	caster:BossDrops(itemDropCount)
 
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()

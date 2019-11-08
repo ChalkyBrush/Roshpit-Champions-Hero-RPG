@@ -1443,11 +1443,7 @@ function fire_temple_boss_die(caster, ability)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	local casterOrigin = caster:GetAbsOrigin()
-	for i = 1, 18, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, casterOrigin, 1, 0)
-		end)
-	end
+	caster:BossDrops(10)
 	Timers:CreateTimer(4, function()
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
@@ -2714,11 +2710,7 @@ function fire_temple_spirit_boss_die_begin(event)
 	end)
 
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(14)
 	Timers:CreateTimer(3, function()
 		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
 		--print(itemName)

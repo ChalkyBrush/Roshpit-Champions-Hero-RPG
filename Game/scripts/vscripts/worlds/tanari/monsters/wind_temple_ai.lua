@@ -598,8 +598,8 @@ function WindTempleChest(event)
 	Timers:CreateTimer(2.0, function()
 		for i = 0, RandomInt(5, 6 + GameState:GetPlayerPremiumStatusCount()), 1 do
 			EmitSoundOn("General.FemaleLevelUp", chest)
-			RPCItems:RollItemtype(300, chest:GetAbsOrigin(), 1, 0)
 		end
+		chest:ChestDrops(7)
 		local particleName = "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf"
 		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, chest)
 		local origin = chest:GetAbsOrigin()
@@ -1203,11 +1203,7 @@ function wind_temple_boss_die_begin(event)
 		end
 	end)
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(12)
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		MAIN_HERO_TABLE[i]:RemoveModifierByName("modifier_wind_temple_boss_wind_blessing")
 	end
@@ -2308,11 +2304,7 @@ function wind_temple_spirit_boss_die_begin(event)
 	end)
 
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(12)
 	Timers:CreateTimer(3, function()
 		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
 		local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")

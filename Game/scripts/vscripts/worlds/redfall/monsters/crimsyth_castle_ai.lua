@@ -4678,11 +4678,7 @@ function castle_final_boss_death(caster, ability)
 		-- RPCItems:RollCrimsythEliteGreavesLV1(caster:GetAbsOrigin(), false)
 		-- end
 	end)
-	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(15)
 	Timers:CreateTimer(3, function()
 		local maxRoll = 250
 		if GameState:GetDifficultyFactor() == 3 then
