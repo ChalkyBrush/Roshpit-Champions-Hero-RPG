@@ -63,6 +63,26 @@ RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] = 9700
 RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL] = 9996
 RPCItems.RarityChances[RPC_ITEMS_RARITY_ARCANA] = 10000
 
+RPCItems.BONUS_PARAGON_DROPS = {}
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_WEAK_CREEP] = {}
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_NORMAL_CREEP] = {}
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_ELITE_CREEP] = {}
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MINI_BOSS] = {}
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_BOSS] = {}
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MAJOR_BOSS] = {}
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_WEAK_CREEP]["min"] = 1
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_WEAK_CREEP]["max"] = 1
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_NORMAL_CREEP]["min"] = 1
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_NORMAL_CREEP]["max"] = 3
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_ELITE_CREEP]["min"] = 2
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_ELITE_CREEP]["max"] = 4
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MINI_BOSS]["min"] = 3
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MINI_BOSS]["max"] = 7
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_BOSS]["min"] = 3
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_BOSS]["max"] = 8
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MAJOR_BOSS]["min"] = 4
+RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MAJOR_BOSS]["max"] = 9
+
 function CDOTA_BaseNPC:DropItemsOnDeath()
 	local unit = self
 	local unit_level = 0
@@ -73,7 +93,7 @@ function CDOTA_BaseNPC:DropItemsOnDeath()
 	if not tier then
 		return false
 	end
-	local drop_count = RPCItems:GetEnemyItemDropCount(tier)
+	local drop_count = RPCItems:GetEnemyItemDropCount(tier, unit.paragon)
 	for i = 1, drop_count, 1 do
 		local item = RPCItems:RollRandomItem(unit_level)
 		if item then
@@ -88,7 +108,7 @@ function RPCItems:GetPotionDrops()
 	return 0
 end
 
-function RPCItems:GetEnemyItemDropCount(tier)
+function RPCItems:GetEnemyItemDropCount(tier, paragon)
 	local luck = RandomInt(1, 100)
 	local drop_count = 0
 	for key, value in pairs(RPCItems.DropCounts[tier]) do
@@ -96,6 +116,9 @@ function RPCItems:GetEnemyItemDropCount(tier)
 			drop_count = key
 			break
 		end
+	end
+	if paragon then
+		drop_count = drop_count + RandomInt(RPCItems.BONUS_PARAGON_DROPS[tier]["min"], RPCItems.BONUS_PARAGON_DROPS[tier]["max"]) 
 	end
 	return drop_count
 end

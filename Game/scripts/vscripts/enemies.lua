@@ -312,7 +312,6 @@ function Enemies:EnemySlain(unit, killingUnit)
 		if expPopup > 0 then
 			PopupExperience(unit, expPopup)
 		end
-		Weapons:UpdateWeaponXP(baseEXP)
 	end
 end
 
