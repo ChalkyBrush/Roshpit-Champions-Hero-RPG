@@ -102,10 +102,11 @@ end
 
 function red_general_ability_base_q_attackLand(event, q2_think)
 	-- print("red_general_ability_base_q_attackLand")
-	if not q2_think then
+	local caster = event.caster
+	if not q2_think and caster:HasModifier("modifier_stun_attack") then
 		red_general_rune_base_q_1_attackLand(event)
 	end
-	local caster = event.caster
+
 	local ability = event.ability
 	local target = event.target
 
