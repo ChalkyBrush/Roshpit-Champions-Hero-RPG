@@ -1387,15 +1387,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if slot == BASE_ABILITY_E then
                 if attacker.r_1_level then
-                    damageMult = damageMult + attacker.r_1_level * (JEX_RUNE_BASE_ABILITY/100)
+                    damageMult = damageMult + attacker.r_1_level * (JEX_RUNE_BASE_ABILITY_R1/100)
                 end
             elseif slot == BASE_ABILITY_Q then
                 if attacker.r_2_level then
-                    damageMult = damageMult + attacker.r_2_level * (JEX_RUNE_BASE_ABILITY/100)
+                    damageMult = damageMult + attacker.r_2_level * (JEX_RUNE_BASE_ABILITY_R2/100)
                 end
             elseif slot == BASE_ABILITY_W then
                 if attacker.r_3_level then
-                    damageMult = damageMult + attacker.r_3_level * (JEX_RUNE_BASE_ABILITY/100)
+                    damageMult = damageMult + attacker.r_3_level * (JEX_RUNE_BASE_ABILITY_R3/100)
                 end
             end
         end
