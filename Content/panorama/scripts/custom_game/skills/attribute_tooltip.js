@@ -86,7 +86,7 @@ function initializeTooltip(func){
 		$('#attribute_given_bonus_int_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_spell_pierce')+"</font>"
 		$('#attribute_given_bonus_int_3_right').text = "+"+numberWithCommas(spellPierceBonus)
 
-		var statusResistBonus = heroAttributes.spirit*STATUS_RESIST_PER_SPIRIT*halcyonMult
+		var statusResistBonus = Math.round(heroAttributes.spirit*STATUS_RESIST_PER_SPIRIT*halcyonMult*100)/100
 		var base_ability_damage = parseInt(heroAttributes.spirit*BASE_ABILITY_DAMAGE_PER_SPIRIT*halcyonMult)
 		var magicArmorBonus = parseInt(heroAttributes.spirit*MAGIC_ARMOR_PER_SPIRIT*halcyonMult)
 		$('#attribute_given_bonus_spr_1_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_status_resist')+"</font>"
