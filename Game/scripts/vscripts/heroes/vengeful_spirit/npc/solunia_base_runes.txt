@@ -95,7 +95,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_Q4_COSMIC_AMP_PCT %>"
+				"property_one"			"<% SOLUNIA_Q4_COSMIC_AMP_PCT * 100 %>"
 			}
 		}
 	}

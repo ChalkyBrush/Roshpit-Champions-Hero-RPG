@@ -242,7 +242,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_BASE_ABILITY %>"
+				"property_one"			"<% JEX_RUNE_BASE_ABILITY_R1 %>"
 			}
 		}
 	}
@@ -260,7 +260,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_BASE_ABILITY %>"
+				"property_one"			"<% JEX_RUNE_BASE_ABILITY_R2 %>"
 			}
 		}
 	}
@@ -278,7 +278,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% JEX_RUNE_BASE_ABILITY %>"
+				"property_one"			"<% JEX_RUNE_BASE_ABILITY_R3 %>"
 			}
 		}
 	}

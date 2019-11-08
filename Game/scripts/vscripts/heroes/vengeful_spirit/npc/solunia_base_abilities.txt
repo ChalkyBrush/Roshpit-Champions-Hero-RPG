@@ -360,12 +360,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_boomerangs"			"1 1 2 2 3 3 4"
+				"max_boomerangs"			"2 2 3 3 3 3 4"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"20 60 100 140 180 220 260"
+				"damage"			"20 60 100 140 200 240 260"
 			}
 		}
 		// Precache
@@ -702,12 +702,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_boomerangs"			"1 1 2 2 3 3 4"
+				"max_boomerangs"			"2 2 3 3 3 3 4"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"20 60 100 140 180 220 260"
+				"damage"			"20 60 100 140 200 240 260"
 			}
 		}
 		// Precache

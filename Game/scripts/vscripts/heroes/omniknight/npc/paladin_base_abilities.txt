@@ -650,7 +650,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"35 65 95 125 155 185 215"
+				"damage"					"50 75 95 125 155 185 215"
 			}
 			"03"
 			{
@@ -660,7 +660,7 @@
 			"04"
 			{
 				"var_type" 				"FIELD_FLOAT"
-				"heal_percent" 			"3.0 3.5 4.0 4.5 5.0 5.5 6.0"
+				"heal_percent" 			"6.0"
 			}
 			"05"
 			{
