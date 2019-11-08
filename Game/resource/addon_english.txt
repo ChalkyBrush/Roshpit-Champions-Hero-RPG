@@ -4988,7 +4988,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_e_4_suffix"								" seconds"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_1"									"[R1] Savagery"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase base attack damage in each animal. <br>Bear gains damage from <font color=\"#CC0000\">Strength</font><br>Wolf gains damage from <font color=\"#2EB82E\">Agility</font><br>Hawk gains damage from <font color=\"#33CCFF\">Intelligence</font><br>Monkey form gains damage from <font color=\"#5E2B75\">Spirit</font><br><br>The rune's effect is activated upon shapeshifting."
+    	"DOTA_Tooltip_ability_djanghor_rune_r_1_Description"						"Attributes increase base attack damage in each animal. <br>Bear gains damage from <font color=\"#CC0000\">Strength</font><br>Wolf gains damage from <font color=\"#2EB82E\">Agility</font><br>Hawk gains damage from <font color=\"#33CCFF\">Intelligence</font><br>Monkey form gains damage from <font color=\"#8847FF\">Spirit</font><br><br>The rune's effect is activated upon shapeshifting."
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_property_one"						"Base Attack Damage"
     	"DOTA_Tooltip_ability_djanghor_rune_r_1_suffix"								" per attribute"
 

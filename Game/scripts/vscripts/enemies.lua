@@ -35,7 +35,7 @@ Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 3.5
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 4
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 4
 Enemies.FLAT_DAMAGE_BONUS_PER_LEVEL_AFTER_NORMAL = 10
-Enemies.GLOBAL_DAMAGE_ADJUST = 0.75
+Enemies.GLOBAL_DAMAGE_ADJUST = 0.5
 
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST = {}
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_NORMAL] = {}
@@ -329,9 +329,11 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 		exp = exp*exp_mult
 	end
 	if exp > 0 then
-		exp = math.floor(exp)
-		hero:AddExperience(exp, 2, false, true)
-		hero:UpdateWeaponEXP(exp)
+		if hero:IsAlive() then
+			exp = math.floor(exp)
+			hero:AddExperience(exp, 2, false, true)
+			hero:UpdateWeaponEXP(exp)
+		end
 	end
 	return exp
 end

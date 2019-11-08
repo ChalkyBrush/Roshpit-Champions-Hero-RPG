@@ -27,19 +27,19 @@ require('items/constants/trinket')
 
 CustomAttributes.HEALTH_PER_STR = 10
 CustomAttributes.HEALTH_REGEN_PER_STR = 0.5
-CustomAttributes.ARMOR_PER_STR = 1
+CustomAttributes.ARMOR_PER_STR = 2
 
 CustomAttributes.ATTACKSPEED_PER_AGI = 0.3
 CustomAttributes.MOVESPEED_PER_AGI = 0.1
-CustomAttributes.ARMOR_PIERCE_PER_AGI = 1
+CustomAttributes.ARMOR_PIERCE_PER_AGI = 2
 
 CustomAttributes.MANA_PER_INT = 5
 CustomAttributes.MANA_REGEN_PER_INT = 0.5
-CustomAttributes.SPELL_PIERCE_PER_INT = 1
+CustomAttributes.SPELL_PIERCE_PER_INT = 2
 
 CustomAttributes.STATUS_RESIST_PER_SPIRIT = 0.01
 CustomAttributes.BAD_PER_SPIRIT = 0.1
-CustomAttributes.MAGIC_ARMOR_PER_SPIRIT = 1
+CustomAttributes.MAGIC_ARMOR_PER_SPIRIT = 2
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 1
 

@@ -291,7 +291,7 @@ end
 
 function WaterTempleChest1(trigger)
 	local chest = Tanari.WaterTemple.TempleChest1
-	chest:SetRoshpitLevel(30+GameState:GetDifficultyFactor()*35)
+	chest:SetRoshpitLevel(25 + (GameState:GetDifficultyFactor()-1)*35)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)

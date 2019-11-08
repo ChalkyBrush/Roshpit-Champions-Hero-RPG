@@ -9517,11 +9517,11 @@
 
         }
         "Ability1"  "life_stealer_rage"
-        "RoshpitArmor"          "50"
+        "RoshpitArmor"          "70"
         "RoshpitArmorPierce"    "52"
         "RoshpitSpellPierce"    "24"
-        "RoshpitMagicArmor"     "54"
-        "RoshpitLevel"          "7"
+        "RoshpitMagicArmor"     "64"
+        "RoshpitLevel"          "12"
         "RoshpitDominion"       "1"
         "EnemyTier"             "1" 
     }
@@ -32247,8 +32247,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "240"
-        "AttackDamageMax"   "250"
+        "AttackDamageMin"   "130"
+        "AttackDamageMax"   "140"
         "AttackRate"    "1.3"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "3000"

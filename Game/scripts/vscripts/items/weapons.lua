@@ -233,7 +233,8 @@ function Weapons:LevelUpWeapon(hero, weapon)
 		Stars:StarEventPlayer("weapon", hero)
 	end
 	EmitGlobalSound("ui.treasure_reveal")
-	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = weapon:GetEntityIndex(), heroId = hero:GetClassname(), playerId = hero:GetPlayerOwnerID(), pickup = "weapon", rarity = weapon.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(weapon.newItemTable.rarity)})
+	hero:EquipItem(weapon)
+	-- CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = weapon:GetEntityIndex(), heroId = hero:GetClassname(), playerId = hero:GetPlayerOwnerID(), pickup = "weapon", rarity = weapon.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(weapon.newItemTable.rarity)})
 end
 
 function Weapons:Debug()

@@ -113,6 +113,7 @@ function CDOTA_BaseNPC:DropItemsOnDeath()
 end
 
 function CDOTA_BaseNPC:BossDrops(quantity)
+	local unit = self
 	quantity = math.max(quantity + RandomInt(-2, 2), 0)
 	if quantity <= 0 then
 		return false
@@ -264,7 +265,13 @@ function RPCItems:RollItemLevelFromUnit(unit_level)
 	elseif iLevel > 145 then
 		iLevel = RPCItems:GetLogarithmicVarianceValue(82, 0, 0, 0, 0)
 	end
-	if unit_level < 60 and iLevel > unit_level + 15 then
+	if unit_level <= 20 and iLevel > unit_level then
+		iLevel = unit_level
+	elseif unit_level <= 40 and iLevel > unit_level + 5 then
+		iLevel = unit_level + 5
+	elseif unit_level <= 60 and iLevel > unit_level + 10 then
+		iLevel = unit_level + 10
+	elseif unit_level <= 80 and iLevel > unit_level + 15 then
 		iLevel = unit_level + 15
 	end
 	if iLevel < original_unit_level - 40 then
@@ -668,7 +675,7 @@ end
 function RPCItems:GrantItemBaseArmor(item, item_level, base_factor)
 	local armor = 0
 	if base_factor > 0 then
-		armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*3)
+		armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*9)
 	end
 	item.newItemTable.base_armor = armor
 end
@@ -676,7 +683,7 @@ end
 function RPCItems:GrantItemBaseMagicArmor(item, item_level, base_factor)
 	local magic_armor = 0
 	if base_factor > 0 then
-		magic_armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*3)
+		magic_armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*9)
 	end
 	item.newItemTable.base_magic_armor = magic_armor
 end
