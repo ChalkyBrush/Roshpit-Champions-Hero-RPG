@@ -106,6 +106,19 @@
 						"Function"		"red_general_rune_base_q_2_think"
 					}
 				}
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"			"red_general_ability_base_q_attackLand"
+						"Target"			"TARGET"
+						"duration"			"%duration"
+						"aoe_damage"		"%bolt_damage"
+						"base_radius"		"%bolt_aoe"
+					}
+				}				
 			}
 			"modifier_stun_attack"
 			{
@@ -122,15 +135,6 @@
 				}
 				"OnAttackLanded"
 				{
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
-						"Function"			"red_general_ability_base_q_attackLand"
-						"Target"			"TARGET"
-						"duration"			"%duration"
-						"aoe_damage"		"%bolt_damage"
-						"base_radius"		"%bolt_aoe"
-					}
 					"FireEffect"
 					{
 						"EffectName"		"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
@@ -144,7 +148,6 @@
 							"TARGET"		"attach_origin"	//CP3 has a child explosion origin
 						}
 					}
-
 				}
 			}
 			"modfier_axe_jumping"
