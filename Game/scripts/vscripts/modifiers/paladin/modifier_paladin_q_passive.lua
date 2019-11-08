@@ -17,9 +17,12 @@ end
 function class:OnAttackLanded(event)
 	--print("HERE modifier_paladin_q_passive")
 	local caster = self:GetParent()
-	if event.attacker ~= caster then return end
-	if caster.q3_level and caster.q3_level > 0 then
-		local duration = 0.8 + caster.q3_level * 0.1
+	if event.attacker ~= caster then 
+		return 
+	end
+	local q_3_level = caster:GetRuneValue("q", 3)
+	if q_3_level > 0 then
+		local duration = PALADIN_Q3_BASE_DUR + q_3_level * PALADIN_Q3_DUR
 		local max_stacks = 1
 		if not caster.weapon then
 			--print("[modifier_paladin_q_passive] error caster.weapon is null")
