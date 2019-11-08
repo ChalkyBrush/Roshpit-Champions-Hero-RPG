@@ -294,7 +294,7 @@ RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_BODY] = {"strength", "agility", "intel
 RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_GLOVES] = {"strength", "agility", "intelligence", "spirit", "spell_pierce", "armor_pierce", "armor", "base_ability", "magic_armor", "item_damage", "attack_damage", "attack_speed", "mana_regen"}
 RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_BOOTS] = {"strength", "agility", "intelligence", "spirit", "armor", "base_ability", "magic_armor", "item_damage", "movespeed"}
 RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_TRINKET] = {"strength", "agility", "intelligence", "spirit", "spell_pierce", "base_ability", "magic_armor", "item_damage", "t1_rune", "t2_rune"}
-RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON] = {"strength", "agility", "intelligence", "spirit", "base_ability", "item_damage", "t1_rune", "t2_rune", "t3_rune"}
+RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON] = {"strength", "agility", "intelligence", "spirit", "base_ability", "item_damage", "t1_rune", "t2_rune", "t3_rune", "armor_pierce", "spell_pierce"}
 
 RPCItems.AttributesRolls = {}
 RPCItems.AttributesRolls[1] = {}

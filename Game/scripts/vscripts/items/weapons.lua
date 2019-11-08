@@ -205,6 +205,8 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_r_3"] = 1
 Weapons.STAT_ADD_PER_LEVEL_TABLE["aspect_health"] = 200
 Weapons.STAT_ADD_PER_LEVEL_TABLE["base_ability"] = 6
 Weapons.STAT_ADD_PER_LEVEL_TABLE["item_damage"] = 6
+Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 60
+Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 60
 
 function Weapons:LevelUpWeapon(hero, weapon)
 	--DeepPrintTable(weapon)
@@ -252,6 +254,8 @@ Weapons.AttributeBaseRolls["item_damage"] = Weapons.AttributeBaseRolls["base_abi
 Weapons.AttributeBaseRolls["t1_rune"] = 0.16
 Weapons.AttributeBaseRolls["t2_rune"] = 0.16
 Weapons.AttributeBaseRolls["t3_rune"] = 0.08
+Weapons.AttributeBaseRolls["armor_pierce"] = 4
+Weapons.AttributeBaseRolls["spell_pierce"] = 4
 
 -- RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON]
 
