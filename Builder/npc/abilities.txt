@@ -6890,7 +6890,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"poison_damage"			"500 10000 100000"
+				"poison_damage"			"10 80 800"
 			}
 		}
 		"Modifiers"
@@ -21719,7 +21719,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2200 15000 65000"
+		"AbilityDamage"					"350 1400 6000"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -23102,7 +23102,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"50 300 3000"
+				"damage"			"5 35 210"
 			}
 		}
 		"Modifiers"
@@ -23970,7 +23970,7 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/water_temple_ai"
 						"Function"		"tanari_ancient_think"
-						"damage"		"%AbilityDamage"
+						"damage"		"%damage"
 					}
 				}
 			}
@@ -24003,7 +24003,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"14"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"410 410 410"
 
@@ -26114,7 +26114,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 15000 75000"
+		"AbilityDamage"					"1200 15000 75000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -28209,7 +28209,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityDamage"			"7000 40000 150000"
+		"AbilityDamage"			"100 800 2000"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"	"earthshaker_aftershock"
 		"AOERadius"				"750"
