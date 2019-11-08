@@ -100,6 +100,11 @@ function RPCItems:GetEnemyItemDropCount(tier)
 	return drop_count
 end
 
+function RPCItems:RollRandomItemAtLocation(unit_level, location)
+	local item = RPCItems:RollRandomItem(unit_level)
+	RPCItems:BasicDropItem(location, item)
+end
+
 function RPCItems:RollRandomItem(unit_level)
 	-- TODO - GRANT CHANCE FOR ARCANA AND IMMORTAL DROPS
 	local item = nil
@@ -114,7 +119,7 @@ function RPCItems:RollRandomItem(unit_level)
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
 	local random_gear_slot = RandomInt(0, 5)
 	if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
-		-- TODO: WEAPON ROLL
+		item = Weapons:RollWeapon(rarity, item_level)
 	else
 		item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
 	end
@@ -130,10 +135,10 @@ RPCItems.SUFFIX["agility"] = {"of the Rabbit", "of the Swift", "of the Cheetah",
 RPCItems.SUFFIX["intelligence"] = {"of Understanding", "of the Wise", "of Greater Intelligence", "of Great Brilliance", "of The Grand Magus"}
 RPCItems.SUFFIX["spirit"] = {"of the Monk", "of the Paladin", "of the Knight", "of the Priest", "of Violet Dreams"}
 RPCItems.SUFFIX["base_ability"] = {"of Force", "of Storms", "of Tempests", "of Scorching", "of Endless War"}
-RPCItems.SUFFIX["magic_armor"] = {"of Softening", "of Protection", "of Mitigation", "of Dampening", "of Great Dampening"}
-RPCItems.SUFFIX["armor"] = {"of Protection", "of Greater Protection", "of Mitigation", "of Dampening", "of Great Dampening"}
-RPCItems.SUFFIX["health_regen"] = {"of Healing", "of Restoration", "of Major Healing", "of Life", "of Great Restoration"}
-RPCItems.SUFFIX["mana_regen"] = {"of Refreshment", "of Greater Refreshment", "of Shielding", "of Greater Shielding", "of Untouchability"}
+RPCItems.SUFFIX["magic_armor"] = {"of Softening", "of Protection", "of Mitigation", "of Dampening", "of Charming"}
+RPCItems.SUFFIX["armor"] = {"of Protection", "of the Bulwark", "of Mitigation", "of Blocking", "of Defense"}
+RPCItems.SUFFIX["health_regen"] = {"of Healing", "of Restoration", "of Recovery", "of Life", "of Recuperation"}
+RPCItems.SUFFIX["mana_regen"] = {"of Refreshment", "of Replenishment", "of Shielding", "of Greater Shielding", "of Untouchability"}
 RPCItems.SUFFIX["max_health"] = {"of the Whale", "of Life", "of Longevity", "of Vitality", "of the Colossus"}
 RPCItems.SUFFIX["max_mana"] = {"of Wisdom", "of the Moon", "of the Stars", "of the Blue Moon", "of the Blue Stars"}
 RPCItems.SUFFIX["item_damage"] = {"of Expedience", "of Actuality", "of Praxis", "of Experience", "of Forging"}
@@ -153,7 +158,7 @@ RPCItems.PREFIX["spirit"] = {"Soul", "Spirit", "Ethereal", "Starsoul", "Spiritua
 RPCItems.PREFIX["base_ability"] = {"Powerful", "Crushing", "Effective", "Authoritative", "Dominant"}
 RPCItems.PREFIX["magic_armor"] = {"Enchanted", "Charmed", "Magnetic", "Spellbound", "Hypnotizing"}
 RPCItems.PREFIX["armor"] = {"Thick", "Reinforced", "Augmented", "Braced", "Fortified"}
-RPCItems.PREFIX["health_regen"] = {"Mending", "Refreshing", "Refreshing", "Rejuvenating", "Wellspring"}
+RPCItems.PREFIX["health_regen"] = {"Mending", "Refreshing", "Energizing", "Rejuvenating", "Wellspring"}
 RPCItems.PREFIX["mana_regen"] = {"Replenishing", "Soul", "Mind", "Spirit", "Animus"}
 RPCItems.PREFIX["max_health"] = {"Large", "Massive", "Immense", "Colossal", "Herculean"}
 RPCItems.PREFIX["max_mana"] = {"Mana", "Greater Mana", "Soul", "Arcane", "Grand Arcane"}
@@ -169,34 +174,36 @@ RPCItems.PREFIX["attack_damage"] = {"Splitting", "Cerberus", "Gryphon", "Thunder
 
 
 function RPCItems:RollItemLevelFromUnit(unit_level)
+	local original_unit_level = unit_level
 	local unit_level = math.min(unit_level, 100)
 	local iLevel = math.max(RPCItems:GetLogarithmicVarianceValue(unit_level, 0, 0, 0, 0), 1)
-	if iLevel > 50 and iLevel < 100 then
-		iLevel = iLevel - 10
-	end
 	if unit_level >= 100 then
 		iLevel = iLevel + 10
 	end
 	if iLevel >= 80 and iLevel <= 90 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(60, 0, 0, 0, 0)
-	elseif iLevel > 90 and iLevel <= 100 then
 		iLevel = RPCItems:GetLogarithmicVarianceValue(64, 0, 0, 0, 0)
+	elseif iLevel > 90 and iLevel <= 100 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(69, 0, 0, 0, 0)
 	elseif iLevel > 100 and iLevel <= 110 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(67, 0, 0, 0, 0)
+		iLevel = RPCItems:GetLogarithmicVarianceValue(72, 0, 0, 0, 0)
 	elseif iLevel > 110 and iLevel <= 120 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(70, 0, 0, 0, 0)
+		iLevel = RPCItems:GetLogarithmicVarianceValue(75, 0, 0, 0, 0)
 	elseif iLevel > 120 and iLevel <= 130 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(73, 0, 0, 0, 0)
+		iLevel = RPCItems:GetLogarithmicVarianceValue(78, 0, 0, 0, 0)
 	elseif iLevel > 130 and iLevel <= 140 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(76, 0, 0, 0, 0)
+		iLevel = RPCItems:GetLogarithmicVarianceValue(80, 0, 0, 0, 0)
 	elseif iLevel > 140 and iLevel <= 145 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(79, 0, 0, 0, 0)
+		iLevel = RPCItems:GetLogarithmicVarianceValue(81, 0, 0, 0, 0)
 	elseif iLevel > 145 then
 		iLevel = RPCItems:GetLogarithmicVarianceValue(82, 0, 0, 0, 0)
 	end
 	if unit_level < 60 and iLevel > unit_level + 15 then
 		iLevel = unit_level + 15
 	end
+	if iLevel < original_unit_level - 40 then
+		iLevel = original_unit_level - 40
+	end
+	print("ILEVEL: "..iLevel)
 	return math.min(math.floor(iLevel), 120)
 end
 
@@ -213,6 +220,7 @@ RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_BODY] = {"strength", "agility", "intel
 RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_GLOVES] = {"strength", "agility", "intelligence", "spirit", "spell_pierce", "armor_pierce", "armor", "base_ability", "magic_armor", "item_damage", "attack_damage", "attack_speed", "mana_regen"}
 RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_BOOTS] = {"strength", "agility", "intelligence", "spirit", "armor", "base_ability", "magic_armor", "item_damage", "movespeed"}
 RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_TRINKET] = {"strength", "agility", "intelligence", "spirit", "spell_pierce", "base_ability", "magic_armor", "item_damage", "t1_rune", "t2_rune"}
+RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON] = {"strength", "agility", "intelligence", "spirit", "base_ability", "item_damage", "t1_rune", "t2_rune", "t3_rune"}
 
 RPCItems.AttributesRolls = {}
 RPCItems.AttributesRolls[1] = {}
@@ -260,10 +268,10 @@ RPCItems.AttributesRolls[2]["attack_speed"] = CustomAttributes.ATTACKSPEED_PER_A
 RPCItems.AttributesRolls[3]["attack_speed"] = CustomAttributes.ATTACKSPEED_PER_AGI * RPCItems.AttributesRolls[3]["agility"] * 3.5
 RPCItems.AttributesRolls[4]["attack_speed"] = CustomAttributes.ATTACKSPEED_PER_AGI * RPCItems.AttributesRolls[4]["agility"] * 3.5
 
-RPCItems.AttributesRolls[1]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[1]["agility"] * 3.5
-RPCItems.AttributesRolls[2]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[2]["agility"] * 3.5
-RPCItems.AttributesRolls[3]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[3]["agility"] * 3.5
-RPCItems.AttributesRolls[4]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[4]["agility"] * 3.5
+RPCItems.AttributesRolls[1]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[1]["agility"] * 10
+RPCItems.AttributesRolls[2]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[2]["agility"] * 10
+RPCItems.AttributesRolls[3]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[3]["agility"] * 10
+RPCItems.AttributesRolls[4]["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * RPCItems.AttributesRolls[4]["agility"] * 10
 
 RPCItems.AttributesRolls[1]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[1]["agility"] * 3.5
 RPCItems.AttributesRolls[2]["armor_pierce"] = CustomAttributes.ARMOR_PIERCE_PER_AGI * RPCItems.AttributesRolls[2]["agility"] * 3.5
@@ -353,8 +361,8 @@ function RPCItems:RollGearAttributeValue(item_level, property_type, property_slo
 	else
 		max_value = item_level * multiple
 	end
-	local min_attempt = math.floor((max_value/2)/1.45)
-	local max_attempt = math.floor(max_value/1.45)
+	local min_attempt = math.floor((max_value/1.5)/1.35)
+	local max_attempt = math.floor(max_value/1.35)
 	local roll_attempt = RandomInt(min_attempt, max_attempt)
 	local roll = math.max(RPCItems:GetLogarithmicVarianceValue(roll_attempt, 0, 0, 0, 0), 1)
 	roll = math.min(roll, max_value)

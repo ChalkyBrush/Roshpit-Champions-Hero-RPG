@@ -332,7 +332,7 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 	if exp > 0 then
 		exp = math.floor(exp)
 		hero:AddExperience(exp, 2, false, true)
-		print("Hero Gained: "..exp.." EXP")
+		hero:UpdateWeaponEXP(exp)
 	end
 	return exp
 end

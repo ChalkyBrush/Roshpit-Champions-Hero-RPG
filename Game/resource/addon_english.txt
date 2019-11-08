@@ -4152,7 +4152,7 @@
 		"DOTA_Tooltip_ability_shadow_gate_radius"							"RADIUS:"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_1"							"[E1] Soul of Shadow"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"When your Shadow Aspect lands an attack, Conjuror, Shadow Aspect and Fire aspect gain increased attack damage. Conjuror also gains additional agility. Max 20 stacks and lasts 16 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"When your Shadow Aspect lands an attack, Conjuror, Shadow Aspect and Fire aspect gain increased attack damage. Conjuror also gains additional agility. Max <font color='#ccff66'>10</font> stacks and lasts 16 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_one"				"Attack Damage Bonus Per Stack"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Agility Bonus Per Stack"
@@ -11415,9 +11415,9 @@
     	"DOTA_Tooltip_ability_voltex_rune_e_3_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_voltex_rune_e_4"								"[E4] Winged Lightning"
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"All <font color=\"#5CCDF9\">Lightning</font> damage is increased by Voltex's Agility."
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"Bonus Damage"
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"% for every 10 Agility"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_Description"					"All <font color=\"#5CCDF9\">Lightning</font> damage is increased."
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_property_one"					"Lightning Amp"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_voltex_static_field"									"Static Field"
 		"DOTA_Tooltip_ability_voltex_static_field_Description"						"Element: <font color=\"#5CCDF9\">Lightning</font><br>Voltex discharges accumulated static power, launching wild ball lightning sparks in a cone in front of her. Each time an enemy is hit by a spark, they receive a stacking debuff for 12 seconds that reduces their Magic Armor."
@@ -11462,7 +11462,7 @@
 		"DOTA_Tooltip_ability_voltex_rune_r_4"								"[R4] Thundershock"
     	"DOTA_Tooltip_ability_voltex_rune_r_4_Description"					"Each hit with @Ability4 or [R1] increases Voltex's attack damage for <font color='#ccff66'>6</font> seconds."
 		"DOTA_Tooltip_ability_voltex_rune_r_4_property_one"					"Bonus Attack Damage"
-    	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix_one"					"% per strike"
+    	"DOTA_Tooltip_ability_voltex_rune_r_4_suffix"					     "% per strike"
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_4_visible"						"Thundershock"
     	"DOTA_Tooltip_modifier_voltex_rune_r_4_visible_Description"			"Gaining %% increased attack damage."
@@ -11501,7 +11501,7 @@
 
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1"								"[E4] Heaven's Lightning"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_Description"					"All <font color=\"#5CCDF9\">Lightning</font> damage is enhanced."
-    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_property_one"					"Elemental Amplifaction"
+    	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_property_one"					"Lightning Amp"
     	"DOTA_Tooltip_ability_voltex_rune_e_4_arcana1_suffix"						"%"
 
        	"item_property_voltex_arcana2"										"Thermion Magnet"

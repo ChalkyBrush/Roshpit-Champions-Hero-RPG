@@ -139,7 +139,7 @@
 		"DOTA_Tooltip_ability_shadow_gate_radius"							"RADIUS:"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_1"							"[E1] Soul of Shadow"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"When your Shadow Aspect lands an attack, Conjuror, Shadow Aspect and Fire aspect gain increased attack damage. Conjuror also gains additional agility. Max 20 stacks and lasts 16 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"When your Shadow Aspect lands an attack, Conjuror, Shadow Aspect and Fire aspect gain increased attack damage. Conjuror also gains additional agility. Max <% CONJUROR_E1_MAX_STACKS %> stacks and lasts 16 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_one"				"Attack Damage Bonus Per Stack"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Agility Bonus Per Stack"

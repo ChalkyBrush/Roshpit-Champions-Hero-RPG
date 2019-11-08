@@ -211,7 +211,7 @@ function initializeTooltip(func){
 		// tooltip = tooltip + "<br><br><font color='#FF2B2B'>"+$.Localize('#weapon_max_level')+": "+itemTable.maxLevel+"</font>"
 
 		var weaponValues = itemValues
-
+		$.Msg(weaponValues)
 		if (!(weaponValues === undefined) && !(weaponValues.level === undefined)){
 			$('#tooltip_weapons_data_container').RemoveClass('invisible')
 			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"

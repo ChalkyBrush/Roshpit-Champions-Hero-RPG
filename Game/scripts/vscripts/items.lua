@@ -1077,11 +1077,6 @@ function RPCItems:ItemSwapInput(msg)
 		if newGear then
 			hero:EquipItem(newGear)
 		end
-		if slot == 1 then
-			hero.weapon = newGear
-			Weapons:SetWeaponTable(newGear)
-			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = newGear.xp, level = newGear.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newGear.level], maxLevel = newGear.maxLevel, requiredHero = newGear.requiredHero})
-		end
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
 		if input == 3 then
 			local save_message = {}

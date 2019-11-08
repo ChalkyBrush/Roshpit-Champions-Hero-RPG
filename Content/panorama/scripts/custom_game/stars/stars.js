@@ -315,9 +315,9 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 		if (starAmount == 0){
 			starDescription = $.Localize("immortal_weapon_star_description").replace("@heroname", localizeWithColor(heroName))
 		}else if (starAmount == 1){
-			starDescription = $.Localize("immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+30+fontEnd)
+			starDescription = $.Localize("immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+5+fontEnd)
 		}else if (starAmount >= 2){
-			starDescription = $.Localize("immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+40+fontEnd)
+			starDescription = $.Localize("immortal_weapon_star_description2").replace("@heroname", localizeWithColor(heroName)).replace("@level", fontStart+10+fontEnd)
 		}		
 	}else if (star_title == "tanari_ancient_hero"){
 		starAmount = categoryData.weapon

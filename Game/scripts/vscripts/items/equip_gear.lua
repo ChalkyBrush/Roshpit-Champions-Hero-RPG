@@ -7,11 +7,13 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	end
 	local gear_slot = item.newItemTable.gear_slot
 	hero:ResetGearBonusesForSlot(gear_slot)
-
 	
-
-	RPCItems:RecordGearBonusToHeroBySlot(item, hero, "armor", item.newItemTable.base_armor, gear_slot)
-	RPCItems:RecordGearBonusToHeroBySlot(item, hero, "magic_armor", item.newItemTable.base_magic_armor, gear_slot)
+	if item.newItemTable.base_armor then
+		RPCItems:RecordGearBonusToHeroBySlot(item, hero, "armor", item.newItemTable.base_armor, gear_slot)
+	end
+	if item.newItemTable.base_magic_armor then
+		RPCItems:RecordGearBonusToHeroBySlot(item, hero, "magic_armor", item.newItemTable.base_magic_armor, gear_slot)
+	end
 
 	if item.newItemTable.property1 then
 		RPCItems:RecordGearBonusToHeroBySlot(item, hero, item.newItemTable.property1name, item.newItemTable.property1, gear_slot)
@@ -30,12 +32,21 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	if item.isLuaItem then
 		item:AddSpecialModifiers(hero)
 	end
-	hero:UpdateRuneBonusesFromGear()
+	
 	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(gear_slot), {itemIndex = item:GetEntityIndex()})
 	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = item:GetEntityIndex(), heroId = hero:GetClassname(), playerId = playerID, pickup = "equip", rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
 	EmitGlobalSound("RPC.EquipItem")
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
+
+	if not hero.equipped_gear then
+		hero.equipped_gear = {}
+	end
+	hero.equipped_gear[gear_slot] = item
+
+	if gear_slot == RPC_GEAR_SLOT_WEAPON and item.newItemTable.rarity == "immortal" then
+		Stars:StarEventPlayer("weapon", hero)
+	end
 end
 
 function CDOTA_BaseNPC_Hero:UnequipItem(item)
@@ -55,6 +66,7 @@ function CDOTA_BaseNPC_Hero:UnequipItem(item)
 		CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 		item:StartCooldown(3)
 	end
+	hero.equipped_gear[slot] = nil
 end
 
 function CDOTA_BaseNPC_Hero:InitGearBonuses()
@@ -78,6 +90,7 @@ function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 end
 
 function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
+	print("PROPERTY NAME: "..property_name)
 	if not hero.gear_bonuses[gear_slot][property_name] then
 		hero.gear_bonuses[gear_slot][property_name] = 0
 	end
@@ -102,6 +115,7 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 			hero:SetModifierStackCount(modifier_name, inventory_unit, stacks)
 		end
 	end
+	hero:UpdateRuneBonusesFromGear()
 end
 
 function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()

@@ -1367,7 +1367,7 @@ function Events:SetupHeroes(heroEntity)
 	heroEntity.InventoryUnit.hero = heroEntity
 	Events:SetupInventoryUnit(heroEntity.InventoryUnit)
 	Events:InitializeHero(heroEntity)
-	-- Weapons:weaponRedirect(heroEntity)
+	Weapons:weaponRedirect(heroEntity)
 
 	-- end)
 	if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
