@@ -195,8 +195,9 @@ function Redfall:SpawnTwistedPumpkin(position)
 	shroom.itemLevel = 42
 	shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 210))
 	if shroom.paragon then
-		shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 130))
+		shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 230))
 	end
+	shroom.aggro_height_adjust = 210
 	shroom.dominion = true
 	local ability = shroom:FindAbilityByName("redfall_pumpkin_ai")
 	ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_pumpkin_ai", {})

@@ -449,94 +449,18 @@ function farmer_scene_think(event)
 	if not Redfall.RedfallMasterAbility.cinemaSceneA then
 		Redfall.RedfallMasterAbility.cinemaSceneA = 0
 	end
-	if Redfall.RedfallMasterAbility.cinemaSceneA then
-		if Redfall.RedfallMasterAbility.cinemaSceneA == 0 then
-			-- if not target.cinemaSceneA then
-			-- target.cinemaSceneA = 0
-			-- end
-			if target.cinemaSceneA == 0 then
-				local targetPosition = Vector(5056, -12114)
-				target:MoveToPosition(targetPosition + RandomVector(80))
-				local distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), targetPosition)
-				if distance < 130 then
-					Redfall.FarmSceneSafe = true
-					Redfall.dialogueTargets = Redfall.dialogueTargets + 1
-					target:Stop()
-					target.cinemaSceneA = 1
-					ability:ApplyDataDrivenModifier(target, target, "modifier_invisibility_datadriven", {duration = 25})
-					ability:ApplyDataDrivenModifier(target, target, "modifier_invisible", {duration = 25})
-					target:SetForwardVector(Vector(1, 0))
-					if Redfall.dialogueTargets == 1 then
-						local thiefTable = {}
-						local baseSpawnPos = Vector(6981, -12232)
+	-- if Redfall.RedfallMasterAbility.cinemaSceneA then
+	-- 	if Redfall.RedfallMasterAbility.cinemaSceneA == 0 then
+	-- 		-- if not target.cinemaSceneA then
+	-- 		-- target.cinemaSceneA = 0
+	-- 		-- end
+	-- 		if target.cinemaSceneA == 0 then
 
-						local spawnPos1 = baseSpawnPos + Vector(-120, 0)
-						local thief1 = Redfall:SpawnCrimsythDuelist(spawnPos1, Vector(-1, 0))
-						thief1.offset = Vector(-120, 0)
-						table.insert(thiefTable, thief1)
-
-						local spawnPos2 = baseSpawnPos + Vector(0, 80)
-						local thief2 = Redfall:SpawnFarmlandsBandit(spawnPos1, Vector(-1, 0))
-						thief2.offset = Vector(0, 80)
-						table.insert(thiefTable, thief2)
-
-						local spawnPos3 = baseSpawnPos + Vector(0, -80)
-						local thief3 = Redfall:SpawnFarmlandsBandit(spawnPos1, Vector(-1, 0))
-						thief3.offset = Vector(0, -80)
-						table.insert(thiefTable, thief3)
-
-						for i = 1, #thiefTable, 1 do
-							local bandit = thiefTable[i]
-							Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, bandit, "modifier_command_restric_player", {duration = 13})
-							Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, bandit, "modifier_redfall_movable_scene", {duration = 11})
-							bandit:SetBaseMoveSpeed(240)
-							local banditAbility = bandit:AddAbility("redfall_farmlands_scene_ability")
-							banditAbility:ApplyDataDrivenModifier(bandit, bandit, "modifier_farmlands_scene_a", {})
-							CustomAbilities:QuickAttachParticle("particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death.vpcf", bandit, 3)
-							Timers:CreateTimer(0.5, function()
-								bandit:MoveToPosition(Vector(6030, -12288) + bandit.offset)
-							end)
-						end
-
-						Timers:CreateTimer(6, function()
-							Quests:ShowDialogueText({target}, thief1, "redfall_dialogue_bandit_1_a", 6, false)
-							Timers:CreateTimer(4, function()
-								Quests:ShowDialogueText({target}, Redfall.Farmlands.farmNPCa, "redfall_dialogue_farmer_1_d", 6, false)
-							end)
-							Timers:CreateTimer(7, function()
-								Quests:ShowDialogueText({target}, thief1, "redfall_dialogue_bandit_1_b", 3, false)
-								Timers:CreateTimer(3, function()
-									Quests:ShowDialogueText({target}, thief1, "redfall_dialogue_bandit_1_b2", 4, false)
-									thief2:MoveToPosition(thief2:GetAbsOrigin() + Vector(-330, 0, 0))
-									thief3:MoveToPosition(thief3:GetAbsOrigin() + Vector(-330, 0, 0))
-									Timers:CreateTimer(1.1, function()
-										Quests:ShowDialogueText({target}, Redfall.Farmlands.farmNPCa, "redfall_dialogue_farmer_1_e", 3, false)
-										Timers:CreateTimer(1, function()
-											Quests:ShowDialogueText({target}, thief2, "redfall_dialogue_bandit_1_c", 3, false)
-											for j = 1, #thiefTable, 1 do
-												local bandit = thiefTable[j]
-												bandit:RemoveModifierByName("modifier_command_restric_player")
-												bandit:SetBaseMoveSpeed(400)
-											end
-										end)
-										for i = 1, #Redfall.Farmlands.FarmerSceneAHeroes, 1 do
-											local hero = Redfall.Farmlands.FarmerSceneAHeroes[i]
-											hero:RemoveModifierByName("modifier_redfall_farmer_scene")
-											hero:RemoveModifierByName("modifier_invisibility_datadriven")
-											hero:RemoveModifierByName("modifier_invisible")
-											WallPhysics:Jump(hero, Vector(1, 0), 28, 21, 25, 1)
-										end
-									end)
-								end)
-							end)
-						end)
-					end
-				end
-			else
-				target:SetForwardVector(Vector(1, 0))
-			end
-		end
-	end
+	-- 		else
+	-- 			target:SetForwardVector(Vector(1, 0))
+	-- 		end
+	-- 	end
+	-- end
 end
 
 function farmlands_scene_a_death(event)

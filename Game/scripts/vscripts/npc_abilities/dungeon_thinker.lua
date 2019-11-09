@@ -1706,7 +1706,11 @@ function DungeonCreep(event)
 			for i = 1, #units, 1 do
 				if not units[i]:HasModifier("modifier_trapper_stealth") then
 					local heightDiff = units[i]:GetAbsOrigin().z - caster:GetAbsOrigin().z
-					if math.abs(heightDiff) > 200 then
+					local height_compare = 200
+					if caster.aggro_height_adjust then
+						height_compare = 200 + caster.aggro_height_adjust
+					end
+					if math.abs(heightDiff) > height_compare then
 					else
 						Dungeons:AggroUnit(caster)
 					end
