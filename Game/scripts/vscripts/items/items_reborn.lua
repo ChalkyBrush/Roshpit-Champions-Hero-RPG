@@ -117,6 +117,9 @@ RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MAJOR_BOSS] = 7000
 function CDOTA_BaseNPC:DropItemsOnDeath()
 	local unit = self
 	local unit_level = 0
+	if unit.disable_drops then
+		return false
+	end
 	if unit.roshpit_attributes.roshpit_level then
 		unit_level = unit.roshpit_attributes.roshpit_level
 	end

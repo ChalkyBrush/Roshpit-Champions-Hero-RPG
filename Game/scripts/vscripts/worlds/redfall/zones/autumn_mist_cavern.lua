@@ -949,6 +949,7 @@ function Redfall:SpawnBossMinions(boss, previousGeneration)
 			end
 			unit.boss = boss
 			table.insert(Redfall.CanyonBossClones, unit)
+			unit.disable_drops = true
 			unit.generation = previousGeneration + 1
 			Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_disable_player", {duration = 1.6})
 			unit:SetAbsOrigin(basePosition + Vector(0, 0, 200))
