@@ -18,7 +18,7 @@ function Gems:GemForgerPossibleSpawnEvent(event_name)
 				Gems.TanariGemForgerKills = 0
 			end
 			Gems.TanariGemForgerKills = Gems.TanariGemForgerKills + 1
-			local luck = RandomInt(1, 6 - Gems.TanariGemForgerKills)
+			local luck = RandomInt(1, 4 - Gems.TanariGemForgerKills)
 			if luck == 1 then
 				spawn_args = Gems:GetRewardAndSpawnPositionByEventName(event_name)
 			end
