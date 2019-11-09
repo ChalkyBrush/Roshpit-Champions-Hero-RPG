@@ -1986,6 +1986,25 @@
 		"rpc_item_element17"												"Undead Damage %"
 		"rpc_item_element18"												"Dragon Damage %"
 
+		"item_element_normal"												"Normal Damage %"
+		"item_element_fire"													"Fire Damage %"
+		"item_element_earth"												"Earth Damage %"
+		"item_element_lightning"											"Lightning Damage %"
+		"item_element_poison"												"Poison Damage %"
+		"item_element_time"													"Temporal Damage %"
+		"item_element_holy"													"Holy Damage %"
+		"item_element_cosmic"												"Cosmic Damage %"
+		"item_element_ice"													"Ice Damage %"
+		"item_element_arcane"												"Arcane Damage %"
+		"item_element_shadow"												"Shadow Damage %"
+		"item_element_wind"													"Wind Damage %"
+		"item_element_ghost"												"Ghost Damage %"
+		"item_element_water"												"Water Damage %"
+		"item_element_demon"												"Demon Damage %"
+		"item_element_nature"												"Nature Damage %"
+		"item_element_undead"												"Undead Damage %"
+		"item_element_dragon"												"Dragon Damage %"
+
 		//RUNES GENERIC
 
 		"rune_q_1"														"Rune Q1"

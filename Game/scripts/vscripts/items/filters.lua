@@ -1942,13 +1942,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local w_2_level = attacker:GetRuneValue("w", 2)
             normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W_W2_NORMAL_PCT
         end
-        if attacker:HasModifier("modifier_weapon_normal") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_normal", attacker.InventoryUnit)
-            normalMult = normalMult + stacks / 100
-        end
         if attacker:HasModifier('modifier_trapper_glyph_6_1') then
             normalMult = normalMult * TRAPPER_GLYPH_6_1_NORMAL_AMP
         end
+        normalMult = normalMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_nature", 1))/100
         mult = mult + normalMult
     end
     if element1 == RPC_ELEMENT_FIRE or element2 == RPC_ELEMENT_FIRE then
@@ -2046,22 +2043,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 fireMult = fireMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         end
-        if attacker:HasModifier("modifier_trinket_fire") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_fire", attacker.InventoryUnit)
-            fireMult = fireMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_foot_fire") then
-            local stacks = attacker:GetModifierStackCount("modifier_foot_fire", attacker.InventoryUnit)
-            fireMult = fireMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_hand_fire") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_fire", attacker.InventoryUnit)
-            fireMult = fireMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_fire") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_fire", attacker.InventoryUnit)
-            fireMult = fireMult + stacks / 100
-        end
         if victim:HasModifier("fire_walker_aura") then
             fireMult = fireMult + 6
         end
@@ -2072,6 +2053,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
+        fireMult = fireMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_fire", 1))/100
         if fireMult > FIRE_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_fire_deity_crown") then
             fireMult = FIRE_DEITY_CROWN_ELEMENT_CAP/100
         end
@@ -2106,14 +2088,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
-        if attacker:HasModifier("modifier_body_earth") then
-            local stacks = attacker:GetModifierStackCount("modifier_body_earth", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_earth") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_earth", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_earth", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_earth", 1))/100
     end
     if element1 == RPC_ELEMENT_LIGHTNING or element2 == RPC_ELEMENT_LIGHTNING then
         if attacker:HasModifier("modifier_dinath_glyph_6_1") then
@@ -2136,14 +2111,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP /100 * stacks
             end
         end
-        if attacker:HasModifier("modifier_hand_lightning") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_lightning", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_body_lightning") then
-            local stacks = attacker:GetModifierStackCount("modifier_body_lightning", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
         if unitName == "npc_dota_hero_arc_warden" then
             if not attacker:HasModifier("modifier_jex_arcana1") then
                 if attacker.w_2_level then
@@ -2151,6 +2118,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_lightning", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_lightning", 1))/100
     end
     if element1 == RPC_ELEMENT_POISON or element2 == RPC_ELEMENT_POISON then
         if unitName == "npc_dota_hero_templar_assassin" then
@@ -2159,24 +2127,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * w_4_level
             end
         end
-        if attacker:HasModifier("modifier_helm_poison") then
-            local stacks = attacker:GetModifierStackCount("modifier_helm_poison", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_poison") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_poison", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_poison", 1))/100
     end
     if element1 == RPC_ELEMENT_TIME or element2 == RPC_ELEMENT_TIME then
-        if attacker:HasModifier("modifier_foot_time") then
-            local stacks = attacker:GetModifierStackCount("modifier_foot_time", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_time") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_time", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
         if unitName == "npc_dota_hero_dark_seer" then
             if attacker:HasModifier("modifier_zonik_glyph_7_1") and attacker:HasModifier("modifier_temporal_discharge") then
                 local stacks = attacker:GetModifierStackCount("modifier_temporal_discharge", attacker)
@@ -2197,6 +2150,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + d_d_level * EPOCH_R4_TIME_AMP
             end
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_time", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_time", 1))/100
     end
     if element1 == RPC_ELEMENT_HOLY or element2 == RPC_ELEMENT_HOLY then
         if unitName == "npc_dota_hero_omniknight" then
@@ -2246,27 +2200,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_gilded_soul_buff", attacker.InventoryUnit)
             mult = mult + stacks * GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP/100
         end
-        if attacker:HasModifier("modifier_hand_holy") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_holy", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_body_holy") then
-            local stacks = attacker:GetModifierStackCount("modifier_body_holy", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_foot_holy") then
-            local stacks = attacker:GetModifierStackCount("modifier_foot_holy", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_holy") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_holy", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
 
         if attacker:HasModifier("modifier_sunstrider_holy_amplify") then
             local stacks = attacker:GetModifierStackCount("modifier_sunstrider_holy_amplify", attacker)
             mult = mult + stacks * SEINARU_ARCANA_E4_HOLY_PCT
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_holy", 1))/100
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
         local cosmosMult = 0
@@ -2293,26 +2232,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 cosmosMult = cosmosMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         end
-        if attacker:HasModifier("modifier_body_cosmos") then
-            local stacks = attacker:GetModifierStackCount("modifier_body_cosmos", attacker.InventoryUnit)
-            cosmosMult = cosmosMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_foot_cosmos") then
-            local stacks = attacker:GetModifierStackCount("modifier_foot_cosmos", attacker.InventoryUnit)
-            cosmosMult = cosmosMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_trinket_cosmos") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_cosmos", attacker.InventoryUnit)
-            cosmosMult = cosmosMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_cosmos") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_cosmos", attacker.InventoryUnit)
-            cosmosMult = cosmosMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_hand_cosmos") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_cosmos", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
         -- if victim:HasModifier("modifier_starfall_a_d_visible") then
         --     local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
         --     cosmosMult = cosmosMult + stacks * 0.1
@@ -2326,7 +2245,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 cosmosMult = cosmosMult + e_4_level * JEX_COSMIC_SURGE_E4_COSMIC_AMP
             end
         end
-
+        cosmosMult = cosmosMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_cosmic", 1))/100
         if cosmosMult > LUMA_ELEMENT_CAP/100 and attacker:HasModifier("modifier_luma_guard") then
             cosmosMult = LUMA_ELEMENT_CAP/100
         end
@@ -2370,14 +2289,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         end
-        if attacker:HasModifier("modifier_trinket_ice") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_ice", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_foot_ice") then
-            local stacks = attacker:GetModifierStackCount("modifier_foot_ice", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
+
         if victim:HasModifier("modifier_tornado_ice_resist_loss_invisible") then
             local modifier = victim:FindModifierByName("modifier_tornado_ice_resist_loss_invisible")
             local iceCaster = modifier:GetCaster()
@@ -2387,17 +2299,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             mult = mult + stacks * SORCERESS_ARCANA1_R3_ICE_RESIST_LOSS
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_ice", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_ice", 1))/100
     end
     if element1 == RPC_ELEMENT_ARCANE or element2 == RPC_ELEMENT_ARCANE then
 
-        if attacker:HasModifier("modifier_foot_arcane") then
-            local stacks = attacker:GetModifierStackCount("modifier_foot_arcane", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_trinket_arcane") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_arcane", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
         if victim:HasModifier("modifier_storm_weapon_b_b_invisible") then
             local modifier = victim:FindModifierByName("modifier_storm_weapon_b_b_invisible")
             local multIncrease = modifier:GetStackCount() * ARKIMUS_W2_ARCANE_BONUS_PER_STACK_PCT/100
@@ -2423,6 +2328,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_arcane", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_arcane", 1))/100
     end
     if element1 == RPC_ELEMENT_SHADOW or element2 == RPC_ELEMENT_SHADOW then
         if unitName == "npc_dota_hero_zuus" then
@@ -2449,26 +2355,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
-        if attacker:HasModifier("modifier_helm_shadow") then
-            local stacks = attacker:GetModifierStackCount("modifier_helm_shadow", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_body_shadow") then
-            local stacks = attacker:GetModifierStackCount("modifier_body_shadow", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_hand_shadow") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_shadow", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_shadow") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_shadow", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
         if attacker:HasModifier("modifier_nightmare_rider_stacks") then
             local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)
             mult = mult + (stacks * NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE) / 100
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_shadow", 1))/100
     end
     if element1 == RPC_ELEMENT_WIND or element2 == RPC_ELEMENT_WIND then
         if unitName == "npc_dota_hero_huskar" then
@@ -2501,22 +2392,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
-        if attacker:HasModifier("modifier_hand_wind") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_wind", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_helm_wind") then
-            local stacks = attacker:GetModifierStackCount("modifier_helm_wind", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_body_wind") then
-            local stacks = attacker:GetModifierStackCount("modifier_body_wind", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_wind") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_wind", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_wind", 1))/100
     end
     if element1 == RPC_ELEMENT_GHOST or element2 == RPC_ELEMENT_GHOST then
         if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
@@ -2531,6 +2407,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_weapon_ghost", attacker.InventoryUnit)
             mult = mult + stacks / 100
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_ghost", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_ghost", 1))/100
     end
     if element1 == RPC_ELEMENT_WATER or element2 == RPC_ELEMENT_WATER then
         local waterMult = 0
@@ -2571,27 +2448,12 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 				waterMult = waterMult + SLIPFINN_Q4_SHADOW_WATER_AMP * attacker.q_4_level
 			end
         end
-        if attacker:HasModifier("modifier_body_water") then
-            local stacks = attacker:GetModifierStackCount("modifier_body_water", attacker.InventoryUnit)
-            waterMult = waterMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_water") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_water", attacker.InventoryUnit)
-            waterMult = waterMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_trinket_water") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_water", attacker.InventoryUnit)
-            waterMult = waterMult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_hand_water") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_water", attacker.InventoryUnit)
-            waterMult = waterMult + stacks / 100
-        end
         if victim:HasModifier("modifier_flood_basin_enemy_inside_water_stacks") then
             local modifier = victim:FindModifierByName("modifier_flood_basin_enemy_inside_water_stacks")
             local multIncrease = modifier:GetStackCount() * HYDROXIS_ARCANA_R3_WATER_AMP_PCT/100
             waterMult = waterMult + multIncrease
         end
+        waterMult = waterMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_water", 1))/100
         if waterMult > WATER_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_water_deity_crown") then
             waterMult = WATER_DEITY_CROWN_ELEMENT_CAP/100
         end
@@ -2599,55 +2461,22 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + waterMult
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
-        if attacker:HasModifier("modifier_hand_demon") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_demon", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_helm_demon") then
-            local stacks = attacker:GetModifierStackCount("modifier_helm_demon", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_trinket_demon") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_demon", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_demon") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_demon", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_demon", 1))/100
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
         if unitName == "npc_dota_hero_monkey_king" then
             local w_4_level = attacker:GetRuneValue("w", 4)
             mult = mult + DJANGHOR_W4_NATURE_AMP * w_4_level
         end
-        if attacker:HasModifier("modifier_trinket_nature") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_nature", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker.q_2_level then
                 mult = mult + attacker.q_2_level * JEX_RUNE_ROW_2_VALUE
             end
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_nature", 1))/100
     end
     if element1 == RPC_ELEMENT_UNDEAD or element2 == RPC_ELEMENT_UNDEAD then
-        if attacker:HasModifier("modifier_helm_undead") then
-            local stacks = attacker:GetModifierStackCount("modifier_helm_undead", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_weapon_undead") then
-            local stacks = attacker:GetModifierStackCount("modifier_weapon_undead", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_hand_undead") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_undead", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_trinket_undead") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_undead", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
+
         if attacker:GetUnitName() == "npc_dota_hero_visage" then
             if attacker:HasAbility("ekkan_summon_skeleton") then
                 local w_2_level = attacker:GetRuneValue("w", 2)
@@ -2657,6 +2486,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_undead", 1))/100
     end
     if element1 == RPC_ELEMENT_DRAGON or element2 == RPC_ELEMENT_DRAGON then
         if unitName == "npc_dota_hero_winter_wyvern" then
@@ -2671,6 +2501,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local q_4_level = attacker:GetRuneValue("q", 4)
             mult = mult + WARLORD_ARCANA2_Q4_DRAGON_AMP * q_4_level        
         end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_dragon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_dragon", 1))/100
     end
     if bIsRealDamage and not damageData.ignoreMultipliers and not damageData.ignoreElements then
         Filters:PostElementalDamage(victim, attacker, damage * mult, damage_type, slot, element1, element2, bIsRealDamage)

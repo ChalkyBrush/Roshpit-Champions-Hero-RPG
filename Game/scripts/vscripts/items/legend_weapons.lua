@@ -66,7 +66,7 @@ function Weapons:SetLegendWeaponProperty1(weapon, hero_name, propertyName, prope
 end
 
 function Weapons:SetLegendWeaponProperty1Alt(weapon, hero_name, propertyName, propertyColor, propertyMult, weapon_number)
-	if propertyName == "immortal_weapon_1" then
+	if string.match(propertyName, "immortal_weapon_") then
 		weapon.newItemTable.property1 = 1
 		weapon.newItemTable.property1name = propertyName
 		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_"..hero_name.."_immortal_weapon"..weapon_number, propertyColor, 1, "#property_"..hero_name.."_immortal_weapon"..weapon_number.."_description")
@@ -220,7 +220,7 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	return weapon
 end
 
-function Weapons:RollLegendWeapon2(deathLocation, class, strictMaxItemLevel, disableDrop)
+function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableDrop)
 	local rarity = RPC_ITEMS_RARITY_IMMORTAL
 	local itemName = ""
 	local item_level = RPCItems:RollItemLevelFromUnit(100)
