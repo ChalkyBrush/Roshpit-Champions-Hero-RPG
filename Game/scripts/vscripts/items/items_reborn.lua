@@ -357,6 +357,11 @@ RPCItems.AttributesRolls[2]["spirit"] = 0.9
 RPCItems.AttributesRolls[3]["spirit"] = 1.0
 RPCItems.AttributesRolls[4]["spirit"] = 1.0
 
+RPCItems.AttributesRolls[1]["all_attributes"] = RPCItems.AttributesRolls[1]["strength"]/4
+RPCItems.AttributesRolls[2]["all_attributes"] = RPCItems.AttributesRolls[2]["strength"]/4
+RPCItems.AttributesRolls[3]["all_attributes"] = RPCItems.AttributesRolls[3]["strength"]/4
+RPCItems.AttributesRolls[4]["all_attributes"] = RPCItems.AttributesRolls[4]["strength"]/4
+
 RPCItems.AttributesRolls[1]["max_health"] = CustomAttributes.HEALTH_PER_STR * RPCItems.AttributesRolls[1]["strength"] * 3.5
 RPCItems.AttributesRolls[2]["max_health"] = CustomAttributes.HEALTH_PER_STR * RPCItems.AttributesRolls[2]["strength"] * 3.5
 RPCItems.AttributesRolls[3]["max_health"] = CustomAttributes.HEALTH_PER_STR * RPCItems.AttributesRolls[3]["strength"] * 3.5
@@ -625,8 +630,8 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    end
 	    RPCItems:GrantItemBaseArmor(item, item_level, basic_item_table["armor"])
 	    RPCItems:GrantItemBaseMagicArmor(item, item_level, basic_item_table["magic_armor"])
-	    RPCItems:SocketsChance(item)
 	    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+	    RPCItems:SocketsChance(item)
 	    return item
 	else
 	end
