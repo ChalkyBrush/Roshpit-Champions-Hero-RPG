@@ -10890,7 +10890,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_1"		"Gravity Volt"
 		"item_property_voltex_immortal_weapon"							"Gravity Volt"
-		"property_voltex_immortal_weapon_description"					"Gain <font color='#ccff66'>600</font> Strength."
+		"property_voltex_immortal_weapon_description"					"Gain <font color='#ccff66'>350</font> Strength."
 		
 		"DOTA_Tooltip_ability_item_rpc_voltex_immortal_weapon_2"				"Blade of Arcadia"
 

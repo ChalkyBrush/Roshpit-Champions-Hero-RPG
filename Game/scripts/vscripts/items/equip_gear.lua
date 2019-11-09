@@ -7,7 +7,11 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	end
 	local gear_slot = item.newItemTable.gear_slot
 	hero:ResetGearBonusesForSlot(gear_slot)
-	
+
+	if not hero.equipped_gear then
+		hero.equipped_gear = {}
+	end
+	hero.equipped_gear[gear_slot] = item
 	if item.newItemTable.base_armor then
 		RPCItems:RecordGearBonusToHeroBySlot(item, hero, "armor", item.newItemTable.base_armor, gear_slot)
 	end
@@ -45,10 +49,7 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
 
-	if not hero.equipped_gear then
-		hero.equipped_gear = {}
-	end
-	hero.equipped_gear[gear_slot] = item
+
 
 	if gear_slot == RPC_GEAR_SLOT_WEAPON and item.newItemTable.rarity == "immortal" then
 		Stars:StarEventPlayer("weapon", hero)
@@ -88,8 +89,13 @@ end
 
 function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 	local hero = self
+	local internal_hero_name = HerosCustom:GetInternalHeroNameMain(hero:GetClassname())
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
-		hero:RemoveModifierByName("modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key)
+		if string.match(key, "immortal_weapon") then
+			hero:RemoveModifierByName("modifier_"..internal_hero_name.."_"..key)
+		else
+			hero:RemoveModifierByName("modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key)
+		end
 		hero.gear_bonuses[gear_slot][key] = nil
 	end
 	hero.gear_bonuses[gear_slot] = {}
@@ -102,23 +108,31 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	end
 	print("--RECORDING PROPERTY--")
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
-	hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + property_value
+	if string.match(property_name, "immortal_weapon") then
+		hero.gear_bonuses[gear_slot][property_name] = 1
+	else
+		hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + property_value
+	end
 end
 
 function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 	local hero = self
+	local internal_hero_name = HerosCustom:GetInternalHeroNameMain(hero:GetClassname())
 	local inventory_unit = hero.InventoryUnit
 	local ability_name = "equipment_"..RPC_GEAR_SLOT_NAMES[gear_slot]
 	print("ABILITY NAME: "..ability_name)
 	local ability = inventory_unit:FindAbilityByName(ability_name)
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
-		if value > 0 then
-			local modifier_name = "modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key
-			print("MODIFIER "..modifier_name)
-			local stacks = value
-			ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
-			hero:SetModifierStackCount(modifier_name, inventory_unit, stacks)
+		if string.match(key, "immortal_weapon") then
+			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
+		else
+			if value > 0 then
+				local modifier_name = "modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key
+				local stacks = value
+				ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
+				hero:SetModifierStackCount(modifier_name, inventory_unit, stacks)
+			end
 		end
 	end
 	hero:UpdateRuneBonusesFromGear()

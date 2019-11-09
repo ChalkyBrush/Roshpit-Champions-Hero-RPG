@@ -663,6 +663,8 @@ RPCItems.PROPERTY_COLORS["t1_rune"] = "#7DFF12"
 RPCItems.PROPERTY_COLORS["t2_rune"] = "#7DFF12"
 RPCItems.PROPERTY_COLORS["attack_speed"] = "#B02020"
 RPCItems.PROPERTY_COLORS["movespeed"] = "#B02020"
+RPCItems.PROPERTY_COLORS["aspect_health"] = "#343EC9"
+RPCItems.PROPERTY_COLORS["all_attributes"] = "#FFFFFF"
 
 function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level)
 	local property_type = RPCItems.REGULAR_PROPERTIES[item_slot][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[item_slot])]

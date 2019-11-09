@@ -189,6 +189,8 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["strength"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["agility"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["intelligence"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spirit"] = 15
+Weapons.STAT_ADD_PER_LEVEL_TABLE["all_attributes"] = 4
+
 Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 50
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_1"] = 2
@@ -208,6 +210,7 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["item_damage"] = 6
 Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 60
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 60
 
+
 function Weapons:LevelUpWeapon(hero, weapon)
 	--DeepPrintTable(weapon)
 	if not weapon.newItemTable then
@@ -220,16 +223,24 @@ function Weapons:LevelUpWeapon(hero, weapon)
 		end
 	end
 	if weapon.newItemTable.property1 and type(weapon.newItemTable.property1) == "number" then
-		weapon.newItemTable.property1 = weapon.newItemTable.property1 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property1name]
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property1name] then
+			weapon.newItemTable.property1 = weapon.newItemTable.property1 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property1name]
+		end
 	end
 	if weapon.newItemTable.property2 and type(weapon.newItemTable.property2) == "number" then
-		weapon.newItemTable.property2 = weapon.newItemTable.property2 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property2name]
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property2name] then
+			weapon.newItemTable.property2 = weapon.newItemTable.property2 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property2name]
+		end
 	end
 	if weapon.newItemTable.property3 and type(weapon.newItemTable.property3) == "number" then
-		weapon.newItemTable.property3 = weapon.newItemTable.property3 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property3name]
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property3name] then
+			weapon.newItemTable.property3 = weapon.newItemTable.property3 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property3name]
+		end
 	end
 	if weapon.newItemTable.property4 and type(weapon.newItemTable.property4) == "number" then
-		weapon.newItemTable.property4 = weapon.newItemTable.property4 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property4name]
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property4name] then
+			weapon.newItemTable.property4 = weapon.newItemTable.property4 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property4name]
+		end
 	end
 	if weapon.newItemTable.rarity == "immortal" then
 		Stars:StarEventPlayer("weapon", hero)
@@ -243,6 +254,7 @@ function Weapons:Debug()
 	Weapons:InitialSword(MAIN_HERO_TABLE[1])
 end
 Weapons.AttributeBaseRolls = {}
+Weapons.AttributeBaseRolls["all_attributes"] = 0.12
 Weapons.AttributeBaseRolls["strength"] = 0.5
 Weapons.AttributeBaseRolls["agility"] = 0.5
 Weapons.AttributeBaseRolls["spirit"] = 0.5
@@ -285,7 +297,7 @@ function Weapons:RollWeapon(rarity, item_level)
 	if internalName == "npc_dota_hero_invoker" then
 		item.newItemTable.property1 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls["aspect_health"])
 		item.newItemTable.property1name = "aspect_health"
-		RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_aspect_health", "#343EC9", 1)
+		RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_aspect_health", RPCItems.PROPERTY_COLORS["aspect_health"], 1)
 	else
 		item.newItemTable.property1 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls["attack_damage"])
 		item.newItemTable.property1name = "attack_damage"
@@ -354,7 +366,6 @@ function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot
 	item.newItemTable.maxLevel = maxLevel
 	item.newItemTable.requiredHero = whichHero
 
-	Weapons:SetWeaponTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity), slot)
 	return item
 end
 

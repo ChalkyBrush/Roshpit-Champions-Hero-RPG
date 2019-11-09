@@ -217,25 +217,25 @@ function initializeTooltip(func){
 
 		var weaponValues = itemValues
 		$.Msg(weaponValues)
-		if (!(weaponValues === undefined) && !(weaponValues.level === undefined)){
+		if (!(weaponValues === undefined) && !(weaponValues.level === undefined) && (weaponValues.gear_slot == 1)){
 			$('#tooltip_weapons_data_container').RemoveClass('invisible')
 			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
 			$('#tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+weaponValues.level+"</font>"
 			$('#tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_max_level')+":</font>"
 			$('#tooltip_weapon_right2').text = "<font color='#FFFFFF'>"+weaponValues.maxLevel+"</font>"
-			if (weaponValues.item_name == Abilities.GetAbilityName(item)){
-				$('#weapon_exp_bar').RemoveClass("invisible")
-				if (weaponValues.level == weaponValues.maxLevel){
-					$('#weapon_exp_bar_inner').style.width = "100%"
-					$('#weapon_exp_bar_text').text = "<font color='#f4dc42'>"+"★ MAX LEVEL ★"+"</font>"
-				}else{
-					var percentage = (parseInt(weaponValues.xp)/parseInt(weaponValues.xpNeeded))*100
-					// percentage = toString(percentage)+"%"
-					$('#weapon_exp_bar_inner').RemoveClass('invisible')
-					$('#weapon_exp_bar_inner').style.width = percentage + "%"
-					$('#weapon_exp_bar_text').text = weaponValues.xp+" / "+weaponValues.xpNeeded
-				}
+
+			$('#weapon_exp_bar').RemoveClass("invisible")
+			if (weaponValues.level == weaponValues.maxLevel){
+				$('#weapon_exp_bar_inner').style.width = "100%"
+				$('#weapon_exp_bar_text').text = "<font color='#f4dc42'>"+"★ MAX LEVEL ★"+"</font>"
+			}else{
+				var percentage = (parseInt(weaponValues.xp)/parseInt(weaponValues.xpNeeded))*100
+				// percentage = toString(percentage)+"%"
+				$('#weapon_exp_bar_inner').RemoveClass('invisible')
+				$('#weapon_exp_bar_inner').style.width = percentage + "%"
+				$('#weapon_exp_bar_text').text = weaponValues.xp+" / "+weaponValues.xpNeeded
 			}
+
 		}else if(itemValues.maxLevel){
 			$('#tooltip_weapons_data_container').RemoveClass('invisible')
 			$('#tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
