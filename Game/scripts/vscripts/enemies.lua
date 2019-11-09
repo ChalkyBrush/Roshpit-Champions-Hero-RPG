@@ -194,6 +194,10 @@ function Enemies:InitializeEnemy(unit)
 	if GameState:IsSerengaard() then
 		deathXP = deathXP * Enemies.SERENGAARD_EXP_ADJUSTMENT
 	end
+	local dominion_kv = unit:GetKeyValue("RoshpitDominion")
+	if dominion_kv == 1 then
+		unit.dominion = true
+	end
 	unit.roshpit_attributes.deathXP = deathXP
 	unit:SetDeathXP(0)
 	-- gold bounty
