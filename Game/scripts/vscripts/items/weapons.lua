@@ -265,6 +265,9 @@ function Weapons:RollWeapon(rarity, item_level)
 	if rarity > RPC_ITEMS_RARITY_MYTHICAL then
 		return nil
 	end
+	if rarity == RPC_ITEMS_RARITY_COMMON then
+		return nil
+	end
 	-- "item_rpc_ekkan_weapon_01"
 	local item_variant = "item_rpc_"..internalName.."_weapon_"..Weapons:GetWeaponDigits(rarity)
 	local item = RPCItems:CreateItem(item_variant, nil, nil)
