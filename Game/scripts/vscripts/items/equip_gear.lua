@@ -27,6 +27,12 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	if item.newItemTable.property4 then
 		RPCItems:RecordGearBonusToHeroBySlot(item, hero, item.newItemTable.property4name, item.newItemTable.property4, gear_slot)
 	end
+	if item.newItemTable.socket1 then
+		RPCItems:RecordGemBonusesBySlot(item, hero, 1, item.newItemTable.socket1, item.newItemTable.socket1value, gear_slot)
+	end
+	if item.newItemTable.socket2 then
+		RPCItems:RecordGemBonusesBySlot(item, hero, 2, item.newItemTable.socket2, item.newItemTable.socket2value, gear_slot)
+	end
 
 	hero:ApplyGearBonusesByGearSlot(gear_slot)
 	if item.isLuaItem then
@@ -136,3 +142,25 @@ function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()
 	end
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "-rune_bonuses", hero.runes_bonus_table)
 end
+
+function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type, socket_value, gear_slot)
+	if item.newItemTable.rarityFactor < RPC_ITEMS_RARITY_IMMORTAL then
+		local property_name = nil
+		if socket_type == "ruby" then
+			property_name = "strength"
+		elseif socket_type == "sapphire" then
+			property_name = "intelligence"
+		elseif socket_type == "emerald" then
+			property_name = "agility"
+		elseif socket_type == "amethyst" then
+			property_name = "spirit"
+		end
+		if property_name then
+			if not hero.gear_bonuses[gear_slot][property_name] then
+				hero.gear_bonuses[gear_slot][property_name] = 0
+			end
+			hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + item:GetLevelSpecialValueFor(socket_type.."1", socket_value-1)
+		end
+	end
+end
+
