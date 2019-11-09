@@ -157,7 +157,7 @@ function CDOTA_BaseNPC:BossDrops(quantity)
 	local location = self:GetAbsOrigin()
 	for i = 1, quantity, 1 do
 		Timers:CreateTimer(i*0.5, function()
-			RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+			RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
 		end)
 	end
 end
