@@ -684,6 +684,7 @@ function Redfall:SpawnShipyardFerry()
 end
 
 function Redfall:SpawnShipyardPt2()
+	print("SHIPYARD PART 2")
 	local lookSpot = Vector(14976, -3392)
 	local fishSpawnTable = {Vector(14720, -3264), Vector(14720, -3072), Vector(14720, -2880), Vector(14720, -2688), Vector(14784, -2496), Vector(14848, -2240), Vector(15360, -2240), Vector(15296, -2496), Vector(15296, -2688), Vector(15232, -2880), Vector(15168, -3072), Vector(15040, -3264)}
 	for i = 1, #fishSpawnTable, 1 do
@@ -696,9 +697,12 @@ function Redfall:SpawnShipyardPt2()
 	local skeleThinkers = {Vector(14784, -3072), Vector(15168, -3072), Vector(14784, -2816), Vector(15168, -2816), Vector(14874, -2496), Vector(15105, -2300)}
 	for j = 1, #skeleThinkers, 1 do
 		local thinker = CreateUnitByName("dungeon_thinker", skeleThinkers[j], true, nil, nil, DOTA_TEAM_NEUTRALS)
+		thinker:SetAbsOrigin(GetGroundPosition(skeleThinkers[j], thinker))
 		thinker.dungeon = "abandoned_shipyard"
 		thinker.type = "shipyard_skeleton"
 		thinker:FindAbilityByName("dungeon_thinker"):SetLevel(1)
+		local thinker_ability = thinker:FindAbilityByName("dungeon_thinker")
+		thinker_ability.position = skeleThinkers[j]
 	end
 end
 

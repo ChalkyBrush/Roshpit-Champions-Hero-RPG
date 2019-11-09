@@ -2,7 +2,7 @@ function DungeonThink(event)
 	local caster = event.caster
 	local position = caster:GetAbsOrigin()
 	local ability = event.ability
-	caster:SetAbsOrigin(ability.position)
+	-- caster:SetAbsOrigin(ability.position)
 	local radius = 450
 	if caster.radius then
 		radius = caster.radius

@@ -110154,7 +110154,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"260"
+				"radius"				"200"
 			}
 			"02"
 			{
@@ -110175,6 +110175,12 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"scepter_cooldown"		"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_radius"		"700"
+				"RequiresScepter"	"1"
 			}
 		}
 	}
