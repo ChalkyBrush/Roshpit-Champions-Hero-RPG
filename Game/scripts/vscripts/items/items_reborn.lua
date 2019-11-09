@@ -106,6 +106,8 @@ RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_BOSS]["max"] = 8
 RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MAJOR_BOSS]["min"] = 4
 RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_MAJOR_BOSS]["max"] = 9
 
+RPCItems.MAX_ITEM_LEVEL = 120
+
 RPCItems.RARITY_BOOSTS = {}
 RPCItems.RARITY_BOOSTS[ENEMY_TYPE_WEAK_CREEP] = 0
 RPCItems.RARITY_BOOSTS[ENEMY_TYPE_NORMAL_CREEP] = 0
@@ -459,10 +461,11 @@ end
 
 function RPCItems:RollGearAttributeValue(item_level, property_type, property_slot, multiple)
 	local max_value = 1
+	local item_level_consider_for_rolling = RPCItems:GetPossibleHigherInternalItemLevel(item_level)
 	if property_slot then
-		max_value = RPCItems.AttributesRolls[property_slot][property_type] * item_level * multiple
+		max_value = RPCItems.AttributesRolls[property_slot][property_type] * item_level_consider_for_rolling * multiple
 	else
-		max_value = item_level * multiple
+		max_value = item_level_consider_for_rolling * multiple
 	end
 	local min_attempt = math.floor((max_value/1.5)/1.35)
 	local max_attempt = math.floor(max_value/1.35)
@@ -471,6 +474,13 @@ function RPCItems:RollGearAttributeValue(item_level, property_type, property_slo
 	roll = math.min(roll, max_value)
 	roll = math.max(roll, 1)
 	return math.floor(roll)
+end
+
+function RPCItems:GetPossibleHigherInternalItemLevel(item_level)
+	local internal_item_level_attempt = RPCItems:GetLogarithmicVarianceValue(item_level, 0, 0, 0, 0)
+	if internal_item_level_attempt > item_level then
+		return math.min(internal_item_level_attempt, RPCItems.MAX_ITEM_LEVEL)
+	end
 end
 
 
