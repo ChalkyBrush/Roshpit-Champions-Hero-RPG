@@ -337,6 +337,11 @@ function big_tree_die(event)
 			dummy:SetAbsOrigin(dummy:GetAbsOrigin() + Vector(0, 0, 200))
 			local dummyFV = WallPhysics:rotateVector(fv, (2 * math.pi / spawns) * i)
 			WallPhysics:Jump(dummy, dummyFV, 5 + RandomInt(1, 4), 5 + RandomInt(1, 4), 16, 0.45)
+
+			local pfx = CustomAbilities:QuickAttachParticle("particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", dummy, 10)
+			ParticleManager:SetParticleControl(pfx, 14, Vector(1.4,1.4,1.4))
+			ParticleManager:SetParticleControl(pfx, 15, Vector(250,120,0))
+
 			Timers:CreateTimer(4, function()
 				local unit = Redfall:SpawnAutumnSpawnerUnit(dummy:GetAbsOrigin(), RandomVector(1), 1, true)
 				CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_spawn.vpcf", unit, 3)

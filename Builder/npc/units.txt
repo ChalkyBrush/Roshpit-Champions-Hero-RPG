@@ -52235,7 +52235,7 @@
         "AttackDamageMin"   "38"
         "AttackDamageMax"   "40"
         "AttackRate"    "0.9"
-        "AttackAnimationPoint"  "1"
+        "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "150"
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
