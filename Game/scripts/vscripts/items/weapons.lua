@@ -405,7 +405,7 @@ function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot
 	item.newItemTable.minLevel = minLevel
 	item.newItemTable.maxLevel = maxLevel
 	item.newItemTable.requiredHero = whichHero
-
+	item.newItemTable.itemDescription = slotText
 	return item
 end
 
