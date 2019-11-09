@@ -1505,6 +1505,9 @@
 		"swamp_viper"								"Swamp Viper"
 		"swamp_razorfish"							"Razorfish"
 		"swamp_razorfish_captain"					"Razorfish Plaguebringer"
+		"DOTA_Tooltip_ability_swamp_razorfish_captain_passive"	"Plague Strike"
+		"DOTA_Tooltip_ability_swamp_razorfish_captain_passive_Description"	 "Applies poison on attack, which damages target every 0.5 seconds."
+		"DOTA_Tooltip_ability_swamp_razorfish_captain_passive_poison_damage" "POISON DAMAGE:"
 		"swamp_tribal_cultist"						"Tribal Cultist"
 		"the_bog_monster"							"The Bog Monster"
 		"swamp_tribal_invoker"						"Azunu the Mad"
@@ -2726,8 +2729,8 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_1_Description"			"Enemies who deal damage to your Heaven's Shield target take a % of the shielded unit's attack damage."
     	"DOTA_Tooltip_ability_auriun_rune_q_1_property_one"		"Reflect Damage"
     	"DOTA_Tooltip_ability_auriun_rune_q_1_suffix"				""
-        "DOTA_Tooltip_ability_auriun_rune_q_2_property_two"     "Bonus Reflect Damage"
-        "DOTA_Tooltip_ability_auriun_rune_q_2_suffix_two"       "% of Shield Bearer's Attack Power"
+        "DOTA_Tooltip_ability_auriun_rune_q_1_property_two"     "Bonus Reflect Damage"
+        "DOTA_Tooltip_ability_auriun_rune_q_1_suffix_two"       "% of Shield Bearer's Attack Power"
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_2"						"[Q2] Heightened Protection"
     	"DOTA_Tooltip_ability_auriun_rune_q_2_Description"			"Adds a chance on a receiving Heaven's Shield buff to gain extra stacks of damage block. Greater than 100% means you get multiple stacks."
@@ -16867,7 +16870,7 @@
 		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed_Description"	"Attack and Movespeed Slow"
 
 		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai"				"Deep Winter"
-		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"Attacks have a 10% chance to freeze their target for 4 seconds. Targets cannot die while frozen."
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"Attacks have a 10% chance to freeze their target for 4 seconds. Targets cannot die while frozen. Wyrm will encase herself in ice if she feels danger."
 
 		"DOTA_Tooltip_modifier_lindworm_frost_effect"						"Frozen"
 		"DOTA_Tooltip_modifier_lindworm_frost_effect_Description"			"Can't be killed."
@@ -17935,6 +17938,9 @@
 		 "boulderspine_obsidian_cave_beast"			"Cave Beast"
 		 "boulderspine_mud_golem"					"Mud Golem"
 		 "boulderspine_firebat"						"Hellbat"
+		 "DOTA_Tooltip_ability_boulderspine_fire_bat_ai"	"Flaming Saliva"
+		 "DOTA_Tooltip_ability_boulderspine_fire_bat_ai_Description"	"Applies damage over time from burn every 0.8 seconds."
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai_damage"	"BURN DAMAGE:"
 
 		 "DOTA_Tooltip_ability_knockback_immunity"				"Knockback Immunity"
 		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Cannot be knocked back."

@@ -2592,7 +2592,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"0.2"
 
 		// Damage.
 		//-------------------------------------------------------
@@ -2674,7 +2674,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"0.2"
 
 		// Damage.
 		//-------------------------------------------------------
@@ -2763,7 +2763,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"0.2"
 
 		// Damage.
 		//-------------------------------------------------------
@@ -5321,7 +5321,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2"
+		"AbilityCooldown"				"0.2"
 
 		// Damage.
 		//-------------------------------------------------------
@@ -7134,7 +7134,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -11807,6 +11807,19 @@
 						"Function"		"red_general_rune_base_q_2_think"
 					}
 				}
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
+						"Function"			"red_general_ability_base_q_attackLand"
+						"Target"			"TARGET"
+						"duration"			"%duration"
+						"aoe_damage"		"%bolt_damage"
+						"base_radius"		"%bolt_aoe"
+					}
+				}				
 			}
 			"modifier_stun_attack"
 			{
@@ -11823,15 +11836,6 @@
 				}
 				"OnAttackLanded"
 				{
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
-						"Function"			"red_general_ability_base_q_attackLand"
-						"Target"			"TARGET"
-						"duration"			"%duration"
-						"aoe_damage"		"%bolt_damage"
-						"base_radius"		"%bolt_aoe"
-					}
 					"FireEffect"
 					{
 						"EffectName"		"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
@@ -11845,7 +11849,6 @@
 							"TARGET"		"attach_origin"	//CP3 has a child explosion origin
 						}
 					}
-
 				}
 			}
 			"modfier_axe_jumping"
@@ -13004,7 +13007,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45"
+				"property_one"			"35"
 			}
 			"02"
 			{
@@ -24757,7 +24760,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "15 35 55 75 95 115 135"
+				"damage"			    "20 35 55 80 95 115 135"
 			}
 			"04"
 			{
@@ -25359,7 +25362,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health"			    "100 240 380 520 660 800 940"
+				"health"			    "340 500 700 900 1200 1500 2000"
 			}
 			"03"
 			{
@@ -38625,6 +38628,12 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_move_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
 			}
 			"modifier_energy_channel_no_cast_filter"
 			{
@@ -54205,7 +54214,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"60 160 260 360 460 560 660"
+		"AbilityManaCost"				"60 110 260 360 460 560 660"
 
 		// Special
 		//-------------------------------------------------------
@@ -54214,7 +54223,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"10 20 100 180 280 340 500"
+				"damage"					"15 35 100 180 280 340 500"
 			}
 		}
 
@@ -59704,7 +59713,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityManaCost"				"45 80 140 300 380 460 540"
 
 		// Special
 		//-------------------------------------------------------
@@ -61043,7 +61052,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"6"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -62889,12 +62898,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_boomerangs"			"1 1 2 2 3 3 4"
+				"max_boomerangs"			"2 2 3 3 3 3 4"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"20 60 100 140 180 220 260"
+				"damage"			"20 60 100 140 200 240 260"
 			}
 		}
 		// Precache
@@ -63231,12 +63240,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_boomerangs"			"1 1 2 2 3 3 4"
+				"max_boomerangs"			"2 2 3 3 3 3 4"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"20 60 100 140 180 220 260"
+				"damage"			"20 60 100 140 200 240 260"
 			}
 		}
 		// Precache
@@ -64371,7 +64380,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -64551,7 +64560,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.5"
 			}
 			"03"
 			{
@@ -66796,7 +66805,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"stacks"				"2 3 4 5 6 7 8"
+				"stacks"				"6 6 7 7 8 8 8"
 			}
 		}
 		// Precache
@@ -66985,11 +66994,11 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2.0 1.6 1.2 0.8 0.4 0"
+		"AbilityCooldown"				"1.0 0.8 0.6 0.4 0.2 0"
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"50 120 190 260 330 400 470"
+		"AbilityManaCost"				"50 85 190 260 330 400 470"
 
 		// Special
 		//-------------------------------------------------------
@@ -67447,7 +67456,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"85"
 			}
 			"02"
 			{
@@ -67568,12 +67577,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"55"
+				"property_one"			"60"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"20"
+				"property_one_base"		"40"
 			}
 			"03"
 			{
@@ -68730,7 +68739,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"35 65 95 125 155 185 215"
+				"damage"					"50 75 95 125 155 185 215"
 			}
 			"03"
 			{
@@ -68740,7 +68749,7 @@
 			"04"
 			{
 				"var_type" 				"FIELD_FLOAT"
-				"heal_percent" 			"3.0 3.5 4.0 4.5 5.0 5.5 6.0"
+				"heal_percent" 			"6.0"
 			}
 			"05"
 			{
@@ -94572,7 +94581,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"poison_damage"			"500 10000 100000"
+				"poison_damage"			"10 80 800"
 			}
 		}
 		"Modifiers"
@@ -109401,7 +109410,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2200 15000 65000"
+		"AbilityDamage"					"350 1400 6000"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -110784,7 +110793,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"50 300 3000"
+				"damage"			"5 35 210"
 			}
 		}
 		"Modifiers"
@@ -111652,7 +111661,7 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/water_temple_ai"
 						"Function"		"tanari_ancient_think"
-						"damage"		"%AbilityDamage"
+						"damage"		"%damage"
 					}
 				}
 			}
@@ -111685,7 +111694,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"14"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"410 410 410"
 
@@ -113796,7 +113805,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 15000 75000"
+		"AbilityDamage"					"1200 15000 75000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -115891,7 +115900,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityDamage"			"7000 40000 150000"
+		"AbilityDamage"			"100 800 2000"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"	"earthshaker_aftershock"
 		"AOERadius"				"750"
