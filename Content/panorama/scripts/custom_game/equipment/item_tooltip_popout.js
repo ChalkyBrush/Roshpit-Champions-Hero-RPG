@@ -84,6 +84,11 @@ function initializeTooltip(func){
 					$('#properties_value1').RemoveClass('invisible')				
 				}				
 			}
+
+			$('#equipment_attribute_armor').AddClass('invisible')
+			$('#armor-text').AddClass('invisible')
+			$('#magic-armor-text').AddClass('invisible')
+			$('#equipment_attribute_magic_armor').AddClass('invisible')
 		}else{
 			$('#consumable-text').AddClass('invisible')
 			// ARMOR AND MAGIC ARMOR
