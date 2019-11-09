@@ -104,12 +104,32 @@ end
 function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
 	print("PROPERTY NAME: "..property_name)
 	if not hero.gear_bonuses[gear_slot][property_name] then
-		hero.gear_bonuses[gear_slot][property_name] = 0
+		if string.match(property_name, "all_attributes") then
+			if not hero.gear_bonuses[gear_slot]["strength"] then
+				hero.gear_bonuses[gear_slot]["strength"] = 0
+			end
+			if not hero.gear_bonuses[gear_slot]["agility"] then
+				hero.gear_bonuses[gear_slot]["agility"] = 0
+			end
+			if not hero.gear_bonuses[gear_slot]["intelligence"] then
+				hero.gear_bonuses[gear_slot]["intelligence"] = 0
+			end
+			if not hero.gear_bonuses[gear_slot]["spirit"] then
+				hero.gear_bonuses[gear_slot]["spirit"] = 0
+			end
+		else
+			hero.gear_bonuses[gear_slot][property_name] = 0
+		end
 	end
 	print("--RECORDING PROPERTY--")
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	if string.match(property_name, "immortal_weapon") then
 		hero.gear_bonuses[gear_slot][property_name] = 1
+	elseif string.match(property_name, "all_attributes") then
+		hero.gear_bonuses[gear_slot]["strength"] = hero.gear_bonuses[gear_slot]["strength"] + property_value
+		hero.gear_bonuses[gear_slot]["agility"] = hero.gear_bonuses[gear_slot]["agility"] + property_value
+		hero.gear_bonuses[gear_slot]["intelligence"] = hero.gear_bonuses[gear_slot]["intelligence"] + property_value
+		hero.gear_bonuses[gear_slot]["spirit"] = hero.gear_bonuses[gear_slot]["spirit"] + property_value
 	else
 		hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + property_value
 	end
