@@ -65,8 +65,19 @@ function Weapons:SetLegendWeaponProperty1(weapon, hero_name, propertyName, prope
 	end
 end
 
-function Weapons:SetLegendWeaponProperty2(weapon, propertyName, propertyMult)
+function Weapons:SetLegendWeaponProperty1Alt(weapon, hero_name, propertyName, propertyColor, propertyMult, weapon_number)
+	if propertyName == "immortal_weapon_1" then
+		weapon.newItemTable.property1 = 1
+		weapon.newItemTable.property1name = propertyName
+		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_"..hero_name.."_immortal_weapon"..weapon_number, propertyColor, 1, "#property_"..hero_name.."_immortal_weapon"..weapon_number.."_description")
+	else
+		weapon.newItemTable.property1 = RPCItems:RollGearAttributeValue(weapon.newItemTable.minLevel, nil, nil, Weapons.AttributeBaseRolls[propertyName]*propertyMult)
+		weapon.newItemTable.property1name = propertyName
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_"..propertyName, RPCItems.PROPERTY_COLORS[propertyName], 1)
+	end
+end
 
+function Weapons:SetLegendWeaponProperty2(weapon, propertyName, propertyMult)
 	weapon.newItemTable.property2 = RPCItems:RollGearAttributeValue(weapon.newItemTable.minLevel, nil, nil, Weapons.AttributeBaseRolls[propertyName]*propertyMult)
 	weapon.newItemTable.property2name = propertyName
 	RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_"..propertyName, RPCItems.PROPERTY_COLORS[propertyName], 2)
@@ -159,6 +170,9 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "arkimus" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#D84ED1", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
+	elseif internalName == "djanghor" then
+		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#A4EDA3", nil)
+		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
 	elseif internalName == "slipfinn" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#4286F4", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
@@ -200,351 +214,156 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	end
 
 	RPCItems:SetBaseItemValues(weapon, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, RPC_GEAR_SLOT_WEAPON)
-	RPCItems:BasicDropItem(location, weapon)
+	if not disableDrop then
+		RPCItems:BasicDropItem(location, weapon)
+	end
 	return weapon
 end
 
 function Weapons:RollLegendWeapon2(deathLocation, class, strictMaxItemLevel, disableDrop)
-
-	local maxFactor = RPCItems:GetMaxFactor()
-	local rarityRoll = RandomInt(1, 100 + RandomInt(1, maxFactor))
-	local rarity = "immortal"
+	local rarity = RPC_ITEMS_RARITY_IMMORTAL
 	local itemName = ""
+	local item_level = RPCItems:RollItemLevelFromUnit(100)
 	local mainAttrRoll = RandomInt(1, 3)
 	local internalName = class
 	local whichHero = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(class)
-	local rarityFactor = RPCItems:GetRarityFactor(rarity)
-	local maxLevel = math.min(RPCItems:GetLogarithmicVarianceValue(48, 0, 0, 0, 0), 50)
-	maxLevel = math.max(maxLevel, 50)
-	if strictMaxItemLevel then
-		maxLevel = strictMaxItemLevel
-	end
-	local maxLuck = RandomInt(1, 200)
+	local maxLevel = 10
 
-	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes(whichHero)
-	local specialProperty1 = RandomInt(1, #propensityTable)
-	local specialProperty2 = RandomInt(1, #propensityTable)
-	while specialProperty1 == specialProperty2 do
-		specialProperty2 = RandomInt(1, #propensityTable)
-	end
 	local weaponName = "item_rpc_"..internalName.."_immortal_weapon_2"
 
 	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, maxLevel, 100)
-
+	weapon.newItemTable.minLevel = item_level
 	if internalName == "flamewaker" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_flamewaker_immortal_weapon2", "#E06647", 1, "#property_flamewaker_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(18 + RandomInt(5, 21), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "agility"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-	elseif internalName == "voltex" then
-		local value = Weapons:GetDeviation(25 + RandomInt(6, 25), rarityFactor)
-		weapon.newItemTable.property1 = value
-		weapon.newItemTable.property1name = "all_attributes"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_all_attributes", "#FFFFFF", 1)
-
-		local value = Weapons:GetDeviation(24 + RandomInt(5, 22), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "agility"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-	elseif internalName == "venomort" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_venomort_immortal_weapon2", "#82C46D", 1, "#property_venomort_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(800 + RandomInt(1, 600), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#E06647", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
+	elseif internalName == "voltex"	then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "all_attributes", nil, 3)
+		Weapons:SetLegendWeaponProperty2(weapon, "agility", 3)
+	elseif internalName == "venomort" then	
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#82C46D", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "axe" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_axe_immortal_weapon2", "#FC643F", 1, "#property_axe_immortal_weapon2_description")
-
-		local value = RandomInt(1, 5)
-		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_NORMAL)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_NORMAL, color, 2)
-	elseif internalName == "astral" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_astral_immortal_weapon2", "#A86BFF", 1, "#property_astral_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(5 + RandomInt(1, 5), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "critical_strike"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_critical_strike", "#CC3D3D", 2)
-	elseif internalName == "epoch" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_epoch_immortal_weapon2", "#6BEF9A", 1, "#property_epoch_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(18 + RandomInt(8, 22), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "strength"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_strength", "#CC0000", 2)
-	elseif internalName == "paladin" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_paladin_immortal_weapon2", "#82C46D", 1, "#property_paladin_immortal_weapon2_description")
-
-		local value = math.min(Weapons:GetDeviation(4, rarityFactor), RandomInt(2, 7))
-		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_HOLY)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_HOLY, color, 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#FC643F", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_normal", 1)
+	elseif internalName == "astral" then	
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#A86BFF", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "armor_pierce", 3)
+	elseif internalName == "epoch" then	
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#6BEF9A", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
+	elseif internalName == "paladin" then	
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#82C46D", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_holy", 2)
 	elseif internalName == "sorceress" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_sorceress_immortal_weapon2", "#93F3F9", 1, "#property_sorceress_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(18 + RandomInt(8, 24), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "strength"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_strength", "#CC0000", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#93F3F9", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
 	elseif internalName == "conjuror" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_conjuror_immortal_weapon2", "#C4FFE6", 1, "#property_conjuror_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(14 + RandomInt(4, 20), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "all_attributes"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#C4FFE6", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "all_attributes", 2)
 	elseif internalName == "seinaru" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_seinaru_immortal_weapon2", "#8BEFA4", 1, "#property_seinaru_immortal_weapon2_description")
-
-		local value = math.min(Weapons:GetDeviation(5, rarityFactor), RandomInt(2, 8))
-		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_WIND)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_WIND, color, 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#8BEFA4", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_wind", 3)
 	elseif internalName == "warlord" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_warlord_immortal_weapon2", "#D6CF82", 1, "#property_warlord_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(16 + RandomInt(8, 20), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "intelligence"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#D6CF82", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "intelligence", 3)
 	elseif internalName == "bahamut" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_bahamut_immortal_weapon2", "#9EFFF2", 1, "#property_bahamut_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(16 + RandomInt(8, 28), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "intelligence"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-	elseif internalName == "duskbringer" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_duskbringer_immortal_weapon2", "#9EE2D3", 1, "#property_duskbringer_immortal_weapon2_description")
-
-		local value = math.min(Weapons:GetDeviation(4, rarityFactor), RandomInt(2, 7))
-		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_GHOST)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_GHOST, color, 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#9EFFF2", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "intelligence", 3)
 	elseif internalName == "auriun" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_auriun_immortal_weapon2", "#FFF95B", 1, "#property_auriun_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(16 + RandomInt(8, 28), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "intelligence"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#FFF95B", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "intelligence", 3)
+	elseif internalName == "duskbringer" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#9EE2D3", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_ghost", 3)
 	elseif internalName == "trapper" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_trapper_immortal_weapon2", "#C1A6A7", 1, "#property_trapper_immortal_weapon2_description")
-
-		local value = RandomInt(1, 3)
-		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_NORMAL)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_NORMAL, color, 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#C1A6A7", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_normal", 1.5)
 	elseif internalName == "spirit_warrior" then
-		local luck = RandomInt(1, 3)
-		local value = Weapons:GetDeviation(16 + RandomInt(8, 24), rarityFactor)
-		weapon.newItemTable.property1 = value
+		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			weapon.newItemTable.property1name = "intelligence"
-			RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_intelligence", "#33CCFF", 1)
+			Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "strength", nil, 3)
 		elseif luck == 2 then
-			weapon.newItemTable.property1name = "strength"
-			RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_strength", "#CC0000", 1)
+			Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "agility", nil, 3)
 		elseif luck == 3 then
-			weapon.newItemTable.property1name = "agility"
-			RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_agility", "#2EB82E", 1)
+			Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "intelligence", nil, 3)
+		elseif luck == 4 then
+			Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "spirit", nil, 3)
 		end
 		local luck = RandomInt(1, 3)
-		local value = math.min(Weapons:GetDeviation(3, rarityFactor), RandomInt(2, 5))
 		if luck == 1 then
-			local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_FIRE)
-			weapon.newItemTable.property2 = value
-			weapon.newItemTable.property2name = name
-			RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_FIRE, color, 2)
+			Weapons:SetLegendWeaponProperty2(weapon, "element_fire", 3)
 		elseif luck == 2 then
-			local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_WIND)
-			weapon.newItemTable.property2 = value
-			weapon.newItemTable.property2name = name
-			RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_WIND, color, 2)
+			Weapons:SetLegendWeaponProperty2(weapon, "element_wind", 3)
 		elseif luck == 3 then
-			local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_WATER)
-			weapon.newItemTable.property2 = value
-			weapon.newItemTable.property2name = name
-			RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_WATER, color, 2)
+			Weapons:SetLegendWeaponProperty2(weapon, "element_water", 3)
 		end
 	elseif internalName == "mountain_protector" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_mountain_protector_immortal_weapon2", "#AF2B2B", 1, "#property_mountain_protector_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(800 + RandomInt(1, 700), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#AF2B2B", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "chernobog" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_chernobog_immortal_weapon2", "#817BAD", 1, "#property_chernobog_immortal_weapon2_description")
-
-		local value = RandomInt(1, 3)
-		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_DEMON)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_DEMON, color, 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#817BAD", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_demon", 2)
 	elseif internalName == "solunia" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_solunia_immortal_weapon2", "#90D7ED", 1, "#property_solunia_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(800 + RandomInt(1, 700), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#90D7ED", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "hydroxis" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_hydroxis_immortal_weapon2", "#6D78BA", 1, "#property_hydroxis_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(700 + RandomInt(1, 600), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#6D78BA", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "ekkan" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_ekkan_immortal_weapon2", "#99B0C1", 1, "#property_ekkan_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(700 + RandomInt(1, 800), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#99B0C1", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "zonik" then
-		weapon.newItemTable.property1 = RandomInt(1, 3)
-		weapon.newItemTable.property1name = "movespeed"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_movespeed", "#B02020", 1)
-
-		local value = math.min(Weapons:GetDeviation(3, rarityFactor), RandomInt(3, 8))
-		local name, color = Elements:GetElementNameAndColorByCode(RPC_ELEMENT_TIME)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = name
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#rpc_item_element"..RPC_ELEMENT_TIME, color, 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "movespeed", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_time", 3)
 	elseif internalName == "arkimus" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_arkimus_immortal_weapon2", "#CC92E8", 1, "#property_arkimus_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(600 + RandomInt(1, 600), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#CC92E8", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "djanghor" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_djanghor_immortal_weapon2", "#E54E4E", 1, "#property_djanghor_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(14 + RandomInt(6, 18), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "strength"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_strength", "#CC0000", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#E54E4E", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "strength", 2)
 	elseif internalName == "slipfinn" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_slipfinn_immortal_weapon2", "#3D6DBA", 1, "#property_slipfinn_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(800 + RandomInt(1, 600), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#3D6DBA", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "sephyr" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_sephyr_immortal_weapon2", "#6de253", 1, "#property_sephyr_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(18 + RandomInt(5, 25), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "agility"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_agility", "#2EB82E", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#6de253", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
 	elseif internalName == "dinath" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_dinath_immortal_weapon2", "#83eafc", 1, "#property_dinath_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(200 + RandomInt(1, 550), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#83eafc", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "jex" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_jex_immortal_weapon2", "#5CCDF9", 1, "#property_jex_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(300 + RandomInt(1, 700), 0)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#5CCDF9", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "omniro" then
-		weapon.newItemTable.property1 = 1
-		weapon.newItemTable.property1name = "!immortal_weapon!"
-		RPCItems:SetPropertyValuesSpecial(weapon, "★", "#item_property_omniro_immortal_weapon2", "#c7eefc", 1, "#property_omniro_immortal_weapon2_description")
-
-		local value = Weapons:GetDeviation(25 + RandomInt(5, 22), rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "agility"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_agility", "#2EB82E", 2)
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#c7eefc", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
 	end
 
-	--print("------")
-	--print(class)
-	--DeepPrintTable(baseValueTable)
-	--DeepPrintTable(tooltipTable)
-	--DeepPrintTable(propertyTable)
-	--print("------")
-	local value = Weapons:GetDeviation(baseValueTable[specialProperty1] + RandomInt(1, 15), rarityFactor)
-	weapon.newItemTable.property3 = value
-	weapon.newItemTable.property3name = propertyTable[specialProperty1]
-	RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, tooltipTable[specialProperty1], colorTable[specialProperty1], 3)
 
-	local value = Weapons:GetDeviation(baseValueTable[specialProperty2] + RandomInt(1, 15), rarityFactor)
-	weapon.newItemTable.property4 = value
-	weapon.newItemTable.property4name = propertyTable[specialProperty2]
-	RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, tooltipTable[specialProperty2], colorTable[specialProperty2], 4)
-	RPCItems:ItemUpdateCustomNetTables(weapon)
+	local property = RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON])]
+	if property == "t1_rune" or property == "t2_rune" or property == "t3_rune" or property == "t4_rune" then
+		weapon.newItemTable.property3 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property3name = RPCItems:TranslateRuneRoll(property)
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, "rune", "#7DFF12", 3)
+	else
+		weapon.newItemTable.property3 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property3name = property
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, "item_"..property, RPCItems.PROPERTY_COLORS[property], 3)
+	end
+
+	local property = RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON])]
+	if property == "t1_rune" or property == "t2_rune" or property == "t3_rune" or property == "t4_rune" then
+		weapon.newItemTable.property4 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property4name = RPCItems:TranslateRuneRoll(property)
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, "rune", "#7DFF12", 4)
+	else
+		weapon.newItemTable.property4 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+		weapon.newItemTable.property4name = property
+		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, "item_"..property, RPCItems.PROPERTY_COLORS[property], 4)
+	end
+
+	RPCItems:SetBaseItemValues(weapon, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, RPC_GEAR_SLOT_WEAPON)
 	if not disableDrop then
-		local drop = CreateItemOnPositionSync(deathLocation, weapon)
-		local position = deathLocation
-		RPCItems:DropItem(weapon, position)
+		RPCItems:BasicDropItem(location, weapon)
 	end
 	return weapon
 end

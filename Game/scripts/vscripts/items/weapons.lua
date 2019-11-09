@@ -209,6 +209,28 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["base_ability"] = 6
 Weapons.STAT_ADD_PER_LEVEL_TABLE["item_damage"] = 6
 Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 60
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 60
+Weapons.STAT_ADD_PER_LEVEL_TABLE["movespeed"] = 6
+
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_normal"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_fire"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_earth"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_lightning"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_poison"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_time"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_holy"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_cosmic"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_ice"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_arcane"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_shadow"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_wind"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_ghost"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_water"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_demon"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_nature"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_undead"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_dragon"] = 8
+
+
 
 
 function Weapons:LevelUpWeapon(hero, weapon)
@@ -268,8 +290,26 @@ Weapons.AttributeBaseRolls["t2_rune"] = 0.16
 Weapons.AttributeBaseRolls["t3_rune"] = 0.08
 Weapons.AttributeBaseRolls["armor_pierce"] = 4
 Weapons.AttributeBaseRolls["spell_pierce"] = 4
+Weapons.AttributeBaseRolls["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * Weapons.AttributeBaseRolls["agility"] * 10
 
--- RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON]
+Weapons.AttributeBaseRolls["element_normal"] = 0.3
+Weapons.AttributeBaseRolls["element_fire"] = 0.3
+Weapons.AttributeBaseRolls["element_earth"] = 0.3
+Weapons.AttributeBaseRolls["element_lightning"] = 0.3
+Weapons.AttributeBaseRolls["element_poison"] = 0.3
+Weapons.AttributeBaseRolls["element_time"] = 0.3
+Weapons.AttributeBaseRolls["element_holy"] = 0.3
+Weapons.AttributeBaseRolls["element_cosmic"] = 0.3
+Weapons.AttributeBaseRolls["element_ice"] = 0.3
+Weapons.AttributeBaseRolls["element_arcane"] = 0.3
+Weapons.AttributeBaseRolls["element_shadow"] = 0.3
+Weapons.AttributeBaseRolls["element_wind"] = 0.3
+Weapons.AttributeBaseRolls["element_ghost"] = 0.3
+Weapons.AttributeBaseRolls["element_water"] = 0.3
+Weapons.AttributeBaseRolls["element_demon"] = 0.3
+Weapons.AttributeBaseRolls["element_nature"] = 0.3
+Weapons.AttributeBaseRolls["element_undead"] = 0.3
+Weapons.AttributeBaseRolls["element_dragon"] = 0.3
 
 function Weapons:RollWeapon(rarity, item_level)
 	local whichHero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]:GetUnitName()

@@ -447,6 +447,96 @@ RPCItems.AttributesRolls[2]["t4_rune"] = 0.0425
 RPCItems.AttributesRolls[3]["t4_rune"] = 0.0425
 RPCItems.AttributesRolls[4]["t4_rune"] = 0.0425
 
+RPCItems.AttributesRolls[1]["element_normal"] = 4
+RPCItems.AttributesRolls[2]["element_normal"] = 4
+RPCItems.AttributesRolls[3]["element_normal"] = 4
+RPCItems.AttributesRolls[4]["element_normal"] = 4
+
+RPCItems.AttributesRolls[1]["element_fire"] = 4
+RPCItems.AttributesRolls[2]["element_fire"] = 4
+RPCItems.AttributesRolls[3]["element_fire"] = 4
+RPCItems.AttributesRolls[4]["element_fire"] = 4
+
+RPCItems.AttributesRolls[1]["element_earth"] = 4
+RPCItems.AttributesRolls[2]["element_earth"] = 4
+RPCItems.AttributesRolls[3]["element_earth"] = 4
+RPCItems.AttributesRolls[4]["element_earth"] = 4
+
+RPCItems.AttributesRolls[1]["element_lightning"] = 4
+RPCItems.AttributesRolls[2]["element_lightning"] = 4
+RPCItems.AttributesRolls[3]["element_lightning"] = 4
+RPCItems.AttributesRolls[4]["element_lightning"] = 4
+
+RPCItems.AttributesRolls[1]["element_poison"] = 4
+RPCItems.AttributesRolls[2]["element_poison"] = 4
+RPCItems.AttributesRolls[3]["element_poison"] = 4
+RPCItems.AttributesRolls[4]["element_poison"] = 4
+
+RPCItems.AttributesRolls[1]["element_time"] = 4
+RPCItems.AttributesRolls[2]["element_time"] = 4
+RPCItems.AttributesRolls[3]["element_time"] = 4
+RPCItems.AttributesRolls[4]["element_time"] = 4
+
+RPCItems.AttributesRolls[1]["element_holy"] = 4
+RPCItems.AttributesRolls[2]["element_holy"] = 4
+RPCItems.AttributesRolls[3]["element_holy"] = 4
+RPCItems.AttributesRolls[4]["element_holy"] = 4
+
+RPCItems.AttributesRolls[1]["element_cosmic"] = 4
+RPCItems.AttributesRolls[2]["element_cosmic"] = 4
+RPCItems.AttributesRolls[3]["element_cosmic"] = 4
+RPCItems.AttributesRolls[4]["element_cosmic"] = 4
+
+RPCItems.AttributesRolls[1]["element_ice"] = 4
+RPCItems.AttributesRolls[2]["element_ice"] = 4
+RPCItems.AttributesRolls[3]["element_ice"] = 4
+RPCItems.AttributesRolls[4]["element_ice"] = 4
+
+RPCItems.AttributesRolls[1]["element_arcane"] = 4
+RPCItems.AttributesRolls[2]["element_arcane"] = 4
+RPCItems.AttributesRolls[3]["element_arcane"] = 4
+RPCItems.AttributesRolls[4]["element_arcane"] = 4
+
+RPCItems.AttributesRolls[1]["element_shadow"] = 4
+RPCItems.AttributesRolls[2]["element_shadow"] = 4
+RPCItems.AttributesRolls[3]["element_shadow"] = 4
+RPCItems.AttributesRolls[4]["element_shadow"] = 4
+
+RPCItems.AttributesRolls[1]["element_wind"] = 4
+RPCItems.AttributesRolls[2]["element_wind"] = 4
+RPCItems.AttributesRolls[3]["element_wind"] = 4
+RPCItems.AttributesRolls[4]["element_wind"] = 4
+
+RPCItems.AttributesRolls[1]["element_ghost"] = 4
+RPCItems.AttributesRolls[2]["element_ghost"] = 4
+RPCItems.AttributesRolls[3]["element_ghost"] = 4
+RPCItems.AttributesRolls[4]["element_ghost"] = 4
+
+RPCItems.AttributesRolls[1]["element_water"] = 4
+RPCItems.AttributesRolls[2]["element_water"] = 4
+RPCItems.AttributesRolls[3]["element_water"] = 4
+RPCItems.AttributesRolls[4]["element_water"] = 4
+
+RPCItems.AttributesRolls[1]["element_demon"] = 4
+RPCItems.AttributesRolls[2]["element_demon"] = 4
+RPCItems.AttributesRolls[3]["element_demon"] = 4
+RPCItems.AttributesRolls[4]["element_demon"] = 4
+
+RPCItems.AttributesRolls[1]["element_nature"] = 4
+RPCItems.AttributesRolls[2]["element_nature"] = 4
+RPCItems.AttributesRolls[3]["element_nature"] = 4
+RPCItems.AttributesRolls[4]["element_nature"] = 4
+
+RPCItems.AttributesRolls[1]["element_undead"] = 4
+RPCItems.AttributesRolls[2]["element_undead"] = 4
+RPCItems.AttributesRolls[3]["element_undead"] = 4
+RPCItems.AttributesRolls[4]["element_undead"] = 4
+
+RPCItems.AttributesRolls[1]["element_dragon"] = 4
+RPCItems.AttributesRolls[2]["element_dragon"] = 4
+RPCItems.AttributesRolls[3]["element_dragon"] = 4
+RPCItems.AttributesRolls[4]["element_dragon"] = 4
+
 function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, rarityFactor, minLevel, item_slot)
 	if not item.newItemTable then
 		item.newItemTable = {}
@@ -670,6 +760,25 @@ RPCItems.PROPERTY_COLORS["attack_speed"] = "#B02020"
 RPCItems.PROPERTY_COLORS["movespeed"] = "#B02020"
 RPCItems.PROPERTY_COLORS["aspect_health"] = "#343EC9"
 RPCItems.PROPERTY_COLORS["all_attributes"] = "#FFFFFF"
+
+RPCItems.PROPERTY_COLORS["element_normal"] = RPC_ELEMENT_NORMAL_COLOR
+RPCItems.PROPERTY_COLORS["element_fire"] = RPC_ELEMENT_FIRE_COLOR
+RPCItems.PROPERTY_COLORS["element_earth"] = RPC_ELEMENT_EARTH_COLOR
+RPCItems.PROPERTY_COLORS["element_lightning"] = RPC_ELEMENT_LIGHTNING_COLOR
+RPCItems.PROPERTY_COLORS["element_poison"] = RPC_ELEMENT_POISON_COLOR
+RPCItems.PROPERTY_COLORS["element_time"] = RPC_ELEMENT_TIME_COLOR
+RPCItems.PROPERTY_COLORS["element_holy"] = RPC_ELEMENT_HOLY_COLOR
+RPCItems.PROPERTY_COLORS["element_cosmic"] = RPC_ELEMENT_COSMOS_COLOR
+RPCItems.PROPERTY_COLORS["element_ice"] = RPC_ELEMENT_ICE_COLOR
+RPCItems.PROPERTY_COLORS["element_arcane"] = RPC_ELEMENT_ARCANE_COLOR
+RPCItems.PROPERTY_COLORS["element_shadow"] = RPC_ELEMENT_SHADOW_COLOR
+RPCItems.PROPERTY_COLORS["element_wind"] = RPC_ELEMENT_WIND_COLOR
+RPCItems.PROPERTY_COLORS["element_ghost"] = RPC_ELEMENT_GHOST_COLOR
+RPCItems.PROPERTY_COLORS["element_water"] = RPC_ELEMENT_WATER_COLOR
+RPCItems.PROPERTY_COLORS["element_demon"] = RPC_ELEMENT_DEMON_COLOR
+RPCItems.PROPERTY_COLORS["element_nature"] = RPC_ELEMENT_NATURE_COLOR
+RPCItems.PROPERTY_COLORS["element_undead"] = RPC_ELEMENT_UNDEAD_COLOR
+RPCItems.PROPERTY_COLORS["element_dragon"] = RPC_ELEMENT_DRAGON_COLOR
 
 function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level)
 	local property_type = RPCItems.REGULAR_PROPERTIES[item_slot][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[item_slot])]
