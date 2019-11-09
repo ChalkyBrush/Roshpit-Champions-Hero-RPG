@@ -55,6 +55,29 @@ RPCItems.DropCounts[ENEMY_TYPE_MAJOR_BOSS][10] = 85
 RPCItems.DropCounts[ENEMY_TYPE_MAJOR_BOSS][11] = 95
 RPCItems.DropCounts[ENEMY_TYPE_MAJOR_BOSS][12] = 100
 
+RPCItems.PotionsDrops = {}
+RPCItems.PotionsDrops[ENEMY_TYPE_WEAK_CREEP] = {}
+RPCItems.PotionsDrops[ENEMY_TYPE_NORMAL_CREEP] = {}
+RPCItems.PotionsDrops[ENEMY_TYPE_ELITE_CREEP] = {}
+RPCItems.PotionsDrops[ENEMY_TYPE_MINI_BOSS] = {}
+RPCItems.PotionsDrops[ENEMY_TYPE_BOSS] = {}
+RPCItems.PotionsDrops[ENEMY_TYPE_MAJOR_BOSS] = {}
+RPCItems.PotionsDrops[ENEMY_TYPE_WEAK_CREEP][0] = 85
+RPCItems.PotionsDrops[ENEMY_TYPE_WEAK_CREEP][1] = 100
+RPCItems.PotionsDrops[ENEMY_TYPE_NORMAL_CREEP][0] = 84
+RPCItems.PotionsDrops[ENEMY_TYPE_NORMAL_CREEP][1] = 97
+RPCItems.PotionsDrops[ENEMY_TYPE_NORMAL_CREEP][2] = 100
+RPCItems.PotionsDrops[ENEMY_TYPE_ELITE_CREEP][0] = 50
+RPCItems.PotionsDrops[ENEMY_TYPE_ELITE_CREEP][1] = 90
+RPCItems.PotionsDrops[ENEMY_TYPE_ELITE_CREEP][2] = 95
+RPCItems.PotionsDrops[ENEMY_TYPE_ELITE_CREEP][3] = 100
+RPCItems.PotionsDrops[ENEMY_TYPE_MINI_BOSS][0] = 30
+RPCItems.PotionsDrops[ENEMY_TYPE_MINI_BOSS][1] = 75
+RPCItems.PotionsDrops[ENEMY_TYPE_MINI_BOSS][2] = 88
+RPCItems.PotionsDrops[ENEMY_TYPE_MINI_BOSS][3] = 100
+RPCItems.PotionsDrops[ENEMY_TYPE_BOSS][0] = 100
+RPCItems.PotionsDrops[ENEMY_TYPE_MAJOR_BOSS][0] = 100
+
 RPCItems.RarityChances = {}
 RPCItems.RarityChances[RPC_ITEMS_RARITY_COMMON] = 4000
 RPCItems.RarityChances[RPC_ITEMS_RARITY_UNCOMMON] = 7500
@@ -109,7 +132,13 @@ function CDOTA_BaseNPC:DropItemsOnDeath()
 		end
 	end
 
-	local potions_count = RPCItems:GetPotionDrops()
+	local potions_count = RPCItems:GetPotionDrops(tier)
+	for i = 1, potions_count, 1 do
+		local potion = RPCItems:RollRandomPotion(unit_level)
+		if potion then
+			RPCItems:BasicDropItem(unit:GetAbsOrigin(), potion)
+		end
+	end
 end
 
 function CDOTA_BaseNPC:BossDrops(quantity)
@@ -131,6 +160,7 @@ function CDOTA_BaseNPC:BossDrops(quantity)
 end
 
 function CDOTA_BaseNPC:ChestDrops(quantity)
+	local unit = self
 	quantity = math.max(quantity + RandomInt(-2, 2), 0)
 	if quantity <= 0 then
 		return false
@@ -143,10 +173,6 @@ function CDOTA_BaseNPC:ChestDrops(quantity)
 	for i = 1, quantity, 1 do
 		RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
 	end
-end
-
-function RPCItems:GetPotionDrops()
-	return 0
 end
 
 function RPCItems:GetEnemyItemDropCount(tier, paragon)
@@ -686,4 +712,51 @@ function RPCItems:GrantItemBaseMagicArmor(item, item_level, base_factor)
 		magic_armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*9)
 	end
 	item.newItemTable.base_magic_armor = magic_armor
+end
+
+function RPCItems:GetPotionDrops(tier)
+	local base_roll = 0
+	base_roll = base_roll + RPCItems:GetConnectedPlayerCount()*4
+	local luck = RandomInt(base_roll, 100)
+
+	local drop_count = 0
+	for key, value in pairs(RPCItems.PotionsDrops[tier]) do
+		if luck <= value then
+			drop_count = key
+			break
+		end
+	end
+	return drop_count
+end
+
+RPCItems.BASE_POTION_TABLE = {"item_potion_green", "item_potion_blue"}
+
+function RPCItems:RollRandomPotion(potion_level)
+	local potion_variant = RPCItems.BASE_POTION_TABLE[RandomInt(1, #RPCItems.BASE_POTION_TABLE)]
+	local item = RPCItems:CreateItem(potion_variant, nil, nil)
+	local rarity = "common"
+	item.newItemTable.rarity = rarity
+	local rarityValue = RPCItems:GetRarityFactor(rarity)
+	local itemName = "Potion"
+	local suffix = ""
+	local prefix = ""
+	item.newItemTable.item_slot = "consumable"
+	item.cantStash = true
+
+
+	if potion_variant == "item_potion_green" then
+		local heal_amount = RPCItems:RollGearAttributeValue(potion_level, nil, nil, 100)
+		heal_amount = math.max(heal_amount, 100)
+		item.newItemTable.property1 = heal_amount
+		item.newItemTable.property1name = "heal"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_health_restore", "#99FF66", 1)
+	elseif potion_variant == "item_potion_blue" then
+		local mana_restore_amount = RPCItems:RollGearAttributeValue(potion_level, nil, nil, 80)
+		mana_restore_amount = math.max(mana_restore_amount, 100)
+		item.newItemTable.property1 = mana_restore_amount
+		item.newItemTable.property1name = "mana_heal"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_mana_restore", "#1975FF", 1)
+	end
+	RPCItems:SetTableValues(item, itemName, true, "Potion", RPCItems:GetRarityColor(rarity), rarity, prefix, suffix, RPCItems:GetRarityFactor(rarity))
+	return item
 end

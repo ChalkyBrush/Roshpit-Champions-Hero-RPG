@@ -754,24 +754,22 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 			suffix = " "..suffix
 		end
 	end
-	local minLevel = 0
-	if item.newItemTable.slot == "weapon" then
-		if not item.newItemTable.minLevel then
-			if rarityFactor < 5 then
-				minLevel = 0
-			else
-				minLevel = 100
-				item.newItemTable.minLevel = minLevel
-			end
-		end
-	end
-	if item.newItemTable.minLevel then
-	else
-		minLevel = RPCItems:GetMinLevel()
-		item.newItemTable.minLevel = minLevel
-	end
-
-	print("MIN LEVEL BEFORE ADJUST"..item.newItemTable.minLevel)
+	-- local minLevel = 0
+	-- if item.newItemTable.slot == "weapon" then
+	-- 	if not item.newItemTable.minLevel then
+	-- 		if rarityFactor < 5 then
+	-- 			minLevel = 0
+	-- 		else
+	-- 			minLevel = 100
+	-- 			item.newItemTable.minLevel = minLevel
+	-- 		end
+	-- 	end
+	-- end
+	-- if item.newItemTable.minLevel then
+	-- else
+	-- 	minLevel = RPCItems:GetMinLevel()
+	-- 	item.newItemTable.minLevel = minLevel
+	-- end
 	--
 	if not item.newItemTable.validator then
 		item.newItemTable.validator = RPCItems:GetRandomKey(13)

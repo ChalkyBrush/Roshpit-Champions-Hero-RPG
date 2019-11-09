@@ -293,12 +293,12 @@
     	"DOTA_Tooltip_ability_item_rpc_talisman_Description"							"Slot: Trinket"
     	
 
-    	"DOTA_Tooltip_ability_item_potion_green"										"Green Potion"
-    	"DOTA_Tooltip_ability_item_potion_green_Description"							"Can be consumed for bonuses."
+    	"DOTA_Tooltip_ability_item_potion_green"										"Health Potion"
+    	"DOTA_Tooltip_ability_item_potion_green_Description"							"Restores Health."
     	"DOTA_Tooltip_ability_item_potion_red"											"Red Potion"
     	"DOTA_Tooltip_ability_item_potion_red_Description"								"Can be consumed for bonuses."
-    	"DOTA_Tooltip_ability_item_potion_blue"											"Blue Potion"
-    	"DOTA_Tooltip_ability_item_potion_blue_Description"								"Can be consumed for bonuses."
+    	"DOTA_Tooltip_ability_item_potion_blue"											"Mana Potion"
+    	"DOTA_Tooltip_ability_item_potion_blue_Description"								"Restores Mana."
 
     	"DOTA_Tooltip_ability_item_fire_blaster"										"Fire Cannon"
     	"DOTA_Tooltip_ability_item_fire_blaster_Description"							"Creates a cone in front of the caster dealing damage and applying an elemental modifier."

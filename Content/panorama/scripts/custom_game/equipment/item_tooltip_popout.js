@@ -116,6 +116,9 @@ function initializeTooltip(func){
 			$('#properties_name1').RemoveClass('invisible')
 			$('#properties_value1').RemoveClass('invisible')
 
+	$.Msg("PROPERTY "+1)
+	$.Msg(itemProperty1)
+	
 			handleSpecialProperty(itemProperty1, 1, item, queryUnit, itemValues, itemProperty1)
 			//PROPERTY2
 			var itemProperty2 = {}
