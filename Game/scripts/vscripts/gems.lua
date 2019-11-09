@@ -7,6 +7,9 @@ Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 1
 Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 2
 Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 4
 
+Gems.GEMS_COST = {0, 30, 150, 750, 3750, 18750}
+Gems.ITEM_MIN_LEVEL_PER_GEM = {0, 15, 30, 45, 60}
+
 function Gems:GemForgerPossibleSpawnEvent(event_name)
 	if Gems.GemForgerSpawned then
 		return false
@@ -151,7 +154,7 @@ function Gems:CanItemBeSocketed(item)
 	else
 		allowed = false
 	end
-	if item.newItemTable.rarity == "immortal" then
+	if item.newItemTable.rarity == "immortal" or item.newItemTable.rarity == "mythical" or item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "uncommon" or item.newItemTable.rarity == "common" then
 	else
 		allowed = false
 	end
@@ -342,7 +345,7 @@ function Gems:CanItemProceedToGemMenu(item)
 	else
 		allowed = false
 	end
-	if item.newItemTable.rarity == "immortal" then
+	if item.newItemTable.rarity == "immortal" or item.newItemTable.rarity == "mythical" or item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "uncommon" or item.newItemTable.rarity == "common" then
 	else
 		allowed = false
 	end
@@ -364,15 +367,19 @@ function Gems:CanItemTakeGems(item)
 	end
 end
 
-function Gems:IsValidGemInput(item, socket_number, gem, gem_level)
-	return true
+function Gems:IsValidGemInput(item, socket_number, gem, gem_level, item)
+	if item.newItemTable.minLevel >= Gems.ITEM_MIN_LEVEL_PER_GEM[gem_level] then
+		return true
+	else
+		return false
+	end
 end
 
 function Gems:InsertGem(msg)
 	local item = EntIndexToHScript(msg.item)
 	local playerID = msg.PlayerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
-	if Gems:CanItemTakeGems(item) and Gems:IsValidGemInput(item, msg.socket_number, msg.gem, msg.gem_level) then
+	if Gems:CanItemTakeGems(item) and Gems:IsValidGemInput(item, msg.socket_number, msg.gem, msg.gem_level, item) then
 		if Gems:CanPlayerAffordGem(playerID, msg.socket_number, msg.gem, msg.gem_level, item) then
 			local cost = Gems:GetCostFromItem(msg.gem_level, item, msg.gem, msg.socket_number)
 			Gems:SetSocket(item, msg.socket_number, msg.gem, msg.gem_level, item)
@@ -402,12 +409,12 @@ function Gems:GetCostFromItem(gem_level, item, gem, socket_number)
 	if not current_level then
 		current_level = 0
 	end
-	local cost = Gems:GetGemCost(current_level, desired_level, gem)
+	local cost = Gems:GetGemCost(current_level, desired_level, gem, item.newItemTable.rarityFactor)
 	return cost
 end
 
-function Gems:GetGemCost(current_level, desired_level, gem)
-	gems_cost = {0, 30, 150, 750, 3750, 18750}
+function Gems:GetGemCost(current_level, desired_level, gem, item_rarity)
+	gems_cost = Gems.GEMS_COST
 	local cost = 0
 	if desired_level <= current_level then
 		cost = 0
@@ -415,6 +422,9 @@ function Gems:GetGemCost(current_level, desired_level, gem)
 		for i = current_level+1, desired_level, 1 do
 			cost = cost + gems_cost[i+1]
 		end
+	end
+	if item_rarity < RPC_ITEMS_RARITY_IMMORTAL then
+		cost = cost/5
 	end
 	return cost
 end

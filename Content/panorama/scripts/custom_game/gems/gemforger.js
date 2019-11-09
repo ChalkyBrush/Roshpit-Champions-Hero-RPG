@@ -1,6 +1,8 @@
 gemforge_item = -1
 mTooltipPanel = null
 
+ITEM_MIN_LEVEL_PER_GEM = [0, 15, 30, 45, 60]
+
 function OpenGemforger(msg){
 	$.Msg("GEM FORGER")
 	var parent = $('#gemforger_container')
@@ -168,25 +170,28 @@ function attach_gems_list(parent, gem, gem_level, item, socket_number){
 	var attacher = $.CreatePanel("Panel", parent, "gems-list")
 	attacher.BLoadLayoutSnippet('socket_gems_list')
 	list_attacher = attacher.FindChildTraverse('socket_gems_list_row_attacher')
+	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
 	for (i = 1; i <= 5; i++) {
-		var gem_panel = $.CreatePanel("Panel", list_attacher, "gem-"+gem+i)
-		var check_level = i
-		gem_panel.BLoadLayoutSnippet('socket_gem')
-		gem_panel.FindChildTraverse('socket_gem_image').SetImage("file://{images}/items/gems/"+gem+i+".png")
-		var cost = calculate_forge_cost(gem_level, check_level, gem)
-		if (i <= gem_level){
-			gem_panel.FindChildTraverse('socket_gem_overlay').SetImage("file://{images}/custom_game/ui/trade-y.png")
-		}else{
-			gem_panel.AddClass('socket_gem_hoverable')
-			if (!(can_afford_gem(cost))){
-				gem_panel.FindChildTraverse('socket_gem_overlay').AddClass('too-poor-for-gem')
-				gem_panel.SetPanelEvent("onactivate", function GemClick() {
-					Game.EmitSound("UI.TooFarDialogue")
-				})
+		if (itemValues.minLevel >= ITEM_MIN_LEVEL_PER_GEM[i-1]){
+			var gem_panel = $.CreatePanel("Panel", list_attacher, "gem-"+gem+i)
+			var check_level = i
+			gem_panel.BLoadLayoutSnippet('socket_gem')
+			gem_panel.FindChildTraverse('socket_gem_image').SetImage("file://{images}/items/gems/"+gem+i+".png")
+			var cost = calculate_forge_cost(gem_level, check_level, gem)
+			if (i <= gem_level){
+				gem_panel.FindChildTraverse('socket_gem_overlay').SetImage("file://{images}/custom_game/ui/trade-y.png")
 			}else{
-				set_gem_click(gem_panel, gem, i, item, socket_number)
+				gem_panel.AddClass('socket_gem_hoverable')
+				if (!(can_afford_gem(cost))){
+					gem_panel.FindChildTraverse('socket_gem_overlay').AddClass('too-poor-for-gem')
+					gem_panel.SetPanelEvent("onactivate", function GemClick() {
+						Game.EmitSound("UI.TooFarDialogue")
+					})
+				}else{
+					set_gem_click(gem_panel, gem, i, item, socket_number)
+				}
+				set_gem_hover_events(gem_panel, gem, i, item, gem_level)
 			}
-			set_gem_hover_events(gem_panel, gem, i, item, gem_level)
 		}
 	}
 }
@@ -223,14 +228,18 @@ function gem_hover(panel, item, gem, gem_number, current_level){
 	}else if (gem == "amethyst"){
 		title_color = "#c744b8"
 	}
+	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
+	$.Msg(itemValues)
+	var qualityColor = itemValues.qualityColor
+	var rarityFactor = itemValues.rarityFactor
 	var item_name = Abilities.GetAbilityName(item)
 	var title = "<font color='"+title_color+"'>"+$.Localize("gems_"+gem+gem_number)+"</font>"
-	var tooltip = "<font color='"+'#E4AE33'+"'>"+$.Localize("DOTA_Tooltip_ability_"+item_name)+"</font>"+"<br><br>"
+	var tooltip = "<font color='"+qualityColor+"'>"+$.Localize("DOTA_Tooltip_ability_"+item_name)+"</font>"+"<br><br>"
 
 	var base_gem_tooltip = $.Localize(item_name+"_"+gem+gem_number)
 
-	base_gem_tooltip = substituteGemDescriptions(base_gem_tooltip, gem, gem_number, item)
-	var cost = calculate_forge_cost(current_level, gem_number, gem)
+	base_gem_tooltip = substituteGemDescriptions(base_gem_tooltip, gem, gem_number, item, rarityFactor)
+	var cost = calculate_forge_cost(current_level, gem_number, gem, rarityFactor)
 	tooltip = tooltip + base_gem_tooltip + "<br><br>"
 	tooltip = "<font color='"+'#FFFFFF'+"'>"+tooltip + "Cost: " + cost + " Prismatic Gemstones"+"</font>"
 	if (!(can_afford_gem(cost))){
@@ -243,7 +252,7 @@ function gem_unhover(panel){
 	$.DispatchEvent( "DOTAHideTitleTextTooltip", panel );
 }
 
-function calculate_forge_cost(current_level, highlighted_level, gem){
+function calculate_forge_cost(current_level, highlighted_level, gem, rarityFactor){
 	$.Msg("CALC FORGE COST:")
 	$.Msg("CURRENT LEVEL: "+current_level+" | HIGHLIGHTED: "+highlighted_level)
 	var gem_costs = [0, 30, 150, 750, 3750, 18750]
@@ -255,6 +264,9 @@ function calculate_forge_cost(current_level, highlighted_level, gem){
 			$.Msg(k)
 			total_cost = total_cost + gem_costs[k]
 		}
+	}
+	if (rarityFactor < 5){
+		total_cost = total_cost/5
 	}
 	return total_cost
 }

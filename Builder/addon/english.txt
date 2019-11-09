@@ -1283,6 +1283,11 @@
 		"gems_amethyst4"												"Pristine Amethyst"
 		"gems_amethyst5"												"Perfect Amethyst"
 
+		"rpc_items_basic_ruby"	"Increases Strength by @ruby_property1"
+		"rpc_items_basic_emerald" "Increases Agility by @emerald_property1"
+		"rpc_items_basic_sapphire" "Increases Intelligence by @sapphire_property1"
+		"rpc_items_basic_amethyst" "Increases Spirit by @amethyst_property1"
+
 	    //------------------------
 		// World
 		//------------------------

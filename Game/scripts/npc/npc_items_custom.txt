@@ -33401,6 +33401,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_cap"
@@ -33428,6 +33451,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -33459,6 +33505,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_wraps"
@@ -33486,6 +33555,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -33517,6 +33609,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_rpc_gauntlets"
@@ -33544,6 +33659,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -33575,6 +33713,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_rpc_boots"
@@ -33602,6 +33763,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -33633,6 +33817,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_rpc_robe"
@@ -33660,6 +33867,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -33691,6 +33921,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_rpc_mail"
@@ -33718,6 +33971,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -33749,6 +34025,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_rpc_talisman"
@@ -33778,6 +34077,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
+			}
+		}
 	}
 
 	"item_rpc_steel_ring"
@@ -33805,6 +34127,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"30 60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"30 60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"30 60 90 120 150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"30 60 90 120 150"
 			}
 		}
 	}

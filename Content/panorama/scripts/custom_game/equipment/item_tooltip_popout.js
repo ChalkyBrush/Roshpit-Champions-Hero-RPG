@@ -116,9 +116,6 @@ function initializeTooltip(func){
 			$('#properties_name1').RemoveClass('invisible')
 			$('#properties_value1').RemoveClass('invisible')
 
-	$.Msg("PROPERTY "+1)
-	$.Msg(itemProperty1)
-	
 			handleSpecialProperty(itemProperty1, 1, item, queryUnit, itemValues, itemProperty1)
 			//PROPERTY2
 			var itemProperty2 = {}
@@ -272,7 +269,7 @@ function manageTooltipGems(item, item_table)
 					var gem_title = $.Localize("gems_"+item_table.socket1+item_table.socket1value)
 					$('#gem_title1').text = "<font color='"+gem_color+"'>"+gem_title+"</font>"	
 					$('#gem_title1').RemoveClass("open_socket_title")
-					$('#gem_description1').text = substituteGemDescriptions("unknown_description", item_table.socket1, item_table.socket1value, item)
+					$('#gem_description1').text = substituteGemDescriptions("unknown_description", item_table.socket1, item_table.socket1value, item, item_table.rarityFactor)
 					$('#gem_description1').RemoveClass('invisible')		
 					var gem1image = "file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png"
 					$('#gem_image1').SetImage(gem1image)	
@@ -290,7 +287,7 @@ function manageTooltipGems(item, item_table)
 						var gem_title = $.Localize("gems_"+item_table.socket2+item_table.socket2value)
 						$('#gem_title2').text = "<font color='"+gem_color+"'>"+gem_title+"</font>"	
 						$('#gem_title2').RemoveClass("open_socket_title")
-						$('#gem_description2').text = substituteGemDescriptions("unknown_description", item_table.socket2, item_table.socket2value, item)	
+						$('#gem_description2').text = substituteGemDescriptions("unknown_description", item_table.socket2, item_table.socket2value, item, item_table.rarityFactor)	
 						$('#gem_description2').RemoveClass('invisible')
 						var gem2image = "file://{images}/items/gems/"+item_table.socket2+item_table.socket2value+".png"
 						$('#gem_image2').SetImage(gem2image)		

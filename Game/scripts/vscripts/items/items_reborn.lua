@@ -116,6 +116,10 @@ RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS] = 5000
 RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS] = 7000
 RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MAJOR_BOSS] = 7000
 
+RPCItems.SOCKETS_ON_DROP_CHANCE = {}
+RPCItems.SOCKETS_ON_DROP_CHANCE[1] = 5
+RPCItems.SOCKETS_ON_DROP_CHANCE[2] = 10
+
 function CDOTA_BaseNPC:DropItemsOnDeath()
 	local unit = self
 	local unit_level = 0
@@ -480,6 +484,8 @@ function RPCItems:GetPossibleHigherInternalItemLevel(item_level)
 	local internal_item_level_attempt = RPCItems:GetLogarithmicVarianceValue(item_level, 0, 0, 0, 0)
 	if internal_item_level_attempt > item_level then
 		return math.min(internal_item_level_attempt, RPCItems.MAX_ITEM_LEVEL)
+	else
+		return item_level
 	end
 end
 
@@ -619,9 +625,21 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    end
 	    RPCItems:GrantItemBaseArmor(item, item_level, basic_item_table["armor"])
 	    RPCItems:GrantItemBaseMagicArmor(item, item_level, basic_item_table["magic_armor"])
+	    RPCItems:SocketsChance(item)
 	    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
 	    return item
 	else
+	end
+end
+
+function RPCItems:SocketsChance(item)
+	local socket_chance = RandomInt(1, 100)
+	if socket_chance <= RPCItems.SOCKETS_ON_DROP_CHANCE[1] then
+		Gems:AddSocket(item)
+		local socket_chance2 = RandomInt(1, 100)
+		if socket_chance2 <= RPCItems.SOCKETS_ON_DROP_CHANCE[2] then
+			Gems:AddSocket(item)
+		end
 	end
 end
 

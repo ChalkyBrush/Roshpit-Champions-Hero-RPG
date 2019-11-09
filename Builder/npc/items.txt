@@ -3474,6 +3474,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_cap"
@@ -3501,6 +3524,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
 			}
 		}
 	}
@@ -3532,6 +3578,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_wraps"
@@ -3559,6 +3628,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
 			}
 		}
 	}
@@ -3590,6 +3682,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_rpc_gauntlets"
@@ -3617,6 +3732,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
 			}
 		}
 	}
@@ -3648,6 +3786,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_rpc_boots"
@@ -3675,6 +3836,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
 			}
 		}
 	}
@@ -3706,6 +3890,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_rpc_robe"
@@ -3733,6 +3940,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
 			}
 		}
 	}
@@ -3764,6 +3994,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_rpc_mail"
@@ -3791,6 +4044,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
 			}
 		}
 	}
@@ -3822,6 +4098,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_rpc_talisman"
@@ -3851,6 +4150,29 @@
 				"Function"		"equip_item"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
+			}
+		}
 	}
 
 	"item_rpc_steel_ring"
@@ -3878,6 +4200,29 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% BASIC_RUBY_STRENGTH %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BASIC_EMERALD_AGILITY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BASIC_SAPPHIRE_INTELLIGENCE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% BASIC_AMETHYST_SPIRIT %>"
 			}
 		}
 	}
