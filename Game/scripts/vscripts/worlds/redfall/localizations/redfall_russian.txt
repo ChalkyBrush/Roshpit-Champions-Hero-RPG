@@ -39,7 +39,7 @@
 		"redfall_quest_2_objective"								"Одолейте Духов Мари."
 
 		"redfall_blessing_of_maru"								"Благословение Мари"
-		"redfall_blessing_of_maru_Description"					"Дарует 50/300/1000 ко всем атрибутам на 60 минут."
+		"redfall_blessing_of_maru_Description"					"Дарует 35/100/200 ко всем атрибутам на 60 минут."
 
 		"DOTA_Tooltip_modifier_blessing_of_maru"				"Благословение Мари"
 		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Доп. атрибуты"

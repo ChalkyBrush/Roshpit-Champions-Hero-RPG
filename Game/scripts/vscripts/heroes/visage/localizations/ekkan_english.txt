@@ -89,8 +89,10 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"30% of summoned skeletons spawn as a skeleton archer that has ranged attacks and a scaling attack multiplier. Archers have a 30% chance to deal critical strikes that pierce armor and have <font color=\"#5C776E\">Undead</font> element."
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"Attack power multiple of Ekkan's"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
-        "DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Critical Damage"
-        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
+		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Base Attack Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    ""
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_property_three"                  "Critical Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_three"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] Extended Reanimation"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Increases the lifetime duration of summoned skeletons. Each active skeleton increases Ekkan's <font color=\"#5C776E\">Undead</font> damage."

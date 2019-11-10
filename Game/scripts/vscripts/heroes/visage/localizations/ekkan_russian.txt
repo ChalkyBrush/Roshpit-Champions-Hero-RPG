@@ -89,8 +89,10 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - лучник. Имеют множитель от урона персонажа и 30% шанс нанести критический урон с элементом <font color=\"#5C776E\">Нежити</font>."
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"Множитель урона от урона Ekkan"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
-		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Критический Урон"
-        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
+		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Урон атаки (Базовый)"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    ""
+		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_three"                  "Критический Урон"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_three"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] Extended Reanimation"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Увеличивает время жизни призванных скелетов. Каждый вызванный скелет увеличивает элемент <font color=\"#5C776E\">Нежити</font>."
