@@ -299,7 +299,7 @@ Enemies.SERENGAARD_BUFFS_PER_WAVE["health"] = 0.05
 function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
 	local adjusted_attribute_value = base_attribute_value
 	if GameState:IsWinterblight() then
-		base_attribute_value = base_attribute_value * (1 + Winterblight.Stones*Enemies.WINTERBLIGHT_STONES_BUFFS[attribute_type])
+		adjusted_attribute_value = base_attribute_value * (1 + Winterblight.Stones*Enemies.WINTERBLIGHT_STONES_BUFFS[attribute_type])
 		Timers:CreateTimer(0.1, function()
 			if enemy:HasModifier("modifier_winterblight_cavern_unit") then
 				local chamber_level = 1
