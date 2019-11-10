@@ -153,7 +153,7 @@ end
 
 function Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level)
 	if GameState:GetDifficultyFactor() > 1 then
-		return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL_AFTER_NORMAL[GameState:GetDifficultyFactor()]
+		return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[GameState:GetDifficultyFactor()]
 	else
 		return 0
 	end
@@ -264,20 +264,28 @@ Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_armor_pierce"] = 0.75
 Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_spell_pierce"] = 0.75
 Enemies.WINTERBLIGHT_STONES_BUFFS["health"] = 0.5
 
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL = {}
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["attack_damage"] = 0.1
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_magic_armor"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor_pierce"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_spell_pierce"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["health"] = 0.1
+
 function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
 	local adjusted_attribute_value = base_attribute_value
 	if GameState:IsWinterblight() then
 		base_attribute_value = base_attribute_value * (1 + Winterblight.Stones*Enemies.WINTERBLIGHT_STONES_BUFFS[attribute_type])
 		Timers:CreateTimer(0.1, function()
 			if enemy:HasModifier("modifier_winterblight_cavern_unit") then
-				-- local chamber_level = 1
-				-- if attacker.chamber == 0 then
-				-- 	chamber_level = attacker.boss_level
-				-- else
-				-- 	chamber_level = Winterblight.CavernData.Chambers[attacker.chamber]["level"]
-				-- end
-				-- local damage_amp = 0.2*chamber_level
-				-- filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp
+				local chamber_level = 1
+				if enemy.chamber == 0 then
+					chamber_level = enemy.boss_level
+				else
+					chamber_level = Winterblight.CavernData.Chambers[enemy.chamber]["level"]
+				end
+				local damage_amp = 0.2*chamber_level
+				filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp
 			end
 		end)
 	end
