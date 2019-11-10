@@ -2532,9 +2532,6 @@
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"Damage Per Star"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix_two"				""
-
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"Starstorm"
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Each stack reducing <font color=\"#C25DFC\">Cosmic</font> resistance by 10%%."
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
         "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Increases the damage of [R1]. Each star also slams the ground on impact, dealing its damage in a small area around the primary target and stunning all affected enemies for 0.03 seconds."
@@ -2547,6 +2544,8 @@
     	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius around her. These attacks deal damage based on the Ranger's total attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
+		"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Phoenix Damage"
+		"DOTA_Tooltip_ability_astral_rune_r_3_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_4"							"[R4] Cosmic Blessing"
     	"DOTA_Tooltip_ability_astral_rune_r_4_Description"				"Passively improves the activation chance of items and runes, by a percent of its base chance. This is not a flat bonus."
@@ -5602,8 +5601,10 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"30% of summoned skeletons spawn as a skeleton archer that has ranged attacks and a scaling attack multiplier. Archers have a 30% chance to deal critical strikes that pierce armor and have <font color=\"#5C776E\">Undead</font> element."
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"Attack power multiple of Ekkan's"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
-        "DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Critical Damage"
-        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
+		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Base Attack Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    ""
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_property_three"                  "Critical Damage"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_three"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] Extended Reanimation"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Increases the lifetime duration of summoned skeletons. Each active skeleton increases Ekkan's <font color=\"#5C776E\">Undead</font> damage."
@@ -5815,6 +5816,7 @@
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "Tormented Depth Spirits"
         "item_property_ekkan_immortal_weapon3"                             "Zombility"
         "property_ekkan_immortal_weapon3_description"                      "Damage directly by Dominion units is increased by @special_property1x."
+
 
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell, and Flame Rush"
 
@@ -10709,8 +10711,8 @@
 		
 		"DOTA_Tooltip_ability_trapper_rune_q_3"                     "[Q3] Elemental Pit"
         "DOTA_Tooltip_ability_trapper_rune_q_3_Description"         "Enemies within any trap have reduced Magic Armor."
-        "DOTA_Tooltip_ability_trapper_rune_q_3_property_one"        "Elemental Damage Enhance"
-        "DOTA_Tooltip_ability_trapper_rune_q_3_suffix"              "%"
+        "DOTA_Tooltip_ability_trapper_rune_q_3_property_one"        "Magic Armor Reduction"
+        "DOTA_Tooltip_ability_trapper_rune_q_3_suffix"              ""
 		
 		"DOTA_Tooltip_modifier_fulminating_magic_resist_loss"		"Elemental Pit"		
     	"DOTA_Tooltip_modifier_trap_magic_resist_loss_Description"	"Losing Magic Resistance"
@@ -14540,7 +14542,7 @@
 		"redfall_quest_2_objective"								"Defeat the Mari Sprites."
 
 		"redfall_blessing_of_maru"								"Blessing of Mari"
-		"redfall_blessing_of_maru_Description"					"Grants 50/300/1000 to all stats for 60 minutes"
+		"redfall_blessing_of_maru_Description"					"Grants 35/100/200 to all stats for 60 minutes"
 
 		"DOTA_Tooltip_modifier_blessing_of_maru"				"Blessing of Mari"
 		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Increased Attributes"

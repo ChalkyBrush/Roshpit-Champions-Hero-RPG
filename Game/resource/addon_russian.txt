@@ -2470,9 +2470,6 @@
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"Урон каждой звездой"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix_two"				""
-
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"Starstorm"
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Каждый заряд снижает сопротивление цели стихии <font color=\"#C25DFC\">Космоса</font> на 10%%."
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
         "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Звезды от [R1] создают кристальный взрыв при приземлении, нанося урон и оглушая цели в небольшой области на 0.03 секунды."
@@ -2484,7 +2481,8 @@
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
     	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4 Astral Ranger призывает космического Феникса, который будет следовать за героем и атаковать врагов в значительном радиусе последующие 20 секунд. Урон зависит от общей силы атаки героя."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Урон феникса"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% от силы атаки героя"
+    	"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Урон феникса"
+		"DOTA_Tooltip_ability_astral_rune_r_3_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_4"							"[R4] Cosmic Blessing"
     	"DOTA_Tooltip_ability_astral_rune_r_4_Description"				"Пассивно увеличивает шанс срабатывания рун, предметов и способностей (Этот бонус не добавляет процент к шансу, а увеличивает текущую вероятность события на определенный процент)."
@@ -5468,8 +5466,10 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - лучник. Имеют множитель от урона персонажа и 30% шанс нанести критический урон с элементом <font color=\"#5C776E\">Нежити</font>."
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_property_one"					"Множитель урона от урона Ekkan"
     	"DOTA_Tooltip_ability_ekkan_rune_w_1_suffix"						"%"
-		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Критический Урон"
-        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    "%"
+		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_two"                  "Урон атаки (Базовый)"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_two"                    ""
+		"DOTA_Tooltip_ability_ekkan_rune_w_1_property_three"                  "Критический Урон"
+        "DOTA_Tooltip_ability_ekkan_rune_w_1_suffix_three"                    "%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_2"								"[W2] Extended Reanimation"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Увеличивает время жизни призванных скелетов. Каждый вызванный скелет увеличивает элемент <font color=\"#5C776E\">Нежити</font>."
@@ -14328,7 +14328,7 @@
 		"redfall_quest_2_objective"								"Одолейте Духов Мари."
 
 		"redfall_blessing_of_maru"								"Благословение Мари"
-		"redfall_blessing_of_maru_Description"					"Дарует 50/300/1000 ко всем атрибутам на 60 минут."
+		"redfall_blessing_of_maru_Description"					"Дарует 35/100/200 ко всем атрибутам на 60 минут."
 
 		"DOTA_Tooltip_modifier_blessing_of_maru"				"Благословение Мари"
 		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Доп. атрибуты"

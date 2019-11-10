@@ -7747,7 +7747,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"				"50 55 60 65 70 75 80"
+				"burn_damage"				"80 110 130 150 170 180 200"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
@@ -8014,7 +8014,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_mult"			"4"
+				"attack_mult"			"2"
 			}
 			"05"
 			{
@@ -9031,7 +9031,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"percent_attack_damage"	"100 150 200 250 300 350 400"
+				"percent_attack_damage"	"60 85 110 140 160 180 200"
 			}
 			"03"
 			{
@@ -9041,7 +9041,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"health_regen"	"0.2 0.35 0.5 0.65 0.7 0.85 1.0"
+				"health_regen"	"1.0"
 			}
 		}
 	}
@@ -9164,6 +9164,11 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_three"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"element_one"	    	"17"
 			}
 			"04"
@@ -9187,7 +9192,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.75"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -9335,7 +9340,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"--100"
+				"property_one"			"-50"
 			}
 		}
 	}
@@ -14898,11 +14903,11 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"3"
+		"AbilityCooldown"				"2.5"
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"60 120 180 240 300 360 420"
+		"AbilityManaCost"				"45 80 140 240 300 360 420"
 
 		// Special
 		//-------------------------------------------------------
@@ -15068,11 +15073,11 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"3"
+		"AbilityCooldown"				"2.5"
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"60 120 180 240 300 360 420"
+		"AbilityManaCost"				"45 80 140 240 300 360 420"
 
 		// Special
 		//-------------------------------------------------------
@@ -15246,11 +15251,11 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"3"
+		"AbilityCooldown"				"2.5"
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"60 120 180 240 300 360 420"
+		"AbilityManaCost"				"45 80 140 240 300 360 420"
 
 		// Special
 		//-------------------------------------------------------
@@ -16526,7 +16531,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"10"
+				"property_two"			"15"
 			}
 			"03"
 			{
@@ -46833,8 +46838,8 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 		"60"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 		"30"
 				}
 			}
 
@@ -47034,13 +47039,6 @@
                     {
                         "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
                     }
-                }
-                "modifier_starfall_a_d_visible"
-                {
-                    "IsHidden"  "0"
-                    "IsDebuff"  "1"
-                    "IsStunDebuff"  "1"
-                    "TextureName"   "mirana_starfall"
                 }
                 "modifier_backstab_jumping"
                 {
@@ -47598,12 +47596,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"60"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -47649,7 +47647,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -47759,9 +47757,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"property_two"			"35"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"
@@ -107925,7 +107928,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aoe_damage"			"40 150 1500"
+				"aoe_damage"			"25 150 1500"
 			}
 		}
 		"Modifiers"
@@ -107957,7 +107960,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "2.5"
+				"ThinkInterval"  "4.0"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -108402,7 +108405,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bomb_damage"			"200 1000 6000"
+				"bomb_damage"			"150 1000 6000"
 			}
 		}
 		"Modifiers"
@@ -108410,7 +108413,7 @@
 			"modifier_wind_temple_keyholder_ai"
 			{
 				"Passive"	"1"
-				"ThinkInterval"  "1.0"
+				"ThinkInterval"  "1.8"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -110133,6 +110136,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"skywrath_mage_mystic_flare"
+		"AbilityDamage"					"50 250 2000"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -110623,7 +110627,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"60 200 1000"
+				"damage_per_tick"			"10 50 500"
 			}
 		}
 		"Modifiers"
@@ -114247,7 +114251,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"burn_dps"		"70 200 1500"
+				"burn_dps"		"45 200 1500"
 			}
 		}
 		"OnSpellStart"
@@ -118574,8 +118578,8 @@
 				"EffectAttachType" "attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "5"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1000"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "15"
+				    "MODIFIER_PROPERTY_BASE_MANA_REGEN" "500"
 				}
 				"OnCreated"
 				{
@@ -127645,7 +127649,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"maru_blessing"			"50 300 1000"
+				"maru_blessing"			"35 35 100 200"
 			}
 		}
 		"Modifiers"
@@ -129680,7 +129684,7 @@
 		"AbilityTextureName"			"brewmaster_thunder_clap"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityDamage"					"1000 6000 45000"
+		"AbilityDamage"					"500 2000 10000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -129784,7 +129788,6 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"300 1200 6400"
 
 
 		// Precache
@@ -129808,7 +129811,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 200000"
+				"damage"				"300 1200 6400"
 			}
 			"02"
 			{
@@ -132532,7 +132535,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"immolation_damage"				"50 200 900"
+				"immolation_damage"				"25 200 900"
 			}
 			"02"
 			{
@@ -132788,12 +132791,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"40 120 500"
+				"burn_damage"			"10 40 500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"180 400 1400"
+				"impact_damage"		"20 120 1400"
 			}
 		}
 		"OnProjectileHitUnit"
