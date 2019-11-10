@@ -445,3 +445,13 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 	end
 	return exp
 end
+
+function CDOTA_BaseNPC:ShouldHaveStunResistance()
+	if unit.roshpit_attributes and unit.roshpit_attributes.enemy_tier and unit.roshpit_attributes.enemy_tier >= ENEMY_TYPE_ELITE_CREEP then
+		return true
+	elseif unit:IsHero() then
+		return true
+	else
+		return false
+	end
+end

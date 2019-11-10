@@ -526,8 +526,7 @@ function Filters:ApplyStun(caster, duration, target)
 
     duration = duration * mult
     Events.GameMasterAbility:ApplyDataDrivenModifier(caster, target, "modifier_fake_stunned", {duration = duration})
-    if target.bossStatus or target:IsHero() then
-
+    if target:ShouldHaveStunResistance() then
         local currentResistanceStacks = target:GetModifierStackCount("modifier_stun_resistance", Events.GameMaster)
         local resistThresh = 70
         if target.mainBoss then
