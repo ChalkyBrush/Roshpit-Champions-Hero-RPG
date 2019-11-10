@@ -61,7 +61,7 @@ Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] 
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 8
 
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL = {}
-Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_NORMAL] = 4
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_NORMAL] = 0
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_ELITE] = 10
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_LEGEND] = 20
 
@@ -284,8 +284,7 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 				else
 					chamber_level = Winterblight.CavernData.Chambers[enemy.chamber]["level"]
 				end
-				local damage_amp = 0.2*chamber_level
-				filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp
+				base_attribute_value = base_attribute_value * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL[attribute_type])
 			end
 		end)
 	end
