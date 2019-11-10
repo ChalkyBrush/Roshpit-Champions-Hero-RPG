@@ -2851,20 +2851,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_fire_spirit_boss_passive") then
 		filterTable["damage"] = filterTable["damage"] * 0.4
 	end
-	if victim:HasModifier("modifier_serengaard_wave_unit") then
-		if Serengaard.InfiniteWaveCount then
-			--  local flatFactor = math.max(1-(Serengaard.InfiniteWaveCount/10), 0.04)
-			-- local damageMult = 1 - (0.1*Serengaard.InfiniteWaveCount/(flatFactor + (0.1 * math.abs(Serengaard.InfiniteWaveCount))))
-			-- damageMult = damageMult/3
-			local damageMult = 0.92 ^ Serengaard.InfiniteWaveCount
-			filterTable["damage"] = filterTable["damage"] * damageMult
-		end
-	end
-	if attacker:HasModifier("modifier_serengaard_wave_unit") then
-		if Serengaard.InfiniteWaveCount then
-			filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * 0.12 * Serengaard.InfiniteWaveCount
-		end
-	end
 	if victim:HasModifier("modifier_deity_shadow_shield") then
 		if victim.aspect then
 			filterTable["damage"] = 0
