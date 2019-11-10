@@ -50,7 +50,7 @@ function cast_raise_skeleton(event)
 					if luck <= 3 then
 						if w_1_level > 0 then
 							unitName = "ekkan_skeleton_archer"
-							attackDamage = EKKAN_W1_DAMAGE_FLAT + caster:GetAttackDamage() * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
+							attackDamage = EKKAN_W1_DAMAGE_FLAT * w_1_level + caster:GetAttackDamage() * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
 							applyTexture = true
 						end
 					elseif luck <= 6 then
