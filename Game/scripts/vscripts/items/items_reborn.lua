@@ -161,8 +161,13 @@ function CDOTA_BaseNPC:BossDrops(quantity)
 		unit_level = unit.roshpit_attributes.roshpit_level
 	end
 	local location = self:GetAbsOrigin()
+	local socket_forger_value = unit_level*(GameState:GetPlayerPremiumStatusCount() + 2)
 	for i = 1, quantity, 1 do
 		Timers:CreateTimer(i*0.5, function()
+			local luck = RandomInt(1, 3500)
+			if luck < socket_forger_value then
+				Gems:DropSocketForger(unit:GetAbsOrigin())
+			end
 			RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
 		end)
 	end
@@ -220,7 +225,11 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 		end
 	end
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
-	local random_type_chance = RandomInt(1, 10000)
+	local random_type_boost = 0
+	if roll_boost > 1000 then
+		random_type_boost = math.floor(roll_boost/50)
+	end
+	local random_type_chance = RandomInt(0+random_type_boost, 10000)
 	if random_type_chance <= 9960 then
 		local random_gear_slot = RandomInt(0, 5)
 		if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
