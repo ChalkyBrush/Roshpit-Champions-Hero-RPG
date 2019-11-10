@@ -22442,6 +22442,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"skywrath_mage_mystic_flare"
+		"AbilityDamage"					"50 250 2000"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -42093,7 +42094,6 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"300 1200 6400"
 
 
 		// Precache
