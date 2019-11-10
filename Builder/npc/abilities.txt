@@ -22442,6 +22442,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"skywrath_mage_mystic_flare"
+		"AbilityDamage"					"50 250 2000"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
