@@ -132,6 +132,9 @@ Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER = 0.1
 Enemies.EXTRA_EXP_PER_PASS_PLAYER = 0.2
 Enemies.EXP_SHARE_PERCENTAGE = 0.75
 
+Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MIN = 2
+Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MAX = 2
+
 Enemies.EXP_BASE_TABLE = {}
 for i = 0, 120 , 1 do
 	Enemies.EXP_BASE_TABLE[i]= math.ceil(7*(1.05^i)) + (i-1)
@@ -205,12 +208,13 @@ function Enemies:InitializeEnemy(unit)
 	unit:SetMinimumGoldBounty(0)
 
 	-- attack damage
-	local base_damage = (unit:GetBaseDamageMin() + unit:GetBaseDamageMax())/2
+	local base_damage = math.ceil((unit:GetBaseDamageMin() + unit:GetBaseDamageMax())/2)
 	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
 	local newDamage = (Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage + Enemies:GetFlatDamageBonusForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]*Enemies.GLOBAL_DAMAGE_ADJUST
 	newDamage = Enemies:AdjustAttributeForMapSpecial(unit, "attack_damage", newDamage)
-	unit:SetBaseDamageMin(newDamage-damageDiff)
-	unit:SetBaseDamageMax(newDamage)
+	unit:SetBaseDamageMin(math.max(newDamage-damageDiff, Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MIN))
+	unit:SetBaseDamageMax(math.max(newDamage, Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MAX))
+
 
 	-- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
 	unit:SetPhysicalArmorBaseValue(0)
