@@ -189,7 +189,9 @@ end
 
 function skeleton_expire(event)
 	local target = event.target
-	target:ForceKill(false)
+	if not target:HasModifier("modifier_ekkan_dominion_unit") then
+		target:ForceKill(false)
+	end
 	local caster = event.caster
 	local ability = event.ability
 	reindexSkeleTable(ability)

@@ -18,6 +18,7 @@
     	"DOTA_Tooltip_ability_ekkan_dominion_move_slow"						"MOVE SLOW % WHILE ACTIVE:"
     	"DOTA_Tooltip_ability_ekkan_dominion_debuff_duration"				"DEBUFF DURATION:"
     	"DOTA_Tooltip_ability_ekkan_dominion_burn_damage"					"DAMAGE % OF VICTIM ATTACK POWER:"
+		"DOTA_Tooltip_ability_ekkan_dominion_flat_hp_increase"				"CREEP'S BASE HP INCREASE:"
 		
 		"DOTA_Tooltip_modifier_dominion_counter"							"Dark Dominion Army Size"
     	"DOTA_Tooltip_modifier_dominion_counter_Description"				""
@@ -259,7 +260,7 @@
 		"item_rpc_ekkan_glyph_2_1_description" 				"Acheron's portal creates <% EKKAN_GLYPH_2_1_E_SPAWN_CORPSES %> corpses around the cast point."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"Glyph of Reanimation"
-		"item_rpc_ekkan_glyph_3_1_description" 				"Skeleton life duration is increased by <% EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT %>1%."
+		"item_rpc_ekkan_glyph_3_1_description" 				"Skeleton life duration is increased by <% EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"Glyph of Supercharge"
 		"item_rpc_ekkan_glyph_4_1_description" 				"Soul charge increases attack speed by an additional <% EKKAN_GLYPH_4_1_R_AS_INCREASE %> and increases movespeed by <% EKKAN_GLYPH_4_1_R_MS_INCREASE %>."

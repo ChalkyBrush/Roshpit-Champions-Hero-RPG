@@ -35,6 +35,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"burn_damage"				"80 110 130 150 170 180 200"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"flat_hp_increase"		"300 500 800 1200 1800 2000 2500"
+			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
 		// Precache
@@ -118,6 +123,7 @@
 						"ScriptFile"	"heroes/visage/dominion.lua"
 						"Function"		"dominion_debuff_death"
 						"max_summons"	"%max_summons"
+						"flat_hp_increase"	"%flat_hp_increase"
 					}
 				}
 				"ThinkInterval"  "0.5"
