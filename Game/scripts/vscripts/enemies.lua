@@ -272,6 +272,14 @@ Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor_pierce"] = 0.
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_spell_pierce"] = 0.2
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["health"] = 0.1
 
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL = {}
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["attack_damage"] = 0.2
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_armor"] = 0.3
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_magic_armor"] = 0.3
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_armor_pierce"] = 0.3
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_spell_pierce"] = 0.3
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["health"] = 0.3
+
 function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
 	local adjusted_attribute_value = base_attribute_value
 	if GameState:IsWinterblight() then
@@ -287,6 +295,10 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 				base_attribute_value = base_attribute_value * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL[attribute_type])
 			end
 		end)
+	elseif GameState:IsRPCArena() then
+		if enemy:GetKeyValue("PitCreep") == 1 then
+			base_attribute_value = base_attribute_value * (1 + Arena.PitLevel*Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL[attribute_type])
+		end
 	end
 	return adjusted_attribute_value
 end

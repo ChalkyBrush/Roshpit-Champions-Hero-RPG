@@ -158,7 +158,7 @@ function Challenges:DifficultyModMatch(challenge_table)
 		end
 	end
 	if challenge_table["map_name"] == "rpc_roshpit_arena" and challenge_table["difficulty_mod"] > 0 then
-		if Arena then
+		if Arena and Arena.PitLevel then
 			if Arena.PitLevel >= challenge_table["difficulty_mod"] then
 				mod_match = true
 			else
@@ -183,7 +183,7 @@ function Challenges:SpawnByMap()
 	elseif GetMapName() == "rpc_winterblight_mountain" then
 		Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
 	elseif GetMapName() == "rpc_roshpit_arena" then
-		Challenges:SpawnCrusaderNow(Vector(-13979, -1664), Vector(0,-1))
+		Challenges:SpawnCrusaderNow(Vector(-7940, 10159), Vector(0,-1))
 	elseif GetMapName() == "rpc_sea_fortress" then
 		Challenges:SpawnCrusaderNow(Vector(896, -14592), Vector(-1,-1))
 	end	

@@ -120,6 +120,8 @@ function UnitStats40(){
 	}
 	// if (!(mQueryUnit == queryUnit)){
 	$('#unit_attribute_armor_label').text = mAttributesHash["modifier_roshpit_armor"]
+	adjustLabelForHighNumber("modifier_roshpit_armor", 'unit_attribute_armor_label')
+
 	if (mAttributesHash["modifier_positive_roshpit_armor"] > 0){
 		$('#unit_attribute_armor_label').AddClass('stat_bonus')
 		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
@@ -136,6 +138,7 @@ function UnitStats40(){
 
 
 	$('#unit_attribute_magic_armor_label').text = mAttributesHash["modifier_roshpit_magic_armor"]
+	adjustLabelForHighNumber("modifier_roshpit_magic_armor", 'unit_attribute_magic_armor_label')
 	if (mAttributesHash["modifier_positive_roshpit_magic_armor"] > 0){
 		$('#unit_attribute_magic_armor_label').AddClass('stat_bonus')
 		$('#unit_attribute_magic_armor_label').RemoveClass('stat_negative')
@@ -151,6 +154,7 @@ function UnitStats40(){
 	}
 
 	$('#unit_attribute_armor_pierce_label').text = mAttributesHash["modifier_roshpit_armor_pierce"]
+	adjustLabelForHighNumber("modifier_roshpit_armor_pierce", 'unit_attribute_armor_pierce_label')
 	if (mAttributesHash["modifier_positive_roshpit_armor_pierce"] > 0){
 		$('#unit_attribute_armor_pierce_label').AddClass('stat_bonus')
 		$('#unit_attribute_armor_pierce_label').RemoveClass('stat_negative')
@@ -166,6 +170,7 @@ function UnitStats40(){
 	}
 
 	$('#unit_attribute_spell_pierce_label').text = mAttributesHash["modifier_roshpit_spell_pierce"]
+	adjustLabelForHighNumber("modifier_roshpit_spell_pierce", 'unit_attribute_spell_pierce_label')
 	if (mAttributesHash["modifier_positive_roshpit_spell_pierce"] > 0){
 		$('#unit_attribute_spell_pierce_label').AddClass('stat_bonus')
 		$('#unit_attribute_spell_pierce_label').RemoveClass('stat_negative')
@@ -181,6 +186,14 @@ function UnitStats40(){
 	}
 
 	// }
+}
+
+function adjustLabelForHighNumber(attribute_type, label_id){
+	if (mAttributesHash[attribute_type] > 9999){
+		$('#'+label_id).style.fontSize = "9px"
+	}else{
+		$('#'+label_id).style.fontSize = "12px"
+	}
 }
 
 function UpdateHeroStats(){

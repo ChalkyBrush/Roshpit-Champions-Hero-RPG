@@ -14047,9 +14047,9 @@
 		"tooltip_open_pit"												"Open Pit"
 		"tooltip_pit_open"												"Pit Open"
 
-		"tooltip_pit_enemy_damage"										"Enemy Damage"
-		"tooltip_pit_enemy_resistance"									"Enemy Resistance"
-		"tooltip_pit_enemy_paragon"										"Paragon Spawn Rate"
+		"tooltip_pit_enemy_damage"										"Enemy Attack Damage"
+		"tooltip_pit_enemy_armors_and_pierces"							"Armors and Pierces"
+		"tooltip_pit_enemy_health"										"Enemy Health"
 
 		"DOTA_Tooltip_ability_arena_master_duelist_passive"					"Battle Haste"
 		"DOTA_Tooltip_ability_arena_master_duelist_passive_Description"		"When landing an attack, 30% chance to gain max attack speed for 1 second."

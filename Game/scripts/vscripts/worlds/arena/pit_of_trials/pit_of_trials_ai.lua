@@ -1,17 +1,18 @@
 function PitTerminal(trigger)
 	local hero = trigger.activator
 	if hero.pit then
-		if hero.pit.pit_open_time then
-			local lockoutStatus = getLockoutStatus(os:TimeStamp(hero.pit.pit_open_time), os:ServerTimeToTable())
+		-- if hero.pit.pit_open_time then
+			-- local lockoutStatus = getLockoutStatus(os:TimeStamp(hero.pit.pit_open_time), os:ServerTimeToTable())
 			--DeepPrintTable(os:TimeStamp(hero.pit.pit_open_time))
 			--DeepPrintTable(os:ServerTimeToTable())
 			--print(lockoutStatus)
+			hero.pit.pit_level = 7
 			lockoutStatus = 0--removed cd check
 			if Arena.PitActive or Arena.PitLocked then
 				lockoutStatus = 2
 			end
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
-		end
+		-- end
 	end
 end
 
