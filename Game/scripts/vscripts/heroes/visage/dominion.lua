@@ -65,6 +65,7 @@ function dominion_debuff_death(event)
 	local unit = event.unit
 	local caster = event.caster
 	local ability = event.ability
+	local unitName = unit:GetUnitName()
 	if not ability.dominionTable then
 		ability.dominionTable = {}
 	end
@@ -72,23 +73,35 @@ function dominion_debuff_death(event)
 		local fv = unit:GetForwardVector()
 		local summonPosition = unit:GetAbsOrigin()
 		unit:SetAbsOrigin(summonPosition - Vector(0, 0, 800))
-		local summon = CreateUnitByName(unit:GetUnitName(), summonPosition, false, nil, nil, caster:GetTeamNumber())
+		local summon = CreateUnitByName(unitName, summonPosition, false, nil, nil, caster:GetTeamNumber())
 		Enemies:InitializeEnemy(summon)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", summon, 3)
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_dominion_unit", {})
 		summon:SetAcquisitionRange(1600)
 		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		summon:SetForwardVector(fv)
+		local flat_hp_increase = event.flat_hp_increase
 		local hp = unit:GetMaxHealth()
+			hp = hp + flat_hp_increase
+			summon:SetMaxHealth(hp)
+			summon:SetHealth(hp)
+			summon:SetBaseMaxHealth(hp)
+		local hp_self_dominion = caster:GetMaxHealth()
 		local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "ekkan")
+		local q_2_hp_mult = 1
+		if q_2_level >0 then
+			q_2_hp_mult = EKKAN_Q2_BONUS_HP * q_2_level
+		end
 		if q_2_level > 0 then
-			hp = hp + hp * EKKAN_Q2_BONUS_HP * q_2_level
+			hp = hp + hp * q_2_hp_mult
 			hp = math.min(hp, 2000000000)
 			summon:SetMaxHealth(hp)
 			summon:SetHealth(hp)
 			summon:SetBaseMaxHealth(hp)
 		end
-
+		local w_1_level = caster:GetRuneValue("w", 1)
+		local w_1_archer_attack = EKKAN_W1_DAMAGE_FLAT * w_1_level + caster:GetAttackDamage() * w_1_level * EKKAN_W1_ATTACK_POWER_MULTIPLE
+		local e_2_level = caster:GetRuneValue("e", 2)
 		summon.attackDamage = attackDamage
 		summon.armor = armor
 		summon.aggro = true
@@ -98,6 +111,37 @@ function dominion_debuff_death(event)
 		summon:SetNightTimeVisionRange(90)
 		summon:SetHullRadius(8)
 		summon.hero = caster
+		if unitName == "ekkan_familiar" then
+			summon:AdjustSummon(caster, true, 1, EKKAN_E2_FAMILIAR_ATTACK*e_2_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*e_2_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*e_2_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*e_2_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*e_2_level)
+			hp_self_dominion = (hp_self_dominion * EKKAN_E2_HP_MULT + flat_hp_increase) * q_2_hp_mult
+			summon:SetMaxHealth(hp_self_dominion)
+			summon:SetBaseMaxHealth(hp_self_dominion)
+			summon:SetHealth(hp_self_dominion)
+			summon:Heal(hp_self_dominion, summon)
+			elseif unitName == "castle_skeleton_warrior" then
+			summon:AdjustSummon(caster, true, 1, 2, 2, 2, 2, 2)
+			hp_self_dominion = (hp_self_dominion + flat_hp_increase) * 2 * q_2_hp_mult
+			summon:SetMaxHealth(hp_self_dominion)
+			summon:SetBaseMaxHealth(hp_self_dominion)
+			summon:SetHealth(hp_self_dominion)
+			summon:Heal(hp_self_dominion, summon)
+			elseif unitName == "ekkan_skeleton_archer" then
+			summon:AdjustSummon(caster, true, 1, 2, 2, 2, 2, 2)
+			hp_self_dominion = (hp_self_dominion + flat_hp_increase) * 2 * q_2_hp_mult
+			summon:SetMaxHealth(hp_self_dominion)
+			summon:SetBaseMaxHealth(hp_self_dominion)
+			summon:SetHealth(hp_self_dominion)
+			summon:Heal(hp_self_dominion, summon)
+			summon.w_1_level = w_1_level
+			Filters:SetAttackDamage(summon, w_1_archer_attack)
+			elseif unitName == "ekkan_skeleton_mage" then
+			summon:AdjustSummon(caster, true, 1, 2, 2, 2, 2, 2)
+			hp_self_dominion = (hp_self_dominion + flat_hp_increase) * 2 * q_2_hp_mult
+			summon:SetMaxHealth(hp_self_dominion)
+			summon:SetBaseMaxHealth(hp_self_dominion)
+			summon:SetHealth(hp_self_dominion)
+			summon:Heal(hp_self_dominion, summon)
+		end
 		if caster.q_1_level > 0 then
 			summon:AddAbility("ekkan_zombie_strike"):SetLevel(1)
 		end
@@ -252,7 +296,6 @@ function dominion_unit_kill(event)
 	if not unit.dominionLock then
 		unit.dominionLock = true
 		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "ekkan")
-		if unit:GetDeathXP() > 10 then
 			if q_3_level > 0 then
 				local new_armor = attacker.roshpit_attributes.roshpit_armor + q_3_level * EKKAN_Q3_ARMOR_ADDED
 				local new_magic_armor = attacker.roshpit_attributes.roshpit_magic_armor + q_3_level * EKKAN_Q3_ARMOR_ADDED
@@ -275,7 +318,6 @@ function dominion_unit_kill(event)
 				local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks", caster) + 1
 				attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks", caster, newStacks)
 			end
-		end
 	end
 end
 
