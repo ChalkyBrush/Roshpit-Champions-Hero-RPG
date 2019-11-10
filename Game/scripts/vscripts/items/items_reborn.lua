@@ -86,6 +86,11 @@ RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] = 9700
 RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL] = 9996
 RPCItems.RarityChances[RPC_ITEMS_RARITY_ARCANA] = 10000
 
+RPCItems.ChancesToLoseImmortal = {}
+RPCItems.ChancesToLoseImmortal[1] = 67
+RPCItems.ChancesToLoseImmortal[2] = 34
+RPCItems.ChancesToLoseImmortal[3] = 0
+
 RPCItems.BONUS_PARAGON_DROPS = {}
 RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_WEAK_CREEP] = {}
 RPCItems.BONUS_PARAGON_DROPS[ENEMY_TYPE_NORMAL_CREEP] = {}
@@ -214,9 +219,8 @@ function RPCItems:RollRandomItemAtLocation(unit_level, location, roll_boost)
 end
 
 function RPCItems:RollRandomItem(unit_level, roll_boost)
-	-- TODO - GRANT CHANCE FOR ARCANA AND IMMORTAL DROPS
 	local item = nil
-	local rarityChance = RandomInt(0+roll_boost, 9700)
+	local rarityChance = RandomInt(0+roll_boost, 10000)
 	local rarity = RPC_ITEMS_RARITY_COMMON
 	for key, value in pairs(RPCItems.RarityChances) do
 		if rarityChance <= value then
@@ -224,8 +228,13 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 			break
 		end
 	end
+	local bad_luck = RandomInt(1, 100)
+	if bad_luck <= RPCItems.ChancesToLoseImmortal[GameState:GetDifficultyFactor()]
+		rarity = RPC_ITEMS_RARITY_MYTHICAL
+	end
+
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
-	
+
 	local random_type_boost = math.floor(roll_boost/2)
 	local random_type_chance = RandomInt(0+random_type_boost, 10000)
 	if random_type_chance <= 9960 then
@@ -827,10 +836,12 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
 	    RPCItems:SocketsChance(item)
 	    return item
+	elseif rarity == RPC_ITEMS_RARITY_IMMORTAL then
+		local immortal = RPCItems:RollRandomWorldArcana(item_level)
+		return immortal
 	elseif rarity == RPC_ITEMS_RARITY_ARCANA then
 		local arcana = RPCItems:RollRandomWorldArcana(item_level)
 		return arcana
-	else
 	end
 end
 

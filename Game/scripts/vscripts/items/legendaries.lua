@@ -1,4 +1,8 @@
-﻿function RPCItems:RollNeverlordRingProperty()
+﻿function RPCItems:RollRandomWorldArcana(item_level)
+    return nil
+end
+
+function RPCItems:RollNeverlordRingProperty()
     local luck = RandomInt(0, 905)
     local luck2 = RandomInt(1, 100)
     local propertyName = ""
