@@ -86,7 +86,7 @@ end
 function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableDrop)
 	local rarity = RPC_ITEMS_RARITY_IMMORTAL
 	local itemName = ""
-	local item_level = RPCItems:RollItemLevelFromUnit(100)
+	local item_level = math.max(RPCItems:RollItemLevelFromUnit(100), 100)
 	local mainAttrRoll = RandomInt(1, 3)
 	local internalName = class
 	local whichHero = HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(class)
