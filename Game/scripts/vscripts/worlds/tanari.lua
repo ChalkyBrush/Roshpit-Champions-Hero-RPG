@@ -54,9 +54,12 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-
-    local arcana = RPCItems:RollFlamewakerArcana1(1)
-    RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
+    for i = 1, 100, 1 do
+        Timers:CreateTimer(0.5, function()
+            local arcana = RPCItems:RollRandomArcana(1)
+            RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
+        end)
+    end
     -- Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     -- Gems:DropSocketForger(Vector(-4928, 2048))
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])

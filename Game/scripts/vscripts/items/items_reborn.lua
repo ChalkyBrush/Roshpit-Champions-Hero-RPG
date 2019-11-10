@@ -804,7 +804,7 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    RPCItems:SocketsChance(item)
 	    return item
 	elseif rarity == RPC_ITEMS_RARITY_ARCANA then
-		local arcana = RPCItems:RollRandomArcana(item_level)
+		local arcana = RPCItems:RollRandomWorldArcana(item_level)
 		return arcana
 	else
 	end
