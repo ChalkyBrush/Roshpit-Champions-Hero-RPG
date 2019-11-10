@@ -229,7 +229,7 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 		end
 	end
 	local bad_luck = RandomInt(1, 100)
-	if bad_luck <= RPCItems.ChancesToLoseImmortal[GameState:GetDifficultyFactor()]
+	if bad_luck <= RPCItems.ChancesToLoseImmortal[GameState:GetDifficultyFactor()] then
 		rarity = RPC_ITEMS_RARITY_MYTHICAL
 	end
 
