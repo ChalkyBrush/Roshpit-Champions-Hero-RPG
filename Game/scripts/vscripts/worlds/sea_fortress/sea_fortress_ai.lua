@@ -5466,7 +5466,7 @@ function sea_fortress_final_boss_think(event)
 			for i = 1, #GameState:GetPlayerPremiumStatusCount() + 1, 1 do
 				local luck = RandomInt(1, 50)
 				if luck == 1 then
-					RPCItems:RollRandomArcana(position)
+					RPCItems:RollRandomArcana(position, caster:GetRoshpitLevel())
 				end
 			end
 		end)

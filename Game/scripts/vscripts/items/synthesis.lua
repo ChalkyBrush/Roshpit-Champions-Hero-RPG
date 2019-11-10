@@ -149,7 +149,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
 			newMinLevel = math.max(math.min(newMinLevel, 100), 3)
 			RPCItems.LevelRoll = newMinLevel
-			local newItem = RPCItems:RollArcanaByName(randomItem:GetAbilityName(), position)
+			local newItem = RPCItems:RollArcanaByName(randomItem:GetAbilityName(), newMinLevel)
 			RPCItems.LevelRoll = nil
 			if newItem and IsValidEntity(newItem) then
 				newItem.pickedUp = true
@@ -333,7 +333,7 @@ function RPCItems:RerollArcanaItem(abilityName, originalItemData, position, atte
 	for i = 1, attempts do
 		if not newProperty1Value or not newProperty2Value or not newProperty3Value or not newProperty4Value then
 			print("[RPCItems:RerollArcanaItem] attempt:"..tostring(i))
-			local newItem = RPCItems:RollArcanaByName(abilityName, position)
+			local newItem = RPCItems:RollArcanaByName(abilityName, 1)
 
 			if not newProperty1Value and (type(originalItemData.property1) == "string" or type(newItem.newItemTable.property1) == "string") then
 				print("[RPCItems:RerollArcanaItem] type(originalItemData.property1) == \"string\"")
@@ -378,7 +378,7 @@ function RPCItems:RerollArcanaItem(abilityName, originalItemData, position, atte
 		end
 	end
 
-	local finalItem = RPCItems:RollArcanaByName(abilityName, position)
+	local finalItem = RPCItems:RollArcanaByName(abilityName, 1)
 
 	-- if originalItemData.property1name then
 	-- finalItem.newItemTable.property1name = originalItemData.property1name
@@ -506,11 +506,11 @@ function RPCItems:CreateArcanaCache(radiance, validator)
 	return item
 end
 
-function RPCItems:DropGalacticArcanaCachePart(part_name, position)
+function RPCItems:DropGalacticArcanaCachePart(part_name, position, item_level)
 	local item = RPCItems:CreateConsumable(part_name, "immortal", "Arcana Cache Part", "consumable", false, "Consumable", part_name.."_desc")
 	item.newItemTable.stashable = true
 	item.newItemTable.consumable = true
-	item.newItemTable.property1 = RPCItems:GetMinLevel()
+	item.newItemTable.property1 = item_level
 	item.newItemTable.property1name = "cache_radiance"
 	item.newItemTable.property1color = "#e9ff5b"
 	item.newItemTable.property1tooltip = "cache_radiance"
@@ -548,8 +548,9 @@ function RPCItems:UseArcanaCache(caster, item)
 					RPCItems.LevelRoll = radiance
 					Events.reroll = true
 					for i = 1, 3, 1 do
-						local item = RPCItems:RollRandomArcana(caster:GetAbsOrigin())
-						item.pickedUp = true
+						local arcana = RPCItems:RollRandomArcana(radiance)
+						arcana.pickedUp = true
+						RPCItems:BasicDropItem(caster:GetAbsOrigin(), arcana)
 					end
 					Events.reroll = false
 					RPCItems.LevelRoll = nil

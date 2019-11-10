@@ -91,7 +91,7 @@ function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 	local hero = self
 	local internal_hero_name = HerosCustom:GetInternalHeroNameMain(hero:GetClassname())
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
-		if string.match(key, "immortal_weapon") then
+		if string.match(key, "immortal_weapon") or string.match(key, "arcana") then
 			hero:RemoveModifierByName("modifier_"..internal_hero_name.."_"..key)
 		else
 			hero:RemoveModifierByName("modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key)
@@ -123,7 +123,7 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	end
 	print("--RECORDING PROPERTY--")
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
-	if string.match(property_name, "immortal_weapon") then
+	if string.match(property_name, "immortal_weapon") or string.match(property_name, "arcana") then
 		hero.gear_bonuses[gear_slot][property_name] = 1
 	elseif string.match(property_name, "all_attributes") then
 		hero.gear_bonuses[gear_slot]["strength"] = hero.gear_bonuses[gear_slot]["strength"] + property_value
@@ -145,6 +145,8 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
 		if string.match(key, "immortal_weapon") then
+			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
+		elseif string.match(key, "arcana") then
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
 		else
 			if value > 0 then

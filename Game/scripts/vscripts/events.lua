@@ -585,7 +585,7 @@ function GameMode:OnPlayerChat(keys)
 			local name = string.gsub(text, "-arc ", "")
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			RPCItems:RollArcanaByName(name, hero:GetAbsOrigin())
+			RPCItems:RollArcanaByName(name, 1)
 		end
 	elseif string.match(text, "-gly") then
 		if Beacons.cheats then

@@ -634,7 +634,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				--print("ARCANA ADD REQUIRED HERO!")
 				--print(gearTable)
 				--print(gearTable.required_hero)
-				item = RPCItems:CreateVariantArcana(gearTable.item_variant,
+				item = RPCItems:CreateArcanaBasic(gearTable.item_variant,
 					RPCItems:GetRarityNameFromFactor(gearTable.rarity),
 					gearTable.item_name,
 					gearSlot,

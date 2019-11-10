@@ -537,6 +537,86 @@ RPCItems.AttributesRolls[2]["element_dragon"] = 4
 RPCItems.AttributesRolls[3]["element_dragon"] = 4
 RPCItems.AttributesRolls[4]["element_dragon"] = 4
 
+RPCItems.AttributesRolls[1]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+
+RPCItems.AttributesRolls[1]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[2]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+
+RPCItems.AttributesRolls[1]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[3]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+
+RPCItems.AttributesRolls[1]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[4]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+
+RPCItems.AttributesRolls[1]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+
+RPCItems.AttributesRolls[1]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[2]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+
+RPCItems.AttributesRolls[1]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[3]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+
+RPCItems.AttributesRolls[1]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[4]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+
+RPCItems.AttributesRolls[1]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+
+RPCItems.AttributesRolls[1]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[2]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+
+RPCItems.AttributesRolls[1]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[3]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+
+RPCItems.AttributesRolls[1]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[4]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+
+RPCItems.AttributesRolls[1]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+
+RPCItems.AttributesRolls[1]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[2]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+
+RPCItems.AttributesRolls[1]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[3]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+
+RPCItems.AttributesRolls[1]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[4]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+
 function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, rarityFactor, minLevel, item_slot)
 	if not item.newItemTable then
 		item.newItemTable = {}
@@ -711,7 +791,7 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    print("RARITY: "..rarity)
 	    print("PROPERTY COUNT: "..property_count)
 	    for property_slot = 1, property_count, 1 do
-	    	rollData = RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level)
+	    	rollData = RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level, nil, 1)
 			if property_slot == 3 then
 				item.newItemTable.itemPrefix = RPCItems.PREFIX[rollData["property_name"]][RandomInt(1, #RPCItems.PREFIX[rollData["property_name"]])]
 			elseif property_slot == 4 then
@@ -723,6 +803,9 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
 	    RPCItems:SocketsChance(item)
 	    return item
+	elseif rarity == RPC_ITEMS_RARITY_ARCANA then
+		local arcana = RPCItems:RollRandomArcana(item_level)
+		return arcana
 	else
 	end
 end
@@ -780,15 +863,18 @@ RPCItems.PROPERTY_COLORS["element_nature"] = RPC_ELEMENT_NATURE_COLOR
 RPCItems.PROPERTY_COLORS["element_undead"] = RPC_ELEMENT_UNDEAD_COLOR
 RPCItems.PROPERTY_COLORS["element_dragon"] = RPC_ELEMENT_DRAGON_COLOR
 
-function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level)
-	local property_type = RPCItems.REGULAR_PROPERTIES[item_slot][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[item_slot])]
+function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level, property_type, special_mult)
+	if not property_type then
+		property_type = RPCItems.REGULAR_PROPERTIES[item_slot][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[item_slot])]
+	end
 	local roll = RPCItems:RollGearAttributeValue(item_level, property_type, property_slot, 1)
+	roll = math.floor(roll * special_mult)
 	local rollData = {}
 	rollData["property_name"] = property_type
 	rollData["value"] = roll
 
 	if property_slot == 1 then
-		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" then
+		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" or property_type:match("rune_(.)_(.)") then
 			item.newItemTable.property1 = roll
 			item.newItemTable.property1name = RPCItems:TranslateRuneRoll(property_type)
 			RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
@@ -798,7 +884,7 @@ function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_lev
 			RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_"..property_type, RPCItems.PROPERTY_COLORS[property_type], 1)
 		end
 	elseif property_slot == 2 then
-		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" then
+		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" or property_type:match("rune_(.)_(.)") then
 			item.newItemTable.property2 = roll
 			item.newItemTable.property2name = RPCItems:TranslateRuneRoll(property_type)
 			RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
@@ -808,7 +894,7 @@ function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_lev
 			RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_"..property_type, RPCItems.PROPERTY_COLORS[property_type], 2)
 		end
 	elseif property_slot == 3 then
-		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" then
+		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" or property_type:match("rune_(.)_(.)") then
 			item.newItemTable.property3 = roll
 			item.newItemTable.property3name = RPCItems:TranslateRuneRoll(property_type)
 			RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
@@ -818,7 +904,7 @@ function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_lev
 			RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_"..property_type, RPCItems.PROPERTY_COLORS[property_type], 3)
 		end
 	elseif property_slot == 4 then
-		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" then
+		if property_type == "t1_rune" or property_type == "t2_rune" or property_type == "t3_rune" or property_type == "t4_rune" or property_type:match("rune_(.)_(.)") then
 			item.newItemTable.property4 = roll
 			item.newItemTable.property4name = RPCItems:TranslateRuneRoll(property_type)
 			RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
@@ -832,7 +918,7 @@ function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_lev
 end
 
 function RPCItems:TranslateRuneRoll(property_name)
-	local runes_table = {}
+	local runes_table = nil
 	if property_name == "t1_rune" then
 		runes_table = {"rune_q_1", "rune_w_1", "rune_e_1", "rune_r_1"}
 	elseif property_name == "t2_rune" then
@@ -842,7 +928,11 @@ function RPCItems:TranslateRuneRoll(property_name)
 	elseif property_name == "t4_rune" then
 		runes_table = {"rune_q_4", "rune_w_4", "rune_e_4", "rune_r_4"}
 	end
-	return runes_table[RandomInt(1, #runes_table)]
+	if runes_table then
+		return runes_table[RandomInt(1, #runes_table)]
+	else
+		return property_name
+	end
 end
 
 function RPCItems:GrantItemBaseArmor(item, item_level, base_factor)

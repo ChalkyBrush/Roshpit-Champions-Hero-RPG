@@ -213,25 +213,7 @@ function RPCItems:CreateVariantWithMin(variantName, rarityName, itemNameText, sl
     return item
 end
 
-function RPCItems:CreateVariantArcana(variantName, rarityName, itemNameText, slot, gear, slotText, requiredHero, minLevel)
-    local item = RPCItems:CreateItem(variantName, nil, nil)
-    item.newItemTable.qualityName = rarityName
-    item.newItemTable.rarity = rarityName
-    item.newItemTable.rarityFactor = RPCItems:GetRarityFactor(item.newItemTable.rarity)
-    item.newItemTable.itemPrefix = ""
-    item.newItemTable.itemSuffix = ""
-    item.newItemTable.item_slot = slot
-    item.newItemTable.gear = gear
-    item.newItemTable.consumable = nil
-    item.newItemTable.requiredHero = requiredHero
-    if not minLevel or (minLevel and minLevel == 0) then
-        minLevel = RPCItems:GetMinLevel()
-    end
-    item.newItemTable.minLevel = minLevel
-    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
-    return item
-end
 
 function RPCItems:CreateConsumable(variantName, rarityName, itemNameText, slot, gear, slotText, useDescription)
     local item = RPCItems:CreateItem(variantName, nil, nil)
