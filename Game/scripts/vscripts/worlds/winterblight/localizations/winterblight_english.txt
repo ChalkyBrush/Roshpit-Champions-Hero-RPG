@@ -6,9 +6,9 @@
 		"item_rpc_winterblight_glacier_stone_desc"						"Place at the Altar of Ice in Winterblight Mountain to increase monster power."
 
 		"altar_of_ice"												"Altar of Ice"
-		"altar_of_ice_help1"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>1 Stone: Enemies have 99% damage reduction and deal 100% increased damage.</font>"
-		"altar_of_ice_help2"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>2 Stones: Enemies have 99.9% damage reduction and deal 200% increased damage.</font>"
-		"altar_of_ice_help3"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>3 Stones: Enemies have 99.999% damage reduction and deal 300% increased damage.</font>"
+		"altar_of_ice_help1"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>1 Stone: Enemies have 35% increased attack damage, 75% increased Armors and Pierces, 50% increased health.</font>"
+		"altar_of_ice_help2"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>2 Stones: Enemies have 70% increased attack damage, 150% increased Armors and Pierces, 100% increased health.</font>"
+		"altar_of_ice_help3"										"A chilling voice appears in your head, 'Unleash the cold of the Glacier Stones, and feel the Mountain tremble.'<br><br><font color='FFFFFF'>3 Stones: Enemies have 105% increased attack damage, 225% increased Armors and Pierces, 150% increased health.</font>"
 
 		"buzuki_powerup"											"Power Up!"
 

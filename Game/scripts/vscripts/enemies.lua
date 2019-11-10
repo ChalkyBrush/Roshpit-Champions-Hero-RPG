@@ -153,7 +153,7 @@ end
 
 function Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level)
 	if GameState:GetDifficultyFactor() > 1 then
-		return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL_AFTER_NORMAL
+		return unit.roshpit_attributes.roshpit_level*Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL_AFTER_NORMAL[GameState:GetDifficultyFactor()]
 	else
 		return 0
 	end
@@ -208,25 +208,35 @@ function Enemies:InitializeEnemy(unit)
 	local base_damage = unit:GetAverageTrueAttackDamage(unit)
 	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
 	local newDamage = (Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage + Enemies:GetFlatDamageBonusForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]*Enemies.GLOBAL_DAMAGE_ADJUST
+	newDamage = Enemies:AdjustAttributeForMapSpecial(unit, "attack_damage", newDamage)
 	unit:SetBaseDamageMin(newDamage-damageDiff)
 	unit:SetBaseDamageMax(newDamage)
 
 	-- roshpit attributes (armor, magic armor, spell pierce and armor pierce)
 	unit:SetPhysicalArmorBaseValue(0)
 	local newArmor = (unit.roshpit_attributes.roshpit_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	newArmor = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_armor", newArmor)
 	unit:SetBaseRoshpitArmor(newArmor, false)
+
 	local newMagicArmor = (unit.roshpit_attributes.roshpit_magic_armor*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	newMagicArmor = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_magic_armor", newMagicArmor)
 	unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
+
 	local newArmorPierce = (unit.roshpit_attributes.roshpit_armor_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	newArmorPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_armor_pierce", newArmorPierce)
 	unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
+
 	local newSpellPierce = (unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
+	newSpellPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_spell_pierce", newSpellPierce)
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
+
 
 	-- HP
 	local newHealth = (unit:GetMaxHealth()*Enemies.DIFFICULTY_HEALTH_MULT[difficulty][enemyTier] + Enemies.DIFFICULTY_HEALTH_FLAT[difficulty][enemyTier])*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["max_hp"]
 	if unit_level > 9 then
 		newHealth = newHealth*Enemies.GLOBAL_HEALTH_MULT
 	end
+	newHealth = Enemies:AdjustAttributeForMapSpecial(unit, "health", newHealth)
 	newHealth = newHealth + newHealth * Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
 	unit:SetMaxHealth(newHealth)
@@ -244,6 +254,34 @@ function Enemies:InitializeEnemy(unit)
 			ability:SetLevel(difficulty)
 		end
 	end
+end
+
+Enemies.WINTERBLIGHT_STONES_BUFFS = {}
+Enemies.WINTERBLIGHT_STONES_BUFFS["attack_damage"] = 0.35
+Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_armor"] = 0.75
+Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_magic_armor"] = 0.75
+Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_armor_pierce"] = 0.75
+Enemies.WINTERBLIGHT_STONES_BUFFS["roshpit_spell_pierce"] = 0.75
+Enemies.WINTERBLIGHT_STONES_BUFFS["health"] = 0.5
+
+function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
+	local adjusted_attribute_value = base_attribute_value
+	if GameState:IsWinterblight() then
+		base_attribute_value = base_attribute_value * (1 + Winterblight.Stones*Enemies.WINTERBLIGHT_STONES_BUFFS[attribute_type])
+		Timers:CreateTimer(0.1, function()
+			if enemy:HasModifier("modifier_winterblight_cavern_unit") then
+				-- local chamber_level = 1
+				-- if attacker.chamber == 0 then
+				-- 	chamber_level = attacker.boss_level
+				-- else
+				-- 	chamber_level = Winterblight.CavernData.Chambers[attacker.chamber]["level"]
+				-- end
+				-- local damage_amp = 0.2*chamber_level
+				-- filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp
+			end
+		end)
+	end
+	return adjusted_attribute_value
 end
 
 function Enemies:ParagonChance(unit)

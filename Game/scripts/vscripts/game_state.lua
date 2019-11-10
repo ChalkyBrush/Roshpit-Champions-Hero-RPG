@@ -2890,10 +2890,6 @@ function GameState:FilterDamage(filterTable)
 		else
 			chamber_level = Winterblight.CavernData.Chambers[victim.chamber]["level"]
 		end
-		local reduction = 0.74^chamber_level
-		if victim.boss_level then
-			reduction = reduction*0.1
-		end
 		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
 		else
 			if applyEffects then
@@ -2909,10 +2905,6 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_merkurio_crystal_blue") then
 			filterTable["damage"] =	filterTable["damage"]*0.1
 		end
-		if victim:HasModifier("modifier_aurora_4_boss_passive") then
-			filterTable["damage"] =	filterTable["damage"]*0.01
-		end
-		filterTable["damage"] = filterTable["damage"]*reduction
 		if victim.chamber > 0 then
 			local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 			if attacker:GetPlayerOwnerID() ~= allowed_player then
@@ -2931,18 +2923,6 @@ function GameState:FilterDamage(filterTable)
 			end
 			filterTable["damage"] = 0
 		end
-	elseif attacker:HasModifier("modifier_winterblight_cavern_unit") then
-		local chamber_level = 1
-		if attacker.chamber == 0 then
-			chamber_level = attacker.boss_level
-		else
-			chamber_level = Winterblight.CavernData.Chambers[attacker.chamber]["level"]
-		end
-		local damage_amp = 0.2*chamber_level
-		filterTable["damage"] = filterTable["damage"] + filterTable["damage"]*damage_amp
-	end
-	if attacker:HasModifier("modifier_Winterblight_unit") then
-		filterTable["damage"] = filterTable["damage"] * (1 + Winterblight.Stones)
 	end
 	if attacker:HasModifier("modifier_ekkan_dominion_unit") then
 		if attacker.hero:HasModifier("modifier_ekkan_immortal_weapon_3") then
