@@ -205,7 +205,7 @@ function Enemies:InitializeEnemy(unit)
 	unit:SetMinimumGoldBounty(0)
 
 	-- attack damage
-	local base_damage = unit:GetAverageTrueAttackDamage(unit)
+	local base_damage = (unit:GetBaseDamageMin() + unit:GetBaseDamageMax())/2
 	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
 	local newDamage = (Enemies.DIFFICULTY_DAMAGE_ADJUST[difficulty][enemyTier]*base_damage + Enemies:GetFlatDamageBonusForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["attack_damage"]*Enemies.GLOBAL_DAMAGE_ADJUST
 	newDamage = Enemies:AdjustAttributeForMapSpecial(unit, "attack_damage", newDamage)
@@ -300,17 +300,6 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 	local adjusted_attribute_value = base_attribute_value
 	if GameState:IsWinterblight() then
 		adjusted_attribute_value = base_attribute_value * (1 + Winterblight.Stones*Enemies.WINTERBLIGHT_STONES_BUFFS[attribute_type])
-		Timers:CreateTimer(0.1, function()
-			if enemy:HasModifier("modifier_winterblight_cavern_unit") then
-				local chamber_level = 1
-				if enemy.chamber == 0 then
-					chamber_level = enemy.boss_level
-				else
-					chamber_level = Winterblight.CavernData.Chambers[enemy.chamber]["level"]
-				end
-				adjusted_attribute_value = base_attribute_value * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL[attribute_type])
-			end
-		end)
 	elseif GameState:IsRPCArena() then
 		if enemy:GetKeyValue("PitCreep") == 1 then
 			adjusted_attribute_value = base_attribute_value * (1 + Arena.PitLevel*Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL[attribute_type])
@@ -323,6 +312,40 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 		end
 	end
 	return adjusted_attribute_value
+end
+
+function Enemies:AdjustUnitForCavern(unit)
+	local chamber_level = 1
+	if unit.chamber == 0 then
+		chamber_level = unit.boss_level
+	else
+		chamber_level = Winterblight.CavernData.Chambers[unit.chamber]["level"]
+	end
+
+	local base_damage = (unit:GetBaseDamageMin() + unit:GetBaseDamageMax())/2
+	local damageDiff = unit:GetBaseDamageMax() - unit:GetBaseDamageMin()
+	local newDamage = base_damage * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["attack_damage"])
+	unit:SetBaseDamageMin(newDamage-damageDiff)
+	unit:SetBaseDamageMax(newDamage)
+
+	local newArmor = unit.roshpit_attributes.roshpit_armor * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor"])
+	unit:SetBaseRoshpitArmor(newArmor, false)
+
+	local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_magic_armor"])
+	unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
+
+	local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor_pierce"])
+	unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
+
+	local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_spell_pierce"])
+	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
+
+
+	local newHealth = unit:GetMaxHealth() * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["max_health"])
+	newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	unit:SetMaxHealth(newHealth)
+	unit:SetBaseMaxHealth(newHealth)
+	unit:SetHealth(newHealth)
 end
 
 function Enemies:ParagonChance(unit)

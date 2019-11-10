@@ -520,6 +520,7 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 		end
 		table.insert(Winterblight.CavernUnits[chamber_index], unit)
 	end
+	Enemies:AdjustUnitForCavern(unit)
 end
 
 function Winterblight:SpawnWinterRunner(position, fv)
