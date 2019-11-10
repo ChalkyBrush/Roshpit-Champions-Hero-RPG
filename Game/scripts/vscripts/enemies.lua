@@ -308,18 +308,18 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 				else
 					chamber_level = Winterblight.CavernData.Chambers[enemy.chamber]["level"]
 				end
-				base_attribute_value = base_attribute_value * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL[attribute_type])
+				adjusted_attribute_value = base_attribute_value * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL[attribute_type])
 			end
 		end)
 	elseif GameState:IsRPCArena() then
 		if enemy:GetKeyValue("PitCreep") == 1 then
-			base_attribute_value = base_attribute_value * (1 + Arena.PitLevel*Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL[attribute_type])
+			adjusted_attribute_value = base_attribute_value * (1 + Arena.PitLevel*Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL[attribute_type])
 		end
 	elseif GameState:IsSeaFortress() then
-		base_attribute_value = base_attribute_value * Enemies.GLOBAL_SEA_FORTRESS_MULT[attribute_type]
+		adjusted_attribute_value = base_attribute_value * Enemies.GLOBAL_SEA_FORTRESS_MULT[attribute_type]
 	elseif GameState:IsSerengaard() then
 		if Serengaard.InfiniteWaveCount then
-			base_attribute_value = base_attribute_value * (1 + Serengaard.InfiniteWaveCount*Enemies.SERENGAARD_BUFFS_PER_WAVE[attribute_type])
+			adjusted_attribute_value = base_attribute_value * (1 + Serengaard.InfiniteWaveCount*Enemies.SERENGAARD_BUFFS_PER_WAVE[attribute_type])
 		end
 	end
 	return adjusted_attribute_value
