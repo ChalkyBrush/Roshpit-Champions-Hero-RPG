@@ -223,15 +223,17 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	local rarityChance = RandomInt(0+roll_boost, 10000)
 	local rarity = RPC_ITEMS_RARITY_COMMON
 	for key, value in pairs(RPCItems.RarityChances) do
-		if rarityChance <= value then
+		if rarityChance >= value and rarity <= key then
 			rarity = key
-			break
 		end
 	end
 	local bad_luck = RandomInt(1, 100)
 	if bad_luck <= RPCItems.ChancesToLoseImmortal[GameState:GetDifficultyFactor()] and rarity == RPC_ITEMS_RARITY_IMMORTAL then
 		rarity = RPC_ITEMS_RARITY_MYTHICAL
 	end
+	if rarity < 5 and GameMode.VoteSystem.junk_loot_disabled then
+		return
+	end 
 
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
 
