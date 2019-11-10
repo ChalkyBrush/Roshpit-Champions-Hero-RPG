@@ -220,11 +220,31 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 		end
 	end
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
-	local random_gear_slot = RandomInt(0, 5)
-	if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
-		item = Weapons:RollWeapon(rarity, item_level)
+	local random_type_chance = RandomInt(1, 10000)
+	if random_type_chance <= 9960 then
+		local random_gear_slot = RandomInt(0, 5)
+		if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
+			item = Weapons:RollWeapon(rarity, item_level)
+		else
+			item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
+		end
+	elseif random_type_chance <= 9996 then
+		item = RPCItems:RebornGlyph()
+	elseif random_type_chance <= 10000 then
+		item = RPCItems:RebornSpecialItem()
+	end
+	return item
+end
+
+function RPCItems:RebornSpecialItem()
+	local luck = RandomInt(1, 100)
+	local item = nil
+	if luck <= 40 then
+		item = Gems:DropSocketForger(nil)
+	elseif luck <= 99 then
+		item = RPCItems:RollReanimationStone(nil)
 	else
-		item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
+		item = RPCItems:RollRandomArcanaCachePart(nil)
 	end
 	return item
 end
@@ -631,7 +651,6 @@ function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, descripti
 	item.newItemTable.qualityName = qualityName
 	item.newItemTable.gear_slot = item_slot
 
-	print("RARITY FACTOR: "..rarityFactor)
 	item.newItemTable.rarityFactor = rarityFactor
 	item.newItemTable.rarity = qualityName
 	item.newItemTable.minLevel = minLevel
@@ -788,8 +807,6 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    item.newItemTable.gear = true	
 
 	    local property_count = math.max(math.min(rarity, 4), 1)
-	    print("RARITY: "..rarity)
-	    print("PROPERTY COUNT: "..property_count)
 	    for property_slot = 1, property_count, 1 do
 	    	rollData = RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_level, nil, 1)
 			if property_slot == 3 then
@@ -808,6 +825,17 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 		return arcana
 	else
 	end
+end
+
+function RPCItems:RebornGlyph()
+	local luck = RandomInt(1, 20)
+	local glyph = nil
+	if luck == 1 then
+		glyph = Glyphs:RollRandomGlyphBook(nil)
+	else
+		glyph = Glyphs:RollRandomGlyph(nil)
+	end
+	return glyph
 end
 
 function RPCItems:SocketsChance(item)

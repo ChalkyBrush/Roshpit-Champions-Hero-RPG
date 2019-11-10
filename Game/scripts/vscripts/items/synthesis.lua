@@ -488,7 +488,8 @@ end
 function RPCItems:RollRandomArcanaCachePart(position)
 	local partNameTable = {"item_rpc_galactic_arcana_cache_piece_1", "item_rpc_galactic_arcana_cache_piece_2"}
 	local part_name = partNameTable[RandomInt(1, 2)]
-	RPCItems:DropGalacticArcanaCachePart(part_name, position)
+	local item = RPCItems:DropGalacticArcanaCachePart(part_name, position)
+	return item
 end
 
 function RPCItems:CreateArcanaCache(radiance, validator)
@@ -516,7 +517,12 @@ function RPCItems:DropGalacticArcanaCachePart(part_name, position, item_level)
 	item.newItemTable.property1tooltip = "cache_radiance"
 	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "cache_radiance", item.newItemTable.property1color, 1)
 	RPCItems:ItemUpdateCustomNetTables(item)
-	RPCItems:BasicDropItem(position, item)
+	if position then
+		RPCItems:BasicDropItem(position, item)
+		return item
+	else
+		return item
+	end
 end
 
 function RPCItems:UseArcanaCache(caster, item)

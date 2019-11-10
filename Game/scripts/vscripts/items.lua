@@ -1808,11 +1808,13 @@ function RPCItems:GetMaxFactor()
 end
 
 function RPCItems:RollReanimationStone(deathLocation)
-
 	local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
-	local drop = CreateItemOnPositionSync(deathLocation, item)
-	local position = deathLocation
-	RPCItems:DropItem(item, position)
+	if deathLocation then
+		local drop = CreateItemOnPositionSync(deathLocation, item)
+		local position = deathLocation
+		RPCItems:DropItem(item, position)
+	end
+	return item
 end
 
 function RPCItems:GiveReanimationStoneToHero(hero)

@@ -252,7 +252,12 @@ function Gems:DropSocketForger(position)
 	item.newItemTable.stashable = true
 	item.newItemTable.consumable = true
 	RPCItems:ItemUpdateCustomNetTables(item)
-	RPCItems:BasicDropItem(position, item)
+	if position then
+		RPCItems:BasicDropItem(position, item)
+		return item
+	else
+		return item
+	end
 end
 
 function Gems:PanoramaInput(msg)

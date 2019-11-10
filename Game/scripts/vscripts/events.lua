@@ -377,9 +377,9 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = itemEntity:GetEntityIndex(), heroId = heroId, playerId = playerId, pickup = "normal", rarity = itemEntity.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)})
 			end
 		end
-		if itemEntity.newItemTable.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
-			RPCItems:LegendaryPickup(itemEntity, heroEntity)
-		end
+		-- if itemEntity.newItemTable.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
+		-- 	RPCItems:LegendaryPickup(itemEntity, heroEntity)
+		-- end
 		if IsValidEntity(itemEntity) then
 			if itemEntity:GetAbilityName() == "item_reanimation_stone" then
 				RPCItems:LegendaryPickup(itemEntity, heroEntity)

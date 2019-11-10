@@ -270,7 +270,7 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 
 	RPCItems:ItemUpdateCustomNetTables(item)
 	-- DeepPrintTable(item)
-	if dropIndex == 0 then
+	if dropIndex == 0 and deathLocation then
 		local drop = CreateItemOnPositionSync(deathLocation, item)
 		local position = deathLocation
 		RPCItems:DropItem(item, position)
@@ -280,7 +280,7 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 		item.pickedUp = true
 		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 	end
-
+	print(item:GetAbilityName())
 	return item
 end
 
@@ -392,7 +392,8 @@ function Glyphs:RollRandomGlyph(position)
 		rowItem = RandomInt(1, 3)
 	end
 	local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
-	Glyphs:RollGlyphAll(glyphName, position, 0)
+	local glyph = Glyphs:RollGlyphAll(glyphName, position, -1)
+	return glyph
 end
 
 function Glyphs:RollRandomGlyphName()
@@ -411,7 +412,8 @@ function Glyphs:RollRandomGlyphBook(position)
 	local column = 2
 	local heroName = Glyphs:GetRandomHeronameForBook()
 	-- local bookName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..column
-	Glyphs:RollGlyphBook(position, heroName, tier, column)
+	local glyph = Glyphs:RollGlyphBook(position, heroName, tier, column)
+	return glyph
 end
 
 function Glyphs:RollRandomTier()
@@ -841,9 +843,12 @@ function Glyphs:RollGlyphBook(deathLocation, class, row, column)
 	item.newItemTable.property4 = 0
 	item.newItemTable.property4name = ""
 	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF", 4)
-	local drop = CreateItemOnPositionSync(deathLocation, item)
-	local position = deathLocation
-	RPCItems:DropItem(item, position)
+	if deathLocation then
+		local drop = CreateItemOnPositionSync(deathLocation, item)
+		local position = deathLocation
+		RPCItems:DropItem(item, position)
+	end
+	return item
 end
 
 function Glyphs:CreateGlyphBook(itemName, row, column)
