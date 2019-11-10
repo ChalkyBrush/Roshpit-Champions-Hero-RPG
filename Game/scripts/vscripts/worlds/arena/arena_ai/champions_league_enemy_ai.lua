@@ -280,7 +280,7 @@ function specter_projectile_hit(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	EmitSoundOn(sound, target)
-	local damage = Events:GetDifficultyScaledDamage(250, 22000, 95000)
+	local damage = Events:GetDifficultyScaledDamage(1000, 3000, 26000)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end

@@ -111,7 +111,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EKKAN_W1_CRIT_DMG * 100 %>"
+				"property_two"			"<% EKKAN_W1_DAMAGE_FLAT %>"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"			"<% EKKAN_W1_CRIT_DMG * 100 %>"
 			}
 			"03"
 			{
@@ -287,7 +292,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-<% EKKAN_E3_ARMOR_REDUCTION %>"
+				"property_one"			"<% EKKAN_E3_ARMOR_REDUCTION %>"
 			}
 		}
 	}

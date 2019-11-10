@@ -39,7 +39,7 @@
 		"redfall_quest_2_objective"								"Defeat the Mari Sprites."
 
 		"redfall_blessing_of_maru"								"Blessing of Mari"
-		"redfall_blessing_of_maru_Description"					"Grants 50/300/1000 to all stats for 60 minutes"
+		"redfall_blessing_of_maru_Description"					"Grants 35/100/200 to all stats for 60 minutes"
 
 		"DOTA_Tooltip_modifier_blessing_of_maru"				"Blessing of Mari"
 		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Increased Attributes"

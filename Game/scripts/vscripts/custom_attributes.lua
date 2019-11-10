@@ -1895,6 +1895,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
+		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 	end
 	if hero:HasModifier("modifier_demon_farmer_aura_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_str", -1)

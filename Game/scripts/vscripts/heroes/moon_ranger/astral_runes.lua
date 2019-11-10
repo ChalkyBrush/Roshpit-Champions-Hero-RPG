@@ -25,7 +25,7 @@ function c_d_enter(event)
 	local ability = event.ability
 	local caster = ability.origCaster
 
-	local damage = ability.r_3_level * ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local damage = ability.r_3_level * (ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * OverflowProtectedGetAverageTrueAttackDamage(caster) + ASTRAL_RANGER_R3_FLAT_DAMAGE)
 	--print(caster:GetUnitName())
 	if caster:HasModifier("modifier_astral_glyph_2_1") then
 		damage = damage * ASTRAL_RANGER_GLYPH_2_1_PHOENIX_DAMAGE_AMP

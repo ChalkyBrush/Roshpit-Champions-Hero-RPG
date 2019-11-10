@@ -404,9 +404,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"property_two"			"<% ASTRAL_RANGER_R3_FLAT_DAMAGE %>"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"
