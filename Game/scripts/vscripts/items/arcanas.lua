@@ -611,7 +611,7 @@ function RPCItems:RollPaladinArcana1(item_level)
 
     local rune_property = RPCItems:RollArcanaRuneForSlot("w")
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 1.3)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_attributes", 2.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "spirit", 2.5)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
@@ -633,7 +633,7 @@ function RPCItems:RollSorceressArcana1(item_level)
     item.newItemTable.property1name = "arcana1"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sorceress_arcana1", "#82D5FF", 1, "#property_sorceress_arcana1_description")
 
-    local rune_property = RPCItems:RollArcanaRuneForSlot("w")
+    local rune_property = RPCItems:RollArcanaRuneForSlot("r")
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 1.3)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 3)
 
