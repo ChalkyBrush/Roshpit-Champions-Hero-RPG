@@ -280,6 +280,14 @@ Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_armor_pierce"] = 0.3
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_spell_pierce"] = 0.3
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["health"] = 0.3
 
+Enemies.GLOBAL_SEA_FORTRESS_MULT = {}
+Enemies.GLOBAL_SEA_FORTRESS_MULT["attack_damage"] = 2
+Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor"] = 3
+Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_magic_armor"] = 3
+Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor_pierce"] = 3
+Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_spell_pierce"] = 3
+Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 2
+
 function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
 	local adjusted_attribute_value = base_attribute_value
 	if GameState:IsWinterblight() then
@@ -299,6 +307,8 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 		if enemy:GetKeyValue("PitCreep") == 1 then
 			base_attribute_value = base_attribute_value * (1 + Arena.PitLevel*Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL[attribute_type])
 		end
+	elseif GameState:IsSeaFortress() then
+		base_attribute_value = base_attribute_value * Enemies.GLOBAL_SEA_FORTRESS_MULT[attribute_type]
 	end
 	return adjusted_attribute_value
 end
