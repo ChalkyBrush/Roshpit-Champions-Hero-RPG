@@ -928,13 +928,6 @@
                         "MODIFIER_PROPERTY_EVASION_CONSTANT" "100"
                     }
                 }
-                "modifier_starfall_a_d_visible"
-                {
-                    "IsHidden"  "0"
-                    "IsDebuff"  "1"
-                    "IsStunDebuff"  "1"
-                    "TextureName"   "mirana_starfall"
-                }
                 "modifier_backstab_jumping"
                 {
                     "IsHidden"  "1"

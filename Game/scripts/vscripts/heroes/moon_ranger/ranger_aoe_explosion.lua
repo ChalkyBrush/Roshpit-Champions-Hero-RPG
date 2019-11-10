@@ -278,9 +278,6 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
   Timers:CreateTimer(0.6, function()
     for i = 1, hit_mult do
       if enemy:IsAlive() and ability.r_1_level > 0 then
-        ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_visible", {duration = 7})
-        local newStacks = enemy:GetModifierStackCount("modifier_starfall_a_d_visible", caster)
-        enemy:SetModifierStackCount("modifier_starfall_a_d_visible", caster, newStacks + 1)
         Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
       end
       if caster:GetRuneValue("r", 2) > 0 then

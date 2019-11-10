@@ -2232,10 +2232,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 cosmosMult = cosmosMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
         end
-        -- if victim:HasModifier("modifier_starfall_a_d_visible") then
-        --     local stacks = victim:GetModifierStackCount("modifier_starfall_a_d_visible", attacker)
-        --     cosmosMult = cosmosMult + stacks * 0.1
-        -- end
         if attacker:GetUnitName() == "npc_dota_hero_arc_warden" then
             if attacker.e_2_level then
                 cosmosMult = cosmosMult + attacker.e_2_level * JEX_RUNE_ROW_2_VALUE

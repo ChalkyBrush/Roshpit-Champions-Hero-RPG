@@ -127,9 +127,6 @@
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"每个流星伤害"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix_two"				""
-
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"流星雨"
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"每层减少 <font color=\"#C25DFC\">宇宙</font> 元素伤害抗性 10%%"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"							"[R2] 星辰震颤"
     	"DOTA_Tooltip_ability_astral_rune_r_2_Description"				"增加[R1]的伤害，并且使流星落下后造成一系列震动，对被击中的敌人周围造成伤害并且产生0.03秒的眩晕。"

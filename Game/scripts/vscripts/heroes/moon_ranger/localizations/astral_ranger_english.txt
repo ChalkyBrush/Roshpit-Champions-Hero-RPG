@@ -137,9 +137,6 @@
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"Damage Per Star"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix_two"				""
-
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible"					"Starstorm"
-    	"DOTA_Tooltip_modifier_starfall_a_d_visible_Description"		"Each stack reducing <font color=\"#C25DFC\">Cosmic</font> resistance by 10%%."
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
         "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Increases the damage of [R1]. Each star also slams the ground on impact, dealing its damage in a small area around the primary target and stunning all affected enemies for 0.03 seconds."
