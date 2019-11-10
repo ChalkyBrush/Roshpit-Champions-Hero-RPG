@@ -310,6 +310,8 @@ function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attrib
 		if Serengaard.InfiniteWaveCount then
 			adjusted_attribute_value = base_attribute_value * (1 + Serengaard.InfiniteWaveCount*Enemies.SERENGAARD_BUFFS_PER_WAVE[attribute_type])
 		end
+	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() then
+		-- spirit realm already in main chunk
 	end
 	return adjusted_attribute_value
 end

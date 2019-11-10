@@ -5395,6 +5395,7 @@
     	"DOTA_Tooltip_ability_ekkan_dominion_move_slow"						"ЗАМЕДЛЕНИЕ, ПОКА АКТИВНО, %:"
     	"DOTA_Tooltip_ability_ekkan_dominion_debuff_duration"				"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
     	"DOTA_Tooltip_ability_ekkan_dominion_burn_damage"					"УРОН, % ОТ ВСЕГО УРОНА ЦЕЛИ:"
+		"DOTA_Tooltip_ability_ekkan_dominion_flat_hp_increase"				"УВЕЛИЕНИЕ БАЗОВОГО ХП ЮНИТА:"
 		
 		"DOTA_Tooltip_modifier_dominion_counter"							"Подчинено юнитов"
     	"DOTA_Tooltip_modifier_dominion_counter_Description"				""

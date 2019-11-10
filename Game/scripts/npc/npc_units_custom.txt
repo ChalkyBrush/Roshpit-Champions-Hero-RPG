@@ -470,6 +470,13 @@
                 }
             }
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_skeleton_mage"
@@ -547,6 +554,13 @@
                 }
             }
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_familiar"
@@ -612,6 +626,13 @@
             }
 
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_supercharged_skeleton"
@@ -677,6 +698,13 @@
             }
 
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_corpse"
