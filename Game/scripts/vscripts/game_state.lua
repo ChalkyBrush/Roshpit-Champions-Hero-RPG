@@ -1954,7 +1954,7 @@ function GameState:FilterDamage(filterTable)
 			Filters:TakeArgumentsAndApplyDamage(victim, attacker.paladin, Filters:OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin) * PALADIN_GLYPH_5_2_ATTACK_MULT, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			return false
 		end
-		if attacker:GetUnitName() == "ekkan_skeleton_archer" then
+		if attacker:GetUnitName() == "ekkan_skeleton_archer" and attacker.w_1_level then
 			local luck = RandomInt(1, 10)
 			if luck <= 3 then
 				filterTable.damage = filterTable.damage * (1 + attacker.w_1_level * EKKAN_W1_CRIT_DMG)
