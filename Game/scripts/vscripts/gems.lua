@@ -463,3 +463,35 @@ function Gems:UseUnrefinedGemstonesItem(event)
 	local gemstones = event.ability
 	local gemstone_value = gemstones.newItemTable.property1
 end
+
+function CDOTABaseAbility:GetGemValue(gem_type)
+	local item = self
+	local value = 0
+	if item.newItemTable.socket1 then
+		if item.newItemTable.socket1 == gem_type then
+			value = item.newItemTable.socket1value
+		end
+	end
+	if item.newItemTable.socket2 then
+		if item.newItemTable.socket2 == gem_type then
+			value = item.newItemTable.socket2value
+		end		
+	end
+	return value
+end
+
+function CDOTABaseAbility:GetGemValueFromSpecificSocket(gem_type, socket_number)
+	local item = self
+	local value = 0
+	if socket_number == 1 and item.newItemTable.socket1 then
+		if item.newItemTable.socket1 == gem_type then
+			value = item.newItemTable.socket1value
+		end
+	end
+	if socket_number == 2 and item.newItemTable.socket2 then
+		if item.newItemTable.socket2 == gem_type then
+			value = item.newItemTable.socket2value
+		end		
+	end
+	return value
+end

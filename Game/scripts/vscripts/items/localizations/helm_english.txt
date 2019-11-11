@@ -138,11 +138,11 @@
 
 		"item_rpc_adamantine_samurai_helmet_ruby1"	"Increases strength by @ruby_property1"
 		"item_rpc_adamantine_samurai_helmet_emerald1" "Increases agility by @emerald_property1"
+		"item_rpc_adamantine_samurai_helmet_sapphire1"	"Increases the Critical Strike chance by @sapphire_property1%"
+		"item_rpc_adamantine_samurai_helmet_amethyst1" "Increases the Critical Strike damage by an additional @amethyst_property1%"
 
-		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage. Additionally increases base attack damage by <% ADAMANTINE_SAMURAI_BASE_ATTACK_PER_LVL %>x your level."
+		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage."
 
-		
-		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
 		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have 15% of your max health and 100% of your attack damage."

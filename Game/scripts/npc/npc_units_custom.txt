@@ -103233,7 +103233,7 @@
         "StatusHealth"  "50"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "0"
-        "StatusManaRegen"   "20"
+        "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
         "TeamName"  "DOTA_TEAM_NEUTRALS"

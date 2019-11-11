@@ -17,6 +17,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_skeletonking/skeleton_king_ti8_weapon_blur_critical.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -30,27 +34,32 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"<% ADAMANTINE_SAMURAI_CHANCE %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"500"
+				"property_two"		"<% ADAMANTINE_SAMURAI_CRIT %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"		"4000"
+				"ruby1"				"<% ADAMANTINE_SAMURAI_HELMET_RUBY %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% ADAMANTINE_SAMURAI_HELMET_RUBY %>"
+				"emerald1"				"<% ADAMANTINE_SAMURAI_HELMET_EMERALD %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% ADAMANTINE_SAMURAI_HELMET_EMERALD %>"
+				"sapphire1"				"<% ADAMANTINE_SAMURAI_HELMET_SAPPHIRE %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% ADAMANTINE_SAMURAI_HELMET_AMETHYST %>"
 			}
 		}
 		"Modifiers"
@@ -60,83 +69,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "3.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"samurai_helmet_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnAttackStart"
-			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName" 	"modifier_samurai_crit"
-			            "Target" 		"ATTACKER"
-			        }
-
-			        "Random"
-			        {
-			            "Chance" "40"
-			            "OnSuccess"
-			            {
-			            	"FireSound"
-					        {
-					        	"EffectName"	"Hero_SkeletonKing.CriticalStrike"
-					        	"Target"		"TARGET"
-					        }
-
-					        "FireEffect"
-					        {
-					       		"EffectName" 		"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
-					            "EffectAttachType"  "follow_origin"
-					            "Target"    		"ATTACKER"
-					        }
-
-			                "ApplyModifier"
-			                {
-			                    "ModifierName" 	"modifier_samurai_crit"
-			                    "Target"    	"ATTACKER"
-			                }
-			            }
-			        }
-			    }
-			    "OnDestroy"
-			    {
-			    	"RemoveModifier"
-			    	{
-			    		"ModifierName"	"modifier_samurai_damage"
-			    		"Target" 		"TARGET"
-			    	}
-			    }
-			}
-			"modifier_samurai_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_three"
-				}
-			}
-			"modifier_samurai_crit"
-			{
-			    "IsHidden"  "1"
-			    "Properties"
-			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "600"
-			    }
-
-			    "OnAttackLanded"
-			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName"  "modifier_samurai_crit"
-			            "Target"   		"ATTACKER"
-			        }
-			    }
 			}
 		}
 	}

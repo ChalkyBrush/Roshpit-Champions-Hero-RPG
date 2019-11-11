@@ -124,7 +124,8 @@ function Precache:items()
 		"item_rpc_blue_rain_gauntlet",
 		"item_rpc_aquasteel_bracers",
 		"item_rpc_demonfire_gauntlet",
-	"item_rpc_outland_stone_cuirass"}
+	"item_rpc_outland_stone_cuirass",
+	"item_rpc_adamantine_samurai_helmet"}
 
 	local i = 1
 	local function precache_function()

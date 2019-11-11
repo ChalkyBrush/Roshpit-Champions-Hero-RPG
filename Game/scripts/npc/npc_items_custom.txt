@@ -50712,134 +50712,6 @@
 		}
 	}
 
-	"item_rpc_adamantine_samurai_helmet"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/adamantine_samurai_helmet" //"adamantine_samurai_helmet"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"20 40 60 80 100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"20 40 60 80 100"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_samurai_helmet"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "3.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"samurai_helmet_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnAttackStart"
-			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName" 	"modifier_samurai_crit"
-			            "Target" 		"ATTACKER"
-			        }
-
-			        "Random"
-			        {
-			            "Chance" "40"
-			            "OnSuccess"
-			            {
-			            	"FireSound"
-					        {
-					        	"EffectName"	"Hero_SkeletonKing.CriticalStrike"
-					        	"Target"		"TARGET"
-					        }
-
-					        "FireEffect"
-					        {
-					       		"EffectName" 		"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
-					            "EffectAttachType"  "follow_origin"
-					            "Target"    		"ATTACKER"
-					        }
-
-			                "ApplyModifier"
-			                {
-			                    "ModifierName" 	"modifier_samurai_crit"
-			                    "Target"    	"ATTACKER"
-			                }
-			            }
-			        }
-			    }
-			    "OnDestroy"
-			    {
-			    	"RemoveModifier"
-			    	{
-			    		"ModifierName"	"modifier_samurai_damage"
-			    		"Target" 		"TARGET"
-			    	}
-			    }
-			}
-			"modifier_samurai_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "4000"
-				}
-			}
-			"modifier_samurai_crit"
-			{
-			    "IsHidden"  "1"
-			    "Properties"
-			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "600"
-			    }
-
-			    "OnAttackLanded"
-			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName"  "modifier_samurai_crit"
-			            "Target"   		"ATTACKER"
-			        }
-			    }
-			}
-		}
-	}
-
 	"item_rpc_scourge_knights_helm"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -53405,6 +53277,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_skeletonking/skeleton_king_ti8_weapon_blur_critical.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -53418,27 +53294,32 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"20"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"500"
+				"property_two"		"200"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"		"4000"
+				"ruby1"				"20 40 60 80 100"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"20 40 60 80 100"
+				"emerald1"				"20 40 60 80 100"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"20 40 60 80 100"
+				"sapphire1"				"2 4 6 8 10"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"20 40 60 80 100"
 			}
 		}
 		"Modifiers"
@@ -53448,83 +53329,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "3.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"samurai_helmet_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnAttackStart"
-			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName" 	"modifier_samurai_crit"
-			            "Target" 		"ATTACKER"
-			        }
-
-			        "Random"
-			        {
-			            "Chance" "40"
-			            "OnSuccess"
-			            {
-			            	"FireSound"
-					        {
-					        	"EffectName"	"Hero_SkeletonKing.CriticalStrike"
-					        	"Target"		"TARGET"
-					        }
-
-					        "FireEffect"
-					        {
-					       		"EffectName" 		"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
-					            "EffectAttachType"  "follow_origin"
-					            "Target"    		"ATTACKER"
-					        }
-
-			                "ApplyModifier"
-			                {
-			                    "ModifierName" 	"modifier_samurai_crit"
-			                    "Target"    	"ATTACKER"
-			                }
-			            }
-			        }
-			    }
-			    "OnDestroy"
-			    {
-			    	"RemoveModifier"
-			    	{
-			    		"ModifierName"	"modifier_samurai_damage"
-			    		"Target" 		"TARGET"
-			    	}
-			    }
-			}
-			"modifier_samurai_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_three"
-				}
-			}
-			"modifier_samurai_crit"
-			{
-			    "IsHidden"  "1"
-			    "Properties"
-			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "600"
-			    }
-
-			    "OnAttackLanded"
-			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName"  "modifier_samurai_crit"
-			            "Target"   		"ATTACKER"
-			        }
-			    }
 			}
 		}
 	}

@@ -18,6 +18,9 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 		-- 	ability = Events.GameMasterAttackAbility,
 		-- 	damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR + DOTA_DAMAGE_FLAG_HPLOSS
 		-- })
+		if parent:HasModifier("modifier_samurai_helmet") then
+			event.damage = Filters:SamuraiAttackLand(event.damage, parent, event.target)
+		end
 		Damage:Apply({
 			source = Events.GameMasterAttackAbility,
 			sourceType = BASE_AUTO_ATTACK,

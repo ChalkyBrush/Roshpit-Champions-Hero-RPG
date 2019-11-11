@@ -4604,3 +4604,25 @@ function Filters:InpsirationRing(caster, skillIndex)
     end
     CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "inspiration_ring", {abilities_cast = ring.abilities_cast, ring_name = ring:GetAbilityName(), clear = 0, caster = caster:GetEntityIndex(), border_color = ring.newItemTable.property1color})
 end
+
+function Filters:SamuraiAttackLand(damage, attacker, target)
+    local luck = RandomInt(1, 100)
+    local helm = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local chance = ADAMANTINE_SAMURAI_CHANCE
+    local sapphire_value = helm:GetGemValue("sapphire")
+    if sapphire_value > 0 then
+        chance = chance + ADAMANTINE_SAMURAI_HELMET_SAPPHIRE[sapphire_value]
+    end
+    if luck <= chance then
+        local damage_boost = ADAMANTINE_SAMURAI_CRIT/100
+        local amethyst_value = helm:GetGemValue("amethyst")
+        if amethyst_value > 0 then
+            damage_boost = damage_boost + ADAMANTINE_SAMURAI_HELMET_AMETHYST[amethyst_value]/100
+        end
+        damage = damage * (1 + damage_boost)
+        PopupDamage(target, damage)
+        EmitSoundOn("RPCItems.SamuraiHelm.Crit", attacker)
+        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skeletonking/skeleton_king_ti8_weapon_blur_critical.vpcf", attacker, 2)
+    end
+    return damage
+end

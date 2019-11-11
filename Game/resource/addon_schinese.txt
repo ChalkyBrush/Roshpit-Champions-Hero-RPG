@@ -13063,7 +13063,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"金刚武士头盔"
 		"item_property_samurai_helmet"				"致命一击"
-		"property_samurai_helmet_description"		"你的普通攻击有 <font color='#ccff66'>40</font>% 几率造成 <font color='#ccff66'>600</font>% 的暴击伤害。额外提高你的基础攻击力 <font color='#ccff66'>4000</font>x 玩家英雄等级。"
+		"property_samurai_helmet_description"		"你的普通攻击有 <font color='#ccff66'>20</font>% 几率造成 <font color='#ccff66'>200</font>% 的暴击伤害"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"天灾骑士头盔"

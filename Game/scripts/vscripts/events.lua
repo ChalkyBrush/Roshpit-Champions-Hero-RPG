@@ -4045,5 +4045,3 @@ function Events:MainBossSlain(boss_name)
 end
 
 require('worlds/redfall/redfall')
-require('worlds/tutorial/tutorial')
-

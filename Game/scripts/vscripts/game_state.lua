@@ -1946,7 +1946,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
-		local armor = victim:GetPhysicalArmorValue(false)
+		local armor = victim:GetRoshpitArmor()
 		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
 			armor = 0
 		end

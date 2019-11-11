@@ -15,6 +15,7 @@ function RPCItems:CreateArcanaBasic(variantName, rarityName, itemNameText, slot,
     item.newItemTable.gear = gear
     item.newItemTable.consumable = nil
     item.newItemTable.requiredHero = requiredHero
+    item.newItemTable.gear_slot = RPCItems:getGearSlot(slot)
     if not minLevel or (minLevel and minLevel == 0) then
         minLevel = 1
     end

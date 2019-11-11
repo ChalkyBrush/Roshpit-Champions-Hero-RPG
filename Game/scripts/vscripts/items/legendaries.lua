@@ -171,6 +171,7 @@ function RPCItems:CreateVariant(variantName, rarityName, itemNameText, slot, gea
     item.newItemTable.item_slot = slot
     item.newItemTable.gear = gear
     item.newItemTable.consumable = nil
+    item.newItemTable.gear_slot = RPCItems:getGearSlot(slot)
     RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item
@@ -187,6 +188,7 @@ function RPCItems:CreateVariantWithHero(variantName, rarityName, itemNameText, s
     item.newItemTable.gear = gear
     item.newItemTable.consumable = nil
     item.newItemTable.requiredHero = requiredHero
+    item.newItemTable.gear_slot = RPCItems:getGearSlot(slot)
     RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item
@@ -212,6 +214,7 @@ function RPCItems:CreateVariantWithMin(variantName, rarityName, itemNameText, sl
     item.newItemTable.gear = gear
     item.newItemTable.consumable = nil
     item.newItemTable.minLevel = minLevel
+    item.newItemTable.gear_slot = RPCItems:getGearSlot(slot)
     RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item
@@ -4362,25 +4365,21 @@ function RPCItems:RollArcaneCascadeHat(deathLocation, isShop)
 end
 
 function RPCItems:RollSamuraiHelmet(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
     local item = RPCItems:CreateVariant("item_rpc_adamantine_samurai_helmet", "immortal", "Adamantine Samurai Helmet", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "samurai_helmet"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_samurai_helmet", "#FF2427", 1, "#property_samurai_helmet_description")
+    item.newItemTable.property1name = "!immortal!_modifier_samurai_helmet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_samurai_helmet", "#2ac955", 1, "#property_samurai_helmet_description")
 
-    local value, nameLevel = RPCItems:RollAttribute(0, 5, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 5)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    local value = RandomInt(maxFactor * 150, maxFactor * 360)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "attack_damage"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_bonus_attack_damage", "#343EC9", 3)
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
 
-    RPCItems:RollHoodProperty4(item, 0)
-
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
+    RPCItems:SetBaseItemValues(item, "item_rpc_adamantine_samurai_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 
