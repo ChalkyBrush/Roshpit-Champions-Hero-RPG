@@ -223,7 +223,7 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	local rarityChance = RandomInt(0+roll_boost, 10000)
 	local rarity = RPC_ITEMS_RARITY_COMMON
 	if rarityChance < RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] then
-		rarityChance = rarityChance + (GameState:GetPlayerPremiumStatusCount()*40)
+		rarityChance = math.min(rarityChance + (GameState:GetPlayerPremiumStatusCount()*40), RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL])
 	end
 	for key, value in pairs(RPCItems.RarityChances) do
 		if rarityChance >= value and rarity <= key then
