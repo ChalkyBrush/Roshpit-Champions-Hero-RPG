@@ -50591,127 +50591,6 @@
 		}
 	}
 
-	"item_rpc_arcane_cascade_hat"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/arcane_cascade_hat" //"arcane_cascade_hat"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"precache"
-		{
-			"particle"  "particles/items2_fx/arcane_cascade.vpcf"
-			"particle"	"particles/items2_fx/arcane_cascade_owner.vpcf"
-		}
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_arcane_cascade_hat"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.5"
-				"EffectName"		"particles/items2_fx/arcane_cascade_owner.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"cascade_hat_think"
-						"target"		"TARGET"
-					}
-				}
-				"Aura"          	"modifier_arcane_cascade_debuff"
-				"Aura_Radius"   	"750"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-			}
-			"modifier_arcane_cascade_debuff"
-			{
-				"Passive"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"ThinkInterval"  "0.5"
-				"EffectName"	"particles/items2_fx/arcane_cascade.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"cascade_aura"
-						"target"		"TARGET"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-30"
-				}
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"		"2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_two"		"0.5"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"8000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"		"30"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"ScriptFile"	"items/special_item_effects.lua"
-				"Function"		"cascade_hat_impact"
-				"target"		"TARGET"
-			}
-		}
-	}
-
 	"item_rpc_scourge_knights_helm"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -53257,6 +53136,131 @@
 			}
 		}
 	}
+
+	"item_rpc_arcane_cascade_hat"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/arcane_cascade_hat" //"arcane_cascade_hat"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"precache"
+		{
+			"particle"  "particles/items2_fx/arcane_cascade.vpcf"
+			"particle"	"particles/items2_fx/arcane_cascade_owner.vpcf"
+		}
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_arcane_cascade_hat"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"EffectName"		"particles/items2_fx/arcane_cascade_owner.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"cascade_hat_think"
+						"target"		"TARGET"
+					}
+				}
+				"Aura"          	"modifier_arcane_cascade_debuff"
+				"Aura_Radius"   	"750"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+			"modifier_arcane_cascade_debuff"
+			{
+				"Passive"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"ThinkInterval"  "1"
+				"EffectName"	"particles/items2_fx/arcane_cascade.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"cascade_aura"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"10"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"80 160 240 320 400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"300 600 900 1200 1500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"1 2 3 4 5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"-100 -200 -300 -400 -500"
+			}
+		}
+	}	
 
 	"item_rpc_adamantine_samurai_helmet"
 	{

@@ -498,3 +498,23 @@ function CDOTABaseAbility:GetGemValueFromSpecificSocket(gem_type, socket_number)
 	end
 	return value
 end
+
+function CDOTABaseAbility:GetFinalGemPropertyValue(gem_type, value_table)
+	local item = self
+	local final_value = 0
+	local gem_level = 0
+	if item.newItemTable.socket1 then
+		if item.newItemTable.socket1 == gem_type then
+			gem_level = item.newItemTable.socket1value
+		end
+	end
+	if item.newItemTable.socket2 then
+		if item.newItemTable.socket2 == gem_type then
+			gem_level = item.newItemTable.socket2value
+		end		
+	end
+	if gem_level > 0 then
+		final_value = value_table[gem_level]
+	end
+	return final_value
+end

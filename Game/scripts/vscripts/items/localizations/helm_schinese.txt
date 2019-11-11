@@ -124,12 +124,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"
 		"item_property_arcane_cascade"				"奥术洪流"
-		"property_arcane_cascade_description"		"每<% ARCANE_CASCADE_TICKRATE %>秒汲取你 <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% 的最大魔法值，对周围敌人造成<% ARCANE_CASCADE_DAMAGE %>倍所汲取魔法值的魔法伤害，同时降低其<% ARCANE_CASCADE_MAGIC_RESISTANCE_LOSS %>点魔法抗性。"
+		"property_arcane_cascade_description"		"每<% ARCANE_CASCADE_TICKRATE %>秒汲取你 <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% 的最大魔法值，对周围敌人造成<% ARCANE_CASCADE_DAMAGE %>。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"金刚武士头盔"
 		"item_property_samurai_helmet"				"致命一击"
-		"property_samurai_helmet_description"		"你的普通攻击有 <% ADAMANTINE_SAMURAI_CHANCE %>% 几率造成 <% ADAMANTINE_SAMURAI_CRIT %>% 的暴击伤害"
+		"property_samurai_helmet_description"		"你的普通攻击有 <% ADAMANTINE_SAMURAI_CHANCE %>% 几率造成 <% ADAMANTINE_SAMURAI_CRIT %>% 的暴击伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"天灾骑士头盔"

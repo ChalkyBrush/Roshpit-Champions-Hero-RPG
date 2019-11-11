@@ -1243,6 +1243,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
 	end
+	if unit:HasModifier("modifier_arcane_cascade_debuff") then
+		local modifier = unit:FindModifierByName("modifier_arcane_cascade_debuff")
+		local modifier_caster = modifier:GetCaster()
+		local cascade_magic_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ARCANE_CASCADE_AMETHYST)
+		magic_armor_modify = magic_armor_modify + cascade_magic_armor_loss
+	end
 	
 	
 	if magic_armor_modify > 0 then

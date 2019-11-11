@@ -4341,26 +4341,24 @@ function RPCItems:RollChainsOfOrthok(deathLocation)
     return item
 end
 
-function RPCItems:RollArcaneCascadeHat(deathLocation, isShop)
+function RPCItems:RollArcaneCascadeHat(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
     local item = RPCItems:CreateVariant("item_rpc_arcane_cascade_hat", "immortal", "Arcane Cascade Hat", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "arcane_cascade"
+    item.newItemTable.property1name = "!immortal!_modifier_arcane_cascade_hat"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcane_cascade", "#E558F5", 1, "#property_arcane_cascade_description")
 
-    local value, prefixLevel = RPCItems:RollAttribute(300, 100, 500, 0, 1, item.newItemTable.rarity, false, maxFactor * 200)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_mana"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_mana", "#343EC9", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_mana", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    local value, nameLevel = RPCItems:RollAttribute(0, 8, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 15)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "intelligence"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_intelligence", "#33CCFF", 3)
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
 
-    RPCItems:RollHoodProperty4(item, 0)
-
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
+    RPCItems:SetBaseItemValues(item, "item_rpc_arcane_cascade_hat", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 
@@ -4373,7 +4371,7 @@ function RPCItems:RollSamuraiHelmet(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_samurai_helmet", "#2ac955", 1, "#property_samurai_helmet_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 1.5)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
@@ -8336,7 +8334,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_mask_of_the_phantom_sorcerer" then
         newItem = RPCItems:RollPhantomSorcererMask(deathLocation, isShop)
     elseif itemName == "item_rpc_arcane_cascade_hat" then
-        newItem = RPCItems:RollArcaneCascadeHat(deathLocation, isShop)
+        newItem = RPCItems:RollArcaneCascadeHat(item_level)
     elseif itemName == "item_rpc_adamantine_samurai_helmet" then
         newItem = RPCItems:RollSamuraiHelmet(item_level)
     elseif itemName == "item_rpc_scourge_knights_helm" then
@@ -8859,7 +8857,7 @@ end
 function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     local itemsList = {}
     if gear_slot == RPC_GEAR_SLOT_HEAD then
-        itemsList = {"item_rpc_adamantine_samurai_helmet"}
+        itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat"}
     end
     return itemsList
 end

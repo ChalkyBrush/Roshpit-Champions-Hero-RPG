@@ -12837,7 +12837,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Каждые <font color='#ccff66'>0.5</font> секунды сжигается <font color='#ccff66'>2</font>% макс. маны. Все враги в радиусе <font color='#ccff66'>750</font>, попавшие под эффект, получат магический урон в размере <font color='#ccff66'>8000</font>х от выжженой маны и потеряют <font color='#ccff66'>30</font>% магического сопротивления. Эффект слабее, если уровень героя ниже 120."
+		"property_arcane_cascade_description"		"Каждые <font color='#ccff66'>1</font> секунды сжигается <font color='#ccff66'>2</font>% макс. маны. Все враги в радиусе <font color='#ccff66'>750</font>, попавшие под эффект, получат магический урон в размере <font color='#ccff66'>2</font>х."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"

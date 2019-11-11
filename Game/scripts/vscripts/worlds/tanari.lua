@@ -59,10 +59,10 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    
+
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
-    local helm = RPCItems:RollSamuraiHelmet(10)
+    local helm = RPCItems:RollArcaneCascadeHat(1)
     Gems:AddSocket(helm)
     Gems:AddSocket(helm)
     RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), helm)

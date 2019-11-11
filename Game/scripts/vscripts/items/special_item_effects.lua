@@ -1571,44 +1571,6 @@ function super_ascension_attack_start(event)
 	end
 end
 
-function cascade_projectile(ability, caster, fv)
-	local projectileParticle = "particles/units/heroes/hero_dragon_knight/arcane_cascade.vpcf"
-	local projectileOrigin = caster:GetAbsOrigin()
-	local start_radius = 120
-	local end_radius = 220
-	local range = 300
-	local speed = 850
-	local info =
-	{
-		Ability = ability,
-		EffectName = projectileParticle,
-		vSpawnOrigin = projectileOrigin + Vector(0, 0, 60),
-		fDistance = range,
-		fStartRadius = start_radius,
-		fEndRadius = end_radius,
-		Source = caster,
-		StartPosition = "attach_hitloc",
-		bHasFrontalCone = true,
-		bReplaceExisting = false,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 4.0,
-		bDeleteOnHit = false,
-		vVelocity = fv * speed,
-		bProvidesVision = false,
-	}
-	projectile = ProjectileManager:CreateLinearProjectile(info)
-end
-
-function cascade_hat_impact(event)
-	local ability = event.ability
-	local caster = ability.caster
-	local target = event.target
-	local damage = ability.damage
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
-end
-
 function lifesteal_land(event)
 	local attacker = event.attacker
 	local ability = event.ability
@@ -2889,25 +2851,12 @@ function cascade_hat_think(event)
 	local caster = event.target
 	local ability = event.ability
 	ability.caster = caster
-	local manaDrain = caster:GetMaxMana() * ARCANE_CASCADE_MANA_DRAIN
+	local manaDrain = caster:GetMaxMana() * (ARCANE_CASCADE_MANA_DRAIN + ability:GetFinalGemPropertyValue("sapphire", ARCANE_CASCADE_SAPPHIRE)/100)
 	if manaDrain > caster:GetMana() then
 		manaDrain = caster:GetMana()
 	end
-	ability.damage = manaDrain * ARCANE_CASCADE_DAMAGE * (caster:GetLevel() / 120) ^ 2
+	ability.damage = manaDrain * ARCANE_CASCADE_DAMAGE
 	caster:ReduceMana(manaDrain)
-	-- local fv = caster:GetForwardVector()
-	-- if manaDrain < caster:GetMana() then
-	--
-	-- cascade_projectile(ability, caster, fv)
-	-- cascade_projectile(ability, caster, WallPhysics:rotateVector(fv, math.pi))
-	-- cascade_projectile(ability, caster, WallPhysics:rotateVector(fv, 3*math.pi/2))
-	-- cascade_projectile(ability, caster, WallPhysics:rotateVector(fv, math.pi/2))
-
-	-- cascade_projectile(ability, caster, WallPhysics:rotateVector(fv, math.pi/4))
-	-- cascade_projectile(ability, caster, WallPhysics:rotateVector(fv, 3*math.pi/4))
-	-- cascade_projectile(ability, caster, WallPhysics:rotateVector(fv, 5*math.pi/4))
-	-- cascade_projectile(ability, caster, WallPhysics:rotateVector(fv, 7*math.pi/4))
-	-- end
 end
 
 function cascade_aura(event)
