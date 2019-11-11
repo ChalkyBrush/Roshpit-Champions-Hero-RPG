@@ -398,6 +398,9 @@ function Gems:InsertGem(msg)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
 			Gems:ModifyPrismaticGemstones(playerID, cost, "forge_gem", "subtract")
+			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
+				hero:EquipItem(item)
+			end
 		end
 	end
 end
