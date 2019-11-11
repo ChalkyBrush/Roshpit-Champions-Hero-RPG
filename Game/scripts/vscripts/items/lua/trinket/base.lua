@@ -11,7 +11,7 @@ end
 function class:HasRuneSlots()
     return true
 end
-function class:GetSlot()
+function class:GetSlotTextShort()
     return 'amulet'
 end
 function class:GetSlotText()

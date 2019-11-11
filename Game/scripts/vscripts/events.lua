@@ -575,10 +575,32 @@ function GameMode:OnPlayerChat(keys)
 		end
 	elseif string.match(text, "-immo") then
 		if Beacons.cheats then
-			local name = string.gsub(text, "-immo ", "")
+			local strings = string.gmatch(text, "%S+")
+			local command = strings()
+			local name = strings()
+			local level = tonumber(strings(), 10)
+			if not level then
+				level = 1
+			end
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			RPCItems:RollImmortalByName(name, hero:GetAbsOrigin())
+			local item = RPCItems:RollImmortalByName(name, level)
+			Gems:AddSocket(item)
+			Gems:AddSocket(item)
+			RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-gems") then
+		if Beacons.cheats then
+			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
+			Gems:SpawnGemForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), Vector(-1,-1), 10)
+		end
+	elseif string.match(text, "-givegems") then
+		if Beacons.cheats then
+			local amount = tonumber(string.gsub(text, "-givegems ", ""), 10)
+			local msg = {}
+			msg.PlayerID = keys.playerid
+			GameState:GetHeroByPlayerID(keys.playerid).gem_reward = amount
+			Gems:CollectReward(msg)
 		end
 	elseif string.match(text, "-arc") then
 		if Beacons.cheats then

@@ -100,7 +100,8 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/arcane_cascade_hat.lua"
 		"AbilityTextureName"	"rpc/arcane_cascade_hat" //"arcane_cascade_hat"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -119,76 +120,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_arcane_cascade_hat"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.5"
-				"EffectName"		"particles/items2_fx/arcane_cascade_owner.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"cascade_hat_think"
-						"target"		"TARGET"
-					}
-				}
-				"Aura"          	"modifier_arcane_cascade_debuff"
-				"Aura_Radius"   	"<% ARCANE_CASCADE_RANGE %>"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-			}
-			"modifier_arcane_cascade_debuff"
-			{
-				"Passive"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"ThinkInterval"  "<% ARCANE_CASCADE_TICKRATE %>"
-				"EffectName"	"particles/items2_fx/arcane_cascade.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"cascade_aura"
-						"target"		"TARGET"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
 		"AbilitySpecial"
 		{
 			"01"

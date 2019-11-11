@@ -13,7 +13,7 @@ end
 function class:RollProperty4(maxFactor)
     RPCItems:RollBodyProperty4(self, 0)
 end
-function class:GetSlot()
+function class:GetSlotTextShort()
     return 'body'
 end
 function class:GetSlotText()

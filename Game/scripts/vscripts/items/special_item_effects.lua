@@ -5026,8 +5026,6 @@ function frostmaw_kill(event)
 		summon:SetBaseMoveSpeed(movespeed)
 		summon:SetBaseDamageMin(attackDamage)
 		summon:SetBaseDamageMax(attackDamage)
-		summon.attackDamage = attackDamage
-		summon.armor = armor
 		summon.aggro = true
 		summon.frostmaw = true
 		summon:SetDayTimeVisionRange(90)

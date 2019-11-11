@@ -129,8 +129,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
-		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Drains <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% of your max mana every <% ARCANE_CASCADE_TICKRATE %> seconds. All enemies within <% ARCANE_CASCADE_RANGE %> range take up to <% ARCANE_CASCADE_DAMAGE %>x the mana drained as Magic Damage."
+		"item_property_arcane_cascade_hat"				"Arcane Cascade"
+		"property_arcane_cascade_hat_description"		"Drains <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% of your max mana every <% ARCANE_CASCADE_TICKRATE %> seconds. All enemies within <% ARCANE_CASCADE_RANGE %> range take up to <% ARCANE_CASCADE_DAMAGE %>x the mana drained as Magic Damage."
 
 		"item_rpc_arcane_cascade_hat_ruby1"	"Increases all <font color=\"#E1A2E8\">Arcane</font> damage by @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "Increases Max Mana by @emerald_property1"

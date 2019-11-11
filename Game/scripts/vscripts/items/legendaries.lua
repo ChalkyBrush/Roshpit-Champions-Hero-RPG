@@ -8171,7 +8171,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     local newItem = nil
     --print(immortalName)
     if _G[itemName] then
-        newItem = _G[itemName]:CreateLuaItem(position)
+        newItem = _G[itemName]:CreateLuaItem(item_level)
     elseif itemName == "item_rpc_magebane_gloves" then
         newItem = RPCItems:RollMageBaneGloves(item_level)
     elseif itemName == "item_rpc_berserker_gloves" then
