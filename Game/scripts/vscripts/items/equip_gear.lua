@@ -215,7 +215,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		end
 	elseif item:GetAbilityName() == "item_rpc_arcane_cascade_hat" then
 		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ARCANE_CASCADE_RUBY, hero, "spell_pierce", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ARCANE_CASCADE_RUBY, hero, "element_arcane", RPC_GEAR_SLOT_HEAD)
 		end
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ARCANE_CASCADE_EMERALD, hero, "max_mana", RPC_GEAR_SLOT_HEAD)

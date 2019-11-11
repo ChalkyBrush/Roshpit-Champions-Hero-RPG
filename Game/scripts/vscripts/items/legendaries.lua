@@ -4357,8 +4357,8 @@ function RPCItems:RollArcaneCascadeHat(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
-
     RPCItems:SetBaseItemValues(item, "item_rpc_arcane_cascade_hat", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    RPCItems:SocketsChance(item)
     return item
 end
 
@@ -4376,8 +4376,8 @@ function RPCItems:RollSamuraiHelmet(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
-
     RPCItems:SetBaseItemValues(item, "item_rpc_adamantine_samurai_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    RPCItems:SocketsChance(item)
     return item
 end
 
