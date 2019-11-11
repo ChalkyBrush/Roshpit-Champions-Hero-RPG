@@ -910,6 +910,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 
 	local magic_armor_modify = 0
+	Util.Modifier:SimpleEvent(unit, 'GetMagicArmorBonus', { MODIFIER_MAGIC_ARMOR_BONUS }, { }, 
+		function(result, data)
+			magic_armor_modify = magic_armor_modify + result
+		end
+	)
 	if unit:HasModifier("modifier_axe_rune_w_2_invisible") then
 		local modifier = unit:FindModifierByName("modifier_axe_rune_w_2_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION
