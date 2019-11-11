@@ -268,19 +268,29 @@ function initializeTooltip(func){
 	$('#move_3_left').text = $.Localize("ui_max_movement_speed")
 
 	$('#move_1_right').text = GameUI.StatQueryData.movespeed
-	$('#move_2_right').text = "<font color='#68ff23'>+"+GameUI.StatQueryData.movespeed_bonus+"</font>"
+	if (GameUI.StatQueryData.movespeed_bonus >= 0){
+		$('#move_2_right').text = "<font color='#68ff23'>+"+GameUI.StatQueryData.movespeed_bonus+"</font>"
+	}else{
+		$('#move_2_right').text = "<font color='#ff0000'>"+GameUI.StatQueryData.movespeed_bonus+"</font>"
+	}
 	$('#move_3_right').text = GameUI.StatQueryData.max_ms
 
 	// HANDLE NON HERO
 	if (Entities.IsHero( queryUnit )){
 		$('#attributes_main_container').RemoveClass('invisible')
 		$('#base_ability_container').RemoveClass('invisible')
+		$('#bad-splitter').RemoveClass('invisible')
 		$('#attack_defense_subtitle_base_ability').RemoveClass('invisible')
 		$('#elements_container').RemoveClass('invisible')
+		$('#post_mit_and_item_damage_container').RemoveClass('invisible')
+		$('#post_mit_and_item_damage_title').RemoveClass('invisible')
 	}else{
 		$('#attributes_main_container').AddClass('invisible')
 		$('#base_ability_container').AddClass('invisible')
+		$('#bad-splitter').AddClass('invisible')
 		$('#attack_defense_subtitle_base_ability').AddClass('invisible')
+		$('#post_mit_and_item_damage_container').AddClass('invisible')
+		$('#post_mit_and_item_damage_title').AddClass('invisible')
 		// $('#elements_container').AddClass('invisible')
 	}
 	$.Schedule(0.3, function(){

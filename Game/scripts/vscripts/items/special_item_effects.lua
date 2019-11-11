@@ -3894,8 +3894,25 @@ function basilisk_plague_petrify(event)
 		target:SetModifierStackCount("modifier_basilisk_petrify_stacks", caster, newStacks)
 		if newStacks >= BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM / BASILISK_PLAGUE_THINK_INTERVAL then
 			target:RemoveModifierByName("modifier_basilisk_petrify_stacks")
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_petrify", {duration = BASILISK_PLAGUE_STONE_FORM_DUR})
+			local stone_form_duration = BASILISK_PLAGUE_STONE_FORM_DUR + ability:GetFinalGemPropertyValue("sapphire", BASILISK_PLAGUE_SAPPHIRE)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_petrify", {duration = stone_form_duration})
+			local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_earth_spirit/espirit_magnetize_target.vpcf", target, 3)
+			EmitSoundOn("RPC.BasiliskHelm.Petrify", target)
 		end
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		local damage = ability:GetFinalGemPropertyValue("emerald", BASILISK_PLAGUE_EMERALD)
+		Filters:ApplyItemDamage(target, caster.hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_DEMON)
+	end
+end
+
+function basilisk_plague_poison_start(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_ruby_as_loss", {})
+		target:SetModifierStackCount("modifier_basilisk_plague_ruby_as_loss", caster, ability:GetFinalGemPropertyValue("ruby", BASILISK_PLAGUE_RUBY))
 	end
 end
 

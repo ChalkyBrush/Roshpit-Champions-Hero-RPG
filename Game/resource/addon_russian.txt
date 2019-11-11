@@ -12707,7 +12707,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
 		"item_property_basilisk_plague"					"Depth Rot"
-		"property_basilisk_plague_description"				"Облако губительного газа окружает героя, попавшие в которое противники замедляются на <font color='#ccff66'>50</font>% и снижают скорость атаки на <font color='#ccff66'>240</font>. Противники, находящиеся в газе более <font color='#ccff66'>2</font> секунд превращаются в камень на <font color='#ccff66'>2</font> сек., будучи парализованными, но иммунными к любой магии, они получают <font color='#ccff66'>1500</font>% больше Физического пост-резистного урона."
+		"property_basilisk_plague_description"				"Облако губительного газа окружает героя, попавшие в которое противники замедляются на <font color='#ccff66'>65</font>% и снижают скорость атаки на <font color='#ccff66'>100</font>. Противники, находящиеся в газе более <font color='#ccff66'>2</font> секунд превращаются в камень на <font color='#ccff66'>2</font>."
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Превращён в камень. Иммунитет к магии."
 

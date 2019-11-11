@@ -53041,6 +53041,177 @@
 		}
 	}
 
+	"item_rpc_basilisk_plague_helm"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/basilisk_plague_helm" //"basilisk_plague_helm"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+			"particle"	"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
+			"particle"	"particles/units/heroes/hero_earth_spirit/espirit_magnetize_target.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"			"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"50 100 150 200 250"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"125 250 375 500 625"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"0.3 0.6 0.9 1.2 1.5"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"-400 -800 -1200 -1600 -2000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_basilisk_plague_helm"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"Aura"          	"modifier_basilisk_plague_helm_effect"
+				"Aura_Radius"   	"260"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_basilisk_plague_helm_effect"
+			{
+				"Passive"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"pudge_rot"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"basilisk_plague_petrify"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"basilisk_plague_poison_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_basilisk_plague_ruby_as_loss"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_basilisk_plague_ruby_as_loss"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1" 
+				}
+			}
+			"modifier_basilisk_petrify_stacks"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_basilisk_plague_petrify"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"TextureName"	"pudge_rot"
+				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
+				"StatusEffectPriority"  "30"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
 	"item_rpc_autumn_sleeper_mask"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -53099,7 +53270,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"-120 -240 -360 -480 -600"
+				"amethyst1"				"-140 -280 -420 -560 -700"
 			}
 		}
 		"Modifiers"
@@ -53471,115 +53642,6 @@
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
 			}
-		}
-	}
-
-	"item_rpc_basilisk_plague_helm"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/basilisk_plague_helm" //"basilisk_plague_helm"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_pudge/pudge_rot.vpcf"
-			"particle"	"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
-			"particle"	"particles/units/heroes/hero_earth_spirit/earthspirit_petrify_shockwave.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_basilisk_plague_helm"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"EffectName"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"Aura"          	"modifier_basilisk_plague_helm_effect"
-				"Aura_Radius"   	"260"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"Aura_ApplyToCaster" "0"
-			}
-			"modifier_basilisk_plague_helm_effect"
-			{
-				"Passive"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"	"pudge_rot"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-240"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
-				}
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"basilisk_plague_petrify"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_basilisk_petrify_stacks"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_basilisk_plague_petrify"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"	"pudge_rot"
-				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
-				"StatusEffectPriority"  "30"
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"RPC.BasiliskHelm.Petrify"
-						"Target" 		"TARGET"
-					}
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_earth_spirit/earthspirit_petrify_shockwave.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-
 		}
 	}
 

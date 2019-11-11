@@ -3289,27 +3289,30 @@ function RPCItems:RollWhiteMageHat(item_level)
 end
 
 function RPCItems:RollBasiliskPlagueHelm(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
     local item = RPCItems:CreateVariant("item_rpc_basilisk_plague_helm", "immortal", "Basilisk Plague Helm", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "basilisk_plague"
+    item.newItemTable.property1name = "!immortal!_modifier_basilisk_plague_helm"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_basilisk_plague", "#93B058", 1, "#property_basilisk_plague_description")
 
     local luck = RandomInt(1, 3)
     if luck == 1 then
-        local value, prefixLevel = RPCItems:RollAttribute(100, 6, 12, 0, 0, item.newItemTable.rarity, false, maxFactor * 15)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "health_regen"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_health_regen", "#6AA364", 2)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.5)
     elseif luck == 2 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_POISON, 3, 2, 30, 2)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_poison", 1.5)
     else
-        RPCItems:RollHoodProperty2(item, 0)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
     end
 
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+
+    RPCItems:SetBaseItemValues(item, "item_rpc_basilisk_plague_helm", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 

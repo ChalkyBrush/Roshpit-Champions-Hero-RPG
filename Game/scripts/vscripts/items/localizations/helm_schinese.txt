@@ -1,7 +1,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"蜥蜴瘟疫之头"
 		"item_property_basilisk_plague"					"深度腐烂"
-		"property_basilisk_plague_description"				"附近敌人降低<% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>%的移动速度和<% BASILISK_PLAGUE_ATT_SPD_REDUCE %>的攻击速度，腐烂作用2秒后，敌人将变成石头2秒，眩晕并且魔法免疫，同时受到额外的<% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%>%倍税后物理伤害。"
+		"property_basilisk_plague_description"				"附近敌人降低<% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>%的移动速度和<% BASILISK_PLAGUE_ATT_SPD_REDUCE %>的攻击速度"
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"深度腐烂"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"变成石头并且魔法免疫"
 

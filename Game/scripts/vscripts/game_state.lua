@@ -2122,9 +2122,6 @@ function GameState:FilterDamage(filterTable)
 			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * HOOD_OF_DEFILER_POST_MITI_PHYS/100
 			mult = mult + multIncrease
 		end
-		if victim:HasModifier('modifier_basilisk_plague_petrify') then
-			mult = mult + BASILISK_PLAGUE_PHYSICAL_POSTMIT
-		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then

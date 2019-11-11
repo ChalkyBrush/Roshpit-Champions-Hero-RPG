@@ -89,6 +89,15 @@ CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
 
+function CDOTA_BaseNPC:GetRoshpitLevel()
+	local unit = self
+	if unit.roshpit_attributes and unit.roshpit_attributes.roshpit_level then
+		return unit.roshpit_attributes.roshpit_level
+	else
+		return 1
+	end
+end
+
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
 	local strength = hero.strength_custom + hero.str_bonus
@@ -839,6 +848,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier_caster = modifier:GetCaster()
 		local sleeper_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", AUTUMN_SLEEPER_AMETHYST)
 		armor_modify = armor_modify + sleeper_armor_loss
+	end
+	if unit:HasModifier("modifier_basilisk_plague_petrify") then
+		local modifier = unit:FindModifierByName("modifier_basilisk_plague_petrify")
+		local modifier_caster = modifier:GetCaster()
+		local basilisk_petrify_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", BASILISK_PLAGUE_AMETHYST)
+		armor_modify = armor_modify + basilisk_petrify_armor_loss
 	end
 
 	if armor_modify > 0 then

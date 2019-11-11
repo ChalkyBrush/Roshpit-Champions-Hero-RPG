@@ -164,7 +164,7 @@
 						<Label class="atk_def_property bonus_left stat_label_offset" id="atk_6_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="atk_6_right" html="true"/>
 					</Panel>
-					<Panel class="class-splitter-thin-full">
+					<Panel class="class-splitter-thin-full" id="bad-splitter">
 					</Panel>
 					<Label class="attack_defense_subtitle" id="attack_defense_subtitle_base_ability"/>
 					<Panel class="resistance_container" id="base_ability_container">

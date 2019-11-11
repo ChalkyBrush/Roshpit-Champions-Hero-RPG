@@ -1,9 +1,51 @@
+    	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
+		"item_property_samurai_helmet"				"Critical Strike"
+
+		"item_rpc_adamantine_samurai_helmet_ruby1"	"Increases strength by @ruby_property1"
+		"item_rpc_adamantine_samurai_helmet_emerald1" "Increases agility by @emerald_property1"
+		"item_rpc_adamantine_samurai_helmet_sapphire1"	"Increases the Critical Strike chance by @sapphire_property1%"
+		"item_rpc_adamantine_samurai_helmet_amethyst1" "Increases the Critical Strike damage by an additional @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
+		"item_property_arcane_cascade_hat"				"Arcane Cascade"
+		"property_arcane_cascade_hat_description"		"Drains <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% of your max mana every <% ARCANE_CASCADE_TICKRATE %> seconds. All enemies within <% ARCANE_CASCADE_RANGE %> range take up to <% ARCANE_CASCADE_DAMAGE %>x the mana drained as Magic Damage."
+
+		"item_rpc_arcane_cascade_hat_ruby1"	"Increases all <font color=\"#E1A2E8\">Arcane</font> damage by @ruby_property1%"
+		"item_rpc_arcane_cascade_hat_emerald1" "Increases Max Mana by @emerald_property1"
+		"item_rpc_arcane_cascade_hat_sapphire1"	"Increases the Mana Drain by an additional @sapphire_property1%"
+		"item_rpc_arcane_cascade_hat_amethyst1" "Enemies in the damage AOE have @amethyst_property1 reduced Magic Armor"
+
+		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage."
+
+		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
+		"item_property_autumn_sleeper"						"Wild Overgrowth"
+		 "property_autumn_sleeper_description"				"Enemies that come within <% AUTUMN_SLEEPER_RADIUS %> range of you are immediately rooted for <% AUTUMN_SLEEPER_ROOT_DUR %> seconds."
+		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
+		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
+
+		"item_rpc_autumn_sleeper_mask_ruby1"	"Casting [R] roots all enemies in a <% AUTUMN_SLEEPER_RUBY_RADIUS %> radius for @ruby_property1 seconds"
+		"item_rpc_autumn_sleeper_mask_emerald1" "Rooted enemies take damage equal to @emerald_property1% of attack power every <% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> seconds"
+		"item_rpc_autumn_sleeper_mask_sapphire1"	"When Wild Overgrowth root ends, the escaped enemy has <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> movespeed for @sapphire_property1 seconds"
+		"item_rpc_autumn_sleeper_mask_amethyst1" "Rooted enemies have @amethyst_property1 reduced Armor"
+
+		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow"		"Wild Overgrowth Slow"
+		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow_Description"	"Movement Slowed"
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
 		"item_property_basilisk_plague"					"Depth Rot"
-		"property_basilisk_plague_description"				"A cloud of foul rot surrounds you, slowing the movement speed of nearby enemies by <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% and reducing their attack speed by <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Enemies who are exposed to the rot for <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> seconds are petrified for <% BASILISK_PLAGUE_STONE_FORM_DUR %> seconds, paralyzing them while granting Spell Immunity and a <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%>% post-mitigation weakness to Physical damage."
+		"property_basilisk_plague_description"				"A cloud of rot surrounds you, slowing the movement speed of nearby enemies by <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% and reducing their attack speed by <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Enemies who are exposed to the rot for <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> seconds are petrified for <% BASILISK_PLAGUE_STONE_FORM_DUR %> seconds, paralyzing them but granting Spell Immunity."
+		
+		"item_rpc_basilisk_plague_helm_ruby1"	"The attack speed debuff of rotting enemies is increased by @ruby_property1"
+		"item_rpc_basilisk_plague_helm_emerald1" "Enemies take @emerald_property1 damage every <% BASILISK_PLAGUE_THINK_INTERVAL %> seconds while standing near the rot"
+		"item_rpc_basilisk_plague_helm_sapphire1"	"Increases the petrify duration by @sapphire_property1 seconds"
+		"item_rpc_basilisk_plague_helm_amethyst1" "Petrified enemies have @amethyst_property1 reduced Armor"
+
+
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Spell Immune, vulnerable to Physical damage."
+
+		"DOTA_Tooltip_modifier_basilisk_plague_helm_effect"	"Depth Rot"
+		"DOTA_Tooltip_modifier_basilisk_plague_helm_effect_Description"	"Slowed"
 
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
@@ -126,27 +168,6 @@
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
 		"item_property_phantom_sorcerer"			"Phantom Gaze"
 		"property_phantom_sorcerer_description"		"@Ability2 has <% PHANTOM_SORCERER_BAD %>% more Base Ability Damage and has an extra <% PHANTOM_SORCERER_CD_INCREASE %> seconds added to its cooldown."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
-		"item_property_arcane_cascade_hat"				"Arcane Cascade"
-		"property_arcane_cascade_hat_description"		"Drains <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% of your max mana every <% ARCANE_CASCADE_TICKRATE %> seconds. All enemies within <% ARCANE_CASCADE_RANGE %> range take up to <% ARCANE_CASCADE_DAMAGE %>x the mana drained as Magic Damage."
-
-		"item_rpc_arcane_cascade_hat_ruby1"	"Increases all <font color=\"#E1A2E8\">Arcane</font> damage by @ruby_property1%"
-		"item_rpc_arcane_cascade_hat_emerald1" "Increases Max Mana by @emerald_property1"
-		"item_rpc_arcane_cascade_hat_sapphire1"	"Increases the Mana Drain by an additional @sapphire_property1%"
-		"item_rpc_arcane_cascade_hat_amethyst1" "Enemies in the damage AOE have @amethyst_property1 reduced Magic Armor"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
-		"item_property_samurai_helmet"				"Critical Strike"
-
-		"item_rpc_adamantine_samurai_helmet_ruby1"	"Increases strength by @ruby_property1"
-		"item_rpc_adamantine_samurai_helmet_emerald1" "Increases agility by @emerald_property1"
-		"item_rpc_adamantine_samurai_helmet_sapphire1"	"Increases the Critical Strike chance by @sapphire_property1%"
-		"item_rpc_adamantine_samurai_helmet_amethyst1" "Increases the Critical Strike damage by an additional @amethyst_property1%"
-
-		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage."
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
@@ -256,19 +277,7 @@
 		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by <% BLACK_MAGE_MAGIC_POST_MITI %>%. Damage dealt directly by items is reduced by <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
-		"item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Enemies that come within <% AUTUMN_SLEEPER_RADIUS %> range of you are immediately rooted for <% AUTUMN_SLEEPER_ROOT_DUR %> seconds."
-		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
-		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
 
-		"item_rpc_autumn_sleeper_mask_ruby1"	"Casting [R] roots all enemies in a <% AUTUMN_SLEEPER_RUBY_RADIUS %> radius for @ruby_property1 seconds"
-		"item_rpc_autumn_sleeper_mask_emerald1" "Rooted enemies take damage equal to @emerald_property1% of attack power every <% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> seconds"
-		"item_rpc_autumn_sleeper_mask_sapphire1"	"When Wild Overgrowth root ends, the escaped enemy has <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> movespeed for @sapphire_property1 seconds"
-		"item_rpc_autumn_sleeper_mask_amethyst1" "Rooted enemies have @amethyst_property1 reduced Armor"
-
-		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow"		"Wild Overgrowth Slow"
-		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow_Description"	"Movement Slowed"
 		 
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
