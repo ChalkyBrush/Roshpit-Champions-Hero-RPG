@@ -2386,7 +2386,7 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	local max_ms = CustomAttributes:MSCap(unit)
 	local ms_from_agi = 0
 	if unit:IsHero() and unit.InventoryUnit then
-		ms_from_agi_and_gear = unit:GetModifierStackCount("modifier_agility_movespeed", unit.InventoryUnit) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_movespeed", 1)
+		ms_from_agi_and_gear = unit:GetModifierStackCount("modifier_agility_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_head_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_weapon_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_hands_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_feet_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_body_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_amulet_movespeed", unit.InventoryUnit)
 	end
 	tableData.movespeed = movespeed + ms_from_agi
 	tableData.movespeed_bonus = movespeed_bonus - ms_from_agi
