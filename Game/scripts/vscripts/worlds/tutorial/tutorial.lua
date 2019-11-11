@@ -1,3 +1,5 @@
+print("---[TUTORIAL SCRIPT LOAD]---")
+
 function Tutorial:InitTutorialMap()
 	--print("Initialize Tutorial")
 	Dungeons.phoenixCollision = true
@@ -58,6 +60,7 @@ function Tutorial:SpawnAllTownNPCs()
 			Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-1537, -1547), Vector(-0.2, -1))
 			Events:SpawnCurator(Vector(-320, -1472), Vector(0, -1))
 			Tutorial:BlacksmithSounds()
+			Challenges:SpawnElderRai(Vector(-576, -2368), Vector(0,1))
 		end)
 		Tutorial.NPCSspawned = true
 	end
@@ -220,6 +223,10 @@ function Tutorial:PreIntro(hero)
 		end)
 		Tutorial:ApplyTutorialModifier("modifier_tutorial_assistant", assistant, 0)
 		hero.tutorial_assistant = assistant
+
+		local player = hero:GetPlayerOwner()
+		CustomGameEventManager:Send_ServerToPlayer(player, "tutorial_exit_help", {help_index = 1})
+
 	end
 end
 
@@ -706,10 +713,11 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		end)
 	elseif code == "2_3" then
 		hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
+		speech_phase = hero.tutorial_speech_phase
 		hero.master_is_talking = true
 		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_2_3a", 5, false)
 		if hero:GetLevel() < 2 then
-			hero:AddExperience(1000, 0, false, true)
+			hero:AddExperience(150, 0, false, true)
 		end
 		Timers:CreateTimer(5, function()
 			Tutorial:SpawnOracle()
@@ -742,22 +750,8 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Timers:CreateTimer(5, function()
 					if speech_phase == hero.tutorial_speech_phase then
 						Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_1b1", 5, false)
-						Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_3, 1.0, 4.0)
-						local luck = RandomInt(200, 500)
-						if luck >= 200 and luck < 265 then
-							RPCItems:RollHood(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-						elseif luck >= 265 and luck < 330 then
-							RPCItems:RollHand(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-						elseif luck >= 330 and luck < 395 then
-							RPCItems:RollFoot(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-						elseif luck >= 395 and luck < 460 then
-							RPCItems:RollBody(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-						elseif luck <= 500 then
-							RPCItems:RollAmulet(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-						end
-						if hero:GetLevel() < 10 then
-							hero:AddExperience(3000, 0, false, true)
-						end
+						local item = RPCItems:RollRandomItemBySlot(RPC_ITEMS_RARITY_UNCOMMON, 1, RPC_GEAR_SLOT_HEAD)
+						RPCItems:BasicDropItem(Tutorial.Master:GetAbsOrigin(), item)
 					end
 				end)
 			end
@@ -787,21 +781,8 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_2b", 5, false)
 					Tutorial:SpawnAllTownNPCs()
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_2, 1.0, 4.0)
-					local luck = RandomInt(200, 500)
-					if luck >= 200 and luck < 265 then
-						RPCItems:RollHood(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-					elseif luck >= 265 and luck < 330 then
-						RPCItems:RollHand(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-					elseif luck >= 330 and luck < 395 then
-						RPCItems:RollFoot(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-					elseif luck >= 395 and luck < 460 then
-						RPCItems:RollBody(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-					elseif luck <= 500 then
-						RPCItems:RollAmulet(300, Tutorial.Master:GetAbsOrigin(), "uncommon", false, 0, nil, 0)
-					end
-					if hero:GetLevel() < 10 then
-						hero:AddExperience(3000, 0, false, true)
-					end
+					local item = RPCItems:RollRandomItemBySlot(RPC_ITEMS_RARITY_UNCOMMON, 1, RPC_GEAR_SLOT_HEAD)
+					RPCItems:BasicDropItem(Tutorial.Master:GetAbsOrigin(), item)
 				end)
 			end
 		end)
@@ -831,7 +812,8 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 						hero.free_weapon_given = true
 						delayUntil_d = 6
 						Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_3c1", 5, false)
-						Weapons:RollWeaponWithClass(Tutorial.Master:GetAbsOrigin(), hero:GetUnitName())
+						local item = Weapons:RollWeapon(RPC_ITEMS_RARITY_UNCOMMON, 1, hero:GetUnitName())
+						RPCItems:BasicDropItem(Tutorial.Master:GetAbsOrigin(), item)
 					end
 				end
 				Timers:CreateTimer(delayUntil_d, function()
@@ -958,9 +940,6 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 						ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
 					end
 					shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
-					shroomling:SetDeathXP(500)
-					shroomling:SetMaximumGoldBounty(10)
-					shroomling:SetMinimumGoldBounty(20)
 				end)
 			end
 		end)
@@ -999,8 +978,8 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_2d", 5, false)
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 				local question = "tutorial_quiz_question_11"
-				local armor = math.floor(hero:GetPhysicalArmorValue(false))
-				local verifier = (1 - GameState:GetPostReductionPhysicalDamage(10000, armor) / 10000) * 100
+				local armor = math.floor(hero:GetRoshpitArmor())
+				local verifier = (1 - (255 / (255 + armor)))*100
 				-- local resist = (0.05*hero:GetPhysicalArmorValue(false)/(1 + (0.05 * math.abs(hero:GetPhysicalArmorValue(false)))))
 				-- resist = (resist*100000)/1000
 				-- verifier = resist
@@ -1045,7 +1024,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				local random_element = RandomInt(1, RPC_ELEMENT_COUNT)
 				local damageDealt = 1000
 				local damageELEMENT = Filters:ElementalDamage(Events.GameMaster, hero, damageDealt * 100, DAMAGE_TYPE_PURE, 0, random_element, RPC_ELEMENT_NONE, false)
-				local validator = math.floor(damageELEMENT / damageDealt)
+				local validator = math.floor(damageELEMENT / damageDealt) - 100
 				local player = PlayerResource:GetPlayer(hero:GetPlayerOwnerID())
 				local question = "tutorial_quiz_question_14a"
 				local sub1 = "rpc_element"..random_element
@@ -1231,9 +1210,6 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 							ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
 						end
 						shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
-						shroomling:SetDeathXP(500)
-						shroomling:SetMaximumGoldBounty(10)
-						shroomling:SetMinimumGoldBounty(20)
 					end)
 				end)
 				Timers:CreateTimer(5, function()
@@ -1295,6 +1271,8 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		hero.master_is_talking = true
 		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2a", 5, false)
 		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Tutorial:UpdateSpecialKeyOnWeb(hero, 1)
+		Tutorial:CheckSpecialKeyAndLoop(hero)
 		Timers:CreateTimer(5, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2b", 5, false)
@@ -1309,7 +1287,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		Timers:CreateTimer(15, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2d", 5, false)
-				Tutorial:UpdateSpecialKeyOnWeb(hero, 1)
+				
 			end
 		end)
 		Timers:CreateTimer(20, function()
@@ -1331,12 +1309,15 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
+								print("return 6")
 								return 6
 							end
 							if hero.special_key == 2 then
+								print("input")
 								Tutorial:TutorialServerEvent(hero, "6_2", 0)
 							end
 						else
+							print("return 6")
 							return 6
 						end
 					end
@@ -1347,6 +1328,8 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		hero.master_is_talking = true
 		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3a", 5, false)
 		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Tutorial:UpdateSpecialKeyOnWeb(hero, 3)
+		Tutorial:CheckSpecialKeyAndLoop(hero)
 		Timers:CreateTimer(5, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3b", 5, false)
@@ -1361,7 +1344,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		Timers:CreateTimer(15, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_3d", 5, false)
-				Tutorial:UpdateSpecialKeyOnWeb(hero, 3)
+				
 			end
 		end)
 		Timers:CreateTimer(20, function()
@@ -1378,12 +1361,15 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
+								print("return 6")
 								return 6
 							end
 							if hero.special_key == 4 then
+								print("Got it")
 								Tutorial:TutorialServerEvent(hero, "6_3", 0)
 							end
 						else
+							print("return 6")
 							return 6
 						end
 					end
@@ -1394,11 +1380,13 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 		hero.master_is_talking = true
 		Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_4a", 5, false)
 		local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+		Tutorial:UpdateSpecialKeyOnWeb(hero, 5)
+		Tutorial:CheckSpecialKeyAndLoop(hero)
 		Timers:CreateTimer(5, function()
 			if speech_phase == hero.tutorial_speech_phase then
 				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_CAST_ABILITY_1, 0.9, 2.0)
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_4b", 5, false)
-				Tutorial:UpdateSpecialKeyOnWeb(hero, 5)
+				
 			end
 		end)
 		Timers:CreateTimer(10, function()
@@ -1415,12 +1403,15 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
+								print("return 6")
 								return 6
 							end
 							if hero.special_key == 6 then
+								print("got it")
 								Tutorial:TutorialServerEvent(hero, "6_4", 0)
 							end
 						else
+							print("return 6")
 							return 6
 						end
 					end
@@ -1472,6 +1463,7 @@ function Tutorial:CheckSpecialKeyAndLoop(hero)
 			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			hero.special_key = resultTable.special_key
+			DeepPrintTable(resultTable)
 		end
 	end)
 end
@@ -1679,7 +1671,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					local verifier = nil
 					local sub = nil
 					if choice == 1 then
-						verifier = tonumber(math.floor(hero:GetPhysicalArmorBaseValue()))
+						verifier = tonumber(math.floor(hero:GetRoshpitArmor()))
 						sub = "tutorial_base_armor"
 					elseif choice == 2 then
 						verifier = tonumber(math.floor(hero:Script_GetAttackRange()))
@@ -2116,9 +2108,6 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 									if i < 4 then
 										shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
 									end
-									shroomling:SetDeathXP(500)
-									shroomling:SetMaximumGoldBounty(10)
-									shroomling:SetMinimumGoldBounty(20)
 									table.insert(hero.shroomling_table, shroomling)
 								end
 							end)
@@ -2229,9 +2218,6 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 									ability:ApplyDataDrivenModifier(elemental, elemental, "modifier_dungeon_thinker_creep", {})
 								end
 								elemental.aggroSound = "Tutorial.Elemental.Aggro"
-								elemental:SetDeathXP(500)
-								elemental:SetMaximumGoldBounty(10)
-								elemental:SetMinimumGoldBounty(20)
 								Timers:CreateTimer(3, function()
 									elemental.cantAggro = false
 									Dungeons:AggroUnit(elemental)
@@ -2280,22 +2266,21 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 5, 3, false)
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 			elseif code2 == 3 and hero.active_challenge_progress == code2 then
-				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_5i", 5, false)
 				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
-				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 5, 4, false)
-				hero.active_challenge_progress = hero.active_challenge_progress + 1
-				Timers:CreateTimer(5, function()
-					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_5j", 5, false)
-					EmitSoundOn("Tutorial.Master.Talk", hero)
-				end)
-			elseif code2 == 4 and hero.active_challenge_progress == code2 then
-				local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
-				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_5k", 4.5, false)
+				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_5h", 4.5, false)
 				Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
 				hero.master_is_talking = false
 				Tutorial:ProgressUpdateOrNot(hero, 4, 5)
-				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 5, 5, true)
+				Tutorial:UpdateChallengeSummaryProgress(hero, 4, 5, 4, true)
 				hero.active_challenge = nil
+			elseif code2 == 4 and hero.active_challenge_progress == code2 then
+				-- local speech_phase = Tutorial:GetSpeechPhaseAndUpdate(hero)
+				-- Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_4_5k", 4.5, false)
+				-- Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting1", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
+				-- hero.master_is_talking = false
+				-- Tutorial:ProgressUpdateOrNot(hero, 4, 5)
+				-- Tutorial:UpdateChallengeSummaryProgress(hero, 4, 5, 5, true)
+				-- hero.active_challenge = nil
 			end
 		elseif code1 == "4_6" then
 			if code2 == 0 and hero.active_challenge_progress == code2 then
@@ -2357,6 +2342,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 									shroomling:SetForwardVector(Vector(1, 0))
 									CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
 									shroomling.cantAggro = true
+									shroomling.roshpit_attributes.enemy_tier = ENEMY_TYPE_ELITE_CREEP
 									local particleName = "particles/roshpit/redfall/red_beam.vpcf"
 									local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
 									ParticleManager:SetParticleControl(pfx, 0, Tutorial.Master:GetAbsOrigin() + Vector(0, 0, 120))
@@ -2377,9 +2363,6 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 										ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
 									end
 									shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
-									shroomling:SetDeathXP(500)
-									shroomling:SetMaximumGoldBounty(10)
-									shroomling:SetMinimumGoldBounty(20)
 								end)
 							end)
 						end
@@ -2439,7 +2422,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 								}
 								ExecuteOrderFromTable(newOrder)
 								EmitSoundOn("Tutorial.Shroomling.AngerStart", hero.shroomling)
-								local newHealth = 4000
+								local newHealth = 500
 								hero.shroomling:SetMaxHealth(newHealth)
 								hero.shroomling:SetBaseMaxHealth(newHealth)
 								hero.shroomling:SetHealth(newHealth)
@@ -2569,6 +2552,10 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					Tutorial:UpdateChallengeSummaryProgress(hero, 6, 5, 1, true)
 					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_5f", 5, false)
 					EmitSoundOn("Tutorial.Master.Talk", hero)
+				end)
+				Timers:CreateTimer(8, function()
+					local player = hero:GetPlayerOwner()
+					CustomGameEventManager:Send_ServerToPlayer(player, "tutorial_exit_help", {help_index = 2})
 				end)
 			end
 		end
@@ -2776,8 +2763,10 @@ function Tutorial:SubmitQuiz(msg)
 			msg.answer = string.gsub(msg.answer, "%%", "")
 		end
 		if hero.tutorial.active_challenge == "3_3" then
-			local weapons_data = CustomNetTables:GetTableValue("weapons", tostring(hero:GetEntityIndex()))
-			msg.verifier = weapons_data.maxLevel
+			local weapons_data = hero.equipped_gear[RPC_GEAR_SLOT_WEAPON]
+			if weapons_data then
+				msg.verifier = weapons_data.newItemTable.maxLevel
+			end
 		end
 		local correct_answer = tonumber(msg.verifier) == tonumber(msg.answer)
 		if hero.tutorial.active_challenge == "3_1" then
@@ -2787,6 +2776,7 @@ function Tutorial:SubmitQuiz(msg)
 			correct_answer = msg.verifier == msg.answer
 		elseif hero.tutorial.active_challenge == "4_2" then
 			if msg.challenge_progress == 0 then
+				print(msg.verifier)
 				if tonumber(msg.answer) - 1 < tonumber(msg.verifier) and tonumber(msg.answer) + 1 > tonumber(msg.verifier) then
 					correct_answer = true
 				end
@@ -2878,7 +2868,7 @@ function Tutorial:UnitDamage(attacker, victim, damage, damagetype, inflictor_ind
 		end
 	elseif victim.damage_code == 1 then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			return 0
+			return damage*0.5
 		else
 			return damage
 		end

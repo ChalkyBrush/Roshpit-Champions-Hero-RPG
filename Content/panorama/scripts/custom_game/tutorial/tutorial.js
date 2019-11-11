@@ -1,6 +1,37 @@
 TUTORIAL_CATEGORIES = 2
 mCloseButton = null
 
+function TutorialExtraHelp(msg){
+	var parent = $('#tutorial_container')
+	parent.RemoveClass('invisible')
+	parent.AddClass('animateEaseClass')
+	parent.RemoveClass('animateEaseOutClass')
+	parent.RemoveAndDeleteChildren(0)
+
+    var tutorial_main = $.CreatePanel("Panel", parent, "tutorial-main")
+    tutorial_main.BLoadLayoutSnippet("tutorial_exit_help");
+    var image_element = tutorial_main.FindChildTraverse('tutorial_help_image')
+    var imageName = "file://{images}/custom_game/ui/tutorial/tutorial_help.jpg"
+    image_element.SetImage(imageName)
+
+    if (msg.help_index == 2){
+    	Game.EmitSound( "Tutorial.FirstOpen" )
+    }
+    tutorial_main.FindChildTraverse('tutorial_help_text').text = $.Localize("tutorial_make_new_lobby_help"+msg.help_index)
+    tutorial_main.FindChildTraverse('tutorial_help_title').text = $.Localize("tutorial_exit_help_title"+msg.help_index)
+
+
+    mCloseButton = tutorial_main.FindChildTraverse('close_button')
+    mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("tutorial_make_new_lobby_confirm")
+
+   
+	tutorial_main.FindChildTraverse('close_button').SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("Tutorial.UI.Close")
+		CloseTutorial();
+	})
+
+}
+
 function OpenTutorial(msg){
 	var parent = $('#tutorial_container')
 	parent.RemoveClass('invisible')
@@ -334,6 +365,7 @@ function close_quiz()
 
 (function()
 {
+	GameEvents.Subscribe( "tutorial_exit_help", TutorialExtraHelp );
 	GameEvents.Subscribe( "open_tutorial", OpenTutorial );
 	GameEvents.Subscribe("challenge_summary", ChallengeSummary);
 	GameEvents.Subscribe("close_challenge_summary", CloseChallengeSummary);

@@ -18016,7 +18016,14 @@
 
 	"rpc_tutorial"														"Roshpit Tutorial"
 
-	"tutorial_base_armor"												"Base Armor"
+	"tutorial_exit_help_title1"											"Welcome to the Roshpit Tutorial!"
+	"tutorial_exit_help_title2"											"Tutorial Complete!"	
+
+	"tutorial_make_new_lobby_help1"										"This Tutorial is optional for players who want a deeper understanding of the game's mechanics.<br><br>Many find it boring.<br><br>If you prefer to learn by doing, exit this game and make a new lobby and select the 'Redfall Ridge' map.<br><br>Technically you can start on Tanari Jungle, Redfall Ridge, or Winterblight Mountain, but Redfall is the most friendly to new players."
+	"tutorial_make_new_lobby_help2"										"You have completed the Tutorial and are ready to play the real game!<br><br>Exit this game and make a new lobby and select the 'Redfall Ridge' map. Technically you can start on Tanari Jungle, Redfall Ridge, or Winterblight Mountain, but Redfall is the most friendly to new players."
+	"tutorial_make_new_lobby_confirm"									"Got it!"								
+
+	"tutorial_base_armor"												"Total Armor"
 
 	"tutorial_star_1"													"Complete the 'Stars' section of the Roshpit Tutorial."
 	"tutorial_star_2"													"Earn your first reward for finishing a lesson category of the Tutorial."
@@ -18080,7 +18087,7 @@
 	"quest_1_challenge_3_desc"											"Hovering over your attributes opens up a detailed breakdown of your hero's capabilities."
 	"quest_1_challenge_3_sub_0_summary"									"Hover over your hero's attributes at the bottom for a detailed stat breakdown."
 
-	"tutorial_master_dialogue_1_3a"										"Next to your hero portrait is a list showing your hero's Attack Power, Armor and Movement Speed. Below that is your hero's attributes: Strength, Agility and Intelligence."
+	"tutorial_master_dialogue_1_3a"										"Next to your hero portrait is a list showing your hero's Attack Power, Movement Speed. Below that is your hero's attributes: Strength, Agility, Intelligence and Spirit."
 	"tutorial_master_dialogue_1_3b"										"Hover your mouse over the attributes to view a detailed breakdown of your hero's combat capabilities."
 
 	"tutorial_master_dialogue_1_3c"										"Nice, well I'm not going to explain every piece to you at this time because it will be too much information without any gameplay."
@@ -18128,10 +18135,10 @@
     "tutorial_master_dialogue_2_1b"										"This is the summary of your Abilities and Runes. If the window is not open, open it with hotkey (L)"                      
     "tutorial_master_dialogue_2_1c"										"The top line shows your Base Abilities. If you have skill points, clicking one in this window will increase its level."
     "tutorial_master_dialogue_2_1d"										"In the bottom section you can view your Runes. Runes are passives that improve your base abilities and your hero."
-    "tutorial_master_dialogue_2_1e"										"Runes can be leveled up to 20, but can reach values beyond that from gear bonuses!"
+    "tutorial_master_dialogue_2_1e"										"Runes in rows 1 and 2 can be leveled up to 40, but can reach values beyond that from gear bonuses!"
     "tutorial_master_dialogue_2_1f"										"Every level your hero receives 2 additional rune points to allocate. Every 5 levels your hero receives 1 ability point to allocate."
     "tutorial_master_dialogue_2_1g"										"If you have Rune Points available, clicking on a rune will level it up."
-    "tutorial_master_dialogue_2_1h"										"Leveling up your base abilities make more of your runes available for upgrade."
+    "tutorial_master_dialogue_2_1h"										"Leveling up your base abilities make more of your runes available for upgrade. Tier 3 and Tier 4 runes cost more points to level up."
     
     "tutorial_master_dialogue_2_1h2"									"Rune points can be re-allocated, so don't worry too much about perfecting your build right now."
     "tutorial_master_dialogue_2_1h3"									"Now let's see if you've been listening."
@@ -18178,11 +18185,11 @@
 	"tutorial_quiz_wrong_2_2_3"											"Incorrect, please check your stats tooltip and determine how much attack damage you get for each primary attribute."
 	"tutorial_quiz_wrong_2_2_4"											"Wrong, use your division skills and tell me how much attack damage you get from each of your primary attributes."
 
-	"tutorial_master_dialogue_2_2g"										"A very good observation. Your base attack bonus damage is 2x your primary attribute."
+	"tutorial_master_dialogue_2_2g"										"A very good observation. Your base attack bonus damage is 1x your primary attribute."
 
 	"tutorial_master_dialogue_2_2h"										"Let's try finding some additional information. Look below your attributes on the tooltip."
 	
-	"tutorial_quiz_question_4"											"What is your base @sub1 value?"
+	"tutorial_quiz_question_4"											"What is your @sub1 value?"
 
 	"tutorial_quiz_wrong_2_2_5"											"No that is not right."
 	"tutorial_quiz_wrong_2_2_6"											"Wrong. Please look below your attributes to find the required information."
@@ -18277,11 +18284,11 @@
 	"tutorial_master_dialogue_3_2j"										"I will note that not all immortals can be rerolled, but most of them can. Try to understand that there are always exceptions!"
 	"tutorial_master_dialogue_3_2k"										"You now understand the importance of the blacksmith. The lesson is complete."
 
-	"quest_3_challenge_3_desc"											"Weapons are class specific items that have their own power level and earn EXP. When a weapon levels up, the first two properties are increased by 10% (compounding), and the last 2 properties increase by 1 point. Immortal weapons can drop in the hardest dungeons."
+	"quest_3_challenge_3_desc"											"Weapons are class specific items that have their own power level and earn EXP. When a weapon levels up, all of its attributes are increased. Immortal weapons can drop in the hardest dungeons."
 	"quest_3_challenge_3_sub_0_summary"									"Answer a question about your weapon"
 
 	"tutorial_master_dialogue_3_3a"										"Weapons have their own special properties compared to other gear types. For starters, weapons earn exp and have a level. The maximum level it can reach is available in the weapon's tooltip."
-	"tutorial_master_dialogue_3_3b"										"When a weapon levels up, its first two properties are increased by 10% of their current values. The last two properties increase by 1."
+	"tutorial_master_dialogue_3_3b"										"When a weapon levels up, all of its properties are increased, based on the property type."
 	"tutorial_master_dialogue_3_3c"										"When you're ready to take on the most challenging dungeons, you will come across immortal weapons which provide class specific bonuses."
 	"tutorial_master_dialogue_3_3c1"									"You don't have a weapon equipped? Here, take this one."	
 	"tutorial_master_dialogue_3_3d"										"Now take a look at your weapon tooltip and answer me."
@@ -18329,7 +18336,7 @@
 	"quest_4_challenge_3"												"C. Base Damage"
 	"quest_4_challenge_4"												"D. Elemental Damage"
 	"quest_4_challenge_5"												"E. Training Dummy"
-	"quest_4_challenge_6"												"F. Post-Mitigation Damage"
+	"quest_4_challenge_6"												"F. Armor Pierce and Spell Pierce"
 	"quest_4_challenge_7"												"G. Buffs, Debuffs and Stuns"
 
 	"quest_4_challenge_1_desc"											"Left clicking on an enemy opens its stats panel allowing you to view its abilities. Right clicking on an enemy issues an attack order. Your hero will keep attacking automatically until the target dies or an alternative order is issued."
@@ -18358,7 +18365,7 @@
 
 	"tutorial_master_dialogue_4_1i"										"A technical slaying! That concludes the lesson on Enemies & Attacking."
 
-	"quest_4_challenge_2_desc"											"The 3 most common types of damage are Physical, Magical, and Pure. Armor reduces Physical damage taken, while Magic Resistance reduces Magic damage taken. Pure damage is rare and dangerous - it can harm units even through Spell Immunity! Each individual source of Magic and Pure resistance stacks multiplicatively (diminishing returns)."
+	"quest_4_challenge_2_desc"											"The 3 most common types of damage are Physical, Magical, and Pure. Armor reduces Physical damage taken, while Magic Armor reduces Magic damage taken. Pure damage is rare and dangerous - it can harm units even through Spell Immunity and is not reduced by standard means."
 	"quest_4_challenge_2_sub_0_summary"									"Answer the question about physical damage reduction."
 	"quest_4_challenge_2_sub_1_summary"									"Answer the question about damage type reduction"
 	"quest_4_challenge_2_sub_2_summary"									"Answer the general question regarding damage types"
@@ -18374,7 +18381,7 @@
 	"tutorial_quiz_wrong_4_2_2"											"I will accept an answer rounded up or down to the nearest whole number."
 
 	"tutorial_master_dialogue_4_2e"										"Yes that's right! Physical attacks can also be dodged by increasing your evasion stat."
-	"tutorial_master_dialogue_4_2f"										"Magic damage is reduced by the unit's Magic Armor. Each magic armor provides 1% magical damage reduction with diminishing returns."
+	"tutorial_master_dialogue_4_2f"										"Magic damage is reduced by the unit's Magic Armor. It uses the same reduction formula as regular armor, but applies to magical damage."
 	"tutorial_master_dialogue_4_2g"										"Pure damage pierces magic immunity and is difficult to resist. Only some monsters and rare gears can offer pure resistance."	
 	"tutorial_master_dialogue_4_2h"										"Some special bonuses will reduce damage taken from a specific damage type."
 	"tutorial_master_dialogue_4_2i"										"Use your hero tooltip and tell me your damage type reduction."	
@@ -18392,9 +18399,9 @@
 	"tutorial_quiz_wrong_4_2_5"											"Wrong."
 	"tutorial_quiz_wrong_4_2_6"											"You have a 1/3 chance of getting it right..."
 
-	"tutorial_quiz_question_13_sub1"									"is reduced by armor"
-	"tutorial_quiz_question_13_sub2"									"is reduced by 1% with diminishing returns for each resistance point"
-	"tutorial_quiz_question_13_sub3"									"What damage type pierces Spell Immunity and is not mitigated by Armor or Magic Resistance?"
+	"tutorial_quiz_question_13_sub1"									"is reduced by Armor"
+	"tutorial_quiz_question_13_sub2"									"is reduced by Magic Armor"
+	"tutorial_quiz_question_13_sub3"									"What damage type pierces Spell Immunity and is not mitigated by Armor or Magic Armor?"
 
 	"tutorial_master_dialogue_4_2l"										"Right! Ok then. You know enough about damage types now."
 
@@ -18414,14 +18421,14 @@
 	"tutorial_master_dialogue_4_3d"										"Right! Now remember, your abilities also have a 'Base Damage' which can be increased by special bonuses."
 	"tutorial_master_dialogue_4_3e"										"Your base ability damage bonus total shows in your hero tooltip. I already asked you a question about it before."
 	"tutorial_master_dialogue_4_3f"										"Instead of a quiz, why don't you use your abilities to fight an army of shroomlings?"
-	"tutorial_master_dialogue_4_3g"										"These guys are immune to physical damage, so use your abilities to take them down!"
+	"tutorial_master_dialogue_4_3g"										"There are a lot of them, so use your abilities to take them down!"
 
 	"tutorial_master_dialogue_4_3h"										"Good! That concludes the lesson on Base Damage."
 
 	"tutorial_shroomling2"												"Shroomling"
 
 	"DOTA_Tooltip_ability_tutorial_shroomling_ability2"					"Pulpy"
-	"DOTA_Tooltip_ability_tutorial_shroomling_ability2_Description"		"Immune to Physical damage."
+	"DOTA_Tooltip_ability_tutorial_shroomling_ability2_Description"		"Reduces physical damage taken by 50%."
 
 	"quest_4_challenge_4_desc"											"Most abilities have an elemental damage type. Elemental damage amplification can be seen on the hero tooltip."
 	"quest_4_challenge_4_sub_0_summary"									"Answer the question about elemental amplification"
@@ -18457,7 +18464,7 @@
 	"DOTA_Tooltip_ability_tutorial_elemental_ability"					"Omni Elemental"
 	"DOTA_Tooltip_ability_tutorial_elemental_ability_Description"		"Conjured entity of multiple elements."
 
-	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Dealing damage to it will open the Training Dummy window allowing you to view a detailed breakdown of your damage."
+	"quest_4_challenge_5_desc"											"The training dummy is available near town on most maps. Highlighting the dummy and clicking the dialogue prompt will open the Training Dummy window allowing you to view a detailed breakdown of your damage."
 	"quest_4_challenge_5_sub_0_summary"									"Open the Training Dummy"
 	"quest_4_challenge_5_sub_1_summary"									"Add a few lines to the Dummy's log"
 	"quest_4_challenge_5_sub_2_summary"									"Change the Dummy's armor"
@@ -18465,7 +18472,7 @@
 	"quest_4_challenge_5_sub_4_summary"									"Give the Dummy Steadfast"
 
 	"tutorial_master_dialogue_4_5a"										"The Training Dummy is a helpful tool for measuring your hero's combat capability."
-	"tutorial_master_dialogue_4_5b"										"Go over to the training dummy and damage it to open the window!"
+	"tutorial_master_dialogue_4_5b"										"Go over to the training dummy, highlight it and click the dialogue prompt to open the window!"
 
 	"tutorial_master_dialogue_4_5c"										"Very good. Now as you damage the dummy, precise damage figures will be displayed in the window."
 	"tutorial_master_dialogue_4_5d"										"Give the dummy a few attacks and get some feedback from the log!"
@@ -18475,32 +18482,29 @@
 
 	"tutorial_master_dialogue_4_5g"										"Yes, you can also give the dummy magic immunity to see how your damage stacks up against such defenses. Try it!"
 
-	"tutorial_master_dialogue_4_5h"										"Just one more thing. Many enemies in our world have an ability called 'Steadfast'"
-	"tutorial_master_dialogue_4_5i"										"Damage taken by enemies with steadfast is capped at a percentage of their max health."
-	"tutorial_master_dialogue_4_5j"										"We can give the Dummy steadfast so that we can test ourselves. Give the dummy steadfast!"
-	"tutorial_master_dialogue_4_5k"										"Great, now you should understand enough about the Training Dummy."
+	"tutorial_master_dialogue_4_5h"										"Great, now you should understand enough about the Training Dummy."
 
 	"dummy_add_magic_immunity"											"Add Magic Immunity"
 	"dummy_remove_magic_immunity"										"Remove Magic Immunity"
 
 	"dummy_attack_inverval"												"Attack Inverval"
 
-	"quest_4_challenge_6_desc"											"Many runes and items grant Post-Mitigation Damage Amplification, increasing the final damage dealt to a target. In the damage calculation sequence, this bonus is applied after your damage is reduced by properties like Magic Resistance or Steadfast."
-	"quest_4_challenge_6_sub_0_summary"									"Attack the Training Dummy with Steadfast active."
-	"quest_4_challenge_6_sub_1_summary"									"Attack the Training Dummy again with steadfast active, while carrying Challen's post-mitigation buff."
+	"quest_4_challenge_6_desc"											"Armor Pierce and Spell Pierce appear on the unit UI next to Armor and Magic Armor. 1 Armor Pierce negates 1 Armor, and 1 Spell Pierce negates 1 Magic Armor."
+	"quest_4_challenge_6_sub_0_summary"									"Give the training dummy over 1000 armor and attack it."
+	"quest_4_challenge_6_sub_1_summary"									"Attack the Training Dummy again with over 1000 armor, while carrying Challen's Armor Pierce buff."
 
-	"tutorial_master_dialogue_4_6a"										"You will come across an important damage booster referred to as Post-Mitigation damage."
-	"tutorial_master_dialogue_4_6b"										"Post-Mitigation damage amplification increases the damage dealt after all of the enemy's reductions have been calculated."
-	"tutorial_master_dialogue_4_6c"										"To demonstrate, please start off by attacking the training dummy with the Steadfast ability active."
+	"tutorial_master_dialogue_4_6a"										"Two important attributes alongside Armor and Magic Armor are Armor Pierce and Spell Pierce."
+	"tutorial_master_dialogue_4_6b"										"Each point of Armor Pierce ignores 1 point of the target's Armor. Each point of Spell Pierce ignores 1 point of the target's Magic Armor."
+	"tutorial_master_dialogue_4_6c"										"To demonstrate, please start off by giving the Training Dummy over 1000 armor and attacking it."
 
-	"tutorial_master_dialogue_4_6d"										"Ok, take note of the damage dealt while recognizing that the training dummy has 1000 Health."
-	"tutorial_master_dialogue_4_6e"										"I have granted you a massive post-mitigation amp buff, attack the dummy again!"	
+	"tutorial_master_dialogue_4_6d"										"Ok, take note of the damage dealt compared to your attack power!"
+	"tutorial_master_dialogue_4_6e"										"I have granted you a massive armor pierce buff, attack the dummy again!"	
 
-	"tutorial_master_dialogue_4_6f"										"Can you see the difference? Your post-mitigation damage buff has applied after Steadfast's reduction!"
-	"tutorial_master_dialogue_4_6g"										"That concludes the lesson on post-mitigation damage."
+	"tutorial_master_dialogue_4_6f"										"Can you see the difference? You cut right through the Dummy's Armor!"
+	"tutorial_master_dialogue_4_6g"										"That concludes the lesson on Armor Pierce and Spell Pierce."
 
-	"DOTA_Tooltip_challen_postmit_buff"					"Post-Mitigation Buff"
-	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increased post-mitigation damage by 500%."
+	"DOTA_Tooltip_challen_postmit_buff"					"Armor Pierce Buff"
+	"DOTA_Tooltip_challen_postmit_buff_Description"		"Increases Armor Pierce by 1000."
 
 	"quest_4_challenge_7_desc"											"Buffs and debuffs show above your hero portrait and have either a green border or red border to distinguish between them. Enemies have built in stun immunity for 7 seconds after being stunned for 10 seconds."
 	"quest_4_challenge_7_sub_0_summary"									"Read the name of the buff that was applied to you"

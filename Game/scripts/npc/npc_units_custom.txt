@@ -103138,8 +103138,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "40"
-        "AttackDamageMax"   "55.0"
+        "AttackDamageMin"   "7"
+        "AttackDamageMax"   "8"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -103153,9 +103153,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1000"
+        "StatusHealth"  "50"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "0"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -103187,6 +103187,13 @@
         }
         "Ability1"  "tutorial_shroomling_ability"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "2"
+        "RoshpitArmorPierce"    "3"
+        "RoshpitSpellPierce"    "1"
+        "RoshpitMagicArmor"     "6"
+        "RoshpitLevel"          "1"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "2" 
     }
 
     "tutorial_shroomling2"
@@ -103208,8 +103215,8 @@
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "40"
-        "AttackDamageMax"   "55.0"
+        "AttackDamageMin"   "8"
+        "AttackDamageMax"   "8"
         "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "0"
@@ -103223,9 +103230,9 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "310"
         "MovementTurnRate"  "0.6"
-        "StatusHealth"  "1000"
+        "StatusHealth"  "50"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "2000"
+        "StatusMana"    "0"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
@@ -103257,6 +103264,13 @@
         }
         "Ability1"  "tutorial_shroomling_ability2"
         "Ability2"  "dungeon_creep"
+        "RoshpitArmor"          "2"
+        "RoshpitArmorPierce"    "3"
+        "RoshpitSpellPierce"    "1"
+        "RoshpitMagicArmor"     "6"
+        "RoshpitLevel"          "1"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "0" 
     }
 
     "challens_elemental"
@@ -103293,8 +103307,8 @@
         //--------------------------------
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "300"
-        "AttackDamageMax"   "300"
+        "AttackDamageMin"   "60"
+        "AttackDamageMax"   "60"
         "AttackRate"    "2.8"
         "AttackAnimationPoint"  "0.37"
         "AttackAcquisitionRange"    "0"
@@ -103324,7 +103338,7 @@
 
         // Status
         //--------------------------------
-        "StatusHealth"              "25000"       // Base health.
+        "StatusHealth"              "540"       // Base health.
         "StatusHealthRegen"         "1"      // Health regeneration rate.
         "StatusMana"                "500"         // Base mana.
         "StatusManaRegen"           "50"         // Mana regeneration rate.
@@ -103360,5 +103374,12 @@
                 }
             }
         }
+        "RoshpitArmor"          "12"
+        "RoshpitArmorPierce"    "13"
+        "RoshpitSpellPierce"    "11"
+        "RoshpitMagicArmor"     "16"
+        "RoshpitLevel"          "3"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1" 
     }
 }

@@ -74,6 +74,7 @@ function CDOTA_BaseNPC_Hero:UnequipItem(item)
 		item:StartCooldown(3)
 	end
 	hero.equipped_gear[slot] = nil
+	Events:TutorialServerEvent(hero, "3_2", 0)
 end
 
 function CDOTA_BaseNPC_Hero:InitGearBonuses()

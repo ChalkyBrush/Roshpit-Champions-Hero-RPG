@@ -2258,7 +2258,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * (100-ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION)/100
 		end
 	end
-	if attacker:HasModifier("modifier_buzukis_finger_buff") or attacker:HasModifier("challen_postmit_buff") then
+	if attacker:HasModifier("modifier_buzukis_finger_buff") then
 		mult = mult + BUZUKIS_FINGER_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_earthshock_damage_reduce") then

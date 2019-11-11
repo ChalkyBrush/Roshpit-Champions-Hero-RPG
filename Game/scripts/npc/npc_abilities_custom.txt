@@ -128477,7 +128477,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_health"			"10000 100000 1000000"
+				"max_health"			"500 2500 5000"
 			}
 			"04"
 			{

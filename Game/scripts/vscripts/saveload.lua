@@ -904,21 +904,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.newItemTable.xp = gearTable.current_xp
 			item.newItemTable.level = gearTable.level
 			item.newItemTable.maxLevel = gearTable.max_level
-			item.newItemTable.requiredHero = gearTable.required_hero
-			Weapons:SetWeaponTable(item)
-			if bEquip == 1 then
-				hero.weapon = item
-				CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()),
-					{xp = item.newItemTable.xp,
-						level = item.newItemTable.level,
-						xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level],
-						maxLevel = item.newItemTable.maxLevel,
-					requiredHero = item.newItemTable.requiredHero})
-				end
-				Timers:CreateTimer(0.1, function()
-					Weapons:UpdateWeaponXP(0)
-				end)
-			end
+		end
 			item.pickedUp = true
 			if gearTable.validator then
 				item.newItemTable.validator = gearTable.validator
@@ -926,7 +912,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			RPCItems:ItemUpdateCustomNetTables(item)
 
 			if bEquip == 1 then
-				Weapons:Equip(hero, item)
+				hero:Equip(item)
 			else
 				return item
 			end

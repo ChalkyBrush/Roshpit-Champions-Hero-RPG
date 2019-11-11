@@ -225,6 +225,7 @@ function chiselGearSelected(msg) {
     newChildPanel.slot = msg.slot;
     GameUI.CustomUIConfig().chisel = 1;
     GameUI.CustomUIConfig().reroll = 0;
+    newChildPanel.chisel = 1
     newChildPanel.forgeButton = $('#final_forge_button');
     newChildPanel.forgePriceContainer = forgePriceContainer;
     newChildPanel.shards = CustomNetTables.GetTableValue("player_stats", Game.GetLocalPlayerID().toString() + "-mithril").mithril;

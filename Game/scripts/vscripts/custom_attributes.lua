@@ -1387,6 +1387,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_omnimace_undead_buff") then
 		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "undead_special_b", "modifier_omnimace_undead_buff")
 	end
+	if unit:HasModifier("challen_postmit_buff") then
+		armor_pierce_modify = armor_pierce_modify + 1000
+	end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")

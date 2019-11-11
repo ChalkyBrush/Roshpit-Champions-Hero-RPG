@@ -240,7 +240,7 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	if random_type_chance <= 9960 then
 		local random_gear_slot = RandomInt(0, 5)
 		if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
-			item = Weapons:RollWeapon(rarity, item_level)
+			item = Weapons:RollWeapon(rarity, item_level, nil)
 		else
 			item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
 		end

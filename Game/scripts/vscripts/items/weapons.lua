@@ -311,8 +311,11 @@ Weapons.AttributeBaseRolls["element_nature"] = 0.3
 Weapons.AttributeBaseRolls["element_undead"] = 0.3
 Weapons.AttributeBaseRolls["element_dragon"] = 0.3
 
-function Weapons:RollWeapon(rarity, item_level)
-	local whichHero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]:GetUnitName()
+function Weapons:RollWeapon(rarity, item_level, hero_name)
+	whichHero = hero_name
+	if not hero_name then
+		whichHero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]:GetUnitName()
+	end
 	local internalName = HerosCustom:GetInternalHeroName(whichHero)
 	if rarity > RPC_ITEMS_RARITY_MYTHICAL then
 		return nil
