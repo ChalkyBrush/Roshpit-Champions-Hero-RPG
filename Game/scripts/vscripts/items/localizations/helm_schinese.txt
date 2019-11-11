@@ -123,8 +123,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"
-		"item_property_arcane_cascade"				"奥术洪流"
-		"property_arcane_cascade_description"		"每<% ARCANE_CASCADE_TICKRATE %>秒汲取你 <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% 的最大魔法值，对周围敌人造成<% ARCANE_CASCADE_DAMAGE %>。"
+		"item_property_arcane_cascade_hat"				"奥术洪流"
+		"property_arcane_cascade_hat_description"		"每<% ARCANE_CASCADE_TICKRATE %>秒汲取你 <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% 的最大魔法值，对周围敌人造成<% ARCANE_CASCADE_DAMAGE %>。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"金刚武士头盔"

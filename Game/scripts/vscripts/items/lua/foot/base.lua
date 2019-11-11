@@ -13,7 +13,7 @@ end
 function class:RollProperty4(maxFactor)
     RPCItems:RollFootProperty4(self, 0)
 end
-function class:GetSlot()
+function class:GetSlotTextShort()
     return 'feet'
 end
 function class:GetSlotText()

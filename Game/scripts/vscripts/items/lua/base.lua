@@ -7,17 +7,23 @@ local normalPropertiesTable = {
         color = '#96D1D9',
     }
 }
-function class:RollProperty1()
-    error('Define roll')
+function class:RollProperty1(item_level)
+    error('Define roll1')
 end
-function class:RollProperty2()
-    error('Define roll')
+function class:RollProperty2(item_level)
+    error('Define roll2')
 end
-function class:RollProperty3()
-    error('Define roll')
+function class:RollProperty3(item_level)
+    error('Define roll3')
 end
-function class:RollProperty4()
-    error('Define roll')
+function class:RollProperty4(item_level)
+    error('Define roll4')
+end
+function class:RollArmor(item_level)
+    error('Define armor roll')
+end
+function class:RollMagicArmor(item_level)
+    error('Define magic armor roll')
 end
 function class:GetAllowedRuneLetters()
     return {'q', 'w', 'e', 'r'}
@@ -54,8 +60,8 @@ end
 function class:GetName()
     error('Define item name')
 end
-function class:GetSlot()
-    error('Define slot')
+function class:GetSlotTextShort()
+    error('Define slot text short')
 end
 function class:GetSlotText()
     error('Define slot text')
@@ -66,21 +72,26 @@ end
 function class:GetClassName()
     error('Define class name')
 end
+function class:GetSlotNumber()
+    error('Define slot number')
+end
 function class:HasRuneSlots()
     return false
 end
-function class:CreateLuaItem(position)
-    self = RPCItems:CreateVariant(self:GetClassName(), "immortal", self:GetName(), self:GetSlot(), true, self:GetSlotText())
+function class:CreateLuaItem(item_level)
+    self = RPCItems:CreateVariant(self:GetClassName(), "immortal", self:GetName(), self:GetSlotTextShort(), true, self:GetSlotText())
     self.isLuaItem = true
     self.newItemTable.hasRunePoints = self:HasRuneSlots()
     local maxFactor = RPCItems:GetMaxFactor()
-    self:RollProperty1(maxFactor)
-    self:RollProperty2(maxFactor)
-    self:RollProperty3(maxFactor)
-    self:RollProperty4(maxFactor)
-
-    CreateItemOnPositionSync(position, self)
-    RPCItems:DropItem(self, position)
+    self:RollProperty1(item_level)
+    self:RollProperty2(item_level)
+    self:RollProperty3(item_level)
+    self:RollProperty4(item_level)
+    self:RollArmor(item_level)
+    self:RollMagicArmor(item_level)
+    RPCItems:SetBaseItemValues(self, self:GetClassName(), false, 
+        RPCItems.BASIC_ITEMS_SLOT_TEXT[self:GetSlotNumber()], RPC_ITEM_RARITY_COLORS[RPC_ITEMS_RARITY_IMMORTAL], 
+        RPCItems:GetRarityNameFromFactor(RPC_ITEMS_RARITY_IMMORTAL), RPC_ITEMS_RARITY_IMMORTAL, item_level, self:GetSlotNumber())
     return self
 end
 

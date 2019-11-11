@@ -8160,7 +8160,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     local newItem = nil
     --print(immortalName)
     if _G[itemName] then
-        newItem = _G[itemName]:CreateLuaItem(position)
+        newItem = _G[itemName]:CreateLuaItem(item_level)
     elseif itemName == "item_rpc_magebane_gloves" then
         newItem = RPCItems:RollMageBaneGloves(deathLocation)
     elseif itemName == "item_rpc_berserker_gloves" then
@@ -8333,8 +8333,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollSuperAscendency(deathLocation, isShop)
     elseif itemName == "item_rpc_mask_of_the_phantom_sorcerer" then
         newItem = RPCItems:RollPhantomSorcererMask(deathLocation, isShop)
-    elseif itemName == "item_rpc_arcane_cascade_hat" then
-        newItem = RPCItems:RollArcaneCascadeHat(item_level)
     elseif itemName == "item_rpc_adamantine_samurai_helmet" then
         newItem = RPCItems:RollSamuraiHelmet(item_level)
     elseif itemName == "item_rpc_scourge_knights_helm" then

@@ -154,7 +154,7 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
 		elseif string.match(key, "arcana") then
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
-		elseif string.match(key, "!immortal!") then
+		elseif string.match(key, "!immortal!") and not hero.equipped_gear[gear_slot].isLuaItem then
 			local modifier_name = key:gsub("!immortal!_", "")
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 		else
