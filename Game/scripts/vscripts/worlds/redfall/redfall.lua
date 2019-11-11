@@ -379,10 +379,8 @@ function Redfall:QuestComplete(hero, questIndex)
     Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, hero, "modifier_preservers_mantra", {duration = 3600})
     Events.PreserverXP = true
   elseif questIndex == 4 then
-    local mask = RPCItems:RollAutumnSleeperMask(hero:GetAbsOrigin(), isShop)
-    if IsValidEntity(mask:GetContainer()) then
-      UTIL_Remove(mask:GetContainer())
-    end
+    local item_level = math.min(RPCItems:RollItemLevelFromUnit(hero:GetLevel()), GameState:GetDifficultyFactor()*40)
+    local mask = RPCItems:RollAutumnSleeperMask(item_level)
     mask.pickedUp = true
     mask.expiryTime = false
     RPCItems:GiveItemToHeroWithSlotCheck(hero, mask)

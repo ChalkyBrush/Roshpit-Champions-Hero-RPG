@@ -155,6 +155,7 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
+				"TextureName"		"redfall/redfall_tree_quest"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %>"

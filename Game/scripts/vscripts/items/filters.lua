@@ -3905,12 +3905,13 @@ function Filters:AuriunImmortalWeapon1(damage, victim)
 end
 
 function Filters:AutumnSleeperMask(caster)
-    if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("ruby") > 0 then
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    if ability:GetGemValue("ruby") > 0 then
         local rootDuration = ability:GetFinalGemPropertyValue("ruby", AUTUMN_SLEEPER_RUBY)
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, AUTUMN_SLEEPER_RADIUS_R, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, AUTUMN_SLEEPER_RUBY_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
-                caster.headItem:ApplyDataDrivenModifier(caster, enemy, "modifier_autumn_sleeper_root", {duration = rootDuration})
+                ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_autumn_sleeper_root", {duration = rootDuration})
             end
         end
         local particle = "particles/roshpit/items/autumn_sleeper_cast_th_cast.vpcf"
