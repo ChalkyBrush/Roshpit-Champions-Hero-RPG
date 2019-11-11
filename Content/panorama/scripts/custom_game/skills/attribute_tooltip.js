@@ -185,14 +185,14 @@ function initializeTooltip(func){
 	$('#base_ability_title_r').text = "R"
 	$('#base_ability_value_r').text = parseInt(GameUI.StatQueryData.rAmp)/1 + "%"
 
-	$('#post_mit_phys_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
-	$('#post_mit_phys_damage_value').text = parseInt(GameUI.StatQueryData.phys_post_mit)/1 + "%"
+	// $('#post_mit_phys_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
+	// $('#post_mit_phys_damage_value').text = parseInt(GameUI.StatQueryData.phys_post_mit)/1 + "%"
 
-	$('#post_mit_magic_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
-	$('#post_mit_magic_damage_value').text = parseInt(GameUI.StatQueryData.magic_post_mit)/1 + "%"
+	// $('#post_mit_magic_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
+	// $('#post_mit_magic_damage_value').text = parseInt(GameUI.StatQueryData.magic_post_mit)/1 + "%"
 
-	$('#post_mit_pure_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
-	$('#post_mit_pure_damage_value').text = parseInt(GameUI.StatQueryData.pure_post_mit)/1 + "%"
+	// $('#post_mit_pure_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
+	// $('#post_mit_pure_damage_value').text = parseInt(GameUI.StatQueryData.pure_post_mit)/1 + "%"
 
 	$('#item_damage_title').text = $.Localize("#ui_item")
 	$('#item_damage_value').text = parseInt(GameUI.StatQueryData.item_damage)/1 + "%"
@@ -261,7 +261,16 @@ function initializeTooltip(func){
 		board.FindChildTraverse('element_title'+i).SetImage("file://{images}/custom_game/ui/elements/element"+i+".png")
 		board.FindChildTraverse('element_value'+i).text = Math.round(GameUI.StatQueryData.elements[i])+"%"
 	}
-	
+	//movement
+	$('#attack_defense_subtitle_movement').text = $.Localize("ui_movement")
+	$('#move_1_left').text = $.Localize("ui_base_movement_speed")
+	$('#move_2_left').text = $.Localize("ui_bonus_movement_speed")
+	$('#move_3_left').text = $.Localize("ui_max_movement_speed")
+
+	$('#move_1_right').text = GameUI.StatQueryData.movespeed
+	$('#move_2_right').text = "<font color='#68ff23'>+"+GameUI.StatQueryData.movespeed_bonus+"</font>"
+	$('#move_3_right').text = GameUI.StatQueryData.max_ms
+
 	// HANDLE NON HERO
 	if (Entities.IsHero( queryUnit )){
 		$('#attributes_main_container').RemoveClass('invisible')

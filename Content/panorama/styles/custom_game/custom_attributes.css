@@ -239,6 +239,9 @@
 .AspectRatio5x4 .attack_defense_container{
 	height:220px;
 }*/
+.panel_left{
+	padding-bottom:5px;
+}
 
 .panel_right{
 	horizontal-align:right;
@@ -294,12 +297,15 @@
 }
 
 #resistance_container{
-	flow-children: down;
-	height: 108px;
+	flow-children: right;
+}
+
+#base_ability_container{
+	margin-bottom:11px;
 }
 
 .resistance_item_container{
-	width:250px;
+	width:80px;
 	height:36px;
 	background-color: #1F1F1F;
 	border-radius:4px;

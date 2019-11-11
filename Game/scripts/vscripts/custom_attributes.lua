@@ -2380,6 +2380,18 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	if unit.paragon then
 		tableData.paragon = 1
 	end
+	-- ms
+	local movespeed = unit:GetBaseMoveSpeed()
+	local movespeed_bonus = unit:GetMoveSpeedModifier(movespeed, false) - movespeed
+	local max_ms = CustomAttributes:MSCap(unit)
+	local ms_from_agi = 0
+	if unit:IsHero() and unit.InventoryUnit then
+		ms_from_agi_and_gear = unit:GetModifierStackCount("modifier_agility_movespeed", unit.InventoryUnit) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_movespeed", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_movespeed", 1)
+	end
+	tableData.movespeed = movespeed + ms_from_agi
+	tableData.movespeed_bonus = movespeed_bonus - ms_from_agi
+	tableData.max_ms = max_ms
+
 	tableData.level = level
 	local baseDamage = 100000
 	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
@@ -2391,6 +2403,8 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
 	tableData.rAmp = math.floor((rDamage / baseDamage) * 100)
 	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy})
+
+
 	Events:TutorialServerEvent(unit, "1_3", 0)
 end
 

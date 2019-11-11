@@ -136,7 +136,7 @@
 				</Panel>
 			</Panel>
 			<Panel class="attack_defense_container">
-				<Panel class="attack_defense_panel">
+				<Panel class="attack_defense_panel panel_left">
 					<Label class="attack_defense_title" id="attack_defense_title_atk"/>
 					<Panel class="atk_def_property_container">
 						<Label class="atk_def_property bonus_left" id="atk_1_left" html="true"/>
@@ -189,7 +189,7 @@
 					</Panel>
 					<Label class="attack_defense_subtitle" id="post_mit_and_item_damage_title" text="Sample"/>
 					<Panel class="resistance_container" id="post_mit_and_item_damage_container">
-						<Panel class="base_ability_item_container">
+<!-- 						<Panel class="base_ability_item_container">
 							<Label class="resistance_title" id="post_mit_phys_damage_title" html="true"/>
 							<Label class="resistance_value" id="post_mit_phys_damage_value"/>
 						</Panel>
@@ -200,7 +200,7 @@
 						<Panel class="base_ability_item_container">
 							<Label class="resistance_title" id="post_mit_pure_damage_title" html="true"/>
 							<Label class="resistance_value" id="post_mit_pure_damage_value"/>
-						</Panel>
+						</Panel> -->
 						<Panel class="base_ability_item_container">
 							<Label class="resistance_title" id="item_damage_title" html="true"/>
 							<Label class="resistance_value" id="item_damage_value"/>
@@ -234,6 +234,21 @@
 					<Panel class="atk_def_property_container">
 						<Label class="atk_def_property bonus_left" id="def_6_left" html="true"/>
 						<Label class="atk_def_property bonus_right" id="def_6_right" html="true"/>
+					</Panel>
+					<Panel class="class-splitter-thin-full">
+					</Panel>
+					<Label class="attack_defense_subtitle" id="attack_defense_subtitle_movement"/>
+					<Panel class="atk_def_property_container">
+						<Label class="atk_def_property bonus_left" id="move_1_left" html="true"/>
+						<Label class="atk_def_property bonus_right" id="move_1_right" html="true"/>
+					</Panel>
+					<Panel class="atk_def_property_container">
+						<Label class="atk_def_property bonus_left" id="move_2_left" html="true"/>
+						<Label class="atk_def_property bonus_right" id="move_2_right" html="true"/>
+					</Panel>
+					<Panel class="atk_def_property_container">
+						<Label class="atk_def_property bonus_left" id="move_3_left" html="true"/>
+						<Label class="atk_def_property bonus_right" id="move_3_right" html="true"/>
 					</Panel>
 					<Panel class="class-splitter-thin-full">
 					</Panel>
