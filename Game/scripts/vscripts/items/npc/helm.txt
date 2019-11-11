@@ -17,6 +17,7 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/autumn_sleeper_mask_vines.vpcf"
@@ -28,6 +29,34 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_NATURE %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"<% AUTUMN_SLEEPER_RUBY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% AUTUMN_SLEEPER_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% AUTUMN_SLEEPER_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"<% AUTUMN_SLEEPER_AMETHYST %>"
 			}
 		}
 		"Modifiers"
@@ -81,15 +110,55 @@
 						"EffectName"	"Item.AutumnSleeperEntangle"
 						"Target" 		"TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"ThinkInterval"  "<% AUTUMN_SLEEPER_EMERALD_TICK_RATE %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"autumn_sleeper_main_root_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"autumn_sleeper_main_root_end"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_autumn_sleeper_root_immunity"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_autumn_sleeper_sapphire_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %>"
+				}
 			}
 		}
 	}	

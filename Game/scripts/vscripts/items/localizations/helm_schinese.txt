@@ -240,7 +240,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"秋天睡眠者面具"
 		"item_property_autumn_sleeper"						"过度生长"
-		 "property_autumn_sleeper_description"				"进入你<% AUTUMN_SLEEPER_RADIUS %>范围内的敌人将立即被困住<% AUTUMN_SLEEPER_ROOT_DUR %>秒。施放 @Ability4 将缠绕<% AUTUMN_SLEEPER_RADIUS_R %>码内的所有敌人<% AUTUMN_SLEEPER_ROOT_DUR_R %>秒。"
+		 "property_autumn_sleeper_description"				"进入你<% AUTUMN_SLEEPER_RADIUS %>范围内的敌人将立即被困住<% AUTUMN_SLEEPER_ROOT_DUR %>秒。"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"过度生长"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"被缠绕"
 		 

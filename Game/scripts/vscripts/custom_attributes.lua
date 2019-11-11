@@ -834,7 +834,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_axe_glyph_2_2_visible") then
 		armor_modify = armor_modify + RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE
 	end
-	
+	if unit:HasModifier("modifier_autumn_sleeper_root") then
+		local modifier = unit:FindModifierByName("modifier_autumn_sleeper_root")
+		local modifier_caster = modifier:GetCaster()
+		local sleeper_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", AUTUMN_SLEEPER_AMETHYST)
+		magic_armor_modify = magic_armor_modify + sleeper_armor_loss
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -1248,13 +1253,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
 	end
-	if unit:HasModifier("modifier_arcane_cascade_debuff") then
-		local modifier = unit:FindModifierByName("modifier_arcane_cascade_debuff")
-		local modifier_caster = modifier:GetCaster()
-		local cascade_magic_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ARCANE_CASCADE_AMETHYST)
-		magic_armor_modify = magic_armor_modify + cascade_magic_armor_loss
-	end
-	
 	
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")

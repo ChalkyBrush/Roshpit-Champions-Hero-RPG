@@ -3905,20 +3905,23 @@ function Filters:AuriunImmortalWeapon1(damage, victim)
 end
 
 function Filters:AutumnSleeperMask(caster)
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, AUTUMN_SLEEPER_RADIUS_R, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    if #enemies > 0 then
-        for _, enemy in pairs(enemies) do
-            caster.headItem:ApplyDataDrivenModifier(caster, enemy, "modifier_autumn_sleeper_root", {duration = AUTUMN_SLEEPER_ROOT_DUR_R})
+    if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("ruby") > 0 then
+        local rootDuration = ability:GetFinalGemPropertyValue("ruby", AUTUMN_SLEEPER_RUBY)
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, AUTUMN_SLEEPER_RADIUS_R, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        if #enemies > 0 then
+            for _, enemy in pairs(enemies) do
+                caster.headItem:ApplyDataDrivenModifier(caster, enemy, "modifier_autumn_sleeper_root", {duration = rootDuration})
+            end
         end
+        local particle = "particles/roshpit/items/autumn_sleeper_cast_th_cast.vpcf"
+        local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+        ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+        ParticleManager:SetParticleControl(pfx, 1, Vector(1200, 2, 2400))
+        Timers:CreateTimer(3.5, function()
+            ParticleManager:DestroyParticle(pfx, false)
+        end)
+        EmitSoundOn("Item.AutumnSleeperUlt", caster)
     end
-    local particle = "particles/roshpit/items/autumn_sleeper_cast_th_cast.vpcf"
-    local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
-    ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(pfx, 1, Vector(1200, 2, 2400))
-    Timers:CreateTimer(3.5, function()
-        ParticleManager:DestroyParticle(pfx, false)
-    end)
-    EmitSoundOn("Item.AutumnSleeperUlt", caster)
 end
 
 function Filters:ManawallDamageTaken(victim, damage)

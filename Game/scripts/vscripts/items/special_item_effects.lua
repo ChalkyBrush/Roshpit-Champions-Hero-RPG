@@ -3565,6 +3565,27 @@ function autumn_sleeper_root_think(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root", {duration = AUTUMN_SLEEPER_ROOT_DUR})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_root_immunity", {duration = AUTUMN_SLEEPER_ROOT_DUR_IMMUNITY})
 	end
+
+end
+
+function autumn_sleeper_main_root_think(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("emerald") > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster.hero)*ability:GetFinalGemPropertyValue("emerald", AUTUMN_SLEEPER_EMERALD)/100
+		Filters:ApplyItemDamage(target, caster.hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
+	end
+end
+
+function autumn_sleeper_main_root_end(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		local slow_duration = ability:GetFinalGemPropertyValue("sapphire", AUTUMN_SLEEPER_SAPPHIRE)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_autumn_sleeper_sapphire_slow", {duration = slow_duration})
+	end
 end
 
 function eye_of_seasons_think(event)

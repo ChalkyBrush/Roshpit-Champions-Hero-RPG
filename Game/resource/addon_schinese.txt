@@ -13057,8 +13057,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"
-		"item_property_arcane_cascade"				"奥术洪流"
-		"property_arcane_cascade_description"		"每<font color='#ccff66'>1</font>秒汲取你 <font color='#ccff66'>2</font>% 的最大魔法值，对周围敌人造成<font color='#ccff66'>2</font>。"
+		"item_property_arcane_cascade_hat"				"奥术洪流"
+		"property_arcane_cascade_hat_description"		"每<font color='#ccff66'>1</font>秒汲取你 <font color='#ccff66'>2</font>% 的最大魔法值，对周围敌人造成<font color='#ccff66'>2</font>。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"金刚武士头盔"
@@ -13174,7 +13174,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"秋天睡眠者面具"
 		"item_property_autumn_sleeper"						"过度生长"
-		 "property_autumn_sleeper_description"				"进入你<font color='#ccff66'>900</font>范围内的敌人将立即被困住<font color='#ccff66'>3</font>秒。施放 @Ability4 将缠绕<font color='#ccff66'>1200</font>码内的所有敌人<font color='#ccff66'>4</font>秒。"
+		 "property_autumn_sleeper_description"				"进入你<font color='#ccff66'>900</font>范围内的敌人将立即被困住<font color='#ccff66'>3</font>秒。"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"过度生长"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"被缠绕"
 		 

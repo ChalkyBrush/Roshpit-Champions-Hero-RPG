@@ -53060,6 +53060,7 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/autumn_sleeper_mask_vines.vpcf"
@@ -53071,6 +53072,34 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"16"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"3 3.75 4.5 5.25 6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"5 10 15 20 25"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"1 2 3 4 5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"-120 -240 -360 -480 -600"
 			}
 		}
 		"Modifiers"
@@ -53124,15 +53153,55 @@
 						"EffectName"	"Item.AutumnSleeperEntangle"
 						"Target" 		"TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"autumn_sleeper_main_root_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"autumn_sleeper_main_root_end"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_autumn_sleeper_root_immunity"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_autumn_sleeper_sapphire_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-260"
+				}
 			}
 		}
 	}	
@@ -53143,7 +53212,8 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/arcane_cascade_hat.lua"
 		"AbilityTextureName"	"rpc/arcane_cascade_hat" //"arcane_cascade_hat"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -53162,76 +53232,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_arcane_cascade_hat"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.5"
-				"EffectName"		"particles/items2_fx/arcane_cascade_owner.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"cascade_hat_think"
-						"target"		"TARGET"
-					}
-				}
-				"Aura"          	"modifier_arcane_cascade_debuff"
-				"Aura_Radius"   	"750"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-			}
-			"modifier_arcane_cascade_debuff"
-			{
-				"Passive"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"ThinkInterval"  "1"
-				"EffectName"	"particles/items2_fx/arcane_cascade.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"cascade_aura"
-						"target"		"TARGET"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
 		"AbilitySpecial"
 		{
 			"01"

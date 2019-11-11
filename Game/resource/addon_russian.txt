@@ -12836,8 +12836,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
-		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Каждые <font color='#ccff66'>1</font> секунды сжигается <font color='#ccff66'>2</font>% макс. маны. Все враги в радиусе <font color='#ccff66'>750</font>, попавшие под эффект, получат магический урон в размере <font color='#ccff66'>2</font>х."
+		"item_property_arcane_cascade_hat"				"Arcane Cascade"
+		"property_arcane_cascade_hat_description"		"Каждые <font color='#ccff66'>1</font> секунды сжигается <font color='#ccff66'>2</font>% макс. маны. Все враги в радиусе <font color='#ccff66'>750</font>, попавшие под эффект, получат магический урон в размере <font color='#ccff66'>2</font>х."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
@@ -12953,7 +12953,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
 		"item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Враги, находящиеся в радиусе <font color='#ccff66'>900</font> будут обездвижены на <font color='#ccff66'>3</font> секунды. Прочтение (R) @Ability4 обездвиживает всех врагов в радиусе <font color='#ccff66'>1200</font> на <font color='#ccff66'>4</font> секунды."
+		 "property_autumn_sleeper_description"				"Враги, находящиеся в радиусе <font color='#ccff66'>900</font> будут обездвижены на <font color='#ccff66'>3</font> секунды."
 		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Обездвижен"
 		 
