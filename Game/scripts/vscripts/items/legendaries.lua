@@ -4361,7 +4361,7 @@ function RPCItems:RollArcaneCascadeHat(deathLocation, isShop)
     return item
 end
 
-function RPCItems:RollSamuraiHelmet(deathLocation, isShop)
+function RPCItems:RollSamuraiHelmet(item_level)
     local item = RPCItems:CreateVariant("item_rpc_adamantine_samurai_helmet", "immortal", "Adamantine Samurai Helmet", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
@@ -8158,8 +8158,8 @@ function RPCItems:RollHeroicConquerorVestments(deathLocation, pitLevel)
     return item
 end
 
-function RPCItems:RollImmortalByName(itemName, position)
-    local deathLocation = position
+function RPCItems:RollImmortalByName(itemName, item_level)
+    local deathLocation = Vector(0,0)
     local newItem = nil
     --print(immortalName)
     if _G[itemName] then
@@ -8339,7 +8339,7 @@ function RPCItems:RollImmortalByName(itemName, position)
     elseif itemName == "item_rpc_arcane_cascade_hat" then
         newItem = RPCItems:RollArcaneCascadeHat(deathLocation, isShop)
     elseif itemName == "item_rpc_adamantine_samurai_helmet" then
-        newItem = RPCItems:RollSamuraiHelmet(deathLocation, isShop)
+        newItem = RPCItems:RollSamuraiHelmet(item_level)
     elseif itemName == "item_rpc_scourge_knights_helm" then
         newItem = RPCItems:RollScourgeKnightHelm(deathLocation, isShop)
     elseif itemName == "item_rpc_mask_of_the_desert_necromancer" then
@@ -8855,6 +8855,21 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         Events.SpiritRealm = false
     end
     return newItem
+end
+
+function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
+    local itemsList = {}
+    if gear_slot == RPC_GEAR_SLOT_HEAD then
+        itemsList = {"item_rpc_adamantine_samurai_helmet"}
+    end
+    return itemsList
+end
+
+function RPCItems:RollRandomWorldImmortal(gear_slot, item_level)
+    local itemsList = RPCItems:GetWorldDropImmortalNamesList(gear_slot)
+    local randomItem = itemsList[RandomInt(1, #itemsList)]
+    local item = RPCItems:RollImmortalByName(randomItem, item_level)
+    return item
 end
 
 function RPCItems:GetSoulBankableItemsList()

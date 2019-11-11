@@ -837,7 +837,7 @@ function RPCItems:RollRandomItemBySlot(rarity, item_level, item_slot)
 	    RPCItems:SocketsChance(item)
 	    return item
 	elseif rarity == RPC_ITEMS_RARITY_IMMORTAL then
-		local immortal = RPCItems:RollRandomWorldArcana(item_level)
+		local immortal = RPCItems:RollRandomWorldImmortal(item_slot, item_level)
 		return immortal
 	elseif rarity == RPC_ITEMS_RARITY_ARCANA then
 		local arcana = RPCItems:RollRandomWorldArcana(item_level)
