@@ -5459,6 +5459,7 @@ function sea_fortress_final_boss_think(event)
 		end)
 		Timers:CreateTimer(2, function()
 			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
+			Gems:DropSocketForger(caster:GetAbsOrigin())
 		end)
 		local randDelay = RandomInt(10, 50) / 10
 		local position = caster:GetAbsOrigin()
