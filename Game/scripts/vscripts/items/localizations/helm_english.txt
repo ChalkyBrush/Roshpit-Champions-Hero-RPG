@@ -264,7 +264,7 @@
 
 		"item_rpc_autumn_sleeper_mask_ruby1"	"Casting [R] roots all enemies in a <% AUTUMN_SLEEPER_RUBY_RADIUS %> radius for @ruby_property1 seconds"
 		"item_rpc_autumn_sleeper_mask_emerald1" "Rooted enemies take damage equal to @emerald_property1% of attack power every <% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> seconds"
-		"item_rpc_autumn_sleeper_mask_sapphire1"	"When Wild Overgrowth debuff ends, the escaped enemy has <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> movespeed for @sapphire_property1 seconds"
+		"item_rpc_autumn_sleeper_mask_sapphire1"	"When Wild Overgrowth root ends, the escaped enemy has <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> movespeed for @sapphire_property1 seconds"
 		"item_rpc_autumn_sleeper_mask_amethyst1" "Rooted enemies have @amethyst_property1 reduced Armor"
 
 		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow"		"Wild Overgrowth Slow"
