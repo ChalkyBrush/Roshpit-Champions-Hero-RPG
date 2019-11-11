@@ -47,6 +47,17 @@
 		"DOTA_Tooltip_modifier_basilisk_plague_helm_effect"	"Depth Rot"
 		"DOTA_Tooltip_modifier_basilisk_plague_helm_effect_Description"	"Slowed"
 
+    	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
+		"item_property_blackfeather"				"Spirit of the Stormcrow"	
+		"property_blackfeather_description"			"Landing an attack summons the Stormcrow Spirit that performs an attack with <% BLACKFEATHER_ATTACK_DAMAGE_MULT %>x your attack power."
+
+		"item_rpc_blackfeather_crown_ruby1"	"Increases the Stormcrow's attack damage by @ruby_property1%"
+		"item_rpc_blackfeather_crown_emerald1" "The Stormcrow has a @emerald_property1% chance to attack an enemy who attacks you"
+		"item_rpc_blackfeather_crown_sapphire1"	"The Stormcrow applies a @sapphire_property1 Armor loss debuff for <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %> seconds"
+		"item_rpc_blackfeather_crown_amethyst1" "Increases Attack Speed by @amethyst_property1"
+		
+		"twilight_crow_summon"		"Crow Aspect"
+
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
@@ -205,12 +216,6 @@
 		"item_property_desert_necromancer"			"Reanimate Thorok"
 		"property_desert_necromancer_description"	"When you cast @Ability4, summon the abomination Thorok for 10 seconds. He has 8x your attack damage, 4x your health and 1x your Armor. If you summon him while below 40% health, he will be enraged, gaining 160 attack speed and 100 movement speed."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
-		"item_property_blackfeather"				"Vesper of Crows"	
-		"property_blackfeather_description"			"Every 4 seconds, summon an invulnerable Crow Aspect to patrol you. Aspects deal 5x your attack damage and lower their target's Armor by 40. Each Aspect lasts 10 seconds."
-		
-		"twilight_crow_summon"		"Crow Aspect"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"

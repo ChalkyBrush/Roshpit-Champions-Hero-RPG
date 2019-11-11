@@ -62,7 +62,7 @@ function Tanari:Debug()
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
-    local helm = RPCItems:RollBasiliskPlagueHelm(1)
+    local helm = RPCItems:RollBlackfeatherCrown(1)
     Gems:AddSocket(helm)
     Gems:AddSocket(helm)
     RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), helm)

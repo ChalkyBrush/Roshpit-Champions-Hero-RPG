@@ -52781,8 +52781,8 @@
 				"Duration"	"2"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"10"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"0.5"
 				}
 				"OnCreated"
 				{
@@ -52803,8 +52803,8 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"45"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"2"
 				}
 			}
 			"modifier_voltex_d_b_debuff"
@@ -53491,7 +53491,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -104753,6 +104753,7 @@
 		{
 			"modifier_twilight_crow_summon_ai"
 			{
+				"Passive"			"1"
 				"IsPurgable"		"0"
 				"IsBuff"			"1"
 				"States"
@@ -104763,37 +104764,32 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "4"
-				"OnIntervalThink"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"twilight_crow_summon_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"twilight_crow_end"
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"crow_summon_attack_land"
 					}
 				}
 			}
-			"modifier_twilight_crow_moving"
+			"modifier_disable_player"
 			{
-				"IsPurgable"		"0"
-				"IsBuff"			"1"
-				"ThinkInterval"  "0.05"
-				"OnIntervalThink"
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
+			"modifier_cant_attack"
+			{
+				"IsHidden" "1"
+				"States"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"twilight_crow_moving_think"
-					}
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_crow_attacking"
+			{
+				"IsHidden"	"1"
 			}
 		}
 

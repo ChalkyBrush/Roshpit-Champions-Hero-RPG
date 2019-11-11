@@ -2641,18 +2641,102 @@ function twilight_damage_taken(event)
 	end
 end
 
-function blackfeather_think(event)
+function blackfeather_init(event)
+	local hero = event.target
+	local ability = event.ability
+	if not ability.crow then
+		local summonPos = hero:GetAbsOrigin()
+		local crow = CreateUnitByName("twilight_crow_summon", summonPos, true, nil, nil, hero:GetTeamNumber())
+		crow.owner = hero:GetPlayerOwnerID()
+		crow:SetOwner(hero)
+		crow:FindAbilityByName("twilight_crow_summon_ai"):SetLevel(1)
+		ability.crow = crow
+		crow.hero = hero
+		crow:SetModelScale(0.01)
+		crow:FindAbilityByName("twilight_crow_summon_ai"):ApplyDataDrivenModifier(crow, crow, "modifier_cant_attack", {})
+
+	end
+end
+
+function blackfeather_attack_land(event)
+	local hero = event.attacker
+	local ability = event.ability
 	local target = event.target
-	local birdDamage = OverflowProtectedGetAverageTrueAttackDamage(target) * 5
-	local summonPos = target:GetAbsOrigin() + RandomVector(RandomInt(50, 600))
-	local crow = CreateUnitByName("twilight_crow_summon", summonPos, true, nil, nil, target:GetTeamNumber())
-	crow.owner = target:GetPlayerOwnerID()
-	crow:SetOwner(target)
-	local crowAbility = crow:FindAbilityByName("twilight_crow_summon_ai")
-	crowAbility:ApplyDataDrivenModifier(crow, crow, "modifier_twilight_crow_summon_ai", {duration = 10})
-	crow:SetForwardVector(target:GetForwardVector())
-	crow:SetBaseDamageMax(birdDamage)
-	crow:SetBaseDamageMin(birdDamage)
+	if ability.crow then
+		ability.crow:SetAbsOrigin(hero:GetAbsOrigin()+Vector(0,0,200))
+		ability.crow:SetForwardVector(hero:GetForwardVector())
+		if not ability.crow:HasModifier("modifier_crow_attacking") then
+			Events:smoothSizeChange(ability.crow, 0.01, 1, 10)
+		end
+		ability.crow:RemoveNoDraw()
+		StartAnimation(ability.crow, {duration = 0.3, activity = ACT_DOTA_SPAWN, rate = 1.5})
+		if not ability.crow:HasModifier("modifier_crow_attacking") then
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/solunia/warp_core_lunar_flash_c.vpcf", ability.crow:GetAbsOrigin()+Vector(0,0,120), 3)
+		end
+		local crow_ability = ability.crow:FindAbilityByName("twilight_crow_summon_ai")
+		crow_ability:ApplyDataDrivenModifier(ability.crow, ability.crow, "modifier_crow_attacking", {duration = 0.4})
+		Timers:CreateTimer(0.1, function()
+			Filters:PerformAttackSpecial(ability.crow, target, true, true, true, false, true, false, false)
+			EmitSoundOn("RPCItems.Blackfeather.Stormcrow", ability.crow)
+		end)
+		Timers:CreateTimer(0.45, function()
+			if not ability.crow:HasModifier("modifier_crow_attacking") then
+				Events:smoothSizeChange(ability.crow, 1, 0.01, 10)
+				Timers:CreateTimer(0.15, function()
+					if not ability.crow:HasModifier("modifier_crow_attacking") then
+						if ability.crow:GetModelScale() < 0.8 then
+							CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/blackfeather_spawn.vpcf", ability.crow:GetAbsOrigin()+Vector(0,0,140), 3)
+						end
+					end
+				end)
+				Timers:CreateTimer(0.3, function()
+					if not ability.crow:HasModifier("modifier_crow_attacking") then
+						if ability.crow:GetModelScale() < 0.2 then
+							
+							ability.crow:AddNoDraw()
+						end
+					end
+				end)
+			end
+		end)
+	end
+end
+
+function blackfeather_attacked(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	if ability:GetGemValue("emerald") > 0 then
+		local proc_luck = RandomInt(1, 100)
+		if proc_luck <= ability:GetFinalGemPropertyValue("emerald", BLACKFEATHER_EMERALD) then
+			local eventTable = {}
+			eventTable.attacker = target
+			eventTable.target = attacker
+			eventTable.ability = ability
+			blackfeather_attack_land(eventTable)
+		end
+	end
+end
+
+function crow_summon_attack_land(event)
+	local target = event.target
+	local attacker = event.attacker
+	local caster = event.caster
+	local ability = attacker.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+	local damage = BLACKFEATHER_ATTACK_DAMAGE_MULT*OverflowProtectedGetAverageTrueAttackDamage(attacker.hero)*(1 + ability:GetFinalGemPropertyValue("ruby", BLACKFEATHER_RUBY)/100)
+	Filters:ApplyItemDamage(target, attacker.hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_SHADOW)
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_blackfeather_armor_reduce", {duration = BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION})
+	end
+end
+
+function blackfeather_unequip(event)
+	local hero = event.target
+	local ability = event.ability
+	if ability.crow then
+		UTIL_Remove(ability.crow)
+		ability.crow = nil
+	end
 end
 
 function wraith_phase(event)

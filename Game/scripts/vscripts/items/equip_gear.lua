@@ -154,9 +154,11 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
 		elseif string.match(key, "arcana") then
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
+			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
 		elseif string.match(key, "!immortal!") and not hero.equipped_gear[gear_slot].isLuaItem then
 			local modifier_name = key:gsub("!immortal!_", "")
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
+			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
 		else
 			if value > 0 then
 				local modifier_name = "modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key
@@ -219,6 +221,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		end
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ARCANE_CASCADE_EMERALD, hero, "max_mana", RPC_GEAR_SLOT_HEAD)
+		end
+	elseif item:GetAbilityName() == "item_rpc_blackfeather_crown" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", BLACKFEATHER_AMETHYST, hero, "attack_speed", RPC_GEAR_SLOT_HEAD)
 		end
 	end
 end

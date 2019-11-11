@@ -855,6 +855,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local basilisk_petrify_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", BASILISK_PLAGUE_AMETHYST)
 		armor_modify = armor_modify + basilisk_petrify_armor_loss
 	end
+	if unit:HasModifier("modifier_blackfeather_armor_reduce") then
+		local modifier = unit:FindModifierByName("modifier_blackfeather_armor_reduce")
+		local modifier_caster = modifier:GetCaster()
+		local blackfeather_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BLACKFEATHER_SAPPHIRE)
+		armor_modify = armor_modify + blackfeather_armor_loss
+	end
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
