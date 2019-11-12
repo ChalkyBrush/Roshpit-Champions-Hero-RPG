@@ -487,6 +487,10 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
 end
 
 function Tanari:Debug2()
+    local immo = RPCItems:RollRandomWorldImmortal(RPC_GEAR_SLOT_HEAD, 1)
+    Gems:AddSocket(immo)
+    Gems:AddSocket(immo)
+    RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), immo)
     -- Stars:GetPlayerStars(MAIN_HERO_TABLE[1]:GetPlayerID())
     -- Stars:StarEventPlayer("power_up", MAIN_HERO_TABLE[1])
     -- Tanari.WindTemple = {}

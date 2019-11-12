@@ -3360,7 +3360,6 @@ function RPCItems:RollGlintOfOnu(item_level)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
 
     RPCItems:SetBaseItemValues(item, "item_rpc_blinded_glint_of_onu", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    RPCItems:ItemUpdateCustomNetTables(item)
     return item
 end
 
@@ -3389,7 +3388,6 @@ function RPCItems:RollBrazenKabuto(item_level)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
     
     RPCItems:SetBaseItemValues(item, "item_rpc_brazen_kabuto_of_the_desert_realm", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    RPCItems:ItemUpdateCustomNetTables(item)
     return item
 end
 
