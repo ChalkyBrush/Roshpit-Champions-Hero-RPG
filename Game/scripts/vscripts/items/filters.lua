@@ -4660,8 +4660,14 @@ end
 function Filters:CarbuncleApply(caster, duration, bConsiderCooldown)
     if duration > 0 then
         if (not caster:HasModifier("modifier_carbuncle_cooldown") and bConsiderCooldown) or not bConsiderCooldown then
-            caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncles_helm_of_reflection_effect", {duration = CARBUNCLE_SHIELD_DURATION})
-            caster.equipped_gear[RPC_GEAR_SLOT_HEAD].carbuncle_last_duration = CARBUNCLE_SHIELD_DURATION
+            if caster:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
+                local modifier = caster:FindModifierByName("modifier_carbuncles_helm_of_reflection_effect")
+                if modifier:GetRemainingTime() > duration then
+                    return false
+                end
+            end
+            caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncles_helm_of_reflection_effect", {duration = duration})
+            caster.equipped_gear[RPC_GEAR_SLOT_HEAD].carbuncle_last_duration = duration
             if bConsiderCooldown then
                 caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncle_cooldown", {duration = CARBUNCLE_SHIELD_COOLDOWN})
             end
