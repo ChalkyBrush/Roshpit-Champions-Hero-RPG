@@ -62,7 +62,7 @@ function Tanari:Debug()
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
-    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_cap_of_wild_nature")
+    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_carbuncles_helm_of_reflection")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)

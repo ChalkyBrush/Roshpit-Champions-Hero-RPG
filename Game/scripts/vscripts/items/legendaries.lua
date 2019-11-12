@@ -2,49 +2,17 @@
     return nil
 end
 
-function RPCItems:RollNeverlordRingProperty()
-    local luck = RandomInt(0, 905)
-    local luck2 = RandomInt(1, 100)
-    local propertyName = ""
-    local propertyTitle = ""
-    local tier = 0
-    if luck2 < 20 then
-        value = RandomInt(5, 7)
-    elseif luck2 < 50 then
-        value = RandomInt(6, 8)
-    elseif luck2 < 80 then
-        value = RandomInt(7, 9)
-    elseif luck2 < 95 then
-        value = RandomInt(10, 15)
-    elseif luck2 <= 100 then
-        value = RandomInt(15, 20)
+function RPCItems:RollRuneType(letters, tiersTable)
+    local luck = RandomInt(1,1000)
+    local letter = letters[RandomInt(1, #letters)]
+    rune_tier = "1"
+    for key, tier in pairs(tiersTable) do
+        if luck <= tier["chance"] then
+            rune_tier = key
+        end
     end
-    if luck < 140 then
-        propertyName = "rune_q_1"
-        tier = 1
-    elseif luck < 240 then
-        propertyName = "rune_w_1"
-        tier = 1
-    elseif luck < 360 then
-        propertyName = "rune_e_1"
-        tier = 1
-    elseif luck < 485 then
-        propertyName = "rune_r_1"
-        tier = 1
-    elseif luck < 590 then
-        propertyName = "rune_q_2"
-        tier = 2
-    elseif luck < 695 then
-        propertyName = "rune_w_2"
-        tier = 2
-    elseif luck < 800 then
-        propertyName = "rune_e_2"
-        tier = 2
-    elseif luck < 910 then
-        propertyName = "rune_r_2"
-        tier = 2
-    end
-    return tier, value, propertyName
+    rune_roll = "rune_"..letter.."_"..rune_tier
+    return rune_roll
 end
 
 function RPCItems:RollNeverlordRing(item_level)
@@ -3460,6 +3428,40 @@ function RPCItems:RollCapOfWildNature(item_level)
     return item
 end
 
+function RPCItems:RollCarbuncleHelm(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_carbuncles_helm_of_reflection", "immortal", "Carbuncle's Helm of Reflection", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_carbuncles_helm_of_reflection"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_carbuncle", "#B85454", 1, "#property_carbuncle_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {1: {"chance": 50}, 2: {"chance": 100}})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    local luck = RandomInt(1, 10)
+    if luck < 10 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {1: {"chance": 50}, 2: {"chance": 100}})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {1: {"chance": 50}, 2: {"chance": 100}})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    end
+    local luck = RandomInt(1, 10)
+    if luck == 10 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "t3_rune", 0.8)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, "item_rpc_carbuncles_helm_of_reflection", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4057,38 +4059,6 @@ function RPCItems:RollCrestOfTheUmbralSentinel(item_level)
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 
     RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollCarbuncleHelm(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_carbuncles_helm_of_reflection", "immortal", "Carbuncle's Helm of Reflection", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "carbuncle"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_carbuncle", "#B85454", 1, "#property_carbuncle_description")
-
-    item.newItemTable.hasRunePoints = true
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.ceil(value * 1.2)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local luck = RandomInt(1, 10)
-    if luck < 10 then
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = math.ceil(value * 1.5)
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = math.ceil(value * 2.0)
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
