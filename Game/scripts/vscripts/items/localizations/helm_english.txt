@@ -104,13 +104,15 @@
 
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"When you cast @Ability2, gain a magic reflecting shell for 2 seconds that negates an instance of magic or pure damage and applies it to the inflictor instead with Fire/Arcane element. The shell is broken upon reflecting a spell. Reflection shell has a 5 second cooldown."
+		"property_carbuncle_description"						"When you cast @Ability2, gain a magic reflecting shell for <% CARBUNCLE_SHIELD_DURATION %> seconds that negates an instance of Magic or Pure damage and applies it to the inflictor instead with <font color=\"#EF4126\">Fire</font>/<font color=\"#E1A2E8\">Arcane</font> element. The shell is broken upon reflecting a spell. Reflection shell has a <% CARBUNCLE_SHIELD_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical damage taken reduced to 0 and reflected back at the source"
 
+		"DOTA_Tooltip_modifier_carbuncle_cooldown"					"Ruby Shell Cooldown"
+
 		"item_rpc_carbuncles_helm_of_reflection_ruby1"	"The reflected damage is increased by @ruby_property1%"
 		"item_rpc_carbuncles_helm_of_reflection_emerald1" "@emerald_property1% chance for the shell to persist after reflecting a spell, and have its duration refreshed"
-		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Casting @Ability4 applies the Magic Reflection shell for @sapphire_property1 seconds without activating the cooldown"
+		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Casting [R] applies the Magic Reflection shell for @sapphire_property1 seconds regardless of cooldown status and without activating the cooldown"
 		"item_rpc_carbuncles_helm_of_reflection_amethyst1" "When an enemy is hit by the reflected damage, they are stunned for @amethyst_property1 seconds"	
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"

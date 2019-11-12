@@ -977,6 +977,9 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("tanari_water_bomb_hero") then
         Filters:BombThrow(caster)
     end
+    if caster:HasModifier("modifier_carbuncles_helm_of_reflection") then
+        Filters:CarbuncleApply(caster, CARBUNCLE_SHIELD_DURATION, true)
+    end
     if caster:HasModifier("modifier_sacred_trials_armor") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sacred_trials_attack_bonus", {duration = 12})
     end
@@ -1081,10 +1084,6 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_redrock_footwear") then
         Filters:RedrockFootwear(caster)
     end
-    if caster:HasModifier("modifier_carbuncles_helm_of_reflection") then
-        local shieldDuration = math.max(ability:GetCooldownTimeRemaining() * CARBUNCLE_SHIELD_DUR_RELATIVE_PCT/100, CARBUNCLE_SHIELD_DUR_MIN)
-        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncles_helm_of_reflection_effect", {duration = shieldDuration})
-    end
     if caster:HasModifier("modifier_boots_of_pure_waters") then
         Filters:PureWaters(caster)
     end
@@ -1143,6 +1142,9 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_guard_of_feronia") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = GUARD_OF_FERONIA_SHIELD_DURATION_R})
+    end
+    if caster:HasModifier("modifier_carbuncles_helm_of_reflection") then
+        Filters:CarbuncleApply(caster, caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", CARBUNCLE_SAPPHIRE), false)
     end
     if caster:HasModifier("modifier_shadow_trap_passive") then
         local shadowAbility = caster:FindAbilityByName("auriun_shadow_trap")
@@ -4653,4 +4655,63 @@ function Filters:SamuraiAttackLand(damage, attacker, target)
         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skeletonking/skeleton_king_ti8_weapon_blur_critical.vpcf", attacker, 2)
     end
     return damage
+end
+
+function Filters:CarbuncleApply(caster, duration, bConsiderCooldown)
+    if duration > 0 then
+        if (not caster:HasModifier("modifier_carbuncle_cooldown") and bConsiderCooldown) or not bConsiderCooldown then
+            caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncles_helm_of_reflection_effect", {duration = CARBUNCLE_SHIELD_DURATION})
+            caster.equipped_gear[RPC_GEAR_SLOT_HEAD].carbuncle_last_duration = CARBUNCLE_SHIELD_DURATION
+            if bConsiderCooldown then
+                caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_carbuncle_cooldown", {duration = CARBUNCLE_SHIELD_COOLDOWN})
+            end
+        end
+    end
+end
+
+function Filters:CarbuncleReflect(victim, attacker, damage, damagetype)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", victim, 0.8)
+    EmitSoundOn("RPC.Carbuncle.Reflect", attacker)
+
+        local info =
+        {
+            Target = attacker,
+            Source = victim,
+            Ability = victim.equipped_gear[RPC_GEAR_SLOT_HEAD],
+            EffectName = "particles/roshpit/items/carbuncle_projectile.vpcf",
+            StartPosition = "attach_hitloc",
+            bDrawsOnMinimap = false,
+            bDodgeable = true,
+            bIsAttack = false,
+            bVisibleToEnemies = true,
+            bReplaceExisting = false,
+            flExpireTime = GameRules:GetGameTime() + 8,
+            bProvidesVision = true,
+            iVisionRadius = 0,
+            iMoveSpeed = 1050,
+        iVisionTeamNumber = victim:GetTeamNumber()}
+
+    projectile = ProjectileManager:CreateTrackingProjectile(info)
+
+    local carbuncle_data = {}
+    carbuncle_data.damage = damage
+    carbuncle_data.damagetype = damagetype
+    carbuncle_data.attacker = victim
+    attacker.carbuncle_data = carbuncle_data
+
+
+    local luck = RandomInt(1, 100)
+    if luck < victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", CARBUNCLE_EMERALD) then
+        local modifier = victim:FindModifierByName("modifier_carbuncles_helm_of_reflection_effect")
+        modifier:SetDuration(victim.equipped_gear[RPC_GEAR_SLOT_HEAD].carbuncle_last_duration, true)
+    else
+        victim:RemoveModifierByName("modifier_carbuncles_helm_of_reflection_effect")
+    end
+    
+
+    local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/items/carbuncle_reflect.vpcf", victim, 3)
+    ParticleManager:SetParticleControlEnt(pfx, 1, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true) 
+    EmitSoundOn("RPC.Carbuncle.Reflect", victim)
+    local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/items/carbuncle_reflect.vpcf", attacker, 3)
+    ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true) 
 end

@@ -6316,3 +6316,21 @@ function alien_armor_die(event)
 	    end)
 	end
 end
+
+function carbuncle_hit(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local carbuncle_data = target.carbuncle_data
+
+    local damage = math.ceil(carbuncle_data.damage)*(1 + ability:GetFinalGemPropertyValue("ruby", CARBUNCLE_RUBY)/10)
+
+    Filters:ApplyItemDamage(carbuncle_data.attacker, target, damage, carbuncle_data.damagetype, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_ARCANE)
+    EmitSoundOn("RPC.Carbuncle.ReflectImpact", target)
+    CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", target, 0.8)
+
+    local stun_duration = ability:GetFinalGemPropertyValue("amethyst", CARBUNCLE_AMETHYST)
+    if stun_duration > 0 then
+    	Filters:ApplyStun(carbuncle_data.attacker, stun_duration, target)
+    end
+end

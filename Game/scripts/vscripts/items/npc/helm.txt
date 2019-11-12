@@ -21,6 +21,7 @@
 		{
 			"particle"	"particles/units/heroes/hero_medusa/carbuncle_ruby_shell.vpcf"
 			"particle"	"particles/roshpit/items/carbuncle_reflect.vpcf"
+			"particle"	"particles/roshpit/items/carbuncle_projectile.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -73,8 +74,6 @@
 			}
 			"modifier_carbuncles_helm_of_reflection_effect"
 			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/carbuncle_buff"
 				"OnCreated"
@@ -92,6 +91,22 @@
 			"modifier_carbuncle_immunity"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_carbuncle_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"itemicons/carbuncle_buff"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"carbuncle_hit"
+				"target"		"TARGET"
 			}
 		}
 	}

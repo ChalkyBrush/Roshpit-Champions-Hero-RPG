@@ -13133,7 +13133,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"红宝石反射头盔"
 		"item_property_carbuncle"								"红宝石护盾"
-		"property_carbuncle_description"						"施放 @Ability3 时，获得一个魔法护盾，减少魔法伤害至 0 并且反弹给敌人造成 <font color='#ccff66'>1000</font>x 的伤害并且眩晕敌人 <font color='#ccff66'>3</font> 秒。护盾持续时间为 <font color='#ccff66'>35</font>% 的技能冷却时间，最低持续 <font color='#ccff66'>1</font>秒。受到反伤后的敌人将免疫魔法反弹效果 <font color='#ccff66'>3</font> 秒。"
+		"property_carbuncle_description"						"施放 @Ability3 时，获得一个魔法护盾，减少魔法伤害至 0 并且反弹给敌人造成 <font color='#ccff66'>1</font>x 的伤害并且眩晕敌人 <font color='#ccff66'>0</font> 秒。护盾持续时间为 <font color='#ccff66'>0</font>% 的技能冷却时间，最低持续 <font color='#ccff66'>0</font>秒。受到反伤后的敌人将免疫魔法反弹效果 <font color='#ccff66'>0</font> 秒。"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"红宝石护盾"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"受到的魔法伤害降低为0并反弹给敌人"
 

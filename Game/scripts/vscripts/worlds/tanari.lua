@@ -66,6 +66,7 @@ function Tanari:Debug()
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
+
     -- RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), helm)
     -- RPCItems:RollSonicBoots(Vector(-4928, 2048))
     -- RPCItems:RollDuskbringerArcana1(Vector(-4928, 2048))
@@ -488,10 +489,11 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
 end
 
 function Tanari:Debug2()
-    local immo = RPCItems:RollRandomWorldImmortal(RPC_GEAR_SLOT_HEAD, 1)
-    Gems:AddSocket(immo)
-    Gems:AddSocket(immo)
-    RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), immo)
+    local hunter = Tanari:SpawnHeadhunter(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+    -- local immo = RPCItems:RollRandomWorldImmortal(RPC_GEAR_SLOT_HEAD, 1)
+    -- Gems:AddSocket(immo)
+    -- Gems:AddSocket(immo)
+    -- RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), immo)
     -- Stars:GetPlayerStars(MAIN_HERO_TABLE[1]:GetPlayerID())
     -- Stars:StarEventPlayer("power_up", MAIN_HERO_TABLE[1])
     -- Tanari.WindTemple = {}

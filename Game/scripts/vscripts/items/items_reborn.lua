@@ -919,7 +919,7 @@ function RPCItems:RollBasicItemProperty(item, item_slot, property_slot, item_lev
 		property_type = RPCItems.REGULAR_PROPERTIES[item_slot][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[item_slot])]
 	end
 	local roll = RPCItems:RollGearAttributeValue(item_level, property_type, property_slot, 1)
-	roll = math.floor(roll * special_mult)
+	roll = math.max(math.floor(roll * special_mult), 1)
 	local rollData = {}
 	rollData["property_name"] = property_type
 	rollData["value"] = roll

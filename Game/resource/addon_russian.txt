@@ -12912,7 +12912,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"Прочтение (E) @Ability3 наделит героя отражающим магическим щитом. Во время действия этого щита, герой не будет получать магического урона, вместо этого, он будет усилен в <font color='#ccff66'>1000</font> раз и направлен обратно во врага, дополнительно оглушая его на <font color='#ccff66'>3</font> сек. Длится <font color='#ccff66'>35</font>% от времени перезарядки умения (E) либо минимально <font color='#ccff66'>1</font> секунду. Поражённые отраженным магическим уроном враги невосприимчивы к повторному воздействию этого эффекта в последующие <font color='#ccff66'>3</font> сек."
+		"property_carbuncle_description"						"Прочтение (E) @Ability3 наделит героя отражающим магическим щитом. Во время действия этого щита, герой не будет получать магического урона, вместо этого, он будет усилен в <font color='#ccff66'>1</font> раз и направлен обратно во врага, дополнительно оглушая его на <font color='#ccff66'>0</font> сек. Длится <font color='#ccff66'>0</font>% от времени перезарядки умения (E) либо минимально <font color='#ccff66'>0</font> секунду. Поражённые отраженным магическим уроном враги невосприимчивы к повторному воздействию этого эффекта в последующие <font color='#ccff66'>0</font> сек."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Получаемый магический урон снижен до 0. Весь урон усиливается и отражается обратно во врага, дополнительно оглушая его."
 

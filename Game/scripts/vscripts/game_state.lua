@@ -2145,29 +2145,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
 			mult = mult + (BLACK_MAGE_MAGIC_POST_MITI)/100
 		end
-
-		-- if attacker:HasModifier("modifier_warlord_rune_b_a_invisible") then
-		-- if damagetype == DAMAGE_TYPE_MAGICAL then
-		-- local stacks = attacker:GetModifierStackCount("modifier_warlord_rune_b_a_invisible", attacker.runeUnit2)
-		-- mult = mult + 0.04*stacks
-		-- end
-		-- end
-
-		if victim:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
-			if not attacker:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
-				if not attacker:HasModifier("modifier_carbuncle_immunity") then
-					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", victim, 0.8)
-					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", attacker, 0.8)
-					Filters:ApplyItemDamage(attacker, victim, filterTable["damage"] * CARBUNCLE_DAMAGE_AMP, DAMAGE_TYPE_MAGICAL, victim.headItem, RPC_ELEMENT_FIRE, RPC_ELEMENT_ARCANE)
-					victim.headItem:ApplyDataDrivenModifier(victim.InventoryUnit, attacker, "modifier_carbuncle_immunity", {duration = CARBUNCLE_ENEMY_IMMUNITY_DURATION})
-					Filters:ApplyStun(victim, CARBUNCLE_STUN_DUR, attacker)
-					EmitSoundOn("RPC.Carbuncle.Reflect", attacker)
-					local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/items/carbuncle_reflect.vpcf", attacker, 3)
-					ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-				end
-			end
-			filterTable["damage"] = 0
-		end
 		if victim:HasModifier("modifier_umbral_sentinel_magic_amp") then
 			local multIncrease = victim:GetModifierStackCount("modifier_umbral_sentinel_magic_amp", victim.umbral) * CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC/100
 			mult = mult + multIncrease
@@ -2177,6 +2154,12 @@ function GameState:FilterDamage(filterTable)
 
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_carbuncles_helm_of_reflection_effect") and applyEffects then
+			if not attacker:HasModifier("modifier_carbuncles_helm_of_reflection_effect") then
+				Filters:CarbuncleReflect(victim, attacker, filterTable["damage"], damagetype)
+				filterTable["damage"] = 0
+			end
+		end
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * EMERALD_NULLIFICATION_AGI_TO_PURE_MAGIC_DMG_BLOCK, 0)
 		end

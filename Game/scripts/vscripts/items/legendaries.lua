@@ -3,12 +3,12 @@
 end
 
 function RPCItems:RollRuneType(letters, tiersTable)
-    local luck = RandomInt(1,1000)
+    local luck = RandomInt(1,100)
     local letter = letters[RandomInt(1, #letters)]
     rune_tier = "1"
-    for key, tier in pairs(tiersTable) do
-        if luck <= tier["chance"] then
-            rune_tier = key
+    for key, chance in pairs(tiersTable) do
+        if luck <= chance then
+            rune_tier = string.gsub(tostring(key), "tier", "")
         end
     end
     rune_roll = "rune_"..letter.."_"..rune_tier
@@ -3437,14 +3437,15 @@ function RPCItems:RollCarbuncleHelm(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_carbuncles_helm_of_reflection"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_carbuncle", "#B85454", 1, "#property_carbuncle_description")
 
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {1: {"chance": 50}, 2: {"chance": 100}})
+-- {skill_points = skill_points, rune_points = Runes.RUNE_POINTS_PER_LEVEL}
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
     local luck = RandomInt(1, 10)
     if luck < 10 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {1: {"chance": 50}, 2: {"chance": 100}})
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
     else
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {1: {"chance": 50}, 2: {"chance": 100}})
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
     end
     local luck = RandomInt(1, 10)
@@ -8845,7 +8846,7 @@ end
 function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     local itemsList = {}
     if gear_slot == RPC_GEAR_SLOT_HEAD then
-        itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature"}
+        itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection"}
     end
     return itemsList
 end
