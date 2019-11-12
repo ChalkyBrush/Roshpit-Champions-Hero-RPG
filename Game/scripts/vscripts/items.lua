@@ -626,6 +626,10 @@ function RPCItems:GetExpiryTime(item)
 end
 
 function RPCItems:DropItem(item, position)
+	if not item then
+		-- what the hell sometimes the item is null?
+		return false
+	end
 	RPCItems:ItemUpdateCustomNetTables(item)
 	local origPosition = position
 	local basePosition = position
