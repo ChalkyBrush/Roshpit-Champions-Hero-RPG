@@ -12991,9 +12991,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"大自然之帽"
 		"item_property_wild_nature"					"纠缠根须"
-		"property_wild_nature_description"			"敌人攻击你时，有 <font color='#ccff66'>50</font>% 几率被定身 <font color='#ccff66'>3</font> 秒，每秒受到 <font color='#ccff66'>1</font>x 你的主属性的魔法伤害。"
+		"property_wild_nature_description"			"敌人攻击你时，有 <font color='#ccff66'>50</font>% 几率被定身 <font color='#ccff66'>4</font> 秒，每秒受到 <font color='#ccff66'>1</font>x 你的主属性的魔法伤害。"
 		"item_property_wild_nature_two"				"诱捕根须"
-		"property_wild_nature_two_description"		"被 @Ability2 击中的敌人有 <font color='#ccff66'>30</font>% 几率被缠绕 <font color='#ccff66'>3</font> 秒，每秒受到 <font color='#ccff66'>1</font>x 你的主属性的伤害。"
+		"property_wild_nature_two_description"		"被 @Ability2 击中的敌人有 <font color='#ccff66'>30</font>% 几率被缠绕 <font color='#ccff66'>4</font> 秒，每秒受到 <font color='#ccff66'>1</font>x 你的主属性的伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"

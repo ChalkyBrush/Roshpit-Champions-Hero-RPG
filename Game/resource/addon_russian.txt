@@ -12769,9 +12769,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"С <font color='#ccff66'>50</font>% шансом враг, атакующий вас будет связан в течение <font color='#ccff66'>3</font> секунд и будет получать ежесекундный урон равный <font color='#ccff66'>1</font>х вашего основного атрибута."
+		"property_wild_nature_description"			"С <font color='#ccff66'>50</font>% шансом враг, атакующий вас будет связан в течение <font color='#ccff66'>4</font> секунд и будет получать ежесекундный урон равный <font color='#ccff66'>1</font>х вашего основного атрибута."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Задетые способностью (W) @Ability2 враги с <font color='#ccff66'>30</font>% шансом будут обездвижены на <font color='#ccff66'>3</font> сек. и будут получать ежесекундный урон, равный <font color='#ccff66'>1</font>x вашего основного атрибута."
+		"property_wild_nature_two_description"		"Задетые способностью (W) @Ability2 враги с <font color='#ccff66'>30</font>% шансом будут обездвижены на <font color='#ccff66'>4</font> сек. и будут получать ежесекундный урон, равный <font color='#ccff66'>1</font>x вашего основного атрибута."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
