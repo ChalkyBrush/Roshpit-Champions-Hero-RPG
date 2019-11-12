@@ -12869,7 +12869,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
 		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"При атаке есть <font color='#ccff66'>35</font>% шанс телепортироваться за спину цели, получив при этом максимальную скорость атаки в течение <font color='#ccff66'>0.8</font> секунды. При срабатывании эффекта герой мгновенно производит <font color='#ccff66'>2</font> атаки."
+		"property_glint_of_onu_description"			"При атаке есть <font color='#ccff66'>25</font>% шанс телепортироваться за спину цели, получив при этом максимальную скорость атаки в течение <font color='#ccff66'>0.8</font> секунды. При срабатывании эффекта герой мгновенно производит <font color='#ccff66'>0</font> атаки."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"

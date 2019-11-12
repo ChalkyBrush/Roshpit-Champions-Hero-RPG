@@ -12962,6 +12962,14 @@
 		
 		"twilight_crow_summon"		"Crow Aspect"
 
+    	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
+		"item_property_glint_of_onu"				"Flicker Strike"
+		"property_glint_of_onu_description"			"<font color='#ccff66'>25</font>% chance on attack to teleport behind your target and gain max attack speed for <font color='#ccff66'>0.8</font> seconds. The teleport disjoints incoming projectiles."
+		
+		"item_rpc_blinded_glint_of_onu_ruby1"	"@ruby_property1% chance to immediately perform a free attack after teleporting."
+		"item_rpc_blinded_glint_of_onu_emerald1" "Increasing Agility by @emerald_property1"
+		"item_rpc_blinded_glint_of_onu_sapphire1"	"Increases the proc chance by an additional @sapphire_property1%"
+		"item_rpc_blinded_glint_of_onu_amethyst1" "The Attack Speed Buff also increases attack power by @amethyst_property1%"
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
@@ -13104,11 +13112,6 @@
 		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack power, 25% of your max health and 1x your Armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff aura to all nearby allies."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
-		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"<font color='#ccff66'>35</font>% chance on attack to teleport behind your target and gain max attack speed for <font color='#ccff66'>0.8</font> seconds. Additionally perform <font color='#ccff66'>2</font> immediate bonus attacks on proc."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"

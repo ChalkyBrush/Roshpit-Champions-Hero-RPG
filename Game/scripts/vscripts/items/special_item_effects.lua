@@ -2051,7 +2051,8 @@ function onu_attack_land(event)
 	if target.dummy then
 		return false
 	end
-	local proc = Filters:GetProc(attacker, GLINT_OF_ONU_CHANCE)
+	local proc_chance = GLINT_OF_ONU_CHANCE + ability:GetFinalGemPropertyValue("sapphire", GLINT_OF_ONU_SAPPHIRE)
+	local proc = Filters:GetProc(attacker, proc_chance)
 	if target:HasModifier("modifier_glint_no_proc") then
 		local newNoProcStacks = target:GetModifierStackCount("modifier_glint_no_proc", caster) - 1
 		if newNoProcStacks > 0 then
@@ -2072,6 +2073,11 @@ function onu_attack_land(event)
 			FindClearSpaceForUnit(attacker, newPosition, false)
 			attacker:SetForwardVector(target:GetForwardVector() * Vector(1, 1, 0))
 			event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_blinded_glint_buff", {duration = GLINT_OF_ONU_BUFF_DUR})
+			ProjectileManager:ProjectileDodge(attacker)
+			if ability:GetGemValue("amethyst") > 0 then
+				event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_blinded_glint_amethyst_attack_power", {duration = GLINT_OF_ONU_BUFF_DUR})
+				attacker:SetModifierStackCount("modifier_blinded_glint_amethyst_attack_power", caster, ability:GetFinalGemPropertyValue("amethyst", GLINT_OF_ONU_AMETHYST))
+			end
 
 			local particleName = "particles/econ/items/meepo/meepo_diggers_divining_rod/meepo_divining_rod_poof_end_rays_burst.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
@@ -2082,12 +2088,16 @@ function onu_attack_land(event)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:DestroyParticle(pfx2, false)
 			end)
-			Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
-			Timers:CreateTimer(0.1, function()
-				if target:IsAlive() then
-					Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
+			local ruby_attack_procs = Runes:ProcsByTotalChance(ability:GetFinalGemPropertyValue("ruby", GLINT_OF_ONU_RUBY))
+			if ruby_attack_procs > 0 then
+				for i = 1, ruby_attack_procs, 1 do
+					Timers:CreateTimer((i-1)*0.1, function()
+						if target:IsAlive() then
+							Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
+						end
+					end)
 				end
-			end)
+			end
 			EmitSoundOnLocationWithCaster(newPosition, "RPCItem.GlintOfOnu", attacker)
 		end
 	end

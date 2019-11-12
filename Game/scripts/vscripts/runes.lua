@@ -381,6 +381,15 @@ function Runes:Procs(runeLevel, chancePerLevel, mod)
 	return procs
 end
 
+function Runes:ProcsByTotalChance(totalChance)
+	local procs = math.floor(totalChance/100)
+	local lucky = RandomInt(0, 100)
+	if lucky < totalChance%100 then
+		procs = procs + 1
+	end
+	return procs
+end
+
 function Runes:GetTotalRuneLevel(caster, tier, runeID, heroName)
 	if not caster:IsRealHero() then
 		return 0

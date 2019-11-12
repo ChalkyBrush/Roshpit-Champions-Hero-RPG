@@ -13090,7 +13090,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"阴影闪烁斗篷"
 		"item_property_glint_of_onu"				"闪烁打击"
-		"property_glint_of_onu_description"			"攻击时有<font color='#ccff66'>35</font>%的几率瞬移到敌人身后，并获得极限攻击速度，持续<font color='#ccff66'>0.8</font>秒。闪烁到敌人背后的同时立即对敌人进行两次额外的攻击。额外的普通攻击没有攻击间隔瞬间完成，不影响正常的普通攻击。"
+		"property_glint_of_onu_description"			"攻击时有<font color='#ccff66'>25</font>%的几率瞬移到敌人身后，并获得极限攻击速度，持续<font color='#ccff66'>0.8</font>秒。闪烁到敌人背后的同时立即对敌人进行两次额外的攻击。额外的普通攻击没有攻击间隔瞬间完成，不影响正常的普通攻击。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"兽王之冠"
