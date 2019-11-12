@@ -88,7 +88,19 @@
 		"item_rpc_burning_spirit_helmet_ruby1"	"Increases <font color=\"#EF4126\">Fire</font> elemental amplification by @ruby_property1%"
 		"item_rpc_burning_spirit_helmet_emerald1" "Flamethrower damage is increased by @emerald_property1"
 		"item_rpc_burning_spirit_helmet_sapphire1"	"Increases all attributes by @sapphire_property1"
-		"item_rpc_burning_spirit_helmet_amethyst1" "Each enemy hit by a flame reduces the current cooldown of [R] by @amethyst_property1 seconds"		
+		"item_rpc_burning_spirit_helmet_amethyst1" "Each enemy hit by a flame reduces the current cooldown of [R] by @amethyst_property1 seconds"	
+
+		
+    	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
+		"item_property_wild_nature"					"Entangling Roots"
+		"property_wild_nature_description"			"<% CAP_OF_WILD_NATURE_CHANCE_ONE %> chance to root enemies that damage you for <% CAP_OF_WILD_NATURE_DURATION_ONE %> seconds, dealing <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
+		"item_property_wild_nature_two"				"Ensnaring Roots"
+		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% chance to be rooted for <% CAP_OF_WILD_NATURE_DURATION_TWO %> seconds, taking <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
+
+		"item_rpc_cap_of_wild_nature_ruby1"	"Increases the Wild Nature roots' damage by @ruby_property1%"
+		"item_rpc_cap_of_wild_nature_emerald1" "Increases all <font color=\"#69BC71\">Nature</font> element damage by @emerald_property1%"
+		"item_rpc_cap_of_wild_nature_sapphire1"	"Enemies hit by [Q] have a <% CAP_OF_WILD_NATURE_SAPPHIRE_PROC %>% chance to be rooted for @sapphire_property1 seconds"
+		"item_rpc_cap_of_wild_nature_amethyst1" "Increases Health Regen by @amethyst_property1"	
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -134,13 +146,6 @@
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
 		"item_property_death_whisper"				"Death Whisper"
 		"property_death_whisper_description"		"All enemies struck by @Ability1 take <% DEATH_WHISPER_DAMAGE_AMP_PCT %>% increased Post-mitigation damage from all sources and are slowed by <% DEATH_WHISPER_SLOW %> for <% DEATH_WHISPER_DURATION %> seconds."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
-		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"<% CAP_OF_WILD_NATURE_CHANCE_ONE %> chance to root enemies that damage you for <% CAP_OF_WILD_NATURE_DURATION_ONE %> seconds, dealing <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
-		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% chance to be rooted for <% CAP_OF_WILD_NATURE_DURATION_TWO %> seconds, taking <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x your primary attribute as damage every second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"

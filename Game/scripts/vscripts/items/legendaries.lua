@@ -3419,6 +3419,47 @@ function RPCItems:RollBurningSpiritHelmet(item_level)
     return item
 end
 
+function RPCItems:RollCapOfWildNature(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_cap_of_wild_nature", "immortal", "Cap of Wild Nature", "head", true, "Slot: Head")
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        item.newItemTable.property1 = 1
+        item.newItemTable.property1name = "!immortal!_modifier_cap_of_wild_nature1"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature", "#573E2F", 1, "#property_wild_nature_description")
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    elseif luck == 2 then
+        item.newItemTable.property1 = 1
+        item.newItemTable.property1name = "!immortal!_modifier_cap_of_wild_nature2"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature_two", "#573E2F", 1, "#property_wild_nature_two_description")
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    elseif luck == 3 then
+        item.newItemTable.property1 = 1
+        item.newItemTable.property1name = "!immortal!_modifier_cap_of_wild_nature1"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature", "#573E2F", 1, "#property_wild_nature_description")
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_cap_of_wild_nature2"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature_two", "#573E2F", 2, "#property_wild_nature_two_description")
+    elseif luck == 4 then
+        item.newItemTable.property1 = 1
+        item.newItemTable.property1name = "!immortal!_modifier_cap_of_wild_nature2"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature_two", "#573E2F", 1, "#property_wild_nature_two_description")
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_cap_of_wild_nature1"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature", "#573E2F", 2, "#property_wild_nature_description")
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, "item_rpc_cap_of_wild_nature", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -3779,34 +3820,6 @@ function RPCItems:RollHoodOfBlackMage(item_level)
     item.newItemTable.property2name = "base_ability"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
 
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollCapOfWildNature(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_cap_of_wild_nature", "immortal", "Cap of Wild Nature", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        item.newItemTable.property1 = 1
-        item.newItemTable.property1name = "wild_nature_one"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature", "#573E2F", 1, "#property_wild_nature_description")
-        RPCItems:RollHoodProperty2(item, 0)
-    elseif luck == 2 then
-        item.newItemTable.property1 = 1
-        item.newItemTable.property1name = "wild_nature_two"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature_two", "#573E2F", 1, "#property_wild_nature_two_description")
-        RPCItems:RollHoodProperty2(item, 0)
-    else
-        item.newItemTable.property1 = 1
-        item.newItemTable.property1name = "wild_nature_one"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature", "#573E2F", 1, "#property_wild_nature_description")
-        item.newItemTable.property2 = 1
-        item.newItemTable.property2name = "wild_nature_two"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wild_nature_two", "#573E2F", 2, "#property_wild_nature_two_description")
-    end
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)

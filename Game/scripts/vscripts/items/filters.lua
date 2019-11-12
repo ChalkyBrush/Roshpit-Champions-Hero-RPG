@@ -1408,6 +1408,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
 
     if slot == BASE_ABILITY_Q then
+        if not ignore_effects then
+            if attacker:HasModifier("modifier_cap_of_wild_nature1") or attacker:HasModifier("modifier_cap_of_wild_nature2") then
+                Filters:WildNatureTwo(attacker, victim, slot)
+            end
+        end
         if attacker:GetUnitName() == "npc_dota_hero_templar_assassin" then
             if attacker:HasAbility("fulminating_trap") then
                 damageMult = damageMult + TRAPPER_Q4_AMPLIFY_PERCENT*attacker:GetRuneValue("q", 4)
@@ -1489,8 +1494,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + SPELLSLINGER_BAD/100
         end
         if not ignore_effects then
-            if attacker:HasModifier("modifier_wild_nature_two") then
-                Filters:WildNatureTwo(attacker, victim)
+            if attacker:HasModifier("modifier_cap_of_wild_nature2") then
+                Filters:WildNatureTwo(attacker, victim, slot)
             end
         end
         if attacker:HasModifier("modifier_arkimus_immortal_weapon_1") then
@@ -2741,13 +2746,22 @@ function Filters:DeathWhisperApply(attacker, victim)
     ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_death_whisper_effect", {duration = DEATH_WHISPER_DURATION})
 end
 
-function Filters:WildNatureTwo(attacker, victim)
-    local proc = Filters:GetProc(attacker, CAP_OF_WILD_NATURE_CHANCE_TWO)
-    if proc then
-        local inventoryUnit = attacker.InventoryUnit
-        victim.entangler = attacker
-        local ability = inventoryUnit:FindAbilityByName("helm_slot")
-        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_wild_nature_entangle_effect", {duration = CAP_OF_WILD_NATURE_DURATION_TWO})
+function Filters:WildNatureTwo(attacker, victim, slot)
+    if slot == BASE_ABILITY_W then
+        local proc = Filters:GetProc(attacker, CAP_OF_WILD_NATURE_CHANCE_TWO)
+        if proc then
+            local inventoryUnit = attacker.InventoryUnit
+            local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+            ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_wild_nature_entangle_effect", {duration = CAP_OF_WILD_NATURE_DURATION_TWO})
+        end
+    elseif slot == BASE_ABILITY_Q then
+        local proc = Filters:GetProc(attacker, CAP_OF_WILD_NATURE_SAPPHIRE_PROC)
+        if proc then
+            local inventoryUnit = attacker.InventoryUnit
+            local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+            local duration = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", WILD_NATURE_SAPPHIRE)
+            ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_wild_nature_entangle_effect", {duration = duration})
+        end
     end
 end
 

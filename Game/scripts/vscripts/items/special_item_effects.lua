@@ -490,14 +490,14 @@ function wild_nature_struck(event)
 	local target = event.target
 	local proc = Filters:GetProc(target, CAP_OF_WILD_NATURE_CHANCE_ONE)
 	if proc then
-		attacker.entangler = target
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_wild_nature_entangle_effect", {duration = CAP_OF_WILD_NATURE_DURATION_ONE})
 	end
 end
 
 function wild_nature_entangle_think(event)
 	local target = event.target
-	local caster = target.entangler
+	local ability = event.ability
+	local caster = target:FindModifierByName("modifier_wild_nature_entangle_effect"):GetCaster()
 	local primeAttribute = caster:GetPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
@@ -506,8 +506,11 @@ function wild_nature_entangle_think(event)
 		damage = caster:GetAgility() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	elseif primeAttribute == 2 then
 		damage = caster:GetIntellect() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
+	elseif primeAttribute == 3 then
+		damage = caster:GetSpirit() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	end
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
+	damage = damage * (1 + ability:GetFinalGemPropertyValue("ruby", WILD_NATURE_RUBY))
+	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 end
 
 function odin_attack(event)

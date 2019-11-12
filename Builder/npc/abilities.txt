@@ -9209,56 +9209,6 @@
 					}
 				}
 			}
-			"modifier_wild_nature_one"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttacked"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"wild_nature_struck"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_wild_nature_two"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_wild_nature_entangle_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "3"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_body.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"wild_nature_entangle_think"
-						"target"		"TARGET"
-					}
-				}
-			}
 			"modifier_luma_guard"
 			{
 				"Passive"	"0"
