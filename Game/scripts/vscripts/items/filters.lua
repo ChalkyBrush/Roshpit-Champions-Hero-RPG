@@ -800,7 +800,7 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_burning_spirit_helmet") then
         StartSoundEvent("RPCItem.BurningSpiritHelm", caster)
-        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_burning_spirit_helmet_flamethrower", {duration = 8.0})
+        caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_burning_spirit_helmet_flamethrower", {duration = ability:GetChannelTime()})
     end
     if caster:HasModifier("modifier_templar_light_seers_robe") then
         caster:RemoveModifierByName("modifier_light_seer_shield")

@@ -3311,6 +3311,7 @@ function RPCItems:RollBasiliskPlagueHelm(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
 
     RPCItems:SetBaseItemValues(item, "item_rpc_basilisk_plague_helm", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -3338,6 +3339,7 @@ function RPCItems:RollBlackfeatherCrown(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
 
     RPCItems:SetBaseItemValues(item, "item_rpc_blackfeather_crown", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -3358,6 +3360,7 @@ function RPCItems:RollGlintOfOnu(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
 
     RPCItems:SetBaseItemValues(item, "item_rpc_blinded_glint_of_onu", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -3386,8 +3389,33 @@ function RPCItems:RollBrazenKabuto(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
-    
+    RPCItems:SocketsChance(item)
+
     RPCItems:SetBaseItemValues(item, "item_rpc_brazen_kabuto_of_the_desert_realm", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollBurningSpiritHelmet(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_burning_spirit_helmet", "immortal", "Burning Spirit Helmet", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_burning_spirit_helmet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_burning_spirit", "#D6B948", 1, "#property_burning_spirit_description")
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, "item_rpc_burning_spirit_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 
@@ -3640,37 +3668,6 @@ function RPCItems:RollHyperVisor(item_level)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "attack_speed"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_attack_speed", "#B02020", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollBurningSpiritHelmet(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_burning_spirit_helmet", "immortal", "Burning Spirit Helmet", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "burning_spirit"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_burning_spirit", "#D6B948", 1, "#property_burning_spirit_description")
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "strength"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    elseif luck == 2 then
-        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "agility"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-    elseif luck == 3 then
-        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    end
 
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
@@ -8553,11 +8550,11 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_malachite_shade_bracer" then
         newItem = RPCItems:RollMalachiteShadeBracer(item_level)
     elseif itemName == "item_rpc_wind_deity_crown" then
-        newItem = RPCItems:RollWindDeityCrown(deathLocation, false, 0)
+        newItem = RPCItems:RollWindDeityCrown(item_level, 0)
     elseif itemName == "item_rpc_water_deity_crown" then
-        newItem = RPCItems:RollWaterDeityCrown(deathLocation, false, 0)
+        newItem = RPCItems:RollWaterDeityCrown(item_level, 0)
     elseif itemName == "item_rpc_fire_deity_crown" then
-        newItem = RPCItems:RollFireDeityCrown(deathLocation, false, 0)
+        newItem = RPCItems:RollFireDeityCrown(item_level, 0)
     elseif itemName == "item_rpc_skulldigger_gauntlet_lv1" then
         newItem = RPCItems:RollSkulldiggerGlovesLV1(item_level)
     elseif itemName == "item_rpc_shipyard_veil_lv1" then
@@ -8585,9 +8582,9 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_hood_of_lords" then
         newItem = RPCItems:RollHoodOfLords(item_level)
     elseif itemName == "item_rpc_spellfire_gloves" then
-        newItem = RPCItems:RollSpellfireGloves(deathLocation, false)
+        newItem = RPCItems:RollSpellfireGloves(item_level)
     elseif itemName == "item_rpc_bloodstone_boots" then
-        newItem = RPCItems:RollBloodstoneBoots(deathLocation, false)
+        newItem = RPCItems:RollBloodstoneBoots(item_level)
     elseif itemName == "item_rpc_igneous_canine_helm" then
         newItem = RPCItems:RollIgneousCanineHelm(item_level)
     elseif itemName == "item_rpc_never_ring" then
@@ -8619,7 +8616,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_aquastone_ring" then
         newItem = RPCItems:RollAquastoneRing(item_level)
     elseif itemName == "item_rpc_burning_spirit_helmet" then
-        newItem = RPCItems:RollBurningSpiritHelmet(deathLocation, false)
+        newItem = RPCItems:RollBurningSpiritHelmet(item_level)
     elseif itemName == "item_rpc_aquasteel_bracers" then
         newItem = RPCItems:RollAquasteelBracers(item_level)
     elseif itemName == "item_rpc_demonfire_gauntlet" then
@@ -8631,7 +8628,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_world_trees_flower_cache" then
         newItem = RPCItems:RollWorldTreesFlowerCache(item_level)
     elseif itemName == "item_rpc_red_october_boots" then
-        newItem = RPCItems:RollRedOctoberBoots(deathLocation, false)
+        newItem = RPCItems:RollRedOctoberBoots(item_level)
     elseif itemName == "item_rpc_chitinous_lobster_claw" then
         newItem = RPCItems:RollChitinousLobsterClaw(item_level)
     elseif itemName == "item_rpc_crystalline_slippers" then
@@ -8639,7 +8636,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_dark_emissary_glove" then
         newItem = RPCItems:RollDarkEmissaryGlove(item_level)
     elseif itemName == "item_rpc_dark_reef_shark_helmet" then
-        newItem = RPCItems:RollDarkReefSharkHelmet(deathLocation, false)
+        newItem = RPCItems:RollDarkReefSharkHelmet(item_level)
     elseif itemName == "item_rpc_depth_demon_claw" then
         newItem = RPCItems:RollDepthDemonClaw(item_level)
     elseif itemName == "item_rpc_empyreal_sunrise_robe" then
@@ -8647,13 +8644,13 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_hood_of_the_sea_oracle" then
         newItem = RPCItems:RollHoodOfTheSeaOracle(item_level)
     elseif itemName == "item_rpc_ocean_helm_of_valdun" then
-        newItem = RPCItems:RollOceanHelmOfValdun(deathLocation, false)
+        newItem = RPCItems:RollOceanHelmOfValdun(item_level)
     elseif itemName == "item_rpc_oceanrunner_boots" then
         newItem = RPCItems:RollOceanrunnerBoots(item_level)
     elseif itemName == "item_rpc_sea_giants_plate" then
         newItem = RPCItems:RollSeaGiantsPlate(item_level)
     elseif itemName == "item_rpc_sparkling_token_of_oceanis" then
-        newItem = RPCItems:RollTokenOfOceanis(deathLocation, false)
+        newItem = RPCItems:RollTokenOfOceanis(item_level)
     elseif itemName == "item_rpc_templar_light_seers_robe" then
         newItem = RPCItems:RollLightSeersRobes(item_level)
     elseif itemName == "item_rpc_twisted_blue_mask_of_ahnqhir" then
@@ -8703,7 +8700,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_blue_divinex_amulet" then
         newItem = RPCItems:RollBlueDivinexAmulet(item_level)
     elseif itemName == "item_rpc_helm_of_the_mountain_giant" then
-        newItem = RPCItems:RollHelmOfTheMountainGiant(deathLocation, false)
+        newItem = RPCItems:RollHelmOfTheMountainGiant(item_level)
     elseif itemName == "item_rpc_chains_of_orthok" then
         newItem = RPCItems:RollChainsOfOrthok(item_level)
     elseif itemName == "item_rpc_puzzlers_locket" then
@@ -8733,7 +8730,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_auric_ring_of_inspiration" then
         newItem = RPCItems:RollAuricRingOfInspiration(deathLocation, 1)
     elseif itemName == "item_rpc_helm_of_the_knight_hawk" then
-	   newItem = RPCItems:RollHelmOfKnightHawk(deathLocation, false)
+	   newItem = RPCItems:RollHelmOfKnightHawk(item_level)
     end
     return newItem
 end
@@ -8923,4 +8920,12 @@ function RPCItems:GetSoulBankableItemsList()
     "item_rpc_twisted_blue_mask_of_ahnqhir", "item_rpc_twisted_yellow_mask_of_ahnqhir", "item_rpc_twisted_purple_mask_of_ahnqhir", "item_rpc_new_boots", "item_rpc_heavy_echo_gauntlet"}
 
     return itemsList
+end
+
+function RPCItems:RollAndDropUniqueItem(unit, item_name)
+    local unit_level = unit:GetRoshpitLevel()
+    local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
+    local immortal = RPCItems:RollImmortalByName(item_name, item_level)
+    RPCItems:BasicDropItem(unit:GetAbsOrigin(), immortal)
+    return immortal
 end

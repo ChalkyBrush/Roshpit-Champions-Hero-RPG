@@ -13228,7 +13228,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"炽魂头盔"
 		"item_property_burning_spirit"							"喷火龙"
-		"property_burning_spirit_description"					"当引导 @Ability4 时，向前方发射一连串的火焰，每波火焰对敌人造成 <font color='#ccff66'>200</font>% 攻击力的伤害。每次火焰每击中一个敌人减少 @Ability4 的当前冷却时间 <font color='#ccff66'>0.5</font> 秒。"
+		"property_burning_spirit_description"					"当引导 @Ability4 时，向前方发射一连串的火焰，每波火焰对敌人造成 <font color='#ccff66'>5</font>% 攻击力的伤害。"
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"沼泽巫术面具"

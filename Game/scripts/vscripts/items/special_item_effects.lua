@@ -4711,7 +4711,7 @@ function flamethrower_init(event)
 	local ability = event.ability
 	ability.interval = -4
 	ability.rising = true
-	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * BURNING_SPIRIT_ATTACK_TO_DAMAGE/100
+	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * BURNING_SPIRIT_ATTACK_TO_DAMAGE/100 + ability:GetFinalGemPropertyValue("emerald", BURNING_SPIRIT_EMERALD)
 	ability.origCaster = target
 	flamethrower_thinking(event)
 end
@@ -4768,11 +4768,16 @@ end
 function flamethrower_impact(event)
 	local target = event.target
 	local ability = event.ability
+
+	local cdReduction = ability:GetFinalGemPropertyValue("amethyst", BURNING_SPIRIT_AMETHYST)
+
 	Filters:ApplyItemDamage(target, ability.origCaster, ability.damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	local ulti = ability.origCaster:GetAbilityByIndex(DOTA_R_SLOT)
-	local currentCD = ulti:GetCooldownTimeRemaining()
-	ulti:EndCooldown()
-	ulti:StartCooldown(currentCD - BURNING_SPIRIT_CD_RED)
+	if cdReduction > 0 then
+		local ulti = ability.origCaster:GetAbilityByIndex(DOTA_R_SLOT)
+		local currentCD = ulti:GetCooldownTimeRemaining()
+		ulti:EndCooldown()
+		ulti:StartCooldown(currentCD - cdReduction)
+	end
 end
 
 function aquasteel_take_damage(event)

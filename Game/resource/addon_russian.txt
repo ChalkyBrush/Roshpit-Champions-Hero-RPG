@@ -13007,7 +13007,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"Во время прочтения (R) @Ability4 перед героем выпускается мощный поток огня, наносящий урон, равный <font color='#ccff66'>200</font>% от урона героя за каждый тик. Каждый задетый пламенем враг сокращает текущее время перезарядки (R) @Ability4 на <font color='#ccff66'>0.5</font> сек."
+		"property_burning_spirit_description"					"Во время прочтения (R) @Ability4 перед героем выпускается мощный поток огня, наносящий урон, равный <font color='#ccff66'>5</font>% от урона героя за каждый тик."
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"

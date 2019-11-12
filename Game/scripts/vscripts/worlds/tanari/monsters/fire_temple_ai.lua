@@ -2726,7 +2726,7 @@ function fire_temple_spirit_boss_die_begin(event)
 		elseif luck == 2 then
 			RPCItems:RollDemonfireGauntlet(bossOrigin)
 		elseif luck == 3 then
-			RPCItems:RollBurningSpiritHelmet(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_burning_spirit_helmet")
 		end
 	end)
 	Timers:CreateTimer(4, function()

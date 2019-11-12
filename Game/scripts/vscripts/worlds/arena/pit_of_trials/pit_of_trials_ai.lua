@@ -2945,10 +2945,7 @@ function descent_boss_die(event)
 	end)
 	local luck = RandomInt(1,4)
 	if luck == 1 then
-		local boss_level = caster:GetRoshpitLevel()
-		local item_level = RPCItems:RollItemLevelFromUnit(boss_level)
-		local helm = RPCItems:RollBasiliskPlagueHelm(item_level)
-		RPCItems:BasicDropItem(casterLoc, helm)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_basilisk_plague_helm")
 	end
 	Timers:CreateTimer(1.0, function()
 		EmitGlobalSound("ui.set_applied")

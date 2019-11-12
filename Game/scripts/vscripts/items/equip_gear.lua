@@ -234,6 +234,15 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", KABUTO_RUBY, hero, "strength", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_burning_spirit_helmet" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", BURNING_SPIRIT_RUBY, hero, "element_fire", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

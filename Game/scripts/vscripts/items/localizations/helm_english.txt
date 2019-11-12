@@ -80,7 +80,15 @@
 
 		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
         "DOTA_Tooltip_modifier_brazen_kabuto_shield_Description"	"Reduce incoming damage by <% KABUTO_AMETHYST_DAMAGE_REDUCTION %>%%."
-		
+
+    	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
+		"item_property_burning_spirit"							"Flamethrower"
+		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing damage equal to <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% of attack damage."
+
+		"item_rpc_burning_spirit_helmet_ruby1"	"Increases <font color=\"#EF4126\">Fire</font> elemental amplification by @ruby_property1%"
+		"item_rpc_burning_spirit_helmet_emerald1" "Flamethrower damage is increased by @emerald_property1"
+		"item_rpc_burning_spirit_helmet_sapphire1"	"Increases all attributes by @sapphire_property1"
+		"item_rpc_burning_spirit_helmet_amethyst1" "Each enemy hit by a flame reduces the current cooldown of [R] by @amethyst_property1 seconds"		
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -339,11 +347,6 @@
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
 		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for <% IGNEOUS_CANINE_STUN_DURATION %> seconds times its ability level, and leaves a pool of lava that slows movespeed by <% IGNEOUS_CANINE_MOVESPEED_SLOW %> and attack speed by <% IGNEOUS_CANINE_AS_SLOW %>. Enemies in the lava take <% IGNEOUS_CANINE_ATTACK_TO_DMG %>x your attack damage each <% IGNEOUS_CANINE_LAVA_INTERVAL %> seconds."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
-		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing instances of <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% of attack damage while the stream persists. Each enemy hit by a flame burst reduces the current cooldown of @Ability4 by <% BURNING_SPIRIT_CD_RED %> seconds."
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
