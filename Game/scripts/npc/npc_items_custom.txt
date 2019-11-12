@@ -52935,6 +52935,113 @@
 		}
 	}
 
+	"item_rpc_brazen_kabuto_of_the_desert_realm"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/brazen_kabuto_of_the_desert_realm" //"brazen_kabuto_of_the_desert_realm"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"	"particles/roshpit/items/kabuto_after_shield.vpcf"
+			"particle"	"particles/items3_fx/lbrazen_kabuto_shield.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ruby1"				"20 40 60 80 100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"12 24 36 48 60"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"10 15 20 25 30"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst1"				"6 7 8 9 10"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_brazen_kabuto"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_brazen_kabuto_channeling"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
+				"IsBuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/items3_fx/lbrazen_kabuto_shield.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+			"modifier_brazen_kabuto_shield"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
+				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/items/kabuto_after_shield.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_blinded_glint_of_onu"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -52979,7 +53086,7 @@
 				"var_type"			"FIELD_FLOAT"
 				"sapphire1"				"2 4 6 8 10"
 			}
-			"03"
+			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"amethyst1"				"12 24 36 48 60"
@@ -53849,91 +53956,6 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"shipyard_veil_lvl_3_hit"
 				"target"		"TARGET"
-			}
-		}
-	}
-
-
-	"item_rpc_brazen_kabuto_of_the_desert_realm"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/brazen_kabuto_of_the_desert_realm" //"brazen_kabuto_of_the_desert_realm"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"precache"
-		{
-			"particle"	"particles/roshpit/items/kabuto_after_shield.vpcf"
-			"particle"	"particles/items3_fx/lbrazen_kabuto_shield.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_brazen_kabuto"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_brazen_kabuto_channeling"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
-				"IsBuff"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
-				}
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/items3_fx/lbrazen_kabuto_shield.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-			}
-			"modifier_brazen_kabuto_shield"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"TextureName"	"itemicons/brazen_kabuto_of_the_desert_realm"
-				"IsBuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/roshpit/items/kabuto_after_shield.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
 			}
 		}
 	}

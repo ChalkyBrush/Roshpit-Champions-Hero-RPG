@@ -3360,6 +3360,36 @@ function RPCItems:RollGlintOfOnu(item_level)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
 
     RPCItems:SetBaseItemValues(item, "item_rpc_blinded_glint_of_onu", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    RPCItems:ItemUpdateCustomNetTables(item)
+    return item
+end
+
+function RPCItems:RollBrazenKabuto(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_brazen_kabuto_of_the_desert_realm", "immortal", "Brazen Kabuto of the Desert Realm", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_brazen_kabuto"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_brazen_kabuto", "#A87D4C", 1, "#property_brazen_kabuto_description")
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "magic_armor", 2)
+    else
+        local rune_property = RPCItems:RollArcanaRuneForSlot("r")
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    
+    RPCItems:SetBaseItemValues(item, "item_rpc_brazen_kabuto_of_the_desert_realm", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    RPCItems:ItemUpdateCustomNetTables(item)
     return item
 end
 
@@ -3800,48 +3830,6 @@ function RPCItems:RollLumaGuard(item_level)
     item.newItemTable.property2name = "vision"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_vision_bonus", "#96D1D9", 2)
 
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollBrazenKabuto(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_brazen_kabuto_of_the_desert_realm", "immortal", "Brazen Kabuto of the Desert Realm", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "brazen_kabuto"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_brazen_kabuto", "#A87D4C", 1, "#property_brazen_kabuto_description")
-
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        local value, nameLevel = RPCItems:RollAttribute(0, 4, 8, 0, 0, item.newItemTable.rarity, false, maxFactor * 3)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "armor"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-    else
-        item.newItemTable.hasRunePoints = true
-        local luck2 = RandomInt(1, 100)
-        local runeValue = 0
-        local runeName = ""
-        if luck2 <= 35 then
-            runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 5, 0, 0, 0, 0)
-            runeName = "rune_r_1"
-        elseif luck2 <= 70 then
-            runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 5, 0, 0, 0, 0)
-            runeName = "rune_r_2"
-        elseif luck2 <= 90 then
-            runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 10, 0, 0, 0, 0)
-            runeName = "rune_r_3"
-        else
-            runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 25, 0, 0, 0, 0)
-            runeName = "rune_r_4"
-        end
-
-        item.newItemTable.property2name = runeName
-        item.newItemTable.property2 = runeValue
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-    end
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
@@ -8879,7 +8867,7 @@ end
 function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     local itemsList = {}
     if gear_slot == RPC_GEAR_SLOT_HEAD then
-        itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu"}
+        itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm"}
     end
     return itemsList
 end

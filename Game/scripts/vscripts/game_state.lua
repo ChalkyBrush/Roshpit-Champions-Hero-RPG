@@ -2653,7 +2653,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 	end
 	if victim:HasModifier("modifier_brazen_kabuto_shield") then
-		filterTable["damage"] = filterTable["damage"] * (1 - KABUTO_SHIELD_RESISTANCE)
+		filterTable["damage"] = filterTable["damage"] * (1 - KABUTO_AMETHYST_DAMAGE_REDUCTION/100)
 	end
 	if victim:HasModifier("modifier_ancient_hero_water_god") then
 		if damagetype == DAMAGE_TYPE_PURE then

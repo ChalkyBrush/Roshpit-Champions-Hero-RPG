@@ -230,6 +230,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", GLINT_OF_ONU_EMERALD, hero, "agility", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_brazen_kabuto_of_the_desert_realm" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", KABUTO_RUBY, hero, "strength", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

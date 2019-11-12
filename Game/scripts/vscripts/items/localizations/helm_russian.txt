@@ -8,11 +8,11 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
-		"property_brazen_kabuto_description"		"Пока произносится способность (R) @Ability4, герой полностью неуязвим. После прочтения накладывается <% KABUTO_SHIELD_RESISTANCE * 100 %>% снижение входящего урона на <% KABUTO_SHIELD_DUR %> сек."
+		"property_brazen_kabuto_description"		"Пока произносится способность (R) @Ability4, герой полностью неуязвим."
 		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
 		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Иммунитет к магии и урону."
-		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
-        "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
+		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на."
+        "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на."
 		
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
@@ -163,7 +163,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
 		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"При атаке есть <% GLINT_OF_ONU_CHANCE %>% шанс телепортироваться за спину цели, получив при этом максимальную скорость атаки в течение <% GLINT_OF_ONU_BUFF_DUR %> секунды. При срабатывании эффекта герой мгновенно производит <% GLINT_OF_ONU_NUMBER_OF_BONUS_ATTACKS %> атаки."
+		"property_glint_of_onu_description"			"При атаке есть <% GLINT_OF_ONU_CHANCE %>% шанс телепортироваться за спину цели, получив при этом максимальную скорость атаки в течение <% GLINT_OF_ONU_BUFF_DUR %> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"

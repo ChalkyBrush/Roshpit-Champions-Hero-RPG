@@ -125,13 +125,17 @@ function Gems:AddSocket(item)
 			item.newItemTable.socket1 = "open"
 			item.newItemTable.socket1value = 0
 			RPCItems:ItemUpdateCustomNetTables(item)
-			return true
+			return item
 		elseif not item.newItemTable.socket2 then
 			item.newItemTable.socket2 = "open"
 			item.newItemTable.socket2value = 0
 			RPCItems:ItemUpdateCustomNetTables(item)
-			return true
+			return item
+		else
+			return item
 		end
+	else
+		return item
 	end
 end
 

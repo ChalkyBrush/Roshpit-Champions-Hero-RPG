@@ -787,7 +787,11 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_brazen_kabuto") then
         caster:RemoveModifierByName('modifier_brazen_kabuto_shield')
-        caster.kabuto:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_channeling", {duration = 8.0})
+        caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_channeling", {duration = ability:GetChannelTime()})
+        local chance = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", KABUTO_SAPPHIRE)
+        if Runes:ProcsByTotalChance(chance) >= 1 then
+            ability:EndCooldown()
+        end
     end
     if caster:HasModifier("modifier_signus_charm") then
         ability:EndCooldown()
@@ -1167,7 +1171,10 @@ function Filters:ApplyRskills(caster)
         caster.foot.alaranaIce = caster:GetMaxHealth() * ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP
     end
     if caster:HasModifier("modifier_brazen_kabuto") then
-        caster.kabuto:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_shield", {duration = KABUTO_SHIELD_DUR})
+        if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
+            local duration = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", KABUTO_AMETHYST)
+            caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_brazen_kabuto_shield", {duration = duration})
+        end
     end
     if caster:HasModifier("modifier_sorceress_immortal_weapon_3") then
         if not caster.avatar then
@@ -1629,6 +1636,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_axe_arcana2") then
             local r_1_level = attacker:GetRuneValue("r", 1)
             damageMult = damageMult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT*r_1_level
+        end
+        if attacker:HasModifier("modifier_brazen_kabuto") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KABUTO_EMERALD)/100
         end
         if attacker:HasModifier("modifier_ocean_tempest_pallium") and attacker.ocean_tempest and attacker.ocean_tempest.manaDrained then
             --TO DO check for bugs

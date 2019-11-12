@@ -12973,11 +12973,17 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
-		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4. When the channel is finished, gain a shield that grants <font color='#ccff66'>95</font>% damage reduction for <font color='#ccff66'>4</font> seconds."
+		"property_brazen_kabuto_description"		"100% damage immunity while channeling @Ability4."
 		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
 		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Magic and damage immunity"
+
+		"item_rpc_brazen_kabuto_of_the_desert_realm_ruby1"	"Increases Strength by @ruby_property1"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_emerald1" "Increases [R] Base Ability Damage by @emerald_property1%"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_sapphire1"	"@sapphire_property1% chance to refresh [R] cooldown at the beginning of the channel"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_amethyst1" "When channeling finishes, gain a shield that reduces all damage taken by <font color='#ccff66'>50</font>% for @amethyst_property1 seconds"
+
 		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
-        "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Reduce incoming damage by <font color='#ccff66'>95</font>%."
+        "DOTA_Tooltip_modifier_brazen_kabuto_shield_Description"	"Reduce incoming damage by <font color='#ccff66'>50</font>%%."
 		
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"

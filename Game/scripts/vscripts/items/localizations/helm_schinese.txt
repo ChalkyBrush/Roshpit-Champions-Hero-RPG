@@ -8,7 +8,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"沙漠头盔"
 		"item_property_brazen_kabuto"				"勇士壁垒"
-		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫。施法完成后，获得<% KABUTO_SHIELD_RESISTANCE * 100 %>%减伤的护盾，持续<% KABUTO_SHIELD_DUR %>秒"
+		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫"
 		
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱"
