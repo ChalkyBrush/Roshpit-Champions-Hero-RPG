@@ -497,7 +497,8 @@ end
 function wild_nature_entangle_think(event)
 	local target = event.target
 	local ability = event.ability
-	local caster = target:FindModifierByName("modifier_wild_nature_entangle_effect"):GetCaster()
+	local inventory_unit = target:FindModifierByName("modifier_wild_nature_entangle_effect"):GetCaster()
+	local caster = inventory_unit.hero
 	local primeAttribute = caster:GetPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then

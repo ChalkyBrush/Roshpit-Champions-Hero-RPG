@@ -12997,9 +12997,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"<font color='#ccff66'>50</font> chance to root enemies that damage you for <font color='#ccff66'>3</font> seconds, dealing <font color='#ccff66'>1</font>x your primary attribute as damage every second."
+		"property_wild_nature_description"			"<font color='#ccff66'>50</font>% chance to root enemies that damage you for <font color='#ccff66'>3</font> seconds. Enemies entangled by Wild Nature's roots take damage equal to <font color='#ccff66'>1</font>x your primary attribute every second."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a <font color='#ccff66'>30</font>% chance to be rooted for <font color='#ccff66'>3</font> seconds, taking <font color='#ccff66'>1</font>x your primary attribute as damage every second."
+		"property_wild_nature_two_description"		"Enemies struck by @Ability2 have a <font color='#ccff66'>30</font>% chance to be rooted for <font color='#ccff66'>3</font> seconds. Enemies entangled by Wild Nature's roots take damage equal to <font color='#ccff66'>1</font>x your primary attribute every second."
 
 		"item_rpc_cap_of_wild_nature_ruby1"	"Increases the Wild Nature roots' damage by @ruby_property1%"
 		"item_rpc_cap_of_wild_nature_emerald1" "Increases all <font color=\"#69BC71\">Nature</font> element damage by @emerald_property1%"

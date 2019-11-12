@@ -52909,6 +52909,11 @@
 						"EffectAttachType"  "follow_origin"
 						"Target"            "TARGET"
 					}
+					"FireSound"
+					{
+						"EffectName"	"RPCItems.WildNature.Start"
+						"Target" 		"TARGET"
+					}
 				}
 				"States"
 				{
