@@ -392,7 +392,7 @@ function successfullCast(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not ability.casted then
-		Filters:CastSkillArguments(4, caster)
+		-- Filters:CastSkillArguments(4, caster)
 		ability.casted = true
 	end
 end

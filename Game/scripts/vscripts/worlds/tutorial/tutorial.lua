@@ -1598,6 +1598,32 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 				Tutorial:UpdateChallengeSummaryProgress(hero, 2, 1, 1, false)
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_2_1i", 5, false)
 				Timers:CreateTimer(5, function()
+					local shroomling = CreateUnitByName("tutorial_shroomling", Vector(-576, 1984), false, nil, nil, DOTA_TEAM_NEUTRALS)
+					EmitSoundOn("Tutorial.SpawnUnit", shroomling)
+					shroomling.dominion = true
+					shroomling:SetForwardVector(Vector(1, 0))
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/tutorial/tutorial_sprout.vpcf", shroomling:GetAbsOrigin(), 3)
+					local particleName = "particles/roshpit/redfall/red_beam.vpcf"
+					local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+					ParticleManager:SetParticleControl(pfx, 0, Tutorial.Master:GetAbsOrigin() + Vector(0, 0, 120))
+					ParticleManager:SetParticleControl(pfx, 1, shroomling:GetAbsOrigin() + Vector(0, 0, 60))
+					Timers:CreateTimer(3.5, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+					AddFOWViewer(DOTA_TEAM_GOODGUYS, shroomling:GetAbsOrigin(), 300, 180, false)
+					-- shroomling.hero = hero
+					-- shroomling.phase = 0
+					-- shroomling.damage_code = 4
+					-- hero.shroomling = shroomling
+					-- Tutorial:ApplyTutorialModifier("modifier_tutorial_unit", shroomling, 0)
+
+					local ability = shroomling:FindAbilityByName("dungeon_creep")
+					if ability then
+						ability:SetLevel(1)
+						ability:ApplyDataDrivenModifier(shroomling, shroomling, "modifier_dungeon_thinker_creep", {})
+					end
+					shroomling.aggroSound = "Tutorial.Shroomling.Aggro"
+					
 					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_2_1j", 5, false)
 				end)
 			elseif code2 == 1 and hero.active_challenge_progress == code2 then

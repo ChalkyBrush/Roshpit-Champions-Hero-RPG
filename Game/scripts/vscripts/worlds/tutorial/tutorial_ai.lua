@@ -120,8 +120,10 @@ end
 function shroomling_die(event)
 	local caster = event.caster
 	local hero = caster.hero
-	hero.shroomling = nil
-	Events:TutorialServerEvent(hero, "4_1", 1)
+	if hero then
+		hero.shroomling = nil
+		Events:TutorialServerEvent(hero, "4_1", 1)
+	end
 end
 
 function shroomling_2_die(event)
