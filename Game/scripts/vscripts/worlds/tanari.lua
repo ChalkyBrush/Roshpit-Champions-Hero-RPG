@@ -63,7 +63,7 @@ function Tanari:Debug()
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 120
-    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_chains_of_orthok")
+    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_crest_of_the_umbral_sentinel")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)

@@ -13041,6 +13041,17 @@
 		"item_rpc_chains_of_orthok_sapphire1" "Each zeal stack further increases Base Ability Damage by @sapphire_property1%"
 		"item_rpc_chains_of_orthok_amethyst1" "Each Zeal stack increases Attack Power by @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
+		"item_property_umbral"						"Illusory Fog"
+		"property_umbral_description"				"Enemies damaged by @Ability2 have <font color='#ccff66'>10</font>% chance to miss with their attacks. Stacks up to <font color='#ccff66'>5</font> times. Lasts <font color='#ccff66'>10</font> seconds."
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Chance to Miss with attacks."
+
+		"item_rpc_crest_of_the_umbral_sentinel_ruby1"	"Each stack of Illusory Fog reduces enemy attack speed by @ruby_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_emerald1"	"Increases Rune [W4] by @emerald_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "Each stack of Illusory Fog reduces enemy attack power by by @sapphire_property1%"
+		"item_rpc_crest_of_the_umbral_sentinel_amethyst1" "Increases all attributes by @amethyst_property1"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13188,12 +13199,6 @@
 		"item_property_demon"						"Underworld Tear"
 		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <font color='#ccff66'>15</font> chance to be converted into an infernal spark instead, dealing <font color='#ccff66'>15</font>x the ability's damage in a large area around the target."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
-		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Enemies damaged by @Ability2 lose base Armor equal to <font color='#ccff66'>70</font>x the ability's level, and take increased Post-Mitigation Magical damage equal to <font color='#ccff66'>3</font>% x the ability's level. Stacks up to <font color='#ccff66'>5</font> times. Lasts <font color='#ccff66'>10</font> seconds."
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Losing a %% of base Armor and taking increased Magical damage."
 		
 
 		

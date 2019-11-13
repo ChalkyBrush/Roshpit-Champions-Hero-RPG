@@ -2138,10 +2138,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
 			mult = mult + (BLACK_MAGE_MAGIC_POST_MITI)/100
 		end
-		if victim:HasModifier("modifier_umbral_sentinel_magic_amp") then
-			local multIncrease = victim:GetModifierStackCount("modifier_umbral_sentinel_magic_amp", victim.umbral) * CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC/100
-			mult = mult + multIncrease
-		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 
 

@@ -13131,9 +13131,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"暗哨头冠"
 		"item_property_umbral"						"似幻似真"
-		"property_umbral_description"				"受到 @Ability2 伤害的敌人降低<font color='#ccff66'>70</font>x该技能等级的护甲值，并且所受到的魔法伤害提高 <font color='#ccff66'>3</font>% x 该技能等级。可叠加<font color='#ccff66'>5</font>次，持续<font color='#ccff66'>10</font>秒。"
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "似幻似真"
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"丢失a %%基础护甲并受到更多魔法伤害"
+		"property_umbral_description"				"Enemies damaged by @Ability2 have <font color='#ccff66'>10</font>% chance to miss with their attacks. Stacks up to <font color='#ccff66'>5</font> times. Lasts <font color='#ccff66'>10</font> seconds."
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Chance to Miss with attacks."
+
+		"item_rpc_crest_of_the_umbral_sentinel_ruby1"	"Each stack of Illusory Fog reduces enemy attack speed by @ruby_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_emerald1"	"Increases Rune [W4] by @emerald_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "Each stack of Illusory Fog reduces enemy attack power by by @sapphire_property1%"
+		"item_rpc_crest_of_the_umbral_sentinel_amethyst1" "Increases all attributes by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"红宝石反射头盔"

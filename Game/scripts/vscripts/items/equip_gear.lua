@@ -253,6 +253,15 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", CENTAUR_HORNS_RUBY, hero, "strength", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_crest_of_the_umbral_sentinel" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", UMBRAL_SENTINEL_EMERALD, hero, "rune_w_4", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", UMBRAL_SENTINEL_AMETHYST, hero, "strength", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", UMBRAL_SENTINEL_AMETHYST, hero, "agility", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", UMBRAL_SENTINEL_AMETHYST, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", UMBRAL_SENTINEL_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

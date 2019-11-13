@@ -3506,6 +3506,32 @@ function RPCItems:RollChainsOfOrthok(item_level)
     return item
 end
 
+function RPCItems:RollCrestOfTheUmbralSentinel(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_crest_of_the_umbral_sentinel", "immortal", "Crest of the Umbral Sentinel", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_crest_of_the_umbral_sentinel"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_umbral", "#90C3D4", 1, "#property_umbral_description")
+
+    local luck = RandomInt(1, 10)
+    if luck <= 5 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_1", 1.2)
+    elseif luck <= 9 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_2", 1.2)
+    elseif luck == 10 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_3", 1.2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, "item_rpc_crest_of_the_umbral_sentinel", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4054,36 +4080,6 @@ function RPCItems:RollDemonMask(item_level, waveBonus)
     end
     waveBonus = math.min(waveBonus, 20)
     item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(waveBonus, 0, 0, 0, 0)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollCrestOfTheUmbralSentinel(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_crest_of_the_umbral_sentinel", "immortal", "Crest of the Umbral Sentinel", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "umbral"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_umbral", "#90C3D4", 1, "#property_umbral_description")
-
-    item.newItemTable.hasRunePoints = true
-
-    local luck = RandomInt(1, 10)
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    value = math.floor(value * 1.5)
-    if luck <= 5 then
-        propertyName = "rune_w_1"
-    elseif luck <= 9 then
-        propertyName = "rune_w_2"
-    elseif luck == 10 then
-        propertyName = "rune_w_3"
-    end
-
-    item.newItemTable.property2 = value
     item.newItemTable.property2name = propertyName
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 
@@ -8854,7 +8850,8 @@ end
 function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     local itemsList = {}
     if gear_slot == RPC_GEAR_SLOT_HEAD then
-        itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", "item_rpc_centaur_horns"}
+        itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
+        "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel"}
     end
     return itemsList
 end
