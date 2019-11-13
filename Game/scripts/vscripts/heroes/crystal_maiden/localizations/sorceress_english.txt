@@ -29,7 +29,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_suffix"					""
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_2"							"[Q2] Frost Nova"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"Casting arcane explosion twice in succession releases a blood-freezing Frost Nova. Frozen enemies are rooted. 10 second cooldown. Your water elemental will cast this at the same time. Also increases implied spell pierce against frozen enemies."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"Casting arcane explosion twice in succession releases a blood-freezing Frost Nova. Frozen enemies are rooted. 10 second cooldown. Your water elemental will cast this at the same time."
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_two"				"Freeze Duration"
@@ -95,9 +95,6 @@
     	"DOTA_Tooltip_ability_sorceress_rune_w_4_property_one"				"Arcane Explosion Damage Increase"
     	"DOTA_Tooltip_ability_sorceress_rune_w_4_suffix"					"%"
 
-    	"DOTA_Tooltip_modifier_arcane_enchantment"							"Arcane Enchantment"
-    	"DOTA_Tooltip_modifier_arcane_enchantment_Description"				"Your Ice Lances and Fireballs are enhanced."
-
 		"DOTA_Tooltip_ability_sorceress_blink"							"Blink"
 		"DOTA_Tooltip_ability_sorceress_blink_Description"				"Teleports the Sorceress to the target position. 50% chance to refresh Ultimate's cooldown and go into a Clear Casting state. In Clear Cast your Ultimate is instant cast and has a 1 second cooldown, and deals amplified damage."
 		"DOTA_Tooltip_ability_sorceress_blink_Lore"						""
@@ -105,7 +102,7 @@
 		"DOTA_Tooltip_ability_sorceress_blink_amp"						"CLEAR CAST SPELL AMPLIFICATION:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_1"							"[E1] Flicker"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_1_Description"				"When you cast blink you gain Flicker charges. If you have 10 or more Flicker charges - blink's cooldown does not activate. Free blinks do not gain Flicker Charges."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_1_Description"				"When you cast blink you gain Flicker charges. If you have 10 or more Flicker charges, ability will spend charges instead of going on cooldown. Free blinks do not gain Flicker Charges."
     	"DOTA_Tooltip_ability_sorceress_rune_e_1_property_one"				"Charges gained on Blink"
     	"DOTA_Tooltip_ability_sorceress_rune_e_1_suffix"					""
 			

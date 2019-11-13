@@ -6,10 +6,10 @@
     	"DOTA_Tooltip_ability_seismic_flare_light_strike_array_stun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1"								"[Q1] Thick Skin"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_Description"					"Увеличивает броню и реген. здоровья героя."
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_one"					"Доп. броня"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_Description"					"Увеличивает броню и регенерацию здоровья героя."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_one"					"Броня"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix"						""
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_two"					"Доп. реген. здоровья"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_1_property_two"					"Регенерация ХП"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_suffix_two"					""
 
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_1" 							"Thick Skin"
@@ -24,21 +24,21 @@
     	"DOTA_Tooltip_flamewaker_rune_q_2_heal_effect_Description"				"Восстанавливает здоровье каждые 0.5 секунды"	
 
 		"DOTA_Tooltip_ability_flamewaker_rune_q_3"								"[Q3] Eruption"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_Description"					"@Ability1 создает всплеск лавы, длящийся 7 секунд. Урон этой руны усиливается за счет показателя Силы."
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_one"					"Урон от лавы в секунду (От показателя Силы)"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_suffix"						"x"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_two"					"Урон от лавы в секунду"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_Description"					"@Ability1 создает всплеск лавы, длящийся 7 секунд. Урон этой руны усиливается за счет показателя Силы, наносится раз в секунду."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_one"					"Урон от лавы"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_suffix"						"% от Силы"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_3_property_two"					"Урон от лавы (базовый)"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_3_suffix_two"					""
 
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff" 						"Warrior's Call"
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"Увеличивает урон и скорость атаки."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Восстановленное здоровье от руны [Q2] и урон, нанесенный руной [Q3] увеличивают урон Flamewaker на 4 секунды."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Восстановленное здоровье от руны [Q2] и урон, нанесенный руной [Q3] увеличивают базовый урон Flamewaker на 4 секунды."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Доп. урон от руны Restorative Earth"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" за каждое очко здоровья, восстановленное руной Restorative Earth"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" за восстановленное здоровье"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Доп. урон от руны Eruption"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					" за каждые 10 ед. урона"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix_two"					" за каждую единицу урона"
 
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4" 							"Molten Flux"
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_4_description" 				"Урон увеличен."
@@ -64,7 +64,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix_two"                   "%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_w_3"								"[W3] Searing Heat"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Пламя от умения @Ability2 также проникает через вражескую броню, оставляя складывающийся эффект понижения брони на 5 секунд."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Пламя от умения @Ability2 также проникает через вражескую броню, оставляя складывающийся эффект понижения брони на 6 секунд."
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_property_one"					"Складывающееся понижение брони"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_suffix"						""
 		
@@ -88,18 +88,16 @@
     	"DOTA_Tooltip_modifier_heatwave_phase_one_Description"					"Скорость передвижения и максимальная скорость передвижения увеличены."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_e_1"								"[E1] Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3. Противники на углях получают дополнительный урон (пре-резистный) за каждую единицу отрицательной брони. Максимальный бонус урона за одну руну равен 200%."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_1_Description"					"Flamewaker оставляет след тлеющих угольков во время передвижения при активном умении @Ability3. Противники на углях получают урон."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_one"					"Урон/сек"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix"						""
-		"DOTA_Tooltip_ability_flamewaker_rune_e_1_property_two"                 "Увеличение урона"
-        "DOTA_Tooltip_ability_flamewaker_rune_e_1_suffix_two"                      "% за ед. отрицательной брони"
 
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2"								"[E2] Dragon Rage"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_Description"					"После активации умения @Ability3, в течении 6 секунд все ближайшие враги получат ожоги. Урон руны усиливается за счёт показателя Ловкости."
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_one"					"Основной урон"
     	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix"						""
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_two"					"Доп. урон (от Ловкости)"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix_two"					"x"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_property_two"					"Доп. урон"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_2_suffix_two"					"% от Ловкости"
 
 		"DOTA_Tooltip_flamewaker_rune_e_2_buff" 								"Dragon Rage"
 		"DOTA_Tooltip_flamewaker_rune_e_2_buff_description" 					"Поджигает ближайших врагов."
@@ -153,9 +151,9 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_r_3_description" 				"Герой получает бонусные очки Силы"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_r_4"								"[R4] Volcano Blood"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"Увеличивает урон стихий <font color=\"#EF4126\">Огня</font> и <font color=\"#AF843D\">Земли</font> в зависимости от значения Силы Flamewaker."
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_Description"					"Увеличивает урон стихий <font color=\"#EF4126\">Огня</font> и <font color=\"#AF843D\">Земли</font>."
     	"DOTA_Tooltip_ability_flamewaker_rune_r_4_property_one"					"Доп. урон стихий Огня и Земли"
-    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"% за каждые 10 очков Силы"
+    	"DOTA_Tooltip_ability_flamewaker_rune_r_4_suffix"						"%"
 		
 		//Arcanas
 		"DOTA_Tooltip_ability_flamewaker_arcana_ability"						"Dragon Fire"
@@ -175,10 +173,10 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_1_arcana1_suffix_two"			" за каждые недостающие <% FLAMEWAKER_ARCANA_Q1_MISSED_HP_FOR_GET_STACK_BASE %> очков здоровья"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1"						"[Q2] Flame Surge"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"После прочтения @Ability1, герой получит бонус, увеличивающий скорость передвижения и исходящий пост-резистный урон. Кроме того, противники, задетые @Ability1 получают дополнительно неограниченно стакающиеся заряды увеличенного пост-резистного урона (в 6 раз слабее основного увеличения от руны), но эффект возымеет только наибольшее увеличение (бонус на герое, либо дебафф на противнике)."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_Description"			"После прочтения @Ability1, герой получит бонус, увеличивающий скорость передвижения и Магическое Пробитие."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_one"			"Доп. скорость передвижения"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix"				""
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"Усиление пост-резистного урона"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_property_two"			"Магическое Пробитие"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_2_arcana1_suffix_two"			""
 
     	"DOTA_Tooltip_modifier_flamewaker_arcana_b_a_effect"					"Flame Surge"
@@ -190,11 +188,11 @@
     	"DOTA_Tooltip_ability_flamewaker_rune_q_3_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1"						"[Q4] Inferno Ring"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_Description"			"Пассивно окружает героя кольцом пламени, которое наносит магический урон всем задетым врагам каждые 0.4 секунды, основанный на общем уроне героя. Flamewaker получает меньше урона от врагов, находящихся внутри огненного кольца."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_Description"			"Пассивно окружает героя кольцом пламени, которое наносит магический урон всем задетым врагам каждые 0.4 секунды, основанный на общем уроне героя. Противники внутри кольца имеют сниженные показатели Пробития Магии и Пробития Брони."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_property_one"			"Огненный урон"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_suffix"				"% от общего урона героя"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_property_two"			"Снижение входящего урона"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_suffix_two"			"%"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_property_two"			"Снижение Пробитий"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_arcana1_suffix_two"			""
 
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura"						"Inferno Ring"
     	"DOTA_Tooltip_modifier_flamewaker_arcana_d_a_aura_Description"			"Получает магический урон и наносит меньше урона герою Flamewaker"
@@ -252,7 +250,7 @@
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"(T4) Glyph of Blue Flame"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x от общего урона героя)* текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> на <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> сек."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"(W) @Ability2 наносит дополнительный урон, равный (<% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x от суммы атрибутов героя, помноженный на текущий уровень (W) @Ability2. Дополнительно снижает скорость передвижения и атаки врагов на <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> на <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"(T5) Glyph of Charred Hearts"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Увеличивает длительность [R2] в <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %> раза."

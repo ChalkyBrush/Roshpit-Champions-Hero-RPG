@@ -43,13 +43,9 @@
 		
 		
         "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] Brutal Expansion"
-        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Задетые умением @Ability1 враги будут получать увеличенный <font color=\"#DDDDDD\">Нормальный</font> урон. Эффект складывается до 20 раз. Длительность эффекта 10 секунд."
-        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Усиление Нормального урона"
-        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
-
-        "DOTA_Tooltip_modifier_axe_rune_q_4_visible"					"Brutal Expansion"
-        "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"Получает увеличенный Нормальный урон от The Red General"
-		
+        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "Радиус @Ability1 увеличивается."
+        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "Бонус радиуса"
+        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      ""	
 		
 		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "Spur Shock"
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_Description"                    "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Red General выпускает 3 борозды позади себя."
@@ -65,9 +61,9 @@
         "DOTA_Tooltip_modifier_axe_rune_w_1_visible_Description"		"Получает дополнительный урон каждые 0.3 секунды."
 		
 		"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] Nullifying Wavelength"
-        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "Враги, задетые @Ability2 теряют магическое сопротивление. Эффект складывается до 3 раз."
-        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "Снижение магического сопротивления"
-        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      "%"
+        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "Враги, задетые @Ability2 теряют Магическую Броню. Эффект складывается до 3 раз."
+        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "Снижение Магической Брони"
+        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      ""
 
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible"					"Nullifying Wavelength"
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"Магическое сопротивление снижено"
@@ -121,7 +117,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Увеличено магическое сопротивление и броня."
 		
 		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "С прочтением @Ability3 есть шанс, что герой получит заряды щита. Пока активны заряды щита, герой получает на 80% меньше урона из всех источников. Длительность каждого заряда щита - 7 секунд. Значение шанса выше 100% гарантирует получение нескольких зарядов."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "С прочтением @Ability3 есть шанс, что герой получит заряды щита. Пока активны заряды щита, герой получает на <% AXE_E4_REDUCTION %>% меньше урона из всех источников. Длительность каждого заряда щита - 7 секунд. Значение шанса выше 100% гарантирует получение нескольких зарядов."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Шанс получения щита"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -134,9 +130,9 @@
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "УРОН, % ОТ ТЕКУЩЕГО ЗДОРОВЬЯ:"
 		
 		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] Berserker's Call"
-        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "При успешном прочтении @Ability4, Red General создаёт мощный импульс в радиусе 800, заставляющий всех врагов атаковать только его. Пока активно, весь получаемый героем урон возвращается обратно в атакующих. Тип возвращаемого урона: физический. Максимальный возвращаемый урон ограничен 20х макс. здоровья героя."
+        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "При успешном прочтении @Ability4, Red General создаёт мощный импульс в радиусе 800, заставляющий всех врагов атаковать только его. Пока активно, весь получаемый героем урон возвращается обратно в атакующих."
         "DOTA_Tooltip_ability_axe_rune_r_1_property_one"                "Возвращение урона"
-        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      "x от полученного урона"
+        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      ""
 
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt"						"Berserker's Call"
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt_Description"			"Taunted."
@@ -163,12 +159,9 @@
         "DOTA_Tooltip_modifier_axe_rune_r_3_shield_Description"			"Получает на 80%% меньше урона."	
  
 		"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] Enforcer"
-        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "За каждые 50% резиста(рассчитываются логарифмически) действующего на все типы урона и не зависящего как-либо от врагов дается 1 заряд руны. Заряды увеличивают пост-резистный урон Red General. Не работает с щитами на 100% поглощения урона.<br>(Подсказка: получение зарядов происходит при достижении сопротивления от 0% до 50%, 75%, 87.5%, 93.75%, 96.875% и так далее)"
-        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "Увеличени пост-резистного урона за заряд"
-        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      "%"
- 
-        "DOTA_Tooltip_modifier_axe_rune_r_4_visible"                    "Enforcer"
-        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "Пост-резистный урон увеличен."
+        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "Пробитие Брони пассивно увеличивается."
+        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "Пробитие Брони"
+        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      ""
  
 		//Arcanas
 		"item_property_axe_arcana1"                                     "Terraforming"
@@ -180,8 +173,8 @@
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] Tectonic Force"
-        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Умение @Ability4 наносит увеличенный пост-резистный урон."
-        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "Усиление пост-резистного урона"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "Умение @Ability4 наносит получает усиленный Базовый Урон Способности."
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "Базовый Урон Способности (R)"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_suffix"              "%"
  
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1"                     "[R2] Aftermath"
@@ -193,9 +186,9 @@
         "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power_Description" "Базовый урон увеличен"
  
         "DOTA_Tooltip_ability_axe_rune_r_3_arcana1"                     "[R3] Upheaval"
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "Враги, попавшие под действие умения @Ability4 будут получать увеличенный Нормальный стихийный урон в течении последующих 9 секунд. Этот эффект применяется до нанесения урона от умения @Ability4."
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "Увеличение Нормальный стихийного урона"
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "Враги, попавшие под действие умения @Ability4 утратят часть Брони на следующие 9 секунд. Этот эффект применяется до нанесения урона от умения @Ability4."
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "Снижение Брони"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              ""
 
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] Seismic Shock"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "Добавляет шанс на появление дополнительных разломов. Радиус распространения разлома увеличен. Значение шанса выше 100% гарантирует появление нескольких разломов. Для руны [Q3] работает только половина бонуса."
@@ -218,9 +211,9 @@
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "Входящий рон снижен"
  
         "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] Walled Ambuscade"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Противники внутри арены получают увеличенный пост-резистный урон от The Red General."
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Пост-резистный урон"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "Противники внутри арены имеют сниженные показатели Брони и Магической Брони."
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "Снижение Брони и Магической Брони"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              ""
  
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] Barrier"
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "The Red General получает бонусную броню и силу внутри арены."

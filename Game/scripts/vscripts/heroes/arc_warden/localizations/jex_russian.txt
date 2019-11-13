@@ -66,17 +66,17 @@
 	"DOTA_Tooltip_modifier_jex_magic_immunity_Description"	"Иммунитет к магии"	
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q"					"Galaxy Laser"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Элемент: <font color=\"#C25DFC\">Космос</font><br>Jex заряжает и выстреливает галактическим лазером в указанное место. Противники, стоящие ближе к источнику выстрела могут получить несколько порций урона. Противники, получившие урон от лазера будут также получать больше пост-резистного урона из всех источников."
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Элемент: <font color=\"#C25DFC\">Космос</font><br>Jex заряжает и выстреливает галактическим лазером в указанное место. Противники, стоящие ближе к источнику выстрела могут получить несколько порций урона. Противники, получившие урон от лазера, также получат дебафф для Магической Брони."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ЛАЗЕРА ОТ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_postmitigation_per_tech"			"%<font color=\"#f4b942\">ПОСТ-РЕЗИСТНЫЙ УРОН, ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"			"%<font color=\"#f4b942\">СНИЖЕНИЕ МАГ. БРОНИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_damage"							"БАЗОВЫЙ УРОН:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_cast_range"						"ДАЛЬНОСТЬ КАСТА:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_debuff_duration"					"ДЛИТЕЛЬНОСТЬ ДЕБАФФА:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_e_4_damage_increase_pct"			"%<font color=\"#7DFF12\">[E4] Усиление урона лазера</font>:"
 
 	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation"			"Galaxy Laser"
-	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Получает больше пост-резистного урона"
+	"DOTA_Tooltip_modifier_jex_q_cosmic_cosmic_postmitigation_Description"	"Снижение Магической Брони"
 
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q"				"Wrath of Lightning"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font><br>Электрическое кольцо вспыхивает вокруг Jex. Все противники внутри поражаются ударом молнии. Если целей меньше, чем доступных ударов молний, они будут поражены несколько раз."
@@ -101,7 +101,7 @@
 	"DOTA_Tooltip_modifier_jex_lightning_cosmic_shield_Description"				"Показатель здоровья не может упасть ниже определенного способностью уровня."
 
 	"DOTA_Tooltip_ability_jex_lightning_nature_q"				"Charged Sproutling"
-	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Наэлектризованный воин из живого дерева вызывается на помощь Jex. Воин наследует броню и силу атаки призывателя, а его атаки с 30% шансом запустят магическую цепную молнию."
+	"DOTA_Tooltip_ability_jex_lightning_nature_q_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font> / <font color=\"#69BC71\">Природа</font><br>Наэлектризованный воин из живого дерева вызывается на помощь Jex. Воин наследует броню, магическую броню, пробития и силу атаки призывателя, а его атаки с 30% шансом запустят магическую цепную молнию."
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_max_targets_per_tech"	"<font color=\"#f4b942\">ЦЕЛИ ЦЕПНОЙ МОЛНИИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_roshpit_attr_per_tech"		"<font color=\"#f4b942\">БРОНЯ ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_attack_mult_per_tech"		"<font color=\"#f4b942\">АТАКА ВОИНА, МНОЖИТЕЛЬ ОТ ПРИЗЫВАТЕЛЯ, ЗА ТЕХ. УРОВЕНЬ</font>:"
@@ -179,8 +179,8 @@
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff_Description"	"Дальность атаки снижена, получает урон"
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex нарушает естественный баланс природы при помощи своих модулей и усиливает весь исходящий магический урон (пост-резистный). Пока усиление активно, базовая атака увеличена, скорость перемещения увеличена и каждую секунду отбирается мана. Мана дополнительно тратится и при касте любой из способностей. Если показатель маны падает слишком низко, способность отключается. Переключение модулей на другую способность сохранит эффект в действии."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_post_mitigation_magic_per_tech"	"%<font color=\"#f4b942\">ПОСТ-РЕЗИСТНЫЙ МАГ. УРОН ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex нарушает естественный баланс природы при помощи своих модулей и усиливает Физическое и Магическое Пробития. Пока усиление активно, базовая атака увеличена, скорость перемещения увеличена и каждую секунду отбирается мана. Мана дополнительно тратится и при касте любой из способностей. Если показатель маны падает слишком низко, способность отключается. Переключение модулей на другую способность сохранит эффект в действии."
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"%<font color=\"#f4b942\">УСИЛЕНИЕ ПРОБИТИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">СКОРОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"УВЕЛИЧЕНИЕ БАЗОВОЙ АТАКИ:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"СТОИМОСТЬ МАНЫ ЗА КАСТ:"
@@ -337,9 +337,9 @@
 	"DOTA_Tooltip_ability_jex_rune_r_3_suffix"						"%"
 
 	"DOTA_Tooltip_ability_jex_rune_r_4"								"[R4] Base Booster IV"
-	"DOTA_Tooltip_ability_jex_rune_r_4_Description"					"Увеличивает весь исходящий Пост-Резистный урон."
-	"DOTA_Tooltip_ability_jex_rune_r_4_property_one"				"Бонус Пост-Резистного урона"
-	"DOTA_Tooltip_ability_jex_rune_r_4_suffix"						"%"
+	"DOTA_Tooltip_ability_jex_rune_r_4_Description"					"Увеличивает Магическое Пробитие."
+	"DOTA_Tooltip_ability_jex_rune_r_4_property_one"				"Бонус Магического Пробития"
+	"DOTA_Tooltip_ability_jex_rune_r_4_suffix"						""
 
 	//Weapons
 	"DOTA_Tooltip_ability_item_rpc_jex_weapon_00"		"Gun"

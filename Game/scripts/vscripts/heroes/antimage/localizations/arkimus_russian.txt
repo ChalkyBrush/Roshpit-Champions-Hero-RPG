@@ -43,16 +43,14 @@
     	"DOTA_Tooltip_modifier_arkimus_storm_weapon_Description"				"Следующая атака высвободит взрывную волну тайной энергии."
 
     	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] Archon Weapons"
-    	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"Часть любого нанесённого урона стихии Тайны увеличивает базовый урон героя на 15 секунд. Каждый последующий урон Тайны перезаписывает предыдущий бонус."
-    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_one"					"Бонус к базовому урон от нанесенного урона Тайны"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"Удар по противнику дает бонус к Базовому Урону Атаки на <% ARKIMUS_W1_DURATION %> секунд."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_one"					"Бонус к базовому урону"
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix"							"%"
-    	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_two"					"Максимальный бонус"
-    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix_two"						""
-
+		
     	"DOTA_Tooltip_ability_arkimus_rune_w_2"									"[W2] Arcane Splice"
-    	"DOTA_Tooltip_ability_arkimus_rune_w_2_Description"						"Каждый раз, когда враг получает урон от @Ability2, он получает заряд этой руны. Каждый заряд увеличивает весь получаемый врагом урон стихии Тайны из всех источников."
-    	"DOTA_Tooltip_ability_arkimus_rune_w_2_property_one"					"Увеличение урона Тайны за заряд"
-    	"DOTA_Tooltip_ability_arkimus_rune_w_2_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_Description"						"Увеличивает Магическое Пробитие, пока включено @Ability2."
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_property_one"					"Бонус к Маг. Пробитию"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_2_suffix"							""
 
     	"DOTA_Tooltip_ability_arkimus_rune_w_3"									"[W3] Photon Sprint"
     	"DOTA_Tooltip_ability_arkimus_rune_w_3_Description"						"Приказ атаковать цель во время активного заряда @Ability2 активирует состояние [W3]. В это время Arkimus получает бонус в 1000 к скорости передвижения, максимальной скорости передвижения, возможность проходить сквозь существ и увеличенный урон. Враг должен находиться на расстоянии более 400 юнитов для активации. Любой другой приказ герою во время бега отменяет его."
@@ -89,12 +87,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" за каждое полученное очко Маны"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_3"									"[E3] Elevated System"
-    	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"После прыжка от @Ability3 герой на 3 секунды увеличивает свой пост-резистный урон."
-    	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"Увеличение пост-резистного урона"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"После прыжка от @Ability3 герой на <% ARKIMUS_E3_DURATION %> секунды увеличивает свои Физическое и Магическое Пробития."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"Увеличение Физического и Магического Пробития"
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							"%"
 
     	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"Elevated System"
-    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"Пост-резистный урон увеличен"
+    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"Физическое и Магическое Пробития увеличены"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_4"									"[E4] Boundless Edge"
     	"DOTA_Tooltip_ability_arkimus_rune_e_4_Description"						"Пассивно увеличивает Ловкость и уклонение героя."
@@ -130,9 +128,9 @@
     	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"Весь входящий урон снижен на 90%%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"Весь стихийный урон <font color=\"#E1A2E8\">Тайны</font> увеличен за счёт Ловкости героя."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"Весь стихийный урон <font color=\"#E1A2E8\">Тайны</font> пассивно увеличен."
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"Усиление стихийного урона Тайны"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"% за каждые 10 очков Ловкости"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							""
 		
 		//Arcanas
     	"item_property_arkimus_arcana1"										"Magnetic Flux"
@@ -152,9 +150,9 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] Power Surge"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"Враги, находящиеся в области действия @Ability1 получают увеличенный пост-резистный урон от Arkimus."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"Усиление пост-резистного урона"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"Магическая Броня врагов, находящихся в области действия @Ability1, снижена."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"Снижение Магической Брони"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"При получении урона герой получает заряд этой руны. Каждый заряд независимо друг от друга снижает входящий урон на <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>% (работает по закону убывающей полезности). Сохраняется после смерти, длится <% ARKIMUS_ARCANA1_Q3_DUR_BASE %> секунд."
@@ -162,14 +160,14 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"Induction"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Каждый заряд независимо от других снижает входящий урон на 1%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Каждый заряд независимо от других снижает входящий урон на <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"Пока действует @Ability1, Arkimus получает дополнительные очки Ловкости и наносит увеличенный стихийный урон <font color=\"#5CCDF9\">Молнии</font>. Усиление зависит от Ловкости героя."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"Пока действует @Ability1, Arkimus получает дополнительные очки Ловкости и наносит увеличенный стихийный урон <font color=\"#5CCDF9\">Молнии</font>."
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_one"					"Доп. очков Ловкости"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix"							""
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"Увеличение стихийного урона Молнии"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"% за каждые 10 Ловкости"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"%"
 
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q4"										"Arcane Channel"
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q4_Description"							"Бонусные очки Ловкости и увеличенный урон Молнии."

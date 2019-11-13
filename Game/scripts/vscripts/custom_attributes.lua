@@ -832,10 +832,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
 		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
 	end
-	if unit:GetUnitName() == "npc_dota_hero_axe" and unit:HasAbility("red_general_ability_base_r_sunder") then
-		local r_4_level = unit:GetRuneValue("r", 4)
-		armor_modify = armor_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
-	end
 	if unit:HasModifier("modifier_axe_rune_r_3_arcana1_invisible") then
 		local modifier = unit:FindModifierByName("modifier_axe_rune_r_3_arcana1_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*RED_GENERAL_ARCANA1_R3_ARMOR_LOSS
@@ -1405,6 +1401,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
+	end
+	if unit:GetUnitName() == "npc_dota_hero_axe" and unit:HasAbility("red_general_ability_base_r_sunder") then
+		local r_4_level = unit:GetRuneValue("r", 4)
+		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
 	end
 	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
 		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()

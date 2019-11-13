@@ -162,9 +162,6 @@
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
 
-    	"DOTA_Tooltip_modifier_venomort_rune_r_4"							"Contamination"
-    	"DOTA_Tooltip_modifier_venomort_rune_r_4_Description"				"Gaining Base Ability Damage"
-
     	"DOTA_Tooltip_modifier_q_1_nova"										"Poison Nova"
     	"DOTA_Tooltip_modifier_q_1_nova_Description"							"Venomort's old Q1 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
 		

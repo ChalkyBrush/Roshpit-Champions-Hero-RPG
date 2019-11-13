@@ -111,7 +111,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				""
 
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility."
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility. On the end of cast deals x<% SEINARU_R_CAST_END_HIT_MULT %> of Seinaru's damage to enemies nearby."
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"DURATION:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"AGILITY TO ATTACK DAMAGE:"
 
