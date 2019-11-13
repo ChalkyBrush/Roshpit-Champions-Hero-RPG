@@ -63,12 +63,12 @@ function Tanari:Debug()
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 120
-    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_crest_of_the_umbral_sentinel")
+    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_crimson_skull_cap")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    -- RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), helm)
+-- RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), helm)
     -- RPCItems:RollSonicBoots(Vector(-4928, 2048))
     -- RPCItems:RollDuskbringerArcana1(Vector(-4928, 2048))
     -- RPCItems:RollDuskbringerArcana2(Vector(-4928, 2048))

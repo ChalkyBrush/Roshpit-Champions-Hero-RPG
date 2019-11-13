@@ -3532,6 +3532,26 @@ function RPCItems:RollCrestOfTheUmbralSentinel(item_level)
     return item
 end
 
+function RPCItems:RollCrimsonSkullCap(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+    
+    local item = RPCItems:CreateVariant("item_rpc_crimson_skull_cap", "immortal", "Crimson Skull Cap", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_crimson_skull_cap"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimson_skull_cap", "#C25D55", 1, "#property_crimson_skull_cap_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "max_health", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, "item_rpc_crimson_skull_cap", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4199,25 +4219,6 @@ function RPCItems:RollIgneousCanineHelm(item_level)
 
     RPCItems:RollHoodProperty2(item, 0)
     RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollCrimsonSkullCap(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_crimson_skull_cap", "immortal", "Crimson Skull Cap", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "crimson_skull_cap"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimson_skull_cap", "#C25D55", 1, "#property_crimson_skull_cap_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 5, 14, 0, 0, item.newItemTable.rarity, false, maxFactor * 7)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-
-    Elements:RollElementAttribute(item, RPC_ELEMENT_UNDEAD, 3, 1, 30, 3)
-
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item

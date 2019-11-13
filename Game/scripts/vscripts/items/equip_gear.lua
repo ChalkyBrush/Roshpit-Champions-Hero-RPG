@@ -262,6 +262,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", UMBRAL_SENTINEL_AMETHYST, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", UMBRAL_SENTINEL_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_crimson_skull_cap" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", CRIMSON_SKULL_CAP_EMERALD, hero, "max_health", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", CRIMSON_SKULL_CAP_AMETHYST, hero, "element_undead", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

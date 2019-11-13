@@ -4252,17 +4252,22 @@ end
 function crimson_skull_cap_kill(event)
 	local caster = event.caster.hero
 	local target = event.unit
-	local damage = target:GetMaxHealth() * CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE/100
+	local ability = event.ability
+	local damage = target:GetMaxHealth() * (CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE/100 + ability:GetFinalGemPropertyValue("ruby", CRIMSON_SKULL_CAP_RUBY)/100)
+	local position = GetGroundPosition(target:GetAbsOrigin(), caster)
+	skull_cap_explode(caster, ability, target, position, damage)
+end
+
+function skull_cap_explode(caster, ability, target, position, damage)
 	local particleName = "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"
-	local shadowFlarePos = GetGroundPosition(target:GetAbsOrigin(), caster)
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(particle1, 0, shadowFlarePos)
+	ParticleManager:SetParticleControl(particle1, 0, position)
 	Timers:CreateTimer(1.2, function()
 		ParticleManager:DestroyParticle(particle1, false)
 	end)
 	particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 	local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(particle2, 0, shadowFlarePos)
+	ParticleManager:SetParticleControl(particle2, 0, position)
 	ParticleManager:SetParticleControl(particle2, 1, Vector(260, 260, 260))
 	ParticleManager:SetParticleControl(particle2, 2, Vector(1.6, 1.6, 1.6))
 	ParticleManager:SetParticleControl(particle2, 4, Vector(200, 20, 20))
@@ -4273,9 +4278,29 @@ function crimson_skull_cap_kill(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, CRIMSON_SKULL_CAP_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 		end
 	end
+end
+
+function skull_cap_take_damage(event)
+	local ability = event.ability
+	local caster = event.caster
+	if ability:GetGemValue("sapphire") > 0 then
+		local hero = event.unit
+		if not hero:HasModifier("modifier_crimson_skull_cap_sapphire_countdown") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_crimson_skull_cap_sapphire_countdown", {duration = CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER})
+		end
+	end
+end
+
+function skull_cap_sapphire_expire(event)
+	local caster = event.caster.hero
+	local target = event.unit
+	local ability = event.ability
+	local damage = caster:GetMaxHealth() * (ability:GetFinalGemPropertyValue("sapphire", CRIMSON_SKULL_CAP_SAPPHIRE)/100)
+	local position = GetGroundPosition(caster:GetAbsOrigin(), caster)
+	skull_cap_explode(caster, ability, caster, position, damage)
 end
 
 function igneous_canine_damage(event)

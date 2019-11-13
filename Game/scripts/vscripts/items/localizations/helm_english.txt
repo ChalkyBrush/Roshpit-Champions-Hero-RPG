@@ -148,6 +148,18 @@
 		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "Each stack of Illusory Fog reduces enemy attack power by by @sapphire_property1%"
 		"item_rpc_crest_of_the_umbral_sentinel_amethyst1" "Increases all attributes by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
+		"item_property_crimson_skull_cap"						"Corpse Explosion"
+		"property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% of their max health to surrounding enemies as Magical damage."
+
+		"item_rpc_crimson_skull_cap_ruby1"	"Increases Corpse Explosion damage by @ruby_property1% of enemy max health"
+		"item_rpc_crimson_skull_cap_emerald1"	"Increases max health by @emerald_property1"
+		"item_rpc_crimson_skull_cap_sapphire1" "After taking damage, the wearer explodes after <% CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER %> seconds dealing damage equal to @sapphire_property1% of max health"
+		"item_rpc_crimson_skull_cap_amethyst1" "Increases <font color=\"#5C776E\">Undead</font> elemental damage by @amethyst_property1"
+
+		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown"	"Crimson Skull Cap (Sapphire)"
+		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Wearer explodes when this effect wears off"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -365,11 +377,6 @@
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
 		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability2 damage instances have a <% FIRE_DEITY_CROWN_CHANCE %>% chance to be converted into pyroclastic blasts instead, dealing <% FIRE_DEITY_CROWN_AMP %>% of the ability's damage and stunning enemies for <% FIRE_DEITY_CROWN_STUN_DURATION %> seconds in a small area around the target. This item caps your <font color=\"#EF4126\">Fire</font> elemental damage bonus at <% FIRE_DEITY_CROWN_ELEMENT_CAP %>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
-		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		 "property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% of their max health to surrounding enemies as Magical damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"

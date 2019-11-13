@@ -1970,7 +1970,7 @@ function sadist_death(event)
 	end
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollCrimsonSkullCap(caster:GetAbsOrigin(), false)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crimson_skull_cap")
 	end
 	Redfall.Castle.DoomParticleTable = nil
 	Timers:CreateTimer(1.5, function()

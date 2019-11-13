@@ -13007,7 +13007,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		 "property_crimson_skull_cap_description"				"Убитые враги взрываются, нанося окружающим противникам магический урон в размере <font color='#ccff66'>50</font>% от максимального здоровья погибшей цели."
+		 "property_crimson_skull_cap_description"				"Убитые враги взрываются, нанося окружающим противникам магический урон в размере <font color='#ccff66'>15</font>% от максимального здоровья погибшей цели."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
