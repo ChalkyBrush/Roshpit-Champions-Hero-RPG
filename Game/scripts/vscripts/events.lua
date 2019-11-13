@@ -455,6 +455,8 @@ function GameMode:OnPlayerChat(keys)
 	if string.match(text, "dbg") then
 		-- Serengaard:KillAllNeutrals()
 		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		RPCItems.DROP_LOCATION = vector
+		RPCItems:CreateArcanaCache(85, "12345")
 		RPCItems:RollRavenIdol(position)
 		RPCItems:RollAxeArcana1(position)
 		RPCItems:RollAxeArcana2(position)
@@ -472,10 +474,9 @@ function GameMode:OnPlayerChat(keys)
 		-- 	Weapons:RollLegendWeapon3(position, "flamewaker")
 		-- 	RPCItems:DropSynthesisVessel(position)
 		-- end
-		-- local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		-- RPCItems:RollFlamewakerArcana1(vector)
-		-- RPCItems.DROP_LOCATION = vector
-		-- RPCItems:CreateArcanaCache(99, "12345")
+		--RPCItems:RollFlamewakerArcana1(vector)
+		 
+		 
 
 		--    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
 		--    key.newItemTable.stashable = true

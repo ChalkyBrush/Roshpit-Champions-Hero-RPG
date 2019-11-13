@@ -159,7 +159,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_r_3_property_one"					"Damage Increase"
     	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_r_3_property_two"					"Magic Armor Bonus"
-    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix_two"					"%"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar"						"Avatar"
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"Increased attack speed, range, damage, and Magic Armor."

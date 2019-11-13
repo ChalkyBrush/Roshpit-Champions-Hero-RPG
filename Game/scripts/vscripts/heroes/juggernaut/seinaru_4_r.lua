@@ -23,11 +23,11 @@ function gorudo_start(event)
 	end)
 	local particleName = "particles/roshpit/seinaru/seinaru_d_b_ring.vpcf"
 	local position = caster:GetAbsOrigin()
-	local b_d_level = caster:GetRuneValue("r", 2)
-	ability.r_4_level = caster:GetRuneValue("r", 4)
-	if b_d_level > 0 then
-		local radius = 500 + b_d_level * 5
-		local ringDuration = 8 + b_d_level * 0.1
+	local r_2_level = caster:GetRuneValue("r", 2)
+	local r_4_level = caster:GetRuneValue("r", 4)
+	if r_2_level > 0 then
+		local radius = 500 + r_2_level * 5
+		local ringDuration = SEINARU_R2_DUR_BASE + r_2_level * 0.2
 		local speed = 200
 		local dummy = CreateUnitByName("dummy_unit_vulnerable", position, false, caster, caster, caster:GetTeam())
 		dummy:AddAbility("dummy_unit")
@@ -58,8 +58,8 @@ function gorudo_start(event)
 
 			-- end)
 		end)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gorudo_r_4_strength", {duration = ringDuration})
-		caster:SetModifierStackCount("modifier_gorudo_r_4_strength", caster, b_d_level)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gorudo_r_4_strength", {duration = ringDuration + (radius / speed)*2 })
+		caster:SetModifierStackCount("modifier_gorudo_r_4_strength", caster, r_4_level)
 	end
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = caster:GetForwardVector()
@@ -79,7 +79,7 @@ function gorudo_start(event)
 		EmitSoundOn("Hero_Juggernaut.Attack", caster)
 		for _, enemy in pairs(enemies) do
 			enemy:AddNewModifier(caster, nil, "modifier_knockback", modifierKnockback)
-			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 3
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SEINARU_R_CAST_END_HIT_MULT
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 			-- ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 		end
@@ -153,8 +153,8 @@ function gorudo_attack_start(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local a_d_level = attacker:GetRuneValue("r", 1)
-	if a_d_level > 0 then
+	local r_1_level = attacker:GetRuneValue("r", 1)
+	if r_1_level > 0 then
 		Seinaru_Apply_E4(attacker, target, ability)
 	end
 end
@@ -164,11 +164,11 @@ function gorudo_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	if attacker:HasModifier("modifier_seinaru_gorudo_att_bonus_visible") then
-		local c_d_level = attacker:GetRuneValue("r", 3)
-		if c_d_level > 0 then
+		local r_3_level = attacker:GetRuneValue("r", 3)
+		if r_3_level > 0 then
 			local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-			local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * c_d_level * SEINARU_R3_DMG_PER_ATT
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * r_3_level * SEINARU_R3_DMG_PER_ATT
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
 				damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level

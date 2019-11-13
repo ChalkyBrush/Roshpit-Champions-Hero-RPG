@@ -19,7 +19,7 @@
 
 		"omniro_earth_special_description"									"Броня и магическое сопротивление увеличеный на <% OMNIRO_EARTH_SPECIAL_DURATION %> секунд."
 		"omniro_earth_special_a_pretext"									"БРОНЯ:"		
-		"omniro_earth_special_b_pretext"									"МАГ. СОПРОТИВЛЕНИЕ:"	
+		"omniro_earth_special_b_pretext"									"МАГ. БРОНЯ:"	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Земля"
 		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Броня и магическое сопротивление увеличены."									
@@ -62,11 +62,12 @@
 		"omniro_arcane_special_description"									"Наносит урон, затрачивая <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% от максимальной маны героя."
 		"omniro_arcane_special_a_pretext"										"МНОЖИТЕЛЬ УРОНА ОТ МАНЫ:"							
 
-		"omniro_shadow_special_description"									"Наносит дополнительную порцию урона и деактивирует броню цели на <% OMNIRO_SHADOW_SPECIAL_DURATION %> секунд."
-		"omniro_shadow_special_a_pretext"										"% МНОЖИТЕЛЬ УРОНА:"		
+		"omniro_shadow_special_description"									"Наносит дополнительную порцию урона и снижает броню цели на <% OMNIRO_SHADOW_SPECIAL_DURATION %> секунд."
+		"omniro_shadow_special_a_pretext"										"% МНОЖИТЕЛЬ УРОНА:"
+		"omniro_shadow_special_b_pretext"										"СНИЖЕНИЕ БРОНИ:"
 
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Тень"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Броня игнорируется."													
+		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Броня снижена."													
 
 		"omniro_wind_special_description"									"Увеличивает Ловкость на <% OMNIRO_WIND_SPECIAL_DURATION %> секунд."
 		"omniro_wind_special_a_pretext"										"БОНУС ЛОВКОСТИ: "	
@@ -74,11 +75,11 @@
 		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Ветер"
 		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Ловкость увеличена."									
 
-		"omniro_ghost_special_description"									"Дарует 100% уклонение на некоторое время."
+		"omniro_ghost_special_description"									"Дарует <% OMNIRO_GHOST_MACE_EVASION_CHANCE %>% уклонение на некоторое время."
 		"omniro_ghost_special_a_pretext"										"ДЛИТЕЛЬНОСТЬ: "
 
 		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Призрак"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"100%% Уклонение"											
+		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"<% OMNIRO_GHOST_MACE_EVASION_CHANCE %>%% Уклонение"											
 
 		"omniro_water_special_description"									"Восстанавливает указанное количество ХП и дает дополнительную регенерацию здоровья на <% OMNIRO_WATER_SPECIAL_DURATION %> секунд."
 		"omniro_water_special_a_pretext"									"ЛЕЧЕНИЕ:"		
@@ -100,9 +101,9 @@
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Природа"
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Опутан корнями и получает ежесекундный урон."		
 
-		"omniro_undead_special_description"									"Отключает регенерацию здоровья цели. На <% OMNIRO_UNDEAD_SPECIAL_DURATION %> секунд увеличивает пост-резистный урон."
+		"omniro_undead_special_description"									"Отключает регенерацию здоровья цели. На <% OMNIRO_UNDEAD_SPECIAL_DURATION %> секунд увеличивает Пробитие Брони."
 		"omniro_undead_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОТКЛЮЧЕНИЯ РЕГЕНЕРАЦИИ:"		
-		"omniro_undead_special_b_pretext"									"БОНУС ПОСТ-РЕЗИСТНОГО УРОНА %:"	
+		"omniro_undead_special_b_pretext"									"ПРОБИТИЕ БРОНИ %:"	
 
 		"omniro_dragon_special_description"									"Увеличивает урон всех элементов на <% OMNIRO_DRAGON_SPECIAL_DURATION %> секунд."
 		"omniro_dragon_special_a_pretext"									"УРОН ЭЛЕМЕНТОВ:"		
@@ -114,7 +115,7 @@
 		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Регенерация отключена"
 
 		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Пост-резистный урон увеличен."
+		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Пробитие Брони увеличено."
 
 		"omniro_orb_effect_title"											"Орб-эффект"
 
@@ -156,9 +157,9 @@
 		"omniro_ice_orb_a_pretext"										"УРОН x ВСЕ АТРИБУТЫ:"				
 		"omniro_ice_orb_b_pretext"										"ДОПОЛНИТЕЛЬНЫЙ РАДИУС:"
 
-		"omniro_arcane_orb_description"										"Противники в <% OMNIRO_ARCANE_BASE_AOE %> AOE поражаются <% OMNIRO_ARCANE_ORB_BASE_PULSES %> пульсами от стандартного эффекта и теряют магическое сопротивление на <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> секунд. Количество пульсаций увеличивается от числа зарядов элемента."
+		"omniro_arcane_orb_description"										"Противники в <% OMNIRO_ARCANE_BASE_AOE %> AOE поражаются <% OMNIRO_ARCANE_ORB_BASE_PULSES %> пульсами от стандартного эффекта и теряют Магическую Броню на <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> секунд. Количество пульсаций увеличивается от числа зарядов элемента."
 		"omniro_arcane_orb_a_pretext"										"ДОПОЛНИТЕЛЬНЫЙ РАДИУС:"				
-		"omniro_arcane_orb_b_pretext"										"ПОТЕРЯ МАГ СОПРОТИВЛЕНИЯ:"
+		"omniro_arcane_orb_b_pretext"										"ПОТЕРЯ МАГИЧЕСКОЙ БРОНИ:"
 
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist"					"Omni Orb: Тайна"
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"Магическое сопротивление снижено"

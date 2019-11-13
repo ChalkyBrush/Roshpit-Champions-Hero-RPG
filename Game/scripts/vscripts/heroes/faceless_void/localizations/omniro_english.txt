@@ -22,7 +22,7 @@
 		"omniro_earth_special_b_pretext"									"BONUS MAGIC ARMOR:"	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Earth"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic resistance"									
+		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic armor"									
 
 		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP."
 		"omniro_lightning_special_a_pretext"										"CURRENT HP % DAMAGE:"												
@@ -67,7 +67,7 @@
 		"omniro_shadow_special_b_pretext"										"ARMOR REDUCTION:"			
 
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Shadow"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor Negated"													
+		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor reduced"											
 
 		"omniro_wind_special_description"									"Applies a <% OMNIRO_WIND_SPECIAL_DURATION %> second buff that increases agility."
 		"omniro_wind_special_a_pretext"										"BONUS AGILITY: "	
@@ -115,7 +115,7 @@
 		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Disabled Healing"
 
 		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Increased Post-Mitigation Damage"
+		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Increased Armor Pierce"
 
 		"omniro_orb_effect_title"											"Orb Effect"
 

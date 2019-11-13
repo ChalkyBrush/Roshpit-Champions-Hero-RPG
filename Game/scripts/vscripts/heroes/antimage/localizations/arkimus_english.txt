@@ -140,9 +140,9 @@
     	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"All damage taken reduced by 95%%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"All <font color=\"#E1A2E8\">Arcane</font> damage is increased by Arkimus' Agility."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"All <font color=\"#E1A2E8\">Arcane</font> damage passively increased."
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"Bonus Arcane Damage"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"% for every 10 Agility"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"%"
 		
 		//Arcanas
     	"item_property_arkimus_arcana1"										"Magnetic Flux"
@@ -172,7 +172,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"Induction"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Each stack independently reduces damage taken by 1%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Each stack independently reduces damage taken by <% ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE * 100 %>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"While Magnetic Flux is active, Arkimus gains bonus agility and enhanced <font color=\"#5CCDF9\">Lightning</font> damage based on Agility."

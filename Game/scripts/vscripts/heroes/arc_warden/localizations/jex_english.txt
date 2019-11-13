@@ -189,7 +189,7 @@
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Mana drain per second reduction</font>:"
 
 	"DOTA_Tooltip_modifier_jex_nature_cosmic_w"					"Equilibrium Shifter"		
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w_Description"		"Increase post-mitigation magic damage and movespeed. Losing mana per second and on each ability cast."
+	"DOTA_Tooltip_modifier_jex_nature_cosmic_w_Description"		"Increase armor and magic pierces, attack damage and movespeed. Losing mana per second and on each ability cast."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"Jex breaks through the fabric of space allowing him to quickly transport himself to the target location."
