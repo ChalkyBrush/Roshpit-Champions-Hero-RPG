@@ -4259,6 +4259,7 @@ function crimson_skull_cap_kill(event)
 end
 
 function skull_cap_explode(caster, ability, target, position, damage)
+	local radius = CRIMSON_SKULL_CAP_RADIUS + ability:GetFinalGemPropertyValue("emerald", CRIMSON_SKULL_CAP_EMERALD)
 	local particleName = "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(particle1, 0, position)
@@ -4268,14 +4269,15 @@ function skull_cap_explode(caster, ability, target, position, damage)
 	particleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 	local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(particle2, 0, position)
-	ParticleManager:SetParticleControl(particle2, 1, Vector(260, 260, 260))
+	ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, radius))
 	ParticleManager:SetParticleControl(particle2, 2, Vector(1.6, 1.6, 1.6))
 	ParticleManager:SetParticleControl(particle2, 4, Vector(200, 20, 20))
 	Timers:CreateTimer(1.5, function()
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
 	EmitSoundOn("RPCItem.CrimsonSkullCap.Explode", target)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, CRIMSON_SKULL_CAP_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)

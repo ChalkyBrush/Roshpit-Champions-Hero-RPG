@@ -13057,7 +13057,7 @@
 		"property_crimson_skull_cap_description"				"Enemies slain by you will explode and deal <font color='#ccff66'>15</font>% of their max health to surrounding enemies as Magical damage."
 
 		"item_rpc_crimson_skull_cap_ruby1"	"Increases Corpse Explosion damage by @ruby_property1% of enemy max health"
-		"item_rpc_crimson_skull_cap_emerald1"	"Increases max health by @emerald_property1"
+		"item_rpc_crimson_skull_cap_emerald1"	"Increases Corpse Explosion radius by @emerald_property1"
 		"item_rpc_crimson_skull_cap_sapphire1" "After taking damage, the wearer explodes after <font color='#ccff66'>3</font> seconds dealing damage equal to @sapphire_property1% of max health"
 		"item_rpc_crimson_skull_cap_amethyst1" "Increases <font color=\"#5C776E\">Undead</font> elemental damage by @amethyst_property1"
 
