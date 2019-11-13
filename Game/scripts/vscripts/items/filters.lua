@@ -114,6 +114,14 @@ function Filters:GetUnpurgableBuffNames()
     return unpurgable
 end
 
+function Filters:IsModifierAStun(modifier_name)
+    if string.match(modifier_name, "modifier_stunned") or string.match(modifier_name, "modifier_knockback") or string.match(modifier_name, "modifier_nyx_assassin_impale") or string.match(modifier_name, "modifier_lina_light_strike_array") or string.match(modifier_name, "modifier_lion_impale") or string.match(modifier_name, "modifier_earthshaker_fissure_stun") or string.match(modifier_name, "modifier_tidehunter_ravage") or string.match(modifier_name, "modifier_lightning_stun") then
+        return true
+    else
+        return false
+    end   
+end
+
 function Filters:CleanseStuns(unit)
     unit:RemoveModifierByName("modifier_stunned")
     unit:RemoveModifierByName("modifier_knockback")

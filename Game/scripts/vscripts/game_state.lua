@@ -574,11 +574,27 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 	if target:IsRealHero() and target.spirit_custom and modifierGainedTable["entindex_caster_const"] then
 		-- handle spirit status resist
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
-		if modifierGainedTable["entindex_ability_const"] then
-			local duration_modifier = target:GetSpirit()*CustomAttributes.STATUS_RESIST_PER_SPIRIT
-			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
-				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+		local duration_modifier = target:GetSpirit()*CustomAttributes.STATUS_RESIST_PER_SPIRIT
+		if target:HasModifier("modifier_centaur_horns") then
+			if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
+				if target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+					local stacks = target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", CENTAUR_HORNS_EMERALD)
+					target.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(target.InventoryUnit, target, "modifier_centaur_horns_haste", {duration = CENTAUR_HORNS_EMERALD_SPEED_DURATION})
+					target:SetModifierStackCount("modifier_centaur_horns_haste", target.InventoryUnit, stacks)
+				end
+				if target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
+					local luck = RandomInt(1, 100)
+					if luck <= target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", CENTAUR_HORNS_SAPPHIRE) then
+						target:GetAbilityByIndex(BASE_ABILITY_E):EndCooldown()
+						CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", target, 0.8)
+					end
+				end
+				return false
 			end
+			duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CENTAUR_HORNS_AMETHYST)
+		end
+		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
 		end
 	end
 	if target:HasModifier("modifier_radium_spores") then
@@ -2006,32 +2022,9 @@ function GameState:FilterDamage(filterTable)
 		if ability:GetEntityIndex() == Events.GameMasterAbility:GetEntityIndex() then
 			applyEffects = false
 		end
-		-- if not ability:GetName() == "npc_dota_creature" then
-		-- if not string.match(ability:GetClassname(), "npc_dota_hero_") then
-		-- if IsValidEntity(ability) then
-		-- local abilityName = ability:GetAbilityName()
-		-- modifier = victim:FindModifierByName('modifier_centaur_horns')
-		-- if abilityName ~= 'item_rpc_centaur_horns' and modifier then
-		-- local centaurHornsAbility = modifier:GetAbility()
-		-- centaurHornsAbility:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = 1.5})
-		-- end
-		-- end
-		-- end
-		-- end
 	end
 	if applyEffects then
 		filterTable["damage"] = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damagetype, filterTable["damage"], filterTable["entindex_inflictor_const"])
-	end
-	if victim:HasModifier("modifier_centaur_horns") then
-		if filterTable["entindex_inflictor_const"] then
-			if EntIndexToHScript(filterTable["entindex_inflictor_const"]):GetName() ~= "item_rpc_centaur_horns" then
-				local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
-				ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = CENTAUR_HORNS_DEBUFF_DURATION})
-			end
-		else
-			local ability = victim:FindModifierByName("modifier_centaur_horns"):GetAbility()
-			ability:ApplyDataDrivenModifier(victim, victim, "modifier_centaur_horns_debuff", {duration = CENTAUR_HORNS_DEBUFF_DURATION})
-		end
 	end
 
 	if applyEffects then
@@ -3188,13 +3181,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if victim:HasModifier("modifier_centaur_horns") then
-		local thresh = CENTAUR_HORNS_DAMAGE_CAP/100
-		if filterTable["damage"] > victim:GetMaxHealth() * thresh then
-			filterTable["damage"] = victim:GetMaxHealth() * thresh
-		end
-	end
-
 	if victim:HasModifier("modifier_djanghor_immortal_weapon_2") then
 		if victim:HasModifier("modifier_shapeshift_bear") or victim:HasModifier("modifier_shapeshift_year_beast") then
 			if filterTable["damage"] < victim:GetMaxHealth() * 100 then
@@ -3585,7 +3571,6 @@ function GameState:FilterDamage(filterTable)
 			end
 			-- filterTable["damage"] = 9999999
 		end
-		-- filterTable["damage"] = 0
 	end
 
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then

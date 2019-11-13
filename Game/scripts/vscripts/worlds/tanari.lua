@@ -62,7 +62,7 @@ function Tanari:Debug()
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
-    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_carbuncles_helm_of_reflection")
+    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_centaur_horns")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
@@ -489,7 +489,7 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
 end
 
 function Tanari:Debug2()
-    local hunter = Tanari:SpawnHeadhunter(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+    -- local hunter = Tanari:SpawnHeadhunter(MAIN_HERO_TABLE[1]:GetAbsOrigin())
     -- local immo = RPCItems:RollRandomWorldImmortal(RPC_GEAR_SLOT_HEAD, 1)
     -- Gems:AddSocket(immo)
     -- Gems:AddSocket(immo)

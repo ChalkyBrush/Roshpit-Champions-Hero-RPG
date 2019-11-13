@@ -12978,7 +12978,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"半人马角"	
 		"item_property_centaur_horns"				"刚性"
-		"property_centaur_horns_description"		"受到的所有击退效果和眩晕，都不会超过 <font color='#ccff66'>0.03</font> 秒。受到的所有伤害都不会超过最大生命值的 <font color='#ccff66'>15</font>% 。但是，受到伤害时，生命回复将暂时停止，持续 <font color='#ccff66'>1.5</font> 秒。（不计算来自于半人马角本身的伤害） 使用此装备后，每 <font color='#ccff66'>0.03</font> 秒将对自身造成 <font color='#ccff66'>1</font> 点纯粹伤害。"
+		"property_centaur_horns_description"		"Immune to Stuns."
+
+		"item_rpc_centaur_horns_ruby1"	"Increases Strength by @ruby_property1"
+		"item_rpc_centaur_horns_emerald1" "When a Stun is negated, gain @emerald_property1 movespeed for <font color='#ccff66'>12</font> seconds"
+		"item_rpc_centaur_horns_sapphire1"	"Increases Status Resistance by @sapphire_property1%"
+		"item_rpc_centaur_horns_amethyst1" "When a Stun is negated, @amethyst_property1% chance to refresh [E] cooldown"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"天选兜帽"	
@@ -13132,10 +13137,17 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"红宝石反射头盔"
-		"item_property_carbuncle"								"红宝石护盾"
-		"property_carbuncle_description"						"施放 @Ability3 时，获得一个魔法护盾，减少魔法伤害至 0 并且反弹给敌人造成 <font color='#ccff66'>1</font>x 的伤害并且眩晕敌人 <font color='#ccff66'>0</font> 秒。护盾持续时间为 <font color='#ccff66'>0</font>% 的技能冷却时间，最低持续 <font color='#ccff66'>0</font>秒。受到反伤后的敌人将免疫魔法反弹效果 <font color='#ccff66'>0</font> 秒。"
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"红宝石护盾"
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"受到的魔法伤害降低为0并反弹给敌人"
+		"item_property_carbuncle"														"红宝石护盾"
+		"property_carbuncle_description"						"When you cast @Ability2, gain a magic reflecting shell for <font color='#ccff66'>2</font> seconds that negates an instance of Magic or Pure damage and applies it to the inflictor instead with <font color=\"#EF4126\">Fire</font>/<font color=\"#E1A2E8\">Arcane</font> element. The shell is broken upon reflecting a spell. Reflection shell has a <font color='#ccff66'>2</font> second cooldown."
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical damage taken reduced to 0 and reflected back at the source"
+
+		"DOTA_Tooltip_modifier_carbuncle_cooldown"					"Ruby Shell Cooldown"
+
+		"item_rpc_carbuncles_helm_of_reflection_ruby1"	"The reflected damage is increased by @ruby_property1%"
+		"item_rpc_carbuncles_helm_of_reflection_emerald1" "@emerald_property1% chance for the shell to persist after reflecting a spell, and have its duration refreshed"
+		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Casting [R] applies the Magic Reflection shell for @sapphire_property1 seconds regardless of cooldown status and without activating the cooldown"
+		"item_rpc_carbuncles_helm_of_reflection_amethyst1" "When an enemy is hit by the reflected damage, they are stunned for @amethyst_property1 seconds"	
 
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"和平头冠"

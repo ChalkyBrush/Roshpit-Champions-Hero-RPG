@@ -13019,6 +13019,15 @@
 		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Casting [R] applies the Magic Reflection shell for @sapphire_property1 seconds regardless of cooldown status and without activating the cooldown"
 		"item_rpc_carbuncles_helm_of_reflection_amethyst1" "When an enemy is hit by the reflected damage, they are stunned for @amethyst_property1 seconds"	
 
+    	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
+		"item_property_centaur_horns"				"Rigidity"
+		"property_centaur_horns_description"		"Immune to Stuns."
+
+		"item_rpc_centaur_horns_ruby1"	"Increases Strength by @ruby_property1"
+		"item_rpc_centaur_horns_emerald1" "When a Stun is negated, gain @emerald_property1 movespeed for <font color='#ccff66'>12</font> seconds"
+		"item_rpc_centaur_horns_sapphire1"	"Increases Status Resistance by @sapphire_property1%"
+		"item_rpc_centaur_horns_amethyst1" "When a Stun is negated, @amethyst_property1% chance to refresh [E] cooldown"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13049,12 +13058,6 @@
 		"item_property_ruby_dragon"					"Ruby Dragon"
 		"property_ruby_dragon_description"			"Casting @Ability4 summons an invulnerable Ruby Dragon which patrols the sky around you for <font color='#ccff66'>15</font> seconds. It will bombard enemies with fire breath, dealing <font color='#ccff66'>5000</font>x your Strength on impact; targets will then burn for <font color='#ccff66'>9</font> seconds, taking <font color='#ccff66'>1500</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Each time a single unit is struck by fire breath, it will generate a new burn debuff, and each burn debuff deals damage and expires independently."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
-		"item_property_centaur_horns"				"Rigidity"
-		"property_centaur_horns_description"		"Knockback and Stuns received are capped at <font color='#ccff66'>0.03</font> seconds. Damage instances taken are capped at <font color='#ccff66'>15</font>% of max health. Taking damage from any source other than Centaur Horns disables all healing for <font color='#ccff66'>1.5</font> seconds. Take <font color='#ccff66'>1</font> pure damage every <font color='#ccff66'>0.03</font> seconds."
-		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
-		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Healing disabled"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	

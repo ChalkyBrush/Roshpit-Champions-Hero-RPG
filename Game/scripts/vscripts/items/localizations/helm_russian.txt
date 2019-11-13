@@ -48,9 +48,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
 		"item_property_centaur_horns"				"Rigidity"
-		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды. Любой получаемый урон не отнимет более <% CENTAUR_HORNS_DAMAGE_CAP %>% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на <% CENTAUR_HORNS_DEBUFF_DURATION %> секунды. Герой получает <% CENTAUR_HORNS_SELF_DMG %> ед. чистого урона каждые <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды."
-		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
-		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Невозможно восстановить здоровье"
+		"property_centaur_horns_description"		"Immune to Stuns."
+
+		"item_rpc_centaur_horns_ruby1"	"Increases Strength by @ruby_property1"
+		"item_rpc_centaur_horns_emerald1" "When a Stun is negated, gain @emerald_property1 movespeed for <% CENTAUR_HORNS_EMERALD_SPEED_DURATION %> seconds"
+		"item_rpc_centaur_horns_sapphire1"	"Increases Status Resistance by @sapphire_property1%"
+		"item_rpc_centaur_horns_amethyst1" "When a Stun is negated, @amethyst_property1% chance to refresh [E] cooldown"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
@@ -206,9 +209,16 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
 		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"Прочтение (E) @Ability3 наделит героя отражающим магическим щитом. Во время действия этого щита, герой не будет получать магического урона, вместо этого, он будет усилен в <% CARBUNCLE_DAMAGE_AMP %> раз и направлен обратно во врага, дополнительно оглушая его на <% CARBUNCLE_STUN_DUR %> сек. Длится <% CARBUNCLE_SHIELD_DUR_RELATIVE_PCT %>% от времени перезарядки умения (E) либо минимально <% CARBUNCLE_SHIELD_DUR_MIN %> секунду. Поражённые отраженным магическим уроном враги невосприимчивы к повторному воздействию этого эффекта в последующие <% CARBUNCLE_ENEMY_IMMUNITY_DURATION %> сек."
+		"property_carbuncle_description"						"When you cast @Ability2, gain a magic reflecting shell for <% CARBUNCLE_SHIELD_DURATION %> seconds that negates an instance of Magic or Pure damage and applies it to the inflictor instead with <font color=\"#EF4126\">Fire</font>/<font color=\"#E1A2E8\">Arcane</font> element. The shell is broken upon reflecting a spell. Reflection shell has a <% CARBUNCLE_SHIELD_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Получаемый магический урон снижен до 0. Весь урон усиливается и отражается обратно во врага, дополнительно оглушая его."
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical damage taken reduced to 0 and reflected back at the source"
+
+		"DOTA_Tooltip_modifier_carbuncle_cooldown"					"Ruby Shell Cooldown"
+
+		"item_rpc_carbuncles_helm_of_reflection_ruby1"	"The reflected damage is increased by @ruby_property1%"
+		"item_rpc_carbuncles_helm_of_reflection_emerald1" "@emerald_property1% chance for the shell to persist after reflecting a spell, and have its duration refreshed"
+		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Casting [R] applies the Magic Reflection shell for @sapphire_property1 seconds regardless of cooldown status and without activating the cooldown"
+		"item_rpc_carbuncles_helm_of_reflection_amethyst1" "When an enemy is hit by the reflected damage, they are stunned for @amethyst_property1 seconds"	
 
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
