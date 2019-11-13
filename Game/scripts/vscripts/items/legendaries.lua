@@ -3421,8 +3421,8 @@ function RPCItems:RollCapOfWildNature(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, "item_rpc_cap_of_wild_nature", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -4371,7 +4371,7 @@ function RPCItems:RollArcaneCascadeHat(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
     RPCItems:SetBaseItemValues(item, "item_rpc_arcane_cascade_hat", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     RPCItems:SocketsChance(item)
     return item
@@ -4389,8 +4389,8 @@ function RPCItems:RollSamuraiHelmet(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 1.5)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
     RPCItems:SetBaseItemValues(item, "item_rpc_adamantine_samurai_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     RPCItems:SocketsChance(item)
     return item
