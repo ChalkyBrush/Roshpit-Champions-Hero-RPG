@@ -1420,6 +1420,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("challen_postmit_buff") then
 		armor_pierce_modify = armor_pierce_modify + 1000
 	end
+    if unit:HasModifier("modifier_orthok_zeal") then
+    	if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+	        local current_stack = unit:GetModifierStackCount("modifier_orthok_zeal", unit.InventoryUnit)
+	        armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", ORTHOK_EMERALD)*current_stack
+	    end
+    end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
@@ -1584,6 +1590,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
 		spell_pierce_modify = spell_pierce_modify + pierces
 	end
+    if unit:HasModifier("modifier_orthok_zeal") then
+    	if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+	        local current_stack = unit:GetModifierStackCount("modifier_orthok_zeal", unit.InventoryUnit)
+	        spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", ORTHOK_EMERALD)*current_stack
+	    end
+    end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

@@ -13295,7 +13295,7 @@
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"奥斯克的链盔"
 		"item_property_chains_of_orthok"							"混合狂热"
-		"property_chains_of_orthok_description"						"普通攻击和释放 @Ability2 将叠加<font color='#ccff66'>1</font>层狂热。释放 @Ability1 和 @Ability3 将叠加<font color='#ccff66'>5</font>层狂热。释放 @Ability4 将叠加<font color='#ccff66'>12</font>层狂热。 每层狂热提高<font color='#ccff66'>8</font>%基础技能伤害。每层狂热持续<font color='#ccff66'>10</font>秒，并单独计算持续时间。"
+		"property_chains_of_orthok_description"						"普通攻击和释放 @Ability2 将叠加<font color='#ccff66'>1</font>层狂热。释放 @Ability1 和 @Ability3 将叠加<font color='#ccff66'>5</font>层狂热。释放 @Ability4 将叠加<font color='#ccff66'>12</font>层狂热。 每层狂热提高<font color='#ccff66'>1</font>%基础技能伤害。每层狂热持续<font color='#ccff66'>10</font>秒，并单独计算持续时间。"
 		"DOTA_Tooltip_modifier_orthok_zeal"							"狂热"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"提高基础技能伤害"
 		

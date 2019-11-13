@@ -1341,7 +1341,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_orthok_zeal") then
             local current_stack = attacker:GetModifierStackCount("modifier_orthok_zeal", attacker.InventoryUnit)
-            damageMult = damageMult + ORTHOK_STACK_BAD/100 * current_stack
+            local bad_per_stack = ORTHOK_STACK_BAD/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", ORTHOK_SAPPHIRE)/100
+            damageMult = damageMult + bad_per_stack * current_stack
         end
         if attacker:HasModifier("modifier_flood_basin_a_d") then
             local current_stack = attacker:GetModifierStackCount("modifier_flood_basin_a_d", attacker)
@@ -4373,7 +4374,7 @@ function Filters:BuzukisFinger(caster)
 end
 
 function Filters:OrthokStack(hero, stacks)
-    local chains = hero.headItem
+    local chains = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
     chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_zeal", {duration = ORTHOK_STACK_DURATION})
     if not chains.zealData then
         chains.zealData = {}
@@ -4400,6 +4401,22 @@ function Filters:RecalculateOrthokStacks(hero, chains)
     end
     chains.zealData = newZealData
     hero:SetModifierStackCount("modifier_orthok_zeal", hero.InventoryUnit, totalStacks)
+
+    if totalStacks > 0 then
+        if chains:GetGemValue("ruby") > 0 then
+            local ruby_stacks = chains:GetFinalGemPropertyValue("ruby", ORTHOK_RUBY)*totalStacks
+            chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_ruby", {duration = ORTHOK_STACK_DURATION})
+            hero:SetModifierStackCount("modifier_orthok_ruby", hero.InventoryUnit, ruby_stacks)
+        end
+        if chains:GetGemValue("amethyst") > 0 then
+            local amethyst_stacks = math.ceil(chains:GetFinalGemPropertyValue("amethyst", ORTHOK_AMETHYST)*totalStacks)
+            chains:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_orthok_amethyst", {duration = ORTHOK_STACK_DURATION})
+            hero:SetModifierStackCount("modifier_orthok_amethyst", hero.InventoryUnit, amethyst_stacks)
+        end
+    else
+        hero:RemoveModifierByName("modifier_orthok_ruby")
+        hero:RemoveModifierByName("modifier_orthok_amethyst")
+    end
     Filters:UpdateOrthokPFX(hero, totalStacks, chains)
 end
 

@@ -123,6 +123,19 @@
 		"item_rpc_centaur_horns_emerald1" "When a Stun is negated, gain @emerald_property1 movespeed for <% CENTAUR_HORNS_EMERALD_SPEED_DURATION %> seconds"
 		"item_rpc_centaur_horns_sapphire1"	"Increases Status Resistance by @sapphire_property1%"
 		"item_rpc_centaur_horns_amethyst1" "When a Stun is negated, @amethyst_property1% chance to refresh [E] cooldown"
+		"DOTA_Tooltip_modifier_centaur_horns_haste"	"Centaur Horns (Emerald)"
+		"DOTA_Tooltip_modifier_centaur_horns_haste_Description"	"Increased Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
+		"item_property_chains_of_orthok"							"Binding Zeal"
+		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add <% ORTHOK_W_CAST_STACKS %> zeal stack. Casting @Ability1 and @Ability3 add <% ORTHOK_Q_E_CAST_STACKS %> zeal stacks. Casting @Ability4 adds <% ORTHOK_R_CAST_STACKS %> zeal stacks. Each stack increases Base Ability Damage by <% ORTHOK_STACK_BAD %>%. Each stack lasts <% ORTHOK_STACK_DURATION %> seconds and has its own individual duration."
+		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
+		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Combat Capability"
+
+		"item_rpc_chains_of_orthok_ruby1"	"Each Zeal stack increaes Base Attack Damage by @ruby_property1"
+		"item_rpc_chains_of_orthok_emerald1"	"Each Zeal stack increases Armor Pierce and Spell Pierce by @emerald_property1"
+		"item_rpc_chains_of_orthok_sapphire1" "Each zeal stack further increases Base Ability Damage by @sapphire_property1%"
+		"item_rpc_chains_of_orthok_amethyst1" "Each Zeal stack increases Attack Power by @amethyst_property1%"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -414,11 +427,7 @@
 		"property_mountain_giant_description"						"Increases max health by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. While above <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% of max health, reduce all incoming damage by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
 	
 	
-		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
-		"item_property_chains_of_orthok"							"Binding Zeal"
-		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add <% ORTHOK_W_CAST_STACKS %> zeal stack. Casting @Ability1 and @Ability3 add <% ORTHOK_Q_E_CAST_STACKS %> zeal stacks. Casting @Ability4 adds <% ORTHOK_R_CAST_STACKS %> zeal stacks. Each stack increases Base Ability Damage by <% ORTHOK_STACK_BAD %>%. Each stack lasts <% ORTHOK_STACK_DURATION %> seconds and has its own individual duration."
-		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
-		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"
+
 
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
 		"item_property_knight_hawk" 								"Peregrine Flight"

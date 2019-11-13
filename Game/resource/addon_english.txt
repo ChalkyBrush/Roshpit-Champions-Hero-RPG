@@ -13027,6 +13027,19 @@
 		"item_rpc_centaur_horns_emerald1" "When a Stun is negated, gain @emerald_property1 movespeed for <font color='#ccff66'>12</font> seconds"
 		"item_rpc_centaur_horns_sapphire1"	"Increases Status Resistance by @sapphire_property1%"
 		"item_rpc_centaur_horns_amethyst1" "When a Stun is negated, @amethyst_property1% chance to refresh [E] cooldown"
+		"DOTA_Tooltip_modifier_centaur_horns_haste"	"Centaur Horns (Emerald)"
+		"DOTA_Tooltip_modifier_centaur_horns_haste_Description"	"Increased Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
+		"item_property_chains_of_orthok"							"Binding Zeal"
+		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add <font color='#ccff66'>1</font> zeal stack. Casting @Ability1 and @Ability3 add <font color='#ccff66'>5</font> zeal stacks. Casting @Ability4 adds <font color='#ccff66'>12</font> zeal stacks. Each stack increases Base Ability Damage by <font color='#ccff66'>1</font>%. Each stack lasts <font color='#ccff66'>10</font> seconds and has its own individual duration."
+		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
+		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Combat Capability"
+
+		"item_rpc_chains_of_orthok_ruby1"	"Each Zeal stack increaes Base Attack Damage by @ruby_property1"
+		"item_rpc_chains_of_orthok_emerald1"	"Each Zeal stack increases Armor Pierce and Spell Pierce by @emerald_property1"
+		"item_rpc_chains_of_orthok_sapphire1" "Each zeal stack further increases Base Ability Damage by @sapphire_property1%"
+		"item_rpc_chains_of_orthok_amethyst1" "Each Zeal stack increases Attack Power by @amethyst_property1%"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -13318,11 +13331,7 @@
 		"property_mountain_giant_description"						"Increases max health by <font color='#ccff66'>200</font>%. While above <font color='#ccff66'>80</font>% of max health, reduce all incoming damage by <font color='#ccff66'>50</font>%."
 	
 	
-		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
-		"item_property_chains_of_orthok"							"Binding Zeal"
-		"property_chains_of_orthok_description"						"Attacking and casting @Ability2 add <font color='#ccff66'>1</font> zeal stack. Casting @Ability1 and @Ability3 add <font color='#ccff66'>5</font> zeal stacks. Casting @Ability4 adds <font color='#ccff66'>12</font> zeal stacks. Each stack increases Base Ability Damage by <font color='#ccff66'>8</font>%. Each stack lasts <font color='#ccff66'>10</font> seconds and has its own individual duration."
-		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
-		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Base Ability Damage"
+
 
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
 		"item_property_knight_hawk" 								"Peregrine Flight"
