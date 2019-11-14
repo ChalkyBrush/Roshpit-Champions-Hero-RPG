@@ -5176,7 +5176,7 @@ function frostmaw_kill(event)
 	if not ability.frostmaw_minion_table then
 		ability.frostmaw_minion_table = {}
 	end
-	local max_minions = 1
+	local max_minions = 1 + ability:GetFinalGemPropertyValue("sapphire", FROSTMAW_SAPPHIRE)
 	if #ability.frostmaw_minion_table < max_minions then
 		local fv = unit:GetForwardVector()
 		local summonPosition = unit:GetAbsOrigin()
@@ -5187,16 +5187,25 @@ function frostmaw_kill(event)
 		summon:SetAcquisitionRange(1600)
 		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		summon:SetForwardVector(fv)
-		local hp = unit:GetMaxHealth()
-		local armor = unit:GetPhysicalArmorBaseValue()
-		local movespeed = unit:GetBaseMoveSpeed()
+		Enemies:InitializeEnemy(summon)
+
+		local hp = unit:GetMaxHealth() + ability:GetFinalGemPropertyValue("ruby", FROSTMAW_RUBY)
 		local attackDamage = unit:GetAttackDamage()
 		summon:SetMaxHealth(hp)
 		summon:SetHealth(hp)
 		summon:SetBaseMaxHealth(hp)
 
-		summon:SetPhysicalArmorBaseValue(armor)
-		summon:SetBaseMoveSpeed(movespeed)
+		local armor = unit.roshpit_attributes.roshpit_armor + ability:GetFinalGemPropertyValue("amethyst", FROSTMAW_AMETHYST)
+		local armor_pierce = unit.roshpit_attributes.roshpit_armor_pierce + ability:GetFinalGemPropertyValue("emerald", FROSTMAW_EMERALD)
+		local magic_armor = unit.roshpit_attributes.roshpit_magic_armor + ability:GetFinalGemPropertyValue("amethyst", FROSTMAW_AMETHYST)
+		local spell_pierce = unit.roshpit_attributes.roshpit_spell_pierce + ability:GetFinalGemPropertyValue("emerald", FROSTMAW_EMERALD)
+
+		summon.roshpit_attributes.roshpit_armor = armor
+		summon.roshpit_attributes.roshpit_magic_armor = magic_armor
+		summon.roshpit_attributes.roshpit_armor_pierce = armor_pierce
+		summon.roshpit_attributes.roshpit_spell_pierce = spell_pierce
+		summon:CalculateAndSaveRoshpitAttributes()
+
 		summon:SetBaseDamageMin(attackDamage)
 		summon:SetBaseDamageMax(attackDamage)
 		summon.aggro = true

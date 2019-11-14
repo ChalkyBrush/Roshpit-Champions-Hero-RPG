@@ -305,7 +305,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"火神的王冠"
 		"item_property_fire_deity"							"火神谴"
-		 "property_fire_deity_description"					"被 @Ability2 击中的敌人有 <% FIRE_DEITY_CROWN_CHANCE %>% 的几率造成小范围爆炸，造成额外 <% FIRE_DEITY_CROWN_AMP %>% 魔法伤害并且眩晕范围内敌人 <% FIRE_DEITY_CROWN_STUN_DURATION %> 秒。此装备不享受任何装备伤害加成。所有 <font color=\"#EF4126\">火</font> 元素伤害加成，上限设定为 <% FIRE_DEITY_CROWN_ELEMENT_CAP %>%。该装备的符文有重铸上限，重铸上限为38/20（W3/W4）。"
+		 "property_fire_deity_description"					"@Ability2 damage instances have a <% FIRE_DEITY_CROWN_CHANCE %>% chance to trigger a pyroclastic blast, dealing <% FIRE_DEITY_CROWN_AMP %>% of the ability's damage and stunning enemies for <% FIRE_DEITY_CROWN_STUN_DURATION %> seconds in a small area around the target. Max <% FIRE_DEITY_MAX_PROCS_PER_SECOND %> procs per second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"绯红色头骨帽"

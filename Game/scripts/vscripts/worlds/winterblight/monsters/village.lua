@@ -31,7 +31,7 @@ function winterblight_unit_die(event)
 		elseif luck == 3 then
 			RPCItems:RollTatteredNoviceArmor(unit:GetAbsOrigin())
 		elseif luck == 4 then
-			RPCItems:RollFrostmawHuntersHood(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_frostmaw_hunters_hood")
 		end
 		local luck2 = RandomInt(1, 10000 - (500 * premiumCount))
 		if luck2 == 1 then

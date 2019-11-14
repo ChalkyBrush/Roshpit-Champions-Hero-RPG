@@ -35699,92 +35699,6 @@
 		}
 	}
 
-	"item_rpc_frostmaw_hunters_hood"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"winterblight/frostmaw_hunters_hood" //"power_ranger_gloves"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_frostmaw_hunters_hood"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"frostmaw_kill"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"frostmaw_unequip"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_frostmaw_dominated_unit"
-			{
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"IsHidden"			"0"
-				"IsBuff"			"1"
-				"TextureName"		"itemicons/frostmaw_dominated_unit"
-				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
-				"StatusEffectPriority"  "100"
-				"ThinkInterval"  "2.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/visage/dominion.lua"
-						"Function"		"frostmaw_dominated_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"frostmaw_dominated_die"
-					}
-				}
-			}
-		}
-	}
-
 	"item_rpc_oceanrunner_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -52047,6 +51961,114 @@
 		}
 	}
 
+	"item_rpc_frostmaw_hunters_hood"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/frostmaw_hunters_hood" //"power_ranger_gloves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"1000 3000 5000 7000 9000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"400 800 1200 1600 2000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"1 1 2 2 3"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"400 800 1200 1600 2000"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frostmaw_hunters_hood"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"frostmaw_kill"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"frostmaw_unequip"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_frostmaw_dominated_unit"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"TextureName"		"itemicons/frostmaw_dominated_unit"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"ThinkInterval"  "2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/dominion.lua"
+						"Function"		"frostmaw_dominated_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"frostmaw_dominated_die"
+					}
+				}
+			}
+		}
+	}
 
 	"item_rpc_fire_deity_crown"
 	{

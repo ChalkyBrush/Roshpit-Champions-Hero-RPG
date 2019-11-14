@@ -267,6 +267,15 @@
 		"item_rpc_fire_deity_crown_sapphire1" "Increases stun duration by @sapphire_property1"
 		"item_rpc_fire_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_frostmaw_hunters_hood"		"Frostmaw Hunter's Hood"
+		"property_frostmaw"											"Dominator"
+		"property_frostmaw_description"								"Slaying a dominatable unit recruits them to your side. You may only have 1 such minion active at a time. Issue an attack order on your own minion to dispose of it."
+
+		"item_rpc_frostmaw_hunters_hood_ruby1"	"Dominated units have @ruby_property1 bonus HP"
+		"item_rpc_frostmaw_hunters_hood_emerald1"	"Dominated units have @emerald_property1 increased Armor Pierce and Spell Pierce"
+		"item_rpc_frostmaw_hunters_hood_sapphire1" "Increases max number of dominated units by @sapphire_property1"
+		"item_rpc_frostmaw_hunters_hood_amethyst1" "Dominated units have @amethyst_property1 increased Armor and Magic Armor"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -480,11 +489,6 @@
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and Armor. If at 15 stacks, take extra damage from the debuff's source."
 		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_frostmaw_hunters_hood"		"Frostmaw Hunter's Hood"
-		"property_frostmaw"											"Dominator"
-		"property_frostmaw_description"								"Slaying a dominatable unit recruits them to your side. You may only have 1 such minion active at a time. Issue an attack order on your own minion to dispose of it."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"

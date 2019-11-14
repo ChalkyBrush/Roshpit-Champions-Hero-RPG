@@ -310,7 +310,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <% FIRE_DEITY_CROWN_CHANCE %>% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный <% FIRE_DEITY_CROWN_AMP %>% от урона способности и окружит ближайших врагов на <% FIRE_DEITY_CROWN_STUN_DURATION %> секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на <% FIRE_DEITY_CROWN_ELEMENT_CAP %>%."
+		 "property_fire_deity_description"					"@Ability2 damage instances have a <% FIRE_DEITY_CROWN_CHANCE %>% chance to trigger a pyroclastic blast, dealing <% FIRE_DEITY_CROWN_AMP %>% of the ability's damage and stunning enemies for <% FIRE_DEITY_CROWN_STUN_DURATION %> seconds in a small area around the target. Max <% FIRE_DEITY_MAX_PROCS_PER_SECOND %> procs per second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"

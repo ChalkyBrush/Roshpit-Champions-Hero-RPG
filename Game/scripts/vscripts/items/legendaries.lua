@@ -3792,6 +3792,35 @@ function RPCItems:RollFireDeityCrown(item_level)
     return item
 end
 
+function RPCItems:RollFrostmawHuntersHood(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_frostmaw_hunters_hood", "immortal", "Frostmaw Hunter's Hood", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_frostmaw_hunters_hood"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_frostmaw", "#ff443a", 1, "#property_frostmaw_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 2)
+
+    local luck = RandomInt(1, 5)
+    if luck == 5 and item_level > 60 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier3 = 80, tier4 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1.5)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -3842,44 +3871,6 @@ function RPCItems:RollHoodOfTheSeaOracle(item_level)
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 
     RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollFrostmawHuntersHood(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_frostmaw_hunters_hood", "immortal", "Frostmaw Hunter's Hood", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "frostmaw"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_frostmaw", "#ff443a", 1, "#property_frostmaw_description")
-
-    item.newItemTable.hasRunePoints = true
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 300, 800, 1, 1, item.newItemTable.rarity, false, maxFactor * 500)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
-
-    local luck = RandomInt(1, 4)
-    if luck == 4 and maxFactor >= 150 then
-        local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_"..letter.."_4"
-        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 30, 0, 0, 0, 0)
-
-        item.newItemTable.property3name = runeName
-        item.newItemTable.property3 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = math.ceil(value * 1.35)
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
     RPCItems:RollHoodProperty4(item, 0)
 
     local drop = CreateItemOnPositionSync(deathLocation, item)
