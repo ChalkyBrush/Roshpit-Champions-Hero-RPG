@@ -13174,6 +13174,18 @@
 		"item_rpc_frostmaw_hunters_hood_sapphire1" "Increases max number of dominated units by @sapphire_property1"
 		"item_rpc_frostmaw_hunters_hood_amethyst1" "Dominated units have @amethyst_property1 increased Armor and Magic Armor"
 
+   		"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
+		"item_property_grithault"								"Pain Reversal"
+		"property_grithault_description"						"<font color='#ccff66'>20</font>% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
+
+		"item_rpc_guard_of_grithault_ruby1"	"@ruby_property1% chance on taking damage to gain a shield that absorbs <font color='#ccff66'>2</font> instances of damage. The shield is unaffected if Pain Reversal procs."
+		"item_rpc_guard_of_grithault_emerald1"	"Increases the base proc chance of Pain Reversal by @emerald_property1%"
+		"item_rpc_guard_of_grithault_sapphire1" "Increase Armor and Magic Armor by @sapphire_property1"
+		"item_rpc_guard_of_grithault_amethyst1" "Each point of Spirit increases Max Health by @amethyst_property1"
+
+		"DOTA_Tooltip_modifier_grithault_shield"			"Grithault Shield (Ruby)"
+		"DOTA_Tooltip_modifier_grithault_shield_Description"	"Each stacks absorbs an instance of damage"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13291,13 +13303,7 @@
 		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Ethereal Displacement Cooldown"
 		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles again... yet."
 		
-		
-		
-
-		
-    	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
-		"item_property_grithault"								"Pain Reversal"
-		"property_grithault_description"						"<font color='#ccff66'>24</font>% chance on taking damage to heal for the amount of the damage instance instead of taking damage."
+	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"

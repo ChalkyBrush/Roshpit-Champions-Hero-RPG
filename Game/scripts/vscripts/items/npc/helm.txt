@@ -1,3 +1,75 @@
+	"item_rpc_guard_of_grithault"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/guard_of_grithault" //"guard_of_grithault"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_oracle/grithault_heal.vpcf"
+			"particle"	"particles/roshpit/items/grithault_shield.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% GRITHAULT_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"<% GRITHAULT_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% GRITHAULT_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"<% GRITHAULT_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_guard_of_grithault"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_grithault_shield"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/items/grithault_shield.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+		}
+	}
+
 	"item_rpc_frostmaw_hunters_hood"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

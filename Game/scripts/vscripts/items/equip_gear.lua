@@ -334,6 +334,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EYE_OF_SEASONS_AMETHYST, hero, "rune_e_2", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EYE_OF_SEASONS_AMETHYST, hero, "rune_r_2", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_guard_of_grithault" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", GRITHAULT_SAPPHIRE, hero, "armor", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", GRITHAULT_SAPPHIRE, hero, "magic_armor", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

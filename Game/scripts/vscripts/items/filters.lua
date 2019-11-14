@@ -3494,7 +3494,7 @@ function Filters:SpellShieldHit(victim, damage)
 end
 
 function Filters:HasDamageBlockShield(victim)
-    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_rune_e_2_effect") or victim:HasModifier("modifier_paladin_q3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") then
+    if victim:HasModifier("modifier_secret_temple_refraction") or victim:HasModifier("modifier_windsteel_effect") or victim:HasModifier("modifier_heavens_shield") or victim:HasModifier("modifier_shipyard_veil_shield") or victim:HasModifier("modifier_arcane_shell") or victim:HasModifier("modifier_duskbringer_rune_e_2_effect") or victim:HasModifier("modifier_paladin_q3_shield") or victim:HasModifier("modifier_voltex_rune_w_3_shield") or victim:HasModifier("modifier_light_seer_shield") or victim:HasModifier("modifier_black_dominion_shield") or victim:HasModifier("modifier_grithault_shield") then
         return true
     else
         return false
@@ -3615,8 +3615,32 @@ function Filters:AerithsTearTakeDamage(attacker, victim)
 end
 
 function Filters:GrithaultDamage(victim, damage)
-    local proc = Filters:GetProc(victim, GRITHAULT_CHANCE)
-    if proc then
+    local grithault_helm = victim.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local pain_reversal_proc_chance = GRITHAULT_CHANCE + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", GRITHAULT_EMERALD)
+    local proc = Filters:GetProc(victim, pain_reversal_proc_chance)
+
+    if damage > 0 then
+        if victim:HasModifier("modifier_grithault_shield") then
+            damage = 0
+            if not proc then
+                local new_stacks = victim:GetModifierStackCount("modifier_grithault_shield", victim.InventoryUnit) - 1
+                if new_stacks > 0 then
+                    victim:SetModifierStackCount("modifier_grithault_shield", victim.InventoryUnit, new_stacks)
+                else
+                    victim:RemoveModifierByName("modifier_grithault_shield")
+                end
+            end
+        elseif grithault_helm:GetGemValue("ruby") > 0 then
+            local chance = grithault_helm:GetFinalGemPropertyValue("ruby", GRITHAULT_RUBY)
+            local proc2 = Filters:GetProc(victim, chance)
+            if proc2 then
+                grithault_helm:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_grithault_shield", {})
+                victim:SetModifierStackCount("modifier_grithault_shield", victim.InventoryUnit, GRITHAULT_RUBY_INSTANCE_BLOCK)
+            end
+        end
+    end
+
+    if proc and damage > 0 then
         damage = math.floor(damage)
         Filters:ApplyHeal(victim, victim, damage, true)
         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/grithault_heal.vpcf", victim, 0.9)
@@ -3625,6 +3649,7 @@ function Filters:GrithaultDamage(victim, damage)
         return damage
     end
 end
+
 
 function Filters:GeodeDealDamage(victim, damage, attacker)
     if victim:GetEntityIndex() == attacker:GetEntityIndex() then

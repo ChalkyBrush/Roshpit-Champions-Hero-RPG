@@ -13171,7 +13171,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"和平头冠"
 		"item_property_grithault"								"苦痛反转"
-		"property_grithault_description"						"受到伤害时有 <font color='#ccff66'>24</font>% 几率不受到该伤害并回复该伤害值的生命值。"
+		"property_grithault_description"						"受到伤害时有 <font color='#ccff66'>20</font>% 几率不受到该伤害并回复该伤害值的生命值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"幽灵猎人头盔"
