@@ -986,10 +986,12 @@ function RPCItems:TranslateRuneRoll(property_name)
 	end
 end
 
+RPCItems.BASE_GEAR_ARMOR_MULT = 3
+
 function RPCItems:GrantItemBaseArmor(item, item_level, base_factor)
 	local armor = 0
 	if base_factor > 0 then
-		armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*9)
+		armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*RPCItems.BASE_GEAR_ARMOR_MULT)
 	end
 	item.newItemTable.base_armor = armor
 end
@@ -997,7 +999,7 @@ end
 function RPCItems:GrantItemBaseMagicArmor(item, item_level, base_factor)
 	local magic_armor = 0
 	if base_factor > 0 then
-		magic_armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*9)
+		magic_armor = RPCItems:RollGearAttributeValue(item_level, nil, nil, base_factor*RPCItems.BASE_GEAR_ARMOR_MULT)
 	end
 	item.newItemTable.base_magic_armor = magic_armor
 end

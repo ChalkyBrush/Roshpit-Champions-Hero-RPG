@@ -344,6 +344,13 @@ function handleSpecialProperty(itemProperty, index, item, queryUnit, itemValues,
 					$('#tooltip_special_right1').text = typeData[0][1]
 					$('#tooltip_special_left2').text = typeData[1][0]
 					$('#tooltip_special_right2').text = typeData[1][1]
+					if (typeData[0][1] == ""){
+						$('#tooltip_special_left1').AddClass("invisible")
+						$('#tooltip_special_right1').AddClass("invisible")
+					}else{
+						$('#tooltip_special_left1').RemoveClass("invisible")
+						$('#tooltip_special_right1').RemoveClass("invisible")						
+					}
 				}else{
 					$('#tooltip_special_element_container1').AddClass('invisible')
 				}

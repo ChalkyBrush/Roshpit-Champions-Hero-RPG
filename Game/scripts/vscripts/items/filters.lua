@@ -1124,9 +1124,6 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_secret_temple") then
         Filters:SecretTemple(caster)
     end
-    if caster:HasModifier("modifier_ruby_dragon") then
-        Filters:RubyDragon(caster)
-    end
     if caster:HasModifier("modifier_spirit_glove") then
         Filters:SpiritGlove(caster)
     end

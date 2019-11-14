@@ -4476,16 +4476,6 @@ function ruby_dragon_flame_think(event)
 	end
 end
 
-function ruby_dragon_entering_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	if caster.entering then
-		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, -16) + caster:GetForwardVector() * 20)
-	else
-		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 13) + caster:GetForwardVector() * 20)
-	end
-end
-
 function tiny_avalanche_think(event)
 	local target = event.target
 	local ability = event.ability
@@ -6360,4 +6350,236 @@ function carbuncle_hit(event)
     if stun_duration > 0 then
     	Filters:ApplyStun(carbuncle_data.attacker, stun_duration, target)
     end
+end
+
+function ruby_dragon_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	if not ability.dragon then
+		local spawnPos = hero:GetAbsOrigin() - hero:GetForwardVector()*440
+		local dragon = CreateUnitByName("ruby_dragon_3", spawnPos, true, nil, nil, hero:GetTeamNumber())
+		dragon.summoner = hero
+		dragon:SetOwner(hero)
+		dragon:SetControllableByPlayer(hero:GetPlayerID(), true)
+	    dragon.hero = hero
+	    dragon.entering = true
+	    dragon:SetSkin(1)
+	    dragon:SetModelScale(0.4)
+	    dragon:SetForwardVector(hero:GetForwardVector())
+	    dragon:SetAbsOrigin(dragon:GetAbsOrigin() + Vector(0, 0, 800))
+	    local dragonAbility = dragon:FindAbilityByName("ruby_dragon3_ability")
+	    dragonAbility:ApplyDataDrivenModifier(dragon, dragon, "ruby_dragon_cinematic", {duration = 1.5})
+	    Timers:CreateTimer(0.5, function()
+	        EmitSoundOn("RPCItem.RubyDragonEnter", dragon)
+	    end)
+	    ability.dragon = dragon
+	    dragon:AddAbility("ruby_dragon_toggle_ai"):SetLevel(1)
+	    dragon:FindAbilityByName("ruby_dragon_toggle_ai"):ToggleAbility()
+	    dragon:AddAbility("ruby_dragon_flame_breath"):SetLevel(1)
+	    dragon.attack_aoe = RUBY_DRAGON_AMETHYST_ATTACK_SPLASH_AOE
+
+	    dragon:SetRoshpitLevel(hero:GetLevel())
+		dragon:SetMaxHPandHealToFull(RUBY_DRAGON_HP_PER_HERO_LEVEL*hero:GetLevel())
+		dragon:SetBaseDamageMax(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+		dragon:SetBaseDamageMin(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+
+		dragon:SetBaseRoshpitArmor(hero:GetRoshpitArmor())
+		dragon:SetBaseRoshpitMagicArmor(hero:GetRoshpitMagicArmor())
+		dragon:SetBaseRoshpitArmorPierce(hero:GetRoshpitArmorPierce())
+		dragon:SetBaseRoshpitSpellPierce(hero:GetRoshpitSpellPierce())
+
+		if hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
+			ability:ApplyDataDrivenModifier(caster, dragon, "modifier_ruby_dragon_sapphire_speed", {})
+			dragon:SetModifierStackCount("modifier_ruby_dragon_sapphire_speed", caster, hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", RUBY_DRAGON_SAPPHIRE))
+		end
+		hero.ruby_dragon = dragon
+		Timers:CreateTimer(1.6, function()
+			FindClearSpaceForUnit(dragon, dragon:GetAbsOrigin(), false)
+		end)
+	end
+end
+
+function ruby_dragon_unequip(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = event.target
+	local dragon = ability.dragon
+    local dragonAbility = dragon:FindAbilityByName("ruby_dragon3_ability")
+    dragon:RemoveModifierByName("ruby_dragon_regenerating")
+    ability.dragon = nil
+    dragonAbility:ApplyDataDrivenModifier(dragon, dragon, "ruby_dragon_cinematic", {duration = 1.5})
+	dragon.entering = false
+	
+	EmitSoundOn("RPCItem.RubyDragonEnter", dragon)
+	Timers:CreateTimer(1.5, function()
+		dragon:RemoveModifierByName("ruby_dragon_cinematic")
+		UTIL_Remove(dragon)
+	end)
+end
+
+function ruby_dragon_entering_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local dragon = caster
+	if dragon.entering then
+		dragon:SetAbsOrigin(dragon:GetAbsOrigin() + Vector(0, 0, -16) + dragon:GetForwardVector() * 20)
+	else
+		dragon:SetAbsOrigin(dragon:GetAbsOrigin() + Vector(0, 0, 13) + dragon:GetForwardVector() * 20)
+	end
+end
+
+function ruby_dragon_constant_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if caster.roshpit_attributes.roshpit_level ~= hero:GetLevel() then
+		caster:SetRoshpitLevel(hero:GetLevel())
+		caster:SetMaxHPandHealToFull(RUBY_DRAGON_HP_PER_HERO_LEVEL*hero:GetLevel())
+		caster:SetBaseDamageMax(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+		caster:SetBaseDamageMin(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+	end
+	caster:SetBaseRoshpitArmor(hero:GetRoshpitArmor())
+	caster:SetBaseRoshpitMagicArmor(hero:GetRoshpitMagicArmor())
+	caster:SetBaseRoshpitArmorPierce(hero:GetRoshpitArmorPierce())
+	caster:SetBaseRoshpitSpellPierce(hero:GetRoshpitSpellPierce())
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if distance > 2500 then
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf", caster, 3)
+		EmitSoundOn("RPC.RubyDragon.Teleport", caster)
+		FindClearSpaceForUnit(caster, hero:GetAbsOrigin()+RandomVector(240), false)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf", caster, 3)
+		EmitSoundOn("RPC.RubyDragon.Teleport", caster)
+	end
+	if caster:GetHealth() < 10 then
+		if not caster:HasModifier("ruby_dragon_regenerating") then
+			caster.regen_interval = 0
+			caster.regen_total_ticks = math.floor(RUBY_DRAGON_REGEN_TIME/0.03)
+			EmitSoundOn("RPCItem.RubyDragonEnter", caster)
+			ability:ApplyDataDrivenModifier(caster, caster, "ruby_dragon_regenerating", {})
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf", caster, 3)
+			caster:SetModel("models/items/phoenix/ultimate/blazing_wing_blazing_egg/blazing_wing_blazing_egg.vmdl")
+			caster:SetOriginalModel("models/items/phoenix/ultimate/blazing_wing_blazing_egg/blazing_wing_blazing_egg.vmdl")
+		end
+	end
+end
+
+function ruby_dragon_ai_on(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(900)
+end
+
+function ruby_dragon_ai_off(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(0)
+end
+
+function ruby_dragon_ai_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
+	local fire_breath_ability = caster:FindAbilityByName("ruby_dragon_flame_breath")
+	if fire_breath_ability:IsFullyCastable() then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*500, nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local newOrder = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = fire_breath_ability:entindex(),
+			}
+			ExecuteOrderFromTable(newOrder)
+			return			
+		end
+	end
+end
+
+function ruby_dragon_regenerating_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:GetAbsOrigin().z - GetGroundPosition(caster:GetAbsOrigin(), caster).z > -200 then
+		caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,3))
+	end
+	caster.regen_interval = caster.regen_interval + 1
+	caster:SetHealth(caster:GetMaxHealth()*caster.regen_interval*(1/caster.regen_total_ticks))
+	if caster.regen_total_ticks == caster.regen_interval then
+		caster:RemoveModifierByName("ruby_dragon_regenerating")
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		EmitSoundOn("RPCItem.RubyDragonEnter", caster)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf", caster, 3)
+		caster:SetOriginalModel("models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl")
+		caster:SetModel("models/items/dragon_knight/fireborn_dragon/fireborn_dragon.vmdl")
+		caster:SetSkin(1)
+	end
+end
+
+function ruby_dragon_fire_breath(event)
+	local caster = event.caster
+	local ability = event.ability
+	local location = caster:GetOrigin()
+	local abilityLevel = ability:GetLevel()
+	local forwardVector = caster:GetForwardVector()
+	local fv = forwardVector
+	local start_radius = 200
+	local end_radius = 340
+	local range = 800
+	local speed = 1000
+	local projectileParticle = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+	local projectile_origin = caster:GetAbsOrigin() + caster:GetForwardVector()*60
+	local info =
+	{
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = projectile_origin,
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_attack1",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+end
+
+function ruby_dragon_fire_breath_hit(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.attack_mult
+
+	Filters:ApplyItemDamage(target, caster.hero, damage, DAMAGE_TYPE_MAGICAL, caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	if caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+		ability.burn_damage = damage*(caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", RUBY_DRAGON_EMERALD)/100)
+		ability:ApplyDataDrivenModifier(caster, target, "ruby_dragon_burn", {duration = RUBY_DRAGON_EMERALD_BURN_DURATION})
+	end
+end
+
+function ruby_dragon_fire_breath_burn(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	print("BURN THINK?")
+	print(ability.burn_damage)
+	Filters:ApplyItemDamage(target, caster.hero, ability.burn_damage, DAMAGE_TYPE_MAGICAL, caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

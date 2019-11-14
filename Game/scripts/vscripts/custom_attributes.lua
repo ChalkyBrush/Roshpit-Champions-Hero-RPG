@@ -280,6 +280,13 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	return intellect
 end
 
+function CDOTA_BaseNPC:SetMaxHPandHealToFull(hp)
+	self:SetMaxHealth(hp)
+	self:SetBaseMaxHealth(hp)
+	self:SetHealth(hp)
+	self:Heal(hp, self)
+end
+
 function CDOTA_BaseNPC:InitRoshpitAttributes()
 	local unit = self
 	if not Events.GameMasterAbility then

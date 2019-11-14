@@ -7966,7 +7966,7 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"奥尼洛的最高等级的元素(不包括 <font color=\"#3289C7\">龙</font> 元素)增加 @glyph_property1 点充能。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"色度雕文"
-		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素(不包括 <font color=\"#3289C7\">龙</font> 元素)伤害增加 <font color='#ccff66'>1500</font>% ，第二高的伤害增加 <font color='#ccff66'>1000</font>%, 第三高的伤害增加 <font color='#ccff66'>500</font>%, 第四高的伤害增加 <font color='#ccff66'>250</font>%。"
+		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素(不包括 <font color=\"#3289C7\">龙</font> 元素)伤害增加 <font color='#ccff66'>100</font>% ，第二高的伤害增加 <font color='#ccff66'>75</font>%, 第三高的伤害增加 <font color='#ccff66'>50</font>%, 第四高的伤害增加 <font color='#ccff66'>25</font>%。"
 
 		"DOTA_Tooltip_ability_heroic_fury"								"英雄之怒"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"元素： <font color=\"#F6FFB5\">圣</font> / <font color=\"#DDDDDD\">普通</font><br>大幅强化全能骑士的武器，获得溅射、减速效果，每次攻击都将回复一定生命值。"
@@ -12973,7 +12973,21 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
 		"item_property_ruby_dragon"					"红龙"
-		"property_ruby_dragon_description"			"成功释放 @Ability4 召唤一只火龙在你周围巡逻 <font color='#ccff66'>15</font> 秒.它会对敌人喷火,造成 <font color='#ccff66'>5000</font>x 你的力量值的伤害; 被伤害的敌人随后会燃烧 <font color='#ccff66'>9</font> 秒,受到 <font color='#ccff66'>1500</font>x 你的力量值 的伤害每 <font color='#ccff66'>0.2</font> 秒.每次一个单位被火龙吐息击中, 它会产生一层新的燃烧buff, 且每层燃烧buff 造成伤害和持续时间互相独立"
+		"property_ruby_dragon_description"			"The wearer has a permanent Ruby Dragon companion with a Flame Breath ability. The dragon has <font color='#ccff66'>100</font>HP per level and <font color='#ccff66'>10</font> base attack damage per level. All damage dealt by the dragon is attributed to its master."
+
+		"ruby_dragon_3"							"Ruby Dragon"
+
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai"	"Dragon AI"
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai_Description"	"Toggle On to activate the Dragon's default behavior"
+
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath"	"Flame Breath"
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_Description"	"Spits fire in a cone ahead of the caster. Damage is based on caster's attack power."
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_attack_mult"	"DAMAGE x ATTACK POWER:"
+
+		"item_rpc_crown_of_ruby_dragon_ruby1"	"Increases Ruby Dragon's base attack power per level by @ruby_property1"
+		"item_rpc_crown_of_ruby_dragon_emerald1"	"Enemies hit by Ruby Dragon's flame breath burn for @emerald_property1% of the initial damage every 0.5 seconds for <font color='#ccff66'>5</font> seconds."
+		"item_rpc_crown_of_ruby_dragon_sapphire1" "Increases Ruby Dragon's Attack Speed and Movespeed by @sapphire_property1"
+		"item_rpc_crown_of_ruby_dragon_amethyst1" "Ruby Dragon's basic attacks have a splash effect, dealing @amethyst_property1% of the attack damage in a <font color='#ccff66'>260</font> radius"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"半人马角"	

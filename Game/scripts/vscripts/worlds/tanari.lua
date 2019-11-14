@@ -62,8 +62,8 @@ function Tanari:Debug()
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
-    MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 120
-    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_crimson_skull_cap")
+    MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
+    local helm = RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_crown_of_ruby_dragon")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)

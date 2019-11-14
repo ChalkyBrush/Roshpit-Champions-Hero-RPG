@@ -2265,9 +2265,9 @@
     	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"All damage taken reduced by 95%%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"All <font color=\"#E1A2E8\">Arcane</font> damage is increased by Arkimus' Agility."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"All <font color=\"#E1A2E8\">Arcane</font> damage passively increased."
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"Bonus Arcane Damage"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"% for every 10 Agility"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"%"
 		
 		//Arcanas
     	"item_property_arkimus_arcana1"										"Magnetic Flux"
@@ -2297,7 +2297,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
     	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"Induction"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Each stack independently reduces damage taken by 1%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Each stack independently reduces damage taken by <font color='#ccff66'>1</font>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"While Magnetic Flux is active, Arkimus gains bonus agility and enhanced <font color=\"#5CCDF9\">Lightning</font> damage based on Agility."
@@ -7345,7 +7345,7 @@
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Mana drain per second reduction</font>:"
 
 	"DOTA_Tooltip_modifier_jex_nature_cosmic_w"					"Equilibrium Shifter"		
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w_Description"		"Increase post-mitigation magic damage and movespeed. Losing mana per second and on each ability cast."
+	"DOTA_Tooltip_modifier_jex_nature_cosmic_w_Description"		"Increase armor and magic pierces, attack damage and movespeed. Losing mana per second and on each ability cast."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"Jex breaks through the fabric of space allowing him to quickly transport himself to the target location."
@@ -8059,7 +8059,7 @@
 		"omniro_earth_special_b_pretext"									"BONUS MAGIC ARMOR:"	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Earth"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic resistance"									
+		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic armor"									
 
 		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP."
 		"omniro_lightning_special_a_pretext"										"CURRENT HP % DAMAGE:"												
@@ -8104,7 +8104,7 @@
 		"omniro_shadow_special_b_pretext"										"ARMOR REDUCTION:"			
 
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Shadow"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor Negated"													
+		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor reduced"											
 
 		"omniro_wind_special_description"									"Applies a <font color='#ccff66'>14</font> second buff that increases agility."
 		"omniro_wind_special_a_pretext"										"BONUS AGILITY: "	
@@ -8152,7 +8152,7 @@
 		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Disabled Healing"
 
 		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Increased Post-Mitigation Damage"
+		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Increased Armor Pierce"
 
 		"omniro_orb_effect_title"											"Orb Effect"
 
@@ -8413,7 +8413,7 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"Omniro's highest level element (excluding <font color=\"#3289C7\">Dragon</font>) has @glyph_property1 additional maximum orb charges."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Omniro gains bonuses to Elemental damage types matching his four highest-level elements (excluding <font color=\"#3289C7\">Dragon</font>). The highest gains a %<font color='#ccff66'>1500</font> bonus, 2nd highest <font color='#ccff66'>1000</font>%, 3rd highest <font color='#ccff66'>500</font>, and 4th highest <font color='#ccff66'>250</font>."
+		"item_rpc_omniro_glyph_5_a_description" 				"Omniro gains bonuses to Elemental damage types matching his four highest-level elements (excluding <font color=\"#3289C7\">Dragon</font>). The highest gains a %<font color='#ccff66'>100</font> bonus, 2nd highest <font color='#ccff66'>75</font>%, 3rd highest <font color='#ccff66'>50</font>, and 4th highest <font color='#ccff66'>25</font>."
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
@@ -8885,7 +8885,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				""
 
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility."
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility. On the end of cast deals x<font color='#ccff66'>3</font> of Seinaru's damage to enemies nearby."
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"DURATION:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"AGILITY TO ATTACK DAMAGE:"
 
@@ -9982,7 +9982,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_suffix"					""
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_2"							"[Q2] Frost Nova"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"Casting arcane explosion twice in succession releases a blood-freezing Frost Nova. Frozen enemies are rooted. 10 second cooldown. Your water elemental will cast this at the same time. Also increases implied spell pierce against frozen enemies."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"Casting arcane explosion twice in succession releases a blood-freezing Frost Nova. Frozen enemies are rooted. 10 second cooldown. Your water elemental will cast this at the same time."
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_two"				"Freeze Duration"
@@ -10048,9 +10048,6 @@
     	"DOTA_Tooltip_ability_sorceress_rune_w_4_property_one"				"Arcane Explosion Damage Increase"
     	"DOTA_Tooltip_ability_sorceress_rune_w_4_suffix"					"%"
 
-    	"DOTA_Tooltip_modifier_arcane_enchantment"							"Arcane Enchantment"
-    	"DOTA_Tooltip_modifier_arcane_enchantment_Description"				"Your Ice Lances and Fireballs are enhanced."
-
 		"DOTA_Tooltip_ability_sorceress_blink"							"Blink"
 		"DOTA_Tooltip_ability_sorceress_blink_Description"				"Teleports the Sorceress to the target position. 50% chance to refresh Ultimate's cooldown and go into a Clear Casting state. In Clear Cast your Ultimate is instant cast and has a 1 second cooldown, and deals amplified damage."
 		"DOTA_Tooltip_ability_sorceress_blink_Lore"						""
@@ -10058,7 +10055,7 @@
 		"DOTA_Tooltip_ability_sorceress_blink_amp"						"CLEAR CAST SPELL AMPLIFICATION:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_1"							"[E1] Flicker"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_1_Description"				"When you cast blink you gain Flicker charges. If you have 10 or more Flicker charges - blink's cooldown does not activate. Free blinks do not gain Flicker Charges."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_1_Description"				"When you cast blink you gain Flicker charges. If you have 10 or more Flicker charges, ability will spend charges instead of going on cooldown. Free blinks do not gain Flicker Charges."
     	"DOTA_Tooltip_ability_sorceress_rune_e_1_property_one"				"Charges gained on Blink"
     	"DOTA_Tooltip_ability_sorceress_rune_e_1_suffix"					""
 			
@@ -11129,9 +11126,6 @@
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
 
-    	"DOTA_Tooltip_modifier_venomort_rune_r_4"							"Contamination"
-    	"DOTA_Tooltip_modifier_venomort_rune_r_4_Description"				"Gaining Base Ability Damage"
-
     	"DOTA_Tooltip_modifier_q_1_nova"										"Poison Nova"
     	"DOTA_Tooltip_modifier_q_1_nova_Description"							"Venomort's old Q1 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
 		
@@ -11488,7 +11482,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_r_3_property_one"					"Damage Increase"
     	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix"						""
     	"DOTA_Tooltip_ability_voltex_rune_r_3_property_two"					"Magic Armor Bonus"
-    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix_two"					"%"
+    	"DOTA_Tooltip_ability_voltex_rune_r_3_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar"						"Avatar"
     	"DOTA_Tooltip_modifier_voltex_rune_r_3_avatar_Description"			"Increased attack speed, range, damage, and Magic Armor."
@@ -11803,13 +11797,13 @@
     	"DOTA_Tooltip_ability_zhonik_temporal_field_damage_resistance"	"ZHONIK DAMAGE RESISTANCE %:"
 
     	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik"				"Warp Field"
-    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik_Description"	"Increased movespeed and movespeed cap. Taking 80%% reduced damage. Cleansing stuns and silences."
+    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik_Description"	"Increased movespeed and movespeed cap. Taking <font color='#ccff66'>30</font>%% reduced damage. Cleansing stuns and silences."
 
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy"					"Warp Field"
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"Reduced movespeed"		
 
   		"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1"						"[E1] Shattered Time"
-    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Every second that an enemy is within the warp field, they gain a stack of shattered time. Enemies with the Shattered Time debuff take increased <font color=\"#B5FFB7\">Temporal</font> damage from Zhonik. Max 20 stacks."
+    	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_Description"			"Every second that an enemy is within the warp field, they gain a stack of shattered time. Enemies with the Shattered Time debuff lose Magic Armor with each stack. Max 20 stacks."
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_property_one"			"Magic Armor Loss"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_arcana1_suffix"				" per stack"
 
@@ -13062,7 +13056,26 @@
 		"item_rpc_crimson_skull_cap_amethyst1" "Increases <font color=\"#5C776E\">Undead</font> elemental damage by @amethyst_property1"
 
 		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown"	"Crimson Skull Cap (Sapphire)"
-		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Wearer explodes when this effect wears off"
+		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Wearer explodes when this buff expires"
+		
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
+		"item_property_ruby_dragon"					"Ruby Dragon"
+		"property_ruby_dragon_description"			"The wearer has a permanent Ruby Dragon companion with a Flame Breath ability. The dragon has <font color='#ccff66'>100</font>HP per level and <font color='#ccff66'>10</font> base attack damage per level. All damage dealt by the dragon is attributed to its master."
+
+		"ruby_dragon_3"							"Ruby Dragon"
+
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai"	"Dragon AI"
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai_Description"	"Toggle On to activate the Dragon's default behavior"
+
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath"	"Flame Breath"
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_Description"	"Spits fire in a cone ahead of the caster. Damage is based on caster's attack power."
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_attack_mult"	"DAMAGE x ATTACK POWER:"
+
+		"item_rpc_crown_of_ruby_dragon_ruby1"	"Increases Ruby Dragon's base attack power per level by @ruby_property1"
+		"item_rpc_crown_of_ruby_dragon_emerald1"	"Enemies hit by Ruby Dragon's flame breath burn for @emerald_property1% of the initial damage every 0.5 seconds for <font color='#ccff66'>5</font> seconds."
+		"item_rpc_crown_of_ruby_dragon_sapphire1" "Increases Ruby Dragon's Attack Speed and Movespeed by @sapphire_property1"
+		"item_rpc_crown_of_ruby_dragon_amethyst1" "Ruby Dragon's basic attacks have a splash effect, dealing @amethyst_property1% of the attack damage in a <font color='#ccff66'>260</font> radius"
+
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -13088,11 +13101,6 @@
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
 		"property_hyper_visor2_description"			"<font color='#ccff66'>20</font>% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on <font color='#ccff66'>40</font>x your attack power. Changes your Base Attack Time to <font color='#ccff66'>1.2</font> seconds.<br>All damage dealt directly by items is enhanced by <font color='#ccff66'>0.3</font>% for each <font color='#ccff66'>10</font> points of Agility."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
-		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"Casting @Ability4 summons an invulnerable Ruby Dragon which patrols the sky around you for <font color='#ccff66'>15</font> seconds. It will bombard enemies with fire breath, dealing <font color='#ccff66'>5000</font>x your Strength on impact; targets will then burn for <font color='#ccff66'>9</font> seconds, taking <font color='#ccff66'>1500</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Each time a single unit is struck by fire breath, it will generate a new burn debuff, and each burn debuff deals damage and expires independently."
 		
 		
 		

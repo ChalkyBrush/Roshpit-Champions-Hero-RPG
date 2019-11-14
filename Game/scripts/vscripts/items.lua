@@ -1070,7 +1070,9 @@ function RPCItems:ItemSwapInput(msg)
 		
 
 		if oldGear then
-			UTIL_Remove(oldGear)
+			Timers:CreateTimer(1, function()
+				UTIL_Remove(oldGear)
+			end)
 		end
 		hero:RemoveModifierByName("modifier_equip_ui_open")
 		EmitGlobalSound("RPC.EquipItem")

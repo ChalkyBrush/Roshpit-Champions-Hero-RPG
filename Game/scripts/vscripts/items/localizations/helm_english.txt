@@ -158,7 +158,26 @@
 		"item_rpc_crimson_skull_cap_amethyst1" "Increases <font color=\"#5C776E\">Undead</font> elemental damage by @amethyst_property1"
 
 		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown"	"Crimson Skull Cap (Sapphire)"
-		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Wearer explodes when this effect wears off"
+		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Wearer explodes when this buff expires"
+		
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
+		"item_property_ruby_dragon"					"Ruby Dragon"
+		"property_ruby_dragon_description"			"The wearer has a permanent Ruby Dragon companion with a Flame Breath ability. The dragon has <% RUBY_DRAGON_HP_PER_HERO_LEVEL %>HP per level and <% RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL %> base attack damage per level. All damage dealt by the dragon is attributed to its master."
+
+		"ruby_dragon_3"							"Ruby Dragon"
+
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai"	"Dragon AI"
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai_Description"	"Toggle On to activate the Dragon's default behavior"
+
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath"	"Flame Breath"
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_Description"	"Spits fire in a cone ahead of the caster. Damage is based on caster's attack power."
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_attack_mult"	"DAMAGE x ATTACK POWER:"
+
+		"item_rpc_crown_of_ruby_dragon_ruby1"	"Increases Ruby Dragon's base attack power per level by @ruby_property1"
+		"item_rpc_crown_of_ruby_dragon_emerald1"	"Enemies hit by Ruby Dragon's flame breath burn for @emerald_property1% of the initial damage every 0.5 seconds for <% RUBY_DRAGON_EMERALD_BURN_DURATION %> seconds."
+		"item_rpc_crown_of_ruby_dragon_sapphire1" "Increases Ruby Dragon's Attack Speed and Movespeed by @sapphire_property1"
+		"item_rpc_crown_of_ruby_dragon_amethyst1" "Ruby Dragon's basic attacks have a splash effect, dealing @amethyst_property1% of the attack damage in a <% RUBY_DRAGON_AMETHYST_ATTACK_SPLASH_AOE %> radius"
+
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -184,11 +203,6 @@
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
 		"property_hyper_visor2_description"			"<% HYPER_VISOR_CHANCE %>% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on <% HYPER_VISOR_ATTACK_TO_DMG %>x your attack power. Changes your Base Attack Time to <% HYPER_VISOR_BAT %> seconds.<br>All damage dealt directly by items is enhanced by <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% for each <% HYPER_VISOR_AGI_DIVISOR %> points of Agility."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
-		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"Casting @Ability4 summons an invulnerable Ruby Dragon which patrols the sky around you for <% RUBY_DRAGON_DURATION %> seconds. It will bombard enemies with fire breath, dealing <% RUBY_DRAGON_IMPACT_DMG_PER_STR %>x your Strength on impact; targets will then burn for <% RUBY_DRAGON_TICK_DURATION %> seconds, taking <% RUBY_DRAGON_TICK_DMG_PER_STR %>x your Strength every <% RUBY_DRAGON_TICK_INTERVAL %> seconds. Each time a single unit is struck by fire breath, it will generate a new burn debuff, and each burn debuff deals damage and expires independently."
 		
 		
 		

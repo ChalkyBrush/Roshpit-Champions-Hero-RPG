@@ -39,7 +39,21 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
 		"item_property_ruby_dragon"					"红龙"
-		"property_ruby_dragon_description"			"成功释放 @Ability4 召唤一只火龙在你周围巡逻 <% RUBY_DRAGON_DURATION %> 秒.它会对敌人喷火,造成 <% RUBY_DRAGON_IMPACT_DMG_PER_STR %>x 你的力量值的伤害; 被伤害的敌人随后会燃烧 <% RUBY_DRAGON_TICK_DURATION %> 秒,受到 <% RUBY_DRAGON_TICK_DMG_PER_STR %>x 你的力量值 的伤害每 <% RUBY_DRAGON_TICK_INTERVAL %> 秒.每次一个单位被火龙吐息击中, 它会产生一层新的燃烧buff, 且每层燃烧buff 造成伤害和持续时间互相独立"
+		"property_ruby_dragon_description"			"The wearer has a permanent Ruby Dragon companion with a Flame Breath ability. The dragon has <% RUBY_DRAGON_HP_PER_HERO_LEVEL %>HP per level and <% RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL %> base attack damage per level. All damage dealt by the dragon is attributed to its master."
+
+		"ruby_dragon_3"							"Ruby Dragon"
+
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai"	"Dragon AI"
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai_Description"	"Toggle On to activate the Dragon's default behavior"
+
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath"	"Flame Breath"
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_Description"	"Spits fire in a cone ahead of the caster. Damage is based on caster's attack power."
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_attack_mult"	"DAMAGE x ATTACK POWER:"
+
+		"item_rpc_crown_of_ruby_dragon_ruby1"	"Increases Ruby Dragon's base attack power per level by @ruby_property1"
+		"item_rpc_crown_of_ruby_dragon_emerald1"	"Enemies hit by Ruby Dragon's flame breath burn for @emerald_property1% of the initial damage every 0.5 seconds for <% RUBY_DRAGON_EMERALD_BURN_DURATION %> seconds."
+		"item_rpc_crown_of_ruby_dragon_sapphire1" "Increases Ruby Dragon's Attack Speed and Movespeed by @sapphire_property1"
+		"item_rpc_crown_of_ruby_dragon_amethyst1" "Ruby Dragon's basic attacks have a splash effect, dealing @amethyst_property1% of the attack damage in a <% RUBY_DRAGON_AMETHYST_ATTACK_SPLASH_AOE %> radius"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"半人马角"	
