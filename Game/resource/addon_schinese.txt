@@ -13212,7 +13212,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"四季之眼"
 		 "item_property_eye_of_seasons"						"绯红"
-		 "property_eye_of_seasons_description"				"增加敏捷值和力量值，增加量为智力值的<font color='#ccff66'>45</font>%"
+		 "property_eye_of_seasons_description"				"增加敏捷值和力量值，增加量为智力值的<font color='#ccff66'>50</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"沉寂圣殿骑士的头盔"

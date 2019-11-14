@@ -13019,7 +13019,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Увеличивает показатели Силы и Ловкости на <font color='#ccff66'>45</font>% от Интеллекта."
+		 "property_eye_of_seasons_description"				"Увеличивает показатели Силы и Ловкости на <font color='#ccff66'>50</font>% от Интеллекта."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"

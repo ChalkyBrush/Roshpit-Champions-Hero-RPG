@@ -280,6 +280,13 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	return intellect
 end
 
+function CDOTA_BaseNPC_Hero:GetBaseSpirit()
+	local spirit = self:GetSpirit()
+	local modifier = nil
+
+	return spirit
+end
+
 function CDOTA_BaseNPC:SetMaxHPandHealToFull(hp)
 	self:SetMaxHealth(hp)
 	self:SetBaseMaxHealth(hp)

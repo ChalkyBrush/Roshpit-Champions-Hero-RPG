@@ -958,7 +958,7 @@ function CanyonBossDeath(caster, ability)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollEyeOfSeasons(caster:GetAbsOrigin(), false)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_eye_of_seasons")
 		end
 	end)
 	caster:BossDrops(11)

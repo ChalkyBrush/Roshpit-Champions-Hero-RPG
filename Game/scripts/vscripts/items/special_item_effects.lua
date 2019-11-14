@@ -3696,6 +3696,9 @@ function eye_of_seasons_think(event)
 	local ability = event.ability
 
 	local stats = math.floor(target:GetBaseIntellect() * EYE_OF_SEASONS_INT_TO_STR_AGI)
+	if ability:GetGemValue("ruby") > 0 then
+		stats = stats + math.floor(target:GetBaseSpirit() * ability:GetFinalGemPropertyValue("ruby", EYE_OF_SEASONS_RUBY)/100)
+	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_eye_of_seasons_stats", {})
 	target:SetModifierStackCount("modifier_eye_of_seasons_stats", caster, stats)
 end

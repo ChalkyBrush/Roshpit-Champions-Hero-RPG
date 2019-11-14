@@ -244,10 +244,19 @@
 		"item_property_excavator"							"Enhance Gear"
 		"property_excavator_description"					"Damage dealt directly by items is increased by the average of your Base Ability Damage amplifications."
 
-		"item_rpc_excavators_focus_cap_ruby1"	"Increases strength by @ruby_property1%"
-		"item_rpc_excavators_focus_cap_emerald1"	"Increases agility by @emerald_property1%"
-		"item_rpc_excavators_focus_cap_sapphire1" "Increases intelligence by @sapphire_property1%"
-		"item_rpc_excavators_focus_cap_amethyst1" "Increases spirit by @amethyst_property1%"
+		"item_rpc_excavators_focus_cap_ruby1"	"Increases Rune [Q3] by @ruby_property1%"
+		"item_rpc_excavators_focus_cap_emerald1"	"Increases Rune [W3] by @emerald_property1%"
+		"item_rpc_excavators_focus_cap_sapphire1" "Increases Rune [E3] by @sapphire_property1%"
+		"item_rpc_excavators_focus_cap_amethyst1" "Increases Rune [R3] by @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
+		 "item_property_eye_of_seasons"						"Crimson Solstice"
+		 "property_eye_of_seasons_description"				"Increases Strength and Agility by <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %>% of Intelligence."
+
+		"item_rpc_eye_of_seasons_ruby1"	"Strength and Agility are also increased by @ruby_property1% of Spirit"
+		"item_rpc_eye_of_seasons_emerald1"	"Increases T1 runes by @emerald_property1"
+		"item_rpc_eye_of_seasons_sapphire1" "Increases Intelligence by @sapphire_property1"
+		"item_rpc_eye_of_seasons_amethyst1" "Increases T2 runes by @amethyst_property1"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -397,14 +406,6 @@
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
 		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by <% BLACK_MAGE_MAGIC_POST_MITI %>%. Damage dealt directly by items is reduced by <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
-		 
-		 
-
-		 
-		
-    	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
-		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Increases Strength and Agility by <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %>% of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"

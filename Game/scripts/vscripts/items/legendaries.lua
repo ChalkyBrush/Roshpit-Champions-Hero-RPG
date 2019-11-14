@@ -3722,16 +3722,43 @@ function RPCItems:RollExcavatorsFocusHat(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_excavators_focus_cap"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_excavator", "#7300DE", 1, "#property_excavator_description")
 
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit", "base_ability"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1.5)
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        local attr_rolls = {"strength", "agility", "intelligence", "spirit", "base_ability"}
+        local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "item_damage", 2.5)
+    end
 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollEyeOfSeasons(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_eye_of_seasons", "immortal", "Eye of Seasons", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_eye_of_seasons"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eye_of_seasons", "#E8985F", 1, "#property_eye_of_seasons_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -4271,25 +4298,6 @@ function RPCItems:RollIgneousCanineHelm(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_igneous_canine", "#EDDA61", 1, "#property_igneous_canine_description")
 
     RPCItems:RollHoodProperty2(item, 0)
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollEyeOfSeasons(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_eye_of_seasons", "immortal", "Eye of Seasons", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "eye_of_seasons"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eye_of_seasons", "#E8985F", 1, "#property_eye_of_seasons_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = WallPhysics:round(value * 1.5, 0)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)

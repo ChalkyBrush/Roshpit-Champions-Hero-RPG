@@ -310,13 +310,29 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		end
 	elseif item:GetAbilityName() == "item_rpc_excavators_focus_cap" then
 		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", EXCAVATOR_RUBY, hero, "strength", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", EXCAVATOR_RUBY, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
 		elseif socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EXCAVATOR_EMERALD, hero, "agility", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EXCAVATOR_EMERALD, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
 		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", EXCAVATOR_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", EXCAVATOR_SAPPHIRE, hero, "rune_e_3", RPC_GEAR_SLOT_HEAD)
 		elseif socket_type == "amethyst" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EXCAVATOR_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EXCAVATOR_AMETHYST, hero, "rune_r_3", RPC_GEAR_SLOT_HEAD)
+		end
+	elseif item:GetAbilityName() == "item_rpc_eye_of_seasons" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", EXCAVATOR_RUBY, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_q_1", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_w_1", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_e_1", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_r_1", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", EYE_OF_SEASONS_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EYE_OF_SEASONS_AMETHYST, hero, "rune_q_2", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EYE_OF_SEASONS_AMETHYST, hero, "rune_w_2", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EYE_OF_SEASONS_AMETHYST, hero, "rune_e_2", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EYE_OF_SEASONS_AMETHYST, hero, "rune_r_2", RPC_GEAR_SLOT_HEAD)
 		end
 	end
 end
