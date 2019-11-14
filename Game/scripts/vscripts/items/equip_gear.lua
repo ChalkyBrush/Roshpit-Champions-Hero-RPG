@@ -274,6 +274,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", LAVA_FORGE_AMETHYST, hero, "element_fire", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", LAVA_FORGE_AMETHYST, hero, "element_wind", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_crown_of_the_roknar_emperor" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ROKNAR_SAPPHIRE, hero, "armor", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

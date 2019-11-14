@@ -13114,7 +13114,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"兽王之冠"
 		"item_property_roknar_emperor"				"永恒守护"
-		"property_roknar_emperor_description"		"当你被击晕或击退时，每<font color='#ccff66'>0.25</font>秒回复<font color='#ccff66'>12</font>%的最大生命值。"
+		"property_roknar_emperor_description"		"当你被击晕或击退时，每<font color='#ccff66'>0.25</font>秒回复<font color='#ccff66'>8</font>%的最大生命值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"死灵法师面具"

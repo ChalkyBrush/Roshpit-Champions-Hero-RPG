@@ -3596,6 +3596,32 @@ function RPCItems:RollLavaForgeCrown(item_level)
     return item
 end
 
+function RPCItems:RollRoknarEmperor(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_crown_of_the_roknar_emperor", "immortal", "Crown of the Rok'nar Emperor", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_crown_of_the_roknar_emperor"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_roknar_emperor", "#72BD28", 1, "#property_roknar_emperor_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, "item_rpc_crown_of_the_roknar_emperor", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4599,28 +4625,6 @@ function RPCItems:RollDruidsSpiritHelm(item_level)
     item.newItemTable.property3 = value
     item.newItemTable.property3name = "intelligence"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_intelligence", "#33CCFF", 3)
-
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollRoknarEmperor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_crown_of_the_roknar_emperor", "immortal", "Crown of the Rok'nar Emperor", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "roknar"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_roknar_emperor", "#72BD28", 1, "#property_roknar_emperor_description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(100, 8, 13, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "strength"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 300, 800, 1, 1, item.newItemTable.rarity, false, maxFactor * 500)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_max_health", "#B02020", 3)
 
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
@@ -8860,7 +8864,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     local itemsList = {}
     if gear_slot == RPC_GEAR_SLOT_HEAD then
         itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
-        "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon"}
+        "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor"}
     end
     return itemsList
 end

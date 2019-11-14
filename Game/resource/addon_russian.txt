@@ -12921,7 +12921,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
 		"item_property_roknar_emperor"				"Enduring Protection"
-		"property_roknar_emperor_description"		"Во время оглушения или отталкивания, восстанавливает <font color='#ccff66'>12</font>% от макс. здоровья каждые <font color='#ccff66'>0.25</font> секунды."
+		"property_roknar_emperor_description"		"Во время оглушения или отталкивания, восстанавливает <font color='#ccff66'>8</font>% от макс. здоровья каждые <font color='#ccff66'>0.25</font> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"

@@ -1433,6 +1433,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	        armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", ORTHOK_EMERALD)*current_stack
 	    end
     end
+    if unit:HasModifier("modifier_crown_of_the_roknar_emperor") then
+    	local helm = unit:FindModifierByName("modifier_crown_of_the_roknar_emperor"):GetAbility()
+    	if helm:GetGemValue("ruby") > 0 then
+	    	if unit:HasModifier("modifier_stunned") or unit:HasModifier("modifier_knockback") or unit:IsStunned() then
+	    		armor_pierce_modify = armor_pierce_modify + helm:GetFinalGemPropertyValue("ruby", ROKNAR_RUBY)
+	    	end
+	    end
+    end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
@@ -1601,6 +1609,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
     	if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
 	        local current_stack = unit:GetModifierStackCount("modifier_orthok_zeal", unit.InventoryUnit)
 	        spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", ORTHOK_EMERALD)*current_stack
+	    end
+    end
+    if unit:HasModifier("modifier_crown_of_the_roknar_emperor") then
+    	local helm = unit:FindModifierByName("modifier_crown_of_the_roknar_emperor"):GetAbility()
+    	if helm:GetGemValue("ruby") > 0 then
+	    	if unit:HasModifier("modifier_stunned") or unit:HasModifier("modifier_knockback") or unit:IsStunned() then
+	    		spell_pierce_modify = spell_pierce_modify + helm:GetFinalGemPropertyValue("ruby", ROKNAR_RUBY)
+	    	end
 	    end
     end
 

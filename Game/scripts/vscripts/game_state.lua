@@ -1592,6 +1592,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_gravelfoot_buff") then
 		damage = damage * (100-GRAVELFOOT_DMG_REDUCTION)/100
 	end
+	if victim:HasModifier("modifier_crown_of_the_roknar_emperor") then
+		damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ROKNAR_AMETHYST))/100
+	end
 	if victim:HasModifier("modifier_jex_magic_immunity") then
 		local barrier_ability = victim:FindModifierByName("modifier_jex_magic_immunity"):GetAbility()
 		local reduce_pct = barrier_ability:GetSpecialValueFor("q_4_damage_reduction_pct")

@@ -2110,6 +2110,7 @@ end
 
 function roknar_think(event)
 	local target = event.target
+	local ability = event.ability
 	if target:HasModifier("modifier_stunned") or target:HasModifier("modifier_knockback") or target:IsStunned() then
 		local particleName = "particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
@@ -2117,7 +2118,7 @@ function roknar_think(event)
 		Timers:CreateTimer(0.2, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		local heal = target:GetMaxHealth() * ROKNAR_EMPEROR_HP_PCT/100
+		local heal = target:GetMaxHealth() * (ROKNAR_EMPEROR_HP_PCT/100 + ability:GetFinalGemPropertyValue("emerald", ROKNAR_EMERALD)/100)
 		Filters:ApplyHeal(target, target, heal, true)
 	end
 end
