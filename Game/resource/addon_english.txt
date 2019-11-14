@@ -13156,6 +13156,15 @@
 		"item_rpc_eye_of_seasons_sapphire1" "Increases Intelligence by @sapphire_property1"
 		"item_rpc_eye_of_seasons_amethyst1" "Increases T2 runes by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
+		"item_property_fire_deity"							"Wrath of Fire"
+		"property_fire_deity_description"					"@Ability2 damage instances have a <font color='#ccff66'>15</font>% chance to trigger a pyroclastic blast, dealing <font color='#ccff66'>20</font>% of the ability's damage and stunning enemies for <font color='#ccff66'>0.3</font> seconds in a small area around the target. Max <font color='#ccff66'>4</font> procs per second."
+
+		"item_rpc_fire_deity_crown_ruby1"	"Increases proc chance by an additional @ruby_property1%"
+		"item_rpc_fire_deity_crown_emerald1"	"Increases explosion damage by @emerald_property1"
+		"item_rpc_fire_deity_crown_sapphire1" "Increases stun duration by @sapphire_property1"
+		"item_rpc_fire_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13327,10 +13336,6 @@
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
-		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability2 damage instances have a <font color='#ccff66'>20</font>% chance to be converted into pyroclastic blasts instead, dealing <font color='#ccff66'>250</font>% of the ability's damage and stunning enemies for <font color='#ccff66'>0.6</font> seconds in a small area around the target. This item caps your <font color=\"#EF4126\">Fire</font> elemental damage bonus at <font color='#ccff66'>5000</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"

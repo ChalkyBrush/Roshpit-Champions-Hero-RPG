@@ -359,11 +359,11 @@ function ancient_boss_die_begin(event)
 			paragonBonus = 4
 		end
 		if caster.element == 1 then
-			RPCItems:RollWindDeityCrown(casterOrigin, bSpirit, paragonBonus)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_wind_deity_crown")
 		elseif caster.element == 2 then
-			RPCItems:RollWaterDeityCrown(casterOrigin, bSpirit, paragonBonus)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_water_deity_crown")
 		elseif caster.element == 3 then
-			RPCItems:RollFireDeityCrown(casterOrigin, bSpirit, paragonBonus)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_fire_deity_crown")
 		end
 	end)
 	local itemDropCount = 12

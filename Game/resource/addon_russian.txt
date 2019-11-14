@@ -13046,7 +13046,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <font color='#ccff66'>20</font>% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный <font color='#ccff66'>250</font>% от урона способности и окружит ближайших врагов на <font color='#ccff66'>0.6</font> секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на <font color='#ccff66'>5000</font>%."
+		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <font color='#ccff66'>15</font>% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный <font color='#ccff66'>20</font>% от урона способности и окружит ближайших врагов на <font color='#ccff66'>0.3</font> секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на <font color='#ccff66'>0</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"

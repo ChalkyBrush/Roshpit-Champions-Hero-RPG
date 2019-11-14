@@ -1242,6 +1242,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if attacker:HasModifier("modifier_demon_mask") and slot == BASE_ABILITY_Q then
         Filters:DemonMask(attacker, victim, damage)
     end
+    if attacker:HasModifier("modifier_fire_deity_crown") and slot == BASE_ABILITY_W then
+        Filters:FireDeity(attacker, victim, damage)
+    end
 
     local damageData = attacker._damage_data or {}
 
@@ -1566,20 +1569,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
         end
         if not ignore_effects then
-            local indirectProcW = false
-            if attacker:HasModifier("modifier_fire_deity_crown") and Filters:FireDeity(attacker, victim, damage) then
-                indirectProcW = true
-            end
-            if attacker:HasModifier("modifier_frostburn_gauntlets") and Filters:FrostburnGauntlet(attacker, victim, damage) then
-                indirectProcW = true
-            end
-            if not indirectProcW then
-                Filters:ApplyWdamage(victim, attacker, damage, damage_type)
-            else
-                damageData.isAugmented = true
-            end
+            Filters:ApplyWdamage(victim, attacker, damage, damage_type)
         end
-
     elseif slot == BASE_ABILITY_E then
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + ADMIRAL_BOOTS_BAD_E/100
@@ -2052,9 +2043,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         fireMult = fireMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_fire", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_fire", 1))/100
-        if fireMult > FIRE_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_fire_deity_crown") then
-            fireMult = FIRE_DEITY_CROWN_ELEMENT_CAP/100
-        end
 
         mult = mult + fireMult
     end
@@ -3380,14 +3368,14 @@ function Filters:DemonMask(caster, target, damage)
             Timers:CreateTimer(1.2, function()
                 ParticleManager:DestroyParticle(pfx, false)
             end)
-        end)
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, DEMON_MASK_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        Timers:CreateTimer(0.1, function()
-            if #enemies > 0 then
-                for _, enemy in pairs(enemies) do
-                    Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, DEMON_MASK_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            Timers:CreateTimer(0.1, function()
+                if #enemies > 0 then
+                    for _, enemy in pairs(enemies) do
+                        Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+                    end
                 end
-            end
+            end)
         end)
         return true
     else
@@ -3962,14 +3950,16 @@ function Filters:ManawallDamageTaken(victim, damage)
 end
 
 function Filters:FireDeity(attacker, victim, damage)
+    local fire_crown = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local chance = FIRE_DEITY_CROWN_CHANCE + fire_crown:GetFinalGemPropertyValue("ruby", FIRE_DEITY_RUBY)
     local proc = Filters:GetProc(attacker, FIRE_DEITY_CROWN_CHANCE)
     if proc then
-        damage = damage * FIRE_DEITY_CROWN_AMP/100
+        damage = damage * FIRE_DEITY_CROWN_AMP/100 + fire_crown:GetFinalGemPropertyValue("emerald", FIRE_DEITY_EMERALD)
         local target = victim
         local radius = FIRE_DEITY_CROWN_AOE
-
+        local procs_per_second = FIRE_DEITY_MAX_PROCS_PER_SECOND + fire_crown:GetFinalGemPropertyValue("amethyst", FIRE_DEITY_AMETHYST)
         local limitKey = attacker:GetPlayerOwnerID() .. '_fire_deity'
-        Util.Common:LimitPerTime(4, 1, limitKey, function()
+        Util.Common:LimitPerTime(procs_per_second, 1, limitKey, function()
             local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
             local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
             ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
@@ -3987,14 +3977,15 @@ function Filters:FireDeity(attacker, victim, damage)
                 ParticleManager:DestroyParticle(particle1, false)
             end)
             EmitSoundOn("RoshpitItem.FireDeity", target)
-        end)
-        local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        if #enemies > 0 then
-            for _, enemy in pairs(enemies) do
-                Filters:ApplyStun(attacker, FIRE_DEITY_CROWN_STUN_DURATION, enemy)
-                Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+            local stun_duration = FIRE_DEITY_CROWN_STUN_DURATION + fire_crown:GetFinalGemPropertyValue("sapphire", FIRE_DEITY_SAPPHIRE)
+            local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            if #enemies > 0 then
+                for _, enemy in pairs(enemies) do
+                    Filters:ApplyStun(attacker, stun_duration, enemy)
+                    Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+                end
             end
-        end
+        end)
         return true
     end
 end

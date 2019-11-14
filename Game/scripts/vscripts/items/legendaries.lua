@@ -3764,6 +3764,34 @@ function RPCItems:RollEyeOfSeasons(item_level)
     return item
 end
 
+function RPCItems:RollFireDeityCrown(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_fire_deity_crown", "immortal", "Fire Deity Crown", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_fire_deity_crown"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_deity", "#E85A4A", 1, "#property_fire_deity_description")
+
+    local rune_type = RPCItems:RollRuneType({"w"}, {tier3 = 80, tier4 = 20})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "element_fire", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8005,45 +8033,6 @@ function RPCItems:RollWaterDeityCrown(deathLocation, isSpirit, paragonBonus)
     return item
 end
 
-function RPCItems:RollFireDeityCrown(deathLocation, isSpirit, paragonBonus)
-    local item = RPCItems:CreateVariant("item_rpc_fire_deity_crown", "immortal", "Fire Deity Crown", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "fire_deity"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_deity", "#E85A4A", 1, "#property_fire_deity_description")
-
-    item.newItemTable.hasRunePoints = true
-    if not paragonBonus then
-        paragonBonus = 0
-    end
-    local runeName = "rune_w_3"
-    local runeValue = 0
-    if isSpirit then
-        runeValue = RPCItems:GetLogarithmicVarianceValue(45 + (paragonBonus * 2), 0, 0, 0, 0)
-    else
-        runeValue = RPCItems:GetLogarithmicVarianceValue(25 + (paragonBonus * 2), 0, 0, 0, 0)
-    end
-    local luck = RandomInt(1, 3)
-    if luck == 3 then
-        runeName = "rune_w_4"
-        if isSpirit then
-            runeValue = RPCItems:GetLogarithmicVarianceValue(20 + paragonBonus, 0, 0, 0, 0)
-        else
-            runeValue = RPCItems:GetLogarithmicVarianceValue(13 + paragonBonus, 0, 0, 0, 0)
-        end
-    end
-    item.newItemTable.property2name = runeName
-    item.newItemTable.property2 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollChampionsGearGauntlet(item_level)
     local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_champions", "immortal", "champions_gear", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8537,7 +8526,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_water_deity_crown" then
         newItem = RPCItems:RollWaterDeityCrown(item_level, 0)
     elseif itemName == "item_rpc_fire_deity_crown" then
-        newItem = RPCItems:RollFireDeityCrown(item_level, 0)
+        newItem = RPCItems:RollFireDeityCrown(item_level)
     elseif itemName == "item_rpc_skulldigger_gauntlet_lv1" then
         newItem = RPCItems:RollSkulldiggerGlovesLV1(item_level)
     elseif itemName == "item_rpc_shipyard_veil_lv1" then
