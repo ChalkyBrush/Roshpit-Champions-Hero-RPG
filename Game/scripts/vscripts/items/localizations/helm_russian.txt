@@ -121,7 +121,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% отнимается из маны вместо здоровья. 1 очко маны может поглотить <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> урона. Эффект не работает при показателе маны ниже <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% отнимается из маны вместо здоровья. 1 очко маны может поглотить <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> урона."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"

@@ -38532,50 +38532,6 @@
 		}
 	}
 
-
-	"item_rpc_emerald_douli"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/emerald_douli" //"emerald_douli"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_emerald_douli"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Duration"  		"99999"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-		}
-	}
-
 	"item_rpc_mask_of_tyrius"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -52260,6 +52216,92 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"TextureName"	"winterblight/p2/goldbreaker"
+			}
+		}
+	}
+
+	"item_rpc_emerald_douli"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/emerald_douli" //"emerald_douli"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_emerald_douli"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"emerald_douli_thinker"
+						"target"        "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_douli_mana_up"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_douli_mana_up"
+			{
+				"IsHidden" "1"
+				"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"3 6 9 12 15"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"0.2 0.4 0.6 0.8 1"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"20 40 60 80 100"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"0.06 0.12 0.18 0.24 0.3"
 			}
 		}
 	}

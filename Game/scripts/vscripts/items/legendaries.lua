@@ -3686,6 +3686,33 @@ function RPCItems:RollDemonMask(item_level, waveBonus)
     return item
 end
 
+function RPCItems:RollEmeraldDouli(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_emerald_douli", "immortal", "Emerald Douli", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_emerald_douli"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_douli", "#1DDB49", 1, "#property_emerald_douli_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.2)
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "max_mana", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "max_health", 1.5)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4182,39 +4209,6 @@ function RPCItems:RollWraithHuntersSteelHelm(item_level)
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 
     RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollEmeraldDouli(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_emerald_douli", "immortal", "Emerald Douli", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "emerald_douli"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_douli", "#1DDB49", 1, "#property_emerald_douli_description")
-
-    local luck = RandomInt(1, 9)
-    if luck == 1 then
-		item.newItemTable.hasRunePoints = true
-		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
-		item.newItemTable.property2 = math.ceil(value * 0.85)
-		item.newItemTable.property2name = runeName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-	else
-		item.newItemTable.hasRunePoints = true
-		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
-		item.newItemTable.property2name = propertyName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-	end
-
-    value, prefixLevel = RPCItems:RollAttribute(300, 100, 500, 0, 1, item.newItemTable.rarity, false, maxFactor * 200)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "max_mana"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_max_mana", "#343EC9", 3)
-
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
@@ -8843,7 +8837,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     local itemsList = {}
     if gear_slot == RPC_GEAR_SLOT_HEAD then
         itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
-        "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm"}
+        "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli"}
     end
     return itemsList
 end

@@ -12857,7 +12857,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
 		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<font color='#ccff66'>95</font>% отнимается из маны вместо здоровья. 1 очко маны может поглотить <font color='#ccff66'>5</font> урона. Эффект не работает при показателе маны ниже <font color='#ccff66'>10</font>%."
+		"property_emerald_douli_description"		"<font color='#ccff66'>50</font>% отнимается из маны вместо здоровья. 1 очко маны может поглотить <font color='#ccff66'>2</font> урона."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"

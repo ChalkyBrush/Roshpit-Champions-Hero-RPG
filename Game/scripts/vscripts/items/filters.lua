@@ -3372,7 +3372,7 @@ function Filters:DemonMask(caster, target, damage)
         local demon_mask_amp = DEMON_MASK_AMP + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY)
         damage = damage * (demon_mask_amp/100)
         local limitKey = caster:GetPlayerOwnerID() .. '_demon_mask'
-        Util.Common:LimitPerTime(4, 1, limitKey, function()
+        Util.Common:LimitPerTime(DEMON_MASK_MAX_PROCS_PER_SEC, 1, limitKey, function()
             EmitSoundOn("RPCItem.DemonMask", target)
             local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/demon_mask_3.vpcf", PATTACH_CUSTOMORIGIN, caster)
             ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 115))
@@ -3469,15 +3469,20 @@ end
 
 function Filters:EmeraldDouliHit(victim, damage)
     if damage > 0 then
-        local manaDamage = damage * (EMERALD_DOULI_ABSORBED_DMG_PCT / 100) / EMERALD_DOULI_DMG_ABSORB_PER_MANA
-        local normalDamage = damage * (1 - EMERALD_DOULI_ABSORBED_DMG_PCT / 100)
-        local availableMana = victim:GetMana() - victim:GetMaxMana() * EMERALD_DOULI_MANA_THRESHOLD_PCT / 100
+        local dmg_absorb_per_mana = EMERALD_DOULI_DMG_ABSORB_PER_MANA + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", EMERALD_DOULI_EMERALD)
+        local douli_damage_absorb_pct = EMERALD_DOULI_ABSORBED_DMG_PCT + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", EMERALD_DOULI_RUBY)
+
+        local manaDamage = damage * (douli_damage_absorb_pct / 100) / dmg_absorb_per_mana
+        local normalDamage = damage * (1 - douli_damage_absorb_pct / 100)
+        local availableMana = victim:GetMana()
         if availableMana > manaDamage then
+            print("MANA DAMAGE: "..manaDamage)
+            print("NORMAL DAMAGE: "..normalDamage)
             victim:ReduceMana(manaDamage)
             return normalDamage
         else
             victim:ReduceMana(availableMana)
-            return (manaDamage - availableMana) * EMERALD_DOULI_DMG_ABSORB_PER_MANA + normalDamage
+            return (manaDamage - availableMana) * dmg_absorb_per_mana + normalDamage
         end
     else
         return 0

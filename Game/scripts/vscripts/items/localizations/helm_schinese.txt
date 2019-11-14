@@ -117,7 +117,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"翡翠兜里"
 		"item_property_emerald_douli"				"法力护盾"
-		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% 受到的伤害被法力护盾吸收. 1点魔法值 可以抵挡 <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> 伤害. 这个效果不会使魔法值低于 <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% 受到的伤害被法力护盾吸收. 1点魔法值 可以抵挡 <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> 伤害."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"

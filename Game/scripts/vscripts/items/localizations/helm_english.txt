@@ -223,12 +223,23 @@
 
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"Enemies damaged by @Ability1 have a <% DEMON_MASK_CHANCE %>% chance to trigger an infernal spark, dealing <% DEMON_MASK_AMP %>% of the ability's damage in a <% DEMON_MASK_AOE %> area around the target."
+		"property_demon_description"				"Enemies damaged by @Ability1 have a <% DEMON_MASK_CHANCE %>% chance to trigger an infernal spark, dealing <% DEMON_MASK_AMP %>% of the ability's damage in a <% DEMON_MASK_AOE %> area around the target. Maximum <% DEMON_MASK_MAX_PROCS_PER_SEC %> procs per second."
 
-		"item_rpc_demon_mask_ruby1"	"Underworld Tear damage increased by an additional @ruby_property1% of [Q] damage."
+
+		"item_rpc_demon_mask_ruby1"	"Underworld Tear damage increased by an additional @ruby_property1% of [Q] damage"
 		"item_rpc_demon_mask_emerald1"	"Increases [Q3] Rune by @emerald_property1"
 		"item_rpc_demon_mask_sapphire1" "Increases proc chance of Underworld Tear by @sapphire_property1%"
-		"item_rpc_demon_mask_amethyst1" "Increases all <font color=\"#5B648C\">Demon</font> elemental damage by @amethyst_property1%"		
+		"item_rpc_demon_mask_amethyst1" "Increases all <font color=\"#5B648C\">Demon</font> elemental damage by @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
+		"item_property_emerald_douli"				"Mana Shield"
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% of damage taken is removed from mana before health. 1 point of mana can absorb <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> damage."		
+
+		"item_rpc_emerald_douli_ruby1"	"Increases the amount of damage taken from mana instead of health by an addition @ruby_property1"
+		"item_rpc_emerald_douli_emerald1"	"Each point of mana can absorb an additional @emerald_property1 damage"
+		"item_rpc_emerald_douli_sapphire1" "Increases Mana Regen by @sapphire_property1"
+		"item_rpc_emerald_douli_amethyst1" "Each point of missing mana increases Spell Pierce by @amethyst_property1"
+
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -287,11 +298,6 @@
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
 		"property_trickster_description"            "Each cast of @Ability2 instantly moves you <% TRICKSTER_MASK_RANGE %> units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> to <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Each instance of @Ability2 damage is further multiplied by a random factor of <% TRICKSTER_MASK_W_DMG_MULT_MIN %> to <% TRICKSTER_MASK_W_DMG_MULT_MAX %>."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
-		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% of damage taken is removed from mana before health. 1 point of mana can absorb <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> damage. This effect cannot reduce mana below <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"

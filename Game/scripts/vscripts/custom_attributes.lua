@@ -1619,6 +1619,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	    	end
 	    end
     end
+    if unit:HasModifier("modifier_emerald_douli") and unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
+    	local missingMana = unit:GetMaxMana() - unit:GetMana()
+    	spell_pierce_modify = spell_pierce_modify + missingMana*unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", EMERALD_DOULI_AMETHYST)
+    end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

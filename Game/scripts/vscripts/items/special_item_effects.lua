@@ -6595,3 +6595,15 @@ function ruby_dragon_fire_breath_burn(event)
 	print(ability.burn_damage)
 	Filters:ApplyItemDamage(target, caster.hero, ability.burn_damage, DAMAGE_TYPE_MAGICAL, caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
+
+function emerald_douli_thinker(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+
+	if target:GetMana() > target:GetMaxMana()*0.03 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_douli_mana_up", {})
+	else
+		target:RemoveModifierByName("modifier_douli_mana_up")
+	end
+end

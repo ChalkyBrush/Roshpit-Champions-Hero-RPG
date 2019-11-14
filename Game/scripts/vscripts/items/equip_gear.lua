@@ -304,8 +304,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", DEMON_MASK_AMETHYST, hero, "element_demon", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_emerald_douli" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", EMERALD_DOULI_SAPPHIRE, hero, "mana_regen", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
+
+
 
 function RPCItems:RecordSpecificGemBonusForImmortalItem(item, gem_name, value_table, hero, property_name, gear_slot)
 	local gem_value = item:GetGemValue(gem_name)
