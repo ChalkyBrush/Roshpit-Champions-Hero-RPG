@@ -13102,7 +13102,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
 		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"Пассивно увеличивает бонусную силу Атаки на <font color='#ccff66'>100</font>%. Совершив <font color='#ccff66'>7</font> успешных атак, герой получит <font color='#ccff66'>1000</font>% бонус к урону на <font color='#ccff66'>1.5</font> секунды."
+		"property_shark_helmet_Description"									"Совершив <font color='#ccff66'>7</font> успешных атак, герой получит <font color='#ccff66'>360</font>% бонус к урону на <font color='#ccff66'>1.25</font> секунды."
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"После серии из 7 успешных атак герой получит бонус к урону на 1.5 секунды."
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"

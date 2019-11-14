@@ -278,6 +278,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ROKNAR_SAPPHIRE, hero, "armor", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() =="item_rpc_dark_reef_shark_helmet" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", DARK_REEF_SHARK_RUBY, hero, "attack_speed", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", DARK_REEF_SHARK_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

@@ -13094,6 +13094,19 @@
 		"item_rpc_crown_of_the_roknar_emperor_sapphire1" "Increases Armor by @sapphire_property1"
 		"item_rpc_crown_of_the_roknar_emperor_amethyst1" "Reduces all damage taken by @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
+		"property_shark_helmet"												"Shark Bite"
+		"property_shark_helmet_Description"									"After performing <font color='#ccff66'>7</font> attacks, gain <font color='#ccff66'>360</font>% attack power for <font color='#ccff66'>1.25</font> seconds."
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At <font color='#ccff66'>7</font> stacks, activate Shark Bite"
+		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
+		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Attack damage greatly increased"
+
+		"item_rpc_dark_reef_shark_helmet_ruby1"	"Increases Attack Speed by @ruby_property1"
+		"item_rpc_dark_reef_shark_helmet_emerald1"	"@emerald_property1% chance to gain 2 shark stacks on attack instead of 1"
+		"item_rpc_dark_reef_shark_helmet_sapphire1" "Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_dark_reef_shark_helmet_amethyst1" "Increases Shark Bite buff duration by @amethyst_property1 seconds"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13338,14 +13351,6 @@
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and Armor. If at 15 stacks, take extra damage from the debuff's source."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
-		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"Passively grants <font color='#ccff66'>100</font>% bonus attack damage. After performing <font color='#ccff66'>7</font> attacks, gain <font color='#ccff66'>1000</font>% attack power for <font color='#ccff66'>1.5</font> seconds. This is applied as a multiplier to your current total attack damage at activation time."
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"At <font color='#ccff66'>7</font> stacks, activate Shark Bite"
-		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
-		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Attack damage greatly increased"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frostmaw_hunters_hood"		"Frostmaw Hunter's Hood"

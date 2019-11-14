@@ -3622,6 +3622,30 @@ function RPCItems:RollRoknarEmperor(item_level)
     return item
 end
 
+function RPCItems:RollDarkReefSharkHelmet(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_dark_reef_shark_helmet", "immortal", "Dark Reef Shark Helmet", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_dark_reef_shark_helmet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_shark_helmet", "#A7BAB7", 1, "#property_shark_helmet_Description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, "item_rpc_dark_reef_shark_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4490,33 +4514,6 @@ function RPCItems:RollHoodOfDefiler(item_level)
         RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
     else
         Elements:RollElementAttribute(item, RPC_ELEMENT_DEMON, 2.7, 2, 29, 2)
-    end
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollDarkReefSharkHelmet(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_dark_reef_shark_helmet", "immortal", "Dark Reef Shark Helmet", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "shark_helmet"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_shark_helmet", "#A7BAB7", 1, "#property_shark_helmet_Description")
-
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        local value = RandomInt(maxFactor * 5, maxFactor * 500)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "attack_damage"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
-    else
-        local value, nameLevel = RPCItems:RollAttribute(0, 8, 14, 0, 0, item.newItemTable.rarity, false, maxFactor * 14)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "agility"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
     end
 
     RPCItems:RollHoodProperty3(item, 0)

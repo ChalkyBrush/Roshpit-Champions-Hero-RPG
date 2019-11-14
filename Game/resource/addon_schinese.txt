@@ -13295,7 +13295,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"黑礁鲨头盔"	
 		"property_shark_helmet"												"鲨鱼撕咬"
-		"property_shark_helmet_Description"									"被动提供 <font color='#ccff66'>100</font>% 的额外攻击力。在完成<font color='#ccff66'>7</font>次普通攻击后，获得  <font color='#ccff66'>1000</font>% 的额外攻击力，持续 <font color='#ccff66'>1.5</font> 秒。两者之间和其他额外攻击力加成均为乘法叠加。"
+		"property_shark_helmet_Description"									"在完成<font color='#ccff66'>7</font>次普通攻击后，获得  <font color='#ccff66'>360</font>% 的额外攻击力，持续 <font color='#ccff66'>1.25</font> 秒。两者之间和其他额外攻击力加成均为乘法叠加。"
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"鲨鱼撕咬层数"
 		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"到达 <font color='#ccff66'>7</font> 层时，激活鲨鱼撕咬 buff"
 		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"鲨鱼撕咬"

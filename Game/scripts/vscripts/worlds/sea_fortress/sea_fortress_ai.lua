@@ -5187,7 +5187,7 @@ function tri_boss_die(caster)
 		Statistics.dispatch("sea_fortress:kill:siltbreaker");
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollDarkReefSharkHelmet(caster:GetAbsOrigin(), false)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_dark_reef_shark_helmet")
 		end
 	elseif caster:GetUnitName() == "seafortress_oracle_of_the_sea" then
 		Statistics.dispatch("sea_fortress:kill:sea_oracle");

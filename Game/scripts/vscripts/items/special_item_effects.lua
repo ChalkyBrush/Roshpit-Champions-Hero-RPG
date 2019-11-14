@@ -4893,10 +4893,18 @@ function shark_helmet_attack_land(event)
 	if not attacker:HasModifier("modifier_dark_reef_shark_effect") then
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_stacks", {duration = DARK_REEF_SHARK_HELMET_PASSIVE_DURATION})
 	end
-	local newStacks = attacker:GetModifierStackCount("modifier_dark_reef_shark_stacks", caster) + 1
+	local extra_stack = 0
+	if ability:GetGemValue("emerald") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("emerald", DARK_REEF_SHARK_EMERALD))
+		if proc then
+			extra_stack = extra_stack + 1
+		end
+	end
+	local newStacks = attacker:GetModifierStackCount("modifier_dark_reef_shark_stacks", caster) + 1 + extra_stack
 	if newStacks >= DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS then
 		attacker:RemoveModifierByName("modifier_dark_reef_shark_stacks")
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_effect", {duration = DARK_REEF_SHARK_HELMET_ACTIVE_DURATION})
+		local buff_duration = DARK_REEF_SHARK_HELMET_ACTIVE_DURATION + ability:GetFinalGemPropertyValue("amethyst", DARK_REEF_SHARK_AMETHYST)
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_dark_reef_shark_effect", {duration = buff_duration})
 		CustomAbilities:QuickAttachParticle("particles/roshpit/items/shark_helmet.vpcf", attacker, 1)
 		EmitSoundOn("RPCItem.SharkHelmet.Activate", attacker)
 	else
