@@ -284,6 +284,20 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", DARK_REEF_SHARK_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() =="item_rpc_death_whisper_helm" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", DEATH_WHISPER_RUBY, hero, "rune_q_1", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", DEATH_WHISPER_RUBY, hero, "rune_w_1", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", DEATH_WHISPER_RUBY, hero, "rune_e_1", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", DEATH_WHISPER_RUBY, hero, "rune_r_1", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", DEATH_WHISPER_EMERALD, hero, "rune_q_2", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", DEATH_WHISPER_EMERALD, hero, "rune_w_2", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", DEATH_WHISPER_EMERALD, hero, "rune_e_2", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", DEATH_WHISPER_EMERALD, hero, "rune_r_2", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", DEATH_WHISPER_AMETHYST, hero, "element_shadow", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

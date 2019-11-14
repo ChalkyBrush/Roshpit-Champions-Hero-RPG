@@ -597,6 +597,12 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
 		end
 	end
+	if target:HasModifier("modifier_death_whisper_debuff") then
+		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1+(DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS/100))
+		end
+	end
 	if target:HasModifier("modifier_radium_spores") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if modifierGainedTable["entindex_ability_const"] then

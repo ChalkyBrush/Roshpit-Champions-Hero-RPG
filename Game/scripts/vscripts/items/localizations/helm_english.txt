@@ -209,6 +209,18 @@
 		"item_rpc_dark_reef_shark_helmet_sapphire1" "Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_dark_reef_shark_helmet_amethyst1" "Increases Shark Bite buff duration by @amethyst_property1 seconds"
 
+    	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
+		"item_property_death_whisper"				"Death Whisper"
+		"property_death_whisper_description"		"All enemies struck by @Ability1 have -<% DEATH_WHISPER_SLOW %> movespeed and -<% DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS %>% Status Resistance for <% DEATH_WHISPER_DURATION %> seconds."
+
+		"item_rpc_death_whisper_helm_ruby1"	"Increases all T1 runes by @ruby_property1"
+		"item_rpc_death_whisper_helm_emerald1"	"Increases all T2 runes by @emerald_property1"
+		"item_rpc_death_whisper_helm_sapphire1" "Casting [Q] applies invisibility for @sapphire_property1 seconds"
+		"item_rpc_death_whisper_helm_amethyst1" "Increases all <font color=\"#7F4F84\">Shadow</font> elemental damage by @amethyst_property1%"
+
+		"DOTA_Tooltip_modifier_death_whisper_debuff"		"Death Whisper"
+		"DOTA_Tooltip_modifier_death_whisper_debuff_Description"	"Reduced movespeed and status resistance"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -232,11 +244,6 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
-		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"All enemies struck by @Ability1 take <% DEATH_WHISPER_DAMAGE_AMP_PCT %>% increased Post-mitigation damage from all sources and are slowed by <% DEATH_WHISPER_SLOW %> for <% DEATH_WHISPER_DURATION %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"

@@ -843,6 +843,9 @@ function Filters:EndRChannel(caster)
 end
 
 function Filters:ApplyQskills(caster)
+    if caster:HasModifier("modifier_death_whisper_helm") then
+        Filters:DeathWhisperSapphire(caster)
+    end
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
@@ -1437,7 +1440,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + ANTIQUE_MANA_RELIC_Q_BAD/100
         end
-        if attacker:HasModifier("modifier_death_whisper") then
+        if attacker:HasModifier("modifier_death_whisper_helm") then
             if not ignore_effects then
                 Filters:DeathWhisperApply(attacker, victim)
             end
@@ -2750,8 +2753,18 @@ end
 
 function Filters:DeathWhisperApply(attacker, victim)
     local inventoryUnit = attacker.InventoryUnit
-    local ability = inventoryUnit:FindAbilityByName("helm_slot")
-    ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_death_whisper_effect", {duration = DEATH_WHISPER_DURATION})
+    attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_death_whisper_debuff", {duration = DEATH_WHISPER_DURATION})
+end
+
+function Filters:DeathWhisperSapphire(caster)
+    if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
+        local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+        local duration = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", DEATH_WHISPER_SAPPHIRE)
+        local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster, duration)
+        ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = duration})
+        caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = duration})
+    end
 end
 
 function Filters:WildNatureTwo(attacker, victim, slot)

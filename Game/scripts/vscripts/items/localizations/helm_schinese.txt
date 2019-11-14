@@ -71,7 +71,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"死亡耳语"
 		"item_property_death_whisper"				"死亡耳语"
-		"property_death_whisper_description"		"所有被 @Ability1 击中的敌人，其所受到的全部伤害都将提高<% DEATH_WHISPER_DAMAGE_AMP_PCT %>%，并且被减速<% DEATH_WHISPER_SLOW %>，持续<% DEATH_WHISPER_DURATION %>秒。"
+		"property_death_whisper_description"		"All enemies struck by @Ability1 have -<% DEATH_WHISPER_SLOW %> movespeed and -<% DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS %>% Status Resistance for <% DEATH_WHISPER_DURATION %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"大自然之帽"

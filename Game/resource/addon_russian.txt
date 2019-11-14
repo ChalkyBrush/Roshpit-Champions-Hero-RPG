@@ -12811,7 +12811,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
 		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"Все враги, задетые способностью (Q) @Ability1 будут замедлены на <font color='#ccff66'>100</font> и получать на <font color='#ccff66'>30</font>% больше урона из всех источников в течение <font color='#ccff66'>5</font> секунд."
+		"property_death_whisper_description"		"All enemies struck by @Ability1 have -<font color='#ccff66'>100</font> movespeed and -<font color='#ccff66'>35</font>% Status Resistance for <font color='#ccff66'>6</font> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"

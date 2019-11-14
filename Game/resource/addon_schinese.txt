@@ -13005,7 +13005,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"死亡耳语"
 		"item_property_death_whisper"				"死亡耳语"
-		"property_death_whisper_description"		"所有被 @Ability1 击中的敌人，其所受到的全部伤害都将提高<font color='#ccff66'>30</font>%，并且被减速<font color='#ccff66'>100</font>，持续<font color='#ccff66'>5</font>秒。"
+		"property_death_whisper_description"		"All enemies struck by @Ability1 have -<font color='#ccff66'>100</font> movespeed and -<font color='#ccff66'>35</font>% Status Resistance for <font color='#ccff66'>6</font> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"大自然之帽"

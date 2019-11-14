@@ -9174,41 +9174,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
 				}
 			}
-			"modifier_ruby_dragon"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_death_whisper"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_death_whisper_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "<% DEATH_WHISPER_DAMAGE_AMP_PCT %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% DEATH_WHISPER_SLOW %>"
-				}
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/death_whisper_helm_debuff.vpcf"
-						"EffectAttachType"			"follow_overhead"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-			}
+
 			"modifier_luma_guard"
 			{
 				"Passive"	"0"
