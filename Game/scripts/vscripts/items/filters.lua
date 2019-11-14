@@ -1238,14 +1238,9 @@ function Filters:ApplyDamageBasic(victim, attacker, damage, damage_type)
 end
 
 function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
-    -- if damage_type == DAMAGE_TYPE_PHYSICAL then
-    --     damage = damage/(1+((attacker:GetIntellect()/16)/100))
-    -- end
-    ----print("before bad and elem: "..damage)
-    local Is_solunia_b_d = false
-    if slot == -2 then
-        slot = 0
-        Is_solunia_b_d = true
+    -- ABILITY PROCS AT THE START
+    if attacker:HasModifier("modifier_demon_mask") and slot == BASE_ABILITY_Q then
+        Filters:DemonMask(attacker, victim, damage)
     end
 
     local damageData = attacker._damage_data or {}
@@ -1488,9 +1483,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if attacker:HasModifier("modifier_luma_guard") and Filters:LumaGuardStrike(attacker, victim, damage) then
                 indirectProcQ = true
             end
-            if attacker:HasModifier("modifier_demon_mask") and Filters:DemonMask(attacker, victim, damage) then
-                indirectProcQ = true
-            end
             if not indirectProcQ then
                 Filters:ApplyQdamage(victim, attacker, damage, damage_type)
             else
@@ -1622,20 +1614,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         damage = damage * (1 + damageMult)
-        -- if attacker:HasModifier("modifier_red_october_boots") then
-        --     local proc = true
-        --     if proc then
-        --         local redDamage = damage
-        --         for i = 0, 2, 1 do
-        --             Timers:CreateTimer(i*0.4, function()
-        --                 if victim:IsAlive() and attacker:IsAlive() then
-        --                     Events:CreateLightningBeamWithParticle(attacker:GetAbsOrigin()+Vector(0,0,60), victim:GetAbsOrigin()+Vector(0,0,140), "particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_basher_lightning.vpcf", 1.5)
-        --                     Filters:ApplyItemDamage(victim,attacker,redDamage,DAMAGE_TYPE_MAGICAL,attacker.foot,RPC_ELEMENT_NATURE,RPC_ELEMENT_LIGHTNING)
-        --                 end
-        --             end)
-        --         end
-        --     end
-        -- end
         if not ignore_effects then
             Filters:ApplyEdamage(victim, attacker, damage, damage_type)
         end
@@ -1724,12 +1702,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if slot == BASE_ITEM 
     or slot == BASE_NONE 
     or slot == BASE_AUTO_ATTACK then
-        if not Is_solunia_b_d then
-            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or slot or 0)
-        else
-            Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
-        end
-        -- ApplyDamage({ victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = attacker:GetAbilityByIndex(DOTA_Q_SLOT) })
+        Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or slot or 0)
     end
     return damage
 end
@@ -1892,7 +1865,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         if attacker:HasModifier("modifier_omniro_dragon_buff") then
-            mult = mult + 8
+            mult = mult + (OMNIRO_DRAGON_MACE_ELEMENTAL_BUFF/100)
         end
         if attacker:HasModifier("shadow_deity_passive") then
             if bIsRealDamage and slot ~= 0 then
@@ -2497,7 +2470,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_nature", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_nature", 1))/100
     end
     if element1 == RPC_ELEMENT_UNDEAD or element2 == RPC_ELEMENT_UNDEAD then
-
         if attacker:GetUnitName() == "npc_dota_hero_visage" then
             if attacker:HasAbility("ekkan_summon_skeleton") then
                 local w_2_level = attacker:GetRuneValue("w", 2)
@@ -3394,34 +3366,32 @@ function Filters:ReanimateThorok(caster)
 end
 
 function Filters:DemonMask(caster, target, damage)
-    local proc = Filters:GetProc(caster, DEMON_MASK_CHANCE)
-    -- proc = true
+    local chance = DEMON_MASK_CHANCE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", DEMON_MASK_SAPPHIRE)
+    local proc = Filters:GetProc(caster, chance)
     if proc then
-        --print("dmg test: "..damage)
-        damage = damage * DEMON_MASK_AMP
-        --print("dmg test: "..damage)
+        local demon_mask_amp = DEMON_MASK_AMP + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY)
+        damage = damage * (demon_mask_amp/100)
         local limitKey = caster:GetPlayerOwnerID() .. '_demon_mask'
         Util.Common:LimitPerTime(4, 1, limitKey, function()
             EmitSoundOn("RPCItem.DemonMask", target)
             local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/demon_mask_3.vpcf", PATTACH_CUSTOMORIGIN, caster)
             ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 115))
-            -- ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
-            -- ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
-            -- ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN, "attach_hitloc", target:GetAbsOrigin()+Vector(0,0,100), true)
+            ParticleManager:SetParticleControl(pfx, 3, Vector(2,3,4))
             Timers:CreateTimer(1.2, function()
                 ParticleManager:DestroyParticle(pfx, false)
             end)
         end)
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, DEMON_MASK_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        -- local damage = highestAttribute*40
         Timers:CreateTimer(0.1, function()
             if #enemies > 0 then
                 for _, enemy in pairs(enemies) do
-                    Filters:ApplyItemDamageBasedOnAbility(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
+                    Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE)
                 end
             end
         end)
         return true
+    else
+        return false
     end
 end
 

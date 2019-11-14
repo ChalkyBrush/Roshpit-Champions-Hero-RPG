@@ -177,7 +177,7 @@
 			"25"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"dragon_special_a"			"80"
+				"dragon_special_a"			"70"
 			}
 		}
 		"OnToggleOn"

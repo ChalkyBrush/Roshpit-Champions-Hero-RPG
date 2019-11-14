@@ -298,6 +298,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", DEATH_WHISPER_AMETHYST, hero, "element_shadow", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_demon_mask" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", DEMON_MASK_EMERALD, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", DEMON_MASK_AMETHYST, hero, "element_demon", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

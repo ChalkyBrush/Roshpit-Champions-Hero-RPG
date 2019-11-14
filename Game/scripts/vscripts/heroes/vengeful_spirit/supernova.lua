@@ -230,13 +230,13 @@ function supernova_burn_think(event)
 		if dualBurn then
 			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then
 		local damage = target.SoluniaBurnSolar
 		if dualBurn then
 			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	end
 end
 

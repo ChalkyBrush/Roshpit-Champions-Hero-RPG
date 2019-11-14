@@ -749,7 +749,7 @@ function final_boss_die(event)
 	local luck = RandomInt(1, 4)
 	Serengaard:Mithril("razormore", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_DEMON)
 	if luck == 1 then
-		RPCItems:RollDemonMask(caster:GetAbsOrigin(), false, 15)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_demon_mask")
 	end
 end
 

@@ -3667,6 +3667,25 @@ function RPCItems:RollDeathWhisperHelm(item_level)
     return item
 end
 
+function RPCItems:RollDemonMask(item_level, waveBonus)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_demon_mask", "immortal", "Demon Mask", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_demon_mask"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_demon", "#C91818", 1, "#property_demon_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t3_rune", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4143,45 +4162,6 @@ function RPCItems:RollTricksterMask(item_level)
     item.newItemTable.property3name = propertyName
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
 
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollDemonMask(item_level, waveBonus)
-    local item = RPCItems:CreateVariant("item_rpc_demon_mask", "immortal", "Demon Mask", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "demon_mask"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_demon", "#C91818", 1, "#property_demon_description")
-
-    item.newItemTable.hasRunePoints = true
-
-    local luck = RandomInt(1, 4)
-    local propertyName = ""
-    if luck == 1 then
-        propertyName = "rune_q_3"
-    elseif luck == 2 then
-        propertyName = "rune_w_3"
-    elseif luck == 3 then
-        propertyName = "rune_e_3"
-    elseif luck == 4 then
-        propertyName = "rune_r_3"
-    end
-    local difficulty = GameState:GetDifficultyFactor()
-    if difficulty == 1 then
-        waveBonus = math.max(waveBonus - 40, 15)
-    elseif difficulty == 2 then
-        waveBonus = math.max(waveBonus - 30, 15)
-    elseif difficulty == 3 then
-        waveBonus = math.max(waveBonus - 20, 15)
-    end
-    waveBonus = math.min(waveBonus, 20)
-    item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(waveBonus, 0, 0, 0, 0)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item

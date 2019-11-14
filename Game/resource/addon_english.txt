@@ -13119,6 +13119,15 @@
 		"DOTA_Tooltip_modifier_death_whisper_debuff"		"Death Whisper"
 		"DOTA_Tooltip_modifier_death_whisper_debuff_Description"	"Reduced movespeed and status resistance"
 
+    	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
+		"item_property_demon"						"Underworld Tear"
+		"property_demon_description"				"Enemies damaged by @Ability1 have a <font color='#ccff66'>15</font>% chance to trigger an infernal spark, dealing <font color='#ccff66'>15</font>% of the ability's damage in a <font color='#ccff66'>450</font> area around the target."
+
+		"item_rpc_demon_mask_ruby1"	"Underworld Tear damage increased by an additional @ruby_property1% of [Q] damage."
+		"item_rpc_demon_mask_emerald1"	"Increases [Q3] Rune by @emerald_property1"
+		"item_rpc_demon_mask_sapphire1" "Increases proc chance of Underworld Tear by @sapphire_property1%"
+		"item_rpc_demon_mask_amethyst1" "Increases all <font color=\"#5B648C\">Demon</font> elemental damage by @amethyst_property1%"		
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13241,10 +13250,6 @@
 		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Ethereal Displacement Cooldown"
 		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles again... yet."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
-		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <font color='#ccff66'>15</font> chance to be converted into an infernal spark instead, dealing <font color='#ccff66'>15</font>x the ability's damage in a large area around the target."
 		
 		
 
