@@ -415,17 +415,10 @@ function use_prizebox(event)
 end
 
 function rollArenaPrizeItem(deathLocation, rarity)
-	local luck = RandomInt(200, 500)
-	if luck >= 200 and luck < 265 then
-		RPCItems:RollHood(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 265 and luck < 330 then
-		RPCItems:RollHand(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 330 and luck < 395 then
-		RPCItems:RollFoot(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 395 and luck < 460 then
-		RPCItems:RollBody(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck <= 500 then
-		RPCItems:RollAmulet(0, deathLocation, rarity, false, 0, nil, 0)
+	local rarityFactor = RPCItems:GetRarityFactor(rarity)
+	local item = RPCItems:RollRandomItem(100, rarityFactor)
+	if item then
+		RPCItems:BasicDropItem(deathLocation, item)
 	end
 end
 
