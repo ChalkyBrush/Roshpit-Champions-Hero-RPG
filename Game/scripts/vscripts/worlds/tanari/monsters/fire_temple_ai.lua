@@ -1563,7 +1563,7 @@ end
 function lava_forge_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.FireTemple.LavaforgeDie", caster)
-	RPCItems:RollLavaForgeCrown(caster:GetAbsOrigin(), false)
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crown_of_the_lava_forge")
 end
 
 function fire_spirit_thinking(event)

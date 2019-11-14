@@ -26,7 +26,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
 		 "item_property_lava_forge"							"Lava Blast"
-		 "property_lava_forge_description"					"При получении урона в сторону атакующего будет выпущен огненный шар, наносящий урон самой цели при попадании и соседним целям в небольшом радиусе в размере <% LAVA_FORGE_DMG_PER_ATT %>x базового урона + <% LAVA_FORGE_DMG_PER_AGI %>x Ловкости."
+		 "property_lava_forge_description"					"When taking damage, <% LAVA_FORGE_BASE_PROC_CHANCE %>% chance to launch a fireball towards the damage source that deals <% LAVA_FORGE_DMG_PER_ATT %>% your attack damage in a small radius on impact. Maximum <% LAVA_FORGE_MAX_FIREBALLS %> fireballs every 3 seconds."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"

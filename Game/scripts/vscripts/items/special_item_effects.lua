@@ -3334,43 +3334,46 @@ function lava_forge_take_damage(event)
 		ability.fireballs = 0
 		ability.caster = target
 	end
-	if ability.fireballs >= 6 then
+	if ability.fireballs >= LAVA_FORGE_MAX_FIREBALLS then
 		return false
 	end
-	local proc = Filters:GetProc(target, 40)
-	local fv = (attacker:GetAbsOrigin() * Vector(1, 1, 0) - target:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
+	local proc_chance = LAVA_FORGE_BASE_PROC_CHANCE + ability:GetFinalGemPropertyValue("ruby", LAVA_FORGE_RUBY)
+	local proc = Filters:GetProc(target, proc_chance)
+	if proc then
+		local fv = (attacker:GetAbsOrigin() * Vector(1, 1, 0) - target:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 
-	local projectileParticle = "particles/units/heroes/hero_jakiro/fireball.vpcf"
-	EmitSoundOn("Items.LavaforgeFire", target)
-	local start_radius = 150
-	local end_radius = 150
-	local range = 1300
-	local speed = 1100
-	local casterOrigin = target:GetAbsOrigin()
-	local info =
-	{
-		Ability = ability,
-		EffectName = projectileParticle,
-		vSpawnOrigin = casterOrigin + Vector(0, 0, 50),
-		fDistance = range,
-		fStartRadius = start_radius,
-		fEndRadius = end_radius,
-		Source = target,
-		StartPosition = "attach_hitloc",
-		bHasFrontalCone = true,
-		bReplaceExisting = false,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		fExpireTime = GameRules:GetGameTime() + 5.0,
-		bDeleteOnHit = true,
-		vVelocity = fv * speed,
-		bProvidesVision = false,
-	}
-	projectile = ProjectileManager:CreateLinearProjectile(info)
-	Timers:CreateTimer(3, function()
-		ability.fireballs = ability.fireballs - 1
-	end)
+		local projectileParticle = "particles/units/heroes/hero_jakiro/fireball.vpcf"
+		EmitSoundOn("Items.LavaforgeFire", target)
+		local start_radius = 150
+		local end_radius = 150
+		local range = 1300
+		local speed = 1100
+		local casterOrigin = target:GetAbsOrigin()
+		local info =
+		{
+			Ability = ability,
+			EffectName = projectileParticle,
+			vSpawnOrigin = casterOrigin + Vector(0, 0, 50),
+			fDistance = range,
+			fStartRadius = start_radius,
+			fEndRadius = end_radius,
+			Source = target,
+			StartPosition = "attach_hitloc",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = true,
+			vVelocity = fv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+		Timers:CreateTimer(3, function()
+			ability.fireballs = ability.fireballs - 1
+		end)
+	end
 end
 
 function lava_forge_fireball_hit(event)
@@ -3379,7 +3382,7 @@ function lava_forge_fireball_hit(event)
 	local target = event.target
 
 	--print("IMPACT?")
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * LAVA_FORGE_DMG_PER_ATT + caster:GetAgility() * LAVA_FORGE_DMG_PER_AGI
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (LAVA_FORGE_DMG_PER_ATT/100) + caster:GetAgility()*(ability:GetFinalGemPropertyValue("emerald", LAVA_FORGE_EMERALD)/100)
 
 	local radius = LAVA_FORGE_RADIUS
 	local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"

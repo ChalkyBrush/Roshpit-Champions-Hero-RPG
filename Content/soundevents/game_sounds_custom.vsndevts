@@ -7570,7 +7570,7 @@ Env.LavaHit
                               "value0"        "sounds/weapons/hero/dragon_knight/dragonknight_fire.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.80000"  }
+                    "volume"            {   "value"     "0.7000"  }
                     "pitch_rand_min"    {   "value"     "-0.03000"  }
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "0.920000"  }

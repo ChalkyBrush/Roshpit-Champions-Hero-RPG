@@ -22,7 +22,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"熔岩王冠"
 		 "item_property_lava_forge"							"熔岩爆裂"
-		 "property_lava_forge_description"					"受到伤害时有100% 几率向进攻者发射火球，在目标小范围内造成<% LAVA_FORGE_DMG_PER_ATT %>x攻击力 + <% LAVA_FORGE_DMG_PER_AGI %>x敏捷值的伤害。"
+		 "property_lava_forge_description"					"受到伤害时有30% 几率向进攻者发射火球，在目标小范围内造成<% LAVA_FORGE_DMG_PER_ATT %>x攻击力。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"白色魔法帽"

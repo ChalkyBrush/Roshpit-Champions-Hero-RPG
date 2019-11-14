@@ -13076,6 +13076,14 @@
 		"item_rpc_crown_of_ruby_dragon_sapphire1" "Increases Ruby Dragon's Attack Speed and Movespeed by @sapphire_property1"
 		"item_rpc_crown_of_ruby_dragon_amethyst1" "Ruby Dragon's basic attacks have a splash effect, dealing @amethyst_property1% of the attack damage in a <font color='#ccff66'>260</font> radius"
 
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
+		"item_property_lava_forge"							"Tephra Burst"
+		"property_lava_forge_description"					"When taking damage, <font color='#ccff66'>30</font>% chance to launch a fireball towards the damage source that deals <font color='#ccff66'>20</font>% your attack damage in a small radius on impact. Maximum <font color='#ccff66'>6</font> fireballs every 3 seconds."
+
+		"item_rpc_crown_of_the_lava_forge_ruby1"	"Increases proc chance by @ruby_property1%"
+		"item_rpc_crown_of_the_lava_forge_emerald1"	"Increases Tephra Burst damage by @emerald_property1% of Agility"
+		"item_rpc_crown_of_the_lava_forge_sapphire1" "Increases Armor and Magic Armor by @sapphire_property1"
+		"item_rpc_crown_of_the_lava_forge_amethyst1" "Increases <font color=\"#EF4126\">Fire</font> and <font color=\"#7AE2A7\">Wind</font> elemental damage by @amethyst_property1%"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -13084,11 +13092,6 @@
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"Absorbing damage instances."
-
-
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
-		 "item_property_lava_forge"							"Eject Tephra"
-		 "property_lava_forge_description"					"When taking damage, launch a fireball towards the damage source that deals <font color='#ccff66'>2</font>x your attack damage + <font color='#ccff66'>2000</font>x your Agility in a small radius on impact."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
