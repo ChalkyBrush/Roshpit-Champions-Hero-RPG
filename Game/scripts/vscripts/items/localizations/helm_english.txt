@@ -288,6 +288,15 @@
 		"DOTA_Tooltip_modifier_grithault_shield"			"Grithault Shield (Ruby)"
 		"DOTA_Tooltip_modifier_grithault_shield_Description"	"Each stacks absorbs an instance of damage"
 
+    	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
+		"item_property_luma"						"Lucent Beam"
+		"property_luma_description"					 "Enemies hit by @Ability1 have a <% LUMA_BEAM_CHANCE %>% chance to be hit by a lucent beam, dealing <% LUMA_DAMAGE_AMP %>% of the ability's damage and providing flying vision over the target for <% LUMA_VISION_DURATION %> seconds. Max <% LUMA_MAX_PROCS_PER_SECOND %> procs per second."
+
+		"item_rpc_guard_of_luma_ruby1"	"Increases moonbeam proc chance by @ruby_property1%"
+		"item_rpc_guard_of_luma_emerald1"	"Increases the maximum number of procs per second by @emerald_property1"
+		"item_rpc_guard_of_luma_sapphire1" "Grants @sapphire_property1 radius persistent flying vision"
+		"item_rpc_guard_of_luma_amethyst1" "Increases Lucent Beam damage by an additional @amethyst_property1% of the damage that triggered it"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -312,10 +321,6 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
-		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "<font color=\"#E4AE33\">ABILITY AUGMENT:</font> @Ability1 damage instances have a <% LUMA_BEAM_CHANCE %>% chance to be converted into lucent beams instead, dealing <% LUMA_DAMAGE_AMP %>% of the ability's damage and providing flying vision over the target for <% LUMA_VISION_DURATION %> seconds. This item caps your <font color=\"#C25DFC\">Cosmic</font> elemental damage bonus at <% LUMA_ELEMENT_CAP %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"

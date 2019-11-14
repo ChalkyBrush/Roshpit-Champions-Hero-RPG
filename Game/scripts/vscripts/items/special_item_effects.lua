@@ -6619,3 +6619,13 @@ function emerald_douli_thinker(event)
 		target:RemoveModifierByName("modifier_douli_mana_up")
 	end
 end
+
+function luma_thinker(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		local vision_radius = ability:GetFinalGemPropertyValue("sapphire", LUMA_SAPPHIRE)
+		AddFOWViewer(target:GetTeamNumber(), target:GetAbsOrigin(), vision_radius, 2, false)
+	end
+end

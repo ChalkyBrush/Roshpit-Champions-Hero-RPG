@@ -1239,11 +1239,16 @@ end
 
 function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
     -- ABILITY PROCS AT THE START
-    if attacker:HasModifier("modifier_demon_mask") and slot == BASE_ABILITY_Q then
-        Filters:DemonMask(attacker, victim, damage)
-    end
-    if attacker:HasModifier("modifier_fire_deity_crown") and slot == BASE_ABILITY_W then
-        Filters:FireDeity(attacker, victim, damage)
+    if not ignore_effects then
+        if attacker:HasModifier("modifier_demon_mask") and slot == BASE_ABILITY_Q then
+            Filters:DemonMask(attacker, victim, damage)
+        end
+        if attacker:HasModifier("modifier_fire_deity_crown") and slot == BASE_ABILITY_W then
+            Filters:FireDeity(attacker, victim, damage)
+        end
+        if attacker:HasModifier("modifier_guard_of_luma") and slot == BASE_ABILITY_Q then
+            Filters:LumaGuardStrike(attacker, victim, damage)
+        end
     end
 
     local damageData = attacker._damage_data or {}
@@ -1482,15 +1487,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
         end
         if not ignore_effects then
-            local indirectProcQ = false
-            if attacker:HasModifier("modifier_luma_guard") and Filters:LumaGuardStrike(attacker, victim, damage) then
-                indirectProcQ = true
-            end
-            if not indirectProcQ then
-                Filters:ApplyQdamage(victim, attacker, damage, damage_type)
-            else
-                damageData.isAugmented = true
-            end
+            Filters:ApplyQdamage(victim, attacker, damage, damage_type)
         end
     elseif slot == BASE_ABILITY_W then
         if attacker:HasModifier("modifier_watcher_three") then
@@ -2228,9 +2225,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         cosmosMult = cosmosMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_cosmic", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_cosmic", 1))/100
-        if cosmosMult > LUMA_ELEMENT_CAP/100 and attacker:HasModifier("modifier_luma_guard") then
-            cosmosMult = LUMA_ELEMENT_CAP/100
-        end
 
         mult = mult + cosmosMult
     end
@@ -2747,23 +2741,22 @@ function Filters:WildNatureTwo(attacker, victim, slot)
 end
 
 function Filters:LumaGuardStrike(attacker, victim, damage)
-    local proc = Filters:GetProc(attacker, LUMA_BEAM_CHANCE)
+    local luma = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local chance = LUMA_BEAM_CHANCE + luma:GetFinalGemPropertyValue("ruby", LUMA_RUBY)    
+    local proc = Filters:GetProc(attacker, chance)
     if proc then
-        local inventoryUnit = attacker.InventoryUnit
-        local ability = inventoryUnit:FindAbilityByName("helm_slot")
-        ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_luma_guard_moonbeam", {duration = LUMA_VISION_DURATION})
-        -- local moonParticle = "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
-        -- local position = victim:GetAbsOrigin()
-        -- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_CUSTOMORIGIN, victim )
-        -- ParticleManager:SetParticleControl( pfx, 0, position )
-        AddFOWViewer(attacker:GetTeamNumber(), victim:GetAbsOrigin(), 500, LUMA_VISION_DURATION, false)
-
-        -- Timers:CreateTimer(4, function()
-        --  ParticleManager:DestroyParticle(pfx, false)
-        -- end)
-        local damage = damage * LUMA_DAMAGE_AMP/100
-        Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
-        ----print("MOONBEAM HAS FIRED")
+        local max_procs_per_second = LUMA_MAX_PROCS_PER_SECOND + luma:GetFinalGemPropertyValue("emerald", LUMA_EMERALD)  
+        local limitKey = attacker:GetPlayerOwnerID() .. '_luma_guard'
+        Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
+            local inventoryUnit = attacker.InventoryUnit
+            local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+            victim:RemoveModifierByName("modifier_luma_guard_moonbeam")
+            ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_luma_guard_moonbeam", {duration = LUMA_VISION_DURATION})
+            AddFOWViewer(attacker:GetTeamNumber(), victim:GetAbsOrigin(), 500, LUMA_VISION_DURATION, false)
+            local damage = damage * (LUMA_DAMAGE_AMP + luma:GetFinalGemPropertyValue("amethyst", LUMA_AMETHYST))/100
+            Filters:ApplyItemDamage(victim, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)  
+            EmitSoundOn("RPC.LumaGuard.Impact", victim)
+        end)
         return true
     end
 end

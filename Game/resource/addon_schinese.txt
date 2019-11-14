@@ -13017,7 +13017,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
 		"item_property_luma"						"月光"
-		"property_luma_description"					 "被 @Ability1 击中的敌人有 <font color='#ccff66'>70</font>% 几率受到一道月光打击，月光将造成 <font color='#ccff66'>400</font>% 的纯粹伤害并提供<font color='#ccff66'>4</font>秒飞行视野。此物品不享受装备伤害加成，并且所有 <font color=\"#C25DFC\">宇宙</font> 元素伤害加成，上限设定为 <font color='#ccff66'>5000</font>%。"
+		"property_luma_description"					 "Enemies hit by @Ability1 have a <font color='#ccff66'>40</font>% chance to be hit by a lucent beam, dealing <font color='#ccff66'>8</font>% of the ability's damage and providing flying vision over the target for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>7</font> procs per second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"奥丁头盔"

@@ -96892,39 +96892,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
 				}
 			}
-
-			"modifier_luma_guard"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_luma_guard_moonbeam"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "4"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-
-						"ControlPointEntities"
-			            {
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			            }
-					}
-				}
-			}
 			"modifier_helm_vision"
 			{
 				"Passive"	"0"
