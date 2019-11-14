@@ -183,7 +183,7 @@
 	"tutorial_master_dialogue_2_2k"										"These percentages state the additional damage amplification of your Q, W, E, and R Base Abilities."
 	"tutorial_master_dialogue_2_2l"										"Now tell me the amplification of your Base Ability!"
 
-	"tutorial_quiz_question_5"											"What is your current percentile modifier to damage dealt your ability: @sub1?"
+	"tutorial_quiz_question_5"											"What is your current percent modifier to damage dealt by your ability: @sub1?"
 
 	"tutorial_quiz_wrong_2_2_7"											"Try again."
 	"tutorial_quiz_wrong_2_2_8"											"Wrong. Base ability amplifier can be found on the left side of your attributes tooltip, below the Attack heading."

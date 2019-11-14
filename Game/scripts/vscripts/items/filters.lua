@@ -160,7 +160,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + AURIUN_GLYPH_2_1_ITEM_DAMAGE/100
     end
     if caster:HasModifier("modifier_excavators_focus_cap") then
-        mult = mult + EXCAVATOR_ITEM_AMP_PER_INT/100 * (caster:GetIntellect() / EXCAVATOR_INT_DIVISOR)
+        mult = mult + caster:GetBaseAbilityAmpForSlot("average_of_all_slots")/100
     end
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
         mult = mult + ETERNAL_FROST_INT_TO_ITEM_DMG/100 * (caster:GetIntellect() / ETERNAL_FROST_INT_DIVISOR)

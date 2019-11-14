@@ -13190,7 +13190,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"矿工帽"
 		"item_property_excavator"							"高级装置"
-		"property_excavator_description"					"每<font color='#ccff66'>10</font>点智力值提高由装备造成的伤害 <font color='#ccff66'>0.5</font>%。"
+		"property_excavator_description"					"Damage dealt directly by items is increased by the average of your 4 Base Ability Damage amplifications."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"风暴裂痕之头"

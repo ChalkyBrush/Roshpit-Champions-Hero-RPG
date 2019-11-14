@@ -240,6 +240,14 @@
 		"item_rpc_emerald_douli_sapphire1" "Increases Mana Regen by @sapphire_property1"
 		"item_rpc_emerald_douli_amethyst1" "Each point of missing mana increases Spell Pierce by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
+		"item_property_excavator"							"Enhance Gear"
+		"property_excavator_description"					"Damage dealt directly by items is increased by the average of your Base Ability Damage amplifications."
+
+		"item_rpc_excavators_focus_cap_ruby1"	"Increases strength by @ruby_property1%"
+		"item_rpc_excavators_focus_cap_emerald1"	"Increases agility by @emerald_property1%"
+		"item_rpc_excavators_focus_cap_sapphire1" "Increases intelligence by @sapphire_property1%"
+		"item_rpc_excavators_focus_cap_amethyst1" "Increases spirit by @amethyst_property1%"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -379,11 +387,6 @@
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased Physical damage."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased attack damage"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
-		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"Damage dealt directly by items is increased by <% EXCAVATOR_ITEM_AMP_PER_INT %>% for each <% EXCAVATOR_INT_DIVISOR %> points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"

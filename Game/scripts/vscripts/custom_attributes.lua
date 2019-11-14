@@ -2442,7 +2442,7 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	else
 		tableData.pure_post_mit = 100
 	end
-	tableData.item_damage = Filters:AdjustItemDamage(attacker, 1000000000, victim) / 10000000
+	tableData.item_damage = (Filters:AdjustItemDamage(attacker, 1000000000, victim) / 10000000) - 100
 	if unit:HasModifier("modifier_halcyon_soul_glove") then
 		tableData.halcyon = 1
 	end
@@ -2464,14 +2464,10 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 
 	tableData.level = level
 	local baseDamage = 100000
-	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.qAmp = math.floor((qDamage / baseDamage) * 100)
-	local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.wAmp = math.floor((wDamage / baseDamage) * 100)
-	local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.eAmp = math.floor((eDamage / baseDamage) * 100)
-	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.rAmp = math.floor((rDamage / baseDamage) * 100)
+	tableData.qAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_Q)
+	tableData.wAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_W)
+	tableData.eAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_E)
+	tableData.rAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_R)
 	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy})
 
 
@@ -2597,4 +2593,28 @@ function CustomAttributes:MSCap(unit)
 		max_ms = max_ms + max_ms*(PEGASUS_MAX_MS_AMP_PCT/100)
 	end
 	return max_ms
+end
+
+function CDOTA_BaseNPC:GetBaseAbilityAmpForSlot(slot)
+	local unit = self
+	if unit:IsHero() then
+		local baseDamage = 100000
+		if slot == BASE_ABILITY_Q then
+			local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((qDamage / baseDamage) * 100) - 100
+		elseif slot == BASE_ABILITY_W then
+			local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((wDamage / baseDamage) * 100) - 100
+		elseif slot == BASE_ABILITY_E then
+			local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((eDamage / baseDamage) * 100) - 100
+		elseif slot == BASE_ABILITY_R then
+			local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((rDamage / baseDamage) * 100) - 100
+		elseif slot == "average_of_all_slots" then
+			return (unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_Q) + unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_W) + unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_E) + unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_R))/4
+		end
+	else
+		return 0
+	end
 end

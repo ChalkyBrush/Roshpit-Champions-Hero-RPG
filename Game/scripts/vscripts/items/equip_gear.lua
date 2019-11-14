@@ -308,6 +308,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", EMERALD_DOULI_SAPPHIRE, hero, "mana_regen", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_excavators_focus_cap" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", EXCAVATOR_RUBY, hero, "strength", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EXCAVATOR_EMERALD, hero, "agility", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", EXCAVATOR_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EXCAVATOR_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

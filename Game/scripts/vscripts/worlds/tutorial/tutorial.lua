@@ -1725,8 +1725,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					local question = "tutorial_quiz_question_5"
 					local choice = RandomInt(1, 3)
 					local baseDamage = 100000
-					local verifier = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, hero, baseDamage, DAMAGE_TYPE_PURE, choice, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-					verifier = math.floor((verifier / baseDamage) * 100)
+					local verifier = CDOTA_BaseNPC_Hero:GetBaseAbilityAmpForSlot(choice)
 					if choice == 4 then
 						choice = DOTA_R_SLOT + 1
 					end

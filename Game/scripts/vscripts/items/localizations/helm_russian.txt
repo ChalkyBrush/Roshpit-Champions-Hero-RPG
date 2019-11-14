@@ -261,7 +261,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
 		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"Урон, напрямую наносимый надетыми предметами увеличен на 0.5% за каждые 10 очков Интеллекта."
+		"property_excavator_description"					"Damage dealt directly by items is increased by the average of your 4 Base Ability Damage amplifications."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
