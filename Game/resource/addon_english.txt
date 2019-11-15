@@ -13195,6 +13195,11 @@
 		"item_rpc_guard_of_luma_sapphire1" "Grants @sapphire_property1 radius persistent flying vision"
 		"item_rpc_guard_of_luma_amethyst1" "Increases Lucent Beam damage by an additional @amethyst_property1% of the damage that triggered it"
 
+		"item_rpc_helm_of_champions_ruby1"	"Increases Rune [Q1] by @ruby_property1"
+		"item_rpc_helm_of_champions_emerald1"	"Increases Rune [Q3] by @emerald_property1"
+		"item_rpc_helm_of_champions_sapphire1" "Increases Rune [Q2] by @sapphire_property1"
+		"item_rpc_helm_of_champions_amethyst1" "Increases Rune [Q4] by @amethyst_property1"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."

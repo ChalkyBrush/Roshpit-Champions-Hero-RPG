@@ -3869,6 +3869,23 @@ function RPCItems:RollLumaGuard(item_level)
     return item
 end
 
+function RPCItems:RollChampionsGearHelm(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_helm_of_champions", "immortal", "champions_gear", "head", true, "Slot: Head")
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_q_4", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollHelmOfKnightHawk(item_level)
     local item = RPCItems:CreateVariant("item_rpc_helm_of_the_knight_hawk", "immortal", "Helm of the Knight Hawk", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -7857,29 +7874,6 @@ function RPCItems:RollEyeOfAvernus(item_level)
     return item
 end
 
-function RPCItems:RollChampionsGearHelm(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_helm_of_champions", "immortal", "champions_gear", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.hasRunePoints = true
-
-    local runeName = "rune_r_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(20, 0, 0, 0, 0)
-    item.newItemTable.property1name = runeName
-    item.newItemTable.property1 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
-
-    RPCItems:RollHoodProperty2(item, 0)
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    --print(item:GetEntityIndex())
-    --print(item:GetContainer():GetAbsOrigin())
-    return item
-end
-
 function RPCItems:RollSpellfireGloves(deathLocation, spiritRealm)
     local item = RPCItems:CreateVariant("item_rpc_spellfire_gloves", "immortal", "Spellfire Gloves", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -8903,5 +8897,12 @@ function RPCItems:RollAndDropUniqueItem(unit, item_name)
     local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
     local immortal = RPCItems:RollImmortalByName(item_name, item_level)
     RPCItems:BasicDropItem(unit:GetAbsOrigin(), immortal)
+    return immortal
+end
+
+function RPCItems:RollAndDropImmortalByLevel(position, item_level, item_name)
+    local item_level = RPCItems:RollItemLevelFromUnit(item_level)
+    local immortal = RPCItems:RollImmortalByName(item_name, item_level)
+    RPCItems:BasicDropItem(position, immortal)
     return immortal
 end

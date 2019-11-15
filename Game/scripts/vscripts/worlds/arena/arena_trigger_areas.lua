@@ -394,7 +394,7 @@ function use_prizebox(event)
 		elseif item.newItemTable.property4name == "champions_gear" then
 			local luck = RandomInt(1, 4)
 			if luck == 1 then
-				RPCItems:RollChampionsGearHelm(caster:GetAbsOrigin())
+				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), 100, "item_rpc_helm_of_champions")
 			elseif luck == 2 then
 				RPCItems:RollChampionsGearGauntlet(caster:GetAbsOrigin())
 			elseif luck == 3 then
