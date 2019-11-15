@@ -2271,12 +2271,12 @@ function Redfall:SpawnCrimsythCultistForBoss(position, fv)
   return ancient
 end
 
-function Redfall:FinalBossDrops(position)
+function Redfall:FinalBossDrops(boss)
   local luck = RandomInt(1, 8 - GameState:GetPlayerPremiumStatusCount())
   if luck == 1 then
-    RPCItems:RollSpellfireGloves(position, Events.SpiritRealm)
+    -- RPCItems:RollSpellfireGloves(position, Events.SpiritRealm)
   elseif luck == 2 then
-    RPCItems:RollHoodOfLords(position, Events.SpiritRealm)
+    RPCItems:RollAndDropUniqueItem(boss, "item_rpc_hood_of_lords")
   end
 end
 

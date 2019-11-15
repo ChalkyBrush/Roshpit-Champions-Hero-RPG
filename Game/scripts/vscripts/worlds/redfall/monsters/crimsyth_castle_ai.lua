@@ -4704,7 +4704,7 @@ function castle_final_boss_death(caster, ability)
 			StartAnimation(caster, {duration = 8, activity = ACT_DOTA_DIE, rate = 0.25})
 			EmitSoundOn("Redfall.FinalBoss.Death2", caster)
 			Timers:CreateTimer(0.5, function()
-				Redfall:FinalBossDrops(bossOrigin)
+				Redfall:FinalBossDrops(caster)
 				Redfall:CreateLavaBlast(bossOrigin + Vector(0, 0, 300))
 			end)
 			for i = 1, 120, 1 do

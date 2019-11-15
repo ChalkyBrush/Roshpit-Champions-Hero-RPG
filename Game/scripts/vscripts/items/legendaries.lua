@@ -3998,6 +3998,27 @@ function RPCItems:RollHoodOfDefiler(item_level)
     return item
 end
 
+function RPCItems:RollHoodOfLords(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_hood_of_lords", "immortal", "Hood of Lords", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_hood_of_lords"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lords", "#FEFFC6", 1, "#property_lords_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier3 = 80, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 function RPCItems:RollHoodOfTheSeaOracle(item_level)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_the_sea_oracle", "immortal", "Hood of the Sea Oracle", "head", true, "Slot: Head")
@@ -7900,39 +7921,6 @@ function RPCItems:RollSpellfireGloves(deathLocation, spiritRealm)
 
     RPCItems:RollHandProperty3(item, 0)
     RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollHoodOfLords(deathLocation, spiritRealm)
-    local item = RPCItems:CreateVariant("item_rpc_hood_of_lords", "immortal", "Hood of Lords", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "lords"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lords", "#FEFFC6", 1, "#property_lords_description")
-
-    item.newItemTable.hasRunePoints = true
-
-    local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
-    if GameState:GetDifficultyFactor() > 1 then
-        local luck = RandomInt(1, 5 - GameState:GetDifficultyFactor())
-        if luck == 1 then
-            runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_4"
-        end
-    end
-    local bonus = 0
-    if spiritRealm then
-        bonus = 9
-    end
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(15 + bonus, 0, 0, 0, 0)
-    item.newItemTable.property2name = runeName
-    item.newItemTable.property2 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
     RPCItems:DropItem(item, position)

@@ -353,6 +353,16 @@
 		"item_rpc_hood_of_defiler_sapphire1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing base attack damage by @sapphire_property1. Max <% HOOD_OF_DEFILER_RUBY_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
 		"item_rpc_hood_of_defiler_amethyst1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Spell Pierce by @amethyst_property1. Max <% HOOD_OF_DEFILER_RUBY_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
 
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
+		"item_property_lords"									"Commanding Sight"
+		"property_lords_description"							"Ability cooldowns are reduced by <% HOOD_OF_LORDS_CD_RED %> second and have <% HOOD_OF_LORDS_BONUS_RANGE %> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
+		
+		"item_rpc_hood_of_lords_ruby1"	"Increases [Q4] rune by @ruby_property1"
+		"item_rpc_hood_of_lords_emerald1"	"Increases [E4] rune by @emerald_property1"
+		"item_rpc_hood_of_lords_sapphire1" "Increases [W4] rune by @emerald_property1"
+		"item_rpc_hood_of_lords_amethyst1" "Increases [R4] rune by @amethyst_property1"
+
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -490,12 +500,6 @@
 		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing <% WATER_DEITY_CROWN_DAMAGE_AMP %>% of the ability's damage and slowing the enemy's movement speed by <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% for <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at <% WATER_DEITY_CROWN_ELEMENT_CAP %>%."
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
-		"item_property_lords"									"Commanding Sight"
-		 "property_lords_description"							"Ability cooldowns are reduced by <% HOOD_OF_LORDS_CD_RED %> second and have <% HOOD_OF_LORDS_BONUS_RANGE %> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
