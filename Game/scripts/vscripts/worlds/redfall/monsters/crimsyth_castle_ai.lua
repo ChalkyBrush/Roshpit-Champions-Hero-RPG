@@ -4690,7 +4690,7 @@ function castle_final_boss_death(caster, ability)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollChernobogArcana1(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_chernobog_arcana1")
 		end
 	end)
 	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})

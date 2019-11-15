@@ -168,7 +168,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				Timers:CreateTimer(0.1, function()
 					local arcanaLuck = RandomInt(1, 700 - GameState:GetPlayerPremiumStatusCount() * 40 - Winterblight.Stones * 120)
 					if arcanaLuck == 1 then
-						RPCItems:RollSephyrArcana1(cup:GetAbsOrigin())
+						RPCItems:RollAndDropArcanaByLevel(cup:GetAbsOrigin, GameState:GetDifficultyFactor()*36, "item_rpc_sephyr_arcana1")
 					end
 				end)
 			end)
@@ -5231,7 +5231,7 @@ function Winterblight:AzaleaBossDie(boss)
 	Timers:CreateTimer(1, function()
 		local arcanaLuck = RandomInt(1, 195 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.Stones * 25)
 		if arcanaLuck == 1 then
-			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_astral_arcana3")
 		end
 		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 1)
 		if luck2 == 1 then

@@ -762,7 +762,7 @@ function winterblight_boss_final_death_animation(caster)
 			local max_roll = math.max(1, 70-GameState:GetPlayerPremiumStatusCount()*2-boss_level*2)
 			local arcana_luck = RandomInt(1, max_roll)
 			if arcana_luck == 1 then
-				RPCItems:RollSoluniaArcana3(position)
+				RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_solunia_arcana3")
 			end
 			local another_skull_ring_chance = RandomInt(1, 2)
 			if another_skull_ring_chance == 1 then

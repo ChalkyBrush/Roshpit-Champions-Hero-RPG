@@ -2327,7 +2327,7 @@ function wind_temple_spirit_boss_die_begin(event)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollSpiritWarriorArcana3(bossOrigin)
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_spirit_warrior_arcana3")
 		end
 	end)
 	Timers:CreateTimer(8, function()

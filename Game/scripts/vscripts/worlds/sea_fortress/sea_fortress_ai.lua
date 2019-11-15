@@ -5209,7 +5209,7 @@ function tri_boss_die(caster)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollHydroxisArcana1(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_hydroxis_arcana1")
 		end
 	end)
 	Weapons:RollRandomLegendWeapon2(caster:GetAbsOrigin())
@@ -6037,7 +6037,7 @@ function shadow_of_bahamut_die(event)
 		drops = 3
 	end
 	for i = 1, drops, 1 do
-		RPCItems:RollBahamutArcana2(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_bahamut_arcana2")
 	end
 end
 
@@ -6275,7 +6275,7 @@ function dark_paladin_die(event)
 	EmitSoundOn("Seafortress.DarkPaladinDie", caster)
 	Seafortress.PaladinGolems = Seafortress.PaladinGolems + 1
 	if Seafortress.PaladinGolems == 4 then
-		RPCItems:RollPaladinArcana2(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_paladin_arcana2")
 	end
 end
 
@@ -6365,7 +6365,7 @@ end
 
 function ol_spiny_die(event)
 	local caster = event.caster
-	RPCItems:RollSlipfinnArcana1(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_slipfinn_arcana1")
 	Events:smoothSizeChange(caster, 2.4, 0.03, 90)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_shadow_dance.vpcf", caster, 5)
 	EmitSoundOn("Seafortress.OlSpiny.Death", caster)
@@ -6652,6 +6652,7 @@ function beast_tyrant_die(event)
 	local caster = event.caster
 	ScreenShake(caster:GetAbsOrigin(), 500, 2, 2, 3000, 0, true)
 	EmitSoundOn("Seafortress.TyrantGhost.Die", caster)
+	local arcana_level = caster:GetRoshpitLevel()
 	Timers:CreateTimer(1.9, function()
 		local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 80
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
@@ -6687,7 +6688,7 @@ function beast_tyrant_die(event)
 						arcanas = 2
 					end
 					for i = 1, arcanas, 1 do
-						RPCItems:RollDuskbringerArcana2(position)
+						RPCItems:RollAndDropArcanaByLevel(position, arcana_level, "item_rpc_duskbringer_arcana2")
 					end
 				end)
 			end)
