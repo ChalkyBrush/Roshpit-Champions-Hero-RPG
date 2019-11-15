@@ -94,7 +94,7 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		end
 		local newItemName = "item_rpc_jex_immortal_weapon_2_a"
 		local new_min_level = 100
-		maxWeaponLevel = math.min(maxWeaponLevel, 50)
+		maxWeaponLevel = math.min(maxWeaponLevel, 10)
 		RPCItems.LevelRoll = new_min_level
 		local newItem = Weapons:RollJexLegendWeapon2a(position, true)
 		RPCItems.LevelRoll = nil
@@ -128,11 +128,11 @@ function RPCItems:SynthCheckCombination2(item1, item2, position)
 		if suncrystal.newItemTable.property4 and type(suncrystal.newItemTable.property4) == "number" then
 			score4 = RPCItems:GetLogarithmicVarianceValue(suncrystal.newItemTable.property4, 0, 0, 0, 0) * 10
 		end
-		local score5 = suncrystal.newItemTable.minLevel * 200
+		local score5 = suncrystal.newItemTable.minLevel * 20
 		local total_score = RPCItems:GetLogarithmicVarianceValue(score1 + score2 + score2 + score4 + score5, 0, 0, 0, 0)
 		local divisor = RPCItems:GetLogarithmicVarianceValue(220, 0, 0, 0, 0)
 		local final_score = math.max(total_score / divisor, 30)
-		final_score = math.min(math.ceil(final_score), 350)
+		final_score = math.min(math.ceil(final_score), 150)
 		local hyperstone = RPCItems:RollHyperstone(final_score)
 		return hyperstone
 	else
