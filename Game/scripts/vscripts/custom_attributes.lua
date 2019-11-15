@@ -880,9 +880,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 			modifier = unit:FindModifierByName("modifier_net_trap_netted_effect")
 		end
 		if not modifier then
-			modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
-		end
-		if not modifier then
 			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
 		end
 		if modifier:GetCaster():HasModifier("modifier_trapper_immortal_weapon_2") then
@@ -1316,9 +1313,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		end
 		if not modifier then
 			modifier = unit:FindModifierByName("modifier_net_trap_netted_effect")
-		end
-		if not modifier then
-			modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
 		end
 		if not modifier then
 			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
