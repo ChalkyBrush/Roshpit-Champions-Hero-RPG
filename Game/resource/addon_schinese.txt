@@ -13217,7 +13217,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"沉寂圣殿骑士的头盔"
 		"item_property_helm_of_silent_templar"					"沉默瞥视"
-		 "property_helm_of_silent_templar_description"			"施放 @Ability4 沉默自己 <font color='#ccff66'>10</font> 秒。期间攻击速度增加 <font color='#ccff66'>240</font>，并且普通攻击额外造成 <font color='#ccff66'>60</font>% x的魔法伤害。"
+		 "property_helm_of_silent_templar_description"			"施放 @Ability4 沉默自己 <font color='#ccff66'>10</font> 秒。期间攻击速度增加 <font color='#ccff66'>150</font>，并且普通攻击额外造成 <font color='#ccff66'>120</font>% x的魔法伤害。"
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"沉默瞥视"
 		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"被沉默。攻击速度增加240并且普通攻击额外造成6000%的魔法伤害"
 		 
@@ -13309,7 +13309,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"山岭巨人头盔"
 		"item_property_mountain_giant" 								"稳如泰山"
-		"property_mountain_giant_description"		"提高最大生命值 <font color='#ccff66'>200</font> %。 当生命值高于80%时，拥有<font color='#ccff66'>50</font>%减伤。"
+		"property_mountain_giant_description"		"提高最大生命值 <font color='#ccff66'>60</font> %。 当生命值高于80%时，拥有<font color='#ccff66'>25</font>%减伤。"
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"奥斯克的链盔"

@@ -1166,14 +1166,7 @@ function Filters:ApplyRskills(caster)
         end
     end
     if caster:HasModifier("modifier_helm_of_silent_templar") then
-        caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_helm_of_silent_templar_effect", {duration = SILENT_TEMPLAR_DURATION})
-        local particleName = "particles/dark_smoke_test.vpcf"
-        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-        ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
-
-        Timers:CreateTimer(1.5, function()
-            ParticleManager:DestroyParticle(pfx, false)
-        end)
+        Filters:SilentTemplar(caster)
     end
     if caster:HasModifier("modifier_alaranas_ice_boot") then
         EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.AlaranaIce", caster.InventoryUnit)
@@ -3198,6 +3191,10 @@ function Filters:VoyagerBoots(caster)
     -- Filters:ReduceCDByPercentage(pyroblast, 0.3)
 end
 
+function Filters:GetSpecialAttackRangeModifiers()
+    return {"modifier_tomahawk_buffs", "modifier_chernobog_demonform_lua", "modifier_arkimus_archon_form", "modifier_demon_flight_flying"}
+end
+
 function Filters:ReduceCDByPercentage(ability, percentageReduction)
     if ability then
         local CDreduce = ability:GetCooldown(ability:GetLevel()) * percentageReduction
@@ -4742,4 +4739,33 @@ function Filters:CarbuncleReflect(victim, attacker, damage, damagetype)
     EmitSoundOn("RPC.Carbuncle.Reflect", victim)
     local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/items/carbuncle_reflect.vpcf", attacker, 3)
     ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true) 
+end
+
+function Filters:SilentTemplar(caster)
+    local silent_templar_helm = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local duration = SILENT_TEMPLAR_DURATION + silent_templar_helm:GetFinalGemPropertyValue("ruby", SILENT_TEMPLAR_RUBY)
+    silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_helm_of_silent_templar_effect", {duration = duration})
+    local particleName = "particles/dark_smoke_test.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+    EmitSoundOn("RPC.SilentGuard.Init", caster)
+    Timers:CreateTimer(1.5, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+
+    if silent_templar_helm:GetGemValue("emerald") > 0 then
+        silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_emerald_as", {duration = duration})
+        caster:SetModifierStackCount("modifier_silent_templar_emerald_as", caster.InventoryUnit, silent_templar_helm:GetFinalGemPropertyValue("emerald", SILENT_TEMPLAR_EMERALD))
+    end
+    if silent_templar_helm:GetGemValue("sapphire") > 0 then
+        caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
+        caster:AddNewModifier(caster.InventoryUnit, silent_templar_helm, "modifier_silent_templar_sapphire", {duration = duration})
+        silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_sapphire_orb", {duration = duration})
+        
+    end
+    if silent_templar_helm:GetGemValue("amethyst") > 0 then
+        silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_amethyst_hp_regen_loss", {duration = duration})
+        silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_amethyst_attack_power", {duration = duration})
+        caster:SetModifierStackCount("modifier_silent_templar_amethyst_attack_power", caster.InventoryUnit, silent_templar_helm:GetFinalGemPropertyValue("amethyst", SILENT_TEMPLAR_AMETHYST))
+    end
 end

@@ -311,8 +311,28 @@
 
 		"item_rpc_helm_of_the_knight_hawk_ruby1"	"Increases Movespeed Cap by an addition @ruby_property1"
 		"item_rpc_helm_of_the_knight_hawk_emerald1"	"Increases the damage reduction while above 550 movespeed by an addition @emerald_property1"
-		"item_rpc_helm_of_the_knight_hawk_sapphire1" "Increaes the threshold to get a speed burst by @sapphire_property1"
+		"item_rpc_helm_of_the_knight_hawk_sapphire1" "Increases the threshold to get a speed burst by @sapphire_property1"
 		"item_rpc_helm_of_the_knight_hawk_amethyst1" "The speed burst when falling below the threshold is increased by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
+		"item_property_mountain_giant" 								"Hulking"
+		"property_mountain_giant_description"						"Increases max health by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. While above <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% of max health, reduce all incoming damage by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
+
+		"item_rpc_helm_of_the_mountain_giant_ruby1"	"Increases Max Health by an additional @ruby_property1%"
+		"item_rpc_helm_of_the_mountain_giant_emerald1"	"Reduces the threshold to achieve hulking damage reduction by @emerald_property1% of max health"
+		"item_rpc_helm_of_the_mountain_giant_sapphire1" "Increases the damage reduction while health is above the threshold by @sapphire_property1%"
+		"item_rpc_helm_of_the_mountain_giant_amethyst1" "Each point of current health increases Armor Pierce by @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
+		"item_property_helm_of_silent_templar"					"Silent Watch"
+		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for <% SILENT_TEMPLAR_DURATION %> seconds. During this time, attack speed is increased by <% SILENT_TEMPLAR_AS %> and attacks deal an additional <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% Magical damage."
+		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
+		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Silenced. +240 attack speed and attacks deal additional Magical damage."
+
+		"item_rpc_helm_of_the_silent_templar_ruby1"	"Increases Silent Watch duration by @ruby_property1 seconds"
+		"item_rpc_helm_of_the_silent_templar_emerald1"	"Increases attack speed during Silent Watch by an additional @emerald_property1"
+		"item_rpc_helm_of_the_silent_templar_sapphire1" "Increases attack range and projectile speed during Silent Watch by @sapphire_property1"
+		"item_rpc_helm_of_the_silent_templar_amethyst1" "During Silent Watch lose <% SILENT_TEMPLAR_AMETHYST_HEALTH_REGEN_LOSS%>% health regen and gain @amethyst_property1% attack power"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -453,15 +473,6 @@
 		 "item_property_black_mage"							"Black Magic"
 		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by <% BLACK_MAGE_MAGIC_POST_MITI %>%. Damage dealt directly by items is reduced by <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
-		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"Casting @Ability4 silences you for <% SILENT_TEMPLAR_DURATION %> seconds. During this time, attack speed is increased by <% SILENT_TEMPLAR_AS %> and attacks deal an additional <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% Magical damage."
-		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
-		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Silenced. +240 attack speed and attacks deal additional Magical damage."
-		 
-		
-		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"
 		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max <% WIND_DEITY_CROWN_ATTACK_LIMIT %> attacks per <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> seconds. Each enemy hit by these attacks increases your attack damage by <% WIND_DEITY_CROWN_BONUS_DMG %>% for <% WIND_DEITY_CROWN_BONUS_DMG_DURATION %> seconds, but these stacks are lost when you cast @Ability3."
@@ -516,12 +527,6 @@
 		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage and Armor of the target by <% HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT %>%. Stacks up to <% HOOD_OF_SEA_ORACLE_MAX_STACKS %> times. You deal <% HOOD_OF_SEA_ORACLE_POST_MITI %>% increased Post-Mitigation damage to targets with max stacks."
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and Armor. If at 15 stacks, take extra damage from the debuff's source."
-		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
-		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Increases max health by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. While above <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% of max health, reduce all incoming damage by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
 	
 
 

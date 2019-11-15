@@ -13024,7 +13024,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
 		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"После прочтения (R) @Ability4 герой будет обезмолвлен на <font color='#ccff66'>10</font> секунд. В это время, его скорость атаки увеличена на <font color='#ccff66'>240</font>, а к обычным атакам добавляется <font color='#ccff66'>60</font>% магического урона."
+		 "property_helm_of_silent_templar_description"			"После прочтения (R) @Ability4 герой будет обезмолвлен на <font color='#ccff66'>10</font> секунд. В это время, его скорость атаки увеличена на <font color='#ccff66'>150</font>, а к обычным атакам добавляется <font color='#ccff66'>120</font>% магического урона."
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
 		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Обезмолвлен. +240 скорости атаки, атаки дополнительно наносят 600% магического урона."
 		 
@@ -13116,7 +13116,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на <font color='#ccff66'>200</font>%. Когда уровень здоровья выше <font color='#ccff66'>80</font>%, герой получает на @special_property2% меньше урона."
+		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на <font color='#ccff66'>60</font>%. Когда уровень здоровья выше <font color='#ccff66'>85</font>%, герой получает на @special_property2% меньше урона."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"

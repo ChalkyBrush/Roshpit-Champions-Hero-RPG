@@ -1,3 +1,208 @@
+	"item_rpc_helm_of_the_silent_templar"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/helm_of_the_silent_templar" //"excavators_focus_cap"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf"
+			"particle"  "particles/dark_smoke_test.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"10"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"		"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% SILENT_TEMPLAR_RUBY %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"<% SILENT_TEMPLAR_EMERALD %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% SILENT_TEMPLAR_SAPPHIRE %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"<% SILENT_TEMPLAR_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_helm_of_silent_templar"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_helm_of_silent_templar_effect"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/silent_templar"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"follow_overhead"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"66 121 212"
+						"EffectAlphaScale"			"1"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% SILENT_TEMPLAR_AS %>"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"silent_templar_attack_land"
+					}
+				}
+			}
+			"modifier_silent_templar_emerald_as"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}				
+			}
+			"modifier_silent_templar_amethyst_hp_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% SILENT_TEMPLAR_AMETHYST_HEALTH_REGEN_LOSS %>"
+				}
+			}
+			"modifier_silent_templar_amethyst_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
+			}
+			"modifier_silent_templar_sapphire_orb"
+			{
+				"IsHidden"	"1"
+				"Orb"
+				{
+					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+					"ProjectileName"		"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+					"CastAttack"			"0"
+				}
+			}
+		}
+	}
+
+	"item_rpc_helm_of_the_mountain_giant"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/helm_of_the_mountain_giant"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% MOUNTAIN_GIANT_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"<% MOUNTAIN_GIANT_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% MOUNTAIN_GIANT_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"<% MOUNTAIN_GIANT_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_helm_of_the_mountain_giant"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
 	"item_rpc_helm_of_the_knight_hawk"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -29,6 +234,29 @@
 		{
 			"particle"  "particles/roshpit/items/knight_hawk_buff.vpcf"
 			"particle"	"particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient_hit.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% KNIGHT_HAWK_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"<% KNIGHT_HAWK_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% KNIGHT_HAWK_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"<% KNIGHT_HAWK_AMETHYST %>"
+			}
 		}
 		"Modifiers"
 		{
@@ -3053,57 +3281,6 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"shipyard_veil_lvl_3_hit"
 				"target"		"TARGET"
-			}
-		}
-	}
-	
-	"item_rpc_helm_of_the_mountain_giant"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"winterblight/helm_of_the_mountain_giant"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_helm_of_the_mountain_giant"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
 	}

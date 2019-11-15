@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_super_ascendency_lua", "modifiers/modifier_super_ascendency", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_knight_hawk_lua", "modifiers/modifier_knight_hawk_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_silent_templar_sapphire", "modifiers/modifier_silent_templar_sapphire", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -1507,19 +1508,6 @@ function super_ascension_init(event)
 	local target = event.target
 	local ability = event.ability
 	target:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-	-- target:SetRangedProjectileName("particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf")
-
-	-- local baseProjectileSpeed = target.baseProjectileSpeed
-	-- ability:ApplyDataDrivenModifier(caster, target, "modifier_ascendency_projectile_speed_stacks", {duration = 10})
-	-- local speedStacks = 1050-baseProjectileSpeed
-	-- -- if baseProjectileSpeed == 0 then
-	-- -- ability:ApplyDataDrivenModifier(caster, target, "modifier_ascendency_projectile_speed_stacks", {duration = 7})
-	-- -- end
-	-- if speedStacks > 0 then
-	-- target:SetModifierStackCount( "modifier_ascendency_projectile_speed_stacks", ability, speedStacks)
-	-- end
-
-	-- caster:AddNewModifier( caster, ability, "modifier_super_ascendency_lua", {duration = 9} )
 
 	local particleName = "particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
@@ -3759,7 +3747,7 @@ function silent_templar_attack_land(event)
 	if not target.dummy then
 		local ability = event.ability
 		local attacker = event.attacker
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * SILENT_TEMPLAR_ATTACK_TO_DAMAGE
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * SILENT_TEMPLAR_ATTACK_TO_DAMAGE/100
 		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_DEMON)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_hit.vpcf", target, 2.5)
 		EmitSoundOn("Item.SilentWatch.Hit", target)

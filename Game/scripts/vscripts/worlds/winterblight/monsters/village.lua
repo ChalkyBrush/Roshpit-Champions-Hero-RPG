@@ -25,7 +25,7 @@ function winterblight_unit_die(event)
 		local premiumCount = GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, 13000 - (1000 * premiumCount))
 		if luck == 1 then
-			RPCItems:RollHelmOfTheMountainGiant(unit:GetAbsOrigin(), false)
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_helm_of_the_mountain_giant")
 		elseif luck == 2 then
 			RPCItems:RollSwiftspikeBracer(unit:GetAbsOrigin())
 		elseif luck == 3 then

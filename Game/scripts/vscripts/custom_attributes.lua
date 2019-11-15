@@ -1448,6 +1448,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	    	end
 	    end
     end
+    if unit:HasModifier("modifier_helm_of_the_mountain_giant") and unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
+    	armor_pierce_modify = armor_pierce_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MOUNTAIN_GIANT_AMETHYST)
+    end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
@@ -2371,7 +2374,7 @@ end
 function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	local percentHealthMultiplier = 1
 	if excludedModifier ~= "modifier_helm_of_the_mountain_giant" and hero:HasModifier("modifier_helm_of_the_mountain_giant") then
-		percentHealthMultiplier = percentHealthMultiplier + HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH / 100
+		percentHealthMultiplier = percentHealthMultiplier + (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", MOUNTAIN_GIANT_RUBY)) / 100
 	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		percentHealthMultiplier = percentHealthMultiplier + CONJUROR_ARCANA_Q2_PERCENT_HEALTH / 100 * hero:GetRuneValue("q", 2)
