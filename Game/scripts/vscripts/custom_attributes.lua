@@ -882,7 +882,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		if not modifier then
 			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
 		end
-		if modifier:GetCaster():HasModifier("modifier_trapper_immortal_weapon_2") then
+		if if modifier:GetCaster().origCaster and modifier:GetCaster().origCaster:HasModifier("modifier_trapper_immortal_weapon_2") then
 			armor_modify = armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
 		end
 	end
@@ -1317,7 +1317,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		if not modifier then
 			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
 		end
-		if modifier:GetCaster():HasModifier("modifier_trapper_immortal_weapon_2") then
+		if if modifier:GetCaster().origCaster and modifier:GetCaster().origCaster:HasModifier("modifier_trapper_immortal_weapon_2") then
 			magic_armor_modify = magic_armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
 		end
 	end
