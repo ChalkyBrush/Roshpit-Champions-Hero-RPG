@@ -488,95 +488,95 @@ RPCItems.AttributesRolls[2]["t4_rune"] = 0.0425
 RPCItems.AttributesRolls[3]["t4_rune"] = 0.0425
 RPCItems.AttributesRolls[4]["t4_rune"] = 0.0425
 
-RPCItems.AttributesRolls[1]["element_normal"] = 4
-RPCItems.AttributesRolls[2]["element_normal"] = 4
-RPCItems.AttributesRolls[3]["element_normal"] = 4
-RPCItems.AttributesRolls[4]["element_normal"] = 4
+RPCItems.AttributesRolls[1]["element_normal"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_normal"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_normal"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_normal"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_fire"] = 4
-RPCItems.AttributesRolls[2]["element_fire"] = 4
-RPCItems.AttributesRolls[3]["element_fire"] = 4
-RPCItems.AttributesRolls[4]["element_fire"] = 4
+RPCItems.AttributesRolls[1]["element_fire"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_fire"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_fire"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_fire"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_earth"] = 4
-RPCItems.AttributesRolls[2]["element_earth"] = 4
-RPCItems.AttributesRolls[3]["element_earth"] = 4
-RPCItems.AttributesRolls[4]["element_earth"] = 4
+RPCItems.AttributesRolls[1]["element_earth"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_earth"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_earth"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_earth"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_lightning"] = 4
-RPCItems.AttributesRolls[2]["element_lightning"] = 4
-RPCItems.AttributesRolls[3]["element_lightning"] = 4
-RPCItems.AttributesRolls[4]["element_lightning"] = 4
+RPCItems.AttributesRolls[1]["element_lightning"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_lightning"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_lightning"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_lightning"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_poison"] = 4
-RPCItems.AttributesRolls[2]["element_poison"] = 4
-RPCItems.AttributesRolls[3]["element_poison"] = 4
-RPCItems.AttributesRolls[4]["element_poison"] = 4
+RPCItems.AttributesRolls[1]["element_poison"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_poison"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_poison"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_poison"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_time"] = 4
-RPCItems.AttributesRolls[2]["element_time"] = 4
-RPCItems.AttributesRolls[3]["element_time"] = 4
-RPCItems.AttributesRolls[4]["element_time"] = 4
+RPCItems.AttributesRolls[1]["element_time"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_time"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_time"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_time"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_holy"] = 4
-RPCItems.AttributesRolls[2]["element_holy"] = 4
-RPCItems.AttributesRolls[3]["element_holy"] = 4
-RPCItems.AttributesRolls[4]["element_holy"] = 4
+RPCItems.AttributesRolls[1]["element_holy"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_holy"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_holy"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_holy"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_cosmic"] = 4
-RPCItems.AttributesRolls[2]["element_cosmic"] = 4
-RPCItems.AttributesRolls[3]["element_cosmic"] = 4
-RPCItems.AttributesRolls[4]["element_cosmic"] = 4
+RPCItems.AttributesRolls[1]["element_cosmic"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_cosmic"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_cosmic"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_cosmic"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_ice"] = 4
-RPCItems.AttributesRolls[2]["element_ice"] = 4
-RPCItems.AttributesRolls[3]["element_ice"] = 4
-RPCItems.AttributesRolls[4]["element_ice"] = 4
+RPCItems.AttributesRolls[1]["element_ice"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_ice"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_ice"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_ice"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_arcane"] = 4
-RPCItems.AttributesRolls[2]["element_arcane"] = 4
-RPCItems.AttributesRolls[3]["element_arcane"] = 4
-RPCItems.AttributesRolls[4]["element_arcane"] = 4
+RPCItems.AttributesRolls[1]["element_arcane"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_arcane"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_arcane"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_arcane"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_shadow"] = 4
-RPCItems.AttributesRolls[2]["element_shadow"] = 4
-RPCItems.AttributesRolls[3]["element_shadow"] = 4
-RPCItems.AttributesRolls[4]["element_shadow"] = 4
+RPCItems.AttributesRolls[1]["element_shadow"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_shadow"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_shadow"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_shadow"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_wind"] = 4
-RPCItems.AttributesRolls[2]["element_wind"] = 4
-RPCItems.AttributesRolls[3]["element_wind"] = 4
-RPCItems.AttributesRolls[4]["element_wind"] = 4
+RPCItems.AttributesRolls[1]["element_wind"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_wind"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_wind"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_wind"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_ghost"] = 4
-RPCItems.AttributesRolls[2]["element_ghost"] = 4
-RPCItems.AttributesRolls[3]["element_ghost"] = 4
-RPCItems.AttributesRolls[4]["element_ghost"] = 4
+RPCItems.AttributesRolls[1]["element_ghost"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_ghost"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_ghost"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_ghost"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_water"] = 4
-RPCItems.AttributesRolls[2]["element_water"] = 4
-RPCItems.AttributesRolls[3]["element_water"] = 4
-RPCItems.AttributesRolls[4]["element_water"] = 4
+RPCItems.AttributesRolls[1]["element_water"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_water"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_water"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_water"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_demon"] = 4
-RPCItems.AttributesRolls[2]["element_demon"] = 4
-RPCItems.AttributesRolls[3]["element_demon"] = 4
-RPCItems.AttributesRolls[4]["element_demon"] = 4
+RPCItems.AttributesRolls[1]["element_demon"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_demon"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_demon"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_demon"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_nature"] = 4
-RPCItems.AttributesRolls[2]["element_nature"] = 4
-RPCItems.AttributesRolls[3]["element_nature"] = 4
-RPCItems.AttributesRolls[4]["element_nature"] = 4
+RPCItems.AttributesRolls[1]["element_nature"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_nature"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_nature"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_nature"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_undead"] = 4
-RPCItems.AttributesRolls[2]["element_undead"] = 4
-RPCItems.AttributesRolls[3]["element_undead"] = 4
-RPCItems.AttributesRolls[4]["element_undead"] = 4
+RPCItems.AttributesRolls[1]["element_undead"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_undead"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_undead"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_undead"] = RPCItems.AttributesRolls[4]["base_ability"]
 
-RPCItems.AttributesRolls[1]["element_dragon"] = 4
-RPCItems.AttributesRolls[2]["element_dragon"] = 4
-RPCItems.AttributesRolls[3]["element_dragon"] = 4
-RPCItems.AttributesRolls[4]["element_dragon"] = 4
+RPCItems.AttributesRolls[1]["element_dragon"] = RPCItems.AttributesRolls[1]["base_ability"]
+RPCItems.AttributesRolls[2]["element_dragon"] = RPCItems.AttributesRolls[2]["base_ability"]
+RPCItems.AttributesRolls[3]["element_dragon"] = RPCItems.AttributesRolls[3]["base_ability"]
+RPCItems.AttributesRolls[4]["element_dragon"] = RPCItems.AttributesRolls[4]["base_ability"]
 
 RPCItems.AttributesRolls[1]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
 RPCItems.AttributesRolls[2]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]

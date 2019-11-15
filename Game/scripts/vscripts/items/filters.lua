@@ -3392,30 +3392,37 @@ function Filters:UmbralSentinel(attacker, victim)
 end
 
 function Filters:DefilerHit(attacker, victim)
-    local ability = attacker.headItem
-    if not victim.defiler then
-        victim.defiler = ability
-    end
+    local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
 
     local origStacks = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability)
-
-    local currentArmorLoss = victim:GetModifierStackCount("modifier_hood_of_defiler_armor_loss", ability)
-    local additionalArmorLoss = math.ceil(victim:GetPhysicalArmorValue(false) * HOOD_OF_DEFILER_ARMOR_REDUCTION/100)
-    if origStacks >= HOOD_OF_DEFILER_POST_MITI_MAX_STACKS then
-        additionalArmorLoss = 0
-    end
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_armor_loss", {duration = HOOD_OF_DEFILER_DURATION})
-    victim:SetModifierStackCount("modifier_hood_of_defiler_armor_loss", ability, currentArmorLoss + additionalArmorLoss)
-
-    local origStacks = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability)
-    local newStacks = math.min(origStacks + 1, HOOD_OF_DEFILER_POST_MITI_MAX_STACKS)
+    local newStacks = math.min(origStacks + 1, HOOD_OF_DEFILER_ARMOR_REDUCE_MAX_STACKS)
     ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_hood_of_defiler_effect_visible", {duration = HOOD_OF_DEFILER_DURATION})
     victim:SetModifierStackCount("modifier_hood_of_defiler_effect_visible", ability, newStacks)
+    victim:CalculateAndSaveRoshpitAttributes()
 
-    local casterStacks = attacker:GetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit)
-    local newCasterStacks = math.min(casterStacks + 1, HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG)
-    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff", {duration = 9})
-    attacker:SetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit, newCasterStacks)
+    if ability:GetGemValue("ruby") > 0 or ability:GetGemValue("emerald") > 0 or ability:GetGemValue("amethyst") > 0 or ability:GetGemValue("sapphire") > 0 then
+        local casterStacks = attacker:GetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit)
+        local newCasterStacks = math.min(casterStacks + 1, HOOD_OF_DEFILER_RUBY_MAX_STACKS)
+        ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff", {duration = HOOD_OF_DEFILER_DURATION})
+        attacker:SetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit, newCasterStacks)
+
+        if ability:GetGemValue("ruby") > 0 then
+            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff_ruby", {duration = HOOD_OF_DEFILER_DURATION})
+            attacker:SetModifierStackCount("modifier_hood_of_defiler_buff_ruby", attacker.InventoryUnit, newCasterStacks*ability:GetFinalGemPropertyValue("ruby", HOOD_OF_DEFILER_RUBY))
+        end
+        if ability:GetGemValue("emerald") > 0 then
+            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff_emerald", {duration = HOOD_OF_DEFILER_DURATION})
+            attacker:SetModifierStackCount("modifier_hood_of_defiler_buff_emerald", attacker.InventoryUnit, newCasterStacks*ability:GetFinalGemPropertyValue("emerald", HOOD_OF_DEFILER_EMERALD))
+        end
+        if ability:GetGemValue("sapphire") > 0 then
+            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff_sapphire", {duration = HOOD_OF_DEFILER_DURATION})
+            attacker:SetModifierStackCount("modifier_hood_of_defiler_buff_sapphire", attacker.InventoryUnit, newCasterStacks*ability:GetFinalGemPropertyValue("sapphire", HOOD_OF_DEFILER_SAPPHIRE))
+        end
+        if ability:GetGemValue("amethyst") > 0 then
+            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff_amethyst", {duration = HOOD_OF_DEFILER_DURATION})
+            attacker:SetModifierStackCount("modifier_hood_of_defiler_buff_amethyst", attacker.InventoryUnit, newCasterStacks*ability:GetFinalGemPropertyValue("amethyst", HOOD_OF_DEFILER_AMETHYST))
+        end
+    end
 end
 
 function Filters:FarSeerGloves(attacker, damage, inflictor)
@@ -4761,7 +4768,7 @@ function Filters:SilentTemplar(caster)
         caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
         caster:AddNewModifier(caster.InventoryUnit, silent_templar_helm, "modifier_silent_templar_sapphire", {duration = duration})
         silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_sapphire_orb", {duration = duration})
-        
+
     end
     if silent_templar_helm:GetGemValue("amethyst") > 0 then
         silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_amethyst_hp_regen_loss", {duration = duration})

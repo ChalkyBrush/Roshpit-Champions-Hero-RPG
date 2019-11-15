@@ -252,7 +252,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
 		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"				"Враги, задетые способностью (W) @Ability2 получат дебафф, который снижает значение их текущей брони на <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>% и дополнительно увеличивает весь физический урон по ним на <% HOOD_OF_DEFILER_POST_MITI_PHYS %>% из всех источников.<br>Складывается до <% HOOD_OF_DEFILER_POST_MITI_MAX_STACKS %> раз и длится <% HOOD_OF_DEFILER_DURATION %> секунд.<br>Увеличивает урон героя на <% HOOD_OF_DEFILER_BONUS_ATTACK_DMG_PER_TARGET %>% за каждую успешную атаку,<br>складывается до <% HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG %> раз."
+		"property_hood_of_defiler_description"				"Enemies hit by @Ability2 receive a debuff that reduces their total Armor and Magic Armor by <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>%. Stacks up to <% HOOD_OF_DEFILER_ARMOR_REDUCE_MAX_STACKS %> times and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Броня снижена, получаемый физический урон увеличен."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"

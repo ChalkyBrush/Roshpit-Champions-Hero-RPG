@@ -247,7 +247,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"亵渎头巾"
 		"item_property_hood_of_defiler"					"腐败"
-		"property_hood_of_defiler_description"				"被 @Ability2 击中的敌人将获得一个debuff，降低当前护甲值的<% HOOD_OF_DEFILER_ARMOR_REDUCTION %>%，受到的物理伤害提高<% HOOD_OF_DEFILER_POST_MITI_PHYS %>%，持续<% HOOD_OF_DEFILER_DURATION %>秒，可叠加至<% HOOD_OF_DEFILER_POST_MITI_MAX_STACKS %>层。<br>每击中一个目玩家获得一层buff，提高 <% HOOD_OF_DEFILER_BONUS_ATTACK_DMG_PER_TARGET %>% 攻击力，可叠加至<% HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG %>层。"
+		"property_hood_of_defiler_description"				"Enemies hit by @Ability2 receive a debuff that reduces their total Armor and Magic Armor by <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>%. Stacks up to <% HOOD_OF_DEFILER_ARMOR_REDUCE_MAX_STACKS %> times and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"腐败"
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"护甲值降低，并且受到的物理伤害提高。"
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"腐败"

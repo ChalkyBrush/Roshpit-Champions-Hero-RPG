@@ -13232,6 +13232,25 @@
 		"item_rpc_helm_of_the_silent_templar_sapphire1" "Increases attack range and projectile speed during Silent Watch by @sapphire_property1"
 		"item_rpc_helm_of_the_silent_templar_amethyst1" "During Silent Watch lose <font color='#ccff66'>-8</font>% health regen and gain @amethyst_property1% attack power"
 
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
+		"item_rpc_hood_of_chosen_ruby1"	"Increases [Q1] rune by @ruby_property1"
+		"item_rpc_hood_of_chosen_emerald1"	"Increases [E1] rune by @emerald_property1"
+		"item_rpc_hood_of_chosen_sapphire1" "Increases [W1] rune by @emerald_property1"
+		"item_rpc_hood_of_chosen_amethyst1" "Increases [R1] rune by @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
+		"item_property_hood_of_defiler"					"Corruption"
+		"property_hood_of_defiler_description"                "Enemies hit by @Ability2 receive a debuff that reduces their total Armor and Magic Armor by <font color='#ccff66'>7</font>%. Stacks up to <font color='#ccff66'>5</font> times and lasts <font color='#ccff66'>10</font> seconds."
+		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
+		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor and Magic Armor by %%."
+		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
+		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased Combat Capability"
+
+		"item_rpc_hood_of_defiler_ruby1"	"Each enemy hit by [W] adds a stack of Corruption to the caster, increasing attack power by @ruby_property1%. Max <font color='#ccff66'>60</font> stacks and lasts <font color='#ccff66'>10</font> seconds."
+		"item_rpc_hood_of_defiler_emerald1"	"Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Armor Pierce by @emerald_property1. Max <font color='#ccff66'>60</font> stacks and lasts <font color='#ccff66'>10</font> seconds."
+		"item_rpc_hood_of_defiler_sapphire1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing base attack damage by @sapphire_property1. Max <font color='#ccff66'>60</font> stacks and lasts <font color='#ccff66'>10</font> seconds."
+		"item_rpc_hood_of_defiler_amethyst1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Spell Pierce by @amethyst_property1. Max <font color='#ccff66'>60</font> stacks and lasts <font color='#ccff66'>10</font> seconds."
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13252,12 +13271,7 @@
 		"item_property_hyper_visor2"				"Hyper Lightning"
 		"property_hyper_visor2_description"			"<font color='#ccff66'>20</font>% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on <font color='#ccff66'>40</font>x your attack power. Changes your Base Attack Time to <font color='#ccff66'>1.2</font> seconds.<br>All damage dealt directly by items is enhanced by <font color='#ccff66'>0.3</font>% for each <font color='#ccff66'>10</font> points of Agility."
 		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
-		
-		
-		
+			
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
 		"property_odin_description"					"All instances of damage dealt have a <font color='#ccff66'>10</font>% chance to be multiplied by <font color='#ccff66'>7</font>. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
@@ -13351,15 +13365,6 @@
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
 		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <font color='#ccff66'>3</font>% of damage taken restores mana. Each point of mana increases base attack damage by <font color='#ccff66'>5</font>. Attacking drains <font color='#ccff66'>2</font>% of your max mana. Additionally increases damage of @Ability2 by <font color='#ccff66'>350</font>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
-		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"                "Enemies hit by @Ability2 receive a debuff that reduces their current total Armor by <font color='#ccff66'>15</font>%, and causes them to take <font color='#ccff66'>25</font>% increased Post-Mitigation Physical damage from all sources. Stacks up to <font color='#ccff66'>5</font> times and lasts <font color='#ccff66'>10</font> seconds. Grants bonus attack damage by <font color='#ccff66'>0.5</font>% for each target hit, up to <font color='#ccff66'>100</font> stacks."
-		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
-		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Reduced Armor, and taking increased Physical damage."
-		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
-		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased attack damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"

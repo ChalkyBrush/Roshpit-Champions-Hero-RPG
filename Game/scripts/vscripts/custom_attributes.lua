@@ -872,6 +872,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + blackfeather_armor_loss
 	end
 
+
+	-- FINAL STEP DEFILER
+
+	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		armor_modify = armor_modify  - (armor + armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor", {})
@@ -1284,7 +1292,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
 	end
-	
+
+	-- FINAL STEP DEFILER
+
+	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		magic_armor_modify = magic_armor_modify  - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+
+
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_magic_armor", {})
@@ -1451,6 +1467,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
     if unit:HasModifier("modifier_helm_of_the_mountain_giant") and unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
     	armor_pierce_modify = armor_pierce_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MOUNTAIN_GIANT_AMETHYST)
     end
+	if unit:HasModifier("modifier_hood_of_defiler_buff_emerald") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_buff_emerald")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()
+	end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
@@ -1633,6 +1653,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
     	local missingMana = unit:GetMaxMana() - unit:GetMana()
     	spell_pierce_modify = spell_pierce_modify + missingMana*unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", EMERALD_DOULI_AMETHYST)
     end
+	if unit:HasModifier("modifier_hood_of_defiler_buff_amethyst") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_buff_amethyst")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
+	end
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

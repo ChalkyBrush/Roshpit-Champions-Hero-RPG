@@ -3951,6 +3951,53 @@ function RPCItems:RollHelmOfSilentTemplar(item_level)
     return item
 end
 
+function RPCItems:RollHoodOfChosen(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_hood_of_chosen", "immortal", "Hood of the Chosen", "head", true, "Slot: Head")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, rune_type, 1.5)
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollHoodOfDefiler(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_hood_of_defiler", "immortal", "Hood of the Defiler", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_hood_of_defiler"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hood_of_defiler", "#B36481", 1, "#property_hood_of_defiler_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_demon", 1.5)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 function RPCItems:RollHoodOfTheSeaOracle(item_level)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_the_sea_oracle", "immortal", "Hood of the Sea Oracle", "head", true, "Slot: Head")
@@ -4129,27 +4176,6 @@ function RPCItems:RollHyperVisor(item_level)
 
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollHoodOfChosen(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_hood_of_chosen", "immortal", "Hood of the Chosen", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property1 = math.ceil(value * 2)
-    item.newItemTable.property1name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = value * 2
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
 end
@@ -4534,30 +4560,6 @@ function RPCItems:RollScourgeKnightHelm(item_level)
     item.newItemTable.property3name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_bonus_attack_damage", "#343EC9", 3)
 
-    RPCItems:RollHoodProperty4(item, 0)
-
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollHoodOfDefiler(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_hood_of_defiler", "immortal", "Hood of the Defiler", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "hood_of_defiler"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hood_of_defiler", "#B36481", 1, "#property_hood_of_defiler_description")
-
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        local value = RandomInt(maxFactor * 5, maxFactor * 500)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "attack_damage"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
-    else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_DEMON, 2.7, 2, 29, 2)
-    end
-
-    RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
 
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
@@ -8823,7 +8825,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     if gear_slot == RPC_GEAR_SLOT_HEAD then
         itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
         "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli", "item_rpc_excavators_focus_cap",
-        "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar"}
+        "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler"}
     end
     return itemsList
 end

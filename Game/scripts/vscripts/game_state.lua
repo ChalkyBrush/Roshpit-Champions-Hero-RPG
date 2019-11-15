@@ -2120,10 +2120,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_golden_war_plate") then
 			mult = mult + GOLDEN_WARPLATE_PHYS_POST_MITI_AMP/100
 		end
-		if victim:HasModifier("modifier_hood_of_defiler_effect_visible") then
-			local multIncrease = victim:GetModifierStackCount("modifier_hood_of_defiler_effect_visible", victim.defiler) * HOOD_OF_DEFILER_POST_MITI_PHYS/100
-			mult = mult + multIncrease
-		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then

@@ -3454,11 +3454,6 @@ function halcyon_glove_think(event)
 	target:SetModifierStackCount("modifier_halcyon_soul_glove_effect", caster, stacks)
 end
 
-function defiler_end(event)
-	local target = event.target
-	target.defiler = false
-end
-
 function nightmare_rider_attackland(event)
 	local caster = event.caster
 	local attacker = event.attacker
