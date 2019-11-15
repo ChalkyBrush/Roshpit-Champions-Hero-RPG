@@ -173,6 +173,7 @@ function trap_think(event)
 		for _, enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 			ability:ApplyDataDrivenModifier(trap, enemy, "modifier_fulminating_burn_effect", {duration = 0.5})
+			enemy:CalculateAndSaveRoshpitAttributes()
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/fulminating_effect.vpcf", enemy, 0.5)
 			if q_3_level > 0 then
 				ability:ApplyDataDrivenModifier(trap, enemy, "modifier_trap_magic_resist_loss", {duration = 1.0})
@@ -288,6 +289,7 @@ function net_trap_think(event)
 				if (currentStacks + 1) == 3 then
 					EmitSoundOn("Trapper.NetEffect", enemy)
 					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_net_trap_netted_effect", {duration = root_duration})
+					enemy:CalculateAndSaveRoshpitAttributes()
 					if caster:HasModifier("modifier_trapper_glyph_4_2") then
 						ability:ApplyDataDrivenModifier(trap, enemy, "modifier_net_trap_silence_effect", {duration = root_duration})
 					end
@@ -321,6 +323,7 @@ function poison_trap_think(event)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			ability:ApplyDataDrivenModifier(trap, enemy, "modifier_poison_trap_effect", {duration = 6})
+			enemy:CalculateAndSaveRoshpitAttributes()
 			local currentStacks = enemy:GetModifierStackCount("modifier_poison_trap_effect", ability)
 			local newStacks = math.min(currentStacks + 1, maxStacks)
 			enemy:SetModifierStackCount("modifier_poison_trap_effect", ability, newStacks)
@@ -454,6 +457,7 @@ function torrent_trap_think(event)
 					end
 					EmitSoundOn("Trapper.TorrentImpact", enemy)
 					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_slowed_effect", {duration = 2})
+					enemy:CalculateAndSaveRoshpitAttributes()
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 					enemy:SetModifierStackCount("modifier_torrent_trap_slowed_effect", ability, ability.q_2_level)
 					ability:ApplyDataDrivenModifier(trap, enemy, "modifier_torrent_trap_immunity", {duration = 1})
