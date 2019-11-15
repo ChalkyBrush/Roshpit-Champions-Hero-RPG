@@ -13200,6 +13200,18 @@
 		"item_rpc_helm_of_champions_sapphire1" "Increases Rune [Q2] by @sapphire_property1"
 		"item_rpc_helm_of_champions_amethyst1" "Increases Rune [Q4] by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
+		"item_property_knight_hawk" 								"Peregrine Flight"
+		"property_knight_hawk_description"						"Increases movespeed cap by an additional <font color='#ccff66'>200</font>. While above 550 movespeed, damage taken is reduced by <font color='#ccff66'>30</font>%. If your movespeed ever falls below <font color='#ccff66'>260</font>, gain a <font color='#ccff66'>300</font> movespeed buff for <font color='#ccff66'>10</font> seconds."
+
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Peregrine Flight"
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased movespeed"
+
+		"item_rpc_helm_of_the_knight_hawk_ruby1"	"Increases Movespeed Cap by an addition @ruby_property1"
+		"item_rpc_helm_of_the_knight_hawk_emerald1"	"Increases the damage reduction while above 550 movespeed by an addition @emerald_property1"
+		"item_rpc_helm_of_the_knight_hawk_sapphire1" "Increaes the threshold to get a speed burst by @sapphire_property1"
+		"item_rpc_helm_of_the_knight_hawk_amethyst1" "The speed burst when falling below the threshold is increased by @amethyst_property1"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13409,15 +13421,7 @@
 		"item_property_mountain_giant" 								"Hulking"
 		"property_mountain_giant_description"						"Increases max health by <font color='#ccff66'>200</font>%. While above <font color='#ccff66'>80</font>% of max health, reduce all incoming damage by <font color='#ccff66'>50</font>%."
 	
-	
 
-
-		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
-		"item_property_knight_hawk" 								"Peregrine Flight"
-		"property_knight_hawk_description"						"Increases movespeed cap by an additional <font color='#ccff66'>300</font>. While above 550 movespeed, damage taken is reduced by <font color='#ccff66'>90</font>%. If your movespeed ever falls below 300, gain a <font color='#ccff66'>350</font> movespeed buff for <font color='#ccff66'>10</font> seconds."
-
-		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Peregrine Flight"
-		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased movespeed"
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Artillery Magus"

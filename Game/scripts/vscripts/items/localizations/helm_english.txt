@@ -302,6 +302,18 @@
 		"item_rpc_helm_of_champions_sapphire1" "Increases Rune [Q2] by @sapphire_property1"
 		"item_rpc_helm_of_champions_amethyst1" "Increases Rune [Q4] by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
+		"item_property_knight_hawk" 								"Peregrine Flight"
+		"property_knight_hawk_description"						"Increases movespeed cap by an additional <% KNIGHT_HAWK_MAX_MOVESPEED_LIMIT %>. While above 550 movespeed, damage taken is reduced by <% KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX %>%. If your movespeed ever falls below <% KNIGHT_HAWK_MS_THRESHOLD_FOR_SPEED_BURST %>, gain a <% KNIGHT_HAWK_MS_GAIN %> movespeed buff for <% KNIGHT_HAWK_MS_BUFF_DURATION %> seconds."
+
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Peregrine Flight"
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased movespeed"
+
+		"item_rpc_helm_of_the_knight_hawk_ruby1"	"Increases Movespeed Cap by an addition @ruby_property1"
+		"item_rpc_helm_of_the_knight_hawk_emerald1"	"Increases the damage reduction while above 550 movespeed by an addition @emerald_property1"
+		"item_rpc_helm_of_the_knight_hawk_sapphire1" "Increaes the threshold to get a speed burst by @sapphire_property1"
+		"item_rpc_helm_of_the_knight_hawk_amethyst1" "The speed burst when falling below the threshold is increased by @amethyst_property1"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -511,15 +523,7 @@
 		"item_property_mountain_giant" 								"Hulking"
 		"property_mountain_giant_description"						"Increases max health by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. While above <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% of max health, reduce all incoming damage by <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
 	
-	
 
-
-		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
-		"item_property_knight_hawk" 								"Peregrine Flight"
-		"property_knight_hawk_description"						"Increases movespeed cap by an additional <% KNIGHT_HAWK_MAX_MOVESPEED_LIMIT %>. While above 550 movespeed, damage taken is reduced by <% KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX %>%. If your movespeed ever falls below 300, gain a <% KNIGHT_HAWK_MS_GAIN %> movespeed buff for <% KNIGHT_HAWK_MS_BUFF_DURATION %> seconds."
-
-		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Peregrine Flight"
-		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased movespeed"
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Artillery Magus"

@@ -1613,7 +1613,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local movespeed = victim:GetBaseMoveSpeed()
 		local movespeedModifier = victim:GetMoveSpeedModifier(movespeed, false)
 		if movespeedModifier > 550 then
-			damage = damage * (1-(KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX/100))
+			damage = damage * (1-(KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KNIGHT_HAWK_EMERALD)/100))
 		end
 	end
 	if victim:HasModifier("modifier_stonewall_aura_friendly_effect") then

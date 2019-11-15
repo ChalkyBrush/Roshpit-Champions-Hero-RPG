@@ -5902,8 +5902,13 @@ function knight_hawk_think(event)
 	local hero = event.target
 	local movespeed = hero:GetBaseMoveSpeed()
 	local movespeedModifier = hero:GetMoveSpeedModifier(movespeed, false)
-	if movespeedModifier <= 300 then
+	local threshold = KNIGHT_HAWK_MS_THRESHOLD_FOR_SPEED_BURST + ability:GetFinalGemPropertyValue("sapphire", KNIGHT_HAWK_SAPPHIRE)
+	if movespeedModifier <= threshold then
 		event.ability:ApplyDataDrivenModifier(event.caster, hero, "modifier_knight_hawk_helm_speed", {duration = KNIGHT_HAWK_MS_BUFF_DURATION})
+		if ability:GetRuneValue("amethyst") > 0 then
+			event.ability:ApplyDataDrivenModifier(event.caster, hero, "modifier_knight_hawk_amethyst_burst_bonus", {duration = KNIGHT_HAWK_MS_BUFF_DURATION})
+			hero:SetModifierStackCount("modifier_knight_hawk_amethyst_burst_bonus", caster, ability:GetFinalGemPropertyValue("amethyst", KNIGHT_HAWK_AMETHYST))
+		end
 	end	
 end
 

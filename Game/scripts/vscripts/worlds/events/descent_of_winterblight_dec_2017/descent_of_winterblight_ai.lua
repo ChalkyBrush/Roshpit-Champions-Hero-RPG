@@ -743,7 +743,7 @@ function winterblight_boss_final_death_animation(caster)
 			if immortal_luck == 1 then
 				RPCItems:RollPegasusBoots(position)
 			elseif immortal_luck == 2 then
-				RPCItems:RollHelmOfKnightHawk(position, false)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_helm_of_the_knight_hawk")
 			end
 		elseif dead_boss == "winterblight_cavern_gigarraun" then
 			local immortal_luck = RandomInt(1, 4)

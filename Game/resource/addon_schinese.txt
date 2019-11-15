@@ -13320,7 +13320,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"苍鹰骑士头盔"
 		"item_property_knight_hawk" 								"极速之刃"
-		"property_knight_hawk_description"						"增加最大移动速度 <font color='#ccff66'>300</font>.。在移动速度高于550时，受到的伤害将会被降低<font color='#ccff66'>90</font>%。如果移动速度低于300时，获得 一个增加<font color='#ccff66'>350</font> 移动速度的buff持续 <font color='#ccff66'>10</font> 秒。"
+		"property_knight_hawk_description"						"增加最大移动速度 <font color='#ccff66'>200</font>.。在移动速度高于550时，受到的伤害将会被降低<font color='#ccff66'>30</font>%。如果移动速度低于300时，获得 一个增加<font color='#ccff66'>300</font> 移动速度的buff持续 <font color='#ccff66'>10</font> 秒。"
 
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"极速之刃"
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"增加移动速度"

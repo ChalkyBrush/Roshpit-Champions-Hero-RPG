@@ -13127,7 +13127,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
 		"item_property_knight_hawk" 								"Haste Blade"
-		"property_knight_hawk_description"						"Увеличивает лимит скорости передвижения на <font color='#ccff66'>300</font>. Если скорость выше 550, то входящий урон снижается <font color='#ccff66'>90</font>%. Если скорость передвижения падает ниже 300, герой получает <font color='#ccff66'>350</font> прибавку к скорости на <font color='#ccff66'>10</font> сек."
+		"property_knight_hawk_description"						"Увеличивает лимит скорости передвижения на <font color='#ccff66'>200</font>. Если скорость выше 550, то входящий урон снижается <font color='#ccff66'>30</font>%. Если скорость передвижения падает ниже 300, герой получает <font color='#ccff66'>300</font> прибавку к скорости на <font color='#ccff66'>10</font> сек."
 
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Haste Blade"
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Скорость увеличена"
