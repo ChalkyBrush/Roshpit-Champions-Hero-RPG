@@ -871,7 +871,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local blackfeather_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BLACKFEATHER_SAPPHIRE)
 		armor_modify = armor_modify + blackfeather_armor_loss
 	end
-
+	if unit:HasModifier("modifier_fulminating_burn_effect") or unit:HasModifier("modifier_poison_trap_effect") or unit:HasModifier("modifier_net_trap_netted_effect") or unit:HasModifier("modifier_torrent_trap_slowed_effect") then
+		local modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_poison_trap_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_net_trap_netted_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
+		end
+		if modifier:GetCaster():HasModifier("modifier_trapper_immortal_weapon_2") then
+			armor_modify = armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
+		end
+	end
 
 	-- FINAL STEP DEFILER
 
@@ -1291,6 +1308,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_black_dominion_d_a_aura_effect") then
 		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
+	end
+	if unit:HasModifier("modifier_fulminating_burn_effect") or unit:HasModifier("modifier_poison_trap_effect") or unit:HasModifier("modifier_net_trap_netted_effect") or unit:HasModifier("modifier_torrent_trap_slowed_effect") then
+		local modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_poison_trap_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_net_trap_netted_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
+		end
+		if modifier:GetCaster():HasModifier("modifier_trapper_immortal_weapon_2") then
+			magic_armor_modify = magic_armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
+		end
 	end
 
 	-- FINAL STEP DEFILER
