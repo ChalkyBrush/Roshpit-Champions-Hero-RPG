@@ -1405,7 +1405,7 @@
 				"TextureName"	"kunkka_ghostship_immortal"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "<% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>"
 				}
 				"OnCreated"
 				{
