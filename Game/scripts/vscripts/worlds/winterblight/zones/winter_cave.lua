@@ -4621,7 +4621,6 @@ function Winterblight:TiamatBossDie(boss)
 		local arcanaLuck = RandomInt(1, max_roll)
 		if arcanaLuck == 1 then
 			RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_warlord_arcana2")
-			RPCItems:RollWarlordArcana2(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
 		end
 		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 3)
 		if luck2 == 1 then
