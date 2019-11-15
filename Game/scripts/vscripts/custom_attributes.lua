@@ -887,11 +887,19 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		end
 	end
 
-	-- FINAL STEP DEFILER
+	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
-		armor_modify = armor_modify  - (armor + armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+		armor_modify = armor_modify - (armor + armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_hood_of_the_black_mage") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		local penalty = HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY
+		if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("ruby") > 0 then
+			penalty = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", HOOD_OF_BLACK_MAGE_RUBY)
+		end
+		armor_modify = armor_modify - (armor + armor_modify)*(penalty/100)
 	end
 
 	if armor_modify > 0 then
@@ -1501,6 +1509,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()
 	end
 
+	-- FINAL STEP: HOOD OF BLACK MAGE
+	if unit:HasModifier("modifier_hood_of_the_black_mage") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		armor_pierce_modify = armor_pierce_modify - (armor_pierce + armor_pierce_modify)*(HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY/100)
+	end
+
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
 		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_positive_roshpit_armor_pierce", {})
@@ -1685,6 +1699,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_hood_of_defiler_buff_amethyst") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_buff_amethyst")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
+	end
+
+	-- FINAL STEP: HOOD OF BLACK MAGE
+	if unit:HasModifier("modifier_hood_of_the_black_mage") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		local spell_pierce_pct_bonus = HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", HOOD_OF_BLACK_MAGE_AMETHYST)
+		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(spell_pierce_pct_bonus/100)
 	end
 
 	if spell_pierce_modify > 0 then

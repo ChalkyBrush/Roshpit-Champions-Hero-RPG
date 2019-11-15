@@ -2140,9 +2140,6 @@ function GameState:FilterDamage(filterTable)
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
 		end
-		if attacker:HasModifier("modifier_hood_of_the_black_mage") then
-			mult = mult + (BLACK_MAGE_MAGIC_POST_MITI)/100
-		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 
 

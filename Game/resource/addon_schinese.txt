@@ -13200,7 +13200,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
 		 "item_property_black_mage"							"黑魔法"
-		 "property_black_mage_description"					"所有魔法伤害增加<font color='#ccff66'>280</font>%，由装备造成的伤害降低<font color='#ccff66'>80</font>%。"
+		 "property_black_mage_description"					"所有魔法伤害增加<font color='#ccff66'>0</font>%，由装备造成的伤害降低<font color='#ccff66'>0</font>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"秋天睡眠者面具"

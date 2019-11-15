@@ -13007,7 +13007,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Весь пост-резистный магический урон героя увеличен на <font color='#ccff66'>280</font>%. Урон, наносимый предметами снижен на <font color='#ccff66'>80</font>%."
+		 "property_black_mage_description"					"Весь пост-резистный магический урон героя увеличен на <font color='#ccff66'>0</font>%. Урон, наносимый предметами снижен на <font color='#ccff66'>0</font>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"

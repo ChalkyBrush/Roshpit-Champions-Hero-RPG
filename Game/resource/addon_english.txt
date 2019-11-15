@@ -13235,7 +13235,7 @@
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
 		"item_rpc_hood_of_chosen_ruby1"	"Increases [Q1] rune by @ruby_property1"
 		"item_rpc_hood_of_chosen_emerald1"	"Increases [E1] rune by @emerald_property1"
-		"item_rpc_hood_of_chosen_sapphire1" "Increases [W1] rune by @emerald_property1"
+		"item_rpc_hood_of_chosen_sapphire1" "Increases [W1] rune by @sapphire_property1"
 		"item_rpc_hood_of_chosen_amethyst1" "Increases [R1] rune by @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
@@ -13257,9 +13257,17 @@
 		
 		"item_rpc_hood_of_lords_ruby1"	"Increases [Q4] rune by @ruby_property1"
 		"item_rpc_hood_of_lords_emerald1"	"Increases [E4] rune by @emerald_property1"
-		"item_rpc_hood_of_lords_sapphire1" "Increases [W4] rune by @emerald_property1"
+		"item_rpc_hood_of_lords_sapphire1" "Increases [W4] rune by @sapphire_property1"
 		"item_rpc_hood_of_lords_amethyst1" "Increases [R4] rune by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
+		"item_property_black_mage"							"Black Magic"
+		"property_black_mage_description"					"Increases Spell Pierce by <font color='#ccff66'>100</font>%. Reduces Armor and Armor Pierce by <font color='#ccff66'>75</font>%."
+
+		"item_rpc_hood_of_the_black_mage_ruby1"	"Reduces the Armor loss penalty to @ruby_property1%"
+		"item_rpc_hood_of_the_black_mage_emerald1"	"Reduces Item Damage but increases Base Ability Damage both by @emerald_property1%"
+		"item_rpc_hood_of_the_black_mage_sapphire1" "Increases Intelligence by @sapphire_property1"
+		"item_rpc_hood_of_the_black_mage_amethyst1" "Increases the Spell Pierce bonus by an additional @amethyst_property1%"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -13380,11 +13388,6 @@
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		 "item_property_stormcrack2"						"Stormcrack"
 		 "property_stormcrack2_description"					"When you stun an enemy, deal <font color='#ccff66'>40</font>x your attack power plus <font color='#ccff66'>400</font>x the sum of your attributes as Magical damage. Increases the duration of all your stuns by <font color='#ccff66'>35</font>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
-		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Post-Mitigation Magiacl damage increased by <font color='#ccff66'>280</font>%. Damage dealt directly by items is reduced by <font color='#ccff66'>80</font>%."
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"

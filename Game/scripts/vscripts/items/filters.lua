@@ -220,7 +220,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_hood_of_the_black_mage") then
-        damage = damage * (100-BLACK_MAGE_ITEM_DAMAGE_PENALTY)/100
+        if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+            mult = mult - caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", HOOD_OF_BLACK_MAGE_EMERALD)/100
+        end
     end
     damage = damage * mult
     return damage
@@ -1360,7 +1362,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount("modifier_venomort_rune_r_4", attacker.runeUnit4:FindAbilityByName("venomort_rune_r_4"))
             damageMult = damageMult + 0.1 * current_stack
         end
-
+        if attacker:HasModifier("modifier_hood_of_the_black_mage") then
+            if attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+                damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", HOOD_OF_BLACK_MAGE_EMERALD)/100
+            end
+        end
         if attacker:HasAbility("mountain_protector_emberstone") then
             local e_4_level = attacker:GetRuneValue("e", 4)
             damageMult = damageMult + MOUNTAIN_PROTECTOR_E4_BAD * e_4_level

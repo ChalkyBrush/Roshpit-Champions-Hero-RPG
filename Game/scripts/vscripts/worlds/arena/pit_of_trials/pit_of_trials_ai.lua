@@ -1288,7 +1288,7 @@ function conquest_boss_die(event)
 	end)
 	local luck = RandomInt(1,4)
 	if luck == 1 then
-		RPCItems:RollHoodOfBlackMage(caster:GetAbsOrigin(), false)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_hood_of_the_black_mage")
 	end
 	if not Arena.PitBossesSlain then
 		Arena.PitBossesSlain = 0
