@@ -53054,7 +53054,7 @@
 				"TextureName"	"kunkka_ghostship_immortal"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "360"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "360"
 				}
 				"OnCreated"
 				{

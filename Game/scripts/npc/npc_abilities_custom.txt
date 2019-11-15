@@ -35473,6 +35473,15 @@
 				"IsStunDebuff"	"1"
 				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				"EffectAttachType" 	"attach_origin"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_trap_magic_resist_loss"
 			{
@@ -35653,6 +35662,15 @@
 				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-2000"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%attack_range_loss"
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_net_trap_silence_effect"
 			{
@@ -35811,6 +35829,15 @@
 					{
 						"ScriptFile"	"heroes/lanaya/fulminating_trap.lua"
 						"Function"		"poison_debuff_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
 						"target"		"TARGET"
 					}
 				}
@@ -35984,6 +36011,15 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_trap_magic_resist_loss"

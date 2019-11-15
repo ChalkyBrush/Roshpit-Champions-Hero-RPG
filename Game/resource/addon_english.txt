@@ -10956,7 +10956,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_2"            "Onyx Lotus"
         "item_property_trapper_immortal_weapon2"                             "Deadly Traps"
-        "property_trapper_immortal_weapon2_description"                      "Enemies affected by any Trap take @special_property1% increased post-mitigation damage from Trapper. This bonus stacks multiplicatively with any other sources of post-mitigation damage amplification."
+        "property_trapper_immortal_weapon2_description"                      "Enemies affected by any Trap have <font color='#ccff66'>-1200</font> reduced Armor and Magic Armor."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
