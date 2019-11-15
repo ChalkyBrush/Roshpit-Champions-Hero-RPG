@@ -1588,3 +1588,18 @@ function RPCItems:RollArcanaByName(arcana_name, item_level)
     end
     return arcana
 end
+
+function RPCItems:RollAndDropUniqueArcana(unit, item_name)
+    local unit_level = unit:GetRoshpitLevel()
+    local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
+    local arcana = RPCItems:RollArcanaByName(item_name, item_level)
+    RPCItems:BasicDropItem(unit:GetAbsOrigin(), arcana)
+    return arcana
+end
+
+function RPCItems:RollAndDropArcanaByLevel(position, item_level, item_name)
+    local item_level = RPCItems:RollItemLevelFromUnit(item_level)
+    local arcana = RPCItems:RollArcanaByName(item_name, item_level)
+    RPCItems:BasicDropItem(position, arcana)
+    return arcana
+end
