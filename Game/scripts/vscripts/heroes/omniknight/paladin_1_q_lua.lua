@@ -49,7 +49,7 @@ function class:OnSpellStart()
 		caster:AddNewModifier(caster, ability, "modifier_paladin_q2_aura", {duration = duration})
 	end
 	if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
-		local immortalDuration = Filters:GetAdjustedBuffDuration(caster, caster.weapon:GetSpecialValueFor("property_two"), false)
+		local immortalDuration = Filters:GetAdjustedBuffDuration(caster, caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:GetSpecialValueFor("property_two"), false)
 		caster:AddNewModifier(caster, ability, "modifier_paladin_q3_shield", {duration = immortalDuration})
 		caster:SetModifierStackCount("modifier_paladin_q3_shield", caster, 4)
 	end
@@ -72,7 +72,7 @@ function class:OnToggle()
 				caster:AddNewModifier(caster, ability, "modifier_paladin_q2_aura", {})
 			end
 			if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
-				local immortalDuration = Filters:GetAdjustedBuffDuration(caster, caster.weapon:GetSpecialValueFor("property_two"), false)
+				local immortalDuration = Filters:GetAdjustedBuffDuration(caster, caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:GetSpecialValueFor("property_two"), false)
 				caster:AddNewModifier(caster, ability, "modifier_paladin_q3_shield", {duration = immortalDuration})
 				caster:SetModifierStackCount("modifier_paladin_q3_shield", caster, 4)
 			end

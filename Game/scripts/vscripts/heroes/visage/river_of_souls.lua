@@ -145,7 +145,7 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	if caster:HasModifier("modifier_ekkan_immortal_weapon_2") then
 		familiar:SetOriginalModel("models/creeps/bat_spitter/bat_spitter.vmdl")
 		familiar:SetModel("models/creeps/bat_spitter/bat_spitter.vmdl")
-		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, familiar, "modifier_ekkan_immortal_weapon2_gargoyle", {})
+		caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, familiar, "modifier_ekkan_immortal_weapon2_gargoyle", {})
 	end
 end
 

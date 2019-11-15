@@ -76,7 +76,7 @@ function spire_breath_attack_land(event)
 	Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_DRAGON, RPC_ELEMENT_ICE)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/dinath/breath_impact_manaburn_basher_ti_5_gold.vpcf", target, 1)
 	if attacker:HasModifier("modifier_dinath_immortal_weapon_2") then
-		local weapon = attacker.weapon
+		local weapon = attacker.equipped_gear[RPC_GEAR_SLOT_WEAPON]
 		weapon:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_vitali_shield", {duration = 10})
 	end
 	-- EmitSoundOn("Dinath.BreathImpact", target)

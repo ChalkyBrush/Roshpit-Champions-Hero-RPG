@@ -439,7 +439,7 @@ function immo_weapon_2_effect(caster, target)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			caster.origCaster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_DURATION})
+			caster.origCaster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_DURATION})
 		end
 	end
 end

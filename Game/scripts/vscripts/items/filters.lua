@@ -925,7 +925,7 @@ function Filters:ApplyQskills(caster)
                     ParticleManager:DestroyParticle(pfx, false)
                 end)
                 EmitSoundOn("Ability.FrostNova", avatar)
-                caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, avatar, "modifier_sorceress_immortal_ice_avatar", {})
+                caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, avatar, "modifier_sorceress_immortal_ice_avatar", {})
                 if caster:HasAbility("blizzard") then
                     local ability1 = caster:FindAbilityByName("blizzard")
                     local abilityLevel = ability1:GetLevel()
@@ -1018,7 +1018,7 @@ function Filters:ApplyWskills(caster)
                 EmitSoundOn("Auriun.Immo3Activate", caster)
             end
             caster:RemoveModifierByName("modifier_auriun_immortal_weapon_3_effect")
-            caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auriun_immortal_weapon_3_effect", {duration = AURIUN_IMMO_WEAPON_3_DURATION})
+            caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auriun_immortal_weapon_3_effect", {duration = AURIUN_IMMO_WEAPON_3_DURATION})
         end
     end
     if caster:HasModifier("modifier_windsteel_armor") then
@@ -1197,7 +1197,7 @@ function Filters:ApplyRskills(caster)
                     ParticleManager:DestroyParticle(particle1, false)
                 end)
                 EmitSoundOn("Hero_Invoker.SunStrike.Ignite", avatar)
-                caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, avatar, "modifier_sorceress_immortal_fire_avatar", {})
+                caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, avatar, "modifier_sorceress_immortal_fire_avatar", {})
                 if caster:HasAbility("pyroblast") then
                     local ability1 = caster:FindAbilityByName("pyroblast")
                     local abilityLevel = ability1:GetLevel()
@@ -3931,8 +3931,8 @@ end
 function Filters:AuriunImmortalWeapon1(damage, victim)
     if not victim:HasModifier("modifier_auriun_immortal_weapon_1_cooldown") then
         damage = 0
-        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_weapon_1_cooldown", {duration = AURIUN_IMMO_WEAPON_1_CD})
-        victim.weapon:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_phased", {duration = AURIUN_IMMO_WEAPON_1_DURATION})
+        victim.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_weapon_1_cooldown", {duration = AURIUN_IMMO_WEAPON_1_CD})
+        victim.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_auriun_immortal_phased", {duration = AURIUN_IMMO_WEAPON_1_DURATION})
     end
     return damage
 end

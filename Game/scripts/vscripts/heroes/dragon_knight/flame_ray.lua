@@ -305,7 +305,7 @@ function CastNewHeatwave(event)
     flamewaker_rune_e_4(caster, ability)
 
     if caster:HasModifier("modifier_flamewaker_immortal_weapon_2") then
-        caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_flamewaker_weapon_agility", {duration = duration})
+        caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_flamewaker_weapon_agility", {duration = duration})
     end
     -- end
 end
