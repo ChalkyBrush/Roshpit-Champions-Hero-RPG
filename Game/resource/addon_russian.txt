@@ -12908,7 +12908,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
 		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"Базовый урон (W) @Ability2 увеличивается на <font color='#ccff66'>2500</font>%, а время восстановления способности увеличивается на<font color='#ccff66'>4</font> секунды."
+		"property_phantom_sorcerer_description"		"Базовый урон (W) @Ability2 увеличивается на <font color='#ccff66'>240</font>%, а время восстановления способности увеличивается на<font color='#ccff66'>4</font> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"

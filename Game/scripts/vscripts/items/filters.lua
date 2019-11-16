@@ -996,10 +996,11 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_sacred_trials_armor") then
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sacred_trials_attack_bonus", {duration = 12})
     end
-    if caster:HasModifier("modifier_phantom_sorcerer") then
+    if caster:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local cdRemaining = ability:GetCooldownTimeRemaining()
-        local newCD = math.min(cdRemaining + PHANTOM_SORCERER_CD_INCREASE, ability:GetCooldown(ability:GetLevel() - 1) + PHANTOM_SORCERER_CD_INCREASE)
+        local cd_increase = PHANTOM_SORCERER_CD_INCREASE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY2)
+        local newCD = math.min(cdRemaining + cd_increase, ability:GetCooldown(ability:GetLevel() - 1) + cd_increase)
         ability:EndCooldown()
         ability:StartCooldown(newCD)
     end
@@ -1509,8 +1510,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_arkimus_immortal_weapon_1") then
             damageMult = damageMult + ARKIMUS_IMMORTAL_WEAPON_1_W_MULT
         end
-        if attacker:HasModifier("modifier_phantom_sorcerer") then
-            damageMult = damageMult + PHANTOM_SORCERER_BAD/100
+        if attacker:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
+            damageMult = damageMult + PHANTOM_SORCERER_BAD/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY1)/100
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + SHADOWFLAME_FIST_W_BAD/100

@@ -448,6 +448,15 @@
 		"DOTA_Tooltip_ability_thorok_toggle_ai"		"Thorok AI"
 		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Toggle on for Thorok to have default behaviour"
 
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
+		"item_property_phantom_sorcerer"			"Phantom Gaze"
+		"property_phantom_sorcerer_description"		"@Ability2 has <% PHANTOM_SORCERER_BAD %>% more Base Ability Damage and has an extra <% PHANTOM_SORCERER_CD_INCREASE %> seconds added to its cooldown."
+
+		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Increases [W] Base Ability damage by an additional @ruby_property1% and increases the cooldown penalty by an additional @ruby_property2 seconds"
+		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Increases [W2] Rune by @emerald_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_sapphire1" "Increases [W1] Rune by @sapphire_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_amethyst1" "Increases [W3] Rune by @amethyst_property1"	
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -499,9 +508,6 @@
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
 		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Multishot for <% SUPER_ASCENDENCY_TARGETS - 1 %> additional targets. Hitting enemies reduces your ultimate spell's current cooldown."
 		
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 has <% PHANTOM_SORCERER_BAD %>% more Base Ability Damage and has an extra <% PHANTOM_SORCERER_CD_INCREASE %> seconds added to its cooldown."
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"

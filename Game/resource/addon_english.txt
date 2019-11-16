@@ -13347,6 +13347,15 @@
 		"DOTA_Tooltip_ability_thorok_toggle_ai"		"Thorok AI"
 		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Toggle on for Thorok to have default behaviour"
 
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
+		"item_property_phantom_sorcerer"			"Phantom Gaze"
+		"property_phantom_sorcerer_description"		"@Ability2 has <font color='#ccff66'>240</font>% more Base Ability Damage and has an extra <font color='#ccff66'>4</font> seconds added to its cooldown."
+
+		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Increases [W] Base Ability damage by an additional @ruby_property1% and increases the cooldown penalty by an additional @ruby_property2 seconds"
+		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Increases [W2] Rune by @emerald_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_sapphire1" "Increases [W1] Rune by @sapphire_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_amethyst1" "Increases [W3] Rune by @amethyst_property1"	
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13398,9 +13407,6 @@
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
 		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>150</font>%% bonus attack damage, <font color='#ccff66'>300</font> attack speed, and <font color='#ccff66'>200</font> movespeed. Multishot for <font color='#ccff66'>4</font> additional targets. Hitting enemies reduces your ultimate spell's current cooldown."
 		
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 has <font color='#ccff66'>2500</font>% more Base Ability Damage and has an extra <font color='#ccff66'>4</font> seconds added to its cooldown."
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"

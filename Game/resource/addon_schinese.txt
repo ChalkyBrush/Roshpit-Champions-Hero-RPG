@@ -13077,7 +13077,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"幻影术士面具"
 		"item_property_phantom_sorcerer"			"幻影凝视"
-		"property_phantom_sorcerer_description"		"@Ability2 伤害提高 <font color='#ccff66'>2500</font>%，但冷却时间增加<font color='#ccff66'>4</font>秒。"
+		"property_phantom_sorcerer_description"		"@Ability2 伤害提高 <font color='#ccff66'>240</font>%，但冷却时间增加<font color='#ccff66'>4</font>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"

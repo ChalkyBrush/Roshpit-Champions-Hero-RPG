@@ -387,6 +387,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", MAGISTRATE_SAPPHIRE, hero, "spell_pierce", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_mask_of_the_phantom_sorcerer" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", PHANTOM_SORCERER_EMERALD, hero, "rune_w_2", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", PHANTOM_SORCERER_SAPPHIRE, hero, "rune_w_1", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", PHANTOM_SORCERER_AMETHYST, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 
