@@ -30,7 +30,7 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Increased attack speed and damage."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff and for <% SPIRIT_WARRIOR_Q1_BURN_DURATION %> seconds and a stacking armor debuff for 10 seconds. Max <% SPIRIT_WARRIOR_Q1_MAX_STACKS %> stacks."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Flameblood attacks additionally apply a stacking burn debuff for <% SPIRIT_WARRIOR_Q1_BURN_DURATION %> seconds and a stacking armor debuff for 10 seconds. Max <% SPIRIT_WARRIOR_Q1_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Damage per tick per burn stack"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Armor loss per stack"   

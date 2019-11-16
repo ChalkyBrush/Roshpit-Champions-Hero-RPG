@@ -175,8 +175,8 @@
 		"DOTA_Tooltip_ability_elemental_overload_damage"					"УРОН/СЕК:" 
 
 		"DOTA_Tooltip_ability_warlord_rune_e_1"							"[E1] Rumbling Earth"
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_Description"				"Каждый заряд Земли обеспечивает дополнительную Магическую Броню."
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_one"			"Магическая Броня"
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_Description"				"Каждый заряд Земли обеспечивает дополнительную Магическую Защиту."
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_one"			"Магическая Защита"
     	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix"					""
 		
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] Ice Floe"

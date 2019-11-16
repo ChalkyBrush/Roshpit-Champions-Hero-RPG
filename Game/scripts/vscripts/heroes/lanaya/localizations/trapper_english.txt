@@ -90,8 +90,8 @@
     	"DOTA_Tooltip_ability_trapper_vanish_Description"			"Trapper immediately disappears in a cloud of smoke and prowls with enhanced movespeed. While Vanished, Trapper is invisible and cannot be detected by any means."
     	"DOTA_Tooltip_ability_trapper_vanish_Lore"					""
     	"DOTA_Tooltip_ability_trapper_vanish_duration"				"DURATION:"
-    	"DOTA_Tooltip_ability_trapper_vanish_movespeed_bonus"	    "Bonus Movespeed:"
-    	"DOTA_Tooltip_ability_trapper_vanish_movespeed_cap"	    "Increased Movespeed Cap:"
+    	"DOTA_Tooltip_ability_trapper_vanish_movespeed_bonus"	    "BONUS MOVESPEED:"
+    	"DOTA_Tooltip_ability_trapper_vanish_movespeed_cap"	    "INCREASED MOVESPEED CAP:"
 
         "DOTA_Tooltip_modifier_trapper_vanish"                      "Vanish"
 

@@ -14,7 +14,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_1_suffix_two"	""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_2"				"[Q2] Shock Absorption"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Каждый раз, попадая  по врагам волной от умения @Ability1, им будет нанесён дополнительный урон от последующих прочтений @Ability1. Складывается неограниченное количество раз. Эффект длится 15 секунд."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Каждый раз, попадая  по врагам волной от умения @Ability1, им будет нанесён дополнительный урон от последующих прочтений @Ability1. Складывается до <% MOUNTAIN_PROTECTOR_Q2_MAX_STACKS %> раз. Эффект длится 15 секунд."
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"Усиление урона"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"%"
 		
@@ -32,8 +32,7 @@
 		
 		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"Mountain Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"Взывает к мощи гор, наделяя себя силой непробиваемых скал, чтобы держать оборону от агрессоров.<br><font color='#70EA72'>Пока активно это умение, герой не может двигаться, но может читать другие умения и телепортироваться с помощью </font><font color='#6cbfe2'>(E) Emberstone</font><font color='#70EA72'>.</font><br><font color='#70EA72'>Пока активно это умение, каждое прочтение </font><font color='#6cbfe2'>(Q) Shockwave</font><font color='#70EA72'> тратит ману, равную 1% умноженному на уровень способности.</font>"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor"			"ДОП. БРОНЯ:"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_magic_resist"	"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
+    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"			"ДОП. БРОНЯ И МАГИЧЕСКАЯ ЗАЩИТА:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"МАНЫ/СЕК. :"
 
     	"DOTA_Tooltip_modifier_energy_channel"									"Mountain Guardian"
@@ -45,9 +44,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% от макс. ХП"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] Guardian's Wrath"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Post Mitigation damage is enhanced while in Mountain's Guardian stance."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Post Mitigation Damage Increase"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Пробитие Магической Брони увеличено в @Ability2."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Пробитие Магической Брони"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Враги в радиусе 500 от героя во время активной стойки @Ability2 будут поражены молниями, наносящими урон в размере % от основного урона героя."
@@ -127,9 +126,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix_two"	"x Силы"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_4"						"[R4] Force of Mountains"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"Увеличивает стихийный урон <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font> за счёт атрибутов героя."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_property_one"			"Усиление стихийного урона Земли и Огня на"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"Пассивно увеличивает стихийный урон <font color=\"#AF843D\">Земли</font> и <font color=\"#EF4126\">Огня</font>."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_property_one"			"Урон Земли и Огня"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"%"
 		
 		//Arcanas
 		
@@ -155,9 +154,10 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_suffix_two"			"x Силы"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1"						"[W2] Cold Steel"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_Description"			"Увеличивает весь наносимый пост-резистный урон по оглушенным врагам."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_one"			"Увеличение пост-резистного урона"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_Description"			"Любое оглушение противника от Mountain Protector также замедлит скорость передвижения и атаки цели на <% MOUNTAIN_PROTECTOR_ARCANA1_W2_DURATION_MULT %>x от продолжительности оглушения."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_one"			"Замедление передвижения"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
+        "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "Замедление атаки"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] Steelforge Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"При получении урона во время активной стойки @Ability2, выпускает холодный луч, наносящий урон в зависимости от урона героя. Оглушает атакующего на 0.03 секунды."
@@ -206,26 +206,26 @@
     	"DOTA_Tooltip_modifier_frozen_stand_Description"								"Иммунитет к урону"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2"						"[R3] Brittle Winds"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_Description"			"Mountain Protector наносит увеличенный пост-резистный урон всем врагам, находящимся в области действия @Ability4."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_property_one"			"Усиление пост-резистного урона"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_Description"			"Противники в области @Ability4 теряют Броню и Магическую Защиту."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_property_one"			"Снижение Брони и Маг. Зашиты"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_suffix"				""
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2"						"[R4] Frozen Peak"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Увеличивает стихийный урон <font color=\"#AF843D\">Земли</font> и <font color=\"#87D9FF\">Льда</font> за счёт атрибутов героя."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"Усиление стихийного урона Земли и Льда"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"% за каждые 10 очков атрибутов"	
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"Пассивно увеличивает стихийный урон <font color=\"#AF843D\">Земли</font> и <font color=\"#87D9FF\">Льда</font>."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"Урона Земли и Льда"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"%"	
 
     	"item_property_mountain_protector_arcana3"										"Rockfall"
     	"property_mountain_protector_arcana3_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Rockfall и Volcanic Glissade."
 
     	"DOTA_Tooltip_ability_mountain_protector_rockfall"								"Rockfall"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#EF4126\">Огонь</font><br>Образует в указанной точке три камнепада, оглушающих врагов и наносящих им урон. Каждое попадание по противнику отнимает у героя некоторый процент здоровья. Получаемый героем урон не может быть смертельным. Враги, задетые камнепадом в последующие 10 секунд будут получать увеличенный пост-резистный урон из всех источников."
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"Стихия: <font color=\"#AF843D\">Земля</font> / <font color=\"#EF4126\">Огонь</font><br>Образует в указанной точке три камнепада, оглушающих врагов и наносящих им урон. Каждое попадание по противнику отнимает у героя некоторый процент здоровья. Получаемый героем урон не может быть смертельным. Враги, задетые камнепадом в последующие 10 секунд потеряют Магическую Броню."
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_Lore"							""
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_stun_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_self_damage"					"УРОН СЕБЕ (% ОТ МАКС. ЗДОРОВЬЯ):"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_additional_str_damage"		"ДОП. УРОН, Х ОТ СИЛЫ:"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_post_mitigation"				"ДОП. ПОСТ-РЕЗИСТНЫЙ УРОН, %:"
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_magic_armor_reduce"				"СНИЖЕНИЕ МАГИЧЕСКОЙ БРОНИ:"
 
     	"DOTA_Tooltip_modifier_rockfall_post_mit"										"Rockfall"
     	"DOTA_Tooltip_modifier_rockfall_post_mit_Description"							"Получает увеличенный пос-резистный урон из всех источников."
@@ -252,9 +252,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] Titan Breaker"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"Порог ограничения урона на противниках со свойством 'Стойкость' и 'Мега Стойкость' увеличивается. 100% означает удвоение порога урона у подобных крипов."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"Порог урона увеличен"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"Если у противника больше здоровья, чем у Mountain Protector, Rockfall дополнительно снизит Магическую Защиту."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"Дополнительное снижение"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				" если текущее здоровье цели выше здоровья героя"
 		
 		//Glyphs
 		

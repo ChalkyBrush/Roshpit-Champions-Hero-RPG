@@ -325,7 +325,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SEINARU_E4_HOLY_AMP %>"
+				"property_one"			"<% SEINARU_E4_HOLY_AMP * 100%>"
 			}
 			"02"
 			{
@@ -415,15 +415,20 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% SEINARU_R3_DMG_BASE %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
+				"base_ability"			"4"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"1"

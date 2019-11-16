@@ -360,6 +360,7 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"

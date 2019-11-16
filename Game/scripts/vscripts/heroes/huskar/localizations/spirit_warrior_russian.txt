@@ -1,10 +1,9 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue"			"Flameblood Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона. Пока активно, носитель получает увеличение <font color=\"#EF4126\">Огненного</font> урона. Противники получают дополнительный урон от Flameblood Weapon, если их броня отрицательная."
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона. Пока активно, носитель получает увеличение <font color=\"#EF4126\">Огненного</font> урона."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ДОП.УРОН, %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"ДЛИТЕЛЬНОСТЬ УСИЛЕНИЯ:"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"ДОП.МАГИЧЕСКИЙ УРОН:"
 		"DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "УСИЛЕНИЕ ОГНЕННОГО УРОНА: %"
-        "DOTA_Tooltip_ability_spirit_warrior_flametongue_negative_armor_amp"            "ДОПОЛНИТЕЛЬНЫЙ УРОН ОТ СПОСОБНОСТИ ЗА ОТРИЦАТЕЛЬНУЮ БРОНЮ: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"
     	"DOTA_Tooltip_modifier_flametongue_Description"				"Увеличение урона и бонусная надбавка магического урона, усиление Огненного урона"
@@ -31,16 +30,16 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_Description"			"Урон и скорость атаки увеличены."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1"				"[Q1] Burning Flameblood"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на 5 секунд и снижают их броню, горение наносит урон каждые полсекунды. Эффект горения может быть сложен до 50 раз. Эффект снижения брони складывается бесконечно. Горение усиливается при отрицательной броне, так же как и @Ability1."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_Description"  "Атаки под действием (Q) Flameblood дополнительно поджигают врагов на <% SPIRIT_WARRIOR_Q1_BURN_DURATION %> секунд и снижают их броню на 10 секунд. Горение наносит урон каждые полсекунды. Эффект может быть сложен до <% SPIRIT_WARRIOR_Q1_MAX_STACKS %> раз."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_one"	"Урон за стак"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix"	""
 		"DOTA_Tooltip_ability_spirit_warrior_rune_q_1_property_two" "Снижение брони за стак"   
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_1_suffix_two"   ""
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2"				"[Q2] Fire and Wind Shield"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Прочтение @Ability1 накладывает щит из огня или ветра на Spirit Warrior. Щит огня снижает получаемый урон, а щит ветра добавляет уклонение."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Снижение урона от щита огня"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		"%"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_Description"	"Прочтение @Ability1 накладывает щит из огня или ветра на Spirit Warrior. Щит огня увеличивает показатели Брони и Магической Защиты, а щит ветра добавляет уклонение."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_one"	"Физическая Броня и Магическая Защита"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix"		""
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_property_two" "Уклонение от щита ветра"
         "DOTA_Tooltip_ability_spirit_warrior_rune_q_2_suffix_two"   "%"
 
@@ -58,14 +57,14 @@
     	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon_duration"			"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
 
     	"DOTA_Tooltip_modifier_windstrike_weapon"						"Windstrike Weapon"
-    	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"Атаки во время действия этого эффекта наносят дополнительный ЧИСТЫЙ урон"	
+    	"DOTA_Tooltip_modifier_windstrike_weapon_Description"			"Атаки во время действия этого эффекта наносят дополнительный чистый урон"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] Inner Flame"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Урон от стихии <font color=\"#EF4126\">Огонь</font> увеличивается от значения Силы, а урон стихии <font color=\"#7AE2A7\">Ветер</font> усиливается за счёт Ловкости героя."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Урон стихий <font color=\"#EF4126\">Огонь</font> и <font color=\"#7AE2A7\">Ветер</font> пассивно увеличен."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Доп. урон стихии Огня"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"% за каждые 10 очков Силы"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_two"	"Доп. урон стихии Ветра"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix_two"	"% за каждые 10 очков Ловкости"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix_two"	"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1"				"[W1] Temperament"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Увеличивает базовый урон за каждую отсутствующую единицу маны."
@@ -84,24 +83,28 @@
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_2_visible_Description"	"Урон увеличен"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3"				"[W3] Vital Impact"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "Урон способности @Ability2 увеличивается на % от атаки героя. Если активно копье от @Ability1, то противники получат дополнительно урон и от нее. Указанный бонус умножается на уровень прокачки основного умения."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_Description"  "Урон способности @Ability2 увеличивается на % от атаки героя. Если активно копье от @Ability1, то противники получат дополнительно урон и от нее. Указанный бонус умножается на уровень прокачки @Ability2."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_one"	"Доп. урон способности"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix"		"% от урона героя"
 		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_property_two" "Урон от Flameblood & Windstrike"  
         "DOTA_Tooltip_ability_spirit_warrior_rune_w_3_suffix_two"       "%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4"				"[W4] Spirit Fuse"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "После прыжка к @Ability3 герой получает бафф, который усилит следующее применение @Ability2."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_Description"  "После прыжка к @Ability3 герой получает бафф, который усилит следующее применение @Ability2 и оглушит противников. Усиление урона действует и на [W3]."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_one"	"Увеличение урона"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix"		"%"
+		"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_property_two" "Оглушение"   
+        "DOTA_Tooltip_ability_spirit_warrior_rune_w_4_suffix_two"   " сек."
 
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b"					"Spirit Fuse"
     	"DOTA_Tooltip_modifier_spirit_warrior_d_b_Description"		"Следующее применение (W) Soul Thrust нанесен увеличенный урон."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1"				"[E1] Wind Edict"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "По приземлении на месте @Ability3 создается мощный взрыв."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_Description"  "По приземлении на месте @Ability3 создается мощный взрыв. Если [Q3] активно, то [E1] применит и удар от него."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_one"	"Урон"	
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix"		""	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix"		""
+		"DOTA_Tooltip_ability_spirit_warrior_rune_e_1_property_two" "Бонусный урон от [Q3]"    
+        "DOTA_Tooltip_ability_spirit_warrior_rune_e_1_suffix_two"   "%"
 
     	"spirit_warrior_q_ability"									"Flameblood и Windstrike Weapon"
     	"spirit_warrior_e_ability"									"Ancient Spirit и Wind Edict"
@@ -115,7 +118,7 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff_Description"	"Ближайший Ancient Spirit усиливает вашу броню"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3"				"[E3] Tempest Haze"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "После прыжка к @Ability3, появляется буря, замедляющая врагов и запрещающая им произносить заклинания. Находясь внутри бури, герой получает на 90% меньше магического и чистого урона."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "После прыжка к @Ability3, появляется буря, замедляющая врагов и запрещающая им произносить заклинания. Находясь внутри бури, герой получает на <% SPIRIT_WARRIOR_E3_DAMAGE_REDUCTION %>% меньше магического и чистого урона."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_one"	"Урона в секунду"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix"		""
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_two"	"Длительность"	
@@ -130,9 +133,9 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_3_debuff_Description"	"Замедлен, обезмолвлен."
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4"				"[E4] Primal Revelations"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_Description"  "Показатель Интеллекта увеличивает урон от стихии <font color=\"#7AE2A7\">Ветра</font>."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_property_one"	"Доп. урон"	
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_suffix"		"% за каждые 10 очков Интеллекта"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_Description"  "Пассивно увеличивает Интеллект и Дух героя."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_property_one"	"Интеллект и Дух"	
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_suffix"		""	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1"				"[R1] Troll Blood"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_Description"	"Пассивно дарует герою вампиризм от любого нанесённого урона. Полученное значение исцеляет героя в течении 5 секунд."
@@ -143,8 +146,8 @@
     	"DOTA_Tooltip_modifier_ancient_vigor_troll_blood_Description"	"Восстанавливается здоровье"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2"				"[R2] Sacred Warrior"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_Description"	"Увеличивает урон во время действия @Ability4."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_property_one"	"Доп. урон"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_Description"	"Увеличивает бонусный урон атаки во время действия @Ability4."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_property_one"	"Бонусный Урон"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_suffix"		"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3"				"[R3] Rally of the Ancients"
@@ -176,15 +179,15 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_1_arcana1_suffix"				"% от макс. здоровья"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1"						"[R2] Rain Storm"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"Пока активно умение (R) Ancient Rain, ближайший враг в радиусе 1000 будет поражен молнией каждые 0.5 секунды, урон наносится по области."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_Description"			"Пока активно умение (R) Ancient Rain, ближайшая группа врагов в радиусе <% SPIRIT_WARRIOR_ARCANA_R2_RADIUS %> будет поражена молнией каждые 0.5 секунды, урон наносится по области."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_property_one"			"Урон"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_2_arcana1_suffix"				"% от урона героя"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1"						"[R3] Waterheart Weapon"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"Пока умение (R) Ancient Rain перезаряжается, эта способность заменяется на [R3] - бафф, который можно применить на себя или союзного героя, зачаровывая оружие силой воды. Зачарованное оружие позволяет наносить вместе с атаками дополнительный чистый урон, зависящий от текущего уровня здоровья. Дополнительно, пока действует бафф, весь пост-резистный урон увеличивается."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_Description"			"Пока умение (R) Ancient Rain перезаряжается, эта способность заменяется на [R3] - бафф, который можно применить на себя или союзного героя, зачаровывая оружие силой воды. Зачарованное оружие позволяет наносить вместе с атаками дополнительный чистый урон, зависящий от текущего уровня здоровья юнита. Дополнительно, пока действует бафф, увеличивает Пробитие Брони юнита."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_one"		"Доп. чистый урон"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix"				"% от текущего здоровья"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Усиление пост-резистного урона"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_property_two"		"Пробитие Брони"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_r_3_arcana1_suffix_two"			"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_waterheart_weapon"					"Waterheart Weapon"
@@ -196,9 +199,9 @@
     	"spirit_warrior_arcana1_r"												"Ancient Rain и Waterheart Weapon"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1"						"[R4] Water Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"Весь урон стихии <font color=\"#3894FF\">Воды</font> увеличивается за счет атрибутов героя."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"Усиление урона стихии Воды на"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_Description"			"Урон стихии <font color=\"#3894FF\">Воды</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_property_one"		"Урон <font color=\"#3894FF\">Воды</font>"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_r_4_arcana1_suffix"				"%"
 
        	"item_property_spirit_warrior_arcana2"										"Blazing Javelin"
     	"property_spirit_warrior_arcana2_description"								"Заменяет (W) @Ability2 и все соответствующие руны на (W) Blazing Javelin."
@@ -218,7 +221,7 @@
   		"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2"						"[W2] Elemental Spear"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2_Description"			"К урону от @Ability2 добавляются бонусы от Flameblood, Windstrike и Waterheart weapon (Если они были активны на момент броска)."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2_property_one"			"Усиление стихийного урона"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2_suffix"				"% от урона (W) Blazing Javelins"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_arcana2_suffix"				"% от урона (W) Blazing Javelin"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2"						"[W3] Javelin Spray"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_Description"			"Добавляет шанс повторно бросить копьё. Значение шанса выше 100% гарантирует многократное срабатывание."
@@ -226,9 +229,9 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_3_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2"						"[W4] Fire Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"Весь стихийный урон <font color=\"#EF4126\">Огня</font> усиливается за счёт атрибутов героя."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"Усиление стихийного урона Огня на"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_Description"			"Урон стихии <font color=\"#EF4126\">Огня</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_property_one"		"Урона <font color=\"#EF4126\">Огня</font>"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_4_arcana2_suffix"				"%"
 
        	"item_property_spirit_warrior_arcana3"										"Ancient Spirit Elite"
     	"property_spirit_warrior_arcana3_description"								"Заменяет (E) @Ability3 и все соответствующие руны на (E) Ancient Spirit Elite."
@@ -259,9 +262,9 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_arcana3_suffix_two"			" сек."	
 
   		"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3"						"[E4] Wind Gods"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"Весь стихийный урон <font color=\"#7AE2A7\">Ветра</font> увеличивается за счёт атрибутов героя."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"Усиление стихийного урона Ветра на"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_Description"			"Урон стихии <font color=\"#7AE2A7\">Ветра</font> пассивно увеличен."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_property_one"		"Урон <font color=\"#7AE2A7\">Ветра</font>"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_4_arcana3_suffix"				"%"
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_1_1"		"(T1) Glyph of Spiritual Mobility"
@@ -311,7 +314,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_1"		"Windpiercer"
 		"item_property_spirit_warrior_immortal_weapon"								"Windpiercer"
-		"property_spirit_warrior_immortal_weapon_description"						"Эффекты (Q) Flameblood и [Q3] Windstrike длятся на 10 секунд дольше и наносят на 100% больше урона."
+		"property_spirit_warrior_immortal_weapon_description"						"Эффекты (Q) Flameblood и [Q3] Windstrike длятся на <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DURATION_BONUS %> секунд дольше, Базовый Урон Способности @Ability1 увеличен на <% SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DAMAGE_AMP_PCT %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_immortal_weapon_2"            "Jade Halberd"
 

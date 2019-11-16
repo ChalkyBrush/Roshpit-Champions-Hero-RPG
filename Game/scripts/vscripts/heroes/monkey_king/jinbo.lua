@@ -68,7 +68,7 @@ function jinbo_start(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, event.stun_duration, enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_NORMAL)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 			end
 			if caster:HasModifier("modifier_djanghor_glyph_1_1") then
 				caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()

@@ -54,9 +54,12 @@
     	"DOTA_Tooltip_ability_time_genesis_orb_range"					"RANGE:"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_1"							"[W1] Time Lapse"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Damaging an enemy unit with @Ability2 restores mana."
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Mana restored"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% of maximum mana"
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Damaging an enemy unit with @Ability2 starts HP restoration for next <% EPOCH_W1_DURATION %> seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Health restored"
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					" per <% EPOCH_W1_THINK_INTERVAL %> seconds"
+		
+		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration" 				"Time Lapse"
+		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration_Description"	"Restores HP over <% EPOCH_W1_DURATION %> seconds, each <% EPOCH_W1_THINK_INTERVAL %> seconds tick."
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Enemies hit by @Ability2 have their Magic Armor reduced for <% EPOCH_W2_DURATION %> seconds. Stacks up to <% EPOCH_W2_MAX_STACKS %> times."
@@ -67,7 +70,7 @@
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Reduced Magic Armor."
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"Each cast of @Ability2 increases Intelligence, to a maximum of 10 stacks. Attacking consumes a stack and restores health."
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"Each cast of @Ability2 increases Intelligence, to a maximum of <% EPOCH_W3_MAX_STACKS %> stacks. Attacking consumes a stack and restores health."
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"Intelligence per stack"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"Health Restore on Attack"
@@ -189,7 +192,7 @@
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Tachyon Effect"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Increases Spell Pierce and Armor Pierce."
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Bonus Spell Pierce"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Bonus Spell Pierce and Armor Pierce"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Aeon Blast"

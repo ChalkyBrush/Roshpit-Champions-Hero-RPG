@@ -135,9 +135,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix_two"	"x Strength"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_4"						"[R4] Force of Mountains"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"Mountain Protector's attributes increase <font color=\"#AF843D\">Earth</font> and <font color=\"#EF4126\">Fire</font> damage."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"<font color=\"#AF843D\">Earth</font> and <font color=\"#EF4126\">Fire</font> damage passively increased."
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_property_one"			"Damage Increase"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"% for each 10 points of Attributes"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"%"
 		
 		//Arcanas
 		

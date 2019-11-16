@@ -42,20 +42,20 @@
 		"DOTA_Tooltip_modifier_torrent_trap_immunity"				"Иммунитет к [Q2] Torrent Trap"
 		
 		"DOTA_Tooltip_ability_trapper_rune_q_3"                     "[Q3] Elemental Pit"
-        "DOTA_Tooltip_ability_trapper_rune_q_3_Description"         "Враги, задетые умением (Q) Fulminating Trap будут получать увеличенный стихийный урон <font color=\"#EF4126\">Огня</font>, <font color=\"#37DD3D\">Яда</font> и <font color=\"#3894FF\">Воды</font> из всех источников."
-        "DOTA_Tooltip_ability_trapper_rune_q_3_property_one"        "Усиление стихийного урона Огня, Яда и Воды"
-        "DOTA_Tooltip_ability_trapper_rune_q_3_suffix"              "%"
+        "DOTA_Tooltip_ability_trapper_rune_q_3_Description"         "Противник в любой из ловушек имеет уменьшенную Магическую Броню."
+        "DOTA_Tooltip_ability_trapper_rune_q_3_property_one"        "Снижение Магической брони"
+        "DOTA_Tooltip_ability_trapper_rune_q_3_suffix"              ""
 		
 		"DOTA_Tooltip_modifier_fulminating_magic_resist_loss"		"Elemental Pit"		
-    	"DOTA_Tooltip_modifier_fulminating_magic_resist_loss_Description"	"Получает увеличенный стихийный урон Огня, Яда и Воды, пока находится под действием (Q) Fulminating Trap"
+    	"DOTA_Tooltip_modifier_fulminating_magic_resist_loss_Description"	"Снижение Магической брони"
 
 		"DOTA_Tooltip_ability_trapper_rune_q_4"						"[Q4] Cunning Trapper"
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_Description"			"Значение Интеллекта увеличивает урон от (Q) Fulminating Trap, [Q1] и [Q2]."
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_property_one"		"Доп. урон"
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% за каждые 10 очков Интеллекта"
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_Description"			"Урон Способности @Ability1 увеличен."
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_property_one"		"Базовый Урон Способности"
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"Explosive Bomb"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Нормальный</font><br>Бросает бомбу в указанную точку. Бомба взрывается, наносит урон и оглушает противников.."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"УРОН:"
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"ВРЕМЯ ОГЛУШЕНИЯ:"
@@ -83,18 +83,20 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] Explosives Expert"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"Значение атрибутов героя увеличивает урон (W) Explosive Bombs и [W2]."
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_property_one"		"Увеличение урона (W) Explosive Bombs и [W2] на"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_suffix"				"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"Урон способности @Ability2 увеличен."
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_property_one"		"Базовый Урон Способности"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_vanish"						"Vanish"
     	"DOTA_Tooltip_ability_trapper_vanish_Description"			"Trapper мгновенно прячется в клубах дыма. В это время герой полностью невидим и не может быть обнаружен."
     	"DOTA_Tooltip_ability_trapper_vanish_Lore"					""
     	"DOTA_Tooltip_ability_trapper_vanish_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_trapper_vanish_movespeed_bonus"	    "БОНУС СКОРОСТИ:"
+    	"DOTA_Tooltip_ability_trapper_vanish_movespeed_cap"	    "УВЕЛИЧЕНИЕ ЛИМИТА СКОРОСТИ:"
 		
 		"DOTA_Tooltip_ability_trapper_rune_e_1"						"[E1] Veiled Assault"
     	"DOTA_Tooltip_ability_trapper_rune_e_1_Description"			"Во время невидимости от (E) Vanish урон героя увеличен."
-    	"DOTA_Tooltip_ability_trapper_rune_e_1_property_one"		"Доп. урон"
+    	"DOTA_Tooltip_ability_trapper_rune_e_1_property_one"		"Бонусный Урон Атаки"
     	"DOTA_Tooltip_ability_trapper_rune_e_1_suffix"				"%"	
 
     	"DOTA_Tooltip_modifier_trapper_rune_e_1_effect"				"Veiled Assault"
@@ -103,10 +105,7 @@
       	"DOTA_Tooltip_ability_trapper_rune_e_2"						"[E2] Decoy"
     	"DOTA_Tooltip_ability_trapper_rune_e_2_Description"			"Когда Trapper использует умение (E) Vanish, создаётся её неконтролируемая илллюзия, которая живёт 10 секунд. Иллюзия не совершает никаких действий, но имеет иммунитет к магическому и чистому урону. Иллюзия взрывается спустя отведённое её время или будучи атакованной 10 раз."
         "DOTA_Tooltip_ability_trapper_rune_e_2_property_one"        "Урон"
-        "DOTA_Tooltip_ability_trapper_rune_e_2_suffix"              "x от всех атрибутов"		
-
-    	"DOTA_Tooltip_modifier_trapper_rune_e_2_effect"				"First Aid"
-    	"DOTA_Tooltip_modifier_trapper_rune_e_2_effect_Description"	"Заживление ран"
+        "DOTA_Tooltip_ability_trapper_rune_e_2_suffix"              "x от всех атрибутов"
 		
 		"lanaya_decoy"												"Decoy"
 		
@@ -118,15 +117,15 @@
     	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix_two"			""
 		
 		"DOTA_Tooltip_ability_trapper_rune_e_4"                     "[E4] Element of Surprise"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "Пока Trapper невидима, наносимый пост-резистный урон увеличен."
-        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "Доп. пост-резистный урон"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_suffix"              "%"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "Пока Trapper невидима, показатели её Пробития Брони и Пробития Магичекой Брони увеличены."
+        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "Пробития Брони и Маг. Брони"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_suffix"              ""
 		
 		"DOTA_Tooltip_modifier_vanish_paralyze"						"Paralyzing Dust"
     	"DOTA_Tooltip_modifier_vanish_paralyze_Description"			"Парализован"
 		
 		"DOTA_Tooltip_ability_trapper_stealth"						"Stealth"
-    	"DOTA_Tooltip_ability_trapper_stealth_Description"			"Затратив на прочтение заклинания 1 секунду, Trapper становится невидимой. Во время невидимости скорость передвижения героя снижена, а все умения заменяются на новые. Действие невидимости заканчивается, если Trapper будет находиться близко к врагу и в поле его зрения.<br><font color='#70EA72'>Открывает доступ к дополнительной ветке умений.</font>"
+    	"DOTA_Tooltip_ability_trapper_stealth_Description"			"Затратив на прочтение заклинания 1 секунду, Trapper становится невидимой. Во время невидимости скорость передвижения героя снижена, а все умения заменяются на новые. Действие невидимости заканчивается, если Trapper будет находиться близко к врагу и в поле его зрения.<br><font color='#70EA72'>Открывает доступ к дополнительному набору умений.</font>"
     	"DOTA_Tooltip_ability_trapper_stealth_Lore"					""
     	"DOTA_Tooltip_ability_trapper_stealth_movespeed_loss_percentage"	"ЗАМЕДЛЕНИЕ В %:"
 		
@@ -138,7 +137,7 @@
     	"DOTA_Tooltip_ability_trapper_action_leap_max_distance"			"Макс. радиус:"
 		
 		"DOTA_Tooltip_ability_trapper_backstab"						"Backstab"
-    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>После 2 секундной подготовки, атакуя выбранную цель со спины наносит огромный урон, основанный на базовом уроне героя. Если враг обнаружит героя во время подготовки, прочтение будет отменено.<br><font color='#70EA72'>Прочтение этой способности на себя снимет невидимость.</font> Игнорирует стойкость."
+    	"DOTA_Tooltip_ability_trapper_backstab_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>После 2 секундной подготовки, атакуя выбранную цель со спины наносит огромный урон, основанный на базовом уроне героя. Если враг обнаружит героя во время подготовки, прочтение будет отменено.<br><font color='#70EA72'>Прочтение этой способности на себя снимет невидимость.</font>"
     	"DOTA_Tooltip_ability_trapper_backstab_Lore"				""
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"МНОЖИТЕЛЬ УРОНА:"
 		
@@ -149,7 +148,7 @@
 		
 		"DOTA_Tooltip_ability_trapper_rune_r_2"                     "[R2] Ambush"
         "DOTA_Tooltip_ability_trapper_rune_r_2_Description"         "Пока действует невидимость, герой каждые 0.5 секунды получает бонус к базовому урону. Максимум 10 зарядов. Бонус продолжит действовать в течении 5 секунд после выхода из невидимости. Повторная активация невидимости сохранит имеющиеся заряды.."
-        "DOTA_Tooltip_ability_trapper_rune_r_2_property_one"        "Доп. базовый урон"
+        "DOTA_Tooltip_ability_trapper_rune_r_2_property_one"        "Базовый Урон Атаки"
         "DOTA_Tooltip_ability_trapper_rune_r_2_suffix"              ""
 
         "DOTA_Tooltip_modifier_trapper_rune_r_2_visible"			"Ambush"
@@ -195,8 +194,8 @@
     	"DOTA_Tooltip_ability_trapper_arcana_lasso_whip_range"				"ДАЛЬНОСТЬ:"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1"						"[W1] Deadly Poison"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Заряды (W) Venom Whip наносят увеличенный пост-резистный урон жертве. Максимум <% TRAPPER_ARCANA_W_W1_MAX_STACKS %> стаков."
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Доп. пост-резистный урон за заряд"
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"Заряды (W) Venom Whip снижают Магическую Броню жертвы. Максимум <% TRAPPER_ARCANA_W_W1_MAX_STACKS %> стаков."
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"Снижение Магической Брони"
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1"						"[W2] Dexterity"
@@ -210,9 +209,9 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_arcana1_suffix"              "x Ловкости"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1"						"[W4] Elemental Trickery"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"Увеличивает стихийный урон от <br><font color=\"#EF4126\">Огня</font>, <font color=\"#3894FF\">Воды</font> и <font color=\"#37DD3D\">Яда</font> за счёт атрибутов героя."
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"		"Усиление стихийного урона Огня, Воды и Яда на"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"% за каждые 10 очков атрибутов."
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"Увеличивает стихийный урон <br><font color=\"#EF4126\">Огня</font>, <font color=\"#3894FF\">Воды</font> и <font color=\"#37DD3D\">Яда</font>."
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"		"Стихийный Урон"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "(T1) Glyph of Sneaking"
@@ -234,7 +233,7 @@
         "item_rpc_trapper_glyph_5_1_description"                "Бросает @Ability2 каждые <% TRAPPER_GLYPH_5_1_DISTANCE %> пройденной дистанции. Smoke Bomb производит газ <% TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY %> раз дольше и имеет <% TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY %>x радиус газа."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "(T6) Glyph of Craftsmanship"
-        "item_rpc_trapper_glyph_6_1_description"                "Весь урон, напрямую наносимый предметами получает дополнительную <font color=\"#DDDDDD\">Нормальную</font> стихию. В обмен на этот бонус, урон <font color=\"#DDDDDD\">Нормальной</font> стихии снижается на @glyph_property1%"
+        "item_rpc_trapper_glyph_6_1_description"                "Урон <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Нормальной</font> стихии увеличен на <% TRAPPER_GLYPH_6_1_NORMAL_AMP * 100 %>%"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "(T7) Glyph of Trapping"
         "item_rpc_trapper_glyph_7_1_description"                "Одновременно может существовать 2 экземпляра каждой из ловушек @Ability1."
@@ -243,7 +242,7 @@
         "item_rpc_trapper_glyph_5_a_description"                "Усиливает @Ability1. Fulminating Trap наносит <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% больше урона. Poison Trap увеличивает максимальные заряды яда до <% TRAPPER_GLYPH_5_A_POISON_STACKS %>. Net Trap имеет <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %>x увеличенную длительность связывания. Torrent Trap требует <% TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL %> секунд для обнаружения цели."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "(T1-2) Glyph of the Pyre Lord"
-        "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] удваивается."
+        "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] увеличен на <% TRAPPER_GLYPH_1_2_Q3_PCT_AMP * 100 %>%."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "(T2-2) Glyph of Talons"
         "item_rpc_trapper_glyph_2_2_description"                "Урон от Psi Blades наносится и основной цели."
@@ -288,4 +287,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
-        "property_trapper_immortal_weapon3_description"                      "Дальность применения всех способностей увеличена на <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>, перезарядка @Ability1 и @Ability4 снижена на <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>."
+        "property_trapper_immortal_weapon3_description"                      "Дальность применения всех способностей увеличена на <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>, перезарядка @Ability1 и @Ability4 снижена на <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."

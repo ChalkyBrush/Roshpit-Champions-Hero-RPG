@@ -31,7 +31,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"		"Movespeed slowed"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] Tailwind"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"Casting @Ability1 inreases Seinaru's Armor Pierce and Spell Pierce for <% SEINARU_Q3_BUFF_DURATION %> seconds based on his movespeed."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"Casting @Ability1 increases Seinaru's Armor Pierce and Spell Pierce for <% SEINARU_Q3_BUFF_DURATION %> seconds based on his movespeed."
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"Armor Pierce and Spell Pierce"
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					" per movespeed"
 
@@ -52,11 +52,11 @@
     	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] Circle of Wind"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that damages, slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Range"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					""
         "DOTA_Tooltip_ability_seinaru_rune_w_1_property_two"            "Damage"
-        "DOTA_Tooltip_ability_seinaru_rune_w_1_suffix_two"                  ""
+        "DOTA_Tooltip_ability_seinaru_rune_w_1_suffix_two"              ""
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] Typhoon"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Casting <font color='#CCFF66'>Hands of Hikari</font> has a <% SEINARU_W2_CHANCE %>% chance to release a rending Typhoon that damages enemies and lowers magic armor for <% SEINARU_W2_MAGIC_ARMOR_LOSS_DURATION %> seconds."
@@ -141,6 +141,8 @@
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Each of Seinaru's attacks during @Ability4 deal additional Pure damage."
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"				"% of attack power"
+		"DOTA_Tooltip_ability_seinaru_rune_r_3_property_two"			"Base Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Chi Strike"
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Attacks deal additional Pure damage"

@@ -39,9 +39,9 @@
 		"DOTA_Tooltip_modifier_mark_of_the_claw_Description"							"Increased armor and health regen. Allows shapeshifting into bear form."
 
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon"								"Mark of the Talon"
-		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_Description"					"Increases mana regen and post-mitigation magic damage. Allows for shapeshifting into Hawk form."
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_Description"					"Increases mana regen and Magic Armor. Allows for shapeshifting into Hawk form."
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_mana_regen"						"MANA REGEN:"
-		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_magic_armor_increase"			"MAGIC BLOCK:"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_magic_armor_increase"			"MAGIC ARMOR INCREASE:"
 
 		"DOTA_Tooltip_modifier_mark_of_the_talon"										"Mark of the Talon"
 		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"Increased mana regen and post-mitigation magic damage. Allows shapeshifting into Hawk form."	
@@ -114,7 +114,7 @@
 		"DOTA_Tooltip_modifier_bear_charging"										"Battle Charge"
 
 		"DOTA_Tooltip_ability_draghor_hawk_screech"									"Screech"
-		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#69BC71\">Nature</font><br>A sonic wave damages enemies in a cone, and applies a debuff that makes them take increased post-mitigation damage from all sources."
+		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"Element: <font color=\"#B5FFB7\">Temporal</font> / <font color=\"#69BC71\">Nature</font><br>A sonic wave damages enemies in a cone, and applies a debuff that makes them lose Magic Armor."
 		"DOTA_Tooltip_ability_draghor_hawk_screech_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_magic_armor_reduction"					"MAGIC ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_debuff_duration"					"DEBUFF DURATION:"
@@ -367,7 +367,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_2"            "Grizzly Ironclaw Daibo"
         "item_property_djanghor_immortal_weapon2"                             "Ironfur Bear"
-        "property_djanghor_immortal_weapon2_description"                      "Damage instances that deal less than 100x max health are capped at <% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT * 100 %>% of max health while in Bear Form."
+        "property_djanghor_immortal_weapon2_description"                      "Damage instances that deal less than <% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_FOR_EFFECT_MULT %>x max health are capped at <% DJANGHOR_IMMORTAL_WEAPON_2_HP_THRESHOLD_PCT * 100 %>% of max health while in Bear Form."
 
         "DOTA_Tooltip_ability_item_rpc_djanghor_immortal_weapon_3"            "Avian Staff of Enlightenment"
         "item_property_djanghor_immortal_weapon3"                             "Stormcrow"

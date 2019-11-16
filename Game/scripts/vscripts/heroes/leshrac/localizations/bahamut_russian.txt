@@ -10,7 +10,7 @@
     	"DOTA_Tooltip_modifier_leshrac_wall_attack_loss_Description"	"Урон снижен"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_q_1"							"[Q1] Remnants of Honor"
-    	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"Находясь рядом со стеной, Bahamut восполняет свою ману. Максимальный запас маны увеличивается на то же значение."
+    	"DOTA_Tooltip_ability_bahamut_rune_q_1_Description"				"Находясь рядом со стеной, Bahamut восполняет свою ману. Максимальный запас маны увеличивается на то же значение за каждый заряд. Максимальный запас зарядов <% BAHAMUT_Q1_MANAPOOL_MAX_STACKS %>."
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_one"			"Мана/Сек."
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_q_1_property_two"			"Увеличение макс. запаса маны"
@@ -74,11 +74,9 @@
         "DOTA_Tooltip_ability_bahamut_rune_w_3_suffix_two"              "% от силы атаки цели"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"К базе урона Предметов и всех Способностей добавляется значение, основанное на текущей мане героя, если противник поражен руной [W2]. Этот бонус затратит дополнительную ману при срабатывании. Добавка к базе урона непосредственно для @Ability2 в 10 раз больше указанного."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Бонус к базе урона предметов и умений"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% от текущей маны"		
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"Затраты маны на усиление"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% от макс. маны"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"Bahamut получает Базовый Урон Атаки за текущий показатель Маны."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Базовый Урон Атаки"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					" за единицу текущей маны"
 		
 		
 		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"
@@ -93,18 +91,18 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] Purity"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"В начале Ascension создаёт рой крылатых сущностей, которые парализуют ближайших врагов. Дополнительно увеличивает урон [E3] в зависимости от того, насколько сбалансированны атрибуты героя. Максимальный бонус, указанный ниже, достигается при равенстве всех атрибутов героя. При разнице в атрибутах дается часть этого бонуса, определяемая соотношением (Наименьший атрибут):(Наибольший атрибут)."
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Максимальный Бонус"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Длительность паралича"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" сек."	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"Переход в @Ability3 вызывает духов, которые бьют и парализуют противников перед героем."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"Урон"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"Паралич"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" сек"	
 
     	"DOTA_Tooltip_modifier_purity_freeze"							"Purity"
     	"DOTA_Tooltip_modifier_purity_freeze_Description"				"Заморожен"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"Пока Ascension перезаряжается, она заменяется на [E3]. Это умение наносит урон всем ближайшим врагам ценой временного замедления героя. Прочтение Ascension возвратит потерянную скорость. Урон дополнительно умножается на сумму требований к уровню всех надетых Глифов."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"Пока Ascension перезаряжается, она заменяется на [E3]. Это умение наносит урон всем ближайшим врагам ценой временного замедления героя. Прочтение Ascension возвратит потерянную скорость."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Урон"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
 
@@ -117,13 +115,13 @@
     	"DOTA_Tooltip_modifier_pulse_slow_Description"					"Скорость передвижения уменьшена."
 
     	"DOTA_Tooltip_modifier_ascencion_cooldown"						"Ascension Cooldown"
-    	"DOTA_Tooltip_modifier_ascencion_cooldown_Description"			"Ascensino перезаряжается"
+    	"DOTA_Tooltip_modifier_ascencion_cooldown_Description"			"Ascension перезаряжается"
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] Harmony"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Увеличивает урон стихии <font color=\"#F6FFB5\">Света</font> за счёт атрибутов героя."
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"Увеличение урона на "
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"Увеличивает урон стихии <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"Урон Света"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"%"
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
@@ -143,14 +141,14 @@
     	"DOTA_Tooltip_modifier_charge_of_light_hyper_state_Description"	"Скорость атаки и передвижения увеличены."
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_2"							"[R2] Crushing Will"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"Пробегая через @Ability1 с помощью умения @Ability4, Bahamut инициирует врзыв, нанося большой урон находящимся рядом противникам и оглушая их на 1 секунду. Дополнительно после этого герой получает огромный бонус к пост-резистному урону на 3 секунды."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"Пробегая через @Ability1 с помощью умения @Ability4, Bahamut инициирует врзыв, нанося большой урон находящимся рядом противникам и оглушая их на 1 секунду. Дополнительно после этого герой получает бонус к Пробитию Магической Защиты на <% BAHAMUT_R2_PIERCE_DURATION %> секунды."
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_one"			"Урон"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix"					"% от (R) Megaflare"		
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"Доп. пост-резистный урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				"%"	
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"Пробитие Магической Защиты"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 
     	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"Crushing Will"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Значительный бонус к пост-резистному урону"
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Значительный бонус к Пробитию Магической Защиты"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] Hyperion"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"В то время, пока Bahamut произносит @Ability4, все ближайшие враги теряют скорость передвижения и атаки."
@@ -196,9 +194,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_suffix"				"% от урона Demigod's Vengeance"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1"						"[R2] Power of the Gods"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"Пока активно умение @Ability4, весь пост-резистный магический и чистый урон усиливается."
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"Усиление пост-резистного магического и чистого урона"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"Пока активно умение @Ability4, герой получает бонус к Пробитию Магической Защиты."
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"Пробитие Магической Защиты"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				""
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] Rise of Champions"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"Множитель атрибутов героя добавляется к урону молний от основного умения @Ability4."
@@ -223,12 +221,12 @@
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_suffix"				"% за каждые 100 нанесенного урона"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2"						"[W2] Unification"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"Союзники, задетые @Ability2 получают бонус к пост-резистному урону на 8 секунд. Bahamut тоже получает этот бонус."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"Доп. пост-резистный урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"Союзники, задетые @Ability2 получают бонус к Пробитию Магической Защиты на 8 секунд. Bahamut тоже получает этот бонус."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"Пробитие Магической Защиты"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				""
 
     	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit"						"Unification"
-    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"Пост-резистный урон увеличен."
+    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"Пробитию Магической Защиты увеличено."
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2"						"[W3] Absolution"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"Касаясь @Ability2, враги парализуются."
@@ -238,12 +236,10 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze"						"Absolution"
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"заморожен"
 
-  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Ether Breach"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"К урону Способностей и Предметов добавляется показатель зависящий от отсутствующей маны героя. Увеличивает урон Способностей в зависимости от скорости Сферы. Прочтение @Ability4 во время полета в Сфере умножает скорость @Ability2 на <% BAHAMUT_ARCANA_W_W4_R_SPEED_MULT %> и сохраняет бонус вне Сферы в течение 5 секунд. Указанный урон от скорости умножается на уровень способности @Ability2."
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Бонус к базе урона умений и предметов"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					"% от недостающей маны"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"			"Увеличение урона"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"					"% от скорости Сферы"		
+  		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] Potency Inverse"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"Bahamut получает Базовый Урон Атаки за отсутствующую Ману."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"Базовый Урон Атаки"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					" за единицу отсутствующей маны"		
 
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"						"Ether Breach"
     	"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"			"Увеличен урон в зависимости от скорости Сферы"

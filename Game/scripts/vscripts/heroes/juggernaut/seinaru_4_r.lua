@@ -168,7 +168,7 @@ function gorudo_attack_land(event)
 		if r_3_level > 0 then
 			local critModifier = attacker:FindModifierByName("modifier_seinaru_a_a_crit")
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_monkey_king/monkey_king_spring_cast_rays.vpcf", target, 3)
-			local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * r_3_level * SEINARU_R3_DMG_PER_ATT
+			local damage = r_3_level * (SEINARU_R3_DMG_BASE + OverflowProtectedGetAverageTrueAttackDamage(attacker) * SEINARU_R3_DMG_PER_ATT)
 			if critModifier then
 				local arcanaAbility = critModifier:GetAbility()
 				damage = damage * SEINARU_ARCANA_Q1_CRIT_DMG * arcanaAbility.q_1_level

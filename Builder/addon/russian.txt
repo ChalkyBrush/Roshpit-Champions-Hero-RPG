@@ -47,35 +47,35 @@
 		//Hero Lore
 		//--------------------		
 
-		"npc_dota_hero_dragon_knight_lore" "Любой вызов будет принят огнём и мечом."
+		"npc_dota_hero_dragon_knight_lore" "Любой вызов будет принят пылающим клинком."
 		"npc_dota_hero_phantom_assassin_lore" "Отблески молний и сила бури сопровождают странницу в доспехах."
 		"npc_dota_hero_necrolyte_lore" "Чем сильнее заражение, тем проще уничтожить противника."
 		"npc_dota_hero_axe_lore" "Научись подчинять гнев, и он станет мощнейшим орудием мести."
 		"npc_dota_hero_drow_ranger_lore" "Пусть головы врагов узнают тяжесть ночных звёзд, а их тела - остроту наших стрел."
 		"npc_dota_hero_obsidian_destroyer_lore" "Страж времени и пространства знает всё о контроле над противником."
-		"npc_dota_hero_omniknight_lore" "Paladin начинает свой поход с благословения высших сил, исцеляя союзников и испепеляя врагов."
-		"npc_dota_hero_crystal_maiden_lore" "Знания нужны для того, чтобы применять их на практике, в том числе и Магия Стихий."
+		"npc_dota_hero_omniknight_lore" "Паладин начинает свой поход с благословения высших сил, исцеляя союзников и испепеляя врагов."
+		"npc_dota_hero_crystal_maiden_lore" "Знания ожидают практики,и Магия Стихий - не исключение."
 		"npc_dota_hero_invoker_lore" "Надежные и смертоносные стихийные големы - отличная компания для охоты на монстров."
 		"npc_dota_hero_juggernaut_lore" "Один шаг - один удар. Путь меча, света и ветра - вот путь Seinaru." 
 		"npc_dota_hero_beastmaster_lore" "Имея под рукой мощь природы и верные топоры, повелитель стихий ступает на тропу войны."
-		"npc_dota_hero_leshrac_lore" "Божественный аватар снизошел для суда и казни."
-		"npc_dota_hero_spirit_breaker_lore" "Призрачные воины бьют ничуть не слабее живых, а призрачный огонь горит даже жарче обычного."
+		"npc_dota_hero_leshrac_lore" "Божественный аватар нисходит на землю смертных для суда и казни."
+		"npc_dota_hero_spirit_breaker_lore" "Бесплотные воины бьют ничуть не слабее живых, а призрачный огонь горит даже жарче обычного."
 		"npc_dota_hero_zuus_lore" "Великий целитель и защитник знает все о сохранении жизни, и даже сверх того."
 		"npc_dota_hero_templar_assassin_lore" "На каждого зверя найдется ловушка, на каждую шею - клинок."
 		"npc_dota_hero_huskar_lore" "Духи предков всегда на страже своего племени, сколько бы смертей и возрождений не перенесли они."
-		"npc_dota_hero_legion_commander_lore" "Горы не двигаются, но горы обладают сознанием и видели всё с сотворения мира. Теперь у сознания есть и тело, и мощь гор для защиты мира."
+		"npc_dota_hero_legion_commander_lore" "Горные вершины рождают могущественных геомантов, своих защитников."
 		"npc_dota_hero_night_stalker_lore" "Ночные демоны неуловимы, и всегда настигают свою ошеломлённую жертву."
 		"npc_dota_hero_vengefulspirit_lore" "Сила двух светил, ночного и дневного, объединена в человеческом воплощении."
 		"npc_dota_hero_slardar_lore" "Странник из морских глубин несет с собой часть своего моря."
 		"npc_dota_hero_visage_lore" "Повелитель тени начинает марш мертвых в бесконечную войну."
-		"npc_dota_hero_dark_seer_lore" "Здесь нет изумрудов и колец, но есть жажда скорости."
+		"npc_dota_hero_dark_seer_lore" "Жажда скорости и крепкие кулаки ожидают битвы."
 		"npc_dota_hero_antimage_lore" "Сырая магия выливается в мир в ожидании найти умелого мага и воина, и всегда находит его."
 		"npc_dota_hero_monkey_king_lore" "Если ты долго смотришь на оборотня, то оборотень тоже смотрит на тебя..."
-		"npc_dota_hero_slark_lore" "Убегай, прыгай, приземлись на голову противника, возьми его в плен, и не останавливайся, пока тебя не похоронят в могиле."
-		"npc_dota_hero_skywrath_mage_lore" "Воздух это не только среда для дыхания, но и верный щит, и копье, если он в руках у опытного аэротурга."
+		"npc_dota_hero_slark_lore" "Slipfinn заимствует силу противника и имеет высокую мобильность."
+		"npc_dota_hero_skywrath_mage_lore" "Воздух это не только среда для дыхания, но и верный щит, и острое копьё, если он в руках у опытного аэротурга."
 		"npc_dota_hero_winter_wyvern_lore" "Голубое пламя дракона сжигает и замораживает, не оставляя противнику и шанса."
-		"npc_dota_hero_arc_warden_lore" "Сила науки и гербологии позволяет подчинить себе куда больше возможностей природы, чем она сама предоставляет.       !Примечание! Для назначения новых способностей используйте юнита-курьера."
-		"npc_dota_hero_faceless_void_lore" "Всего одно оружие, но тысяча способов его использовать."	
+		"npc_dota_hero_arc_warden_lore" "Сила науки и гербологии позволяет подчинить себе куда больше возможностей природы, чем она сама предоставляет.          Примечание! Для назначения новых способностей используйте юнита-курьера."
+		"npc_dota_hero_faceless_void_lore" "Всего одно оружие, но тысяча способов его применить."	
 		//--------------------
 		//Units
 		//--------------------
@@ -727,16 +727,23 @@
 		"ui_attack_damage"		"Урон"
 		"ui_attack"				"Атака"
 		"ui_defense"			"Защита"
-		"ui_time_between_attacks"	"Вр. между атаками"
-		"ui_attack_damage_full"	"Базовый урон"
+		"ui_time_between_attacks"	"Время между атаками"
+		"ui_attack_damage_full"	"Базовый Урон Атаки"
 		"ui_attack_speed"		"Скорость атаки"
 		"ui_attack_range"		"Дальность атаки"
-		"ui_physical_reduction"	"Сопротивление физ. урону"
+		"ui_physical_reduction"	"Сопротивление физическому урону"
 		"ui_additional_resistance"			"Доп. сопротивление"
 		"ui_base_ability_damage"	"Доп. урон способностей"
 		"ui_bonus_attack_damage"	"Доп. урон"
 		"ui_bonus_armor"			"Доп. броня"
 		"ui_elements"				"Стихийный урон"
+		"ui_elements_resist"				"Стихийный урон против Героя"
+		"ui_most_mit_and_item_single"		"Прочий Урон против Героя"
+		"ui_most_mit_and_item_global"		"Прочий Урон"
+		"ui_movement"						"Скорость передвижения"
+		"ui_base_movement_speed"			"Базовая"
+		"ui_bonus_movement_speed"			"Бонусная"
+		"ui_max_movement_speed"				"Лимит Скорости"
 
 		"ui_recalculate_stats_button"	"Пересчитать статы"
 		"ui_recalculate_stats_waiting"	"Идет перерасчёт"
@@ -784,6 +791,7 @@
 		"item_agility"			"Ловкость"
 		"item_strength"			"Сила"
 		"item_intelligence"		"Интеллект"
+		"item_spirit"			"Дух"
 		"item_bonus_damage"		"Доп. урон"
 		"item_end_radius"		"Доп. конечный радиус"
 		"item_range_increase"	"Доп. дальность"
@@ -804,11 +812,11 @@
 		"item_cannon_torrent"		"Создано водоворотов"
 		"item_cannon_moon_shroud"	"Создано лунных покровов"
 		"item_vision_bonus"			"Доп. обзор"
-		"item_armor_pierce"			"Физ. Пробитие"
-		"item_spell_pierce"			"Маг. Пробитие"
-		"item_magic_armor"			"Магическая Броня"
+		"item_armor_pierce"			"Пробитие Брони"
+		"item_spell_pierce"			"Пробитие Маг. Защиты"
+		"item_magic_armor"			"Магическая Защита"
 		"bonus_magic_armor"			"Бонус Магической Брони"
-		"item_status_resist"		"Сопротивление Эффектам"
+		"item_status_resist"		"Сопр. Эффектам"
 		"ui_base_ability_damage"	"Урон Способностей"
 		"tooltip_magic_armor"		"Магическое Сопротивление"
 
@@ -847,13 +855,15 @@
 
 		"item_evasion"				"Шанс уклонения"
 
-		"item_min_level"			"Мин. требуемый уровень"
+		"item_min_level"			"Требуемый Уровень"
 		"item_min_level_reduction"	"Понижение требований к уровню"
 
 		"item_base_ability"			"Доп. урон умений, %" //Усиление базовых способностей, %
 
 		"item_damage_increase"			"Урон Предметов, %"
 		"item_item_damage"				"Урон Предметов, %"
+		
+		"item_attack_damage"				"Базовый Урон Атаки"
 
 		"property_unit_walking_description"			"Позволяет герою проходить сквозь других юнитов."
 
@@ -1047,7 +1057,7 @@
 		"item_rpc_neutral_glyph_3_1_description"			"Максимальная скорость передвижения увеличена до @glyph_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"(T4) Glyph of Renewal"
-		"item_rpc_neutral_glyph_4_1_description" 			"Снижает время возрождения на @glyph_property1%, а герой возрождается на месте своей смерти. Если герой повторно умирает в течении @glyph_property2 секунд, местом возрождения станет установленный Флаг возрождения или место на карте по умолчанию."
+		"item_rpc_neutral_glyph_4_1_description" 			"Устанавливает время возрождения на 10 секунд, а герой возрождается на месте своей смерти. Если герой повторно умирает в течении @glyph_property2 секунд, местом возрождения станет установленный Флаг возрождения или место на карте по умолчанию."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"(T5) Glyph of Walling"
 		"item_rpc_neutral_glyph_5_1_description" 			"Сокращает ВЕСЬ получаемый урон на @glyph_property1% и уменьшает весь наносимый урон на @glyph_property2%"

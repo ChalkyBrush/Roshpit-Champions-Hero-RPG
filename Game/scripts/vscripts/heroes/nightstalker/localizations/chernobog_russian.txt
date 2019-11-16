@@ -12,9 +12,9 @@
         "DOTA_Tooltip_modifier_charons_claw_enemy_Description"                  "Урон и скорость передвижения снижены."
         
         "DOTA_Tooltip_ability_chernobog_rune_q_1"                               "[Q1] At Your Heels"
-        "DOTA_Tooltip_ability_chernobog_rune_q_1_Description"                   "Противники в зоне действия @Ability1 получают усиленный урон из всех источников, этот бонус считается отдельным мультипликатором и умножает пост-резистный урон тоже."
-        "DOTA_Tooltip_ability_chernobog_rune_q_1_property_one"                  "Усиление урона"
-        "DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"                        "%"
+        "DOTA_Tooltip_ability_chernobog_rune_q_1_Description"                   "Противники в зоне действия @Ability1 потеряют Броню и Магическую Защиту."
+        "DOTA_Tooltip_ability_chernobog_rune_q_1_property_one"                  "Снижение Брони и Магической Защиты"
+        "DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"                        ""
 
         "DOTA_Tooltip_ability_chernobog_rune_q_2"                               "[Q2] Coals of Carceri"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_Description"                   "@Ability1 обжигает противников внутри каждые <% CHERNOBOG_Q2_INTERVAL_THINK %> сек."
@@ -30,15 +30,13 @@
         "DOTA_Tooltip_modifier_charons_claw_c_a_Description"                    "Урон увеличен"
 
         "DOTA_Tooltip_ability_chernobog_rune_q_4"                           "[Q4] Into Darkness"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_Description"               "Увеличивает ширину и длину @Ability1. Дополнительно [Q2] срабатывает чаще; перезарядка @Ability1 снижается; это снижение влияет на базовые значения, до действия других бонусов."
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_one"              "Срабатывание Q2"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix"                    " раз(а) чаще"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_two"              "Уменьшение перезарядки"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_two"                    " раз(а) быстрее"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_three"            "Бонусная длина"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"                  ""
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_four"             "Бонусная ширина"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_four"                   ""
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_Description"               "Увеличивает ширину и длину @Ability1. Дополнительно [Q2] срабатывает чаще."
+         "DOTA_Tooltip_ability_chernobog_rune_q_4_property_one"            "Бонусная Длина"
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix"                  ""
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_two"             "Бонусная Ширина"
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_two"                   ""
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_three"				"Интервал Q2"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"					"% быстрее"
         
         "DOTA_Tooltip_ability_chernobog_demon_hunter"                           "Demon Hunter"
         "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "Стихия: <font color=\"#5B648C\">Демон</font><br>Позволяет раскрыть навыки охотника - демона, обретая дополнительные возможности и свойства. Добавляет к обычным атакам магический урон по области <% CHERNOBOG_W_RADIUS %>, основанный на общем уроне; а любой входящий урон не нанесёт герою больше определённого % от макс. здоровья.<br><font color='#f14b4b'>Пока это умение активно, герой не может восстанавливать своё здоровье</font>.<br><font color='#70EA72'>Если срабатывает свойство уменьшения урона, герой затратит некоторое количество маны</font>."
@@ -73,7 +71,7 @@
         "DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"               "Значение брони увеличено"
         
         "DOTA_Tooltip_ability_chernobog_rune_w_3"                               "[W3] Fervor"
-        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"                   "Пока умение @Ability2 не активно, Chernobog снижает броню врагов в радиусе <% CHERNOBOG_W3_ARMOR_REDUCE_RADIUS %> от цели с каждой атакой. Активное умение @Ability2 увеличивает урон героя с каждой атакой. При смене цели теряется <% CHERNOBOG_W3_STACK_LOSE_PCT %>% стаков урона, но снижение брони целей не теряется."
+        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"В неактивном режиме @Ability2 атаки героя понижают броню целей, максимально <% CHERNOBOG_W3_MAX_STACKS %> раз. В активном режиме каждый заряд дает дополнительный базовый урон атаки. Смена цели отнимает <% CHERNOBOG_W3_STACK_LOSE_PCT %>% зарядов."
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"                  "(Не активно) Снижение брони за атаку"
         "DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"                  "(Активно) Доп. урон за атаку"
@@ -113,23 +111,23 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"                        "% от урона героя"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3"                               "[E3] Sudden Strike"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "Использование @Ability3 для перемещения за спину противника усилит пост-резистный урон героя на 0 сек. Радиус телепортации обеих активных стоек увеличен."
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "Использование @Ability3 для перемещения за спину противника усилит Пробитие Брони и Магической Защиты героя на <% CHERNOBOG_E3_BUFF_DURATION_BASE %> сек. Радиус телепортации обеих активных стоек увеличен."
         "DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"                  "Увеличение радиуса"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"                        ""
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                  "Усиление пост-резистного урона"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"                    "%"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                  "Пробитие Брони и Магической Защиты"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"                    ""
         "DOTA_Tooltip_modifier_chernobog_3_e_teleportation_enemy_effect_e3"                     "Sudden Strike"
         "DOTA_Tooltip_modifier_chernobog_3_e_teleportation_enemy_effect_e3_Description"         "Получает усиленный урон от Чернобога."
 
         "DOTA_Tooltip_ability_chernobog_rune_e_4"                               "[E4] Eclipse"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_Description"                   "Во время действия и после деактивации @Ability3, герой получает 100% уклонение и 30% сопротивление магии. Снижает интервал атак у Теней."
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_Description"                   "Во время действия и после деактивации @Ability3, герой получает <% CHERNOBOG_E4_EVASION %>% уклонение. Снижает интервал атак у Теней."
         "DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"                  "Длительность"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"                        " сек."
         "DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"                  "Скорость атаки Теней"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix_two"                        " раз(а) быстрее"
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix_two"                        "% быстрее"
 
         "DOTA_Tooltip_modifier_chernobog_rune_e_4"                              "Eclipse"
-        "DOTA_Tooltip_modifier_chernobog_rune_e_4_Description"                  "30%% сопротивление магии и 100%% уклонение."
+        "DOTA_Tooltip_modifier_chernobog_rune_e_4_Description"                  "<% CHERNOBOG_E4_EVASION %>%% уклонение."
         
         "DOTA_Tooltip_ability_chernobog_4_r"                        "Night's Procession"
         "DOTA_Tooltip_ability_chernobog_4_r_Description"            "Chernobog образует купол тьмы в указанной точке, который полностью замораживает всех задетых врагов."
@@ -138,9 +136,10 @@
 
         "DOTA_Tooltip_modifier_chernobog_ult_freeze_special"                    "Night's Procession"
         "DOTA_Tooltip_modifier_chernobog_ult_freeze_special_Description"        "Заморожен" 
+		
         "DOTA_Tooltip_ability_chernobog_rune_r_1"                               "[R1] Fiend's Grip"
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"                   "Враги, попавшие под действие @Ability4 получают увеличенный урон от Chernobog."
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"                  "Усиление урона"
+        "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"                   "Пассивно увеличивает урон <font color=\"#5B648C\">Демона</font>."
+        "DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"                  "Урон <font color=\"#5B648C\">Демона</font>"
         "DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"                        "%"
 
         "DOTA_Tooltip_modifier_nights_procession_a_d_rune"                      "Fiend's Grip"          
@@ -150,22 +149,22 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_2_Description"                   "Внутри купола @Ability4 противники атакуются Тенями от [E2]. Урон эих атак повышен."
         "DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"                  "Урон Теней"
         "DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"                        "%"
+		
         "DOTA_Tooltip_ability_chernobog_rune_r_3"                               "[R3] Black Cauldron"
         "DOTA_Tooltip_ability_chernobog_rune_r_3_Description"                   "Во время действия @Ability4, а также некоторое время после исчезновения купола, атаки героя будут наносит физический урон по юнитам в радиусе <% CHERNOBOG_R3_RADIUS %> от основной цели."
         "DOTA_Tooltip_ability_chernobog_rune_r_3_property_one"                  "Урон от взрыва"
         "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix"                        "% от общего урона" 
         "DOTA_Tooltip_ability_chernobog_rune_r_3_property_two"                  "Дополнительная продолжительность"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_two"                    " сек"                                      
-        "DOTA_Tooltip_ability_chernobog_rune_r_4"                               "[R4] Heart of Darkness"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_Description"                   "Ловкость героя повышает урон <font color=\"#5B648C\">Демона</font>. @Ability4 увеличивает радиус, получает сниженные время каста и перезарядки."
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"                  "Время каста"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"                        " раз(а) быстрее"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_two"                  "Снижение перезарядки"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_two"                        " раз(а) быстрее"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_three"                "Увеличение радиуса"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_three"                      ""
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_four"                 "Бонус урона Демона"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_four"                       "% за 10 Ловкости"
+        "DOTA_Tooltip_ability_chernobog_rune_r_3_suffix_two"                    " сек"   
+		
+        "DOTA_Tooltip_ability_chernobog_rune_r_4"								"[R4] Heart of Darkness"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_Description"					"Уменьшает перезарядку, время каста и увеличивает радиус @Ability4."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"					"Снижение Времени Каста"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"						" сек"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_two"					"Снижение перезарядки"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_two"						" сек"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_three"				"Увеличение Радиуса"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_three"						""
         
         //Arcanas
         
@@ -195,18 +194,17 @@
         "DOTA_Tooltip_modifier_chernobog_demon_form_aura_effect_Description"    "Скорость атаки и передвижения снижена."
 
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1"                       "[R3] Rain of Chaos"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_Description"           "С некоторым шансом атаки Chernobog разделяются, атакуя соседние цели. Значение шанса выше 100% гарантирует многократное разделение атаки. Дополнительно пассивно увеличивает пост-резистный урон героя."
+        "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_Description"           "С некоторым шансом атаки героя разделяются, атакуя соседние цели. Значение шанса выше 100% гарантирует многократное разделение атаки."
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_property_one"          "Шанс"
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix"                "%"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_property_two"          "Пост-резистный урон"
-        "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix_two"                "%"
+
 
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"                       "[R4] Darkness Incarnate"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "Продлевает действие @Ability4, Ловкость героя увеличивает урон <font color=\"#5B648C\">Демона</font>."
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "Продлевает действие @Ability4, пассивно увеличивает урон <font color=\"#5B648C\">Демона</font>."
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"          "Доп. длительность"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"                " сек."
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "Урон Демона"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"                "% за 10 Ловкости"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "Урон <font color=\"#5B648C\">Демона</font>"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"                "%"
 
         //cherno arcana2
         "item_property_chernobog_arcana2"                                       "Demon Flight"
@@ -302,8 +300,8 @@
         
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_2"            "Mandible of Charybdis"
         "item_property_chernobog_immortal_weapon2"                             "Vacant Hollow"
-        "property_chernobog_immortal_weapon2_description"                      "Каждый % отсутствующего здоровья увеличивает пост-резистный урон на <% CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING %>%."
+        "property_chernobog_immortal_weapon2_description"                      "Каждый % отсутствующего здоровья увеличивает Базовый Урон Способностей и Урон Предметов на <% CHERNOBOG_IMMORTAL_WEAPON_2_POST_MITI_PER_HP_PCT_MISSING %>%."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
-        "property_chernobog_immortal_weapon3_description"                      "С каждой успешной атакой герой восстанавливает <% CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT %>% от макс. здоровья, даже если исцеление отключено."
+        "property_chernobog_immortal_weapon3_description"                      "С каждой успешной атакой герой восстанавливает <% CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT %>% от макс. здоровья, даже если исцеление отключено. (Не означает, что здоровье перестанет отниматься при ударах @Ability2.)"

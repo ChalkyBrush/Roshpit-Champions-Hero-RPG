@@ -80,11 +80,9 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"EXPLOSION RADIUS:"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] Permanent Immolation"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Your flame aspect deals constant damage to all nearby enemies. Damage dealt by the aspect's immolation permanently increases his max health. Max 200 million health."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Your flame aspect deals constant damage to all nearby enemies."
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"DPS"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_two"				"Max Health Gained"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix_two"					"% of permanent immolation's damage"
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Burns and deals damage to nearby enemies"
@@ -156,7 +154,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_suffix_two"					"x Agility"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_3"							"[E3] Dark Ranger"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_Description"				"Your Shadow Aspect's damage is increased by the total of your Strength, Agility, and Intelligence. Additionally increases shadow aspect attack range."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_Description"				"Your Shadow Aspect's damage is increased by the total of your Strength, Agility, Intelligence and Spirit. Additionally increases shadow aspect attack range."
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_one"				"Stats added to Shadow Aspect damage"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_two"				"Aspect Attack Range"
@@ -284,7 +282,7 @@
     	"DOTA_Tooltip_ability_summon_fire_deity_aspect_health"			"HEALTH:"
     	"DOTA_Tooltip_ability_summon_fire_deity_aspect_damage"			"DAMAGE:"
     	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"ARMOR:"
-    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"MAGIC RESIST:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"MAGIC ARMOR:"
 
     	"DOTA_Tooltip_ability_fire_arcana_ability"							"Flame Laser"
     	"DOTA_Tooltip_ability_fire_arcana_ability_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>A blazing superheated laser travels towards the target unit. If the target is an ally, the ally is healed and receives a buff that increases attack speed and deals pure fire damage on attack land. Enemies instead take pure fire damage. Any ally or enemy in the beam's path is also affected, not just the primary target."
@@ -338,7 +336,7 @@
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"HEALTH:"
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"ATTACK DAMAGE:"
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"ARMOR:"
-    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"MAGIC RESIST:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"MAGIC ARMOR:"
 
     	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Element: <font color=\"#AF843D\">Earth</font><br>The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
@@ -409,7 +407,7 @@
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_health"				"HEALTH:"
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_damage"				"ATTACK DAMAGE:"
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_armor"				"ARMOR:"
-    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"MAGIC RESIST:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"MAGIC ARMOR:"
 
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows"				"Cloak of Shadows"
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_Description"	"An umbral wave cloaks the shadow aspect and his allies, giving them unbreakable invisibility."
@@ -448,7 +446,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"Increases <font color=\"#7F4F84\">Shadow</font> damage. All agility from rolls on Gear is enhanced."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"Increases <font color=\"#7F4F84\">Shadow</font> damage. All Agility from rolls on Gear is enhanced."
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"Shadow Amplification"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"Agility Enhanced from Gear Rolls"
