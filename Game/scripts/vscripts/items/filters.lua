@@ -1136,7 +1136,7 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_super_ascendency") then
         Filters:AscensionTrigger(caster)
     end
-    if caster:HasModifier("modifier_scourge_knight") then
+    if caster:HasModifier("modifier_scourge_knights_helm") then
         Filters:ScourgeKnight(caster)
     end
     if caster:HasModifier("modifier_mask_of_the_desert_necromancer") then
@@ -3097,35 +3097,67 @@ function Filters:AscensionTrigger(caster)
 end
 
 function Filters:ScourgeKnight(caster)
+    local scourge_helm = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    if not scourge_helm.skeleton_table then
+        scourge_helm.skeleton_table = {}
+    end
+    for i = 1, #scourge_helm.skeleton_table, 1 do
+        if scourge_helm.skeleton_table[i] and IsValidEntity(scourge_helm.skeleton_table[i]) and scourge_helm.skeleton_table[i]:IsAlive() then
+           scourge_helm.skeleton_table[i]:ForceKill(false)
+        end
+    end
+    scourge_helm.skeleton_table = {}
+    EmitSoundOn("RPCItems.ScourgeKnight.Start", caster)
     local fv = caster:GetForwardVector()
     local casterOrigin = caster:GetAbsOrigin()
     local perpFv = WallPhysics:rotateVector(fv, math.pi / 2)
     local spawnPosition = casterOrigin - fv * 180
-    local vectorTable = {spawnPosition - perpFv * 240, spawnPosition - perpFv * 120, spawnPosition, spawnPosition + perpFv * 120, spawnPosition + perpFv * 240}
+    local distance_btwn_archers = 180
+    local vectorTable = {spawnPosition - perpFv * distance_btwn_archers*2, spawnPosition - perpFv * distance_btwn_archers, spawnPosition, spawnPosition + perpFv * distance_btwn_archers, spawnPosition + perpFv * distance_btwn_archers*2}
+    local elementsTable = {}
+    if scourge_helm:GetGemValue("ruby") > 0 then
+        table.insert(elementsTable, RPC_ELEMENT_FIRE)
+    end
+    if scourge_helm:GetGemValue("sapphire") > 0 then
+        table.insert(elementsTable, RPC_ELEMENT_ICE)
+    end
+    if scourge_helm:GetGemValue("emerald") > 0 then
+        table.insert(elementsTable, RPC_ELEMENT_POISON)
+    end
+    if scourge_helm:GetGemValue("amethyst") > 0 then
+        table.insert(elementsTable, RPC_ELEMENT_ARCANE)
+    end
+    if #elementsTable < 2 then
+        table.insert(elementsTable, RPC_ELEMENT_NONE)
+    end
     for i = 1, #vectorTable, 1 do
-        local archer = CreateUnitByName("skeleton_archer", vectorTable[i], true, nil, nil, DOTA_TEAM_GOODGUYS)
+        local archer = CreateUnitByName("scourge_knight_archer", vectorTable[i], true, nil, nil, DOTA_TEAM_GOODGUYS)
+        scourge_helm:ApplyDataDrivenModifier(caster.InventoryUnit, archer, "modifier_shipyard_spawner_passive", {})
         archer.owner = caster:GetPlayerOwnerID()
         archer.summoner = caster
+        archer.hero = caster
         archer:SetOwner(caster)
         archer:SetControllableByPlayer(caster:GetPlayerID(), true)
-        archer.dieTime = 12
+        archer.dieTime = SCOURGE_KNIGHT_ARCHER_DURATION
         archer:AddAbility("ability_die_after_time_generic"):SetLevel(1)
-        local summonAbil = archer:AddAbility("ability_summoned_unit")
-        summonAbil:SetLevel(1)
-        summonAbil:ApplyDataDrivenModifier(archer, archer, "modifier_summoned_unit_damage_increase", {duration = 30})
-        local skeleDamage = Filters:AdjustItemDamage(caster, caster:GetAttackDamage() / 10, nil)
-        archer:SetModifierStackCount("modifier_summoned_unit_damage_increase", summonAbil, skeleDamage)
-        archer:SetForwardVector(fv)
-        archer:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 80, nil))
-        local skeleHealth = math.floor(caster:GetMaxHealth() * 0.15)
-        skeleHealth = Filters:AdjustItemDamage(caster, skeleHealth, nil)
-        archer:SetMaxHealth(skeleHealth)
-        archer:SetBaseMaxHealth(skeleHealth)
-        archer:SetHealth(skeleHealth)
-        archer:Heal(skeleHealth, archer)
         archer:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
-        archer:SetModelScale(0.7)
-        archer:SetPhysicalArmorBaseValue(10)
+        archer:AdjustSummon(caster, true, 1, SCOURGE_KNIGHT_ATTACK_MULT, 0, 0, SCOURGE_KNIGHT_PIERCE_MULT, SCOURGE_KNIGHT_PIERCE_MULT)
+        archer:SetMaxHPandHealToFull(SCOURGE_KNIGHT_HITS_TO_KILL)
+        archer:SetModelScale(0.85)
+        table.insert(scourge_helm.skeleton_table, archer)
+        Timers:CreateTimer(1, function()
+            EmitSoundOn("RPCItems.ScourgeKnight.Spawn", archer)
+        end)
+        archer.element = elementsTable[RandomInt(1, #elementsTable)]
+        if archer.element == RPC_ELEMENT_FIRE then
+            archer:SetRangedProjectileName("particles/roshpit/scourge_knight_fire_arrow.vpcf")
+        elseif archer.element == RPC_ELEMENT_ICE then
+            archer:SetRangedProjectileName("particles/units/heroes/hero_drow/drow_frost_arrow.vpcf")
+        elseif archer.element == RPC_ELEMENT_POISON then
+            archer:SetRangedProjectileName("particles/roshpit/scourge_knight_poison_arrow.vpcf")
+        elseif archer.element == RPC_ELEMENT_ARCANE then
+            archer:SetRangedProjectileName("particles/roshpit/scourge_knight_arcane_arrow.vpcf")
+        end
     end
 end
 

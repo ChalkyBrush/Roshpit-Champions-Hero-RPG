@@ -12,8 +12,8 @@ Runes.COST_TO_LEVEL_T2 = 1
 Runes.COST_TO_LEVEL_T3 = 2
 Runes.COST_TO_LEVEL_T4 = 4
 
-Runes.STARTING_RUNE_POINTS = 2
-Runes.RUNE_POINTS_PER_LEVEL = 2
+Runes.STARTING_RUNE_POINTS = 3
+Runes.RUNE_POINTS_PER_LEVEL = 3
 
 Runes.AllRunesTable = {"q_1", "q_2", "q_3", "q_4", "w_1", "w_2", "w_3", "w_4", "e_1", "e_2", "e_3", "e_4", "r_1", "r_2", "r_3", "r_4"}
 

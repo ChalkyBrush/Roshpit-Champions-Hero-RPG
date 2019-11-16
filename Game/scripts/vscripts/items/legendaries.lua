@@ -4250,12 +4250,37 @@ function RPCItems:RollOceanHelmOfValdun(item_level)
     local item = RPCItems:CreateVariant("item_rpc_ocean_helm_of_valdun", "immortal", "Ocean Helm of Val'Dun", "head", true, "Slot: Head")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "all_elements", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 1.2)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.2)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.2)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollScourgeKnightHelm(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_scourge_knights_helm", "immortal", "Scourge Knight's Helm", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_scourge_knights_helm"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scourge_knight", "#2A194F", 1, "#property_scourge_knight_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2)
+    local luck = RandomInt(1, 3)
+    if luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "element_undead", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -4572,36 +4597,6 @@ function RPCItems:RollSamuraiHelmet(item_level)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
     RPCItems:SetBaseItemValues(item, "item_rpc_adamantine_samurai_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     RPCItems:SocketsChance(item)
-    return item
-end
-
-function RPCItems:RollScourgeKnightHelm(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_scourge_knights_helm", "immortal", "Scourge Knight's Helm", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "scourge_knight"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scourge_knight", "#2A194F", 1, "#property_scourge_knight_description")
-    local value = 0
-    local luck = RandomInt(1, 5)
-    if luck > 4 then
-        value = RandomInt(15, 25)
-    elseif luck > 3 then
-        value = RandomInt(10, 20)
-    else
-        value = RandomInt(5, 15)
-    end
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "lifesteal"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_lifesteal", "#B1E3B9", 2)
-
-    local value = RandomInt(maxFactor * 15, maxFactor * 360)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "attack_damage"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_bonus_attack_damage", "#343EC9", 3)
-
-    RPCItems:RollHoodProperty4(item, 0)
-
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
 end
 
@@ -8806,7 +8801,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
         "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli", "item_rpc_excavators_focus_cap",
         "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler", "item_rpc_hyper_visor", "item_rpc_iron_colussus", "item_rpc_mask_of_mugato",
-        "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius"}
+        "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius", "item_rpc_scourge_knights_helm"}
     end
     return itemsList
 end

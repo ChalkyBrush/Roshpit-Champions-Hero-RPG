@@ -6686,3 +6686,11 @@ function thorok_think(event)
 		end
 	end
 end
+
+function scourge_knight_poison_think(event)
+	local caster = event.caster.hero
+	local target = event.target
+	local ability = event.ability
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(ability:GetFinalGemPropertyValue("emerald", SCOURGE_KNIGHT_EMERALD)/100)
+	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_POISON)	
+end

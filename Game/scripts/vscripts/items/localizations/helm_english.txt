@@ -472,6 +472,17 @@
 		"item_rpc_ocean_helm_of_valdun_sapphire1" "Increases Rune [W3] and Rune [E3] by @sapphire_property1"
 		"item_rpc_ocean_helm_of_valdun_amethyst1" "Increases Rune [Q3] and Rune [R3] by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
+		"item_property_scourge_knight"				"Undead Command"
+		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <% SCOURGE_KNIGHT_ATTACK_MULT %>x your attack damage. Archers last <% SCOURGE_KNIGHT_ARCHER_DURATION %> seconds or die after taking damage <% SCOURGE_KNIGHT_HITS_TO_KILL %> times."
+
+		"item_rpc_scourge_knights_helm_ruby1"	"Archers have a 50% chance to spawn with Fire Arrows, which deal their damage in @ruby_property1 AOE"
+		"item_rpc_scourge_knights_helm_emerald1"	"Archers have a 50% chance to spawn with Poison Arrows, which deal @emerald_property1% of the archer owner's attack damage per second for <% SCOURGE_KNIGHT_EMERALD_DURATION %> seconds"
+		"item_rpc_scourge_knights_helm_sapphire1" "Archers have a 50% chance to spawn with Frost Arrows, which slow attack speed and movement speed by @sapphire_property1 for <% SCOURE_KNIGHT_SAPPHIRE_DURATION %> seconds"
+		"item_rpc_scourge_knights_helm_amethyst1" "Archers have a 50% chance to spawn with Arcane Arrows, which deal @amethyst_property1% extra damage"
+
+		"DOTA_Tooltip_modifier_scourge_knight_poison"	"Undead Command Poison"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -517,11 +528,6 @@
 		"property_super_ascendency_description"		"After casting @Ability4, you gain <% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Your attacks split to strike up to <% SUPER_ASCENDENCY_TARGETS %> targets at once, and each attack that hits an enemy during this effect will reduce the current cooldown of @Ability4 by <% SUPER_ASCENDENCY_CD_RED %> seconds. This buff has the same duration as @Ability4's cooldown, with a minimum of <% SUPER_ASCENDENCY_MIN_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
 		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Multishot for <% SUPER_ASCENDENCY_TARGETS - 1 %> additional targets. Hitting enemies reduces your ultimate spell's current cooldown."
-		
-
-    	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
-		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have 15% of your max health and 100% of your attack damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"

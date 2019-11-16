@@ -10,14 +10,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 	if not Events.GameMasterAttackAbility then return end
 	local parent = self:GetParent()
 	if event.attacker == parent then
-		-- ApplyDamage({victim = event.target,
-		-- 	attacker = parent,
-		-- 	--unlike GetAverageTrueAttackDamage(), event.damage isnt limited by 2^31 for some reason
-		-- 	damage = event.damage,
-		-- 	damage_type = DAMAGE_TYPE_PHYSICAL,
-		-- 	ability = Events.GameMasterAttackAbility,
-		-- 	damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR + DOTA_DAMAGE_FLAG_HPLOSS
-		-- })
+		-- SPECIAL AUTO ATTACK TRANSLATES -- REFACTOR ??
 		if parent:HasModifier("modifier_samurai_helmet") then
 			event.damage = Filters:SamuraiAttackLand(event.damage, parent, event.target)
 		end
@@ -42,8 +35,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 				end)
 			end
 			return false
-		end
-		if parent:GetUnitName() == "thorok_reborn" then
+		elseif parent:GetUnitName() == "thorok_reborn" then
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
 			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
 			if parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
@@ -69,7 +61,40 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 				end)			
 			end
 			return false
+		elseif parent:GetUnitName() == "scourge_knight_archer" then
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			local helm = parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+			if parent.element == RPC_ELEMENT_FIRE then
+				local radius = helm:GetFinalGemPropertyValue("ruby", SCOURGE_KNIGHT_RUBY)
+				local enemies = FindUnitsInRadius(parent.hero:GetTeamNumber(), event.target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					for _, enemy in pairs(enemies) do
+						Filters:ApplyItemDamage(enemy, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_UNDEAD, parent.element)	
+					end
+				end
+				local particle = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_WORLDORIGIN, target)
+				ParticleManager:SetParticleControl(particle, 0, event.target:GetAbsOrigin())
+				ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
+				ParticleManager:SetParticleControl(particle, 2, Vector(0.6, 0.6, 0.6))
+				ParticleManager:SetParticleControl(particle, 4, Vector(255, 60, 0))
+				Timers:CreateTimer(1.5, function()
+					ParticleManager:DestroyParticle(particle, false)
+				end)
+			else
+				if parent.element == RPC_ELEMENT_ICE then
+					helm:ApplyDataDrivenModifier(parent.hero.InventoryUnit, event.target, "modifier_chilled", {duration = SCOURGE_KNIGHT_SAPPHIRE_DURATION})
+					event.target:SetModifierStackCount("modifier_chilled", parent.hero.InventoryUnit, helm:GetFinalGemPropertyValue("sapphire", SCOURGE_KNIGHT_SAPPHIRE))
+				elseif parent.element == RPC_ELEMENT_POISON then
+					helm:ApplyDataDrivenModifier(parent.hero.InventoryUnit, event.target, "modifier_scourge_knight_poison", {duration = SCOURGE_KNIGHT_EMERALD_DURATION})
+				elseif parent.element == RPC_ELEMENT_ARCANE then
+					damage = damage*(1 + helm:GetFinalGemPropertyValue("amethyst", SCOURGE_KNIGHT_AMETHYST)/100)
+				end
+				Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_UNDEAD, parent.element)	
+			end
+			return false	
 		end
+
+		-- BASIC APPLY AUTO ATTACK DAMAGE
 		Damage:Apply({
 			source = Events.GameMasterAttackAbility,
 			sourceType = BASE_AUTO_ATTACK,
