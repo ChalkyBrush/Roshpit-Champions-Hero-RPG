@@ -186,7 +186,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] Holy Vengeance"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Increases all <font color=\"#F6FFB5\">Holy</font> damage."
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Holy Amp"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for <% AURIUN_ARCANA_1_Q4_DURATION %> seconds that increases mana regen and allows you to teleport when issuing a move order. <% AURIUN_ARCANA_1_Q4_TP_COOLDOWN %> second cooldown on the teleport."

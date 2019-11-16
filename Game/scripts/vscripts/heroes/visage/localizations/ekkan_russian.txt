@@ -52,10 +52,10 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"Когда призванный юнит совершает убийство, он получает постоянный бонус к урону и броне."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"Когда призванный юнит совершает убийство, он получает постоянный бонус к урону, броне и магической защите."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Доп. урон"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Доп. броня"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Доп. броня и магическая защита"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"Заряды [Q3] Dark Journey"
@@ -99,15 +99,17 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_Description"					"Увеличивает время жизни призванных скелетов. Каждый вызванный скелет увеличивает элемент <font color=\"#5C776E\">Нежити</font>."
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Доп. время жизни скелетов"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" сек."
-		"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Усиление элемента Нежить"
-        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        " за каждого активного скелета"
+		"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Усиление элемента <font color=\"#5C776E\">Нежити</font>"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                    " за каждого активного скелета"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - маг, который наносит магический урон по области и замедляет задетых врагов. Урон принадлежит скелету, но усиливается элементами и силой способностей героя."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - маг, который наносит магический урон по области, снижает магическую защиту у пораженных заклинанием целей и замедляет задетых врагов. Урон принадлежит скелету, но усиливается элементами и силой способностей героя."
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_one"					"Магический урон по области"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix"						"% от урона"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_two"					"Замедление"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix_two"					""
+		"DOTA_Tooltip_ability_ekkan_rune_w_3_property_three"                "Снижение Магической Защиты"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_suffix_three"                  ""
 
     	"DOTA_Tooltip_ability_ekkan_mage_blast"								"Grave Blast"
     	"DOTA_Tooltip_ability_ekkan_mage_blast_Description"					"Наносит урон по области с задержкой в 1 секунду, дополнительно замедляя всех задетых врагов. Усиливается от базового умения @Ability2."
@@ -116,11 +118,11 @@
     	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"Замедлен"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] Cloak of Shadows"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"Ekkan и все призванные скелеты получают дополнительное сопротивление к магии. Скелеты получают усиленный пост-резистный урон."
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"Доп. сопротивление к магии"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"Ekkan и все призванные скелеты получают бонусы к Магической защите и Пробитиям."
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"Магическая Защита"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
-		"DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "Усиление пост-резистного урона скелетов"
-        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    "%"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "Пробитие Брони и Магической Защиты"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    ""
 		
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"Acheron's Portal"
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"Создаёт портал в указанной точке. Попадая в портал, вы и вся ваша армия перемещается к другому такому же порталу с <font color='#70EA72'>1.5</font> секундной задержкой.<br><font color='#70EA72'>Любой герой может воспользоваться порталом</font>."	
@@ -136,11 +138,11 @@
     	"DOTA_Tooltip_ability_ekkan_rune_e_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] Summon Familiars"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"С каждым прочтением @Ability3 появляется гаргулья, которая имеет иммунитет к магии. Запас здоровья гаргульи равен 50% от макс. здоровья героя. Максимум может существовать 2 гаргульи."
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"С каждым прочтением @Ability3 появляется гаргулья, которая имеет иммунитет к магии. Запас здоровья гаргульи равен <% EKKAN_E2_HP_MULT * 100 %>% от макс. здоровья героя. Максимум может существовать 2 гаргульи."
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% от общего урона героя"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"Броня"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% от брони героя"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% от брони и магической защиты героя"
 
     	"DOTA_Tooltip_ability_ekkan_rune_e_3"								"[E3] Decomposition"
     	"DOTA_Tooltip_ability_ekkan_rune_e_3_Description"					"Атаки гаргулий снижают броню цели."
@@ -215,11 +217,11 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Замедлен и теряет здоровье"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"Подчинённые юниты могут поглощать трупы, чтобы на 12 секунд получить бонус к своему базовому урону и скорости передвижения. Когда заканчивается время действия баффа, от юнита разойдутся по 2 роя жуков за каждый поглощённый труп. Задетые жуками враги отравляются, из-за чего получают урон со временем, зависящий от урона подчинённого юнита и по ним наносится увеличенный пост-резистный урон из всех источников. Отравленные враги не могут исцеляться. В случае, если противник умрёт, пока был отравлен, он сгенерирует дополнительный труп."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"Подчинённые юниты могут поглощать трупы, чтобы на 12 секунд получить бонус к своему базовому урону и скорости передвижения. Когда заканчивается время действия баффа, от юнита разойдутся по 2 роя жуков за каждый поглощённый труп. Задетые жуками враги отравляются, из-за чего теряют часть Брони и Магической Защиты получают урон со временем, зависящий от урона подчинённого юнита. Отравленные враги не могут исцеляться. В случае, если противник умрёт, пока был отравлен, он сгенерирует дополнительный труп."
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Бонус к базовому урону за поглощённый труп"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Увеличение пост-резистного урона"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Снижение Брони и Магической Защиты"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible"						"Corpse Eater"
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"Получает бонус к урону. По окончании действия этого эффекта выпускает рой ядовитых жуков."
@@ -238,10 +240,10 @@
     	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Навсегда получает бонус к урону и броне"	
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] Gravekeeper Aura"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"Подчинённые юниты распространяют ауру, которая увеличивает урон и броню другим юнитам из армии и самому Ekkan. Аура пульсирует каждые 5 секунд, с каждым пульсом добавляя 2 заряда щита, позволяющего полностью поглотить урон."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"Подчинённые юниты распространяют ауру, которая увеличивает урон, магическую защиту и броню другим юнитам из армии и самому Ekkan. Аура пульсирует каждые 5 секунд, с каждым пульсом добавляя 2 заряда щита, позволяющего полностью поглотить урон."
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_one"				"Аура бонусного урона"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_suffix"					"%"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_two"				"Аура бонусной брони"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_property_two"				"Аура бонусной брони и маг. защиты"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_black_dominion_d_a_aura_effect"					"Gravekeeper Aura"
