@@ -1008,8 +1008,8 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_iron_colossus") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-        local manaCost = ability:GetManaCost(ability:GetLevel())
-        caster:ReduceMana(1000)
+        local manaCost = IRON_COLOSSUS_W_MANA_LOSS - caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", IRON_COLOSSUS_SAPPHIRE)
+        caster:ReduceMana(manaCost)
     end
     if caster:HasModifier("modifier_auriun_immortal_weapon_3") then
         if caster:GetUnitName() == "npc_dota_hero_zuus" then

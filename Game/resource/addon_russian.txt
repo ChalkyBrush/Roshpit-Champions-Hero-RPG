@@ -12838,7 +12838,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
 		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Каждое очко Силы увеличивает базовую атаку на <font color='#ccff66'>10</font>, а броню на <font color='#ccff66'>0.5</font> и герой становится больше на 15%. Скорость атаки фиксируется на <font color='#ccff66'>120</font>, а радиус атаки на <font color='#ccff66'>180</font>. Стандартые атаки оглушают противников на 0.5 секунды, и наносят дополнительно <font color='#ccff66'>50</font>x физическим уроном. @Ability2 стоит на 1000 маны больше."
+		"property_iron_colossus_description"		"Каждое очко Силы увеличивает базовую атаку на <font color='#ccff66'>1.5</font>, а броню на <font color='#ccff66'>1</font> и герой становится больше на 15%. Скорость атаки фиксируется на <font color='#ccff66'>120</font>, а радиус атаки на <font color='#ccff66'>180</font>. Стандартые атаки оглушают противников на 0.5 секунды, и наносят дополнительно <font color='#ccff66'>2</font>x физическим уроном. @Ability2 стоит на 1000 маны больше."
 		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
 		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 120. Урон и броня увеличены в зависимости от Силы героя."
 		

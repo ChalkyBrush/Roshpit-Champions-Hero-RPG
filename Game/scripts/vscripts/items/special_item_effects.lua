@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_super_ascendency_lua", "modifiers/modifier_super_ascendency", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_knight_hawk_lua", "modifiers/modifier_knight_hawk_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_silent_templar_sapphire", "modifiers/modifier_silent_templar_sapphire", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_iron_colossus_lua", "modifiers/modifier_iron_colossus_lua", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -554,77 +555,21 @@ function odin_attack(event)
 	end
 end
 
-function iron_colossus_think(event)
+function iron_colossus_init(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if not ability.attackSpeedGainStacks then
-		ability.attackSpeedGainStacks = 0
-	end
-	if not ability.attackSpeedLossStacks then
-		ability.attackSpeedLossStacks = 0
-	end
-	if not ability.attackRangeGainStacks then
-		ability.attackRangeGainStacks = 0
-	end
-	if not ability.attackRangeLossStacks then
-		ability.attackRangeLossStacks = 0
-	end
-	local attackSpeedGainIron = ability.attackSpeedGainStacks
-	local attackSpeedLossIron = ability.attackSpeedLossStacks
-	local attackRangeGainIron = ability.attackRangeGainStacks
-	local attackRangeLossIron = ability.attackRangeLossStacks
-	local attackSpeed = WallPhysics:round(target:GetAttackSpeed() * 100, 0) - attackSpeedGainIron + attackSpeedLossIron
-	local attackRange = target:Script_GetAttackRange() - attackRangeGainIron + attackRangeLossIron
-
-	if attackRange < IRON_COLOSSUS_ATT_RNG then
-		if not target:HasModifier("modifier_colossus_attack_range_gain") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_colossus_attack_range_gain", {})
-		end
-		target:SetModifierStackCount("modifier_colossus_attack_range_gain", ability, (IRON_COLOSSUS_ATT_RNG - attackRange))
-		target:RemoveModifierByName("modifier_iron_colossus_attack_range_loss")
-		ability.attackRangeGainStacks = IRON_COLOSSUS_ATT_RNG - attackRange
-	else
-		if not target:HasModifier("modifier_iron_colossus_attack_range_loss") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_iron_colossus_attack_range_loss", {})
-		end
-		target:SetModifierStackCount("modifier_iron_colossus_attack_range_loss", ability, attackRange - IRON_COLOSSUS_ATT_RNG)
-		target:RemoveModifierByName("modifier_iron_colossus_attack_range_gain")
-		ability.attackRangeLossStacks = attackRange - IRON_COLOSSUS_ATT_RNG
-	end
-	if attackSpeed < IRON_COLOSSUS_ATT_SPD then
-		if not target:HasModifier("modifier_colossus_attack_speed_gain") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_colossus_attack_speed_gain", {})
-		end
-		target:SetModifierStackCount("modifier_colossus_attack_speed_gain", ability, (IRON_COLOSSUS_ATT_RNG - attackSpeed))
-		target:RemoveModifierByName("modifier_iron_colossus_attack_speed_loss")
-		ability.attackSpeedGainStacks = IRON_COLOSSUS_ATT_SPD - attackSpeed
-	else
-		if not target:HasModifier("modifier_iron_colossus_attack_speed_loss") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_iron_colossus_attack_speed_loss", {})
-		end
-		target:SetModifierStackCount("modifier_iron_colossus_attack_speed_loss", ability, attackSpeed - IRON_COLOSSUS_ATT_SPD)
-		target:RemoveModifierByName("modifier_iron_colossus_attack_speed_gain")
-		ability.attackSpeedLossStacks = attackSpeed - IRON_COLOSSUS_ATT_SPD
-	end
-	if not target:HasModifier("modifier_iron_colossus_attack_damage_increase") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_iron_colossus_attack_damage_increase", {})
-	end
-	local damageIncrease = target:GetStrength()
-	if not (target:GetModifierStackCount("modifier_iron_colossus_attack_damage_increase", ability) == damageIncrease) then
-		target:SetModifierStackCount("modifier_iron_colossus_attack_damage_increase", ability, damageIncrease)
-		ability.colossus_deltaDamage = damageIncrease
-	end
+	target:AddNewModifier(target, ability, "modifier_iron_colossus_lua", {})
 end
 
 function iron_colossus_attack(event)
 	local attacker = event.attacker
 	local target = event.target
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * IRON_COLOSSUS_DMG_PER_ATT
 	local ability = event.ability
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (IRON_COLOSSUS_DMG_PER_ATT + ability:GetFinalGemPropertyValue("amethyst", IRON_COLOSSUS_AMETHYST))
 	if not target.dummy then
 		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-		Filters:ApplyStun(attacker, 0.5, target)
+		Filters:ApplyStun(attacker, IRON_COLOSSUS_STUN_DURATION, target)
 	end
 end
 

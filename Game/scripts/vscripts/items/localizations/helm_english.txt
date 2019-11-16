@@ -403,6 +403,17 @@
 		"item_rpc_igneous_canine_helm_sapphire1" "Increases the stun duration by @sapphire_property1 seconds"
 		"item_rpc_igneous_canine_helm_amethyst1" "Enemies standing in a lava pool have @amethyst_property1 reduced armor"
 
+    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
+		"item_property_iron_colossus"				"Iron Colossus"	
+		"property_iron_colossus_description"		"Increases hero size by <% IRON_COLOSSUS_MODEL_SCALE %>%. Each point of Strength increases your base attack damage by <% IRON_COLOSSUS_ATT_PER_STR %> and Armor by <% IRON_COLOSSUS_AMR_PER_STR %>. Your attack speed is locked at <% IRON_COLOSSUS_ATT_SPD %> and your attack range is locked at <% IRON_COLOSSUS_ATT_RNG %>. Attacks stun the target for <% IRON_COLOSSUS_STUN_DURATION %> seconds, and deal an additional instance of <% IRON_COLOSSUS_DMG_PER_ATT %>x your attack power as Physical damage. @Ability2 costs <% IRON_COLOSSUS_W_MANA_LOSS %> extra mana."
+		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
+		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal extra physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and Armor from Strength."
+
+		"item_rpc_iron_colussus_ruby1"	"Increases Strength by @ruby_property1"
+		"item_rpc_iron_colussus_emerald1"	"Increases the Armor gain per strength by an additional @emerald_property1"
+		"item_rpc_iron_colussus_sapphire1" "Reduces [W] Ability Mana drain by @sapphire_property1"
+		"item_rpc_iron_colussus_amethyst1" "Attacks deal an additional @amethyst_property1x of Attack Power"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -424,12 +435,6 @@
 		"item_property_odin"						"Zantetsuken"
 		"property_odin_description"					"All instances of damage dealt have a <% ODIN_HELMET_CHANCE %>% chance to be multiplied by <% ODIN_HELMET_MULT %>. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
-		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Increases hero size by 15%. Each point of Strength increases your damage by <% IRON_COLOSSUS_ATT_PER_STR %> and Armor by <% IRON_COLOSSUS_AMR_PER_STR %>. Your attack speed is locked at <% IRON_COLOSSUS_ATT_SPD %> and your attack range is locked at <% IRON_COLOSSUS_ATT_RNG %>. Attacks stun the target 0.5 seconds, and deal an additional instance of <% IRON_COLOSSUS_DMG_PER_ATT %>x your attack power as Physical damage. @Ability2 costs 1000 extra mana."
-		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal 50x Physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and Armor from Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"

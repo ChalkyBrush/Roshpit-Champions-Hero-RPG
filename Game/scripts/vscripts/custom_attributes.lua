@@ -474,8 +474,20 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor = armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
 		armor = armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor", 1)
 	end
+	if unit:HasModifier("modifier_iron_colossus") then
+		local modifier = unit:FindModifierByName("modifier_iron_colossus")
+		local armor_per_str = IRON_COLOSSUS_AMR_PER_STR + modifier:GetAbility():GetFinalGemPropertyValue("emerald", IRON_COLOSSUS_EMERALD)
+		armor = armor + unit:GetStrength()*armor_per_str
+	end
+	-- Util.Modifier:SimpleEvent(unit, 'GetBaseRoshpitArmorBonus', { MODIFIER_PROPERTY_BASE_ROSHPIT_ARMOR }, { }, 
+	-- 	function(result, data)
+	-- 		print(result)
+	-- 		armor = armor + result
+	-- 	end
+	-- )
 
 	local armor_modify = 0
+
 	if unit:HasModifier("modifier_wind_boss_slow") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_wind_boss_slow")
 	end
@@ -896,6 +908,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local igneous_helm = modifier:GetAbility()
 		armor_modify = armor_modify + igneous_helm:GetFinalGemPropertyValue("amethyst", IGNEOUS_CANINE_AMETHYST)
 	end
+	-- if unit:HasModifier("modifier_iron_colossus_attack_damage_increase") then
+	-- 	local modifier = unit:FindModifierByName("modifier_iron_colossus_attack_damage_increase")
+	-- 	armor_modify = armor_modify + modifier:GetStackCount()*IRON_COLOSSUS_AMR_PER_STR
+	-- end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 
