@@ -40,7 +40,7 @@ function aspect_global_think(event)
 		local e_3_level = conjuror:GetRuneValue("e", 3)
 		local ability = conjuror:FindAbilityByName("summon_shadow_aspect")
 		if e_3_level > 0 then
-			local totalStats = (conjuror:GetStrength() + conjuror:GetAgility() + conjuror:GetIntellect()) * e_3_level * CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT/100
+			local totalStats = (conjuror:GetStrength() + conjuror:GetAgility() + conjuror:GetIntellect() + conjuror:GetSpirit()) * e_3_level * CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT/100
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_c_c_damage", {})
 			target:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(totalStats)
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_rune_e_3_range", {})

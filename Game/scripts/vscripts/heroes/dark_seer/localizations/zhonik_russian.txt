@@ -88,7 +88,7 @@
 
     	"DOTA_Tooltip_ability_zonik_rune_e_3"								"[E3] Blur"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_Description"					"Во время действия @Ability3, Zhonik увеличивает показатель Магической Брони."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Магическая Броня"
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_property_one"					"Магическая Защита"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_suffix"						""
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4"								"[E4] Sonic Rush"

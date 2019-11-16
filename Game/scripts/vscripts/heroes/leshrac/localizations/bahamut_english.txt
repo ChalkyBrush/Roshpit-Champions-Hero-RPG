@@ -77,7 +77,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] Potency"
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"Bahamut gains Attack Power base on his current mana."
     	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"Base Attack Power"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"per current mana"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					" per current mana"
 		
 		
 		"DOTA_Tooltip_ability_leshrac_blink"							"Ascension"

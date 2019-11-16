@@ -54,22 +54,23 @@
     	"DOTA_Tooltip_ability_time_genesis_orb_range"					"РАССТОЯНИЕ:"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_1"							"[W1] Time Lapse"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Нанося врагам урон с помощью @Ability2, герой восстанавливает часть своей маны."
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Восстановление маны"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% от макс. маны"
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Нанося врагам урон с помощью @Ability2, начнет восстанавливать свое здоровье в течение 2 секунд."
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Восстановление здоровья"
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					" каждые <% EPOCH_W1_THINK_INTERVAL %> сек"
+		
+		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration" 				"Time Lapse"
+		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration_Description"	"Здоровье восстанавливается в течение <% EPOCH_W1_DURATION %> секунд, каждые <% EPOCH_W1_THINK_INTERVAL %> сек"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Все враги, задетые умением @Ability2 теряют броню на 6 секунд. За каждое очко брони ниже нуля, цели будут получать дополнительный пост-резистный магический и чистый урон от Epoch Guardian. Минимальная броня: -1000."
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Снижение брони"
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Противники, задетые @Ability2 теряют Магическую Защиту на <% EPOCH_W2_DURATION %> сек. Эффект складывается до <% EPOCH_W2_MAX_STACKS %> раз."
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Снижение Магической Защиты"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix"					""
-     	"DOTA_Tooltip_ability_epoch_rune_w_2_property_two"				"Доп. магический и чистый урон"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix_two"				"% за каждые 10 очков брони ниже 0"
 
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible"					"Origination"
-    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Броня снижена. Если показатель брони опустится ниже 0, то цель будет получать дополнительный магический и чистый урон от Epoch Guardian."
+    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Снижение Магической Защиты."
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"С каждым прочтением @Ability2, Epoch Guardian получает заряд. Каждый заряд даёт дополнительные очки Интеллекта. Максимум 10 зарядов. Каждая базовая атака тратит 1 заряд и восстанавливает герою здоровье."
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"С каждым прочтением @Ability2, Epoch Guardian получает заряд. Каждый заряд даёт дополнительные очки Интеллекта. Максимум <% EPOCH_W3_MAX_STACKS %> зарядов. Каждая базовая атака тратит 1 заряд и восстанавливает герою здоровье."
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"Интеллекта за заряд"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"Восст. здоровья за атаку"
@@ -162,9 +163,9 @@
     	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding_Description" "Взрывается, получая часть базового урона Guardian"	
 
     	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Tides of Time"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Текущее значение регенерации маны героя увеличивает наносимый урон стихии <font color=\"#B5FFB7\">Время</font>."
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Доп. урон времени"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"% за каждые 10 регенерации маны"	
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Пассивно увеличивает урон стихии <font color=\"#B5FFB7\">Время</font>."
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Урон <font color=\"#B5FFB7\">Времени</font"
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"%"	
 
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"Tides of Time"
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible_Description"		"Gaining Attack Damage"
@@ -187,15 +188,15 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Tachyon Effect"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Весь пост-резистный урон, наносимый врагам увеличивается в зависимости от значения их базовой брони. Не учитываются модификаторы брони."
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Доп. пост-рез. урон"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					"% за каждые 1000 базовой брони"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Пробития Брони и Магической Защиты пассивно увеличены."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Пробития Брони и Магической Защитын"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Aeon Blast"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"С каждой атакой Epoch Guardian тратит 1% маны и наносит дополнительный чистый урон основанный на количестве выжженной маны. Максимальное значение маны увеличивает базовый урон."
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"С каждой атакой Epoch Guardian тратит 1% маны и наносит дополнительный чистый урон основанный на количестве выжженной маны. Максимальное значение маны увеличивает базовый урон атаки."
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_one"				"Бонус чистого урона"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix"					"x от выжженной маны"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"Бонус к базовому урону"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"Бонус к базовому урону атаки"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix_two"				"% от макс. маны"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1"							"[Q4] Dimensional Replication"
@@ -216,7 +217,7 @@
 		"item_rpc_epoch_glyph_2_1_description" 				"(E) Distortion Orb пролетает на <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% дальше и движется на <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>% быстрее. Дополнительно, длительность [E1] удвоена."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"(T3) Glyph of Cracking"
-		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере<% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% от значения текущей маны героя, умноженного на уровень основного умения."
+		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере <% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% от значения текущей маны героя, умноженного на уровень основного умения."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"(T4) Glyph of Ages"
 		"item_rpc_epoch_glyph_4_1_description" 				"Атаки больше не поглощают заряды [W3] (Бонус к интеллекту не пропадает, тогда как восстановление здоровья происходит в полной мере как раньше)."

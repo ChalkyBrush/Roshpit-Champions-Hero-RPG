@@ -146,7 +146,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <% ASTRAL_RANGER_R3_DURATION %> seconds, constantly bombarding all enemies in an extreme radius around her. These attacks deal damage based on the Ranger's total attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <% ASTRAL_RANGER_R3_DURATION %> seconds, constantly bombarding all enemies in an extreme radius (<% ASTRAL_RANGER_R3_RADIUS %> around her. These attacks deal damage based on the Ranger's total attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Phoenix Damage"
@@ -228,7 +228,7 @@
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2"							"[W4] Focus Fire"
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Focusing on a single target, Astral Ranger increases armor pierce for 8 seconds, stacking up to 50 times. Changing targets with Shot of Apollo resets this effect."
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"Armor Pierce"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					""
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					" per stack"
 
     	"DOTA_Tooltip_modifier_apollo_post_mit_visible"							"Focus Fire"
     	"DOTA_Tooltip_modifier_apollo_post_mit_visible_Description"				"Increased Armor Pierce"	

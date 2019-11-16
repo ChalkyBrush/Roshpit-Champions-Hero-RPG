@@ -468,9 +468,9 @@ function general_shapeshift_think(event)
 		elseif event.index == 3 then
 			attribute = caster:GetIntellect()
 		elseif event.index == 4 then
-			attribute = caster:GetSpirit()
-		elseif event.index == 5 then
 			attribute = math.ceil((caster:GetIntellect() + caster:GetAgility() + caster:GetStrength() + caster:GetSpirit()))
+		elseif event.index == 5 then
+			attribute = caster:GetSpirit()
 		end
 		local attackBonus = attribute * a_d_level * DJANGHOR_R1_ATTACK_POWER_PER_STAT
 		if caster:HasModifier("modifier_shapeshift_year_beast") then

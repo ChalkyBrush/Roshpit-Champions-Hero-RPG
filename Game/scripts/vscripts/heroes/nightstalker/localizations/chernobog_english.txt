@@ -76,7 +76,7 @@
     	"DOTA_Tooltip_modifier_demon_hunter_w_2_inner_beast_inactive_Description"				"Increased Armor"
 		
 		"DOTA_Tooltip_ability_chernobog_rune_w_3"								"[W3] Fervor"
-    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is inactive, Chernobog's attacks lower the target's armor up to <% CHERNOBOG_W3_MAX_STACKS %>. While active, each attack adds 1 stack of base attack damage. Chaning targets removes <% CHERNOBOG_W3_STACK_LOSE_PCT %>% of these stacks."
+    	"DOTA_Tooltip_ability_chernobog_rune_w_3_Description"					"While @Ability2 is inactive, Chernobog's attacks lower the target's armor up to <% CHERNOBOG_W3_MAX_STACKS %>. While active, each attack adds 1 stack of base attack damage. Changing targets removes <% CHERNOBOG_W3_STACK_LOSE_PCT %>% of these stacks."
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"					"Armor Reduction (Inactive)"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"						" per stack"
     	"DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"					"Increased Attack Damage (Active)"

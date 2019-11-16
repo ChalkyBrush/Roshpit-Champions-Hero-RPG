@@ -1123,6 +1123,23 @@
 		}
 		"Modifiers"
 		{
+			"modifier_epoch_w_1_hp_restoration"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_essence_aura"
+				"EffectName"	"particles/roshpit/epoch/epoch_a_b_effect.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "<% EPOCH_W1_THINK_INTERVAL %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w"
+						"Function"		"epoch_w_1_hp_restore_think"
+					}
+				}
+			}
 			"modifier_epoch_rune_thinker"
 			{
 				"Passive" "1"

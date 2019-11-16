@@ -67,9 +67,9 @@
     	"DOTA_Tooltip_ability_astral_rune_w_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_4"							"[W4] Cluster Arrow"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Каждая стрела от @Ability2 при попадании по противнику оставляет на нём заряды. Каждый заряд увеличивает получаемый врагом пост-резистный урон от героя. Максимум 20 зарядов."
-    	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"Увеличение пост-резистного урона"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					"% за каждый заряд"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"Каждая стрела от @Ability2 при попадании по противнику оставляет на нём заряды. Каждый заряд снижает Магическую Защиту целей. Максимум <% ASTRAL_RANGER_W4_MAX_STACKS_COUNT %> зарядов."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"Снижение Магической Защиты"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					" за каждый заряд"
 
     	"DOTA_Tooltip_modifier_astral_d_b_visible"						"Cluster Arrow"
     	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"Astral Ranger наносит больше урона"
@@ -82,9 +82,9 @@
     	"DOTA_Tooltip_ability_star_blink_star_aoe"						"РАДИУС ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_1"							"[E1] Pegasus"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"При касте @Ability3 призывает Пегаса, пролетающего сквозь противников между точкой прочтения и позицией героя. Пораженные противники будут обездвижены и получат увеличенный Пост-Резистный урон. Дебафф складывается до 10 раз."
-    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Усиление Пост-Резистного урона"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					"%"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"При касте @Ability3 призывает Пегаса, пролетающего сквозь противников между точкой прочтения и позицией героя. Пораженные противники потеряют часть Магической Защиты."
+    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"Снижение Магической Защиты"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_1_property_two"				"Длительность обездвиживания"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" сек."
 
@@ -92,7 +92,7 @@
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Обездвижен и получает увеличенный пост-резистный урон"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] Astral Empowerment"
-    	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"Применение @Ability3 увеличит скорость атаки и урон на 6 секунд. Дополнительно цели в радиусе 1000 от места падения звезды атакуются стандартным выстрелом."
+    	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"Применение @Ability3 увеличит скорость атаки и урон на <% ASTRAL_RANGER_E2_DURATION %> секунд. Дополнительно цели в радиусе 1000 от места падения звезды атакуются стандартным выстрелом."
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_one"				"Доп. скорость атаки"
     	"DOTA_Tooltip_ability_astral_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_2_property_two"				"Доп. урон"
@@ -102,19 +102,21 @@
 		"DOTA_Tooltip_modifier_astral_rune_e_2_description" 			"Доп. скорость атаки и урон"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_3"							"[E3] Astral Shroud"
-    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"@Ability3 дарует Astral Ranger покров, увеличивающий сопротивление магии на 95%, снижающий весь получаемый урон на 75% и каждые 0.5 секунды снимающий эффекты оглушения и безмолвия."
+    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"@Ability3 дарует Astral Ranger покров снижающий весь получаемый урон на <% ASTRAL_RANGER_E3_DAMAGE_REDUCTION %>%, дающий Магическую Защиту и каждые 0.5 секунды снимающий эффекты оглушения и безмолвия."
     	"DOTA_Tooltip_ability_astral_rune_e_3_property_one"				"Длительность"
     	"DOTA_Tooltip_ability_astral_rune_e_3_suffix"					" сек."
+		"DOTA_Tooltip_ability_astral_rune_e_3_property_two"             "Магическая Защита"
+        "DOTA_Tooltip_ability_astral_rune_e_3_suffix_two"                   ""
 		
 		"DOTA_Tooltip_modifier_astral_c_c_visible"							"Astral Shroud"
-		"DOTA_Tooltip_modifier_astral_c_c_visible_description" 			"95%% сопротивление магии, 75%% снижение урона. Каждые 0.5 секунды снимаются эффекты оглушения и безмолвия."
+		"DOTA_Tooltip_modifier_astral_c_c_visible_description" 			"<% ASTRAL_RANGER_E3_DAMAGE_REDUCTION %>%% снижение урона, бонус к Магической Зашите. Каждые 0.5 секунды снимаются эффекты оглушения и безмолвия."
 		
 		"DOTA_Tooltip_ability_astral_rune_e_4"							"[E4] Shooting Star"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Пассивно дарует дополнительные атрибуты. Весь стихийный урон <font color=\"#C25DFC\">Космоса</font> увеличивается в зависимости от атрибутов."
+    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"Пассивно дарует дополнительные атрибуты и увеличивает стихийный урон <font color=\"#C25DFC\">Космоса</font>."
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_one"				"Доп. атрибутов"
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix"					""
-    	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"Доп. урон Космоса"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"Доп. урон <font color=\"#C25DFC\">Космоса</font>"
+    	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"Shooting Star"
 		"DOTA_Tooltip_modifier_astral_d_c_visible_Description"			"Бонус урона Космоса и дополнительные Атрибуты."
@@ -129,7 +131,7 @@
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"ДЛИТЕЛЬНОСТЬ ПОДБРАСЫВАНИЯ:"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_1"							"[R1] Starstorm"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"Во время прочтения способности @Ability4 на ближайших врагов обрушивается дождь из звезд. Каждая звезда, попавшая по противнику снижает его сопротивление стихии <font color=\"#C25DFC\">Космоса</font> на 10% на протяжение 7 секунд."
+    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"Во время прочтения способности @Ability4 на ближайших врагов обрушивается дождь из звезд."
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_one"				"Макс. звезд"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"Урон каждой звездой"
@@ -143,13 +145,13 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4 Astral Ranger призывает космического Феникса, который будет следовать за героем и атаковать врагов в значительном радиусе последующие 20 секунд. Урон зависит от общей силы атаки героя."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4 Astral Ranger призывает космического Феникса, который будет следовать за героем и атаковать врагов в значительном радиусе (<% ASTRAL_RANGER_R3_RADIUS %>) последующие 20 секунд. Урон зависит от общей силы атаки героя."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Урон феникса"
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Урон феникса"
 		"DOTA_Tooltip_ability_astral_rune_r_3_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_4"							"[R4] Cosmic Blessing"
-    	"DOTA_Tooltip_ability_astral_rune_r_4_Description"				"Пассивно увеличивает шанс срабатывания рун, предметов и способностей (Этот бонус не добавляет процент к шансу, а увеличивает текущую вероятность события на определенный процент)."
+    	"DOTA_Tooltip_ability_astral_rune_r_4_Description"				"Пассивно увеличивает шанс срабатывания рун, предметов и способностей <br>(Этот бонус не добавляет процент к шансу, а увеличивает текущую вероятность события на определенный процент)."
     	"DOTA_Tooltip_ability_astral_rune_r_4_property_one"				"Увеличение шанса срабатывания"
     	"DOTA_Tooltip_ability_astral_rune_r_4_suffix"					"%"
 		
@@ -215,22 +217,20 @@
     	"DOTA_Tooltip_ability_astral_rune_w_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2"							"[W3] Cosmic Blast"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_Description"				"Каждая выпущенная залпом стрела с 20% шансом нанесёт дополнительный магический урон и оставит на цели неограниченный эффект, снижающий вражеское сопротивление стихии <font color=\"#C25DFC\">Космоса</font>. Длительность эффекта 10 секунд."
+    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_Description"				"Каждая выпущенная залпом стрела с 20% шансом нанесёт дополнительный магический урон."
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_property_one"				"Урон"
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_suffix"					"% от урона героя"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_property_two"				"Снижение сопротивления Космоса"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_suffix_two"					"% за заряд"
 
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible"							"Cosmic Blast"
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible_Description"				"Сопротивление стихии Космоса снижено"	
 
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2"							"[W4] Focus Fire"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Фокусируясь на одной цели, Astral Ranger увеличивает весь наносимый врагу пост-резистный урон на 8 секунд. Эффект складывается до 50 раз. Смена цели с помощью @Ability2 сбросит эффект."
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"Доп. пост-рез. урон"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					"% за заряд"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"Фокусируясь на одной цели, Astral Ranger увеличивает своё Пробитие Брони на 8 секунд. Эффект складывается до 50 раз. Смена цели с помощью @Ability2 сбросит эффект."
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"Пробитие Брони"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					" за заряд"
 
     	"DOTA_Tooltip_modifier_apollo_post_mit_visible"							"Focus Fire"
-    	"DOTA_Tooltip_modifier_apollo_post_mit_visible_Description"				"Увеличен пост-резистный урон против врага, задетого (W) Shot of Apollo"	
+    	"DOTA_Tooltip_modifier_apollo_post_mit_visible_Description"				"Increased Armor Pierce"	
 
       	"item_property_astral_arcana3"										"Crystal Arrow"
     	"property_astral_arcana3_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Crystal Arrow."
@@ -240,12 +240,12 @@
     	"DOTA_Tooltip_ability_crystal_arrow_damage"					"УРОН:"
 
     	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3"						"[R1] Azalea's Window"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_Description"			"В начале прочтения @Ability4, герой раскрывает туман войны в целевой точке в радиусе 450. Враги, находящиеся в пределах этой области получают увеличенный пост-резистный урон от героя. Одновременно может существовать только 1 такая область."
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_property_one"			"Доп. пост-резистный урон"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_suffix"				"%"  	
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_Description"			"В начале прочтения @Ability4, герой раскрывает туман войны в целевой точке в радиусе 450. Враги, находящиеся в пределах этой области теряют Броню и Магическую Защиту. Одновременно может существовать только 1 такая область."
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_property_one"			"Снижение Брони и Магической Защиты"
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_suffix"				""  	
 
     	"DOTA_Tooltip_crystal_arrow_ad_aura"								"Azalea's Window"
-    	"DOTA_Tooltip_crystal_arrow_ad_aura_Description"					"Получает увеличенный пост-резистный урон от Astral Ranger"
+    	"DOTA_Tooltip_crystal_arrow_ad_aura_Description"					"Снижение Брони и Магической Защиты"
 
     	"DOTA_Tooltip_ability_astral_rune_r_2_arcana3"							"[R2] Crystalys"
     	"DOTA_Tooltip_ability_astral_rune_r_2_arcana3_Description"				"Герой получает бонус к урону на 7 секунд сразу после прочтения @Ability4. Дополнительно, часть от урона героя добавляется к урону выпущенной стрелы."
@@ -258,7 +258,7 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_b_d_Description"					"Урон героя увеличен"	
 
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3"							"[R3] Blessed Quiver"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Герой получает заряд этой руны каждые 0.5 секунды. Потратив 10 таких зарядов, герой может использовать умение @Ability4 без перезарядки."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Герой получает заряд этой руны каждые 0.5 секунды. Потратив 10 таких зарядов, герой может использовать умение @Ability4 без перезарядки. Каждые 60 очков руны увеличат пассивное получение зарядов на 1."
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_property_one"				"Макс. зарядов"
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_suffix"					""
 

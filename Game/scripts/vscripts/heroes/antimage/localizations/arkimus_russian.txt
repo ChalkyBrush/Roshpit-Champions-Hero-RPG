@@ -150,8 +150,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] Power Surge"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"Магическая Броня врагов, находящихся в области действия @Ability1, снижена."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"Снижение Магической Брони"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_Description"						"Магическая Защита врагов, находящихся в области действия @Ability1, снижена."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"Снижение Магической Защиты"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"

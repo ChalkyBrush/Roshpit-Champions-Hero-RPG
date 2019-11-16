@@ -314,7 +314,7 @@ function r_2_quake(damage, ability, caster, r_2_level, target)
   end
   local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
   for _, enemy in pairs(enemies) do
-    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
     Filters:ApplyStun(caster, ASTRAL_RANGER_R2_STUN_DURATION, target)
   end
 end
