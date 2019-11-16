@@ -180,9 +180,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
             mult = mult + DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / DEPTH_CREST_ARMOR_STR_DIVISOR)
         end
     end
-    if caster:HasModifier("modifier_hyper_visor") then
-        mult = mult + HYPER_VISOR_AGI_TO_ITEM_AMP/100 * (caster:GetAgility() / HYPER_VISOR_AGI_DIVISOR)
-    end
     if caster:HasModifier("modifier_rpc_steamboots") then
         mult = mult + STEAMBOOTS_AGI_TO_ITEM_DAMAGE/100 * (caster:GetAgility() / STEAMBOOTS_AGI_DIVISOR)
     end

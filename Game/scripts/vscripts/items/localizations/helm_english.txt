@@ -385,6 +385,16 @@
 		"item_rpc_hood_of_the_sea_oracle_sapphire1" "Each Tideworn stack reduces the target's Magic Armor by @sapphire_property1"
 		"item_rpc_hood_of_the_sea_oracle_amethyst1" "Grants a @amethyst_property1% chance on attack to apply an additional Tideworn stack"
 
+    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
+		"item_property_hyper_visor"				"Hyper Lightning"
+		"property_hyper_visor_description"			"<% HYPER_VISOR_CHANCE %>% chance on attack to drop a lightning bolt on your target, dealing damage in a small <% HYPER_VISOR_AOE %> area based on <% HYPER_VISOR_ATTACK_TO_DMG %>% of your attack power. Changes your Base Attack Time to <% HYPER_VISOR_BAT %> seconds."
+
+		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
+		"item_rpc_hyper_visor_emerald1"	"Increases the lightning bolt's damage by @emerald_property1x Agility"
+		"item_rpc_hyper_visor_sapphire1" "<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% chance on attack to trigger a chain lightning that bounces <% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %> times and deals @sapphire_property1% of Hyper Lightning's damage"
+		"item_rpc_hyper_visor_amethyst1" "Increases Item Damage by @amethyst_property1%"
+
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -400,10 +410,6 @@
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
-		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"<% HYPER_VISOR_CHANCE %>% chance on attack to drop a lightning bolt on your target, dealing damage in a small area based on <% HYPER_VISOR_ATTACK_TO_DMG %>x your attack power. Changes your Base Attack Time to <% HYPER_VISOR_BAT %> seconds.<br>All damage dealt directly by items is enhanced by <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% for each <% HYPER_VISOR_AGI_DIVISOR %> points of Agility."
 		
 			
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"

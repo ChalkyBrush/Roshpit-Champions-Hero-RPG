@@ -12774,7 +12774,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"С <font color='#ccff66'>20</font>% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный <font color='#ccff66'>40</font>x от вашего урона. Снижает базовое время атаки <font color='#ccff66'>1.2</font> сек.<br>Весь урон, напрямую наносимый предметами увеличивается на <font color='#ccff66'>0.3</font>% за каждые <font color='#ccff66'>10</font> очков Ловкости."
+		"property_hyper_visor_description"			"<font color='#ccff66'>30</font>% chance on attack to drop a lightning bolt on your target, dealing damage in a small <font color='#ccff66'>240</font> area based on <font color='#ccff66'>20</font>% of your attack power. Changes your Base Attack Time to <font color='#ccff66'>1.2</font> seconds."
+
+		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
+		"item_rpc_hyper_visor_emerald1"	"Increases the lightning bolt's damage by @emerald_property1x Agility"
+		"item_rpc_hyper_visor_sapphire1" "<font color='#ccff66'>15</font>% chance on attack to trigger a chain lightning that bounces <font color='#ccff66'>4</font> times and deals @sapphire_property1% of Hyper Lightning's damage"
+		"item_rpc_hyper_visor_amethyst1" "Increases Item Damage by @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
@@ -13094,10 +13099,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
-		"property_sea_oracle"												"Progenetic Srike"
-		"property_sea_oracle_Description"									"С каждой успешной атакой броня цели и её базовый урон снижаются на <font color='#ccff66'>0</font>%. Складывается до <font color='#ccff66'>15</font> раз. Как только вражеский юнит наберёт максимальное количество зарядов - герой будет наносить ему увеличенный на <font color='#ccff66'>0</font>% пост-резистный урон."
-		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Progenetic Strike Stacks"
-		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"С каждым зарядом броня и базовый урон снижаются. По достижении 15 зарядов, существо будет получать увеличенный пост-резистный урон от владельца предмета Hood of the Sea Oracle."
+		"property_sea_oracle"												"Tideworn Srikes"
+		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage the target by <font color='#ccff66'>3</font>%. Stacks up to <font color='#ccff66'>15</font> times. As long as there is a target alive with max stacks, gain <font color='#ccff66'>1000</font> Armor Pierce and Spell Pierce."
+		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
+		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage. If at 15 stacks, the Sea Oracle wearer has increased combat capability."
+
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff"						"Tideworn"
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff_Description"			"Increased combat capability"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	

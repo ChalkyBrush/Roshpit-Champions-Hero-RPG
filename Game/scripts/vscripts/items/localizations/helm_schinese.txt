@@ -34,7 +34,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"长沿帽"
 		"item_property_hyper_visor2"				"超级闪电"
-		"property_hyper_visor2_description"			"攻击时有 <% HYPER_VISOR_CHANCE %>% 几率向目标施放一道闪电，造成施法者 <% HYPER_VISOR_ATTACK_TO_DMG %>x 倍数攻击力的AOE魔法伤害。减少第一次攻击抬手 <% HYPER_VISOR_BAT %> 秒。<br>每<% HYPER_VISOR_AGI_DIVISOR %>点敏捷值提高 <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% 的装备伤害。"
+		"property_hyper_visor_description"			"<% HYPER_VISOR_CHANCE %>% chance on attack to drop a lightning bolt on your target, dealing damage in a small <% HYPER_VISOR_AOE %> area based on <% HYPER_VISOR_ATTACK_TO_DMG %>% of your attack power. Changes your Base Attack Time to <% HYPER_VISOR_BAT %> seconds."
+
+		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
+		"item_rpc_hyper_visor_emerald1"	"Increases the lightning bolt's damage by @emerald_property1x Agility"
+		"item_rpc_hyper_visor_sapphire1" "<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% chance on attack to trigger a chain lightning that bounces <% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %> times and deals @sapphire_property1% of Hyper Lightning's damage"
+		"item_rpc_hyper_visor_amethyst1" "Increases Item Damage by @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
@@ -354,9 +359,12 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"海神域的兜帽"	
 		"property_sea_oracle"												"原始打击"
-		"property_sea_oracle_Description"									"每次攻击将对敌人施加debuff，降低敌人的基础攻击力和护甲值 <% HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT %>%。debuff最大叠加层数 <% HOOD_OF_SEA_ORACLE_MAX_STACKS %>。当敌人的debuff达到上限时，玩家对敌人所造成的伤害将加深 <% HOOD_OF_SEA_ORACLE_POST_MITI %>%。（伤害加深计算在敌人减伤之后）。"
-		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"原始打击层数"
-		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"每层debuff减少基础攻击力和护甲值。如果到达15层，受到来自debuff施加者的伤害将被加深。"
+		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage the target by <% HOOD_OF_SEA_ORACLE_DMG_DEBUFF_PCT %>%. Stacks up to <% HOOD_OF_SEA_ORACLE_MAX_STACKS %> times. As long as there is a target alive with max stacks, gain <% HOOD_OF_SEA_ORACLE_BASE_PIERCES %> Armor Pierce and Spell Pierce."
+		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
+		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage. If at 15 stacks, the Sea Oracle wearer has increased combat capability."
+
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff"						"Tideworn"
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff_Description"			"Increased combat capability"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"黑礁鲨头盔"	

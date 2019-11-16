@@ -360,7 +360,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", HOOD_OF_CHOSEN_AMETHYST, hero, "rune_r_1", RPC_GEAR_SLOT_HEAD)
 		end	
 	elseif item:GetAbilityName() == "item_rpc_hood_of_lords" then
-		if socket_type == "ruby" then
+	if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", HOOD_OF_LORDS_RUBY, hero, "rune_q_4", RPC_GEAR_SLOT_HEAD)
 		elseif socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", HOOD_OF_LORDS_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_HEAD)
@@ -372,6 +372,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_hood_of_the_black_mage" then
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", HOOD_OF_BLACK_MAGE_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
+		end
+	elseif item:GetAbilityName() == "item_rpc_hyper_visor" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", HYPER_VISOR_RUBY, hero, "attack_speed", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", HYPER_VISOR_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_HEAD)
 		end
 	end
 end

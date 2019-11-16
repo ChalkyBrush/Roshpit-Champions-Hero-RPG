@@ -4060,6 +4060,31 @@ function RPCItems:RollHoodOfTheSeaOracle(item_level)
     return item
 end
 
+function RPCItems:RollHyperVisor(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_hyper_visor", "immortal", "Hyper Visor", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 0
+    item.newItemTable.property1name = "!immortal!_modifier_hyper_visor"
+    RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_hyper_visor", "#3CB7E8",  1, "#property_hyper_visor_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_speed", 1.5)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollOceanHelmOfValdun(deathLocation, bBossDrop)
     local item = RPCItems:CreateVariant("item_rpc_ocean_helm_of_valdun", "immortal", "Ocean Helm of Val'Dun", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4198,25 +4223,6 @@ function RPCItems:RollShipyardVeil1(item_level)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
     RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollHyperVisor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_hyper_visor", "immortal", "Hyper Visor", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "hyper_visor"
-    --RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_hyper_visor", "#3CB7E8",  1, "#property_hyper_visor_description")
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hyper_visor2", "#3CB7E8", 1, "#property_hyper_visor2_description")
-
-    value, nameLevel = RPCItems:RollAttribute(100, 10, 20, 0, 1, item.newItemTable.rarity, false, math.min(maxFactor * 3, RandomInt(150, 250)))
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "attack_speed"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_attack_speed", "#B02020", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
 end
 
@@ -8814,7 +8820,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     if gear_slot == RPC_GEAR_SLOT_HEAD then
         itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
         "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli", "item_rpc_excavators_focus_cap",
-        "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler"}
+        "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler", "item_rpc_hyper_visor"}
     end
     return itemsList
 end

@@ -397,13 +397,14 @@ function hyper_visor_attack_land(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local proc = Filters:GetProc(attacker, HYPER_VISOR_CHANCE)
+
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (HYPER_VISOR_ATTACK_TO_DMG/100) + (ability:GetFinalGemPropertyValue("emerald", HYPER_VISOR_EMERALD)*attacker:GetAgility())
 	if proc then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * agilityMult
 		local radius = HYPER_VISOR_AOE
 		local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+				Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 			end
 		end
 		local pfx = ParticleManager:CreateParticle("particles/econ/items/sven/sven_warcry_ti5/hyper_visor.vpcf", PATTACH_CUSTOMORIGIN, target)
@@ -413,10 +414,36 @@ function hyper_visor_attack_land(event)
 		Timers:CreateTimer(1.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		EmitSoundOn("Hero_StormSpirit.Orchid_BallLightning", target)
-	else
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * HYPER_VISOR_ATTACK_TO_DMG
-		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+		EmitSoundOn("RPCItems.HyperVisor.MainProc", target)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc2 = Filters:GetProc(attacker, HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE)
+		local chain_damage = damage * (ability:GetFinalGemPropertyValue("sapphire", HYPER_VISOR_SAPPHIRE)/100)
+		if proc2 then
+			local chain = {}
+			chain.index_hit = 0
+			chain.enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+			for i = 1, HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT, 1 do
+				Timers:CreateTimer((i - 1) * 0.15, function()
+					local enemy = chain.enemies[i]
+					if IsValidEntity(enemy) and enemy:IsAlive() then
+						EmitSoundOn("RPCItems.HyperVisor.ChainLightning", enemy)
+						Filters:ApplyItemDamage(enemy, attacker, chain_damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+						local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+						local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						local attach_unit_1 = attacker
+						if i > 1 then
+							attach_unit_1 = chain.enemies[i - 1]
+						end
+						ParticleManager:SetParticleControl(pfx, 0, attach_unit_1:GetAbsOrigin() + Vector(0, 0, attach_unit_1:GetBoundingMaxs().z + 80))
+						ParticleManager:SetParticleControl(pfx, 1, enemy:GetAbsOrigin() + Vector(0, 0, enemy:GetBoundingMaxs().z + 100))
+						Timers:CreateTimer(0.3, function()
+							ParticleManager:DestroyParticle(pfx, false)
+						end)
+					end
+				end)
+			end
+		end
 	end
 end
 
