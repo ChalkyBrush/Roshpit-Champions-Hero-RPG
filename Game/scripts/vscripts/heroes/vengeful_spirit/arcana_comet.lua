@@ -79,7 +79,7 @@ function flareImpact(caster, ability, damage, element2, damageType, position, st
 	if caster:HasModifier("modifier_solunia_glyph_3_1") then
 		stun_duration = stun_duration + SOLUNIA_GLYPH_3_1_Q_STUN_DURATION_ADDED
 	end
-	local adjustedBuffDuration = Filters:GetAdjustedBuffDuration(caster, 60, false)
+	local adjustedBuffDuration = Filters:GetAdjustedBuffDuration(caster, SOLUNIA_ARCANA_Q3_DURATION, false)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do

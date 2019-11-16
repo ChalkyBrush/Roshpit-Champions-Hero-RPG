@@ -1,23 +1,21 @@
 "tooltip_duskbringer_Q"											"Whirling Flail и Duskfire"
 
 		"DOTA_Tooltip_ability_whirling_flail"							"Whirling Flail"
-		"DOTA_Tooltip_ability_whirling_flail_Description"				"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer быстро размахивает своим оружием, отталкивая всех ближайших противников. Может быть сразу использовано при Specter Rush для атаки во время движения."
+		"DOTA_Tooltip_ability_whirling_flail_Description"				"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer быстро размахивает своим цепом, отталкивая всех ближайших противников. Может быть сразу использовано при Specter Rush для атаки во время движения. Базовый радиус <% DUSKBRINGER_Q_BASE_RADIUS %>."
 		"DOTA_Tooltip_ability_whirling_flail_Lore"						""
 		"DOTA_Tooltip_ability_whirling_flail_damage"					"УРОН, % ОТ УРОНА ГЕРОЯ ЗА ВЗМАХ:"
-		"DOTA_Tooltip_ability_whirling_flail_knockback"					"ДАЛЬНОСТЬ ОТТАЛКИВАНИЯ:"		
+		"DOTA_Tooltip_ability_whirling_flail_knockback"					"ОТТАЛКИВАНИЕ:"		
 
 		"DOTA_Tooltip_modifier_whirling_flail"							"Whirling Flail"
-		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Размахивает оружием"
+		"DOTA_Tooltip_modifier_whirling_flail_Description"  			"Размахивает цепом"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1"						"[Q1] Duskfire Flail"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунд."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать дополнительный огненный урон. Эффект горения складывается <% DUSKBRINGER_Q1_MAX_STACKS%> раз. Эффект длится 5 секунд."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_one"		"Базовый урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix"				""		
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_property_two"		"Доп. урон от Ловкости"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_suffix_two"			"х"
 		
 		"DOTA_Tooltip_modifier_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
-		"DOTA_Tooltip_modifier_modifier_duskbringer_rune_q_1_Description"	"Получает чудовищные ожоги"
+		"DOTA_Tooltip_modifier_modifier_duskbringer_rune_q_1_Description"	"Получает призрачные ожоги"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2"						"[Q2] Polterbite"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_2_Description"			"Увеличивает урон, наносимый предметами напрямую."
@@ -47,12 +45,14 @@
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1"						"[W1] Haunted Hallow"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_Description"			"Враги, находящиеся в пределах действия пустоты от умения @Ability2, получают магический урон каждые 0.3 секунды, основанный на уроне героя."
-		"DOTA_Tooltip_ability_duskbringer_rune_w_1_property_one"		"Урон"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_1_suffix"				"% от урона героя"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_property_one"		"Базовый Урон"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_suffix"				""
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_property_two"		"Дополнительный Урон"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_suffix_two"			"% от урона героя"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2"						"[W2] Astromagnetism"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_2_Description"			"Враги, обездвиженные умением @Ability2 теряют магическое сопротивление."
-		"DOTA_Tooltip_ability_duskbringer_rune_w_2_property_one"		"Снижение сопротивления магии"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_Description"			"Враги, обездвиженные умением @Ability2 теряют Магическую Защиту."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_property_one"		"Снижение  Магической Защиты"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_suffix"				""
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3"						"[W3] Void Plasma"
@@ -61,12 +61,10 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_suffix"				""
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4"						"[W4] Phantasm"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_4_Description"			"Duskbringer наносит увеличенный пост-резистный урон по обездвиженным любым способом врагам."
-		"DOTA_Tooltip_ability_duskbringer_rune_w_4_property_one"		"Доп. пост-резистный урон"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_Description"			"Обездвиженные противники наносят пониженный урон Duskbringer."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_property_one"		"Снижение урона"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_suffix"				"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible"			"Material Diffusion"
-		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible_Description"	"[w4]_modifier_descripton?"
 		
 		"DOTA_Tooltip_ability_specter_rush"								"Specter Rush"
 		"DOTA_Tooltip_ability_specter_rush_Description"					"Duskbringer быстро бежит вперёд, игнорируя препятствия."
@@ -115,37 +113,35 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_e_4_visible_Description"	"[e4]_modifier_description?"
 		
 		"DOTA_Tooltip_ability_seven_visions"							"Seven Visions"
-		"DOTA_Tooltip_ability_seven_visions_Description"				"Стихия: <font color=\"#9ACCD1\">Призрак</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer телепортируется к врагам, атакуя со всех сторон, нанося дополнительный урон и оглушая их.<br><font color='#70EA72'>Герой невосприимчив к магии во время действия.</font>"
+		"DOTA_Tooltip_ability_seven_visions_Description"				"Стихия: <font color=\"#9ACCD1\">Призрак</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Duskbringer телепортируется к врагам, атакуя со всех сторон, нанося дополнительный урон и оглушая их.<br><font color='#70EA72'>Герой невосприимчив к магии и физическому урону во время действия.</font>"
 		"DOTA_Tooltip_ability_seven_visions_Lore"						""
-		"DOTA_Tooltip_ability_seven_visions_attacks"					"АТАК"
-		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"ДОП. УРОН"
-		"DOTA_Tooltip_ability_seven_visions_stun_duration"				"ВРЕМЯ ОГЛУШЕНИЯ"
+		"DOTA_Tooltip_ability_seven_visions_attacks"					"АТАК:"
+		"DOTA_Tooltip_ability_seven_visions_bonus_damage"				"ДОП. УРОН:"
+		"DOTA_Tooltip_ability_seven_visions_stun_duration"				"ВРЕМЯ ОГЛУШЕНИЯ:"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1"						"[R1] Permeating Assault"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"Каждая атака способности @Ability4 также высвобождает магический взрыв в радиусе 700. Урон каждого взрыва основывается на нанесенном пост-резистном уроне от @Ability4."
-		"DOTA_Tooltip_ability_duskbringer_rune_r_1_property_one"		"Урон jn (R) Seven Visions"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_Description"			"Каждая атака способности @Ability4 также высвобождает магический взрыв в радиусе <% DUSKBRINGER_R1_BASE_RADIUS %>. Урон каждого взрыва основывается на нанесенном уроне от @Ability4."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_1_property_one"		"Урон от нанесенного (R)"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_1_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2"						"[R2] Doom"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Все враги, получившие урон от @Ability4 проклинаются, что увеличивает пост-резистный урон по ним. Эффект складывается при многократных попаданиях. Длительность эффекта 5 секунд. Максимально 20 стаков."
-		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"Доп. пост-резистный урон"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				"%"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_Description"			"Каждый удар @Ability4 увеличивает Пробитие Брони и Магической Защиты на <% DUSKBRINGER_R2_BASE_DUR %> сек. Максимально <% DUSKBRINGER_R2_MAX_STACKS %> зарядов."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_property_one"		"Пробитие Брони и Магической Защиты"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				" за заряд"
 
 		"DOTA_Tooltip_modifier_duskbringer_rune_r_2"					"Doom"
-		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_Description"		"Получает увеличенный пост-резистный урон за каждый заряд."
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_Description"		"Бонусное Пробитие Брони и Магической Защиты за каждый заряд."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] Spirit Plunder"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"Duskbringer увеличит свой урон на 6 секунд за каждого врага, попавшего под @Ability4."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_property_one"		"Доп. урон за существо"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_suffix"				"%"
 		
-		"DOTA_Tooltip_modifier_duskbringer_rune_r_3"					"Spirit Plunder"
-		"DOTA_Tooltip_modifier_duskbringer_rune_r_3_Description"		"[r3]_modifier_description?"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] Force of Night"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"Увеличивает урон стихии <font color=\"#9ACCD1\">Призрака</font> за счёт Силы героя."
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Увеличение урона стихии Призрака"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"% за каждое 10 очков Силы"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"Пассивно увеличивает урон стихии <font color=\"#9ACCD1\">Призрака</font>."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Урон <font color=\"#9ACCD1\">Призрака</font>"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_revenant_strikes"								"Revenant Strikes"
 		"DOTA_Tooltip_ability_revenant_strikes_Description"					"Duskbringer совершает мощный взмах своим оружием, нанося урон всем врагам перед собой. Каждый взмах заставляет его переместиться немного вперёд."
@@ -171,14 +167,13 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_suffix"				"% от урона героя"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1"						"[W2] Ethereal Void"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_Description"			"После прочтения @Ability2 герой получает 6-ти секундный бонус к броне. В дополнение к этому, часть от всего значения брони героя сокращает входящий магический или чистый урон."
-		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_one"		"Доп. броня"
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_Description"			"После прочтения @Ability2 герой получает <% DUSKBRINGER_ARCANA_W2_BASE_DUR %>-секундный бонус к Броне и Магической Защите. В дополнение к этому, часть от всего значения брони героя сокращает входящий магический или чистый урон."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_one"		"Бонус к Броне и Магической Защите"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix"				""
-		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_property_two"		"Сокращение входящего магического или чистого урона"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_2_arcana1_suffix_two"			"% от брони героя"
+
 
 		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2"						"Ethereal Void"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2_Description"			"Броня увеличена. Дополнительно сокращается входящий магический и чистый урон за счёт брони."
+		"DOTA_Tooltip_modifier_duskbringer_arcana_rune_w_2_Description"			"Бонус к Броне и Магической Защите."
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1"						"[W3] Shadowflame"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_Description"			"Враги, попавшие под действие @Ability2 могут получить заряды [Q1]. Значение шанса выше 100% означает, что враг может получить больше зарядов."
@@ -186,7 +181,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_3_arcana1_suffix"				"%"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1"						"[W4] Rise of the Phantom Lord"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_Description"			"По приземлении после @Ability2, Duskbringer впадает в ярость на 0.8 секунды, после чего получает огромный бонус к базовому и дополнительному урону на 18 секунд. Срабатывает только если бонус не активен."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_Description"			"По приземлении после @Ability2, Duskbringer впадает в ярость на 0.8 секунды, после чего получает огромный бонус к базовому и дополнительному урону на <% DUSKBRINGER_ARCANA_W4_BASE_DUR %> секунд. Срабатывает только если бонус не активен."
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_one"		"Доп. базовый урон"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_suffix"				""
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_arcana1_property_two"		"Доп. бонус к урону"
@@ -217,11 +212,9 @@
 
 
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2"						"[Q1] Duskfire II"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается неограниченное количество раз. Эффект длится 5 секунд. Пораженные Phantom Plasma тоже загораются."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_Description"			"Оружие Duskbringer наделяется дополнительной энергией, высвобождаемой при атаках огненным взрывом, заставляя врагов получать доп. огненный урон. Эффект горения складывается <% DUSKBRINGER_Q1_MAX_STACKS %> раз. Эффект длится 5 секунд. Пораженные Phantom Plasma тоже загораются."
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_one"		"Урон в секунду"
 		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix"				""		
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_property_two"		"Урон от Силы"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_1_arcana2_suffix_two"			"x"
 		
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1"				"Duskfire Flail"
 		"DOTA_Tooltip_modifier_duskbringer_rune_q_1_Description"	"Горит призрачным огнем"
@@ -237,16 +230,18 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_q_3_arcana2_suffix"				" секунд"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2"						"[Q4] Beast Haunt"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"Во время Terrorize и на 4 секунды после приземления Пост-резистный урон увеличен."
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_property_one"		"Пост-резистный урон"
-		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_suffix"				"%"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_Description"			"Во время Terrorize и 4 секунды после этого, Duskbringer получает усиленное Пробитие Магической Защиты и Бонус к Силе Атаки."
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_property_one"		"Пробитие Магической Защиты"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_suffix"				""
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_property_two"		"Бонус Силы Атаки"
+		"DOTA_Tooltip_ability_duskbringer_rune_q_4_arcana2_suffix_two"			"%"
 
 		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4"							"Beast Haunt"
-		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4_Description"				"Пост-резистный урон увеличен."
+		"DOTA_Tooltip_modifier_duskbringer_arcana_q_4_Description"				"Усиленное Пробитие Магической Защиты и Бонус к Силе Атаки."
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_1"		"(T1-1) Glyph of Dying Breath"
-		"item_rpc_duskbringer_glyph_1_1_description" 				"При обретении предсмертной формы духа, время перезарядки всех способностей сбрасываетс (также действует и на союзных героев)."
+		"item_rpc_duskbringer_glyph_1_1_description" 				"При обретении предсмертной формы духа, время перезарядки всех способностей сбрасывается (также действует и на союзных героев)."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_1"		"(T2-1) Glyph of Scathing Phantoms"
 		"item_rpc_duskbringer_glyph_2_1_description" 				"Враги, попавшие под действие (W) Ghost Hallow ежесекундно получают <% DUSKBRINGER_GLYPH_2_1_STACKS_PER_SEC %> заряда [Q1] Duskfire."
@@ -286,7 +281,7 @@
 		"item_rpc_duskbringer_glyph_6_2_description" 				"Снимает с героя все эффекты оглушения и безмолвия каждые <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %> секунды."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"(T7-2) Glyph of Haunted Spirits"
-		"item_rpc_duskbringer_glyph_7_2_description" 				"Весь урон, наносимый предметами напрямую получает вторую стихию - Призрака."
+		"item_rpc_duskbringer_glyph_7_2_description" 				"Весь урон, наносимый предметами напрямую, получает вторую стихию - <font color=\"#9ACCD1\">Призрак</font>."
 
 
     	"DOTA_Tooltip_ability_manifestation"						"Manifestation"

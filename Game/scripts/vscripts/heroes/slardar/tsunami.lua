@@ -237,7 +237,7 @@ function poseidons_wrath_attack_land(event)
 	-- local fv = attacker:GetForwardVector()
 	local radius = HYDROXIS_R3_RADIUS_BASE
 	if attacker:HasModifier("modifier_hydroxis_immortal_weapon_1") then
-		radius = HYDROXIS_R3_RADIUS_BASE * (100+HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT)/100
+		radius = HYDROXIS_R3_RADIUS_BASE * (100+HYDROXIS_IMMORTAL_WEAPON_1_R3_RADIUS_AMP_PCT)/100
 	end
 	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then

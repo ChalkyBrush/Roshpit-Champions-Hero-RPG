@@ -930,7 +930,7 @@
 		"item_rpc_neutral_glyph_3_1_description"			"Increases your Movement Speed Cap to @glyph_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"Glyph of Renewal"
-		"item_rpc_neutral_glyph_4_1_description" 			"Reduces respawn time by @glyph_property1%, and you will respawn at the location of your death. If you die again within @glyph_property2 seconds, however, you will respawn at your Respawn Flag or at the map's default location."
+		"item_rpc_neutral_glyph_4_1_description" 			"Respawn time set to 10 seconds, and you will respawn at the location of your death. If you die again within @glyph_property2 seconds, however, you will respawn at your Respawn Flag or at the map's default location."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"Glyph of Walling"
 		"item_rpc_neutral_glyph_5_1_description" 			"Decreases all damage taken by @glyph_property1% and reduces all outgoing damage by @glyph_property2%"

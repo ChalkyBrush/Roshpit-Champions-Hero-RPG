@@ -69,8 +69,6 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_property_one"		"Damage Reduction"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_suffix"				"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible"			"Material Diffusion"
-		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible_Description"	"Losing Armor"
 		
 		"DOTA_Tooltip_ability_specter_rush"								"Specter Rush"
 		"DOTA_Tooltip_ability_specter_rush_Description"					"Duskbringer quickly sprints forward with no collision."
@@ -150,9 +148,9 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_r_3_Description"		"Gaining attack damage"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] Force of Night"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"Duskbringer's Strength increases <font color=\"#9ACCD1\">Ghost</font> Damage."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"<font color=\"#9ACCD1\">Ghost</font> Damage passively increased."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Ghost Damage Increase"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"% for each 10 points of Strength"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_revenant_strikes"								"Revenant Strikes"
 		"DOTA_Tooltip_ability_revenant_strikes_Description"					"A mighty swing of Duskbringer's weapon damages enemies in front of him. The force of the swing pulls him forward slightly."
@@ -173,7 +171,7 @@
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_stun_duration"			"STUN DURATION:"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1"						"[W1] Revenant Strike"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_Description"			"Adds a % of attack damage to Shadow Slam damage. Stated bonus is multiplied by the level of Shadow Slam."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_Description"			"Adds a % of attack damage to Shadow Slam damage. Stated bonus is multiplied by the level of @Ability2."
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_property_one"			"Damage Bonus"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_suffix"				"% of attack power"
 
@@ -297,7 +295,7 @@
 		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every <% DUSKBRINGER_GLYPH_6_2_CLEANCE_INTERVAL %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"Glyph of Haunted Spirits"
-		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains Ghost as an additional element."
+		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains <font color=\"#9ACCD1\">Ghost</font> as an additional element."
 
 
     	"DOTA_Tooltip_ability_manifestation"						"Manifestation"

@@ -14,10 +14,10 @@
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_2"							"[Q2] Mystic Water Shield"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_Description"				"Находясь в созданном всплеске воды от умения @Ability1 получает заряды этой руны. Заряды длятся 12 секунд или до следующего прочтения @Ability1."
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"Доп. брони за заряд"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_one"				"Броня и Магическая Защита за заряд"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix"						""
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"Лечение за заряд каждые 0.5 секунды"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix_two"					""
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_property_two"				"Лечение за заряд"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_2_suffix_two"					" каждые 0.4 секунды"
 		
 		"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible"					"Mystic Water Shield"
     	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_Description"		"Исцеляется и получает бонус к броне."	
@@ -26,12 +26,12 @@
     	"DOTA_Tooltip_modifier_hydroxis_b_a_shield_visible_glyphed_Description"		"Исцеляется и получает бонус к броне."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_3"							"[Q3] Ripple"
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_Description"				"Враги, подброшенные в воздух умением @Ability1 теряют магическое сопротивление на 8 секунд."
-    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_property_one"				"Снижение сопротивления магии"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_Description"				"Враги, подброшенные в воздух умением @Ability1 теряют Магическую Защиту."
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_3_property_one"				"Снижение Магической Защиты"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_3_suffix"						""
 
     	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost"				"Ripple"
-    	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost_Description"	"Сопротивление магии снижено."	
+    	"DOTA_Tooltip_modifier_hydroxis_c_a_magic_resist_lost_Description"	"Снижение Магической Защиты"	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_q_4"							"[Q4] Hydrotide"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Добавляет урон к @Ability1 на основе атрибутов героя. Даёт шанс на повторное прочтение @Ability1 с задержкой в 0.9 секунды. Значение выше 100% гарантирует многократное прочтение."
@@ -70,9 +70,9 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_w_3_suffix"						"% от общего урона героя"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_w_4"							"[W4] Overflow"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_Description"				"С каждым прочтением @Ability2 дополнительно тратится 3% от макс. маны. Урон умения увеличивается в зависимости от количества затраченной маны."
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_property_one"				"Доп. урон (W) Water Bomb"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_suffix"						"% за каждые 100 затраченной маны"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_Description"				"Каждое очко текущей Маны увеличивает Пробитие Магической Защиты героя."
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_property_one"				"Пробитие Магической Защиты"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_suffix"						" за ед. Маны"
 		
 		"DOTA_Tooltip_ability_hydroxis_slippery_tail"								"Slipstream"
     	"DOTA_Tooltip_ability_hydroxis_slippery_tail_Description"					"Hydroxis вырывается вперёд в указанную точку с большой скоростью и игнорируя препятствия.<br><font color='#70EA72'>На время рывка уворачивается от 100% атак</font>."
@@ -97,11 +97,11 @@
     	"DOTA_Tooltip_modifier_hydroxis_c_c_Description"					"Скорость атаки увеличена"
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_e_4"							"[E4] Shining Scales"
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Дарует дополнительные атрибуты Ловкости и Интеллекта. Весь урон стихии <font color=\"#3894FF\">Воды</font> увеличивается в зависимости от значений Ловкости и Интеллекта."
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_one"				"Доп. Ловкости и Интеллекта"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_Description"				"Пассивно увеличивает Ловкость, Интеллект и урон стихии <font color=\"#3894FF\">Воды</font>."
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_one"				"Ловкость и Интеллект"
     	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix"						""
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"Доп. урон (Q) Hydro Pump и [R2] Tsunami"
-    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"% за каждые 10 очков Ловкости и Интеллекта"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_property_two"				"Урон стихии <font color=\"#3894FF\">Воды</font>"
+    	"DOTA_Tooltip_ability_hydroxis_rune_e_4_suffix_two"					"%"
 		
 		"DOTA_Tooltip_ability_hydroxis_tsunami"										"Ocean Quake"		
     	"DOTA_Tooltip_ability_hydroxis_tsunami_Description"							"Стихия: <font color=\"#3894FF\">Вода</font> / <font color=\"#AF843D\">Земля</font><br>Hydroxis пробивает землю, выпуская мощный поток подземных вод, который оглушает и замедляет всех задетых противников.<br><font color='#70EA72'>Урон способности зависит от значения Силы героя</font>."	
@@ -115,11 +115,9 @@
     	"DOTA_Tooltip_modifier_ocean_quake_slowed_Description"						"Снижение скорости атаки и передвижения"	
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_1"							"[R1] Wave Drench"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони. Урон от @Ability4 и всех [R] рун увеличивается за счёт брони героя. Руны [R2] и [R3] получают лишь 0% от всего бонуса."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_1_Description"				"Враги, задетые умением @Ability4 теряют значительную часть брони."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_property_one"				"Снижение брони"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
-        "DOTA_Tooltip_ability_hydroxis_rune_r_1_property_two"               "Усиление урона (R) Ocean Quake"
-        "DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix_two"                 "% за каждые 10 очков брони"
 		
 		"DOTA_Tooltip_modifier_hydroxis_r_1"								"Wave Drench"
 		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Броня снижена, получает увеличенный урон от Ocean Quake и её рун."
@@ -143,14 +141,14 @@
     	//If attack target == gush target, source the tracking projectile from the hero, otherwise source it from the target
     	//SET RENDER COLOR (130, 130, 255)
 		"DOTA_Tooltip_ability_hydroxis_rune_r_4"							"[R4] Drowning Pool"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_Description"				"После прочтения @Ability4 на 9 секунд появляется озеро воды. Пока герой находится в озере, он получает меньше повреждений и наносит больше урона."
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_one"				"Усиление исходящего урона"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix"						"%"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_two"				"Снижение входящего урона"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_Description"				"Прочтение @Ability4 создает озеро вокруг персонажа на 9 seconds. Внутри озера Hydroxis получает сниженный урон и имеет повышенный показатель Пробития Брони."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_one"				"Пробитие Брони"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix"						""
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_property_two"				"Снижение Урона"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_suffix_two"					"%"
 
     	"DOTA_Tooltip_modifier_drowning_pool_actual_effect"					"Drowning Pool"
-    	"DOTA_Tooltip_modifier_drowning_pool_actual_effect_Description"		"Наносит увеличенный урон и получает меньше повреждений, пока находится в озере воды"	
+    	"DOTA_Tooltip_modifier_drowning_pool_actual_effect_Description"		"Hydroxis получает сниженный урон и имеет повышенный показатель Пробития Брони, пока находится в озере."	
 		
 		//Arcanas
 		
@@ -160,7 +158,7 @@
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1"								"Whitewater Mist"
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_Description"					"Пока активно это умение, герой окружается туманом, который увеличивает сопротивление магии и заставляет всех ближайших врагов промахиваться при атаках в 100% случаях. Враги, вышедшие за пределы тумана подвержены этому эффекту на дополнительные 3 секунды."
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_blind"						"ШАНС ПРОМАХА:"
-    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_magic_resist"				"ДОП. СОПРОТИВЛЕНИЕ МАГИИ:"
+    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_magic_armor"				"МАГИЧЕСКАЯ ЗАЩИТА:"
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_mana_drain"				"ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
 
     	"DOTA_Tooltip_modifier_hydroxis_mist"							"Whitewater Mist"
@@ -183,9 +181,11 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_w_2_arcana1_suffix"				"% от урона героя"
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1"						"[W3] Hydroactive"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_Description"			"Враги, окутанные туманом получают увеличенный пост-резистный урон от Hydroxis"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_property_one"		"Усиление пост-резистного урона"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_Description"			"Противники, задетые @Ability2, потеряют Скорость Атаки и Передвижения"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_property_one"		"Замедление Атак"
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix"				""
+        "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_property_two"       "Замедление Передвижения"
+        "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix_two"         ""
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] Wave Maker"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Враги, получившие стихийный урон <font color=\"#3894FF\">Воды</font> подвергаются эффекту @Ability2. Дополнительно, каждая обычная атака или удары () Ocean Rage добавляют герою заряды. Каждый заряд увеличивает базовый урон на 10 секунд. Максимум 30 зарядов."
@@ -225,7 +225,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_Description"			"Враги, ступившие в глубоководный разлом будут временно обездвижены и начнут медленно перемещаться к центру бассейна. Дополнительно, враги, находящиеся в разломе, получают дополнительный стихийный урон <font color=\"#3894FF\">Воды</font>."
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_one"		"Длительность привязки"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix"				" сек."
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_two"		"Доп. урон Воды"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_property_two"		"Доп. урон <font color=\"#3894FF\">Воды</font>"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_3_arcana2_suffix_two"			"%"
 
     	"DOTA_Tooltip_modifier_flood_basin_aura_effect_enemy"				"Flood Basin"
@@ -235,11 +235,11 @@
     	"DOTA_Tooltip_modifier_flood_basin_enemy_root_Description"			"Обездвижен"
 
   		"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2"						"[R4] Aqueous Thaumaturgy"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_Description"			"Пассивно увеличивает Интеллект и пост-резистный урон."
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_one"		"Доп. очки Интеллекта"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_Description"			"Пассивно увеличивает Интеллект и Пробитие Магической Защиты при нахождении внутри @Ability4."
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_one"		"Интеллект"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix"				""
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_two"		"Доп. пост-рез. урон"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"				"%"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_two"		"Пробитие Магической Защиты"
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"			""
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"(T1) Glyph of Tectonics"
@@ -283,7 +283,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"Sapphire Trident"
 		"item_property_hydroxis_immortal_weapon"							"Poseidon's Wake"
-		"property_hydroxis_immortal_weapon_description"					"Увеличивает урон эффекта [R3] Poseidon's Fury на <% HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT %>% и увеличивает его радиус на <% HYDROXIS_IMMORTAL_WEAPON_1_R4_RADIUS_AMP_PCT %>%."
+		"property_hydroxis_immortal_weapon_description"					"Увеличивает урон эффекта [R3] Poseidon's Fury на <% HYDROXIS_IMMORTAL_WEAPON_1_R3_DMG_AMP_PCT %>% и увеличивает его радиус на <% HYDROXIS_IMMORTAL_WEAPON_1_R3_RADIUS_AMP_PCT %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "Barbed Cudgel of the Dark Reef"
         "item_property_hydroxis_immortal_weapon2"                             "Slithercharge"

@@ -43,9 +43,9 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_3_suffix_two"					"% от недостающего здоровя врагов"
 		
 		"DOTA_Tooltip_ability_solunia_rune_q_4"								"[Q4] Mercuria"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"Увеличивает стихийный урон <font color=\"#C25DFC\">Космоса</font> за счет атрибутов героя."
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"Усиление урона от стихии Космоса"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_Description"					"Увеличивает стихийный урон <font color=\"#C25DFC\">Космоса</font>."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_property_one"				"Урон <font color=\"#C25DFC\">Космоса</font>"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_solunia_solarang"								"Solarang"
     	"DOTA_Tooltip_ability_solunia_solarang_Description"					"Стихия: <font color=\"#C25DFC\">Космос</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Solunia бросает своё оружие как бумеранг в указанную точку. Лезвие наносит урон каждые 0.2 секунды всем находящимся в области действия врагам."
@@ -123,11 +123,11 @@
     	"DOTA_Tooltip_ability_solunia_rune_e_2_suffix_two"					" сек."
 		
 		"DOTA_Tooltip_ability_solunia_rune_e_3"								"[E3] Warp Core"
-    	"DOTA_Tooltip_ability_solunia_rune_e_3_Description"					"@Ability3 создаёт [E3] в точке перемещения. Враги, находящиеся рядом с ними замедляются на 1000 на время действия и получают увеличенный магический или чистый урон из всех источников в зависимости от того, Солнечная или Лунная форма героя была на момент прочтения."
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_Description"					"@Ability3 создаёт [E3] в точке перемещения. Враги, находящиеся рядом с ними замедляются на 1000 на время действия и теряют Броню в солнечных зонах и Магическую Защиту в лунных."
     	"DOTA_Tooltip_ability_solunia_rune_e_3_property_one"				"Длительность"
     	"DOTA_Tooltip_ability_solunia_rune_e_3_suffix"						" сек."	
-    	"DOTA_Tooltip_ability_solunia_rune_e_3_property_two"				"Усиление чистого (Лунная форма) или магического (Солнечная форма) урона"
-    	"DOTA_Tooltip_ability_solunia_rune_e_3_suffix_two"					"%"
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_property_two"				"Снижение Брони или Магической Защиты"
+    	"DOTA_Tooltip_ability_solunia_rune_e_3_suffix_two"					""
 		
 		"DOTA_Tooltip_ability_solunia_rune_e_4"								"[E4] Hydrogen"
     	"DOTA_Tooltip_ability_solunia_rune_e_4_Description"					"Увеличивает максимальный запас здоровья."
@@ -198,7 +198,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1"						"[Q1] Ultraviolet"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_Description"			"При нанесении урона значительно увеличивается регенерация здоровья на 0.5 секунды. Дополнительно пассивно увеличивает бонусный урон атаки."
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_one"			"Регенерация после нанесения урона"
-    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix"				"" 
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix"					"" 
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_two"			"Бонусный урон атаки"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix_two"				"%" 
 
@@ -214,21 +214,21 @@
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Враги, задетые кометой получают дебафф, увеличивающий входяший по ним пост-резистный урон из всех источников на 6 секунд. Максимум 10 зарядов. Солнечные и лунные дебаффы складываются. Дополнительно добавляет часть урона героя к урону комет."
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_one"			"Доп. пост-резистный урон за заряд"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix"					"%"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_two"			"Урон комет, % от урона героя"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Противники, задетые кометами, теряют Броню (если задеты Солнечным вариантом) или Магическую Защиту (если Лунным) на <% SOLUNIA_ARCANA_Q3_DURATION %> секунд. Максимально 10 зарядов, оба дебаффа могут быть активны одновременно. Дополнительно часть силы атаки героя добавляется к урону комет."
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_one"			"Снижение Брони или Магической Защиты"
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix"					""
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_two"			"Урона атаки добавлено к кометам"
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix_two"				"%"
 
     	"DOTA_Tooltip_modifier_lunar_compression_visible"						"Compression"
-    	"DOTA_Tooltip_modifier_lunar_compression_visible_Description"			"Получает увеличенный пост-резистный урон из всех источников."
+    	"DOTA_Tooltip_modifier_lunar_compression_visible_Description"			"Броня снижена."
     	"DOTA_Tooltip_modifier_solar_compression_visible"						"Compression"
-    	"DOTA_Tooltip_modifier_solar_compression_visible_Description"			"Получает увеличенный пост-резистный урон из всех источников."
+    	"DOTA_Tooltip_modifier_solar_compression_visible_Description"			"Магическая Защита снижена."
 
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1"								"[Q4] Mercuria X"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"Увеличивает весь стихийный урон <font color=\"#C25DFC\">Космоса</font> за счет своих атрибутов."
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_Description"					"Увеличивает весь стихийный урон <font color=\"#C25DFC\">Космоса</font>."
     	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_property_one"				"Усиление стихии Космоса"
-    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_suffix"						"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_solunia_rune_q_4_arcana1_suffix"						"%"
 
        	"item_property_solunia_arcana2"										"Alpha Spark"
     	"property_solunia_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Solar и Lunar Alpha Spark."
@@ -256,24 +256,24 @@
     	"DOTA_Tooltip_modifier_solunia_arcana_a_d_health_visible_Description"	"Максимальный запас здоровья увеличен"
 
   		"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2"						"[R2] Heat Transfer"
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_Description"				"Наносимый предметами урон поджигает врагов, заставляя их получать дополнительный ежесекундный урон, зависящий от полученного от предмета урона. В случае, если враг одновременно подвержен Солнечному и Лунному ожогам, то урон от ожогов значительно усиливается. Эффект длится 8 секунд."
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_property_one"			"Урон ожогов"
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix"					"% от нанесённого предметом урона за каждый тик"	
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_property_two"			"Усиление двойного ожога"
-    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				"%"	
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_Description"				"В Солнечном состоянии получает бонус Пробития Магической Защиты, а в Лунном - бонус Пробития Брони."
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_property_one"			"Пробитие Магической Защиты (в Солнечном)"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix"					""	
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_property_two"			"Пробитие Брони (в Лунном)"
+    	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] Dimension Shell"
-    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на 95%, прохождение сквозь юнитов и +100 к скорости передвижения."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT %>%, прохождение сквозь юнитов и +100 к скорости передвижения."
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"Длительность"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" сек."
 
     	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell"					"Dimension Shell"
-    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Входящий урон снижен на 95%%, +100 к скорости передвижения и возможность проходить сквозь существ."
+    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Входящий урон снижен на <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT %>%%, +100 к скорости передвижения и возможность проходить сквозь существ."
 
   		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] Tellarias"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Пассивно увеличивает все атрибуты героя. Сила увеличивает стихийный урон <font color=\"#EF4126\">Огня</font>, Ловкость - <font color=\"#87D9FF\">Льда</font>, а Интеллект - <font color=\"#C25DFC\">Космоса</font>."
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Пассивно увеличивает все атрибуты героя и стихийный урон <font color=\"#EF4126\">Огня</font>, <font color=\"#87D9FF\">Льда</font> и <font color=\"#C25DFC\">Космоса</font>."
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_one"		"Усиление стихийного урона"
-    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix"				"% за каждые 10 очков атрибутов"
+    	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix"				"%"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_property_two"		"Бонус ко всем атрибутам"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_suffix_two"			""
 		

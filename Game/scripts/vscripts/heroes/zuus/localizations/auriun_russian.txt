@@ -8,9 +8,11 @@
     	"DOTA_Tooltip_modifier_heavens_shield_Description"  			"100%% поглощение урона"
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_1"						"[Q1] Retaliation"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_Description"			"Враги, атакующие цель, находящуюся под защитой @Ability1 получают урон, равный % от общего урона атаки защищенной цели."
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_property_one"		"Наносит урона от атаки"
-    	"DOTA_Tooltip_ability_auriun_rune_q_1_suffix"				"%"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_Description"			"Враги, атакующие цель, находящуюся под защитой @Ability1 получают урон."
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_property_one"		"Базовый Урон"
+    	"DOTA_Tooltip_ability_auriun_rune_q_1_suffix"			""
+        "DOTA_Tooltip_ability_auriun_rune_q_1_property_two"     "Урон от урона цели под щитом"
+        "DOTA_Tooltip_ability_auriun_rune_q_1_suffix_two"       "%"
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_2"						"[Q2] Heightened Protection"
     	"DOTA_Tooltip_ability_auriun_rune_q_2_Description"			"Даёт шанс на увеличение зарядов @Ability1. Значение шанса выше 100% гарантирует многократное усиление."
@@ -18,19 +20,17 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_3"						"[Q3] Second Wind"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_Description"			"Когда время действия щита @Ability1 закончится или он будет уничтожен, цель получит существенный бонус брони на 10 секунд. Пока действует этот эффект, цель получает дополнительный бонус к урону, зависящий от количества получаемой брони."
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_one"			"Доп. броня"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_Description"			"Когда время действия щита @Ability1 закончится или он будет уничтожен, цель получит существенный бонус Брони и Магической Защиты на 10 секунд. "
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_one"			"Бонус Брони и Магической Защиты"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_suffix"				""
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_two"			"Доп. базовый урон"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_suffix_two"			" за каждое очко брони"
 
     	"DOTA_Tooltip_modifier_auriun_rune_q_3_effect"		"Second Wind"
     	"DOTA_Tooltip_modifier_auriun_rune_q_3_effect_Description"	"Броня увеличена. Базовый урон увеличен."
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_4"						"[Q4] Spiritual Guidance"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_Description"			"Активный @Ability1 на союзнике увеличивает урон его способностей."
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_property_one"			"Доп. урон способностей"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_suffix"				"%"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_Description"			"Активный @Ability1 на союзнике увеличивает его Дух."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_property_one"			"Бонусный Дух"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_suffix"				""
 		
 		"DOTA_Tooltip_modifier_auriun_rune_q_4_effect"				"Spiritual Guidance"
     	"DOTA_Tooltip_modifier_auriun_rune_q_4_effect_Description"	"Доп. урон способностей"
@@ -50,11 +50,11 @@
     	"DOTA_Tooltip_ability_auriun_rune_w_1_suffix_two"				"x Интеллект"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] Discipline"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Каждые 10 очков Интеллекта увеличивают лечение и урон <font color=\"#7F4F84\">Тени</font> and <font color=\"#F6FFB5\">Света</font>."
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Урон Тени/Света"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"% за 10 очков Интеллекта"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"Пассивное увеличение всего лечения и урона <font color=\"#7F4F84\">Тени</font> и <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"Урон <font color=\"#7F4F84\">Тени</font>/<font color=\"#F6FFB5\">Света</font>"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"Усиление лечения"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% за 10 очков Интеллекта"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"%"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] Energizing Light"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"Цель, попавшая под исцеляющий эффект (W) Flash Heal получает бафф на <% AURIUN_W3_BASE_DURATION %> секунды, который дополнительно исцеляет цель каждые <% AURIUN_W3_TICK_RATE %> секунды."
@@ -89,9 +89,11 @@
     	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"Прохождение сквозь препятствия и существ."
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] Wings of Angels"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Пассивно увеличивает весь исходящий пост-резистный магический и чистый урон."
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Усиление маг. урона"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"Пассивно увеличивает Магическую защиту и её Пробитие."
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"Пробитие Магической Защиты"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				""		
+        "DOTA_Tooltip_ability_auriun_rune_e_1_property_two"         "Магическая Защита"
+        "DOTA_Tooltip_ability_auriun_rune_e_1_suffix_two"           ""	
 
     	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"Vitalize"
     	//"DOTA_Tooltip_modifier_auriun_rune_e_1_Description"			"Gaining mana each second."
@@ -181,9 +183,9 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] Holy Vengeance"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Увеличивает стихийный урон <font color=\"#F6FFB5\">Света</font> за счет атрибутов Auriun."
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Усиление стихийного урона Света"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% за каждые 10 очков атрибутов."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Пассивно увеличивает стихийный урон <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Урон <font color=\"#F6FFB5\">Света</font>"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"При прочтении @Ability1, герой на <% AURIUN_ARCANA_1_Q4_DURATION %> секунд восстанавливает больше маны и имеет возможность совершить одну телепортацию в <% AURIUN_ARCANA_1_Q4_TP_COOLDOWN %> секунду на небольшое расстояние. Телепортация срабатывает когда был отдан приказ на движение."
@@ -221,19 +223,19 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2"							"[Q3] Dark Sympathy"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"Увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> за счет атрибутов героя."
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"Усиление урона Тени"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% за каждые 10 очков атрибутов."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"Пассивно увеличивает стихийный урон <font color=\"#7F4F84\">Тени</font> за счет атрибутов героя."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"Урон <font color=\"#7F4F84\">Тени</font>"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] Shadow Form"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на <% AURIUN_ARCANA_2_Q4_DURATION %> секунд. В этом состоянии магический пост-резистный урон увеличен, регенерация маны увеличена."
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Усиление магического урона"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"После прочтения ультимативной способности герой входит в Теневую Форму на <% AURIUN_ARCANA_2_Q4_DURATION %> секунд. В этом состоянии Пробитие Магической Защиты и регенерация маны увеличены."
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"Пробитие Магической Защиты"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					"%"  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"Доп. реген. маны"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff"							"Shadow Form"
-    	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff_Description"				"Пост-резистный магический урон увеличен. Регенерация маны увеличена."
+    	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff_Description"				"Пробитие Магической Защиты увеличено. Регенерация маны увеличена."
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"(T1) Glyph of Nimbus"
@@ -249,7 +251,7 @@
 		"item_rpc_auriun_glyph_4_1_description" 				"Увеличивает дальность атаки на <% AURIUN_GLYPH_4_1_BONUS_ATTACK_RANGE %>."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"(T5) Glyph of Angels"
-		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает <% AURIUN_GLYPH_5_1_MAGIC_RESIST %>% сопротивление магии."
+		"item_rpc_auriun_glyph_5_1_description" 				"Герой может атаковать во время (E) @Ability3, но он не сможет уйти в невидимость. На время действия получает <% AURIUN_GLYPH_5_1_MAGIC_RESIST %> Магической Защиты."
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"(T6) Glyph of Luminescence"
 		"item_rpc_auriun_glyph_6_1_description" 				"Добавляет <% AURIUN_GLYPH_6_1_INVUL_DURATION %> сек. неуязвимости, когда был активирован (Q) @Ability1."

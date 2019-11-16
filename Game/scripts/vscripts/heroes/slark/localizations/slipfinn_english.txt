@@ -26,9 +26,9 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x height"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] Murkwood Hunter"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Slipfinn's Agility increases <font color=\"#7F4F84\">Shadow</font> and <font color=\"#3894FF\">Water</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Passively increases <font color=\"#7F4F84\">Shadow</font> and <font color=\"#3894FF\">Water</font> damage."
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"Shadow and Water Damage Bonus"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"% for every 10 points of Agility"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"%"
 		
 		"DOTA_Tooltip_ability_slipfinn_jump"										"Puddle Jump"
     	"DOTA_Tooltip_ability_slipfinn_jump_Description"							"Slipfinn jumps into the air. The jump maintains his movement velocity when executed. Can land on an enemy's head to bounce again. While above a certain height, enemies cannot attack Slipfinn. Issuing a move order while jumping or bouncing provides a slight buildup of momentum toward the target location.<br><b>Double Jump:</b> Execute a second jump after landing from a previous one.<br><b>Triple Jump:</b> Execute a third jump after landing from a double jump.<br><b>High Jump:</b> Use jump while prone and low velocity.<br><b>Long Jump:</b> Use jump while prone and high velocity."
