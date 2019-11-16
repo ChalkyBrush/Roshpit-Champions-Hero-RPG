@@ -55,11 +55,8 @@
 
     	"DOTA_Tooltip_ability_epoch_rune_w_1"							"[W1] Time Lapse"
     	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Damaging an enemy unit with @Ability2 starts HP restoration for next <% EPOCH_W1_DURATION %> seconds."
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Health restored"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					" per <% EPOCH_W1_THINK_INTERVAL %> seconds"
-		
-		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration" 				"Time Lapse"
-		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration_Description"	"Restores HP over <% EPOCH_W1_DURATION %> seconds, each <% EPOCH_W1_THINK_INTERVAL %> seconds tick."
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Mana restored"
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% of maximum mana"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Enemies hit by @Ability2 have their Magic Armor reduced for <% EPOCH_W2_DURATION %> seconds. Stacks up to <% EPOCH_W2_MAX_STACKS %> times."

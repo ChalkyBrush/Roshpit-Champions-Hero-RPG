@@ -145,7 +145,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_W1_HP_RESTORE %>"
+				"property_one"			"<% EPOCH_W1_MANA_RESTORE_PCT %>"
 			}
 		}
 		"Modifiers"
