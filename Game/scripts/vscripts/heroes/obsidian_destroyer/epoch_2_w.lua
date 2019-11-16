@@ -83,7 +83,24 @@ function genesis_orb_impact(event)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 
 	if ability.w_1_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_w_1_hp_restoration", {duration = EPOCH_W1_DURATION})
+		if not ability.pfx then
+			local particleName = "particles/roshpit/epoch/epoch_a_b_effect.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, caster)
+			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 80), true)
+			ability.pfx = pfx
+		end
+		Timers:CreateTimer(1.0, function()
+			if ability.pfx then
+				ParticleManager:DestroyParticle(ability.pfx, true)
+				ParticleManager:ReleaseParticleIndex(ability.pfx)
+				ability.pfx = false
+			end
+		end)
+
+		local manaRestore = caster:GetMaxMana() * ability.w_1_level * EPOCH_W1_MANA_RESTORE_PCT / 100
+		--print(manaRestore)
+		caster:GiveMana(manaRestore)
+		PopupMana(caster, manaRestore)
 	end
 
 	local w_2_level = ability.w_2_level
@@ -95,13 +112,6 @@ function genesis_orb_impact(event)
 		target:SetModifierStackCount("modifier_epoch_rune_w_2_visible", caster, new_stacks)
 		target:CalculateAndSaveRoshpitAttributes()
 	end
-end
-
-function epoch_w_1_hp_restore_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local healAmount =  ability.w_1_level * EPOCH_W1_HP_RESTORE
-	Filters:ApplyHeal(caster, caster, healAmount, true)
 end
 
 function epoch_c_b_attack_land(event)
