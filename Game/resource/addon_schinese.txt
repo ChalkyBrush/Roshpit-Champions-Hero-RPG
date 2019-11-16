@@ -5621,7 +5621,7 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"阴郁沉默雕文"
-		"item_rpc_duskbringer_glyph_1_2_description" 				"被沉默时提高生命回复速度 <font color='#ccff66'>10</font>% 最大生命值每秒，持续 <font color='#ccff66'>20</font> 秒。"
+		"item_rpc_duskbringer_glyph_1_2_description" 				"被沉默时提高生命回复速度 <font color='#ccff66'>5</font>% 最大生命值每秒，持续 <font color='#ccff66'>20</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"空白燃烧雕文"
 		"item_rpc_duskbringer_glyph_2_2_description" 				"攻击叠加 <font color='#ccff66'>3</font> 层 冥火枷的层数。（原来为 1 层）"
@@ -7260,7 +7260,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"蓝宝石三叉戟"
 		"item_property_hydroxis_immortal_weapon"							"波塞冬的唤醒"
-		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害<font color='#ccff66'>100</font>%和半径<font color='#ccff66'>50</font>%."
+		"property_hydroxis_immortal_weapon_description"					"增加波塞冬的愤怒的伤害<font color='#ccff66'>25</font>%和半径<font color='#ccff66'>30</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "黑暗之礁刺棍"
         "item_property_hydroxis_immortal_weapon2"                             "滑动能量"
@@ -11070,7 +11070,7 @@
 		"item_rpc_voltex_glyph_6_1_description" 				"提高静电场的伤害 <font color='#ccff66'>10</font>x 和雷霆风暴的伤害 <font color='#ccff66'>30</font>x"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"静电爆炸雕文"
-		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为<font color='#ccff66'>8</font>秒，造成 <font color='#ccff66'>20</font>x 伤害并眩晕敌人 <font color='#ccff66'>2.5</font> 秒。"
+		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为<font color='#ccff66'>3</font>秒，造成 <font color='#ccff66'>15</font>x 伤害并眩晕敌人 <font color='#ccff66'>2.5</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"离子雕文"
 		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间 <font color='#ccff66'>100</font> 秒。"

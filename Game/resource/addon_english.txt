@@ -930,7 +930,7 @@
 		"item_rpc_neutral_glyph_3_1_description"			"Increases your Movement Speed Cap to @glyph_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"Glyph of Renewal"
-		"item_rpc_neutral_glyph_4_1_description" 			"Reduces respawn time by @glyph_property1%, and you will respawn at the location of your death. If you die again within @glyph_property2 seconds, however, you will respawn at your Respawn Flag or at the map's default location."
+		"item_rpc_neutral_glyph_4_1_description" 			"Respawn time set to 10 seconds, and you will respawn at the location of your death. If you die again within @glyph_property2 seconds, however, you will respawn at your Respawn Flag or at the map's default location."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"Glyph of Walling"
 		"item_rpc_neutral_glyph_5_1_description" 			"Decreases all damage taken by @glyph_property1% and reduces all outgoing damage by @glyph_property2%"
@@ -2931,7 +2931,7 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] Holy Vengeance"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"Increases all <font color=\"#F6FFB5\">Holy</font> damage."
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"Holy Amp"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%."
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] Holy Ghost"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"On casting Heaven's Coalescence, gain a buff for <font color='#ccff66'>5</font> seconds that increases mana regen and allows you to teleport when issuing a move order. <font color='#ccff66'>1</font> second cooldown on the teleport."
@@ -5242,8 +5242,6 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_property_one"		"Damage Reduction"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_4_suffix"				"%"
 
-		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible"			"Material Diffusion"
-		"DOTA_Tooltip_modifier_duskbringer_rune_w_4_visible_Description"	"Losing Armor"
 		
 		"DOTA_Tooltip_ability_specter_rush"								"Specter Rush"
 		"DOTA_Tooltip_ability_specter_rush_Description"					"Duskbringer quickly sprints forward with no collision."
@@ -5323,9 +5321,9 @@
 		"DOTA_Tooltip_modifier_duskbringer_rune_r_3_Description"		"Gaining attack damage"
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4"						"[R4] Force of Night"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"Duskbringer's Strength increases <font color=\"#9ACCD1\">Ghost</font> Damage."
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_Description"			"<font color=\"#9ACCD1\">Ghost</font> Damage passively increased."
 		"DOTA_Tooltip_ability_duskbringer_rune_r_4_property_one"		"Ghost Damage Increase"
-		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"% for each 10 points of Strength"
+		"DOTA_Tooltip_ability_duskbringer_rune_r_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_revenant_strikes"								"Revenant Strikes"
 		"DOTA_Tooltip_ability_revenant_strikes_Description"					"A mighty swing of Duskbringer's weapon damages enemies in front of him. The force of the swing pulls him forward slightly."
@@ -5346,7 +5344,7 @@
 		"DOTA_Tooltip_ability_duskbringer_arcana_ability_stun_duration"			"STUN DURATION:"
 
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1"						"[W1] Revenant Strike"
-		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_Description"			"Adds a % of attack damage to Shadow Slam damage. Stated bonus is multiplied by the level of Shadow Slam."
+		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_Description"			"Adds a % of attack damage to Shadow Slam damage. Stated bonus is multiplied by the level of @Ability2."
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_property_one"			"Damage Bonus"
 		"DOTA_Tooltip_ability_duskbringer_rune_w_1_arcana1_suffix"				"% of attack power"
 
@@ -5446,10 +5444,10 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_1_2"		"Glyph of Eerie Silence"
-		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by <font color='#ccff66'>10</font>% of maximum health while silenced, and for <font color='#ccff66'>20</font> seconds afterward."
+		"item_rpc_duskbringer_glyph_1_2_description" 				"Health regeneration is increased by <font color='#ccff66'>5</font>% of maximum health while silenced, and for <font color='#ccff66'>20</font> seconds afterward."
 
 		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect"				"Eerie Silence"
-		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect_Description"	"Regenerates <font color='#ccff66'>10</font>% of Max HP per second."
+		"DOTA_Tooltip_modifier_duskbringer_glyph_1_2_effect_Description"	"Regenerates <font color='#ccff66'>5</font>% of Max HP per second."
 		
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_2_2"		"Glyph of Blank Combustion"
 		"item_rpc_duskbringer_glyph_2_2_description" 				"Attacking applies <font color='#ccff66'>3</font> stacks of Duskfire to enemies, instead of just 1."
@@ -5470,7 +5468,7 @@
 		"item_rpc_duskbringer_glyph_6_2_description" 				"Cleanses all silences and stuns every <font color='#ccff66'>0.3</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_duskbringer_glyph_7_2"		"Glyph of Haunted Spirits"
-		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains Ghost as an additional element."
+		"item_rpc_duskbringer_glyph_7_2_description" 				"All damage dealt directly by items gains <font color=\"#9ACCD1\">Ghost</font> as an additional element."
 
 
     	"DOTA_Tooltip_ability_manifestation"						"Manifestation"
@@ -6982,7 +6980,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_1_suffix"						""
 		
 		"DOTA_Tooltip_modifier_hydroxis_r_1"								"Wave Drench"
-		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Armor reduced, damage from Ocean Quake and its runes amplified."
+		"DOTA_Tooltip_modifier_hydroxis_r_1_Description"					"Armor reduced."
 		
 		"DOTA_Tooltip_ability_hydroxis_rune_r_2"							"[R2] Tsunami"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_2_Description"				"When you begin channeling @Ability4, gain a 12 second buff that generates waves behind Hydroxis that travel forward, damaging and slowing enemies they hit."
@@ -7020,7 +7018,7 @@
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1"								"Whitewater Mist"
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_Description"					"Toggling Whitewater Mist applies a buff that increases magical resistance and makes nearby enemies have a 100% chance to miss. Enemies who leave the mist radius are stuck with the debuff for 3 additional seconds."
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_blind"						"ENEMY MISS CHANCE:"
-    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_magic_resist"				"MAGIC RESISTANCE:"
+    	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_magic_armor"				"MAGIC ARMOR:"
     	"DOTA_Tooltip_ability_hydroxis_arcana_ability_1_mana_drain"				"MANA DRAIN PER SECOND:"
 
     	"DOTA_Tooltip_modifier_hydroxis_mist"							"Whitewater Mist"
@@ -7101,7 +7099,7 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_one"		"Intelligence"
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix"				""
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_property_two"		"Spell Pierce"
-    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"				""
+    	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"			""
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"Glyph of Tectonics"
@@ -7145,7 +7143,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_1"		"Sapphire Trident"
 		"item_property_hydroxis_immortal_weapon"							"Poseidon's Wake"
-		"property_hydroxis_immortal_weapon_description"					"Increases the damage of Poseidon's Fury by <font color='#ccff66'>100</font>% and increases its radius by <font color='#ccff66'>50</font>%."
+		"property_hydroxis_immortal_weapon_description"					"Increases the damage of Poseidon's Fury by <font color='#ccff66'>25</font>% and increases its radius by <font color='#ccff66'>30</font>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_immortal_weapon_2"            "Barbed Cudgel of the Dark Reef"
         "item_property_hydroxis_immortal_weapon2"                             "Slithercharge"
@@ -9341,9 +9339,9 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x height"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] Murkwood Hunter"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Slipfinn's Agility increases <font color=\"#7F4F84\">Shadow</font> and <font color=\"#3894FF\">Water</font> damage."
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"Passively increases <font color=\"#7F4F84\">Shadow</font> and <font color=\"#3894FF\">Water</font> damage."
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"Shadow and Water Damage Bonus"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"% for every 10 points of Agility"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"%"
 		
 		"DOTA_Tooltip_ability_slipfinn_jump"										"Puddle Jump"
     	"DOTA_Tooltip_ability_slipfinn_jump_Description"							"Slipfinn jumps into the air. The jump maintains his movement velocity when executed. Can land on an enemy's head to bounce again. While above a certain height, enemies cannot attack Slipfinn. Issuing a move order while jumping or bouncing provides a slight buildup of momentum toward the target location.<br><b>Double Jump:</b> Execute a second jump after landing from a previous one.<br><b>Triple Jump:</b> Execute a third jump after landing from a double jump.<br><b>High Jump:</b> Use jump while prone and low velocity.<br><b>Long Jump:</b> Use jump while prone and high velocity."
@@ -9760,7 +9758,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1"						"[Q1] Ultraviolet"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_Description"			"Dealing damage massively increases Health Regen and attack damage % for 0.5 seconds."
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_one"			"Health Regen after dealing damage"
-    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix"				"" 
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix"					"" 
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_two"			"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix_two"				"%" 
 
@@ -9776,7 +9774,7 @@
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Enemies hit by comets receive a stacking debuff that reduces Armor if Lunar or Magic Armor if Solar for 60 seconds. Max 10 stacks and both the lunar and solar debuff can be active at the same time. Additionally a portion of attack damage is added to comet damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Enemies hit by comets receive a stacking debuff that reduces Armor if Lunar or Magic Armor if Solar for <font color='#ccff66'>60</font> seconds. Max 10 stacks and both the lunar and solar debuff can be active at the same time. Additionally a portion of attack damage is added to comet damage."
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_one"			"Armor (Lunar) or Magic Armor (Solar) Reduction"
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_two"			"Attack damage added to comet"
@@ -11600,7 +11598,7 @@
 		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by <font color='#ccff66'>10</font>x and Thunder Storm by <font color='#ccff66'>30</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"Glyph of Explosive Static"
-		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an <font color='#ccff66'>8</font> second cooldown, but deals <font color='#ccff66'>20</font>x damage and stuns for <font color='#ccff66'>2.5</font> seconds."
+		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an <font color='#ccff66'>3</font> second cooldown, but deals <font color='#ccff66'>15</font>x damage and stuns for <font color='#ccff66'>2.5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"Glyph of Conductivity"
 		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by <font color='#ccff66'>100</font>%."
