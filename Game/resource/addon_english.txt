@@ -13324,6 +13324,16 @@
 		"item_rpc_magistrates_hood_sapphire1" "Increases Spell Pierce by @sapphire_property1"
 		"item_rpc_magistrates_hood_amethyst1" "Increases [W] Base Ability Damage by @amethyst_property1%"
 
+		
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
+		"item_property_mugato"						"Curse of Mugato"	
+		"property_mugato_description" 				"Casting any spell silences you for <font color='#ccff66'>4</font> seconds, and attacking silences you for <font color='#ccff66'>0.8</font> seconds. While silenced from any source, your Armor Pierce and Spell Pierce is increased by <font color='#ccff66'>1000</font>."
+
+		"item_rpc_mask_of_mugato_ruby1"	"While silenced, gain @ruby_property1 bonus to all attributes"
+		"item_rpc_mask_of_mugato_emerald1"	"Increases Armor Pierce and Spell Pierce by an additional @emerald_property1 while silenced"
+		"item_rpc_mask_of_mugato_sapphire1" "While silenced, drain @sapphire_property1 mana per second and gain @sapphire_property2% Base Ability Damage"
+		"item_rpc_mask_of_mugato_amethyst1" "While silenced, drain @amethyst_property1 mana per second and gain @amethyst_property2% Item Damage"		
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13345,11 +13355,6 @@
 		"item_property_odin"						"Zantetsuken"
 		"property_odin_description"					"All instances of damage dealt have a <font color='#ccff66'>10</font>% chance to be multiplied by <font color='#ccff66'>7</font>. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
 		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
-		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Casting any spell silences you for <font color='#ccff66'>4</font> seconds, and attacking silences you for <font color='#ccff66'>0.6</font> seconds. While silenced from any source, your Post-Mitigation damage is increased by <font color='#ccff66'>600</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"

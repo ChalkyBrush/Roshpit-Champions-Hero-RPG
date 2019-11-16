@@ -13039,7 +13039,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"穆咖钭面具"
 		"item_property_mugato"						"穆咖钭的诅咒"	
-		"property_mugato_description" 				"施放任意技能沉默自己<font color='#ccff66'>4</font>秒，每次普通攻击沉默自己<font color='#ccff66'>0.6</font>秒。当被任意来源沉默时，提高<font color='#ccff66'>600</font>%税后伤害"
+		"property_mugato_description" 				"Casting any spell silences you for <font color='#ccff66'>4</font> seconds, and attacking silences you for <font color='#ccff66'>0.8</font> seconds. While silenced from any source, your Armor Pierce and Spell Pierce is increased by <font color='#ccff66'>1000</font>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"沼泽女巫帽"

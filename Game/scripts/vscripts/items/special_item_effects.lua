@@ -5694,6 +5694,18 @@ function mugato_attack(event)
 	attacker:AddNewModifier(caster, nil, "modifier_silence", {duration = MUGATO_ATTACK_SILENCE_DUR})
 end
 
+function mugato_think(event)
+	local hero = event.target
+	local ability = event.ability
+	if hero:IsSilenced() then
+		local mana_drain = 0
+		mana_drain = mana_drain + ability:GetFinalGemPropertyValue("sapphire", MUGATO_SAPPHIRE1) + ability:GetFinalGemPropertyValue("amethyst", MUGATO_AMETHYST1)
+		if mana_drain > 0 then
+			hero:ReduceMana(mana_drain)
+		end
+	end
+end
+
 function stormcloth_think(event)
 	local hero = event.target
 	local ability = event.ability

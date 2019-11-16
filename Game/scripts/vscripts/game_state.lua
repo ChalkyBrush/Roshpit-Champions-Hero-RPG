@@ -2214,10 +2214,6 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
 	end
 
-	if attacker:HasModifier("modifier_mugato") and attacker:IsSilenced() then
-		mult = mult + MUGATO_POST_MITI_PCT/100
-	end
-
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then

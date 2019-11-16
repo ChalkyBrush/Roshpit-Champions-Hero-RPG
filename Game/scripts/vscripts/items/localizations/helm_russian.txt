@@ -109,7 +109,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Прочтение любого заклинания накладывает безмолвие на <% MUGATO_SPELL_SILENCE_DUR %> секунды, нанесение атаки - на <% MUGATO_ATTACK_SILENCE_DUR %> секунды. Герой, находясь в безмолвии, увеличивает свой пост-резистный урон на <% MUGATO_POST_MITI_PCT %>%."
+		"property_mugato_description" 				"Casting any spell silences you for <% MUGATO_SPELL_SILENCE_DUR %> seconds, and attacking silences you for <% MUGATO_ATTACK_SILENCE_DUR %> seconds. While silenced from any source, your Armor Pierce and Spell Pierce is increased by <% MUGATO_PIERCES %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"

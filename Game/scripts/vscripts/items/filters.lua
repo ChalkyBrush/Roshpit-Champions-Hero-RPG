@@ -153,6 +153,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_ancient_waterstone") then
         mult = mult + ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
     end
+    if caster:HasModifier("modifier_mask_of_mugato") and caster:IsSilenced() then
+        mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MUGATO_AMETHYST2)/100
+    end
     if caster:HasModifier("modifier_neutral_glyph_2_1") then
         mult = mult + 2
     end
@@ -758,7 +761,7 @@ function Filters:CastSkillArguments(slot, caster)
     if caster:HasModifier("modifier_jex_nature_cosmic_w") then
         Filters:JexNatureCostmicW(caster)
     end
-    if caster:HasModifier("modifier_mugato") then
+    if caster:HasModifier("modifier_mask_of_mugato") then
         caster:AddNewModifier(caster, nil, "modifier_silence", {duration = MUGATO_SPELL_SILENCE_DUR})
     end
 end
@@ -1295,6 +1298,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         damageMult = damageMult + heroes.venomort.getBad(attacker)
         if attacker:IsRealHero() then
             damageMult = damageMult + attacker:GetSpirit()*(CustomAttributes.BAD_PER_SPIRIT/100)
+        end
+        if attacker:HasModifier("modifier_mask_of_mugato") and attacker:IsSilenced() then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MUGATO_SAPPHIRE2)/100
         end
         if attacker:HasModifier("modifier_watcher_two") then
             damageMult = damageMult + WATCHER_II_BAD/100

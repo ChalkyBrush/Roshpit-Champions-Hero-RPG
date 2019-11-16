@@ -1544,6 +1544,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local helm = unit:FindModifierByName("modifier_sea_oracle_mega_buff"):GetAbility()
 		armor_pierce_modify = armor_pierce_modify + HOOD_OF_SEA_ORACLE_BASE_PIERCES + helm:GetFinalGemPropertyValue("emerald", SEA_ORACLE_EMERALD)
 	end
+	if unit:HasModifier("modifier_mask_of_mugato") and unit:IsSilenced() then
+		local helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		armor_pierce_modify = armor_pierce_modify + MUGATO_PIERCES + helm:GetFinalGemPropertyValue("emerald", MUGATO_EMERALD)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -1739,6 +1743,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_sea_oracle_mega_buff") then
 		local helm = unit:FindModifierByName("modifier_sea_oracle_mega_buff"):GetAbility()
 		spell_pierce_modify = spell_pierce_modify + HOOD_OF_SEA_ORACLE_BASE_PIERCES + helm:GetFinalGemPropertyValue("emerald", SEA_ORACLE_EMERALD)
+	end
+	if unit:HasModifier("modifier_mask_of_mugato") and unit:IsSilenced() then
+		local helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		spell_pierce_modify = spell_pierce_modify + MUGATO_PIERCES + helm:GetFinalGemPropertyValue("emerald", MUGATO_EMERALD)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -1965,6 +1973,14 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		int_bonus = int_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		spirit_bonus = spirit_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+	end
+	if hero:HasModifier("modifier_mask_of_mugato") and hero:IsSilenced() then
+		local helm = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		local stat_bonus = helm:GetFinalGemPropertyValue("ruby", MUGATO_RUBY)
+		str_bonus = str_bonus + stat_bonus
+		agi_bonus = agi_bonus + stat_bonus
+		int_bonus = int_bonus + stat_bonus
+		spirit_bonus = spirit_bonus + stat_bonus
 	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", SEINARU_ARCANA_Q3_AGI)
