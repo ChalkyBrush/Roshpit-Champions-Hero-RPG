@@ -4931,26 +4931,68 @@ function sea_oracle_attack_land(event)
 	local ability = event.ability
 	local target = event.target
 
+	local stacks_gained = 1
+	local proc = Filters:GetProc(attacker, ability:GetFinalGemPropertyValue("amethyst", SEA_ORACLE_AMETHYST))
+	if proc then
+		stacks_gained = stacks_gained + 1
+	end
+
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_stacker", {duration = HOOD_OF_SEA_ORACLE_DURATION})
 	local currentMainStacks = target:GetModifierStackCount("modifier_sea_oracle_stacker", caster)
-	local newStacks = math.min(target:GetModifierStackCount("modifier_sea_oracle_stacker", caster) + 1, HOOD_OF_SEA_ORACLE_MAX_STACKS)
+	stacks_gained = math.min(stacks_gained, HOOD_OF_SEA_ORACLE_MAX_STACKS - currentMainStacks)
+	local newStacks = math.min(target:GetModifierStackCount("modifier_sea_oracle_stacker", caster) + stacks_gained, HOOD_OF_SEA_ORACLE_MAX_STACKS)
 	target:SetModifierStackCount("modifier_sea_oracle_stacker", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_health_loss", {duration = HOOD_OF_SEA_ORACLE_DURATION})
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_armor_loss", {duration = HOOD_OF_SEA_ORACLE_DURATION})
-	if currentMainStacks < HOOD_OF_SEA_ORACLE_MAX_STACKS then
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_attack_loss", {duration = HOOD_OF_SEA_ORACLE_DURATION})
+
+	if stacks_gained > 0 then
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact_d.vpcf", target, 2)
 		ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin())
-		local attackerReduce = target:GetAttackDamage() * HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT/100
-		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_health_loss", caster)
+		local attackerReduce = target:GetAttackDamage() * (HOOD_OF_SEA_ORACLE_DMG_DEBUFF_PCT/100)*stacks_gained
+		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_attack_loss", caster)
 		local newStacks = currentStacks + attackerReduce
-		target:SetModifierStackCount("modifier_sea_oracle_health_loss", caster, newStacks)
+		target:SetModifierStackCount("modifier_sea_oracle_attack_loss", caster, newStacks)
+	end
+	if not ability.tideworn_table then
+		ability.tideworn_table = {}
+	end
+	table.insert(ability.tideworn_table, target)
+	target:CalculateAndSaveRoshpitAttributes()
+end
 
-		local armorReduce = target:GetPhysicalArmorValue(false) * HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT/100
-		local currentStacks = target:GetModifierStackCount("modifier_sea_oracle_armor_loss", caster)
-		local newStacks = currentStacks + armorReduce
-		target:SetModifierStackCount("modifier_sea_oracle_armor_loss", caster, newStacks)
+function sea_oracle_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not ability.tideworn_table then
+		ability.tideworn_table = {}
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	local has_mega_buff = false
 
+	local new_table = {}
+	for i = 1, #ability.tideworn_table, 1 do
+		if IsValidEntity(ability.tideworn_table[i]) and ability.tideworn_table[i]:IsAlive() and ability.tideworn_table[i]:HasModifier("modifier_sea_oracle_stacker") then
+			table.insert(new_table, ability.tideworn_table[i])
+			if ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster) == HOOD_OF_SEA_ORACLE_MAX_STACKS then
+				has_mega_buff = true
+			end
+		end
+	end
+	ability.tideworn_table = new_table
+	ability.interval = math.min(ability.interval + 1, 7)
+	if has_mega_buff then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_mega_buff", {})
+		if ability.interval >= 7 then
+			local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact.vpcf", target, 1)
+			ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin())
+			ability.interval = 0
+			EmitSoundOn("RPCItem.OceanOracle.SelfBuff", target)
+		end
+	else
+		target:RemoveModifierByName("modifier_sea_oracle_mega_buff")
 	end
 end
 

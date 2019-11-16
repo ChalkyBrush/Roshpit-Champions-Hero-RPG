@@ -886,6 +886,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 			armor_modify = armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
 		end
 	end
+	if unit:HasModifier("modifier_sea_oracle_stacker") then
+		local modifier = unit:FindModifierByName("modifier_sea_oracle_stacker")
+		local hood_of_sea_oracle = modifier:GetAbility()
+		armor_modify = armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("ruby", SEA_ORACLE_RUBY)*modifier:GetStackCount()
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 
@@ -1329,6 +1334,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			magic_armor_modify = magic_armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
 		end
 	end
+	if unit:HasModifier("modifier_sea_oracle_stacker") then
+		local modifier = unit:FindModifierByName("modifier_sea_oracle_stacker")
+		local hood_of_sea_oracle = modifier:GetAbility()
+		magic_armor_modify = magic_armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("sapphire", SEA_ORACLE_SAPPHIRE)*modifier:GetStackCount()
+	end
+
 
 	-- FINAL STEP DEFILER
 
@@ -1507,6 +1518,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_hood_of_defiler_buff_emerald") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_buff_emerald")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_sea_oracle_mega_buff") then
+		local helm = unit:FindModifierByName("modifier_sea_oracle_mega_buff"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + HOOD_OF_SEA_ORACLE_BASE_PIERCES + helm:GetFinalGemPropertyValue("emerald", SEA_ORACLE_EMERALD)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -1699,6 +1714,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_hood_of_defiler_buff_amethyst") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_buff_amethyst")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_sea_oracle_mega_buff") then
+		local helm = unit:FindModifierByName("modifier_sea_oracle_mega_buff"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify + HOOD_OF_SEA_ORACLE_BASE_PIERCES + helm:GetFinalGemPropertyValue("emerald", SEA_ORACLE_EMERALD)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

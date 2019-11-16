@@ -5195,7 +5195,7 @@ function tri_boss_die(caster)
 		if luck == 1 then
 			RPCItems:RollEmpyrealSunriseRobe(caster:GetAbsOrigin())
 		elseif luck == 2 then
-			RPCItems:RollHoodOfTheSeaOracle(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_hood_of_the_sea_oracle")
 		end
 	elseif caster:GetUnitName() == "seafortress_boss_silver_sea_giant" then
 		Statistics.dispatch("sea_fortress:kill:sea_giant");

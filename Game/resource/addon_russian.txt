@@ -13007,7 +13007,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Весь пост-резистный магический урон героя увеличен на <font color='#ccff66'>0</font>%. Урон, наносимый предметами снижен на <font color='#ccff66'>0</font>%."
+		 "property_black_mage_description"					"Increases Spell Pierce by <font color='#ccff66'>100</font>%. Reduces Armor and Armor Pierce by <font color='#ccff66'>75</font>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
@@ -13095,7 +13095,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
 		"property_sea_oracle"												"Progenetic Srike"
-		"property_sea_oracle_Description"									"С каждой успешной атакой броня цели и её базовый урон снижаются на <font color='#ccff66'>5</font>%. Складывается до <font color='#ccff66'>15</font> раз. Как только вражеский юнит наберёт максимальное количество зарядов - герой будет наносить ему увеличенный на <font color='#ccff66'>500</font>% пост-резистный урон."
+		"property_sea_oracle_Description"									"С каждой успешной атакой броня цели и её базовый урон снижаются на <font color='#ccff66'>0</font>%. Складывается до <font color='#ccff66'>15</font> раз. Как только вражеский юнит наберёт максимальное количество зарядов - герой будет наносить ему увеличенный на <font color='#ccff66'>0</font>% пост-резистный урон."
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Progenetic Strike Stacks"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"С каждым зарядом броня и базовый урон снижаются. По достижении 15 зарядов, существо будет получать увеличенный пост-резистный урон от владельца предмета Hood of the Sea Oracle."
 		

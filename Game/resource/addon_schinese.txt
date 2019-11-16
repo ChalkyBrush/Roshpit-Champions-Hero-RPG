@@ -13200,7 +13200,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
 		 "item_property_black_mage"							"黑魔法"
-		 "property_black_mage_description"					"所有魔法伤害增加<font color='#ccff66'>0</font>%，由装备造成的伤害降低<font color='#ccff66'>0</font>%。"
+		 "property_black_mage_description"					"Increases Spell Pierce by <font color='#ccff66'>100</font>%. Reduces Armor and Armor Pierce by <font color='#ccff66'>75</font>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"秋天睡眠者面具"
@@ -13288,7 +13288,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"海神域的兜帽"	
 		"property_sea_oracle"												"原始打击"
-		"property_sea_oracle_Description"									"每次攻击将对敌人施加debuff，降低敌人的基础攻击力和护甲值 <font color='#ccff66'>5</font>%。debuff最大叠加层数 <font color='#ccff66'>15</font>。当敌人的debuff达到上限时，玩家对敌人所造成的伤害将加深 <font color='#ccff66'>500</font>%。（伤害加深计算在敌人减伤之后）。"
+		"property_sea_oracle_Description"									"每次攻击将对敌人施加debuff，降低敌人的基础攻击力和护甲值 <font color='#ccff66'>0</font>%。debuff最大叠加层数 <font color='#ccff66'>15</font>。当敌人的debuff达到上限时，玩家对敌人所造成的伤害将加深 <font color='#ccff66'>0</font>%。（伤害加深计算在敌人减伤之后）。"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"原始打击层数"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"每层debuff减少基础攻击力和护甲值。如果到达15层，受到来自debuff施加者的伤害将被加深。"
 		

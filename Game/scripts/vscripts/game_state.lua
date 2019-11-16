@@ -2426,12 +2426,11 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_sea_oracle_stacker") then
 			local stacks = victim:GetModifierStackCount("modifier_sea_oracle_stacker", attacker.InventoryUnit)
 			if stacks >= HOOD_OF_SEA_ORACLE_MAX_STACKS then
-				mult = mult + HOOD_OF_SEA_ORACLE_POST_MITI/100
 				if not victim:HasModifier("modifier_sea_oracle_particle_lock") then
 					local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/seafortress/sea_oracle_impact.vpcf", victim, 1)
 					ParticleManager:SetParticleControl(pfx, 1, victim:GetAbsOrigin())
 					EmitSoundOn("RPCItem.OceanOracle.AttackLand", victim)
-					attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_sea_oracle_particle_lock", {duration = 1.0})
+					attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_sea_oracle_particle_lock", {duration = 1.0})
 				end
 			end
 		end

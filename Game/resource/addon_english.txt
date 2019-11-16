@@ -13269,6 +13269,20 @@
 		"item_rpc_hood_of_the_black_mage_sapphire1" "Increases Intelligence by @sapphire_property1"
 		"item_rpc_hood_of_the_black_mage_amethyst1" "Increases the Spell Pierce bonus by an additional @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
+		"property_sea_oracle"												"Tideworn Strikes"
+		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage the target by <font color='#ccff66'>3</font>%. Stacks up to <font color='#ccff66'>15</font> times. As long as there is a target alive with max stacks, gain <font color='#ccff66'>1000</font> Armor Pierce and Spell Pierce."
+		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
+		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage. If at 15 stacks, the Sea Oracle wearer has increased combat capability."
+
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff"						"Tideworn"
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff_Description"			"Increased combat capability"
+
+		"item_rpc_hood_of_the_sea_oracle_ruby1"	"Each Tideworn stack reduces the target's Armor by @ruby_property1"
+		"item_rpc_hood_of_the_sea_oracle_emerald1"	"Increases the Armor Pierce and Spell Pierce bonus when a target is at max stacks by an additional @emerald_property1"
+		"item_rpc_hood_of_the_sea_oracle_sapphire1" "Each Tideworn stack reduces the target's Magic Armor by @sapphire_property1"
+		"item_rpc_hood_of_the_sea_oracle_amethyst1" "Grants a @amethyst_property1% chance on attack to apply an additional Tideworn stack"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13431,12 +13445,6 @@
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
 		"property_all_elements"												"All Elemental Damage %"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
-		"property_sea_oracle"												"Tideworn Strikes"
-		"property_sea_oracle_Description"									"Attacks reduce the current base attack damage and Armor of the target by <font color='#ccff66'>5</font>%. Stacks up to <font color='#ccff66'>15</font> times. You deal <font color='#ccff66'>500</font>% increased Post-Mitigation damage to targets with max stacks."
-		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
-		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Each stack reduces base attack damage and Armor. If at 15 stacks, take extra damage from the debuff's source."
 	
 
 

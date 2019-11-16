@@ -4041,23 +4041,22 @@ end
 
 
 function RPCItems:RollHoodOfTheSeaOracle(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
     local item = RPCItems:CreateVariant("item_rpc_hood_of_the_sea_oracle", "immortal", "Hood of the Sea Oracle", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "sea_oracle"
+    item.newItemTable.property1name = "!immortal!_modifier_hood_of_the_sea_oracle"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_sea_oracle", "#FFBC49", 1, "#property_sea_oracle_Description")
 
-    item.newItemTable.hasRunePoints = true
-    item.newItemTable.property2 = Weapons:GetDeviation(10, 0)
-    item.newItemTable.property2name = "rune_q_4"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
+    RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 

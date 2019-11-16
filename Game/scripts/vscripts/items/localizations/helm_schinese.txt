@@ -266,7 +266,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"
 		 "item_property_black_mage"							"黑魔法"
-		 "property_black_mage_description"					"所有魔法伤害增加<% BLACK_MAGE_MAGIC_POST_MITI %>%，由装备造成的伤害降低<% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%。"
+		 "property_black_mage_description"					"Increases Spell Pierce by <% HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE %>%. Reduces Armor and Armor Pierce by <% HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"秋天睡眠者面具"

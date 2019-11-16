@@ -271,7 +271,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
 		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Весь пост-резистный магический урон героя увеличен на <% BLACK_MAGE_MAGIC_POST_MITI %>%. Урон, наносимый предметами снижен на <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
+		 "property_black_mage_description"					"Increases Spell Pierce by <% HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE %>%. Reduces Armor and Armor Pierce by <% HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
