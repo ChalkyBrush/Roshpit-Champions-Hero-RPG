@@ -4083,7 +4083,7 @@ end
 
 function Filters:IgneousCanine(caster)
     local particleName = "particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_aftershock_egset.vpcf"
-    local ability = caster.headItem
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
     ability.hero = caster
     local pfx = ParticleManager:CreateParticle("particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_mid_egset.vpcf", PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
@@ -4091,7 +4091,7 @@ function Filters:IgneousCanine(caster)
         ParticleManager:DestroyParticle(pfx, false)
     end)
     local wAbilityLevel = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-    local stunDuration = wAbilityLevel * IGNEOUS_CANINE_STUN_DURATION
+    local stunDuration = IGNEOUS_CANINE_STUN_DURATION + ability:GetFinalGemPropertyValue("sapphire", IGNEOUS_CANINE_SAPPHIRE)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, IGNEOUS_CANINE_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.IgneousCanine", caster.InventoryUnit)
     if #enemies > 0 then
@@ -4102,11 +4102,11 @@ function Filters:IgneousCanine(caster)
     if not ability.firePools then
         ability.firePools = 0
     end
-    if ability.firePools < 4 then
+    if ability.firePools < (IGNEOUS_CANINE_MAX_LAVA_POOLS + ability:GetFinalGemPropertyValue("emerald", IGNEOUS_CANINE_EMERALD)) then
         ability.firePools = ability.firePools + 1
         --ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_igneous_canine_thinker", {})
         CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_igneous_canine_thinker", {})
-        Timers:CreateTimer(6, function()
+        Timers:CreateTimer(IGNEOUS_CANINE_LAVA_POOL_DURATION, function()
             ability.firePools = ability.firePools - 1
         end)
     end

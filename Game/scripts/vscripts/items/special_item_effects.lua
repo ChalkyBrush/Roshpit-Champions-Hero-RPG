@@ -4326,8 +4326,8 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * IGNEOUS_CANINE_ATTACK_TO_DMG
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (IGNEOUS_CANINE_ATTACK_TO_DMG/100) + ability:GetFinalGemPropertyValue("ruby", IGNEOUS_CANINE_RUBY)*caster:GetStrength()
+	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
 
 function hurricane_vest_create(event)

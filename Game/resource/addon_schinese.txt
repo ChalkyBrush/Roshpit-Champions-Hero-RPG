@@ -13259,7 +13259,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"烈焰犬头盔"
 		"item_property_igneous_canine"							"熔岩飞溅"
-		 "property_igneous_canine_description"					"施放 @Ability2 眩晕周围所有敌人，眩晕持续时间为 <font color='#ccff66'>0.2</font>x 该技能等级（秒）。并且在地面留下一个熔岩池，熔岩池内的敌人移动速度减少 <font color='#ccff66'>15</font> 、攻击速度减少 <font color='#ccff66'>60</font>。并且每<font color='#ccff66'>0.5</font>秒对池中的敌人造成 <font color='#ccff66'>2</font>x 攻击力的伤害。"
+		 "property_igneous_canine_description"					"施放 @Ability2 眩晕周围所有敌人，眩晕持续时间为 <font color='#ccff66'>0.2</font>x 该技能等级（秒）。并且在地面留下一个熔岩池，熔岩池内的敌人移动速度减少 <font color='#ccff66'>-24</font> 、攻击速度减少 <font color='#ccff66'>-100</font>。并且每<font color='#ccff66'>0.5</font>秒对池中的敌人造成 <font color='#ccff66'>12</font>x 攻击力的伤害。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"炽魂头盔"

@@ -891,6 +891,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local hood_of_sea_oracle = modifier:GetAbility()
 		armor_modify = armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("ruby", SEA_ORACLE_RUBY)*modifier:GetStackCount()
 	end
+	if unit:HasModifier("igneous_canine_aura") then
+		local modifier = unit:FindModifierByName("igneous_canine_aura")
+		local igneous_helm = modifier:GetAbility()
+		armor_modify = armor_modify + igneous_helm:GetFinalGemPropertyValue("amethyst", IGNEOUS_CANINE_AMETHYST)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 

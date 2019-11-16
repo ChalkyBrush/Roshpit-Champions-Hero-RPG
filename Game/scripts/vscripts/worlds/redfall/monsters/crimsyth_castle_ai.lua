@@ -4735,7 +4735,7 @@ end
 function lava_behemoth_die(event)
 	local caster = event.caster
 	EmitSoundOn("Redfall.LavaBehemoth.Aggro", caster)
-	RPCItems:RollIgneousCanineHelm(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_igneous_canine_helm")
 end
 
 function lava_behemoth_take_damage(event)

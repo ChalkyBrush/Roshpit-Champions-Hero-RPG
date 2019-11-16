@@ -4085,6 +4085,26 @@ function RPCItems:RollHyperVisor(item_level)
     return item
 end
 
+function RPCItems:RollIgneousCanineHelm(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_igneous_canine_helm", "immortal", "Igneous Canine Helm", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_igneous_canine_helm"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_igneous_canine", "#EDDA61", 1, "#property_igneous_canine_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.2)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollOceanHelmOfValdun(deathLocation, bBossDrop)
     local item = RPCItems:CreateVariant("item_rpc_ocean_helm_of_valdun", "immortal", "Ocean Helm of Val'Dun", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4417,20 +4437,6 @@ function RPCItems:RollAutumnSleeperMask(item_level)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
 
     RPCItems:SetBaseItemValues(item, "item_rpc_autumn_sleeper_mask", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollIgneousCanineHelm(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_igneous_canine_helm", "immortal", "Igneous Canine Helm", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "igneous_canine"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_igneous_canine", "#EDDA61", 1, "#property_igneous_canine_description")
-
-    RPCItems:RollHoodProperty2(item, 0)
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
 end
 

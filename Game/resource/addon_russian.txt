@@ -13066,7 +13066,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (<font color='#ccff66'>0.2</font>* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на <font color='#ccff66'>15</font> и снижает скорость атаки на <font color='#ccff66'>60</font>. Все находящиеся в лаве враги каждые <font color='#ccff66'>0.5</font> секунды получают <font color='#ccff66'>2</font>x урон героя."
+		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (<font color='#ccff66'>0.2</font>* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на <font color='#ccff66'>-24</font> и снижает скорость атаки на <font color='#ccff66'>-100</font>. Все находящиеся в лаве враги каждые <font color='#ccff66'>0.5</font> секунды получают <font color='#ccff66'>12</font>x урон героя."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"

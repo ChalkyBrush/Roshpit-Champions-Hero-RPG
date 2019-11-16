@@ -394,6 +394,14 @@
 		"item_rpc_hyper_visor_sapphire1" "<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% chance on attack to trigger a chain lightning that bounces <% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %> times and deals @sapphire_property1% of Hyper Lightning's damage"
 		"item_rpc_hyper_visor_amethyst1" "Increases Item Damage by @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
+		"item_property_igneous_canine"							"Lava Splash"
+		"property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for <% IGNEOUS_CANINE_STUN_DURATION %> seconds, and leaves a pool of lava that slows movespeed by <% IGNEOUS_CANINE_MOVESPEED_SLOW %>% and attack speed by <% IGNEOUS_CANINE_AS_SLOW %>. Enemies in the lava take <% IGNEOUS_CANINE_ATTACK_TO_DMG %>% of your attack damage each <% IGNEOUS_CANINE_LAVA_INTERVAL %> seconds. Max <% IGNEOUS_CANINE_MAX_LAVA_POOLS %> concurrent lava pools."
+
+		"item_rpc_igneous_canine_helm_ruby1"	"Increases the lava pool damage by @ruby_property1x strength each tick"
+		"item_rpc_igneous_canine_helm_emerald1"	"Increases the maximum number of concurrent pools by @emerald_property1"
+		"item_rpc_igneous_canine_helm_sapphire1" "Increases the stun duration by @sapphire_property1 seconds"
+		"item_rpc_igneous_canine_helm_amethyst1" "Enemies standing in a lava pool have @amethyst_property1 reduced armor"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
@@ -524,10 +532,6 @@
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
-		"item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for <% IGNEOUS_CANINE_STUN_DURATION %> seconds times its ability level, and leaves a pool of lava that slows movespeed by <% IGNEOUS_CANINE_MOVESPEED_SLOW %> and attack speed by <% IGNEOUS_CANINE_AS_SLOW %>. Enemies in the lava take <% IGNEOUS_CANINE_ATTACK_TO_DMG %>x your attack damage each <% IGNEOUS_CANINE_LAVA_INTERVAL %> seconds."
 		
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
