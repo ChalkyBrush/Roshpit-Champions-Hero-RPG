@@ -12891,7 +12891,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Каждое очко Силы увеличивает здоровье на <font color='#ccff66'>10</font> и ману на <font color='#ccff66'>4</font>."
+		"property_tyrius_description"				"Каждое очко Силы увеличивает здоровье на <font color='#ccff66'>6</font> и ману на <font color='#ccff66'>2</font>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"

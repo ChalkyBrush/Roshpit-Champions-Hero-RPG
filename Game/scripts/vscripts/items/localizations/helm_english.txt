@@ -457,6 +457,15 @@
 		"item_rpc_mask_of_the_phantom_sorcerer_sapphire1" "Increases [W1] Rune by @sapphire_property1"
 		"item_rpc_mask_of_the_phantom_sorcerer_amethyst1" "Increases [W3] Rune by @amethyst_property1"	
 
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
+		"item_property_tyrius"						"Might of Tyrius"
+		"property_tyrius_description"				"Each point of Strength additionally increases max health by <% TYRIUS_HP_PER_STR %> and max mana by <% TYRIUS_MANA_PER_STR %>."
+
+		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per strength by an additional @ruby_property1"
+		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per strength by @emerald_property1"
+		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per spirit by @sapphire_property1"
+		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per spirit by @amethyst_property1"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -490,11 +499,6 @@
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
 		"item_property_trickster"					"Laughing Gas"
 		"property_trickster_description"            "Each cast of @Ability2 instantly moves you <% TRICKSTER_MASK_RANGE %> units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> to <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Each instance of @Ability2 damage is further multiplied by a random factor of <% TRICKSTER_MASK_W_DMG_MULT_MIN %> to <% TRICKSTER_MASK_W_DMG_MULT_MAX %>."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
-		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of Strength additionally increases max health by <% TYRIUS_HP_PER_STR %> and max mana by <% TYRIUS_MANA_PER_STR %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"

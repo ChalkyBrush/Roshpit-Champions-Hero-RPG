@@ -599,10 +599,22 @@ function tyrius_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if not target:HasModifier("modifier_tyrius_buff") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_tyrius_buff", {})
+	if not target:HasModifier("modifier_tyrius_mana") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tyrius_mana", {})
 	end
-	target:SetModifierStackCount("modifier_tyrius_buff", ability, target:GetStrength())
+	if not target:HasModifier("modifier_tyrius_health") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tyrius_health", {})
+	end
+	target:SetModifierStackCount("modifier_tyrius_mana", ability, target:GetStrength())
+	local health_stacks = target:GetStrength()*TYRIUS_HP_PER_STR + target:GetStrength()*ability:GetFinalGemPropertyValue("ruby", TYRIUS_RUBY) + target:GetSpirit()*ability:GetFinalGemPropertyValue("sapphire", TYRIUS_SAPPHIRE)
+	target:SetModifierStackCount("modifier_tyrius_health", ability, health_stacks)
+	if ability:GetGemValue("emerald") > 0 or ability:GetGemValue("amethyst") > 0 then
+		if not target:HasModifier("modifier_tyrius_attack_damage") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_tyrius_attack_damage", {})
+		end
+		local attack_damage_stacks = target:GetStrength()*ability:GetFinalGemPropertyValue("emerald", TYRIUS_EMERALD) + target:GetSpirit()*ability:GetFinalGemPropertyValue("amethyst", TYRIUS_AMETHYST)
+		target:SetModifierStackCount("modifier_tyrius_attack_damage", ability, attack_damage_stacks)
+	end
 end
 
 function ice_quill_think(event)

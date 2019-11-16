@@ -13061,7 +13061,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
 		"item_property_tyrius"						"提瑞斯之威"
-		"property_tyrius_description"				"每点力量额外提高<font color='#ccff66'>10</font>点生命值和<font color='#ccff66'>4</font>点魔法值。"
+		"property_tyrius_description"				"每点力量额外提高<font color='#ccff66'>6</font>点生命值和<font color='#ccff66'>2</font>点魔法值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
