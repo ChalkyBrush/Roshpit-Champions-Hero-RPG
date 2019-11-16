@@ -360,7 +360,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", HOOD_OF_CHOSEN_AMETHYST, hero, "rune_r_1", RPC_GEAR_SLOT_HEAD)
 		end	
 	elseif item:GetAbilityName() == "item_rpc_hood_of_lords" then
-	if socket_type == "ruby" then
+		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", HOOD_OF_LORDS_RUBY, hero, "rune_q_4", RPC_GEAR_SLOT_HEAD)
 		elseif socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", HOOD_OF_LORDS_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_HEAD)
@@ -395,6 +395,20 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", PHANTOM_SORCERER_AMETHYST, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_ocean_helm_of_valdun" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", OCEAN_HELM_VALDUN_RUBY, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", OCEAN_HELM_VALDUN_RUBY, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", OCEAN_HELM_VALDUN_EMERALD, hero, "rune_e_3", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", OCEAN_HELM_VALDUN_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", OCEAN_HELM_VALDUN_SAPPHIRE, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", OCEAN_HELM_VALDUN_SAPPHIRE, hero, "rune_e_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", OCEAN_HELM_VALDUN_AMETHYST, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", OCEAN_HELM_VALDUN_AMETHYST, hero, "rune_r_3", RPC_GEAR_SLOT_HEAD)
+		end	
 	end
 end
 

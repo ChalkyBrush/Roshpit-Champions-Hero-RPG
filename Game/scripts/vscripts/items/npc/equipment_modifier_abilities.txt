@@ -343,6 +343,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_head_all_elements"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -686,6 +692,12 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_weapon_element_dragon"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_weapon_all_elements"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -1045,6 +1057,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_hands_all_elements"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -1388,6 +1406,12 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_feet_element_dragon"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_feet_all_elements"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -1741,6 +1765,12 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_body_all_elements"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 	}
 
@@ -2084,6 +2114,12 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_amulet_element_dragon"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_amulet_all_elements"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"

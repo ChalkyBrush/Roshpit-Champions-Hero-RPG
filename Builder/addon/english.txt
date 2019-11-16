@@ -724,6 +724,7 @@
 
 		"item_all_runes"							"+ All T1-T3 Runes"
 		"item_all_attributes"						"+ All Attributes"
+		"item_all_elements"							"All Elemental Damage %"
 
 		 
 

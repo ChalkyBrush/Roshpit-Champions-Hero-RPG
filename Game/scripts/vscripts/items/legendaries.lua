@@ -4243,41 +4243,21 @@ function RPCItems:RollMaskOfTyrius(item_level)
     return item
 end
 
-function RPCItems:RollOceanHelmOfValdun(deathLocation, bBossDrop)
+function RPCItems:RollOceanHelmOfValdun(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
     local item = RPCItems:CreateVariant("item_rpc_ocean_helm_of_valdun", "immortal", "Ocean Helm of Val'Dun", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
 
-    local rollFactor = 15
-    if bBossDrop then
-        rollFactor = 24
-    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "all_elements", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.2)
 
-    local value, nameLevel = RPCItems:RollAttribute(100, 14, 28, 0, 1, item.newItemTable.rarity, false, rollFactor * 50)
-    item.newItemTable.property1 = value
-    item.newItemTable.property1name = "all_elements"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#property_all_elements", "#BED5E5", 1)
-
-    item.newItemTable.hasRunePoints = true
-
-    item.newItemTable.property2 = Weapons:GetDeviation(math.ceil(rollFactor / 2), 0)
-    local luck = RandomInt(1, 4)
-    if luck == 1 then
-        item.newItemTable.property2name = "rune_q_4"
-    elseif luck == 2 then
-        item.newItemTable.property2name = "rune_w_4"
-    elseif luck == 3 then
-        item.newItemTable.property2name = "rune_e_4"
-    elseif luck == 4 then
-        item.newItemTable.property2name = "rune_r_4"
-    end
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 

@@ -578,6 +578,11 @@ RPCItems.AttributesRolls[2]["element_dragon"] = RPCItems.AttributesRolls[2]["bas
 RPCItems.AttributesRolls[3]["element_dragon"] = RPCItems.AttributesRolls[3]["base_ability"]
 RPCItems.AttributesRolls[4]["element_dragon"] = RPCItems.AttributesRolls[4]["base_ability"]
 
+RPCItems.AttributesRolls[1]["all_elements"] = RPCItems.AttributesRolls[1]["element_fire"]
+RPCItems.AttributesRolls[2]["all_elements"] = RPCItems.AttributesRolls[2]["element_fire"]
+RPCItems.AttributesRolls[3]["all_elements"] = RPCItems.AttributesRolls[3]["element_fire"]
+RPCItems.AttributesRolls[4]["all_elements"] = RPCItems.AttributesRolls[4]["element_fire"]
+
 RPCItems.AttributesRolls[1]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
 RPCItems.AttributesRolls[2]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
 RPCItems.AttributesRolls[3]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
@@ -894,6 +899,7 @@ RPCItems.PROPERTY_COLORS["attack_speed"] = "#B02020"
 RPCItems.PROPERTY_COLORS["movespeed"] = "#B02020"
 RPCItems.PROPERTY_COLORS["aspect_health"] = "#343EC9"
 RPCItems.PROPERTY_COLORS["all_attributes"] = "#FFFFFF"
+RPCItems.PROPERTY_COLORS["all_elements"] = "#BED5E5"
 
 RPCItems.PROPERTY_COLORS["element_normal"] = RPC_ELEMENT_NORMAL_COLOR
 RPCItems.PROPERTY_COLORS["element_fire"] = RPC_ELEMENT_FIRE_COLOR

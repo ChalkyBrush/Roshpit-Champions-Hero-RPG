@@ -1848,18 +1848,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if victim:HasModifier("modifier_elemental_resistance") then
             damage = damage * 0.01
         end
-        if attacker:HasModifier("modifier_helm_all_elements") then
-            local stacks = attacker:GetModifierStackCount("modifier_helm_all_elements", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_hand_all_elements") then
-            local stacks = attacker:GetModifierStackCount("modifier_hand_all_elements", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
-        if attacker:HasModifier("modifier_trinket_all_elements") then
-            local stacks = attacker:GetModifierStackCount("modifier_trinket_all_elements", attacker.InventoryUnit)
-            mult = mult + stacks / 100
-        end
+        mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_all_elements", 1))/100
         if attacker:HasAbility("arkimus_archon_form") then
             local r_3_level = attacker:GetRuneValue("r", 3)
             if r_3_level > 0 then

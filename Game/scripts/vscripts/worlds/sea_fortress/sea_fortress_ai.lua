@@ -5452,7 +5452,7 @@ function sea_fortress_final_boss_think(event)
 		Timers:CreateTimer(4, function()
 			local luck = RandomInt(1, 10)
 			if luck == 1 then
-				RPCItems:RollOceanHelmOfValdun(caster:GetAbsOrigin(), true)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ocean_helm_of_valdun")
 			elseif luck == 2 then
 				RPCItems:RollTokenOfOceanis(caster:GetAbsOrigin(), true)
 			end

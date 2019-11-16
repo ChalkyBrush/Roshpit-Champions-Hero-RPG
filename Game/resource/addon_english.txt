@@ -724,6 +724,7 @@
 
 		"item_all_runes"							"+ All T1-T3 Runes"
 		"item_all_attributes"						"+ All Attributes"
+		"item_all_elements"							"All Elemental Damage %"
 
 		 
 
@@ -13365,6 +13366,12 @@
 		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per spirit by @sapphire_property1"
 		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per spirit by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
+		"item_rpc_ocean_helm_of_valdun_ruby1"	"Increases Rune [Q3] and Rune [W3] by @ruby_property1"
+		"item_rpc_ocean_helm_of_valdun_emerald1"	"Increases Rune [E3] and Rune [R3] by @emerald_property1"
+		"item_rpc_ocean_helm_of_valdun_sapphire1" "Increases Rune [W3] and Rune [E3] by @sapphire_property1"
+		"item_rpc_ocean_helm_of_valdun_amethyst1" "Increases Rune [Q3] and Rune [R3] by @amethyst_property1"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13492,8 +13499,7 @@
 		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <font color='#ccff66'>40</font>%."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
-		"property_all_elements"												"All Elemental Damage %"
+		
 		
 	
 
