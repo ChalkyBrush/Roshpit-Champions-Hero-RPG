@@ -201,7 +201,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1"						"[Q1] Ultraviolet"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_Description"			"Dealing damage massively increases Health Regen and attack damage % for 0.5 seconds."
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_one"			"Health Regen after dealing damage"
-    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix"				"" 
+    	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix"					"" 
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_property_two"			"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_solunia_rune_q_1_arcana1_suffix_two"				"%" 
 
@@ -217,7 +217,7 @@
 
 
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1"							"[Q3] Compression"
-    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Enemies hit by comets receive a stacking debuff that reduces Armor if Lunar or Magic Armor if Solar for 60 seconds. Max 10 stacks and both the lunar and solar debuff can be active at the same time. Additionally a portion of attack damage is added to comet damage."
+    	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_Description"				"Enemies hit by comets receive a stacking debuff that reduces Armor if Lunar or Magic Armor if Solar for <% SOLUNIA_ARCANA_Q3_DURATION %> seconds. Max 10 stacks and both the lunar and solar debuff can be active at the same time. Additionally a portion of attack damage is added to comet damage."
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_one"			"Armor (Lunar) or Magic Armor (Solar) Reduction"
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_solunia_rune_q_3_arcana1_property_two"			"Attack damage added to comet"
