@@ -1486,6 +1486,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:ApplyQdamage(victim, attacker, damage, damage_type)
         end
     elseif slot == BASE_ABILITY_W then
+        if attacker:HasModifier("modifier_magistrates_hood") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MAGISTRATE_AMETHYST)/100
+        end
         if attacker:HasModifier("modifier_watcher_three") then
             damageMult = damageMult + 0.35
         end
@@ -1765,8 +1768,9 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
             local stacks = attacker:GetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit)
             if stacks > 0 then
                 -- print("modifier_magistrates_hood stacks "..tostring(stacks))
+                local amp_per_enemy = MAGISTRATE_HOOD_DAMAGE_AMP_PCT + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", MAGISTRATE_EMERALD)
                 local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), victim:GetAbsOrigin(), nil, MAGISTRATE_HOOD_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-                local magistrate_damage = damage*(1 + ((MAGISTRATE_HOOD_DAMAGE_AMP_PCT*0.01*#enemies)))
+                local magistrate_damage = damage*(1 + ((amp_per_enemy*0.01*#enemies)))
                 for v=1,#enemies do
                     for i = 1, instances do
                         ApplyDamage({victim = enemies[v], attacker = attacker, damage = magistrate_damage, damage_type = damage_type, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
@@ -1778,6 +1782,13 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
                 else
                     attacker:SetModifierStackCount("modifier_magistrates_hood_charges", attacker.InventoryUnit, new_stacks)
                 end
+                local colorVector = Vector(0.5, 0.5, 0.5)
+                if attacker.element1 then
+                    colorVector = Elements:RGBVectorFromElementIndex(attacker.element1)
+                end
+                print(colorVector)
+                local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/magistrate_hood_gold.vpcf", victim:GetAbsOrigin(), 3)
+                ParticleManager:SetParticleControl(pfx, 12, colorVector)
             end
         end
         -- print("damage_type "..tostring(damage_type))

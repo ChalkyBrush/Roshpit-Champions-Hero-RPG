@@ -13142,7 +13142,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Spell Spreader"
-		"property_magistrate_description"								"Весь Магический и Чистый урон наносит урон по области <font color='#ccff66'>300</font> единиц. Эффект тратит заряды, максимальный запас которых <font color='#ccff66'>8</font>, время перезарядки <font color='#ccff66'>1</font> сек. Весь урон по области увеличен на <font color='#ccff66'>50</font>%."
+		"property_magistrate_description"								"Весь Магический и Чистый урон наносит урон по области <font color='#ccff66'>300</font> единиц. Эффект тратит заряды, максимальный запас которых <font color='#ccff66'>7</font>, время перезарядки <font color='#ccff66'>1</font> сек. Весь урон по области увеличен на <font color='#ccff66'>5</font>%."
 
 		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Spell Spreader Charges"
 		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Весь Магический и Чистый урон наносит урон по области, если есть заряды предмета."

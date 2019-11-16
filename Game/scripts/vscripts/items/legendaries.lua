@@ -4116,10 +4116,36 @@ function RPCItems:RollIronColossus(item_level)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 1.5)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "armor", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 3)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollMagistratesHood(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_magistrates_hood", "immortal", "Magistrate's Hood", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_magistrates_hood"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_magistrate", "#fab60a", 1, "#property_magistrate_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "t3_rune", 1)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -4453,34 +4479,6 @@ function RPCItems:RollCeruleanHighguard(item_level)
     RPCItems:RollHoodProperty4(item, 0)
 
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollMagistratesHood(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_magistrates_hood", "immortal", "Magistrate's Hood", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "magistrate"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_magistrate", "#fab60a", 1, "#property_magistrate_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.ceil(value * 2)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local luck = RandomInt(1, 4)
-    if luck == 1 then
-        local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = math.floor(value*0.5)
-        item.newItemTable.property3name = runeName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    else
-        RPCItems:RollHoodProperty3(item, 0)
-    end
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, false, deathLocation)
     return item
 end
 

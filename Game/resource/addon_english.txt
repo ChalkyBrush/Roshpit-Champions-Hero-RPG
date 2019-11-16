@@ -13312,6 +13312,18 @@
 		"item_rpc_iron_colussus_sapphire1" "Reduces [W] Ability Mana drain by @sapphire_property1"
 		"item_rpc_iron_colussus_amethyst1" "Attacks deal an additional @amethyst_property1x of Attack Power"
 
+		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
+		"item_property_magistrate"											"Artillery Magus"
+		"property_magistrate_description"								"All instances of Magical and Pure damage deal their damage to all targets in a <font color='#ccff66'>300</font> radius. This effect relies on charges; there are <font color='#ccff66'>7</font> max charges, and one will be replenished every <font color='#ccff66'>1</font> second. All area damage you deal is increased by <font color='#ccff66'>5</font>% for each enemy in its radius."
+
+		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Artillery Magus Charges"
+		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Magical and Pure damage dealt affects an area as long as charges remain"
+
+		"item_rpc_magistrates_hood_ruby1"	"Increases max number of charges by @ruby_property1"
+		"item_rpc_magistrates_hood_emerald1"	"Increases the damage amp per enemy in the radius by an additional @emerald_property1%"
+		"item_rpc_magistrates_hood_sapphire1" "Increases Spell Pierce by @sapphire_property1"
+		"item_rpc_magistrates_hood_amethyst1" "Increases [W] Base Ability Damage by @amethyst_property1%"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
@@ -13463,12 +13475,7 @@
 	
 
 
-		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
-		"item_property_magistrate"											"Artillery Magus"
-		"property_magistrate_description"								"All instances of Magical and Pure damage deal their damage to all targets in a <font color='#ccff66'>300</font> radius. This effect relies on charges; there are <font color='#ccff66'>8</font> max charges, and one will be replenished every <font color='#ccff66'>1</font> second. All area damage you deal is increased by <font color='#ccff66'>50</font>% for each enemy in its radius."
 
-		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Artillery Magus Charges"
-		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Magical and Pure damage dealt affects an area as long as charges remain"
 
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"

@@ -13335,7 +13335,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"审判者的兜帽"
 		"item_property_magistrate"											"技能扩散"
-		"property_magistrate_description"								"所有魔法和纯粹伤害将会对<font color='#ccff66'>300</font>范围内的敌人造成 AOE伤害。 AOE 效果拥有 <font color='#ccff66'>8</font> 点充能，每<font color='#ccff66'>1</font> 秒获得一层充能。所有aoe伤害将会增加 <font color='#ccff66'>50</font>%。"
+		"property_magistrate_description"								"所有魔法和纯粹伤害将会对<font color='#ccff66'>300</font>范围内的敌人造成 AOE伤害。 AOE 效果拥有 <font color='#ccff66'>7</font> 点充能，每<font color='#ccff66'>1</font> 秒获得一层充能。所有aoe伤害将会增加 <font color='#ccff66'>5</font>%。"
 
 		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"技能扩散充能"
 "DOTA_Tooltip_modifier_magistrates_hood_charges_Description" "只要充能层数大于0层，所有魔法和纯粹伤害都会造成aoe伤害。"

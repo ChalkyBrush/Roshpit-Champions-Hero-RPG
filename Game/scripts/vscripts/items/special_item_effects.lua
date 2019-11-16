@@ -6181,8 +6181,9 @@ function magistrates_hood_thinker(event)
 	local hero = event.target
 	local current_stacks = hero:GetModifierStackCount("modifier_magistrates_hood_charges", caster)
 	if current_stacks and type(current_stacks) == "number" then
+		local max_charges = MAGISTRATE_HOOD_MAX_CHARGES + ability:GetFinalGemPropertyValue("ruby", MAGISTRATE_RUBY)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_magistrates_hood_charges", {})
-		hero:SetModifierStackCount("modifier_magistrates_hood_charges", caster, math.min(MAGISTRATE_HOOD_MAX_CHARGES, current_stacks + 1))
+		hero:SetModifierStackCount("modifier_magistrates_hood_charges", caster, math.min(max_charges, current_stacks + 1))
 	end
 end
 
