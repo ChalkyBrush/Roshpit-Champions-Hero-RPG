@@ -1138,7 +1138,7 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_scourge_knight") then
         Filters:ScourgeKnight(caster)
     end
-    if caster:HasModifier("modifier_desert_necromancer") then
+    if caster:HasModifier("modifier_mask_of_the_desert_necromancer") then
         Filters:ReanimateThorok(caster)
     end
     if caster:HasModifier("modifier_autumn_sleeper_mask") then
@@ -3330,36 +3330,42 @@ function Filters:RedrockFootwear(caster)
 end
 
 function Filters:ReanimateThorok(caster)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    if ability.thorok and IsValidEntity(ability.thorok) and ability.thorok:IsAlive() then
+        ability.thorok:ForceKill(false)
+    end
     local thorok = CreateUnitByName("thorok_reborn", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
     thorok.owner = caster:GetPlayerOwnerID()
+    thorok.hero = caster
     thorok.summoner = caster
     thorok:SetOwner(caster)
     thorok:SetControllableByPlayer(caster:GetPlayerID(), true)
-    thorok.dieTime = 10
+    thorok.dieTime = DESERT_NECROMANCER_LIFE_DURATION + ability:GetFinalGemPropertyValue("ruby", DESERT_NECROMANCER_RUBY2)
     thorok:AddAbility("ability_die_after_time_generic"):SetLevel(1)
+    ability.thorok = thorok
     StartAnimation(thorok, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.0})
-    local summonAbil = thorok:AddAbility("ability_summoned_unit")
-    summonAbil:SetLevel(1)
-    thorok:SetModelScale(1.19)
-    local thorokDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 8
-    thorokDamage = Filters:AdjustItemDamage(caster, thorokDamage, nil)
-    thorok:SetBaseDamageMin(thorokDamage)
-    thorok:SetBaseDamageMax(thorokDamage)
-    EmitSoundOn("life_stealer_lifest_ability_rage_03", thorok)
-    local minionHealth = math.floor(caster:GetMaxHealth() * 4)
-    minionHealth = Filters:AdjustItemDamage(caster, minionHealth, nil)
-    thorok:SetMaxHealth(minionHealth)
-    thorok:SetBaseMaxHealth(minionHealth)
-    thorok:SetHealth(minionHealth)
-    thorok:Heal(minionHealth, thorok)
-    thorok:RemoveAbility("thorok_reborn_ai")
-    thorok:RemoveModifierByName("modifier_thorok_reborn_ai")
-    thorok:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false), nil))
-    thorok:SetAcquisitionRange(2900)
-    if caster:GetHealth() < caster:GetMaxHealth() * 0.4 then
-        EmitSoundOn("Hero_LifeStealer.Rage", thorok)
-        caster.necro_hood:ApplyDataDrivenModifier(caster.InventoryUnit, thorok, "modifier_thorok_enraged", {duration = 15})
-        thorok:SetModelScale(1.55)
+    local target_scale = 0.9
+    EmitSoundOn("RPCItems.Thorok.Spawn", thorok)
+    CustomAbilities:QuickAttachParticle("particles/econ/items/lifestealer/lifestealer_immortal_backbone_gold/lifestealer_immortal_backbone_gold_rage.vpcf", thorok, 0.5)
+    if caster:GetHealth() < caster:GetMaxHealth() * (THOROK_RAGE_CASTER_HP_THRESHOLD/100) then
+        EmitSoundOn("RPCItems.Thorok.Rage", thorok)
+        caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, thorok, "modifier_thorok_enraged", {})
+        target_scale = 1
+    end
+    Events:smoothSizeChange(thorok, 0.1, target_scale, 40)
+    thorok:AddAbility("thorok_toggle_ai"):SetLevel(1)
+    thorok:FindAbilityByName("thorok_toggle_ai"):ToggleAbility()
+
+    local health_mult = THOROK_CASTER_HP + ability:GetFinalGemPropertyValue("ruby", DESERT_NECROMANCER_RUBY1)
+    thorok:AdjustSummon(caster, true, health_mult, THOROK_CASTER_ATTACK_DMG, THOROK_CASTER_ARMORS_AND_PIERCES, THOROK_CASTER_ARMORS_AND_PIERCES, THOROK_CASTER_ARMORS_AND_PIERCES, THOROK_CASTER_ARMORS_AND_PIERCES)
+
+    if ability:GetGemValue("sapphire") > 0 then
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, thorok, "modifier_thorok_sapphire", {})
+        thorok:SetModifierStackCount("modifier_thorok_sapphire", caster.InventoryUnit, ability:GetFinalGemPropertyValue("sapphire", DESERT_NECROMANCER_SAPPHIRE))
+    end
+    if ability:GetGemValue("amethyst") > 0 then
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, thorok, "modifier_thorok_amethyst", {})
+        thorok:SetModifierStackCount("modifier_thorok_amethyst", caster.InventoryUnit, ability:GetFinalGemPropertyValue("amethyst", DESERT_NECROMANCER_AMETHYST))
     end
 end
 

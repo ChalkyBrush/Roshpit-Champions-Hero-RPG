@@ -4172,6 +4172,28 @@ function RPCItems:RollMugatoMask(item_level)
     return item
 end
 
+function RPCItems:RollNecromancerMask(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_mask_of_the_desert_necromancer", "immortal", "Mask of the Desert Necromancer", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_mask_of_the_desert_necromancer"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_desert_necromancer", "#B38C66", 1, "#property_desert_necromancer_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollOceanHelmOfValdun(deathLocation, bBossDrop)
     local item = RPCItems:CreateVariant("item_rpc_ocean_helm_of_valdun", "immortal", "Ocean Helm of Val'Dun", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4591,32 +4613,6 @@ function RPCItems:RollScourgeKnightHelm(item_level)
     item.newItemTable.property3name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_bonus_attack_damage", "#343EC9", 3)
 
-    RPCItems:RollHoodProperty4(item, 0)
-
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollNecromancerMask(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_mask_of_the_desert_necromancer", "immortal", "Mask of the Desert Necromancer", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "desert_necromancer"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_desert_necromancer", "#B38C66", 1, "#property_desert_necromancer_description")
-    local value = 0
-    local luck = RandomInt(1, 5)
-    if luck > 4 then
-        value = RandomInt(15, 25)
-    elseif luck > 3 then
-        value = RandomInt(10, 20)
-    else
-        value = RandomInt(5, 15)
-    end
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "lifesteal"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_lifesteal", "#B1E3B9", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
 
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)

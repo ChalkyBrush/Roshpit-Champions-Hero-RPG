@@ -436,6 +436,18 @@
 		"item_rpc_mask_of_mugato_sapphire1" "While silenced, drain @sapphire_property1 mana per second and gain @sapphire_property2% Base Ability Damage"
 		"item_rpc_mask_of_mugato_amethyst1" "While silenced, drain @amethyst_property1 mana per second and gain @amethyst_property2% Item Damage"		
 
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
+		"item_property_desert_necromancer"			"Reanimate Thorok"
+		"property_desert_necromancer_description"	"When you cast @Ability4, summon the abomination Thorok for <% DESERT_NECROMANCER_LIFE_DURATION %> seconds. He has <% THOROK_CASTER_ATTACK_DMG%>x your attack damage, <% THOROK_CASTER_HP %>x your health and <% THOROK_CASTER_ARMORS_AND_PIERCES%>x your Armor and Pierces at the time of summoning. If you summon him while below <% THOROK_RAGE_CASTER_HP_THRESHOLD %>% health, he will be enraged, gaining <% THOROK_RAGE_AS %> attack speed and <% THOROK_RAGE_MS %> movement speed. Summoning Thorok while he's already alive will kill the original one. All damage dealt by Thorok is attributed to his master."
+
+		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"Increases Thorok's health multiple by @ruby_property1x his master's, and increases his life duration by @ruby_property2 seconds"
+		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"Thorok has @emerald_property1% lifesteal that also heals his master"
+		"item_rpc_mask_of_the_desert_necromancer_sapphire1" "Thorok has @sapphire_property1% increased attack power"
+		"item_rpc_mask_of_the_desert_necromancer_amethyst1" "Increases Thorok's attack speed by @amethyst_property1"	
+
+		"DOTA_Tooltip_ability_thorok_toggle_ai"		"Thorok AI"
+		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Toggle on for Thorok to have default behaviour"
+
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
 		 "item_property_shipyard_veil_3"					"Soul Shield"
 		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<% SHIPYARD_SHIELD_COOLDOWN %> second cooldown). Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks. Each stack increases Base Ability damage of @Ability1 by <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Enemies who damage the shield are targeted by a skull that deals <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x your primary attribute as magic damage."
@@ -511,11 +523,6 @@
 		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack power, 25% of your max health and 1x your Armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff aura to all nearby allies."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
-		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"When you cast @Ability4, summon the abomination Thorok for 10 seconds. He has 8x your attack damage, 4x your health and 1x your Armor. If you summon him while below 40% health, he will be enraged, gaining 160 attack speed and 100 movement speed."
 		
 		
 		

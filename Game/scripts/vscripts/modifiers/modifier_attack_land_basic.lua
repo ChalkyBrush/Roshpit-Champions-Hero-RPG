@@ -43,6 +43,33 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			end
 			return false
 		end
+		if parent:GetUnitName() == "thorok_reborn" then
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+			if parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+				local adjusted_damage = CustomAttributes:AdjustDamageForRoshpitAttributes(parent, event.target, DAMAGE_TYPE_PHYSICAL, damage, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetEntityIndex())
+				local lifesteal = math.floor(adjusted_damage * parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", DESERT_NECROMANCER_EMERALD)/100)
+				print(lifesteal)
+				Filters:ApplyHeal(parent.hero, parent.hero, lifesteal, true, true)
+				Filters:ApplyHeal(parent, parent, lifesteal, true, true)
+
+				local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, parent)
+				ParticleManager:SetParticleControlEnt(pfx, 0, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+				ParticleManager:SetParticleControlEnt(pfx, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin() + Vector(0, 0, 70), true)
+				Timers:CreateTimer(1, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)	
+				local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, parent.hero)
+				ParticleManager:SetParticleControlEnt(pfx, 0, parent.hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent.hero:GetAbsOrigin(), true)
+				ParticleManager:SetParticleControlEnt(pfx, 1, parent.hero, PATTACH_POINT_FOLLOW, "attach_hitloc", parent.hero:GetAbsOrigin() + Vector(0, 0, 70), true)
+				Timers:CreateTimer(1, function()
+					ParticleManager:DestroyParticle(pfx, false)
+				end)			
+			end
+			return false
+		end
 		Damage:Apply({
 			source = Events.GameMasterAttackAbility,
 			sourceType = BASE_AUTO_ATTACK,

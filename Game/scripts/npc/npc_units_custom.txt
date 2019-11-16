@@ -22566,9 +22566,8 @@
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "9090"
         "AttackDamageMax"   "12000"
-        "AttackRate"    "1.3"
+        "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.4"
-        "AttackAcquisitionRange"    "99999"
         "AttackRange"   "180"
         "BountyGoldMin" "520"
         "BountyGoldMax" "575"
@@ -22584,7 +22583,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "390"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "460020"
+        "StatusHealth"  "10"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -22603,29 +22602,26 @@
                 //weapon
                 "Wearable1"
                 {
-                    "ItemDef"   "6466"
+                    "ItemDef"   "7395"
                 }
                 //head
                 "Wearable2"
                 {
-                    "ItemDef"   "6320"
+                    "ItemDef"   "7393"
                 }
                 //armor
                 "Wearable3"
                 {
-                    "ItemDef"   "6321"
+                    "ItemDef"   "7392"
                 }
                 "Wearable4"
                 {
-                    "ItemDef"   "6262"
+                    "ItemDef"   "7394"
                 }
             }
 
 
         }
-        "Ability1"  "armor_break"
-        "Ability2"  "dungeon_creep"
-        "Ability3"  "thorok_reborn_ai"
     }
 
     "grave_watcher"

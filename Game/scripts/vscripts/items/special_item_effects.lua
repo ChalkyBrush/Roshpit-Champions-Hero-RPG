@@ -6644,3 +6644,33 @@ function luma_thinker(event)
 		AddFOWViewer(target:GetTeamNumber(), target:GetAbsOrigin(), vision_radius, 2, false)
 	end
 end
+
+function thorok_on(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(900)
+end
+
+function thorok_off(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(0)
+end
+
+function thorok_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
+end

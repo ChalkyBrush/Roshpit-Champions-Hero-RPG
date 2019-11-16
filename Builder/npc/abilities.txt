@@ -42232,6 +42232,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"health_regen_percent"			"0 -2 -5"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"debuff_duration"			"3.5"
+			}
 		}
 		"Modifiers"
 		{
@@ -42245,8 +42250,14 @@
 					{
 						"ModifierName"	"modifier_ghost_mace_debuff"
 						"Target" 		"TARGET"
-						"Duration"		"3.5"
+						"Duration"		"%debuff_duration"
 					}
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+					"Function"		"ghost_mace_apply"
+					"debuff_duration"	"%debuff_duration"
 				}
 			}
 			"modifier_ghost_mace_debuff"
@@ -42272,9 +42283,16 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_percent"
 					"MODIFIER_PROPERTY_DISABLE_HEALING"			"1"
 				}
+			}
+			"modifier_ghost_mace_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_percent"
+				}				
 			}
 
 		}
@@ -52941,6 +52959,102 @@
 				}
 			}
 		}
+	}
+
+	"thorok_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"life_stealer_rage"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thorok_passive"
+			{	
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnDeath"
+				{
+					"FireSound"
+					{
+						"EffectName"	"RPCItems.Thorok.Death"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_off"
+					}
+				}
+			}
+		}
+
 	}
 
 	//SERENGAARD

@@ -1201,3 +1201,13 @@ function redfall_canyon_feronia_die(event)
 	local unit = event.unit
 	RPCItems:RollGuardOfFeronia(unit:GetAbsOrigin())
 end
+
+function ghost_mace_apply(event)
+	local target = event.target
+	local duration = event.debuff_duration
+	local ability = event.ability
+	local caster = event.caster
+	if target:IsHero() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_mace_health_regen_loss", {duration = duration})
+	end
+end

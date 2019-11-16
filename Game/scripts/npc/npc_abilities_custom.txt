@@ -30060,7 +30060,6 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 			}
 			"modifier_conjuror_a_c_buff_visible"
@@ -32231,11 +32230,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one_base"		"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
 			}
 			"04"
 			{
@@ -34679,19 +34673,24 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"5"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
+				"base_ability"			"4"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"7"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"1"
@@ -47732,7 +47731,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"12"
 			}
 			"04"
 			{
@@ -47755,17 +47754,18 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"3"
 			}
 			"03"
 			{
@@ -50938,6 +50938,23 @@
 		}
 		"Modifiers"
 		{
+			"modifier_epoch_w_1_hp_restoration"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_essence_aura"
+				"EffectName"	"particles/roshpit/epoch/epoch_a_b_effect.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/obsidian_destroyer/epoch_2_w"
+						"Function"		"epoch_w_1_hp_restore_think"
+					}
+				}
+			}
 			"modifier_epoch_rune_thinker"
 			{
 				"Passive" "1"
@@ -51602,7 +51619,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"4"
 			}
 		}
 		"Modifiers"
@@ -129986,6 +130003,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"health_regen_percent"			"0 -2 -5"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"debuff_duration"			"3.5"
+			}
 		}
 		"Modifiers"
 		{
@@ -129999,8 +130021,14 @@
 					{
 						"ModifierName"	"modifier_ghost_mace_debuff"
 						"Target" 		"TARGET"
-						"Duration"		"3.5"
+						"Duration"		"%debuff_duration"
 					}
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+					"Function"		"ghost_mace_apply"
+					"debuff_duration"	"%debuff_duration"
 				}
 			}
 			"modifier_ghost_mace_debuff"
@@ -130026,9 +130054,16 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_percent"
 					"MODIFIER_PROPERTY_DISABLE_HEALING"			"1"
 				}
+			}
+			"modifier_ghost_mace_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_percent"
+				}				
 			}
 
 		}
@@ -140695,6 +140730,102 @@
 				}
 			}
 		}
+	}
+
+	"thorok_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"life_stealer_rage"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thorok_passive"
+			{	
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnDeath"
+				{
+					"FireSound"
+					{
+						"EffectName"	"RPCItems.Thorok.Death"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_off"
+					}
+				}
+			}
+		}
+
 	}
 
 	//SERENGAARD

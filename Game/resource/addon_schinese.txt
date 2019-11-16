@@ -9847,7 +9847,7 @@
 		"item_rpc_sorceress_glyph_6_2_description" 				"火焰打击的火元素伤害减少将提高 <font color='#ccff66'>2</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"奥法吟唱雕文"
-		"item_rpc_sorceress_glyph_7_2_description" 				" @Ability2 的伤害将提高 <font color='#ccff66'>2.5</font>x，并且将额外消耗  <font color='#ccff66'>5</font>% 的最大魔法值。"
+		"item_rpc_sorceress_glyph_7_2_description" 				" @Ability2 的伤害将提高 <font color='#ccff66'>2.5</font>x，并且将额外消耗  <font color='#ccff66'>1</font>% 的最大魔法值。"
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"魔法巫女雕文书"
 		"DOTA_Tooltip_ability_glyph_book_desc"					"使用将永久学会如何在雕文师处制作 @consumableProperty3 雕文。"

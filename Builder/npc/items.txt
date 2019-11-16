@@ -18920,57 +18920,6 @@
 		}
 	}
 
-	"item_rpc_mask_of_the_desert_necromancer"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/mask_of_the_desert_necromancer" //"mask_of_the_desert_necromancer"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_desert_necromancer"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "99999"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_thorok_enraged"
-			{
-				"IsHidden" "1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
-				"StatusEffectPriority"  "15"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "160"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "100"
-				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"60"
-				}
-			}
-		}
-	}
-
 	"item_rpc_mask_of_the_phantom_sorcerer"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
