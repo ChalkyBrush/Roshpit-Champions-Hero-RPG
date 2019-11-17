@@ -125,7 +125,7 @@
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=\"#F6FFB5\">Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font><br>Наносимый урон игнорирует свойство монстров 'Стойкость'."
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=\"#F6FFB5\">Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font>."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН"	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА"

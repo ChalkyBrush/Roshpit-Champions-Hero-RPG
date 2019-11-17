@@ -1,5 +1,5 @@
 		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for 7 seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for <% ARKIMUS_Q_COIL_BASE_DURATION %> seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
     	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"CAST RANGE:"
 
@@ -17,7 +17,7 @@
     	"DOTA_Tooltip_modifier_zonis_q_1_armor_loss_Description"				"Reduced Armor"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] Zonal Net"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every 0.2 seconds in an area around Arkimus. Lasts 1 second."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every <% ARKIMUS_Q2_THINK_INTERVAL %> seconds in an area around Arkimus. Lasts <% ARKIMUS_Q2_DURATION_BASE %> second."
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"Radius"
@@ -36,7 +36,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"Damage Increase"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Coil Duration Increase"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" seconds"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						"%"
 
     	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"Flash Source"
     	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on for a flood of arcane energy to enchant Arkimus' weapons, causing his attacks to deal extra arcane damage in an area around the target. Each attack drains mana. Ability is toggled off when mana is too low."

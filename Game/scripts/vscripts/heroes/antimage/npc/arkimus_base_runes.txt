@@ -97,7 +97,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_Q4_COIL_ADD_DURATION %>"
+				"property_two"			"<% ARKIMUS_Q4_COIL_ADD_DURATION_PCT * 100 %>"
 			}
 		}
 	}

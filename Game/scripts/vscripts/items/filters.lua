@@ -2151,7 +2151,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         elseif unitName == "npc_dota_hero_leshrac" then
             if attacker.e_4_level then
-                mult = mult + BAHAMUT_E4_HOLY_AMP/100 * attacker.e_4_level
+                mult = mult + BAHAMUT_E4_HOLY_AMP * attacker.e_4_level
             end
         elseif unitName == "npc_dota_hero_zuus" then
             if attacker:HasModifier("modifier_holy_wrath_passive") then

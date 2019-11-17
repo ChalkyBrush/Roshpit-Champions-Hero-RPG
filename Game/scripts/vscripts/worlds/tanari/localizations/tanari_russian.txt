@@ -562,7 +562,7 @@
 		 
 		 "water_temple_amphi_lizard_rider"								"Наездник земноводных ящериц"
 
-		 "water_temple_boss"											"Король Кэл'тас"
+		 "water_temple_boss"											"Король Kraethas"
 
 		 "DOTA_Tooltip_ability_water_temple_boss_bubble"				"Пузырь"
 		 "DOTA_Tooltip_ability_water_temple_boss_bubble_Description"	"Враги в присутствии Короля теряют урон, фиксируя его на % от макс. здоровья"	
@@ -575,11 +575,11 @@
 		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"Со всей мощи бьет о землю, оглушая задетых врагов."
 
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"Вздымающиеся волны"
-		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Каждый раз, получая урон, Королю даруется заряд умения. Когда количество зарядов достигнет 8, цель будет оглушена мощным потоком."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Каждый раз, получая урон, Королю даруется заряд умения. Когда количество зарядов достигнет 15, цель будет оглушена мощным потоком."
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"УРОН:"
 
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"Вздымающаяся волна"	
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"Каждый раз, атакуя Короля Кэл'тас, будет добавлен заряд умения. Когда накопится 8 зарядов, цель будет оглушена и получит урон."
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect"					"Вздымающаяся волна"	
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect_Description"		"Каждый раз, атакуя Короля Kraethas, будет добавлен заряд умения. Когда накопится 15 зарядов, цель будет оглушена и получит урон."
 
 		 "DOTA_Tooltip_modifier_whirlpool_effect"					"Водоворот"
 		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"В пределах водоворота Короля"

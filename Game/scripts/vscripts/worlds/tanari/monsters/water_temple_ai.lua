@@ -1453,7 +1453,7 @@ function water_temple_boss_take_damage(event)
 	local currentStacks = attacker:GetModifierStackCount("modifier_rising_tides_stacking_effect", caster)
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_rising_tides_stacking_effect", {duration = 5})
 	attacker:SetModifierStackCount("modifier_rising_tides_stacking_effect", caster, currentStacks + 1)
-	if currentStacks + 1 >= 12 then
+	if currentStacks + 1 >= 15 then
 		attacker:RemoveModifierByName("modifier_rising_tides_stacking_effect")
 		WallPhysics:Jump(attacker, Vector(1, 1), 0, 32, 32, 0.9)
 		attacker:AddNewModifier(caster, nil, "modifier_stunned", {duration = 2.0})
