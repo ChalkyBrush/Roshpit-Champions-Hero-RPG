@@ -117,7 +117,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Увеличено магическое сопротивление и броня."
 		
 		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "С прочтением @Ability3 есть шанс, что герой получит заряды щита. Пока активны заряды щита, герой получает на <% AXE_E4_REDUCTION %>% меньше урона из всех источников. Длительность каждого заряда щита - 7 секунд. Значение шанса выше 100% гарантирует получение нескольких зарядов."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "С прочтением @Ability3 есть шанс, что герой получит заряды щита. Пока активны заряды щита, герой получает на <% AXE_E4_REDUCTION * 100 %>% меньше урона из всех источников. Длительность каждого заряда щита - 7 секунд. Значение шанса выше 100% гарантирует получение нескольких зарядов."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Шанс получения щита"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		

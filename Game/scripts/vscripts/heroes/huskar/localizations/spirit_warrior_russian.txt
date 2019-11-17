@@ -48,7 +48,7 @@
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] Windstrike Weapon"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"После прочтения способность (Q) Flameblood заменяется на (Q) Windstrike Weapon, которая усиливает выбранную союзную цель. Атаки под эффектом Windstrike наносят дополнительный ЧИСТЫЙ урон, зависящий от урона усиляемой цели. Умения (Q) Windstrike и (Q) Flameblood не могут использоваться одновременно на одной цели."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Доп. ЧИСТЫЙ урон"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Доп. чистый урон"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% от урона усиляемой цели"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"Windstrike Weapon"
@@ -118,7 +118,7 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff_Description"	"Ближайший Ancient Spirit усиливает вашу броню"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3"				"[E3] Tempest Haze"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "После прыжка к @Ability3, появляется буря, замедляющая врагов и запрещающая им произносить заклинания. Находясь внутри бури, герой получает на <% SPIRIT_WARRIOR_E3_DAMAGE_REDUCTION %>% меньше магического и чистого урона."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "После прыжка к @Ability3, появляется буря, замедляющая врагов и запрещающая им произносить заклинания. Находясь внутри бури, герой получает на <% SPIRIT_WARRIOR_E3_DAMAGE_REDUCTION * 100 %>% меньше магического и чистого урона."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_one"	"Урона в секунду"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix"		""
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_two"	"Длительность"	
