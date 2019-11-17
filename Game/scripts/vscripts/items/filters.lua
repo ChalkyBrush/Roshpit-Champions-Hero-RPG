@@ -1005,11 +1005,6 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_tome_of_chaos") then
         Filters:TomeOfChaos(caster)
     end
-    if caster:HasModifier("modifier_iron_colossus") then
-        local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-        local manaCost = IRON_COLOSSUS_W_MANA_LOSS - caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", IRON_COLOSSUS_SAPPHIRE)
-        caster:ReduceMana(manaCost)
-    end
     if caster:HasModifier("modifier_auriun_immortal_weapon_3") then
         if caster:GetUnitName() == "npc_dota_hero_zuus" then
             if not caster:HasModifier("modifier_auriun_immortal_weapon_3_effect") then
@@ -2353,11 +2348,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * q_4_level
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
-                if attacker:HasModifier('modifier_seinaru_glyph_7_1') then
-                    mult = mult + SEINARU_W4_WIND_PCT_PER_AGI * (SEINARU_GLYPH7_AGI_PART * attacker:GetAgility() + SEINARU_GLYPH7_STR_PART * attacker:GetStrength()) * attacker.w_4_level
-                else
-                    mult = mult + SEINARU_W4_WIND_AMP * attacker.w_4_level
-                end
+                mult = mult + SEINARU_W4_WIND_AMP * attacker.w_4_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_arcana1") then

@@ -770,6 +770,16 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					gearTable.property1color = "#E8A917"
 					gearTable.property1special = "#property_scorched_gauntlet_description_2"
 					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scorched_gauntlet_2", "#E8A917",  1, "#property_scorched_gauntlet_description_2")
+				elseif gearTable.item_variant == "item_rpc_iron_colussus" then
+
+					gearTable.item_variant = "item_rpc_helm_of_the_iron_colossus"
+					gearTable.item_name = "Helm of the Iron Colossus"
+
+					gearTable.property1name = "!immortal!_modifier_helm_of_the_iron_colossus"
+					gearTable.property1 = 1
+					gearTable.property1tooltip = "#item_property_helm_of_the_iron_colossus"
+					gearTable.property1color = "#874E4D"
+					gearTable.property1special = "#property_helm_of_the_iron_colossus_description"
 				end
 
 				item = RPCItems:CreateVariantWithMin(gearTable.item_variant,

@@ -169,7 +169,7 @@ function CustomAbilities:IceQuill(event)
 					ability.manaSpent = 0
 				end
 				local bonusManaSpent = 0
-				if target:HasModifier("modifier_iron_colossus") then
+				if target:HasModifier("modifier_helm_of_the_iron_colossus") then
 					if executedAbility:GetManaCost(executedAbility:GetLevel() - 1) > 0 then
 						bonusManaSpent = bonusManaSpent + 1000
 					end
