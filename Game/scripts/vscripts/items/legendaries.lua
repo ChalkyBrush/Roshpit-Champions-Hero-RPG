@@ -4105,26 +4105,6 @@ function RPCItems:RollIgneousCanineHelm(item_level)
     return item
 end
 
-function RPCItems:RollIronColossus(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_iron_colussus", "immortal", "Helm of the Iron Colossus", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_iron_colossus"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_iron_colossus", "#874E4D", 1, "#property_iron_colossus_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "armor", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 3)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollMagistratesHood(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -8260,8 +8240,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollBrazenKabuto(item_level)
     elseif itemName == "item_rpc_odin_helmet" then
         newItem = RPCItems:RollOdinHelmet(item_level)
-    elseif itemName == "item_rpc_iron_colussus" then
-        newItem = RPCItems:RollIronColossus(item_level)
     elseif itemName == "item_rpc_mask_of_mugato" then
         newItem = RPCItems:RollMugatoMask(item_level)
     elseif itemName == "item_rpc_swamp_witch_hat" then
@@ -8814,7 +8792,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     if gear_slot == RPC_GEAR_SLOT_HEAD then
         itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
         "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli", "item_rpc_excavators_focus_cap",
-        "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler", "item_rpc_hyper_visor", "item_rpc_iron_colussus", "item_rpc_mask_of_mugato",
+        "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler", "item_rpc_hyper_visor", "item_rpc_helm_of_the_iron_colossus", "item_rpc_mask_of_mugato",
         "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius", "item_rpc_scourge_knights_helm", "item_rpc_odin_helmet", "item_rpc_shroud_of_eternal_night", "item_rpc_stormcrack_helm",
         "item_rpc_super_ascendency_mask"}
     end

@@ -100,11 +100,11 @@
 		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"钢铁巨象头盔"
-		"item_property_iron_colossus"				"钢铁巨象"	
-		"property_iron_colossus_description"		"每点力量值提高基础攻击力 <% IRON_COLOSSUS_ATT_PER_STR %> 和护甲值 <% IRON_COLOSSUS_AMR_PER_STR %> 。并且体型长大 15%。攻击速度固定为 <% IRON_COLOSSUS_ATT_SPD %> 且变为近战攻击。攻击会眩晕敌人 0.5 秒，并且额外造成 <% IRON_COLOSSUS_DMG_PER_ATT %>x 的物理伤害。施放 @Ability2 额外消耗 1000 点魔法值。"
-		"DOTA_Tooltip_modifier_iron_colossus"					"钢铁巨象"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"攻击额外造成 50x 的物理伤害，眩晕敌人0.5秒。体型增大，攻击速度固定为100，且变为近战。力量值额外提高基础攻击力和护甲值。"
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_iron_colossus"									"钢铁巨象头盔"
+		"item_property_helm_of_the_iron_colossus"				"钢铁巨象"	
+		"property_helm_of_the_iron_colossus_description"		"每点力量值提高基础攻击力 <% IRON_COLOSSUS_ATT_PER_STR %> 和护甲值 <% IRON_COLOSSUS_AMR_PER_STR %> 。并且体型长大 15%。攻击速度固定为 <% IRON_COLOSSUS_ATT_SPD %> 且变为近战攻击。攻击会眩晕敌人 0.5 秒，并且额外造成 <% IRON_COLOSSUS_DMG_PER_ATT %>x 的物理伤害。施放 @Ability2 额外消耗 1000 点魔法值。"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus"					"钢铁巨象"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"攻击额外造成 50x 的物理伤害，眩晕敌人0.5秒。体型增大，攻击速度固定为100，且变为近战。力量值额外提高基础攻击力和护甲值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"穆咖钭面具"

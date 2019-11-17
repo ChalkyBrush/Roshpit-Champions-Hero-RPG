@@ -555,24 +555,6 @@ function odin_attack(event)
 	end
 end
 
-function iron_colossus_init(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	target:AddNewModifier(target, ability, "modifier_iron_colossus_lua", {})
-end
-
-function iron_colossus_attack(event)
-	local attacker = event.attacker
-	local target = event.target
-	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (IRON_COLOSSUS_DMG_PER_ATT + ability:GetFinalGemPropertyValue("amethyst", IRON_COLOSSUS_AMETHYST))
-	if not target.dummy then
-		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-		Filters:ApplyStun(attacker, IRON_COLOSSUS_STUN_DURATION, target)
-	end
-end
-
 function witch_hat_strike(event)
 	local ability = event.ability
 	local caster = ability.caster

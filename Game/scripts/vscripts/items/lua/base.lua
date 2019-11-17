@@ -8,16 +8,16 @@ local normalPropertiesTable = {
     }
 }
 function class:RollProperty1(item_level)
-    error('Define roll1')
+    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 1, item_level, nil, 1)
 end
 function class:RollProperty2(item_level)
-    error('Define roll2')
+    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, nil, 1)
 end
 function class:RollProperty3(item_level)
-    error('Define roll3')
+    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 3, item_level, nil, 1)
 end
 function class:RollProperty4(item_level)
-    error('Define roll4')
+    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 4, item_level, nil, 1)
 end
 function class:RollArmor(item_level)
     error('Define armor roll')
@@ -89,6 +89,7 @@ function class:CreateLuaItem(item_level)
     self:RollProperty4(item_level)
     self:RollArmor(item_level)
     self:RollMagicArmor(item_level)
+    RPCItems:SocketsChance(self)
     RPCItems:SetBaseItemValues(self, self:GetClassName(), false, 
         RPCItems.BASIC_ITEMS_SLOT_TEXT[self:GetSlotNumber()], RPC_ITEM_RARITY_COLORS[RPC_ITEMS_RARITY_IMMORTAL], 
         RPCItems:GetRarityNameFromFactor(RPC_ITEMS_RARITY_IMMORTAL), RPC_ITEMS_RARITY_IMMORTAL, item_level, self:GetSlotNumber())
