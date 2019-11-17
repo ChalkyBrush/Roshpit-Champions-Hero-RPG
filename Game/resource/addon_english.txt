@@ -13403,7 +13403,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
 		"item_property_eternal_night"				"Tranquilizer"
-		"property_eternal_night_description"		"Enemies who attack you have a <font color='#ccff66'>60</font>% chance to be put to sleep for <font color='#ccff66'>6</font> seconds. Any source of damage wakes up a sleeping unit. For the first <font color='#ccff66'>1</font> second of sleep, the unit cannot be awoken. Enemies become immune to this sleep effect for <font color='#ccff66'>4</font> seconds after it expires."
+		"property_eternal_night_description"		"Enemies who attack you have a <font color='#ccff66'>60</font>% chance to be put to sleep for <font color='#ccff66'>6</font> seconds. Any source of damage wakes up a sleeping unit. For the first <font color='#ccff66'>1</font> second of sleep, the unit cannot be awoken. Enemies become immune to this sleep effect for <font color='#ccff66'>2</font> seconds after it expires."
 
 		"item_rpc_shroud_of_eternal_night_ruby1"	"Enemies hit by [W] have a @ruby_property1% chance to fall asleep"
 		"item_rpc_shroud_of_eternal_night_emerald1"	"Increases the primary sleep duration by @emerald_property1 seconds"

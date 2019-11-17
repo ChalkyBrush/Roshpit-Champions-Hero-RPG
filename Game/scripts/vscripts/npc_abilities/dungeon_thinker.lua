@@ -1704,7 +1704,8 @@ function DungeonCreep(event)
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #units > 0 then
 			for i = 1, #units, 1 do
-				if not units[i]:HasModifier("modifier_trapper_stealth") then
+				if units[i]:HasModifier("modifier_trapper_stealth") or units[i]:IsInvisible() then
+				else
 					local heightDiff = units[i]:GetAbsOrigin().z - caster:GetAbsOrigin().z
 					local height_compare = 200
 					if caster.aggro_height_adjust then
