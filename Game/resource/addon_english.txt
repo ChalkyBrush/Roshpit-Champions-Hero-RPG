@@ -2125,7 +2125,7 @@
 
 
 		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for 7 seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for <font color='#ccff66'>7</font> seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
     	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"DAMAGE:"
     	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"CAST RANGE:"
 
@@ -2143,7 +2143,7 @@
     	"DOTA_Tooltip_modifier_zonis_q_1_armor_loss_Description"				"Reduced Armor"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] Zonal Net"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every 0.2 seconds in an area around Arkimus. Lasts 1 second."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every <font color='#ccff66'>0.2</font> seconds in an area around Arkimus. Lasts <font color='#ccff66'>1</font> second."
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"Damage"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"Radius"
@@ -2162,7 +2162,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"Damage Increase"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Coil Duration Increase"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" seconds"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						"%"
 
     	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"Flash Source"
     	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on for a flood of arcane energy to enchant Arkimus' weapons, causing his attacks to deal extra arcane damage in an area around the target. Each attack drains mana. Ability is toggled off when mana is too low."
@@ -3087,7 +3087,7 @@
         "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% of attack damage"
 	
 	"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] Berserker Rage"
-        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Whenever you land an attack - gain attack speed and base attack damage. If you don't attack for 10 seconds all charges are lost. Max <font color='#ccff66'>50</font> stacks."
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Whenever you land an attack - gain attack speed and base attack damage. If you don't attack for 10 seconds all charges are lost. Max <font color='#ccff66'>30</font> stacks."
         "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "Attack Speed Per Charge"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "Attack Damage Per Charge"
@@ -10459,7 +10459,7 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff_Description"	"Increased armor from a nearby Ancient Spirit"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3"				"[E3] Tempest Haze"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes <font color='#ccff66'>0.5</font>% reduced Magical and Pure Damage while standing within the Tempest."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes <font color='#ccff66'>50</font>% reduced Magical and Pure Damage while standing within the Tempest."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_one"	"DPS"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix"		""
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_two"	"Duration"	
@@ -13300,16 +13300,16 @@
 		"item_rpc_igneous_canine_helm_sapphire1" "Increases the stun duration by @sapphire_property1 seconds"
 		"item_rpc_igneous_canine_helm_amethyst1" "Enemies standing in a lava pool have @amethyst_property1 reduced armor"
 
-    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
-		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Increases hero size by <font color='#ccff66'>20</font>%. Each point of Strength increases your base attack damage by <font color='#ccff66'>1.5</font> and Armor by <font color='#ccff66'>1</font>. Your attack speed is locked at <font color='#ccff66'>120</font> and your attack range is locked at <font color='#ccff66'>180</font>. Attacks stun the target for <font color='#ccff66'>0.5</font> seconds, and deal an additional instance of <font color='#ccff66'>2</font>x your attack power as Physical damage. @Ability2 costs <font color='#ccff66'>500</font> extra mana."
-		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"Attacks deal extra physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and Armor from Strength."
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_iron_colossus"									"Helm of the Iron Colossus"
+		"item_property_helm_of_the_iron_colossus"				"Iron Colossus"	
+		"property_helm_of_the_iron_colossus_description"		"Increases hero size by <font color='#ccff66'>20</font>%. Each point of Strength increases your base attack damage by <font color='#ccff66'>1.5</font> and Armor by <font color='#ccff66'>1</font>. Your attack speed is locked at <font color='#ccff66'>120</font> and your attack range is locked at <font color='#ccff66'>180</font>. Attacks stun the target for <font color='#ccff66'>0.5</font> seconds, and deal an additional instance of <font color='#ccff66'>2</font>x your attack power as Physical damage. @Ability2 costs <font color='#ccff66'>500</font>% extra mana."
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus"					"Iron Colossus"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"Attacks deal extra physical damage, stun enemies for 0.5s and size increased. Attack speed locked at 120. Gain bonus damage and Armor from Strength."
 
-		"item_rpc_iron_colussus_ruby1"	"Increases Strength by @ruby_property1"
-		"item_rpc_iron_colussus_emerald1"	"Increases the Armor gain per strength by an additional @emerald_property1"
-		"item_rpc_iron_colussus_sapphire1" "Reduces [W] Ability Mana drain by @sapphire_property1"
-		"item_rpc_iron_colussus_amethyst1" "Attacks deal an additional @amethyst_property1x of Attack Power"
+		"item_rpc_helm_of_the_iron_colossus_ruby1"	"Increases Strength by @ruby_property1"
+		"item_rpc_helm_of_the_iron_colossus_emerald1"	"Increases the Armor gain per strength by an additional @emerald_property1"
+		"item_rpc_helm_of_the_iron_colossus_sapphire1" "Reduces [W] Ability Mana drain by @sapphire_property1%"
+		"item_rpc_helm_of_the_iron_colossus_amethyst1" "Attacks deal an additional @amethyst_property1x of Attack Power"
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Artillery Magus"
@@ -17370,11 +17370,11 @@
 		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"With the weight of the Earth, the King casts a huge Slithereen Crush."
 
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"Rising Tides"
-		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Each successive damage instance on the King adds a stack of Rising Tide. If the stack counter hits 8, the target is blasted with deep waters and disabled."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Each successive damage instance on the King adds a stack of Rising Tide. If the stack counter hits 15, the target is blasted with deep waters and disabled."
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"DAMAGE:"
 
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"Rising Tide"	
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"Each time you damage King Kraethas, gain a stack. At 8 stacks, take damage and stun."
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect"					"Rising Tide"	
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect_Description"		"Each time you damage King Kraethas, gain a stack. At 15 stacks, take damage and stun."
 
 		 "DOTA_Tooltip_modifier_whirlpool_effect"					"Whirlpool"
 		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"Within the King's Reach"

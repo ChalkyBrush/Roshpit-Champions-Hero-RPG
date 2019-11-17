@@ -69,7 +69,7 @@
 		"npc_dota_hero_slardar_lore" "Странник из морских глубин несет с собой часть своего моря."
 		"npc_dota_hero_visage_lore" "Повелитель тени начинает марш мертвых в бесконечную войну."
 		"npc_dota_hero_dark_seer_lore" "Жажда скорости и крепкие кулаки ожидают битвы."
-		"npc_dota_hero_antimage_lore" "Сырая магия выливается в мир в ожидании найти умелого мага и воина, и всегда находит его."
+		"npc_dota_hero_antimage_lore" "Неочищенная магия выливается в мир в ожидании умелого мага и воина, и всегда находит его."
 		"npc_dota_hero_monkey_king_lore" "Если ты долго смотришь на оборотня, то оборотень тоже смотрит на тебя..."
 		"npc_dota_hero_slark_lore" "Slipfinn заимствует силу противника и имеет высокую мобильность."
 		"npc_dota_hero_skywrath_mage_lore" "Воздух это не только среда для дыхания, но и верный щит, и острое копьё, если он в руках у опытного аэротурга."
@@ -2150,7 +2150,7 @@
 		
 
 		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus прорывается через пространственные барьеры перед собой, мгновенно появляясь в указанной точке. От места начала прыжка до конечной точки на 7 секунд появляется энергетический канал. Враги, задетые молнией будут постоянно оглушены на время действия и получат урон. Каждые 6 секунд герой получает заряд этого умения, который позволяет прочитать заклинание без перезарядки. Максимум 2 заряда."
+    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus прорывается через пространственные барьеры перед собой, мгновенно появляясь в указанной точке. От места начала прыжка до конечной точки на <font color='#ccff66'>7</font> секунд появляется энергетический канал. Враги, задетые молнией будут постоянно оглушены на время действия и получат урон. Каждые 6 секунд герой получает заряд этого умения, который позволяет прочитать заклинание без перезарядки. Максимум 2 заряда."
     	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"УРОН:"
     	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 
@@ -2165,7 +2165,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"							""
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] Zonal Net"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"После прочтения @Ability1, электрическая сеть тайной энергии на 1 секунду окружит героя. Все задетые враги оглушаются каждые 0.2 секунды и получают урон."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"После прочтения @Ability1, электрическая сеть тайной энергии на <font color='#ccff66'>1</font> секунду окружит героя. Все задетые враги оглушаются каждые <font color='#ccff66'>0.2</font> секунды и получают урон."
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix"							""
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_property_two"					"Радиус"
@@ -2184,7 +2184,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_one"					"Доп. урон (Q) Dimension Coil и [Q2] Zonal Net"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix"							"%"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Доп. длительность молний"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" сек."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						"%"
 
     	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"Flash Source"
     	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Arkimus зачаровывает свое оружие потоком тайной энергии, который высвобождается мощным взрывом при успешной атаке по цели. На каждый удар тратится мана. Когда заканчивается запас маны, умение отключается."
@@ -2196,7 +2196,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] Archon Weapons"
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"Удар по противнику дает бонус к Базовому Урону Атаки на <font color='#ccff66'>3</font> секунд."
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_one"					"Бонус к базовому урону"
-    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix"							""
 		
     	"DOTA_Tooltip_ability_arkimus_rune_w_2"									"[W2] Arcane Splice"
     	"DOTA_Tooltip_ability_arkimus_rune_w_2_Description"						"Увеличивает Магическое Пробитие, пока включено @Ability2."
@@ -2238,9 +2238,9 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_2_suffix"							" за каждое полученное очко Маны"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_3"									"[E3] Elevated System"
-    	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"После прыжка от @Ability3 герой на <font color='#ccff66'>7</font> секунды увеличивает свои Физическое и Магическое Пробития."
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_Description"						"После прыжка от @Ability3 герой на <font color='#ccff66'>7</font> секунд увеличивает свои Физическое и Магическое Пробития."
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"Увеличение Физического и Магического Пробития"
-    	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							"%"
+    	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							""
 
     	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"Elevated System"
     	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"Физическое и Магическое Пробития увеличены"
@@ -2281,7 +2281,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"Весь стихийный урон <font color=\"#E1A2E8\">Тайны</font> пассивно увеличен."
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_property_one"					"Усиление стихийного урона Тайны"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							""
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_suffix"							"%"
 		
 		//Arcanas
     	"item_property_arkimus_arcana1"										"Magnetic Flux"
@@ -3083,7 +3083,7 @@
         "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% от урона героя"
 		
 		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] Berserker Rage"
-        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Каждая успешная атака дает заряд, дающий бонус к скорости атаки и базовому урону. Если вы не будете атаковать противника в течение 10 секунд, все заряды будут потеряны. Максимум <font color='#ccff66'>50</font> зарядов."
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "Каждая успешная атака дает заряд, дающий бонус к скорости атаки и базовому урону. Если вы не будете атаковать противника в течение 10 секунд, все заряды будут потеряны. Максимум <font color='#ccff66'>30</font> зарядов."
         "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "Доп. скорость атаки за заряд"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "Доп. урон за заряд"
@@ -3512,7 +3512,7 @@
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=\"#F6FFB5\">Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font><br>Наносимый урон игнорирует свойство монстров 'Стойкость'."
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Стихия: <font color=\"#F6FFB5\">Свет</font><br>После 2 секундной подготовки Bahamut устремляется вперед, высвобождая взрывную энергию, способную стереть низших существ. Во время разбега, Bahamut неуязвим к физическому и магическому урону. <br><font color='#70EA72'>Если приказать герою через Shift сразу при прочтении поставить стену немного впереди, то он может успеть это сделать, пока бежит.</font>."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"УРОН"	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"РАДИУС ВЗРЫВА"
@@ -9743,7 +9743,7 @@
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3"				"[Q3] Windstrike Weapon"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_Description"	"После прочтения способность (Q) Flameblood заменяется на (Q) Windstrike Weapon, которая усиливает выбранную союзную цель. Атаки под эффектом Windstrike наносят дополнительный ЧИСТЫЙ урон, зависящий от урона усиляемой цели. Умения (Q) Windstrike и (Q) Flameblood не могут использоваться одновременно на одной цели."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Доп. ЧИСТЫЙ урон"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_property_one"	"Доп. чистый урон"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_3_suffix"		"% от урона усиляемой цели"
 
       	"DOTA_Tooltip_ability_spirit_warrior_windstrike_weapon"			"Windstrike Weapon"
@@ -9813,7 +9813,7 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff_Description"	"Ближайший Ancient Spirit усиливает вашу броню"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3"				"[E3] Tempest Haze"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "После прыжка к @Ability3, появляется буря, замедляющая врагов и запрещающая им произносить заклинания. Находясь внутри бури, герой получает на <font color='#ccff66'>0.5</font>% меньше магического и чистого урона."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "После прыжка к @Ability3, появляется буря, замедляющая врагов и запрещающая им произносить заклинания. Находясь внутри бури, герой получает на <font color='#ccff66'>50</font>% меньше магического и чистого урона."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_one"	"Урона в секунду"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix"		""
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_two"	"Длительность"	
@@ -10959,7 +10959,7 @@
     	"DOTA_Tooltip_modifier_tachyon_shell_Description"					"Наносит урон существам, враждебным для Zhonik"
 		
 		"DOTA_Tooltip_ability_zonik_rune_q_1"								"[Q1] Supercharge"
-    	"DOTA_Tooltip_ability_zonik_rune_q_1_Description"					"Щит от @Ability1, наложенный на Zhonik наносит увеличенный урон."
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_Description"					"Щит от @Ability1, наложенный на Zhonik, наносит увеличенный урон."
     	"DOTA_Tooltip_ability_zonik_rune_q_1_property_one"					"Увеличение урона"
     	"DOTA_Tooltip_ability_zonik_rune_q_1_suffix"						"%"
 
@@ -10973,7 +10973,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_q_3"								"[Q3] Collision Chaos"
     	"DOTA_Tooltip_ability_zonik_rune_q_3_Description"					"Враги, попавшие под действие @Ability1 потеряют часть Магической Брони."
     	"DOTA_Tooltip_ability_zonik_rune_q_3_property_one"					"Снижение Магической Брони"
-    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						"%"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						""
 
     	"DOTA_Tooltip_ability_zonik_rune_q_4"								"[Q4] Temporal Dampening"
     	"DOTA_Tooltip_ability_zonik_rune_q_4_Description"					"Союзные юниты, на которых работает щит @Ability1 получают меньше урона из всех источников. Эффект работает вдвое сильнее, когда щитом укрыт сам Zhonik."
@@ -12861,11 +12861,11 @@
 		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
-		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Каждое очко Силы увеличивает базовую атаку на <font color='#ccff66'>1.5</font>, а броню на <font color='#ccff66'>1</font> и герой становится больше на 15%. Скорость атаки фиксируется на <font color='#ccff66'>120</font>, а радиус атаки на <font color='#ccff66'>180</font>. Стандартые атаки оглушают противников на 0.5 секунды, и наносят дополнительно <font color='#ccff66'>2</font>x физическим уроном. @Ability2 стоит на 1000 маны больше."
-		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 120. Урон и броня увеличены в зависимости от Силы героя."
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_iron_colossus"									"Helm of the Iron Colossus"
+		"item_property_helm_of_the_iron_colossus"				"Iron Colossus"	
+		"property_helm_of_the_iron_colossus_description"		"Каждое очко Силы увеличивает базовую атаку на <font color='#ccff66'>1.5</font>, а броню на <font color='#ccff66'>1</font> и герой становится больше на 15%. Скорость атаки фиксируется на <font color='#ccff66'>120</font>, а радиус атаки на <font color='#ccff66'>180</font>. Стандартые атаки оглушают противников на 0.5 секунды, и наносят дополнительно <font color='#ccff66'>2</font>x физическим уроном. @Ability2 стоит на 1000 маны больше."
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus"					"Iron Colossus"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 120. Урон и броня увеличены в зависимости от Силы героя."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
@@ -16926,7 +16926,7 @@
 		 
 		 "water_temple_amphi_lizard_rider"								"Наездник земноводных ящериц"
 
-		 "water_temple_boss"											"Король Кэл'тас"
+		 "water_temple_boss"											"Король Kraethas"
 
 		 "DOTA_Tooltip_ability_water_temple_boss_bubble"				"Пузырь"
 		 "DOTA_Tooltip_ability_water_temple_boss_bubble_Description"	"Враги в присутствии Короля теряют урон, фиксируя его на % от макс. здоровья"	
@@ -16939,11 +16939,11 @@
 		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"Со всей мощи бьет о землю, оглушая задетых врагов."
 
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"Вздымающиеся волны"
-		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Каждый раз, получая урон, Королю даруется заряд умения. Когда количество зарядов достигнет 8, цель будет оглушена мощным потоком."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Каждый раз, получая урон, Королю даруется заряд умения. Когда количество зарядов достигнет 15, цель будет оглушена мощным потоком."
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"УРОН:"
 
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"Вздымающаяся волна"	
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"Каждый раз, атакуя Короля Кэл'тас, будет добавлен заряд умения. Когда накопится 8 зарядов, цель будет оглушена и получит урон."
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect"					"Вздымающаяся волна"	
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect_Description"		"Каждый раз, атакуя Короля Kraethas, будет добавлен заряд умения. Когда накопится 15 зарядов, цель будет оглушена и получит урон."
 
 		 "DOTA_Tooltip_modifier_whirlpool_effect"					"Водоворот"
 		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"В пределах водоворота Короля"

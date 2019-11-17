@@ -3305,7 +3305,7 @@
         "DOTA_Tooltip_ability_axe_rune_q_1_suffix"                      "% 攻击力"
 		
 		"DOTA_Tooltip_ability_axe_rune_q_2"                             "[Q2] 狂暴之怒"
-        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "你的每次攻击将增加攻击速度和基础攻击力，当你超过10秒不攻击时失去所有加成。最高 <font color='#ccff66'>50</font>层。"
+        "DOTA_Tooltip_ability_axe_rune_q_2_Description"                 "你的每次攻击将增加攻击速度和基础攻击力，当你超过10秒不攻击时失去所有加成。最高 <font color='#ccff66'>30</font>层。"
         "DOTA_Tooltip_ability_axe_rune_q_2_property_one"                "每次充能攻击速度"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix"                      ""
         "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "每次充能基础攻击力"
@@ -13034,11 +13034,11 @@
 		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"钢铁巨象头盔"
-		"item_property_iron_colossus"				"钢铁巨象"	
-		"property_iron_colossus_description"		"每点力量值提高基础攻击力 <font color='#ccff66'>1.5</font> 和护甲值 <font color='#ccff66'>1</font> 。并且体型长大 15%。攻击速度固定为 <font color='#ccff66'>120</font> 且变为近战攻击。攻击会眩晕敌人 0.5 秒，并且额外造成 <font color='#ccff66'>2</font>x 的物理伤害。施放 @Ability2 额外消耗 1000 点魔法值。"
-		"DOTA_Tooltip_modifier_iron_colossus"					"钢铁巨象"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"攻击额外造成 50x 的物理伤害，眩晕敌人0.5秒。体型增大，攻击速度固定为100，且变为近战。力量值额外提高基础攻击力和护甲值。"
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_iron_colossus"									"钢铁巨象头盔"
+		"item_property_helm_of_the_iron_colossus"				"钢铁巨象"	
+		"property_helm_of_the_iron_colossus_description"		"每点力量值提高基础攻击力 <font color='#ccff66'>1.5</font> 和护甲值 <font color='#ccff66'>1</font> 。并且体型长大 15%。攻击速度固定为 <font color='#ccff66'>120</font> 且变为近战攻击。攻击会眩晕敌人 0.5 秒，并且额外造成 <font color='#ccff66'>2</font>x 的物理伤害。施放 @Ability2 额外消耗 1000 点魔法值。"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus"					"钢铁巨象"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"攻击额外造成 50x 的物理伤害，眩晕敌人0.5秒。体型增大，攻击速度固定为100，且变为近战。力量值额外提高基础攻击力和护甲值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"穆咖钭面具"

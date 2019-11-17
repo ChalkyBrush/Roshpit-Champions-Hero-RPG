@@ -10371,7 +10371,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "35"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "15"
 				}
 			}
 			"modifier_storm_weapon_b_b_visible"
@@ -10901,7 +10901,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.15"
+				"property_two"			"8"
 			}
 		}
 	}
@@ -10919,7 +10919,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"35"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -10937,7 +10937,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"40"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -11054,7 +11054,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"30"
 			}
 		}
 	}
@@ -11072,7 +11072,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"35"
 			}
 			"02"
 			{
@@ -13018,7 +13018,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"25"
 			}
 			"02"
 			{
@@ -13114,7 +13114,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"140"
 			}
 		}
 	}
@@ -20250,12 +20250,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"22"
+				"duration"				"28"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"10 30 50 70 90 110 130"
+				"damage"				"10 30 50 90 120 140 160"
 			}
 			"03"
 			{
@@ -20417,7 +20417,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"70 75 80 85 90 95 100"
+				"damage_mult"				"70 75 80 90 100 110 120"
 			}
 		}
 		// Precache
@@ -20559,7 +20559,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_mult"				"70 75 80 85 90 95 100"
+				"damage_mult"				"70 75 80 90 100 110 120"
 			}
 		}
 		// Precache
@@ -21499,7 +21499,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -27948,12 +27948,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"30"
+				"property_two"			"0.2"
 			}
 		}
 		"Modifiers"
@@ -41306,7 +41306,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"25"
 			}
 			"02"
 			{
@@ -41356,7 +41356,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.02"
 			}
 		}
@@ -64466,7 +64466,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"			"15"
+				"property_one_base"			"4"
 			}			
 			"02"
 			{
@@ -109701,7 +109701,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "100"
 				}
 			}
 			"modifier_wind_temple_boss_staff_boss_initiate"
@@ -109732,7 +109732,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "100"
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-2000"
 				}
 			}
@@ -110095,7 +110095,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss"		"-100 -300 -1000"
+				"armor_loss"		"-20 -100 -200"
 			}
 
 		}
@@ -111675,6 +111675,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityDamage"					"500 1200 2000"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"magnataur_reverse_polarity"
 
@@ -111701,7 +111702,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"polarity_damage"		"500 5000 50000"
+				"polarity_damage"		"500 1200 2000"
 			}
 			"03"
 			{
@@ -112158,7 +112159,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_damage"			"300 7000 100000"
+				"total_damage"			"300 1000 3000"
 			}
 			"05"
 			{
@@ -112184,12 +112185,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_mult"		"3 5 7"
+				"agility_mult"		"3"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"strength_loss"		"-100 -1000 -5000"
+				"strength_loss"		"-100 -200 -700"
 			}
 		}
 		"Modifiers"
@@ -112369,7 +112370,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"100 500 2100"
+				"bleed_damage"			"70 250 700"
 			}
 		}
 		"OnOwnerDied"
@@ -112571,7 +112572,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 8000 60000"
+		"AbilityDamage"					"500 800 1200"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -112626,7 +112627,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
-		"AbilityDamage"		"3000 35000 200000"
+		"AbilityDamage"		"500 800 1200"
 		"AbilitySpecial"
 		{
 			"01"
@@ -112703,7 +112704,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
-		"AbilityDamage"		"3000 25000 180000"
+		"AbilityDamage"		"500 800 1200"
 		"AbilitySpecial"
 		{
 			"01"
@@ -112911,7 +112912,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_per_second"			"200 2000 20000"
+				"mana_per_second"			"200 1000 2000"
 			}
 			"03"
 			{
@@ -113213,7 +113214,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"800 3200 15000"
+		"AbilityDamage"					"300 1000 2000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -113231,7 +113232,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bolt_stun_duration"	"2.0"
+				"bolt_stun_duration"	"1.5"
 			}
 			"03"
 			{
@@ -113438,7 +113439,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 6000 35000"
+				"damage"					"500 800 1200"
 			}
 			"02"
 			{
@@ -113518,7 +113519,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"200 1000 3000"
+				"damage"						"500 800 1200"
 			}
 			"02"
 			{
@@ -113792,7 +113793,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1200 15000 75000"
+		"AbilityDamage"					"700 1200 2500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -113968,7 +113969,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"400 1000 4000"
+				"impact_damage"		"400 600 1400"
 			}
 		}
 
@@ -114088,7 +114089,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"40 300 3000"
+				"bonus_armor"			"100 600 3000"
 			}
 			"03"
 			{
@@ -114149,7 +114150,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"burn_dps"			"100 800 3000"
+				"burn_dps"			"100 400 1500"
 			}
 		}
 		"Modifiers"
@@ -114216,7 +114217,7 @@
 		"AbilityCooldown"				"8.0 6.0 4.0"
 		"AbilityChannelTime"	"4.2"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"70 200 1500"
+		"AbilityDamage"			"45 200 1200"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -114228,7 +114229,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"burn_dps"		"45 200 1500"
+				"burn_dps"		"45 200 1200"
 			}
 		}
 		"OnSpellStart"
@@ -115115,14 +115116,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"	"ember_spirit_flame_guard"
-		"AbilityDamage"       "700 7000 34000"
+		"AbilityDamage"       "700 1500 5000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_dps"			"200 650 3000"
+				"burn_dps"			"200 650 900"
 			}
 		}
 		"Modifiers"
@@ -116519,7 +116520,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chains_damage"					"100 2000 25000"
+				"chains_damage"					"100 1000 3000"
 			}
 			"04"
 			{
@@ -116582,7 +116583,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"absorb_amount"					"50000 1000000 10000000"
+				"absorb_amount"					"5000 10000 30000"
 			}
 			"04"
 			{
@@ -116592,7 +116593,7 @@
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_second"				"300 4000 24000"
+				"damage_per_second"				"300 1000 5000"
 			}
 		}
 	}
@@ -116760,7 +116761,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_loss"			"-100 -500 -1000"
+				"agility_loss"			"-100 -200 -700"
 			}
 		}
 		"Modifiers"
@@ -117218,7 +117219,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strength_loss"			"-100 -500 -3000"
+				"strength_loss"			"-80 -200 -300"
 			}
 		}
 		"Modifiers"
@@ -117444,7 +117445,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 3000 10000"
+		"AbilityDamage"					"800 1600 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -118222,12 +118223,12 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.6"
+		"AbilityCooldown"				"2.0"
 		"AbilityDuration"				"0.6875 0.6875 0.6875 0.6875"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 4000 25000"
+		"AbilityDamage"					"700 1700 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -118274,7 +118275,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityDamage"					"400 1200 3500"
 		"AOERadius"						"400"
-		"AbilityDamage"					"500 2000 8000"
+		"AbilityDamage"					"500 1200 3000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -127496,7 +127497,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"30 150 1500"
+				"damage_per_stack"				"7 20 50"
 			}
 		}
 
@@ -127567,7 +127568,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_tick"				"10 1200 5400"
+				"damage_per_tick"				"12 100 500"
 			}
 		}
 
@@ -128255,7 +128256,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed"		"-20 -300 -600"
+				"attack_speed"		"-20 -90 -250"
 			}
 			"04"
 			{
@@ -130357,7 +130358,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"40 160 650"
+				"damage"			"40 300 1200"
 			}
 		}
 		"Modifiers"
@@ -131095,13 +131096,13 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"luna_lucent_beam_alt"
 		"MaxLevel"	"3"
-		"AbilityDamage"			"200 8000 65000"
+		"AbilityDamage"			"250 1000 3000"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"				"400 10000 105000"
+				"damage"				"250 1000 3000"
 			}
 		}
 		"Modifiers"
@@ -132442,7 +132443,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attacK_damage_reduction"			"-30 -60 -120"
+				"attacK_damage_reduction"			"-30 -50 -75"
 			}
 		}
 		"Modifiers"
@@ -133095,7 +133096,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"300 3000 35000"
+				"bonus_damage"				"150 700 1200"
 			}
 		}
 	}
@@ -133111,7 +133112,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"prism_strike"		"0.25 0.75 2.0"
+				"prism_strike"		"0.1 0.2 0.6"
 			}
 		}
 		"Modifiers"
@@ -133687,7 +133688,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_bonus"			"30 150 2400"
+				"attack_damage_bonus"			"30 70 140"
 			}
 		}
 		"Modifiers"
@@ -134202,7 +134203,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage_per_tick"			"400 3000 8000"
+				"burn_damage_per_tick"			"100 280 520"
 			}
 		}
 		"Modifiers"
@@ -134508,7 +134509,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5365"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"BaseClass"						"alchemist_acid_spray"
 
@@ -134542,7 +134543,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 1000 8000"
+				"damage"				"200 800 2000"
 			}
 			"04"
 			{
@@ -142513,7 +142514,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"7 1000 8000"
+		"AbilityDamage"					"7 120 1600"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -142577,7 +142578,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 2000 20000"
+		"AbilityDamage"					"100 200 500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
