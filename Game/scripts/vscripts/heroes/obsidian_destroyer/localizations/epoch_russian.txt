@@ -54,12 +54,9 @@
     	"DOTA_Tooltip_ability_time_genesis_orb_range"					"РАССТОЯНИЕ:"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_1"							"[W1] Time Lapse"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Нанося врагам урон с помощью @Ability2, начнет восстанавливать свое здоровье в течение 2 секунд."
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Восстановление здоровья"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					" каждые <% EPOCH_W1_THINK_INTERVAL %> сек"
-		
-		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration" 				"Time Lapse"
-		"DOTA_Tooltip_modifier_epoch_w_1_hp_restoration_Description"	"Здоровье восстанавливается в течение <% EPOCH_W1_DURATION %> секунд, каждые <% EPOCH_W1_THINK_INTERVAL %> сек"
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Нанося врагам урон с помощью @Ability2, герой восстанавливает часть своей маны."
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Восстановление маны"
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% от макс. маны"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Противники, задетые @Ability2 теряют Магическую Защиту на <% EPOCH_W2_DURATION %> сек. Эффект складывается до <% EPOCH_W2_MAX_STACKS %> раз."
