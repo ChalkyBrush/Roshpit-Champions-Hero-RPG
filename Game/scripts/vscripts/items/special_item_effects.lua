@@ -1505,6 +1505,7 @@ function super_ascension_end(event)
 	local caster = event.caster
 	local target = event.target
 	target:RemoveModifierByName("modifier_super_ascendency_lua")
+	target:RemoveModifierByName("modifier_ascendency_base_attack_damage")
 	if not target:HasModifier("modifier_tomahawk_buffs") and not target:HasModifier("modifier_chernobog_demonform_lua") and not target:HasModifier("modifier_arkimus_archon_form") and not target:HasModifier("modifier_demon_flight_flying") then
 		--print("SET TO MELEE")
 		target:SetAttackCapability(target.baseAttackCapability)
@@ -1514,12 +1515,15 @@ end
 
 function super_ascension_attack(event)
 	local caster = event.caster
-	local target = event.attacker
-
-	local ulti = target:GetAbilityByIndex(DOTA_R_SLOT)
-	local currentCD = ulti:GetCooldownTimeRemaining()
-	ulti:EndCooldown()
-	ulti:StartCooldown(currentCD - SUPER_ASCENDENCY_CD_RED)
+	local hero = event.attacker
+	local ability = event.ability
+	if ability:GetGemValue("emerald") > 0 then
+		local cd_reduction = ability:GetFinalGemPropertyValue("emerald", SUPER_ASCENDENCY_EMERALD)
+		local ulti = hero:GetAbilityByIndex(DOTA_R_SLOT)
+		local currentCD = ulti:GetCooldownTimeRemaining()
+		ulti:EndCooldown()
+		ulti:StartCooldown(currentCD - cd_reduction)
+	end
 end
 
 function super_ascension_attack_start(event)
@@ -1528,7 +1532,8 @@ function super_ascension_attack_start(event)
 	local target = event.target
 	if not caster:HasModifier("modifier_ascendency_dont_split") then
 		local splitCount = 0
-		local procs = SUPER_ASCENDENCY_TARGETS - 1
+		local split_count = SUPER_ASCENDENCY_SPLIT_TARGETS_BASE + ability:GetFinalGemPropertyValue("ruby", SUPER_ASCENDENCY_RUBY)
+		local procs = split_count
 		if procs > 0 then
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, SUPER_ASCENDENCY_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then

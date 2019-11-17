@@ -13419,7 +13419,20 @@
 		"item_rpc_stormcrack_helm_emerald1"	"Increases Stormcrack's limit per second by @emerald_property1 triggers"
 		"item_rpc_stormcrack_helm_sapphire1" "Stormcrack's damage is increased by the @sapphire_property1x the sum of the wearer's attributes"
 		"item_rpc_stormcrack_helm_amethyst1" "Increases spirit by @amethyst_property1 and base attack damage by @amethyst_property2"
-		 
+
+
+    	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
+		"item_property_super_ascendency"			"Super Ascension"
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>200</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
+
+		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>200</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
+
+		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
+		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
+		"item_rpc_super_ascendency_mask_sapphire1" "Gain @sapphire_property1 Base Attack Damage during Super Ascension"
+		"item_rpc_super_ascendency_mask_amethyst1" "Super Ascension has a minimum duration of @amethyst_property1 seconds"
+	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
 		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based <font color='#ccff66'>4</font>x your Intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by <font color='#ccff66'>0.1</font>% for each <font color='#ccff66'>10</font> points of Intelligence."
@@ -13444,12 +13457,6 @@
 		"item_property_cerulean_highguard"			"Concentrated Mana"
 		"property_cerulean_highguard_description"	"@Ability2 costs <font color='#ccff66'>400</font>% more mana and deals <font color='#ccff66'>2000</font>% increased damage."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
-		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>150</font>% bonus attack damage, <font color='#ccff66'>300</font> attack speed, and <font color='#ccff66'>200</font> movespeed. Your attacks split to strike up to <font color='#ccff66'>5</font> targets at once, and each attack that hits an enemy during this effect will reduce the current cooldown of @Ability4 by <font color='#ccff66'>0.05</font> seconds. This buff has the same duration as @Ability4's cooldown, with a minimum of <font color='#ccff66'>12</font> seconds."
-		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>150</font>%% bonus attack damage, <font color='#ccff66'>300</font> attack speed, and <font color='#ccff66'>200</font> movespeed. Multishot for <font color='#ccff66'>4</font> additional targets. Hitting enemies reduces your ultimate spell's current cooldown."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"

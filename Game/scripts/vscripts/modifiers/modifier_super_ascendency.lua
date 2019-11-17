@@ -15,7 +15,7 @@ function modifier_super_ascendency_lua:DeclareFunctions()
 end
 
 function modifier_super_ascendency_lua:GetModifierModelScale(params)
-    return 20
+    return 12
 end
 
 function modifier_super_ascendency_lua:GetModifierAttackRangeBonus(params)

@@ -1128,7 +1128,7 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_spirit_glove") then
         Filters:SpiritGlove(caster)
     end
-    if caster:HasModifier("modifier_super_ascendency") then
+    if caster:HasModifier("modifier_super_ascendency_mask") then
         Filters:AscensionTrigger(caster)
     end
     if caster:HasModifier("modifier_scourge_knights_helm") then
@@ -3091,10 +3091,17 @@ function Filters:CeruleanHighguard(caster)
 end
 
 function Filters:AscensionTrigger(caster)
-    local ability = caster.headItem
-    local duration = math.max(caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownTimeRemaining(), SUPER_ASCENDENCY_MIN_DURATION)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local min_cooldown = ability:GetFinalGemPropertyValue("amethyst", SUPER_ASCENDENCY_AMETHYST)
+    local base_cooldown = caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownTimeRemaining()*(SUPER_ASCENDENCY_DURATION_PCT_OF_R/100)
+    local duration = math.max(base_cooldown, min_cooldown)
     ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_super_ascendency_trigger", {duration = duration})
     caster:AddNewModifier(caster, ability, "modifier_super_ascendency_lua", {duration = duration})
+
+    if ability:GetGemValue("sapphire") > 0 then
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ascendency_base_attack_damage", {duration = duration})
+        caster:SetModifierStackCount("modifier_ascendency_base_attack_damage", caster, ability:GetFinalGemPropertyValue("sapphire", SUPER_ASCENDENCY_SAPPHIRE))
+    end
 end
 
 function Filters:ScourgeKnight(caster)

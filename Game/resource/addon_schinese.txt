@@ -13075,7 +13075,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"
 		"item_property_super_ascendency"			"巨大优势"
-		"property_super_ascendency_description"		"施放 @Ability4 后，普通攻击变为发射火球，攻击距离增加<font color='#ccff66'>800</font>，额外攻击力提高<font color='#ccff66'>150</font>%，攻击速度提高<font color='#ccff66'>300</font>，移动速度提高<font color='#ccff66'>200</font>。每次攻击可以同时攻击<font color='#ccff66'>5</font>个目标，并且每次攻击减少 @Ability4 的冷却时间 <font color='#ccff66'>0.05</font>秒。巨大优势buff的冷却时间与 @Ability4 相同, 不会低于 <font color='#ccff66'>12</font> 秒"
+		"property_super_ascendency_description"		"施放 @Ability4 后，普通攻击变为发射火球，攻击距离增加<font color='#ccff66'>800</font>，额外攻击力提高<font color='#ccff66'>100</font>%，攻击速度提高<font color='#ccff66'>200</font>，移动速度提高<font color='#ccff66'>180</font>。每次攻击可以同时攻击<font color='#ccff66'>0</font>个目标，并且每次攻击减少 @Ability4 的冷却时间 <font color='#ccff66'>0</font>秒。巨大优势buff的冷却时间与 @Ability4 相同, 不会低于 <font color='#ccff66'>0</font> 秒"
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"巨大优势"
 		
 		
