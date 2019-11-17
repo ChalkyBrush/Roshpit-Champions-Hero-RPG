@@ -973,7 +973,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_white_mage_hat") or caster:HasModifier("modifier_white_mage_hat2") then
         Filters:WhiteMageHat(caster)
     end
-    if caster:HasModifier("modifier_witch_hat") then
+    if caster:HasModifier("modifier_swamp_witch_hat") then
         Filters:WitchHat(caster)
     end
     if caster:HasModifier("modifier_trickster_mask") then
@@ -2781,36 +2781,44 @@ function Filters:GetNonPercentageAttribute(hero, attribute)
 end
 
 function Filters:WitchHat(caster)
-    local fv = caster:GetForwardVector()
-    local ability = caster.witchHat
-    ability.caster = caster
-    local projectileParticle = "particles/roshpit/winterblight/ellipsis_wave.vpcf"
-    local projectileOrigin = caster:GetAbsOrigin() + fv * 10
-    local start_radius = 120
-    local end_radius = 400
-    local range = 900
-    local speed = 850
-    local info =
-    {
-        Ability = ability,
-        EffectName = projectileParticle,
-        vSpawnOrigin = projectileOrigin + Vector(0, 0, 60),
-        fDistance = range,
-        fStartRadius = start_radius,
-        fEndRadius = end_radius,
-        Source = caster,
-        StartPosition = "attach_hitloc",
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        fExpireTime = GameRules:GetGameTime() + 4.0,
-        bDeleteOnHit = false,
-        vVelocity = fv * speed,
-        bProvidesVision = false,
-    }
-    projectile = ProjectileManager:CreateLinearProjectile(info)
+    local cooldown = SWAMP_WITCH_COOLDOWN
+    local witch_hat = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    if witch_hat:GetGemValue("emerald") > 0 then
+        cooldown = witch_hat:GetFinalGemPropertyValue("emerald", SWAMP_WITCH_EMERALD)
+    end
+    local limitKey = caster:GetPlayerOwnerID() .. '_witch_hat'
+    Util.Common:LimitPerTime(1, cooldown, limitKey, function()
+        local fv = caster:GetForwardVector()
+        local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+        ability.caster = caster
+        local projectileParticle = "particles/econ/items/death_prophet/death_prophet_acherontia/death_prophet_acher_swarm.vpcf"
+        local projectileOrigin = caster:GetAbsOrigin() + fv * 10
+        local start_radius = 120
+        local end_radius = 400
+        local range = 1000
+        local speed = 850
+        local info =
+        {
+            Ability = ability,
+            EffectName = projectileParticle,
+            vSpawnOrigin = projectileOrigin + Vector(0, 0, 60),
+            fDistance = range,
+            fStartRadius = start_radius,
+            fEndRadius = end_radius,
+            Source = caster,
+            StartPosition = "attach_hitloc",
+            bHasFrontalCone = true,
+            bReplaceExisting = false,
+            iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+            iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            fExpireTime = GameRules:GetGameTime() + 4.0,
+            bDeleteOnHit = false,
+            vVelocity = fv * speed,
+            bProvidesVision = false,
+        }
+        projectile = ProjectileManager:CreateLinearProjectile(info)
+    end)
 end
 
 function Filters:TricksterMask(caster)

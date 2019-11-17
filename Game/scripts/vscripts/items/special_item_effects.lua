@@ -559,12 +559,21 @@ function witch_hat_strike(event)
 	local ability = event.ability
 	local caster = ability.caster
 	local target = event.target
-	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_witch_hat_damage_amp", {duration = SWAMP_WITCH_HAT_DURATION})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_witch_hat_damage_amp", caster) + 1, SWAMP_WITCH_HAT_MAX_STACKS)
-	target:SetModifierStackCount("modifier_witch_hat_damage_amp", caster, newStacks)
+	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG + ability:GetFinalGemPropertyValue("amethyst", SWAMP_WITCH_AMETHYST)
 
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_witch_hat_damage_amp", {duration = SWAMP_WITCH_RUBY_DURATION})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_witch_hat_damage_amp", caster) + 1, SWAMP_WITCH_RUBY_MAX_STACKS)
+		target:SetModifierStackCount("modifier_witch_hat_damage_amp", caster, newStacks)	
+		target:CalculateAndSaveRoshpitAttributes()
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		local mana_restore = ability:GetFinalGemPropertyValue("sapphire", SWAMP_WITCH_SAPPHIRE)
+		caster:GiveMana(mana_restore)
+		PopupMana(caster, mana_restore)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_impact_b.vpcf", caster, 1)
+	end
 end
 
 function emerald_douli_damage(event)

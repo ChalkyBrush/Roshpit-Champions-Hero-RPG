@@ -2237,12 +2237,6 @@ function GameState:FilterDamage(filterTable)
 		local stacks = attacker:GetModifierStackCount("modifier_earthshock_damage_reduce", modifierCaster)
 		filterTable["damage"] = filterTable["damage"] - (filterTable["damage"] * math.min((CONJUROR_ARCANA_Q4_DAMAGE_REDUCE_PCT / 100) * stacks, 0.9))
 	end
-	if victim:HasModifier("modifier_witch_hat_damage_amp") then
-		modifier = victim:FindModifierByName("modifier_witch_hat_damage_amp")
-		local stacks = modifier:GetStackCount()
-		local multIncrease = 0.15 * stacks
-		mult = mult + multIncrease
-	end
 	if victim:HasModifier("modifier_reaper_slice_amp_debuff") then
 		modifier = victim:FindModifierByName("modifier_reaper_slice_amp_debuff")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then

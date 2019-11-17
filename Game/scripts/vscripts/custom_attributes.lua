@@ -1358,6 +1358,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local hood_of_sea_oracle = modifier:GetAbility()
 		magic_armor_modify = magic_armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("sapphire", SEA_ORACLE_SAPPHIRE)*modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_witch_hat_damage_amp") then
+		local modifier = unit:FindModifierByName("modifier_witch_hat_damage_amp")
+		local witch_hat = modifier:GetAbility()
+		magic_armor_modify = magic_armor_modify + witch_hat:GetFinalGemPropertyValue("ruby", SWAMP_WITCH_RUBY)*modifier:GetStackCount()
+	end
 
 
 	-- FINAL STEP DEFILER

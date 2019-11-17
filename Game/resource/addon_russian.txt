@@ -12875,7 +12875,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
 		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере <font color='#ccff66'>600</font>x вашего Интеллекта. Враги, задетые волной также будут получать на <font color='#ccff66'>15</font>% больше пост-резистного урона на <font color='#ccff66'>8</font> секунд. Складывается до <font color='#ccff66'>10</font> раз."
+		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере <font color='#ccff66'>3</font>x вашего Интеллекта. Враги, задетые волной также будут получать на <font color='#ccff66'>0</font>% больше пост-резистного урона на <font color='#ccff66'>0</font> секунд. Складывается до <font color='#ccff66'>0</font> раз."
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Пост-резистный урон увеличен на 15%% за каждый заряд."
 		

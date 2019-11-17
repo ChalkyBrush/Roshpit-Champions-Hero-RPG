@@ -13444,6 +13444,18 @@
 
 		"DOTA_Tooltip_modifier_swamp_doctor_sapphire"	"Swamp Doctor (Sapphire)"
 		"DOTA_Tooltip_modifier_swamp_doctor_sapphire_Description"	"Increased Spell Pierce"
+
+    	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
+		"item_property_swamp_witch"					"Murky Wave"
+		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of spectral bats in front of you, dealing <font color='#ccff66'>3</font>x your Intelligence as damage. Maximimum of 1 trigger every <font color='#ccff66'>0.75</font> seconds."
+
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Reduced Magic Armor"
+
+		"item_rpc_swamp_witch_hat_ruby1"	"Each time an enemy is hit by a Murky Wave, they lose @ruby_property1 magic armor. Stacks up to <font color='#ccff66'>10</font> times and lasts <font color='#ccff66'>15</font> seconds"
+		"item_rpc_swamp_witch_hat_emerald1"	"Murky Wave can trigger once every @emerald_property1 seconds"
+		"item_rpc_swamp_witch_hat_sapphire1" "Each enemy hit by Murky Wave restores @sapphire_property1 mana"
+		"item_rpc_swamp_witch_hat_amethyst1" "Increases Murky Wave's damage by @amethyst_property1"
 	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -13452,12 +13464,7 @@
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
 		
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
-		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of spectral bats in front of you, dealing <font color='#ccff66'>600</font>x your Intelligence as damage. Enemies hit by the wave take <font color='#ccff66'>15</font>% increased post-mitigation damage for <font color='#ccff66'>8</font> seconds, stacking up to <font color='#ccff66'>10</font> times."
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Taking 15% increased post-mitigation damage per stack."
+	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"

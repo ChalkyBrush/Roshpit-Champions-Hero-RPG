@@ -13048,7 +13048,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"沼泽女巫帽"
 		"item_property_swamp_witch"					"玄武波"
-		"property_swamp_witch_description"			"每次施放 @Ability2 将在你的前方释放一群蝙蝠，造成 <font color='#ccff66'>600</font>x 智力值的伤害。每次被蝙蝠击中，敌人受到的全部伤害都将被加深 <font color='#ccff66'>15</font>%，持续<font color='#ccff66'>8</font>秒，最高叠加<font color='#ccff66'>10</font>层。（伤害加深计算在敌人减伤之后）"
+		"property_swamp_witch_description"			"每次施放 @Ability2 将在你的前方释放一群蝙蝠，造成 <font color='#ccff66'>3</font>x 智力值的伤害。每次被蝙蝠击中，敌人受到的全部伤害都将被加深 <font color='#ccff66'>0</font>%，持续<font color='#ccff66'>0</font>秒，最高叠加<font color='#ccff66'>0</font>层。（伤害加深计算在敌人减伤之后）"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"玄武波"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"每层受到15%的伤害加深效果。"
 		
