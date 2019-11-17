@@ -54,7 +54,7 @@
     	"DOTA_Tooltip_ability_time_genesis_orb_range"					"RANGE:"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_1"							"[W1] Time Lapse"
-    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Damaging an enemy unit with @Ability2 starts HP restoration for next <% EPOCH_W1_DURATION %> seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_w_1_Description"				"Damaging an enemy unit with @Ability2 restores mana."
     	"DOTA_Tooltip_ability_epoch_rune_w_1_property_one"				"Mana restored"
     	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% of maximum mana"
 
