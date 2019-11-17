@@ -85,7 +85,7 @@
 			"modifier_zonis_buff"
 			{
 				"IsHidden"	"1"
-				"ThinkInterval"  "0.2"
+				"ThinkInterval"  "<% ARKIMUS_Q2_THINK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

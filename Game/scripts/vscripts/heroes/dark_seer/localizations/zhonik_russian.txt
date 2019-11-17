@@ -9,7 +9,7 @@
     	"DOTA_Tooltip_modifier_tachyon_shell_Description"					"Наносит урон существам, враждебным для Zhonik"
 		
 		"DOTA_Tooltip_ability_zonik_rune_q_1"								"[Q1] Supercharge"
-    	"DOTA_Tooltip_ability_zonik_rune_q_1_Description"					"Щит от @Ability1, наложенный на Zhonik наносит увеличенный урон."
+    	"DOTA_Tooltip_ability_zonik_rune_q_1_Description"					"Щит от @Ability1, наложенный на Zhonik, наносит увеличенный урон."
     	"DOTA_Tooltip_ability_zonik_rune_q_1_property_one"					"Увеличение урона"
     	"DOTA_Tooltip_ability_zonik_rune_q_1_suffix"						"%"
 
@@ -23,7 +23,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_q_3"								"[Q3] Collision Chaos"
     	"DOTA_Tooltip_ability_zonik_rune_q_3_Description"					"Враги, попавшие под действие @Ability1 потеряют часть Магической Брони."
     	"DOTA_Tooltip_ability_zonik_rune_q_3_property_one"					"Снижение Магической Брони"
-    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						"%"
+    	"DOTA_Tooltip_ability_zonik_rune_q_3_suffix"						""
 
     	"DOTA_Tooltip_ability_zonik_rune_q_4"								"[Q4] Temporal Dampening"
     	"DOTA_Tooltip_ability_zonik_rune_q_4_Description"					"Союзные юниты, на которых работает щит @Ability1 получают меньше урона из всех источников. Эффект работает вдвое сильнее, когда щитом укрыт сам Zhonik."

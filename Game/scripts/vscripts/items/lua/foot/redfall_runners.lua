@@ -22,22 +22,23 @@ end
 function class:HasRuneSlots()
     return true
 end
-function class:RollProperty1(maxFactor)
+function class:RollProperty1(item_level)
     self.newItemTable.property1 = 1
-    self.newItemTable.property1name = "redfall_runners"
-    self:SetSpecialValue(self.newItemTable.property1name, "#E87B7B")
+    self.newItemTable.property1name = "!immortal!_modifier_redfall_runners"
+    self:SetSpecialValue("redfall_runners", "#E87B7B")
 end
-function class:RollProperty2(maxFactor)
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    self.newItemTable.property2 = math.floor(value * 1.75)
-    self.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(self, self.newItemTable.property2, "rune", "#7DFF12", 2)
+function class:RollProperty2(item_level)
+    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "t1_rune", 1.5)
 end
-
+function class:RollArmor(item_level)
+    RPCItems:GrantItemBaseArmor(self, item_level, 1)
+end
+function class:RollMagicArmor(item_level)
+    RPCItems:GrantItemBaseMagicArmor(self, item_level, 1)
+end
 function modifierClass:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
-        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
     }
 

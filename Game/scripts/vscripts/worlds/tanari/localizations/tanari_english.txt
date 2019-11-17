@@ -577,11 +577,11 @@
 		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"With the weight of the Earth, the King casts a huge Slithereen Crush."
 
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"Rising Tides"
-		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Each successive damage instance on the King adds a stack of Rising Tide. If the stack counter hits 8, the target is blasted with deep waters and disabled."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Each successive damage instance on the King adds a stack of Rising Tide. If the stack counter hits 15, the target is blasted with deep waters and disabled."
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"DAMAGE:"
 
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"Rising Tide"	
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"Each time you damage King Kraethas, gain a stack. At 8 stacks, take damage and stun."
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect"					"Rising Tide"	
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect_Description"		"Each time you damage King Kraethas, gain a stack. At 15 stacks, take damage and stun."
 
 		 "DOTA_Tooltip_modifier_whirlpool_effect"					"Whirlpool"
 		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"Within the King's Reach"

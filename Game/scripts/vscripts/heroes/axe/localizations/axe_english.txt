@@ -136,7 +136,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Increased Magic Resistance and Armor."
 		
 	"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <% AXE_E4_REDUCTION %>%, and 1 stack is lost every time damage is taken."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <% AXE_E4_REDUCTION * 100 %>%, and 1 stack is lost every time damage is taken."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Shield Chance"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		

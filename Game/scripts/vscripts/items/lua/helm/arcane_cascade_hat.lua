@@ -64,7 +64,7 @@ function modifierClass:OnIntervalThink()
     caster:ReduceMana(manaDrain)
 end
 function modifierClass:IsHidden()
-    return false
+    return true
 end
 function modifierClass:IsBuff()
     return true
@@ -101,15 +101,10 @@ function debuffModifierClass:OnCreated()
     if not IsServer() then
         return
     end
+    self:SetSpecialTypes({ MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS })
     self:StartIntervalThink(ARCANE_CASCADE_TICKRATE)
 end
-function debuffModifierClass:DeclareFunctions()
-    local funcs = {
-        MODIFIER_REDUCE_MAGIC_ARMOR
-    }
 
-    return funcs
-end
 function debuffModifierClass:OnIntervalThink()
     if not IsServer() then
         return
@@ -122,20 +117,17 @@ function debuffModifierClass:OnIntervalThink()
 		Filters:ApplyItemDamage(target, self:GetCaster(), damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	end
 end
-function debuffModifierClass:GetMagicArmorBonus()
+function debuffModifierClass:GetRoshpitMagicArmorBonus()
     return self:GetAbility():GetFinalGemPropertyValue("amethyst", ARCANE_CASCADE_AMETHYST)
 end
 function debuffModifierClass:IsHidden()
-    return false
+    return true
 end
 function debuffModifierClass:IsDebuff()
     return true
 end
 function debuffModifierClass:RemoveOnDeath()
     return true
-end
-function debuffModifierClass:GetTexture()
-    return "rpc/wraith_crown_disjoint_cooldown"
 end
 function debuffModifierClass:GetEffectName()
     return "particles/items2_fx/arcane_cascade.vpcf"

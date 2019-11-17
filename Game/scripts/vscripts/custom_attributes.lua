@@ -384,9 +384,7 @@ end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	local hero = self
-	print(hero:GetUnitName())
 	local strength = hero:GetKeyValue("RoshpitStrength", nil)
-	print(strength)
 	strength = strength + self:GetLevel()*hero:GetKeyValue("RoshpitStrengthGain", nil)
 	hero.strength_custom = math.floor(strength)
 end
@@ -473,20 +471,18 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor = armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
 		armor = armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor", 1)
 	end
-	if unit:HasModifier("modifier_iron_colossus") then
-		local modifier = unit:FindModifierByName("modifier_iron_colossus")
-		local armor_per_str = IRON_COLOSSUS_AMR_PER_STR + modifier:GetAbility():GetFinalGemPropertyValue("emerald", IRON_COLOSSUS_EMERALD)
-		armor = armor + unit:GetStrength()*armor_per_str
-	end
-	-- Util.Modifier:SimpleEvent(unit, 'GetBaseRoshpitArmorBonus', { MODIFIER_PROPERTY_BASE_ROSHPIT_ARMOR }, { }, 
-	-- 	function(result, data)
-	-- 		print(result)
-	-- 		armor = armor + result
-	-- 	end
-	-- )
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseArmorBonus', { MODIFIER_ROSHPIT_BASE_ARMOR_BONUS }, { }, 
+		function(result, data)
+			armor = armor + result
+		end
+	)
 
 	local armor_modify = 0
-
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitArmorBonus', { MODIFIER_ROSHPIT_ARMOR_BONUS }, { }, 
+		function(result, data)
+			armor_modify = armor_modify + result
+		end
+	)
 	if unit:HasModifier("modifier_wind_boss_slow") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_wind_boss_slow")
 	end
@@ -939,10 +935,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		unit:RemoveModifierByName("modifier_positive_roshpit_armor")
 	end
-	armor = armor + armor_modify
-	armor = math.max(armor, 0)
-	unit:SetRoshpitArmor(armor)
-	return armor
+	local total_armor = armor + armor_modify
+	total_armor = math.max(total_armor, 0)
+	unit:SetRoshpitArmor(total_armor)
+	return armor, armor_modify
 end
 
 function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damage_type, damage, ability_index)
@@ -999,9 +995,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
 		magic_armor = magic_armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_magic_armor", 1)
 	end
+	Util.Modifier:SimpleEvent(unit, 'GetBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
+		function(result, data)
+			magic_armor = magic_armor + result
+		end
+	)
 
 	local magic_armor_modify = 0
-	Util.Modifier:SimpleEvent(unit, 'GetMagicArmorBonus', { MODIFIER_MAGIC_ARMOR_BONUS }, { }, 
+	Util.Modifier:SimpleEvent(unit, 'GetMagicArmorBonus', { MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
 			magic_armor_modify = magic_armor_modify + result
 		end
@@ -1251,8 +1252,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     if unit:HasModifier("modifier_chernobog_1_q_path_enemy_effect_q1") then
     	local caster = unit:FindModifierByName("modifier_chernobog_1_q_path_enemy_effect_q1"):GetCaster()
     	local q_1_level = caster:GetRuneValue("q", 1)
-    	print(caster:GetUnitName())
-    	print(q_1_level)
     	magic_armor_modify = magic_armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
     end
 	if unit:HasModifier("modifier_solunia_warp_core_aura_solar") then
@@ -1783,9 +1782,6 @@ function CDOTA_BaseNPC:SetRoshpitArmor(amount)
 	local unit = self
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor", Events.GameMaster, amount)
-	if unit:IsRealHero() then
-		-- print(unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster))
-	end
 	return amount
 end
 
@@ -2530,13 +2526,10 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.phys = tostring(tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1) * 100)
 	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1) * 100)
 	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1) * 100)
-	tableData.roshpit_armor = unit:CalculateAndSaveRoshpitArmor()
+	local base_armor, bonus_armor = unit:CalculateAndSaveRoshpitArmor()
+	tableData.roshpit_base_armor = base_armor
+	tableData.roshpit_bonus_armor = bonus_armor
 	tableData.roshpit_armor_pierce = unit:CalculateAndSaveRoshpitArmorPierce()
-	if unit:IsRealHero() then
-		tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
-	else
-		tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor
-	end
 	if unit:IsRealHero() then
 		tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
 	else

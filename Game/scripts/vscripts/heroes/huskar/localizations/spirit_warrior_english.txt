@@ -116,7 +116,7 @@
     	"DOTA_Tooltip_modifier_spirit_rune_e_2_buff_Description"	"Increased armor from a nearby Ancient Spirit"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3"				"[E3] Tempest Haze"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes <% SPIRIT_WARRIOR_E3_DAMAGE_REDUCTION %>% reduced Magical and Pure Damage while standing within the Tempest."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_Description"  "After leaping to an Ancient Spirit, create a tempest that slows and silences enemies within. Spirit Warrior takes <% SPIRIT_WARRIOR_E3_DAMAGE_REDUCTION * 100 %>% reduced Magical and Pure Damage while standing within the Tempest."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_one"	"DPS"	
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_suffix"		""
     	"DOTA_Tooltip_ability_spirit_warrior_rune_e_3_property_two"	"Duration"	

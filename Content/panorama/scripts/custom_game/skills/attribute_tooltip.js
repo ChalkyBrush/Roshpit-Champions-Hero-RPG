@@ -200,9 +200,9 @@ function initializeTooltip(func){
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()
 	$('#def_1_left').text = $.Localize("#item_armor")
-    var physArmor = GameUI.StatQueryData.base_roshpit_armor
-	$('#def_1_right').text = numberWithCommas(physArmor)
-	var bonusArmor = parseInt(GameUI.StatQueryData.roshpit_armor - GameUI.StatQueryData.base_roshpit_armor)
+    var baseArmor = GameUI.StatQueryData.roshpit_base_armor
+	$('#def_1_right').text = numberWithCommas(baseArmor)
+	var bonusArmor = GameUI.StatQueryData.roshpit_bonus_armor
 	$('#def_2_left').text = $.Localize("#ui_bonus_armor")
 	if (bonusArmor >= 0){
 		$('#def_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusArmor)+"</font>"
@@ -211,7 +211,7 @@ function initializeTooltip(func){
 	}
 
 	$('#def_3_left').text = $.Localize("#ui_physical_reduction")
-	var totalArmor = physArmor + bonusArmor
+	var totalArmor = baseArmor + bonusArmor
 	var resist = 1 - (255 / (255 + totalArmor))
 	resist = (parseInt(resist*10000))/100
 	$('#def_3_right').text = resist+"%"
