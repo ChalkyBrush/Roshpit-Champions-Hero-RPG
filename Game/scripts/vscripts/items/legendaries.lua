@@ -4307,6 +4307,29 @@ function RPCItems:RollScourgeKnightHelm(item_level)
     return item
 end
 
+function RPCItems:RollShipyardVeil(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_shipyard_veil_lv1", "immortal", "Shipyard Veil LV1", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 0
+    item.newItemTable.property1name = "!immortal!_modifier_shipyard_veil"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_shipyard_veil", "#91F2F1", 1, "#property_shipyard_veil_description")
+
+    local rune_type = RPCItems:RollRuneType({"q"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollHoodProperty3(item, 0)
+    RPCItems:RollHoodProperty4(item, 0)
+
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollTwistedMaskOfAhnqhirBlue(item_level)
     local item = RPCItems:CreateVariant("item_rpc_twisted_blue_mask_of_ahnqhir", "immortal", "Twisted Blue Mask of Ahn'qhir", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4366,43 +4389,6 @@ function RPCItems:RollTwistedMaskOfAhnqhirPurple(item_level)
 
     RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollShipyardVeil1(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_shipyard_veil_lv1", "immortal", "Shipyard Veil LV1", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "shipyard_veil"
-    --RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_shipyard_veil_1", "#91F2F1",  1, "#property_shipyard_veil_1_description")
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_shipyard_veil_3", "#91F2F1", 1, "#property_shipyard_veil_3_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.ceil(value * 1.15)
-    item.newItemTable.property2name = "rune_q_3"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-
-    --pre patch lv values
-    if type(item.newItemTable.property2) == "number" then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-    end
-    if type(item.newItemTable.property3) == "number" then
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-    end
-    if type(item.newItemTable.property4) == "number" then
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-    end
 
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
@@ -8496,7 +8482,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_skulldigger_gauntlet_lv1" then
         newItem = RPCItems:RollSkulldiggerGlovesLV1(item_level)
     elseif itemName == "item_rpc_shipyard_veil_lv1" then
-        newItem = RPCItems:RollShipyardVeil1(item_level)
+        newItem = RPCItems:RollShipyardVeil(item_level)
     elseif itemName == "item_rpc_crimsyth_elite_greaves_lv1" then
         newItem = RPCItems:RollCrimsythEliteGreavesLV1(item_level)
     elseif itemName == "item_rpc_harvester_boots" then

@@ -781,7 +781,7 @@ end
 function soul_collector_die(event)
 	local caster = event.caster
 	EmitSoundOn("Redfall.ShipyardSoulCollector.Death", caster)
-	RPCItems:RollShipyardVeil1(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_shipyard_veil_lv1")
 end
 
 function ShipyardBridgeTrigger(event)

@@ -470,6 +470,29 @@ function CustomAbilities:HitShipyardShield(victim, attacker)
 	else
 		victim:RemoveModifierByName("modifier_shipyard_veil_shield")
 	end
+	local unit = victim
+	local ability = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+	ability.hero = unit
+	if ability:GetGemValue("emerald") > 0 then
+		local info =
+		{
+			Target = attacker,
+			Source = unit,
+			Ability = ability,
+			EffectName = "particles/roshpit/redfall/shipyard_tracking_skull_enemy.vpcf",
+			StartPosition = "attach_hitloc",
+			bDrawsOnMinimap = false,
+			bDodgeable = true,
+			bIsAttack = false,
+			bVisibleToEnemies = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 8,
+			bProvidesVision = true,
+			iVisionRadius = 0,
+			iMoveSpeed = 500,
+		iVisionTeamNumber = unit:GetTeamNumber()}
+		projectile = ProjectileManager:CreateTrackingProjectile(info)
+	end
 end
 
 function CustomAbilities:CastNoTargetIfCastable(unit, castAbility, enemyRadius)

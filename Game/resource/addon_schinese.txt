@@ -12946,8 +12946,8 @@
 		
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱"
-		 "item_property_shipyard_veil_3"					"灵魂支盾"
-		 "property_shipyard_veil_3_description"				"@Ability1 每击中一个敌人为你增加一层能吸收一次伤害的护盾 (<font color='#ccff66'>0.1</font> 秒冷却时间). 最大叠加 <font color='#ccff66'>4</font> 层. 每层增加 @Ability1 的基础技能伤害 <font color='#ccff66'>100</font>%. 当拥有护盾时，伤害你的敌人会受到一次骷髅打击，造成 <font color='#ccff66'>10</font>x 你的主属性的魔法伤害."
+		 "item_property_shipyard_veil"					"灵魂支盾"
+		 "property_shipyard_veil_description"			"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage. There is a <font color='#ccff66'>0.3</font> second cooldown between adding stacks. Max <font color='#ccff66'>4</font> stacks."
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"灵魂之盾"

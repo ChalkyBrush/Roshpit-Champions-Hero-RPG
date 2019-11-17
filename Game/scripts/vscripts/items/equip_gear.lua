@@ -414,6 +414,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ODIN_AMETHYST, hero, "base_ability", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ODIN_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_HEAD)
 		end		
+	elseif item:GetAbilityName() == "item_rpc_shipyard_veil_lv1" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", SHIPYARD_VEIL_AMETHYST, hero, "element_ghost", RPC_GEAR_SLOT_HEAD)
+		end	
 	end
 end
 

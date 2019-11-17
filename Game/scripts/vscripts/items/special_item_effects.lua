@@ -3880,28 +3880,7 @@ function skulldigger_hellfire_hit(event)
 end
 
 function shipyard_shield_lvl3_take_damage(event)
-	local unit = event.unit
-	local attacker = event.attacker
-	local ability = event.ability
-	ability.hero = unit
-	local info =
-	{
-		Target = attacker,
-		Source = unit,
-		Ability = ability,
-		EffectName = "particles/roshpit/redfall/shipyard_tracking_skull_enemy.vpcf",
-		StartPosition = "attach_hitloc",
-		bDrawsOnMinimap = false,
-		bDodgeable = true,
-		bIsAttack = false,
-		bVisibleToEnemies = true,
-		bReplaceExisting = false,
-		flExpireTime = GameRules:GetGameTime() + 8,
-		bProvidesVision = true,
-		iVisionRadius = 0,
-		iMoveSpeed = 500,
-	iVisionTeamNumber = unit:GetTeamNumber()}
-	projectile = ProjectileManager:CreateTrackingProjectile(info)
+
 end
 
 function shipyard_veil_lvl_3_hit(event)
@@ -3911,8 +3890,8 @@ function shipyard_veil_lvl_3_hit(event)
 	if not caster then
 		return false
 	end
-	local damage = Filters:GetPrimaryAttributeMultiple(caster, ability:GetLevelSpecialValueFor("property_three", SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG))
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+	local damage = ability:GetFinalGemPropertyValue("emerald", SHIPYARD_VEIL_EMERALD)
+	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_GHOST)
 end
 
 function crimsyth_elite_greaves_think(event)

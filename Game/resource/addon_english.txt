@@ -13390,12 +13390,16 @@
 		"DOTA_Tooltip_modifier_scourge_knight_poison"	"Undead Command Poison"
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
-		 "item_property_shipyard_veil_3"					"Soul Shield"
-		 "property_shipyard_veil_3_description"				"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage (<font color='#ccff66'>0.1</font> second cooldown). Max <font color='#ccff66'>4</font> stacks. Each stack increases Base Ability damage of @Ability1 by <font color='#ccff66'>100</font>%. Enemies who damage the shield are targeted by a skull that deals <font color='#ccff66'>10</font>x your primary attribute as magic damage."
-
+		 "item_property_shipyard_veil"					"Soul Shield"
+		 "property_shipyard_veil_description"			"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage. There is a <font color='#ccff66'>0.3</font> second cooldown between adding stacks. Max <font color='#ccff66'>4</font> stacks."
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"Absorbing damage instances."
+
+		"item_rpc_shipyard_veil_lv1_ruby1"	"Each Soul Shield stack increases Base Ability Damage by @ruby_property1"
+		"item_rpc_shipyard_veil_lv1_emerald1"	"Each time an enemy breaks a shield stack, they are targetted by a skull that deals @emerald_property1 damage"
+		"item_rpc_shipyard_veil_lv1_sapphire1" "Reduces the cooldown between shield stack generation by @sapphire_property1"
+		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"

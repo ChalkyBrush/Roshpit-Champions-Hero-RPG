@@ -1472,7 +1472,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_shipyard_veil") then
             local shipyardStacks = attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit)
-            damageMult = damageMult + shipyardStacks*(SHIPYARD_VEIL_BAD_PER_STACK/100)
+            damageMult = damageMult + shipyardStacks*(attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", SHIPYARD_VEIL_RUBY)/100)
             if not ignore_effects then
                 Filters:ShipyardVeilQHit(attacker, victim)
             end
@@ -4064,14 +4064,15 @@ function Filters:FireDeity(attacker, victim, damage)
 end
 
 function Filters:ShipyardVeilQHit(attacker, victim)
-    local ability = attacker.headItem
+    local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
     if not ability.lock then
         ability.lock = true
         local maxStacks = SHIPYARD_VEIL_MAX_STACKS
         ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_shipyard_veil_shield", {})
         local newStacks = math.min(maxStacks, attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit) + 1)
         attacker:SetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit, newStacks)
-        Timers:CreateTimer(SHIPYARD_SHIELD_COOLDOWN, function()
+        local cooldown = SHIPYARD_SHIELD_COOLDOWN - ability:GetFinalGemPropertyValue("sapphire", SHIPYARD_VEIL_SAPPHIRE)
+        Timers:CreateTimer(cooldown, function()
             ability.lock = false
         end)
     end
