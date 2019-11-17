@@ -142,9 +142,9 @@ function lava_damage_think(event)
 	local attacker = Events.GameMaster
 	local damagePercentage = 0.03
 	if GameState:GetDifficultyFactor() == 2 then
-		damagePercentage = 0.04
+		damagePercentage = 0.20
 	elseif GameState:GetDifficultyFactor() == 3 then
-		damagePercentage = 0.05
+		damagePercentage = 0.30
 	end
 	local damage = target:GetMaxHealth() * damagePercentage
 	-- local damage = Events:GetDifficultyScaledDamage(300, 3000, 10000)

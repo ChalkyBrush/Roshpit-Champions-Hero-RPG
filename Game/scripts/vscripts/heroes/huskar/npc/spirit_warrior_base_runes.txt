@@ -241,12 +241,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% SPIRIT_WARRIOR_W3_Q_MULT_PCT %>"
+				"property_one"			"<% SPIRIT_WARRIOR_W4_DMG_INCR_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SPIRIT_WARRIOR_W4_DMG_INCR_PCT %>"
+				"property_two"			"<% SPIRIT_WARRIOR_W4_STUN %>"
 			}
 		}
 		"Modifiers"
