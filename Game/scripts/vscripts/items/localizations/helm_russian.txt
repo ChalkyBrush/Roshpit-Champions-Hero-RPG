@@ -274,8 +274,13 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
-		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x своего общего урона + <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x суммы всех атрибутов.<br>Увеличивает длительность всех оглушений на <% STORMCRACK_STUN_DURATION_AMP %>%."
+		"item_property_stormcrack"						"Stormcrack"
+		"property_stormcrack_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_PCT %>% of your attack power as Magical damage. Max <% STORMCRACK_MAX_PROCS_PER_SECOND %> triggers per second."
+
+		"item_rpc_stormcrack_helm_ruby1"	"Increases the duration of all your stuns by @ruby_property1%"
+		"item_rpc_stormcrack_helm_emerald1"	"Increases Stormcrack's limit per second by @emerald_property1 triggers"
+		"item_rpc_stormcrack_helm_sapphire1" "Stormcrack's damage is increased by the @sapphire_propertyx the sum of the wearer's attributes"
+		"item_rpc_stormcrack_helm_amethyst1" "Increases spirit by @amethyst_property1 and base attack damage by @amethyst_property2"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"

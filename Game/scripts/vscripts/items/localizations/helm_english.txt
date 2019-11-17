@@ -512,6 +512,16 @@
 		"item_rpc_shroud_of_eternal_night_emerald1"	"Increases the primary sleep duration by @emerald_property1 seconds"
 		"item_rpc_shroud_of_eternal_night_sapphire1" "Increases the unwakeable duration by @sapphire_property1 seconds"
 		"item_rpc_shroud_of_eternal_night_amethyst1" "If there are at least @amethyst_property1 sleeping enemies within <% ETERNAL_NIGHT_AMETHYST_RADIUS %> range, the wearer is invisible"
+
+		
+    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
+		"item_property_stormcrack"						"Stormcrack"
+		"property_stormcrack_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_PCT %>% of your attack power as Magical damage. Max <% STORMCRACK_MAX_PROCS_PER_SECOND %> triggers per second."
+
+		"item_rpc_stormcrack_helm_ruby1"	"Increases the duration of all your stuns by @ruby_property1%"
+		"item_rpc_stormcrack_helm_emerald1"	"Increases Stormcrack's limit per second by @emerald_property1 triggers"
+		"item_rpc_stormcrack_helm_sapphire1" "Stormcrack's damage is increased by the @sapphire_property1x the sum of the wearer's attributes"
+		"item_rpc_stormcrack_helm_amethyst1" "Increases spirit by @amethyst_property1 and base attack damage by @amethyst_property2"
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -575,10 +585,6 @@
 		"item_property_wraith_hunter"						"Wraith Hunter"
 		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% of damage taken restores mana. Each point of mana increases base attack damage by <% WRAITH_HUNTER_BASE_ATTACK %>. Attacking drains <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% of your max mana. Additionally increases damage of @Ability2 by <% WRAITH_HUNTER_W_BAD %>%."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
-		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x your attack power plus <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x the sum of your attributes as Magical damage. Increases the duration of all your stuns by <% STORMCRACK_STUN_DURATION_AMP %>%."
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"

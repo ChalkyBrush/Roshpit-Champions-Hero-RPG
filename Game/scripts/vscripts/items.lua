@@ -1858,7 +1858,7 @@ function RPCItems:GetLogarithmicVarianceValue(baseValue, varianceUpPercent, vari
 	elseif RNG < 98 then
 		baseValue = math.ceil(baseValue * 1.35)
 	elseif RNG >= 98 then
-		baseValue = math.ceil(baseValue * 0.65)
+		baseValue = math.ceil(baseValue * 1.0)
 	end
 	local finalRoll = RandomInt(1, 5)
 	if finalRoll == 1 then

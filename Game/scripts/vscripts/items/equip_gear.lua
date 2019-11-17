@@ -418,10 +418,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", SHIPYARD_VEIL_AMETHYST, hero, "element_ghost", RPC_GEAR_SLOT_HEAD)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_stormcrack_helm" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", STORMCRACK_AMETHYST1, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", STORMCRACK_AMETHYST2, hero, "attack_damage", RPC_GEAR_SLOT_HEAD)
+		end	
 	end
 end
 
-
+STORMCRACK_AMETHYST1 = {15, 30, 45, 60, 75}
+STORMCRACK_AMETHYST2 = {20, 40, 60, 80, 100}
 
 function RPCItems:RecordSpecificGemBonusForImmortalItem(item, gem_name, value_table, hero, property_name, gear_slot)
 	local gem_value = item:GetGemValue(gem_name)

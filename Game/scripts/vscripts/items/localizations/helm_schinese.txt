@@ -270,7 +270,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"风暴裂痕之头"
 		 "item_property_stormcrack2"						"风暴裂痕"
-		 "property_stormcrack2_description"					"当你眩晕敌人时，造成 <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X攻击力加<% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>X总属性的魔法伤害。<br>增加玩家对敌人的的所有眩晕持续时间 35%。"
+		"property_stormcrack_description"					"When you stun an enemy, deal <% STORMCRACK_ATTACK_DAMAGE_PCT %>% of your attack power as Magical damage. Max <% STORMCRACK_MAX_PROCS_PER_SECOND %> triggers per second."
+
+		"item_rpc_stormcrack_helm_ruby1"	"Increases the duration of all your stuns by @ruby_property1%"
+		"item_rpc_stormcrack_helm_emerald1"	"Increases Stormcrack's limit per second by @emerald_property1 triggers"
+		"item_rpc_stormcrack_helm_sapphire1" "Stormcrack's damage is increased by the @sapphire_propertyx the sum of the wearer's attributes"
+		"item_rpc_stormcrack_helm_amethyst1" "Increases spirit by @amethyst_property1 and base attack damage by @amethyst_property2"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"黑魔法兜帽"

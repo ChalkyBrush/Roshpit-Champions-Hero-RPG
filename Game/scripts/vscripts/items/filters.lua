@@ -513,24 +513,19 @@ function Filters:ApplyStun(caster, duration, target)
     if caster:HasModifier("modifier_steelforge_passive") then
         caster.w_2_level = caster:GetRuneValue("w", 2)
     end
-    if caster:HasModifier("modifier_stormcrack_helm2") then
+    if caster:HasModifier("modifier_stormcrack_helm") then
         if caster:GetTeamNumber() == target:GetTeamNumber() then
         else
-            if not caster.headItem.stormCrackParticles then
-                caster.headItem.stormCrackParticles = 0
-            end
-            if caster.headItem.stormCrackParticles < 9 then
-                caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles + 1
-                -- CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_cyclopean_marauder/sven_cyclopean_warcry.vpcf", target, 1.2)
+            local helm = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+            local limitKey = "_stormcrack"
+            local max_procs_per_second = STORMCRACK_MAX_PROCS_PER_SECOND + helm:GetFinalGemPropertyValue("emerald", STORMCRACK_EMERALD) + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit())*helm:GetFinalGemPropertyValue("sapphire", STORMCRACK_SAPPHIRE)
+            Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
                 CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-                Timers:CreateTimer(1.5, function()
-                    caster.headItem.stormCrackParticles = caster.headItem.stormCrackParticles - 1
-                end)
-            end
+                local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (STORMCRACK_ATTACK_DAMAGE_PCT / 100)
+                Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, helm, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
+            end)
 
-            local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * STORMCRACK_ATTACK_DAMAGE_MULT * 2 + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * STORMCRACK_ATTR_DAMAGE_MULT * 2
-            Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, caster.headItem, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
-            mult = mult + STORMCRACK_STUN_DURATION_AMP/100
+            mult = mult + helm:GetFinalGemPropertyValue("ruby", STORMCRACK_RUBY)/100
         end
     end
 
