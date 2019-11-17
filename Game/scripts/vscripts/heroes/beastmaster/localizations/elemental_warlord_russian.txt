@@ -1,13 +1,13 @@
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell и Flame Rush"
 
     	"DOTA_Tooltip_modifier_warlord_earth_charge"					"Earth Charge"
-    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Каждый заряд Земли увеличивает урон стихии Земли на 6%. Все накопленные заряды Земли высвобождаются при прочтении (R) Elemental Overload"
+    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Каждый заряд Земли увеличивает урон стихии Земли на <% WARLORD_EARTH_CHARGE_ELEMENT_BONUS_PCT %>%%. Все накопленные заряды Земли высвобождаются при прочтении (R) Elemental Overload"
 
     	"DOTA_Tooltip_modifier_warlord_ice_charge"						"Ice Charge"
-    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Каждый заряд Льда увеличивает урон стихии Льда на 6%. Все накопленные заряды Льда высвобождаются при прочтении (R) Elemental Overload"
+    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Каждый заряд Льда увеличивает урон стихии Льда на <% WARLORD_ICE_CHARGE_ELEMENT_BONUS_PCT %>%%. Все накопленные заряды Льда высвобождаются при прочтении (R) Elemental Overload"
 
     	"DOTA_Tooltip_modifier_warlord_fire_charge"						"Fire Charge"
-    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Каждый заряд Огня увеличивает урон стихии Огня на 6%. Все накопленные заряды Огня высвобождаются при прочтении (R) Elemental Overload"
+    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Каждый заряд Огня увеличивает урон стихии Огня на <% WARLORD_FIRE_CHARGE_ELEMENT_BONUS_PCT %>%%. Все накопленные заряды Огня высвобождаются при прочтении (R) Elemental Overload"
 
     	"DOTA_Tooltip_ability_warlord_stone_form"						"Stone Form"
     	"DOTA_Tooltip_ability_warlord_stone_form_Description"			"Кожа Elemental Warlord превращается в камень, снимая и отталкивая все отрицательные магические эффекты ценой пониженной скорости передвижения."
@@ -18,14 +18,11 @@
     	"DOTA_Tooltip_modifier_warlord_stone_form_Description"			"Невосприимчив к магии, скорость передвижения снижена"	
     	
     	"DOTA_Tooltip_ability_warlord_ice_shell"						"Ice Shell"
-    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Elemental Warlord укрывает себя ледяным щитом, который полностью поглощает магический и чистый урон несколько раз."
+    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Elemental Warlord укрывает себя ледяным щитом, который полностью поглощает чистый урон несколько раз."
     	"DOTA_Tooltip_ability_warlord_ice_shell_duration"				"ДЛИТЕЛЬНОСТЬ:"
-    	"DOTA_Tooltip_ability_warlord_ice_shell_magic_instances_absorbed"	"ЗАРЯДОВ ПОГЛОЩЕНИЯ МАГИЧЕСКОГО УРОНА:"
 		"DOTA_Tooltip_ability_warlord_ice_shell_pure_instances_absorbed"	"ЗАРЯДОВ ПОГЛОЩЕНИЯ ЧИСТОГО УРОНА:"
 		
 
-    	"DOTA_Tooltip_modifier_warlord_ice_shell"						"Ice Shell"
-    	"DOTA_Tooltip_modifier_warlord_ice_shell_Description"			"Поглощение магического урона"
 		"DOTA_Tooltip_modifier_warlord_ice_shell_pure"						"Ice Shell"
     	"DOTA_Tooltip_modifier_warlord_ice_shell_pure_Description"			"Поглощение чистого урона"
 

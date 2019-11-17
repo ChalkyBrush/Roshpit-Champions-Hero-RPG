@@ -574,6 +574,12 @@ function GameMode:OnPlayerChat(keys)
 			local playerid = keys.playerid
 			PlayerResource:ReplaceHeroWith(playerid, hero, 0, 0)
 		end
+	elseif string.match(text, "-myth") then
+		if Beacons.cheats then
+		local random_gear_slot = RandomInt(0, 5)
+		local item = RPCItems:RollRandomItemBySlot(4, 40, random_gear_slot)
+		RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
 	elseif string.match(text, "-immo") then
 		if Beacons.cheats then
 			local strings = string.gmatch(text, "%S+")

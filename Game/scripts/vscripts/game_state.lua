@@ -2729,12 +2729,6 @@ function GameState:FilterDamage(filterTable)
 		end
 		Arena:RubickBroTakeDamage(attacker, victim)
 	end
-	if victim:HasModifier("modifier_warlord_ice_shell") then
-		if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = 0
-			Filters:WarlordTakeMagicDamage(victim)
-		end
-	end
 	if victim:HasModifier("modifier_warlord_ice_shell_pure") then
 		if filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = 0

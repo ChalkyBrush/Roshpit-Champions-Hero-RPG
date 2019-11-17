@@ -225,23 +225,28 @@ function warlord_a_d_think(event)
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	local aoeDamage = WARLORD_R1_DMG_PER_CHARGE * ability.earthCharges
+	local aoeDamage =  WARLORD_R1_DMG_PER_CHARGE*ability.earthCharges * ability.r_1_level
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		--print("WARLORD A_D")
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Warlord.ADAoeSound", caster)
 		for _, enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, target, aoeDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
-
+		local key = target:GetEntityIndex() .. '_warlord_r1'
+		Util.Common:LimitPerTimeAndPlace(7, 0.8, caster:GetAbsOrigin(), 1000, key, function()
 			local pfx2 = ParticleManager:CreateParticle("particles/roshpit/elemental_warlord/earth_axe_throw_explode.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(pfx2, 0, enemy:GetAbsOrigin())
-			ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
-			ParticleManager:SetParticleControl(pfx2, 2, Vector(200, 200, 200))
-			ParticleManager:SetParticleControl(pfx2, 3, Vector(200, 200, 200))
-			Timers:CreateTimer(2.5, function()
-				ParticleManager:DestroyParticle(pfx2, false)
-				ParticleManager:ReleaseParticleIndex(pfx2)
-			end)
+				ParticleManager:SetParticleControl(pfx2, 0, enemy:GetAbsOrigin())
+				ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+				ParticleManager:SetParticleControl(pfx2, 2, Vector(200, 200, 200))
+				ParticleManager:SetParticleControl(pfx2, 3, Vector(200, 200, 200))
+				Timers:CreateTimer(2.5, function()
+					ParticleManager:DestroyParticle(pfx2, false)
+					ParticleManager:ReleaseParticleIndex(pfx2)
+				end)
+		end)
+				
+			
+		Filters:TakeArgumentsAndApplyDamage(enemy, target, aoeDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+
 		end
 	end
 end

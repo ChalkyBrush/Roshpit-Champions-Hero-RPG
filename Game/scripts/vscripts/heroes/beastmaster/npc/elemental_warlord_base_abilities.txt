@@ -418,7 +418,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 220 340 480 600 720 840"
+				"damage"				"110 320 500 700 900 1100 1300"
 			}
 			"02"
 			{
@@ -883,7 +883,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60 120 180 240 300 360 420"
+				"damage"				"60 220 400 600 800 950 1200"
 			}
 		"02"
 			{
@@ -1517,12 +1517,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"magic_instances_absorbed"		"2 3 3 3 4 4 5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pure_instances_absorbed"		"2 3 3 3 4 4 5"
+				"pure_instances_absorbed"		"3 3 4 4 5 5 6"
 			}
 		}
 		"OnSpellStart"
@@ -1543,12 +1538,12 @@
 		}
         "Modifiers"
         {
-            "modifier_warlord_ice_shell"
+			"modifier_warlord_ice_shell_pure"
             {
             	"IsHidden"	"0"
             	"IsBuff"	"1"
             	"EffectName"			"particles/roshpit/warlord/ice_shell.vpcf"
-            	"EffectAttachType"		"attach_hitloc"
+				"EffectAttachType"		"attach_hitloc"
             	"OnDestroy"
             	{
             		"RemoveModifier"
@@ -1562,12 +1557,6 @@
             			"Target" 		"TARGET"
             		}
             	}
-            }
-			"modifier_warlord_ice_shell_pure"
-            {
-            	"IsHidden"	"0"
-            	"IsBuff"	"1"
-            	"EffectName"			"particles/roshpit/warlord/ice_shell.vpcf"
             }
         }
 	}

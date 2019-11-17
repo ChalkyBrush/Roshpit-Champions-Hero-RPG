@@ -73,7 +73,7 @@ function c_d_think(event)
 				flExpireTime = GameRules:GetGameTime() + 4,
 				bProvidesVision = true,
 				iVisionRadius = 0,
-				iMoveSpeed = 900,
+				iMoveSpeed = 1500,
 			iVisionTeamNumber = phoenix:GetTeamNumber()}
 			ProjectileManager:CreateTrackingProjectile(info)
 

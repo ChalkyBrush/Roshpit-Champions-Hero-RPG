@@ -286,7 +286,10 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
       -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
       -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
     end
-    EmitSoundOn("Ability.StarfallImpact", enemy)
+	local localKey = 'astral_ranger_r_1_sound'
+    Util.Common:LimitPerTimeAndPlace(1, 0.1, caster:GetAbsOrigin(), 700, localKey, function()
+        EmitSoundOn("Ability.StarfallImpact", enemy)
+    end)
   end)
 end
 
@@ -309,7 +312,10 @@ function r_2_quake(damage, ability, caster, r_2_level, target)
         ParticleManager:DestroyParticle(pfx, true)
       end)
     end
-    EmitSoundOn("Astral.CelesialBurst.R2", target)
+	local localKey = 'astral_ranger_r_2_sound'
+    Util.Common:LimitPerTimeAndPlace(1, 0.1, caster:GetAbsOrigin(), 700, localKey, function()
+        EmitSoundOn("Astral.CelesialBurst.R2", target)
+    end)
     Timers:CreateTimer(0.1, function() target.r_2_quake_particle_lock = false end)
   end
   local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)

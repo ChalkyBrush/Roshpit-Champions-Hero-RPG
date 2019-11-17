@@ -431,6 +431,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"<% RPC_ELEMENT_EARTH %>"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"4"
+			}
 		}
 		"Modifiers"
 		{
