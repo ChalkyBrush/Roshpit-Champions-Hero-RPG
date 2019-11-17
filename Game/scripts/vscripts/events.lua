@@ -1561,7 +1561,7 @@ function GameMode:OnEntityKilled(keys)
 		if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and killedUnit:IsHero() and not killedUnit:HasModifier("modifier_paladin_rune_a_c_revivable") and not killedUnit:HasModifier("modifier_phoenix_rebirthing") then
 			Timers:CreateTimer(0.06, function()
 				Challenges:HeroDied()
-				local respawnTime = 10
+				local respawnTime = 5
 				if MAIN_HERO_TABLE and GameState:GetDifficultyFactor() > 1 then
 					respawnTime = respawnTime + #MAIN_HERO_TABLE * 5
 				end

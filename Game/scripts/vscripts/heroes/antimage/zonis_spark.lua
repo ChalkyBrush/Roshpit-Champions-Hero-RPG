@@ -35,12 +35,13 @@ function spark_start(event)
 	ability.q_2_level = caster:GetRuneValue("q", 2)
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	ability.q_4_level = caster:GetRuneValue("q", 4)
-	local duration = ARKIMUS_Q_COIL_BASE_DURATION + ability.q_4_level * ARKIMUS_Q4_COIL_ADD_DURATION
+	local duration = ARKIMUS_Q_COIL_BASE_DURATION + ARKIMUS_Q_COIL_BASE_DURATION *ability.q_4_level * ARKIMUS_Q4_COIL_ADD_DURATION_PCT
+	local zonal_net_duration = 1 + 1 * ARKIMUS_Q4_COIL_ADD_DURATION_PCT *ability.q_4_level
 	local loops = math.floor(duration * 10)
 	Timers:CreateTimer(0.1, function()
 		CustomAbilities:QuickAttachParticle("particles/roshpit/arkimus/zonis_end.vpcf", caster, 3)
 		if ability.q_2_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonis_buff", {duration = 1})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonis_buff", {duration = zonal_net_duration})
 		end
 		for i = 1, loops, 1 do
 			Timers:CreateTimer(i * 0.1, function()

@@ -256,6 +256,7 @@ function fury_swipes_attack(keys)
 	-- Check if unit already have stack
 	if target:HasModifier(modifierName) then
 		local current_stack = target:GetModifierStackCount(modifierName, ability)
+		local max_stacks = 30
 
 		-- Deal damage
 		local damage_table = {
@@ -268,7 +269,8 @@ function fury_swipes_attack(keys)
 		ApplyDamage(damage_table)
 
 		ability:ApplyDataDrivenModifier(caster, target, modifierName, {Duration = duration})
-		target:SetModifierStackCount(modifierName, ability, current_stack + 1)
+		
+		target:SetModifierStackCount(modifierName, ability, math.min(current_stack + 1, max_stacks))
 	else
 		ability:ApplyDataDrivenModifier(caster, target, modifierName, {Duration = duration})
 		target:SetModifierStackCount(modifierName, ability, 1)
