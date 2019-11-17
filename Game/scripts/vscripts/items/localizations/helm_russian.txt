@@ -97,7 +97,11 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
 		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"С <% ODIN_HELMET_CHANCE %>% шансом все атаки и способности могут умножить урон на <% ODIN_HELMET_MULT %>. Считается Пост-Резистным усилением, но является отдельным множителем."
+		"property_odin_description"					"All Item Damage and Base Ability damage has a <% ODIN_HELMET_CHANCE %>% chance to trigger an acute <% ODIN_BEAM_LENGTH %> range beam of dragon energy that travels toward the target. The beam hits enemies up to 3 times for <% ODIN_HELMET_PCT_DAMAGE %>% of the original damage."
+		"item_rpc_odin_helmet_ruby1"	"Increases proc chance by @ruby_property1%"
+		"item_rpc_odin_helmet_emerald1"	"Increases beam length by @emerald_property1"
+		"item_rpc_odin_helmet_sapphire1" "Increases Zantetsuken damage by an additional @sapphire_property1% of the triggering damage"
+		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"

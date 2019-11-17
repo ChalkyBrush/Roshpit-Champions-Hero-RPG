@@ -6694,3 +6694,85 @@ function scourge_knight_poison_think(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(ability:GetFinalGemPropertyValue("emerald", SCOURGE_KNIGHT_EMERALD)/100)
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_POISON)	
 end
+
+
+function odin_beam_casting_thinker(event)
+	local caster = event.target
+	local ability = event.ability
+	local beamLength = ODIN_BEAM_LENGTH + ability:GetFinalGemPropertyValue("emerald", ODIN_EMERALD)
+
+	for i = 1, #ability.beamTable, 1 do
+		local beam = ability.beamTable[i]
+		local damage = beam.damage
+		if beam and beam.target then
+			if not beam.distance_moved then
+				beam.distance_moved = 0
+			end
+			local moveDirection = ((beam.target - beam.position) * Vector(1, 1, 0)):Normalized()
+			beam.distance_moved = beam.distance_moved + 100
+			beam.position = beam.startPoint + beam.distance_moved * moveDirection
+
+			if beam.pfx then
+				local pfx = beam.pfx
+				local particleVector = beam.position
+				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 90))
+				ParticleManager:SetParticleControl(pfx, 1, particleVector + Vector(0, 0, 90))
+				ParticleManager:SetParticleControl(pfx, 3, particleVector + Vector(0, 0, 90))
+				ParticleManager:SetParticleControl(pfx, 4, particleVector + Vector(0, 0, 90))
+			end
+			if beam.interval % 3 == 0 then
+				-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+				local vStartPos = beam.startPoint
+				local vEndPos = beam.position
+				print("HERE?")
+				local width = 140
+				local teams = DOTA_UNIT_TARGET_TEAM_ENEMY
+				local types = DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
+				local flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+				local enemies = FindUnitsInLine(caster:GetTeamNumber(), vStartPos, vEndPos, nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+				if #enemies > 0 then
+					for _, enemy in pairs(enemies) do
+						print("DAMAGE SOMEONE")
+						Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE)	
+					end
+				end
+			end
+			local distance = WallPhysics:GetDistance2d(beam.position, caster:GetAbsOrigin())
+			if beam.distance_moved >= beamLength then
+				-- beam.position = beam.target
+				beam.active = false
+			end
+			beam.interval = beam.interval + 1
+		end
+	end
+	reindex_odin_beam_table(caster, ability)
+end
+
+function reindex_odin_beam_table(caster, ability)
+	local newBeamTable = {}
+	for i = 1, #ability.beamTable, 1 do
+		local beam = ability.beamTable[i]
+		if beam.active then
+			table.insert(newBeamTable, beam)
+		else
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(beam.pfx, false)
+			end)
+		end
+	end
+	ability.beamTable = newBeamTable
+	if #ability.beamTable == 0 then
+		caster:RemoveModifierByName("modifier_odin_beam_casting")
+	end
+end
+
+function odin_beam_pushback(event)
+	local hero = event.target
+	local ability = event.ability
+	hero:SetAbsOrigin(hero:GetAbsOrigin()+ability.pushBack*50)
+	StartAnimation(hero, {duration = 0.25, activity = ACT_DOTA_FLAIL, rate = 1.6, translate="forcestaff_friendly"})
+end
+
+function odin_beam_pushback_end(event)
+	FindClearSpaceForUnit(event.target, event.target:GetAbsOrigin(), false)
+end

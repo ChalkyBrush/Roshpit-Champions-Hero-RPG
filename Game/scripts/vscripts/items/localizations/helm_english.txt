@@ -472,13 +472,22 @@
 		"item_rpc_ocean_helm_of_valdun_sapphire1" "Increases Rune [W3] and Rune [E3] by @sapphire_property1"
 		"item_rpc_ocean_helm_of_valdun_amethyst1" "Increases Rune [Q3] and Rune [R3] by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
+		"item_property_odin"						"Zantetsuken"
+		"property_odin_description"					"All Item Damage and Base Ability damage has a <% ODIN_HELMET_CHANCE %>% chance to trigger an acute <% ODIN_BEAM_LENGTH %> range beam of dragon energy that travels toward the target. The beam hits enemies up to 3 times for <% ODIN_HELMET_PCT_DAMAGE %>% of the original damage."
+		"item_rpc_odin_helmet_ruby1"	"Increases proc chance by @ruby_property1%"
+		"item_rpc_odin_helmet_emerald1"	"Increases beam length by @emerald_property1"
+		"item_rpc_odin_helmet_sapphire1" "Increases Zantetsuken damage by an additional @sapphire_property1% of the triggering damage"
+		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
+
+
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
 		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <% SCOURGE_KNIGHT_ATTACK_MULT %>x your attack damage. Archers last <% SCOURGE_KNIGHT_ARCHER_DURATION %> seconds or die after taking damage <% SCOURGE_KNIGHT_HITS_TO_KILL %> times."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Archers have a 50% chance to spawn with Fire Arrows, which deal their damage in @ruby_property1 AOE"
 		"item_rpc_scourge_knights_helm_emerald1"	"Archers have a 50% chance to spawn with Poison Arrows, which deal @emerald_property1% of the archer owner's attack damage per second for <% SCOURGE_KNIGHT_EMERALD_DURATION %> seconds"
-		"item_rpc_scourge_knights_helm_sapphire1" "Archers have a 50% chance to spawn with Frost Arrows, which slow attack speed and movement speed by @sapphire_property1 for <% SCOURE_KNIGHT_SAPPHIRE_DURATION %> seconds"
+		"item_rpc_scourge_knights_helm_sapphire1" "Archers have a 50% chance to spawn with Frost Arrows, which slow attack speed and movement speed by @sapphire_property1 for <% SCOURGE_KNIGHT_SAPPHIRE_DURATION %> seconds"
 		"item_rpc_scourge_knights_helm_amethyst1" "Archers have a 50% chance to spawn with Arcane Arrows, which deal @amethyst_property1% extra damage"
 
 		"DOTA_Tooltip_modifier_scourge_knight_poison"	"Undead Command Poison"
@@ -497,12 +506,6 @@
 		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based <% WHITE_MAGE_INT_TO_HEAL %>x your Intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by <% WHITE_MAGE_BAD_PER_INT %>% for each <% WHITE_MAGE_INT_DIVISOR %> points of Intelligence."
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
-		
-		
-			
-    	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
-		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"All instances of damage dealt have a <% ODIN_HELMET_CHANCE %>% chance to be multiplied by <% ODIN_HELMET_MULT %>. This Post-Mitigation bonus increases the final damage dealt to the target, and therefore multiplies all other Post-Mitigation effects applied during calculation."
 		
 		
 		

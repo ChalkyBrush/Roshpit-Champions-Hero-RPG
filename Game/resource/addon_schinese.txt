@@ -13027,7 +13027,11 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"奥丁头盔"
 		"item_property_odin"						"斩铁拳"
-		"property_odin_description"					"每次玩家对敌人造成伤害都有 <font color='#ccff66'>10</font>% 的几率将该次伤害放大 <font color='#ccff66'>7</font> 倍。（计算在敌人减伤之后）"
+		"property_odin_description"					"All Item Damage and Base Ability damage has a <font color='#ccff66'>4</font>% chance to trigger an acute <font color='#ccff66'>700</font> range beam of dragon energy that travels toward the target. The beam hits enemies up to 3 times for <font color='#ccff66'>60</font>% of the original damage."
+		"item_rpc_odin_helmet_ruby1"	"Increases proc chance by @ruby_property1%"
+		"item_rpc_odin_helmet_emerald1"	"Increases beam length by @emerald_property1"
+		"item_rpc_odin_helmet_sapphire1" "Increases Zantetsuken damage by an additional @sapphire_property1% of the triggering damage"
+		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"钢铁巨象头盔"

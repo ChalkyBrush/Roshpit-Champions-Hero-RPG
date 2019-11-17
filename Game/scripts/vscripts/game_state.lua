@@ -3015,25 +3015,6 @@ function GameState:FilterDamage(filterTable)
 	if damageData.postmitigationDamage then
 		filterTable["damage"] = damageData.postmitigationDamage
 	end
-	if attacker:HasModifier("modifier_helm_odin") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
-		local proc = Filters:GetProc(attacker, ODIN_HELMET_CHANCE)
-		if proc then
-			filterTable["damage"] = filterTable["damage"] * ODIN_HELMET_MULT
-			PopupOdin(victim, ODIN_HELMET_MULT)
-			local helm = attacker.headItem
-			if not helm.particleCount then
-				helm.particleCount = 0
-			end
-			if helm.particleCount < 12 then
-				helm.particleCount = helm.particleCount + 1
-				CustomAbilities:QuickAttachParticle("particles/roshpit/items/odin_helmet.vpcf", victim, 1.2)
-				EmitSoundOnLocationWithCaster(victim:GetAbsOrigin(), "RPCItem.OdinHelmet.Crit", attacker)
-				Timers:CreateTimer(1, function()
-					helm.particleCount = helm.particleCount - 1
-				end)
-			end
-		end
-	end
 	if attacker:HasModifier("modifier_volcano_orb") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
 			filterTable["damage"] = filterTable["damage"] * VOLCANO_ORB_MAGIC_DMG_MULT

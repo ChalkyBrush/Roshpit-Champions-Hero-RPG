@@ -1245,6 +1245,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_guard_of_luma") and slot == BASE_ABILITY_Q then
             Filters:LumaGuardStrike(attacker, victim, damage)
         end
+        if attacker:HasModifier("modifier_odin_helmet") and (Util.BaseType:IsAbilityBaseType(slot) or slot == BASE_ITEM) then
+            Filters:OdinHelm(attacker, victim, damage)
+        end
     end
 
     local damageData = attacker._damage_data or {}
@@ -4822,5 +4825,44 @@ function Filters:SilentTemplar(caster)
         silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_amethyst_hp_regen_loss", {duration = duration})
         silent_templar_helm:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_silent_templar_amethyst_attack_power", {duration = duration})
         caster:SetModifierStackCount("modifier_silent_templar_amethyst_attack_power", caster.InventoryUnit, silent_templar_helm:GetFinalGemPropertyValue("amethyst", SILENT_TEMPLAR_AMETHYST))
+    end
+end
+
+function Filters:OdinHelm(caster, victim, damage)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local proc_chance = ODIN_HELMET_CHANCE + ability:GetFinalGemPropertyValue("ruby", ODIN_RUBY)
+    local proc = Filters:GetProc(caster, proc_chance)
+    if proc then
+        if not caster:HasModifier("modifier_odin_beam_casting") then
+            -- StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_ATTACK, rate=1.3})
+            local particleVector = caster:GetAbsOrigin() + Vector(0, 0, 90)
+            if not ability.beamTable then
+                ability.beamTable = {}
+            end
+            local beamLength = ODIN_BEAM_LENGTH + ability:GetFinalGemPropertyValue("emerald", ODIN_EMERALD)
+            local beam = {}
+            local particle_name = "particles/roshpit/items/odin.vpcf"
+            local pfx = ParticleManager:CreateParticle(particle_name, PATTACH_CUSTOMORIGIN, nil)
+            ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 90))
+            ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + Vector(0, 0, 90))
+            ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin() + Vector(0, 0, 90))
+            ParticleManager:SetParticleControl(pfx, 4, caster:GetAbsOrigin() + Vector(0, 0, 90))
+            local fv = ((victim:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+            beam.target = caster:GetAbsOrigin()+fv*beamLength
+            beam.pfx = pfx
+            beam.position = caster:GetAbsOrigin()
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_odin_beam_casting", {})
+            beam.interval = 0
+            beam.active = true
+            beam.length = WallPhysics:GetDistance2d(beam.position, beam.target)
+            beam.startPoint = caster:GetAbsOrigin()
+            ability.pushBack = fv*-1
+            table.insert(ability.beamTable, beam)
+            -- StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_ATTACK, rate=1})
+            EmitSoundOn("Jex.CosmicLaser", caster)
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_odin_beam_pushback", {duration = 0.3})
+            EmitSoundOn("RPCItems.OdinHelmet.Proc", caster)    
+            beam.damage = damage * (1 + (ODIN_HELMET_PCT_DAMAGE + ability:GetFinalGemPropertyValue("sapphire", ODIN_SAPPHIRE)/100))
+        end
     end
 end
