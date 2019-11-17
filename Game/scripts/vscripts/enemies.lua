@@ -192,6 +192,8 @@ function Enemies:InitializeEnemy(unit)
 		unit_level = 120
 	end
 	-- exp
+	print(unit_level)
+	print(enemyTier)
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	local deathXP = deathXP + (deathXP * (math.max(0, RPCItems:GetConnectedPlayerCount() - 1)*Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER)) + deathXP*GameState:GetPlayerPremiumStatusCount()*Enemies.EXTRA_EXP_PER_PASS_PLAYER
 	if GameState:IsSerengaard() then

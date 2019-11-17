@@ -13375,7 +13375,7 @@
 		"item_rpc_odin_helmet_ruby1"	"Increases proc chance by @ruby_property1%"
 		"item_rpc_odin_helmet_emerald1"	"Increases beam length by @emerald_property1"
 		"item_rpc_odin_helmet_sapphire1" "Increases Zantetsuken damage by an additional @sapphire_property1% of the triggering damage"
-		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
+		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1%"
 
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
