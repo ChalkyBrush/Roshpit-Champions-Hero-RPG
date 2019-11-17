@@ -2899,13 +2899,6 @@ function ogthun_destroy(event)
 	end
 end
 
-function eternal_night_take_damage(event)
-	local target = event.unit
-	if not target:HasModifier("modifier_eternal_night_sleep_unwakable") then
-		target:RemoveModifierByName("modifier_eternal_night_sleep")
-	end
-end
-
 function silverspring_think(event)
 	local target = event.target
 	local ability = event.ability
@@ -6754,4 +6747,60 @@ end
 
 function odin_beam_pushback_end(event)
 	FindClearSpaceForUnit(event.target, event.target:GetAbsOrigin(), false)
+end
+
+function eternal_night_take_damage(event)
+	local hero = event.target
+	local ability = event.ability
+	local attacker = event.attacker
+	local caster = event.caster
+	local proc = Filters:GetProc(hero, ETERNAL_NIGHT_SLEEP_CHANCE)
+	if proc then
+		Filters:EternalNightTrigger(hero, attacker, caster, ability)
+	end
+end
+
+function eternal_night_sleeping_take_damage(event)
+	local target = event.unit
+	if not target:HasModifier("modifier_eternal_night_sleep_unwakable") then
+		target:RemoveModifierByName("modifier_eternal_night_sleep")
+	end
+end
+
+function eternal_night_sleeping_take_damage(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+
+	local immunity_duration = ETERNAL_NIGHT_SLEEP_IMMUNITY_DURATION
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_night_sleep_immune", {duration = immunity_duration})	
+end
+
+function eternal_night_thinker(event)
+	local hero = event.target
+	local ability = event.ability
+	local caster = event.caster
+    if ability:GetGemValue("amethyst") > 0 then
+    	local sleep_count = 0
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), hero:GetAbsOrigin(), nil, ETERNAL_NIGHT_AMETHYST_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				if enemy:HasModifier("modifier_eternal_night_sleep") then
+					sleep_count = sleep_count + 1
+				end
+			end
+		end
+		if sleep_count >= ability:GetFinalGemPropertyValue("amethyst", ETERNAL_NIGHT_AMETHYST) then
+			if not hero:HasModifier("modifier_invisibility_datadriven") then
+		        local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", hero, 2)
+		        ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+		    end
+	        ability:ApplyDataDrivenModifier(caster, hero, "modifier_invisibility_datadriven", {})
+	        hero:AddNewModifier(hero, ability, "modifier_persistent_invisibility", {})
+	    else
+	    	hero:RemoveModifierByName("modifier_invisibility_datadriven")
+	    	hero:RemoveModifierByName("modifier_persistent_invisibility")
+	    end
+    end
+
 end

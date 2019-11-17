@@ -4319,8 +4319,38 @@ function RPCItems:RollShipyardVeil(item_level)
     local rune_type = RPCItems:RollRuneType({"q"}, {tier1 = 40, tier2 = 80, tier3 = 100})
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollEternalNightShroud(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_shroud_of_eternal_night", "immortal", "Shroud of Eternal Night", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_shroud_of_eternal_night"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eternal_night", "#494F63", 1, "#property_eternal_night_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_shadow", 1.5)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
@@ -4606,21 +4636,6 @@ function RPCItems:RollUndertakersHood(item_level)
     item.newItemTable.property3name = "intelligence"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_intelligence", "#33CCFF", 3)
 
-    RPCItems:RollHoodProperty4(item, 0)
-
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
-    return item
-end
-
-function RPCItems:RollEternalNightShroud(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_shroud_of_eternal_night", "immortal", "Shroud of Eternal Night", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "eternal_night"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eternal_night", "#494F63", 1, "#property_eternal_night_description")
-
-    RPCItems:RollHoodProperty2(item, 0)
-    RPCItems:RollHoodProperty3(item, 0)
     RPCItems:RollHoodProperty4(item, 0)
 
     RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
@@ -8789,7 +8804,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_adamantine_samurai_helmet", "item_rpc_arcane_cascade_hat", "item_rpc_blackfeather_crown", "item_rpc_blinded_glint_of_onu", "item_rpc_brazen_kabuto_of_the_desert_realm", "item_rpc_cap_of_wild_nature", "item_rpc_carbuncles_helm_of_reflection", 
         "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli", "item_rpc_excavators_focus_cap",
         "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler", "item_rpc_hyper_visor", "item_rpc_iron_colussus", "item_rpc_mask_of_mugato",
-        "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius", "item_rpc_scourge_knights_helm", "item_rpc_odin_helmet"}
+        "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius", "item_rpc_scourge_knights_helm", "item_rpc_odin_helmet", "item_rpc_shroud_of_eternal_night"}
     end
     return itemsList
 end

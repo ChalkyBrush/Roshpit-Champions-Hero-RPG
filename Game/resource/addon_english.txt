@@ -13400,7 +13400,15 @@
 		"item_rpc_shipyard_veil_lv1_emerald1"	"Each time an enemy breaks a shield stack, they are targetted by a skull that deals @emerald_property1 damage"
 		"item_rpc_shipyard_veil_lv1_sapphire1" "Reduces the cooldown between shield stack generation by @sapphire_property1"
 		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage"
-		 
+
+    	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
+		"item_property_eternal_night"				"Tranquilizer"
+		"property_eternal_night_description"		"Enemies who attack you have a <font color='#ccff66'>60</font>% chance to be put to sleep for <font color='#ccff66'>6</font> seconds. Any source of damage wakes up a sleeping unit. For the first <font color='#ccff66'>1</font> second of sleep, the unit cannot be awoken. Enemies become immune to this sleep effect for <font color='#ccff66'>4</font> seconds after it expires."
+
+		"item_rpc_shroud_of_eternal_night_ruby1"	"Enemies hit by [W] have a @ruby_property1% chance to fall asleep"
+		"item_rpc_shroud_of_eternal_night_emerald1"	"Increases the primary sleep duration by @emerald_property1 seconds"
+		"item_rpc_shroud_of_eternal_night_sapphire1" "Increases the unwakeable duration by @sapphire_property1 seconds"
+		"item_rpc_shroud_of_eternal_night_amethyst1" "If there are at least @amethyst_property1 sleeping enemies within <font color='#ccff66'>1000</font> range, the wearer is invisible"
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -13437,11 +13445,6 @@
     	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
 		"item_property_undertaker"					"Death Strike"
 		"property_undertaker_description"			"Your attacks also unleash a slow-moving ghostly hand at the target which deals Magical damage equal to 30x your Intelligence on impact."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
-		"item_property_eternal_night"				"Tranquilizer"
-		"property_eternal_night_description"		"Enemies who attack you have a 60% chance to be put to sleep for 6 seconds. Any source of damage wakes up a sleeping unit. For the first 1 second of sleep, the unit cannot be awoken. Enemies become immune to this sleep effect for several seconds after it expires."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"

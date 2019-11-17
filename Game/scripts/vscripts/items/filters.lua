@@ -1509,6 +1509,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             if attacker:HasModifier("modifier_cap_of_wild_nature2") then
                 Filters:WildNatureTwo(attacker, victim, slot)
             end
+            if attacker:HasModifier("modifier_shroud_of_eternal_night") then
+                Filters:EternalNightW(attacker, victim)
+            end
         end
         if attacker:HasModifier("modifier_arkimus_immortal_weapon_1") then
             damageMult = damageMult + ARKIMUS_IMMORTAL_WEAPON_1_W_MULT
@@ -4865,5 +4868,22 @@ function Filters:OdinHelm(caster, victim, damage)
             EmitSoundOn("RPCItems.OdinHelmet.Proc", caster)    
             beam.damage = damage * (1 + (ODIN_HELMET_PCT_DAMAGE + ability:GetFinalGemPropertyValue("sapphire", ODIN_SAPPHIRE)/100))
         end
+    end
+end
+
+function Filters:EternalNightW(attacker, victim)
+    local shroud = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local proc = Filters:GetProc(attacker, shroud:GetFinalGemPropertyValue("ruby", ETERNAL_NIGHT_RUBY))
+    if proc then
+        Filters:EternalNightTrigger(attacker, victim, attacker.InventoryUnit, shroud)
+    end
+end
+
+function Filters:EternalNightTrigger(hero, victim, caster, ability)
+    if not victim:HasModifier("modifier_eternal_night_sleep_immune") then
+        local sleep_duration = ETERNAL_NIGHT_SLEEP_DURATION + ability:GetFinalGemPropertyValue("emerald", ETERNAL_NIGHT_EMERALD)
+        ability:ApplyDataDrivenModifier(hero, victim, "modifier_eternal_night_sleep", {duration = sleep_duration})
+        local unwakeable_duration = ETERNAL_NIGHT_UNWAKEABLE_DURATION + ability:GetFinalGemPropertyValue("sapphire", ETERNAL_NIGHT_SAPPHIRE)
+        ability:ApplyDataDrivenModifier(hero, victim, "modifier_eternal_night_sleep_unwakable", {duration = unwakeable_duration})
     end
 end

@@ -48938,102 +48938,6 @@
 		}
 	}
 
-	"item_rpc_shroud_of_eternal_night"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/shroud_of_eternal_night" //"shroud_of_eternal_night"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_eternal_night"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttacked"
-				{
-					"Random"
-					{
-						"Chance"			"60"
-						"OnSuccess"
-						{
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_eternal_night_sleep"
-								"Target" 		"ATTACKER"
-								"Duration"		"6"
-							}
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_eternal_night_sleep_unwakable"
-								"Target" 		"ATTACKER"
-								"Duration"		"1"
-							}
-						}
-						"OnFailure"
-						{
-						}
-					}
-				}
-			}
-			"modifier_eternal_night_sleep"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"OverrideAnimation"	"ACT_DOTA_DISABLED"
-
-				"EffectName"	"particles/generic_gameplay/generic_sleep.vpcf"
-				"EffectAttachType"	"follow_overhead"
-
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"eternal_night_take_damage"
-					}
-				}
-			}
-			"modifier_eternal_night_sleep_unwakable"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Passive"	"0"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-
 	"item_rpc_stormcrack_helm"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -50836,6 +50740,169 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"TextureName"	"winterblight/p2/goldbreaker"
+			}
+		}
+	}
+
+	"item_rpc_shroud_of_eternal_night"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/shroud_of_eternal_night" //"shroud_of_eternal_night"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_shroud_of_eternal_night"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eternal_night_take_damage"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eternal_night_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_invisibility_datadriven"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_persistent_invisibility"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_eternal_night_sleep"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+
+				"EffectName"	"particles/generic_gameplay/generic_sleep.vpcf"
+				"EffectAttachType"	"follow_overhead"
+
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eternal_night_sleeping_take_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eternal_night_sleeping_take_damage"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_eternal_night_sleep_unwakable"
+			{
+				"IsDebuff"	"1"
+				"Passive"	"0"
+			}
+			"modifier_eternal_night_sleep_immune"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_invisibility_datadriven"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"RPC.DeathWhisper.Invis"
+						"Target"		"CASTER"
+					}
+
+					"RemoveModifier"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+						}
+						"ModifierName"	"modifier_persistent_invisibility"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"10 20 30 40 50"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"1 2 3 4 5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"6 5 4 3 2"
 			}
 		}
 	}
