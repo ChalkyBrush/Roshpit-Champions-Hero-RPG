@@ -1580,6 +1580,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_neutral_glyph_5_1") then
 		damage = damage * 0.65
 	end
+	if victim:HasModifier("modifier_inside_swamp_doctor") then
+		local ability = victim:FindModifierByName("modifier_inside_swamp_doctor"):GetAbility()
+		damage = damage * (1 - ability:GetFinalGemPropertyValue("ruby", SWAMP_DOCTOR_RUBY)/100)
+	end
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
 		damage = damage * (100-GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION)/100
 	end

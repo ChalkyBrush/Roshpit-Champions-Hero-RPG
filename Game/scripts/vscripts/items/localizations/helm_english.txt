@@ -535,6 +535,18 @@
 		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
 		"item_rpc_super_ascendency_mask_sapphire1" "Gain @sapphire_property1 Base Attack Damage during Super Ascension"
 		"item_rpc_super_ascendency_mask_amethyst1" "Super Ascension has a minimum duration of @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
+		"item_property_swamp_doctor"				"Voodoo Restoration"
+		"property_swamp_doctor_description"			"Heals yourself and nearby allies in <% SWAMP_DOCTOR_BASE_RADIUS %> radius for <% SWAMP_DOCTOR_HEAL_PCT %>% of their max health every <% SWAMP_DOCTOR_TICK_RATE %> seconds."
+
+		"item_rpc_swamp_doctors_tribal_mask_ruby1"	"Yourself and allies in Voodoo Restoration's effect take @ruby_property1% reduced damage from all sources"
+		"item_rpc_swamp_doctors_tribal_mask_emerald1"	"Increases Voodoo Restoration's radius by @emerald_property1"
+		"item_rpc_swamp_doctors_tribal_mask_sapphire1" "Yourself and allies in Voodoo Restoration's effect gain stacks of @sapphire_property1 Spell Pierce. Max <% SWAMP_DOCTOR_SAPPHIRE_MAX_STACKS %>"
+		"item_rpc_swamp_doctors_tribal_mask_amethyst1" "Increases the heal amount by @amethyst_property1x your Spirit and Intelligence"
+
+		"DOTA_Tooltip_modifier_swamp_doctor_sapphire"	"Swamp Doctor (Sapphire)"
+		"DOTA_Tooltip_modifier_swamp_doctor_sapphire_Description"	"Increased Spell Pierce"
 	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -605,12 +617,6 @@
 		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing <% WATER_DEITY_CROWN_DAMAGE_AMP %>% of the ability's damage and slowing the enemy's movement speed by <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% for <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at <% WATER_DEITY_CROWN_ELEMENT_CAP %>%."
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
-		
-		
-
-		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
-		"item_property_swamp_doctor"				"Voodoo Restoration"
-		"property_swamp_doctor_description"			"Heals you and nearby allies for 40% of the sum of your attributes every 0.5 seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	

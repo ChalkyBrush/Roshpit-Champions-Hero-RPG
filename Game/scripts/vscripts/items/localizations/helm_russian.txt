@@ -145,9 +145,15 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"После прочтения способности (R) @Ability4 атаки получат дополнительную дальность <% SUPER_ASCENDENCY_ATK_RANGE %> юнитов, урон атак увеличен на <% SUPER_ASCENDENCY_ATK_PCT %>%, скорость атаки увеличивается на <% SUPER_ASCENDENCY_ATK_SPD %>, а скорость передвижения увеличивается на <% SUPER_ASCENDENCY_MOVE_SPD %>. Атаки могут одновременно поразить до <% SUPER_ASCENDENCY_TARGETS %> целей, а каждое успешное попадание по врагу снижает время перезарядки (R) @Ability4 на <% SUPER_ASCENDENCY_CD_RED %> секунды. Эффект длится столько же, сколько занимает перезарядка @Ability4, либо как минимум <% SUPER_ASCENDENCY_MIN_DURATION %> секунд."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Attacks split and hit up to <% SUPER_ASCENDENCY_SPLIT_TARGETS_BASE %> extra targets. This buff's duration is equal to <% SUPER_ASCENDENCY_DURATION_PCT_OF_R %>% @Ability4's cooldown."
+
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"<% SUPER_ASCENDENCY_ATK_RANGE %> бонусной дальности атаки, <% SUPER_ASCENDENCY_ATK_PCT %>%% бонусного урона атаки, <% SUPER_ASCENDENCY_ATK_SPD %> скорости атаки и <% SUPER_ASCENDENCY_MOVE_SPD %> скорости передвижения. Мультишот по <% SUPER_ASCENDENCY_TARGETS %> целям. Каждая атака немного снижает оставшийся кулдаун способности R."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed."
+
+		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
+		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
+		"item_rpc_super_ascendency_mask_sapphire1" "Gain @sapphire_property1 Base Attack Damage during Super Ascension"
+		"item_rpc_super_ascendency_mask_amethyst1" "Super Ascension has a minimum duration of @amethyst_property1 seconds"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"

@@ -580,7 +580,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
     end
     healAmount = math.floor(healAmount)
     target:Heal(healAmount, caster)
-    if doPopUp then
+    if doPopUp and healAmount > 0 then
         PopupHealing(target, healAmount)
     end
 

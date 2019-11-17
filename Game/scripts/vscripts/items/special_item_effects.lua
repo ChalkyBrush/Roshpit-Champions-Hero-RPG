@@ -2177,17 +2177,6 @@ end
 function eternal_essence_projectile_hit(event)
 end
 
-function swamp_doctor_think(event)
-	local caster = event.target
-	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
-	local healAmount = math.floor((caster:GetStrength() + caster:GetIntellect() + caster:GetAgility()) * 0.4)
-	if #allies > 0 then
-		for _, ally in pairs(allies) do
-			Filters:ApplyHeal(caster, ally, healAmount, true)
-		end
-	end
-end
-
 function bladeforge_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
@@ -6808,4 +6797,51 @@ function eternal_night_thinker(event)
 	    end
     end
 
+end
+
+function swamp_doctor_think(event)
+	local caster = event.target
+	local ability = event.ability
+	local radius = SWAMP_DOCTOR_BASE_RADIUS + ability:GetFinalGemPropertyValue("emerald", SWAMP_DOCTOR_EMERALD)
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local healBonus = (caster:GetIntellect() + caster:GetSpirit())*ability:GetFinalGemPropertyValue("amethyst", SWAMP_DOCTOR_AMETHYST)
+	if #allies > 0 then
+		for _, ally in pairs(allies) do
+			local healAmount = ally:GetMaxHealth()*(SWAMP_DOCTOR_HEAL_PCT/100) + healBonus
+			healAmount = math.min(ally:GetMaxHealth() - ally:GetHealth(), healAmount)
+			Filters:ApplyHeal(caster, ally, healAmount, true, true)
+			ability:ApplyDataDrivenModifier(caster, ally, "modifier_inside_swamp_doctor", {duration = SWAMP_DOCTOR_TICK_RATE + 0.25})
+			if ability:GetGemValue("sapphire") > 0 then
+				ability:ApplyDataDrivenModifier(caster, ally, "modifier_swamp_doctor_sapphire", {duration = SWAMP_DOCTOR_SAPPHIRE_STICKY_DURATION})
+				local newStacks = math.min(ally:GetModifierStackCount("modifier_swamp_doctor_sapphire", caster) + 1, SWAMP_DOCTOR_SAPPHIRE_MAX_STACKS)
+				ally:SetModifierStackCount("modifier_swamp_doctor_sapphire", caster, newStacks)
+			end
+		end
+	end
+end
+
+function swamp_doctor_start(event)
+	local hero = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, false)
+	end
+	local radius = SWAMP_DOCTOR_BASE_RADIUS + ability:GetFinalGemPropertyValue("emerald", SWAMP_DOCTOR_EMERALD)
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", hero:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(1, 1, 1))
+	ability.pfx = pfx
+	EmitSoundOn("RPCItems.SwampDoctor.Start", hero)
+end
+
+function swamp_doctor_end(event)
+	local hero = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	if ability.pfx then
+		ParticleManager:DestroyParticle(ability.pfx, false)
+	end
 end

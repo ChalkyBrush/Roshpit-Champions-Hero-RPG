@@ -141,8 +141,15 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"
 		"item_property_super_ascendency"			"巨大优势"
-		"property_super_ascendency_description"		"施放 @Ability4 后，普通攻击变为发射火球，攻击距离增加<% SUPER_ASCENDENCY_ATK_RANGE %>，额外攻击力提高<% SUPER_ASCENDENCY_ATK_PCT %>%，攻击速度提高<% SUPER_ASCENDENCY_ATK_SPD %>，移动速度提高<% SUPER_ASCENDENCY_MOVE_SPD %>。每次攻击可以同时攻击<% SUPER_ASCENDENCY_TARGETS %>个目标，并且每次攻击减少 @Ability4 的冷却时间 <% SUPER_ASCENDENCY_CD_RED %>秒。巨大优势buff的冷却时间与 @Ability4 相同, 不会低于 <% SUPER_ASCENDENCY_MIN_DURATION %> 秒"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"巨大优势"
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Attacks split and hit up to <% SUPER_ASCENDENCY_SPLIT_TARGETS_BASE %> extra targets. This buff's duration is equal to <% SUPER_ASCENDENCY_DURATION_PCT_OF_R %>% @Ability4's cooldown."
+
+		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed."
+
+		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
+		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
+		"item_rpc_super_ascendency_mask_sapphire1" "Gain @sapphire_property1 Base Attack Damage during Super Ascension"
+		"item_rpc_super_ascendency_mask_amethyst1" "Super Ascension has a minimum duration of @amethyst_property1 seconds"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"幻影术士面具"

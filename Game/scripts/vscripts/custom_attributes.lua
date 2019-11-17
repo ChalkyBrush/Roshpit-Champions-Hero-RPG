@@ -1747,6 +1747,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
 		spell_pierce_modify = spell_pierce_modify + MUGATO_PIERCES + helm:GetFinalGemPropertyValue("emerald", MUGATO_EMERALD)
 	end
+	if unit:HasModifier("modifier_swamp_doctor_sapphire") then
+		local modifier = unit:FindModifierByName("modifier_swamp_doctor_sapphire")
+		local ability = modifier:GetAbility()
+		if ability and IsValidEntity(ability) then
+			spell_pierce_modify = spell_pierce_modify + ability:GetFinalGemPropertyValue("sapphire", SWAMP_DOCTOR_SAPPHIRE)*modifier:GetStackCount()
+		end
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

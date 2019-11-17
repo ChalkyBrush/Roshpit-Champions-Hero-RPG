@@ -26,7 +26,7 @@ function wave_unit_die(event)
 		local deathLocation = event.unit:GetAbsOrigin()
 		local luck = RandomInt(2 + GameState:GetPlayerPremiumStatusCount(), 7200)
 		if luck == 3000 then
-			RPCItems:RollSwampDoctorMask(deathLocation, false)
+			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_swamp_doctors_tribal_mask")
 		elseif luck == 2999 then
 			RPCItems:RollRadiantRuinsLeather(deathLocation)
 		elseif luck == 2998 then
