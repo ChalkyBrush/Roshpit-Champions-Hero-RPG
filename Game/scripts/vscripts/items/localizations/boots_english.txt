@@ -294,7 +294,7 @@
     	"item_rpc_sandstream_slippers_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_sandstream_slippers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sandstream_slippers"					"Sandstream"
-		 "property_sandstream_slippers_description"				"Every <% SANDSTREAM_INTERVAL %> seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max <% SANDSTREAM_MAX_STACKS %> stacks."
+		 "property_sandstream_slippers_description"				"Every <% ITEM_RPC_SANDSTREAM_SLIPPERS_INTERVAL %> seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max <% ITEM_RPC_SANDSTREAM_SLIPPERS_MAX_STACKS %> stacks."
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Removes the cooldown on E ability. Using E ability consumes a stack."
 		 
@@ -305,7 +305,7 @@
     	"item_rpc_crimsyth_elite_greaves_lv1_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_crimsyth_elite_greaves_lv1_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_crimsyth_elite_3"						"Crimsyth Elite"
-		 "property_crimsyth_elite_3_description"				"Increases Armor by <% CRIMSYTH_ELITE_ARMOR %>x your hero level. Upon casting an ability, lose the armor and gain a <% CRIMSYTH_ELITE_MAGIC_RESISTANCE %> Magic Resistance shield for <% CRIMSYTH_ELITE_DURATION %> seconds."
+		 "property_crimsyth_elite_3_description"				"Increases Armor by <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR %>x your hero level. Upon casting an ability, lose the armor and gain a <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE %> Magic Resistance shield for <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION %> seconds."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"

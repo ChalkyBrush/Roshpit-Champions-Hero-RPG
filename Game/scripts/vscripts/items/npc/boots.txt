@@ -1584,7 +1584,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CRIMSYTH_ELITE_ARMOR %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR %>"
 				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
@@ -1596,7 +1596,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% CRIMSYTH_ELITE_MAGIC_RESISTANCE %>"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE %>"
 				}
 				"OnDestroy"
 				{
@@ -3591,7 +3591,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% SANDSTREAM_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_SANDSTREAM_SLIPPERS_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

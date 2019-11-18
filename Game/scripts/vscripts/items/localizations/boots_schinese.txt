@@ -295,7 +295,7 @@
     	"item_rpc_sandstream_slippers_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_sandstream_slippers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sandstream_slippers"					"流沙"
-		 "property_sandstream_slippers_description"				"每<% SANDSTREAM_INTERVAL %>秒叠加一层流沙，每层流沙移除一次 @Ability3 的冷却时间，最多<% SANDSTREAM_MAX_STACKS %>层。"
+		 "property_sandstream_slippers_description"				"每<% ITEM_RPC_SANDSTREAM_SLIPPERS_INTERVAL %>秒叠加一层流沙，每层流沙移除一次 @Ability3 的冷却时间，最多<% ITEM_RPC_SANDSTREAM_SLIPPERS_MAX_STACKS %>层。"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"流沙叠加"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"移除E技能的冷却时间，使用E技能消耗一层流沙"
 		 
@@ -306,7 +306,7 @@
     	"item_rpc_crimsyth_elite_greaves_lv1_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_crimsyth_elite_greaves_lv1_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_crimsyth_elite_3"						"Crimsyth精英"
-		 "property_crimsyth_elite_3_description"				"增加护甲值，增加值为 <% CRIMSYTH_ELITE_ARMOR %>x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 <% CRIMSYTH_ELITE_MAGIC_RESISTANCE %> ，持续 <% CRIMSYTH_ELITE_DURATION %> 秒。"
+		 "property_crimsyth_elite_3_description"				"增加护甲值，增加值为 <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR %>x 你的英雄等级。施放任意技能失去护甲值，但是提高魔法抗性 <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE %> ，持续 <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION %> 秒。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"收割者鞋子"

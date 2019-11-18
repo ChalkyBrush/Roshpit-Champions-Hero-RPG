@@ -723,7 +723,7 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_crimsyth_elite_greaves") then
         caster:RemoveModifierByName("modifier_crimsyth_elite_greaves_armor")
-        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = CRIMSYTH_ELITE_DURATION})
+        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION})
     end
     if caster:HasModifier("modifier_grasp_of_elder") then
         local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ELDER_GRASP_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
