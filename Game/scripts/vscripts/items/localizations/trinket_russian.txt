@@ -1,10 +1,18 @@
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
+		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blacksmiths_tablet"			"Refined Weaponry"
 		"property_blacksmiths_tablet_description"	"Бонусы оружия (включая руны) увеличиваются на <% BLACKSMITH_TABLE_ADD_STATS_PCT * 100%>%. Дополнительно увеличивает получаемый оружием опыт на <% BLACKSMITH_TABLE_ADD_WEAPON_EXP * 100 %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
+		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_hope_of_saytaru_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_hope_of_saytaru_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_saytaru"						"Last Hope"
 		"property_saytaru_description"				"Когда здоровье опускается ниже <% SAYTARU_HP_THRESHOLD_PCT * 100 %>% дарует иммунитет к магии, увеличивает сопротивление Чистому урону на <% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, но уменьшает Магический и Чистый исходящий урон на <% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
 		
@@ -13,55 +21,103 @@
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
+		"item_rpc_sapphire_lotus_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_sapphire_lotus_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_sapphire_lotus_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_sapphire_lotus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
 		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на <% SAPPHIRE_LOTUS_HP_PER_INT %> и показатель маны на <% SAPPHIRE_LOTUS_MP_PER_INT %>."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
+		"item_rpc_conquest_stone_falcon_ruby1" 							"blah blah @ruby_property1 gem"
+		"item_rpc_conquest_stone_falcon_emerald1" 							"blah blah @emerald_property1 gem"
+		"item_rpc_conquest_stone_falcon_sapphire1" 							"blah blah @sapphire_property1 gem"
+		"item_rpc_conquest_stone_falcon_amethyst1" 							"blah blah @amethyst_property1 gem"
 		"item_property_stone_falcon"						"Gift of the Reliquary"
 		"property_stone_falcon_description"				"Любой входящий Магический или Чистый урон не может отнять больше <% STONE_FALCON_HP_THRESHOLD %>% от Макс. здоровья героя."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_never_ring"										"Soul Ring"
+		"item_rpc_never_ring_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_never_ring_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_never_ring_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_never_ring_amethyst1"										"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"Слот: Украшение"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"
+		"item_rpc_sand_tomb_orb_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_sand_tomb_orb_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_sand_tomb_orb_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_sand_tomb_orb_amethyst1"									"blah blah @amethyst_property1 gem"
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Слот: Украшение"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
+		"item_rpc_badge_of_honor_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_badge_of_honor_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_badge_of_honor_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_badge_of_honor_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
+		"item_rpc_monkey_paw_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_monkey_paw_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_monkey_paw"					"Wishful Curse"
 		"property_monkey_paw_description"			"Если в радиусе <% MONKEY_PAW_AOE_PARAGON_TRIGGER %> от героя умирает монстр парагона, то после его смерти выпадут дополнительные Immortal предметы, отнимая <% MONKEY_PAW_GOLD_COST_PCT %>% от имеющегося золота. Уровень сложности на карте определяет качество выпадающих предметов, также влияя на количество отнимаемого золота (<% MONKEY_PAW_GOLD_DIVISOR %>/<% MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% MONKEY_PAW_GOLD_DIVISOR * 3 %> для сложностей Normal/Elite/Legend). Пока надет этот предмет, герой постоянно получает 1 чистого урона каждые <% MONKEY_PAW_DMG_TICK_RATE %> секунды."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
+		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_stone_of_gordon_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_stone_of_gordon_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
+		"item_rpc_arbor_dragonfly_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_arbor_dragonfly_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_arbor_dragonfly_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_arbor_dragonfly_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
 		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от Умений, Рун и Глифов на <% ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
+		"item_rpc_gem_of_eternal_frost_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_gem_of_eternal_frost_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_gem_of_eternal_frost_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_gem_of_eternal_frost_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_eternal_frost"				"Frost Nova"
 		"property_eternal_frost_description"		"Скорость передвижения ближайших врагов снижается на <% ETERNAL_FROST_SLOW_PER_STACK %> каждые <% ETERNAL_FROST_STACK_INTERVAL %> секунды. Когда значение их скорости станет ниже <% ETERNAL_FROST_MS_THRESHOLD %>, они будут обездвижены на <% ETERNAL_FROST_AURA_ROOT_DURATION %> секунды. С прочтением (E) @Ability3 все ближайшие враги в радиусе <% ETERNAL_FROST_ACTIVE_ROOT_AOE %> будут обездвижены<br> на <% ETERNAL_FROST_ACTIVE_ROOT_DURATION %> секунды и получат урон, равный <% ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x Интеллекта.<br>Весь урон, напрямую наносимый предметами увеличивается на <% ETERNAL_FROST_INT_TO_ITEM_DMG %>% за каждые <% ETERNAL_FROST_INT_DIVISOR %> очков Интеллекта."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"
+		"item_rpc_lifesource_vessel_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_lifesource_vessel_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_lifesource_vessel_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_lifesource_vessel_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_lifesource_vessel"			"Lifesource"
 		"property_lifesource_vessel_description"	"Каждое очко силы увеличивает реген. здоровья на <% LIFESOURCE_HP_REGEN_PER_STR %>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"Galaxy Orb"
+		"item_rpc_galaxy_orb_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_galaxy_orb_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_galaxy_orb_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_galaxy_orb_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_galaxy_orb"					"Black Hole"
 		"property_galaxy_orb_description"			"Во время произнесения способности (R) @Ability4 - все окружающие враги в радиусе <% GALAXY_ORB_RADIUS %> будут медленно стянуты к вам."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"
+		"item_rpc_azure_empire_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_azure_empire_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_azure_empire_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_azure_empire_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_azure_empire"				"Sky Magistrate"
 		"property_azure_empire_description"			"<% PENDANT_AZURE_EMPIRE_NUMBER_OF_HAWKS %> лазурных сокола следуют за героем. Каждый сокол может поглотить <% PENDANT_AZURE_EMPIRE_INSTANCE_ABSORBTION_PER_HAWK %> любую порцию входящего магический или чистый урон. Время восстановления соколов - <% PENDANT_AZURE_EMPIRE_HAWK_CD %> сек после получения урона."
 		"item_property_azure_empire_silver"				"Silver Skies"
@@ -77,16 +133,28 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
+		"item_rpc_signus_charm_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_signus_charm_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_signus_charm_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_signus_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_signus"						"Signus"
 		"property_signus_description"				"Уменьшает время восстановления способности (R) @Ability4 на <% SIGNUS_R_CD_REDUCTION %>%. Удваивает время восстановления способности (E) @Ability3."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
+		"item_rpc_eye_of_avernus_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_eye_of_avernus_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_eye_of_avernus_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_eye_of_avernus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_avernus"						"Commanding Vision"								
 		"property_avernus_description"				"Увеличивает Базовый Урон Способностей на <% EYE_OF_AVERNUS_BAD %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
+		"item_rpc_tome_of_chaos_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_tome_of_chaos_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_tome_of_chaos_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_tome_of_chaos_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tome_of_chaos"				"Infernal Reign"
 		"property_tome_of_chaos"					"После применения способности (W) @Ability2 на поле боя появится могущественный демон, оглушая врагов на <% TOME_OF_CHAOS_STUN %> секунды в месте появления. Свойства демона основаны на характеристиках призвавшего его героя. Он имеет х<% TOME_OF_CHAOS_HP_MULT %> больше здоровья, х<% TOME_OF_CHAOS_ARMOR_MULT %> брони, а атаки бьют по площади с уроном, равным х<% TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %> сумме всех атрибутов.<br>Демон живёт <% TOME_OF_CHAOS_DURATION %> секунд, после чего покидает поле битвы. Время восстановления <% TOME_OF_CHAOS_CD %> секунд."
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
@@ -96,6 +164,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
+		"item_rpc_torch_of_gengar_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_torch_of_gengar_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_torch_of_gengar_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_torch_of_gengar_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_gengar"						"Shadow Walk"
 		"property_gengar"							"При получении урона есть шанс <% GENGAR_CHANCE %>%, что герой получит возможность уклоняться от <% GENGAR_EVASION %>% атак, ходить сквозь юнитов и увеличит Базовый Урон Способностей на <% GENGAR_BAD %>% на <% GENGAR_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
@@ -103,6 +175,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"
+		"item_rpc_ruinfall_skull_token_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_ruinfall_skull_token_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_ruinfall_skull_token_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_ruinfall_skull_token_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ruinfall"					"Sandstorm"
 		"property_ruinfall"							"Когда здоровье опустится ниже 25%, герой будет окутан песчаной бурей, становясь невидимым и восстанавливая 20% макс. здоровья в течение 5 секунд. Во время песчаной бури герой не сможет произносить заклинания, будет обезоружен и обездвижен. Перезаряжается 40 секунд."
 		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
@@ -110,47 +186,83 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
+		"item_rpc_omega_ruby_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_omega_ruby_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_omega_ruby_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_omega_ruby_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_omega_ruby"					"Omega Flare"
 		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области <% OMEGA_RUBY_AOE_RADIUS %> единиц в размере <% OMEGA_RUBY_ATTACK_TO_DMG %> от урона атаки героя."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
+		"item_rpc_raven_idol_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_raven_idol_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_raven_idol2"					"Black Soul"		
 		"property_raven_idol_description2"			"Весь получаемый урон снижен на <% RAVEN_IDOL_DMG_REDUCTION %>%. Уровень здоровья не поднимется выше <% RAVEN_IDOL_HP_THRESHOLD * 100 %>% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
+		"item_rpc_phoenix_emblem_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_phoenix_emblem_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_phoenix_emblem_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_phoenix_emblem_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_emblem"				"Rebirth"
 		"property_phoenix_emblem"					"При смерти герой начинает перерождение. Через <% PHOENIX_EMBLEM_RESURRECTION_DELAY %> секунд он возрождается, оглушая всех врагов вокруг на <% PHOENIX_EMBLEM_STUN_DUR %> секунд. Перезаряжается <% PHOENIX_EMBLEM_COOLDOWN %> секунд."
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Перезарядка Rebirth"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
+		"item_rpc_volcano_orb_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_volcano_orb_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_volcano_orb_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_volcano_orb_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_volcano_orb"					"Fiery Core"
 		"property_volcano_orb_description"			"Увеличивает Пост-Резистный магический урон x<% VOLCANO_ORB_MAGIC_DMG_MULT %>. Этот эффект работает отдельно от других усилений Пост-Резистного урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
+		"item_rpc_aeriths_tear_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_aeriths_tear_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_aeriths_tear_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_aeriths_tear_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_aeriths_tear"							"Last Wish"
 		"property_aeriths_tear"									"Снижает весь получаемый урон от врагов, находящихся на расстоянии до <% AERITHS_TEAR_DISTANCE %> на <% AERITHS_TEAR_DMG_REDUCTION %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
+		"item_rpc_fractional_enhancement_geode_ruby1"					"blah blah @ruby_property1 gem"
+		"item_rpc_fractional_enhancement_geode_emerald1"					"blah blah @emerald_property1 gem"
+		"item_rpc_fractional_enhancement_geode_sapphire1"					"blah blah @sapphire_property1 gem"
+		"item_rpc_fractional_enhancement_geode_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_geode"								"Logarathmic Amplification"
 		"property_geode_description"						"В случае, если ваши атаки нанесут меньше <% GEODE_INSTANCE_THRESHOLD %>% урона от максимального показателя здоровья цели, то этот урон будет увеличен в <% GEODE_DAMAGE_MULT %> раз."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
+		"item_rpc_ring_of_nobility_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_ring_of_nobility_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_ring_of_nobility_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_ring_of_nobility_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_nobility"							"Path of Nobility"
 		"property_nobility_description"						"Добавляет бонусные атрибуты в количестве, равном <% NOBILITY_ALL_ATTRIBUTES %>x значению текущего уровня героя. Каждое убийство противника добавляет к свойству предмета 1 очко. Предмет улучшится, когда значение достигнет 10000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
+		"item_rpc_ring_of_nobility_augmented_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_ring_of_nobility_augmented_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_ring_of_nobility_augmented_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_ring_of_nobility_augmented_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_nobility_augmented"					"Strides of Nobility"
 		"property_nobility_augmented_description"			"Добавляет бонусные атрибуты в количестве, равном <% NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x значению текущего уровня героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"
+		"item_rpc_twig_of_the_enlightened_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_twig_of_the_enlightened_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_twig_of_the_enlightened_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_twig_of_the_enlightened_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_twig_of_enlightened"					"Mana Shell"
 		"property_twig_of_enlightened_description"			"Когда вы пополняете запас маны, создаётся щит, поглощающий урон, равный <% TWIG_OF_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x значению восстановленной маны. Максимальное число поглощаемого урона не превышает <% TWIG_OF_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x максимального значения маны героя."
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"Mana Shell"
@@ -158,11 +270,19 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
+		"item_rpc_ancient_tanari_waterstone_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_ancient_tanari_waterstone_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_ancient_tanari_waterstone_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_ancient_tanari_waterstone_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
 		"property_ancient_waterstone_description"			"Урон, напрямую наносимый предметами увеличен на <% ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
+		"item_rpc_tempest_falcon_ring_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_tempest_falcon_ring_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_tempest_falcon_ring_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_tempest_falcon_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_tempest_falcon"						"Storm Switch"
 		"property_tempest_falcon_description"				"После нанесения физического урона герой получит бафф, усиливающий следующий магический урон на <% TEMPEST_FALCON_RING_POST_MITI_MAGIC %>%"
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
@@ -171,21 +291,37 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
+		"item_rpc_firelock_pendant_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_firelock_pendant_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_firelock_pendant_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_firelock_pendant_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_firelock"							"Steady Flame"		
 		"property_firelock_description"					"Увеличивает Пост-Резистный физический урон на <% FIRELOCK_PENDANT_STR_TO_POST_MITI %>% за каждые <% FIRELOCK_PENDANT_STR_DIVISOR %> очков Силы."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
+		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_antique_mana_relic"					"Mana Storm"
 		"property_antique_mana_relic_description"			"Прочтение способности (Q) @Ability1 выжжет <% ANTIQUE_MANA_RELIC_MANA_DRAIN %>% вашей маны и усилит Базовый Урон этой способности на <% ANTIQUE_MANA_RELIC_Q_BAD %> на несколько секунд, если маны достаточно. Каждая базовая атака восстанавливает <% ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% маны. Каждое очко текущей маны увеличивает базовый урон героя на <% ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
+		"item_rpc_epsilons_eyeglass_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_epsilons_eyeglass_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_epsilons_eyeglass_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_epsilons_eyeglass_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_epsilon_eyeglass"					"Extended Scope"
 		"property_epsilon_eyeglass_description"			"Увеличивает дальность атаки на <% EPSILON_EYEGLASS_ATTACK_RANGE %> (ТОЛЬКО ДЛЯ ГЕРОЕВ С ДАЛЬНЕЙ АТАКОЙ), увеличивает дальность обзора на <% EPSILON_EYEGLASS_VISION_RADIUS %> и увеличивает скорость полёта снаряда от атаки на <% EPSILON_EYEGLASS_PROJECTILE_SPEED %>. Каждая атака наносит дополнительный физический урон, зависящий от расстояния между героем и целью.<br>(Формула: 0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000  %> * уровень героя * расстояние ^ 3)<br>Максимально допустимое расстояние для получения наивысшего бонуса: <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>, а короткая дистанция рассчитывается как <% EPSILON_EYEGLASS_MIN_RANGE %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
+		"item_rpc_fenrirs_fang_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_fenrirs_fang_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_fenrirs_fang_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_fenrirs_fang_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fenrir_fang"							"Alpha Wolf Aura"
 		"property_fenrir_fang"									"Герой распространяет ауру на себя и союзников поблизости, которая повышает урон на <% FENRIR_FANG_BONUS_DAMAGE %>%."
 		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"Alpha Wolf Aura"
@@ -193,6 +329,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
+		"item_rpc_fuchsia_ring_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_fuchsia_ring_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_fuchsia_ring_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_fuchsia_ring_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fuchsia_ring"							"Solidarity"
 		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на <% FUCHSIA_DMG_REDUCTION %>%, а регенерация здоровья увеличивается на <% FUCHSIA_HP_REGEN_OF_MAX_HP %>% от значения максимального здоровья."
 		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на <% FUCHSIA_DMG_REDUCTION %>%, а регенерация здоровья увеличена на <% FUCHSIA_HP_REGEN_OF_MAX_HP %>% от макс. здоровья."
@@ -201,44 +341,80 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
+		"item_rpc_fortunes_talisman_of_truth_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_fortunes_talisman_of_truth_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_fortunes_talisman_of_truth_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_fortunes_talisman_of_truth_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_fortune_talisman"						"Luck Booster"
 		"property_fortune_talisman_description"				"Увеличивает шанс срабатывания всех надетых предметов на <% FORTUNES_TALISMAN_CHANCE_AMP %>%, мультипликативно."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"Cobalt Serenity Ring"
+		"item_rpc_cobalt_serenity_ring_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_cobalt_serenity_ring_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_cobalt_serenity_ring_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_cobalt_serenity_ring_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cobalt_serenity"						"Cobalt Serenity"
 		 "property_cobalt_serenity_description"					"Значение регенерации здоровья увеличено на x<% COBALT_SERENITY_INT_TO_HP_REGEN %>% от показателя Интеллекта."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"Emerald Nullification Ring"
+		"item_rpc_emerald_nullification_ring_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_emerald_nullification_ring_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_emerald_nullification_ring_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_emerald_nullification_ring_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_emerald_null"							"Emerald Nullification"
 		 "property_emerald_null_description"					"Получаемый чистый и магический урон снижен на <% EMERALD_NULLIFICATION_AGI_TO_PURE_MAGIC_DMG_BLOCK %>x Ловкости героя. Вычитание происходит после расчёта магического сопротивления и до всех прочих вычислений."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
+		"item_rpc_garnet_warfare_ring_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_garnet_warfare_ring_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_garnet_warfare_ring_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_garnet_warfare_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_garnet_warfare"							"Garnet Warfare"
 		 "property_garnet_warfare_description"					"Увеличивает Базовый Урон Способностей на <% GARNET_WARFARE_STR_TO_BAD %>% за каждые 10 очков Силы."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
+		"item_rpc_serengaard_sun_crystal_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_serengaard_sun_crystal_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_serengaard_sun_crystal_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_serengaard_sun_crystal_amethyst1"							"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_wind_orchid"										"Wind Orchid"
+		"item_rpc_wind_orchid_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_wind_orchid_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_wind_orchid_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_wind_orchid_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_wind_orchid"							"Wind Bloom"
 		 "property_wind_orchid_description"						"Каждое очко руны [E4] увеличивает Ловкость на <% WIND_ORCHID_AGI_PER_E4 %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
+		"item_rpc_aqua_lily_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_aqua_lily_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_aqua_lily_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_aqua_lily_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_aqua_lily"							"Water Bloom"
 		 "property_aqua_lily_description"					"Каждое очко руны [R4] увеличивает Интеллект на <% AQUA_LILY_INT_PER_R4 %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"
+		"item_rpc_fire_blossom_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_fire_blossom_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_fire_blossom_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_fire_blossom_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fire_blossom"							"Fire Bloom"
 		 "property_fire_blossom_description"					"Каждое очко руны [W4] увеличивает Силу на <% FIRE_BLOSSOM_STR_PER_W4 %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"Ankh of the Ancients"
+		"item_rpc_ankh_of_the_ancients_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_ankh_of_the_ancients_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_ankh_of_the_ancients_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_ankh_of_the_ancients_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ankh_of_ancients"						"Immortal Spirit"
 		 "property_ankh_of_ancients_description"				"При получении смертельного урона, герой получает щит на <% ANKH_SHIELD_DURATION %>  сек., который сокращает весь входящий урон на 100%, тем самым даёт иммунитет к оглушению. Дополнительно сбрасывает время перезарядки для всех умений. Перезаряжается в <% ANKH_COOLDOWN %> раз(а) больше длительности щита. Максимальная длительность щита <% ANKH_COOLDOWN_MAX %>."
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
@@ -247,9 +423,17 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
+		"item_rpc_aquastone_ring_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_aquastone_ring_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_aquastone_ring_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_aquastone_ring_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
+		"item_rpc_world_trees_flower_cache_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_world_trees_flower_cache_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_world_trees_flower_cache_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_world_trees_flower_cache_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_world_trees_flower_cache"				"Blood Orchid"
 		"property_world_trees_flower_cache_description"			"При получении смертельного урона, герой перерождается в цветке, возвращаясь в бой через <% WORLD_TREES_CACHE_RESURRECTION_DELAY %> секунды с полным здоровьем. После возрождения весь исходящий Пост-Резистный урон увеличивается на <% WORLD_TREES_CACHE_POST_MITI %>%, но увеличивает весь входящий урон на <% WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT %>% на <% WORLD_TREES_CACHE_BUFF_DURATION %> секунд. Перезаряжается <% WORLD_TREES_CACHE_COOLDOWN %> секунд."
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Перезарядка Blood Orchid"
@@ -258,24 +442,44 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
+		"item_rpc_arcane_charm_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_arcane_charm_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_arcane_charm_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_arcane_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arcane_charm"					"Magic Magnet"
 		"property_arcane_charm_description"				"Увеличивает радиус подбора темных кристаллов на <% ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%, а подбор кристалла исцеляет героя на <% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% от максимального здоровья в зависимости от размера кристалла."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"
+		"item_rpc_winterblight_skull_ring_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_winterblight_skull_ring_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_winterblight_skull_ring_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_winterblight_skull_ring_amethyst1"							"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
+		"item_rpc_sparkling_sea_crystal_ruby1"					"blah blah @ruby_property1 gem"
+		"item_rpc_sparkling_sea_crystal_emerald1"					"blah blah @emerald_property1 gem"
+		"item_rpc_sparkling_sea_crystal_sapphire1"					"blah blah @sapphire_property1 gem"
+		"item_rpc_sparkling_sea_crystal_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sea_crystal"												"Giga Ocean Elemental"
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a Giga Ocean elemental with huge knockback and attacks that deal @special_property1% of its summoner's attack power. Casting @Ability4 will replace your existing elemental."
 
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"Sparkling Token of Oceanis"	
+		"item_rpc_sparkling_token_of_oceanis_ruby1"					"blah blah @ruby_property1 gem"
+		"item_rpc_sparkling_token_of_oceanis_emerald1"					"blah blah @emerald_property1 gem"
+		"item_rpc_sparkling_token_of_oceanis_sapphire1"					"blah blah @sapphire_property1 gem"
+		"item_rpc_sparkling_token_of_oceanis_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sparkling_token"												"Tropical Haze"
 		"property_sparkling_token_Description"									"Сокращает весь входящий чистый урон на <% SPARKLING_TOKEN_PURE_DMG_REDUCTION %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"Frozen Heart of Az'heran"
+		"item_rpc_frozen_heart_ruby1"				"blah blah @ruby_property1 gem"
+		"item_rpc_frozen_heart_emerald1"				"blah blah @emerald_property1 gem"
+		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
+		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_frozen_heart"								"Iceblood Marrow"	
 		"property_frozen_heart_description"					"Устанавливает максимальное значение здоровья героя на <% FROZEN_HEART_NEW_HP_CAP %>. Входящий Физический / Магический / Чистый урон отнимает по <% FROZEN_HEART_DAMAGE_PER_PHYS %> / <% FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% FROZEN_HEART_DAMAGE_PER_PURE %> здоровья, пробивая любые щиты. Здоровье восстанавливается каждые <% FROZEN_HEART_HP_REGEN_INTERVAL %> секунды по <% FROZEN_HEART_HP_REGEN %> ХП, когда герой не получал урона в течении <% FROZEN_HEART_HP_REGEN_DELAY %> секунд."
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Перезаряжается"
@@ -283,6 +487,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"Stargazer's Sphere"
+		"item_rpc_stargazers_sphere_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_stargazers_sphere_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_stargazers_sphere_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_stargazers_sphere_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_stargazer"									"Eye of the Stargazer"
 		"property_stargazer_description"							"Приказ атаки вызовет область-кольцо, наполненную космической энергией. Врагов внутри при получении урона ударит звездой, урон которой рассчитан от <% STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% наибольшей порции урона во время действия круга. <font color=\"#E4AE33\"> Аугментированный урон не может быть учитан </font>. Максимально возможный урон от звезды равен <% STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x. Для Стойкости и Мега-Стойкости порог урона увеличен в <% STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>/<% STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>х соответственно. Интервал падения звезд <% STARGAZERS_SPHERE_STARFALL_CD %> сек.<br>Повторный приказ атаки уничтожает кольцо и вызывает метеорит в эту область. Урон <% STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x от силы атаки, длительность оглушения <% STARGAZERS_SPHERE_METEOR_STUN_DUR %> сек. Перезарядка создания кольца <% STARGAZERS_SPHERE_COOLDOWN %> секунд."
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
@@ -290,24 +498,44 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"Red Divinex Amulet"
+		"item_rpc_red_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_red_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_red_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_red_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_red_divinex"									"X-Strength"
 		"property_red_divinex_description"							"Значение Ловкости и Интеллекта не может быть выше 20. Значение Силы удвоено. Каждые <% RED_DIVINEX_STR_DIVISOR %> очков Силы увеличивают урон предметов на <% GREEN_DIVINEX_STR_TO_ITEM_DMG %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"Green Divinex Amulet"
+		"item_rpc_green_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_green_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_green_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_green_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_green_divinex"									"X-Agility"
 		"property_green_divinex_description"							"Значение Силы и Интеллекта не может быть выше 20. Значение Ловкости удвоено. Каждые <% GREEN_DIVINEX_AGI_DIVISOR %> очков Ловкости увеличивают урон предметов на <% RED_DIVINEX_STR_TO_ITEM_DMG %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"Blue Divinex Amulet"
+		"item_rpc_blue_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_blue_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_blue_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_blue_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_blue_divinex"									"X-Intelligence"
 		"property_blue_divinex_description"							"Значение Силы и Ловкости не может быть выше 20. Значение Интеллекта удвоено. Кажыде <% BLUE_DIVINEX_INT_DIVISOR %> очков Интеллекта увеличивают урон предметов на <% BLUE_DIVINEX_STR_TO_ITEM_DMG %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
+		"item_rpc_puzzlers_locket_ruby1"				"blah blah @ruby_property1 gem"
+		"item_rpc_puzzlers_locket_emerald1"				"blah blah @emerald_property1 gem"
+		"item_rpc_puzzlers_locket_sapphire1"				"blah blah @sapphire_property1 gem"
+		"item_rpc_puzzlers_locket_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_puzzler"										"Anagram"
 		"property_puzzler_description"								"Все руны второго ряда, полученные со снаряжения, меняют свой показатель на руну третьего ряда, и наоборот."
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"Galvanized Razor Band"
+		"item_rpc_galvanized_razor_band_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_galvanized_razor_band_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_galvanized_razor_band_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_galvanized_razor_band_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_razor_band"										"Whirling Blade"
 		"property_razor_band_description"								"При получении урона от противника наносит дополнительную порцию урона, равную <% RAZOR_BAND_MAX_HEALTH_DAMAGE %>% от максимального здоровья носителя, и даёт заряд Whirling Blade. Каждый заряд добавляет <% RAZOR_BAND_ATTACK_POWER_PER_STACK %>% бонусного урона атаки и <% RAZOR_BAND_POST_MITIGATION_PER_STACK %>% усиленного пост-резистного урона. Ближайшие противники получат урон, равный <% RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% от урона атаки каждые 0.3 seconds. Заряды имеют независимую длительность <% RAZOR_BAND_STACK_DURATION %> сек и максимально накапливаются до <% RAZOR_BAND_MAX_STACKS %>."
 
@@ -315,14 +543,26 @@
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Урон атаки и пост-резистный урон увеличены. Наносит урон по ближайшим противникам."
 
 		"DOTA_Tooltip_ability_item_rpc_guardian_stone"					"Guardian Stone"
+		"item_rpc_guardian_stone_ruby1"					"blah blah @ruby_property1 gem"
+		"item_rpc_guardian_stone_emerald1"					"blah blah @emerald_property1 gem"
+		"item_rpc_guardian_stone_sapphire1"					"blah blah @sapphire_property1 gem"
+		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"Silver Heart"
 		"property_guardian_stone_description"								"Дебаффы от противников длятся на <% GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% меньше. Каждое срабатывание исцеляет героя на <% GUARDIAN_STONE_HEAL_PCT %>% от максимального ХП."
 
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
+		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"
+		"item_rpc_beryl_ring_of_intuition_emerald1" 	"blah blah @emerald_property1 gem"
+		"item_rpc_beryl_ring_of_intuition_sapphire1" 	"blah blah @sapphire_property1 gem"
+		"item_rpc_beryl_ring_of_intuition_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_beryl_ring_of_intuition"						"Intuitive Coalescence"
 		"property_beryl_ring_of_intuition_description"				"После прочтения всех 4 базовых способностей в любом порядке восстанавливает здоровье полностью и сбрасывает перезарядку на всех способностях. Если перезарядка @Ability4 выше <% INTUITION_ULTIMATE_MIN_CD %> сек, то понижает ее перезарядку лишь до <% INTUITION_ULTIMATE_MIN_CD %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
+		"item_rpc_auric_ring_of_inspiration_ruby1" 	"blah blah @ruby_property1 gem"
+		"item_rpc_auric_ring_of_inspiration_emerald1" 	"blah blah @emerald_property1 gem"
+		"item_rpc_auric_ring_of_inspiration_sapphire1" 	"blah blah @sapphire_property1 gem"
+		"item_rpc_auric_ring_of_inspiration_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_auric_ring_of_inspiration"						"Inspired Coalescence"
 		"property_auric_ring_of_inspiration_description"				"После прочтения всех 4 базовых способностей в любом порядке восстанавливает здоровье полностью и дает иммунитет к заклинаниям на <% INSPIRATION_MAGIC_IMMUNITY_TIME %> сек."
 

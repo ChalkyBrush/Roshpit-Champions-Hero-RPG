@@ -1,9 +1,17 @@
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
+		"item_rpc_blue_rain_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_blue_rain_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_blue_rain_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_blue_rain_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blue_rain"								"Rain Lance"
 		"property_blue_rain_description"						"Attacks cannot miss. <% BLUE_RAIN_CHANCE %>% chance on attack to create massive wave of water that damages enemies in a line in front of you for <% BLUE_RAIN_DMG_PER_ATT %>x your total attack power."
 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
+		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_stormcloth_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_stormcloth_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormcloth"					"Stormbolt"
 		"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <% STORMCLOTH_STUN_AOE %> radius for <% STORMCLOTH_STUN_DUR %> seconds. This effect has a <% STORMCLOTH_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
@@ -12,16 +20,28 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"Grasp of the Elders"
+		"item_rpc_grasp_of_elder_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_grasp_of_elder_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_grasp_of_elder_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_grasp_of_elder_amethyst1"									"blah blah @amethyst_property1 gem"
 		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"Slot: Hands"
 		"item_property_elder_grasp"					"Healing Prayer"
 		"property_elder_grasp_description"			"When you cast any spell, heal yourself and all allies in a <% ELDER_GRASP_RADIUS %> radius for <% ELDER_GRASP_HEAL_PCT * 100%>% of their maximum Health. Any overheal is converted into a temporary shield, up to a limit of <% ELDER_GRASP_SHIELD_PER_HP %>x the ally's maximum Health"
 		"DOTA_Tooltip_modifier_grasp_of_elder_shield"		"Healing Prayer"
 		"DOTA_Tooltip_modifier_grasp_of_elder_shield_Description"	"Absorbing incoming damage"
 		"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"Magebane Gloves"
+		"item_rpc_magebane_gloves_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_magebane_gloves_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_magebane_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_magebane_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_magebane_gloves_Description"						"Slot: Hands"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
+    	"item_rpc_berserker_gloves_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_berserker_gloves_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_berserker_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_berserker_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Slot: Hands"
 		"item_property_berserker"				"Berserker Rage"
 		"property_berserker_rage_description"	"Landing an attack increases your attack damage by <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>x your level and increases attack speed by <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> for <% BERSERKER_GLOVES_DURATION %> seconds. Each stack makes you take <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% extra damage from all sources.<br>Switching targets removes <% BERSERKER_GLOVES_STACKS_PENALTY %>% of your stacks."
@@ -30,40 +50,68 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
+    	"item_rpc_shadow_armlet_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_shadow_armlet_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_shadow_armlet_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_shadow_armlet_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Slot: Hands"
 		"item_property_shadow_armlet"			"Shadow Step"
 		"property_shadow_armlet_description"	"<% SHADOW_ARMLET_HEAL_CHANCE %>% chance on taking damage to instantly heal for the amount of the damage instance."
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
+    	"item_rpc_boneguard_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_boneguard_gauntlets_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_boneguard_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_boneguard_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"Slot: Hands"
 		"item_property_boneguard"				"Raise Dead"
 		"property_boneguard_description"		"15% chance on attack to summon a skeleton warrior to fight by your side for 20 seconds. Max 5 skeletons."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
+    	"item_rpc_scorched_gauntlets_ruby1"							"blah blah @ruby_property1 gem"
+    	"item_rpc_scorched_gauntlets_emerald1"							"blah blah @emerald_property1 gem"
+    	"item_rpc_scorched_gauntlets_sapphire1"							"blah blah @sapphire_property1 gem"
+    	"item_rpc_scorched_gauntlets_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
 		"property_scorched_gauntlet_description_2"	"<% HIGH_FLAME_GAUNTLET_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG %>% of your attack power + <% HIGH_FLAME_GAUNTLET_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% HIGH_FLAME_GAUNTLET_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% HIGH_FLAME_GAUNTLET_STUN_DUR %> seconds, and creating another fire zone."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
+    	"item_rpc_kappa_pride_gloves_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_kappa_pride_gloves_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_kappa_pride_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_kappa_pride_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
 		"item_property_proud_gloves"										"<RAINBOW>Prismatic Pride</RAINBOW>"//a.k.a. queer hands for the straight man
 		"property_proud_gloves_description"									"<RAINBOW>The element of your autoattack is changed from Normal to match your single highest elemental damage bonus, and it now deals Magical damage instead of Physical. Additionally, those damage instances are multiplied by your Item Damage bonus, but are not considered instances of Item Damage.</RAINBOW>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
+    	"item_rpc_claw_of_azinoth_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_claw_of_azinoth_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_claw_of_azinoth_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_claw_of_azinoth_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Slot: Hands"
 		"item_property_azinoth"						"Scourge of Azinoth"
 		"property_azinoth_description"				"Applies -<% CLAW_OF_AZINOTH_DAMAGE_AMP %>% damage reduction, increasing all damage taken."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
+    	"item_rpc_gauntlet_of_divine_purity_ruby1"						"blah blah @ruby_property1 gem"
+    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"blah blah @emerald_property1 gem"
+    	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"blah blah @sapphire_property1 gem"
+    	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Slot: Hands"
 		"item_property_divine_purity"				"Divine Purity"
 		"property_divine_purity_description"		"Your autoattacks now deal <% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>x Pure Normal/<font color=\"#F6FFB5\">Holy</font> damage, instead of 1x Normal damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
+    	"item_rpc_marauder_gloves_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_marauder_gloves_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_marauder_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_marauder_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves_Description"						"Slot: Hands"
 		"item_property_marauder"					"Hand of Marauder"
 		"property_marauder_description"				"Your Physical damage ignores enemies' positive Armor."
@@ -72,16 +120,28 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
+    	"item_rpc_hand_of_midas_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_hand_of_midas_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_hand_of_midas_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_hand_of_midas_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_hand_of_midas"				"Midas Touch"
 		"property_hand_of_midas_description"		"<% HAND_OF_MIDAS_CHANCE %>% chance on atack to deal <% HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>x your attack damage as Pure in an <% HAND_OF_MIDAS_RADIUS %> radius area around the target and turn all enemies to solid gold, freezing them for <% HAND_OF_MIDAS_FREEZE_DURATION %> seconds. Max 1 freeze every <% HAND_OF_MIDAS_FREEZE_CD %> seconds."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
+    	"item_rpc_scarecrow_gloves_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_scarecrow_gloves_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_scarecrow_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_scarecrow_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_scarecrow"					"Replenishing Mind"
 		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% SCARECROW_GLOVES_MPREGEN_PER_INT %> mana regen."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
+    	"item_rpc_living_gauntlet_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_living_gauntlet_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_living_gauntlet_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_living_gauntlet_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_living_gauntlet"				"Nourishment"
 		"property_living_gauntlet_description"		"While below <% LIVING_GAUNTLET_MANA_THRESHOLD %>% mana, all damage taken is reduced by <% LIVING_GAUNTLET_DMG_REDUCTION %>% and health regen is increased by <% LIVING_GAUNTLET_HP_REGEN_PCT %>% of max health."
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
@@ -89,16 +149,28 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
+    	"item_rpc_master_gloves_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_master_gloves_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_master_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_master_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_master_gloves"				"Master's Teachings"
 		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <% MASTER_GLOVES_BAD %>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
+    	"item_rpc_phoenix_gloves_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_phoenix_gloves_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_phoenix_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_phoenix_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
 		"property_phoenix_gloves_description"		"Gain <% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> health regen for each missing point of health. Gain <% PHOENIX_GLOVES_ATT_DMG_PER_HP %> base attack damage for each current point of health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
+    	"item_rpc_spirit_glove_ruby1"									"blah blah @ruby_property1 gem"
+    	"item_rpc_spirit_glove_emerald1"									"blah blah @emerald_property1 gem"
+    	"item_rpc_spirit_glove_sapphire1"									"blah blah @sapphire_property1 gem"
+    	"item_rpc_spirit_glove_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_spirit_glove"				"Spirit Touch" 
 		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <% SPIRIT_GLOVE_INT_TO_HEAL %>x your Intelligence every <% SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% SPIRIT_GLOVE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
@@ -106,6 +178,10 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
+    	"item_rpc_frostburn_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_frostburn_gauntlets_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_frostburn_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_frostburn_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_frostburn_gauntlets"			"Frostburn"
 		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by <% FROSTBURN_GLOVES_MS_SLOW %> for <% FROSTBURN_GLOVES_MS_SLOW_DUR %> seconds. Additionally, @Ability2's damage instances have a <% FROSTBURN_GLOVES_CHANCE %>% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
@@ -113,11 +189,19 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
+    	"item_rpc_mountain_vambraces_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_mountain_vambraces_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_mountain_vambraces_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_mountain_vambraces_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mountain_vambraces"			"Craggy Shock"
 		"property_mountain_vambraces_description"	"Your attacks have a <% MOUNTAIN_VAMBRACES_CHANCE %>% chance to stun enemies in a small area around the target for <% MOUNTAIN_VAMBRACES_STUN_DURATION %> seconds, dealing <% MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>x your Strength as Magical damage.<br>All damage dealt directly by items is increased by <% MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>% for each <% MOUNTAIN_VAMBRACES_STR_DIVISOR %> points of Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
+    	"item_rpc_cytopian_laser_glove_ruby1"							"blah blah @ruby_property1 gem"
+    	"item_rpc_cytopian_laser_glove_emerald1"							"blah blah @emerald_property1 gem"
+    	"item_rpc_cytopian_laser_glove_sapphire1"							"blah blah @sapphire_property1 gem"
+    	"item_rpc_cytopian_laser_glove_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cytopian_laser"				"Cytopian Laser"
 		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing <% CYTOPIAN_LASER_DMG_PER_ATT %>x your attack damage times @Ability2 level as Magical damage. Each successive hit deals 100% increased damage. Max <% CYTOPIAN_LASER_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
@@ -125,21 +209,37 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
+    	"item_rpc_power_ranger_gloves_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_power_ranger_gloves_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_power_ranger_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_power_ranger_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_power_ranger"				"Megaforce"
 		"property_power_ranger_description"			"Increases attack damage by <% POWER_RANGER_BONUS_DAMAGE %>%. All Post-Mitigation Physical damage is enhanced by <% POWER_RANGER_PHYS_POST_MITI %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
+    	"item_rpc_grand_arcanist_wraps_ruby1"							"blah blah @ruby_property1 gem"
+    	"item_rpc_grand_arcanist_wraps_emerald1"							"blah blah @emerald_property1 gem"
+    	"item_rpc_grand_arcanist_wraps_sapphire1"							"blah blah @sapphire_property1 gem"
+    	"item_rpc_grand_arcanist_wraps_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_grand_arcanist"				"Master of Magic"
 		"property_grand_arcanist_description"		"Increases Base Ability Damage by <%GRAND_ARCANIST_BAD_PER_INT * 100 * 10 %>% for every 10 points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
+    	"item_rpc_eternal_essence_gauntlet_ruby1"						"blah blah @ruby_property1 gem"
+    	"item_rpc_eternal_essence_gauntlet_emerald1"						"blah blah @emerald_property1 gem"
+    	"item_rpc_eternal_essence_gauntlet_sapphire1"						"blah blah @sapphire_property1 gem"
+    	"item_rpc_eternal_essence_gauntlet_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_eternal_essence"				"Absorption"
 		"property_eternal_essence_description"		"Slaying an enemy heals you for 4% of their max health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
+    	"item_rpc_bladeforge_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_bladeforge_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_bladeforge_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_bladeforge_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_bladeforge"					"Rupture"
 		"property_bladeforge_description"			"Your basic attacks leave a stacking @special_property1 Armor debuff on struck units for 6 seconds. Attacks have a 20% chance to make the enemy bleed for 3 seconds, taking @special_property2% of your attack power as Magical damage every 0.5 seconds."
 		"DOTA_Tooltip_modifier_bladeforge_debuff"	"Rupture"
@@ -149,11 +249,19 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
+    	"item_rpc_silverspring_gloves_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_silverspring_gloves_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_silverspring_glove"			"Silverspring"
 		"property_silverspring_description"			"Your base attack damage is increased by x<% SILVERSPRING_BASE_DMG_PER_REGEN %> of your health regen stat. Can't increase your base attack damage above 500 million."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
+    	"item_rpc_far_seers_enchanted_gloves_ruby1"						"blah blah @ruby_property1 gem"
+    	"item_rpc_far_seers_enchanted_gloves_emerald1"						"blah blah @emerald_property1 gem"
+    	"item_rpc_far_seers_enchanted_gloves_sapphire1"						"blah blah @sapphire_property1 gem"
+    	"item_rpc_far_seers_enchanted_gloves_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_farseer_glove"				"Spell Strike"
 		"property_farseer_description"				"Increases your Base Attack damage by <% FARSEER_PRE_MITI_MAGIC_BASE * 100 %>% of the last instance of pre-mitigation Magical Damage that you dealt. Lasts <% FARSEER_DURATION %> seconds and does not stack. Damage bonus is capped at <% FARSEER_PRIMARY_ATT_CAP %>x primary attribute."
 		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
@@ -161,6 +269,10 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
+    	"item_rpc_royal_wristguards_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_royal_wristguards_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_royal_wristguards_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_royal_wristguards_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_royal_wrist"								"Commanding Steel"
 		"property_royal_wrist_description"						"On taking damage, gain a stack of <% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>% bonus attack damage. Base Ability Damage of @Ability1 is increased by <% ROYAL_WRISTGUARDS_Q_BAD %>% per stack, but all of these stacks are removed when casting it. Stacks up to <% ROYAL_WRISTGUARDS_CHARGE_CAP %> times."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
@@ -168,16 +280,28 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
+    	"item_rpc_mordiggus_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_mordiggus_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_mordiggus_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_mordiggus_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mordiggus"							"Blood Bane"
 		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
+    	"item_rpc_ironbound_gloves_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_ironbound_gloves_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_ironbound_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_ironbound_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ironbound_gloves"					"Ironfist"
 		"property_ironbound_gloves_description"				"Your base attack damage is increased by <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x your total Armor."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
+    	"item_rpc_gloves_of_sweeping_wind_ruby1"							"blah blah @ruby_property1 gem"
+    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"blah blah @emerald_property1 gem"
+    	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"blah blah @sapphire_property1 gem"
+    	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_sweeping_wind"						"Sweeping Winds"
 		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>% bonus attack damage, and all nearby enemies within <% SWEEPING_WIND_RADIUS %> radius take <% SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>% of your attack damage as magic each second. Attacking consumes a stack. Max <% SWEEPING_WIND_MAX_STACKS %> stacks. Lasts <% SWEEPING_WIND_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
@@ -185,25 +309,45 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
+    	"item_rpc_halcyon_soul_glove_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_halcyon_soul_glove_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_halcyon_soul_glove_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_halcyon_soul_glove_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_halcyon_soul"						"Tempered Balance"
 		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by <% HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>. Additionally, all basic stat bonuses are amplified by <% HALCYON_SOUL_GLOVE_BONUS * 100 %>%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
+    	"item_rpc_greensand_copper_gauntlets_ruby1"						"blah blah @ruby_property1 gem"
+    	"item_rpc_greensand_copper_gauntlets_emerald1"						"blah blah @emerald_property1 gem"
+    	"item_rpc_greensand_copper_gauntlets_sapphire1"						"blah blah @sapphire_property1 gem"
+    	"item_rpc_greensand_copper_gauntlets_amethyst1"						"blah blah @amethyst_property1 gem"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
+    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"blah blah @ruby_property1 gem"
+    	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"blah blah @emerald_property1 gem"
+    	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"blah blah @sapphire_property1 gem"
+    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_forgotten_ghost"					"Afterburn"
 		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal <% FORGOTTEN_GHOST_DOT_MULT * 100 %>% increased damage."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
+    	"item_rpc_spiritual_empowerment_glove_ruby1"						"blah blah @ruby_property1 gem"
+    	"item_rpc_spiritual_empowerment_glove_emerald1"						"blah blah @emerald_property1 gem"
+    	"item_rpc_spiritual_empowerment_glove_sapphire1"						"blah blah @sapphire_property1 gem"
+    	"item_rpc_spiritual_empowerment_glove_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
 		"property_spiritual_empowerment_description"		"Every <% SPIRITUAL_EMPOWERMENT_TICKRATE %> seconds, gain a stack of Spiritual Empowerment. Each stack adds <% SPIRITUAL_EMPOWERMENT_BAD %>% Base Ability Damage. Casting a spell consumes a stack. Max <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% stacks."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
+    	"item_rpc_gravekeepers_gauntlet_ruby1"							"blah blah @ruby_property1 gem"
+    	"item_rpc_gravekeepers_gauntlet_emerald1"							"blah blah @emerald_property1 gem"
+    	"item_rpc_gravekeepers_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
+    	"item_rpc_gravekeepers_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
 		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack increases all Pre-Mitigation damage you deal by <% GRAVEKEEPER_PRE_MITI_DAMAGE_AMP_PER_STACK * 100 %>%, while also draining <% GRAVEKEEPER_MOVESPEED_DRAIN %> movespeed from it and giving it to you. Changing attack targets removes all existing stacks. Only <% GRAVEKEEPER_MAX_STACKS_PER_SEC %> stacks can be applied per second, no matter how quickly you attack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
@@ -215,16 +359,28 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
+    	"item_rpc_autumnrock_bracer_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_autumnrock_bracer_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_autumnrock_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_autumnrock_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_autumnrock_bracer"						"Fissure"
 		 "property_autumnrock_bracer_description"				"<% AUTUMNROCK_BRACER_CHANCE %>% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for <% AUTUMNROCK_BRACER_STUN_DUR %> seconds and deals <% AUTUMNROCK_BRACER_DMG_PER_STR %>x your Strength as Magical damage.<br>All damage dealt directly by items is enhanced by <% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>% for each <% AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR %> points of current health."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
+    	"item_rpc_malachite_shade_bracer_ruby1"							"blah blah @ruby_property1 gem"
+    	"item_rpc_malachite_shade_bracer_emerald1"							"blah blah @emerald_property1 gem"
+    	"item_rpc_malachite_shade_bracer_sapphire1"							"blah blah @sapphire_property1 gem"
+    	"item_rpc_malachite_shade_bracer_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_malachite_shade"						"Verdant Flow"
 		 "property_malachite_shade_description"					"Mana regen and health regen are both increased by 15% of your Agility. Base Attack damage is increased by 100% of your health regen and mana regen."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
+    	"item_rpc_skulldigger_gauntlet_ruby1"							"blah blah @ruby_property1 gem"
+    	"item_rpc_skulldigger_gauntlet_emerald1"							"blah blah @emerald_property1 gem"
+    	"item_rpc_skulldigger_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
+    	"item_rpc_skulldigger_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_skulldigger"						"Wraithfire"
 		"property_skulldigger_description"					"Gain Wraithfire stacks each <% SKULLDIGGER_STACK_RATE %> seconds. When attacked, launch a Wraithfire Blast at the target that deals <% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>x your attack damage on impact and stuns enemies in a small area for <% SKULLDIGGER_STUN_DURATION %> seconds. Max <% SKULLDIGGER_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
@@ -232,6 +388,10 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"Claw of the Ethereal Revenant"
+    	"item_rpc_claws_of_the_ethereal_revenant_ruby1"					"blah blah @ruby_property1 gem"
+    	"item_rpc_claws_of_the_ethereal_revenant_emerald1"					"blah blah @emerald_property1 gem"
+    	"item_rpc_claws_of_the_ethereal_revenant_sapphire1"					"blah blah @sapphire_property1 gem"
+    	"item_rpc_claws_of_the_ethereal_revenant_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_ethereal_revenant"						"Revenant Link"
 		"property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a <% ETHEREAL_REVENANT_CHANCE %>% chance to be linked by a beam of electricity. Linked enemies deal <% ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT %>% reduced damage to you and you deal <% ETHEREAL_REVENANT_DAMAGE_AMP %>x increased damage to them. Lasts <% ETHEREAL_REVENANT_DURATION %> seconds."
 
@@ -240,21 +400,37 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
+    	"item_rpc_spellfire_gloves_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_spellfire_gloves_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_spellfire_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_spellfire_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		 "item_property_spellfire"								"Spellfire"
 		 "property_spellfire_description"						"Cast rate is increased by <% SPELLFIRE_CAST_POINT_REDUCTION %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
+    	"item_rpc_shadowflame_fist_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_shadowflame_fist_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_shadowflame_fist_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_shadowflame_fist"						"Vacant Shade"
 		"property_shadowflame_fist_description"					"Mana is capped at <% SHADOWFLAME_FIST_MANA_CAP %>% of max. Base Ability Damage of @Ability2 is increased by <% SHADOWFLAME_FIST_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
+    	"item_rpc_aquasteel_bracers_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_aquasteel_bracers_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_aquasteel_bracers_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_aquasteel_bracers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_aquasteel"								"Waterburst"
 		"property_aquasteel_description"						"<% AQUASTEEL_CHANCE %>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage equal to <% AQUASTEEL_ATTACK_TO_DMG %>x your attack power + <% AQUASTEEL_ARMOR_TO_DMG %>x your Armor, and stunning for <% AQUASTEEL_STUN_DUR %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
+    	"item_rpc_demonfire_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_demonfire_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_demonfire_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_demonfire_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_demonfire"								"Demon Flame"
 		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%. When the buff ends, the <% DEMONFIRE_NUMBER_ENEMIES %> closest enemies within a <% DEMONFIRE_RADIUS %> radius are damaged by x<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %> of attack power times the number of stacks. Max <% DEMONFIRE_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
@@ -262,15 +438,27 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
+    	"item_rpc_heavy_echo_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_heavy_echo_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_heavy_echo_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
+    	"item_rpc_heavy_echo_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_heavy_echo"						"Reactive Grip"
 		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <% HEAVY_ECHO_REPEATS %> times."
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
+		"item_rpc_depth_demon_claw_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_depth_demon_claw_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_depth_demon_claw_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_depth_demon_claw_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_depth_demon_claw"												"Metamorphose"
 		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage. Damage dealt by <font color=\"#E4AE33\">ABILITY AUGMENT</font> effects is reduced by x<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
+		"item_rpc_chitinous_lobster_claw_ruby1"					"blah blah @ruby_property1 gem"
+		"item_rpc_chitinous_lobster_claw_emerald1"					"blah blah @emerald_property1 gem"
+		"item_rpc_chitinous_lobster_claw_sapphire1"					"blah blah @sapphire_property1 gem"
+		"item_rpc_chitinous_lobster_claw_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_lobster_claw"												"Chitinous Skin"
 		"property_lobster_claw_Description"									"Every <% CHITINOUS_LOBSTER_CLAW_STACK_RATE %> seconds, gain a stack of Chitinous Skin. Each stack reduces incoming damage taken by <% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%. Each instance of damage taken will remove 1 stack. Max <% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
@@ -278,6 +466,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
+		"item_rpc_dark_emissary_glove_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_dark_emissary_glove_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_dark_emissary_glove_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_dark_emissary_glove_amethyst1"						"blah blah @amethyst_property1 gem"
 		"property_dark_emissary"												"Spectral Mist"
 		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that x<% DARK_EMISSARY_DAMAGE_MULT %> of your attack power to enemies in a <% DARK_EMISSARY_RADIUS %> radius, and roots them for <% DARK_EMISSARY_ROOT_DURATION %> seconds. Applies invisibility for <% DARK_EMISSARY_INVIS_DURATION %> seconds. Invisibility from this effect has a <% DARK_EMISSARY_INVIS_CD %> second cooldown."
 		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
@@ -287,11 +479,19 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
+		"item_rpc_energy_whip_glove_ruby1"	"blah blah @ruby_property1 gem"
+		"item_rpc_energy_whip_glove_emerald1"	"blah blah @emerald_property1 gem"
+		"item_rpc_energy_whip_glove_sapphire1"	"blah blah @sapphire_property1 gem"
+		"item_rpc_energy_whip_glove_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_energy_whip"							"Spell Lash"
 		"property_energy_whip_description"					"Landing an attack on an enemy also immediately casts @Ability2 if it is not on cooldown. Targeted abilities are cast on the attacked unit or its position. @Ability2 will be cast even if you lack the mana to cast it, but it will not occur if you are silenced or if the ability is on cooldown."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
+		"item_rpc_buzukis_finger_ruby1"				"blah blah @ruby_property1 gem"
+		"item_rpc_buzukis_finger_emerald1"				"blah blah @emerald_property1 gem"
+		"item_rpc_buzukis_finger_sapphire1"				"blah blah @sapphire_property1 gem"
+		"item_rpc_buzukis_finger_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_buzuki_finger"								"Power Up"
 		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal <% BUZUKIS_FINGER_POST_MITI %>% increased Post-Mitigation damage and their attacks create an energy beam that deals <% BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>% of attack damage. The damage is attributed to the original caster. Buff lasts <% BUZUKIS_FINGER_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
@@ -299,14 +499,26 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
+		"item_rpc_swiftspike_bracer_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_swiftspike_bracer_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_swiftspike_bracer_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_swiftspike_bracer_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <% SWIFTSPIKE_BAD_PER_MS * 100 %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
+		"item_rpc_diamond_claws_of_tiamat_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_diamond_claws_of_tiamat_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_diamond_claws_of_tiamat_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_diamond_claws_of_tiamat_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_tiamat_claw"							"Unyielding Vanity"
 		"property_tiamat_claw_description"					"While equipped, all attributes are fixed at this property's value and cannot be changed by any other means."
 
 		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
+		"item_rpc_goldbreaker_gauntlet_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_goldbreaker_gauntlet_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_goldbreaker_gauntlet_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_goldbreaker_gauntlet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_gold_breaker"							"Touch of Abjuration"
 		"property_gold_breaker_description"					"Your attacks disrupt Spell Immunity effects on enemy units, instantly removing them from your target, and also applying the Abjuration debuff to them for <% GOLDBREAKER_DEBUFF_DURATION %> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted."
 
