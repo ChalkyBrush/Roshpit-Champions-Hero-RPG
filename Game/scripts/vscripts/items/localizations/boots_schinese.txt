@@ -234,7 +234,7 @@
     	"item_rpc_boots_of_pure_waters_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_pure_waters_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_pure_waters"							"纯净水"
-		"property_pure_waters_description"					"当你施放 @Ability3 时，回复 <% PURE_WATERS_MANA_RESTORE_PCT %>% 的最大魔法值，喷出一股纯净水造成<% PURE_WATERS_ATTACK_TO_DMG %>x攻击力或<% PURE_WATERS_INT_TO_DMG %>x智力值（取较大值）的纯粹伤害。同时降低敌人移动速度<% PURE_WATERS_SLOW %>%，持续<% PURE_WATERS_SLOW_DURATION %>秒。<br>每一秒只能触发一次。"
+		"property_pure_waters_description"					"当你施放 @Ability3 时，回复 <% ITEM_RPC_BOOTS_OF_PURE_WATERS_MANA_RESTORE_PCT %>% 的最大魔法值，喷出一股纯净水造成<% ITEM_RPC_BOOTS_OF_PURE_WATERS_ATTACK_TO_DMG %>x攻击力或<% ITEM_RPC_BOOTS_OF_PURE_WATERS_INT_TO_DMG %>x智力值（取较大值）的纯粹伤害。同时降低敌人移动速度<% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW %>%，持续<% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW_DURATION %>秒。<br>每一秒只能触发一次。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"熔岩靴"

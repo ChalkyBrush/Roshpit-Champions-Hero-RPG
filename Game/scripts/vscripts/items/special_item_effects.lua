@@ -3236,7 +3236,7 @@ end
 
 function pure_waters_impact(event)
 	local caster = event.ability.caster
-	local damage = math.max(OverflowProtectedGetAverageTrueAttackDamage(caster) * PURE_WATERS_ATTACK_TO_DMG, caster:GetIntellect() * PURE_WATERS_INT_TO_DMG)
+	local damage = math.max(OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_BOOTS_OF_PURE_WATERS_ATTACK_TO_DMG, caster:GetIntellect() * ITEM_RPC_BOOTS_OF_PURE_WATERS_INT_TO_DMG)
 	Filters:ApplyItemDamage(event.target, caster, damage, DAMAGE_TYPE_PURE, event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end
 

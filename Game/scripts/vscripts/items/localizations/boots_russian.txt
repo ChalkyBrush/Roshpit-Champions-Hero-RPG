@@ -234,7 +234,7 @@
     	"item_rpc_boots_of_pure_waters_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_pure_waters_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"При прочтении способности (E) @Ability3, герой восполнит <% PURE_WATERS_MANA_RESTORE_PCT %>% маны и оставит водяной след, который нанесёт чистый урон в размере наибольшего значения из <% PURE_WATERS_ATTACK_TO_DMG %>х базового урона или <% PURE_WATERS_INT_TO_DMG %> Интеллекта. Водяной след дополнительно замедляет врагов на <% PURE_WATERS_SLOW %>% на <% PURE_WATERS_SLOW_DURATION %> секунды.<br>Эффект срабатывает лишь раз в <% PURE_WATERS_INTERVAL_RESTRICTION %>сек."
+		"property_pure_waters_description"					"При прочтении способности (E) @Ability3, герой восполнит <% ITEM_RPC_BOOTS_OF_PURE_WATERS_MANA_RESTORE_PCT %>% маны и оставит водяной след, который нанесёт чистый урон в размере наибольшего значения из <% ITEM_RPC_BOOTS_OF_PURE_WATERS_ATTACK_TO_DMG %>х базового урона или <% ITEM_RPC_BOOTS_OF_PURE_WATERS_INT_TO_DMG %> Интеллекта. Водяной след дополнительно замедляет врагов на <% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW %>% на <% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW_DURATION %> секунды.<br>Эффект срабатывает лишь раз в <% ITEM_RPC_BOOTS_OF_PURE_WATERS_INTERVAL_RESTRICTION %>сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"

@@ -3718,9 +3718,9 @@ function Filters:PureWaters(caster)
 
         local fv = caster:GetForwardVector()
         CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 3)
-        caster:GiveMana(caster:GetMaxMana() * PURE_WATERS_MANA_RESTORE_PCT/100)
+        caster:GiveMana(caster:GetMaxMana() * ITEM_RPC_BOOTS_OF_PURE_WATERS_MANA_RESTORE_PCT/100)
         local ability = caster.foot
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_boots_of_pure_waters_cooldown", {duration = PURE_WATERS_INTERVAL_RESTRICTION})
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_boots_of_pure_waters_cooldown", {duration = ITEM_RPC_BOOTS_OF_PURE_WATERS_INTERVAL_RESTRICTION})
         ability.caster = caster
         local projectileParticle = "particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
         local start_radius = 190
