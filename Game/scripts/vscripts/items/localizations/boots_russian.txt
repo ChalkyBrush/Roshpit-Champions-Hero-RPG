@@ -87,7 +87,7 @@
     	"item_rpc_moon_tech_runners_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_moon_tech_runners_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_moon_techs"					"Moon Dust"
-		"property_moon_techs_description"			"При прочтении (E) @Ability3 появится облако лунной пыли, сокращающее скорость передвижения врагов на <% MOON_TECHS_MS_SLOW_PCT %>% и длящееся <% MOON_TECHS_DURATION %> секунд.<br>Враги, находящиеся в облаке получают увеличенный урон из всех источников.<br>Увеличение урона происходит, если скорость передвижения врага становится меньше скорости передвижения героя, на 1% за каждую единицу в разнице значений."
+		"property_moon_techs_description"			"При прочтении (E) @Ability3 появится облако лунной пыли, сокращающее скорость передвижения врагов на <% ITEM_RPC_MOON_TECH_RUNNERS_MS_SLOW_PCT %>% и длящееся <% ITEM_RPC_MOON_TECH_RUNNERS_DURATION %> секунд.<br>Враги, находящиеся в облаке получают увеличенный урон из всех источников.<br>Увеличение урона происходит, если скорость передвижения врага становится меньше скорости передвижения героя, на 1% за каждую единицу в разнице значений."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"

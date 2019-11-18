@@ -2798,11 +2798,11 @@
 			"modifier_moon_tech_thinker"
 			{
 				"Aura"					"moon_tech_aura"
-				"Aura_Radius"			"<% MOON_TECHS_RADIUS %>"
+				"Aura_Radius"			"<% ITEM_RPC_MOON_TECH_RUNNERS_RADIUS %>"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"<% MOON_TECHS_DURATION %>"
+				"Duration"				"<% ITEM_RPC_MOON_TECH_RUNNERS_DURATION %>"
 
 				"OnCreated"
 				{
@@ -2829,7 +2829,7 @@
 				"IsPurgable"	"0"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% MOON_TECHS_MS_SLOW_PCT %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_MOON_TECH_RUNNERS_MS_SLOW_PCT %>"
 				}
 			}
 		}
