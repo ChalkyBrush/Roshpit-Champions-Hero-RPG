@@ -167,7 +167,7 @@
     	"item_rpc_voyager_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_voyager_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_voyager"						"航海家"
-		"property_voyager_description"				"施放 @Ability3 后，减少其余技能的冷却时间<% VOYAGER_BOOTS_E_RED %>%。"
+		"property_voyager_description"				"施放 @Ability3 后，减少其余技能的冷却时间<% ITEM_RPC_VOYAGER_BOOTS_E_RED %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
