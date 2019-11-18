@@ -60,7 +60,7 @@
     	"item_rpc_yasha_boots_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_yasha_boots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_yasha"						"战斗大师Y"	
-		"property_yasha_description"				"每 <% YASHA_AS_PER_STR %> 点力量值提高 1 点攻击速度。同时，基础攻击间隔时间降低到 <% YASHA_BAT %> 秒。"
+		"property_yasha_description"				"每 <% ITEM_RPC_YASHA_BOOTS_AS_PER_STR %> 点力量值提高 1 点攻击速度。同时，基础攻击间隔时间降低到 <% ITEM_RPC_YASHA_BOOTS_BAT %> 秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"魔力之靴"

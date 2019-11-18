@@ -60,7 +60,7 @@
     	"item_rpc_yasha_boots_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_yasha_boots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые <% YASHA_AS_PER_STR %> очков Силы. Устанавивает базовое время атаки на <% YASHA_BAT %> сек."
+		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые <% ITEM_RPC_YASHA_BOOTS_AS_PER_STR %> очков Силы. Устанавивает базовое время атаки на <% ITEM_RPC_YASHA_BOOTS_BAT %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"

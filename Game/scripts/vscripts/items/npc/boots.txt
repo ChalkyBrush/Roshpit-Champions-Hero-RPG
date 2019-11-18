@@ -4202,12 +4202,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"<% YASHA_AS_PER_STR %>"
+				"property_one"			"<% ITEM_RPC_YASHA_BOOTS_AS_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% YASHA_AS_PER_STR %>"
+				"property_two"		"<% ITEM_RPC_YASHA_BOOTS_AS_PER_STR %>"
 			}
 		}
 		"Modifiers"
@@ -4230,7 +4230,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "<% YASHA_BAT %>"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "<% ITEM_RPC_YASHA_BOOTS_BAT %>"
 				}
 			}
 			"modifier_rpc_yasha_buff"
