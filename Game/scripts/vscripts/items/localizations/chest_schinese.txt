@@ -438,7 +438,7 @@
 		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_topaz_dragon"						"黄龙"
-		"property_topaz_dragon_description"				"每点敏捷值增加 <% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %> 攻击力和 <% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %> 护甲值。"
+		"property_topaz_dragon_description"				"每点敏捷值增加 <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %> 攻击力和 <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %> 护甲值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"神圣审判护甲"
