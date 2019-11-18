@@ -5,7 +5,7 @@
 		"item_rpc_hurricane_vest_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_hurricane_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_hurricane"					"飓风"
-		"property_hurricane_description"			"当你引导完 @Ability4 后，向四面八方扩散一圈风暴伤害敌人并使他们减少攻击和移动速度<% HURRICANE_VEST_ATT_SPD_REDUCE %>/<% HURRICANE_VEST_MSP_REDUCE %>持续<% HURRICANE_VEST_SLOW_DUR %>秒。伤害公式为 <% HURRICANE_VEST_DMG_AMP %>*(英雄等级/120)*(<% HURRICANE_VEST_MAX_DISTANCE %>-施法者与敌人的距离)^<% HURRICANE_VEST_DMG_EXP_SCALE %>"
+		"property_hurricane_description"			"当你引导完 @Ability4 后，向四面八方扩散一圈风暴伤害敌人并使他们减少攻击和移动速度<% ITEM_RPC_HURRICANE_VEST_ATT_SPD_REDUCE %>/<% ITEM_RPC_HURRICANE_VEST_MSP_REDUCE %>持续<% ITEM_RPC_HURRICANE_VEST_SLOW_DUR %>秒。伤害公式为 <% ITEM_RPC_HURRICANE_VEST_DMG_AMP %>*(英雄等级/120)*(<% ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE %>-施法者与敌人的距离)^<% ITEM_RPC_HURRICANE_VEST_DMG_EXP_SCALE %>"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"被强风所牵引"
 

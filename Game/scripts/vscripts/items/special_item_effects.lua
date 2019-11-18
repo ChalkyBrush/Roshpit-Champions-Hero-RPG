@@ -4283,10 +4283,10 @@ function hurricane_vest_create(event)
 	local fv = caster:GetForwardVector()
 	ability.pushFV = fv
 	local hurricaneStartPosition = caster:GetAbsOrigin()
-	local range = HURRICANE_VEST_MAX_DISTANCE
+	local range = ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE
 	local start_radius = 220
 	local end_radius = 220
-	local speed = HURRICANE_VEST_HURRICANE_SPEED
+	local speed = ITEM_RPC_HURRICANE_VEST_HURRICANE_SPEED
 	local projectileParticle = "particles/roshpit/items/hurricane_vest.vpcf"
 	EmitSoundOn("RPCItem.HurricaneVestNew", caster)
 	if not ability.cast_number then
@@ -4294,8 +4294,8 @@ function hurricane_vest_create(event)
 	end
 	ability.cast_number = ability.cast_number + 1
 	ability.caster = caster
-	for i = 1, HURRICANE_VEST_HURRICANE_COUNT do
-		local shotVector = WallPhysics:rotateVector(fv, (2 * math.pi / HURRICANE_VEST_HURRICANE_COUNT) * i)
+	for i = 1, ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT do
+		local shotVector = WallPhysics:rotateVector(fv, (2 * math.pi / ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT) * i)
 		local info =
 		{
 			Ability = caster.body,
@@ -4331,9 +4331,9 @@ function hurricane_vest_hit(event)
 	end
 	if ability.cast_number ~= target.hurricane_cast_number then
 		target.hurricane_cast_number = ability.cast_number
-		local damage = HURRICANE_VEST_DMG_AMP * (caster:GetLevel() / 120 * (HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()))) ^ HURRICANE_VEST_DMG_EXP_SCALE
+		local damage = ITEM_RPC_HURRICANE_VEST_DMG_AMP * (caster:GetLevel() / 120 * (ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()))) ^ ITEM_RPC_HURRICANE_VEST_DMG_EXP_SCALE
 		Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, caster.body, RPC_ELEMENT_WIND, RPC_ELEMENT_ICE)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = HURRICANE_VEST_SLOW_DUR})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = ITEM_RPC_HURRICANE_VEST_SLOW_DUR})
 
 	end
 end

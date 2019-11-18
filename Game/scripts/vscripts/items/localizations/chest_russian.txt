@@ -5,7 +5,7 @@
 		"item_rpc_hurricane_vest_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_hurricane_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_hurricane"					"Hurricane"
-		"property_hurricane_description"			"При прочтении @Ability4, буря из <% HURRICANE_VEST_HURRICANE_COUNT %> ураганов распространяется во все стороны от героя, замедляя скорость атаки врагов на <% HURRICANE_VEST_ATT_SPD_REDUCE %> и скорость передвижения на <% HURRICANE_VEST_MSP_REDUCE %> в течение <% HURRICANE_VEST_SLOW_DUR %> секунд. Урон, наносимый каждым ураганом равен <% HURRICANE_VEST_DMG_AMP %> * (Уровень Героя / 120) * (<% HURRICANE_VEST_MAX_DISTANCE %> - расстояние между героем и целью))^<% HURRICANE_VEST_DMG_EXP_SCALE %>; сила ветра снижается по мере удаления от центра."
+		"property_hurricane_description"			"При прочтении @Ability4, буря из <% ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT %> ураганов распространяется во все стороны от героя, замедляя скорость атаки врагов на <% ITEM_RPC_HURRICANE_VEST_ATT_SPD_REDUCE %> и скорость передвижения на <% ITEM_RPC_HURRICANE_VEST_MSP_REDUCE %> в течение <% ITEM_RPC_HURRICANE_VEST_SLOW_DUR %> секунд. Урон, наносимый каждым ураганом равен <% ITEM_RPC_HURRICANE_VEST_DMG_AMP %> * (Уровень Героя / 120) * (<% ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE %> - расстояние между героем и целью))^<% ITEM_RPC_HURRICANE_VEST_DMG_EXP_SCALE %>; сила ветра снижается по мере удаления от центра."
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Преследуется сильными ветрами"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
