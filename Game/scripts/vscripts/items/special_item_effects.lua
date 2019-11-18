@@ -2571,11 +2571,11 @@ function blue_dragon_greaves_think(event)
 	ability.hero = target
 	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
 	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > BLUE_DRAGON_GREAVES_DISTANCE then
+	if ability.distanceMoved > ITEM_RPC_BLUE_DRAGON_GREAVES_DISTANCE then
 
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_blue_dragon_greaves_effect", {duration = BLUE_DRAGON_GREAVES_DURATION})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_blue_dragon_greaves_effect", {duration = ITEM_RPC_BLUE_DRAGON_GREAVES_DURATION})
 		EmitSoundOn("Items.BlueDragonGreaves", target)
-		ability.distanceMoved = ability.distanceMoved % BLUE_DRAGON_GREAVES_DISTANCE
+		ability.distanceMoved = ability.distanceMoved % ITEM_RPC_BLUE_DRAGON_GREAVES_DISTANCE
 	end
 
 	ability.lastPos = target:GetAbsOrigin()
