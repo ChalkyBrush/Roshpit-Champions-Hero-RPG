@@ -50,7 +50,7 @@
     	"item_rpc_tranquil_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_tranquil_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tranquil_boots"				"Grove Roamer"	
-		"property_tranquil_boots_description"		"Heal <% TRANQUIL_BOOTS_HP_HEAL_PCT %>% of your max Health for every <% TRANQUIL_BOOTS_DISTANCE %> units moved."
+		"property_tranquil_boots_description"		"Heal <% ITEM_RPC_TRANQUIL_BOOTS_HP_HEAL_PCT %>% of your max Health for every <% ITEM_RPC_TRANQUIL_BOOTS_DISTANCE %> units moved."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"

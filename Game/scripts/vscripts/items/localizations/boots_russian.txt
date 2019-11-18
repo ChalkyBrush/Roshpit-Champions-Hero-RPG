@@ -51,7 +51,7 @@
     	"item_rpc_tranquil_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_tranquil_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tranquil_boots"				"Grove Roamer"	
-		"property_tranquil_boots_description"		"Восстанавливает вам <% TRANQUIL_BOOTS_HP_HEAL_PCT %>% от макс. здоровья за каждые пройденные <% TRANQUIL_BOOTS_DISTANCE %> юнитов."
+		"property_tranquil_boots_description"		"Восстанавливает вам <% ITEM_RPC_TRANQUIL_BOOTS_HP_HEAL_PCT %>% от макс. здоровья за каждые пройденные <% ITEM_RPC_TRANQUIL_BOOTS_DISTANCE %> юнитов."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"

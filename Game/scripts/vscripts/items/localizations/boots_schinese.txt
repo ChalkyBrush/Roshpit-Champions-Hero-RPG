@@ -51,7 +51,7 @@
     	"item_rpc_tranquil_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_tranquil_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tranquil_boots"				"森林漫游"	
-		"property_tranquil_boots_description"		"每移动<% TRANQUIL_BOOTS_DISTANCE %>码，回复 <% TRANQUIL_BOOTS_HP_HEAL_PCT %>% 的最大生命值。"
+		"property_tranquil_boots_description"		"每移动<% ITEM_RPC_TRANQUIL_BOOTS_DISTANCE %>码，回复 <% ITEM_RPC_TRANQUIL_BOOTS_HP_HEAL_PCT %>% 的最大生命值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"夜叉之鞋"

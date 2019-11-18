@@ -1045,18 +1045,18 @@ function tranquil_boots_think(event)
 	ability.hero = target
 	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
 	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > TRANQUIL_BOOTS_DISTANCE then
+	if ability.distanceMoved > ITEM_RPC_TRANQUIL_BOOTS_DISTANCE then
 		if not ability.active then
 			StartSoundEvent("Hero_WitchDoctor.Voodoo_Restoration.Loop", target)
 		end
 		ability.active = true
-		for i = 1, ability.distanceMoved / TRANQUIL_BOOTS_DISTANCE, 1 do
+		for i = 1, ability.distanceMoved / ITEM_RPC_TRANQUIL_BOOTS_DISTANCE, 1 do
 			tranquil_boots_heal(target)
 			if i > 3 then
 				break
 			end
 		end
-		ability.distanceMoved = ability.distanceMoved % TRANQUIL_BOOTS_DISTANCE
+		ability.distanceMoved = ability.distanceMoved % ITEM_RPC_TRANQUIL_BOOTS_DISTANCE
 	else
 		if distance < 20 then
 			ability.active = false
@@ -1068,7 +1068,7 @@ function tranquil_boots_think(event)
 end
 
 function tranquil_boots_heal(hero)
-	local healthRestore = math.floor(hero:GetMaxHealth() * TRANQUIL_BOOTS_HP_HEAL_PCT/100)
+	local healthRestore = math.floor(hero:GetMaxHealth() * ITEM_RPC_TRANQUIL_BOOTS_HP_HEAL_PCT/100)
 	local particleName = "particles/items2_fx/tranquil_boots.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
