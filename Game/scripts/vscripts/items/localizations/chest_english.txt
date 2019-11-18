@@ -264,9 +264,9 @@
 		"item_rpc_enchanted_solar_cape_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_enchanted_solar_cape_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Taking any Magical or Pure damage increases both Base Ability Damage and all Elemental Damage bonuses by <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% for <% SOLAR_CAPE_DURATION %> seconds."
+		"property_enchanted_solar_description"		"Taking any Magical or Pure damage increases both Base Ability Damage and all Elemental Damage bonuses by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% for <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"All Base Ability damage and Elemental damage increased by <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>%"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"All Base Ability damage and Elemental damage increased by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"

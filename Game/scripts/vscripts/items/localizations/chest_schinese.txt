@@ -260,9 +260,9 @@
 		"item_rpc_enchanted_solar_cape_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_enchanted_solar_cape_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_enchanted_solar"				"耀斑"
-		"property_enchanted_solar_description"		"受到任何魔法或纯粹伤害提高玩家基础技能伤害和元素伤害 <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% ，持续<% SOLAR_CAPE_DURATION %>秒。"
+		"property_enchanted_solar_description"		"受到任何魔法或纯粹伤害提高玩家基础技能伤害和元素伤害 <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% ，持续<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"耀斑"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高<% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %%"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"海洋风暴披肩"

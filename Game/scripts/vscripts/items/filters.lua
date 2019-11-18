@@ -1321,7 +1321,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + GENGAR_BAD/100
         end
         if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
-            damageMult = damageMult + SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
+            damageMult = damageMult + ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
         end
         if attacker:HasModifier("modifier_boots_of_old_wisdom_active") then
             damageMult = damageMult + ITEM_RPC_BOOTS_OF_OLD_WISDOM_BAD/100
@@ -1818,7 +1818,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + 3
         end
         if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
-            mult = mult + SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
+            mult = mult + ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
         end
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)

@@ -264,7 +264,7 @@
 		"item_rpc_enchanted_solar_cape_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_enchanted_solar_cape_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"При получении магического или чистого урона, усиливает Базовый Урон Способностей и урон всех Элементов на <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% на <% SOLAR_CAPE_DURATION %> секунд."
+		"property_enchanted_solar_description"		"При получении магического или чистого урона, усиливает Базовый Урон Способностей и урон всех Элементов на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_DURATION %> секунд."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"Урон всех Базовых Умений и всех Элементов увеличен на 400%%"
 		
