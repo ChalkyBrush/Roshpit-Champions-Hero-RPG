@@ -510,7 +510,7 @@
 		"item_rpc_outland_stone_cuirass_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_outland_stone_cuirass_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_outland_stone"							"爆破融合"
-		"property_outland_stone_description"					"提高 @Ability1 的基础技能伤害 <% OUTLAND_STONE_BAD %>%，但是施法时会将自己眩晕 <% OUTLAND_STONE_SELF_STUN %> 秒。"
+		"property_outland_stone_description"					"提高 @Ability1 的基础技能伤害 <% ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD %>%，但是施法时会将自己眩晕 <% ITEM_RPC_OUTLAND_STONE_CUIRASS_SELF_STUN %> 秒。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"刻尔伯罗斯的垒甲"
