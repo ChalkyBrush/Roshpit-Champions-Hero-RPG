@@ -14,7 +14,7 @@
     	"item_rpc_sange_boots_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_sange_boots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_sange"						"战斗大师S"
-		"property_sange_description"				"每点敏捷值额外提高<% SANGE_HP_PER_AGI %>点最大生命值,並且提高最大魔法值 <% SANGE_MP_PER_AGI %>."
+		"property_sange_description"				"每点敏捷值额外提高<% ITEM_RPC_SANGE_BOOTS_HP_PER_AGI %>点最大生命值,並且提高最大魔法值 <% ITEM_RPC_SANGE_BOOTS_MP_PER_AGI %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"沙丘之靴"
