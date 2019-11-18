@@ -150,7 +150,7 @@
 		"item_rpc_armor_of_secret_temple_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_armor_of_secret_temple_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_secret_temple"				"折射"
-		"property_secret_temple_description"		"施放 @Ability4 后，获得护盾抵挡<% SECRET_TEMPLE_SHIELDS %>次伤害。当护盾存在时普通攻击造成2倍伤害。（可以理解为基础攻击力x2）"
+		"property_secret_temple_description"		"施放 @Ability4 后，获得护盾抵挡<% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS %>次伤害。当护盾存在时普通攻击造成2倍伤害。（可以理解为基础攻击力x2）"
 		"DOTA_Tooltip_modifier_secret_temple_refraction"				"折射"
 		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"抵挡伤害，普通攻击造成2倍伤害。"
 		

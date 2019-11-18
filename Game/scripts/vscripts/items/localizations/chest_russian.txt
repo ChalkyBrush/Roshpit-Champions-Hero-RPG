@@ -154,7 +154,7 @@
 		"item_rpc_armor_of_secret_temple_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_armor_of_secret_temple_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_secret_temple"				"Refraction"
-		"property_secret_temple_description"		"После прочтения (R) @Ability4 - герой получает <% SECRET_TEMPLE_SHIELDS %> зарядов щитов преломления, полностью поглощающих входящий урон. В момент активации щитов Базовый урон атаки удваивается и сохраняется удвоенным, пока щиты активны. Эффект не складывается сам с собой."
+		"property_secret_temple_description"		"После прочтения (R) @Ability4 - герой получает <% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS %> зарядов щитов преломления, полностью поглощающих входящий урон. В момент активации щитов Базовый урон атаки удваивается и сохраняется удвоенным, пока щиты активны. Эффект не складывается сам с собой."
 		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
 		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Блокирует любой входящий урон. Базовый урон увеличен вдвое."
 		

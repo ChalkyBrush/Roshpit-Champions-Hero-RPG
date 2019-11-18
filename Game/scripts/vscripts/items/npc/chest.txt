@@ -791,7 +791,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Duration"  		"<% SECRET_TEMPLE_SHIELDS_DURATION %>"
+				"Duration"  		"<% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION %>"
 				"TextureName"		"templar_assassin_refraction"
 				"OnCreated"
 				{
@@ -825,7 +825,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"  		"<% SECRET_TEMPLE_SHIELDS_DURATION %>"
+				"Duration"  		"<% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION %>"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
