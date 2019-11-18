@@ -188,9 +188,9 @@
 		"item_rpc_nightmare_rider_mantle_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_nightmare_rider_mantle_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_nightmare_rider"				"暗影融合"
-		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度<% NIGHTMARE_RIDER_SLOW %>%、当前护甲值<% NIGHTMARE_RIDER_ARMOR_REDUCTION %>%、同时加深敌人所受到受到的伤害 <% NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF %>% （伤害加深计算在减伤之后），持续<% NIGHTMARE_RIDER_DEBUFF_DURATION %>秒。<br>每次攻击时获得一层buff，提高暗影融合的范围<% NIGHTMARE_RIDER_RADIUS_INCREASE %>码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE %>%。"
+		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SLOW %>%、当前护甲值<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION %>%、同时加深敌人所受到受到的伤害 <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_POST_MITIGATION_DEBUFF %>% （伤害加深计算在减伤之后），持续<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_DEBUFF_DURATION %>秒。<br>每次攻击时获得一层buff，提高暗影融合的范围<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_RADIUS_INCREASE %>码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ELEMENT_SHADOW_INCREASE %>%。"
 		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"夜魇层数"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围100，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE %>%%。"
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围100，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ELEMENT_SHADOW_INCREASE %>%%。"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"暗影融合"
 		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"移动速度和护甲值降低，并且伤害加深提高。"
 		

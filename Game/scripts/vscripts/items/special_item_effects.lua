@@ -3453,7 +3453,7 @@ function nightmare_rider_attackland(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_nightmare_rider_stacks", {})
-	local newStacks = math.min(attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", caster) + 1, NIGHTMARE_RIDER_MAX_STACKS)
+	local newStacks = math.min(attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", caster) + 1, ITEM_RPC_NIGHTMARE_RIDER_MANTLE_MAX_STACKS)
 	attacker:SetModifierStackCount("modifier_nightmare_rider_stacks", caster, newStacks)
 end
 

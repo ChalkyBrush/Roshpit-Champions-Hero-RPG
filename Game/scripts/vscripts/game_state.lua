@@ -2196,7 +2196,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
-		mult = mult + NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF/100
+		mult = mult + ITEM_RPC_NIGHTMARE_RIDER_MANTLE_POST_MITIGATION_DEBUFF/100
 	end
 
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
