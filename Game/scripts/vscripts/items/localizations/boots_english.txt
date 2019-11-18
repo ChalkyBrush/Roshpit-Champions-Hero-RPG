@@ -68,7 +68,7 @@
     	"item_rpc_mana_striders_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_mana_striders_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_mana_striders"				"Mana Stride"
-		"property_mana_striders_description"		"Restore <% MANA_STRIDERS_MANA_RESTORE_PCT %>% of your max Mana for every <% MANA_STRIDERS_DISTANCE %> units moved."
+		"property_mana_striders_description"		"Restore <% ITEM_RPC_MANA_STRIDERS_MANA_RESTORE_PCT %>% of your max Mana for every <% ITEM_RPC_MANA_STRIDERS_DISTANCE %> units moved."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"

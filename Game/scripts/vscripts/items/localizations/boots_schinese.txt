@@ -69,7 +69,7 @@
     	"item_rpc_mana_striders_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_mana_striders_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_mana_striders"				"魔力步伐"
-		"property_mana_striders_description"		"每移动<% MANA_STRIDERS_DISTANCE %>码，回复 <% MANA_STRIDERS_MANA_RESTORE_PCT %>% 的最大魔法值。"
+		"property_mana_striders_description"		"每移动<% ITEM_RPC_MANA_STRIDERS_DISTANCE %>码，回复 <% ITEM_RPC_MANA_STRIDERS_MANA_RESTORE_PCT %>% 的最大魔法值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"烈火战靴"

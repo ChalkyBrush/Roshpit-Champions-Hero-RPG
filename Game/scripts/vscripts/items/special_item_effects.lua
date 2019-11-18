@@ -1115,18 +1115,18 @@ function mana_striders_think(event)
 	ability.hero = target
 	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
 	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > MANA_STRIDERS_DISTANCE then
+	if ability.distanceMoved > ITEM_RPC_MANA_STRIDERS_DISTANCE then
 		if not ability.active then
 			-- StartSoundEvent("Hero_Leshrac.Diabolic_Edict_lp", target)
 		end
 		ability.active = true
-		for i = 1, ability.distanceMoved / MANA_STRIDERS_DISTANCE, 1 do
+		for i = 1, ability.distanceMoved / ITEM_RPC_MANA_STRIDERS_DISTANCE, 1 do
 			mana_striders_heal(target)
 			if i > 3 then
 				break
 			end
 		end
-		ability.distanceMoved = ability.distanceMoved % MANA_STRIDERS_DISTANCE
+		ability.distanceMoved = ability.distanceMoved % ITEM_RPC_MANA_STRIDERS_DISTANCE
 	else
 		if distance < 20 then
 			ability.active = false
@@ -1138,7 +1138,7 @@ function mana_striders_think(event)
 end
 
 function mana_striders_heal(hero)
-	local manaRestore = WallPhysics:round(hero:GetMaxMana() * MANA_STRIDERS_MANA_RESTORE_PCT/100, 0)
+	local manaRestore = WallPhysics:round(hero:GetMaxMana() * ITEM_RPC_MANA_STRIDERS_MANA_RESTORE_PCT/100, 0)
 	local particleName = "particles/units/heroes/hero_obsidian_destroyer/obsidian_death_flash.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
 	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
