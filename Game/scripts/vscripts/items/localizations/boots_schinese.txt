@@ -254,9 +254,9 @@
     	"item_rpc_ablecore_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_ablecore_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ablecore_greaves"					"龟速"
-		"property_ablecore_greaves_description"			"当移动速度低于或者等于<% ABLECORE_GREAVES_MS_REQ %>，受到的伤害减少<% ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ABLECORE_GREAVES_POST_MITI %>%。当移动速度高于<% ABLECORE_GREAVES_MS_REQ %>时，此buff仍持续<% ABLECORE_GREAVES_STICKY_DURATION %>秒。"
+		"property_ablecore_greaves_description"			"当移动速度低于或者等于<% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>，受到的伤害减少<% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%。当移动速度高于<% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>时，此buff仍持续<% ITEM_RPC_ABLECORE_GREAVES_STICKY_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"龟速"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少<% ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ABLECORE_GREAVES_POST_MITI %>%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少<% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"巨型猎人的复原鞋子"

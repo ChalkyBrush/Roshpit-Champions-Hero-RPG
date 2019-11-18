@@ -253,9 +253,9 @@
     	"item_rpc_ablecore_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_ablecore_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"While movespeed is less than or equal to <% ABLECORE_GREAVES_MS_REQ %>, incoming damage is reduced by <% ABLECORE_GREAVES_DMG_RED %>% and outgoing Post-Mitigation damage is increased by <% ABLECORE_GREAVES_POST_MITI %>%. The buff sticks for <% ABLECORE_GREAVES_STICKY_DURATION %> seconds if your movespeed moves back above <% ABLECORE_GREAVES_MS_REQ %>."
+		"property_ablecore_greaves_description"			"While movespeed is less than or equal to <% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>, incoming damage is reduced by <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>% and outgoing Post-Mitigation damage is increased by <% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%. The buff sticks for <% ITEM_RPC_ABLECORE_GREAVES_STICKY_DURATION %> seconds if your movespeed moves back above <% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by %< ABLECORE_GREAVES_DMG_RED %>%% and outgoing damage increased by <% ABLECORE_GREAVES_POST_MITI %>%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by %< ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%% and outgoing damage increased by <% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"

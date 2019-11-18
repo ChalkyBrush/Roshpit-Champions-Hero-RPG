@@ -1569,7 +1569,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (1 - modifier:GetDamageReduction())
 	end
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
-		damage = damage * (100-ABLECORE_GREAVES_DMG_RED)/100
+		damage = damage * (100-ITEM_RPC_ABLECORE_GREAVES_DMG_RED)/100
 	end
 	if victim:HasModifier("modifier_resplendent_rubber_boots") then
 		damage = damage * (100-RESPLENDENT_RUBBER_DMG_REDUCTION)/100
@@ -2200,7 +2200,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
-		mult = mult + ABLECORE_GREAVES_POST_MITI/100
+		mult = mult + ITEM_RPC_ABLECORE_GREAVES_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
 		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING

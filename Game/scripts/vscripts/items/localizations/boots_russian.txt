@@ -254,9 +254,9 @@
     	"item_rpc_ablecore_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_ablecore_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"Когда скорость героя ниже <% ABLECORE_GREAVES_MS_REQ %>, весь входящий урон снижен на <% ABLECORE_GREAVES_DMG_RED %>%, а исходящий урон увеличен на <% ABLECORE_GREAVES_POST_MITI %>%. Эффект будет действовать еще <% ABLECORE_GREAVES_STICKY_DURATION %> секунд после того, как скорость героя станет выше необходимого уровня."
+		"property_ablecore_greaves_description"			"Когда скорость героя ниже <% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>, весь входящий урон снижен на <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%, а исходящий урон увеличен на <% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%. Эффект будет действовать еще <% ITEM_RPC_ABLECORE_GREAVES_STICKY_DURATION %> секунд после того, как скорость героя станет выше необходимого уровня."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на <% ABLECORE_GREAVES_DMG_RED %>%%, исходящий повышен на <% ABLECORE_GREAVES_POST_MITI %>%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Входящий урон снижен на <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%%, исходящий повышен на <% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
