@@ -1309,7 +1309,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + DIREWOLF_BULWARK_BAD/100 * attacker:GetModifierStackCount("modifier_direwolf_bulwark_effect", attacker.InventoryUnit)
         end
         if attacker:HasModifier("modifier_oceanrunner_boots") then
-            damageMult = damageMult + OCEANRUNNER_AGI_TO_BAD/100 * (attacker:GetAgility() / OCEANRUNNER_AGI_DIVISOR)
+            damageMult = damageMult + ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD/100 * (attacker:GetAgility() / ITEM_RPC_OCEANRUNNER_BOOTS_AGI_DIVISOR)
         end
         if attacker:HasModifier("modifier_white_mage_hat2") then
             damageMult = damageMult + WHITE_MAGE_BAD_PER_INT/100 * (attacker:GetIntellect() / WHITE_MAGE_INT_DIVISOR)

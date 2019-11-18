@@ -388,7 +388,7 @@
 		"item_rpc_oceanrunner_boots_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_oceanrunner_boots_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Increases Base Ability damage by <% OCEANRUNNER_AGI_TO_BAD %>% for every <% OCEANRUNNER_AGI_DIVISOR %> points of Agility."
+		"property_oceanrunner_Description"									"Increases Base Ability damage by <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>% for every <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_DIVISOR %> points of Agility."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
