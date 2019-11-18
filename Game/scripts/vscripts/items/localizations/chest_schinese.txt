@@ -342,7 +342,7 @@
 		"item_rpc_bladestorm_vest_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_bladestorm_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_bladestorm_vest"							"剑刃风暴"
-		"property_bladestorm_vest_description"					"攻击一个敌人<% BLADESTORM_NUMBER_OF_ATTACKS %>次获得1层剑刃风暴，每层剑刃风暴提高攻击力 <% BLADESTORM_BONUS_ATTACK_DMG %>%，并且使敌人受到的伤害加深 <% BLADESTORM_POST_MITI %>%。（计算在敌人减伤之后）<br>施放任意技能消耗1层。最高<% BLADESTORM_MAX_STACKS %>层。"
+		"property_bladestorm_vest_description"					"攻击一个敌人<% ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS %>次获得1层剑刃风暴，每层剑刃风暴提高攻击力 <% ITEM_RPC_BLADESTORM_VEST_BONUS_ATTACK_DMG %>%，并且使敌人受到的伤害加深 <% ITEM_RPC_BLADESTORM_VEST_POST_MITI %>%。（计算在敌人减伤之后）<br>施放任意技能消耗1层。最高<% ITEM_RPC_BLADESTORM_VEST_MAX_STACKS %>层。"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"剑刃风暴"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"提高攻击力和基础技能伤害"
 		

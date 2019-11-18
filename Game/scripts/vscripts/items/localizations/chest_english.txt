@@ -346,7 +346,7 @@
 		"item_rpc_bladestorm_vest_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_bladestorm_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_bladestorm_vest"							"Bladestorm"
-		"property_bladestorm_vest_description"					"Attacking an enemy <% BLADESTORM_NUMBER_OF_ATTACKS %> times adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by <% BLADESTORM_BONUS_ATTACK_DMG %>% and post-mitigation damage amp by <% BLADESTORM_POST_MITI %>%. Casting any spell consumes a stack. Maximum <% BLADESTORM_MAX_STACKS %> stacks."
+		"property_bladestorm_vest_description"					"Attacking an enemy <% ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS %> times adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by <% ITEM_RPC_BLADESTORM_VEST_BONUS_ATTACK_DMG %>% and post-mitigation damage amp by <% ITEM_RPC_BLADESTORM_VEST_POST_MITI %>%. Casting any spell consumes a stack. Maximum <% ITEM_RPC_BLADESTORM_VEST_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Post-Mitigation Damage and Base Ability damage."
 		

@@ -346,7 +346,7 @@
 		"item_rpc_bladestorm_vest_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_bladestorm_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_bladestorm_vest"							"Bladestorm"
-		"property_bladestorm_vest_description"					"Атакуя противника <% BLADESTORM_NUMBER_OF_ATTACKS %> раз подряд, герой получит заряд Bladestorm. Каждый заряд увеличивает Бонусный урон атаки героя на <% BLADESTORM_BONUS_ATTACK_DMG %>% и весь пост-резистный урон <% BLADESTORM_POST_MITI %>%. Прочтение любого заклинания потратит один заряд. Максимум <% BLADESTORM_MAX_STACKS %> заряда."
+		"property_bladestorm_vest_description"					"Атакуя противника <% ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS %> раз подряд, герой получит заряд Bladestorm. Каждый заряд увеличивает Бонусный урон атаки героя на <% ITEM_RPC_BLADESTORM_VEST_BONUS_ATTACK_DMG %>% и весь пост-резистный урон <% ITEM_RPC_BLADESTORM_VEST_POST_MITI %>%. Прочтение любого заклинания потратит один заряд. Максимум <% ITEM_RPC_BLADESTORM_VEST_MAX_STACKS %> заряда."
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Базовый урон и урон умений увеличен"
 		
