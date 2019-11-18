@@ -364,7 +364,7 @@
 		"item_rpc_depth_crest_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_depth_crest_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_depth_crest"						"粉碎"
-		 "property_depth_crest_description"					"受到攻击时，有 <% DEPTH_CREST_ARMOR_CHANCE %>% 的概率眩晕周围的所有敌人，造成 <% DEPTH_CREST_ARMOR_STR_TO_DMG %>x 力量值 + <% DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>x 护甲值的伤害。当敌人被眩晕时，每 <% DEPTH_CREST_ARMOR_STR_DIVISOR %> 点力量值提高装备伤害 <% DEPTH_CREST_ARMOR_ITEM_AMP %>%。"
+		 "property_depth_crest_description"					"受到攻击时，有 <% ITEM_RPC_DEPTH_CREST_ARMOR_CHANCE %>% 的概率眩晕周围的所有敌人，造成 <% ITEM_RPC_DEPTH_CREST_ARMOR_STR_TO_DMG %>x 力量值 + <% ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>x 护甲值的伤害。当敌人被眩晕时，每 <% ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR %> 点力量值提高装备伤害 <% ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"熔岩板甲"

@@ -368,7 +368,7 @@
 		"item_rpc_depth_crest_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_depth_crest_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"При получении урона, с @special_property1% шансом все ближайшие враги будут оглушены на @special_property5 сек. и получат урон, равный сумме @special_property2х Силы и @special_property3х брони героя.<br>Пока враги оглушены, весь урон, который они получат от предметов увеличен на @special_property4% за каждые 10 чков Силы.<br>(Это усиление применяется в конце всех вычислений)"
+		 "property_depth_crest_description"					"При получении урона, с <% ITEM_RPC_DEPTH_CREST_ARMOR_CHANCE %>% шансом все ближайшие враги будут оглушены на <% ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION %> сек. и получат урон, равный сумме <% ITEM_RPC_DEPTH_CREST_ARMOR_STR_TO_DMG %>х Силы и <% ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>х брони героя.<br>Пока враги оглушены, весь урон, который они получат от предметов увеличен на <% ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP %>% за каждые 10 чков Силы.<br>(Это усиление применяется в конце всех вычислений)"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"

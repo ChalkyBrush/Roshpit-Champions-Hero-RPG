@@ -3288,19 +3288,19 @@ end
 
 function depth_crest_hit(event)
 	local target = event.target
-	local proc = Filters:GetProc(target, DEPTH_CREST_ARMOR_CHANCE)
+	local proc = Filters:GetProc(target, ITEM_RPC_DEPTH_CREST_ARMOR_CHANCE)
 	if proc then
 		EmitSoundOn("Items.DepthCrest", target)
 		local particleName = "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 20))
 		ParticleManager:SetParticleControl(pfx, 1, Vector(300, 0, 0))
-		local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, DEPTH_CREST_ARMOR_STUN_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_DEPTH_CREST_ARMOR_STUN_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
-			local damage = target:GetStrength() * DEPTH_CREST_ARMOR_STR_TO_DMG + target:GetPhysicalArmorValue(false) * DEPTH_CREST_ARMOR_ARMOR_TO_DMG
+			local damage = target:GetStrength() * ITEM_RPC_DEPTH_CREST_ARMOR_STR_TO_DMG + target:GetPhysicalArmorValue(false) * ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
-				Filters:ApplyStun(target, DEPTH_CREST_ARMOR_STUN_DURATION, enemy)
+				Filters:ApplyStun(target, ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION, enemy)
 			end
 		end
 	end
