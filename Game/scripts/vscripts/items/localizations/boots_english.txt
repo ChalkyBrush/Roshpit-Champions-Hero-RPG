@@ -175,7 +175,7 @@
     	"item_rpc_redrock_footwear_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_redrock_footwear_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_redrock"						"Fevering Footwork"
-		"property_redrock_description"				"When you cast @Ability3, release <% REDROCK_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% REDROCK_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% REDROCK_TAUNT_DURATION %> seconds. Also increases your current health by <% REDROCK_HP_INCREASE_PCT %>% and reduces damage taken by <% REDROCK_DAMAGE_REDUCTION_PCT %>% while the effect lasts."
+		"property_redrock_description"				"When you cast @Ability3, release <% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %> seconds. Also increases your current health by <% ITEM_RPC_REDROCK_FOOTWEAR_HP_INCREASE_PCT %>% and reduces damage taken by <% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>% while the effect lasts."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"

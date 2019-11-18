@@ -1597,7 +1597,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
-		damage = damage * (100-REDROCK_DAMAGE_REDUCTION_PCT)/100
+		damage = damage * (100-ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_gravelfoot_buff") then
 		damage = damage * (100-GRAVELFOOT_DMG_REDUCTION)/100

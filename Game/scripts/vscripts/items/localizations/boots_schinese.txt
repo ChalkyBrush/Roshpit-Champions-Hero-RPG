@@ -176,7 +176,7 @@
     	"item_rpc_redrock_footwear_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_redrock_footwear_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_redrock"						"灼热步伐"
-		"property_redrock_description"				"施放 @Ability3 时，在<% REDROCK_DURATION_OF_PULSES %>秒内释放<% REDROCK_NUMBER_OF_PULSES %>股心灵脉冲强制附近敌人攻击你，额外增加<% REDROCK_HP_INCREASE_PCT %>%生命值和<% REDROCK_DAMAGE_REDUCTION_PCT %>%伤害减免，持续<% REDROCK_TAUNT_DURATION %>秒。"
+		"property_redrock_description"				"施放 @Ability3 时，在<% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %>秒内释放<% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %>股心灵脉冲强制附近敌人攻击你，额外增加<% ITEM_RPC_REDROCK_FOOTWEAR_HP_INCREASE_PCT %>%生命值和<% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>%伤害减免，持续<% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"共鸣皮靴"
