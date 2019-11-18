@@ -2969,7 +2969,7 @@ function old_wisdom_spell_cast(event)
 	--print(ability.lastUsedAbilityName)
 	if executedAbility:GetAbilityName() == ability.lastUsedAbilityName then
 		--print("REMOVE??")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_boots_of_old_wisdom_cooldown", {duration = OLD_WISDOM_COOLDOWN})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_boots_of_old_wisdom_cooldown", {duration = ITEM_RPC_BOOTS_OF_OLD_WISDOM_COOLDOWN})
 		target:RemoveModifierByName("modifier_boots_of_old_wisdom_active")
 	end
 	ability.lastUsedAbilityName = executedAbility:GetAbilityName()

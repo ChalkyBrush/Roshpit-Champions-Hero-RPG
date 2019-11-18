@@ -222,7 +222,7 @@
     	"item_rpc_boots_of_old_wisdom_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_old_wisdom_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases Base Ability Damage by <% OLD_WISDOM_BAD %>%. Using the same ability twice in a row removes this effect for <% OLD_WISDOM_COOLDOWN %> seconds."
+		"property_old_wisdom_description"						"Increases Base Ability Damage by <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_BAD %>%. Using the same ability twice in a row removes this effect for <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_COOLDOWN %> seconds."
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
 		

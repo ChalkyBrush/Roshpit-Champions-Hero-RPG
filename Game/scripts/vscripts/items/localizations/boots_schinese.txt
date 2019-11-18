@@ -223,7 +223,7 @@
     	"item_rpc_boots_of_old_wisdom_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_old_wisdom_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_old_wisdom"								"技能变异"
-		"property_old_wisdom_description"						"提高基础技能伤害 <% OLD_WISDOM_BAD %>% 。连续两次使用相同的技能将移除该效果<% OLD_WISDOM_COOLDOWN %>秒。"
+		"property_old_wisdom_description"						"提高基础技能伤害 <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_BAD %>% 。连续两次使用相同的技能将移除该效果<% ITEM_RPC_BOOTS_OF_OLD_WISDOM_COOLDOWN %>秒。"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"技能变异冷却中"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"连续使用相同的技能"
 		
