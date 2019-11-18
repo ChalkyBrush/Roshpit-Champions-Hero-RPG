@@ -4451,6 +4451,26 @@ function RPCItems:RollWitchHat(item_level)
     return item
 end
 
+function RPCItems:RollTricksterMask(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_tricksters_mask", "immortal", "Trickster's Mask", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_tricksters_mask"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_trickster", "#FFFB17", 1, "#property_trickster_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollTwistedMaskOfAhnqhirBlue(item_level)
     local item = RPCItems:CreateVariant("item_rpc_twisted_blue_mask_of_ahnqhir", "immortal", "Twisted Blue Mask of Ahn'qhir", "head", true, "Slot: Head")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4514,29 +4534,6 @@ function RPCItems:RollTwistedMaskOfAhnqhirPurple(item_level)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
     RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollTricksterMask(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_tricksters_mask", "immortal", "Trickster's Mask", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "trickster"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_trickster", "#FFFB17", 1, "#property_trickster_description")
-
-    value, nameLevel = RPCItems:RollAttribute(0, 6, 20, 0, 0, item.newItemTable.rarity, false, maxFactor * 20)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "agility"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.floor(value * 2)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    RPCItems:RollHoodProperty4(item, 0)
-    RPCItems:DropOrGiveItem(hero, item, isShop, deathLocation)
     return item
 end
 
@@ -8812,7 +8809,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli", "item_rpc_excavators_focus_cap",
         "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler", "item_rpc_hyper_visor", "item_rpc_helm_of_the_iron_colossus", "item_rpc_mask_of_mugato",
         "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius", "item_rpc_scourge_knights_helm", "item_rpc_odin_helmet", "item_rpc_shroud_of_eternal_night", "item_rpc_stormcrack_helm",
-        "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat"}
+        "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask"}
     end
     return itemsList
 end

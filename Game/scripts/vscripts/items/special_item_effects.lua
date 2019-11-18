@@ -6836,3 +6836,19 @@ function swamp_doctor_end(event)
 		ParticleManager:DestroyParticle(ability.pfx, false)
 	end
 end
+
+function trickster_init(event)
+	local hero = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if not ability.trickster then
+		local trickster = CreateUnitByName("trickster_mask_scoundrel", hero:GetAbsOrigin()+RandomVector(300), true, nil, nil, hero:GetTeamNumber())
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_smoke_ti5.vpcf", trickster, 3)
+	end
+end
+
+function trickster_end(event)
+	local hero = event.target
+	local ability = event.ability
+	local caster = event.caster
+end

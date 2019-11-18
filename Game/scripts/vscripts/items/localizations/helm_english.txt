@@ -559,6 +559,16 @@
 		"item_rpc_swamp_witch_hat_emerald1"	"Murky Wave can trigger once every @emerald_property1 seconds"
 		"item_rpc_swamp_witch_hat_sapphire1" "Each enemy hit by Murky Wave restores @sapphire_property1 mana"
 		"item_rpc_swamp_witch_hat_amethyst1" "Increases Murky Wave's damage by @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
+		"item_property_trickster"					"Laughing Gas"
+		"property_trickster_description"            "Each cast of @Ability2 instantly moves you <% TRICKSTER_MASK_RANGE %> units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> to <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Each instance of @Ability2 damage is further multiplied by a random factor of <% TRICKSTER_MASK_W_DMG_MULT_MIN %> to <% TRICKSTER_MASK_W_DMG_MULT_MAX %>."
+
+		"item_rpc_tricksters_mask_ruby1"	"Each time an enemy is hit by a Murky Wave, they lose @ruby_property1 magic armor. Stacks up to <% SWAMP_WITCH_RUBY_MAX_STACKS %> times and lasts <% SWAMP_WITCH_RUBY_DURATION %> seconds"
+		"item_rpc_tricksters_mask_emerald1"	"Murky Wave can trigger once every @emerald_property1 seconds"
+		"item_rpc_tricksters_mask_sapphire1" "Each enemy hit by Murky Wave restores @sapphire_property1 mana"
+		"item_rpc_tricksters_mask_amethyst1" "Increases Murky Wave's damage by @amethyst_property1"
+
 	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -567,12 +577,6 @@
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
 		
 		
-	
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
-		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"            "Each cast of @Ability2 instantly moves you <% TRICKSTER_MASK_RANGE %> units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> to <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Each instance of @Ability2 damage is further multiplied by a random factor of <% TRICKSTER_MASK_W_DMG_MULT_MIN %> to <% TRICKSTER_MASK_W_DMG_MULT_MAX %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"

@@ -118,9 +118,15 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
 		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере <% SWAMP_WITCH_HAT_INT_TO_DMG %>x вашего Интеллекта. Враги, задетые волной также будут получать на <% SWAMP_WITCH_HAT_POST_MITI %>% больше пост-резистного урона на <% SWAMP_WITCH_HAT_DURATION %> секунд. Складывается до <% SWAMP_WITCH_HAT_MAX_STACKS %> раз."
+		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of spectral bats in front of you, dealing <% SWAMP_WITCH_HAT_INT_TO_DMG %>x your Intelligence as damage. Maximimum of 1 trigger every <% SWAMP_WITCH_COOLDOWN %> seconds."
+
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Пост-резистный урон увеличен на 15%% за каждый заряд."
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Reduced Magic Armor"
+
+		"item_rpc_swamp_witch_hat_ruby1"	"Each time an enemy is hit by a Murky Wave, they lose @ruby_property1 magic armor. Stacks up to <% SWAMP_WITCH_RUBY_MAX_STACKS %> times and lasts <% SWAMP_WITCH_RUBY_DURATION %> seconds"
+		"item_rpc_swamp_witch_hat_emerald1"	"Murky Wave can trigger once every @emerald_property1 seconds"
+		"item_rpc_swamp_witch_hat_sapphire1" "Each enemy hit by Murky Wave restores @sapphire_property1 mana"
+		"item_rpc_swamp_witch_hat_amethyst1" "Increases Murky Wave's damage by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
@@ -355,12 +361,12 @@
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
 		"item_property_swamp_doctor"				"Voodoo Restoration"
-		"property_swamp_doctor_description"			"Лечит вас и ближайших союзников на 40% от суммы всех атрибутов каждые 0.5 секунды."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"(Q) @Ability1 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (Q) @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
+		"property_swamp_doctor_description"			"Heals yourself and nearby allies in <% SWAMP_DOCTOR_BASE_RADIUS %> radius for <% SWAMP_DOCTOR_HEAL_PCT %>% of their max health every <% SWAMP_DOCTOR_TICK_RATE %> seconds."
+
+		"item_rpc_swamp_doctors_tribal_mask_ruby1"	"Yourself and allies in Voodoo Restoration's effect take @ruby_property1% reduced damage from all sources"
+		"item_rpc_swamp_doctors_tribal_mask_emerald1"	"Increases Voodoo Restoration's radius by @emerald_property1"
+		"item_rpc_swamp_doctors_tribal_mask_sapphire1" "Yourself and allies in Voodoo Restoration's effect gain stacks of @sapphire_property1 Spell Pierce. Max <% SWAMP_DOCTOR_SAPPHIRE_MAX_STACKS %>"
+		"item_rpc_swamp_doctors_tribal_mask_amethyst1" "Increases the heal amount by @amethyst_property1x your Spirit and Intelligence"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	

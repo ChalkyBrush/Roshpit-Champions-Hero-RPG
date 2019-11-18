@@ -976,7 +976,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_swamp_witch_hat") then
         Filters:WitchHat(caster)
     end
-    if caster:HasModifier("modifier_trickster_mask") then
+    if caster:HasModifier("modifier_tricksters_mask") then
         Filters:TricksterMask(caster)
     end
     if caster:HasModifier("modifier_cerulean_high_guard") then
@@ -2660,44 +2660,6 @@ function Filters:WhiteMageHat(caster)
             Filters:ApplyHeal(caster, ally, healAmount, true)
         end
     end
-end
-
-function Filters:RubyDragon(caster)
-    -- local dragon = CreateUnitByName("ruby_dragon_summon", caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
-    -- dragon.owner = caster:GetPlayerOwnerID()
-    -- dragon.summoner = caster
-    -- dragon:SetOwner(caster)
-    -- dragon:SetControllableByPlayer(caster:GetPlayerID(), true)
-    -- dragon.dieTime = 12
-    -- dragon:AddAbility("ability_die_after_time_generic"):SetLevel(1)
-    -- skeleHealth = Filters:AdjustItemDamage(caster, caster:GetMaxHealth())
-    -- dragon:SetMaxHealth(skeleHealth)
-    -- dragon:SetBaseMaxHealth(skeleHealth)
-    -- dragon:SetHealth(skeleHealth)
-
-    -- dragon:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100))
-    -- local summonAbil = dragon:AddAbility("ability_summoned_unit")
-    -- summonAbil:SetLevel(1)
-    -- dragon.burnDamage = caster:GetStrength()*12
-    local perpFv = WallPhysics:rotateVector(caster:GetForwardVector(), math.pi / 2)
-    local dragon = CreateUnitByName("ruby_dragon_new", caster:GetAbsOrigin() - caster:GetForwardVector() * 780 + perpFv * RandomInt(-180, 180), true, nil, nil, DOTA_TEAM_GOODGUYS)
-    dragon.owner = caster:GetPlayerOwnerID()
-    dragon.hero = caster
-    dragon:SetOwner(caster)
-    dragon:SetAbsOrigin(dragon:GetAbsOrigin() + Vector(0, 0, 800))
-    dragon:SetControllableByPlayer(caster:GetPlayerID(), true)
-    dragon:SetRenderColor(255, 0, 0)
-    dragon:SetForwardVector(caster:GetForwardVector())
-
-    local dragonAbility = dragon:FindAbilityByName("ruby_dragon_ability")
-    dragonAbility:ApplyDataDrivenModifier(dragon, dragon, "ruby_dragon_cinematic", {duration = 1.5})
-    Timers:CreateTimer(0.5, function()
-        EmitSoundOn("RPCItem.RubyDragonEnter", dragon)
-    end)
-    Timers:CreateTimer(1.5, function()
-        dragon:MoveToPosition(caster:GetAbsOrigin() + RandomVector(RandomInt(50, 250)))
-    end)
-    dragon.entering = true
 end
 
 function Filters:DeathWhisperApply(attacker, victim)
