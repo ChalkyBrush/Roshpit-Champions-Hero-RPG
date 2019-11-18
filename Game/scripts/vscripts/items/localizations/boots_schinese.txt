@@ -286,7 +286,7 @@
     	"item_rpc_boots_of_ashara_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_ashara_amethyst1"									"blah blah @amethyst_property1 gem"
 		 "item_property_boots_of_ashara"						"秋叶魅力"
-		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的<% BOOTS_OF_ASHARA_HP_THRESHOLD %>%时，@Ability3的基础技能伤害增加 <% BOOTS_OF_ASHARA_BAD_E %>X"
+		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的<% ITEM_RPC_BOOTS_OF_ASHARA_HP_THRESHOLD %>%时，@Ability3的基础技能伤害增加 <% ITEM_RPC_BOOTS_OF_ASHARA_BAD_E %>X"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"砂流之鞋"

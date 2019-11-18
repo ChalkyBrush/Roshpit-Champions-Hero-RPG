@@ -1571,8 +1571,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + ITEM_RPC_ADMIRAL_BOOTS_BAD_E/100
         end
-        if attacker:HasModifier("modifier_boots_of_ashara") and attacker:GetHealth() / attacker:GetMaxHealth() <= BOOTS_OF_ASHARA_HP_THRESHOLD/100 then
-            damageMult = damageMult + BOOTS_OF_ASHARA_BAD_E
+        if attacker:HasModifier("modifier_boots_of_ashara") and attacker:GetHealth() / attacker:GetMaxHealth() <= ITEM_RPC_BOOTS_OF_ASHARA_HP_THRESHOLD/100 then
+            damageMult = damageMult + ITEM_RPC_BOOTS_OF_ASHARA_BAD_E
         end
 		if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
 			local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)

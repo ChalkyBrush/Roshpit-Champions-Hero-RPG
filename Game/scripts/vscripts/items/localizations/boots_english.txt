@@ -285,7 +285,7 @@
     	"item_rpc_boots_of_ashara_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_ashara_amethyst1"									"blah blah @amethyst_property1 gem"
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 gains <% BOOTS_OF_ASHARA_BAD_E %>x increased Base Ability Damage while health is less than or equal to <% BOOTS_OF_ASHARA_HP_THRESHOLD %>%"
+		 "property_boots_of_ashara_description"					"@Ability3 gains <% ITEM_RPC_BOOTS_OF_ASHARA_BAD_E %>x increased Base Ability Damage while health is less than or equal to <% ITEM_RPC_BOOTS_OF_ASHARA_HP_THRESHOLD %>%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
