@@ -2130,7 +2130,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
-			mult = mult + SORCERERS_REGALIA_MAGIC_POST_MITI/100
+			mult = mult + ITEM_RPC_SORCERERS_REGALIA_MAGIC_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult + 0.25

@@ -90,7 +90,7 @@
 		"item_rpc_sorcerers_regalia_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_sorcerers_regalia_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sorcerers_regalia"			"束缚"
-		"property_sorcerers_regalia_description"	"提高玩家所有的魔法输出<% SORCERERS_REGALIA_MAGIC_POST_MITI %>%。"
+		"property_sorcerers_regalia_description"	"提高玩家所有的魔法输出<% ITEM_RPC_SORCERERS_REGALIA_MAGIC_POST_MITI %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"射咒者大衣"

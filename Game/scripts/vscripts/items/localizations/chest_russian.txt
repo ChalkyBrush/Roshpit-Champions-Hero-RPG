@@ -92,7 +92,7 @@
 		"item_rpc_sorcerers_regalia_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_sorcerers_regalia_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sorcerers_regalia"			"Spellbinder"
-		"property_sorcerers_regalia_description"	"Весь исходящий пост-резистный магический урон увеличен на <% SORCERERS_REGALIA_MAGIC_POST_MITI %>%."
+		"property_sorcerers_regalia_description"	"Весь исходящий пост-резистный магический урон увеличен на <% ITEM_RPC_SORCERERS_REGALIA_MAGIC_POST_MITI %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
