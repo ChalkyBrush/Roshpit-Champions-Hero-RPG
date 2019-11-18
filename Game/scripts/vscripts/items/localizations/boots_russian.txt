@@ -371,7 +371,7 @@
     	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на <% RED_OCTOBER_DMG_REDUCTION %>%."
+		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на <% ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
@@ -380,7 +380,7 @@
     	"item_rpc_steamboots_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_steamboots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_steamboots"						"Steamboots"
-		"property_steamboots_description"				"Увеличивает урон, наносимый предметами на <% STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>% за каждые <% STEAMBOOTS_AGI_DIVISOR %> очков Ловкости."
+		"property_steamboots_description"				"Увеличивает урон, наносимый предметами на <% ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>% за каждые <% ITEM_RPC_STEAMBOOTS_AGI_DIVISOR %> очков Ловкости."
 		
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	

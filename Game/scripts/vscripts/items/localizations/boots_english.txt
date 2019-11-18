@@ -370,7 +370,7 @@
     	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"While @Ability3 is on cooldown, all damage taken is reduced by <% RED_OCTOBER_DMG_REDUCTION %>%."
+		"property_red_october_description"						"While @Ability3 is on cooldown, all damage taken is reduced by <% ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
@@ -379,7 +379,7 @@
     	"item_rpc_steamboots_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_steamboots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_steamboots"						"Steamboots"
-		"property_steamboots_description"				"Each <% STEAMBOOTS_AGI_DIVISOR %> points of Agility increases item damage by <% STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%."
+		"property_steamboots_description"				"Each <% ITEM_RPC_STEAMBOOTS_AGI_DIVISOR %> points of Agility increases item damage by <% ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%."
 		
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	

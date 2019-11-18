@@ -184,7 +184,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_rpc_steamboots") then
-        mult = mult + STEAMBOOTS_AGI_TO_ITEM_DAMAGE/100 * (caster:GetAgility() / STEAMBOOTS_AGI_DIVISOR)
+        mult = mult + ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE/100 * (caster:GetAgility() / ITEM_RPC_STEAMBOOTS_AGI_DIVISOR)
     end
     if caster:HasModifier("modifier_red_divinex_amulet") then
         mult = mult + RED_DIVINEX_STR_TO_ITEM_DMG/100 * (caster:GetStrength() / RED_DIVINEX_STR_DIVISOR)

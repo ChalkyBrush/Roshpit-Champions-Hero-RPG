@@ -371,7 +371,7 @@
     	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_red_october"								"自然星火"
-		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 <% RED_OCTOBER_DMG_REDUCTION %>%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
+		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 <% ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION %>%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"蒸汽长靴"
@@ -380,7 +380,7 @@
     	"item_rpc_steamboots_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_steamboots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_steamboots"						"蒸汽长靴"
-		"property_steamboots_description"				"每 <% STEAMBOOTS_AGI_DIVISOR %> 点敏捷值提高装备伤害 <% STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%。"
+		"property_steamboots_description"				"每 <% ITEM_RPC_STEAMBOOTS_AGI_DIVISOR %> 点敏捷值提高装备伤害 <% ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%。"
 		
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"深海靴"	
