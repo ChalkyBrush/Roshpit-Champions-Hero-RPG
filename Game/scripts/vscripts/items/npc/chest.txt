@@ -5127,7 +5127,7 @@
 				"IsHidden"	"1"
 				"EffectName" "particles/act_2/ice_boss_channel.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "<% TEMPLAR_LIGHT_SEER_TICKRATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

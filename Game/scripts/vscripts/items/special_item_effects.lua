@@ -4975,14 +4975,14 @@ function light_seer_channeling(event)
 	local ability = event.ability
 	local target = event.target
 
-	local healAmount = target:GetMaxHealth() * TEMPLAR_LIGHT_SEER_HP_PCT_PER_TICK/100
+	local healAmount = target:GetMaxHealth() * ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK/100
 	Filters:ApplyHeal(target, target, healAmount, true)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/flash_healheal.vpcf", target, 1)
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_light_seer_shield", {duration = 60})
 
 	local stacks = target:GetModifierStackCount("modifier_light_seer_shield", caster) + 1
-	stacks = math.min(stacks, TEMPLAR_LIGHT_SEER_MAX_STACKS)
+	stacks = math.min(stacks, ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS)
 	target:SetModifierStackCount("modifier_light_seer_shield", caster, stacks)
 end
 

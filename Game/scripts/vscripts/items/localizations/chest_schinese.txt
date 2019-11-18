@@ -539,7 +539,7 @@
 		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_light_seer"												"德尔福之光"
-		"property_light_seer_Description"									"当吟唱 @Ability4 时，每 <% TEMPLAR_LIGHT_SEER_TICKRATE %>秒治疗 <% TEMPLAR_LIGHT_SEER_HP_PCT_PER_TICK %>% 的最大生命值。每次治疗都会额外获得一层护盾，吸收一次伤害。吟唱结束后，每秒都会减少一层护盾。"
+		"property_light_seer_Description"									"当吟唱 @Ability4 时，每 <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %>秒治疗 <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK %>% 的最大生命值。每次治疗都会额外获得一层护盾，吸收一次伤害。吟唱结束后，每秒都会减少一层护盾。"
 		"DOTA_Tooltip_modifier_light_seer_shield"							"德尔福之盾"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"每层护盾抵挡一次伤害"
 		

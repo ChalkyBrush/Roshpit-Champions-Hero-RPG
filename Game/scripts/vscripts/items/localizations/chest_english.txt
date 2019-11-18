@@ -545,7 +545,7 @@
 		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Heal <% TEMPLAR_LIGHT_SEER_HP_PCT_PER_TICK %>% of max health every <% TEMPLAR_LIGHT_SEER_TICKRATE %> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% TEMPLAR_LIGHT_SEER_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
+		"property_light_seer_Description"									"Heal <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK %>% of max health every <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
 		
