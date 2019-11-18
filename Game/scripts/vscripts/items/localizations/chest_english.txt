@@ -424,7 +424,7 @@
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by <% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %> and Armor by <% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
+		"property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %> and Armor by <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"

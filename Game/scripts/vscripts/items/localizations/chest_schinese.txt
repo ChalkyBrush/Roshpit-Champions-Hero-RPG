@@ -420,7 +420,7 @@
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_dragon"					"蓝龙"
-		"property_sapphire_dragon_description"				"每点智力值增加 <% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %> 攻击力和 <% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %> 护甲值。"
+		"property_sapphire_dragon_description"				"每点智力值增加 <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %> 攻击力和 <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %> 护甲值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"红宝石龙鳞铠甲"
