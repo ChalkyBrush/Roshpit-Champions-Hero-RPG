@@ -128,7 +128,7 @@
     	"item_rpc_rooted_feet_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_rooted_feet_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_rooted_feet"					"Deep Earthen Grip"
-		"property_rooted_feet_description"			"Пока персонаж стоит на месте, его броня увеличена x<% ROOTED_FEET_ARMOR_AMP %>, регенерация здоровья x<% ROOTED_FEET_HP_REGEN_AMP %>, а весь входящий урон сокращён на <% ROOTED_FEET_DMG_REDUCTION %>%."
+		"property_rooted_feet_description"			"Пока персонаж стоит на месте, его броня увеличена x<% ITEM_RPC_ROOTED_FEET_ARMOR_AMP %>, регенерация здоровья x<% ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP %>, а весь входящий урон сокращён на <% ITEM_RPC_ROOTED_FEET_DMG_REDUCTION %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"

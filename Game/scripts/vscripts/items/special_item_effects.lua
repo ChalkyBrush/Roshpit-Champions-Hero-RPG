@@ -1240,11 +1240,11 @@ function rooted_foot_regen_think(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_applicator", {})
 	local currentStacks = target:GetModifierStackCount("modifier_rooted_feet_armor_portion", caster)
-	local armor = Filters:GetBaseBaseArmor(target) * (ROOTED_FEET_ARMOR_AMP-1)
+	local armor = Filters:GetBaseBaseArmor(target) * (ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_armor_portion", {})
 	target:SetModifierStackCount("modifier_rooted_feet_armor_portion", caster, armor)
 	local currentRegenStacks = target:GetModifierStackCount("modifier_rooted_feet_regen_portion", caster)
-	local regen = (target:GetHealthRegen() - currentRegenStacks) * ROOTED_FEET_HP_REGEN_AMP
+	local regen = (target:GetHealthRegen() - currentRegenStacks) * ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_regen_portion", {})
 	target:SetModifierStackCount("modifier_rooted_feet_regen_portion", caster, regen)
 end

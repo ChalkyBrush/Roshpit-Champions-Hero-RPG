@@ -127,7 +127,7 @@
     	"item_rpc_rooted_feet_sapphire1"										"blah blah @sapphire_property1 gem"
     	"item_rpc_rooted_feet_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_rooted_feet"					"Deep Earthen Grip"
-		"property_rooted_feet_description"			"While standing still you have <% ROOTED_FEET_ARMOR_AMP %>x Armor, <% ROOTED_FEET_HP_REGEN_AMP %>x health regen, and take <% ROOTED_FEET_DMG_REDUCTION %>% reduced damage."
+		"property_rooted_feet_description"			"While standing still you have <% ITEM_RPC_ROOTED_FEET_ARMOR_AMP %>x Armor, <% ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP %>x health regen, and take <% ITEM_RPC_ROOTED_FEET_DMG_REDUCTION %>% reduced damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
