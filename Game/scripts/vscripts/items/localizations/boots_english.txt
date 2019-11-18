@@ -397,7 +397,7 @@
 		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal <% CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED %>% reduced damage to you, and take <% CRYSTALLINE_PRE_MITI_AMP %>x pre-mitigation damage from you."
+		"property_crystalline_Description"									"Enemies who are rooted deal <% ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED %>% reduced damage to you, and take <% ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP %>x pre-mitigation damage from you."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"

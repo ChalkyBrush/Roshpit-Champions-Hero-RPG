@@ -398,7 +398,7 @@
 		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
 		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Обездвиженные враги наносят на <% CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED %>% меньше урона владельцу предмета и получают от него увеличенный в <% CRYSTALLINE_PRE_MITI_AMP %> раз урон."
+		"property_crystalline_Description"									"Обездвиженные враги наносят на <% ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED %>% меньше урона владельцу предмета и получают от него увеличенный в <% ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP %> раз урон."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"

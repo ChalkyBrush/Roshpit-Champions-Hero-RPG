@@ -398,7 +398,7 @@
 		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
 		"property_crystalline"												"水晶缠绕"
-		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 <% CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED %>%，并且受到 <% CRYSTALLINE_PRE_MITI_AMP %>x 来自玩家的伤害（税前）。"
+		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 <% ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED %>%，并且受到 <% ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP %>x 来自玩家的伤害（税前）。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"砾石足踏"

@@ -2773,7 +2773,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_crystalline_slippers") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if victim:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * CRYSTALLINE_PRE_MITI_AMP
+			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP
 		end
 	end
 	if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
@@ -3203,7 +3203,7 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_crystalline_slippers") then
 		if attacker:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * (100-CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED)/100
+			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED)/100
 		end
 	end
 	-- wEIRD MONSTERS
