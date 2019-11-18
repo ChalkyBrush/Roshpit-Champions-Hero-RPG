@@ -361,7 +361,7 @@
     	"item_rpc_emerald_speed_runners_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_emerald_speed_runners_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_emerald_speed"							"Unbreakable Stride"
-		"property_emerald_speed_description"					"Movespeed can not fall below <% EMERALD_SPEED_MS_LOW_CAP %>"
+		"property_emerald_speed_description"					"Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
