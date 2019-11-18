@@ -5000,7 +5000,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% TATTERED_NOVICE_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_TATTERED_NOVICE_ARMOR_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

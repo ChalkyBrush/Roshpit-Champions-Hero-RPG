@@ -592,7 +592,7 @@
 		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
 		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
 		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Every <% TATTERED_NOVICE_INTERVAL %> seconds gain a Resolution stack. Each stack removes the cooldown on @Ability1. Max <% TATTERED_NOVICE_MAX_STACKS %> stacks."
+		"property_tattered_novice_armor_description"				"Every <% ITEM_RPC_TATTERED_NOVICE_ARMOR_INTERVAL %> seconds gain a Resolution stack. Each stack removes the cooldown on @Ability1. Max <% ITEM_RPC_TATTERED_NOVICE_ARMOR_MAX_STACKS %> stacks."
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
