@@ -280,7 +280,7 @@
 		"item_rpc_radiant_ruins_leather_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_radiant_ruins_leather_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_radiant_ruins"				"耐久光环"
-		"property_radiant_ruins_description"		"提高你及附近所有友军的攻击速度<% RADIANT_RUINS_LEATHER_AS %>点和移动速度<% RADIANT_RUINS_LEATHER_MS %>点。"
+		"property_radiant_ruins_description"		"提高你及附近所有友军的攻击速度<% ITEM_RPC_RADIANT_RUINS_LEATHER_AS %>点和移动速度<% ITEM_RPC_RADIANT_RUINS_LEATHER_MS %>点。"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "耐久光环"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"攻击速度提高"
 		

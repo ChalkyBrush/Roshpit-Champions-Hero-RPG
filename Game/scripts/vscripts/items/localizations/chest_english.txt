@@ -284,7 +284,7 @@
 		"item_rpc_radiant_ruins_leather_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_radiant_ruins_leather_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_radiant_ruins"				"Endurance Aura"
-		"property_radiant_ruins_description"		"Grants <% RADIANT_RUINS_LEATHER_AS %> attack speed and <% RADIANT_RUINS_LEATHER_MS %> movespeed to all nearby allied units."
+		"property_radiant_ruins_description"		"Grants <% ITEM_RPC_RADIANT_RUINS_LEATHER_AS %> attack speed and <% ITEM_RPC_RADIANT_RUINS_LEATHER_MS %> movespeed to all nearby allied units."
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Gaining attack and movement speed"
 		
