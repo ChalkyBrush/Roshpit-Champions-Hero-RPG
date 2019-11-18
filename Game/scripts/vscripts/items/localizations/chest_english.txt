@@ -507,7 +507,7 @@
 		"item_rpc_blazing_fury_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blazing_fury_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blazing_fury_armor"						"Blazing Fury"
-		"property_blazing_fury_description"						"Increases Strength and Intelligence by <% BLAZING_FURY_AGI_TO_STR_AND_INT %>% of Agility."
+		"property_blazing_fury_description"						"Increases Strength and Intelligence by <% ITEM_RPC_BLAZING_FURY_ARMOR_AGI_TO_STR_AND_INT %>% of Agility."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"

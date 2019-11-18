@@ -809,7 +809,7 @@ function blazing_fury_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetBaseAgility() * BLAZING_FURY_AGI_TO_STR_AND_INT/100, 0)
+	local stacks = math.floor(target:GetBaseAgility() * ITEM_RPC_BLAZING_FURY_ARMOR_AGI_TO_STR_AND_INT/100, 0)
 	if not target:HasModifier("modifier_blazing_fury_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_blazing_fury_effect", {})
 	end
