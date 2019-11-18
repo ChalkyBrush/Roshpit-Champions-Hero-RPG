@@ -165,7 +165,7 @@
 		"item_rpc_vampiric_breastplate_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vampiric_breastplate"		"Vampiric Core"
-		"property_varmpiric_breastplate_description" "Heal for <% VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% of all damage dealt by @Ability1."
+		"property_varmpiric_breastplate_description" "Heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% of all damage dealt by @Ability1."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"

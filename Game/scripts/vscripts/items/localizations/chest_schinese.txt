@@ -161,7 +161,7 @@
 		"item_rpc_vampiric_breastplate_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vampiric_breastplate"		"吸血鬼之心"
-		"property_varmpiric_breastplate_description" "@Ability1 拥有 <% VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% 吸血。"
+		"property_varmpiric_breastplate_description" "@Ability1 拥有 <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% 吸血。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"黑魔法外套"
