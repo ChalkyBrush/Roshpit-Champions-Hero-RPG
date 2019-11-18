@@ -23,7 +23,7 @@
 		"item_rpc_dunetread_boots_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_dunetread_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Сокращает время перезарядки способности (E) @Ability3 на <% DUNETREADS_CD_RED %> секунды."
+		"property_dunetread_description"			"Сокращает время перезарядки способности (E) @Ability3 на <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> секунды."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"

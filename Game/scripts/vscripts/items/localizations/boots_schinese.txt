@@ -23,7 +23,7 @@
 		"item_rpc_dunetread_boots_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_dunetread_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_dunetread"					"沙丘行者"
-		"property_dunetread_description"			"减少 @Ability3 的冷却时间<% DUNETREADS_CD_RED %>秒。"
+		"property_dunetread_description"			"减少 @Ability3 的冷却时间<% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"紫罗兰卫士之靴"

@@ -408,7 +408,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         end
     end
     if caster:HasModifier("modifier_dunetread_boots") then
-        CDreduce = CDreduce + DUNETREADS_CD_RED
+        CDreduce = CDreduce + ITEM_RPC_DUNETREAD_BOOTS_CD_RED
     end
     if caster:HasModifier("modifier_neutral_glyph_3_3") then
         CDreduce = CDreduce + 1
