@@ -321,7 +321,7 @@
     	"item_rpc_boots_of_great_fortune_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_great_fortune_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_boots_of_great_fortune"					"Additional Luck"
-		 "property_boots_of_great_fortune_description"			"Adds a flat <% BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE %>% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
+		 "property_boots_of_great_fortune_description"			"Adds a flat <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE %>% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
