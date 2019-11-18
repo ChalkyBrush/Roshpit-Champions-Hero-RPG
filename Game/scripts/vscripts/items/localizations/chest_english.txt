@@ -406,7 +406,7 @@
 		"item_rpc_gold_plate_of_leon_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_gold_plate_of_leon_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_gold_plate_of_leon"						"Gallant Hero"
-		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by <% GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%"
+		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by <% ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"

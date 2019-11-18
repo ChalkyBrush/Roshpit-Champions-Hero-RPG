@@ -402,7 +402,7 @@
 		"item_rpc_gold_plate_of_leon_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_gold_plate_of_leon_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_gold_plate_of_leon"						"无畏英雄"
-		"property_gold_plate_of_leon_description"				"提高你的主属性<% GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%。"
+		"property_gold_plate_of_leon_description"				"提高你的主属性<% ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"骑士破坏之甲"
