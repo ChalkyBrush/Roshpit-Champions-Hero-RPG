@@ -443,7 +443,7 @@
 		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_pegasus"					"Wing Jump"
-		"property_pegasus_description"			"@Ability3 становится <% PEGASUS_E_SPEED_PCT %>% быстрее, если оно имеет компонент движения. Лимит скорости передвижения увеличен на <% PEGASUS_MAX_MS_AMP_PCT %>%."
+		"property_pegasus_description"			"@Ability3 становится <% ITEM_RPC_PEGASUS_BOOTS_E_SPEED_PCT %>% быстрее, если оно имеет компонент движения. Лимит скорости передвижения увеличен на <% ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
 		"item_rpc_pivotal_swiftboots_ruby1"	"blah blah @ruby_property1 gem"

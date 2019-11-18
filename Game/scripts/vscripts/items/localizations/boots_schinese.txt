@@ -450,7 +450,7 @@
 
 		"item_property_pegasus"					"风跃"
 
-		"property_pegasus_description"			"@Ability3 穿行速度增加 <% PEGASUS_E_SPEED_PCT %>% 。最大移动速度增加 <% PEGASUS_MAX_MS_AMP_PCT %>%。"
+		"property_pegasus_description"			"@Ability3 穿行速度增加 <% ITEM_RPC_PEGASUS_BOOTS_E_SPEED_PCT %>% 。最大移动速度增加 <% ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT %>%。"
 
 
 

@@ -2756,7 +2756,7 @@ function CustomAttributes:MSCap(unit)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KNIGHT_HAWK_RUBY)
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + max_ms*(PEGASUS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + max_ms*(ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT/100)
 	end
 	return max_ms
 end

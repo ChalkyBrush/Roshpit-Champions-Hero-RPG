@@ -310,7 +310,7 @@ function Filters:GetAdjustedESpeed(caster, speed, bDelay)
         if bDelay then
             speed = speed*0.5
         else
-            speed = speed + speed*(PEGASUS_E_SPEED_PCT/100)
+            speed = speed + speed*(ITEM_RPC_PEGASUS_BOOTS_E_SPEED_PCT/100)
         end
     end
     return speed
@@ -318,7 +318,7 @@ end
 
 function Filters:GetAdjustedMaxMovespeed(max_ms, caster)
     if caster:HasModifier("modifier_pegasus_boots") then
-        max_ms = max_ms + (max_ms-550)*(PEGASUS_MAX_MS_AMP_PCT/100)
+        max_ms = max_ms + (max_ms-550)*(ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT/100)
     end
     return max_ms
 end
