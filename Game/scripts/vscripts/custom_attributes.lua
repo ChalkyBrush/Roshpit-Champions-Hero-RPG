@@ -1425,6 +1425,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		armor_pierce = armor_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor_pierce", 1)
 	end
 	local armor_pierce_modify = 0
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitArmorPierceBonus', { MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS }, { }, 
+		function(result, data)
+			armor_pierce_modify = armor_pierce_modify + result
+		end
+	)
 	if unit:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
 		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetCaster():GetRuneValue("q", 4)*FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION
@@ -1595,6 +1600,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
 	end
 	local spell_pierce_modify = 0
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitSpellPierceBonus', { MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS }, { }, 
+		function(result, data)
+			spell_pierce_modify = spell_pierce_modify + result
+		end
+	)
 	if unit:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
 		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA_Q2_SPELL_PIERCE

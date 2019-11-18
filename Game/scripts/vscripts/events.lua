@@ -2481,10 +2481,10 @@ function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
 	-- 	unit:SetBaseMaxHealth(newHealth)
 	-- 	unit:SetHealth(newHealth)
 	-- 	unit:Heal(newHealth, unit)
-	-- 	if bHealthbar then
-	-- 		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
-	-- 		unit.mainBoss = true
-	-- 	end
+	 	if bHealthbar then
+	 		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
+	 		--unit.mainBoss = true
+	 	end
 	-- 	unit.bossStatus = true
 	-- else
 	-- 	for i = 1, #unit, 1 do
