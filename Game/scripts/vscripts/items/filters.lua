@@ -1297,7 +1297,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MUGATO_SAPPHIRE2)/100
         end
         if attacker:HasModifier("modifier_watcher_two") then
-            damageMult = damageMult + WATCHER_II_BAD/100
+            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD/100
         end
         if attacker:HasModifier("modifier_eye_of_avernus") then
             damageMult = damageMult + EYE_OF_AVERNUS_BAD/100
@@ -2609,7 +2609,7 @@ function Filters:SeraphicVest(caster)
 end
 
 function Filters:WatcherOne(caster)
-    local proc = Filters:GetProc(caster, WATCHER_I_REFRESH_CHANCE)
+    local proc = Filters:GetProc(caster, ITEM_RPC_PLATE_OF_THE_WATCHER_I_REFRESH_CHANCE)
     if proc then
         local ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
         ability:EndCooldown()
