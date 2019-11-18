@@ -2517,7 +2517,7 @@ function Filters:MoonTechRunners(caster)
 end
 
 function Filters:FloodRobe(caster)
-    local damageMult = ROBE_OF_FLOODING_AOE_INT_TO_DMG
+    local damageMult = ITEM_RPC_ROBE_OF_FLOODING_AOE_INT_TO_DMG
     local eleName = "water_elemental_flood_3"
     local renderVector = Vector(175, 175, 255)
     local bAddAbility = true
@@ -2531,7 +2531,7 @@ function Filters:FloodRobe(caster)
     elemental.summoner = caster
     elemental:SetOwner(caster)
     elemental:SetControllableByPlayer(caster:GetPlayerID(), true)
-    elemental.dieTime = ROBE_OF_FLOODING_DURATION
+    elemental.dieTime = ITEM_RPC_ROBE_OF_FLOODING_DURATION
     elemental:AddAbility("ability_die_after_time_generic"):SetLevel(1)
     local summonAbil = elemental:AddAbility("ability_summoned_unit")
 

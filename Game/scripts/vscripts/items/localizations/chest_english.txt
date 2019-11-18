@@ -39,7 +39,7 @@
 		"item_rpc_robe_of_flooding_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_robe_of_flooding_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_flooding_3"					"Water Elemental"
-		"property_flooding_description_3"			"When you finish casting @Ability4, summon a Water Elemental that restores <% ROBE_OF_FLOODING_MANA_RESTORE_PCT %>% of your max mana on attack for <% ROBE_OF_FLOODING_DURATION %> seconds. Its attacks deal AOE Magical damage equal to <% ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x your Intelligence.<br>Also has a wave projectile spell that deals <% ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG %>x your attack power as Magical damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
+		"property_flooding_description_3"			"When you finish casting @Ability4, summon a Water Elemental that restores <% ITEM_RPC_ROBE_OF_FLOODING_MANA_RESTORE_PCT %>% of your max mana on attack for <% ITEM_RPC_ROBE_OF_FLOODING_DURATION %> seconds. Its attacks deal AOE Magical damage equal to <% ITEM_RPC_ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x your Intelligence.<br>Also has a wave projectile spell that deals <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG %>x your attack power as Magical damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"

@@ -37,7 +37,7 @@
 		"item_rpc_robe_of_flooding_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_robe_of_flooding_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_flooding_3"					"水元素"
-		"property_flooding_description_3"			"当你引导完 @Ability4 后，召唤一个水元素，持续<% ROBE_OF_FLOODING_DURATION %>秒。水元素每次攻击将为你回复<% ROBE_OF_FLOODING_MANA_RESTORE_PCT %>%的最大魔法值。攻击造成<% ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。<br>所有水元素所造成的伤害都计算为 @Ability4 的基础技能伤害。"
+		"property_flooding_description_3"			"当你引导完 @Ability4 后，召唤一个水元素，持续<% ITEM_RPC_ROBE_OF_FLOODING_DURATION %>秒。水元素每次攻击将为你回复<% ITEM_RPC_ROBE_OF_FLOODING_MANA_RESTORE_PCT %>%的最大魔法值。攻击造成<% ITEM_RPC_ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。<br>所有水元素所造成的伤害都计算为 @Ability4 的基础技能伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"崩裂板甲"

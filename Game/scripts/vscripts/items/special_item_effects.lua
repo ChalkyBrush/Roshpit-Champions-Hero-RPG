@@ -287,7 +287,7 @@ function flood_water_elemental_attack(event)
 			PopupMana(caster, manaRestore)
 		end
 	end
-	local radius = ROBE_OF_FLOODING_AOE_RADIUS
+	local radius = ITEM_RPC_ROBE_OF_FLOODING_AOE_RADIUS
 
 	local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
@@ -324,7 +324,7 @@ function flood_water_elemental_think(event)
 		--print("AER WE HERE??")
 		local nukeAbility = caster:FindAbilityByName("water_flood_nuke")
 		if nukeAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ROBE_OF_FLOODING_ENEMY_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_ROBE_OF_FLOODING_ENEMY_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin()
 				local newOrder = {
@@ -353,7 +353,7 @@ function flood_elemental_wave_hit(event)
 	local summoner = caster.summoner
 	if IsValidEntity(summoner) then
 		local ability = caster.summoner.body
-		local damage = Filters:AdjustItemDamage(summoner, OverflowProtectedGetAverageTrueAttackDamage(summoner)*ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG, nil)
+		local damage = Filters:AdjustItemDamage(summoner, OverflowProtectedGetAverageTrueAttackDamage(summoner)*ITEM_RPC_ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG, nil)
 		if caster:GetUnitName() == "water_elemental_flood_2" then
 			ApplyDamage({victim = target, attacker = summoner, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 		elseif caster:GetUnitName() == "water_elemental_flood_3" then

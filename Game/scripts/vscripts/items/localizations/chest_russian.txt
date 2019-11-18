@@ -39,7 +39,7 @@
 		"item_rpc_robe_of_flooding_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_robe_of_flooding_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_flooding_3"					"Water Elemental"
-		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт <% ROBE_OF_FLOODING_DURATION %> секунд и восстанавливает владельцу <% ROBE_OF_FLOODING_MANA_RESTORE_PCT %>% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере <% ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный <% ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG %>x общего урона героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4."
+		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт <% ITEM_RPC_ROBE_OF_FLOODING_DURATION %> секунд и восстанавливает владельцу <% ITEM_RPC_ROBE_OF_FLOODING_MANA_RESTORE_PCT %>% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере <% ITEM_RPC_ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG %>x общего урона героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
