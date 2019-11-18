@@ -233,7 +233,7 @@ function Filters:GetAdjustedRange(caster, baseRange)
         baseRange = baseRange + HOOD_OF_LORDS_BONUS_RANGE
     end
     if caster:HasModifier("modifier_vermillion_dream_lua") then
-        baseRange = baseRange + VERMILLION_DREAM_CAST_RANGE_INCREASE
+        baseRange = baseRange + ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE
     end
     return baseRange
 end
