@@ -331,7 +331,7 @@
     	"item_rpc_bloodstone_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_bloodstone_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_bloodstone_boots"						"生死攸关"
-		 "property_bloodstone_boots_description"				"当生命值低于 <% BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>% ，@Ability3 拥有<% BLOODSTONE_BOOTS_E_CD %>秒冷却时间。"
+		 "property_bloodstone_boots_description"				"当生命值低于 <% ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>% ，@Ability3 拥有<% ITEM_RPC_BLOODSTONE_BOOTS_E_CD %>秒冷却时间。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"时光逆流之靴"

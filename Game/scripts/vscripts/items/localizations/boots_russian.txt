@@ -331,7 +331,7 @@
     	"item_rpc_bloodstone_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_bloodstone_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до <% BLOODSTONE_BOOTS_E_CD %> секунды, когда уровень здоровья становится ниже <% BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>%."
+		 "property_bloodstone_boots_description"				"Сокращает время перезарядки (E) @Ability3 до <% ITEM_RPC_BLOODSTONE_BOOTS_E_CD %> секунды, когда уровень здоровья становится ниже <% ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"

@@ -436,8 +436,8 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         abilityCooldown = abilityCooldown * (100-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)/100
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
-        if caster:GetHealth() <= caster:GetMaxHealth() * BLOODSTONE_BOOTS_HP_TRESHOLD_PCT / 100 then
-            abilityCooldown = BLOODSTONE_BOOTS_E_CD
+        if caster:GetHealth() <= caster:GetMaxHealth() * ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT / 100 then
+            abilityCooldown = ITEM_RPC_BLOODSTONE_BOOTS_E_CD
         end
     end
     if abilityCooldown < 0.1 then

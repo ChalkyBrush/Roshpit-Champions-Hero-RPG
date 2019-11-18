@@ -330,7 +330,7 @@
     	"item_rpc_bloodstone_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_bloodstone_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below <% BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>% health, @Ability3 has a <% BLOODSTONE_BOOTS_E_CD %>-second cooldown."
+		 "property_bloodstone_boots_description"				"While below <% ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>% health, @Ability3 has a <% ITEM_RPC_BLOODSTONE_BOOTS_E_CD %>-second cooldown."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
