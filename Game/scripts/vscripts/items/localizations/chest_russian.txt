@@ -246,7 +246,7 @@
 		"item_rpc_hermits_spike_shell_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_hermits_spike_shell_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_hermit_spike_shell"			"Quill Spray"
-		"property_hermit_spike_shell_description"	"При получении урона, отнимающего от 15% от макс. здоровья, вокруг героя происходит выброс шипов. Каждый залп шипов наносит физический урон, равный 30x от полученного урона."
+		"property_hermit_spike_shell_description"	"При получении урона, отнимающего от <% ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD %>% от макс. здоровья, вокруг героя происходит выброс шипов. Каждый залп шипов наносит физический урон, равный <% ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_OF_DAMAGE_TAKEN %>x от полученного урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"

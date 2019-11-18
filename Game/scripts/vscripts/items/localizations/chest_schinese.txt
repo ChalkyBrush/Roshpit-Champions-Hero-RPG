@@ -242,7 +242,7 @@
 		"item_rpc_hermits_spike_shell_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_hermits_spike_shell_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_hermit_spike_shell"			"飞舞羽毛"
-		"property_hermit_spike_shell_description"	"当玩家累计受到伤害达到 <% HERMIT_SPIKE_THRESHOLD %>% 最大生命值时，发射羽毛对周围所有敌人造成 <% HERMIT_SPIKE_DAMAGE_OF_DAMAGE_TAKEN %>倍 所受累计伤害值的物理伤害。"
+		"property_hermit_spike_shell_description"	"当玩家累计受到伤害达到 <% ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD %>% 最大生命值时，发射羽毛对周围所有敌人造成 <% ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_OF_DAMAGE_TAKEN %>倍 所受累计伤害值的物理伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"地狱牢笼"

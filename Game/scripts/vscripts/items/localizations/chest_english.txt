@@ -246,7 +246,7 @@
 		"item_rpc_hermits_spike_shell_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_hermits_spike_shell_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_hermit_spike_shell"			"Quill Spray"
-		"property_hermit_spike_shell_description"	"When you take a total of <% HERMIT_SPIKE_THRESHOLD %>% of your max health as damage, release quills that deal <% HERMIT_SPIKE_DAMAGE_OF_DAMAGE_TAKEN %> x the damage taken as Physical to all surrounding enemies."
+		"property_hermit_spike_shell_description"	"When you take a total of <% ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD %>% of your max health as damage, release quills that deal <% ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_OF_DAMAGE_TAKEN %> x the damage taken as Physical to all surrounding enemies."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
