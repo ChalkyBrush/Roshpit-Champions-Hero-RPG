@@ -53173,7 +53173,7 @@
 			}
 			"modifier_scoundrel_invis"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"

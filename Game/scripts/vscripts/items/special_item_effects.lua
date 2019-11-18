@@ -6914,8 +6914,10 @@ function trickster_scoundrel_think(event)
 				ability:ApplyDataDrivenModifier(caster, caster.hero, "modifier_scoundrel_invis_countdown", {duration = countdown_duration})
 			end
 		else
-			local countdown_duration = caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", TRICKSTER_AMETHYST)
-			ability:ApplyDataDrivenModifier(caster, caster.hero, "modifier_scoundrel_invis_countdown", {duration = countdown_duration})
+			if not caster.hero:HasModifier("modifier_invisible") then
+				local countdown_duration = caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", TRICKSTER_AMETHYST)
+				ability:ApplyDataDrivenModifier(caster, caster.hero, "modifier_scoundrel_invis_countdown", {duration = countdown_duration})
+			end
 		end
 	else
 		caster.hero:RemoveModifierByName("modifier_scoundrel_invis_countdown")
