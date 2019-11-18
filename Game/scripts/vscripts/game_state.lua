@@ -1753,7 +1753,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_sea_giants_plate") then
 		if victim:IsStunned() then
-			damage = damage * (100-SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED)/100
+			damage = damage * (100-ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED)/100
 		end
 	end
 

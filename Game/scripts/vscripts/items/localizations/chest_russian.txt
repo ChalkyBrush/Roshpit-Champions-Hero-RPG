@@ -565,7 +565,7 @@
 		"item_rpc_sea_giants_plate_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_sea_giants_plate_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sea_giant_plate"												"Titanic Fortitude"
-		"property_sea_giant_plate_Description"									"Пока герой оглушен, весь входящий по нему урон сокращается на <% SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>%."
+		"property_sea_giant_plate_Description"									"Пока герой оглушен, весь входящий по нему урон сокращается на <% ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"

@@ -559,7 +559,7 @@
 		"item_rpc_sea_giants_plate_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_sea_giants_plate_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sea_giant_plate"												"刚毅泰坦"
-		"property_sea_giant_plate_Description"									"被眩晕时，伤害减免 <% SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>%。"
+		"property_sea_giant_plate_Description"									"被眩晕时，伤害减免 <% ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"北地花岗岩胸甲"
