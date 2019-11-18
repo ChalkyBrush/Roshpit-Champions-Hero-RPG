@@ -681,10 +681,10 @@ function gryffin_think(event)
 	elseif distance > 320 then
 		caster:MoveToPosition(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
 	end
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, FEATHERWHITE_AURA_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_FEATHERWHITE_ARMOR_AURA_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
-			local healAmount = math.floor(ally:GetMaxHealth() * FEATHERWHITE_HEAL_OF_MAX_HP/100)
+			local healAmount = math.floor(ally:GetMaxHealth() * ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP/100)
 			Filters:ApplyHeal(hero, ally, healAmount, true)
 		end
 	end

@@ -134,9 +134,9 @@
 		"item_rpc_featherwhite_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_featherwhite_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <% FEATHERWHITE_HEAL_OF_MAX_HP %>% of their max health each <% FEATHERWHITE_INTERVAL %> second interval while also reducing all Magic and Pure damage taken by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%. The gryphon also has its own flying vision."
+		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <% ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP %>% of their max health each <% ITEM_RPC_FEATHERWHITE_ARMOR_INTERVAL %> second interval while also reducing all Magic and Pure damage taken by <% ITEM_RPC_FEATHERWHITE_ARMOR_MAGIC_AND_PURE_REDUCTION %>%. The gryphon also has its own flying vision."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%%"
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by <% ITEM_RPC_FEATHERWHITE_ARMOR_MAGIC_AND_PURE_REDUCTION %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"

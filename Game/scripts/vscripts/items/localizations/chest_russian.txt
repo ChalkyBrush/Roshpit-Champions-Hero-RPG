@@ -134,7 +134,7 @@
 		"item_rpc_featherwhite_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_featherwhite_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"Светлый грифон следует за героем, исцеляя его и ближайших союзных юнитов на <% FEATHERWHITE_HEAL_OF_MAX_HP %>% от макс. здоровья каждые <% FEATHERWHITE_INTERVAL %> сек. и сокращая входящий чистый и магический урон на <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%. Грифон также даёт беспрепятственный обзор местности вокруг себя."
+		"property_featherwhite_armor_description"	"Светлый грифон следует за героем, исцеляя его и ближайших союзных юнитов на <% ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP %>% от макс. здоровья каждые <% ITEM_RPC_FEATHERWHITE_ARMOR_INTERVAL %> сек. и сокращая входящий чистый и магический урон на <% ITEM_RPC_FEATHERWHITE_ARMOR_MAGIC_AND_PURE_REDUCTION %>%. Грифон также даёт беспрепятственный обзор местности вокруг себя."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Получаемый магический и чистый урон снижен на %property_two%%%"
 		

@@ -3023,7 +3023,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "<% FEATHERWHITE_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_FEATHERWHITE_ARMOR_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3047,7 +3047,7 @@
 					}
 				}
 				"Aura"          	"modifier_ivory_gryffin_aura_effect"
-				"Aura_Radius"   	"<% FEATHERWHITE_AURA_RADIUS %>"
+				"Aura_Radius"   	"<% ITEM_RPC_FEATHERWHITE_ARMOR_AURA_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
