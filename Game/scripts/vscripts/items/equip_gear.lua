@@ -423,6 +423,36 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", STORMCRACK_AMETHYST1, hero, "spirit", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", STORMCRACK_AMETHYST2, hero, "attack_damage", RPC_GEAR_SLOT_HEAD)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_twisted_purple_mask_of_ahnqhir" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", TWISTED_PURPLE_AHNQHIR_RUBY, hero, "rune_q_1", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", TWISTED_PURPLE_AHNQHIR_EMERALD, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", TWISTED_PURPLE_AHNQHIR_SAPPHIRE, hero, "rune_q_2", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", TWISTED_PURPLE_AHNQHIR_AMETHYST, hero, "rune_q_4", RPC_GEAR_SLOT_HEAD)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_twisted_yellow_mask_of_ahnqhir" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", TWISTED_YELLOW_AHNQHIR_RUBY, hero, "rune_w_1", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", TWISTED_YELLOW_AHNQHIR_EMERALD, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", TWISTED_YELLOW_AHNQHIR_SAPPHIRE, hero, "rune_w_2", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", TWISTED_YELLOW_AHNQHIR_AMETHYST, hero, "rune_w_4", RPC_GEAR_SLOT_HEAD)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_twisted_blue_mask_of_ahnqhir" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", TWISTED_BLUE_AHNQHIR_RUBY, hero, "rune_e_1", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", TWISTED_BLUE_AHNQHIR_EMERALD, hero, "rune_e_3", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", TWISTED_BLUE_AHNQHIR_SAPPHIRE, hero, "rune_e_2", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", TWISTED_BLUE_AHNQHIR_AMETHYST, hero, "rune_e_4", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

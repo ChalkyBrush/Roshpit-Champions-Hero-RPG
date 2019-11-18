@@ -5912,11 +5912,11 @@ function ahn_khir_spirit_think(event)
 		Timers:CreateTimer(1.8, function()
 			EmitSoundOnLocationWithCaster(maskGroundPos, "Seafortress.Ahnqhir.MaskDrop", Events.GameMaster)
 			if luck == 1 then
-				RPCItems:RollTwistedMaskOfAhnqhirYellow(maskGroundPos)
+				RPCItems:RollAndDropImmortalByLevel(maskGroundPos, 100, "item_rpc_twisted_yellow_mask_of_ahnqhir")
 			elseif luck == 2 then
-				RPCItems:RollTwistedMaskOfAhnqhirPurple(maskGroundPos)
+				RPCItems:RollAndDropImmortalByLevel(maskGroundPos, 100, "item_rpc_twisted_purple_mask_of_ahnqhir")
 			elseif luck == 3 then
-				RPCItems:RollTwistedMaskOfAhnqhirBlue(maskGroundPos)
+				RPCItems:RollAndDropImmortalByLevel(maskGroundPos, 100, "item_rpc_twisted_blue_mask_of_ahnqhir")
 			end
 		end)
 	end

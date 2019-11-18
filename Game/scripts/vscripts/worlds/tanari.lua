@@ -68,7 +68,17 @@ function Tanari:Debug()
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_tricksters_mask")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_twisted_purple_mask_of_ahnqhir")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_twisted_yellow_mask_of_ahnqhir")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_twisted_blue_mask_of_ahnqhir")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)

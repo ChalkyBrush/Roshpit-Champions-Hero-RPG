@@ -575,6 +575,32 @@
 		"item_rpc_tricksters_mask_sapphire1" "Increases the Scoundrel's movespeed by @sapphire_property1"
 		"item_rpc_tricksters_mask_amethyst1" "Standing still in the Scoundrel's range for @amethyst_property1 seconds applies invisibility. Invisibility breaks from performing an action."
 
+		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
+		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
+		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
+
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Increases Rune [Q1] by @ruby_property1"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"Increases Rune [Q3] by @emerald_property1"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_sapphire1" "Increases Rune [Q2] by @sapphire_property1"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_amethyst1" "Increases Rune [Q4] by @amethyst_property1"		
+		
+		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
+		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
+		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> second."
+
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Increases Rune [W1] by @ruby_property1"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"Increases Rune [W3] by @emerald_property1"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_sapphire1" "Increases Rune [W2] by @sapphire_property1"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_amethyst1" "Increases Rune [W4] by @amethyst_property1"		
+		
+		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
+		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
+		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
+
+		"item_rpc_twisted_blue_mask_of_ahnqhirr_ruby1"	"Increases Rune [E1] by @ruby_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhirr_emerald1"	"Increases Rune [E3] by @emerald_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhirr_sapphire1" "Increases Rune [E2] by @sapphire_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhirr_amethyst1" "Increases Rune [E4] by @amethyst_property1"
 	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -635,20 +661,6 @@
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> second."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 		
 		
 		
