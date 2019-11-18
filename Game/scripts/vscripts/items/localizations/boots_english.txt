@@ -4,7 +4,7 @@
 		"item_rpc_slinger_boots_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_slinger_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_slinger_boot"				"Bladeslinger"
-		"property_slinger_boots_description"		"Every <% BLADESLINGER_ATT_INTERVAL %> seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
+		"property_slinger_boots_description"		"Every <% ITEM_RPC_SLINGER_BOOTS_ATT_INTERVAL %> seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
 
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"Sange Boots"

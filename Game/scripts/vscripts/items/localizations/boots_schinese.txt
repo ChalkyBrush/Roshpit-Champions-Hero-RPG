@@ -5,7 +5,7 @@
     	"item_rpc_slinger_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_slinger_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_slinger_boot"				"飞刀杂耍者"
-		"property_slinger_boots_description"		"每<% BLADESLINGER_ATT_INTERVAL %>秒攻击在你背后的敌人一次，攻击继承全部攻击特效。"
+		"property_slinger_boots_description"		"每<% ITEM_RPC_SLINGER_BOOTS_ATT_INTERVAL %>秒攻击在你背后的敌人一次，攻击继承全部攻击特效。"
 
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"

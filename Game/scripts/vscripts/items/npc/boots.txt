@@ -57,7 +57,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% BLADESLINGER_ATT_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_SLINGER_BOOTS_ATT_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
