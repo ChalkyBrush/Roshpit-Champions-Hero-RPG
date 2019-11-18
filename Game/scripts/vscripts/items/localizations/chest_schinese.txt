@@ -141,7 +141,7 @@
 		"item_rpc_dragon_ceremony_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_dragon_ceremony_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_dragon_ceremony"				"礼仪兽"
-		"property_dragon_ceremony_description"		"一个礼仪兽将一直跟随你，每<% DRAGON_CEREMONY_INTERVAL %>秒发动一次攻击，对最多<% DRAGON_CEREMONY_NUMBER_OF_ENEMIES %>个敌人造成<% DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG %>倍主属性的伤害。"
+		"property_dragon_ceremony_description"		"一个礼仪兽将一直跟随你，每<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_INTERVAL %>秒发动一次攻击，对最多<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_NUMBER_OF_ENEMIES %>个敌人造成<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_PRIMARY_ATT_TO_DMG %>倍主属性的伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"神秘寺庙袈裟"
