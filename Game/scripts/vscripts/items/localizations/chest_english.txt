@@ -311,9 +311,9 @@
 		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_windsteel_armor"				"Fluttering Guard"
-		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by <% WINDSTEEL_EVASION %>% and increases movespeed by <% WINDSTEEL_MOVESPEED %>. Lasts <% WINDSTEEL_DURATION %> seconds. <% WINDSTEEL_COOLDOWN %> second cooldown."
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% and increases movespeed by <% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>. Lasts <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> seconds. <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <% WINDSTEEL_EVASION %>% evasion and <% WINDSTEEL_MOVESPEED %> movespeed."
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% evasion and <% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %> movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
 		
 		

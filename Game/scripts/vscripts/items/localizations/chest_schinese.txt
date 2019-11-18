@@ -307,9 +307,9 @@
 		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_windsteel_armor"				"狂风守护"
-		"property_windsteel_armor_description"		"施放 @Ability2 可获得护盾抵挡该技能等级次数的伤害，并提高<% WINDSTEEL_EVASION %>% 闪避和<% WINDSTEEL_MOVESPEED %>点移动速度，持续 <% WINDSTEEL_DURATION %> 秒。冷却时间 <% WINDSTEEL_COOLDOWN %> 秒。"
+		"property_windsteel_armor_description"		"施放 @Ability2 可获得护盾抵挡该技能等级次数的伤害，并提高<% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% 闪避和<% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>点移动速度，持续 <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> 秒。冷却时间 <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> 秒。"
 		"DOTA_Tooltip_modifier_windsteel_effect"	"狂风守护"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"每层抵挡一次伤害。同时提高50% 闪避和<% WINDSTEEL_MOVESPEED %>点移动速度。"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"每层抵挡一次伤害。同时提高50% 闪避和<% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>点移动速度。"
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"狂风守护冷却中"
 		
 		

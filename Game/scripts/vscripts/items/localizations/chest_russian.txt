@@ -311,7 +311,7 @@
 		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_windsteel_armor"				"Fluttering Guard"
-		"property_windsteel_armor_description"		"Прочтение способности (W) @Ability2 наделит героя щитом, поглощающим любой получаемый урон. Количество зарядов щита равно уровню способности героя. Пока щит активен, уклонение выше на <% WINDSTEEL_EVASION %>%, скорость передвижения увеличена на <% WINDSTEEL_MOVESPEED %>. Длится <% WINDSTEEL_DURATION %> сек. Перезаряжается <% WINDSTEEL_COOLDOWN %> сек."
+		"property_windsteel_armor_description"		"Прочтение способности (W) @Ability2 наделит героя щитом, поглощающим любой получаемый урон. Количество зарядов щита равно уровню способности героя. Пока щит активен, уклонение выше на <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>%, скорость передвижения увеличена на <% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>. Длится <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> сек. Перезаряжается <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> сек."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
 		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Поглощает любой полученный урон за каждый заряд щита. Уклонение повышено на 50%. Скорость передвижения увеличена на 100."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Перезарядка Fluttering Guard"
