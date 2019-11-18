@@ -1946,8 +1946,8 @@ function devotion_think(event)
 	local hero = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local stacks = math.floor(hero:GetStrength() * CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT/100)
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, CRUSADER_BOOTS_AURA_RANGE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local stacks = math.floor(hero:GetStrength() * ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT/100)
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_CRUSADER_BOOTS_AURA_RANGE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
 			ability:ApplyDataDrivenModifier(caster, ally, "modifier_devotion_aura_buff", {duration = 1.5})

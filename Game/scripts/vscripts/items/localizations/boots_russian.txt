@@ -137,7 +137,7 @@
     	"item_rpc_crusader_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_crusader_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_crusader_boots"				"Devotion Aura"
-		"property_crusader_boots_description"		"Даёт вам и вашим ближайшим союзным героям ауру повышения брони на <% CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>% от вашей силы."
+		"property_crusader_boots_description"		"Даёт вам и вашим ближайшим союзным героям ауру повышения брони на <% ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>% от вашей силы."
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Броня увеличена"

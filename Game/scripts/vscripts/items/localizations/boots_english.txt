@@ -136,7 +136,7 @@
     	"item_rpc_crusader_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_crusader_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_crusader_boots"				"Devotion Aura"
-		"property_crusader_boots_description"		"Gives Armor to you and nearby allied heroes equal to <% CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>% of your Strength."
+		"property_crusader_boots_description"		"Gives Armor to you and nearby allied heroes equal to <% ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>% of your Strength."
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
