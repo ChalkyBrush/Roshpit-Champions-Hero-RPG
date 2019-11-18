@@ -123,7 +123,7 @@
 		"item_rpc_ice_quill_carapace_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_ice_quill_carapace_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ice_quill"					"Ice Quills"
-		"property_ice_quill_description"			"Каждый раз, когда герой тратит <% ICE_QUILL_MANA_THRESHOLD %> маны, он получает заряд этого предмета. Когда герой задействует любой предмет или применяет способность, заряды высвобождаются, восстанавливая <% ICE_QUILL_MANA_RESTORE_PCT %>% макс. маны каждые <% ICE_QUILL_INTERVAL %> секунды и нанося всем врагам в радиусе <% ICE_QUILL_RADIUS %> вокруг урон в размере <% ICE_QUILL_ATTACK_TO_DMG %>х от урона героя с каждой волной. Свойство не срабатывает, если оно еще действует."
+		"property_ice_quill_description"			"Каждый раз, когда герой тратит <% ITEM_RPC_ICE_QUILL_CARAPACE_MANA_THRESHOLD %> маны, он получает заряд этого предмета. Когда герой задействует любой предмет или применяет способность, заряды высвобождаются, восстанавливая <% ITEM_RPC_ICE_QUILL_CARAPACE_MANA_RESTORE_PCT %>% макс. маны каждые <% ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL %> секунды и нанося всем врагам в радиусе <% ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS %> вокруг урон в размере <% ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG %>х от урона героя с каждой волной. Свойство не срабатывает, если оно еще действует."
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Заряды Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Прочтение любой способности или использование предмета высвобождает накопленные заряды."
 		

@@ -123,7 +123,7 @@
 		"item_rpc_ice_quill_carapace_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_ice_quill_carapace_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ice_quill"					"Ice Quills"
-		"property_ice_quill_description"			"When you spend <% ICE_QUILL_MANA_THRESHOLD %> mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on <% ICE_QUILL_INTERVAL %>-second intervals, restoring <% ICE_QUILL_MANA_RESTORE_PCT %>% of max mana and dealing <% ICE_QUILL_ATTACK_TO_DMG %>x your total attack power in a <% ICE_QUILL_RADIUS %> radius with each blast. Will not trigger if a previous explosion of icicles is still resolving."
+		"property_ice_quill_description"			"When you spend <% ITEM_RPC_ICE_QUILL_CARAPACE_MANA_THRESHOLD %> mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on <% ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL %>-second intervals, restoring <% ITEM_RPC_ICE_QUILL_CARAPACE_MANA_RESTORE_PCT %>% of max mana and dealing <% ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG %>x your total attack power in a <% ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS %> radius with each blast. Will not trigger if a previous explosion of icicles is still resolving."
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
 		

@@ -121,7 +121,7 @@
 		"item_rpc_ice_quill_carapace_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_ice_quill_carapace_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ice_quill"					"冰刺"
-		"property_ice_quill_description"			"每消耗 <% ICE_QUILL_MANA_THRESHOLD %> 点魔法，获得一层 冰刺 层数。当玩家释放技能或者使用物品时，将释放所有的 冰刺 层数，每 <% ICE_QUILL_INTERVAL %>秒 释放一次冰刺并消耗一层层数。每次释放冰刺 回复 <% ICE_QUILL_MANA_RESTORE_PCT %>% 的最大魔法值，并且在 <% ICE_QUILL_RADIUS %>码 范围内造成 <% ICE_QUILL_ATTACK_TO_DMG %>x 攻击力的 AOE 伤害。持续释放冰刺的过程中，将不会触发下一次冰刺释放。"
+		"property_ice_quill_description"			"每消耗 <% ITEM_RPC_ICE_QUILL_CARAPACE_MANA_THRESHOLD %> 点魔法，获得一层 冰刺 层数。当玩家释放技能或者使用物品时，将释放所有的 冰刺 层数，每 <% ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL %>秒 释放一次冰刺并消耗一层层数。每次释放冰刺 回复 <% ITEM_RPC_ICE_QUILL_CARAPACE_MANA_RESTORE_PCT %>% 的最大魔法值，并且在 <% ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS %>码 范围内造成 <% ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG %>x 攻击力的 AOE 伤害。持续释放冰刺的过程中，将不会触发下一次冰刺释放。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"白羽袍"
