@@ -274,7 +274,7 @@
     	"item_rpc_redfall_runners_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_redfall_runners_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_redfall_runners"					"Fight or Flight"
-		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
+		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
 		"DOTA_Tooltip_modifier_redfall_runners"		"Crackling Leaves"
 		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Movespeed increased based on missing health"
 		 

@@ -275,9 +275,9 @@
     	"item_rpc_redfall_runners_sapphire1"                                 "blah blah @sapphire_property1 gem"
     	"item_rpc_redfall_runners_amethyst1"                                 "blah blah @amethyst_property1 gem"
         "item_property_redfall_runners"                 "嘎吱作响的叶子"
-        "property_redfall_runners_description"                  "每失去1%的血量增加 <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> 移速以及<% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>移速上限."
+        "property_redfall_runners_description"                  "每失去1%的血量增加 <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> 移速以及<% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>移速上限."
         "DOTA_Tooltip_modifier_redfall_runners_buff"        "嘎吱作响的叶子"
-         "DOTA_Tooltip_modifier_redfall_runners_Description"    "增加移速I<% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> 以及增加移速上限 <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> 根据每 %% 的丢失血量."
+         "DOTA_Tooltip_modifier_redfall_runners_Description"    "增加移速I<% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> 以及增加移速上限 <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %> 根据每 %% 的丢失血量."
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"

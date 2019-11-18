@@ -50,7 +50,7 @@ function modifierClass:GetModifierMoveSpeed_Max_Increase(params)
     end
     local caster = self:GetCaster()
     local missingHealthPercent = (1 - caster:GetHealth() / caster:GetMaxHealth()) * 100
-    return missingHealthPercent * REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING
+    return missingHealthPercent * ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING
 end
 
 function modifierClass:GetModifierMoveSpeedBonus_Constant(params)
@@ -59,7 +59,7 @@ function modifierClass:GetModifierMoveSpeedBonus_Constant(params)
     end
     local caster = self:GetCaster()
     local missingHealthPercent = (1 - caster:GetHealth() / caster:GetMaxHealth()) * 100
-    return missingHealthPercent * REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING
+    return missingHealthPercent * ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING
 end
 
 function modifierClass:IsHidden()

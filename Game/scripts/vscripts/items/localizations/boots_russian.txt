@@ -275,9 +275,9 @@
     	"item_rpc_redfall_runners_sapphire1"			"blah blah @sapphire_property1 gem"
     	"item_rpc_redfall_runners_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_redfall_runners"							"Crackling Leaves"
-		"property_redfall_runners_description"					"Каждый % отсутствующего здоровья увеличивает скорость перемещения на <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> и лимит скорости на <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
+		"property_redfall_runners_description"					"Каждый % отсутствующего здоровья увеличивает скорость перемещения на <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> и лимит скорости на <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
 		"DOTA_Tooltip_modifier_redfall_runners"					"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Каждый процент отсутствующего здоровья увеличивает скорость перемещения на <% REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> и лимит скорости на <% REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>"
+		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Каждый процент отсутствующего здоровья увеличивает скорость перемещения на <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> и лимит скорости на <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
