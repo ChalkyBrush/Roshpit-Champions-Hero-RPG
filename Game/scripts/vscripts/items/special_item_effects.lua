@@ -1991,10 +1991,10 @@ function gilded_soul_kill(event)
 		ParticleManager:DestroyParticle(pfx, false)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end)
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), particlePos, nil, GILDED_SOUL_CAGE_HEAL_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), particlePos, nil, ITEM_RPC_GILDED_SOUL_CAGE_HEAL_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
-			local heal = math.floor(ally:GetMaxHealth() * GILDED_SOUL_CAGE_HEAL_PCT/100)
+			local heal = math.floor(ally:GetMaxHealth() * ITEM_RPC_GILDED_SOUL_CAGE_HEAL_PCT/100)
 			Filters:ApplyHeal(hero, ally, heal, true)
 		end
 	end
@@ -2004,11 +2004,11 @@ function gilded_soul_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = ability.caster
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = GILDED_SOUL_CAGE_BUFF_DURATION})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_gilded_soul_buff", ability) + 1, GILDED_SOUL_CAGE_MAX_STACKS)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = ITEM_RPC_GILDED_SOUL_CAGE_BUFF_DURATION})
+	local newStacks = math.min(target:GetModifierStackCount("modifier_gilded_soul_buff", ability) + 1, ITEM_RPC_GILDED_SOUL_CAGE_MAX_STACKS)
 	target:SetModifierStackCount("modifier_gilded_soul_buff", ability, newStacks)
 	ability.soulStacks = newStacks
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_immunity", {duration = GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_immunity", {duration = ITEM_RPC_GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE})
 end
 
 function gilded_soul_buff_duration_end(event)
@@ -2018,7 +2018,7 @@ function gilded_soul_buff_duration_end(event)
 	ability.soulStacks = ability.soulStacks - 1
 	if target:IsAlive() then
 		if ability.soulStacks > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = GILDED_SOUL_CAGE_BUFF_DURATION})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = ITEM_RPC_GILDED_SOUL_CAGE_BUFF_DURATION})
 			target:SetModifierStackCount("modifier_gilded_soul_buff", ability, ability.soulStacks)
 		end
 	end

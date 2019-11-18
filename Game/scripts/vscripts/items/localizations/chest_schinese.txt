@@ -221,7 +221,7 @@
 		"item_rpc_gilded_soul_cage_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_gilded_soul_cage_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_gilded_soul"					"汲取灵魂"
-		"property_gilded_soul_description"			"每杀死一个敌人为你和附近友军回复<% GILDED_SOUL_CAGE_HEAL_PCT %>%最大生命值的生命，并获得 <% GILDED_SOUL_CAGE_MAGIC_IMMUNITY_DURATION %> 秒的魔法免疫。每个汲取的灵魂将提高玩家 <% GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE %>% 的攻击力，并且提高玩家所有 <font color=\"#F6FFB5\">圣</font> 元素伤害 <% GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>% ，持续8秒，最高叠加<% GILDED_SOUL_CAGE_MAX_STACKS %>层。每次持续时间结束时，只减少一层buff。"
+		"property_gilded_soul_description"			"每杀死一个敌人为你和附近友军回复<% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_PCT %>%最大生命值的生命，并获得 <% ITEM_RPC_GILDED_SOUL_CAGE_MAGIC_IMMUNITY_DURATION %> 秒的魔法免疫。每个汲取的灵魂将提高玩家 <% ITEM_RPC_GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE %>% 的攻击力，并且提高玩家所有 <font color=\"#F6FFB5\">圣</font> 元素伤害 <% ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>% ，持续8秒，最高叠加<% ITEM_RPC_GILDED_SOUL_CAGE_MAX_STACKS %>层。每次持续时间结束时，只减少一层buff。"
 		"DOTA_Tooltip_modifier_gilded_soul_buff"				"镀金魂甲"
 		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"提高攻击力和圣元素伤害"
 		"DOTA_Tooltip_modifier_gilded_soul_immunity" "镀金魂甲魔法免疫"
