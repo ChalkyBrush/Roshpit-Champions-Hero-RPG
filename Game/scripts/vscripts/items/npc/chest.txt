@@ -4618,7 +4618,7 @@
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
-				"ThinkInterval"  "<% SPACE_TECH_GAIN_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -4636,8 +4636,8 @@
 				"IsHidden"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% SPACE_TECH_AS_SLOW %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% SPACE_TECH_MS_SLOW %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %>"
 				}
 				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -4651,7 +4651,7 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_SPACE_TECH_VEST_BONUS_ATTACK_DMG_PER_STACK %>"
 				}
 			}
 		}

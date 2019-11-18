@@ -201,7 +201,7 @@
 		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_space_tech"					"重力扭曲"
-		"property_space_tech_description"			"当你引导 @Ability4 时，周围敌人的攻击速度减少<% SPACE_TECH_AS_SLOW %>，移动速度减少<% SPACE_TECH_MS_SLOW %>%，持续<% SPACE_TECH_DURATION %>秒。同时每<% SPACE_TECH_GAIN_INTERVAL %>秒增加<% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>%的攻击力。"
+		"property_space_tech_description"			"当你引导 @Ability4 时，周围敌人的攻击速度减少<% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>，移动速度减少<% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %>%，持续<% ITEM_RPC_SPACE_TECH_VEST_DURATION %>秒。同时每<% ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL %>秒增加<% ITEM_RPC_SPACE_TECH_VEST_BONUS_ATTACK_DMG_PER_STACK %>%的攻击力。"
 		"DOTA_Tooltip_modifier_space_tech_buff"					"重力扭曲"
 		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"攻击力提高"
 		

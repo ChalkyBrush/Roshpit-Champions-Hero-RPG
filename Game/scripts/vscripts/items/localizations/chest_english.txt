@@ -205,7 +205,7 @@
 		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by <% SPACE_TECH_AS_SLOW %>, and movespeed slowed by <% SPACE_TECH_MS_SLOW %>%. The slow effects stick for <% SPACE_TECH_DURATION %> seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain <% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>% Bonus Attack damage every <% SPACE_TECH_GAIN_INTERVAL %> seconds. These stacks are lost when beginning to channel the spell again."
+		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %>%. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain <% ITEM_RPC_SPACE_TECH_VEST_BONUS_ATTACK_DMG_PER_STACK %>% Bonus Attack damage every <% ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL %> seconds. These stacks are lost when beginning to channel the spell again."
 		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
 		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased attack damage."
 		

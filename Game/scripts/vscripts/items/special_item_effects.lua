@@ -1615,18 +1615,18 @@ function space_tech_channel_think(event)
 	local position = caster:GetAbsOrigin()
 	local particleName = "particles/units/heroes/hero_faceless_void/faceless_void_timedialate.vpcf"
 	local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	local radius = SPACE_TECH_RADIUS
+	local radius = ITEM_RPC_SPACE_TECH_VEST_RADIUS
 	ParticleManager:SetParticleControl(particle, 0, position)
 	ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
 
-	ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_space_tech_buff", {duration = SPACE_TECH_BUFF_DURATION})
+	ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_space_tech_buff", {duration = ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION})
 	local stackCount = caster:GetModifierStackCount("modifier_space_tech_buff", event.caster)
 	caster:SetModifierStackCount("modifier_space_tech_buff", event.caster, stackCount + 1)
 
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ability:ApplyDataDrivenModifier(event.caster, enemy, "modifier_space_tech_slow", {duration = SPACE_TECH_DURATION})
+			ability:ApplyDataDrivenModifier(event.caster, enemy, "modifier_space_tech_slow", {duration = ITEM_RPC_SPACE_TECH_VEST_DURATION})
 		end
 	end
 end
