@@ -418,7 +418,7 @@
 				"StatusEffectPriority"  "1000"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ALIEN_ARMOR_ILLUSION_AS %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_ALIEN_ARMOR_ILLUSION_AS %>"
 				}
 			}
 			"modifier_alien_illusion_respawning_effect"

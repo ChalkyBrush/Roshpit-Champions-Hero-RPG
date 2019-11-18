@@ -4478,9 +4478,9 @@ end
 function Filters:AlienArmor(caster)
     local modifierKeys = {}
 
-    modifierKeys.outgoing_damage = ALIEN_ARMOR_OUTGOING_DAMAGE_MULT*100
-    modifierKeys.incoming_damage = 1 - (ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION/100)
-    modifierKeys.duration = ALIEN_ARMOR_ILLUSION_DURATION
+    modifierKeys.outgoing_damage = ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT*100
+    modifierKeys.incoming_damage = 1 - (ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION/100)
+    modifierKeys.duration = ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION
     local illusions = CreateIllusions( caster, caster, modifierKeys, 1, 20, true, true)
     local illusion = illusions[1]
     illusion.owner = caster
