@@ -382,7 +382,7 @@
 		"item_rpc_water_mage_robes_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_water_mage_robes_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_watermage"							"高压水泵"
-		"property_watermage_description"					"当你引导 @Ability4 时，朝360度喷射水浪，每股水浪造成<% WATER_MAGE_ROBES_ATTACK_TO_DMG %>x攻击力或<% WATER_MAGE_ROBES_INT_TO_DMG %>x智力值（较大值）的魔法伤害。同时降低敌人移动速度<% WATER_MAGE_ROBES_MS_SLOW %>%。被减速的敌人受到来自施法者的伤害将加深 <% WATER_MAGE_ROBES_POST_MITI_AMP %>% （计算在敌人减伤之后）"
+		"property_watermage_description"					"当你引导 @Ability4 时，朝360度喷射水浪，每股水浪造成<% ITEM_RPC_WATER_MAGE_ROBES_ATTACK_TO_DMG %>x攻击力或<% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x智力值（较大值）的魔法伤害。同时降低敌人移动速度<% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%。被减速的敌人受到来自施法者的伤害将加深 <% ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP %>% （计算在敌人减伤之后）"
 		"DOTA_Tooltip_modifier_water_mage_slow"			"高压水泵"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"移动速度降低"
 		 

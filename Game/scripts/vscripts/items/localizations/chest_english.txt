@@ -386,7 +386,7 @@
 		"item_rpc_water_mage_robes_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_water_mage_robes_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_watermage"							"Wave Burst"
-		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of <% WATER_MAGE_ROBES_ATTACK_TO_DMG %>x your attack damage and <% WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% WATER_MAGE_ROBES_MS_SLOW %>%, and while slowed they take <% WATER_MAGE_ROBES_POST_MITI_AMP %>% increased Post-Mitigation damage from the caster."
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of <% ITEM_RPC_WATER_MAGE_ROBES_ATTACK_TO_DMG %>x your attack damage and <% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%, and while slowed they take <% ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP %>% increased Post-Mitigation damage from the caster."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
 		 

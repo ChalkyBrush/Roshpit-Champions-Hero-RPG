@@ -2209,7 +2209,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			mult = mult + WATER_MAGE_ROBES_POST_MITI_AMP/100
+			mult = mult + ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP/100
 		end
 	end
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
