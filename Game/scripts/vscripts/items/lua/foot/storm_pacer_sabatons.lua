@@ -37,8 +37,8 @@ function modifierClass:OnCreated()
     self.elements = {}
 
     self.currentRadius = 0
-    self.maxRadius = PACE_OF_STORM_RADIUS
-    self.radiusStep = PACE_OF_STORM_RADIUS/5
+    self.maxRadius = ITEM_RPC_STORM_PACER_SABATONS_RADIUS
+    self.radiusStep = ITEM_RPC_STORM_PACER_SABATONS_RADIUS/5
     self.thinkInterval = 0.1
 
     self.retracing = false
@@ -50,7 +50,7 @@ function modifierClass:OnCastEAbility()
     if self.cooldownUntil > GameRules:GetGameTime() then
         return
     end
-    self.cooldownUntil = GameRules:GetGameTime() + PACE_OF_STORM_COOLDOWN
+    self.cooldownUntil = GameRules:GetGameTime() + ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN
     self.retracing = false
     self.currentRadius = 0
     self.localKey = 'item_storm_pacer_sabatons_' .. ability:GetEntityIndex() .. '_' .. ability.uid
@@ -107,8 +107,8 @@ function modifierClass:OnIntervalThink()
         if enemy[self.localKey] or excluded_enemies[enemy:GetEntityIndex()] then
         else
             enemy[self.localKey] = true
-            local distanceMult = (PACE_OF_STORM_MAX_AMP - PACE_OF_STORM_MIN_AMP) * WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())/self.maxRadius
-            local mult = PACE_OF_STORM_MIN_AMP + distanceMult
+            local distanceMult = (ITEM_RPC_STORM_PACER_SABATONS_MAX_AMP - ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP) * WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())/self.maxRadius
+            local mult = ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP + distanceMult
             Damage:Apply({
                 source = self:GetAbility(),
                 sourceType = BASE_NONE,
@@ -118,8 +118,8 @@ function modifierClass:OnIntervalThink()
                 damageType = DAMAGE_TYPE_MAGICAL,
                 elements = self.elements,
                 ignoreMultipliers = true,
-                steadfastThresholdMult = PACE_OF_STORM_STEADFAST_THRESHOLD,
-                megaSteadfastThresholdMult = PACE_OF_STORM_MEGASTEADFAST_THRESHOLD,
+                steadfastThresholdMult = ITEM_RPC_STORM_PACER_SABATONS_STEADFAST_THRESHOLD,
+                megaSteadfastThresholdMult = ITEM_RPC_STORM_PACER_SABATONS_MEGASTEADFAST_THRESHOLD,
             })
         end
     end

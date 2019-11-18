@@ -84,7 +84,7 @@ CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = DJANGHOR_R2_BONUS_HP
 CustomAttributes.OGTHUN_HEALTH = 10
 CustomAttributes.REDROCK_HEALTH = 10
-CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
+CustomAttributes.SANGE_HEALTH = ITEM_RPC_SANGE_BOOTS_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
 
@@ -2267,13 +2267,13 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_agi") then
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_int") then
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
@@ -2766,7 +2766,7 @@ function CustomAttributes:MSCap(unit)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KNIGHT_HAWK_RUBY)
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + max_ms*(PEGASUS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + max_ms*(ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT/100)
 	end
 	return max_ms
 end

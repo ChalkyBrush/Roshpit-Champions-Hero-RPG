@@ -714,8 +714,8 @@ function GameState:OrderFilter(orderTable)
 					print(angle_between)
 					if angle_between >= 160 and angle_between <= 200 then
 						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
-						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = PIVOT_BURST_DURATION})
-						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, PIVOT_BOOT_MS)
+						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION})
+						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS)
 						unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
 						EmitSoundOn("Items.PivotalSwift", unit)
 					end
@@ -887,7 +887,7 @@ function GameState:OrderFilter(orderTable)
 				if unit.ice_floe_table.last_clicked then
 					if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
 					else
-						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < ICE_FLOE_TRAVEL_DISTANCE) then
+						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE) then
 							unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
 							unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
 							unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
@@ -1440,7 +1440,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	local damage = BASE_VALUE_FOR_CALCULATE
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_stormshield_cloak") then
-			damage = damage * STORMSHIELD_PHYS_REDUCTION
+			damage = damage * ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION
 		end
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
 			damage = damage * (100-BAHAMUT_GLYPH_1_1_PHYS_RES_PCT)/100
@@ -1500,7 +1500,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * (1-DJANGHOR_WOLF_MAG_PURE_RED)
 		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
-			damage = damage * (100-FEATHERWHITE_MAGIC_AND_PURE_REDUCTION)/100
+			damage = damage * (100-ITEM_RPC_FEATHERWHITE_ARMOR_MAGIC_AND_PURE_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("modifier_azalea_zealot_ai") then
@@ -1569,10 +1569,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (1 - modifier:GetDamageReduction())
 	end
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
-		damage = damage * (100-ABLECORE_GREAVES_DMG_RED)/100
+		damage = damage * (100-ITEM_RPC_ABLECORE_GREAVES_DMG_RED)/100
 	end
 	if victim:HasModifier("modifier_resplendent_rubber_boots") then
-		damage = damage * (100-RESPLENDENT_RUBBER_DMG_REDUCTION)/100
+		damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
@@ -1585,7 +1585,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (1 - ability:GetFinalGemPropertyValue("ruby", SWAMP_DOCTOR_RUBY)/100)
 	end
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
-		damage = damage * (100-GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION)/100
+		damage = damage * (100-ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", MOUNTAIN_GIANT_EMERALD)/100)) then
 		damage = damage * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MOUNTAIN_GIANT_SAPPHIRE))/100
@@ -1597,10 +1597,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
-		damage = damage * (100-REDROCK_DAMAGE_REDUCTION_PCT)/100
+		damage = damage * (100-ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_gravelfoot_buff") then
-		damage = damage * (100-GRAVELFOOT_DMG_REDUCTION)/100
+		damage = damage * (100-ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_crown_of_the_roknar_emperor") then
 		damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ROKNAR_AMETHYST))/100
@@ -1675,7 +1675,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = 0
 	end
 	if victim:HasModifier("modifier_rooted_feet_health_regen") then
-		damage = damage * (100-ROOTED_FEET_DMG_REDUCTION)/100
+		damage = damage * (100-ITEM_RPC_ROOTED_FEET_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_ice_scathe_q2_shield") then
 		damage = damage * (1-(WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT/100))
@@ -1734,7 +1734,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_red_october_boots") then
 		local EAbility = victim:GetAbilityByIndex(DOTA_E_SLOT)
 		if EAbility:GetCooldownTimeRemaining() > 0 then
-			damage = damage * (100-RED_OCTOBER_DMG_REDUCTION)/100
+			damage = damage * (100-ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION)/100
 		end
 	end
 
@@ -1753,7 +1753,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 
 	if victim:HasModifier("modifier_sea_giants_plate") then
 		if victim:IsStunned() then
-			damage = damage * (100-SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED)/100
+			damage = damage * (100-ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED)/100
 		end
 	end
 
@@ -2122,15 +2122,15 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + POWER_RANGER_PHYS_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_golden_war_plate") then
-			mult = mult + GOLDEN_WARPLATE_PHYS_POST_MITI_AMP/100
+			mult = mult + ITEM_RPC_GOLDEN_WAR_PLATE_PHYS_POST_MITI_AMP/100
 		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
-			mult = mult + ALARANA_MAGIC_POST_MITI/100
+			mult = mult + ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
-			mult = mult + SORCERERS_REGALIA_MAGIC_POST_MITI/100
+			mult = mult + ITEM_RPC_SORCERERS_REGALIA_MAGIC_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
 			mult = mult + 0.25
@@ -2196,11 +2196,11 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
-		mult = mult + NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF/100
+		mult = mult + ITEM_RPC_NIGHTMARE_RIDER_MANTLE_POST_MITIGATION_DEBUFF/100
 	end
 
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
-		mult = mult + ABLECORE_GREAVES_POST_MITI/100
+		mult = mult + ITEM_RPC_ABLECORE_GREAVES_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
 		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
@@ -2209,7 +2209,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_water_mage_slow") then
 		modifier = victim:FindModifierByName("modifier_water_mage_slow")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			mult = mult + WATER_MAGE_ROBES_POST_MITI_AMP/100
+			mult = mult + ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP/100
 		end
 	end
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
@@ -2236,7 +2236,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + TERRASIC_STONE_PLATE_POST_MITI/100
+			mult = mult + ITEM_RPC_TERRASIC_STONE_PLATE_POST_MITI/100
 		end
 	end
 
@@ -2468,7 +2468,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_golden_war_plate") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * (100-GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION)/100
+			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_GOLDEN_WAR_PLATE_MAGIC_OUTPUT_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then
@@ -2485,7 +2485,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_enchanted_solar_cape") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = SOLAR_CAPE_DURATION})
+			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_DURATION})
 		end
 	end
 	if victim:HasModifier("modifier_arcane_shell") then
@@ -2502,7 +2502,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_bladestorm_vest_buff") then
 		local bladestormStacks = math.min(attacker:GetModifierStackCount("modifier_bladestorm_vest_buff", attacker.body) + 1, 3)
-		mult = mult + bladestormStacks * BLADESTORM_POST_MITI/100
+		mult = mult + bladestormStacks * ITEM_RPC_BLADESTORM_VEST_POST_MITI/100
 	end
 	if victim:HasModifier("modifier_duskbringer_rune_e_2_effect") then
 		filterTable["damage"] = 0
@@ -2526,7 +2526,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_flurry_aura_debuff") then
-		filterTable["damage"] = filterTable["damage"] * (100-SKYFORGE_DMG_REDUCTION)/100
+		filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION)/100
 	end
 	if attacker:HasModifier("modifier_neutral_glyph_5_1") then
 		filterTable["damage"] = filterTable["damage"] * 0.5
@@ -2657,7 +2657,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	modifier = attacker:FindModifierByName('modifier_baron_storm_link')
 	if modifier and modifier:GetCaster() == victim then
-		filterTable["damage"] = filterTable["damage"] * (1 - BARON_STORM_DMG_RESISTANCE)
+		filterTable["damage"] = filterTable["damage"] * (1 - ITEM_RPC_BARONS_STORM_ARMOR_DMG_RESISTANCE)
 	end
 	if attacker:HasModifier("modifier_gorudo_b_d_inside_ring") then
 		modifier = attacker:FindModifierByName("modifier_gorudo_b_d_inside_ring")
@@ -2773,7 +2773,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_crystalline_slippers") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		if victim:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * CRYSTALLINE_PRE_MITI_AMP
+			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP
 		end
 	end
 	if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
@@ -3203,7 +3203,7 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_crystalline_slippers") then
 		if attacker:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * (100-CRYSTALLINE_DAMAGE_REDUCTION_FROM_ROOTED)/100
+			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED)/100
 		end
 	end
 	-- wEIRD MONSTERS
@@ -3213,7 +3213,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_armor_of_atlantis") then
 		if filterTable["damage"] > victim:GetHealth() then
-			filterTable["damage"] = filterTable["damage"] * (100 - ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT) / 100
+			filterTable["damage"] = filterTable["damage"] * (100 - ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT) / 100
 			local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
 			ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
 		end

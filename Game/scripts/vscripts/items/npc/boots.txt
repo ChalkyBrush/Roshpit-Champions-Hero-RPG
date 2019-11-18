@@ -57,7 +57,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% BLADESLINGER_ATT_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_SLINGER_BOOTS_ATT_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -825,7 +825,7 @@
 				"IsBuff"				"1"
 				"IsHidden"				"1"
 				"IsPurgable"			"0"
-				"ThinkInterval"  "<% ARCANYS_SLIPPER_EXPLOSIONS_DURATION / ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>"
+				"ThinkInterval"  "<% ITEM_RPC_ARCANYS_SLIPPER_EXPLOSIONS_DURATION / ITEM_RPC_ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -1009,8 +1009,8 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% BLUE_DRAGON_GREAVES_EVASION %>"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% ITEM_RPC_BLUE_DRAGON_GREAVES_EVASION %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% ITEM_RPC_BLUE_DRAGON_GREAVES_BONUS_ATTACK_DAMAGE %>"
 				}
 			}
 		}
@@ -1359,7 +1359,7 @@
 			{
 				"ModifierName"	"modifier_pure_waters_slow"
 				"Target" 		"TARGET"
-				"Duration"		"<% PURE_WATERS_SLOW_DURATION %>"
+				"Duration"		"<% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW_DURATION %>"
 			}
 		}
 		"Modifiers"
@@ -1385,7 +1385,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% PURE_WATERS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW %>"
 				}
 			}
 
@@ -1584,7 +1584,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% CRIMSYTH_ELITE_ARMOR %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR %>"
 				}
 			}
 			"modifier_crimsyth_elite_greaves_magic_shield"
@@ -1596,7 +1596,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% CRIMSYTH_ELITE_MAGIC_RESISTANCE %>"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE %>"
 				}
 				"OnDestroy"
 				{
@@ -2338,7 +2338,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2357,7 +2357,7 @@
 				"StatusEffectPriority"  "120"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% GRAVELFOOT_SELF_SLOW %>"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %>"
 				}
 				"OnCreated"
 				{
@@ -2798,11 +2798,11 @@
 			"modifier_moon_tech_thinker"
 			{
 				"Aura"					"moon_tech_aura"
-				"Aura_Radius"			"<% MOON_TECHS_RADIUS %>"
+				"Aura_Radius"			"<% ITEM_RPC_MOON_TECH_RUNNERS_RADIUS %>"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Duration"				"<% MOON_TECHS_DURATION %>"
+				"Duration"				"<% ITEM_RPC_MOON_TECH_RUNNERS_DURATION %>"
 
 				"OnCreated"
 				{
@@ -2829,7 +2829,7 @@
 				"IsPurgable"	"0"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% MOON_TECHS_MS_SLOW_PCT %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_MOON_TECH_RUNNERS_MS_SLOW_PCT %>"
 				}
 			}
 		}
@@ -3083,7 +3083,7 @@
 					{
 						"ModifierName"	"modifier_pathfinder_resonant_cooldown"
 						"Target" 		"UNIT"
-						"Duration"		"<% PATHFINDER_DElAY %>"
+						"Duration"		"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DElAY %>"
 					}
 				}
 				"ThinkInterval"  "1.0"
@@ -3103,7 +3103,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"			"<% PATHFINDER_DElAY %>"
+				"Duration"			"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DElAY %>"
 			}
 		}
 	}
@@ -3591,7 +3591,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% SANDSTREAM_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_SANDSTREAM_SLIPPERS_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3992,9 +3992,9 @@
 				"TextureName"	"itemicons/terrasic_lava_boots"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_SPEED %>"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>"
-				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"<% TERRASIC_LAVA_BOOTS_BONUS_ATTACK_RANGE %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_SPEED %>"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>"
+				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_RANGE %>"
 				}
 				"OnCreated"
 				{
@@ -4202,12 +4202,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"<% YASHA_AS_PER_STR %>"
+				"property_one"			"<% ITEM_RPC_YASHA_BOOTS_AS_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% YASHA_AS_PER_STR %>"
+				"property_two"		"<% ITEM_RPC_YASHA_BOOTS_AS_PER_STR %>"
 			}
 		}
 		"Modifiers"
@@ -4230,7 +4230,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "<% YASHA_BAT %>"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"  "<% ITEM_RPC_YASHA_BOOTS_BAT %>"
 				}
 			}
 			"modifier_rpc_yasha_buff"

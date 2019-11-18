@@ -71,8 +71,8 @@
 				"TextureName"		"itemicons/hurrican_vest"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% HURRICANE_VEST_MSP_REDUCE %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% HURRICANE_VEST_ATT_SPD_REDUCE %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ITEM_RPC_HURRICANE_VEST_MSP_REDUCE %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_HURRICANE_VEST_ATT_SPD_REDUCE %>"
 				}
 			}
 			"modifier_hurricane_vest_start"
@@ -418,7 +418,7 @@
 				"StatusEffectPriority"  "1000"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ALIEN_ARMOR_ILLUSION_AS %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_ALIEN_ARMOR_ILLUSION_AS %>"
 				}
 			}
 			"modifier_alien_illusion_respawning_effect"
@@ -501,7 +501,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% NETHERGRASP_ATTACK_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_NETHERGRASP_PALISADE_ATTACK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -703,7 +703,7 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Aura"          	"modifier_tanari_wind_aura_slow"
-				"Aura_Radius"   	"<% ANCIENT_TANARI_WIND_RADIUS %>"
+				"Aura_Radius"   	"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_WIND_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -720,9 +720,9 @@
 				"TextureName"		"itemicons/tanari_wind_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ANCIENT_TANARI_WIND_AS_REDUCTION %>"
-				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-<% ANCIENT_TANARI_WIND_MISS_CHANCE %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-<% ANCIENT_TANARI_WIND_MS_REDUCTION %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_AS_REDUCTION %>"
+				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MISS_CHANCE %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MS_REDUCTION %>"
 				}
 			}
 		}
@@ -791,7 +791,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Duration"  		"<% SECRET_TEMPLE_SHIELDS_DURATION %>"
+				"Duration"  		"<% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION %>"
 				"TextureName"		"templar_assassin_refraction"
 				"OnCreated"
 				{
@@ -825,7 +825,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"  		"<% SECRET_TEMPLE_SHIELDS_DURATION %>"
+				"Duration"  		"<% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION %>"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
@@ -1108,7 +1108,7 @@
 				"TextureName"	"itemicons/bladestorm_vest"							 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% BLADESTORM_BONUS_ATTACK_DMG %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_BLADESTORM_VEST_BONUS_ATTACK_DMG %>"
 				}
 			}
 			"modifier_bladestorm_vest_weapon_effect"
@@ -1848,8 +1848,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% DIREWOLF_BULWARK_ARMOR %>"
-				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% DIREWOLF_BULWARK_BASE_ATTACK_DMG%>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% ITEM_RPC_DIREWOLF_BULWARK_ARMOR %>"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ITEM_RPC_DIREWOLF_BULWARK_BASE_ATTACK_DMG %>"
 				}
 			}
 		}
@@ -3441,7 +3441,7 @@
 				"TextureName"	"itemicons/nightmare_rider_mantle"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% NIGHTMARE_RIDER_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SLOW %>"
 				}
 			}
 			"modifier_nightmare_rider_invisible"
@@ -3799,8 +3799,8 @@
 				"TextureName"			"itemicons/radiant_leather"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% RADIANT_RUINS_LEATHER_AS %>"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"<% RADIANT_RUINS_LEATHER_MS %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_RADIANT_RUINS_LEATHER_AS %>"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"<% ITEM_RPC_RADIANT_RUINS_LEATHER_MS %>"
 				}
 			}
 		}
@@ -3915,12 +3915,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% RUBY_DRAGON_SCALE_ATTACK_PER_STR %>"
+				"property_one"			"<% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
+				"property_two"		"<% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 			}
 		}
 		"Modifiers"
@@ -3958,8 +3958,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% RUBY_DRAGON_SCALE_ATTACK_PER_STR %>"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 				}
 			}
 		}
@@ -4116,12 +4116,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %>"
+				"property_one"			"<% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
+				"property_two"		"<% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 			}
 		}
 		"Modifiers"
@@ -4159,8 +4159,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %>"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
 				}
 			}
 		}
@@ -4618,7 +4618,7 @@
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
-				"ThinkInterval"  "<% SPACE_TECH_GAIN_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -4636,8 +4636,8 @@
 				"IsHidden"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% SPACE_TECH_AS_SLOW %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% SPACE_TECH_MS_SLOW %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %>"
 				}
 				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -4651,7 +4651,7 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_SPACE_TECH_VEST_BONUS_ATTACK_DMG_PER_STACK %>"
 				}
 			}
 		}
@@ -5000,7 +5000,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% TATTERED_NOVICE_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_TATTERED_NOVICE_ARMOR_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -5127,7 +5127,7 @@
 				"IsHidden"	"1"
 				"EffectName" "particles/act_2/ice_boss_channel.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "<% TEMPLAR_LIGHT_SEER_TICKRATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -5402,12 +5402,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %>"
+				"property_one"			"<% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
+				"property_two"		"<% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 			}
 		}
 		"Modifiers"
@@ -5445,8 +5445,8 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %>"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %>"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"<% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
 				}
 			}
 		}
@@ -5759,7 +5759,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% WATER_MAGE_ROBES_MS_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>"
 				}
 			}
 		}
@@ -5858,8 +5858,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% WINDSTEEL_EVASION %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% WINDSTEEL_MOVESPEED %>"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" "<% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>"
 				}
 			}
 			"modifier_windsteel_cooldown"
