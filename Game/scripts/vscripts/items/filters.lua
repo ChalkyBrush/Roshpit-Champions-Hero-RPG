@@ -1623,7 +1623,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_ocean_tempest_pallium") and attacker.ocean_tempest and attacker.ocean_tempest.manaDrained then
             --TO DO check for bugs
-            local damageIncrease = (attacker.ocean_tempest.manaDrained / OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD) * OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD/100
+            local damageIncrease = (attacker.ocean_tempest.manaDrained / ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_THRESHOLD) * ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_MANA_THRESHOLD/100
             damageMult = damageMult + damageIncrease
         end
 

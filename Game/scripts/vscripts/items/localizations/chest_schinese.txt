@@ -271,7 +271,7 @@
 		"item_rpc_ocean_tempest_pallium_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_ocean_tempest_pallium_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ocean_tempest"				"潮汐风暴"
-		"property_ocean_tempest_description"		"引导 @Ability4 时每秒汲取你<% OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND %>% 最大魔法值，每汲取<% OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD %>点魔法值，提高 @Ability4 的伤害<% OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD %>%。"
+		"property_ocean_tempest_description"		"引导 @Ability4 时每秒汲取你<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_PER_SECOND %>% 最大魔法值，每汲取<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_THRESHOLD %>点魔法值，提高 @Ability4 的伤害<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_MANA_THRESHOLD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"天辉皮甲"
