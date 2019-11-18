@@ -550,7 +550,7 @@
 		"item_rpc_empyreal_sunrise_robe_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_empyreal_sunrise_robe_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_tropical_sunrise"												"散失觉醒"
-		"property_tropical_sunrise_Description"									"最低的属性值将提高 <% EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP * 100 %>%"
+		"property_tropical_sunrise_Description"									"最低的属性值将提高 <% ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP * 100 %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"海巨人之甲"	
