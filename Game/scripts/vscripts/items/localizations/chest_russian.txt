@@ -68,7 +68,7 @@
 		"item_rpc_seraphic_soulvest_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_seraphic_soulvest_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_seraphic_soulvest"			"Seraphic Lance"
-		"property_seraphic_soulvest_description"	"С каждым прочтением (W) @Ability2 в случайного противника в большом радиусе будет отправлено небесное копьё, которое нанесёт чистый урон в размере <% SERAPHIC_SOULVEST_ATTACK_TO_DMG %>% от общего урона героя, умноженного на уровень умения (W) @Ability2."
+		"property_seraphic_soulvest_description"	"С каждым прочтением (W) @Ability2 в случайного противника в большом радиусе будет отправлено небесное копьё, которое нанесёт чистый урон в размере <% ITEM_RPC_SERAPHIC_SOULVEST_ATTACK_TO_DMG %>% от общего урона героя, умноженного на уровень умения (W) @Ability2."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"

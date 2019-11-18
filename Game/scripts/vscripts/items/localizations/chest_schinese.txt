@@ -66,7 +66,7 @@
 		"item_rpc_seraphic_soulvest_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_seraphic_soulvest_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_seraphic_soulvest"			"天使之矛"
-		"property_seraphic_soulvest_description"	"每次施放 @Ability2 时将发射一支光矛，对1400码随机一个目标发射光矛。<br>光矛造成 @Ability2 技能等级*<% SERAPHIC_SOULVEST_ATTACK_TO_DMG %>%倍当前攻击力的伤害。"
+		"property_seraphic_soulvest_description"	"每次施放 @Ability2 时将发射一支光矛，对1400码随机一个目标发射光矛。<br>光矛造成 @Ability2 技能等级*<% ITEM_RPC_SERAPHIC_SOULVEST_ATTACK_TO_DMG %>%倍当前攻击力的伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
