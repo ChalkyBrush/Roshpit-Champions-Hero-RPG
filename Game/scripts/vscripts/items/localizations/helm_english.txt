@@ -561,13 +561,19 @@
 		"item_rpc_swamp_witch_hat_amethyst1" "Increases Murky Wave's damage by @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
-		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"            "Each cast of @Ability2 instantly moves you <% TRICKSTER_MASK_RANGE %> units in a random direction. All Post-Mitigaiton damage is multiplied by a random number between <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> to <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Each instance of @Ability2 damage is further multiplied by a random factor of <% TRICKSTER_MASK_W_DMG_MULT_MIN %> to <% TRICKSTER_MASK_W_DMG_MULT_MAX %>."
+		"item_property_trickster"					"Laughing Scoundrel"
+		"property_trickster_description"            "The wearer gains a permanent scoundrel companion who is invisible. Each cast of @Ability2 instantly moves you to a random position within the Scoundrel's range and disjoints incoming projectiles. Scoundrel's base range is <% TRICKSTER_BASE_RADIUS %>."
 
-		"item_rpc_tricksters_mask_ruby1"	"Each time an enemy is hit by a Murky Wave, they lose @ruby_property1 magic armor. Stacks up to <% SWAMP_WITCH_RUBY_MAX_STACKS %> times and lasts <% SWAMP_WITCH_RUBY_DURATION %> seconds"
-		"item_rpc_tricksters_mask_emerald1"	"Murky Wave can trigger once every @emerald_property1 seconds"
-		"item_rpc_tricksters_mask_sapphire1" "Each enemy hit by Murky Wave restores @sapphire_property1 mana"
-		"item_rpc_tricksters_mask_amethyst1" "Increases Murky Wave's damage by @amethyst_property1"
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai"	"Scoundrel AI"
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai_Description"	"Toggle to activate this minion's default behavior."
+
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown"	"Invisible Fade Time"
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown_Description"	"Going invisible at end of countdown if remaining idle"
+
+		"item_rpc_tricksters_mask_ruby1"	"Increases the Scoundrel's range by @ruby_property1"
+		"item_rpc_tricksters_mask_emerald1"	"While standing in the Scoundrel's range, gain @emerald_property1 agility"
+		"item_rpc_tricksters_mask_sapphire1" "Increases the Scoundrel's movespeed by @sapphire_property1"
+		"item_rpc_tricksters_mask_amethyst1" "Standing still in the Scoundrel's range for @amethyst_property1 seconds applies invisibility. Invisibility breaks from performing an action."
 
 	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"

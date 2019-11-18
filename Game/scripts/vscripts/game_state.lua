@@ -2195,18 +2195,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if attacker:HasModifier("modifier_trickster_mask") then
-		local minBoost = 0
-		if attacker:HasModifier("modifier_boots_of_great_fortune") then
-			minBoost = minBoost + BOOTS_OF_GREAT_FORTUNE_TRICKSTER_BOOST
-		end
-		if attacker:HasModifier("modifier_fortunes_talisman_of_truth") then
-			minBoost = minBoost * FORTUNES_TALISMAN_TRICKSTER_BOOST_MULT + FORTUNES_TALISMAN_TRICKSTER_BOOST_ADD
-		end
-		local tricksterFactor = RandomInt(-(TRICKSTER_MASK_ALL_DMG_MULT_MIN * 10) + minBoost, ((TRICKSTER_MASK_ALL_DMG_MULT_MAX * 10) - 10))
-		mult = mult + tricksterFactor / 10
-	end
-
 	if victim:HasModifier("modifier_nightmare_rider_effect_visible") then
 		mult = mult + NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF/100
 	end

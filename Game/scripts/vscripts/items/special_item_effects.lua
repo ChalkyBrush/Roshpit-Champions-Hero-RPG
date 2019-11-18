@@ -6844,6 +6844,25 @@ function trickster_init(event)
 	if not ability.trickster then
 		local trickster = CreateUnitByName("trickster_mask_scoundrel", hero:GetAbsOrigin()+RandomVector(300), true, nil, nil, hero:GetTeamNumber())
 		CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_smoke_ti5.vpcf", trickster, 3)
+		trickster:SetOwner(hero)
+		trickster:SetControllableByPlayer(hero:GetPlayerID(), true)
+		trickster:SetRenderColor(90, 70, 10)
+		trickster.hero = hero
+		local scoundrel_ai_ability = trickster:AddAbility("trickster_scoundrel_toggle_ai")
+		scoundrel_ai_ability:SetLevel(1)
+		scoundrel_ai_ability:ToggleAbility()
+		trickster.radius = TRICKSTER_BASE_RADIUS + ability:GetFinalGemPropertyValue("ruby", TRICKSTER_RUBY)
+		trickster.pfx = ParticleManager:CreateParticle("particles/roshpit/items/trickster_scoundrel_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, trickster)
+		ParticleManager:SetParticleControlEnt(trickster.pfx, 0, trickster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", trickster:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(trickster.pfx, 2, Vector(trickster.radius, 1, 0))
+		trickster:AddNewModifier(trickster, ability, "modifier_persistent_invisibility", {})
+		ability.trickster = trickster
+		EmitSoundOn("RPCItem.TricksterMask.Loud", trickster)
+		ability.trickster:AddNewModifier(caster, nil, 'modifier_movespeed_cap_sonic', {})
+		if ability:GetGemValue("sapphire") > 0 then
+			scoundrel_ai_ability:ApplyDataDrivenModifier(trickster, trickster, "modifier_scoundrel_ms", {})
+			trickster:SetModifierStackCount("modifier_scoundrel_ms", trickster, ability:GetFinalGemPropertyValue("sapphire", TRICKSTER_SAPPHIRE))
+		end
 	end
 end
 
@@ -6851,4 +6870,102 @@ function trickster_end(event)
 	local hero = event.target
 	local ability = event.ability
 	local caster = event.caster
+	if ability.trickster and IsValidEntity(ability.trickster) then
+		if ability.trickster.pfx then
+			ParticleManager:DestroyParticle(ability.trickster.pfx, false)
+		end
+		EmitSoundOn("RPCItem.TricksterMask.Loud", ability.trickster)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_smoke_ti5.vpcf", ability.trickster, 3)
+		UTIL_Remove(ability.trickster)
+		ability.trickster = nil
+	end
+	hero:RemoveModifierByName("modifier_scoundrel_invis")
+	hero:RemoveModifierByName("modifier_invisible")
+	hero:RemoveModifierByName("modifier_scoundrel_agility")
+end
+
+function trickster_scoundrel_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	ability.radius = TRICKSTER_BASE_RADIUS + caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", TRICKSTER_RUBY)
+	if not ability.hero_position then
+		ability.hero_position = caster.hero:GetAbsOrigin()
+	end
+	if distance > 2500 then
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_smoke_ti5.vpcf", caster, 3)
+		local target_move_position = caster.hero:GetAbsOrigin() - caster.hero:GetForwardVector()*400
+		FindClearSpaceForUnit(caster, target_move_position, false)
+		CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_smoke_ti5.vpcf", caster, 3)
+		EmitSoundOn("RPCItem.TricksterMask.Loud", caster)
+	elseif distance > 900 then
+		local target_move_position = caster.hero:GetAbsOrigin() - caster.hero:GetForwardVector()*500
+		caster:MoveToPosition(target_move_position)
+	end
+	if distance <= ability.radius and caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster.hero, "modifier_scoundrel_agility", {})
+	else
+		caster.hero:RemoveModifierByName("modifier_scoundrel_agility")
+	end
+	if distance <= ability.radius and caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
+		if caster.hero:HasModifier("modifier_scoundrel_invis_countdown") then
+			if ability.hero_position ~= caster.hero:GetAbsOrigin() then
+				local countdown_duration = caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", TRICKSTER_AMETHYST)
+				ability:ApplyDataDrivenModifier(caster, caster.hero, "modifier_scoundrel_invis_countdown", {duration = countdown_duration})
+			end
+		else
+			local countdown_duration = caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", TRICKSTER_AMETHYST)
+			ability:ApplyDataDrivenModifier(caster, caster.hero, "modifier_scoundrel_invis_countdown", {duration = countdown_duration})
+		end
+	else
+		caster.hero:RemoveModifierByName("modifier_scoundrel_invis_countdown")
+	end
+	if distance > ability.radius then
+		caster.hero:RemoveModifierByName("modifier_scoundrel_invis")
+		caster.hero:RemoveModifierByName("modifier_invisible")
+		caster.hero:RemoveModifierByName("modifier_scoundrel_agility")
+	end
+
+	if ability.radius ~= caster.radius then
+		local trickster = caster
+		caster.radius = ability.radius
+		ParticleManager:DestroyParticle(caster.pfx, false)
+		trickster.pfx = ParticleManager:CreateParticle("particles/roshpit/items/trickster_scoundrel_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, trickster)
+		ParticleManager:SetParticleControlEnt(trickster.pfx, 0, trickster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", trickster:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(trickster.pfx, 2, Vector(trickster.radius, 1, 0))
+	end
+	if ability.hero_position ~= caster.hero:GetAbsOrigin() then
+		caster.hero:RemoveModifierByName("modifier_scoundrel_invis")
+		caster.hero:RemoveModifierByName("modifier_invisible")
+	end
+	ability.hero_position = caster.hero:GetAbsOrigin()
+end
+
+function trickster_scoundrel_on(event)
+	local ability = event.ability
+	local caster = event.caster
+end
+
+function trickster_scoundrel_off(event)
+	local ability = event.ability
+	local caster = event.caster
+end
+
+function scoundrel_invis_countdown_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	if IsValidEntity(caster) then
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+		print("COUNTDOWN END")
+		if distance <= ability.radius then
+			local hero = caster.hero
+			if not hero:HasModifier("modifier_invisible") then
+				hero:AddNewModifier(caster, ability, "modifier_invisible", {})
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_scoundrel_invis", {})
+				EmitSoundOn("RPCItem.TricksterMask.Invis", hero)
+				EmitSoundOn("RPCItem.TricksterMask.Invis.Highlight", hero)
+				CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_smoke_ti5.vpcf", hero, 3)
+			end
+		end
+	end
 end

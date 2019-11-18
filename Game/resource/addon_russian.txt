@@ -12887,8 +12887,19 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
-		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"			"Каждое использование (W) @Ability2 мгновенно переместит вас на расстояние <font color='#ccff66'>380</font> юнитов в случайном направлении. Любой исходящий урон каждый раз умножается на случайное число от <font color='#ccff66'>0.5</font> до <font color='#ccff66'>2.5</font>. Дополнительно Базовый Урон Способности (W) @Ability2 умножается на случайное число от <font color='#ccff66'>0.1</font> до <font color='#ccff66'>6</font>. Модификаторы удачи влияют на шанс."
+		"item_property_trickster"					"Laughing Scoundrel"
+		"property_trickster_description"            "The wearer gains a permanent scoundrel companion who is invisible. Each cast of @Ability2 instantly moves you to a random position within the Scoundrel's range and disjoints incoming projectiles. Scoundrel's base range is <font color='#ccff66'>300</font>."
+
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai"	"Scoundrel AI"
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai_Description"	"Toggle to activate this minion's default behavior."
+
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown"	"Invisible Fade Time"
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown_Description"	"Going invisible at end of countdown if remaining idle"
+
+		"item_rpc_tricksters_mask_ruby1"	"Increases the Scoundrel's range by @ruby_property1"
+		"item_rpc_tricksters_mask_emerald1"	"While standing in the Scoundrel's range, gain @emerald_property1 agility"
+		"item_rpc_tricksters_mask_sapphire1" "Increases the Scoundrel's movespeed by @sapphire_property1"
+		"item_rpc_tricksters_mask_amethyst1" "Standing still in the Scoundrel's range for @amethyst_property1 seconds applies invisibility. Invisibility breaks from performing an action."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"

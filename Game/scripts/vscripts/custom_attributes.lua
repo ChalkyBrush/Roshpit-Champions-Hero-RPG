@@ -1859,6 +1859,9 @@ function CustomAttributes:SetAttributes(hero)
 		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
 		str_bonus = str_bonus + FLAMEWAKER_R3_STRENGTH * stacks
 	end
+	if hero:HasModifier("modifier_scoundrel_agility") then
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", TRICKSTER_EMERALD)
+	end
 	if hero:HasModifier("modifier_voltex_glyph_2_1_effect_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_voltex_glyph_2_1_effect_invisible", hero)
 		agi_bonus = agi_bonus + stacks

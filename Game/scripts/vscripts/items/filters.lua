@@ -1537,10 +1537,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 Filters:ApplyStun(attacker, DUSKBRINGER_IMMORTAL_WEAPON_2_W_STUN, victim)
             end
         end
-        if attacker:HasModifier("modifier_trickster_mask") then
-            local randomFactor = RandomInt(TRICKSTER_MASK_W_DMG_MULT_MIN * 10, TRICKSTER_MASK_W_DMG_MULT_MAX * 10) / 10
-            damage = damage * randomFactor
-        end
         if attacker:HasModifier("modifier_claws_of_the_ethereal_revenant") then
             if not ignore_effects then
                 local proc = Filters:GetProc(attacker, ETHEREAL_REVENANT_CHANCE)
@@ -2784,13 +2780,14 @@ function Filters:WitchHat(caster)
 end
 
 function Filters:TricksterMask(caster)
-    local casterOrigin = caster:GetAbsOrigin()
-    local randomPosition = casterOrigin + RandomVector(TRICKSTER_MASK_RANGE)
-    randomPosition = WallPhysics:WallSearch(casterOrigin, randomPosition, caster)
+    local trickster_mask = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local randomPosition = trickster_mask.trickster:GetAbsOrigin() + RandomVector(RandomInt(60, trickster_mask.trickster.radius))
+    randomPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), randomPosition, caster)
     FindClearSpaceForUnit(caster, randomPosition, false)
     caster:RemoveModifierByName("modifier_trickster_mask_effect")
     EmitSoundOn("RPCItem.TricksterMask", caster)
-    caster.tricksterItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_trickster_mask_effect", {duration = 0.5})
+    trickster_mask:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_trickster_mask_effect", {duration = 0.5})
+    ProjectileManager:ProjectileDodge(caster)
 end
 
 function Filters:SecretTemple(caster)

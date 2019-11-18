@@ -50502,7 +50502,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/tricksters_mask" //"tricksters_mask"
+		"AbilityTextureName"	"rpc/tricksters_mask2" //"tricksters_mask"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"
@@ -50518,6 +50518,8 @@
 		"precache"
 		{
 			"particle"  "particles/econ/events/ti5/blink_dagger_start_smoke_ti5.vpcf"
+			"particle"	"particles/roshpit/items/trickster_scoundrel_ring.vpcf"
+			"model"		"models/courier/huntling/huntling.vmdl"
 		}
 		"OnSpellStart"
 		{
@@ -50534,6 +50536,34 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"trickster_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"trickster_end"
+						"target"		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_scoundrel_agility"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_scoundrel_invis"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_trickster_mask_effect"
 			{
@@ -50557,22 +50587,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1 2 3 4 5"
+				"ruby1"				"60 120 180 240 300"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.01 0.02 0.03 0.04 0.05"
+				"emerald1"				"100 200 300 400 500"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"50 100 150 200 250"
+				"sapphire1"				"60 120 180 240 300"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"7 14 21 28 35"
+				"amethyst1"				"3.0 2.5 2.0 1.5 1.0"
 			}
 		}
 	}

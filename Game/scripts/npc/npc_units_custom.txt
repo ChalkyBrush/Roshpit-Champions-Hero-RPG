@@ -69155,7 +69155,7 @@
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/courier/huntling/huntling.vmdl"
-        "ModelScale"    "0.6"
+        "ModelScale"    "0.8"
         "Level" "1"
         "HealthBarOffset"   "170"
         "HasInventory"  "0"
@@ -69191,7 +69191,6 @@
         "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
-        "Ability1"              "ruby_dragon3_ability"
 
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
