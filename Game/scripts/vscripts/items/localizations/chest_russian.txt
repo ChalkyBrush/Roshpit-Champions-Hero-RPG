@@ -433,7 +433,7 @@
 		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Каждое очко Силы увеличивает урон на <% RUBY_DRAGON_SCALE_ATTACK_PER_STR %> и броню на <% RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
+		"property_ruby_dragon_armor_description"			"Каждое очко Силы увеличивает урон на <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %> и броню на <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
