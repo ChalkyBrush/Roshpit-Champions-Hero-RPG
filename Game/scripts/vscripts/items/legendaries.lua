@@ -5199,7 +5199,7 @@ function RPCItems:RollBlueDragonGreaves(item_level)
     return item
 end
 
-function RPCItems:RollSangeBoots(deathLocation)
+function RPCItems:RollSangeBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_sange_boots", "immortal", "Sange Boots", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
 

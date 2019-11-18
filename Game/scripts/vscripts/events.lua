@@ -455,9 +455,9 @@ function GameMode:OnPlayerChat(keys)
 	if string.match(text, "dbg") then
 		-- Serengaard:KillAllNeutrals()
 		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		local item = RPCItems:RollSangeBoots(position)
-		item = Gems:AddSocket(item)
-    	item = Gems:AddSocket(item)		-- RPCItems.DROP_LOCATION = vector
+		-- local item = RPCItems:RollAerithsTear(position)--RPCItems:RollSangeBoots(position)
+		-- item = Gems:AddSocket(item)
+  --   	item = Gems:AddSocket(item)		-- RPCItems.DROP_LOCATION = vector
 		-- RPCItems:CreateArcanaCache(85, "12345")
 		-- RPCItems:RollRavenIdol(position)
 		-- RPCItems:RollAxeArcana1(position)
