@@ -447,9 +447,9 @@
 		"item_rpc_sacred_trials_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_sacred_trials_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sacred_trials"						"战争的审判"
-		"property_sacred_trials_description"				"施放 @Ability2 时，使玩家拥有一个buff，下一次的普通攻击将造成 <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% 攻击力的魔法AOE伤害。"
+		"property_sacred_trials_description"				"施放 @Ability2 时，使玩家拥有一个buff，下一次的普通攻击将造成 <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% 攻击力的魔法AOE伤害。"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"战争的审判"
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"使你下次攻击造成 <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% 的魔法AOE伤害"
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"使你下次攻击造成 <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% 的魔法AOE伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"英勇征服者的法衣"
