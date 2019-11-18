@@ -462,7 +462,7 @@
 
 		"item_property_pivotal"					"轴心爆发"
 
-		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至<% PIVOT_BOOT_MAX_MS %>,并且获得 <% PIVOT_BOOT_MS %> 的移动速度加成，持续4秒。"
+		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS %>,并且获得 <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS %> 的移动速度加成，持续4秒。"
 
 
 

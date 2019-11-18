@@ -450,7 +450,7 @@
 		"item_rpc_pivotal_swiftboots_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_pivotal_swiftboots_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_pivotal"					"Juke"
-		"property_pivotal_description"			"Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed to <% PIVOT_BOOT_MAX_MS %>, and gain <% PIVOT_BOOT_MS %> movespeed that gradually decays over 4 seconds. This effect has no cooldown."
+		"property_pivotal_description"			"Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed to <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS %>, and gain <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS %> movespeed that gradually decays over 4 seconds. This effect has no cooldown."
 
 		"DOTA_Tooltip_modifier_pivotal_swift"	"Juke"
 		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap, with a decaying movespeed bonus"

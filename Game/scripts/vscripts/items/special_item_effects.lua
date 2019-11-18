@@ -6180,7 +6180,7 @@ function pivotal_swift_think(event)
 
 	if hero:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
 		local current_stacks = hero:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster)
-		local new_stacks = current_stacks - (PIVOT_BOOT_MS/(PIVOT_BURST_DURATION*10))
+		local new_stacks = current_stacks - (ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS/(ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION*10))
 		hero:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster, new_stacks)
 		print(current_stacks)
 	end

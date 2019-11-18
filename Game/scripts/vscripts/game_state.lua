@@ -714,8 +714,8 @@ function GameState:OrderFilter(orderTable)
 					print(angle_between)
 					if angle_between >= 160 and angle_between <= 200 then
 						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
-						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = PIVOT_BURST_DURATION})
-						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, PIVOT_BOOT_MS)
+						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION})
+						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS)
 						unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
 						EmitSoundOn("Items.PivotalSwift", unit)
 					end

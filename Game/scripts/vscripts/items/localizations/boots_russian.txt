@@ -451,7 +451,7 @@
 		"item_rpc_pivotal_swiftboots_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_pivotal_swiftboots_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_pivotal"					"Pivot Burst"
-		"property_pivotal_description"			"Угловая скорость поворота становится максимальной. Быстрый поворот на 180° дает увеличивает лимит скорости передвижения на <% PIVOT_BOOT_MAX_MS %>, а скорость передвижения на <% PIVOT_BOOT_MS %> , бонус уменьшается постепенно в течение 4 секунд."
+		"property_pivotal_description"			"Угловая скорость поворота становится максимальной. Быстрый поворот на 180° дает увеличивает лимит скорости передвижения на <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS %>, а скорость передвижения на <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS %> , бонус уменьшается постепенно в течение 4 секунд."
 
 		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
 		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Скорость передвижения и лимит скорости увеличены."
