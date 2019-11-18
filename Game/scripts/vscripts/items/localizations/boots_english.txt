@@ -184,7 +184,7 @@
     	"item_rpc_pathfinders_resonant_boots_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_pathfinders_resonant_boots_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_pathfinder"					"Purifying Resonance"
-		"property_pathfinder_description"			"After not taking damage for <% PATHFINDER_DElAY %> seconds, restore <% PATHFINDER_HP_RESTORE_PCT %>% of your max health and <% PATHFINDER_MANA_RESTORE_PCT %>% of your max mana every second."
+		"property_pathfinder_description"			"After not taking damage for <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DElAY %> seconds, restore <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT %>% of your max health and <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT %>% of your max mana every second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"							"Neptune's Water Gliders"

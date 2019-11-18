@@ -185,7 +185,7 @@
     	"item_rpc_pathfinders_resonant_boots_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_pathfinders_resonant_boots_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_pathfinder"					"Purifying Resonance"
-		"property_pathfinder_description"			"Если герой не получает урон <% PATHFINDER_DElAY %> секунд, предмет начинает восстанавливать <% PATHFINDER_HP_RESTORE_PCT %>% здоровья и <% PATHFINDER_MANA_RESTORE_PCT %>% маны каждую секунду."
+		"property_pathfinder_description"			"Если герой не получает урон <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DElAY %> секунд, предмет начинает восстанавливать <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT %>% здоровья и <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT %>% маны каждую секунду."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"							"Neptune's Water Gliders"

@@ -3083,7 +3083,7 @@
 					{
 						"ModifierName"	"modifier_pathfinder_resonant_cooldown"
 						"Target" 		"UNIT"
-						"Duration"		"<% PATHFINDER_DElAY %>"
+						"Duration"		"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DElAY %>"
 					}
 				}
 				"ThinkInterval"  "1.0"
@@ -3103,7 +3103,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Duration"			"<% PATHFINDER_DElAY %>"
+				"Duration"			"<% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DElAY %>"
 			}
 		}
 	}

@@ -2293,12 +2293,12 @@ function pathfinder_think(event)
 	local animation = false
 	if not target:HasModifier("modifier_pathfinder_resonant_cooldown") then
 		if target:GetHealth() < target:GetMaxHealth() then
-			local heal = math.ceil(target:GetMaxHealth() * PATHFINDER_HP_RESTORE_PCT/100)
+			local heal = math.ceil(target:GetMaxHealth() * ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT/100)
 			Filters:ApplyHeal(target, target, heal, true)
 			animation = true
 		end
 		if target:GetMana() < target:GetMaxMana() then
-			local manaRestore = math.ceil(target:GetMaxMana() * PATHFINDER_MANA_RESTORE_PCT/100)
+			local manaRestore = math.ceil(target:GetMaxMana() * ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT/100)
 			target:GiveMana(manaRestore)
 			Timers:CreateTimer(0.1, function()
 				PopupMana(target, manaRestore)
