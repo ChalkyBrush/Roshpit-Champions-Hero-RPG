@@ -474,7 +474,7 @@
 		"item_rpc_mystic_mana_wall_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_mystic_mana_wall_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mystic_mana_wall"						"魔法防御"
-		"property_mystic_mana_wall_description"				"所有魔法或纯粹的伤害减少<% MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>%，并且从魔法值减少而不是生命值。如果有足够的魔法值，每<% MYSTIC_MANA_WALL_MANA_TO_ARMOR %>点魔法值增加一点护甲。"
+		"property_mystic_mana_wall_description"				"所有魔法或纯粹的伤害减少<% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>%，并且从魔法值减少而不是生命值。如果有足够的魔法值，每<% ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR %>点魔法值增加一点护甲。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"硃砂色的梦幻长袍"

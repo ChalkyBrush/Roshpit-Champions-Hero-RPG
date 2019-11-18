@@ -480,7 +480,7 @@
 		"item_rpc_mystic_mana_wall_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_mystic_mana_wall_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mystic_mana_wall"						"Magic Block"
-		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <% MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>% and taken from mana instead of health, if there is enough mana. Every <% MYSTIC_MANA_WALL_MANA_TO_ARMOR %> current mana points adds <% MYSTIC_MANA_WALL_ARMOR_DIVISOR %> Armor."
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>% and taken from mana instead of health, if there is enough mana. Every <% ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR %> current mana points adds <% ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_DIVISOR %> Armor."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"

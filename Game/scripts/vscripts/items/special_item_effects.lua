@@ -3748,9 +3748,9 @@ function mana_wall_think(event)
 	local target = event.target
 	local ability = event.ability
 	local currentmana = target:GetMana()
-	if currentmana > MYSTIC_MANA_WALL_MANA_TO_ARMOR then
+	if currentmana > ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_mana_wall_armor", {})
-		target:SetModifierStackCount("modifier_mystic_mana_wall_armor", caster, currentmana * MYSTIC_MANA_WALL_ARMOR_DIVISOR / MYSTIC_MANA_WALL_MANA_TO_ARMOR)
+		target:SetModifierStackCount("modifier_mystic_mana_wall_armor", caster, currentmana * ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_DIVISOR / ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR)
 	else
 		target:RemoveModifierByName("modifier_mystic_mana_wall_armor")
 	end
