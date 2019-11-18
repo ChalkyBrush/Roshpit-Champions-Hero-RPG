@@ -406,7 +406,7 @@
 		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_gravelfoot"							"Gravelfoot"
-		"property_gravelfoot_description"					"Cleanse an enemy debuff every <% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %> seconds. When a debuff is cleansed, turn to frosty stone for <% GRAVELFOOT_SELF_SLOW_DURATION %> seconds, reducing movespeed by <% GRAVELFOOT_SELF_SLOW %> and damage taken by <% GRAVELFOOT_DMG_REDUCTION %>%."
+		"property_gravelfoot_description"					"Cleanse an enemy debuff every <% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %> seconds. When a debuff is cleansed, turn to frosty stone for <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION %> seconds, reducing movespeed by <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %> and damage taken by <% ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
 		

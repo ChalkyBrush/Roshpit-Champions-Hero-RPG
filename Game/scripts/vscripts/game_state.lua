@@ -1600,7 +1600,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_gravelfoot_buff") then
-		damage = damage * (100-GRAVELFOOT_DMG_REDUCTION)/100
+		damage = damage * (100-ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_crown_of_the_roknar_emperor") then
 		damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ROKNAR_AMETHYST))/100

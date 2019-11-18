@@ -407,7 +407,7 @@
 		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_gravelfoot"							"砾石之足"
-		"property_gravelfoot_description"					"每<% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %>秒净化一次敌人debuff效果。当debuff被净化时，自身变成霜冻石块形态<% GRAVELFOOT_SELF_SLOW_DURATION %>秒，移动速度减少<% GRAVELFOOT_SELF_SLOW %>，受到的伤害减少<% GRAVELFOOT_DMG_REDUCTION %>%。"
+		"property_gravelfoot_description"					"每<% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %>秒净化一次敌人debuff效果。当debuff被净化时，自身变成霜冻石块形态<% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION %>秒，移动速度减少<% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %>，受到的伤害减少<% ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION %>%。"
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"砾石之足"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"移速和受到的伤害降低"
 		

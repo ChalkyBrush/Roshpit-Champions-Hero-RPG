@@ -2338,7 +2338,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% GRAVELFOOT_DEBUFF_CLEANCE_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2357,7 +2357,7 @@
 				"StatusEffectPriority"  "120"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% GRAVELFOOT_SELF_SLOW %>"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %>"
 				}
 				"OnCreated"
 				{
