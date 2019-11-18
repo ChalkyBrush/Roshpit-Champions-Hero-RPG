@@ -216,7 +216,7 @@
 		"item_rpc_stormshield_cloak_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormshield"					"Storm Shield"
-		"property_stormshield_description"			"Reduces all Physical damage taken by <% STORMSHIELD_PHYS_REDUCTION * 100 %>%."
+		"property_stormshield_description"			"Reduces all Physical damage taken by <% ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION * 100 %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"

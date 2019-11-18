@@ -212,7 +212,7 @@
 		"item_rpc_stormshield_cloak_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormshield"					"风暴披风"
-		"property_stormshield_description"			"降低受到的所有物理伤害<% STORMSHIELD_PHYS_REDUCTION * 100 %>%。"
+		"property_stormshield_description"			"降低受到的所有物理伤害<% ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION * 100 %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"镀金魂甲"
