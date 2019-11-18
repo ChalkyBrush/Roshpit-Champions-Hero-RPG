@@ -101,7 +101,7 @@
 		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"@Ability2 restores <% SPELLSLINGER_MANA_RESTORE %>% of its mana cost on use and its Base Ability Damage is increased by <% SPELLSLINGER_BAD %>%."
+		"property_spellslinger_coat_description"	"@Ability2 restores <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% of its mana cost on use and its Base Ability Damage is increased by <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"

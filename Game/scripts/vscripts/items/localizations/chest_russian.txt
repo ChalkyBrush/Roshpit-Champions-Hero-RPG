@@ -101,7 +101,7 @@
 		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"(W) @Ability2 восстановит <% SPELLSLINGER_MANA_RESTORE %>% от затраченной маны и будет наносить на <% SPELLSLINGER_BAD %>% больше урона."
+		"property_spellslinger_coat_description"	"(W) @Ability2 восстановит <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% от затраченной маны и будет наносить на <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>% больше урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
