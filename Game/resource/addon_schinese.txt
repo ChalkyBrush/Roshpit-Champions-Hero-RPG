@@ -12671,7 +12671,7 @@
 		"item_property_enchanted_solar"				"耀斑"
 		"property_enchanted_solar_description"		"受到任何魔法或纯粹伤害提高玩家基础技能伤害和元素伤害 <font color='#ccff66'>400</font>% ，持续<font color='#ccff66'>15</font>秒。"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"耀斑"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高<% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %%"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高<font color='#ccff66'>400</font>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"海洋风暴披肩"
@@ -13926,9 +13926,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"水神的王冠"
 		 "item_property_water_deity"							"水神谴"
-		 "property_water_deity_description"						"被 @Ability4 击中的敌人受到额外<font color='#ccff66'>100</font>%的纯粹伤害并且减少<font color='#ccff66'>60</font>%的移动速度，持续<font color='#ccff66'>6</font>秒。秒。此装备不享受任何装备伤害加成。所有 <font color=\"#3894FF\">水</font> 元素伤害加成，上限设定为 <font color='#ccff66'>5000</font>%。该装备的符文有重铸上限，重铸上限为38/20（R3/R4）。"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"水神"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"降低移动速度"
+		"property_water_deity_description"						"@Ability4 deals additional <font color='#ccff66'>8</font>% <font color=\"#3894FF\">Water</font> damage and slows the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. Maximum of <font color='#ccff66'>7</font> triggers per second."
+		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
+		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
+
+		"item_rpc_water_deity_crown_ruby1"	"Increases <font color=\"#3894FF\">Water</font> elemental damage by @ruby_property1%"
+		"item_rpc_water_deity_crown_emerald1"	"The slow effect also reduces attack speed by @emerald_property1"
+		"item_rpc_water_deity_crown_sapphire1" "Increases Wrath of Water's damage by @sapphire_property1"
+		"item_rpc_water_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"火神的王冠"

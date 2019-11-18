@@ -7925,86 +7925,57 @@ function RPCItems:RollSpellfireGloves(deathLocation, spiritRealm)
     return item
 end
 
-function RPCItems:RollWindDeityCrown(deathLocation, isSpirit, paragonBonus)
+function RPCItems:RollWindDeityCrown(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
     local item = RPCItems:CreateVariant("item_rpc_wind_deity_crown", "immortal", "Wind Deity Crown", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "wind_deity"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wind_deity", "#92E8A6", 1, "#property_wind_deity_description")
 
-    item.newItemTable.hasRunePoints = true
-    if not paragonBonus then
-        paragonBonus = 0
-    end
-    local runeName = "rune_e_3"
-    local runeValue = 0
-    if isSpirit then
-        runeValue = RPCItems:GetLogarithmicVarianceValue(45 + (paragonBonus * 2), 0, 0, 0, 0)
-    else
-        runeValue = RPCItems:GetLogarithmicVarianceValue(25 + (paragonBonus * 2), 0, 0, 0, 0)
-    end
-    local luck = RandomInt(1, 3)
-    if luck == 3 then
-        runeName = "rune_e_4"
-        if isSpirit then
-            runeValue = RPCItems:GetLogarithmicVarianceValue(20 + paragonBonus, 0, 0, 0, 0)
-        else
-            runeValue = RPCItems:GetLogarithmicVarianceValue(13 + paragonBonus, 0, 0, 0, 0)
-        end
-    end
-    item.newItemTable.property2name = runeName
-    item.newItemTable.property2 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    local rune_type = RPCItems:RollRuneType({"e"}, {tier3 = 80, tier4 = 20})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
-    local luck = RandomInt(1, 3)
+    local luck = RandomInt(1, 4)
     if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_WIND, 3, 1, 35, 3)
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "element_wind", 1.5)
     else
-        RPCItems:RollHoodProperty3(item, 0)
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     end
-    RPCItems:RollHoodProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 
-function RPCItems:RollWaterDeityCrown(deathLocation, isSpirit, paragonBonus)
+function RPCItems:RollWaterDeityCrown(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
     local item = RPCItems:CreateVariant("item_rpc_water_deity_crown", "immortal", "Water Deity Crown", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "water_deity"
+    item.newItemTable.property1name = "!immortal!_modifier_water_deity_crown"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_water_deity", "#5D9AF0", 1, "#property_water_deity_description")
 
-    item.newItemTable.hasRunePoints = true
-    if not paragonBonus then
-        paragonBonus = 0
-    end
-    local runeName = "rune_r_3"
-    local runeValue = 0
-    if isSpirit then
-        runeValue = RPCItems:GetLogarithmicVarianceValue(45 + (paragonBonus * 2), 0, 0, 0, 0)
-    else
-        runeValue = RPCItems:GetLogarithmicVarianceValue(25 + (paragonBonus * 2), 0, 0, 0, 0)
-    end
-    local luck = RandomInt(1, 3)
-    if luck == 3 then
-        runeName = "rune_r_4"
-        if isSpirit then
-            runeValue = RPCItems:GetLogarithmicVarianceValue(20 + paragonBonus, 0, 0, 0, 0)
-        else
-            runeValue = RPCItems:GetLogarithmicVarianceValue(13 + paragonBonus, 0, 0, 0, 0)
-        end
-    end
-    item.newItemTable.property2name = runeName
-    item.newItemTable.property2 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+    local rune_type = RPCItems:RollRuneType({"r"}, {tier3 = 80, tier4 = 20})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
-    RPCItems:RollHoodProperty3(item, 0)
-    RPCItems:RollHoodProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "element_water", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 

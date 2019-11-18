@@ -336,9 +336,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"水神的王冠"
 		 "item_property_water_deity"							"水神谴"
-		 "property_water_deity_description"						"被 @Ability4 击中的敌人受到额外<% WATER_DEITY_CROWN_DAMAGE_AMP %>%的纯粹伤害并且减少<% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>%的移动速度，持续<% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %>秒。秒。此装备不享受任何装备伤害加成。所有 <font color=\"#3894FF\">水</font> 元素伤害加成，上限设定为 <% WATER_DEITY_CROWN_ELEMENT_CAP %>%。该装备的符文有重铸上限，重铸上限为38/20（R3/R4）。"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"水神"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"降低移动速度"
+		"property_water_deity_description"						"@Ability4 deals additional <% WATER_DEITY_CROWN_DAMAGE_AMP %>% <font color=\"#3894FF\">Water</font> damage and slows the enemy's movement speed by <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% for <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> seconds. Maximum of <% WATER_DEITY_CROWN_MAX_PROCS_PER_SECOND %> triggers per second."
+		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
+		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
+
+		"item_rpc_water_deity_crown_ruby1"	"Increases <font color=\"#3894FF\">Water</font> elemental damage by @ruby_property1%"
+		"item_rpc_water_deity_crown_emerald1"	"The slow effect also reduces attack speed by @emerald_property1"
+		"item_rpc_water_deity_crown_sapphire1" "Increases Wrath of Water's damage by @sapphire_property1"
+		"item_rpc_water_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"火神的王冠"

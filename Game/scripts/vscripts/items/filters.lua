@@ -1238,6 +1238,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_odin_helmet") and (Util.BaseType:IsAbilityBaseType(slot) or slot == BASE_ITEM) then
             Filters:OdinHelm(attacker, victim, damage)
         end
+        if attacker:HasModifier("modifier_water_deity_crown") and slot == BASE_ABILITY_R then
+            Filters:WaterDeity(attacker, victim, damage)
+        end
     end
 
     local damageData = attacker._damage_data or {}
@@ -1479,9 +1482,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + 0.2 * current_stack
         end
         damage = damage * (1 + damageMult)
-        if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
-            damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
-        end
         if not ignore_effects then
             Filters:ApplyQdamage(victim, attacker, damage, damage_type)
         end
@@ -1561,9 +1561,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         damage = damage * (1 + damageMult)
-        if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
-            damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
-        end
         if not ignore_effects then
             Filters:ApplyWdamage(victim, attacker, damage, damage_type)
         end
@@ -1628,31 +1625,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
 
         damage = damage * (1 + damageMult)
-        if attacker:HasModifier('modifier_chernobog_glyph_5_1') then
-            damage = damage * CHERNOBOG_T51_BAD_MULT_EXCEPT_E
-        end
+
         if not ignore_effects then
-            local indirectProcR = false
-            if attacker:HasModifier("modifier_water_deity_crown") then
-                indirectProcR = true
-                if not attacker.headItem.waterParticleCount then
-                    attacker.headItem.waterParticleCount = 0
-                end
-                if attacker.headItem.waterParticleCount <= 9 then
-                    CustomAbilities:QuickAttachParticle("particles/roshpit/water_deity.vpcf", victim, 3)
-                    attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount + 1
-                    Timers:CreateTimer(1, function()
-                        attacker.headItem.waterParticleCount = attacker.headItem.waterParticleCount - 1
-                    end)
-                end
-                Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage*WATER_DEITY_CROWN_DAMAGE_AMP/100, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-                attacker.headItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_crown_slow", {duration = WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION})
-            end
-            if not indirectProcR then
-                Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-            else
-                damageData.isAugmented = true
-            end
+            Filters:ApplyRdamage(victim, attacker, damage, damage_type)
         end
     end
     if not ignore_effects then
@@ -2422,9 +2397,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             waterMult = waterMult + multIncrease
         end
         waterMult = waterMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_water", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_water", 1))/100
-        if waterMult > WATER_DEITY_CROWN_ELEMENT_CAP/100 and attacker:HasModifier("modifier_water_deity_crown") then
-            waterMult = WATER_DEITY_CROWN_ELEMENT_CAP/100
-        end
 
         mult = mult + waterMult
     end
@@ -4026,6 +3998,21 @@ function Filters:FireDeity(attacker, victim, damage)
         end)
         return true
     end
+end
+
+function Filters:WaterDeity(attacker, victim, damage)
+    local procs_per_second = WATER_DEITY_CROWN_MAX_PROCS_PER_SECOND + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", WATER_DEITY_AMETHYST)
+    local limitKey = attacker:GetPlayerOwnerID() .. '_water_deity'
+    Util.Common:LimitPerTime(procs_per_second, 1, limitKey, function()
+        CustomAbilities:QuickAttachParticle("particles/roshpit/water_deity.vpcf", victim, 3)
+        local water_deity_damage = damage*WATER_DEITY_CROWN_DAMAGE_AMP/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", WATER_DEITY_SAPPHIRE)
+        Filters:ApplyItemDamage(victim, attacker, water_deity_damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+        attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_crown_slow", {duration = WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION})  
+        if attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+            attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_as_loss", {duration = WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION})
+            victim:SetModifierStackCount("modifier_water_deity_as_loss", attacker.InventoryUnit, attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", WATER_DEITY_EMERALD))
+        end
+    end) 
 end
 
 function Filters:ShipyardVeilQHit(attacker, victim)

@@ -12188,7 +12188,7 @@
 		"item_property_ablecore_greaves"					"Slugfoot"
 		"property_ablecore_greaves_description"			"While movespeed is less than or equal to <font color='#ccff66'>300</font>, incoming damage is reduced by <font color='#ccff66'>80</font>% and outgoing Post-Mitigation damage is increased by <font color='#ccff66'>600</font>%. The buff sticks for <font color='#ccff66'>6</font> seconds if your movespeed moves back above <font color='#ccff66'>300</font>."
 		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by %< ABLECORE_GREAVES_DMG_RED %>%% and outgoing damage increased by <font color='#ccff66'>600</font>%%"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by <font color='#ccff66'>80</font>%% and outgoing damage increased by <font color='#ccff66'>600</font>%%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
@@ -14181,7 +14181,19 @@
 		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "Increases Mana Regen by @sapphire_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "Increases [W] damage by an additional @amethyst_property1, and increases mana cost by an additional @amethyst_property2"
 
-	 
+
+    	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
+		"item_property_water_deity"							"Wrath of Water"
+		"property_water_deity_description"						"@Ability4 deals additional <font color='#ccff66'>8</font>% <font color=\"#3894FF\">Water</font> damage and slows the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. Maximum of <font color='#ccff66'>7</font> triggers per second."
+		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
+		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
+
+		"item_rpc_water_deity_crown_ruby1"	"Increases <font color=\"#3894FF\">Water</font> elemental damage by @ruby_property1%"
+		"item_rpc_water_deity_crown_emerald1"	"The slow effect also reduces attack speed by @emerald_property1"
+		"item_rpc_water_deity_crown_sapphire1" "Increases Wrath of Water's damage by @sapphire_property1"
+		"item_rpc_water_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
+
+
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
 		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based <font color='#ccff66'>4</font>x your Intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by <font color='#ccff66'>0.1</font>% for each <font color='#ccff66'>10</font> points of Intelligence."
@@ -14223,11 +14235,7 @@
 		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
-		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> All @Ability4 damage instances are now converted into divine cascades instead, dealing <font color='#ccff66'>100</font>% of the ability's damage and slowing the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. This item caps your <font color=\"#3894FF\">Water</font> elemental damage bonus at <font color='#ccff66'>5000</font>%."
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
+
 		
 		
 		

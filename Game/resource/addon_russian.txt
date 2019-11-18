@@ -12491,7 +12491,7 @@
 		"item_rpc_hermits_spike_shell_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_hermits_spike_shell_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_hermit_spike_shell"			"Quill Spray"
-		"property_hermit_spike_shell_description"	"При получении урона, отнимающего от 15% от макс. здоровья, вокруг героя происходит выброс шипов. Каждый залп шипов наносит физический урон, равный 30x от полученного урона."
+		"property_hermit_spike_shell_description"	"При получении урона, отнимающего от <font color='#ccff66'>15</font>% от макс. здоровья, вокруг героя происходит выброс шипов. Каждый залп шипов наносит физический урон, равный <font color='#ccff66'>30</font>x от полученного урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
@@ -12613,7 +12613,7 @@
 		"item_rpc_depth_crest_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_depth_crest_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"При получении урона, с @special_property1% шансом все ближайшие враги будут оглушены на @special_property5 сек. и получат урон, равный сумме @special_property2х Силы и @special_property3х брони героя.<br>Пока враги оглушены, весь урон, который они получат от предметов увеличен на @special_property4% за каждые 10 чков Силы.<br>(Это усиление применяется в конце всех вычислений)"
+		 "property_depth_crest_description"					"При получении урона, с <font color='#ccff66'>30</font>% шансом все ближайшие враги будут оглушены на <font color='#ccff66'>0.1</font> сек. и получат урон, равный сумме <font color='#ccff66'>120</font>х Силы и <font color='#ccff66'>8000</font>х брони героя.<br>Пока враги оглушены, весь урон, который они получат от предметов увеличен на <font color='#ccff66'>0.4</font>% за каждые 10 чков Силы.<br>(Это усиление применяется в конце всех вычислений)"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
@@ -12790,7 +12790,7 @@
 		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Во время прочтения (R) @Ability4 герой исцеляется на @special_property1% от макс. здоровья каждые 0.15 секунды. С каждым тиком герой получает заряды щита, способного полностью поглотить любой урон. Накопленные заряды исчезают по одному каждую секунду."
+		"property_light_seer_Description"									"Во время прочтения (R) @Ability4 герой исцеляется на <font color='#ccff66'>20</font>% от макс. здоровья каждые <font color='#ccff66'>0.15</font> секунды. С каждым тиком герой получает заряды щита, способного полностью поглотить любой урон. Накопленные заряды исчезают по одному каждую секунду."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Каждый заряд полностью поглощает любой входящий урон"
 		
@@ -13754,9 +13754,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит <font color='#ccff66'>100</font>% от урона способности и замедляет задетых врагов на <font color='#ccff66'>60</font>% на <font color='#ccff66'>6</font> секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на <font color='#ccff66'>5000</font>%."
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"60%% замедление, 100%% дополнительного чистого урона"
+		"property_water_deity_description"						"@Ability4 deals additional <font color='#ccff66'>8</font>% <font color=\"#3894FF\">Water</font> damage and slows the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. Maximum of <font color='#ccff66'>7</font> triggers per second."
+		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
+		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
+
+		"item_rpc_water_deity_crown_ruby1"	"Increases <font color=\"#3894FF\">Water</font> elemental damage by @ruby_property1%"
+		"item_rpc_water_deity_crown_emerald1"	"The slow effect also reduces attack speed by @emerald_property1"
+		"item_rpc_water_deity_crown_sapphire1" "Increases Wrath of Water's damage by @sapphire_property1"
+		"item_rpc_water_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
