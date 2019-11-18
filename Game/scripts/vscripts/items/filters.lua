@@ -1431,7 +1431,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_body_violet_guard") then
             damageMult = damageMult + 3
         elseif attacker:HasModifier("modifier_body_violet_guard2") then
-            damageMult = damageMult + VIOLET_GUARD_ARMOR_BAD/100
+            damageMult = damageMult + ITEM_RPC_ARMOR_OF_VIOLET_GUARD_BAD/100
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + OUTLAND_STONE_BAD/100
@@ -4205,21 +4205,21 @@ function Filters:PhoenixEmblem(victim)
 end
 
 function Filters:VioletGuard2Hit(victim, attacker, damage)
-    attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = VIOLET_GUARD_ARMOR_DURATION})
+    attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DURATION})
     local oldModifier = victim:FindModifierByName("modifier_violet_guard_armor_loss_invisible")
     local armorLoss = 0
     if oldModifier then
         local oldModifierStacks = oldModifier:GetStackCount()
     end
     if oldModifierStacks then
-        armorLoss = math.min(math.ceil(damage * VIOLET_GUARD_ARMOR_DAMAGE_TO_ARMOR_REDUCTION), victim:GetPhysicalArmorValue(false) + oldModifierStacks)
+        armorLoss = math.min(math.ceil(damage * ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DAMAGE_TO_ARMOR_REDUCTION), victim:GetPhysicalArmorValue(false) + oldModifierStacks)
         armorLoss = math.max(1, armorLoss)
         armorLoss = math.max(armorLoss, oldModifierStacks)
     else
-        armorLoss = math.min(math.ceil(damage * VIOLET_GUARD_ARMOR_DAMAGE_TO_ARMOR_REDUCTION), victim:GetPhysicalArmorValue(false))
+        armorLoss = math.min(math.ceil(damage * ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DAMAGE_TO_ARMOR_REDUCTION), victim:GetPhysicalArmorValue(false))
         armorLoss = math.max(1, armorLoss)
     end
-    attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_invisible", {duration = VIOLET_GUARD_ARMOR_DURATION})
+    attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_invisible", {duration = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DURATION})
     victim:SetModifierStackCount("modifier_violet_guard_armor_loss_invisible", attacker.InventoryUnit, armorLoss)
 end
 

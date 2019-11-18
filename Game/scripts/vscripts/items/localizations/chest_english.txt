@@ -57,7 +57,7 @@
 		"item_rpc_armor_of_violet_guard_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_armor_of_violet_guard_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Increases Base Ability Damage of @Ability1 by <% VIOLET_GUARD_ARMOR_BAD %>%. <% VIOLET_GUARD_ARMOR_DAMAGE_TO_ARMOR_REDUCTION * 100 %>% of the damage it deals reduces each target's Armor by 1 for <% VIOLET_GUARD_ARMOR_DURATION %> seconds. This cannot reduce a target's Armor below 0."
+		"property_violet_guard_armor_description2"	"Increases Base Ability Damage of @Ability1 by <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_BAD %>%. <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DAMAGE_TO_ARMOR_REDUCTION * 100 %>% of the damage it deals reduces each target's Armor by 1 for <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DURATION %> seconds. This cannot reduce a target's Armor below 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
 		

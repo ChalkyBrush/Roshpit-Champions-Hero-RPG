@@ -55,7 +55,7 @@
 		"item_rpc_armor_of_violet_guard_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_armor_of_violet_guard_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_violet_guard_armor2"			"紫罗兰征服者"
-		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害<% VIOLET_GUARD_ARMOR_BAD %>%。每<% VIOLET_GUARD_ARMOR_DAMAGE_TO_ARMOR_REDUCTION * 100 %>%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续<% VIOLET_GUARD_ARMOR_DURATION %>秒。不能将敌人的护甲值降低至0点以下。"
+		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害<% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_BAD %>%。每<% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DAMAGE_TO_ARMOR_REDUCTION * 100 %>%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续<% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DURATION %>秒。不能将敌人的护甲值降低至0点以下。"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"紫罗兰征服"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"护甲值降低"
 		
