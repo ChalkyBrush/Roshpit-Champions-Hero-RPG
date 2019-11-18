@@ -377,7 +377,7 @@
 		"item_rpc_terrasic_stone_plate_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_terrasic_stone_plate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_terrasic_stone"						"Magma Break"
-		 "property_terrasic_stone_description"				"Post-Mitigation damage is increased by <% TERRASIC_STONE_PLATE_POST_MITI %>% against stunned targets."
+		 "property_terrasic_stone_description"				"Post-Mitigation damage is increased by <% ITEM_RPC_TERRASIC_STONE_PLATE_POST_MITI %>% against stunned targets."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"

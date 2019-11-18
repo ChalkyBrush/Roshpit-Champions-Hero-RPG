@@ -2236,7 +2236,7 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_terrasic_stone_plate") then
 		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + TERRASIC_STONE_PLATE_POST_MITI/100
+			mult = mult + ITEM_RPC_TERRASIC_STONE_PLATE_POST_MITI/100
 		end
 	end
 
