@@ -2122,7 +2122,7 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + POWER_RANGER_PHYS_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_golden_war_plate") then
-			mult = mult + GOLDEN_WARPLATE_PHYS_POST_MITI_AMP/100
+			mult = mult + ITEM_RPC_GOLDEN_WAR_PLATE_PHYS_POST_MITI_AMP/100
 		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
@@ -2468,7 +2468,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if attacker:HasModifier("modifier_golden_war_plate") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * (100-GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION)/100
+			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_GOLDEN_WAR_PLATE_MAGIC_OUTPUT_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then

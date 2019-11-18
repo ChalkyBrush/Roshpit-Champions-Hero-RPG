@@ -397,7 +397,7 @@
 		"item_rpc_golden_war_plate_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_golden_war_plate_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_gold_war_plate"						"Heroic Valor"
-		"property_gold_war_plate_description"				"Increases Post-Mitigation Physical damage output by <% GOLDEN_WARPLATE_PHYS_POST_MITI_AMP %>%. Magical damage output reduced by <% GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION %>%."
+		"property_gold_war_plate_description"				"Increases Post-Mitigation Physical damage output by <% ITEM_RPC_GOLDEN_WAR_PLATE_PHYS_POST_MITI_AMP %>%. Magical damage output reduced by <% ITEM_RPC_GOLDEN_WAR_PLATE_MAGIC_OUTPUT_REDUCTION %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
