@@ -46,7 +46,7 @@
 		"item_rpc_avalanche_plate_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_avalanche_plate_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_avalanche_2"					"山裂"
-		"property_avalanche_description_2"			"释放 @Ability4 技能后将在<% AVALANCHE_PLATE_AVALANCHE_RADIUS %>码范围内引发一场地震，每<% AVALANCHE_PLATE_AVALANCHE_INTERVAL %>秒造成 <% AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x 力量的伤害并晕眩敌人<% AVALANCHE_PLATE_STUN_DUR %>秒。当每个敌人被击中<% AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD %>次时，将在<% AVALANCHE_PLATE_EARTHQUAKE_RADIUS %>码范围内引发一场更大的地震，<br>造成 <% AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG %>x 力量的伤害并且眩晕敌人<% AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR %>秒。<br>每<% AVALANCHE_PLATE_STR_DIVISOR %>点力量提高装备伤害 <% AVALANCHE_PLATE_ITEM_AMP_PER_STR %>%。该装备无法重铸。"
+		"property_avalanche_description_2"			"释放 @Ability4 技能后将在<% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS %>码范围内引发一场地震，每<% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_INTERVAL %>秒造成 <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x 力量的伤害并晕眩敌人<% ITEM_RPC_AVALANCHE_PLATE_STUN_DUR %>秒。当每个敌人被击中<% ITEM_RPC_AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD %>次时，将在<% ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_RADIUS %>码范围内引发一场更大的地震，<br>造成 <% ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG %>x 力量的伤害并且眩晕敌人<% ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR %>秒。<br>每<% ITEM_RPC_AVALANCHE_PLATE_STR_DIVISOR %>点力量提高装备伤害 <% ITEM_RPC_AVALANCHE_PLATE_ITEM_AMP_PER_STR %>%。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"紫罗兰卫士之甲"

@@ -172,7 +172,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / MOUNTAIN_VAMBRACES_STR_DIVISOR)
     end
     if caster:HasModifier("modifier_body_avalanche") then
-        mult = mult + AVALANCHE_PLATE_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / AVALANCHE_PLATE_STR_DIVISOR)
+        mult = mult + ITEM_RPC_AVALANCHE_PLATE_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / ITEM_RPC_AVALANCHE_PLATE_STR_DIVISOR)
     end
 
     if caster:HasModifier("modifier_autumnrock_bracer") then
