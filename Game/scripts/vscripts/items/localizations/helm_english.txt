@@ -614,6 +614,15 @@
 		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss"	"Death Strike"
 		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss_Description"	"Reduced Magic Armor"
 
+    	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
+		"item_property_cerulean_highguard"			"Concentrated Mana"
+		"property_cerulean_highguard_description"	"@Ability2 costs <% CERULEAN_HIGHGUARD_MANA_INCREASE %>% more mana and deals <% CERULEAN_HIGHGUARD_BAD %>% increased damage."
+
+		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"Increases Max Mana by @ruby_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"Increases Spell Pierce by @emerald_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "Increases Mana Regen by @sapphire_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "Increases [W] damage by an additional @amethyst_property1, and increases mana cost by an additional @amethyst_property2"
+
 	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -621,14 +630,6 @@
 		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
 		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
 		
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
-		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"@Ability2 costs <% CERULEAN_HIGHGUARD_MANA_INCREASE %>% more mana and deals <% CERULEAN_HIGHGUARD_BAD %>% increased damage."
-		
-
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"

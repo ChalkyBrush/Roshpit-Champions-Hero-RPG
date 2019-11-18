@@ -13743,7 +13743,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
 		"item_property_cerulean_highguard"			"浓缩魔力"
-		"property_cerulean_highguard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>400</font>%，其基础技能伤害提高 <font color='#ccff66'>2000</font>%。"
+		"property_cerulean_highguard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>300</font>%，其基础技能伤害提高 <font color='#ccff66'>180</font>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"

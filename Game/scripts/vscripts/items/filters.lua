@@ -1516,7 +1516,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
         end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
-            damageMult = damageMult + CERULEAN_HIGHGUARD_BAD/100
+            local bad = CERULEAN_HIGHGUARD_BAD + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CERULEAN_HIGHGUARD_AMETHYST1)
+            damageMult = damageMult + bad/100
         end
 		if attacker:HasModifier("modifier_zonik_immortal_weapon_1") then
 			damageMult = damageMult + ZHONIK_IMMORTAL_WEAPON_1_W_BAD/100
@@ -3045,7 +3046,8 @@ end
 function Filters:CeruleanHighguard(caster)
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     local manaCost = ability:GetManaCost(-1)
-    caster:ReduceMana(manaCost * CERULEAN_HIGHGUARD_MANA_INCREASE/100)
+    local finalManaCost = manaCost * (CERULEAN_HIGHGUARD_MANA_INCREASE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CERULEAN_HIGHGUARD_AMETHYST2))/100
+    caster:ReduceMana(finalManaCost)
 end
 
 function Filters:AscensionTrigger(caster)

@@ -453,6 +453,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", TWISTED_BLUE_AHNQHIR_AMETHYST, hero, "rune_e_4", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_veil_of_the_cerulean_high_guard" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", CERULEAN_HIGHGUARD_RUBY, hero, "max_mana", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", CERULEAN_HIGHGUARD_EMERALD, hero, "spell_pierce", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", CERULEAN_HIGHGUARD_SAPPHIRE, hero, "mana_regen", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

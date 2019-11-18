@@ -13571,7 +13571,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
 		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"Стоимость маны для (W) @Ability2 выше на <font color='#ccff66'>400</font>%, при этом способность нанесёт на <font color='#ccff66'>2000</font>% больше урона."
+		"property_cerulean_highguard_description"	"Стоимость маны для (W) @Ability2 выше на <font color='#ccff66'>300</font>%, при этом способность нанесёт на <font color='#ccff66'>180</font>% больше урона."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
