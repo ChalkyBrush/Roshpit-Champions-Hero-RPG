@@ -183,7 +183,7 @@
 		"item_rpc_legion_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_legion_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Increases All Attributes by <% LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%."
+		"property_legion_vestments_description"		"Increases All Attributes by <% ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"

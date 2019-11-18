@@ -831,9 +831,9 @@ function legion_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local intStacks = math.floor(target:GetBaseIntellect() * LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
-	local agiStacks = math.floor(target:GetBaseAgility() * LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
-	local strStacks = math.floor(target:GetBaseStrength() * LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
+	local intStacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
+	local agiStacks = math.floor(target:GetBaseAgility() * ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
+	local strStacks = math.floor(target:GetBaseStrength() * ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
 	if not target:HasModifier("modifier_legion_vestments_effect_str") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_str", {})
 	end
