@@ -2031,16 +2031,16 @@ function arcanys_slipper_think(event)
 	local particleName = "particles/econ/courier/courier_dolfrat_and_roshinante/arcanys_poof.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-	Timers:CreateTimer(ARCANYS_SLIPPER_EXPLOSIONS_DURATION, function()
+	Timers:CreateTimer(ITEM_RPC_ARCANYS_SLIPPER_EXPLOSIONS_DURATION, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	local manaDrain = target:GetMaxMana() * ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT/100
+	local manaDrain = target:GetMaxMana() * ITEM_RPC_ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT/100
 	if target:GetMana() <= manaDrain then
 		manaDrain = target:GetMana()
 	end
-	local damageIncrease = manaDrain * ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN
+	local damageIncrease = manaDrain * ITEM_RPC_ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN
 	target:ReduceMana(manaDrain)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = ARCANYS_SLIPPER_BUFF_DURATION})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = ITEM_RPC_ARCANYS_SLIPPER_BUFF_DURATION})
 	local currentStacks = target:GetModifierStackCount("modifier_arcanys_slipper_buff", caster)
 	target:SetModifierStackCount("modifier_arcanys_slipper_buff", caster, damageIncrease + currentStacks)
 	EmitSoundOn("Item.ArcanysSlipper", target)

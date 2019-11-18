@@ -149,7 +149,7 @@
     	"item_rpc_arcanys_slipper_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_arcanys_slipper_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arcanys_slipper"				"奥术冲击"
-		"property_arcanys_slipper_description"		"施放 @Ability3 后，在<% ARCANYS_SLIPPER_EXPLOSIONS_DURATION %>秒内释放<% ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>股奥术能量。每股能量汲取你 <% ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT %>% 的最大魔法值，并提高 <% ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN %>x 倍所汲取魔法值的基础攻击力。"
+		"property_arcanys_slipper_description"		"施放 @Ability3 后，在<% ITEM_RPC_ARCANYS_SLIPPER_EXPLOSIONS_DURATION %>秒内释放<% ITEM_RPC_ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>股奥术能量。每股能量汲取你 <% ITEM_RPC_ARCANYS_SLIPPER_MANA_DRAIN_PER_EXPLOSION_PCT %>% 的最大魔法值，并提高 <% ITEM_RPC_ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN %>x 倍所汲取魔法值的基础攻击力。"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"奥术冲击"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"攻击力提高"
 		
