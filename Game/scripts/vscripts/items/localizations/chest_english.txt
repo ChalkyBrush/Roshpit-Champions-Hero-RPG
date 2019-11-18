@@ -469,9 +469,9 @@
 		"item_rpc_guard_of_feronia_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_guard_of_feronia_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Applies a Shield for <% GUARD_OF_FERONIA_SHIELD_DURATION_E %> seconds when casting @Ability3, or <% GUARD_OF_FERONIA_SHIELD_DURATION_R %> seconds when casting @Ability4, that reduces all damage taken by <% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
+		"property_guard_of_feronia_description"				"Applies a Shield for <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %> seconds when casting @Ability3, or <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %> seconds when casting @Ability4, that reduces all damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"

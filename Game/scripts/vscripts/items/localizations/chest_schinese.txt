@@ -465,7 +465,7 @@
 		"item_rpc_guard_of_feronia_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_guard_of_feronia_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_guard_of_feronia"						"黎明之盾"
-		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续<% GUARD_OF_FERONIA_SHIELD_DURATION_E %>秒的护盾，施放 @Ability4 创造一个持续<% GUARD_OF_FERONIA_SHIELD_DURATION_R %>秒的护盾，拥有护盾时<% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>伤害减免。"
+		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续<% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %>秒的护盾，施放 @Ability4 创造一个持续<% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %>秒的护盾，拥有护盾时<% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>伤害减免。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"神秘的魔法墙"
