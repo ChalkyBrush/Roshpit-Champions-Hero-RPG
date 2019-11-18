@@ -1746,32 +1746,64 @@ function undertaker_attack(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local target = event.target
-	ability.caster = attacker
-	local info =
-	{
-		Target = target,
-		Source = attacker,
-		Ability = ability,
-		EffectName = "particles/econ/items/necrolyte/necrophos_sullen/necro_sullen_pulse_enemy.vpcf",
-		StartPosition = "attach_attack1",
-		bDrawsOnMinimap = false,
-		bDodgeable = true,
-		bIsAttack = false,
-		bVisibleToEnemies = true,
-		bReplaceExisting = false,
-		flExpireTime = GameRules:GetGameTime() + 10,
-		bProvidesVision = true,
-		iVisionRadius = 100,
-		iMoveSpeed = 400,
-	iVisionTeamNumber = attacker:GetTeamNumber()}
-	projectile = ProjectileManager:CreateTrackingProjectile(info)
+	local caster = event.caster
+	if not attacker:HasModifier("modifier_undertaker_lock") then
+		local loops = 1
+		local proc = Filters:GetProc(attacker, ability:GetFinalGemPropertyValue("amethyst", UNDERTAKER_AMETHYST))
+		if proc then
+			loops = 2
+		end
+		ability.caster = attacker
+		for i = 1, loops, 1 do
+			Timers:CreateTimer((i-1)*0.15, function()
+				local travel_speed = UNDERTAKER_HAND_BASE_SPEED + ability:GetFinalGemPropertyValue("emerald", UNDERTAKER_EMERALD)
+				local info =
+				{
+					Target = target,
+					Source = attacker,
+					Ability = ability,
+					EffectName = "particles/econ/items/necrolyte/necrophos_sullen/necro_sullen_pulse_enemy.vpcf",
+					StartPosition = "attach_attack1",
+					bDrawsOnMinimap = false,
+					bDodgeable = true,
+					bIsAttack = false,
+					bVisibleToEnemies = true,
+					bReplaceExisting = false,
+					flExpireTime = GameRules:GetGameTime() + 10,
+					bProvidesVision = true,
+					iVisionRadius = 100,
+					iMoveSpeed = travel_speed,
+				iVisionTeamNumber = attacker:GetTeamNumber()}
+				projectile = ProjectileManager:CreateTrackingProjectile(info)
+				ability:ApplyDataDrivenModifier(caster, attacker, "modifier_undertaker_lock", {duration = 0.15})
+			end)
+		end
+	end
+end
+
+function undertaker_think(event)
+	local ability = event.ability
+	local target = event.target
+	local caster = event.caster
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_undertaker_as", {})
+		local as_bonus = ability:GetFinalGemPropertyValue("ruby", UNDERTAKER_RUBY)*target:GetIntellect()
+		target:SetModifierStackCount("modifier_undertaker_as", caster, as_bonus)
+	end
 end
 
 function undertaker_projectile_strike(event)
 	local target = event.target
 	local caster = event.ability.caster
-	local damage = caster:GetIntellect() * 30
+	local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+	local damage = caster:GetIntellect() * UNDERTAKER_DAMAGE_INT_MULT
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_GHOST)
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_undertaker_magic_armor_loss", {duration = UNDERTAKER_SAPPHIRE_DURATION})
+		local new_stacks = math.min(target:GetModifierStackCount("modifier_undertaker_magic_armor_loss", caster) + 1, UNDERTAKER_SAPPHIRE_MAX_STACKS)
+		target:SetModifierStackCount("modifier_undertaker_magic_armor_loss", caster, new_stacks)
+		target:CalculateAndSaveRoshpitAttributes()
+	end
 end
 
 function mountain_vambrace_attack(event)

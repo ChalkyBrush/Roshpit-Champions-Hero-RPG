@@ -726,6 +726,8 @@
 		"item_all_attributes"						"+ All Attributes"
 		"item_all_elements"							"All Elemental Damage %"
 
+		"DOTA_Tooltip_modifier_command_restric_player"			"Restricted"
+
 		 
 
 		  "item_property_skulldigger2"						"Wraithfire II"
@@ -14153,10 +14155,23 @@
 		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
 		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <font color='#ccff66'>40</font>%."
 
-		"item_rpc_twisted_blue_mask_of_ahnqhirr_ruby1"	"Increases Rune [E1] by @ruby_property1"
-		"item_rpc_twisted_blue_mask_of_ahnqhirr_emerald1"	"Increases Rune [E3] by @emerald_property1"
-		"item_rpc_twisted_blue_mask_of_ahnqhirr_sapphire1" "Increases Rune [E2] by @sapphire_property1"
-		"item_rpc_twisted_blue_mask_of_ahnqhirr_amethyst1" "Increases Rune [E4] by @amethyst_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Increases Rune [E1] by @ruby_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"Increases Rune [E3] by @emerald_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_sapphire1" "Increases Rune [E2] by @sapphire_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_amethyst1" "Increases Rune [E4] by @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
+		"item_property_undertaker"					"Death Strike"
+		"property_undertaker_description"			"Your attacks also unleash a slow-moving ghostly hand at the target which deals Magical damage equal to <font color='#ccff66'>1</font>x your Intelligence on impact."
+
+		"item_rpc_undertakers_hood_ruby1"	"Each point of Intelligence increases attack speed by @ruby_property1"
+		"item_rpc_undertakers_hood_emerald1"	"Increases the hand's travel speed by @emerald_property1"
+		"item_rpc_undertakers_hood_sapphire1" "Death Strikes apply a stacking @sapphire_property1 Magic Armor loss debuff for <font color='#ccff66'>15</font>, up to <font color='#ccff66'>15</font> stacks"
+		"item_rpc_undertakers_hood_amethyst1" "On Attack, @amethyst_property1% chance to throw an additional hand"
+
+		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss"	"Death Strike"
+		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss_Description"	"Reduced Magic Armor"
+
 	 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -14171,11 +14186,7 @@
 		"item_property_cerulean_highguard"			"Concentrated Mana"
 		"property_cerulean_highguard_description"	"@Ability2 costs <font color='#ccff66'>400</font>% more mana and deals <font color='#ccff66'>2000</font>% increased damage."
 		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
-		"item_property_undertaker"					"Death Strike"
-		"property_undertaker_description"			"Your attacks also unleash a slow-moving ghostly hand at the target which deals Magical damage equal to 30x your Intelligence on impact."
+
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"

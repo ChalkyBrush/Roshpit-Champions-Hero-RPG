@@ -726,6 +726,8 @@
 		"item_all_attributes"						"+ All Attributes"
 		"item_all_elements"							"All Elemental Damage %"
 
+		"DOTA_Tooltip_modifier_command_restric_player"			"Restricted"
+
 		 
 
 		  "item_property_skulldigger2"						"Wraithfire II"

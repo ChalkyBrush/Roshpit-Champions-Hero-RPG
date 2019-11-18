@@ -38,7 +38,7 @@ function wave_unit_die(event)
 				RPCItems:RollSunCrystal(deathLocation, Serengaard.InfiniteWaveCount)
 			end
 		elseif luck == 2995 then
-			RPCItems:RollUndertakersHood(deathLocation, false)
+			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_undertakers_hood")
 		end
 	end
 end

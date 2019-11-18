@@ -426,6 +426,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_armor = amount
 	return amount
 end
@@ -435,6 +436,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitMagicArmor(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_magic_armor = amount
 	return amount
 end
@@ -444,6 +446,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitSpellPierce(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_spell_pierce = amount
 	return amount
 end
@@ -453,6 +456,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitArmorPierce(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_armor_pierce = amount
 	return amount
 end
@@ -1363,6 +1367,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local witch_hat = modifier:GetAbility()
 		magic_armor_modify = magic_armor_modify + witch_hat:GetFinalGemPropertyValue("ruby", SWAMP_WITCH_RUBY)*modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_undertaker_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_undertaker_magic_armor_loss")
+		local undertaker_hood = modifier:GetAbility()
+		magic_armor_modify = magic_armor_modify + undertaker_hood:GetFinalGemPropertyValue("sapphire", UNDERTAKER_SAPPHIRE)*modifier:GetStackCount()
+	end
 
 
 	-- FINAL STEP DEFILER
@@ -1785,6 +1794,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitArmor(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor", Events.GameMaster, amount)
 	return amount
@@ -1801,6 +1811,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitMagicArmor(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_magic_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster, amount)
 	return amount
@@ -1816,6 +1827,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitArmorPierce(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor_pierce", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster, amount)
 	return amount
@@ -1830,6 +1842,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitSpellPierce(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_spell_pierce", {})
 	unit:SetModifierStackCount("modifier_roshpit_spell_pierce", Events.GameMaster, amount)
 	return amount
@@ -2535,16 +2548,16 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1) * 100)
 	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1) * 100)
 	local base_armor, bonus_armor = unit:CalculateAndSaveRoshpitArmor()
-	tableData.roshpit_base_armor = base_armor
-	tableData.roshpit_bonus_armor = bonus_armor
-	tableData.roshpit_armor_pierce = unit:CalculateAndSaveRoshpitArmorPierce()
+	tableData.roshpit_base_armor = math.floor(base_armor)
+	tableData.roshpit_bonus_armor = math.floor(bonus_armor)
+	tableData.roshpit_armor_pierce = math.floor(unit:CalculateAndSaveRoshpitArmorPierce())
 	if unit:IsRealHero() then
-		tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
+		tableData.base_roshpit_magic_armor = math.floor(unit.roshpit_attributes.roshpit_magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT)
 	else
-		tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor
+		tableData.base_roshpit_magic_armor = math.floor(unit.roshpit_attributes.roshpit_magic_armor)
 	end
-	tableData.roshpit_magic_armor = unit:CalculateAndSaveRoshpitMagicArmor()
-	tableData.roshpit_spell_pierce = unit:CalculateAndSaveRoshpitSpellPierce()
+	tableData.roshpit_magic_armor = math.floor(unit:CalculateAndSaveRoshpitMagicArmor())
+	tableData.roshpit_spell_pierce = math.floor(unit:CalculateAndSaveRoshpitSpellPierce())
 	local level = unit:GetLevel()
 	if unit:IsHero() then
 		unit.q_4_level = unit:GetRuneValue("q", 4)
