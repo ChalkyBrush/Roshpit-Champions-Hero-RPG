@@ -438,7 +438,7 @@
 
         	"item_property_storm_pacer_sabatons"                        "风暴漫步者"
 
-        	"property_storm_pacer_sabatons_description"                 "当你使用@Ability3时。你将会释放一个影响范围为 <% PACE_OF_STORM_RADIUS %>元素精华之环，分别在扩张和收缩时对敌人各造成一次伤害。伤害基于你最近造成的税前伤害，并且这个伤害也会被目标和圆环中心的距离影响，在最近时为 <% PACE_OF_STORM_MIN_AMP %>x ，在边缘处为 <% PACE_OF_STORM_MAX_AMP %>x 。没有任何效果能够增加这一次伤害。此伤害穿透坚定，将坚定的阈值增加至<% PACE_OF_STORM_STEADFAST_THRESHOLD %>x  ( <% PACE_OF_STORM_MEGASTEADFAST_THRESHOLD %>x 对于高级坚定)。1 秒冷却时间。"
+        	"property_storm_pacer_sabatons_description"                 "当你使用@Ability3时。你将会释放一个影响范围为 <% ITEM_RPC_STORM_PACER_SABATONS_RADIUS %>元素精华之环，分别在扩张和收缩时对敌人各造成一次伤害。伤害基于你最近造成的税前伤害，并且这个伤害也会被目标和圆环中心的距离影响，在最近时为 <% ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP %>x ，在边缘处为 <% ITEM_RPC_STORM_PACER_SABATONS_MAX_AMP %>x 。没有任何效果能够增加这一次伤害。此伤害穿透坚定，将坚定的阈值增加至<% ITEM_RPC_STORM_PACER_SABATONS_STEADFAST_THRESHOLD %>x  ( <% ITEM_RPC_STORM_PACER_SABATONS_MEGASTEADFAST_THRESHOLD %>x 对于高级坚定)。1 秒冷却时间。"
 
 
 

@@ -435,7 +435,7 @@
 		"item_rpc_storm_pacer_sabatons_sapphire1"        "blah blah @sapphire_property1 gem"
 		"item_rpc_storm_pacer_sabatons_amethyst1"        "blah blah @amethyst_property1 gem"
         "item_property_storm_pacer_sabatons"                        "Storm Pacer"
-        "property_storm_pacer_sabatons_description"                 "При прочтении @Ability3 от персонажа высвобождается волна энергии (радиус <% PACE_OF_STORM_RADIUS %>), нанося урон при прикосновении. Урон волны базируется на последнем пре-резистном уроне (до начала самой волны), усиливаясь по мере движения от <% PACE_OF_STORM_MIN_AMP %>x до <% PACE_OF_STORM_MAX_AMP %>x. Эффекты или модификаторы урона не могут повлиять на урон волны. Волна увеличивает порог урона по мобам со Стойкостью/Мега-Стойкостью до <% PACE_OF_STORM_STEADFAST_THRESHOLD %>х / <% PACE_OF_STORM_MEGASTEADFAST_THRESHOLD %>х от изначального порога. Перезарядка 1 секунда."
+        "property_storm_pacer_sabatons_description"                 "При прочтении @Ability3 от персонажа высвобождается волна энергии (радиус <% ITEM_RPC_STORM_PACER_SABATONS_RADIUS %>), нанося урон при прикосновении. Урон волны базируется на последнем пре-резистном уроне (до начала самой волны), усиливаясь по мере движения от <% ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP %>x до <% ITEM_RPC_STORM_PACER_SABATONS_MAX_AMP %>x. Эффекты или модификаторы урона не могут повлиять на урон волны. Волна увеличивает порог урона по мобам со Стойкостью/Мега-Стойкостью до <% ITEM_RPC_STORM_PACER_SABATONS_STEADFAST_THRESHOLD %>х / <% ITEM_RPC_STORM_PACER_SABATONS_MEGASTEADFAST_THRESHOLD %>х от изначального порога. Перезарядка 1 секунда."
 
 		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
 		"item_rpc_pegasus_boots_ruby1"	"blah blah @ruby_property1 gem"
