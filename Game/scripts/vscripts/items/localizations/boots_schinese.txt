@@ -350,7 +350,7 @@
     	"item_rpc_alaranas_ice_boot_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_alaranas_ice_boot_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_alarana"								"冰之盾"
-		 "property_alarana_description"							"施放 @Ability4 后将把玩家包裹在冰盾中。冰盾状态下玩家被缠绕，但是伤害减免 100% 并且在 <% ALARANA_ICE_ENCASE_DURATION %> 秒内魔法伤害提高 <% ALARANA_MAGIC_POST_MITI %>% 。如果在护盾状态下受到的总伤害超过 <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x 玩家最大生命值，冰盾会被打破。冰盾破碎时，缠绕周围所有敌人并且对敌人造成 <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x 玩家最大生命值的伤害。"
+		 "property_alarana_description"							"施放 @Ability4 后将把玩家包裹在冰盾中。冰盾状态下玩家被缠绕，但是伤害减免 100% 并且在 <% ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION %> 秒内魔法伤害提高 <% ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI %>% 。如果在护盾状态下受到的总伤害超过 <% ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x 玩家最大生命值，冰盾会被打破。冰盾破碎时，缠绕周围所有敌人并且对敌人造成 <% ITEM_RPC_ALARANAS_ICE_BOOT_EXPLOSION_DAMAGE_OF_MAX_HP %>x 玩家最大生命值的伤害。"
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"冰之盾"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"冰霜新星"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"被缠绕"

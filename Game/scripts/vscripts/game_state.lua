@@ -2127,7 +2127,7 @@ function GameState:FilterDamage(filterTable)
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
-			mult = mult + ALARANA_MAGIC_POST_MITI/100
+			mult = mult + ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI/100
 		end
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult + SORCERERS_REGALIA_MAGIC_POST_MITI/100

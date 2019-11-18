@@ -350,7 +350,7 @@
     	"item_rpc_alaranas_ice_boot_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_alaranas_ice_boot_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"После прочтения (R) @Ability4 герой будет скован обездвиживающим льдом. Весь получаемый урон снижается на 100%, а весь магический пост-резистный урон увеличивается на <% ALARANA_MAGIC_POST_MITI %>% на <% ALARANA_ICE_ENCASE_DURATION %> сек. Если входящий урон превысит <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>-кратный запас максимального здоровья, лед расколется. Если это произойдёт, все ближайшие враги будут обездвижены и получат урон, равный <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x вашего макс. здоровья."
+		 "property_alarana_description"							"После прочтения (R) @Ability4 герой будет скован обездвиживающим льдом. Весь получаемый урон снижается на 100%, а весь магический пост-резистный урон увеличивается на <% ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI %>% на <% ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION %> сек. Если входящий урон превысит <% ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>-кратный запас максимального здоровья, лед расколется. Если это произойдёт, все ближайшие враги будут обездвижены и получат урон, равный <% ITEM_RPC_ALARANAS_ICE_BOOT_EXPLOSION_DAMAGE_OF_MAX_HP %>x вашего макс. здоровья."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Обездвижен"

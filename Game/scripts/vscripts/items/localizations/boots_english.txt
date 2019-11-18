@@ -349,7 +349,7 @@
     	"item_rpc_alaranas_ice_boot_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_alaranas_ice_boot_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <% ALARANA_MAGIC_POST_MITI %>% for <% ALARANA_ICE_ENCASE_DURATION %> seconds. If total damage blocked exceeds <% ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <% ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP %>x your Max Health."
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <% ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI %>% for <% ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION %> seconds. If total damage blocked exceeds <% ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>x your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <% ITEM_RPC_ALARANAS_ICE_BOOT_EXPLOSION_DAMAGE_OF_MAX_HP %>x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"

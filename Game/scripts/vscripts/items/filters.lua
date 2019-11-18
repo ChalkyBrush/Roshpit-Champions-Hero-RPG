@@ -1163,8 +1163,8 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_alaranas_ice_boot") then
         EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.AlaranaIce", caster.InventoryUnit)
-        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze", {duration = ALARANA_ICE_ENCASE_DURATION})
-        caster.foot.alaranaIce = caster:GetMaxHealth() * ALARANA_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP
+        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze", {duration = ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION})
+        caster.foot.alaranaIce = caster:GetMaxHealth() * ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP
     end
     if caster:HasModifier("modifier_brazen_kabuto") then
         if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
@@ -4282,7 +4282,7 @@ function Filters:AlaranaFrostNova(caster)
     local position = caster:GetAbsOrigin()
     local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
-    local radius = ALARANA_EXPLOSION_RADIUS
+    local radius = ITEM_RPC_ALARANAS_ICE_BOOT_EXPLOSION_RADIUS
     ParticleManager:SetParticleControl(pfx, 0, position)
     ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
     Timers:CreateTimer(3, function()
@@ -4290,9 +4290,9 @@ function Filters:AlaranaFrostNova(caster)
     end)
 
     EmitSoundOn("Ability.FrostNova", caster)
-    local damage = caster:GetMaxHealth() * ALARANA_EXPLOSION_DAMAGE_OF_MAX_HP
+    local damage = caster:GetMaxHealth() * ITEM_RPC_ALARANAS_ICE_BOOT_EXPLOSION_DAMAGE_OF_MAX_HP
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local freezeDuration = ALARANA_ENEMY_FREEZE_DURATION
+    local freezeDuration = ITEM_RPC_ALARANAS_ICE_BOOT_ENEMY_FREEZE_DURATION
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, caster.foot, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
