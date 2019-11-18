@@ -5952,10 +5952,10 @@ function erudite_teacher_start(event)
 		ability.rubick_apprentice:SetControllableByPlayer(hero:GetPlayerID(), true)
 	    ability.rubick_apprentice.hero = hero
 
-		local apprentice_hp = Filters:AdjustItemDamage(hero, hero:GetMaxHealth()*ERUDITE_TEACHER_HEALTH_MULT, nil)
+		local apprentice_hp = Filters:AdjustItemDamage(hero, hero:GetMaxHealth()*ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_HEALTH_MULT, nil)
 		local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(hero)
-		local apprentice_damage = Filters:AdjustItemDamage(hero, attack_damage*ERUDITE_TEACHER_ATTACK_MULT, nil)
-		local apprentice_armor = Filters:AdjustItemDamage(hero, hero:GetPhysicalArmorValue(false)*ERUDITE_TEACHER_ARMOR_MULT, nil)
+		local apprentice_damage = Filters:AdjustItemDamage(hero, attack_damage*ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ATTACK_MULT, nil)
+		local apprentice_armor = Filters:AdjustItemDamage(hero, hero:GetPhysicalArmorValue(false)*ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ARMOR_MULT, nil)
 		ability.rubick_apprentice:SetMaxHealth(apprentice_hp)
 		ability.rubick_apprentice:SetBaseMaxHealth(apprentice_hp)
 		ability.rubick_apprentice:SetHealth(apprentice_hp)
