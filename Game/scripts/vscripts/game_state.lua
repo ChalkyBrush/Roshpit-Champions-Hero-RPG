@@ -3213,7 +3213,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_armor_of_atlantis") then
 		if filterTable["damage"] > victim:GetHealth() then
-			filterTable["damage"] = filterTable["damage"] * (100 - ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT) / 100
+			filterTable["damage"] = filterTable["damage"] * (100 - ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT) / 100
 			local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
 			ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
 		end

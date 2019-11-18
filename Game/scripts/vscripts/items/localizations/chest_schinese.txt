@@ -528,9 +528,9 @@
 		 "item_rpc_armor_of_atlantis_sapphire1"                       "blah blah @sapphire_property1 gem"
 		 "item_rpc_armor_of_atlantis_amethyst1"                       "blah blah @amethyst_property1 gem"
         "item_property_armor_of_atlantis"                                           "钢筋铁骨"
-        "property_armor_of_atlantis_Description"                                "获得 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. 致死伤害减少至 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
+        "property_armor_of_atlantis_Description"                                "获得 <% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. 致死伤害减少至 <% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
         "DOTA_Tooltip_modifier_armor_of_atlantis"                               "钢筋铁骨"
-        "DOTA_Tooltip_modifier_armor_of_atlantis_Description"                   "获得 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>%% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%%. 致死伤害减少至 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%%."
+        "DOTA_Tooltip_modifier_armor_of_atlantis_Description"                   "获得 <% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>%% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%%. 致死伤害减少至 <% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"圣堂光之袍"	

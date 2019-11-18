@@ -534,7 +534,7 @@
 		"item_rpc_armor_of_atlantis_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_armor_of_atlantis_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_armor_of_atlantis"								"Indomitable"
-		"property_armor_of_atlantis_Description"					"You gain <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% damage reduction for every 1% of missing health. This damage reduction can't be higher than <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. Damage instances that would kill you are further reduced by <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
+		"property_armor_of_atlantis_Description"					"You gain <% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% damage reduction for every 1% of missing health. This damage reduction can't be higher than <% ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. Damage instances that would kill you are further reduced by <% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
 		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Indomitable"
 		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Gaining damage reduction based on missing health, and lethal blows are further mitigated"
 		
