@@ -18,7 +18,7 @@
 		"item_rpc_barons_storm_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_barons_storm_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_baron_storm"								"Storm Link"
-		"property_baron_storm_description"						"Arc lightning is discharged against enemies that damage you, dealing <% BARON_STORM_DMG_PER_ATT %>x your total attack damage and chaining between other nearby enemies up to <% BARON_STORM_MAX_TARGETS %> times. Electrocuted enemies deal <% BARON_STORM_DMG_RESISTANCE * 100 %>% less damage to you for <% BARON_STORM_DUR%> seconds. This arc takes <% BARON_STORM_COOLDOWN %> seconds to recharge."
+		"property_baron_storm_description"						"Arc lightning is discharged against enemies that damage you, dealing <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT %>x your total attack damage and chaining between other nearby enemies up to <% ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS %> times. Electrocuted enemies deal <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_RESISTANCE * 100 %>% less damage to you for <% ITEM_RPC_BARONS_STORM_ARMOR_DUR%> seconds. This arc takes <% ITEM_RPC_BARONS_STORM_ARMOR_COOLDOWN %> seconds to recharge."
 		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
 		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Dealing reduced damage to caster."
 		

@@ -4533,16 +4533,16 @@ function baron_storm_take_damage(event)
 	local caster = event.caster.hero
 	local ability = event.ability
 	local attacker = event.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * BARON_STORM_DMG_PER_ATT
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT
 	if not caster:HasModifier('modifier_baron_storm_cooldown') then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_baron_storm_cooldown", {duration = BARON_STORM_COOLDOWN})
-		baron_storm_arc(attacker, caster, ability, damage, 0, BARON_STORM_MAX_TARGETS)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_baron_storm_cooldown", {duration = ITEM_RPC_BARONS_STORM_ARMOR_COOLDOWN})
+		baron_storm_arc(attacker, caster, ability, damage, 0, ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS)
 	end
 end
 
 function baron_storm_arc(target, caster, ability, damage, targetNumber, maxTargets)
 	if IsValidEntity(target) then
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, BARON_STORM_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_BARONS_STORM_ARMOR_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			local newTarget = enemies[1]
 			if targetNumber ~= 0 then
@@ -4554,7 +4554,7 @@ function baron_storm_arc(target, caster, ability, damage, targetNumber, maxTarge
 				target = caster
 			end
 			if newTarget then
-				ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = BARON_STORM_DUR})
+				ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = ITEM_RPC_BARONS_STORM_ARMOR_DUR})
 				Filters:ApplyItemDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
 				EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
 				local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"

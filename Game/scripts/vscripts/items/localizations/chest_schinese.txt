@@ -16,7 +16,7 @@
 		"item_rpc_barons_storm_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_barons_storm_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_baron_storm"								"风暴链接"
-		"property_baron_storm_description"						"对伤害你的敌人释放电弧，造成<% BARON_STORM_DMG_PER_ATT %>x倍总攻击力的伤害，并弹射至附近最多<% BARON_STORM_MAX_TARGETS %>个敌人。被电击的敌人对玩家造成的伤害减少<% BARON_STORM_DMG_RESISTANCE * 100 %>%，持续<% BARON_STORM_DUR%>秒。电弧具有<% BARON_STORM_COOLDOWN %>秒的冷却时间"
+		"property_baron_storm_description"						"对伤害你的敌人释放电弧，造成<% ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT %>x倍总攻击力的伤害，并弹射至附近最多<% ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS %>个敌人。被电击的敌人对玩家造成的伤害减少<% ITEM_RPC_BARONS_STORM_ARMOR_DMG_RESISTANCE * 100 %>%，持续<% ITEM_RPC_BARONS_STORM_ARMOR_DUR%>秒。电弧具有<% ITEM_RPC_BARONS_STORM_ARMOR_COOLDOWN %>秒的冷却时间"
 		"DOTA_Tooltip_modifier_baron_storm_link"				"风暴链接"
 		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"对所连接的目标造成的伤害减少"
 		

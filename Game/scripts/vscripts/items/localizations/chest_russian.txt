@@ -18,7 +18,7 @@
 		"item_rpc_barons_storm_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_barons_storm_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_baron_storm"								"Storm Link"
-		"property_baron_storm_description"						"Электрическая дуга связывает героя и атакующего противника, наносит <% BARON_STORM_DMG_PER_ATT %>x урона от общей атаки героя и передается по цепи между другими ближайшими целями до <% BARON_STORM_MAX_TARGETS %> раз. Пораженные током противники наносят на <% BARON_STORM_DMG_RESISTANCE * 100 %>% меньше урона по герою в течение <% BARON_STORM_DUR%> сек. Дуга перезаряжается <% BARON_STORM_COOLDOWN %> секунд."
+		"property_baron_storm_description"						"Электрическая дуга связывает героя и атакующего противника, наносит <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT %>x урона от общей атаки героя и передается по цепи между другими ближайшими целями до <% ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS %> раз. Пораженные током противники наносят на <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_RESISTANCE * 100 %>% меньше урона по герою в течение <% ITEM_RPC_BARONS_STORM_ARMOR_DUR%> сек. Дуга перезаряжается <% ITEM_RPC_BARONS_STORM_ARMOR_COOLDOWN %> секунд."
 		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
 		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Связан с героем. Наносит меньше урона владельцу предмета. Получает урон."
 		

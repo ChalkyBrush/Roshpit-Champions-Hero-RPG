@@ -2657,7 +2657,7 @@ function GameState:FilterDamage(filterTable)
 	end
 	modifier = attacker:FindModifierByName('modifier_baron_storm_link')
 	if modifier and modifier:GetCaster() == victim then
-		filterTable["damage"] = filterTable["damage"] * (1 - BARON_STORM_DMG_RESISTANCE)
+		filterTable["damage"] = filterTable["damage"] * (1 - ITEM_RPC_BARONS_STORM_ARMOR_DMG_RESISTANCE)
 	end
 	if attacker:HasModifier("modifier_gorudo_b_d_inside_ring") then
 		modifier = attacker:FindModifierByName("modifier_gorudo_b_d_inside_ring")
