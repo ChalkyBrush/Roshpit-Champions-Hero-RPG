@@ -519,7 +519,7 @@
 		"item_rpc_direwolf_bulwark_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_direwolf_bulwark_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_direwolf"						"地狱看门犬"
-		"property_direwolf_description"					"每 <% DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR %> 点主属性提高基础攻击力 <% DIREWOLF_BULWARK_BASE_ATTACK_DMG %>，护甲值 <% DIREWOLF_BULWARK_ARMOR %>，基础技能伤害 <% DIREWOLF_BULWARK_BAD %>%。该装备无法重铸。"
+		"property_direwolf_description"					"每 <% ITEM_RPC_DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR %> 点主属性提高基础攻击力 <% ITEM_RPC_DIREWOLF_BULWARK_BASE_ATTACK_DMG %>，护甲值 <% ITEM_RPC_DIREWOLF_BULWARK_ARMOR %>，基础技能伤害 <% ITEM_RPC_DIREWOLF_BULWARK_BAD %>%。该装备无法重铸。"
 		
 		
 		 "DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"                       "亚特兰帝斯之甲"
