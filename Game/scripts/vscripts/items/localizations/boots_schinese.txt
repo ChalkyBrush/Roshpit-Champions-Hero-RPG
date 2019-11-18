@@ -265,7 +265,7 @@
     	"item_rpc_giant_hunters_boots_of_resilience_sapphire1"				"blah blah @sapphire_property1 gem"
     	"item_rpc_giant_hunters_boots_of_resilience_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_giant_hunter_boot"					"巨型猎人"
-		"property_giant_hunter_boot_description"			"当被眩晕或缠绕时，获得魔法免疫，魔法免疫持续 <% GIANT_HUNTERS_BOOTS_IMMUNITY_DURATION %> 秒。"
+		"property_giant_hunter_boot_description"			"当被眩晕或缠绕时，获得魔法免疫，魔法免疫持续 <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_IMMUNITY_DURATION %> 秒。"
 		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"巨型猎人的魔法免疫"
 		
 		 
