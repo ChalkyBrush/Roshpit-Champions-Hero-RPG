@@ -174,7 +174,7 @@
 		"item_rpc_dark_arts_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_dark_arts_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_dark_arts"					"Dark Mastery"
-		"property_dark_arts_description"			"Increases your Agility by <% DARK_ARTS_INT_TO_AGI * 100 %>% of your Intelligence."
+		"property_dark_arts_description"			"Increases your Agility by <% ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI * 100 %>% of your Intelligence."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"

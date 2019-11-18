@@ -798,7 +798,7 @@ function dark_arts_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetBaseIntellect() * DARK_ARTS_INT_TO_AGI)
+	local stacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI)
 	if not target:HasModifier("modifier_dark_arts_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_effect", {})
 	end
