@@ -335,9 +335,9 @@
 		"item_rpc_skyforge_flurry_plate_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_skyforge_flurry_plate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Снижает весь исходящий урон всех ближайших врагов на <% SKYFORGE_DMG_REDUCTION %>%."
+		"property_skyforge_description"						"Снижает весь исходящий урон всех ближайших врагов на <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на <% SKYFORGE_DMG_REDUCTION %>%%"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"

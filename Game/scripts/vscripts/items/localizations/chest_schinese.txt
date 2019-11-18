@@ -331,7 +331,7 @@
 		"item_rpc_skyforge_flurry_plate_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_skyforge_flurry_plate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_skyforge"							"迷乱光环"
-		"property_skyforge_description"						"降低附近所有敌人的伤害输出 <% SKYFORGE_DMG_REDUCTION %>% 。"
+		"property_skyforge_description"						"降低附近所有敌人的伤害输出 <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION %>% 。"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"迷乱光环"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"伤害输出降低30%%"
 		
