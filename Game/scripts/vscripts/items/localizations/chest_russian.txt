@@ -415,7 +415,7 @@
 		"item_rpc_staggering_knight_crusher_armor_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_knight_crusher"						"Overpower"
-		"property_knight_crusher_description"				"Время оглушений от способностей и предметов увеличено на <% STAGGERING_KNIGHT_CRUSHER_STUN_DURATION_INCREASE %>%. Добавляет на <% STAGGERING_KNIGHT_CRUSHER_STUN_IMMUNITY_COUNTER_DECREASE %>% меньше времени к иммунитету врагов к оглушению."
+		"property_knight_crusher_description"				"Время оглушений от способностей и предметов увеличено на <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%. Добавляет на <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>% меньше времени к иммунитету врагов к оглушению."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"

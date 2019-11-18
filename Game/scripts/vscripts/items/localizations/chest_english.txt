@@ -415,7 +415,7 @@
 		"item_rpc_staggering_knight_crusher_armor_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_knight_crusher"						"Overpower"
-		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <% STAGGERING_KNIGHT_CRUSHER_STUN_DURATION_INCREASE %>%, and stun durations are considered <% STAGGERING_KNIGHT_CRUSHER_STUN_IMMUNITY_COUNTER_DECREASE %>% shorter when added to an enemy's stun immunity counter."
+		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%, and stun durations are considered <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>% shorter when added to an enemy's stun immunity counter."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
