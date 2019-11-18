@@ -291,7 +291,7 @@
 		"item_rpc_twilight_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_twilight_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_twilight_vestments"			"金鳞开"
-		"property_twilight_vestments_description"	"当某个单次伤害超过你最大生命值的<% TWILIGHT_VESTMENT_HP_THRESHOLD %>% 时，<% TWILIGHT_VESTMENT_DELAY %>秒后你将回复一定量生命值，回复量为该次伤害值的<% TWILIGHT_VESTMENT_HEAL_PCT %>%。"
+		"property_twilight_vestments_description"	"当某个单次伤害超过你最大生命值的<% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% 时，<% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %>秒后你将回复一定量生命值，回复量为该次伤害值的<% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"夜行衣"

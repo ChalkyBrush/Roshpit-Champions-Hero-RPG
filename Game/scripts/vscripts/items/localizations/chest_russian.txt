@@ -295,7 +295,7 @@
 		"item_rpc_twilight_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_twilight_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"Если единичный урон наносит вам больше <% TWILIGHT_VESTMENT_HP_THRESHOLD %>% здоровья, через <% TWILIGHT_VESTMENT_DELAY %> секунды вы будете исцелены на <% TWILIGHT_VESTMENT_HEAL_PCT %>% от полученного урона."
+		"property_twilight_vestments_description"	"Если единичный урон наносит вам больше <% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% здоровья, через <% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %> секунды вы будете исцелены на <% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>% от полученного урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"

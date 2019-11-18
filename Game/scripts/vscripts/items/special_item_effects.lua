@@ -2630,10 +2630,10 @@ end
 function twilight_damage_taken(event)
 	local target = event.unit
 	local damageTaken = event.damage_taken
-	if damageTaken > target:GetMaxHealth() * TWILIGHT_VESTMENT_HP_THRESHOLD/100 then
+	if damageTaken > target:GetMaxHealth() * ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD/100 then
 		EmitSoundOn("Grizzly.AllyHeal", target)
-		local healAmount = math.ceil(damageTaken * TWILIGHT_VESTMENT_HEAL_PCT/100)
-		Timers:CreateTimer(TWILIGHT_VESTMENT_DELAY, function()
+		local healAmount = math.ceil(damageTaken * ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT/100)
+		Timers:CreateTimer(ITEM_RPC_TWILIGHT_VESTMENTS_DELAY, function()
 			Filters:ApplyHeal(target, target, healAmount, true)
 			local particleName = "particles/units/heroes/hero_oracle/white_mage_healheal.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)

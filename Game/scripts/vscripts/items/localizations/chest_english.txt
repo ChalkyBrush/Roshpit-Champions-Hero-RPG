@@ -295,7 +295,7 @@
 		"item_rpc_twilight_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_twilight_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"When a single damage instance deals more than <% TWILIGHT_VESTMENT_HP_THRESHOLD %>% of your max health, you are healed for <% TWILIGHT_VESTMENT_HEAL_PCT %>% of the damage instance after <% TWILIGHT_VESTMENT_DELAY %> seconds."
+		"property_twilight_vestments_description"	"When a single damage instance deals more than <% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% of your max health, you are healed for <% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>% of the damage instance after <% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %> seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
