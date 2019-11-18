@@ -418,7 +418,7 @@
 		"item_rpc_ice_floe_slippers_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_ice_floe_slippers_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_ice_floe_slippers"					"浮冰"
-		"property_ice_floe_slippers_description"			"在同一目标地点连续发出两个移动指令，即可在冰上滑行。滑行的时候，你被缠绕且石化不受物理伤害。最大滑行距离为<% ICE_FLOE_TRAVEL_DISTANCE %>码。当被晕眩或缠绕的时候不能激活滑行效果。"
+		"property_ice_floe_slippers_description"			"在同一目标地点连续发出两个移动指令，即可在冰上滑行。滑行的时候，你被缠绕且石化不受物理伤害。最大滑行距离为<% ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE %>码。当被晕眩或缠绕的时候不能激活滑行效果。"
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"钢铁毁灭足踏"

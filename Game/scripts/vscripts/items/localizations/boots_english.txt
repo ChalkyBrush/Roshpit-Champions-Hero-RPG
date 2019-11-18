@@ -417,7 +417,7 @@
 		"item_rpc_ice_floe_slippers_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_ice_floe_slippers_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_ice_floe_slippers"					"Ice Floe"
-		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <% ICE_FLOE_TRAVEL_DISTANCE %>. This ability cannot be activated while stunned or rooted."
+		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <% ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE %>. This ability cannot be activated while stunned or rooted."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"

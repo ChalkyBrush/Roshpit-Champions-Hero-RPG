@@ -887,7 +887,7 @@ function GameState:OrderFilter(orderTable)
 				if unit.ice_floe_table.last_clicked then
 					if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
 					else
-						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < ICE_FLOE_TRAVEL_DISTANCE) then
+						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE) then
 							unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
 							unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
 							unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)

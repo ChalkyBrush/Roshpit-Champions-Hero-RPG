@@ -418,7 +418,7 @@
 		"item_rpc_ice_floe_slippers_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_ice_floe_slippers_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_ice_floe_slippers"					"Ice Floe"
-		"property_ice_floe_slippers_description"			"Прикажите герою следовать в указанную точку дважды, чтобы тот начал скользить по ледяному следу. Во время скольжения герой не может двигаться и снижает весь получаемый физический урон до 0. Максимальное расстояние для скольжения - <% ICE_FLOE_TRAVEL_DISTANCE %>. Нельзя скользить, будучи обездвиженным или оглушенным."
+		"property_ice_floe_slippers_description"			"Прикажите герою следовать в указанную точку дважды, чтобы тот начал скользить по ледяному следу. Во время скольжения герой не может двигаться и снижает весь получаемый физический урон до 0. Максимальное расстояние для скольжения - <% ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE %>. Нельзя скользить, будучи обездвиженным или оглушенным."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
