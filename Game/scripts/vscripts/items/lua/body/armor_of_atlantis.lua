@@ -37,7 +37,7 @@ end
 function modifierClass:GetDamageReduction()
     local hero = self:GetCaster()
     local missingHealthPercent = math.floor((1 - hero:GetHealth() / hero:GetMaxHealth()) * 100)
-    return math.min(ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT * missingHealthPercent, ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
+    return math.min(ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT * missingHealthPercent, ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
 end
 
 function modifierClass:IsHidden()

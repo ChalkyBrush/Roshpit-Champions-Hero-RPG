@@ -695,7 +695,7 @@ function ms_thinker(event)
 
 	local modifier_emerald_speed_runners = unit:FindModifierByName("modifier_emerald_speed_runners")
 	if modifier_emerald_speed_runners then
-		local msValue = ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP
+		local msValue = EMERALD_SPEED_MS_LOW_CAP
 		--print("modifier_emerald_speed_runners "..tostring(msValue))
 		max_ms = math.max(msValue, max_ms)
 		actual_movespeed = math.max(msValue, actual_movespeed)
@@ -705,7 +705,7 @@ function ms_thinker(event)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + (max_ms)*(ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + (max_ms)*(PEGASUS_MAX_MS_AMP_PCT/100)
 	end
 
 	if max_ms > 550 and actual_movespeed > 550 then
