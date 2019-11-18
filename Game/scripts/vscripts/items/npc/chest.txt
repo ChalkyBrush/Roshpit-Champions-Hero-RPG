@@ -501,7 +501,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% NETHERGRASP_ATTACK_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_NETHERGRASP_PALISADE_ATTACK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

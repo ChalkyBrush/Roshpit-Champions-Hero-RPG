@@ -631,7 +631,7 @@
 		"item_rpc_nethergrasp_palisade_sapphire1"		"blah blah @sapphire_property1 gem"
 		"item_rpc_nethergrasp_palisade_amethyst1"		"blah blah @amethyst_property1 gem"
 		"item_property_nethergrasp"							"Outworld Grip"
-		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an Outworld Grip link between the two of you. Gripped enemies are automatically attacked by the caster on <% NETHERGRASP_ATTACK_INTERVAL %>-second intervals. Enemies who are outside the caster's attack range are pulled back sharply towards you. Up to <% NETHERGRASP_MAX_LINKS %> links can exist at a time, but free Grip attacks will be divided equally amongst all linked targets. Must be within <% NETHERGRASP_LINK_RANGE %> range of the target to create a link, and links break if the distance between you ever exceeds <% NETHERGRASP_BREAK_DISTANCE %>."
+		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an Outworld Grip link between the two of you. Gripped enemies are automatically attacked by the caster on <% ITEM_RPC_NETHERGRASP_PALISADE_ATTACK_INTERVAL %>-second intervals. Enemies who are outside the caster's attack range are pulled back sharply towards you. Up to <% ITEM_RPC_NETHERGRASP_PALISADE_MAX_LINKS %> links can exist at a time, but free Grip attacks will be divided equally amongst all linked targets. Must be within <% ITEM_RPC_NETHERGRASP_PALISADE_LINK_RANGE %> range of the target to create a link, and links break if the distance between you ever exceeds <% ITEM_RPC_NETHERGRASP_PALISADE_BREAK_DISTANCE %>."
 
 		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
 		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	

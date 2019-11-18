@@ -6228,7 +6228,7 @@ function nethergrasp_thinker(event)
 			       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
 			       		end
 			       	end
-			        if distance > NETHERGRASP_BREAK_DISTANCE then
+			        if distance > ITEM_RPC_NETHERGRASP_PALISADE_BREAK_DISTANCE then
 			        	table.insert(grasp_break_table, nether.entindex)
 			        end
 			        if not target:IsAlive() then
