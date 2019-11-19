@@ -1263,7 +1263,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 
     if slot == BASE_AUTO_ATTACK then
         if attacker:HasModifier("modifier_divine_purity") then
-            damage = damage * GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER
+            damage = damage * ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER
             element2 = RPC_ELEMENT_HOLY
             damage_type = DAMAGE_TYPE_PURE
         end

@@ -104,7 +104,7 @@
     	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Slot: Hands"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Your autoattacks now deal <% GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>x Pure Normal/<font color=\"#F6FFB5\">Holy</font> damage, instead of 1x Normal damage."
+		"property_divine_purity_description"		"Your autoattacks now deal <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>x Pure Normal/<font color=\"#F6FFB5\">Holy</font> damage, instead of 1x Normal damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
