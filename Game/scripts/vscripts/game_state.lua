@@ -2203,7 +2203,7 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + ITEM_RPC_ABLECORE_GREAVES_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
-		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
+		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
 	end
 
 	if victim:HasModifier("modifier_water_mage_slow") then

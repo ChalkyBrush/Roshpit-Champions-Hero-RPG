@@ -285,7 +285,7 @@
     	"item_rpc_mordiggus_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_mordiggus_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <% MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
+		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <% ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"

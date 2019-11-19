@@ -703,8 +703,8 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         local beginningHealth = caster:GetHealth()
-        if beginningHealth > caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100 then
-            local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100, caster:GetMaxHealth() * MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
+        if beginningHealth > caster:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100 then
+            local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100, caster:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
             caster:SetHealth(newHealth)
             CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
             if caster:HasModifier("modifier_wraith_hunters_steel_helm") then
