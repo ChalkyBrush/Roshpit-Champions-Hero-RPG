@@ -499,7 +499,7 @@
 		"item_rpc_swiftspike_bracer_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_swiftspike_bracer_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_swiftspike_bracer"							"音爆"
-		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 <% SWIFTSPIKE_BAD_PER_MS * 100 %>%"
+		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 <% ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS * 100 %>%"
 
 	"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"提亚马特的钻石之爪"
 	"item_rpc_diamond_claws_of_tiamat_ruby1"			"blah blah @ruby_property1 gem"

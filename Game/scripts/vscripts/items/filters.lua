@@ -1356,7 +1356,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
-            damageMult = damageMult + SWIFTSPIKE_BAD_PER_MS * current_stack
+            damageMult = damageMult + ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS * current_stack
         end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount("modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1"))
