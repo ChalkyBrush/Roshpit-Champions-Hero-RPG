@@ -343,7 +343,7 @@
 		"item_rpc_fortunes_talisman_of_truth_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_fortunes_talisman_of_truth_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_fortune_talisman"						"幸运项链"
-		"property_fortune_talisman_description"				"提高装备效果的触发机率 <% FORTUNES_TALISMAN_CHANCE_AMP %>% 。（乘法）"
+		"property_fortune_talisman_description"				"提高装备效果的触发机率 <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP %>% 。（乘法）"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"宁静之戒"

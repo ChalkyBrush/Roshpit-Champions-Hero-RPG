@@ -275,7 +275,7 @@ function Filters:GetProc(caster, percentageChance)
         percentageChance = percentageChance + ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE
     end
     if caster:HasModifier("modifier_fortunes_talisman_of_truth") then
-        percentageChance = math.ceil(percentageChance * (100+FORTUNES_TALISMAN_CHANCE_AMP)/100)
+        percentageChance = math.ceil(percentageChance * (100+ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP)/100)
     end
     if caster:HasModifier("modifier_astral_rune_r_4_invisible") then
         local chanceModifier = 1 + 0.01 * caster:GetModifierStackCount("modifier_astral_rune_r_4_invisible", Events.GameMaster)

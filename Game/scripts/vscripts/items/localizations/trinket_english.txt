@@ -346,7 +346,7 @@
 		"item_rpc_fortunes_talisman_of_truth_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_fortunes_talisman_of_truth_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_fortune_talisman"						"Luck Booster"
-		"property_fortune_talisman_description"				"Increases the total proc chance of all equipped items by <% FORTUNES_TALISMAN_CHANCE_AMP %>% of their base value."
+		"property_fortune_talisman_description"				"Increases the total proc chance of all equipped items by <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP %>% of their base value."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_cobalt_serenity_ring"							"Cobalt Serenity Ring"
