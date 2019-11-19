@@ -109,7 +109,7 @@
 		"item_rpc_galaxy_orb_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_galaxy_orb_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_galaxy_orb"					"Black Hole"
-		"property_galaxy_orb_description"			"While channeling @Ability4, all enemies in a wide radius of <% GALAXY_ORB_RADIUS %> are slowly vacuumed toward you."
+		"property_galaxy_orb_description"			"While channeling @Ability4, all enemies in a wide radius of <% ITEM_RPC_GALAXY_ORB_RADIUS %> are slowly vacuumed toward you."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"

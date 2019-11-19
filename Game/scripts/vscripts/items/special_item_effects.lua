@@ -1299,7 +1299,7 @@ function galaxy_orb_channel_begin(event)
 	ability.pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
 
 	local position = caster:GetAbsOrigin()
-	local radius = GALAXY_ORB_RADIUS
+	local radius = ITEM_RPC_GALAXY_ORB_RADIUS
 	ParticleManager:SetParticleControl(ability.pfx, 0, position)
 	ParticleManager:SetParticleControl(ability.pfx, 1, Vector(radius, 2, radius * 2))
 
@@ -1310,7 +1310,7 @@ function galaxy_orb_suction(event)
 	local caster = event.target
 	local ability = event.ability
 	local position = ability.position
-	local radius = GALAXY_ORB_RADIUS
+	local radius = ITEM_RPC_GALAXY_ORB_RADIUS
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do

@@ -110,7 +110,7 @@
 		"item_rpc_galaxy_orb_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_galaxy_orb_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_galaxy_orb"					"Black Hole"
-		"property_galaxy_orb_description"			"Во время произнесения способности (R) @Ability4 - все окружающие враги в радиусе <% GALAXY_ORB_RADIUS %> будут медленно стянуты к вам."
+		"property_galaxy_orb_description"			"Во время произнесения способности (R) @Ability4 - все окружающие враги в радиусе <% ITEM_RPC_GALAXY_ORB_RADIUS %> будут медленно стянуты к вам."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"
