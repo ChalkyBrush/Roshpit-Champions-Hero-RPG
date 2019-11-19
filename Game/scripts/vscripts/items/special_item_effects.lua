@@ -4814,7 +4814,7 @@ function aquasteel_take_damage(event)
 	local attacker = event.attacker
 	local caster = event.unit
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, AQUASTEEL_CHANCE)
+	local proc = Filters:GetProc(caster, ITEM_RPC_AQUASTEEL_BRACERS_CHANCE)
 	if unit:GetEntityIndex() == attacker:GetEntityIndex() then
 	else
 		if proc then
@@ -4827,11 +4827,11 @@ function aquasteel_take_damage(event)
 				ParticleManager:DestroyParticle(dagon_particle, false)
 				ParticleManager:ReleaseParticleIndex(dagon_particle)
 			end)
-			local damage = AQUASTEEL_ATTACK_TO_DMG * OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue(false) * AQUASTEEL_ARMOR_TO_DMG
+			local damage = ITEM_RPC_AQUASTEEL_BRACERS_ATTACK_TO_DMG * OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue(false) * ITEM_RPC_AQUASTEEL_BRACERS_ARMOR_TO_DMG
 			EmitSoundOn("RPCItem.Aquasteel", attacker)
 			Timers:CreateTimer(0.1, function()
 				Filters:ApplyItemDamage(attacker, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster, AQUASTEEL_STUN_DUR, attacker)
+				Filters:ApplyStun(caster, ITEM_RPC_AQUASTEEL_BRACERS_STUN_DUR, attacker)
 			end)
 		end
 	end

@@ -423,7 +423,7 @@
     	"item_rpc_aquasteel_bracers_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_aquasteel_bracers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"С <% AQUASTEEL_CHANCE %>% шансом при получении урона в сторону атакующего отправится поток воды, который нанесёт урон, равный <% AQUASTEEL_ATTACK_TO_DMG %>x урона героя + <% AQUASTEEL_ARMOR_TO_DMG %>x брони, и оглушающий врагов на <% AQUASTEEL_STUN_DUR %> сек."
+		"property_aquasteel_description"						"С <% ITEM_RPC_AQUASTEEL_BRACERS_CHANCE %>% шансом при получении урона в сторону атакующего отправится поток воды, который нанесёт урон, равный <% ITEM_RPC_AQUASTEEL_BRACERS_ATTACK_TO_DMG %>x урона героя + <% ITEM_RPC_AQUASTEEL_BRACERS_ARMOR_TO_DMG %>x брони, и оглушающий врагов на <% ITEM_RPC_AQUASTEEL_BRACERS_STUN_DUR %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"

@@ -418,7 +418,7 @@
     	"item_rpc_aquasteel_bracers_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_aquasteel_bracers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_aquasteel"								"水爆"
-		"property_aquasteel_description"						"受到伤害时，有 <% AQUASTEEL_CHANCE %>% 的几率向攻击者喷射一股水流，水流对敌人造成 <% AQUASTEEL_ATTACK_TO_DMG %>x 攻击力 + <% AQUASTEEL_ARMOR_TO_DMG %>x 护甲值的伤害，并且眩晕敌人 <% AQUASTEEL_STUN_DUR %> 秒。"
+		"property_aquasteel_description"						"受到伤害时，有 <% ITEM_RPC_AQUASTEEL_BRACERS_CHANCE %>% 的几率向攻击者喷射一股水流，水流对敌人造成 <% ITEM_RPC_AQUASTEEL_BRACERS_ATTACK_TO_DMG %>x 攻击力 + <% ITEM_RPC_AQUASTEEL_BRACERS_ARMOR_TO_DMG %>x 护甲值的伤害，并且眩晕敌人 <% ITEM_RPC_AQUASTEEL_BRACERS_STUN_DUR %> 秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"炎魔手套"
