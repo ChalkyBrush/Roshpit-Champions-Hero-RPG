@@ -472,7 +472,7 @@
 		"item_rpc_sparkling_token_of_oceanis_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_sparkling_token_of_oceanis_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sparkling_token"												"Tropical Haze"
-		"property_sparkling_token_Description"									"Reduces all Pure damage taken by <% SPARKLING_TOKEN_PURE_DMG_REDUCTION %>%"
+		"property_sparkling_token_Description"									"Reduces all Pure damage taken by <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"Frozen Heart of Az'heran"
