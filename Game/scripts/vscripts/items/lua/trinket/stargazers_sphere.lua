@@ -76,7 +76,7 @@ function modifierClass:OnOrderFilter(data)
     targetVector = GetGroundPosition(targetVector, self:GetCaster())
 
     if self.cdUntil < GameRules:GetGameTime() then
-        self.cdUntil = GameRules:GetGameTime() + STARGAZERS_SPHERE_COOLDOWN
+        self.cdUntil = GameRules:GetGameTime() + ITEM_RPC_STARGAZERS_SPHERE_SPHERE_COOLDOWN
 
         for _,aperture in pairs(self.apertures) do
             local distance = WallPhysics:GetDistance2d(targetVector, aperture.position)
@@ -110,7 +110,7 @@ function modifierClass:CreateCircle(targetVector)
     end
     self.apertures[aperture] = aperture
 
-    Timers:CreateTimer(STARGAZERS_SPHERE_DURATION, function()
+    Timers:CreateTimer(ITEM_RPC_STARGAZERS_SPHERE_SPHERE_DURATION, function()
         self:DestroyCircle(aperture)
     end)
 end
@@ -139,11 +139,11 @@ function modifierClass:CreateMeteor(aperture, targetVector)
         self:DestroyCircle(aperture)
 
         local caster = self:GetCaster()
-        local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * STARGAZERS_SPHERE_DAMAGE_PER_ATT
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetVector, nil, STARGAZERS_SPHERE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+        local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_STARGAZERS_SPHERE_DAMAGE_PER_ATT
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetVector, nil, ITEM_RPC_STARGAZERS_SPHERE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
-                Filters:ApplyStun(self:GetCaster(), STARGAZERS_SPHERE_METEOR_STUN_DUR, enemy)
+                Filters:ApplyStun(self:GetCaster(), ITEM_RPC_STARGAZERS_SPHERE_METEOR_STUN_DUR, enemy)
                 Damage:Apply({
                     attacker =  caster,
                     victim = enemy,
