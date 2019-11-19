@@ -447,7 +447,7 @@
 		"item_rpc_arcane_charm_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_arcane_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arcane_charm"					"Magic Magnet"
-		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by <% ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%. Collecting an Arcane Crystal instantly restores <% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% of max health and mana depending on the crystal's size."
+		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%. Collecting an Arcane Crystal instantly restores <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% of max health and mana depending on the crystal's size."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"

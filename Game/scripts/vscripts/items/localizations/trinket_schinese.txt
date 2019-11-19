@@ -444,7 +444,7 @@
 		"item_rpc_arcane_charm_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_arcane_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arcane_charm"					"奥法聚能环"
-		"property_arcane_charm_description"				"提高奥术水晶拾取范围 <% ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%，并且拾取奥术水晶会恢复一定的生命值和魔法值。根据拾取水晶的大小分别恢复 <% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% 的最大生命值和魔法值。（越大恢复越多）"
+		"property_arcane_charm_description"				"提高奥术水晶拾取范围 <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%，并且拾取奥术水晶会恢复一定的生命值和魔法值。根据拾取水晶的大小分别恢复 <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% 的最大生命值和魔法值。（越大恢复越多）"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"霜枯骷髅戒"
