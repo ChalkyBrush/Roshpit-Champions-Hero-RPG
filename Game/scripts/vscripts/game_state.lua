@@ -3252,11 +3252,11 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_frozen_heart") then
 		if damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = FROZEN_HEART_DAMAGE_PER_PURE
+			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE
 		elseif damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = FROZEN_HEART_DAMAGE_PER_MAGICAL
+			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL
 		else
-			filterTable["damage"] = FROZEN_HEART_DAMAGE_PER_PHYS
+			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS
 		end
 	end
 

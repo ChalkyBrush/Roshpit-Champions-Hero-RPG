@@ -481,7 +481,7 @@
 		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_frozen_heart"								"Iceblood Marrow"	
-		"property_frozen_heart_description"					"Sets your maximum health to <% FROZEN_HEART_NEW_HP_CAP %> and disables all healing. Instances of Physical / Magical / Pure damage deal <% FROZEN_HEART_DAMAGE_PER_PHYS %> / <% FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% FROZEN_HEART_DAMAGE_PER_PURE %> final damage, penetrating all defenses (including refraction shields). Regenerate <% FROZEN_HEART_HP_REGEN %> health every <% FROZEN_HEART_HP_REGEN_INTERVAL %> seconds after not taking damage for <% FROZEN_HEART_HP_REGEN_DELAY %> seconds."
+		"property_frozen_heart_description"					"Sets your maximum health to <% ITEM_RPC_FROZEN_HEART_NEW_HP_CAP %> and disables all healing. Instances of Physical / Magical / Pure damage deal <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE %> final damage, penetrating all defenses (including refraction shields). Regenerate <% ITEM_RPC_FROZEN_HEART_HP_REGEN %> health every <% ITEM_RPC_FROZEN_HEART_HP_REGEN_INTERVAL %> seconds after not taking damage for <% ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY %> seconds."
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Cooldown"
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Regen"
 		

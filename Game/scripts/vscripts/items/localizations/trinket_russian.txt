@@ -481,7 +481,7 @@
 		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_frozen_heart"								"Iceblood Marrow"	
-		"property_frozen_heart_description"					"Устанавливает максимальное значение здоровья героя на <% FROZEN_HEART_NEW_HP_CAP %>. Входящий Физический / Магический / Чистый урон отнимает по <% FROZEN_HEART_DAMAGE_PER_PHYS %> / <% FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% FROZEN_HEART_DAMAGE_PER_PURE %> здоровья, пробивая любые щиты. Здоровье восстанавливается каждые <% FROZEN_HEART_HP_REGEN_INTERVAL %> секунды по <% FROZEN_HEART_HP_REGEN %> ХП, когда герой не получал урона в течении <% FROZEN_HEART_HP_REGEN_DELAY %> секунд."
+		"property_frozen_heart_description"					"Устанавливает максимальное значение здоровья героя на <% ITEM_RPC_FROZEN_HEART_NEW_HP_CAP %>. Входящий Физический / Магический / Чистый урон отнимает по <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE %> здоровья, пробивая любые щиты. Здоровье восстанавливается каждые <% ITEM_RPC_FROZEN_HEART_HP_REGEN_INTERVAL %> секунды по <% ITEM_RPC_FROZEN_HEART_HP_REGEN %> ХП, когда герой не получал урона в течении <% ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY %> секунд."
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Перезаряжается"
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Регенерация"
 		

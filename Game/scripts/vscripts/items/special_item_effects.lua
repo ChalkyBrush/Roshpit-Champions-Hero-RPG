@@ -5387,7 +5387,7 @@ function frozen_heart_think(event)
 	hero:SetModifierStackCount("modifier_frozen_heart_negative_health", caster, 900)
 	if not hero:HasModifier("modifier_frozen_heart_regen") then
 		if not hero:HasModifier("modifier_frozen_heart_regen_prep") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = FROZEN_HEART_HP_REGEN_DELAY})
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY})
 		end
 	end
 	-- if hero:GetHealth() <= 0 then
@@ -5434,7 +5434,7 @@ function frozen_heart_regen_thinker(event)
 	local caster = event.caster
 	local hero = event.target
 	local ability = event.ability
-	local newHealth = math.min(hero:GetHealth() + FROZEN_HEART_HP_REGEN, FROZEN_HEART_NEW_HP_CAP)
+	local newHealth = math.min(hero:GetHealth() + ITEM_RPC_FROZEN_HEART_HP_REGEN, ITEM_RPC_FROZEN_HEART_NEW_HP_CAP)
 	hero:SetHealth(newHealth)
 end
 
@@ -5444,10 +5444,10 @@ function frozen_heart_take_damage(event)
 	local caster = event.caster
 	ability.interval = 0
 	--print("take damage")
-	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = FROZEN_HEART_HP_REGEN_DELAY})
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_frozen_heart_regen_prep", {duration = ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY})
 	local modifier = unit:FindModifierByName("modifier_frozen_heart_regen_prep")
 	if modifier then
-		modifier:SetDuration(FROZEN_HEART_HP_REGEN_DELAY, true)
+		modifier:SetDuration(ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY, true)
 	end
 	Timers:CreateTimer(0.03, function()
 		ability.interval = 0

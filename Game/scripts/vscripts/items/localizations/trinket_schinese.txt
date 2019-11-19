@@ -478,7 +478,7 @@
 		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_frozen_heart"								"冰血寒髓"	
-		"property_frozen_heart_description"					"最大生命值被设定为<% FROZEN_HEART_NEW_HP_CAP %>，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成<% FROZEN_HEART_DAMAGE_PER_PHYS %> / <% FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% FROZEN_HEART_DAMAGE_PER_PURE %>点伤害。在没有受到伤害的<% FROZEN_HEART_HP_REGEN_DELAY %>秒后，每<% FROZEN_HEART_HP_REGEN_INTERVAL %>秒恢复<% FROZEN_HEART_HP_REGEN %>点生命值。"
+		"property_frozen_heart_description"					"最大生命值被设定为<% ITEM_RPC_FROZEN_HEART_NEW_HP_CAP %>，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成<% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE %>点伤害。在没有受到伤害的<% ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY %>秒后，每<% ITEM_RPC_FROZEN_HEART_HP_REGEN_INTERVAL %>秒恢复<% ITEM_RPC_FROZEN_HEART_HP_REGEN %>点生命值。"
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"冰血冷却"
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"冰血回复"
 		
