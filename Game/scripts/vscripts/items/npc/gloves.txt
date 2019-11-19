@@ -1522,7 +1522,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DARK_EMISSARY_DAMAGE_MULT %>"
+				"property_one"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_DAMAGE_MULT %>"
 			}
 			"02"
 			{
@@ -1532,12 +1532,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% DARK_EMISSARY_INVIS_DURATION %>"
+				"property_two"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_DURATION %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"		"<% DARK_EMISSARY_INVIS_CD %>"
+				"property_three"		"<% ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_CD %>"
 			}
 		}
 	}
