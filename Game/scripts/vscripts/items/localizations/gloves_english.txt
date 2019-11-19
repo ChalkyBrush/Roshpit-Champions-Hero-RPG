@@ -443,7 +443,7 @@
     	"item_rpc_heavy_echo_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_heavy_echo_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_heavy_echo"						"Reactive Grip"
-		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <% HEAVY_ECHO_REPEATS %> times."
+		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <% ITEM_RPC_HEAVY_ECHO_GAUNTLET_REPEATS %> times."
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
 		"item_rpc_depth_demon_claw_ruby1"			"blah blah @ruby_property1 gem"
