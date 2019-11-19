@@ -190,7 +190,7 @@
 		"item_rpc_omega_ruby_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_omega_ruby_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Your attacks explode on contact, dealing <% OMEGA_RUBY_ATTACK_TO_DMG %>% bonus Magical damage to enemies within <% OMEGA_RUBY_AOE_RADIUS %> range."
+		"property_omega_ruby"						"Your attacks explode on contact, dealing <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% bonus Magical damage to enemies within <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> range."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"

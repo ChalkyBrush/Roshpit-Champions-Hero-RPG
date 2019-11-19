@@ -2578,14 +2578,14 @@ function spirit_glove_think(event)
 end
 
 function ruby_attack(event)
-	local damage = event.damage * OMEGA_RUBY_ATTACK_TO_DMG/100
+	local damage = event.damage * ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG/100
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
 	-- damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
 	--print("RUBY DAMAGE:"..damage)
 	EmitSoundOn("Hero_Lina.ProjectileImpact", target)
-	local radius = OMEGA_RUBY_AOE_RADIUS
+	local radius = ITEM_RPC_OMEGA_RUBY_AOE_RADIUS
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
