@@ -1645,17 +1645,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DEMONFIRE_ELEMENTAL_AMP_PCT %>"
+				"property_one"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %>"
+				"property_two"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"<% DEMONFIRE_STACKS %>"
+				"property_three"	"<% ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS %>"
 			}
 		}
 	}

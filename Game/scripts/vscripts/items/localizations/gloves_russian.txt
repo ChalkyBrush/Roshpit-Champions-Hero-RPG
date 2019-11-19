@@ -432,9 +432,9 @@
     	"item_rpc_demonfire_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_demonfire_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%. Когда заряды развеются, <% DEMONFIRE_NUMBER_ENEMIES %> ближайших врага в радиусе <% DEMONFIRE_RADIUS %> получат урон, равный x<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %> урона героя, умноженного на количество зарядов. Максимум зарядов: <% DEMONFIRE_STACKS %>."
+		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <% ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT %>%. Когда заряды развеются, <% ITEM_RPC_DEMONFIRE_GAUNTLET_NUMBER_ENEMIES %> ближайших врага в радиусе <% ITEM_RPC_DEMONFIRE_GAUNTLET_RADIUS %> получат урон, равный x<% ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK %> урона героя, умноженного на количество зарядов. Максимум зарядов: <% ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS %>."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
-		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%%"
+		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <% ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT %>%%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"

@@ -427,7 +427,7 @@
     	"item_rpc_demonfire_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_demonfire_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_demonfire"								"恶魔之火"
-		"property_demonfire_description"						"每一次攻击，增加一层恶魔之火buff，每层恶魔之火增加所有元素的伤害 <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%。当buff结束时，<% DEMONFIRE_RADIUS %>码半径内<% DEMONFIRE_NUMBER_ENEMIES %>个最近的敌人会受到 <% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %>x 攻击力 乘以 恶魔之火buff层数的伤害。恶魔之火最多叠加 <% DEMONFIRE_STACKS %> 层。"
+		"property_demonfire_description"						"每一次攻击，增加一层恶魔之火buff，每层恶魔之火增加所有元素的伤害 <% ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT %>%。当buff结束时，<% ITEM_RPC_DEMONFIRE_GAUNTLET_RADIUS %>码半径内<% ITEM_RPC_DEMONFIRE_GAUNTLET_NUMBER_ENEMIES %>个最近的敌人会受到 <% ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK %>x 攻击力 乘以 恶魔之火buff层数的伤害。恶魔之火最多叠加 <% ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS %> 层。"
 		"DOTA_Tooltip_modifier_demonfire_stack"					"恶魔之火"
 		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"每层增加元素伤害 30%%"
 		

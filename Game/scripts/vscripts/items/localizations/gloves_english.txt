@@ -432,7 +432,7 @@
     	"item_rpc_demonfire_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_demonfire_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by <% DEMONFIRE_ELEMENTAL_AMP_PCT %>%. When the buff ends, the <% DEMONFIRE_NUMBER_ENEMIES %> closest enemies within a <% DEMONFIRE_RADIUS %> radius are damaged by x<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %> of attack power times the number of stacks. Max <% DEMONFIRE_STACKS %> stacks."
+		"property_demonfire_description"						"Landing an attack adds a stack of Demon Flame which increases all Elemental damage by <% ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT %>%. When the buff ends, the <% ITEM_RPC_DEMONFIRE_GAUNTLET_NUMBER_ENEMIES %> closest enemies within a <% ITEM_RPC_DEMONFIRE_GAUNTLET_RADIUS %> radius are damaged by x<% ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK %> of attack power times the number of stacks. Max <% ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
 		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Each stack increases Elemental damage by 30%%"
 		

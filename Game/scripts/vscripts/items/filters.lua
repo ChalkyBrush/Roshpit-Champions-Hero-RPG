@@ -1811,7 +1811,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
-            mult = mult + stacks * DEMONFIRE_ELEMENTAL_AMP_PCT/100
+            mult = mult + stacks * ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT/100
         end
         if bIsRealDamage then
             if attacker:HasModifier("modifier_ice_avatar") then
