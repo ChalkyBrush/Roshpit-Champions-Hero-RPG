@@ -34,7 +34,7 @@
 		"item_rpc_conquest_stone_falcon_sapphire1" 							"blah blah @sapphire_property1 gem"
 		"item_rpc_conquest_stone_falcon_amethyst1" 							"blah blah @amethyst_property1 gem"
 		"item_property_stone_falcon"						"Gift of the Reliquary"
-		"property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed <% STONE_FALCON_HP_THRESHOLD %>% of max health."
+		"property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed <% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>% of max health."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_never_ring"										"Soul Ring"

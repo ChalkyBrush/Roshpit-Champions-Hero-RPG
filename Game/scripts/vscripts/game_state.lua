@@ -3014,10 +3014,10 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_conquest_stone_falcon") then
 		if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
-			if filterTable["damage"] > victim:GetMaxHealth() * STONE_FALCON_HP_THRESHOLD/100 then
+			if filterTable["damage"] > victim:GetMaxHealth() * ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD/100 then
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_end.vpcf", victim, 1.5)
 			end
-			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * STONE_FALCON_HP_THRESHOLD/100)
+			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD/100)
 		end
 	end
 	if attacker:HasModifier("modifier_water_temple_bubble_effect") then

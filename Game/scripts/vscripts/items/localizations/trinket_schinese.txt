@@ -32,7 +32,7 @@
 		"item_rpc_conquest_stone_falcon_sapphire1" 							"blah blah @sapphire_property1 gem"
 		"item_rpc_conquest_stone_falcon_amethyst1" 							"blah blah @amethyst_property1 gem"
 		"item_property_stone_falcon"						"圣物"
-		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<% STONE_FALCON_HP_THRESHOLD %>%。"
+		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_never_ring"										"灵魂戒指"
