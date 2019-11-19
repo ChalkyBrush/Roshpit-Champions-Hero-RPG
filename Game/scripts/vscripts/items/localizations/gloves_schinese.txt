@@ -258,7 +258,7 @@
     	"item_rpc_far_seers_enchanted_gloves_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_far_seers_enchanted_gloves_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_farseer_glove"				"法能"
-		"property_farseer_description"				"根据你最近造成的魔法伤害（不计算减伤）的 <% FARSEER_PRE_MITI_MAGIC_BASE * 100 %>% 提高你的基础攻击力。持续<% FARSEER_DURATION %>秒，不叠加。上限为<% FARSEER_PRIMARY_ATT_CAP %>x主属性。"
+		"property_farseer_description"				"根据你最近造成的魔法伤害（不计算减伤）的 <% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRE_MITI_MAGIC_BASE * 100 %>% 提高你的基础攻击力。持续<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_DURATION %>秒，不叠加。上限为<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRIMARY_ATT_CAP %>x主属性。"
 		"DOTA_Tooltip_modifier_far_seer_effect"				"法能"
 		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"根据最近造成的魔法伤害提高基础攻击力"
 		
