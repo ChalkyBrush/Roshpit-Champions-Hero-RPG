@@ -71,12 +71,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% CYTOPIAN_LASER_DMG_PER_ATT %>"
+				"property_one"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_DMG_PER_ATT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% CYTOPIAN_LASER_MAX_STACKS %>"
+				"property_two"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_MAX_STACKS %>"
 			}
 			"03"
 			{
@@ -422,7 +422,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% CHITINOUS_LOBSTER_CLAW_STACK_RATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_STACK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -430,7 +430,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"lobster_claw_think"
 						"target"		"TARGET"
-						"max_stacks"	"<% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %>"
+						"max_stacks"	"<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_MAX_STACKS %>"
 					}
 				}
 				"OnDestroy"
@@ -792,12 +792,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% AUTUMNROCK_BRACER_DMG_PER_STR %>"
+				"property_one"			"<% ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>"
+				"property_two"		"<% ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>"
 			}
 			"03"
 			{
@@ -919,7 +919,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>"
 				}
 			}
 			"modifier_berserker_gloves_buff_invisible"
@@ -928,7 +928,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% ITEM_RPC_BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>"
 				}
 			}
 		}
@@ -1522,7 +1522,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DARK_EMISSARY_DAMAGE_MULT %>"
+				"property_one"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_DAMAGE_MULT %>"
 			}
 			"02"
 			{
@@ -1532,12 +1532,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% DARK_EMISSARY_INVIS_DURATION %>"
+				"property_two"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_DURATION %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"		"<% DARK_EMISSARY_INVIS_CD %>"
+				"property_three"		"<% ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_CD %>"
 			}
 		}
 	}
@@ -1645,17 +1645,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DEMONFIRE_ELEMENTAL_AMP_PCT %>"
+				"property_one"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% DEMONFIRE_DAMAGE_PER_ATTACK_PER_STACK %>"
+				"property_two"			"<% ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_three"	"<% DEMONFIRE_STACKS %>"
+				"property_three"	"<% ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS %>"
 			}
 		}
 	}
@@ -1723,7 +1723,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>"
+				"property_one"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>"
 			}
 		}
 	}
@@ -2028,12 +2028,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"<% FROSTBURN_GLOVES_CHANCE %>"
+				"property_one"		"<% ITEM_RPC_FROSTBURN_GAUNTLETS_CHANCE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"<% FROSTBURN_GLOVES_MS_SLOW %>"
+				"property_two"		"<% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW %>"
 			}
 		}
 		"Modifiers"
@@ -2056,7 +2056,7 @@
             	"TextureName"		"crystal_maiden_crystal_nova"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% FROSTBURN_GLOVES_MS_SLOW %>"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW %>"
 				}
 			}
 		}
@@ -2270,7 +2270,7 @@
 				"TextureName"	"itemicons/gloves_of_sweeping_wind"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>"
 				}
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
@@ -2480,7 +2480,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% GRAVEKEEPER_MOVESPEED_DRAIN %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MOVESPEED_DRAIN %>"
 				}
 			}
 			"modifier_gravekeeper_gauntlet_target"
@@ -2506,7 +2506,7 @@
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% GRAVEKEEPER_MOVESPEED_DRAIN %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MOVESPEED_DRAIN %>"
 				}
 			}
 		}
@@ -2644,7 +2644,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ITEM_RPC_HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>"
 				}
 			}
 		}
@@ -2653,12 +2653,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>"
+				"property_one"			"<% ITEM_RPC_HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% HALCYON_SOUL_GLOVE_BONUS * 100 %>"
+				"property_two"			"<% ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS * 100 %>"
 			}
 		}
 	}
@@ -2912,7 +2912,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
 				}
 			}
 		}
@@ -2921,7 +2921,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
+				"property_one"			"<% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
 			}
 		}
 	}
@@ -3063,7 +3063,7 @@
 				"TextureName"	"treant_living_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "LIVING_GAUNTLET_HP_REGEN_PCT"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT %>"
 				}
 				"OnCreated"
 				{
@@ -3525,12 +3525,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>"
+				"property_one"			"<% ITEM_RPC_MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>"
+				"property_two"		"<% ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>"
 			}
 			"03"
 			{
@@ -3647,12 +3647,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"			"<% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %>"
+				"property_one"			"<% ITEM_RPC_PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% PHOENIX_GLOVES_ATT_DMG_PER_HP %>"
+				"property_two"			"<% ITEM_RPC_PHOENIX_GLOVES_ATT_DMG_PER_HP %>"
 			}
 		}
 	}
@@ -3715,7 +3715,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% POWER_RANGER_BONUS_DAMAGE %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_POWER_RANGER_GLOVES_BONUS_DAMAGE %>"
 				}
 			}
 		}
@@ -3795,7 +3795,7 @@
 				"TextureName"	"itemicons/royal_wristguards"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
 				}
 			}
 		}
@@ -3804,12 +3804,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
+				"property_one"			"<% ITEM_RPC_ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"<% ROYAL_WRISTGUARDS_Q_BAD %>"
+				"property_two"		"<% ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD %>"
 			}
 		}
 	}
@@ -4247,7 +4247,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SILVERSPRING_BASE_DMG_PER_REGEN %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %>"
 				}
 			}
 		}
@@ -4256,7 +4256,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% SILVERSPRING_BASE_DMG_PER_REGEN %>"
+				"property_one"			"<% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %>"
 			}
 		}
 	}
@@ -4331,7 +4331,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"<% SKULLDIGGER_STACK_RATE %>"
+				"ThinkInterval"  	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_STACK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -4339,7 +4339,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"skulldigger_think"
 						"target"		"TARGET"
-						"max_stacks"	"<% SKULLDIGGER_MAX_STACKS %>"
+						"max_stacks"	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS %>"
 					}
 				}
 				"OnDestroy"
@@ -4373,8 +4373,8 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"skulldigger_hellfire_hit"
 				"target"        "TARGET"
-				"stun_duration"	"<% SKULLDIGGER_STUN_DURATION %>"
-				"attack_mult"	"<% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>"
+				"stun_duration"	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION %>"
+				"attack_mult"	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE %>"
 			}
 		}
 	}
@@ -4515,7 +4515,7 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"		"itemicons/spirit_glove"
-				"ThinkInterval"  	"<% SPIRIT_GLOVE_HEAL_INTERVAL %>"
+				"ThinkInterval"  	"<% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -4585,7 +4585,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% SPIRITUAL_EMPOWERMENT_TICKRATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

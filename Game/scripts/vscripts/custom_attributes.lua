@@ -67,12 +67,12 @@ CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = TRAPPER_R4_BONUS_AGI
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = JEX_OAK_INFUSION_Q4_STR
 
-CustomAttributes.RING_OF_NOBILITY = NOBILITY_ALL_ATTRIBUTES
-CustomAttributes.RING_OF_NOBILITY2 = NOBILITY_ALL_ATTRIBUTES_AUGMENTED
-CustomAttributes.AZURE_EMPIRE_STATS = PENDANT_AZURE_EMPIRE_GREEN_AGI
-CustomAttributes.WIND_ORCHID_AGI_PER_E4 = WIND_ORCHID_AGI_PER_E4
-CustomAttributes.AQUA_LILY_INT_PER_R4 = AQUA_LILY_INT_PER_R4
-CustomAttributes.FIRE_BLOSSOM_STR_PER_W4 = FIRE_BLOSSOM_STR_PER_W4
+CustomAttributes.RING_OF_NOBILITY = ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES
+CustomAttributes.RING_OF_NOBILITY2 = ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED
+CustomAttributes.AZURE_EMPIRE_STATS = ITEM_RPC_AZURE_EMPIRE_GREEN_AGI
+CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4 = ITEM_RPC_WIND_ORCHID_AGI_PER_E4
+CustomAttributes.ITEM_RPC_AQUA_LILY_INT_PER_R4 = ITEM_RPC_AQUA_LILY_INT_PER_R4
+CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 = ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4
 CustomAttributes.FLAMEWAKER_WEAPON_2_AGI = FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E
 CustomAttributes.SEINARU_WEAPON_3_STR = 60
 
@@ -85,7 +85,7 @@ CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = DJANGHOR_R2_BONUS_HP
 CustomAttributes.OGTHUN_HEALTH = 10
 CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = ITEM_RPC_SANGE_BOOTS_HP_PER_AGI
-CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
+CustomAttributes.SAPPHIRE_LOTUS_HEALTH = ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
 
 function CDOTA_BaseNPC:GetRoshpitLevel()
@@ -2263,7 +2263,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_intelligence", CustomAttributes.AZURE_EMPIRE_STATS)
 	end
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.WIND_ORCHID_AGI_PER_E4)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then
@@ -2277,10 +2277,10 @@ function CustomAttributes:SetAttributes(hero)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.AQUA_LILY_INT_PER_R4)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.ITEM_RPC_AQUA_LILY_INT_PER_R4)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.FIRE_BLOSSOM_STR_PER_W4)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
@@ -2409,7 +2409,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local intelligence = hero:GetIntellect()
 	local halcyon = 1
 	if hero:HasModifier("modifier_halcyon_soul_glove") then
-		halcyon = 1 + HALCYON_SOUL_GLOVE_BONUS
+		halcyon = 1 + ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
 	end
 	if hero:HasModifier("modifier_frozen_heart") then
 		hero:RemoveModifierByName("modifier_strength_health")
@@ -2474,7 +2474,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	local flatHealthBonus = 1000 --Each hero starts with 1000 hp, this is important so that its multiplied with helm of mountain giant for example
 	flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR
 	if excludedModifier ~= "modifier_halcyon_soul_glove" and hero:HasModifier("modifier_halcyon_soul_glove") then
-		flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR * HALCYON_SOUL_GLOVE_BONUS
+		flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR * ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
 	end
 	if excludedModifier ~= "modifier_helm_max_health" and hero:HasModifier("modifier_helm_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_helm_max_health", 1)

@@ -528,7 +528,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% RAZOR_BAND_ATTACK_POWER_PER_STACK %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_GALVANIZED_RAZOR_BAND_ATTACK_POWER_PER_STACK %>"
 				}
 			}
 		}
@@ -2195,8 +2195,8 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"<% EPSILON_EYEGLASS_VISION_RADIUS %>"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"<% EPSILON_EYEGLASS_VISION_RADIUS %>"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" 	"<% ITEM_RPC_EPSILONS_EYEGLASS_VISION_RADIUS %>"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"<% ITEM_RPC_EPSILONS_EYEGLASS_VISION_RADIUS %>"
 				}
 
 				"OnCreated"
@@ -2247,8 +2247,8 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% EPSILON_EYEGLASS_ATTACK_RANGE %>"
-					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "<% EPSILON_EYEGLASS_PROJECTILE_SPEED %>"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE %>"
+					"MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS" "<% ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED %>"
 				}
 			}
 		}
@@ -2390,7 +2390,7 @@
 				"TextureName" 	"itemicons/fenrir_fang"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% FENRIR_FANG_BONUS_DAMAGE %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_FENRIRS_FANG_BONUS_DAMAGE %>"
 				}
 			}
 		}
@@ -2839,7 +2839,7 @@
 				"AbilityTextureName"	"wyvern_cold_embrace"
 				"EffectName"		"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"ThinkInterval"  "<% FROZEN_HEART_HP_REGEN_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_FROZEN_HEART_HP_REGEN_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2966,7 +2966,7 @@
 				"TextureName"	"itemicons/fuchsia_ring"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% FUCHSIA_HP_REGEN_OF_MAX_HP %>"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>"
 				}
 			}
 		}
@@ -3235,7 +3235,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Aura"          	"modifier_eternal_frost_slowing"
-				"Aura_Radius"   	"<% ETERNAL_FROST_AURA_RADIUS %>"
+				"Aura_Radius"   	"<% ITEM_RPC_GEM_OF_ETERNAL_FROST_AURA_RADIUS %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -3247,7 +3247,7 @@
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
 				"TextureName"	"itemicons/gem_of_eternal_frost"
-				"ThinkInterval"  "<% ETERNAL_FROST_STACK_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_GEM_OF_ETERNAL_FROST_STACK_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3273,7 +3273,7 @@
 				"EffectAttachType"	"attach_overhead"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ETERNAL_FROST_SLOW_PER_STACK %>"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_GEM_OF_ETERNAL_FROST_SLOW_PER_STACK %>"
 				}
 			}
 			"modifier_eternal_frost_nova"
@@ -3504,7 +3504,7 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 
-				"ThinkInterval"  "<% MONKEY_PAW_DMG_TICK_RATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3515,7 +3515,7 @@
 					}
 				}
 				"Aura"          	"modifier_monkey_paw_aura"
-				"Aura_Radius"   	"<% MONKEY_PAW_AOE_PARAGON_TRIGGER %>"
+				"Aura_Radius"   	"<% ITEM_RPC_MONKEY_PAW_AOE_PARAGON_TRIGGER %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -4919,7 +4919,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"<% GENGAR_EVASION %>"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"<% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>"
 				}
 			}
 		}
