@@ -4698,10 +4698,10 @@ function blue_rain_attack_land(event)
 	local caster = attacker
 	local target = event.target
 
-	local proc = Filters:GetProc(caster, BLUE_RAIN_CHANCE)
+	local proc = Filters:GetProc(caster, ITEM_RPC_BLUE_RAIN_GAUNTLET_CHANCE)
 	if proc then
 		local position = target:GetAbsOrigin()
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * BLUE_RAIN_DMG_PER_ATT
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_BLUE_RAIN_GAUNTLET_DMG_PER_ATT
 		local endFV = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		local range = 1000
 		--print(caster:GetAbsOrigin())

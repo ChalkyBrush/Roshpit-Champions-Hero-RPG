@@ -4,7 +4,7 @@
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blue_rain_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blue_rain"								"雨浪"
-		"property_blue_rain_description"						"攻击不会落空。同时攻击有 <% BLUE_RAIN_CHANCE %>% 的几率制造一道水浪，水浪对一条直线上的敌人造成 <% BLUE_RAIN_DMG_PER_ATT %>x 攻击力的伤害。"
+		"property_blue_rain_description"						"攻击不会落空。同时攻击有 <% ITEM_RPC_BLUE_RAIN_GAUNTLET_CHANCE %>% 的几率制造一道水浪，水浪对一条直线上的敌人造成 <% ITEM_RPC_BLUE_RAIN_GAUNTLET_DMG_PER_ATT %>x 攻击力的伤害。"
 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"暴风护腕"

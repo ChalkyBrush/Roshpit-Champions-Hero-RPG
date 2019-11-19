@@ -4,7 +4,7 @@
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blue_rain_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blue_rain"								"Rain Lance"
-		"property_blue_rain_description"						"Атаки никогда не промахиваются. С <% BLUE_RAIN_CHANCE %>% шансом при атаке появится волна воды, которая нанесёт урон по линии в размере <% BLUE_RAIN_DMG_PER_ATT %>x от урона героя."
+		"property_blue_rain_description"						"Атаки никогда не промахиваются. С <% ITEM_RPC_BLUE_RAIN_GAUNTLET_CHANCE %>% шансом при атаке появится волна воды, которая нанесёт урон по линии в размере <% ITEM_RPC_BLUE_RAIN_GAUNTLET_DMG_PER_ATT %>x от урона героя."
 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"

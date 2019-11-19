@@ -4,7 +4,7 @@
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blue_rain_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blue_rain"								"Rain Lance"
-		"property_blue_rain_description"						"Attacks cannot miss. <% BLUE_RAIN_CHANCE %>% chance on attack to create massive wave of water that damages enemies in a line in front of you for <% BLUE_RAIN_DMG_PER_ATT %>x your total attack power."
+		"property_blue_rain_description"						"Attacks cannot miss. <% ITEM_RPC_BLUE_RAIN_GAUNTLET_CHANCE %>% chance on attack to create massive wave of water that damages enemies in a line in front of you for <% ITEM_RPC_BLUE_RAIN_GAUNTLET_DMG_PER_ATT %>x your total attack power."
 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
