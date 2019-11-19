@@ -4203,7 +4203,7 @@ function cobalt_serenity_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_cobalt_serenity_health_regen", {})
-	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect") * COBALT_SERENITY_INT_TO_HP_REGEN
+	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect") * ITEM_RPC_COBALT_SERENITY_RING_INT_TO_HP_REGEN
 	target:SetModifierStackCount("modifier_cobalt_serenity_health_regen", caster, healthRegenStacks)
 end
 
