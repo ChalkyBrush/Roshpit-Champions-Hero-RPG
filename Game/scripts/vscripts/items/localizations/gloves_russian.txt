@@ -172,9 +172,9 @@
     	"item_rpc_spirit_glove_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_spirit_glove_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"Успешное прочтение (R) @Ability4 восстановит здоровье себе и ближайшим союзникам в размере <% SPIRIT_GLOVE_INT_TO_HEAL %>x вашего Интеллекта в течении <% SPIRIT_GLOVE_DURATION %> секунд. Интервал восстановления здоровья <% SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
+		"property_spirit_glove_description"			"Успешное прочтение (R) @Ability4 восстановит здоровье себе и ближайшим союзникам в размере <% ITEM_RPC_SPIRIT_GLOVE_INT_TO_HEAL %>x вашего Интеллекта в течении <% ITEM_RPC_SPIRIT_GLOVE_DURATION %> секунд. Интервал восстановления здоровья <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
-		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Здоровье восстанавливается раз в <% SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
+		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Здоровье восстанавливается раз в <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"

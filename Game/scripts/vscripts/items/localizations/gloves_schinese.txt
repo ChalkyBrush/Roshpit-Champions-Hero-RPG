@@ -167,7 +167,7 @@
     	"item_rpc_spirit_glove_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_spirit_glove_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_spirit_glove"				"灵魂触摸" 
-		"property_spirit_glove_description"			"成功施放 @Ability4 后，每秒为你及周围友军回复<% SPIRIT_GLOVE_INT_TO_HEAL %>倍智力的生命值，持续<% SPIRIT_GLOVE_DURATION %>秒。"
+		"property_spirit_glove_description"			"成功施放 @Ability4 后，每秒为你及周围友军回复<% ITEM_RPC_SPIRIT_GLOVE_INT_TO_HEAL %>倍智力的生命值，持续<% ITEM_RPC_SPIRIT_GLOVE_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"灵魂触摸"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"每秒回复生命值"
 		

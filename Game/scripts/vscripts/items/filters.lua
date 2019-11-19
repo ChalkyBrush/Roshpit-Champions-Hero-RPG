@@ -2803,8 +2803,8 @@ function Filters:VampiricBreastplate(caster, damage)
 end
 
 function Filters:SpiritGlove(caster)
-    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SPIRIT_GLOVE_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local healAmount = math.ceil(caster:GetIntellect() * SPIRIT_GLOVE_INT_TO_HEAL)
+    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_SPIRIT_GLOVE_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    local healAmount = math.ceil(caster:GetIntellect() * ITEM_RPC_SPIRIT_GLOVE_INT_TO_HEAL)
     local spiritGlove = caster.spiritGlove
     spiritGlove.healAmount = healAmount
     if #allies > 0 then
@@ -2816,7 +2816,7 @@ function Filters:SpiritGlove(caster)
                 ParticleManager:DestroyParticle(pfx, false)
             end)
             Filters:ApplyHeal(caster, ally, healAmount, true)
-            spiritGlove:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_spirit_glove_effect", {duration = SPIRIT_GLOVE_DURATION})
+            spiritGlove:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_spirit_glove_effect", {duration = ITEM_RPC_SPIRIT_GLOVE_DURATION})
         end
     end
 end
