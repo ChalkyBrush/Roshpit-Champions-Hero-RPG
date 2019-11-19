@@ -303,7 +303,7 @@
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>% bonus attack damage, and all nearby enemies within <% SWEEPING_WIND_RADIUS %> radius take <% SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>% of your attack damage as magic each second. Attacking consumes a stack. Max <% SWEEPING_WIND_MAX_STACKS %> stacks. Lasts <% SWEEPING_WIND_DURATION %> seconds."
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>% bonus attack damage, and all nearby enemies within <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_RADIUS %> radius take <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>% of your attack damage as magic each second. Attacking consumes a stack. Max <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_MAX_STACKS %> stacks. Lasts <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 		 

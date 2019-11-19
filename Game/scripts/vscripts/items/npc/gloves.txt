@@ -2270,7 +2270,7 @@
 				"TextureName"	"itemicons/gloves_of_sweeping_wind"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>"
 				}
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
