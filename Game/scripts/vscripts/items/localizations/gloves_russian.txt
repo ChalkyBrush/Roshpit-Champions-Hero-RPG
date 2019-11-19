@@ -125,7 +125,7 @@
     	"item_rpc_hand_of_midas_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_hand_of_midas_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"С <% HAND_OF_MIDAS_CHANCE %>% шансом при базовой атаке герой нанесет <% HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>x Чистый урон по области <% HAND_OF_MIDAS_RADIUS %>, превращая задетых врагов в золото и замораживая их на <% HAND_OF_MIDAS_FREEZE_DURATION %> секунды. Максимум 1 заморозка за <% HAND_OF_MIDAS_FREEZE_CD %> секунд."
+		"property_hand_of_midas_description"		"С <% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% шансом при базовой атаке герой нанесет <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>x Чистый урон по области <% ITEM_RPC_HAND_OF_MIDAS_RADIUS %>, превращая задетых врагов в золото и замораживая их на <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %> секунды. Максимум 1 заморозка за <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %> секунд."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
