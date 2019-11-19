@@ -194,7 +194,7 @@
     	"item_rpc_mountain_vambraces_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_mountain_vambraces_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mountain_vambraces"			"Craggy Shock"
-		"property_mountain_vambraces_description"	"Your attacks have a <% MOUNTAIN_VAMBRACES_CHANCE %>% chance to stun enemies in a small area around the target for <% MOUNTAIN_VAMBRACES_STUN_DURATION %> seconds, dealing <% MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>x your Strength as Magical damage.<br>All damage dealt directly by items is increased by <% MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>% for each <% MOUNTAIN_VAMBRACES_STR_DIVISOR %> points of Strength."
+		"property_mountain_vambraces_description"	"Your attacks have a <% ITEM_RPC_MOUNTAIN_VAMBRACES_CHANCE %>% chance to stun enemies in a small area around the target for <% ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_DURATION %> seconds, dealing <% ITEM_RPC_MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>x your Strength as Magical damage.<br>All damage dealt directly by items is increased by <% ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>% for each <% ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR %> points of Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"

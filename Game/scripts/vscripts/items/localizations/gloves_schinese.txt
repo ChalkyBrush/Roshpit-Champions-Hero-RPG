@@ -189,7 +189,7 @@
     	"item_rpc_mountain_vambraces_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_mountain_vambraces_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mountain_vambraces"			"崎岖打击"
-		"property_mountain_vambraces_description"	"你的攻击有<% MOUNTAIN_VAMBRACES_CHANCE %>%的几率对小范围内的敌人造成<% MOUNTAIN_VAMBRACES_STUN_DURATION %>秒眩晕和 <% MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %> 力量值的魔法伤害。同一单位在4秒内只会被眩晕一次。<br>每<% MOUNTAIN_VAMBRACES_STR_DIVISOR %>点力量值提高装备伤害 <% MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>% 。"
+		"property_mountain_vambraces_description"	"你的攻击有<% ITEM_RPC_MOUNTAIN_VAMBRACES_CHANCE %>%的几率对小范围内的敌人造成<% ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_DURATION %>秒眩晕和 <% ITEM_RPC_MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %> 力量值的魔法伤害。同一单位在4秒内只会被眩晕一次。<br>每<% ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR %>点力量值提高装备伤害 <% ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>% 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"激光手套"
