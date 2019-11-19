@@ -323,7 +323,7 @@
 		"item_rpc_fenrirs_fang_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fenrirs_fang_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fenrir_fang"							"Alpha Wolf Aura"
-		"property_fenrir_fang"									"Герой распространяет ауру на себя и союзников поблизости, которая повышает урон на <% FENRIR_FANG_BONUS_DAMAGE %>%."
+		"property_fenrir_fang"									"Герой распространяет ауру на себя и союзников поблизости, которая повышает урон на <% ITEM_RPC_FENRIRS_FANG_BONUS_DAMAGE %>%."
 		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"Alpha Wolf Aura"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Урон увеличен"
 		

@@ -320,7 +320,7 @@
 		"item_rpc_fenrirs_fang_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fenrirs_fang_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fenrir_fang"							"阿尔法狼灵气"
-		"property_fenrir_fang"									"增加自己和友军的攻击力<% FENRIR_FANG_BONUS_DAMAGE %>%。"
+		"property_fenrir_fang"									"增加自己和友军的攻击力<% ITEM_RPC_FENRIRS_FANG_BONUS_DAMAGE %>%。"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"阿尔法狼灵气"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"增加攻击力"
 		
