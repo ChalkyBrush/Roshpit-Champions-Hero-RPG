@@ -804,7 +804,7 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_signus_charm") then
         ability:EndCooldown()
-        baseCd = baseCd * (100-SIGNUS_R_CD_REDUCTION)/100
+        baseCd = baseCd * (100-ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION)/100
         ability:StartCooldown(baseCd)
     end
     if caster:HasModifier("modifier_burning_spirit_helmet") then

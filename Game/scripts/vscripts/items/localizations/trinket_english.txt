@@ -137,7 +137,7 @@
 		"item_rpc_signus_charm_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_signus_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_signus"						"Authority"
-		"property_signus_description"				"Decreases cooldown of @Ability4 by <% SIGNUS_R_CD_REDUCTION %>%. Doubles the cooldown of @Ability3."
+		"property_signus_description"				"Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%. Doubles the cooldown of @Ability3."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
