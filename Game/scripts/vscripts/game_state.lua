@@ -644,10 +644,10 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 	elseif target:HasModifier("modifier_guadian_stone") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if modifierGainedTable["entindex_ability_const"] then
-			local duration_modifier = GUARDIAN_STONE_DEBUFF_REDUCTION_PCT
+			local duration_modifier = ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT
 			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
 				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
-				local heal = target:GetMaxHealth()*(GUARDIAN_STONE_HEAL_PCT/100)
+				local heal = target:GetMaxHealth()*(ITEM_RPC_GUARDIAN_STONE_HEAL_PCT/100)
 				CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", target, 1)
 				Filters:ApplyHeal(target, target, heal, true, true)
 				EmitSoundOn("Items.GuardianStone.Trigger", target)

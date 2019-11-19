@@ -545,7 +545,7 @@
 		"item_rpc_guardian_stone_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"白银之心"
-		"property_guardian_stone_description"								"敌人对你施加的Debuffs的持续时间将会被降低 <% GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% 。当一个debuff的持续时间被降低后，你将会被治疗一次，治疗量为<% GUARDIAN_STONE_HEAL_PCT %>% 最大生命值。"
+		"property_guardian_stone_description"								"敌人对你施加的Debuffs的持续时间将会被降低 <% ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% 。当一个debuff的持续时间被降低后，你将会被治疗一次，治疗量为<% ITEM_RPC_GUARDIAN_STONE_HEAL_PCT %>% 最大生命值。"
 
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"直觉翡翠之戒"
 		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"

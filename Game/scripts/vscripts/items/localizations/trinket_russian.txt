@@ -548,7 +548,7 @@
 		"item_rpc_guardian_stone_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"Silver Heart"
-		"property_guardian_stone_description"								"Дебаффы от противников длятся на <% GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% меньше. Каждое срабатывание исцеляет героя на <% GUARDIAN_STONE_HEAL_PCT %>% от максимального ХП."
+		"property_guardian_stone_description"								"Дебаффы от противников длятся на <% ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% меньше. Каждое срабатывание исцеляет героя на <% ITEM_RPC_GUARDIAN_STONE_HEAL_PCT %>% от максимального ХП."
 
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
 		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"
