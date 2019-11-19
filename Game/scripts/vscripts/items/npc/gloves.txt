@@ -3795,7 +3795,7 @@
 				"TextureName"	"itemicons/royal_wristguards"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
 				}
 			}
 		}
@@ -3804,12 +3804,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
+				"property_one"			"<% ITEM_RPC_ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"<% ROYAL_WRISTGUARDS_Q_BAD %>"
+				"property_two"		"<% ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD %>"
 			}
 		}
 	}

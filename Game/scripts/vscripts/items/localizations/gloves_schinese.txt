@@ -269,7 +269,7 @@
     	"item_rpc_royal_wristguards_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_royal_wristguards_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_royal_wrist"								"军令如山"
-		"property_royal_wrist_description"						"每一次受到伤害时，提高 <% ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>% 攻击力，可叠加至<% ROYAL_WRISTGUARDS_CHARGE_CAP %>层。每层提高 @Ability1 的基础技能伤害 <% ROYAL_WRISTGUARDS_Q_BAD %>%，但使用该技能后层数将归零。"
+		"property_royal_wrist_description"						"每一次受到伤害时，提高 <% ITEM_RPC_ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>% 攻击力，可叠加至<% ITEM_RPC_ROYAL_WRISTGUARDS_CHARGE_CAP %>层。每层提高 @Ability1 的基础技能伤害 <% ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD %>%，但使用该技能后层数将归零。"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"军令如山"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "提高攻击力和一技能伤害"
 		
