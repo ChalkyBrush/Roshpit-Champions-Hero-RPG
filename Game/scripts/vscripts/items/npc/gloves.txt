@@ -4585,7 +4585,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% SPIRITUAL_EMPOWERMENT_TICKRATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_TICKRATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
