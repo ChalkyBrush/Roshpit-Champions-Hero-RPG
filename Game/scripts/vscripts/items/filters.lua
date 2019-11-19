@@ -642,7 +642,7 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
     heroes.venomort.onDotDamageDo(caster, target)
     local mult = 1
     if caster:HasModifier("modifier_glove_of_the_forgotten_ghost") then
-        mult = mult + FORGOTTEN_GHOST_DOT_MULT
+        mult = mult + ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DOT_MULT
     end
     mult = mult + heroes.venomort.getDotAmplify(caster, target)
     damage = damage * mult

@@ -330,7 +330,7 @@
     	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"blah blah @sapphire_property1 gem"
     	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"Все дебаффы, наносящие урон со временем усилены на <% FORGOTTEN_GHOST_DOT_MULT * 100 %>%."
+		 "property_forgotten_ghost_description"				"Все дебаффы, наносящие урон со временем усилены на <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DOT_MULT * 100 %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
