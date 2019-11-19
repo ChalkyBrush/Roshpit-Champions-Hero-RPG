@@ -1307,7 +1307,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD/100
         end
         if attacker:HasModifier("modifier_eye_of_avernus") then
-            damageMult = damageMult + EYE_OF_AVERNUS_BAD/100
+            damageMult = damageMult + ITEM_RPC_EYE_OF_AVERNUS_BAD/100
         end
         if attacker:HasModifier("modifier_grand_arcanist") then
             damageMult = damageMult + ITEM_RPC_GRAND_ARCANIST_WRAPS_BAD_PER_INT * attacker:GetIntellect()

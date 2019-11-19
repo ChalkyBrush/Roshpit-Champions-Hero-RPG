@@ -144,7 +144,7 @@
 		"item_rpc_eye_of_avernus_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_eye_of_avernus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_avernus"						"居高临下"								
-		"property_avernus_description"				"提高所有基础技能的伤害<% EYE_OF_AVERNUS_BAD %>%。"
+		"property_avernus_description"				"提高所有基础技能的伤害<% ITEM_RPC_EYE_OF_AVERNUS_BAD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"混乱之书"
