@@ -504,7 +504,7 @@
 		"item_rpc_red_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_red_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_red_divinex"									"X-Strength"
-		"property_red_divinex_description"							"Any modifiers to bonus Agility and Intelligence are ignored. Strength is doubled. Each <% RED_DIVINEX_STR_DIVISOR %> points of Strength increases item damage by <% RED_DIVINEX_STR_TO_ITEM_DMG %>%."
+		"property_red_divinex_description"							"Any modifiers to bonus Agility and Intelligence are ignored. Strength is doubled. Each <% ITEM_RPC_RED_DIVINEX_AMULET_STR_DIVISOR %> points of Strength increases item damage by <% ITEM_RPC_RED_DIVINEX_AMULET_STR_TO_ITEM_DMG %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"Green Divinex Amulet"
