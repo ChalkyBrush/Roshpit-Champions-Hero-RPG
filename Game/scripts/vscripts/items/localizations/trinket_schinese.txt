@@ -509,7 +509,7 @@
 		"item_rpc_green_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_green_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_green_divinex"									"超强敏捷"
-		"property_green_divinex_description"							"力量和智力上限被限定为20。敏捷翻倍。每<% GREEN_DIVINEX_AGI_DIVISOR %>点敏捷提高装备伤害 <% GREEN_DIVINEX_STR_TO_ITEM_DMG %>%."
+		"property_green_divinex_description"							"力量和智力上限被限定为20。敏捷翻倍。每<% ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_DIVISOR %>点敏捷提高装备伤害 <% ITEM_RPC_GREEN_DIVINEX_AMULET_STR_TO_ITEM_DMG %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"蓝色占卜神符"

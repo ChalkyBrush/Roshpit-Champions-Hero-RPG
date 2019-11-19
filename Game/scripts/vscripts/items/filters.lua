@@ -190,7 +190,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + ITEM_RPC_RED_DIVINEX_AMULET_STR_TO_ITEM_DMG/100 * (caster:GetStrength() / ITEM_RPC_RED_DIVINEX_AMULET_STR_DIVISOR)
     end
     if caster:HasModifier("modifier_green_divinex_amulet") then
-        mult = mult + GREEN_DIVINEX_STR_TO_ITEM_DMG/100 * (caster:GetAgility() / GREEN_DIVINEX_AGI_DIVISOR)
+        mult = mult + ITEM_RPC_GREEN_DIVINEX_AMULET_STR_TO_ITEM_DMG/100 * (caster:GetAgility() / ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_DIVISOR)
     end
     if caster:HasModifier("modifier_blue_divinex_amulet") then
         mult = mult + ITEM_RPC_BLUE_DIVINEX_AMULET_STR_TO_ITEM_DMG/100 * (caster:GetIntellect() / ITEM_RPC_BLUE_DIVINEX_AMULET_INT_DIVISOR)
