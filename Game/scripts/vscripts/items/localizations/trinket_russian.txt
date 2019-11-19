@@ -564,7 +564,7 @@
 		"item_rpc_auric_ring_of_inspiration_sapphire1" 	"blah blah @sapphire_property1 gem"
 		"item_rpc_auric_ring_of_inspiration_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_auric_ring_of_inspiration"						"Inspired Coalescence"
-		"property_auric_ring_of_inspiration_description"				"После прочтения всех 4 базовых способностей в любом порядке восстанавливает здоровье полностью и дает иммунитет к заклинаниям на <% INSPIRATION_MAGIC_IMMUNITY_TIME %> сек."
+		"property_auric_ring_of_inspiration_description"				"После прочтения всех 4 базовых способностей в любом порядке восстанавливает здоровье полностью и дает иммунитет к заклинаниям на <% ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME %> сек."
 
 		"DOTA_Tooltip_modifier_auric_ring_bkb"						"Inspiration"
 		"DOTA_Tooltip_modifier_auric_ring_bkb_Description"			"Иммунитет к магии"

@@ -561,7 +561,7 @@
 		"item_rpc_auric_ring_of_inspiration_sapphire1" 	"blah blah @sapphire_property1 gem"
 		"item_rpc_auric_ring_of_inspiration_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_auric_ring_of_inspiration"						"振奋"
-		"property_auric_ring_of_inspiration_description"				"在释放完所有技能后，你的生命值将会被重置，并且获得<% INSPIRATION_MAGIC_IMMUNITY_TIME %> 秒的魔法免疫"
+		"property_auric_ring_of_inspiration_description"				"在释放完所有技能后，你的生命值将会被重置，并且获得<% ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME %> 秒的魔法免疫"
 
 		"DOTA_Tooltip_modifier_auric_ring_bkb"						"灵感"
 "DOTA_Tooltip_modifier_auric_ring_bkb_Description" "魔法免疫"

@@ -4661,7 +4661,7 @@ function Filters:InpsirationRing(caster, skillIndex)
         Filters:ApplyHeal(caster, caster, heal, true, true)
 
         if ring:GetAbilityName() == "item_rpc_auric_ring_of_inspiration" then
-            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = INSPIRATION_MAGIC_IMMUNITY_TIME})
+            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME})
         elseif ring:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
             for i = 0, 8, 1 do
                 local ability = caster:GetAbilityByIndex(i)
