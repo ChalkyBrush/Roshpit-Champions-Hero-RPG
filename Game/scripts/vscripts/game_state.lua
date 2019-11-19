@@ -2112,7 +2112,7 @@ function GameState:FilterDamage(filterTable)
 		-- filterTable["damage"] = filterTable["damage"]*(1+((primaryAttibute/16)/100))
 		-- end
 		if attacker:HasModifier("modifier_tempest_falcon_ring") then
-			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = TEMPEST_FALCON_RING_DURATION})
+			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = ITEM_RPC_TEMPEST_FALCON_RING_DURATION})
 		end
 		if attacker:HasModifier("modifier_firelock_pendant") then
 			local multIncrease = (attacker:GetStrength() / ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR) * ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI/100
@@ -2139,7 +2139,7 @@ function GameState:FilterDamage(filterTable)
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
 		end
 		if attacker:HasModifier("modifier_tempest_falcon_ring_effect") then
-			mult = mult + TEMPEST_FALCON_RING_POST_MITI_MAGIC/100
+			mult = mult + ITEM_RPC_TEMPEST_FALCON_RING_POST_MITI_MAGIC/100
 			Timers:CreateTimer(0.05, function()
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
