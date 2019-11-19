@@ -3532,7 +3532,7 @@ end
 function mana_relic_attack(event)
 	local attacker = event.attacker
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/antique_mana_relic_restore.vpcf", attacker, 1.5)
-	local manaRestore = attacker:GetMaxMana() * ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK/100
+	local manaRestore = attacker:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK/100
 	attacker:GiveMana(manaRestore)
 end
 
@@ -3540,7 +3540,7 @@ function mana_relic_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local damageBoost = target:GetMana() * ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA
+	local damageBoost = target:GetMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA
 	if damageBoost > 0 then
 		if not target:HasModifier("modifier_mana_relic_attack_damage") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_mana_relic_attack_damage", {})

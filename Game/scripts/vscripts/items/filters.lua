@@ -869,10 +869,10 @@ function Filters:ApplyQskills(caster)
         Filters:WatcherOne(caster)
     end
     if caster:HasModifier("modifier_antique_mana_relic") then
-        if caster:GetMana() >= caster:GetMaxMana() * ANTIQUE_MANA_RELIC_MANA_DRAIN/100 then
-            caster:ReduceMana(caster:GetMaxMana() * ANTIQUE_MANA_RELIC_MANA_DRAIN/100)
-            caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = ANTIQUE_MANA_RELIC_BUFF_DURATION})
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, ANTIQUE_MANA_RELIC_BUFF_DURATION)
+        if caster:GetMana() >= caster:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN/100 then
+            caster:ReduceMana(caster:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN/100)
+            caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = ITEM_RPC_ANTIQUE_MANA_RELIC_BUFF_DURATION})
+            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, ITEM_RPC_ANTIQUE_MANA_RELIC_BUFF_DURATION)
         end
     end
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
@@ -1444,7 +1444,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD/100
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
-            damageMult = damageMult + ANTIQUE_MANA_RELIC_Q_BAD/100
+            damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD/100
         end
         if attacker:HasModifier("modifier_death_whisper_helm") then
             if not ignore_effects then

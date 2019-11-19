@@ -305,7 +305,7 @@
 		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"Прочтение способности (Q) @Ability1 выжжет <% ANTIQUE_MANA_RELIC_MANA_DRAIN %>% вашей маны и усилит Базовый Урон этой способности на <% ANTIQUE_MANA_RELIC_Q_BAD %> на несколько секунд, если маны достаточно. Каждая базовая атака восстанавливает <% ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% маны. Каждое очко текущей маны увеличивает базовый урон героя на <% ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>."
+		"property_antique_mana_relic_description"			"Прочтение способности (Q) @Ability1 выжжет <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% вашей маны и усилит Базовый Урон этой способности на <% ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD %> на несколько секунд, если маны достаточно. Каждая базовая атака восстанавливает <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% маны. Каждое очко текущей маны увеличивает базовый урон героя на <% ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"

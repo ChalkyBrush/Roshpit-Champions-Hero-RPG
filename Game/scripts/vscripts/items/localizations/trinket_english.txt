@@ -305,7 +305,7 @@
 		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"@Ability1 drains <% ANTIQUE_MANA_RELIC_MANA_DRAIN %>% of your max mana to deal <% ANTIQUE_MANA_RELIC_Q_BAD %>% increased Base Ability Damage (if enough mana was available). Attacks restore <% ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% of max mana. Each point of current mana adds <% ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %> base attack damage."
+		"property_antique_mana_relic_description"			"@Ability1 drains <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% of your max mana to deal <% ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD %>% increased Base Ability Damage (if enough mana was available). Attacks restore <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% of max mana. Each point of current mana adds <% ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %> base attack damage."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
