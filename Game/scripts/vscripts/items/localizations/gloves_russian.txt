@@ -183,7 +183,7 @@
     	"item_rpc_frostburn_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_frostburn_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Скорость передвижения врагов, задетых умением (W) @Ability2 снижается на <% FROSTBURN_GLOVES_MS_SLOW %> на <% FROSTBURN_GLOVES_MS_SLOW_DUR %> секунды. Дополнительно, с <% FROSTBURN_GLOVES_CHANCE %>% шансом, пораженный умением (W) @Ability2 враг окажется в центре ледяного взрыва, который наносит полный урон способности в небольшой области вокруг."
+		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Скорость передвижения врагов, задетых умением (W) @Ability2 снижается на <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW %> на <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR %> секунды. Дополнительно, с <% ITEM_RPC_FROSTBURN_GAUNTLETS_CHANCE %>% шансом, пораженный умением (W) @Ability2 враг окажется в центре ледяного взрыва, который наносит полный урон способности в небольшой области вокруг."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Замедлен"
 		

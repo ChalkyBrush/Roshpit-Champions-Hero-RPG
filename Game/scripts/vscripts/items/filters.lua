@@ -2822,12 +2822,12 @@ function Filters:SpiritGlove(caster)
 end
 
 function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, damage
-    local proc = Filters:GetProc(attacker, FROSTBURN_GLOVES_CHANCE)
+    local proc = Filters:GetProc(attacker, ITEM_RPC_FROSTBURN_GAUNTLETS_CHANCE)
     CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
-    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = FROSTBURN_GLOVES_MS_SLOW_DUR})
+    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR})
     if proc then
         local icePoint = victim:GetAbsOrigin()
-        local radius = FROSTBURN_GLOVES_EXPLOSION_RADIUS
+        local radius = ITEM_RPC_FROSTBURN_GAUNTLETS_EXPLOSION_RADIUS
         EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", attacker)
         local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
         local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, attacker)
@@ -2839,7 +2839,7 @@ function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, 
         local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
-                attacker.frostburnItem:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_gauntlets_slow", {duration = FROSTBURN_GLOVES_MS_SLOW_DUR})
+                attacker.frostburnItem:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_gauntlets_slow", {duration = ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR})
                 Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
             end
         end

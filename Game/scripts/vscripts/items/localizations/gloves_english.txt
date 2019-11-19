@@ -183,7 +183,7 @@
     	"item_rpc_frostburn_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_frostburn_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by <% FROSTBURN_GLOVES_MS_SLOW %> for <% FROSTBURN_GLOVES_MS_SLOW_DUR %> seconds. Additionally, @Ability2's damage instances have a <% FROSTBURN_GLOVES_CHANCE %>% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
+		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW %> for <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR %> seconds. Additionally, @Ability2's damage instances have a <% ITEM_RPC_FROSTBURN_GAUNTLETS_CHANCE %>% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
 		

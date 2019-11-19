@@ -178,7 +178,7 @@
     	"item_rpc_frostburn_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_frostburn_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_frostburn_gauntlets"			"霜灼"
-		"property_frostburn_gauntlets_description"	"被 @Ability2 击中的敌人移动速度减少 <% FROSTBURN_GLOVES_MS_SLOW %>，并且有 <% FROSTBURN_GLOVES_CHANCE %>% 的几率在小范围内制造一次 2X @Ability2 伤害的纯粹伤害。此装备不享受装备加成效果。"
+		"property_frostburn_gauntlets_description"	"被 @Ability2 击中的敌人移动速度减少 <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW %>，并且有 <% ITEM_RPC_FROSTBURN_GAUNTLETS_CHANCE %>% 的几率在小范围内制造一次 2X @Ability2 伤害的纯粹伤害。此装备不享受装备加成效果。"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"霜灼"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"被减速"
 		
