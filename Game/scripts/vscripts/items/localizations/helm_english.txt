@@ -647,13 +647,16 @@
 		"item_rpc_wind_deity_crown_amethyst1" 	"Each enemy hit by Wrath of Wind attacks increases your attack damage by @amethyst_property1% for <% WIND_DEITY_AMETHYST_DURATION %> seconds, but these stacks are lost when you cast [E]. Max <% WIND_DEITY_AMETHYST_MAX_STACKS %> stacks."
 
 
-    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
-		"item_property_white_mage_hat_2"			"Curaga"
-		"property_white_mage_hat_2_description"		"@Ability2 also restores HP for you and nearby allies, based <% WHITE_MAGE_INT_TO_HEAL %>x your Intelligence. Any over heal applies a shield that absorbs equivalent damage, up to 100% of target's max health. Base Ability damage is increased by <% WHITE_MAGE_BAD_PER_INT %>% for each <% WHITE_MAGE_INT_DIVISOR %> points of Intelligence."
-		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
-		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Absorbing Damage"
+    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage's Shroud"
+		"item_property_white_mage_hat"			"Curaga"
+		"property_white_mage_hat_description"		"@Ability2 also restores HP for you and nearby allies, based <% WHITE_MAGE_INT_TO_HEAL %>x your Intelligence. Increases mana cost of @Ability2 by <% WHITE_MAGE_EXTRA_MANA_COST_PCT_MAX %>% of max mana."
+		"DOTA_Tooltip_modifier_white_mage_hat"	"White Mage Shield"
+		"DOTA_Tooltip_modifier_white_mage_hat_Description"	"Absorbing Damage"
 		
-		
+		"item_rpc_white_mage_hat_ruby1"		"Increases health regen by @ruby_property1% of max health"
+		"item_rpc_white_mage_hat_emerald1"	"Increases the potency of all healing effects (excluding natural health regen) by @emerald_property1%"
+		"item_rpc_white_mage_hat_sapphire1" 	"Any over heal from Curaga applies a shield that absorbs damage equal to the amount of over heal. The shield's max damage capacity is @sapphire_property1% of target's max health."
+		"item_rpc_white_mage_hat_amethyst1" 	"Curaga's heal is increased by @amethyst1x your Spirit"	
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
@@ -679,9 +682,6 @@
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
 		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% of damage taken restores mana. Each point of mana increases base attack damage by <% WRAITH_HUNTER_BASE_ATTACK %>. Attacking drains <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% of your max mana. Additionally increases damage of @Ability2 by <% WRAITH_HUNTER_W_BAD %>%."
-		
-		
-
 		
 		
 

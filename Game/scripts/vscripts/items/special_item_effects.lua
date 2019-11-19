@@ -7003,3 +7003,15 @@ function scoundrel_invis_countdown_end(event)
 		end
 	end
 end
+
+function white_mage_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_white_mage_ruby_regen", {})
+		local stacks = ability:GetFinalGemPropertyValue("ruby", WHITE_MAGE_RUBY)*10
+		target:SetModifierStackCount("modifier_white_mage_ruby_regen", caster, stacks)
+	end
+end

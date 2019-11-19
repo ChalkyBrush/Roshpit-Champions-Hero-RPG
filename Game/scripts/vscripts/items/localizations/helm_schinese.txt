@@ -26,10 +26,15 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"白色魔法帽"
-		"item_property_white_mage_hat_2"			"关怀庇护"
-		"property_white_mage_hat_2_description"		"施放 @Ability2 技能将为你和附近友军回复 <% WHITE_MAGE_INT_TO_HEAL %>x 倍数智力的生命值。所有的过量治疗（治疗量减目标缺失的生命值）都会创造一层护盾吸收等量的伤害，护盾最大伤害吸收量为 100% 护盾拥有者的最大生命值。同时每<% WHITE_MAGE_INT_DIVISOR %>点智力值提高基础技能伤害 <% WHITE_MAGE_BAD_PER_INT %>% 。该装备无法重铸。"
-		"DOTA_Tooltip_modifier_white_mage_shield"	"白魔法护盾"
-		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"吸收伤害"
+		"item_property_white_mage_hat"			"关怀庇护"
+		"property_white_mage_hat_description"		"@Ability2 also restores HP for you and nearby allies, based <% WHITE_MAGE_INT_TO_HEAL %>x your Intelligence."
+		"DOTA_Tooltip_modifier_white_mage_hat"	"White Mage Shield"
+		"DOTA_Tooltip_modifier_white_mage_hat_Description"	"Absorbing Damage"
+		
+		"item_rpc_white_mage_hat_ruby1"		"Increases health regen by @ruby_property1% of max health"
+		"item_rpc_white_mage_hat_emerald1"	"Increases the potency of all healing effects (excluding natural health regen) by @emerald_property1%"
+		"item_rpc_white_mage_hat_sapphire1" 	"Any over heal from Curaga applies a shield that absorbs damage equal to the amount of over heal. The shield's max damage capacity is @sapphire_property1% of target's max health."
+		"item_rpc_white_mage_hat_amethyst1" 	"Curaga's heal is increased by @amethyst1x your Spirit"	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"长沿帽"

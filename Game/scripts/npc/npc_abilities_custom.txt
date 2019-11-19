@@ -96939,21 +96939,6 @@
 					}
 				}
 			}
-			"modifier_white_mage_hat_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_oracle/white_mage_healheal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-			}
 			"modifier_helm_attack_speed"
 			{
 				"Passive"	"0"

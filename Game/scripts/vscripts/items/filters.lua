@@ -565,7 +565,7 @@ function Filters:ApplyStun(caster, duration, target)
     end
 end
 
-function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
+function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_ability)
     if caster:GetUnitName() == "npc_dota_hero_zuus" then
         local w_2_level = caster:GetRuneValue("w", 2)
         if w_2_level > 0 then
@@ -573,7 +573,9 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
             healAmount = OverflowProtectedMaxHealingValue(healAmount)
         end
     end
-
+    if caster:HasModifier("modifier_white_mage_hat") then
+        healAmount = healAmount * (1 + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", WHITE_MAGE_EMERALD)/100)
+    end
     healAmount = OverflowProtectedMaxHealingValue(healAmount)
     if bCap then
         healAmount = math.min(healAmount, target:GetMaxHealth())
@@ -615,21 +617,23 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp)
             end
         end
     end
-    if caster:HasModifier("modifier_white_mage_hat2") then
-        local overheal = healAmount - (target:GetMaxHealth() - target:GetHealth())
-        if overheal > 0 then
-            if not target.whiteMageShield then
-                target.whiteMageShield = 0
+    if optional_ability then
+        if optional_ability:GetAbilityName() == "item_rpc_white_mage_hat" and optional_ability:GetGemValue("sapphire") > 0 then
+            local overheal = healAmount - (target:GetMaxHealth() - target:GetHealth())
+            if overheal > 0 then
+                if not target.whiteMageShield then
+                    target.whiteMageShield = 0
+                end
+                if not target:HasModifier("modifier_white_mage_shield") then
+                    target.whiteMageShield = 0
+                end
+                local shieldValue = math.min(target.whiteMageShield + overheal, target:GetMaxHealth()*(optional_ability:GetFinalGemPropertyValue("sapphire", WHITE_MAGE_SAPPHIRE)/100))
+                if shieldValue < 0 then
+                    return
+                end
+                target.whiteMageShield = shieldValue
+                optional_ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = WHITE_MAGE_SAPPHIRE_SHIELD_DURATION})
             end
-            if not target:HasModifier("modifier_white_mage_shield") then
-                target.whiteMageShield = 0
-            end
-            local shieldValue = math.min(target.whiteMageShield + overheal, target:GetMaxHealth())
-            if shieldValue < 0 then
-                return
-            end
-            target.whiteMageShield = shieldValue
-            caster.headItem:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_white_mage_shield", {duration = WHITE_MAGE_SHIELD_DURATION})
         end
     end
 end
@@ -970,7 +974,7 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_spellslinger_coat") then
         Filters:SpellslingerCoat(caster)
     end
-    if caster:HasModifier("modifier_white_mage_hat") or caster:HasModifier("modifier_white_mage_hat2") then
+    if caster:HasModifier("modifier_white_mage_hat") then
         Filters:WhiteMageHat(caster)
     end
     if caster:HasModifier("modifier_swamp_witch_hat") then
@@ -1597,7 +1601,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                             local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit)
                             local atk_power_bonus = newStacks*ability:GetFinalGemPropertyValue("amethyst", WIND_DEITY_AMETHYST)
                             attacker:SetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit, atk_power_bonus)
-
                         end
                     end)
                 end
@@ -2629,15 +2632,17 @@ function Filters:DoomplateApply(attacker, victim)
 end
 
 function Filters:WhiteMageHat(caster)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
     local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, WHITE_MAGE_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local healAmount = caster:GetIntellect() * WHITE_MAGE_INT_TO_HEAL
+    local healAmount = caster:GetIntellect() * WHITE_MAGE_INT_TO_HEAL + caster:GetSpirit() * ability:GetFinalGemPropertyValue("amethyst", WHITE_MAGE_AMETHYST) 
     local inventoryUnit = caster.InventoryUnit
-    local ability = inventoryUnit:FindAbilityByName("helm_slot")
+    local mana_drain = caster:GetMaxMana()*(WHITE_MAGE_EXTRA_MANA_COST_PCT_MAX/100)
+    caster:ReduceMana(mana_drain)
     if #allies > 0 then
         for _, ally in pairs(allies) do
             ally:RemoveModifierByName("modifier_white_mage_hat_effect")
             ability:ApplyDataDrivenModifier(inventoryUnit, ally, "modifier_white_mage_hat_effect", {})
-            Filters:ApplyHeal(caster, ally, healAmount, true)
+            Filters:ApplyHeal(caster, ally, healAmount, true, true, ability)
         end
     end
 end
