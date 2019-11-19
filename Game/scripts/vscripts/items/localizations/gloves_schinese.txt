@@ -377,7 +377,7 @@
     	"item_rpc_skulldigger_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_skulldigger_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_skulldigger"						"冥火"
-		"property_skulldigger_description"					"每 <% SKULLDIGGER_STACK_RATE %> 秒增加一层冥火。当你受到伤害时，施放一股冥火对目标造成 <% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>x 攻击力的伤害并造成AOE眩晕效果，持续 <% SKULLDIGGER_STUN_DURATION %> 秒。最高 <% SKULLDIGGER_MAX_STACKS %> 层冥火。"
+		"property_skulldigger_description"					"每 <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STACK_RATE %> 秒增加一层冥火。当你受到伤害时，施放一股冥火对目标造成 <% ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE %>x 攻击力的伤害并造成AOE眩晕效果，持续 <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION %> 秒。最高 <% ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS %> 层冥火。"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"冥火"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"当受到伤害, 施放一股冥火对攻击者造成伤害。"
 		 

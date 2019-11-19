@@ -382,7 +382,7 @@
     	"item_rpc_skulldigger_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_skulldigger_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Каждые <% SKULLDIGGER_STACK_RATE %> сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере <% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>x общего урона героя<br>и оглушает всех врагов в небольшой области на <% SKULLDIGGER_STUN_DURATION %> сек.<br>Максимум зарядов: <% SKULLDIGGER_MAX_STACKS %>."
+		"property_skulldigger_description"					"Каждые <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STACK_RATE %> сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере <% ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE %>x общего урона героя<br>и оглушает всех врагов в небольшой области на <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION %> сек.<br>Максимум зарядов: <% ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS %>."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"При получении урона будет израсходован заряд, отправляя в сторону атакующего поток энергии."
 		 

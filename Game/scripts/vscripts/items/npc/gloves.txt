@@ -4331,7 +4331,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"<% SKULLDIGGER_STACK_RATE %>"
+				"ThinkInterval"  	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_STACK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -4339,7 +4339,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"skulldigger_think"
 						"target"		"TARGET"
-						"max_stacks"	"<% SKULLDIGGER_MAX_STACKS %>"
+						"max_stacks"	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS %>"
 					}
 				}
 				"OnDestroy"
@@ -4373,8 +4373,8 @@
 				"ScriptFile"	"items/special_item_effects.lua"
 				"Function"		"skulldigger_hellfire_hit"
 				"target"        "TARGET"
-				"stun_duration"	"<% SKULLDIGGER_STUN_DURATION %>"
-				"attack_mult"	"<% SKULLDIGGER_ATTACK_POWER_TO_DAMAGE %>"
+				"stun_duration"	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION %>"
+				"attack_mult"	"<% ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE %>"
 			}
 		}
 	}
