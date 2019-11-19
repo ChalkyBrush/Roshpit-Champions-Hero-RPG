@@ -70,7 +70,7 @@ CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = JEX_OAK_INFUSION_Q4_STR
 CustomAttributes.RING_OF_NOBILITY = ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES
 CustomAttributes.RING_OF_NOBILITY2 = ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED
 CustomAttributes.AZURE_EMPIRE_STATS = ITEM_RPC_AZURE_EMPIRE_GREEN_AGI
-CustomAttributes.WIND_ORCHID_AGI_PER_E4 = WIND_ORCHID_AGI_PER_E4
+CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4 = ITEM_RPC_WIND_ORCHID_AGI_PER_E4
 CustomAttributes.AQUA_LILY_INT_PER_R4 = AQUA_LILY_INT_PER_R4
 CustomAttributes.FIRE_BLOSSOM_STR_PER_W4 = FIRE_BLOSSOM_STR_PER_W4
 CustomAttributes.FLAMEWAKER_WEAPON_2_AGI = FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E
@@ -2263,7 +2263,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_intelligence", CustomAttributes.AZURE_EMPIRE_STATS)
 	end
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.WIND_ORCHID_AGI_PER_E4)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then

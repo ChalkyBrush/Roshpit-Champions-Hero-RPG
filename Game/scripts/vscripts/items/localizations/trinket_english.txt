@@ -389,7 +389,7 @@
 		"item_rpc_wind_orchid_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_wind_orchid_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_wind_orchid"							"Wind Bloom"
-		 "property_wind_orchid_description"						"Every point in [E4] increases Agility by <% WIND_ORCHID_AGI_PER_E4 %>."
+		 "property_wind_orchid_description"						"Every point in [E4] increases Agility by <% ITEM_RPC_WIND_ORCHID_AGI_PER_E4 %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"

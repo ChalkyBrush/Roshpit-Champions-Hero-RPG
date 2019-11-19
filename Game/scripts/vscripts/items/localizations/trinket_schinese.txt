@@ -386,7 +386,7 @@
 		"item_rpc_wind_orchid_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_wind_orchid_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_wind_orchid"							"风之花"
-		 "property_wind_orchid_description"						"E4 每一点符文点数将提高 <% WIND_ORCHID_AGI_PER_E4 %> 点敏捷值。"
+		 "property_wind_orchid_description"						"E4 每一点符文点数将提高 <% ITEM_RPC_WIND_ORCHID_AGI_PER_E4 %> 点敏捷值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"水百合"
