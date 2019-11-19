@@ -820,7 +820,7 @@ function scarecrow_gloves_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetIntellect() * SCARECROW_GLOVES_MPREGEN_PER_INT)
+	local stacks = math.floor(target:GetIntellect() * ITEM_RPC_SCARECROW_GLOVES_MPREGEN_PER_INT)
 	if not target:HasModifier("modifier_scarecrow_gloves_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_scarecrow_gloves_effect", {})
 	end

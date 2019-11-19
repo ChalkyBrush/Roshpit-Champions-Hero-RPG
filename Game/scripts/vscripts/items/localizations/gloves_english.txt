@@ -134,7 +134,7 @@
     	"item_rpc_scarecrow_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_scarecrow_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% SCARECROW_GLOVES_MPREGEN_PER_INT %> mana regen."
+		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% ITEM_RPC_SCARECROW_GLOVES_MPREGEN_PER_INT %> mana regen."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
