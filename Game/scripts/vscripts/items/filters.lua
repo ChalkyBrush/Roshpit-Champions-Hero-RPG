@@ -244,7 +244,7 @@ function Filters:GetAdjustedBuffDuration(caster, baseDuration, bItem)
         baseDuration = baseDuration + c_d_level * AURIUN_R3_BUFF_DUR_INCREASE
     end
     if caster:HasModifier("modifier_arbor_dragonfly") then
-        baseDuration = baseDuration * (100+ARBOR_DRAGONFLY_BUFF_INCREASE_PCT)/100
+        baseDuration = baseDuration * (100+ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT)/100
     end
     return baseDuration
 end

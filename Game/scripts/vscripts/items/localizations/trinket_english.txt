@@ -82,7 +82,7 @@
 		"item_rpc_arbor_dragonfly_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_arbor_dragonfly_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by <% ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
+		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by <% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
