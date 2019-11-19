@@ -1545,7 +1545,7 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 		damage = damage + damage * ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE/100 * stacks
 	end
 	if victim:HasModifier("modifier_hand_azinoth") then
-		damage = damage * (100 + CLAW_OF_AZINOTH_DAMAGE_AMP)/100
+		damage = damage * (100 + ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP)/100
 	end
 	if victim:HasModifier("modifier_frostiok_damage_amp") then
 		local buffCaster = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetCaster()
