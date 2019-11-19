@@ -163,7 +163,7 @@ function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
 		return false
 	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
-		exp = math.floor(exp * (1 + BLACKSMITH_TABLE_ADD_WEAPON_EXP))
+		exp = math.floor(exp * (1 + ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP))
 	end
 	if weapon.newItemTable.level < weapon.newItemTable.maxLevel then
 		weapon.newItemTable.xp = weapon.newItemTable.xp + exp
