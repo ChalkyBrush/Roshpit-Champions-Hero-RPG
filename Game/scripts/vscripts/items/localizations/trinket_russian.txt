@@ -416,7 +416,7 @@
 		"item_rpc_ankh_of_the_ancients_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_ankh_of_the_ancients_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ankh_of_ancients"						"Immortal Spirit"
-		 "property_ankh_of_ancients_description"				"При получении смертельного урона, герой получает щит на <% ANKH_SHIELD_DURATION %>  сек., который сокращает весь входящий урон на 100%, тем самым даёт иммунитет к оглушению. Дополнительно сбрасывает время перезарядки для всех умений. Перезаряжается в <% ANKH_COOLDOWN %> раз(а) больше длительности щита. Максимальная длительность щита <% ANKH_COOLDOWN_MAX %>."
+		 "property_ankh_of_ancients_description"				"При получении смертельного урона, герой получает щит на <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %>  сек., который сокращает весь входящий урон на 100%, тем самым даёт иммунитет к оглушению. Дополнительно сбрасывает время перезарядки для всех умений. Перезаряжается в <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> раз(а) больше длительности щита. Максимальная длительность щита <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN_MAX %>."
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Иммунитет к урону и оглушению"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"Ankh перезаряжается"

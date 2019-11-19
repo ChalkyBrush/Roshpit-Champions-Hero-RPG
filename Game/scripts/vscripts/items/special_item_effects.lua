@@ -497,7 +497,7 @@ end
 function ankh_of_ancients_think(event)
 	local caster = event.target
 	local ability = event.ability
-	if GameRules:GetGameTime() - caster.amulet.ankh_apply_time > ANKH_COOLDOWN_MAX then
+	if GameRules:GetGameTime() - caster.amulet.ankh_apply_time > ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN_MAX then
 		caster:RemoveModifierByName('modifier_ankh_of_the_ancients')
 	end
 
@@ -509,7 +509,7 @@ function ankh_of_ancients_end(event)
 	local caster = event.target
 	local ability = event.ability
 	local ankh_duration = GameRules:GetGameTime() - caster.amulet.ankh_apply_time
-	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * ANKH_COOLDOWN})
+	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN})
 end
 
 function wild_nature_struck(event)

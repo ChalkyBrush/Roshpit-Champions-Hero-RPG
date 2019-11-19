@@ -3356,7 +3356,7 @@ function GameState:FilterDamage(filterTable)
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
 				victim.amulet.ankh_apply_time = GameRules:GetGameTime()
-				victim.amulet:ApplyDataDrivenModifier(victim, victim, "modifier_ankh_of_ancients_shield", {duration = ANKH_SHIELD_DURATION})
+				victim.amulet:ApplyDataDrivenModifier(victim, victim, "modifier_ankh_of_ancients_shield", {duration = ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION})
 				for i = 0, 3, 1 do
 					local abilityIndex = i
 					if i == 3 then

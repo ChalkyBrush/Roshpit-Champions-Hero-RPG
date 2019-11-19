@@ -413,7 +413,7 @@
 		"item_rpc_ankh_of_the_ancients_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_ankh_of_the_ancients_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ankh_of_ancients"						"不朽之灵"
-		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 <% ANKH_SHIELD_DURATION %> 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。冷却时间为<% ANKH_COOLDOWN %>倍护盾持续时间。"
+		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。冷却时间为<% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %>倍护盾持续时间。"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"不朽之灵"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"免疫伤害和眩晕"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"远古护符冷却中"
