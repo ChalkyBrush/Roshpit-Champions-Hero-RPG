@@ -405,7 +405,7 @@
     	"item_rpc_spellfire_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_spellfire_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Задержка применения всех умений уменьшена на <% SPELLFIRE_CAST_POINT_REDUCTION %>%."
+		 "property_spellfire_description"						"Задержка применения всех умений уменьшена на <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"

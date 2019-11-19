@@ -400,7 +400,7 @@
     	"item_rpc_spellfire_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_spellfire_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		 "item_property_spellfire"								"法术"
-		 "property_spellfire_description"						"施法速率提高 <% SPELLFIRE_CAST_POINT_REDUCTION %>%。该装备符文重铸有上限，上限为21 。"
+		 "property_spellfire_description"						"施法速率提高 <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%。该装备符文重铸有上限，上限为21 。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"暗影拳套"
