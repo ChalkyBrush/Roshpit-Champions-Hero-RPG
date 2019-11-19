@@ -446,7 +446,7 @@
 		"item_rpc_depth_demon_claw_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_depth_demon_claw_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_depth_demon_claw"												"变质"
-		"property_depth_demon_claw_Description"									"为玩家的所有伤害附加一个 <font color=\"#5B648C\">恶魔</font> 元素。降低不计算物品伤害的装备 x<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %> 的伤害。（不计算物品伤害的装备只有 火神头，水神头，光明守卫，恶魔头，和霜灼护手）"
+		"property_depth_demon_claw_Description"									"为玩家的所有伤害附加一个 <font color=\"#5B648C\">恶魔</font> 元素。降低不计算物品伤害的装备 x<% ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %> 的伤害。（不计算物品伤害的装备只有 火神头，水神头，光明守卫，恶魔头，和霜灼护手）"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"龙虾钳"	

@@ -78,7 +78,7 @@ function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_
     local damageData = attacker._damage_data or {}
 
     if attacker:HasModifier("modifier_depth_demon_claw") then
-        damage = damage * DEPTH_DEMON_CLAW_AUGMENT_REDUCTION
+        damage = damage * ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION
     end
     if damageData.skipItemDamageEffectsApply then
         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)

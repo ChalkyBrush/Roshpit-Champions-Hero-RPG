@@ -1723,7 +1723,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>"
+				"property_one"			"<% ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>"
 			}
 		}
 	}
