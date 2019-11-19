@@ -373,7 +373,7 @@
 		"item_rpc_garnet_warfare_ring_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_garnet_warfare_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_garnet_warfare"							"Garnet Warfare"
-		"property_garnet_warfare_description"                    "Increases Base Ability Damage by <% GARNET_WARFARE_STR_TO_BAD %>% for every <% GARNET_WARFARE_STR_DIVISOR %> points of Strength."
+		"property_garnet_warfare_description"                    "Increases Base Ability Damage by <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>% for every <% ITEM_RPC_GARNET_WARFARE_RING_STR_DIVISOR %> points of Strength."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"

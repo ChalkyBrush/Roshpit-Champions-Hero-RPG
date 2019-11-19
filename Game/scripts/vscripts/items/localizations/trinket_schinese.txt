@@ -370,7 +370,7 @@
 		"item_rpc_garnet_warfare_ring_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_garnet_warfare_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_garnet_warfare"							"石榴战争"
-		 "property_garnet_warfare_description"					"每<% GARNET_WARFARE_STR_DIVISOR %>点力量增加基础技能伤害 <% GARNET_WARFARE_STR_TO_BAD %>%。"
+		 "property_garnet_warfare_description"					"每<% ITEM_RPC_GARNET_WARFARE_RING_STR_DIVISOR %>点力量增加基础技能伤害 <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"太阳宝石"
