@@ -88,6 +88,9 @@ function jex_cinderbark_death(event)
 	local unit = event.unit
 	local caster = event.caster
 	local ability = event.ability
+	if caster.summoner then
+		ability.tech_level = onibi_get_total_tech_level(caster.summoner, "fire", "nature", "Q")
+	end
 	local explosion_attack_damage_per_tech = event.explosion_attack_damage_per_tech
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf", unit:GetAbsOrigin(), 4)
 	ParticleManager:SetParticleControl(pfx, 3, unit:GetAbsOrigin())

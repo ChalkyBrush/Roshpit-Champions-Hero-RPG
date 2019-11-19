@@ -6389,13 +6389,13 @@
 			}	
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_mult_per_tech"				"1"
+				"var_type"				"FIELD_FLOAT"
+				"attack_mult_per_tech"				"0.2"
 			}		
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_gain_per_second"				"20 60 100 140 180 220 260"
+				"attack_gain_per_second"				"10 20 30 40 50 60 70"
 			}	
 			"05"
 			{
@@ -127296,8 +127296,15 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"lone_druid_true_form"
-		"MaxLevel"	"1"
-		"IsHidden"	"1"
+		"MaxLevel"	"5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wolfir_druid_ruby"			"2 4 6 8 10"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_wolfir_druid_passive"
@@ -127312,6 +127319,10 @@
 						"Function"		"wolfir_wolf_think"
 					}
 				}
+			}
+			"modifier_wolfir_druid_aura"
+			{
+				"IsHidden"	"1"
 				"Aura"          	"modifier_wolfir_druid_aura_effect"
 				"Aura_Radius"   	"800"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -127326,7 +127337,15 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" 	"%wolfir_druid_ruby"
+				}
+			}
+			"OnDeath"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/special_item_effects.lua"
+					"Function"		"wolfir_reindex_wolf_table"
 				}
 			}
 		}

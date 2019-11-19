@@ -792,7 +792,7 @@ function Filters:BeginRChannel(caster)
         caster.space_tech:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = ITEM_RPC_SPACE_TECH_VEST_DURATION})
     end
     if caster:HasModifier("modifier_druid_spirit_helm") then
-        caster.druid_spirit:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_druid_channel", {duration = 8.0})
+        caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_druid_channel", {duration = ability:GetChannelTime()})
     end
     if caster:HasModifier("modifier_brazen_kabuto") then
         caster:RemoveModifierByName('modifier_brazen_kabuto_shield')
@@ -3097,7 +3097,7 @@ function Filters:ScourgeKnight(caster)
         archer.dieTime = SCOURGE_KNIGHT_ARCHER_DURATION
         archer:AddAbility("ability_die_after_time_generic"):SetLevel(1)
         archer:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
-        archer:AdjustSummon(caster, true, 1, SCOURGE_KNIGHT_ATTACK_MULT, 0, 0, SCOURGE_KNIGHT_PIERCE_MULT, SCOURGE_KNIGHT_PIERCE_MULT)
+        archer:AdjustSummon(caster, true, 1, WOLFIR_DRUID_ATTACK_POWER_MULT, 1, 1, 1, 1)
         archer:SetMaxHPandHealToFull(SCOURGE_KNIGHT_HITS_TO_KILL)
         archer:SetModelScale(0.85)
         table.insert(scourge_helm.skeleton_table, archer)

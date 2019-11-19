@@ -92,6 +92,10 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 				Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_UNDEAD, parent.element)	
 			end
 			return false	
+		elseif parent:GetUnitName() == "wolf_ally" then
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_NATURE, RPC_ELEMENT_GHOST)
+			return false
 		end
 
 		-- BASIC APPLY AUTO ATTACK DAMAGE

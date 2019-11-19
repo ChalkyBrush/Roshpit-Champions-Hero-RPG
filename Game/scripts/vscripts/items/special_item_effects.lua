@@ -1837,62 +1837,107 @@ function mountain_vambrace_attack(event)
 end
 
 function wolfir_druid_init(event)
-	event.ability.initial = true
-	--print("WOLF WHAT")
+	local ability = event.ability
+	ability.initial = true
+	
+	if not ability.wolf_table then
+		ability.wolf_table = {}
+	end
+	wolfir_reindex_wolf_table(event)
+end
+
+function wolfir_reindex_wolf_table(event)
+	local ability = event.ability
+	local hero = event.target
+	if ability:GetAbilityName() == "wolfir_druid_passive" then
+		ability = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		hero = event.unit.hero
+	end
+	local new_wolf_table = {}
+	for i = 1, #ability.wolf_table, 1 do
+		if ability.wolf_table[i] and IsValidEntity(ability.wolf_table[i]) and ability.wolf_table[i]:IsAlive() then
+			table.insert(new_wolf_table, ability.wolf_table[i])
+		end
+	end
+	ability.wolf_table = new_wolf_table
+	if ability:GetGemValue("emerald") > 0 then
+		local stacks = ability:GetFinalGemPropertyValue("emerald", WOLFIR_DRUID_EMERALD2)*#ability.wolf_table
+		if stacks > 0 then
+			ability:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_wolfir_druid_attack_speed", {})
+			hero:SetModifierStackCount("modifier_wolfir_druid_attack_speed", hero.InventoryUnit, stacks)
+		else
+			hero:RemoveModifierByName("modifier_wolfir_druid_attack_speed")
+		end
+	end
 end
 
 function wolfir_druid_channel(event)
 	local caster = event.target
 	local ability = event.ability
 	local inventoryUnit = event.caster
+	wolfir_reindex_wolf_table(event)
+	if #ability.wolf_table < 3 then
+		local fv = caster:GetForwardVector() * Vector(1, 1, 0)
+		local position = caster:GetAbsOrigin() - fv * 190 + RandomVector(RandomInt(50, 200))
 
-	local fv = caster:GetForwardVector() * Vector(1, 1, 0)
-	local position = caster:GetAbsOrigin() - fv * 190 + RandomVector(RandomInt(50, 200))
+		local wolf = CreateUnitByName("wolf_ally", position, false, nil, nil, caster:GetTeamNumber())
+		wolf:SetAbsOrigin(wolf:GetAbsOrigin() + Vector(0, 0, 120))
+		wolf.owner = caster:GetPlayerOwnerID()
+		wolf.summoner = caster
+		wolf:SetOwner(caster)
+		wolf:SetControllableByPlayer(caster:GetPlayerID(), true)
+		wolf.dieTime = WOLFIR_DRUID_WOLF_LIFE_DURATION
+		wolf:AddAbility("ability_die_after_time_generic"):SetLevel(1)
 
-	local wolf = CreateUnitByName("wolf_ally", position, false, nil, nil, caster:GetTeamNumber())
-	wolf:SetAbsOrigin(wolf:GetAbsOrigin() + Vector(0, 0, 120))
-	wolf.owner = caster:GetPlayerOwnerID()
-	wolf.summoner = caster
-	wolf:SetOwner(caster)
-	wolf:SetControllableByPlayer(caster:GetPlayerID(), true)
-	wolf.dieTime = 16
-	wolf:AddAbility("ability_die_after_time_generic"):SetLevel(1)
-	local summonAbil = wolf:AddAbility("ability_summoned_unit")
-	summonAbil:SetLevel(1)
-	local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster) * 3.0
-	dmg = Filters:AdjustItemDamage(caster, dmg, nil)
-	dmg = Filters:ElementalDamage(wolf, caster, dmg, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
-	Filters:SetAttackDamage(wolf, dmg)
-	wolf:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false), nil))
-	local wolfHealth = math.floor(caster:GetMaxHealth() * 0.25)
-	wolfHealth = Filters:AdjustItemDamage(caster, wolfHealth, nil)
-	wolf:SetMaxHealth(wolfHealth)
-	wolf:SetBaseMaxHealth(wolfHealth)
-	wolf:SetHealth(wolfHealth)
-	wolf:Heal(wolfHealth, wolf)
-	wolf:AddAbility("ability_ghost_effect"):SetLevel(1)
+		wolf:AddAbility("ability_ghost_effect"):SetLevel(1)
+		wolf:SetForwardVector(fv)
+		wolf:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
+		Events:smoothSizeChange(wolf, 0.01, 0.6, 30)
+		wolf.fv = fv
+		wolf.hero = caster
+		wolf:SetBaseMoveSpeed(400)
+		ability:ApplyDataDrivenModifier(inventoryUnit, wolf, "modifier_wolf_enter", {duration = 1.1})
+		if ability.initial then
+			ability.initial = false
+			EmitSoundOn("RPCItems.WolfSpiritSummon", wolf)
+		end
+		wolf:AdjustSummon(caster, true, WOLFIR_DRUID_HEALTH_PCT/100, SCOURGE_KNIGHT_ATTACK_MULT, 0, 0, SCOURGE_KNIGHT_PIERCE_MULT, SCOURGE_KNIGHT_PIERCE_MULT)
 
-	wolf:SetForwardVector(fv)
-	wolf:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
-	wolf:SetModelScale(0.6)
-	wolf.fv = fv
-	wolf:SetBaseMoveSpeed(400)
-	ability:ApplyDataDrivenModifier(inventoryUnit, wolf, "modifier_wolf_enter", {duration = 1.1})
-	if ability.initial then
-		ability.initial = false
-		EmitSoundOn("Hero_Lycan.Howl.Team", wolf)
+		local splitEarthParticle = "particles/frostivus_herofx/hyper_state_intro_omnislash_ascension.vpcf"
+		local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, wolf)
+		local wolfPosition = wolf:GetAbsOrigin()
+		ParticleManager:SetParticleControlEnt(pfx, 0, wolf, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", wolfPosition, true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, wolf, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", wolfPosition, true)
+		Timers:CreateTimer(1.5, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		wolf.interval = 0
+		wolf:AddAbility("alpha_wolf_critical_strike"):SetLevel(1)
+		local wolf_ability = wolf:FindAbilityByName("wolfir_druid_passive")
+		table.insert(ability.wolf_table, wolf)
+		if ability:GetGemValue("ruby") > 0 then
+			wolf_ability:SetLevel(ability:GetGemValue("ruby"))
+			wolf_ability:ApplyDataDrivenModifier(wolf, wolf, "modifier_wolfir_druid_aura", {})
+		end
+		if ability:GetGemValue("emerald") > 0 then
+			local stacks = ability:GetFinalGemPropertyValue("emerald", WOLFIR_DRUID_EMERALD1)
+			if stacks > 0 then
+				ability:ApplyDataDrivenModifier(inventoryUnit, wolf, "modifier_wolfir_druid_attack_speed", {})
+				wolf:SetModifierStackCount("modifier_wolfir_druid_attack_speed", inventoryUnit, stacks)
+			else
+				wolf:RemoveModifierByName("modifier_wolfir_druid_attack_speed")
+			end
+		end
+		if ability:GetGemValue("sapphire") > 0 then
+			local newDamage = wolf:GetAttackDamage() + caster:GetRoshpitSpellPierce()*ability:GetFinalGemPropertyValue("sapphire", WOLFIR_DRUID_SAPPHIRE)/100
+			Filters:SetAttackDamage(wolf, newDamage)
+		end
+		if ability:GetGemValue("amethyst") > 0 then
+			local hp = wolf:GetMaxHealth() + (caster:GetStrength() + caster:GetSpirit())*ability:GetFinalGemPropertyValue("amethyst", WOLFIR_DRUID_AMETHYST)
+			wolf:SetMaxHPandHealToFull(hp)
+		end
 	end
 
-	local splitEarthParticle = "particles/frostivus_herofx/hyper_state_intro_omnislash_ascension.vpcf"
-	local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, wolf)
-	local wolfPosition = wolf:GetAbsOrigin()
-	ParticleManager:SetParticleControlEnt(pfx, 0, wolf, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", wolfPosition, true)
-	ParticleManager:SetParticleControlEnt(pfx, 1, wolf, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", wolfPosition, true)
-	Timers:CreateTimer(1.5, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	wolf.interval = 0
-	wolf:AddAbility("alpha_wolf_critical_strike"):SetLevel(1)
 end
 
 function wolfir_wolf_think(event)

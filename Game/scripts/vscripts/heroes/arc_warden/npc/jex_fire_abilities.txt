@@ -1103,13 +1103,13 @@
 			}	
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_mult_per_tech"				"1"
+				"var_type"				"FIELD_FLOAT"
+				"attack_mult_per_tech"				"0.2"
 			}		
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_gain_per_second"				"20 60 100 140 180 220 260"
+				"attack_gain_per_second"				"10 20 30 40 50 60 70"
 			}	
 			"05"
 			{

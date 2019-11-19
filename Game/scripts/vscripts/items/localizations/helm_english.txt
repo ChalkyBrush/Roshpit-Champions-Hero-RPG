@@ -660,11 +660,16 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has 2x your attack power, 25% of your max health and 1x your Armor. Feral Spirits last 16 seconds. Each wolf provides a stacking 15% attack damage buff aura to all nearby allies."
+		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has <% WOLFIR_DRUID_ATTACK_POWER_MULT %>x your attack power, and <% WOLFIR_DRUID_HEALTH_PCT %>% of your max health. Feral Spirits last <% WOLFIR_DRUID_WOLF_LIFE_DURATION %> seconds and only <% WOLFIR_DRUID_MAX_WOLVES %> can be active at a time."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
+
+		"DOTA_Tooltip_ability_wolfir_druid_passive"	"Feral Spirit"
 		
-		
+		"item_rpc_wolfir_druids_spirit_helm_ruby1"		"Each wolf provides a stacking @ruby_property1% attack damage buff aura to all nearby allies."
+		"item_rpc_wolfir_druids_spirit_helm_emerald1"	"Wolves have @emerald_property1 increased attack speed. Each active wolf increases their master's attack speed by @emerald_property2"
+		"item_rpc_wolfir_druids_spirit_helm_sapphire1" 	"Summoned wolve's base attack damage are increased by @sapphire_property1% of your Spell Pierce at the time of summoning"
+		"item_rpc_wolfir_druids_spirit_helm_amethyst1" 	"Summoned wolve's have an extra @amethyst_property1 health for each of their master's Strength and Spirit"			
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
 		"item_property_wraith_crown"							"Ethereal Form"					
