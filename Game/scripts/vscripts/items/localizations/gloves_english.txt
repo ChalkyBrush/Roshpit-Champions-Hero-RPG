@@ -214,7 +214,7 @@
     	"item_rpc_power_ranger_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_power_ranger_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Increases attack damage by <% POWER_RANGER_BONUS_DAMAGE %>%. All Post-Mitigation Physical damage is enhanced by <% POWER_RANGER_PHYS_POST_MITI %>%."
+		"property_power_ranger_description"			"Increases attack damage by <% ITEM_RPC_POWER_RANGER_GLOVES_BONUS_DAMAGE %>%. All Post-Mitigation Physical damage is enhanced by <% ITEM_RPC_POWER_RANGER_GLOVES_PHYS_POST_MITI %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"

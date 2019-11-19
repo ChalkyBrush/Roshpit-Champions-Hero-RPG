@@ -209,7 +209,7 @@
     	"item_rpc_power_ranger_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_power_ranger_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_power_ranger"				"雷电神兵"
-		"property_power_ranger_description"			"提高<% POWER_RANGER_BONUS_DAMAGE %>% 基础攻击力。敌人所受到的物理伤害加深<% POWER_RANGER_PHYS_POST_MITI %>%。（计算在敌人减伤之后）"
+		"property_power_ranger_description"			"提高<% ITEM_RPC_POWER_RANGER_GLOVES_BONUS_DAMAGE %>% 基础攻击力。敌人所受到的物理伤害加深<% ITEM_RPC_POWER_RANGER_GLOVES_PHYS_POST_MITI %>%。（计算在敌人减伤之后）"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"奥术师包裹"
