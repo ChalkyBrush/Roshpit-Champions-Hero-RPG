@@ -154,7 +154,7 @@
     	"item_rpc_master_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_master_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <% MASTER_GLOVES_BAD %>%"
+		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <% ITEM_RPC_MASTER_GLOVES_BAD %>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
