@@ -422,7 +422,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% CHITINOUS_LOBSTER_CLAW_STACK_RATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_STACK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -430,7 +430,7 @@
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"lobster_claw_think"
 						"target"		"TARGET"
-						"max_stacks"	"<% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %>"
+						"max_stacks"	"<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_MAX_STACKS %>"
 					}
 				}
 				"OnDestroy"

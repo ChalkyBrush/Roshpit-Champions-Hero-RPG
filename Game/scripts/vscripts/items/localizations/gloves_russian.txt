@@ -460,9 +460,9 @@
 		"item_rpc_chitinous_lobster_claw_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_chitinous_lobster_claw_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_lobster_claw"												"Chitinous Skin"
-		"property_lobster_claw_Description"									"Каждые <% CHITINOUS_LOBSTER_CLAW_STACK_RATE %> секунды герой получает заряд щита. Каждый заряд снижает входящий урон на <% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%. Максимум зарядов: <% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %>."
+		"property_lobster_claw_Description"									"Каждые <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_STACK_RATE %> секунды герой получает заряд щита. Каждый заряд снижает входящий урон на <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%. Максимум зарядов: <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_MAX_STACKS %>."
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Каждый заряд снижает входящий урон на <% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
+		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Каждый заряд снижает входящий урон на <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	

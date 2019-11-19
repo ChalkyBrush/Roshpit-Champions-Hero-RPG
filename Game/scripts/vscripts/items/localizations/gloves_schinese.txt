@@ -455,9 +455,9 @@
 		"item_rpc_chitinous_lobster_claw_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_chitinous_lobster_claw_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_lobster_claw"												"壳质硬皮"
-		"property_lobster_claw_Description"									"每 <% CHITINOUS_LOBSTER_CLAW_STACK_RATE %>秒，获得一层壳质硬皮buff，每层buff伤害减免<% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%。最大 <% CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> 层。"
+		"property_lobster_claw_Description"									"每 <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_STACK_RATE %>秒，获得一层壳质硬皮buff，每层buff伤害减免<% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%。最大 <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> 层。"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"壳质硬皮"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 <% CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
+		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"暗黑使者手套"	
