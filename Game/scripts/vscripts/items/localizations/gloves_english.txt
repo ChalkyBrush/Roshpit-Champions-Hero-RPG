@@ -223,7 +223,7 @@
     	"item_rpc_grand_arcanist_wraps_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_grand_arcanist_wraps_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases Base Ability Damage by <%GRAND_ARCANIST_BAD_PER_INT * 100 * 10 %>% for every 10 points of Intelligence."
+		"property_grand_arcanist_description"		"Increases Base Ability Damage by <%ITEM_RPC_GRAND_ARCANIST_WRAPS_BAD_PER_INT * 100 * 10 %>% for every 10 points of Intelligence."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"

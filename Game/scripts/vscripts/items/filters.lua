@@ -1310,7 +1310,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + EYE_OF_AVERNUS_BAD/100
         end
         if attacker:HasModifier("modifier_grand_arcanist") then
-            damageMult = damageMult + GRAND_ARCANIST_BAD_PER_INT * attacker:GetIntellect()
+            damageMult = damageMult + ITEM_RPC_GRAND_ARCANIST_WRAPS_BAD_PER_INT * attacker:GetIntellect()
         end
         if attacker:HasModifier("modifier_direwolf_bulwark_effect") then
             damageMult = damageMult + ITEM_RPC_DIREWOLF_BULWARK_BAD/100 * attacker:GetModifierStackCount("modifier_direwolf_bulwark_effect", attacker.InventoryUnit)

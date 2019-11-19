@@ -218,7 +218,7 @@
     	"item_rpc_grand_arcanist_wraps_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_grand_arcanist_wraps_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_grand_arcanist"				"魔法大师"
-		"property_grand_arcanist_description"		"每10点智力值提高基础技能伤害 <%GRAND_ARCANIST_BAD_PER_INT * 100 * 10 %>%。"
+		"property_grand_arcanist_description"		"每10点智力值提高基础技能伤害 <%ITEM_RPC_GRAND_ARCANIST_WRAPS_BAD_PER_INT * 100 * 10 %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"不灭精华手套"
