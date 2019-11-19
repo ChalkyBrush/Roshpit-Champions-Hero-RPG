@@ -404,7 +404,7 @@
 		"item_rpc_fire_blossom_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fire_blossom_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fire_blossom"							"火之花"
-		 "property_fire_blossom_description"					"W4 每一点符文点数将提高 <% FIRE_BLOSSOM_STR_PER_W4 %> 点力量值。"
+		 "property_fire_blossom_description"					"W4 每一点符文点数将提高 <% ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 %> 点力量值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"远古护符"

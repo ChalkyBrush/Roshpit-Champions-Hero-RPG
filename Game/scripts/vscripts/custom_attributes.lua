@@ -72,7 +72,7 @@ CustomAttributes.RING_OF_NOBILITY2 = ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AU
 CustomAttributes.AZURE_EMPIRE_STATS = ITEM_RPC_AZURE_EMPIRE_GREEN_AGI
 CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4 = ITEM_RPC_WIND_ORCHID_AGI_PER_E4
 CustomAttributes.AQUA_LILY_INT_PER_R4 = AQUA_LILY_INT_PER_R4
-CustomAttributes.FIRE_BLOSSOM_STR_PER_W4 = FIRE_BLOSSOM_STR_PER_W4
+CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 = ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4
 CustomAttributes.FLAMEWAKER_WEAPON_2_AGI = FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E
 CustomAttributes.SEINARU_WEAPON_3_STR = 60
 
@@ -2280,7 +2280,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.AQUA_LILY_INT_PER_R4)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.FIRE_BLOSSOM_STR_PER_W4)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
