@@ -203,7 +203,7 @@
     	"item_rpc_cytopian_laser_glove_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_cytopian_laser_glove_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing <% CYTOPIAN_LASER_DMG_PER_ATT %>x your attack damage times @Ability2 level as Magical damage. Each successive hit deals 100% increased damage. Max <% CYTOPIAN_LASER_MAX_STACKS %> stacks."
+		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing <% ITEM_RPC_CYTOPIAN_LASER_GLOVE_DMG_PER_ATT %>x your attack damage times @Ability2 level as Magical damage. Each successive hit deals 100% increased damage. Max <% ITEM_RPC_CYTOPIAN_LASER_GLOVE_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"
 		

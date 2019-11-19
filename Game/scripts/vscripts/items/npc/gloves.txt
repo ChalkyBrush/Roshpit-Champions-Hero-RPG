@@ -71,12 +71,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% CYTOPIAN_LASER_DMG_PER_ATT %>"
+				"property_one"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_DMG_PER_ATT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% CYTOPIAN_LASER_MAX_STACKS %>"
+				"property_two"			"<% ITEM_RPC_CYTOPIAN_LASER_GLOVE_MAX_STACKS %>"
 			}
 			"03"
 			{
