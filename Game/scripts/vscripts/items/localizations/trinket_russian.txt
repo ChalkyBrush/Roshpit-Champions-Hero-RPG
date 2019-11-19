@@ -200,7 +200,7 @@
 		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_raven_idol2"					"Black Soul"		
-		"property_raven_idol_description2"			"Весь получаемый урон снижен на <% RAVEN_IDOL_DMG_REDUCTION %>%. Уровень здоровья не поднимется выше <% RAVEN_IDOL_HP_THRESHOLD * 100 %>% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_raven_idol_description2"			"Весь получаемый урон снижен на <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. Уровень здоровья не поднимется выше <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"

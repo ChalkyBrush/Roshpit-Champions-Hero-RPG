@@ -197,7 +197,7 @@
 		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害<% RAVEN_IDOL_DMG_REDUCTION %>%. 你的血量不能超过 <% RAVEN_IDOL_HP_TRESHOLD_PCT %>% 的最大生命值. 每失去1%血量提升装备伤害 <% RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT %>% ."
+		"property_raven_idol_description2"			"减少受到的所有伤害<% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. 你的血量不能超过 <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% 的最大生命值. 每失去1%血量提升装备伤害 <% ITEM_RPC_RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT %>% ."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"

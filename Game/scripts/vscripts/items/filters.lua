@@ -197,7 +197,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     end
 
     if caster:HasModifier("modifier_raven_idol") then
-        local multIncrease = (1 - caster:GetHealth() / caster:GetMaxHealth()) * RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT
+        local multIncrease = (1 - caster:GetHealth() / caster:GetMaxHealth()) * ITEM_RPC_RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT
         mult = mult + multIncrease
     end
     if caster:HasModifier("modifier_chernobog_immortal_weapon_2") then
