@@ -2409,7 +2409,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local intelligence = hero:GetIntellect()
 	local halcyon = 1
 	if hero:HasModifier("modifier_halcyon_soul_glove") then
-		halcyon = 1 + HALCYON_SOUL_GLOVE_BONUS
+		halcyon = 1 + ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
 	end
 	if hero:HasModifier("modifier_frozen_heart") then
 		hero:RemoveModifierByName("modifier_strength_health")
@@ -2474,7 +2474,7 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	local flatHealthBonus = 1000 --Each hero starts with 1000 hp, this is important so that its multiplied with helm of mountain giant for example
 	flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR
 	if excludedModifier ~= "modifier_halcyon_soul_glove" and hero:HasModifier("modifier_halcyon_soul_glove") then
-		flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR * HALCYON_SOUL_GLOVE_BONUS
+		flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR * ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
 	end
 	if excludedModifier ~= "modifier_helm_max_health" and hero:HasModifier("modifier_helm_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_helm_max_health", 1)
