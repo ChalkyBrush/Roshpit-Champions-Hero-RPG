@@ -435,7 +435,7 @@
 		"item_rpc_world_trees_flower_cache_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_world_trees_flower_cache_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_world_trees_flower_cache"				"Blood Orchid"
-		"property_world_trees_flower_cache_description"			"При получении смертельного урона, герой перерождается в цветке, возвращаясь в бой через <% WORLD_TREES_CACHE_RESURRECTION_DELAY %> секунды с полным здоровьем. После возрождения весь исходящий Пост-Резистный урон увеличивается на <% WORLD_TREES_CACHE_POST_MITI %>%, но увеличивает весь входящий урон на <% WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT %>% на <% WORLD_TREES_CACHE_BUFF_DURATION %> секунд. Перезаряжается <% WORLD_TREES_CACHE_COOLDOWN %> секунд."
+		"property_world_trees_flower_cache_description"			"При получении смертельного урона, герой перерождается в цветке, возвращаясь в бой через <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY %> секунды с полным здоровьем. После возрождения весь исходящий Пост-Резистный урон увеличивается на <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_POST_MITI %>%, но увеличивает весь входящий урон на <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_DAMAGE_TAKEN_INC_PCT %>% на <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_BUFF_DURATION %> секунд. Перезаряжается <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_COOLDOWN %> секунд."
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Перезарядка Blood Orchid"
 		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
 		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Наносимый пост-резистный урон увеличен на 200%%, получаемый урон увеличен на 200%%"

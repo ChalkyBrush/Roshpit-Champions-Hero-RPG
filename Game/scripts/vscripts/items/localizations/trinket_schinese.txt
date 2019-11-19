@@ -432,10 +432,10 @@
 		"item_rpc_world_trees_flower_cache_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_world_trees_flower_cache_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_world_trees_flower_cache"				"血之兰"
-		"property_world_trees_flower_cache_description"			"受到致命伤害后 <% WORLD_TREES_CACHE_RESURRECTION_DELAY %>秒，将从世界树之花中满血重生。重生后获得buff，使所受到的伤害提高 <% WORLD_TREES_CACHE_POST_MITI %>%，同时也加深敌人所受到的伤害 <% WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT %>%。（计算在敌人减伤之后） 伤害加深buff持续时间<% WORLD_TREES_CACHE_BUFF_DURATION %>秒。物品技能冷却时间12秒。"
+		"property_world_trees_flower_cache_description"			"受到致命伤害后 <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY %>秒，将从世界树之花中满血重生。重生后获得buff，使所受到的伤害提高 <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_POST_MITI %>%，同时也加深敌人所受到的伤害 <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_DAMAGE_TAKEN_INC_PCT %>%。（计算在敌人减伤之后） 伤害加深buff持续时间<% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_BUFF_DURATION %>秒。物品技能冷却时间12秒。"
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"血之兰冷却中"
 		"DOTA_Tooltip_modifier_world_tree_effect"				"血之兰"
-		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"受到的伤害提高 <% WORLD_TREES_CACHE_POST_MITI %>%% 同时加深敌人所受到的伤害 <% WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT %>%%（伤害加深计算在减伤之后）"
+		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"受到的伤害提高 <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_POST_MITI %>%% 同时加深敌人所受到的伤害 <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_DAMAGE_TAKEN_INC_PCT %>%%（伤害加深计算在减伤之后）"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"奥术挂坠"

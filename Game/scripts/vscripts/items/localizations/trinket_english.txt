@@ -435,7 +435,7 @@
 		"item_rpc_world_trees_flower_cache_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_world_trees_flower_cache_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_world_trees_flower_cache"				"New Bloom"
-		"property_world_trees_flower_cache_description"			"On death, you are reborn from a flower after <% WORLD_TREES_CACHE_RESURRECTION_DELAY %> seconds with full health. Upon emerging, you receive a buff that increases Post-Mitigation damage by <% WORLD_TREES_CACHE_POST_MITI %>% but increases all damage taken by <% WORLD_TREES_CACHE_DAMAGE_TAKEN_INC_PCT %>% for <% WORLD_TREES_CACHE_BUFF_DURATION %> seconds. <% WORLD_TREES_CACHE_COOLDOWN %> second cooldown."
+		"property_world_trees_flower_cache_description"			"On death, you are reborn from a flower after <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY %> seconds with full health. Upon emerging, you receive a buff that increases Post-Mitigation damage by <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_POST_MITI %>% but increases all damage taken by <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_DAMAGE_TAKEN_INC_PCT %>% for <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_BUFF_DURATION %> seconds. <% ITEM_RPC_WORLD_TREES_FLOWER_CACHE_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"New Bloom Cooldown"
 		"DOTA_Tooltip_modifier_world_tree_effect"				"New Bloom"
 		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-Mitigation damage dealt and damage taken both increased by 200%%"
