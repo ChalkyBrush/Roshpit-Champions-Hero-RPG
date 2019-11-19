@@ -163,7 +163,7 @@
     	"item_rpc_phoenix_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_phoenix_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Даёт <% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> регенерацию здоровья за каждое отсутствующее очко здоровья. Каждое имеющееся очко текущего здоровья увеличивает Базовый Урон атаки на <% PHOENIX_GLOVES_ATT_DMG_PER_HP %>."
+		"property_phoenix_gloves_description"		"Даёт <% ITEM_RPC_PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> регенерацию здоровья за каждое отсутствующее очко здоровья. Каждое имеющееся очко текущего здоровья увеличивает Базовый Урон атаки на <% ITEM_RPC_PHOENIX_GLOVES_ATT_DMG_PER_HP %>."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"

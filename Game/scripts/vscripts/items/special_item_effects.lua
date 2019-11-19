@@ -865,12 +865,12 @@ function phoenix_gloves_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = (target:GetMaxHealth() - target:GetHealth()) * PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP
+	local stacks = (target:GetMaxHealth() - target:GetHealth()) * ITEM_RPC_PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP
 	if not target:HasModifier("modifier_phoenix_gloves_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_phoenix_gloves_effect", {})
 	end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_phoenix_gloves_attack_damage", {})
-	local damageStacks = target:GetHealth() * PHOENIX_GLOVES_ATT_DMG_PER_HP
+	local damageStacks = target:GetHealth() * ITEM_RPC_PHOENIX_GLOVES_ATT_DMG_PER_HP
 	target:SetModifierStackCount("modifier_phoenix_gloves_attack_damage", ability, damageStacks)
 	target:SetModifierStackCount("modifier_phoenix_gloves_effect", ability, stacks)
 end

@@ -158,7 +158,7 @@
     	"item_rpc_phoenix_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_phoenix_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_gloves"				"永生" 
-		"property_phoenix_gloves_description"		"每失去1点生命值提高 <% PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> 点生命值回复速度。当前的每1点生命值提高基础攻击力 <% PHOENIX_GLOVES_ATT_DMG_PER_HP %> 点。"
+		"property_phoenix_gloves_description"		"每失去1点生命值提高 <% ITEM_RPC_PHOENIX_GLOVES_HP_REGEN_PER_MISSING_HP %> 点生命值回复速度。当前的每1点生命值提高基础攻击力 <% ITEM_RPC_PHOENIX_GLOVES_ATT_DMG_PER_HP %> 点。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"灵魂手套"
