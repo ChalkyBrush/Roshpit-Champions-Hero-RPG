@@ -2331,7 +2331,7 @@ function GameState:FilterDamage(filterTable)
 	-- end
 	if victim:HasModifier("modifier_aeriths_tear") then
 		if Filters:AerithsTearTakeDamage(attacker, victim) then
-			filterTable["damage"] = filterTable["damage"] * (100-AERITHS_TEAR_DMG_REDUCTION)/100
+			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_AERITHS_TEAR_DMG_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("modifier_infernal_jailer_passive") then

@@ -3608,7 +3608,7 @@ end
 
 function Filters:AerithsTearTakeDamage(attacker, victim)
     local distance = CalcDistanceBetweenEntityOBB(attacker, victim)
-    if distance <= AERITHS_TEAR_DISTANCE then
+    if distance <= ITEM_RPC_AERITHS_TEAR_DISTANCE then
         return true
     else
         return false

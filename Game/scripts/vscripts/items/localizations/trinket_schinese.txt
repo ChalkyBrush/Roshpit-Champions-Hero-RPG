@@ -225,7 +225,7 @@
 		"item_rpc_aeriths_tear_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_aeriths_tear_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_aeriths_tear"							"最终幻想"
-		"property_aeriths_tear"									"<% AERITHS_TEAR_DISTANCE %>码范围内敌人对你的伤害降低 <% AERITHS_TEAR_DMG_REDUCTION %>% 。"
+		"property_aeriths_tear"									"<% ITEM_RPC_AERITHS_TEAR_DISTANCE %>码范围内敌人对你的伤害降低 <% ITEM_RPC_AERITHS_TEAR_DMG_REDUCTION %>% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"放大水晶"
