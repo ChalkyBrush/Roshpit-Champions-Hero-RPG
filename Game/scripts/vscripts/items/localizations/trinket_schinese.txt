@@ -89,7 +89,7 @@
 		"item_rpc_gem_of_eternal_frost_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_gem_of_eternal_frost_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_eternal_frost"				"冰霜新星"
-		"property_eternal_frost_description"		"附近的敌人每<% ETERNAL_FROST_STACK_INTERVAL %>秒降低<% ETERNAL_FROST_SLOW_PER_STACK %>移速，当敌人移速低于<% ETERNAL_FROST_MS_THRESHOLD %>时被冰冻<% ETERNAL_FROST_AURA_ROOT_DURATION %>秒。<br>当你施放 @Ability3 技能时，冰冻<% ETERNAL_FROST_ACTIVE_ROOT_AOE %>码范围敌人<% ETERNAL_FROST_ACTIVE_ROOT_DURATION %>秒，并造成 <% ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x 智力值的伤害。<br>每<% ETERNAL_FROST_INT_DIVISOR %>点智力值提高所有装备伤害 <% ETERNAL_FROST_INT_TO_ITEM_DMG %>% 。"
+		"property_eternal_frost_description"		"附近的敌人每<% ITEM_RPC_GEM_OF_ETERNAL_FROST_STACK_INTERVAL %>秒降低<% ITEM_RPC_GEM_OF_ETERNAL_FROST_SLOW_PER_STACK %>移速，当敌人移速低于<% ITEM_RPC_GEM_OF_ETERNAL_FROST_MS_THRESHOLD %>时被冰冻<% ITEM_RPC_GEM_OF_ETERNAL_FROST_AURA_ROOT_DURATION %>秒。<br>当你施放 @Ability3 技能时，冰冻<% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_AOE %>码范围敌人<% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_DURATION %>秒，并造成 <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x 智力值的伤害。<br>每<% ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_DIVISOR %>点智力值提高所有装备伤害 <% ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_TO_ITEM_DMG %>% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"生命源泉"

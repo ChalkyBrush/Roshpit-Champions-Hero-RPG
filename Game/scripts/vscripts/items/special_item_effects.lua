@@ -4537,8 +4537,8 @@ function eternal_frost_slowing(event)
 		target:SetModifierStackCount("modifier_eternal_frost_slowing_effect", caster, newStacks)
 		local movespeed = target:GetBaseMoveSpeed()
 		local movespeedModifier = target:GetMoveSpeedModifier(movespeed, false)
-		if movespeedModifier <= ETERNAL_FROST_MS_THRESHOLD then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_nova", {duration = ETERNAL_FROST_AURA_ROOT_DURATION})
+		if movespeedModifier <= ITEM_RPC_GEM_OF_ETERNAL_FROST_MS_THRESHOLD then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_nova", {duration = ITEM_RPC_GEM_OF_ETERNAL_FROST_AURA_ROOT_DURATION})
 			target:RemoveModifierByName("modifier_eternal_frost_slowing_effect")
 			EmitSoundOn("RPCItem.EternalFrostFreeze", target)
 		else

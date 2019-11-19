@@ -166,7 +166,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + caster:GetBaseAbilityAmpForSlot("average_of_all_slots")/100
     end
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
-        mult = mult + ETERNAL_FROST_INT_TO_ITEM_DMG/100 * (caster:GetIntellect() / ETERNAL_FROST_INT_DIVISOR)
+        mult = mult + ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_TO_ITEM_DMG/100 * (caster:GetIntellect() / ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_DIVISOR)
     end
     if caster:HasModifier("modifier_mountain_vambraces") then
         mult = mult + ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR)
@@ -3011,7 +3011,7 @@ function Filters:EternalFrost(caster)
     local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
     local position = caster:GetAbsOrigin()
-    local radius = ETERNAL_FROST_ACTIVE_ROOT_AOE
+    local radius = ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_AOE
     ParticleManager:SetParticleControl(pfx, 0, position)
     ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
     Timers:CreateTimer(3, function()
@@ -3020,9 +3020,9 @@ function Filters:EternalFrost(caster)
     local ability = caster.eternal_frost_gem
     EmitSoundOn("Ability.FrostNova", caster)
 
-    local damage = caster:GetIntellect() * ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT
+    local damage = caster:GetIntellect() * ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local freezeDuration = ETERNAL_FROST_ACTIVE_ROOT_DURATION
+    local freezeDuration = ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_DURATION
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
