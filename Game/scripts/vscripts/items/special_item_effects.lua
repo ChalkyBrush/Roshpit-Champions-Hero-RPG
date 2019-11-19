@@ -5785,10 +5785,10 @@ function stormcloth_think(event)
 			end
 			FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
 			CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/stormcloth_start.vpcf", hero:GetAbsOrigin(), 3)
-			local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, STORMCLOTH_STUN_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_STORMCLOTH_BRACER_STUN_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
-					Filters:ApplyStun(hero, STORMCLOTH_STUN_DUR, enemy)
+					Filters:ApplyStun(hero, ITEM_RPC_STORMCLOTH_BRACER_STUN_DUR, enemy)
 				end
 			end
 		end)

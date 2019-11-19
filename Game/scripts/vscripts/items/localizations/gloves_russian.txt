@@ -13,7 +13,7 @@
 		"item_rpc_stormcloth_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_stormcloth_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormcloth"					"Stormbolt"
-		"property_stormcloth_description"			"При щелчке по дружественному юниту телепортирует к нему и оглушает всех противников в радиусе <% STORMCLOTH_STUN_AOE %> на <% STORMCLOTH_STUN_DUR %> секунд. Эффект имеет <% STORMCLOTH_COOLDOWN %> сек. перезарядку."
+		"property_stormcloth_description"			"При щелчке по дружественному юниту телепортирует к нему и оглушает всех противников в радиусе <% ITEM_RPC_STORMCLOTH_BRACER_STUN_AOE %> на <% ITEM_RPC_STORMCLOTH_BRACER_STUN_DUR %> секунд. Эффект имеет <% ITEM_RPC_STORMCLOTH_BRACER_COOLDOWN %> сек. перезарядку."
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Stormbolt Cooldown"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormbolt Cooldown"

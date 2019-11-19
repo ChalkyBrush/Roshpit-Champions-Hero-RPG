@@ -13,7 +13,7 @@
 		"item_rpc_stormcloth_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_stormcloth_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormcloth"					"Stormbolt"
-		"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <% STORMCLOTH_STUN_AOE %> radius for <% STORMCLOTH_STUN_DUR %> seconds. This effect has a <% STORMCLOTH_COOLDOWN %> second cooldown."
+		"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <% ITEM_RPC_STORMCLOTH_BRACER_STUN_AOE %> radius for <% ITEM_RPC_STORMCLOTH_BRACER_STUN_DUR %> seconds. This effect has a <% ITEM_RPC_STORMCLOTH_BRACER_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormcloth Cooldown"

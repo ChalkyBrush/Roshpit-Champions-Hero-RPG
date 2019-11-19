@@ -862,7 +862,7 @@ function GameState:OrderFilter(orderTable)
 							local itemAbility = unit:FindModifierByName('modifier_stormcloth_bracer'):GetAbility()
 							CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/stormcloth_start.vpcf", unit:GetAbsOrigin(), 3)
 
-							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_bracer_cooldown", {duration = STORMCLOTH_COOLDOWN})
+							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_bracer_cooldown", {duration = ITEM_RPC_STORMCLOTH_BRACER_COOLDOWN})
 							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_falling", {duration = 1})
 							local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, unit)
 							ParticleManager:SetParticleControl(pfx, 0, unit:GetAbsOrigin())
