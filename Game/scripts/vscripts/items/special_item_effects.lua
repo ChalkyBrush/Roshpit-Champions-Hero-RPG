@@ -5122,13 +5122,13 @@ function monkey_paw_unit_die(event)
 	if unit.paragon then
 		local gold = hero:GetGold();
 		local bossLocation = victim:GetAbsOrigin()
-		local divisor = MONKEY_PAW_GOLD_DIVISOR * GameState:GetDifficultyFactor()
+		local divisor = ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * GameState:GetDifficultyFactor()
 		local itemsCount = math.floor(gold / divisor)
 		if itemsCount >= 1 then
-			hero:SpendGold(gold * MONKEY_PAW_GOLD_COST_PCT/100, DOTA_ModifyGold_PurchaseItem)
+			hero:SpendGold(gold * ITEM_RPC_MONKEY_PAW_GOLD_COST_PCT/100, DOTA_ModifyGold_PurchaseItem)
 			for i = 1, itemsCount, 1 do
 				Timers:CreateTimer((i - 1) * 0.3, function()
-					RPCItems.LevelRoll = MONKEY_PAW_ITEM_LVL_MULTIPLIER_PER_DIFF * GameState:GetDifficultyFactor()
+					RPCItems.LevelRoll = ITEM_RPC_MONKEY_PAW_ITEM_LVL_MULTIPLIER_PER_DIFF * GameState:GetDifficultyFactor()
 					EmitSoundOnLocationWithCaster(bossLocation, "RPC.MonkeyPaw.Bounty", caster)
 					CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/monkey_paw_bounty.vpcf", GetGroundPosition(bossLocation, Events.GameMaster), 1.2)
 					CustomAbilities:QuickAttachParticle("particles/roshpit/items/monkey_paw_bounty.vpcf", hero, 0.5)

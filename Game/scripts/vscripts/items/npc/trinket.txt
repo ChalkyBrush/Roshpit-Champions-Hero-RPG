@@ -3504,7 +3504,7 @@
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 
-				"ThinkInterval"  "<% MONKEY_PAW_DMG_TICK_RATE %>"
+				"ThinkInterval"  "<% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3515,7 +3515,7 @@
 					}
 				}
 				"Aura"          	"modifier_monkey_paw_aura"
-				"Aura_Radius"   	"<% MONKEY_PAW_AOE_PARAGON_TRIGGER %>"
+				"Aura_Radius"   	"<% ITEM_RPC_MONKEY_PAW_AOE_PARAGON_TRIGGER %>"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"

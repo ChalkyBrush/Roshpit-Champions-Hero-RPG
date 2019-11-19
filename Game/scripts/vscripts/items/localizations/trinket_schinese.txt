@@ -64,7 +64,7 @@
 		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_monkey_paw"					"摇曳的梦想"
-		"property_monkey_paw_description"			"精英怪在玩家 <% MONKEY_PAW_AOE_PARAGON_TRIGGER %> 码 范围内死亡，会掉落额外的不朽装备。每额外掉落一件装备，将消耗 <% MONKEY_PAW_GOLD_COST_PCT %>% 的当前金钱。地图的难度决定额外掉落的装备的质量与等级，但同时也会增加掉落时所需的最少金钱数（<% MONKEY_PAW_GOLD_DIVISOR %>/<% MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% MONKEY_PAW_GOLD_DIVISOR * 3 %> 普通难度/精英难度/传说难度）装备猴爪后，玩家每 <% MONKEY_PAW_DMG_TICK_RATE %> 秒将受到 1 点纯粹伤害。"
+		"property_monkey_paw_description"			"精英怪在玩家 <% ITEM_RPC_MONKEY_PAW_AOE_PARAGON_TRIGGER %> 码 范围内死亡，会掉落额外的不朽装备。每额外掉落一件装备，将消耗 <% ITEM_RPC_MONKEY_PAW_GOLD_COST_PCT %>% 的当前金钱。地图的难度决定额外掉落的装备的质量与等级，但同时也会增加掉落时所需的最少金钱数（<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 3 %> 普通难度/精英难度/传说难度）装备猴爪后，玩家每 <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> 秒将受到 1 点纯粹伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"戈登神石"

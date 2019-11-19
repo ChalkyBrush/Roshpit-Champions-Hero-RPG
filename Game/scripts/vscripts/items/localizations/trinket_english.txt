@@ -66,7 +66,7 @@
 		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_monkey_paw"					"Wishful Curse"
-		"property_monkey_paw_description"			"Paragon monsters who die within <% MONKEY_PAW_AOE_PARAGON_TRIGGER %> range drop additional Immortal rarity items, at the cost of <% MONKEY_PAW_GOLD_COST_PCT %>% of your gold. The difficulty level of the map increases the quality of the items dropped, but also increases the amount of gold needed to generate them (<% MONKEY_PAW_GOLD_DIVISOR %>/<% MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% MONKEY_PAW_GOLD_DIVISOR * 3 %> in Normal/Elite/Legend). Equipping this item causes you to take 1 point of Pure damage every <% MONKEY_PAW_DMG_TICK_RATE %> seconds."
+		"property_monkey_paw_description"			"Paragon monsters who die within <% ITEM_RPC_MONKEY_PAW_AOE_PARAGON_TRIGGER %> range drop additional Immortal rarity items, at the cost of <% ITEM_RPC_MONKEY_PAW_GOLD_COST_PCT %>% of your gold. The difficulty level of the map increases the quality of the items dropped, but also increases the amount of gold needed to generate them (<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 3 %> in Normal/Elite/Legend). Equipping this item causes you to take 1 point of Pure damage every <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"

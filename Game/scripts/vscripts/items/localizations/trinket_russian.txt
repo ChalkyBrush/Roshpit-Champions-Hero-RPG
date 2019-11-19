@@ -67,7 +67,7 @@
 		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_monkey_paw"					"Wishful Curse"
-		"property_monkey_paw_description"			"Если в радиусе <% MONKEY_PAW_AOE_PARAGON_TRIGGER %> от героя умирает монстр парагона, то после его смерти выпадут дополнительные Immortal предметы, отнимая <% MONKEY_PAW_GOLD_COST_PCT %>% от имеющегося золота. Уровень сложности на карте определяет качество выпадающих предметов, также влияя на количество отнимаемого золота (<% MONKEY_PAW_GOLD_DIVISOR %>/<% MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% MONKEY_PAW_GOLD_DIVISOR * 3 %> для сложностей Normal/Elite/Legend). Пока надет этот предмет, герой постоянно получает 1 чистого урона каждые <% MONKEY_PAW_DMG_TICK_RATE %> секунды."
+		"property_monkey_paw_description"			"Если в радиусе <% ITEM_RPC_MONKEY_PAW_AOE_PARAGON_TRIGGER %> от героя умирает монстр парагона, то после его смерти выпадут дополнительные Immortal предметы, отнимая <% ITEM_RPC_MONKEY_PAW_GOLD_COST_PCT %>% от имеющегося золота. Уровень сложности на карте определяет качество выпадающих предметов, также влияя на количество отнимаемого золота (<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 3 %> для сложностей Normal/Elite/Legend). Пока надет этот предмет, герой постоянно получает 1 чистого урона каждые <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> секунды."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
