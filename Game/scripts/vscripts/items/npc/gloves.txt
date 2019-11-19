@@ -3063,7 +3063,7 @@
 				"TextureName"	"treant_living_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "LIVING_GAUNTLET_HP_REGEN_PCT"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT %>"
 				}
 				"OnCreated"
 				{

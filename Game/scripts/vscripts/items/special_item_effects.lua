@@ -854,7 +854,7 @@ function living_gauntlet_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if target:GetMana() <= target:GetMaxMana() * LIVING_GAUNTLET_MANA_THRESHOLD/100 then
+	if target:GetMana() <= target:GetMaxMana() * ITEM_RPC_LIVING_GAUNTLET_MANA_THRESHOLD/100 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_living_gauntlet_effect", {})
 	else
 		target:RemoveModifierByName("modifier_living_gauntlet_effect")

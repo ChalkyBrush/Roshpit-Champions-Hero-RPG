@@ -143,9 +143,9 @@
     	"item_rpc_living_gauntlet_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_living_gauntlet_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_living_gauntlet"				"Nourishment"
-		"property_living_gauntlet_description"		"Когда запас маны опускается ниже <% LIVING_GAUNTLET_MANA_THRESHOLD %>% от максимума, весь получаемый героем урон сокращается на <% LIVING_GAUNTLET_DMG_REDUCTION %>%, а регенерация здоровья увеличивается на <% LIVING_GAUNTLET_HP_REGEN_PCT %>% от максимума."
+		"property_living_gauntlet_description"		"Когда запас маны опускается ниже <% ITEM_RPC_LIVING_GAUNTLET_MANA_THRESHOLD %>% от максимума, весь получаемый героем урон сокращается на <% ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION %>%, а регенерация здоровья увеличивается на <% ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT %>% от максимума."
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
-		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"Весь получаемый урон сокращается на <% LIVING_GAUNTLET_DMG_REDUCTION %>%%, регенерация здоровья увеличена на <% LIVING_GAUNTLET_HP_REGEN_PCT %>%%."
+		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"Весь получаемый урон сокращается на <% ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION %>%%, регенерация здоровья увеличена на <% ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT %>%%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"

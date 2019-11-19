@@ -143,9 +143,9 @@
     	"item_rpc_living_gauntlet_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_living_gauntlet_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_living_gauntlet"				"Nourishment"
-		"property_living_gauntlet_description"		"While below <% LIVING_GAUNTLET_MANA_THRESHOLD %>% mana, all damage taken is reduced by <% LIVING_GAUNTLET_DMG_REDUCTION %>% and health regen is increased by <% LIVING_GAUNTLET_HP_REGEN_PCT %>% of max health."
+		"property_living_gauntlet_description"		"While below <% ITEM_RPC_LIVING_GAUNTLET_MANA_THRESHOLD %>% mana, all damage taken is reduced by <% ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION %>% and health regen is increased by <% ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT %>% of max health."
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
-		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"All damage taken reduced by <% LIVING_GAUNTLET_DMG_REDUCTION %>%% and health regen increased by <% LIVING_GAUNTLET_HP_REGEN_PCT %>%% of max health"
+		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"All damage taken reduced by <% ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION %>%% and health regen increased by <% ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT %>%% of max health"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"

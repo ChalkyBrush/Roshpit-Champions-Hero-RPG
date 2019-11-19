@@ -138,7 +138,7 @@
     	"item_rpc_living_gauntlet_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_living_gauntlet_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_living_gauntlet"				"营养"
-		"property_living_gauntlet_description"		"当魔法值低于<% LIVING_GAUNTLET_MANA_THRESHOLD %>%时，受到的所有伤害减少 <% LIVING_GAUNTLET_DMG_REDUCTION %>%，同时生命回复速度增加，增加值为玩家 <% LIVING_GAUNTLET_HP_REGEN_PCT %>% 的生命最大值。"
+		"property_living_gauntlet_description"		"当魔法值低于<% ITEM_RPC_LIVING_GAUNTLET_MANA_THRESHOLD %>%时，受到的所有伤害减少 <% ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION %>%，同时生命回复速度增加，增加值为玩家 <% ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT %>% 的生命最大值。"
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"营养"
 		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"受到的所有伤害减少 %property_two%%% 同时生命回复速度增加 %property_one%%% 玩家的生命最大值"
 		
