@@ -168,9 +168,9 @@
 		"item_rpc_torch_of_gengar_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_torch_of_gengar_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_gengar"						"Shadow Tag" //Mega Gengar's Ability
-		"property_gengar"                            "<% GENGAR_CHANCE %>% chance on taking damage to gain <% GENGAR_EVASION %>% evasion, unit walking and <% GENGAR_BAD %>% increased Base Ability Damage for <% GENGAR_DURATION %> seconds."
+		"property_gengar"                            "<% ITEM_RPC_TORCH_OF_GENGAR_CHANCE %>% chance on taking damage to gain <% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>% evasion, unit walking and <% ITEM_RPC_TORCH_OF_GENGAR_BAD %>% increased Base Ability Damage for <% ITEM_RPC_TORCH_OF_GENGAR_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<% GENGAR_EVASION %>%% evasion, unit walking and <% GENGAR_BAD %>%% increased Ability Damage"
+		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>%% evasion, unit walking and <% ITEM_RPC_TORCH_OF_GENGAR_BAD %>%% increased Ability Damage"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"

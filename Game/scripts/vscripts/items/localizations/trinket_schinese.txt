@@ -166,9 +166,9 @@
 		"item_rpc_torch_of_gengar_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_torch_of_gengar_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_gengar"						"暗影步伐"
-		"property_gengar"							"受到伤害时有 <% GENGAR_CHANCE %>% 的几率获得 <% GENGAR_EVASION %>% 闪避，相位移动能力并且增加 <% GENGAR_BAD %>% 的基础技能伤害，持续<% GENGAR_DURATION %>秒。"
+		"property_gengar"							"受到伤害时有 <% ITEM_RPC_TORCH_OF_GENGAR_CHANCE %>% 的几率获得 <% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>% 闪避，相位移动能力并且增加 <% ITEM_RPC_TORCH_OF_GENGAR_BAD %>% 的基础技能伤害，持续<% ITEM_RPC_TORCH_OF_GENGAR_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"暗影步伐"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<% GENGAR_EVASION %>%% 闪避，相位移动和<% GENGAR_BAD %>%% 技能伤害"
+		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>%% 闪避，相位移动和<% ITEM_RPC_TORCH_OF_GENGAR_BAD %>%% 技能伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"头骨令牌"

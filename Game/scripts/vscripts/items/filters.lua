@@ -1325,7 +1325,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + GARNET_WARFARE_STR_TO_BAD/100 * (attacker:GetStrength() / GARNET_WARFARE_STR_DIVISOR)
         end
         if attacker:HasModifier("modifier_torch_of_gengar_effect") then
-            damageMult = damageMult + GENGAR_BAD/100
+            damageMult = damageMult + ITEM_RPC_TORCH_OF_GENGAR_BAD/100
         end
         if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
             damageMult = damageMult + ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100

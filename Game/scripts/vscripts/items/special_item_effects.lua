@@ -2322,9 +2322,9 @@ function gengar_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.unit
-	local proc = Filters:GetProc(target, GENGAR_CHANCE)
+	local proc = Filters:GetProc(target, ITEM_RPC_TORCH_OF_GENGAR_CHANCE)
 	if proc then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_torch_of_gengar_effect", {duration = GENGAR_DURATION})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_torch_of_gengar_effect", {duration = ITEM_RPC_TORCH_OF_GENGAR_DURATION})
 	end
 end
 
