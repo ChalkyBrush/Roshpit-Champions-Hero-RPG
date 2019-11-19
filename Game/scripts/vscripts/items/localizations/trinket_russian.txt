@@ -264,7 +264,7 @@
 		"item_rpc_twig_of_the_enlightened_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_twig_of_the_enlightened_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_twig_of_enlightened"					"Mana Shell"
-		"property_twig_of_enlightened_description"			"Когда вы пополняете запас маны, создаётся щит, поглощающий урон, равный <% TWIG_OF_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x значению восстановленной маны. Максимальное число поглощаемого урона не превышает <% TWIG_OF_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x максимального значения маны героя."
+		"property_twig_of_enlightened_description"			"Когда вы пополняете запас маны, создаётся щит, поглощающий урон, равный <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x значению восстановленной маны. Максимальное число поглощаемого урона не превышает <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x максимального значения маны героя."
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"Mana Shell"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"Поглощает урон"
 		

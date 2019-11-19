@@ -261,7 +261,7 @@
 		"item_rpc_twig_of_the_enlightened_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_twig_of_the_enlightened_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_twig_of_enlightened"					"魔力护盾"
-		"property_twig_of_enlightened_description"			"每当你获得魔法值时，创建一个护盾吸收 <% TWIG_OF_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x所获魔法值的伤害。护盾的伤害吸收上限为 <% TWIG_OF_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x你的最大魔法值。"
+		"property_twig_of_enlightened_description"			"每当你获得魔法值时，创建一个护盾吸收 <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x所获魔法值的伤害。护盾的伤害吸收上限为 <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x你的最大魔法值。"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"魔力护盾"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"吸收伤害"
 		

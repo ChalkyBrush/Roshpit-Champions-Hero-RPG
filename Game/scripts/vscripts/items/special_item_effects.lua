@@ -3232,11 +3232,11 @@ function twig_think(event)
 	end
 	if target:GetMana() > target.manaShellMana then
 		local manaGained = target:GetMana() - target.manaShellMana
-		target.manaShellAbsorb = math.min(target.manaShellAbsorb + manaGained * TWIG_OF_ENLIGHTENED_MANA_GAIN_TO_SHIELD, target:GetMaxMana() * 5)
+		target.manaShellAbsorb = math.min(target.manaShellAbsorb + manaGained * ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD, target:GetMaxMana() * 5)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/luna/luna_lucent_ti5/luna_eclipse_cast_flash_ti_5.vpcf", target, 1)
 	end
 	if ability.twigPFX then
-		local ratio = math.min((target.manaShellAbsorb / (target:GetMaxMana() * TWIG_OF_ENLIGHTENED_SHIELD_MAX_CAPACITY)) * 255, 255)
+		local ratio = math.min((target.manaShellAbsorb / (target:GetMaxMana() * ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY)) * 255, 255)
 		ParticleManager:SetParticleControl(ability.twigPFX, 1, Vector(ratio, ratio, ratio))
 	end
 	if target.manaShellAbsorb > 0 then
