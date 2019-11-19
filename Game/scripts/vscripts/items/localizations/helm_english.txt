@@ -635,6 +635,17 @@
 		"item_rpc_water_deity_crown_sapphire1" "Increases Wrath of Water's damage by @sapphire_property1"
 		"item_rpc_water_deity_crown_amethyst1" "Increases max procs per second by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
+		"item_property_wind_deity"							"Wrath of Wind"
+		"property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max <% WIND_DEITY_CROWN_ATTACK_LIMIT %> attacks per <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> seconds."
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity (Amethyst)"
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
+
+		"item_rpc_wind_deity_crown_ruby1"		"Increases Agility by @ruby_property1"
+		"item_rpc_wind_deity_crown_emerald1"	"Increases <font color=\"#7AE2A7\">Wind</font> elemental damage by @emerald_property1%"
+		"item_rpc_wind_deity_crown_sapphire1" 	"Increases max Wrath of Wind attacks per second by @sapphire_property1"
+		"item_rpc_wind_deity_crown_amethyst1" 	"Each enemy hit by Wrath of Wind attacks increases your attack damage by @amethyst_property1% for <% WIND_DEITY_AMETHYST_DURATION %> seconds, but these stacks are lost when you cast [E]. Max <% WIND_DEITY_AMETHYST_MAX_STACKS %> stacks."
+
 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
 		"item_property_white_mage_hat_2"			"Curaga"
@@ -670,11 +681,7 @@
 		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% of damage taken restores mana. Each point of mana increases base attack damage by <% WRAITH_HUNTER_BASE_ATTACK %>. Attacking drains <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% of your max mana. Additionally increases damage of @Ability2 by <% WRAITH_HUNTER_W_BAD %>%."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
-		"item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max <% WIND_DEITY_CROWN_ATTACK_LIMIT %> attacks per <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> seconds. Each enemy hit by these attacks increases your attack damage by <% WIND_DEITY_CROWN_BONUS_DMG %>% for <% WIND_DEITY_CROWN_BONUS_DMG_DURATION %> seconds, but these stacks are lost when you cast @Ability3."
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
+
 		
 		
 

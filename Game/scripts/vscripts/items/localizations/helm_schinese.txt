@@ -329,9 +329,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"风神的王冠"
 		"item_property_wind_deity"							"风神谴"
-		 "property_wind_deity_description"						"每个被 @Ability3 击中的敌人都会立即受到一次额外的普通攻击。该次普通攻击继承全部的攻击特效，并且不影响英雄正常的普通攻击。额外的攻击对每个敌方单位，每秒最多触发<% WIND_DEITY_CROWN_ATTACK_LIMIT %>次。额外的攻击每击中敌人一次为玩家提高 <% WIND_DEITY_CROWN_BONUS_DMG %>% 的攻击力，持续<% WIND_DEITY_CROWN_BONUS_DMG_DURATION %>秒。再次施放 @Ability3 会重置攻击力加成效果。该装备的符文有重铸上限，重铸上限为38/20（E3/E4）。"
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"风神"
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"增加攻击力"
+		"property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max <% WIND_DEITY_CROWN_ATTACK_LIMIT %> attacks per <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> seconds."
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity (Amethyst)"
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
+
+		"item_rpc_wind_deity_crown_ruby1"		"Increases Agility by @ruby_property1"
+		"item_rpc_wind_deity_crown_emerald1"	"Increases <font color=\"#7AE2A7\">Wind</font> elemental damage by @emerald_property1%"
+		"item_rpc_wind_deity_crown_sapphire1" 	"Increases max Wrath of Wind attacks per second by @sapphire_property1"
+		"item_rpc_wind_deity_crown_amethyst1" 	"Each enemy hit by Wrath of Wind attacks increases your attack damage by @amethyst_property1% for <% WIND_DEITY_AMETHYST_DURATION %> seconds, but these stacks are lost when you cast [E]. Max <% WIND_DEITY_AMETHYST_MAX_STACKS %> stacks."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"水神的王冠"

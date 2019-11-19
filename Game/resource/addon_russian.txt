@@ -13747,9 +13747,14 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
 		"item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Герой незамедлительно атакует всех врагов, задетых умением (E) @Ability3<br>(Учитываются все модификаторы атаки, максимум <font color='#ccff66'>10</font> атак в <font color='#ccff66'>1</font> секунду).<br>За каждого задетого атаками врага герой получает <font color='#ccff66'>2</font>% бонус к урону атаки,<br>который длится <font color='#ccff66'>30</font> секунд или до повторного прочтения (E) @Ability3."
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Урон увеличен"
+		"property_wind_deity_description"						"Immediately perform an attack with all of its procs on enemies hit by @Ability3. Max <font color='#ccff66'>10</font> attacks per <font color='#ccff66'>1</font> seconds."
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity (Amethyst)"
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Increased attack damage"
+
+		"item_rpc_wind_deity_crown_ruby1"		"Increases Agility by @ruby_property1"
+		"item_rpc_wind_deity_crown_emerald1"	"Increases <font color=\"#7AE2A7\">Wind</font> elemental damage by @emerald_property1%"
+		"item_rpc_wind_deity_crown_sapphire1" 	"Increases max Wrath of Wind attacks per second by @sapphire_property1"
+		"item_rpc_wind_deity_crown_amethyst1" 	"Each enemy hit by Wrath of Wind attacks increases your attack damage by @amethyst_property1% for <font color='#ccff66'>30</font> seconds, but these stacks are lost when you cast @Ability3. Max <font color='#ccff66'>20</font> stacks."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"

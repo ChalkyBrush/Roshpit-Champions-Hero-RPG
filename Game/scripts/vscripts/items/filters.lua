@@ -1580,15 +1580,26 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_wind_deity_crown") then
             if not ignore_effects then
                 if attacker:IsAlive() then
-                    local ability = attacker.headItem
-                    if ability.targetsHit < WIND_DEITY_CROWN_ATTACK_LIMIT then
-                        ability.targetsHit = ability.targetsHit + 1
+                    local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+                    local max_procs_per_second = WIND_DEITY_CROWN_ATTACK_LIMIT + ability:GetFinalGemPropertyValue("sapphire", WIND_DEITY_SAPPHIRE)
+                    local limitKey = attacker:GetPlayerOwnerID() .. '_wind_deity'
+                    Util.Common:LimitPerTime(max_procs_per_second, WIND_DEITY_CROWN_LIMIT_INTERVAL, limitKey, function()
                         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
+                        ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_cannot_miss", {duration = 0.2})
                         Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
-                    end
-                    ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = WIND_DEITY_CROWN_BONUS_DMG_DURATION})
-                    local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
-                    attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, currentStacks + 1)
+                        if ability:GetGemValue("amethyst") > 0 then
+                            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = WIND_DEITY_AMETHYST_DURATION})
+                            local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
+                            local newStacks = math.min(currentStacks + 1, WIND_DEITY_AMETHYST_MAX_STACKS)
+                            attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, newStacks)
+
+                            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff_effect", {duration = WIND_DEITY_AMETHYST_DURATION})
+                            local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit)
+                            local atk_power_bonus = newStacks*ability:GetFinalGemPropertyValue("amethyst", WIND_DEITY_AMETHYST)
+                            attacker:SetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit, atk_power_bonus)
+
+                        end
+                    end)
                 end
             end
         end

@@ -465,6 +465,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", WATER_DEITY_RUBY, hero, "element_water", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_wind_deity_crown" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", WIND_DEITY_RUBY, hero, "agility", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", WIND_DEITY_EMERALD, hero, "element_wind", RPC_GEAR_SLOT_HEAD)
+		end
 	end
 end
 

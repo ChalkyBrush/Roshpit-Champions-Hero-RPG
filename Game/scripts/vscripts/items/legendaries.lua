@@ -7931,7 +7931,7 @@ function RPCItems:RollWindDeityCrown(item_level)
 
     local item = RPCItems:CreateVariant("item_rpc_wind_deity_crown", "immortal", "Wind Deity Crown", "head", true, "Slot: Head")
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "wind_deity"
+    item.newItemTable.property1name = "!immortal!_modifier_wind_deity_crown"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wind_deity", "#92E8A6", 1, "#property_wind_deity_description")
 
     local rune_type = RPCItems:RollRuneType({"e"}, {tier3 = 80, tier4 = 20})
@@ -8466,9 +8466,9 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_malachite_shade_bracer" then
         newItem = RPCItems:RollMalachiteShadeBracer(item_level)
     elseif itemName == "item_rpc_wind_deity_crown" then
-        newItem = RPCItems:RollWindDeityCrown(item_level, 0)
+        newItem = RPCItems:RollWindDeityCrown(item_level)
     elseif itemName == "item_rpc_water_deity_crown" then
-        newItem = RPCItems:RollWaterDeityCrown(item_level, 0)
+        newItem = RPCItems:RollWaterDeityCrown(item_level)
     elseif itemName == "item_rpc_fire_deity_crown" then
         newItem = RPCItems:RollFireDeityCrown(item_level)
     elseif itemName == "item_rpc_skulldigger_gauntlet_lv1" then
