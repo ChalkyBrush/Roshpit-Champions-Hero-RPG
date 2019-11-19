@@ -245,7 +245,7 @@
 		"item_rpc_ring_of_nobility_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_nobility"							"Path of Nobility"
-		"property_nobility_description"                        "Increases all attributes by <% NOBILITY_ALL_ATTRIBUTES %>x your level. When you slay an enemy, this property counts up, and when it reaches 10,000 this ring upgrades, doubling its rune values. After upgrading, it cannot be reforged by the Blacksmith."
+		"property_nobility_description"                        "Increases all attributes by <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x your level. When you slay an enemy, this property counts up, and when it reaches 10,000 this ring upgrades, doubling its rune values. After upgrading, it cannot be reforged by the Blacksmith."
 
 		
 		
@@ -255,7 +255,7 @@
 		"item_rpc_ring_of_nobility_augmented_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_augmented_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_nobility_augmented"					"Strides of Nobility"
-		"property_nobility_augmented_description"			"Increases all attributes by <% NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x your level. This item cannot be reforged by the Blacksmith."
+		"property_nobility_augmented_description"			"Increases all attributes by <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x your level. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"

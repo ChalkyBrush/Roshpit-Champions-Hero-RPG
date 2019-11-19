@@ -246,7 +246,7 @@
 		"item_rpc_ring_of_nobility_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_nobility"							"Path of Nobility"
-		"property_nobility_description"						"Добавляет бонусные атрибуты в количестве, равном <% NOBILITY_ALL_ATTRIBUTES %>x значению текущего уровня героя. Каждое убийство противника добавляет к свойству предмета 1 очко. Предмет улучшится, когда значение достигнет 10000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_nobility_description"						"Добавляет бонусные атрибуты в количестве, равном <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x значению текущего уровня героя. Каждое убийство противника добавляет к свойству предмета 1 очко. Предмет улучшится, когда значение достигнет 10000.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
@@ -255,7 +255,7 @@
 		"item_rpc_ring_of_nobility_augmented_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_augmented_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_nobility_augmented"					"Strides of Nobility"
-		"property_nobility_augmented_description"			"Добавляет бонусные атрибуты в количестве, равном <% NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x значению текущего уровня героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_nobility_augmented_description"			"Добавляет бонусные атрибуты в количестве, равном <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x значению текущего уровня героя.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"
