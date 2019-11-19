@@ -344,7 +344,7 @@
     	"item_rpc_gravekeepers_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_gravekeepers_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_gravekeeper_gauntlet"				"守墓者"
-		"property_gravekeeper_gauntlet_description"		"连续对同一目标进行攻击，每攻击一次会使该目标获得一层debuff。每层debuff使该单位受到的伤害增加 <% GRAVEKEEPER_PRE_MITI_DAMAGE_AMP_PER_STACK * 100 %>%，并且吸取该目标 <% GRAVEKEEPER_MOVESPEED_DRAIN %>点移动速度。转移攻击目标该效果重置。"
+		"property_gravekeeper_gauntlet_description"		"连续对同一目标进行攻击，每攻击一次会使该目标获得一层debuff。每层debuff使该单位受到的伤害增加 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PRE_MITI_DAMAGE_AMP_PER_STACK * 100 %>%，并且吸取该目标 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MOVESPEED_DRAIN %>点移动速度。转移攻击目标该效果重置。"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"守墓者的目标"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"每次攻击都会叠加伤害并且令目标失去移动速度"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"守墓者"

@@ -3650,7 +3650,7 @@ function gravekeeper_attack(event)
 	end
 	if ability.targetIndex == target:GetEntityIndex() then
 		local limitKey = caster:GetPlayerOwnerID() .. '_gravekeeper_gauntlet'
-		Util.Common:LimitPerTime(GRAVEKEEPER_MAX_STACKS_PER_SEC, 1, limitKey, function()
+		Util.Common:LimitPerTime(ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_PER_SEC, 1, limitKey, function()
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
 			local newTargetStacks = target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + 1
