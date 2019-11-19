@@ -23,7 +23,7 @@
 		"item_rpc_sapphire_lotus_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_sapphire_lotus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_lotus"				"蓝色魅力"
-		"property_sapphire_lotus_description"		"每点智力值额外增加<% SAPPHIRE_LOTUS_HP_PER_INT %>点最大生命值。"
+		"property_sapphire_lotus_description"		"每点智力值额外增加<% ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT %>点最大生命值。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"征服石猎鹰"
