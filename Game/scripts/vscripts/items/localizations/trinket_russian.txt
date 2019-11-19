@@ -296,7 +296,7 @@
 		"item_rpc_firelock_pendant_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_firelock_pendant_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_firelock"							"Steady Flame"		
-		"property_firelock_description"					"Увеличивает Пост-Резистный физический урон на <% FIRELOCK_PENDANT_STR_TO_POST_MITI %>% за каждые <% FIRELOCK_PENDANT_STR_DIVISOR %> очков Силы."
+		"property_firelock_description"					"Увеличивает Пост-Резистный физический урон на <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI %>% за каждые <% ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR %> очков Силы."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"

@@ -293,7 +293,7 @@
 		"item_rpc_firelock_pendant_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_firelock_pendant_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_firelock"							"稳定火焰"		
-		"property_firelock_description"					"每<% FIRELOCK_PENDANT_STR_DIVISOR %>点力量值提高所有物理伤害 <% FIRELOCK_PENDANT_STR_TO_POST_MITI %>%。"
+		"property_firelock_description"					"每<% ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR %>点力量值提高所有物理伤害 <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"
