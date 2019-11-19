@@ -5948,7 +5948,7 @@ function goldbreaker_attack_land(event)
 	local target = event.target
 	local attacker = event.attacker
 	Filters:MagicImmuneBreak(attacker, target)
-	ability:ApplyDataDrivenModifier(attacker, target, "modifier_goldbreaker_effect", {duration = GOLDBREAKER_DEBUFF_DURATION})
+	ability:ApplyDataDrivenModifier(attacker, target, "modifier_goldbreaker_effect", {duration = ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION})
 end
 
 function knight_hawk_think(event)

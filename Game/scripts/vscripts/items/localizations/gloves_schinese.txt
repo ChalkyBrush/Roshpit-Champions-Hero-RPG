@@ -515,7 +515,7 @@
 		"item_rpc_goldbreaker_gauntlet_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_goldbreaker_gauntlet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_gold_breaker"							"鎏金粉碎"
-		"property_gold_breaker_description"					"你的攻击将会打破敌人的魔法免疫状态并且普通攻击也会施加一个debuff，这个debuff持续<% GOLDBREAKER_DEBUFF_DURATION %> 秒。如果一个敌人想要进入魔免状态时，他将会被眩晕。"
+		"property_gold_breaker_description"					"你的攻击将会打破敌人的魔法免疫状态并且普通攻击也会施加一个debuff，这个debuff持续<% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> 秒。如果一个敌人想要进入魔免状态时，他将会被眩晕。"
 
 		"DOTA_Tooltip_modifier_goldbreaker_effect"			"鎏金粉碎者"
 "DOTA_Tooltip_modifier_goldbreaker_effect_Description" "尝试进入魔免时将会被眩晕。"		

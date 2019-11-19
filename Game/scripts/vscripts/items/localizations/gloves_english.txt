@@ -520,7 +520,7 @@
 		"item_rpc_goldbreaker_gauntlet_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_goldbreaker_gauntlet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_gold_breaker"							"Touch of Abjuration"
-		"property_gold_breaker_description"					"Your attacks disrupt Spell Immunity effects on enemy units, instantly removing them from your target, and also applying the Abjuration debuff to them for <% GOLDBREAKER_DEBUFF_DURATION %> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted."
+		"property_gold_breaker_description"					"Your attacks disrupt Spell Immunity effects on enemy units, instantly removing them from your target, and also applying the Abjuration debuff to them for <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted."
 
 		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Abjuration"
 		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Attempting to become Spell Immune will instead stun for the same duration"
