@@ -176,7 +176,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     end
 
     if caster:HasModifier("modifier_autumnrock_bracer") then
-        mult = mult + AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT/100 * (caster:GetHealth() / AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR)
+        mult = mult + ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT/100 * (caster:GetHealth() / ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR)
     end
     if caster:HasModifier("modifier_depth_crest_armor") then
         if victim and victim:IsStunned() then

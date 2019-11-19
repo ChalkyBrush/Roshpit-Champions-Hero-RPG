@@ -359,7 +359,7 @@
     	"item_rpc_autumnrock_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_autumnrock_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_autumnrock_bracer"						"沟壑"
-		 "property_autumnrock_bracer_description"				"受到伤害时有<% AUTUMNROCK_BRACER_CHANCE %>%机率对攻击者施放沟壑。沟壑眩晕敌人<% AUTUMNROCK_BRACER_STUN_DUR %>秒并造成 <% AUTUMNROCK_BRACER_DMG_PER_STR %>x 你的力量值的魔法伤害。<br>每<% AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR %>点当前生命值提高装备伤害 <% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>%。"
+		 "property_autumnrock_bracer_description"				"受到伤害时有<% ITEM_RPC_AUTUMNROCK_BRACER_CHANCE %>%机率对攻击者施放沟壑。沟壑眩晕敌人<% ITEM_RPC_AUTUMNROCK_BRACER_STUN_DUR %>秒并造成 <% ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR %>x 你的力量值的魔法伤害。<br>每<% ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR %>点当前生命值提高装备伤害 <% ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>%。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"孔雀色的护腕"

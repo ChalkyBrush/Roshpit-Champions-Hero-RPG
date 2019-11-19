@@ -792,12 +792,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% AUTUMNROCK_BRACER_DMG_PER_STR %>"
+				"property_one"			"<% ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"<% AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>"
+				"property_two"		"<% ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT %>"
 			}
 			"03"
 			{
