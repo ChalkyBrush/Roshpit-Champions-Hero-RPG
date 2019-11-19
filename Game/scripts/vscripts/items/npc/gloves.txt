@@ -2912,7 +2912,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
 				}
 			}
 		}
@@ -2921,7 +2921,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
+				"property_one"			"<% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>"
 			}
 		}
 	}

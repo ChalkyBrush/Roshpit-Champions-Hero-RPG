@@ -294,7 +294,7 @@
     	"item_rpc_ironbound_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_ironbound_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Базовый урон атаки увеличивается на <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>х вашей брони."
+		"property_ironbound_gloves_description"				"Базовый урон атаки увеличивается на <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>х вашей брони."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"

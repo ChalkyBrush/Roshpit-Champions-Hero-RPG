@@ -289,7 +289,7 @@
     	"item_rpc_ironbound_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_ironbound_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ironbound_gloves"					"铁拳"
-		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 <% IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>倍。"
+		"property_ironbound_gloves_description"				"提高基础攻击力，提高值为护甲值的 <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>倍。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"狂风手套"
