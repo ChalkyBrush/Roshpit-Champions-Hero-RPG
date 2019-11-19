@@ -730,9 +730,9 @@ function Filters:CastSkillArguments(slot, caster)
         caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION})
     end
     if caster:HasModifier("modifier_grasp_of_elder") then
-        local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ELDER_GRASP_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+        local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_GRASP_OF_ELDER_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
         for _, ally in pairs(allies) do
-            local healAmount = ally:GetMaxHealth() * ELDER_GRASP_HEAL_PCT
+            local healAmount = ally:GetMaxHealth() * ITEM_RPC_GRASP_OF_ELDER_HEAL_PCT
             local shieldAmount = math.max(healAmount + ally:GetHealth() - ally:GetMaxHealth(), 0)
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", ally, 3)
             Filters:ApplyHeal(caster, ally, healAmount)
@@ -741,7 +741,7 @@ function Filters:CastSkillArguments(slot, caster)
                 if not ally.elder_grasp_shield then
                     ally.elder_grasp_shield = 0
                 end
-                ally.elder_grasp_shield = math.min(ally.elder_grasp_shield + shieldAmount, ELDER_GRASP_SHIELD_PER_HP * ally:GetMaxHealth())
+                ally.elder_grasp_shield = math.min(ally.elder_grasp_shield + shieldAmount, ITEM_RPC_GRASP_OF_ELDER_SHIELD_PER_HP * ally:GetMaxHealth())
                 ally.elder_grasp_max_shield = ally.elder_grasp_shield
             end
         end

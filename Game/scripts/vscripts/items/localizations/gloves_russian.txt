@@ -26,7 +26,7 @@
 		"item_rpc_grasp_of_elder_amethyst1"									"blah blah @amethyst_property1 gem"
 		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"Слот: Наручи"
 		"item_property_elder_grasp"					"Healing Prayer"
-		"property_elder_grasp_description"			"Любое заклинание исцелит героя и всех союзников в радиусе <% ELDER_GRASP_RADIUS %> на <% ELDER_GRASP_HEAL_PCT * 100%>% от их показателя здоровья. Исцеление при полном показателе здоровья конвертируется в щит <% ELDER_GRASP_SHIELD_PER_HP %>x от показателя здоровья, поглощающий урон."
+		"property_elder_grasp_description"			"Любое заклинание исцелит героя и всех союзников в радиусе <% ITEM_RPC_GRASP_OF_ELDER_RADIUS %> на <% ITEM_RPC_GRASP_OF_ELDER_HEAL_PCT * 100%>% от их показателя здоровья. Исцеление при полном показателе здоровья конвертируется в щит <% ITEM_RPC_GRASP_OF_ELDER_SHIELD_PER_HP %>x от показателя здоровья, поглощающий урон."
 		"DOTA_Tooltip_modifier_grasp_of_elder_shield"		"Healing Prayer"
 		"DOTA_Tooltip_modifier_grasp_of_elder_shield_Description"	"Absorbing incoming damage"
 		"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"Magebane Gloves"
