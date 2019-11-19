@@ -522,7 +522,7 @@
 		"item_rpc_blue_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_blue_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_blue_divinex"									"X-Intelligence"
-		"property_blue_divinex_description"							"Any modifiers to bonus Strength and Agility are ignored. Intelligence is doubled. Each <% BLUE_DIVINEX_INT_DIVISOR %> points of Intelligence increases item damage by <% BLUE_DIVINEX_STR_TO_ITEM_DMG %>%."
+		"property_blue_divinex_description"							"Any modifiers to bonus Strength and Agility are ignored. Intelligence is doubled. Each <% ITEM_RPC_BLUE_DIVINEX_AMULET_INT_DIVISOR %> points of Intelligence increases item damage by <% ITEM_RPC_BLUE_DIVINEX_AMULET_STR_TO_ITEM_DMG %>%."
 		
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
 		"item_rpc_puzzlers_locket_ruby1"				"blah blah @ruby_property1 gem"
