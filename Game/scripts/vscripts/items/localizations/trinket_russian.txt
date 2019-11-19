@@ -398,7 +398,7 @@
 		"item_rpc_aqua_lily_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_aqua_lily_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_aqua_lily"							"Water Bloom"
-		 "property_aqua_lily_description"					"Каждое очко руны [R4] увеличивает Интеллект на <% AQUA_LILY_INT_PER_R4 %>."
+		 "property_aqua_lily_description"					"Каждое очко руны [R4] увеличивает Интеллект на <% ITEM_RPC_AQUA_LILY_INT_PER_R4 %>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"

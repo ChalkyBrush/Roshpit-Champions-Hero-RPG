@@ -395,7 +395,7 @@
 		"item_rpc_aqua_lily_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_aqua_lily_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_aqua_lily"							"水之花"
-		 "property_aqua_lily_description"					"R4 每一点符文点数将提高 <% AQUA_LILY_INT_PER_R4 %> 点智力值。"
+		 "property_aqua_lily_description"					"R4 每一点符文点数将提高 <% ITEM_RPC_AQUA_LILY_INT_PER_R4 %> 点智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"火玫瑰"
