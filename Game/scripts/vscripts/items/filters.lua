@@ -1544,10 +1544,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_claws_of_the_ethereal_revenant") then
             if not ignore_effects then
-                local proc = Filters:GetProc(attacker, ETHEREAL_REVENANT_CHANCE)
+                local proc = Filters:GetProc(attacker, ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_CHANCE)
                 if proc then
                     Timers:CreateTimer(0.05, function()
-                        attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = ETHEREAL_REVENANT_DURATION})
+                        attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DURATION})
                     end)
                 end
             end
