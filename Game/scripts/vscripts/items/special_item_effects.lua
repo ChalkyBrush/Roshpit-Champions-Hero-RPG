@@ -1285,7 +1285,7 @@ function saytaru_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if target:GetHealth() <= target:GetMaxHealth() * SAYTARU_HP_THRESHOLD_PCT then
+	if target:GetHealth() <= target:GetMaxHealth() * ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hope_of_saytaru_effect", {})
 	else
 		target:RemoveModifierByName("modifier_hope_of_saytaru_effect")

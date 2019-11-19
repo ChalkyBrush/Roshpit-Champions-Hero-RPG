@@ -1470,7 +1470,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * reduction
 		end
 		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
-			damage = (1 - SAYTARU_PURE_DMG_RESISTANCE) * damage
+			damage = (1 - ITEM_RPC_HOPE_OF_SAYTARU_PURE_DMG_RESISTANCE) * damage
 		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -2159,7 +2159,7 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * EMERALD_NULLIFICATION_AGI_TO_PURE_MAGIC_DMG_BLOCK, 0)
 		end
 		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
-			filterTable["damage"] = (1 - SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
+			filterTable["damage"] = (1 - ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
 		end
 		if victim:HasModifier("modifier_azure_empire_visible") then
 			if not Filters:HasDamageBlockShield(victim) then

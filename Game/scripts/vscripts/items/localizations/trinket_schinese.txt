@@ -14,7 +14,7 @@
 		"item_rpc_hope_of_saytaru_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_hope_of_saytaru_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_saytaru"						"最后的希望"
-		"property_saytaru_description"				"当生命值低于<% SAYTARU_HP_THRESHOLD_PCT * 100 %>%时获得魔法免疫，该状态下受到的纯粹伤害降低<% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%，造成的魔法和纯粹伤害降低<% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%"
+		"property_saytaru_description"				"当生命值低于<% ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT * 100 %>%时获得魔法免疫，该状态下受到的纯粹伤害降低<% ITEM_RPC_HOPE_OF_SAYTARU_PURE_DMG_RESISTANCE * 100 %>%，造成的魔法和纯粹伤害降低<% ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"蓝莲花"

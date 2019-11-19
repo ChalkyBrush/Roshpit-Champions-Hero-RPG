@@ -14,7 +14,7 @@
 		"item_rpc_hope_of_saytaru_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_hope_of_saytaru_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_saytaru"						"Last Hope"
-		"property_saytaru_description"				"Gain Spell Immunity while below <% SAYTARU_HP_THRESHOLD_PCT * 100 %>% health. While active, this increases your resistance to Pure damage by <% SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, but decreases your outgoing Magic and Pure damage by <% SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
+		"property_saytaru_description"				"Gain Spell Immunity while below <% ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT * 100 %>% health. While active, this increases your resistance to Pure damage by <% ITEM_RPC_HOPE_OF_SAYTARU_PURE_DMG_RESISTANCE * 100 %>%, but decreases your outgoing Magic and Pure damage by <% ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%."
 
 		"DOTA_Tooltip_modifier_hope_of_saytaru_effect"				"Last Hope"
 		"DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"	"Spell Immune, reduced Pure damage taken, decreased outgoing Magic and Pure damage"
