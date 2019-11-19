@@ -151,7 +151,7 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     local casterName = caster:GetUnitName()
     local mult = 1
     if caster:HasModifier("modifier_ancient_waterstone") then
-        mult = mult + ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
+        mult = mult + ITEM_RPC_ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
     end
     if caster:HasModifier("modifier_mask_of_mugato") and caster:IsSilenced() then
         mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MUGATO_AMETHYST2)/100

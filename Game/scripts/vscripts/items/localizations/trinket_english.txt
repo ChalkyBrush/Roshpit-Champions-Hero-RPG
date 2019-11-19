@@ -275,7 +275,7 @@
 		"item_rpc_ancient_tanari_waterstone_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_ancient_tanari_waterstone_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
-		"property_ancient_waterstone_description"			"Damage dealt directly by items is increased by <% ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP %>%."
+		"property_ancient_waterstone_description"			"Damage dealt directly by items is increased by <% ITEM_RPC_ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP %>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"

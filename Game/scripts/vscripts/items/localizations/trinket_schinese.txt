@@ -272,7 +272,7 @@
 		"item_rpc_ancient_tanari_waterstone_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_ancient_tanari_waterstone_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_ancient_waterstone"					"水之女神的祝福"
-		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <% ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP %>%"
+		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <% ITEM_RPC_ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"风暴猎鹰指环"
