@@ -100,7 +100,7 @@
 		"item_rpc_lifesource_vessel_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_lifesource_vessel_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_lifesource_vessel"			"Lifesource"
-		"property_lifesource_vessel_description"	"Health regeneration is increased by an additional <% LIFESOURCE_HP_REGEN_PER_STR %> for each point of Strength."
+		"property_lifesource_vessel_description"	"Health regeneration is increased by an additional <% ITEM_RPC_LIFESOURCE_VESSEL_HP_REGEN_PER_STR %> for each point of Strength."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"Galaxy Orb"

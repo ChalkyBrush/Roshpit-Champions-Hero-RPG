@@ -1274,7 +1274,7 @@ function lifesource_vessel_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetStrength() * LIFESOURCE_HP_REGEN_PER_STR)
+	local stacks = math.floor(target:GetStrength() * ITEM_RPC_LIFESOURCE_VESSEL_HP_REGEN_PER_STR)
 	if not target:HasModifier("modifier_lifesource_vessel_buff") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_lifesource_vessel_buff", {})
 	end
