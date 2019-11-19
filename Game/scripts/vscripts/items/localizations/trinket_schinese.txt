@@ -206,7 +206,7 @@
 		"item_rpc_phoenix_emblem_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_phoenix_emblem_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_emblem"				"涅盘"
-		"property_phoenix_emblem"					"当你死亡时，<% PHOENIX_EMBLEM_RESURRECTION_DELAY %>秒后涅盘重生并眩晕附近所有敌人<% PHOENIX_EMBLEM_STUN_DUR %>秒。冷却时间<% PHOENIX_EMBLEM_COOLDOWN %>秒。"
+		"property_phoenix_emblem"					"当你死亡时，<% ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY %>秒后涅盘重生并眩晕附近所有敌人<% ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR %>秒。冷却时间<% ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN %>秒。"
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"涅盘冷却中"
 		
 		

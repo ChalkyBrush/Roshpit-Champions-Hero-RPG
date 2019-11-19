@@ -2841,11 +2841,11 @@ function phoenix_die(event)
 			Timers:CreateTimer(0.3, function()
 				caster:AddNoDraw()
 				local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
-				Timers:CreateTimer(PHOENIX_EMBLEM_RESURRECTION_DELAY+0.01, function()
-					ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_emblem_cooldown", {duration = PHOENIX_EMBLEM_COOLDOWN})
+				Timers:CreateTimer(ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY+0.01, function()
+					ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_emblem_cooldown", {duration = ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN})
 				end)
-				ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_rebirthing", {duration = PHOENIX_EMBLEM_RESURRECTION_DELAY})
-				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_disable_player", {duration = PHOENIX_EMBLEM_RESURRECTION_DELAY})
+				ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_rebirthing", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
+				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_disable_player", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
 				caster:SetAbsOrigin(rezPosition)
 				local playerID = caster:GetPlayerID()
 				if playerID then
@@ -2867,7 +2867,7 @@ function phoenix_die(event)
 			egg:SetModel("models/phoenix_egg_hitbox.vmdl")
 			egg:SetAbsOrigin(egg:GetAbsOrigin() - Vector(0, 0, 80))
 			egg.hero = caster
-			ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = PHOENIX_EMBLEM_RESURRECTION_DELAY})
+			ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
 			AddFOWViewer(caster:GetTeamNumber(), rezPosition, 800, 8, false)
 		end
 	end
@@ -2901,14 +2901,14 @@ function egg_end(event)
 	ParticleManager:SetParticleControl(pfx, 0, particleVector)
 	ParticleManager:SetParticleControl(pfx, 1, particleVector)
 	ParticleManager:SetParticleControl(pfx, 2, particleVector)
-	Timers:CreateTimer(PHOENIX_EMBLEM_RESURRECTION_DELAY, function()
+	Timers:CreateTimer(ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	ScreenShake(particleVector, 500, 0.4, 0.8, 9000, 0, true)
-	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), particleVector, nil, PHOENIX_EMBLEM_STUN_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), particleVector, nil, ITEM_RPC_PHOENIX_EMBLEM_STUN_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyStun(hero, PHOENIX_EMBLEM_STUN_DUR, enemy)
+			Filters:ApplyStun(hero, ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR, enemy)
 		end
 	end
 	UTIL_Remove(target)

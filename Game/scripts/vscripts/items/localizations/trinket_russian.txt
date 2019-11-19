@@ -209,7 +209,7 @@
 		"item_rpc_phoenix_emblem_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_phoenix_emblem_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_emblem"				"Rebirth"
-		"property_phoenix_emblem"					"При смерти герой начинает перерождение. Через <% PHOENIX_EMBLEM_RESURRECTION_DELAY %> секунд он возрождается, оглушая всех врагов вокруг на <% PHOENIX_EMBLEM_STUN_DUR %> секунд. Перезаряжается <% PHOENIX_EMBLEM_COOLDOWN %> секунд."
+		"property_phoenix_emblem"					"При смерти герой начинает перерождение. Через <% ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY %> секунд он возрождается, оглушая всех врагов вокруг на <% ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR %> секунд. Перезаряжается <% ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN %> секунд."
 		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Перезарядка Rebirth"
 		
 		
