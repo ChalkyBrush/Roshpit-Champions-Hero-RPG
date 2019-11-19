@@ -236,7 +236,7 @@
 		"item_rpc_fractional_enhancement_geode_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_fractional_enhancement_geode_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_geode"								"Logarithmic Amplification"
-		"property_geode_description"						"If you deal an instance of damage which ends up being less than <% GEODE_INSTANCE_THRESHOLD %>% of the target's max health, multiply that damage instance by <% GEODE_DAMAGE_MULT %>."
+		"property_geode_description"						"If you deal an instance of damage which ends up being less than <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>% of the target's max health, multiply that damage instance by <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %>."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"

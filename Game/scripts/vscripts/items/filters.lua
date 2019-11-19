@@ -3656,7 +3656,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
     if victim:GetEntityIndex() == attacker:GetEntityIndex() then
         return damage
     end
-    if damage < victim:GetMaxHealth() * GEODE_INSTANCE_THRESHOLD/100 then
+    if damage < victim:GetMaxHealth() * ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD/100 then
         local ability = attacker.amulet
         if not ability.particles then
             ability.particles = 0
@@ -3669,7 +3669,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
                 ability.particles = ability.particles - 1
             end)
         end
-        return damage * GEODE_DAMAGE_MULT
+        return damage * ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT
     else
         return damage
     end

@@ -234,7 +234,7 @@
 		"item_rpc_fractional_enhancement_geode_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_fractional_enhancement_geode_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_geode"								"对数放大"
-		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的<% GEODE_INSTANCE_THRESHOLD %>%，该伤害值变为<% GEODE_DAMAGE_MULT %>倍。"
+		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的<% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>%，该伤害值变为<% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %>倍。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"

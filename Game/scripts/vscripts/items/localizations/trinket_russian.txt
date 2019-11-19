@@ -237,7 +237,7 @@
 		"item_rpc_fractional_enhancement_geode_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_fractional_enhancement_geode_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_geode"								"Logarathmic Amplification"
-		"property_geode_description"						"В случае, если ваши атаки нанесут меньше <% GEODE_INSTANCE_THRESHOLD %>% урона от максимального показателя здоровья цели, то этот урон будет увеличен в <% GEODE_DAMAGE_MULT %> раз."
+		"property_geode_description"						"В случае, если ваши атаки нанесут меньше <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>% урона от максимального показателя здоровья цели, то этот урон будет увеличен в <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %> раз."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
