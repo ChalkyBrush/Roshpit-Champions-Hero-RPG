@@ -1514,7 +1514,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + PHANTOM_SORCERER_BAD/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY1)/100
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
-            damageMult = damageMult + SHADOWFLAME_FIST_W_BAD/100
+            damageMult = damageMult + ITEM_RPC_SHADOWFLAME_FIST_W_BAD/100
         end
         if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
             damageMult = damageMult + WRAITH_HUNTER_W_BAD/100

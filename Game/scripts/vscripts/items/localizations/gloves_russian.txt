@@ -414,7 +414,7 @@
     	"item_rpc_shadowflame_fist_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Значение маны не может быть выше <% SHADOWFLAME_FIST_MANA_CAP %>% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на <% SHADOWFLAME_FIST_W_BAD %>%."
+		"property_shadowflame_fist_description"					"Значение маны не может быть выше <% ITEM_RPC_SHADOWFLAME_FIST_MANA_CAP %>% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на <% ITEM_RPC_SHADOWFLAME_FIST_W_BAD %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"

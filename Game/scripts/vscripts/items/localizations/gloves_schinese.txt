@@ -409,7 +409,7 @@
     	"item_rpc_shadowflame_fist_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_shadowflame_fist"						"虚无阴影"
-		"property_shadowflame_fist_description"					"魔法值被限制在 <% SHADOWFLAME_FIST_MANA_CAP %>% 的最大魔法值。同时 @Ability2 的基础技能伤害提高 <% SHADOWFLAME_FIST_W_BAD %>%。"
+		"property_shadowflame_fist_description"					"魔法值被限制在 <% ITEM_RPC_SHADOWFLAME_FIST_MANA_CAP %>% 的最大魔法值。同时 @Ability2 的基础技能伤害提高 <% ITEM_RPC_SHADOWFLAME_FIST_W_BAD %>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"水之钢铁护腕"
