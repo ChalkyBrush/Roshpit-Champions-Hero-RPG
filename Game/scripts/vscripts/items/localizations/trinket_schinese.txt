@@ -311,7 +311,7 @@
 		"item_rpc_epsilons_eyeglass_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_epsilons_eyeglass_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_epsilon_eyeglass"					"扩展范围"
-		"property_epsilon_eyeglass_description"			"增加攻击距离 <% EPSILON_EYEGLASS_ATTACK_RANGE %> 码(只适用于远程英雄)并且增加 <% EPSILON_EYEGLASS_VISION_RADIUS %> 码视野范围，和 <% EPSILON_EYEGLASS_PROJECTILE_SPEED %> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<% EPSILON_EYEGLASS_DAMAGE_BASE * 1000 %> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <% EPSILON_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>，仍以此距离计算。距离不足700时以700计算"
+		"property_epsilon_eyeglass_description"			"增加攻击距离 <% ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE %> 码(只适用于远程英雄)并且增加 <% ITEM_RPC_EPSILONS_EYEGLASS_VISION_RADIUS %> 码视野范围，和 <% ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED %> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<% ITEM_RPC_EPSILONS_EYEGLASS_DAMAGE_BASE * 1000 %> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <% ITEM_RPC_EPSILONS_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>，仍以此距离计算。距离不足700时以700计算"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"芬里尔的犬牙"
