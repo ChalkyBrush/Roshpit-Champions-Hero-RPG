@@ -2966,7 +2966,7 @@
 				"TextureName"	"itemicons/fuchsia_ring"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% FUCHSIA_HP_REGEN_OF_MAX_HP %>"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>"
 				}
 			}
 		}

@@ -331,9 +331,9 @@
 		"item_rpc_fuchsia_ring_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fuchsia_ring_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fuchsia_ring"							"团结"
-		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 <% FUCHSIA_DMG_REDUCTION %>% 并且血量每秒回复 <% FUCHSIA_HP_REGEN_OF_MAX_HP %>% 玩家的最大的生命值。"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <% FUCHSIA_DMG_REDUCTION %>% 并且生命回复提高每秒 <% FUCHSIA_HP_REGEN_OF_MAX_HP %>%% 的最大生命值"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <% FUCHSIA_DMG_REDUCTION %>% 并且生命回复提高每秒 <% FUCHSIA_HP_REGEN_OF_MAX_HP %>%% 的最大生命值"
+		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 <% ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION %>% 并且血量每秒回复 <% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>% 玩家的最大的生命值。"
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <% ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION %>% 并且生命回复提高每秒 <% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>%% 的最大生命值"
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <% ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION %>% 并且生命回复提高每秒 <% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>%% 的最大生命值"
 		 
 		 
 		 

@@ -334,8 +334,8 @@
 		"item_rpc_fuchsia_ring_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fuchsia_ring_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fuchsia_ring"							"Solidarity"
-		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на <% FUCHSIA_DMG_REDUCTION %>%, а регенерация здоровья увеличивается на <% FUCHSIA_HP_REGEN_OF_MAX_HP %>% от значения максимального здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на <% FUCHSIA_DMG_REDUCTION %>%, а регенерация здоровья увеличена на <% FUCHSIA_HP_REGEN_OF_MAX_HP %>% от макс. здоровья."
+		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на <% ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION %>%, а регенерация здоровья увеличивается на <% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>% от значения максимального здоровья."
+		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на <% ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION %>%, а регенерация здоровья увеличена на <% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>% от макс. здоровья."
 		
 		 
 		 
