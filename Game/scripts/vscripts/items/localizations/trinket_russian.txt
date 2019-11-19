@@ -556,7 +556,7 @@
 		"item_rpc_beryl_ring_of_intuition_sapphire1" 	"blah blah @sapphire_property1 gem"
 		"item_rpc_beryl_ring_of_intuition_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_beryl_ring_of_intuition"						"Intuitive Coalescence"
-		"property_beryl_ring_of_intuition_description"				"После прочтения всех 4 базовых способностей в любом порядке восстанавливает здоровье полностью и сбрасывает перезарядку на всех способностях. Если перезарядка @Ability4 выше <% INTUITION_ULTIMATE_MIN_CD %> сек, то понижает ее перезарядку лишь до <% INTUITION_ULTIMATE_MIN_CD %> сек."
+		"property_beryl_ring_of_intuition_description"				"После прочтения всех 4 базовых способностей в любом порядке восстанавливает здоровье полностью и сбрасывает перезарядку на всех способностях. Если перезарядка @Ability4 выше <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> сек, то понижает ее перезарядку лишь до <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
 		"item_rpc_auric_ring_of_inspiration_ruby1" 	"blah blah @ruby_property1 gem"

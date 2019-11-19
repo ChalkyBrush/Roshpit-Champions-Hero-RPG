@@ -557,7 +557,7 @@
 		"item_rpc_beryl_ring_of_intuition_sapphire1" 	"blah blah @sapphire_property1 gem"
 		"item_rpc_beryl_ring_of_intuition_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_beryl_ring_of_intuition"						"Cycle of Respiration"
-		"property_beryl_ring_of_intuition_description"				"After casting all 4 of your base abilities, heal to full health and refresh all ability cooldowns. If @Ability4's base cooldown is greater than <% INTUITION_ULTIMATE_MIN_CD %> seconds, its cooldown can only be reduced to a minimum of <% INTUITION_ULTIMATE_MIN_CD %> seconds."
+		"property_beryl_ring_of_intuition_description"				"After casting all 4 of your base abilities, heal to full health and refresh all ability cooldowns. If @Ability4's base cooldown is greater than <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds, its cooldown can only be reduced to a minimum of <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
 		"item_rpc_auric_ring_of_inspiration_ruby1" 	"blah blah @ruby_property1 gem"
