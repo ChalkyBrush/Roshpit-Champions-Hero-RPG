@@ -1542,7 +1542,7 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 	local damage = BASE_VALUE_FOR_CALCULATE
 	if victim:HasModifier("modifier_berserker_gloves_buff_visible") then
 		local stacks = victim:GetModifierStackCount("modifier_berserker_gloves_buff_visible", victim.InventoryUnit)
-		damage = damage + damage * BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE/100 * stacks
+		damage = damage + damage * ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE/100 * stacks
 	end
 	if victim:HasModifier("modifier_hand_azinoth") then
 		damage = damage * (100 + CLAW_OF_AZINOTH_DAMAGE_AMP)/100

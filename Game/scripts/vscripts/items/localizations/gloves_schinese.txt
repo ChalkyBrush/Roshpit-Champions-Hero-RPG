@@ -39,7 +39,7 @@
     	"item_rpc_berserker_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"部位：手"
 		"item_property_berserker"				"狂暴之怒"
-		"property_berserker_rage_description"	"每攻击同一目标一次将获得一层buff增加基础攻击力 <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>x 乘以你的等级并且提高攻击速度 <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> 持续 <% BERSERKER_GLOVES_DURATION %> 秒。同时每层buff会使玩家受到的伤害提高 <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% 。<br>转移攻击目标移除<% BERSERKER_GLOVES_STACKS_PENALTY %>%的层数。"
+		"property_berserker_rage_description"	"每攻击同一目标一次将获得一层buff增加基础攻击力 <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>x 乘以你的等级并且提高攻击速度 <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> 持续 <% ITEM_RPC_BERSERKER_GLOVES_DURATION %> 秒。同时每层buff会使玩家受到的伤害提高 <% ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% 。<br>转移攻击目标移除<% ITEM_RPC_BERSERKER_GLOVES_STACKS_PENALTY %>%的层数。"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"狂暴之怒"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"攻击力和攻击速度提高，但是受到的伤害也将增加。"
 		

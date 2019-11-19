@@ -44,7 +44,7 @@
     	"item_rpc_berserker_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Слот: Наручи"
 		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Каждая успешная атака по одной цели даёт заряд. Каждый заряд увеличивает урон владельца предмета на число, равное <% BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>, умноженное на уровень героя и скорость атаки на <% BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>. Время действия эффекта: <% BERSERKER_GLOVES_DURATION %> сек. Дополнительно, каждый заряд увеличивает входящий урон из всех источников на <% BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>%.<br>Смена цели снимает <% BERSERKER_GLOVES_STACKS_PENALTY %>% накопленных зарядов."
+		"property_berserker_rage_description"	"Каждая успешная атака по одной цели даёт заряд. Каждый заряд увеличивает урон владельца предмета на число, равное <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>, умноженное на уровень героя и скорость атаки на <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>. Время действия эффекта: <% ITEM_RPC_BERSERKER_GLOVES_DURATION %> сек. Дополнительно, каждый заряд увеличивает входящий урон из всех источников на <% ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>%.<br>Смена цели снимает <% ITEM_RPC_BERSERKER_GLOVES_STACKS_PENALTY %>% накопленных зарядов."
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Урон и скорость атаки увеличены. Входящий урон увеличен."
 		
