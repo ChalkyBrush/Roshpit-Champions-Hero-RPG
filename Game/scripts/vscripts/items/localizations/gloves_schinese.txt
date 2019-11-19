@@ -51,7 +51,7 @@
     	"item_rpc_shadow_armlet_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"部位：手"
 		"item_property_shadow_armlet"			"暗影步"
-		"property_shadow_armlet_description"	"受到伤害时有 <% SHADOW_ARMLET_HEAL_CHANCE %>% 几率回复与该次伤害等量的生命值。"
+		"property_shadow_armlet_description"	"受到伤害时有 <% ITEM_RPC_SHADOW_ARMLET_HEAL_CHANCE %>% 几率回复与该次伤害等量的生命值。"
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"护骨手套"
     	"item_rpc_boneguard_gauntlets_ruby1"								"blah blah @ruby_property1 gem"

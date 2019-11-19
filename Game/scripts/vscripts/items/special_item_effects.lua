@@ -66,7 +66,7 @@ function shadow_armlet_take_damage(event)
 	local caster = event.caster
 	local attack_damage = event.attack_damage
 	local target = event.unit
-	local proc = Filters:GetProc(target, SHADOW_ARMLET_HEAL_CHANCE)
+	local proc = Filters:GetProc(target, ITEM_RPC_SHADOW_ARMLET_HEAL_CHANCE)
 	if proc then
 		Filters:ApplyHeal(target, target, attack_damage, true)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_shadow_armlet_effect", {duration = 1})

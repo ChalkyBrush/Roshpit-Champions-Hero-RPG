@@ -56,7 +56,7 @@
     	"item_rpc_shadow_armlet_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Слот: Наручи"
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"<% SHADOW_ARMLET_HEAL_CHANCE %>% шанс перевести полученный урон в лечение."
+		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_HEAL_CHANCE %>% шанс перевести полученный урон в лечение."
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
     	"item_rpc_boneguard_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
