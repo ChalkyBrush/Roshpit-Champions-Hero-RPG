@@ -156,7 +156,7 @@
 		"item_rpc_tome_of_chaos_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_tome_of_chaos_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tome_of_chaos"				"Infernal Reign"
-		"property_tome_of_chaos"					"После применения способности (W) @Ability2 на поле боя появится могущественный демон, оглушая врагов на <% TOME_OF_CHAOS_STUN %> секунды в месте появления. Свойства демона основаны на характеристиках призвавшего его героя. Он имеет х<% TOME_OF_CHAOS_HP_MULT %> больше здоровья, х<% TOME_OF_CHAOS_ARMOR_MULT %> брони, а атаки бьют по площади с уроном, равным х<% TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %> сумме всех атрибутов.<br>Демон живёт <% TOME_OF_CHAOS_DURATION %> секунд, после чего покидает поле битвы. Время восстановления <% TOME_OF_CHAOS_CD %> секунд."
+		"property_tome_of_chaos"					"После применения способности (W) @Ability2 на поле боя появится могущественный демон, оглушая врагов на <% ITEM_RPC_TOME_OF_CHAOS_STUN %> секунды в месте появления. Свойства демона основаны на характеристиках призвавшего его героя. Он имеет х<% ITEM_RPC_TOME_OF_CHAOS_HP_MULT %> больше здоровья, х<% ITEM_RPC_TOME_OF_CHAOS_ARMOR_MULT %> брони, а атаки бьют по площади с уроном, равным х<% ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %> сумме всех атрибутов.<br>Демон живёт <% ITEM_RPC_TOME_OF_CHAOS_DURATION %> секунд, после чего покидает поле битвы. Время восстановления <% ITEM_RPC_TOME_OF_CHAOS_CD %> секунд."
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
 		

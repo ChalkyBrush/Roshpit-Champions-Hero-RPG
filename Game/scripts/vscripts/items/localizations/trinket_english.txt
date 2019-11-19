@@ -155,7 +155,7 @@
 		"item_rpc_tome_of_chaos_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_tome_of_chaos_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tome_of_chaos"				"Infernal Reign"
-		"property_tome_of_chaos"					"When you cast @Ability2, summon a horrid devil in front of you, which stuns nearby enemies for <% TOME_OF_CHAOS_STUN %> seconds upon arrival. The devil has <% TOME_OF_CHAOS_HP_MULT %>x your health, <% TOME_OF_CHAOS_ARMOR_MULT %>x your Armor, attack damage equal to <% TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %>x the sum of your attributes, and a Cleave passive.<br>Lasts <% TOME_OF_CHAOS_DURATION %> seconds and has a <% TOME_OF_CHAOS_CD %> second cooldown."
+		"property_tome_of_chaos"					"When you cast @Ability2, summon a horrid devil in front of you, which stuns nearby enemies for <% ITEM_RPC_TOME_OF_CHAOS_STUN %> seconds upon arrival. The devil has <% ITEM_RPC_TOME_OF_CHAOS_HP_MULT %>x your health, <% ITEM_RPC_TOME_OF_CHAOS_ARMOR_MULT %>x your Armor, attack damage equal to <% ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %>x the sum of your attributes, and a Cleave passive.<br>Lasts <% ITEM_RPC_TOME_OF_CHAOS_DURATION %> seconds and has a <% ITEM_RPC_TOME_OF_CHAOS_CD %> second cooldown."
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	"Recharging"
 		

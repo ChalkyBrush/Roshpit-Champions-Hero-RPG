@@ -3212,7 +3212,7 @@ end
 
 function Filters:TomeOfChaos(caster)
     if not caster:HasModifier("modifier_tome_of_chaos_cooldown") then
-        caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tome_of_chaos_cooldown", {duration = TOME_OF_CHAOS_CD})
+        caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tome_of_chaos_cooldown", {duration = ITEM_RPC_TOME_OF_CHAOS_CD})
         local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 580
         particleName = "particles/items_fx/infernal_summon_spawn_aegis_starfall.vpcf"
         for i = 1, 8, 1 do
@@ -3234,7 +3234,7 @@ function Filters:TomeOfChaos(caster)
             local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             if #enemies > 0 then
                 for _, enemy in pairs(enemies) do
-                    Filters:ApplyStun(caster, TOME_OF_CHAOS_STUN, enemy)
+                    Filters:ApplyStun(caster, ITEM_RPC_TOME_OF_CHAOS_STUN, enemy)
                 end
             end
             Timers:CreateTimer(0.2, function()
@@ -3245,19 +3245,19 @@ function Filters:TomeOfChaos(caster)
             infernal.summoner = caster
             infernal:SetOwner(caster)
             infernal:SetControllableByPlayer(caster:GetPlayerID(), true)
-            infernal.dieTime = TOME_OF_CHAOS_DURATION
+            infernal.dieTime = ITEM_RPC_TOME_OF_CHAOS_DURATION
             infernal:AddAbility("ability_die_after_time_generic"):SetLevel(1)
             StartAnimation(infernal, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.0})
             local summonAbil = infernal:AddAbility("ability_summoned_unit")
             summonAbil:SetLevel(1)
 
-            local infernalDamage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE
+            local infernalDamage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE
             infernalDamage = Filters:AdjustItemDamage(caster, infernalDamage, nil)
             infernalDamage = Filters:ElementalDamage(infernal, caster, infernalDamage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, true)
             infernal:SetBaseDamageMin(infernalDamage)
             infernal:SetBaseDamageMax(infernalDamage)
 
-            local minionHealth = math.floor(caster:GetMaxHealth() * TOME_OF_CHAOS_HP_MULT)
+            local minionHealth = math.floor(caster:GetMaxHealth() * ITEM_RPC_TOME_OF_CHAOS_HP_MULT)
             minionHealth = Filters:AdjustItemDamage(caster, minionHealth, nil)
             infernal:SetMaxHealth(minionHealth)
             infernal:SetBaseMaxHealth(minionHealth)
@@ -3265,7 +3265,7 @@ function Filters:TomeOfChaos(caster)
             infernal:Heal(minionHealth, infernal)
             infernal:SetModelScale(0.9)
             infernal:SetRenderColor(140, 255, 140)
-            infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false) * TOME_OF_CHAOS_ARMOR_MULT, nil))
+            infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false) * ITEM_RPC_TOME_OF_CHAOS_ARMOR_MULT, nil))
             infernal:AddAbility("sven_great_cleave"):SetLevel(1)
             infernal:SetAcquisitionRange(2800)
             caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, infernal, "modifier_infernal_effect", {duration = 30})

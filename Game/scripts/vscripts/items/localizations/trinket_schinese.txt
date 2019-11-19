@@ -153,7 +153,7 @@
 		"item_rpc_tome_of_chaos_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_tome_of_chaos_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tome_of_chaos"				"地狱火"
-		"property_tome_of_chaos"					"施放 @Ability2 后，召唤一头地狱火并眩晕敌人<% TOME_OF_CHAOS_STUN %>秒。地狱火拥有你<% TOME_OF_CHAOS_HP_MULT %>倍的生命值，<% TOME_OF_CHAOS_ARMOR_MULT %>倍的护甲值和<% TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %>倍总属性值的基础攻击力。<br>持续<% TOME_OF_CHAOS_DURATION %>秒，冷却时间<% TOME_OF_CHAOS_CD %>秒。"
+		"property_tome_of_chaos"					"施放 @Ability2 后，召唤一头地狱火并眩晕敌人<% ITEM_RPC_TOME_OF_CHAOS_STUN %>秒。地狱火拥有你<% ITEM_RPC_TOME_OF_CHAOS_HP_MULT %>倍的生命值，<% ITEM_RPC_TOME_OF_CHAOS_ARMOR_MULT %>倍的护甲值和<% ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE %>倍总属性值的基础攻击力。<br>持续<% ITEM_RPC_TOME_OF_CHAOS_DURATION %>秒，冷却时间<% ITEM_RPC_TOME_OF_CHAOS_CD %>秒。"
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"地狱火冷却中"
 		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
 		
