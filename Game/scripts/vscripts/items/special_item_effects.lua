@@ -5841,10 +5841,10 @@ function razor_band_take_damage(event)
 	if #ability.buff_table < 100 then
 		table.insert(ability.buff_table, new_buff)
 	end
-	ability:ApplyDataDrivenModifier(caster, target, "modfier_razor_band_stacks", {duration = RAZOR_BAND_STACK_DURATION})
+	ability:ApplyDataDrivenModifier(caster, target, "modfier_razor_band_stacks", {duration = ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION})
 	local stacks = #ability.buff_table
 	target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
-	local self_damage = target:GetMaxHealth()*(RAZOR_BAND_MAX_HEALTH_DAMAGE/100)
+	local self_damage = target:GetMaxHealth()*(ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_DAMAGE/100)
 	ApplyDamage({victim = target, attacker = target, damage = self_damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 end
 
@@ -5855,7 +5855,7 @@ function razor_band_think(event)
 
 	local new_buff_table = {}
 	for i = 1, #ability.buff_table, 1 do
-		if GameRules:GetGameTime() - ability.buff_table[i] > RAZOR_BAND_STACK_DURATION then
+		if GameRules:GetGameTime() - ability.buff_table[i] > ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION then
 		else
 			table.insert(new_buff_table, ability.buff_table[i])
 		end
@@ -5874,7 +5874,7 @@ function razor_band_think(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 340, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(stacks*RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER/100)
+				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(stacks*ITEM_RPC_GALVANIZED_RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER/100)
 				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NORMAL)
 				if ability.particles < 10 then
 					ability.particles = ability.particles + 1
