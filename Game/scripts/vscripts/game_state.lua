@@ -2156,7 +2156,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * EMERALD_NULLIFICATION_AGI_TO_PURE_MAGIC_DMG_BLOCK, 0)
+			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_PURE_MAGIC_DMG_BLOCK, 0)
 		end
 		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
 			filterTable["damage"] = (1 - ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
