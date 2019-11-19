@@ -2966,7 +2966,7 @@ function silverspring_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local currentStacks = target:GetModifierStackCount("modifier_silverspring_effect", ability)
-	local stacks = math.min((500000000 - (target:GetBaseDamageMin() - currentStacks * SILVERSPRING_BASE_DMG_PER_REGEN)) / SILVERSPRING_BASE_DMG_PER_REGEN, math.max(0, math.floor(target:GetHealthRegen() * 1.0)))
+	local stacks = math.min((500000000 - (target:GetBaseDamageMin() - currentStacks * ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN)) / ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN, math.max(0, math.floor(target:GetHealthRegen() * 1.0)))
 	if not target:HasModifier("modifier_silverspring_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_silverspring_effect", {})
 	end

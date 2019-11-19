@@ -249,7 +249,7 @@
     	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_silverspring_glove"			"银泉"
-		"property_silverspring_description"			"提高玩家基础攻击力，提高值为 <% SILVERSPRING_BASE_DMG_PER_REGEN %>% 的生命回复速度。"
+		"property_silverspring_description"			"提高玩家基础攻击力，提高值为 <% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %>% 的生命回复速度。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"先知手套"

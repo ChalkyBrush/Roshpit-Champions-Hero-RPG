@@ -4247,7 +4247,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% SILVERSPRING_BASE_DMG_PER_REGEN %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %>"
 				}
 			}
 		}
@@ -4256,7 +4256,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% SILVERSPRING_BASE_DMG_PER_REGEN %>"
+				"property_one"			"<% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %>"
 			}
 		}
 	}
