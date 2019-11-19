@@ -4382,14 +4382,14 @@ function Filters:DarkEmissary(caster)
 end
 
 function Filters:BuzukisFinger(caster)
-    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, BUZUKIS_FINGER_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_BUZUKIS_FINGER_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
     if #allies > 0 then
         for _, ally in pairs(allies) do
             ally:RemoveModifierByName("modifier_buzuki_powering_up")
             EmitSoundOn("RPCItems.BuzukiFinger.Powerup", ally)
-            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzukis_finger_buff", {duration = BUZUKIS_FINGER_DURATION})
+            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzukis_finger_buff", {duration = ITEM_RPC_BUZUKIS_FINGER_DURATION})
             caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_buzuki_powering_up", {duration = 2.5})
-            ally:AddNewModifier(caster.InventoryUnit, caster.handItem, "modifier_buzuki_finger_lua", {duration = BUZUKIS_FINGER_DURATION})
+            ally:AddNewModifier(caster.InventoryUnit, caster.handItem, "modifier_buzuki_finger_lua", {duration = ITEM_RPC_BUZUKIS_FINGER_DURATION})
         end
     end
 end

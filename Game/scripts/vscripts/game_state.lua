@@ -2218,7 +2218,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if attacker:HasModifier("modifier_buzukis_finger_buff") then
-		mult = mult + BUZUKIS_FINGER_POST_MITI/100
+		mult = mult + ITEM_RPC_BUZUKIS_FINGER_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_earthshock_damage_reduce") then
 		local modifierCaster = attacker:FindModifierByName("modifier_earthshock_damage_reduce"):GetCaster()

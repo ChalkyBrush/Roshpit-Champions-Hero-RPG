@@ -488,7 +488,7 @@
 		"item_rpc_buzukis_finger_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_buzukis_finger_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_buzuki_finger"								"赐予你力量！"
-		"property_buzuki_finger_description"						"释放 @Ability2 可以给周围的非英雄单位提供增益效果，提高它们<% BUZUKIS_FINGER_POST_MITI %>%的税后伤害，同时它们的普攻可以附加一道<% BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>%攻击力伤害的能量光束。伤害来源为英雄。Buff持续<% BUZUKIS_FINGER_DURATION %>s。"
+		"property_buzuki_finger_description"						"释放 @Ability2 可以给周围的非英雄单位提供增益效果，提高它们<% ITEM_RPC_BUZUKIS_FINGER_POST_MITI %>%的税后伤害，同时它们的普攻可以附加一道<% ITEM_RPC_BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>%攻击力伤害的能量光束。伤害来源为英雄。Buff持续<% ITEM_RPC_BUZUKIS_FINGER_DURATION %>s。"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"赐予你力量!"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"提高税后伤害并造成额外的纯粹打击伤害"
 		

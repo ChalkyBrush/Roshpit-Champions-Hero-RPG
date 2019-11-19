@@ -493,7 +493,7 @@
 		"item_rpc_buzukis_finger_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_buzukis_finger_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal <% BUZUKIS_FINGER_POST_MITI %>% increased Post-Mitigation damage and their attacks create an energy beam that deals <% BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>% of attack damage. The damage is attributed to the original caster. Buff lasts <% BUZUKIS_FINGER_DURATION %> seconds."
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal <% ITEM_RPC_BUZUKIS_FINGER_POST_MITI %>% increased Post-Mitigation damage and their attacks create an energy beam that deals <% ITEM_RPC_BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>% of attack damage. The damage is attributed to the original caster. Buff lasts <% ITEM_RPC_BUZUKIS_FINGER_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
 		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased post-mitigation damage and dealing additional Pure damage on attacks"
 		
