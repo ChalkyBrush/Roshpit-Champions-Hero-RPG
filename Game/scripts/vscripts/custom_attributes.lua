@@ -1372,7 +1372,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local undertaker_hood = modifier:GetAbility()
 		magic_armor_modify = magic_armor_modify + undertaker_hood:GetFinalGemPropertyValue("sapphire", UNDERTAKER_SAPPHIRE)*modifier:GetStackCount()
 	end
-
+	if unit:HasModifier("modifier_wraith_hunters_steel_helm") then
+		local wraith_hunter_helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		magic_armor_modify = magic_armor_modify + unit:GetRoshpitArmor()*(wraith_hunter_helm:GetFinalGemPropertyValue("ruby", WRAITH_HUNTER_RUBY)/100)
+	end
 
 	-- FINAL STEP DEFILER
 
@@ -1785,6 +1788,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_wraith_crown_ethereal") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", WRAITH_CROWN_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_wraith_hunters_steel_helm") then
+		local wraith_hunter_helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		local wraith_hunter_spell_pierce = unit:GetRoshpitArmorPierce()*(WRAITH_HUNTER_ARMOR_PIERCE_TO_SPELL_PIERCE_PCT/100) + unit:GetAgility()*wraith_hunter_helm:GetFinalGemPropertyValue("emerald", WRAITH_HUNTER_EMERALD) + unit:GetSpirit()*wraith_hunter_helm:GetFinalGemPropertyValue("amethyst", WRAITH_HUNTER_AMETHYST)
+		spell_pierce_modify = spell_pierce_modify + wraith_hunter_spell_pierce
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

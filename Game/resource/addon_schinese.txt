@@ -13877,7 +13877,12 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"幽灵猎人头盔"
 		"item_property_wraith_hunter"						"幽灵猎人"
-		"property_wraith_hunter_description"				"你的魔法值默认为空，且只能在受到伤害时回复受到伤害值的 <font color='#ccff66'>3</font>% 的魔法值。每点魔法值提高<font color='#ccff66'>5</font>点攻击力。每次攻击汲取你 <font color='#ccff66'>2</font>% 最大魔法值。提高 @Ability2 伤害 <font color='#ccff66'>350</font>%。"
+		"property_wraith_hunter_description"				"Your Spell Pierce is increased by <font color='#ccff66'>100</font>% of your Armor Pierce."
+
+		"item_rpc_wraith_hunters_steel_helm_ruby1"		"Your Magic Armor is increased by @ruby_property1% of your Armor."
+		"item_rpc_wraith_hunters_steel_helm_emerald1"	"Each point of Agility increases Spell Pierce by @emerald_property1"
+		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Each point of Spirit increases Spell Pierce by @emerald_property1"	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"亵渎头巾"
