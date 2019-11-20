@@ -850,6 +850,11 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_secret_temple") then
         Filters:SecretTempleQ(caster)
     end
+    if caster:HasModifier("modifier_armor_of_violet_guard") then
+        local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+        local percentageReduction = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE/100
+        Filters:ReduceCDByPercentage(caster, q_ability, percentageReduction)
+    end
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
@@ -1442,10 +1447,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + TRAPPER_Q4_AMPLIFY_PERCENT*attacker:GetRuneValue("q", 4)
             end
         end
-        if attacker:HasModifier("modifier_body_violet_guard") then
-            damageMult = damageMult + 3
-        elseif attacker:HasModifier("modifier_body_violet_guard2") then
-            damageMult = damageMult + ITEM_RPC_ARMOR_OF_VIOLET_GUARD_BAD/100
+        if attacker:HasModifier("modifier_armor_of_violet_guard") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_AMETHYST)/100
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD/100
@@ -1708,8 +1711,8 @@ function Filters:HasFlyingModifier(unit)
 end
 
 function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
-    if attacker:HasModifier("modifier_body_violet_guard2") then
-        Filters:VioletGuard2Hit(victim, attacker, damage)
+    if attacker:HasModifier("modifier_armor_of_violet_guard") then
+        Filters:VioletGuardArmorHit(victim, attacker, damage)
     end
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
 end
@@ -3199,11 +3202,11 @@ end
 
 function Filters:VoyagerBoots(caster)
     local ability1 = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-    Filters:ReduceCDByPercentage(ability1, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
+    Filters:ReduceCDByPercentage(caster, ability1, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
     local ability2 = caster:GetAbilityByIndex(DOTA_W_SLOT)
-    Filters:ReduceCDByPercentage(ability2, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
+    Filters:ReduceCDByPercentage(caster, ability2, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
     local ability4 = caster:GetAbilityByIndex(DOTA_R_SLOT)
-    Filters:ReduceCDByPercentage(ability4, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
+    Filters:ReduceCDByPercentage(caster, ability4, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
     -- local blizzard = caster:FindAbilityByName("blizzard")
     -- Filters:ReduceCDByPercentage(blizzard, 0.3)
     -- local pyroblast = caster:FindAbilityByName("pyroblast")
@@ -3214,7 +3217,7 @@ function Filters:GetSpecialAttackRangeModifiers()
     return {"modifier_tomahawk_buffs", "modifier_chernobog_demonform_lua", "modifier_arkimus_archon_form", "modifier_demon_flight_flying"}
 end
 
-function Filters:ReduceCDByPercentage(ability, percentageReduction)
+function Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
     if ability then
         local CDreduce = ability:GetCooldown(ability:GetLevel()) * percentageReduction
         if ability:GetAbilityName() == "earthquake" then
@@ -3222,6 +3225,9 @@ function Filters:ReduceCDByPercentage(ability, percentageReduction)
         end
         local CDremaining = ability:GetCooldownTimeRemaining()
         local newCD = math.max(0, CDremaining - CDreduce)
+        if caster:HasModifier("modifier_hood_of_lords_lua") then
+            newCD = newCD + 1
+        end
         if newCD == 0 then
             ability:EndCooldown()
         else
@@ -4231,23 +4237,12 @@ function Filters:PhoenixEmblem(victim)
     end
 end
 
-function Filters:VioletGuard2Hit(victim, attacker, damage)
-    attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DURATION})
-    local oldModifier = victim:FindModifierByName("modifier_violet_guard_armor_loss_invisible")
-    local armorLoss = 0
-    if oldModifier then
-        local oldModifierStacks = oldModifier:GetStackCount()
+function Filters:VioletGuardArmorHit(victim, attacker, damage)
+    local violet_guard = attacker.equipped_gear[RPC_GEAR_SLOT_BODY]
+    if violet_guard:GetGemValue("ruby") > 0 then
+        violet_guard:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION})
+        victim:CalculateAndSaveRoshpitAttributes()
     end
-    if oldModifierStacks then
-        armorLoss = math.min(math.ceil(damage * ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DAMAGE_TO_ARMOR_REDUCTION), victim:GetPhysicalArmorValue(false) + oldModifierStacks)
-        armorLoss = math.max(1, armorLoss)
-        armorLoss = math.max(armorLoss, oldModifierStacks)
-    else
-        armorLoss = math.min(math.ceil(damage * ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DAMAGE_TO_ARMOR_REDUCTION), victim:GetPhysicalArmorValue(false))
-        armorLoss = math.max(1, armorLoss)
-    end
-    attacker.body:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_invisible", {duration = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_DURATION})
-    victim:SetModifierStackCount("modifier_violet_guard_armor_loss_invisible", attacker.InventoryUnit, armorLoss)
 end
 
 function Filters:TimeWarp(caster)

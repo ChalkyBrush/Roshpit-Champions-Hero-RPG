@@ -923,10 +923,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local igneous_helm = modifier:GetAbility()
 		armor_modify = armor_modify + igneous_helm:GetFinalGemPropertyValue("amethyst", IGNEOUS_CANINE_AMETHYST)
 	end
-	-- if unit:HasModifier("modifier_iron_colossus_attack_damage_increase") then
-	-- 	local modifier = unit:FindModifierByName("modifier_iron_colossus_attack_damage_increase")
-	-- 	armor_modify = armor_modify + modifier:GetStackCount()*IRON_COLOSSUS_AMR_PER_STR
-	-- end
+	if unit:HasModifier("modifier_violet_guard_armor_loss_visible") then
+		local modifier = unit:FindModifierByName("modifier_violet_guard_armor_loss_visible")
+		armor_modify = armor_modify + modifier:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_RUBY)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 

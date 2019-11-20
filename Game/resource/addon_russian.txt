@@ -12302,7 +12302,7 @@
 		"item_rpc_armor_of_violet_guard_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_armor_of_violet_guard_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Увеличивает Базовый Урон Способности (Q) @Ability1 на <font color='#ccff66'>350</font>%.<br>Когда (Q) @Ability1 попадает по противнику, его броня снижается на 1 за каждые <font color='#ccff66'>0.1</font>% от нанесенного умением урона на <font color='#ccff66'>6</font> секунд.<br>Значение брони цели не может опуститься ниже 0."
+		"property_violet_guard_armor_description2"	"Увеличивает Базовый Урон Способности (Q) @Ability1 на <font color='#ccff66'>0</font>%.<br>Когда (Q) @Ability1 попадает по противнику, его броня снижается на 1 за каждые <font color='#ccff66'>0</font>% от нанесенного умением урона на <font color='#ccff66'>0</font> секунд.<br>Значение брони цели не может опуститься ниже 0."
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Броня снижена."
 		

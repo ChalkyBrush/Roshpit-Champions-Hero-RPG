@@ -12433,6 +12433,18 @@
 		"item_rpc_armor_of_secret_temple_sapphire1"							"While Refraction is active, increase attack power by @sapphire_property1%"
 		"item_rpc_armor_of_secret_temple_amethyst1"							"Casting [Q] has a @amethyst_property1% chance to add a Refraction stack as long as there is at least 1 stack already. Max of <font color='#ccff66'>7</font> shield stacks."
 
+		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
+
+		"item_property_violet_guard_armor2"			"Violet Conqueror"
+		"property_violet_guard_armor_description2"	"Reduces cooldown of @Ability1 by <font color='#ccff66'>35</font>%"
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
+
+		"item_rpc_armor_of_violet_guard_ruby1"							"Enemies hit by [Q] lose @ruby_property1 armor for <font color='#ccff66'>10</font> seconds."
+		"item_rpc_armor_of_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
+		"item_rpc_armor_of_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_armor_of_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
+		
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -12484,17 +12496,6 @@
 		"item_rpc_avalanche_plate_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_avalanche_2"					"Mountain Quake"
 		"property_avalanche_description_2"			"When you finish casting @Ability4, release a <font color='#ccff66'>420</font>-radius avalanche which deals <font color='#ccff66'>15</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Struck enemies are stunned for <font color='#ccff66'>0.1</font> seconds. Each enemy hit counts up to <font color='#ccff66'>20</font>, at which point you create a massive earthquake that deals<br><font color='#ccff66'>80</font>x Strength to enemies in a <font color='#ccff66'>800</font> radius and stuns them for <font color='#ccff66'>1.6</font> seconds.<br>All damage dealt directly by items is enhanced by <font color='#ccff66'>0.3</font>% for each <font color='#ccff66'>10</font> points of Strength."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
-		"item_rpc_armor_of_violet_guard_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_armor_of_violet_guard_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Increases Base Ability Damage of @Ability1 by <font color='#ccff66'>350</font>%. <font color='#ccff66'>0.1</font>% of the damage it deals reduces each target's Armor by 1 for <font color='#ccff66'>6</font> seconds. This cannot reduce a target's Armor below 0."
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"

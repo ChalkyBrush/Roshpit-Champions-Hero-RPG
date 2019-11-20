@@ -1917,31 +1917,6 @@ function RPCItems:RollBorealGraniteVest(item_level)
     return item
 end
 
-function RPCItems:RollVioletGuardArmor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_armor_of_violet_guard", "immortal", "Armor of Violet Guard", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "violet_guard2"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor2", "#A337E6", 1, "#property_violet_guard_armor_description2")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.ceil(value * 2.4)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local evasionValue = RandomInt(12, 20)
-    item.newItemTable.property3 = evasionValue
-    item.newItemTable.property3name = "evasion"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_evasion", "#759C7C", 3)
-
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollTwilightVestments(item_level)
     local item = RPCItems:CreateVariant("item_rpc_twilight_vestments", "immortal", "Twilight Vestments", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4663,6 +4638,28 @@ function RPCItems:RollSecretTempleArmor(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollVioletGuardArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_armor_of_violet_guard", "immortal", "Armor of Violet Guard", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 0
+    item.newItemTable.property1name = "!immortal!_modifier_armor_of_violet_guard"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor2", "#A337E6", 1, "#property_violet_guard_armor_description2")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "agility", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -8796,7 +8793,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_veil_of_the_cerulean_high_guard", "item_rpc_white_mage_hat", "item_rpc_wolfir_druids_spirit_helm", "item_rpc_wraith_crown",
         "item_rpc_wraith_hunters_steel_helm"}
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
-        itemsList = {"item_rpc_armor_of_secret_temple"}
+        itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard"}
     end
     return itemsList
 end
