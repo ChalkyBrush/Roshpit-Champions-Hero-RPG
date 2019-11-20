@@ -2135,42 +2135,6 @@ function RPCItems:RollSoulVest(item_level)
     return item
 end
 
-function RPCItems:RollTanariWindArmor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_ancient_tanari_wind_armor", "immortal", "Ancient Tanari Wind Armor", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "ancient_tanari"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tanari_wind_armor", "#C5E7FC", 1, "#property_tanari_wind_armor_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 4, 16, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        item.newItemTable.hasRunePoints = true
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = math.ceil(value * 1.3)
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    elseif luck == 2 then
-        item.newItemTable.hasRunePoints = true
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = math.ceil(value * 1.0)
-        item.newItemTable.property3name = "rune_q_3"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_WIND, 2.5, 1, 50, 3)
-    end
-
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollEmpyrealSunriseRobe(item_level)
     local item = RPCItems:CreateVariant("item_rpc_empyreal_sunrise_robe", "immortal", "Empyreal Sunrise Robe", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4676,6 +4640,28 @@ function RPCItems:RollAlienArmor(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollTanariWindArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_ancient_tanari_wind_armor", "immortal", "Ancient Tanari Wind Armor", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_tanari_wind_armor"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tanari_wind_armor", "#C5E7FC", 1, "#property_tanari_wind_armor_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

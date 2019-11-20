@@ -12743,7 +12743,7 @@
 		"item_rpc_ancient_tanari_wind_armor_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_ancient_tanari_wind_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_tanari_wind_armor"						"Zephyr"
-		"property_tanari_wind_armor_description"				"Скорость передвижения врагов в радиусе <font color='#ccff66'>500</font> снижается на <font color='#ccff66'>80</font>%, скорость атаки снижается на <font color='#ccff66'>100</font>, а атаки могут промахнуться с <font color='#ccff66'>30</font>% шансом."
+		"property_tanari_wind_armor_description"				"Скорость передвижения врагов в радиусе <font color='#ccff66'>420</font> снижается на <font color='#ccff66'>65</font>%, скорость атаки снижается на <font color='#ccff66'>100</font>, а атаки могут промахнуться с <font color='#ccff66'>20</font>% шансом."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
@@ -12868,7 +12868,7 @@
 		"item_rpc_alien_armor_sapphire1"		"blah blah @sapphire_property1 gem"
 		"item_rpc_alien_armor_amethyst1"		"blah blah @amethyst_property1 gem"
 		"property_alien_armor"							"Carbon Forge"
-		"property_alien_armor_description"				"Прочтение @Ability4 создает иллюзию с <font color='#ccff66'>0</font> бонусом к скорости атаки, а урон учитывается как урон Предметов. Иллюзия наносит <font color='#ccff66'>2</font>x урона, получает <font color='#ccff66'>50</font>% урона. Время жизни иллюзии <font color='#ccff66'>10</font> сек."
+		"property_alien_armor_description"				"Прочтение @Ability4 создает иллюзию с 0 бонусом к скорости атаки, а урон учитывается как урон Предметов. Иллюзия наносит <font color='#ccff66'>2</font>x урона, получает <font color='#ccff66'>50</font>% урона. Время жизни иллюзии <font color='#ccff66'>10</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
 		"item_rpc_nethergrasp_palisade_ruby1"		"blah blah @ruby_property1 gem"

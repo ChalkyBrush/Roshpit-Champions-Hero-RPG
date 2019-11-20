@@ -7089,3 +7089,28 @@ function wraith_crown_invuln_think(event)
 		modifier:SetDuration(new_duration, true)
 	end
 end
+
+function tanari_wind_armor_inside_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		local damage = (hero:GetAgility() + hero:GetIntellect())*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_RUBY)
+		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+	end
+end
+
+function tanari_wind_armor_aura_create(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_wind_aura_slow_dynamic_as", {})
+		target:SetModifierStackCount("modifier_wind_aura_slow_dynamic_as", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_SAPPHIRE))
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_wind_aura_slow_dynamic_blind", {})
+		target:SetModifierStackCount("modifier_wind_aura_slow_dynamic_blind", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_AMETHYST))
+	end
+end

@@ -1,3 +1,147 @@
+	"item_rpc_ancient_tanari_wind_armor"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/ancient_tanari_wind_armor"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_AMETHYST %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_one"			"<% RPC_ELEMENT_WIND %>"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/roshpit/tanari/wind_aura_spell_bloodbath_bubbles_.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"AbilitySpecial"
+		{
+
+		}
+		"Modifiers"
+		{
+			"modifier_tanari_wind_armor"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Aura"          	"modifier_tanari_wind_aura_slow"
+				"Aura_Radius"   	"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_WIND_RADIUS %>"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+				"EffectName"		"particles/roshpit/tanari/wind_aura_spell_bloodbath_bubbles_.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+			"modifier_tanari_wind_aura_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"itemicons/tanari_wind_armor"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_AS_REDUCTION %>"
+				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MISS_CHANCE %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MS_REDUCTION %>"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"tanari_wind_armor_aura_create"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wind_aura_slow_dynamic_as"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wind_aura_slow_dynamic_blind"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"tanari_wind_armor_inside_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_wind_aura_slow_dynamic_as"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 		"-1"
+				}
+			}
+			"modifier_wind_aura_slow_dynamic_blind"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"1"
+				}
+			}			
+		}
+	}
+
 	"item_rpc_alien_armor"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -635,96 +779,6 @@
 		}
 	}
 
-	"item_rpc_ancient_tanari_wind_armor"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/ancient_tanari_wind_armor"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_AMETHYST %>"
-			}
-		}
-		"precache"
-		{
-			"particle"  "particles/roshpit/tanari/wind_aura_spell_bloodbath_bubbles_.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"AbilitySpecial"
-		{
-
-		}
-		"Modifiers"
-		{
-			"modifier_tanari_wind_armor"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Aura"          	"modifier_tanari_wind_aura_slow"
-				"Aura_Radius"   	"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_WIND_RADIUS %>"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"Aura_ApplyToCaster" "0"
-				"EffectName"		"particles/roshpit/tanari/wind_aura_spell_bloodbath_bubbles_.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-			}
-			"modifier_tanari_wind_aura_slow"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"itemicons/tanari_wind_armor"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_AS_REDUCTION %>"
-				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MISS_CHANCE %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MS_REDUCTION %>"
-				}
-			}
-		}
-	}
 	"item_rpc_armor_of_secret_temple"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

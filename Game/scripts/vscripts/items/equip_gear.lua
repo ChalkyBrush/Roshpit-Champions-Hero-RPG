@@ -475,6 +475,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", WRAITH_HUNTER_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_ancient_tanari_wind_armor" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_EMERALD, hero, "element_wind", RPC_GEAR_SLOT_BODY)
+		end
 	end
 end
 
