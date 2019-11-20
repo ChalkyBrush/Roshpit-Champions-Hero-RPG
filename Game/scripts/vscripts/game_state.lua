@@ -3214,9 +3214,12 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_armor_of_atlantis") then
 		if filterTable["damage"] > victim:GetHealth() then
-			filterTable["damage"] = filterTable["damage"] * (100 - ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT) / 100
-			local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
-			ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
+			if victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("emerald") > 0 then
+				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_EMERALD)
+				filterTable["damage"] = filterTable["damage"] * (100 - reduction) / 100
+				local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
+				ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
+			end
 		end
 	end
 	if attacker:HasModifier("modifier_line_tower_passive") then
@@ -3511,7 +3514,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			-- filterTable["damage"] = 0
+			filterTable["damage"] = victim:GetHealth()-10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then

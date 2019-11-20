@@ -81,8 +81,8 @@ end
 function class:CreateLuaItem(item_level)
     self = RPCItems:CreateVariant(self:GetClassName(), "immortal", self:GetName(), self:GetSlotTextShort(), true, self:GetSlotText())
     self.isLuaItem = true
-    self.newItemTable.hasRunePoints = self:HasRuneSlots()
-    local maxFactor = RPCItems:GetMaxFactor()
+
+
     self:RollProperty1(item_level)
     self:RollProperty2(item_level)
     self:RollProperty3(item_level)

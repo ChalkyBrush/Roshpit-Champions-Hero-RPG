@@ -264,7 +264,7 @@ function seafortress_unit_die(event)
 	local premiumCount = GameState:GetPlayerPremiumStatusCount()
 	local luck2 = RandomInt(1, 3000 - (500 * premiumCount))
 	if luck2 == 1 then
-		item_rpc_armor_of_atlantis:CreateLuaItem(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_armor_of_atlantis")
 	elseif luck2 == 2 then
 		RPCItems:RollChitinousLobsterClaw(caster:GetAbsOrigin())
 	end

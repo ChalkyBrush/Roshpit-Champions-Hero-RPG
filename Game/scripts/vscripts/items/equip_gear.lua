@@ -479,6 +479,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_EMERALD, hero, "element_wind", RPC_GEAR_SLOT_BODY)
 		end
+	elseif item:GetAbilityName() == 'item_rpc_armor_of_atlantis' then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_RUBY, hero, "strength", RPC_GEAR_SLOT_BODY)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_AMETHYST, hero, "max_health", RPC_GEAR_SLOT_BODY)
+		end
 	end
 end
 

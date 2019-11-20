@@ -12779,9 +12779,9 @@
 		"item_rpc_armor_of_atlantis_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_armor_of_atlantis_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_armor_of_atlantis"												"Chasm Forge"
-		"property_armor_of_atlantis_Description"					"Сопротивление урону повышается на <font color='#ccff66'>1.5</font>% за каждый отсутствующий процент здоровья. Максимальный бонус сопротивления не может быть выше <font color='#ccff66'>81</font>%. Урон, который потенциально смертелен будет снижен на <font color='#ccff66'>70</font>%."
+		"property_armor_of_atlantis_Description"					"Сопротивление урону повышается на <font color='#ccff66'>0.5</font>% за каждый отсутствующий процент здоровья. Максимальный бонус сопротивления не может быть выше <font color='#ccff66'>50</font>%. Урон, который потенциально смертелен будет снижен на <font color='#ccff66'>0</font>%."
 		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
-		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Сопротивление урону повышается на <font color='#ccff66'>1.5</font>%% за каждый отсутствующий процент здоровья. Максимальный бонус сопротивления не может быть выше <font color='#ccff66'>81</font>%%. Урон, который потенциально смертелен будет снижен на <font color='#ccff66'>70</font>%%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Сопротивление урону повышается на <font color='#ccff66'>0.5</font>%% за каждый отсутствующий процент здоровья. Максимальный бонус сопротивления не может быть выше <font color='#ccff66'>50</font>%%. Урон, который потенциально смертелен будет снижен на <font color='#ccff66'>0</font>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	

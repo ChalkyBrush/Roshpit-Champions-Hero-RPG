@@ -12410,6 +12410,17 @@
 		"DOTA_Tooltip_modifier_tanari_wind_aura_slow"			"Zephyr"
 		"DOTA_Tooltip_modifier_tanari_wind_aura_slow_Description"	"Slowed and chance to miss with attacks"
 
+		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"			"Armor of Atlantis"	
+		"item_property_armor_of_atlantis"								"Chasm Forge"
+		"property_armor_of_atlantis_Description"					"You gain <font color='#ccff66'>0.5</font>% damage reduction for every 1% of missing health. This damage reduction can't be higher than <font color='#ccff66'>50</font>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Gaining damage reduction based on missing health"
+
+		"item_rpc_armor_of_atlantis_ruby1"			"Increases Strength by @ruby_property1"
+		"item_rpc_armor_of_atlantis_emerald1"			"Damage instances that would kill you are reduced by @emerald_property1%"
+		"item_rpc_armor_of_atlantis_sapphire1"			"Gain @sapphire_property1 base attack damage for each point of missing health"
+		"item_rpc_armor_of_atlantis_amethyst1"			"Increases Max Health by @amethyst_property1"
+
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -12929,17 +12940,6 @@
 		"item_rpc_direwolf_bulwark_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_direwolf"						"Cerberus Core"
 		"property_direwolf_description"					"Each <font color='#ccff66'>10</font> points of your primary attribute increases Base Attack damage by <font color='#ccff66'>20</font>, Armor by <font color='#ccff66'>1</font>, and Base Ability Damage by <font color='#ccff66'>0.1</font>%. This item cannot be reforged by the Blacksmith."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"			"Armor of Atlantis"	
-		"item_rpc_armor_of_atlantis_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_armor_of_atlantis_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_armor_of_atlantis_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_armor_of_atlantis_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_armor_of_atlantis"								"Indomitable"
-		"property_armor_of_atlantis_Description"					"You gain <font color='#ccff66'>1.5</font>% damage reduction for every 1% of missing health. This damage reduction can't be higher than <font color='#ccff66'>81</font>%. Damage instances that would kill you are further reduced by <font color='#ccff66'>70</font>%."
-		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Indomitable"
-		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Gaining damage reduction based on missing health, and lethal blows are further mitigated"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	

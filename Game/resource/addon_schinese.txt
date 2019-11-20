@@ -12937,9 +12937,9 @@
 		 "item_rpc_armor_of_atlantis_sapphire1"                       "blah blah @sapphire_property1 gem"
 		 "item_rpc_armor_of_atlantis_amethyst1"                       "blah blah @amethyst_property1 gem"
         "item_property_armor_of_atlantis"                                           "钢筋铁骨"
-        "property_armor_of_atlantis_Description"                                "获得 <font color='#ccff66'>1.5</font>% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <font color='#ccff66'>81</font>%. 致死伤害减少至 <font color='#ccff66'>70</font>%."
+        "property_armor_of_atlantis_Description"                                "获得 <font color='#ccff66'>0.5</font>% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <font color='#ccff66'>50</font>%. 致死伤害减少至 <font color='#ccff66'>0</font>%."
         "DOTA_Tooltip_modifier_armor_of_atlantis"                               "钢筋铁骨"
-        "DOTA_Tooltip_modifier_armor_of_atlantis_Description"                   "获得 <font color='#ccff66'>1.5</font>%% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <font color='#ccff66'>81</font>%%. 致死伤害减少至 <font color='#ccff66'>70</font>%%."
+        "DOTA_Tooltip_modifier_armor_of_atlantis_Description"                   "获得 <font color='#ccff66'>0.5</font>%% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <font color='#ccff66'>50</font>%%. 致死伤害减少至 <font color='#ccff66'>0</font>%%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"圣堂光之袍"	
