@@ -13,14 +13,15 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
-		"item_rpc_barons_storm_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_barons_storm_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_barons_storm_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_barons_storm_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_baron_storm"								"Storm Link"
-		"property_baron_storm_description"						"Электрическая дуга связывает героя и атакующего противника, наносит <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT %>x урона от общей атаки героя и передается по цепи между другими ближайшими целями до <% ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS %> раз. Пораженные током противники наносят на <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_RESISTANCE * 100 %>% меньше урона по герою в течение <% ITEM_RPC_BARONS_STORM_ARMOR_DUR%> сек. Дуга перезаряжается <% ITEM_RPC_BARONS_STORM_ARMOR_COOLDOWN %> секунд."
-		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
-		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Связан с героем. Наносит меньше урона владельцу предмета. Получает урон."
+		"property_baron_storm_description"						"<% ITEM_RPC_BARONS_STORM_ARMOR_CHANCE %>% chance on taking damage to retaliate with a chain lightning, dealing <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT %>% your total attack damage and chaining between other nearby enemies up to <% ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS %> times. Maximum of <% ITEM_RPC_BARONS_STORM_ARMOR_MAX_PROCS_PER_SECOND %> procs per second." 
+		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Arc"
+		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Dealing reduced damage to caster."
+
+		"item_rpc_barons_storm_armor_ruby1"								"Increases the proc chance by @ruby_property1%"
+		"item_rpc_barons_storm_armor_emerald1"								"Increases max procs per second by @emerald_property1. Increases max chain bounces by @emerald_property2"
+		"item_rpc_barons_storm_armor_sapphire1"								"Enemies hit by the chain lightning are paralyzed for @sapphire_property1 seconds"
+		"item_rpc_barons_storm_armor_amethyst1"								"Increases the damage of Storm Arc by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
@@ -43,12 +44,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
-		"item_rpc_avalanche_plate_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_avalanche_plate_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_avalanche_plate_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_avalanche_plate_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS %> происходит сильный камнепад, который нанесёт урон, равный <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x Силы каждые <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_INTERVAL %> секунды и оглушает врагов на <% ITEM_RPC_AVALANCHE_PLATE_STUN_DUR %> секунды.<br>Каждое успешное попадание камнепадом по противнику накапливает заряды. Когда будет накоплено <% ITEM_RPC_AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD %> зарядов, произойдёт сильное землетрясение в радиусе <% ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_RADIUS %>,<br>которое нанесёт урон, равный <% ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG %>x Силы и оглушит задетых врагов на <% ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR %> секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на <% ITEM_RPC_AVALANCHE_PLATE_ITEM_AMP_PER_STR %>% за каждые <% ITEM_RPC_AVALANCHE_PLATE_STR_DIVISOR %> очков Силы."
+		"item_property_avalanche"					"Mountain Quake"
+		"property_avalanche_description"			"When you finish casting @Ability4, release a <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS %>-radius avalanche which deals <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x your Strength every <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_INTERVAL %> seconds. Struck enemies are stunned for <% ITEM_RPC_AVALANCHE_PLATE_STUN_DUR %> seconds. Lasts <% ITEM_RPC_AVALANCHE_PLATE_DURATION %> seconds."
+		
+		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x radius that stuns them for @ruby_property2 seconds."
+		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=\"#AF843D\">Earth</font> elemental damage by @emerald_property1%"
+		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increaased by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"

@@ -515,10 +515,10 @@ function Filters:ApplyStun(caster, duration, target)
         else
             local helm = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
             local limitKey = "_stormcrack"
-            local max_procs_per_second = STORMCRACK_MAX_PROCS_PER_SECOND + helm:GetFinalGemPropertyValue("emerald", STORMCRACK_EMERALD) + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit())*helm:GetFinalGemPropertyValue("sapphire", STORMCRACK_SAPPHIRE)
+            local max_procs_per_second = STORMCRACK_MAX_PROCS_PER_SECOND + helm:GetFinalGemPropertyValue("emerald", STORMCRACK_EMERALD)
             Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
                 CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
-                local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (STORMCRACK_ATTACK_DAMAGE_PCT / 100)
+                local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (STORMCRACK_ATTACK_DAMAGE_PCT / 100) + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit())*helm:GetFinalGemPropertyValue("sapphire", STORMCRACK_SAPPHIRE)
                 Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, helm, RPC_ELEMENT_NORMAL, RPC_ELEMENT_LIGHTNING)
             end)
 

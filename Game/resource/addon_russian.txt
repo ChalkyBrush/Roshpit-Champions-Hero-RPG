@@ -12258,14 +12258,15 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
-		"item_rpc_barons_storm_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_barons_storm_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_barons_storm_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_barons_storm_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_baron_storm"								"Storm Link"
-		"property_baron_storm_description"						"Электрическая дуга связывает героя и атакующего противника, наносит <font color='#ccff66'>5</font>x урона от общей атаки героя и передается по цепи между другими ближайшими целями до <font color='#ccff66'>6</font> раз. Пораженные током противники наносят на <font color='#ccff66'>85</font>% меньше урона по герою в течение <font color='#ccff66'>5</font> сек. Дуга перезаряжается <font color='#ccff66'>0.1</font> секунд."
-		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
-		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Связан с героем. Наносит меньше урона владельцу предмета. Получает урон."
+		"property_baron_storm_description"						"<font color='#ccff66'>40</font>% chance on taking damage to retaliate with a chain lightning, dealing <font color='#ccff66'>5</font>% your total attack damage and chaining between other nearby enemies up to <font color='#ccff66'>5</font> times. Maximum of <font color='#ccff66'>7</font> procs per second." 
+		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Arc"
+		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Dealing reduced damage to caster."
+
+		"item_rpc_barons_storm_armor_ruby1"								"Increases the proc chance by @ruby_property1%"
+		"item_rpc_barons_storm_armor_emerald1"								"Increases max procs per second by @emerald_property1. Increases max chain bounces by @emerald_property2"
+		"item_rpc_barons_storm_armor_sapphire1"								"Enemies hit by the chain lightning are paralyzed for @sapphire_property1 seconds"
+		"item_rpc_barons_storm_armor_amethyst1"								"Increases the damage of Storm Arc by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
@@ -12288,12 +12289,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
-		"item_rpc_avalanche_plate_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_avalanche_plate_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_avalanche_plate_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_avalanche_plate_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"По завершении прочтения (R) @Ability4 вокруг героя в радиусе <font color='#ccff66'>320</font> происходит сильный камнепад, который нанесёт урон, равный <font color='#ccff66'>0.2</font>x Силы каждые <font color='#ccff66'>0.2</font> секунды и оглушает врагов на <font color='#ccff66'>0.1</font> секунды.<br>Каждое успешное попадание камнепадом по противнику накапливает заряды. Когда будет накоплено <font color='#ccff66'>0</font> зарядов, произойдёт сильное землетрясение в радиусе <font color='#ccff66'>0</font>,<br>которое нанесёт урон, равный <font color='#ccff66'>0</font>x Силы и оглушит задетых врагов на <font color='#ccff66'>0</font> секунды.<br>Весь урон, напрямую наносимый предметами увеличивается на <font color='#ccff66'>0</font>% за каждые <font color='#ccff66'>0</font> очков Силы."
+		"item_property_avalanche"					"Mountain Quake"
+		"property_avalanche_description"			"When you finish casting @Ability4, release a <font color='#ccff66'>320</font>-radius avalanche which deals <font color='#ccff66'>0.2</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Struck enemies are stunned for <font color='#ccff66'>0.1</font> seconds. Lasts <font color='#ccff66'>3.8</font> seconds."
+		
+		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <font color='#ccff66'>2</font>x radius that stuns them for @ruby_property2 seconds."
+		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=\"#AF843D\">Earth</font> elemental damage by @emerald_property1%"
+		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increaased by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"

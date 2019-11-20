@@ -12454,6 +12454,18 @@
 		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
 		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increaased by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
+
+		"item_property_baron_storm"								"Storm Arc"
+		"property_baron_storm_description"						"<font color='#ccff66'>40</font>% chance on taking damage to retaliate with a chain lightning, dealing <font color='#ccff66'>5</font>% your total attack damage and chaining between other nearby enemies up to <font color='#ccff66'>5</font> times. Maximum of <font color='#ccff66'>7</font> procs per second." 
+		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Arc"
+		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Dealing reduced damage to caster."
+
+		"item_rpc_barons_storm_armor_ruby1"								"Increases the proc chance by @ruby_property1%"
+		"item_rpc_barons_storm_armor_emerald1"								"Increases max procs per second by @emerald_property1. Increases max chain bounces by @emerald_property2"
+		"item_rpc_barons_storm_armor_sapphire1"								"Enemies hit by the chain lightning are paralyzed for @sapphire_property1 seconds"
+		"item_rpc_barons_storm_armor_amethyst1"								"Increases the damage of Storm Arc by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12466,16 +12478,6 @@
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Slowed"
 
-
-		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
-		"item_rpc_barons_storm_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_barons_storm_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_barons_storm_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_barons_storm_armor_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_baron_storm"								"Storm Link"
-		"property_baron_storm_description"						"Arc lightning is discharged against enemies that damage you, dealing <font color='#ccff66'>5</font>x your total attack damage and chaining between other nearby enemies up to <font color='#ccff66'>6</font> times. Electrocuted enemies deal <font color='#ccff66'>85</font>% less damage to you for <font color='#ccff66'>5</font> seconds. This arc takes <font color='#ccff66'>0.1</font> seconds to recharge."
-		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Link"
-		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Dealing reduced damage to caster."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"

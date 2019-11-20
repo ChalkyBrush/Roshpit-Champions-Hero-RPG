@@ -830,7 +830,7 @@ function razor_boss_die(event)
 	local caster = event.caster
 	EmitSoundOn("Serengaard.RazorBoss.Die", caster)
 	if luck == 1 then
-		RPCItems:RollBaronsStormArmor(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_barons_storm_armor")
 	end
 	Serengaard:Mithril("baron", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_RAZORMORE)
 end

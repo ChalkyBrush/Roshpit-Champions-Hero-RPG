@@ -4579,10 +4579,18 @@ function baron_storm_take_damage(event)
 	local caster = event.caster.hero
 	local ability = event.ability
 	local attacker = event.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT
-	if not caster:HasModifier('modifier_baron_storm_cooldown') then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_baron_storm_cooldown", {duration = ITEM_RPC_BARONS_STORM_ARMOR_COOLDOWN})
-		baron_storm_arc(attacker, caster, ability, damage, 0, ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS)
+	local proc_chance = ITEM_RPC_BARONS_STORM_ARMOR_CHANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BARONS_STORM_ARMOR_GEM_RUBY)/100
+	local proc = Filters:GetProc(caster, proc_chance)
+	if proc then
+        local limitKey = "_barons_storm"
+        local max_procs_per_second = ITEM_RPC_BARONS_STORM_ARMOR_MAX_PROCS_PER_SECOND + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BARONS_STORM_ARMOR_GEM_EMERALD1)
+        local max_bounces = ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BARONS_STORM_ARMOR_GEM_EMERALD2)
+        Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT/100 + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BARONS_STORM_ARMOR_GEM_AMETHYST)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_baron_storm_cooldown", {duration = 0.2})
+			baron_storm_arc(attacker, caster, ability, damage, 0, max_bounces)
+        end)
+
 	end
 end
 
@@ -4600,7 +4608,10 @@ function baron_storm_arc(target, caster, ability, damage, targetNumber, maxTarge
 				target = caster
 			end
 			if newTarget then
-				ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = ITEM_RPC_BARONS_STORM_ARMOR_DUR})
+				if ability:GetGemValue("sapphire") > 0 then
+					local paralyze_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BARONS_STORM_ARMOR_GEM_SAPPHIRE)
+					ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = paralyze_duration})
+				end
 				Filters:ApplyItemDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
 				EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
 				local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
