@@ -483,6 +483,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_AMETHYST, hero, "max_health", RPC_GEAR_SLOT_BODY)
 		end
+	elseif item:GetAbilityName() == "item_rpc_armor_of_secret_temple" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BODY)
+		end
 	end
 end
 

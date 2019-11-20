@@ -12421,6 +12421,18 @@
 		"item_rpc_armor_of_atlantis_sapphire1"			"Gain @sapphire_property1 base attack damage for each point of missing health"
 		"item_rpc_armor_of_atlantis_amethyst1"			"Increases Max Health by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
+
+		"item_property_secret_temple"				"Refraction"
+		"property_secret_temple_description"		"After casting @Ability4, a temporary refraction shield envelops you, which will completely negate the next <font color='#ccff66'>7</font> instances of damage you receive. Lasts <font color='#ccff66'>30</font> seconds."
+		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
+		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Blocking damage instances."
+
+		"item_rpc_armor_of_secret_temple_ruby1"							"@ruby_property1% chance for Refraction to not lose a stack when taking damage"
+		"item_rpc_armor_of_secret_temple_emerald1"							"Increases Agility by @emerald_property1"
+		"item_rpc_armor_of_secret_temple_sapphire1"							"While Refraction is active, increase attack power by @sapphire_property1%"
+		"item_rpc_armor_of_secret_temple_amethyst1"							"Casting [Q] has a @amethyst_property1% chance to add a Refraction stack as long as there is at least 1 stack already. Max of <font color='#ccff66'>7</font> shield stacks."
+
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -12569,17 +12581,6 @@
 		"item_rpc_dragon_ceremony_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_dragon_ceremony"				"Beast of Ceremony"
 		"property_dragon_ceremony_description"		"A wyrmling follows you always, launching an attack every <font color='#ccff66'>0.8</font> seconds on up to <font color='#ccff66'>12</font> nearby enemies that deals damage equal to <font color='#ccff66'>12</font>x your primary attribute."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"
-		"item_rpc_armor_of_secret_temple_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_armor_of_secret_temple_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_armor_of_secret_temple_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_armor_of_secret_temple_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_secret_temple"				"Refraction"
-		"property_secret_temple_description"		"After casting @Ability4, a temporary refraction shield envelops you, which will completely negate the next <font color='#ccff66'>7</font> instances of damage you receive. When the shield activates, your current Base Attack Damage is doubled, and will remain doubled until the shield expires or is broken. This effect does not stack with itself."
-		"DOTA_Tooltip_modifier_secret_temple_refraction"				"Refraction"
-		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"Blocking damage instances. Base attack damage doubled."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"

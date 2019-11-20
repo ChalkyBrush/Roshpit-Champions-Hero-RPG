@@ -847,6 +847,9 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_death_whisper_helm") then
         Filters:DeathWhisperSapphire(caster)
     end
+    if caster:HasModifier("modifier_secret_temple") then
+        Filters:SecretTempleQ(caster)
+    end
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
@@ -2785,11 +2788,25 @@ end
 
 function Filters:SecretTemple(caster)
     local inventoryUnit = caster.InventoryUnit
-    caster.refractionItem:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_refraction", {duration = ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION})
-    caster:SetModifierStackCount("modifier_secret_temple_refraction", caster.refractionItem, ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS)
-    caster.refractionItem:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_damage_increase", {duration = ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION})
-    local damageStackCount = caster:GetModifierStackCount("modifier_secret_temple_damage_increase", caster.refractionItem)
-    caster:SetModifierStackCount("modifier_secret_temple_damage_increase", caster.refractionItem, caster:GetAttackDamage() - damageStackCount)
+    local armor = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    armor:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_refraction", {duration = ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION})
+    caster:SetModifierStackCount("modifier_secret_temple_refraction", armor, ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS)
+    if armor:GetGemValue("sapphire") > 0 then
+        armor:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_secret_temple_sapphire_damage_increase", {duration = ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS_DURATION})
+        caster:SetModifierStackCount("modifier_secret_temple_sapphire_damage_increase", armor, armor:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_SAPPHIRE))
+    end
+end
+
+function Filters:SecretTempleQ(caster)
+    local inventoryUnit = caster.InventoryUnit
+    local armor = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    if armor:GetGemValue("amethyst") > 0 and caster:HasModifier("modifier_secret_temple_refraction") then
+        local proc = Filters:GetProc(caster, armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_AMETHYST))
+        if proc then
+            local new_stacks = math.min(caster:GetModifierStackCount("modifier_secret_temple_refraction", armor) + 1, ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS)
+            caster:SetModifierStackCount("modifier_secret_temple_refraction", armor, new_stacks)
+        end
+    end
 end
 
 function Filters:VampiricBreastplate(caster, damage)
@@ -3553,10 +3570,13 @@ end
 
 function Filters:SecretTempleTakeDamage(target, damage)
     local stackCount = target:GetModifierStackCount("modifier_secret_temple_refraction", target.refractionItem)
-    if stackCount > 1 then
-        target:SetModifierStackCount("modifier_secret_temple_refraction", target.refractionItem, stackCount - 1)
-    else
-        target:RemoveModifierByName("modifier_secret_temple_refraction")
+    local proc = Filters:GetProc(target, target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_RUBY))
+    if not proc then
+        if stackCount > 1 then
+            target:SetModifierStackCount("modifier_secret_temple_refraction", target.refractionItem, stackCount - 1)
+        else
+            target:RemoveModifierByName("modifier_secret_temple_refraction")
+        end
     end
     return 0
 end
