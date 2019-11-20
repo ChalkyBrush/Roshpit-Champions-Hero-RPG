@@ -1790,42 +1790,7 @@ function RPCItems:RollSeaGiantsPlate(item_level)
     return item
 end
 
-function RPCItems:RollAlienArmor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_alien_armor", "immortal", "Sea Giant's Plate", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "alien"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_alien_armor", "#47471b", 1, "#property_alien_armor_Description")
 
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.floor(value * 1.5)
-    local luck = RandomInt(1, 10)
-    if luck <= 4 then
-        propertyName = "rune_r_1"
-    elseif luck <= 7 then
-        propertyName = "rune_r_2"
-    elseif luck <= 9 then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 / 2)
-        propertyName = "rune_r_3"
-    else
-        if GameState:GetDifficultyFactor() > 2 then
-            item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(12, 0, 0, 0, 0)
-            propertyName = "rune_r_4"
-        else
-            propertyName = "rune_r_1"
-        end
-    end
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollKnightCrusherArmor(item_level)
     local item = RPCItems:CreateVariant("item_rpc_staggering_knight_crusher_armor", "immortal", "Staggering Knight Crusher Armor", "body", true, "Slot: Body")
@@ -3226,6 +3191,71 @@ end
 
 --HATS
 
+function RPCItems:RollAutumnSleeperMask(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+    local item = RPCItems:CreateVariant("item_rpc_autumn_sleeper_mask", "immortal", "Autumn Sleeper Mask", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_autumn_sleeper_mask"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_autumn_sleeper", "#BF5050", 1, "#property_autumn_sleeper_description")
+
+    local luck = RandomInt(1, 3)
+    if luck < 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    else
+        local rune_tier = "t"..RandomInt(1, 2).."_rune"
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_tier, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+
+    RPCItems:SetBaseItemValues(item, "item_rpc_autumn_sleeper_mask", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollArcaneCascadeHat(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_arcane_cascade_hat", "immortal", "Arcane Cascade Hat", "head", true, "Slot: Head")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_arcane_cascade_hat"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcane_cascade", "#E558F5", 1, "#property_arcane_cascade_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_mana", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SetBaseItemValues(item, "item_rpc_arcane_cascade_hat", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    RPCItems:SocketsChance(item)
+    return item
+end
+
+function RPCItems:RollSamuraiHelmet(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+    local item = RPCItems:CreateVariant("item_rpc_adamantine_samurai_helmet", "immortal", "Adamantine Samurai Helmet", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_samurai_helmet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_samurai_helmet", "#2ac955", 1, "#property_samurai_helmet_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SetBaseItemValues(item, "item_rpc_adamantine_samurai_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    RPCItems:SocketsChance(item)
+    return item
+end
+
 function RPCItems:RollBasiliskPlagueHelm(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -4622,68 +4652,32 @@ function RPCItems:RollWraithHuntersSteelHelm(item_level)
     return item
 end
 
-function RPCItems:RollAutumnSleeperMask(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-    local item = RPCItems:CreateVariant("item_rpc_autumn_sleeper_mask", "immortal", "Autumn Sleeper Mask", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_autumn_sleeper_mask"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_autumn_sleeper", "#BF5050", 1, "#property_autumn_sleeper_description")
+-- BODY
 
-    local luck = RandomInt(1, 3)
-    if luck < 3 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+function RPCItems:RollAlienArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_alien_armor", "immortal", "Sea Giant's Plate", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 0
+    item.newItemTable.property1name = "!immortal!_modifier_alien_armor"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_alien_armor", "#47471b", 1, "#property_alien_armor_Description")
+
+    if GameState:GetDifficultyFactor() > 2 then
+        local rune_type = RPCItems:RollRuneType({"r"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.2)
     else
-        local rune_tier = "t"..RandomInt(1, 2).."_rune"
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_tier, 1)
+        local rune_type = RPCItems:RollRuneType({"r"}, {tier1 = 45, tier2 = 90, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.2)
     end
+
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
-
-    RPCItems:SetBaseItemValues(item, "item_rpc_autumn_sleeper_mask", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollArcaneCascadeHat(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_arcane_cascade_hat", "immortal", "Arcane Cascade Hat", "head", true, "Slot: Head")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_arcane_cascade_hat"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcane_cascade", "#E558F5", 1, "#property_arcane_cascade_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_mana", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
-    RPCItems:SetBaseItemValues(item, "item_rpc_arcane_cascade_hat", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
     RPCItems:SocketsChance(item)
-    return item
-end
-
-function RPCItems:RollSamuraiHelmet(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-    local item = RPCItems:CreateVariant("item_rpc_adamantine_samurai_helmet", "immortal", "Adamantine Samurai Helmet", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_samurai_helmet"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_samurai_helmet", "#2ac955", 1, "#property_samurai_helmet_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "attack_damage", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2.25)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
-    RPCItems:SetBaseItemValues(item, "item_rpc_adamantine_samurai_helmet", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
 
@@ -8814,6 +8808,8 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius", "item_rpc_scourge_knights_helm", "item_rpc_odin_helmet", "item_rpc_shroud_of_eternal_night", "item_rpc_stormcrack_helm",
         "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_veil_of_the_cerulean_high_guard", "item_rpc_white_mage_hat", "item_rpc_wolfir_druids_spirit_helm", "item_rpc_wraith_crown",
         "item_rpc_wraith_hunters_steel_helm"}
+    elseif gear_slot == RPC_GEAR_SLOT_BODY then
+        itemsList = {}
     end
     return itemsList
 end

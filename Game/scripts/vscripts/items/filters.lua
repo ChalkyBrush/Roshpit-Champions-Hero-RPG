@@ -4483,73 +4483,92 @@ function Filters:JexNatureCostmicW(caster)
 end
 
 function Filters:AlienArmor(caster)
-    local modifierKeys = {}
-
-    modifierKeys.outgoing_damage = ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT*100
-    modifierKeys.incoming_damage = 1 - (ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION/100)
-    modifierKeys.duration = ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION
-    local illusions = CreateIllusions( caster, caster, modifierKeys, 1, 20, true, true)
-    local illusion = illusions[1]
-    illusion.owner = caster
-    local body = caster.body
-    body:ApplyDataDrivenModifier(caster.InventoryUnit, illusion, "modifier_alien_armor_illusion", {})
-    illusion:SetRenderColor(0, 0, 0)
-    illusion.hero = caster
-    StartAnimation(illusion, {duration = 2, activity = ACT_DOTA_SPAWN, rate = 1.2})
-    local newPos = caster:GetAbsOrigin()+RandomVector(200)
-    newPos = GetGroundPosition(newPos, illusion)
-    illusion:SetAbsOrigin(newPos)
-    CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", newPos+Vector(0,0,60), 4)
-
-    illusion.strength_custom = caster.strength_custom
-    illusion.agility_custom = caster.agility_custom
-    illusion.intellect_custom = caster.intellect_custom
-    illusion.str_bonus = caster.str_bonus
-    illusion.agi_bonus = caster.agi_bonus
-    illusion.int_bonus = caster.int_bonus
-    illusion:SetBaseDamageMax(OverflowProtectedGetAverageTrueAttackDamage(caster))
-    illusion:SetBaseDamageMin(OverflowProtectedGetAverageTrueAttackDamage(caster))
-    local modifiers = illusion:FindAllModifiers()
-    for j = 1, #modifiers, 1 do
-        local modifier = modifiers[j]  
-        local modifier_name = modifier:GetName()
-        if modifier_name == "modifier_attack_land_basic" or modifier_name == "modifier_illusion" or modifier_name == "modifier_animation" or modifier_name == "modifier_alien_armor_illusion" then
-        else
-            illusion:RemoveModifierByName(modifier:GetName())
-        end
-    end  
-    local modifiers = caster:FindAllModifiers()
-    for j = 1, #modifiers, 1 do
-        local modifier = modifiers[j]
-        if modifier then
-            local modifier_caster = modifier:GetCaster()
-            if IsValidEntity(modifier_caster) and modifier_caster:GetTeamNumber() == caster:GetTeamNumber() then
-                local modifier_ability = modifier:GetAbility()
-                if IsValidEntity(modifier_ability) then
-                    local duration = modifier:GetRemainingTime()
-                    local modifier_name = modifier:GetName()
-                    print(modifier_name)
-                    if modifier_name == "modifier_shapeshift_cat" or modifier_name == "modifier_shapeshift_crow" or modifier_name == "modifier_shapeshift_year_beast" or modifier_name == "modifier_shapeshift_bear" or modifier_name == "modifier_draghor_shapeshift_bear_lua" or modifier_name == "modifier_draghor_shapeshift_hawk_lua" or modifier_name == "modifier_draghor_shapeshift_cat_lua" then
-                        modifier_ability:ApplyDataDrivenModifier(modifier:GetCaster(), illusion, modifier:GetName(), {duration = duration})
-                        illusion:SetModifierStackCount(modifier:GetName(), modifier:GetCaster(), modifier:GetStackCount())
-                    end
-                end
-            end
-        end
-    end
-    illusion:SetRenderColor(0, 0, 0)
-
+    local body = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
     if not body.illusion_table then
         body.illusion_table = {}
     end
     local new_body_illusion_table = {}
     for i = 1, #body.illusion_table, 1 do
-        if IsValidEntity(body.illusion_table[i]) then
+        if body.illusion_table[i] and IsValidEntity(body.illusion_table[i]) and body.illusion_table[i]:IsAlive() then
             table.insert(new_body_illusion_table, body.illusion_table[i])
         end
     end
-    table.insert(new_body_illusion_table, illusion)
     body.illusion_table = new_body_illusion_table
+    local max_illusions = ITEM_RPC_ALIEN_ARMOR_MAX_ILLUSIONS + body:GetFinalGemPropertyValue("ruby", ITEM_RPC_ALIEN_ARMOR_GEM_RUBY)
+    if #body.illusion_table < max_illusions then
+        local modifierKeys = {}
+
+        modifierKeys.outgoing_damage = 0
+        modifierKeys.incoming_damage = 1 - (ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION/100)
+        modifierKeys.duration = ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION + body:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ALIEN_ARMOR_GEM_AMETHYST)
+        local illusions = CreateIllusions( caster, caster, modifierKeys, 1, 20, true, true)
+        local illusion = illusions[1]
+        illusion.owner = caster
+        illusion.hero = caster
+        body:ApplyDataDrivenModifier(caster.InventoryUnit, illusion, "modifier_alien_armor_illusion", {})
+        illusion:SetRenderColor(0, 0, 0)
+        illusion.hero = caster
+        StartAnimation(illusion, {duration = 2, activity = ACT_DOTA_SPAWN, rate = 1.2})
+        local newPos = caster:GetAbsOrigin()+RandomVector(200)
+        newPos = GetGroundPosition(newPos, illusion)
+        illusion:SetAbsOrigin(newPos)
+        CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", newPos+Vector(0,0,60), 4)
+
+        illusion.strength_custom = caster.strength_custom
+        illusion.agility_custom = caster.agility_custom
+        illusion.intellect_custom = caster.intellect_custom
+        illusion.spirit_custom = caster.spirit_custom
+        illusion.str_bonus = caster.str_bonus
+        illusion.agi_bonus = caster.agi_bonus
+        illusion.int_bonus = caster.int_bonus
+        illusion.spirit_bonus = caster.spirit_bonus
+        local damage_mult = ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT + body:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ALIEN_ARMOR_GEM_SAPPHIRE)/100
+        illusion:AdjustSummon(caster, true, 1, damage_mult, 1, 1, 1, 1)
+        local modifiers = illusion:FindAllModifiers()
+        for j = 1, #modifiers, 1 do
+            local modifier = modifiers[j]  
+            local modifier_name = modifier:GetName()
+            if modifier_name == "modifier_attack_land_basic" or modifier_name == "modifier_illusion" or modifier_name == "modifier_animation" or modifier_name == "modifier_alien_armor_illusion" then
+            else
+                illusion:RemoveModifierByName(modifier:GetName())
+            end
+        end  
+        local modifiers = caster:FindAllModifiers()
+        for j = 1, #modifiers, 1 do
+            local modifier = modifiers[j]
+            if modifier then
+                local modifier_caster = modifier:GetCaster()
+                if IsValidEntity(modifier_caster) and modifier_caster:GetTeamNumber() == caster:GetTeamNumber() then
+                    local modifier_ability = modifier:GetAbility()
+                    if IsValidEntity(modifier_ability) then
+                        local duration = modifier:GetRemainingTime()
+                        local modifier_name = modifier:GetName()
+                        print(modifier_name)
+                        if modifier_name == "modifier_shapeshift_cat" or modifier_name == "modifier_shapeshift_crow" or modifier_name == "modifier_shapeshift_year_beast" or modifier_name == "modifier_shapeshift_bear" or modifier_name == "modifier_draghor_shapeshift_bear_lua" or modifier_name == "modifier_draghor_shapeshift_hawk_lua" or modifier_name == "modifier_draghor_shapeshift_cat_lua" then
+                            modifier_ability:ApplyDataDrivenModifier(modifier:GetCaster(), illusion, modifier:GetName(), {duration = duration})
+                            illusion:SetModifierStackCount(modifier:GetName(), modifier:GetCaster(), modifier:GetStackCount())
+                        end
+                    end
+                end
+            end
+        end
+        if body:GetGemValue("emerald") > 0 then
+            local as_stacks = body:GetFinalGemPropertyValue("emerald", ITEM_RPC_ALIEN_ARMOR_GEM_EMERALD)
+            body:ApplyDataDrivenModifier(caster.InventoryUnit, illusion, "modifier_alien_armor_as", {})
+            illusion:SetModifierStackCount("modifier_alien_armor_as", caster.InventoryUnit, as_stacks)
+        end
+        illusion:SetRenderColor(0, 0, 0)
+
+
+        local new_body_illusion_table = {}
+        for i = 1, #body.illusion_table, 1 do
+            if IsValidEntity(body.illusion_table[i]) then
+                table.insert(new_body_illusion_table, body.illusion_table[i])
+            end
+        end
+        table.insert(new_body_illusion_table, illusion)
+        body.illusion_table = new_body_illusion_table
+    end
 end
 
 

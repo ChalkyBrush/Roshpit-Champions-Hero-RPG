@@ -99,6 +99,10 @@ end
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
+	if not self:IsRealHero() then
+		self.strength_custom = 0
+		self.str_bonus = 0
+	end
 	local strength = hero.strength_custom + hero.str_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
 		local item = self.handItem
@@ -109,6 +113,10 @@ end
 
 function CDOTA_BaseNPC_Hero:GetAgility()
 	local hero = self
+	if not self:IsRealHero() then
+		self.agility_custom = 0
+		self.agi_bonus = 0
+	end
 	local agility = hero.agility_custom + hero.agi_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
 		local item = self.handItem
@@ -119,6 +127,10 @@ end
 
 function CDOTA_BaseNPC_Hero:GetIntellect()
 	local hero = self
+	if not self:IsRealHero() then
+		self.intellect_custom = 0
+		self.int_bonus = 0
+	end
 	local intelligence = hero.intellect_custom + hero.int_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
 		local item = self.handItem
@@ -129,6 +141,10 @@ end
 
 function CDOTA_BaseNPC_Hero:GetSpirit()
 	local hero = self
+	if not self:IsRealHero() then
+		self.spirit_custom = 0
+		self.spirit_bonus = 0
+	end
 	local spirit = hero.spirit_custom + hero.spirit_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
 		local item = self.handItem

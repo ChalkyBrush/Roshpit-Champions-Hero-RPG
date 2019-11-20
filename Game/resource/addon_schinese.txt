@@ -13044,7 +13044,7 @@
 
 		"property_alien_armor"							"碳合"
 
-		"property_alien_armor_description"				"释放 @Ability4 后将会产生一个幻象，幻象具有额外<font color='#ccff66'>1000</font> 攻击速度，并且视作物品伤害。这个幻象造成本体<font color='#ccff66'>500</font>x 的伤害，承受伤害降低 <font color='#ccff66'>90</font>% 并且持续 <font color='#ccff66'>10</font> 秒。如果装备持有者在幻象存在时死亡，只要这段时间内幻象存在，那么装备持有者将会在<font color='#ccff66'>3</font>秒后在幻象附近随机位置重生。"
+		"property_alien_armor_description"				"释放 @Ability4 后将会产生一个幻象，幻象具有额外<font color='#ccff66'>0</font> 攻击速度，并且视作物品伤害。这个幻象造成本体<font color='#ccff66'>2</font>x 的伤害，承受伤害降低 <font color='#ccff66'>50</font>% 并且持续 <font color='#ccff66'>10</font> 秒。如果装备持有者在幻象存在时死亡，只要这段时间内幻象存在，那么装备持有者将会在<font color='#ccff66'>3</font>秒后在幻象附近随机位置重生。"
 
 
 

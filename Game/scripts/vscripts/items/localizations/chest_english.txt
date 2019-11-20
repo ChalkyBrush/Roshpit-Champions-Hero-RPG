@@ -1,3 +1,11 @@
+		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
+		"property_alien_armor"							"Simulation"
+		"property_alien_armor_description"				"Casting @Ability4 creates an illusion of you whose damage is attributed to the caster and considered item damage. The illusion has <% ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x the caster's attack power, takes <% ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% reduced damage, and lasts <% ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION %> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <% ITEM_RPC_ALIEN_ARMOR_RESPAWN_DELAY %> second delay as long as the chosen illusion is still alive at that time. Max <% ITEM_RPC_ALIEN_ARMOR_MAX_ILLUSIONS %> active illusion."
+		
+		"item_rpc_alien_armor_ruby1"		"Increases max number of active illusions by @ruby_property1"
+		"item_rpc_alien_armor_emerald1"		"Increases illusions' attack speed by @emerald_property1"
+		"item_rpc_alien_armor_sapphire1"		"Increases illusions' attack damage by an additional @sapphire_property1% of the caster's"
+		"item_rpc_alien_armor_amethyst1"		"Increases illusion duration by @amethyst_property1 seconds"
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -617,13 +625,6 @@
 		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
 		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the Apprentice's copied abilities, replacing them with Spell Steal."
 
-		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
-		"item_rpc_alien_armor_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_alien_armor_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_alien_armor_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_alien_armor_amethyst1"		"blah blah @amethyst_property1 gem"
-		"property_alien_armor"							"Simulacrum"
-		"property_alien_armor_description"				"Casting @Ability4 creates an illusory copy of you, with <% ITEM_RPC_ALIEN_ARMOR_ILLUSION_AS %> bonus attack speed, whose damage is attributed to the caster and considered item damage. The illusion deals <% ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x damage, takes <% ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% reduced damage, and lasts <% ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION %> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <% ITEM_RPC_ALIEN_ARMOR_RESPAWN_DELAY %> second delay as long as the chosen illusion is still alive at that time."
 
 		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
 		"item_rpc_nethergrasp_palisade_ruby1"		"blah blah @ruby_property1 gem"

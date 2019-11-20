@@ -702,7 +702,8 @@ function winterblight_boss_final_death_animation(caster)
 		end)
 		local position = caster:GetAbsOrigin()
 		ScreenShake(caster:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
-		UTIL_Remove(caster)
+		caster:BossDrops(immortals)
+		
 		if gigarraun_death then
 			Timers:CreateTimer(1, function()
 				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Death", Events.GameMaster)
@@ -714,7 +715,7 @@ function winterblight_boss_final_death_animation(caster)
 				EmitSoundOnLocationWithCaster(position, "Winterblight.RealmBreaker.AfterDeath", Events.GameMaster)
 			end)
 		end
-		caster:BossDrops(immortals)
+		
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
 			RPCItems:RollWinterblightSkullRing(position)
@@ -757,7 +758,7 @@ function winterblight_boss_final_death_animation(caster)
 			local max_chance = math.max(2, 4 - GameState:GetPlayerPremiumStatusCount())
 			local immortal_luck = RandomInt(1, max_chance)
 			if immortal_luck == 1 then
-				RPCItems:RollAlienArmor(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_alien_armor")
 			end
 			local max_roll = math.max(1, 70-GameState:GetPlayerPremiumStatusCount()*2-boss_level*2)
 			local arcana_luck = RandomInt(1, max_roll)
@@ -774,7 +775,8 @@ function winterblight_boss_final_death_animation(caster)
 		end
 		local synth_count = math.floor(boss_level/15 + 1)
 		for j = 1, synth_count, 1 do
-			RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
+			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
 		end
+		UTIL_Remove(caster)
 	end)
 end

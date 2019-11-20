@@ -1974,10 +1974,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable['damage'] = math.min(filterTable['damage'], damageData.maxPremitigationDamage)
 	end
 
-	if attacker:HasModifier("modifier_apprentice_ai") or attacker:HasModifier("modifier_alien_armor_illusion") then
-		Filters:ApplyItemDamage(victim, attacker.hero, filterTable.damage, filterTable.damagetype_const, attacker.hero.body, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-		return false
-	end
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetRoshpitArmor()
