@@ -25,7 +25,7 @@
 		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
 		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Gaining damage reduction based on missing health"
 
-		"item_rpc_armor_of_atlantis_ruby1"			"Increases Strength by @ruby_property1"
+		"item_rpc_armor_of_atlantis_ruby1"			"Increases the damage reduction per missing % of Max HP by an additional @ruby_property1%"
 		"item_rpc_armor_of_atlantis_emerald1"			"Damage instances that would kill you are reduced by @emerald_property1%"
 		"item_rpc_armor_of_atlantis_sapphire1"			"Gain @sapphire_property1 base attack damage for each point of missing health"
 		"item_rpc_armor_of_atlantis_amethyst1"			"Increases Max Health by @amethyst_property1"

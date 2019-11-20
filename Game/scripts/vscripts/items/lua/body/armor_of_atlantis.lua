@@ -60,7 +60,11 @@ end
 function modifierClass:GetDamageReduction()
     local hero = self:GetCaster()
     local missingHealthPercent = math.floor((1 - hero:GetHealth() / hero:GetMaxHealth()) * 100)
-    return math.min(ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT * missingHealthPercent, ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
+    local damage_reduction_per_missing_health_pct = ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT
+    if IsServer() then
+        damage_reduction_per_missing_health_pct = ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_RUBY)
+    end
+    return math.min(damage_reduction_per_missing_health_pct * missingHealthPercent, ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
 end
 
 function modifierClass:IsHidden()
