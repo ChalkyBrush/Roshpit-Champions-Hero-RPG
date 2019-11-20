@@ -968,6 +968,10 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_igneous_canine_helm") then
         Filters:IgneousCanine(caster)
     end
+
+    if caster:HasModifier("modifier_rpc_wraith_crown") then
+        Filters:WraithCrown(caster)
+    end
     if caster:HasModifier("modifier_body_seraphic") then
         Filters:SeraphicVest(caster)
     end
@@ -4851,4 +4855,27 @@ function Filters:EternalNightTrigger(hero, victim, caster, ability)
         local unwakeable_duration = ETERNAL_NIGHT_UNWAKEABLE_DURATION + ability:GetFinalGemPropertyValue("sapphire", ETERNAL_NIGHT_SAPPHIRE)
         ability:ApplyDataDrivenModifier(hero, victim, "modifier_eternal_night_sleep_unwakable", {duration = unwakeable_duration})
     end
+end
+
+function Filters:WraithCrown(caster)
+    local wraith_crown = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    if wraith_crown:GetGemValue("amethyst") > 0 and caster:HasModifier("modifier_wraith_crown_ethereal") then
+        if not caster:HasModifier("modifier_wraith_crown_amethyst_cd") then
+            ProjectileManager:ProjectileDodge(caster)
+            caster:Stop()
+            local amethyst_duration = wraith_crown:GetFinalGemPropertyValue("amethyst", WRAITH_CROWN_AMETHYST)
+            wraith_crown:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_amethyst", {duration = amethyst_duration})
+            EmitSoundOn("Item.WraithCrown", caster)         
+        end
+    end
+
+    if not caster:HasModifier("modifier_wraith_crown_cd") then
+        local duration = WRAITH_CROWN_ETHEREAL_DURATION + wraith_crown:GetFinalGemPropertyValue("emerald", WRAITH_CROWN_EMERALD)
+        wraith_crown:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_ethereal", {duration = duration})
+        wraith_crown:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_wraith_crown_cd", {duration = WRAITH_CROWN_ETHEREAL_COOLDOWN})
+
+        EmitSoundOn("RPCItems.WraithCrown.EtherealStart", caster)
+        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf", caster, 2)
+    end
+
 end

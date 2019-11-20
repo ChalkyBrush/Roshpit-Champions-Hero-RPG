@@ -232,14 +232,21 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"                                    "幽灵王冠"
-        "item_property_wraith_crown"                        "幽灵暗潮"                 
-        "property_wraith_crown_description"                             "当血量等于或少于 <% WRAITH_CROWN_HP_THRESHOLD_PCT %>%  最大生命值时施放 @Ability1 会给予 <% WRAITH_CROWN_MAG_RES_PCT %>% 的魔抗 <% WRAITH_CROWN_MAG_RES_DUR %>秒, 施放 @Ability2 会躲避弹道 (每次触发不能超过 <% WRAITH_CROWN_DISJOINT_CD %>秒) 并且施放 @Ability3 会给予 <% WRAITH_CROWN_EVASION_PCT %>% 的闪避 持续 <% WRAITH_CROWN_EVASION_DUR %>秒."
-        "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"             "幽灵的魔法祝福"
-        "DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description" "给予 <% WRAITH_CROWN_MAG_RES_PCT %>%% 魔抗."
-        "DOTA_Tooltip_modifier_wraith_crown_evasion_buff"               "幽魂的回避祝福"
-        "DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"   "给予 <% WRAITH_CROWN_EVASION_PCT %>%% 闪避."
-        "DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"           "分离的幽灵祝福"
-        "DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"   "躲避弹道."
+        "item_property_wraith_crown"                        "幽灵暗潮"				
+		"property_wraith_crown_description"						"Casting @Ability2 applies Ethereal Form for <% WRAITH_CROWN_ETHEREAL_DURATION %> seconds. While ethereal, your attacks are disabled and enemies cannot attack you, your magic armor is set to 0, and drain <% WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT %>% of max mana per second. <% WRAITH_CROWN_ETHEREAL_COOLDOWN %> second cooldown."
+
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"Ethereal Form"
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"Attack Immune. Can't attack and 0 magic armor."
+
+		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
+
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invlnerable."
+
+		"item_rpc_wraith_crown_ruby1"		"Reduces the Ethereal form Mana Drain by @ruby_property1%"
+		"item_rpc_wraith_crown_emerald1"	"Increases Ethereal Form's duration by @emerald_property1"
+		"item_rpc_wraith_crown_sapphire1" 	"Increases Spell Pierce while ethereal by @sapphire_property1"
+		"item_rpc_wraith_crown_amethyst1" 	"Casting [W] while Ethereal makes you disappear from this dimension, making you invulnerable but also unable to act for @amethyst_property1 seconds. Ethereal Form's cooldown does not get reduced while invulnerable. Issuing a move order returns you before the duration ends."	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"

@@ -13369,7 +13369,7 @@
     	"item_rpc_spiritual_empowerment_glove_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_spiritual_empowerment_glove_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Every <font color='#ccff66'>6</font> seconds, gain a stack of Spiritual Empowerment. Each stack adds <font color='#ccff66'>80</font>% Base Ability Damage. Casting a spell consumes a stack. Max <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% stacks."
+		"property_spiritual_empowerment_description"		"Every <font color='#ccff66'>6</font> seconds, gain a stack of Spiritual Empowerment. Each stack adds <font color='#ccff66'>80</font>% Base Ability Damage. Casting a spell consumes a stack. Max <font color='#ccff66'>10</font> stacks."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
 		 
@@ -14060,7 +14060,7 @@
 		"item_rpc_shipyard_veil_lv1_ruby1"	"Each Soul Shield stack increases Base Ability Damage by @ruby_property1"
 		"item_rpc_shipyard_veil_lv1_emerald1"	"Each time an enemy breaks a shield stack, they are targetted by a skull that deals @emerald_property1 damage"
 		"item_rpc_shipyard_veil_lv1_sapphire1" "Reduces the cooldown between shield stack generation by @sapphire_property1"
-		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage"
+		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
 		"item_property_eternal_night"				"Tranquilizer"
@@ -14231,20 +14231,24 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
 		"item_property_wraith_crown"							"Ethereal Form"					
-		"property_wraith_crown_description"						"While your health is less than or equal to <font color='#ccff66'>35</font>% of maximum, your spells can grant you temporary buffs:<br>@Ability1 grants <font color='#ccff66'>65</font>% Magic Resistance for <font color='#ccff66'>2</font> seconds; @Ability2 will instantly disjoint all incoming projectiles (<font color='#ccff66'>1.5</font>-second cooldown); and @Ability3 will give you <font color='#ccff66'>75</font>% evasion for <font color='#ccff66'>3</font> seconds."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Ethereal Magic Resistance"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"Gives <font color='#ccff66'>65</font>%% Magic Resistance."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Ethereal Evasion"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"Gives <font color='#ccff66'>75</font>%% evasion."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Ethereal Displacement Cooldown"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles again... yet."
-		
-	
-		
+		"property_wraith_crown_description"						"Casting @Ability2 applies Ethereal Form for <font color='#ccff66'>8</font> seconds. While ethereal, your attacks are disabled and enemies cannot attack you, your magic armor is set to 0, and drain <font color='#ccff66'>6</font>% of max mana per second. <font color='#ccff66'>10</font> second cooldown."
+
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"Ethereal Form"
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"Attack Immune. Can't attack and 0 magic armor."
+
+		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
+
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invlnerable."
+
+		"item_rpc_wraith_crown_ruby1"		"Reduces the Ethereal form Mana Drain by @ruby_property1%"
+		"item_rpc_wraith_crown_emerald1"	"Increases Ethereal Form's duration by @emerald_property1"
+		"item_rpc_wraith_crown_sapphire1" 	"Increases Spell Pierce while ethereal by @sapphire_property1"
+		"item_rpc_wraith_crown_amethyst1" 	"Casting [W] while Ethereal makes you disappear from this dimension, making you invulnerable but also unable to act for @amethyst_property1 seconds. Ethereal Form's cooldown does not get reduced while invulnerable. Issuing a move order returns you before the duration ends."	
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <font color='#ccff66'>3</font>% of damage taken restores mana. Each point of mana increases base attack damage by <font color='#ccff66'>5</font>. Attacking drains <font color='#ccff66'>2</font>% of your max mana. Additionally increases damage of @Ability2 by <font color='#ccff66'>350</font>%."
+		"property_wraith_hunter_description"				"Your Spell Pierce is increased by property1 of your Armor Pierce."
 		
 		
 

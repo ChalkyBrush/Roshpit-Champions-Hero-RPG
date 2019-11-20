@@ -48412,7 +48412,7 @@
 				"TextureName"	"treant_living_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "LIVING_GAUNTLET_HP_REGEN_PCT"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"
 				}
 				"OnCreated"
 				{
@@ -50044,6 +50044,161 @@
 		}
 	}
 
+
+	"item_rpc_wraith_crown"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/wraith_crown"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_puck/wraith_crown.vpcf"
+			"particle"	"particles/status_fx/status_effect_ghost_blue.vpcf" 
+			"particle"	"particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_rpc_wraith_crown"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wraith_crown_amethyst"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_wraith_crown_ethereal"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_wraith_crown_ethereal"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"ThinkInterval"  "1.0"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf" 	   
+				"StatusEffectPriority"  "100"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wraith_crown_think"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_wraith_crown_cd"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+			"modifier_wraith_crown_amethyst"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/units/heroes/hero_puck/wraith_crown.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wraith_crown_amethyst_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wraith_crown_amethyst_end"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"wraith_crown_invuln_think"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_wraith_crown_amethyst_cd"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"					"1.2 2.4 3.6 4.8 6"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"1 2 3 4 5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"500 1000 1500 2000 2500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"0.6 1.2 1.8 2.4 3.0"
+			}
+		}
+	}
 
 	"item_rpc_wolfir_druids_spirit_helm"
 	{
@@ -56386,32 +56541,6 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-		}
-	}
-
-	"item_rpc_wraith_crown"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_lua"
-        "ScriptFile" "items/lua/helm/wraith_crown.lua"
-		"AbilityTextureName"	"rpc/wraith_crown"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_puck/wraith_crown.vpcf"
 		}
 	}
 

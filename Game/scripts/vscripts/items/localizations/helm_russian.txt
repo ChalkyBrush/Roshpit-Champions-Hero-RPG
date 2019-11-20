@@ -235,15 +235,22 @@
 		"property_blackfeather_description"			"Каждые 4 секунды призывает ворону, которая наносит 5х вашего урона и снижает броню цели на 40. Время жизни вороны 10 секунд."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_wraith_crown"					"Wraith Crown"
-		"item_property_wraith_crown"									"Wraithtide"					
-		"property_wraith_crown_description"								"Если показатель здоровья равен или ниже <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% от максимума, прочтение @Ability1 даст <% WRAITH_CROWN_MAG_RES_PCT %>% магического сопротивления на <% WRAITH_CROWN_MAG_RES_DUR %> сек., прочтение @Ability2 сбросит летящие в персонажа снаряды (перезарядка <% WRAITH_CROWN_DISJOINT_CD %> сек.) и прочтение @Ability 3 даст <% WRAITH_CROWN_EVASION_PCT %>% уклонения на <% WRAITH_CROWN_EVASION_DUR %> сек."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"<% WRAITH_CROWN_MAG_RES_PCT %>%% сопротивление магии."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"<% WRAITH_CROWN_EVASION_PCT %>%% уклонение."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Сброс летящих снарядов перезаряжается."
+		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
+		"item_property_wraith_crown"							"Ethereal Form"					
+		"property_wraith_crown_description"						"Casting @Ability2 applies Ethereal Form for <% WRAITH_CROWN_ETHEREAL_DURATION %> seconds. While ethereal, your attacks are disabled and enemies cannot attack you, your magic armor is set to 0, and drain <% WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT %>% of max mana per second. <% WRAITH_CROWN_ETHEREAL_COOLDOWN %> second cooldown."
+
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"Ethereal Form"
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"Attack Immune. Can't attack and 0 magic armor."
+
+		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
+
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invlnerable."
+
+		"item_rpc_wraith_crown_ruby1"		"Reduces the Ethereal form Mana Drain by @ruby_property1%"
+		"item_rpc_wraith_crown_emerald1"	"Increases Ethereal Form's duration by @emerald_property1"
+		"item_rpc_wraith_crown_sapphire1" 	"Increases Spell Pierce while ethereal by @sapphire_property1"
+		"item_rpc_wraith_crown_amethyst1" 	"Casting [W] while Ethereal makes you disappear from this dimension, making you invulnerable but also unable to act for @amethyst_property1 seconds. Ethereal Form's cooldown does not get reduced while invulnerable. Issuing a move order returns you before the duration ends."	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"

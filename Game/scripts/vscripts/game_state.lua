@@ -688,6 +688,11 @@ function GameState:OrderFilter(orderTable)
 			end
 		end
 		Util.Modifier:SimpleEvent(unit, 'OnOrderFilter', { MODIFIER_SPECIAL_TYPE_ORDER_FILTER }, orderTable, nil)
+		if unit:HasModifier("modifier_wraith_crown_amethyst") then
+			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+				unit:RemoveModifierByName("modifier_wraith_crown_amethyst")
+			end
+		end
 		if unit:HasModifier("modifier_neptunes_water_gliders") then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then

@@ -502,7 +502,7 @@
 		"item_rpc_shipyard_veil_lv1_ruby1"	"Each Soul Shield stack increases Base Ability Damage by @ruby_property1"
 		"item_rpc_shipyard_veil_lv1_emerald1"	"Each time an enemy breaks a shield stack, they are targetted by a skull that deals @emerald_property1 damage"
 		"item_rpc_shipyard_veil_lv1_sapphire1" "Reduces the cooldown between shield stack generation by @sapphire_property1"
-		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage"
+		"item_rpc_shipyard_veil_lv1_amethyst1" "Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
 		"item_property_eternal_night"				"Tranquilizer"
@@ -673,20 +673,24 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
 		"item_property_wraith_crown"							"Ethereal Form"					
-		"property_wraith_crown_description"						"While your health is less than or equal to <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% of maximum, your spells can grant you temporary buffs:<br>@Ability1 grants <% WRAITH_CROWN_MAG_RES_PCT %>% Magic Resistance for <% WRAITH_CROWN_MAG_RES_DUR %> seconds; @Ability2 will instantly disjoint all incoming projectiles (<% WRAITH_CROWN_DISJOINT_CD %>-second cooldown); and @Ability3 will give you <% WRAITH_CROWN_EVASION_PCT %>% evasion for <% WRAITH_CROWN_EVASION_DUR %> seconds."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Ethereal Magic Resistance"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"Gives <% WRAITH_CROWN_MAG_RES_PCT %>%% Magic Resistance."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Ethereal Evasion"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"Gives <% WRAITH_CROWN_EVASION_PCT %>%% evasion."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Ethereal Displacement Cooldown"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Can't disjoint projectiles again... yet."
-		
-	
-		
+		"property_wraith_crown_description"						"Casting @Ability2 applies Ethereal Form for <% WRAITH_CROWN_ETHEREAL_DURATION %> seconds. While ethereal, your attacks are disabled and enemies cannot attack you, your magic armor is set to 0, and drain <% WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT %>% of max mana per second. <% WRAITH_CROWN_ETHEREAL_COOLDOWN %> second cooldown."
+
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"Ethereal Form"
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"Attack Immune. Can't attack and 0 magic armor."
+
+		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
+
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invlnerable."
+
+		"item_rpc_wraith_crown_ruby1"		"Reduces the Ethereal form Mana Drain by @ruby_property1%"
+		"item_rpc_wraith_crown_emerald1"	"Increases Ethereal Form's duration by @emerald_property1"
+		"item_rpc_wraith_crown_sapphire1" 	"Increases Spell Pierce while ethereal by @sapphire_property1"
+		"item_rpc_wraith_crown_amethyst1" 	"Casting [W] while Ethereal makes you disappear from this dimension, making you invulnerable but also unable to act for @amethyst_property1 seconds. Ethereal Form's cooldown does not get reduced while invulnerable. Issuing a move order returns you before the duration ends."	
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
 		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Your mana is empty by default and can only be restored by taking damage. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% of damage taken restores mana. Each point of mana increases base attack damage by <% WRAITH_HUNTER_BASE_ATTACK %>. Attacking drains <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% of your max mana. Additionally increases damage of @Ability2 by <% WRAITH_HUNTER_W_BAD %>%."
+		"property_wraith_hunter_description"				"Your Spell Pierce is increased by property1 of your Armor Pierce."
 		
 		
 

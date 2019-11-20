@@ -4577,6 +4577,27 @@ function RPCItems:RollDruidsSpiritHelm(item_level)
     return item
 end
 
+function RPCItems:RollWraithCrown(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_wraith_crown", "immortal", "Wraith Crown", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_rpc_wraith_crown"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wraith_crown", "#5671E8", 1, "#property_wraith_crown_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 function RPCItems:RollWraithHuntersSteelHelm(item_level)
     local item = RPCItems:CreateVariant("item_rpc_wraith_hunters_steel_helm", "immortal", "Wraith Hunter's Steel Helm", "head", true, "Slot: Head")
@@ -8651,6 +8672,8 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollAuricRingOfInspiration(deathLocation, 1)
     elseif itemName == "item_rpc_helm_of_the_knight_hawk" then
 	   newItem = RPCItems:RollHelmOfKnightHawk(item_level)
+    elseif itemName == "item_rpc_wraith_crown" then
+        newItem = RPCItems:RollWraithCrown(item_level)
     end
     return newItem
 end
@@ -8786,7 +8809,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_centaur_horns", "item_rpc_crest_of_the_umbral_sentinel", "item_rpc_crown_of_ruby_dragon", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_death_whisper_helm", "item_rpc_emerald_douli", "item_rpc_excavators_focus_cap",
         "item_rpc_guard_of_grithault", "item_rpc_guard_of_luma", "item_rpc_helm_of_the_silent_templar", "item_rpc_hood_of_chosen", "item_rpc_hood_of_defiler", "item_rpc_hyper_visor", "item_rpc_helm_of_the_iron_colossus", "item_rpc_mask_of_mugato",
         "item_rpc_mask_of_the_desert_necromancer", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_mask_of_tyrius", "item_rpc_scourge_knights_helm", "item_rpc_odin_helmet", "item_rpc_shroud_of_eternal_night", "item_rpc_stormcrack_helm",
-        "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_veil_of_the_cerulean_high_guard", "item_rpc_white_mage_hat", "item_rpc_wolfir_druids_spirit_helm"}
+        "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_veil_of_the_cerulean_high_guard", "item_rpc_white_mage_hat", "item_rpc_wolfir_druids_spirit_helm", "item_rpc_wraith_crown"}
     end
     return itemsList
 end

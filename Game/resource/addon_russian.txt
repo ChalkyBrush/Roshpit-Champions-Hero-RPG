@@ -13223,7 +13223,7 @@
     	"item_rpc_spiritual_empowerment_glove_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_spiritual_empowerment_glove_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Каждые <font color='#ccff66'>6</font> секунд герой получает заряд способности этого предмета.<br>Каждый заряд увеличивает Базовый урон способностей на <font color='#ccff66'>80</font>%.<br>Прочтение любой способности потратит 1 заряд.<br>Максимум <% SPIRITUAL_EMPOWERMENT_MAX_STACKS >% зарядов."
+		"property_spiritual_empowerment_description"		"Каждые <font color='#ccff66'>6</font> секунд герой получает заряд способности этого предмета.<br>Каждый заряд увеличивает Базовый урон способностей на <font color='#ccff66'>80</font>%.<br>Прочтение любой способности потратит 1 заряд.<br>Максимум <font color='#ccff66'>10</font> зарядов."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Каждый заряд увеличивает базовый урон способностей на %property_one%%%."
 		 
@@ -13649,15 +13649,22 @@
 		"property_blackfeather_description"			"Каждые 4 секунды призывает ворону, которая наносит 5х вашего урона и снижает броню цели на 40. Время жизни вороны 10 секунд."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_wraith_crown"					"Wraith Crown"
-		"item_property_wraith_crown"									"Wraithtide"					
-		"property_wraith_crown_description"								"Если показатель здоровья равен или ниже <font color='#ccff66'>35</font>% от максимума, прочтение @Ability1 даст <font color='#ccff66'>65</font>% магического сопротивления на <font color='#ccff66'>2</font> сек., прочтение @Ability2 сбросит летящие в персонажа снаряды (перезарядка <font color='#ccff66'>1.5</font> сек.) и прочтение @Ability 3 даст <font color='#ccff66'>75</font>% уклонения на <font color='#ccff66'>3</font> сек."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"<font color='#ccff66'>65</font>%% сопротивление магии."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"<font color='#ccff66'>75</font>%% уклонение."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Сброс летящих снарядов перезаряжается."
+		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
+		"item_property_wraith_crown"							"Ethereal Form"					
+		"property_wraith_crown_description"						"Casting @Ability2 applies Ethereal Form for <font color='#ccff66'>8</font> seconds. While ethereal, your attacks are disabled and enemies cannot attack you, your magic armor is set to 0, and drain <font color='#ccff66'>6</font>% of max mana per second. <font color='#ccff66'>10</font> second cooldown."
+
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"Ethereal Form"
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"Attack Immune. Can't attack and 0 magic armor."
+
+		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
+
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invlnerable."
+
+		"item_rpc_wraith_crown_ruby1"		"Reduces the Ethereal form Mana Drain by @ruby_property1%"
+		"item_rpc_wraith_crown_emerald1"	"Increases Ethereal Form's duration by @emerald_property1"
+		"item_rpc_wraith_crown_sapphire1" 	"Increases Spell Pierce while ethereal by @sapphire_property1"
+		"item_rpc_wraith_crown_amethyst1" 	"Casting [W] while Ethereal makes you disappear from this dimension, making you invulnerable but also unable to act for @amethyst_property1 seconds. Ethereal Form's cooldown does not get reduced while invulnerable. Issuing a move order returns you before the duration ends."	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
@@ -14075,7 +14082,7 @@
 		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_raven_idol2"					"Black Soul"		
-		"property_raven_idol_description2"			"Весь получаемый урон снижен на <font color='#ccff66'>50</font>%. Уровень здоровья не поднимется выше <font color='#ccff66'>50</font>% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+		"property_raven_idol_description2"			"Весь получаемый урон снижен на <font color='#ccff66'>65</font>%. Уровень здоровья не поднимется выше <font color='#ccff66'>35</font>% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"

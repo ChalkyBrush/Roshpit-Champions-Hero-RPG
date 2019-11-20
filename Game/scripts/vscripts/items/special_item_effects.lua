@@ -7060,3 +7060,32 @@ function white_mage_init(event)
 		target:SetModifierStackCount("modifier_white_mage_ruby_regen", caster, stacks)
 	end
 end
+
+function wraith_crown_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = event.target
+
+	local mana_drain_pct = WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT - ability:GetFinalGemPropertyValue("ruby", WRAITH_CROWN_RUBY)
+	local mana_drain = hero:GetMaxMana()*(mana_drain_pct/100)
+	hero:ReduceMana(mana_drain)
+end
+
+function wraith_crown_amethyst_start(event)
+	local target = event.target
+	target:AddNoDraw()
+end
+
+function wraith_crown_amethyst_end(event)
+	local target = event.target
+	target:RemoveNoDraw()
+end
+
+function wraith_crown_invuln_think(event)
+	local target = event.target
+	local modifier = target:FindModifierByName("modifier_wraith_crown_cd")
+	if modifier then
+		local new_duration = modifier:GetRemainingTime() + 0.1
+		modifier:SetDuration(new_duration, true)
+	end
+end

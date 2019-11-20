@@ -1381,6 +1381,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor_modify = magic_armor_modify  - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
 	end
 
+	-- WRAITH CROWN ETHERAL FORM - 0 MAGIC ARMOR
+
+	if unit:HasModifier("modifier_wraith_crown_ethereal") then
+		magic_armor_modify = magic_armor*-1
+	end
+
 
 	if magic_armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_magic_armor")
@@ -1776,6 +1782,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		if ability and IsValidEntity(ability) then
 			spell_pierce_modify = spell_pierce_modify + ability:GetFinalGemPropertyValue("sapphire", SWAMP_DOCTOR_SAPPHIRE)*modifier:GetStackCount()
 		end
+	end
+	if unit:HasModifier("modifier_wraith_crown_ethereal") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", WRAITH_CROWN_SAPPHIRE)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
