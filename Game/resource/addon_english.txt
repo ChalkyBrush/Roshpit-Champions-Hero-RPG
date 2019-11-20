@@ -12435,8 +12435,8 @@
 
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
 
-		"item_property_violet_guard_armor2"			"Violet Conqueror"
-		"property_violet_guard_armor_description2"	"Reduces cooldown of @Ability1 by <font color='#ccff66'>35</font>%"
+		"item_property_violet_guard_armor"			"Violet Conqueror"
+		"property_violet_guard_armor_description"	"Reduces cooldown of @Ability1 by <font color='#ccff66'>35</font>%"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
 
@@ -12444,7 +12444,15 @@
 		"item_rpc_armor_of_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
 		"item_rpc_armor_of_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_armor_of_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
+		"item_property_avalanche"					"Avalanche"
+		"property_avalanche_description"			"When you finish casting @Ability4, release a <font color='#ccff66'>320</font>-radius avalanche which deals <font color='#ccff66'>0.2</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Struck enemies are stunned for <font color='#ccff66'>0.1</font> seconds. Lasts <font color='#ccff66'>3.8</font> seconds."
 		
+		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <font color='#ccff66'>2</font>x radius that stuns them for @ruby_property2 seconds."
+		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=\"#AF843D\">Earth</font> elemental damage by @emerald_property1%"
+		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increaased by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -12488,14 +12496,6 @@
 		"item_property_flooding_3"					"Water Elemental"
 		"property_flooding_description_3"			"When you finish casting @Ability4, summon a Water Elemental that restores <font color='#ccff66'>5</font>% of your max mana on attack for <font color='#ccff66'>12</font> seconds. Its attacks deal AOE Magical damage equal to <font color='#ccff66'>35</font>x your Intelligence.<br>Also has a wave projectile spell that deals <font color='#ccff66'>1</font>x your attack power as Magical damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
-		"item_rpc_avalanche_plate_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_avalanche_plate_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_avalanche_plate_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_avalanche_plate_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_avalanche_2"					"Mountain Quake"
-		"property_avalanche_description_2"			"When you finish casting @Ability4, release a <font color='#ccff66'>420</font>-radius avalanche which deals <font color='#ccff66'>15</font>x your Strength every <font color='#ccff66'>0.2</font> seconds. Struck enemies are stunned for <font color='#ccff66'>0.1</font> seconds. Each enemy hit counts up to <font color='#ccff66'>20</font>, at which point you create a massive earthquake that deals<br><font color='#ccff66'>80</font>x Strength to enemies in a <font color='#ccff66'>800</font> radius and stuns them for <font color='#ccff66'>1.6</font> seconds.<br>All damage dealt directly by items is enhanced by <font color='#ccff66'>0.3</font>% for each <font color='#ccff66'>10</font> points of Strength."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"

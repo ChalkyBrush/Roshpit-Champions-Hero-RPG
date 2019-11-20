@@ -12455,18 +12455,19 @@
 		"item_rpc_avalanche_plate_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_avalanche_plate_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_avalanche_2"					"山裂"
-		"property_avalanche_description_2"			"释放 @Ability4 技能后将在<font color='#ccff66'>420</font>码范围内引发一场地震，每<font color='#ccff66'>0.2</font>秒造成 <font color='#ccff66'>15</font>x 力量的伤害并晕眩敌人<font color='#ccff66'>0.1</font>秒。当每个敌人被击中<font color='#ccff66'>20</font>次时，将在<font color='#ccff66'>800</font>码范围内引发一场更大的地震，<br>造成 <font color='#ccff66'>80</font>x 力量的伤害并且眩晕敌人<font color='#ccff66'>1.6</font>秒。<br>每<font color='#ccff66'>10</font>点力量提高装备伤害 <font color='#ccff66'>0.3</font>%。该装备无法重铸。"
+		"property_avalanche_description_2"			"释放 @Ability4 技能后将在<font color='#ccff66'>320</font>码范围内引发一场地震，每<font color='#ccff66'>0.2</font>秒造成 <font color='#ccff66'>0.2</font>x 力量的伤害并晕眩敌人<font color='#ccff66'>0.1</font>秒。当每个敌人被击中<font color='#ccff66'>0</font>次时，将在<font color='#ccff66'>0</font>码范围内引发一场更大的地震，<br>造成 <font color='#ccff66'>0</font>x 力量的伤害并且眩晕敌人<font color='#ccff66'>0</font>秒。<br>每<font color='#ccff66'>0</font>点力量提高装备伤害 <font color='#ccff66'>0</font>%。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"紫罗兰卫士之甲"
-		"item_rpc_armor_of_violet_guard_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_armor_of_violet_guard_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_violet_guard_armor2"			"紫罗兰征服者"
-		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害<font color='#ccff66'>0</font>%。每<font color='#ccff66'>0</font>%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续<font color='#ccff66'>0</font>秒。不能将敌人的护甲值降低至0点以下。"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"紫罗兰征服"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"护甲值降低"
+		"item_property_violet_guard_armor"			"紫罗兰征服者"
+		"property_violet_guard_armor_description"	"Reduces cooldown of @Ability1 by <font color='#ccff66'>35</font>%"
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
+
+		"item_rpc_armor_of_violet_guard_ruby1"							"Enemies hit by [Q] lose @ruby_property1 armor for <font color='#ccff66'>10</font> seconds."
+		"item_rpc_armor_of_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
+		"item_rpc_armor_of_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_armor_of_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"天使之袍"

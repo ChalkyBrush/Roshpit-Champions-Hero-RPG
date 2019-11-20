@@ -4488,43 +4488,44 @@ function tiny_avalanche_think(event)
 	local target = event.target
 	local ability = event.ability
 	ParticleManager:SetParticleControl(ability.pfx, 0, target:GetAbsOrigin())
-	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	local levelTwo = true
+	local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1)
+	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		local mult = 6
-		if levelTwo then
-			mult = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG
-		end
-		local damage = target:GetStrength() * mult
+		local mult = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG
+		local damage = target:GetStrength() * mult + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AVALANCHE_PLATE_GEM_AMETHYST)
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 			Filters:ApplyStun(target, ITEM_RPC_AVALANCHE_PLATE_STUN_DUR, enemy)
-			if levelTwo then
-				ability.strikeCount = ability.strikeCount + 1
-				if ability.strikeCount % ITEM_RPC_AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD == 0 then
-					local radius = ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_RADIUS
-					local caster = target
-					local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
-					local position = caster:GetAbsOrigin()
-					local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(pfx, 0, position)
-					ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
-					Timers:CreateTimer(4, function()
-						ParticleManager:DestroyParticle(pfx, false)
-					end)
-					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.Avalanche2Quake", caster)
-					local damage = caster:GetStrength() * ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG
-					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-					if #enemies > 0 then
-						for _, enemy in pairs(enemies) do
-							Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
-							Filters:ApplyStun(caster, ITEM_RPC_AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR, enemy)
-						end
-					end
-				end
+		end
+	end
+end
+
+function avalanche_end(event)
+	local caster = event.caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local radius = (ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1))*ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT
+
+		local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+		local position = caster:GetAbsOrigin()
+		local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+		Timers:CreateTimer(4, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.Avalanche2Quake", caster)
+		local damage = caster:GetStrength() * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY1)
+		local stun_duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AVALANCHE_PLATE_GEM_RUBY2)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+				Filters:ApplyStun(caster, stun_duration, enemy)
 			end
 		end
 	end
+
 end
 
 function eternal_frost_slowing(event)

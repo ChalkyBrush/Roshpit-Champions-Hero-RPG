@@ -1738,38 +1738,6 @@ function RPCItems:RollFloodRobe(item_level)
     return item
 end
 
-function RPCItems:RollAvalanchePlate(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_avalanche_plate", "immortal", "Avalanche Plate", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "avalanche"
-    --RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_avalanche", "#9C8C81",  1, "#property_avalanche_description")
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avalanche_2", "#9C8C81", 1, "#property_avalanche_description_2")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 8, 18, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "strength"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    --pre patch lv values
-    if type(item.newItemTable.property2) == "number" then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-    end
-    if type(item.newItemTable.property3) == "number" then
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-    end
-    if type(item.newItemTable.property4) == "number" then
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSeaGiantsPlate(item_level)
     local item = RPCItems:CreateVariant("item_rpc_sea_giants_plate", "immortal", "Sea Giant's Plate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4650,12 +4618,32 @@ function RPCItems:RollVioletGuardArmor(item_level)
     local item = RPCItems:CreateVariant("item_rpc_armor_of_violet_guard", "immortal", "Armor of Violet Guard", "body", true, "Slot: Body")
     item.newItemTable.property1 = 0
     item.newItemTable.property1name = "!immortal!_modifier_armor_of_violet_guard"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor2", "#A337E6", 1, "#property_violet_guard_armor_description2")
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor", "#A337E6", 1, "#property_violet_guard_armor_description")
 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "agility", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollAvalanchePlate(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_avalanche_plate", "immortal", "Avalanche Plate", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 0
+    item.newItemTable.property1name = "!immortal!_modifier_avalanche_plate"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avalanche", "#9C8C81",  1, "#property_avalanche_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
@@ -8793,7 +8781,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_veil_of_the_cerulean_high_guard", "item_rpc_white_mage_hat", "item_rpc_wolfir_druids_spirit_helm", "item_rpc_wraith_crown",
         "item_rpc_wraith_hunters_steel_helm"}
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
-        itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard"}
+        itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate"}
     end
     return itemsList
 end

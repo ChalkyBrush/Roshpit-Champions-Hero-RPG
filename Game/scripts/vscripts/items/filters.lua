@@ -171,9 +171,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_mountain_vambraces") then
         mult = mult + ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR)
     end
-    if caster:HasModifier("modifier_body_avalanche") then
-        mult = mult + ITEM_RPC_AVALANCHE_PLATE_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / ITEM_RPC_AVALANCHE_PLATE_STR_DIVISOR)
-    end
 
     if caster:HasModifier("modifier_autumnrock_bracer") then
         mult = mult + ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT/100 * (caster:GetHealth() / ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR)
@@ -1130,7 +1127,8 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_body_flooding") then
         Filters:FloodRobe(caster)
-    elseif caster:HasModifier("modifier_body_avalanche") then
+    end
+    if caster:HasModifier("modifier_avalanche_plate") then
         Filters:AvalanchePlate(caster)
     end
     if caster:HasModifier("modifier_secret_temple") then
@@ -2558,7 +2556,7 @@ function Filters:AvalanchePlate(caster)
     -- if bSound then
     --     EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
     -- end
-    -- local damage = caster:GetStrength()*60
+    -- local damage = caster:GetStrength()*60"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
     -- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
     -- if #enemies > 0 then
     --     for _,enemy in pairs(enemies) do
@@ -2566,18 +2564,22 @@ function Filters:AvalanchePlate(caster)
     --         Filters:ApplyStun(caster, 1.5, enemy)
     --     end
     -- end
+    local avalanche_plate = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
     local position = caster:GetAbsOrigin()
     EmitSoundOnLocationWithCaster(position, "RPCItem.AvalancheStart", caster)
     local avalancheParticle = "particles/units/heroes/hero_tiny/tiny_avalanche.vpcf"
+
+    local radius = ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS + avalanche_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AVALANCHE_PLATE_GEM_SAPPHIRE1)
     local pfx = ParticleManager:CreateParticle(avalancheParticle, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(pfx, 0, position)
-    ParticleManager:SetParticleControl(pfx, 1, Vector(400, 400, 400))
-    caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_avalanche_thinker", {duration = 3.8})
-    caster.body.pfx = pfx
-    caster.body.strikeCount = 0
+    ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+    avalanche_plate:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_avalanche_thinker", {duration = ITEM_RPC_AVALANCHE_PLATE_DURATION})
+    avalanche_plate.pfx = pfx
+    avalanche_plate.strikeCount = 0
     Timers:CreateTimer(4, function()
         ParticleManager:DestroyParticle(pfx, false)
     end)
+    print("AVALANCHE TRIGGER")
 end
 
 function Filters:SeraphicVest(caster)
