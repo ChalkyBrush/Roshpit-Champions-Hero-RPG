@@ -1803,35 +1803,6 @@ function RPCItems:RollTerrasicStonePlate(item_level)
     return item
 end
 
-function RPCItems:RollCaptainsVest(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_captains_vest", "immortal", "Captains Vest", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "captains_vest"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_captains_vest", "#4FCCB1", 1, "#property_captains_vest_description")
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor / 10), 0, 0, 0, 0)
-        item.newItemTable.property2name = "t1_runes"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_t1_runes", "#7DFF12", 2)
-    elseif luck == 2 then
-        item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor / 20), 0, 0, 0, 0)
-        item.newItemTable.property2name = "t2_runes"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_t2_runes", "#7DFF12", 2)
-    elseif luck == 3 then
-        item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor / 40), 0, 0, 0, 0)
-        item.newItemTable.property2name = "t3_runes"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_t3_runes", "#7DFF12", 2)
-    end
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollTwilightVestments(item_level)
     local item = RPCItems:CreateVariant("item_rpc_twilight_vestments", "immortal", "Twilight Vestments", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4649,6 +4620,31 @@ function RPCItems:RollBorealGraniteVest(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.8)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollCaptainsVest(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_captains_vest", "immortal", "Captains Vest", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_captains_vest"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_captains_vest", "#4FCCB1", 1, "#property_captains_vest_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_t1_runes", 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_t2_runes", 2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

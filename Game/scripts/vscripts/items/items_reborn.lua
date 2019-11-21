@@ -584,84 +584,104 @@ RPCItems.AttributesRolls[3]["all_elements"] = RPCItems.AttributesRolls[3]["eleme
 RPCItems.AttributesRolls[4]["all_elements"] = RPCItems.AttributesRolls[4]["element_fire"]
 
 RPCItems.AttributesRolls[1]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[2]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[3]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[4]["rune_q_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_q_1"] = RPCItems.AttributesRolls[2]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_q_1"] = RPCItems.AttributesRolls[3]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_q_1"] = RPCItems.AttributesRolls[4]["t1_rune"]
 
-RPCItems.AttributesRolls[1]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[1]["rune_q_2"] = RPCItems.AttributesRolls[1]["t2_rune"]
 RPCItems.AttributesRolls[2]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[3]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[4]["rune_q_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_q_2"] = RPCItems.AttributesRolls[3]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_q_2"] = RPCItems.AttributesRolls[4]["t2_rune"]
 
-RPCItems.AttributesRolls[1]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[2]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[1]["rune_q_3"] = RPCItems.AttributesRolls[1]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_q_3"] = RPCItems.AttributesRolls[2]["t3_rune"]
 RPCItems.AttributesRolls[3]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[4]["rune_q_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_q_3"] = RPCItems.AttributesRolls[4]["t3_rune"]
 
-RPCItems.AttributesRolls[1]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[2]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[3]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[1]["rune_q_4"] = RPCItems.AttributesRolls[1]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_q_4"] = RPCItems.AttributesRolls[2]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_q_4"] = RPCItems.AttributesRolls[3]["t4_rune"]
 RPCItems.AttributesRolls[4]["rune_q_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
 
 RPCItems.AttributesRolls[1]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[2]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[3]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[4]["rune_w_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_w_1"] = RPCItems.AttributesRolls[2]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_w_1"] = RPCItems.AttributesRolls[3]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_w_1"] = RPCItems.AttributesRolls[4]["t1_rune"]
 
-RPCItems.AttributesRolls[1]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[1]["rune_w_2"] = RPCItems.AttributesRolls[1]["t2_rune"]
 RPCItems.AttributesRolls[2]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[3]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[4]["rune_w_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_w_2"] = RPCItems.AttributesRolls[3]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_w_2"] = RPCItems.AttributesRolls[4]["t2_rune"]
 
-RPCItems.AttributesRolls[1]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[2]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[1]["rune_w_3"] = RPCItems.AttributesRolls[1]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_w_3"] = RPCItems.AttributesRolls[2]["t3_rune"]
 RPCItems.AttributesRolls[3]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[4]["rune_w_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_w_3"] = RPCItems.AttributesRolls[4]["t3_rune"]
 
-RPCItems.AttributesRolls[1]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[2]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[3]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[1]["rune_w_4"] = RPCItems.AttributesRolls[1]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_w_4"] = RPCItems.AttributesRolls[2]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_w_4"] = RPCItems.AttributesRolls[3]["t4_rune"]
 RPCItems.AttributesRolls[4]["rune_w_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
 
 RPCItems.AttributesRolls[1]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[2]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[3]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[4]["rune_e_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_e_1"] = RPCItems.AttributesRolls[2]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_e_1"] = RPCItems.AttributesRolls[3]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_e_1"] = RPCItems.AttributesRolls[4]["t1_rune"]
 
-RPCItems.AttributesRolls[1]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[1]["rune_e_2"] = RPCItems.AttributesRolls[1]["t2_rune"]
 RPCItems.AttributesRolls[2]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[3]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[4]["rune_e_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_e_2"] = RPCItems.AttributesRolls[3]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_e_2"] = RPCItems.AttributesRolls[4]["t2_rune"]
 
-RPCItems.AttributesRolls[1]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[2]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[1]["rune_e_3"] = RPCItems.AttributesRolls[1]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_e_3"] = RPCItems.AttributesRolls[2]["t3_rune"]
 RPCItems.AttributesRolls[3]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[4]["rune_e_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_e_3"] = RPCItems.AttributesRolls[4]["t3_rune"]
 
-RPCItems.AttributesRolls[1]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[2]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[3]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[1]["rune_e_4"] = RPCItems.AttributesRolls[1]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_e_4"] = RPCItems.AttributesRolls[2]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_e_4"] = RPCItems.AttributesRolls[3]["t4_rune"]
 RPCItems.AttributesRolls[4]["rune_e_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
 
 RPCItems.AttributesRolls[1]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[2]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[3]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
-RPCItems.AttributesRolls[4]["rune_r_1"] = RPCItems.AttributesRolls[1]["t1_rune"]
+RPCItems.AttributesRolls[2]["rune_r_1"] = RPCItems.AttributesRolls[2]["t1_rune"]
+RPCItems.AttributesRolls[3]["rune_r_1"] = RPCItems.AttributesRolls[3]["t1_rune"]
+RPCItems.AttributesRolls[4]["rune_r_1"] = RPCItems.AttributesRolls[4]["t1_rune"]
 
-RPCItems.AttributesRolls[1]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[1]["rune_r_2"] = RPCItems.AttributesRolls[1]["t2_rune"]
 RPCItems.AttributesRolls[2]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[3]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
-RPCItems.AttributesRolls[4]["rune_r_2"] = RPCItems.AttributesRolls[2]["t2_rune"]
+RPCItems.AttributesRolls[3]["rune_r_2"] = RPCItems.AttributesRolls[3]["t2_rune"]
+RPCItems.AttributesRolls[4]["rune_r_2"] = RPCItems.AttributesRolls[4]["t2_rune"]
 
-RPCItems.AttributesRolls[1]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[2]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[1]["rune_r_3"] = RPCItems.AttributesRolls[1]["t3_rune"]
+RPCItems.AttributesRolls[2]["rune_r_3"] = RPCItems.AttributesRolls[2]["t3_rune"]
 RPCItems.AttributesRolls[3]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
-RPCItems.AttributesRolls[4]["rune_r_3"] = RPCItems.AttributesRolls[3]["t3_rune"]
+RPCItems.AttributesRolls[4]["rune_r_3"] = RPCItems.AttributesRolls[4]["t3_rune"]
 
-RPCItems.AttributesRolls[1]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[2]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
-RPCItems.AttributesRolls[3]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+RPCItems.AttributesRolls[1]["rune_r_4"] = RPCItems.AttributesRolls[1]["t4_rune"]
+RPCItems.AttributesRolls[2]["rune_r_4"] = RPCItems.AttributesRolls[2]["t4_rune"]
+RPCItems.AttributesRolls[3]["rune_r_4"] = RPCItems.AttributesRolls[3]["t4_rune"]
 RPCItems.AttributesRolls[4]["rune_r_4"] = RPCItems.AttributesRolls[4]["t4_rune"]
+
+RPCItems.AttributesRolls[1]["all_t1_runes"] = RPCItems.AttributesRolls[1]["t1_rune"]/4
+RPCItems.AttributesRolls[2]["all_t1_runes"] = RPCItems.AttributesRolls[2]["t1_rune"]/4
+RPCItems.AttributesRolls[3]["all_t1_runes"] = RPCItems.AttributesRolls[3]["t1_rune"]/4
+RPCItems.AttributesRolls[4]["all_t1_runes"] = RPCItems.AttributesRolls[4]["t1_rune"]/4
+
+RPCItems.AttributesRolls[1]["all_t2_runes"] = RPCItems.AttributesRolls[1]["t2_rune"]/4
+RPCItems.AttributesRolls[2]["all_t2_runes"] = RPCItems.AttributesRolls[2]["t2_rune"]/4
+RPCItems.AttributesRolls[3]["all_t2_runes"] = RPCItems.AttributesRolls[3]["t2_rune"]/4
+RPCItems.AttributesRolls[4]["all_t2_runes"] = RPCItems.AttributesRolls[4]["t2_rune"]/4
+
+RPCItems.AttributesRolls[1]["all_t3_runes"] = RPCItems.AttributesRolls[1]["t3_rune"]/4
+RPCItems.AttributesRolls[2]["all_t3_runes"] = RPCItems.AttributesRolls[2]["t3_rune"]/4
+RPCItems.AttributesRolls[3]["all_t3_runes"] = RPCItems.AttributesRolls[3]["t3_rune"]/4
+RPCItems.AttributesRolls[4]["all_t3_runes"] = RPCItems.AttributesRolls[4]["t3_rune"]/4
+
+RPCItems.AttributesRolls[1]["all_t4_runes"] = RPCItems.AttributesRolls[1]["t4_rune"]/4
+RPCItems.AttributesRolls[2]["all_t4_runes"] = RPCItems.AttributesRolls[2]["t4_rune"]/4
+RPCItems.AttributesRolls[3]["all_t4_runes"] = RPCItems.AttributesRolls[3]["t4_rune"]/4
+RPCItems.AttributesRolls[4]["all_t4_runes"] = RPCItems.AttributesRolls[4]["t4_rune"]/4
 
 function RPCItems:SetBaseItemValues(item, itemName, consumableBoolean, description, qualityColor, qualityName, rarityFactor, minLevel, item_slot)
 	if not item.newItemTable then
@@ -895,11 +915,17 @@ RPCItems.PROPERTY_COLORS["spell_pierce"] = "#9eddf7"
 RPCItems.PROPERTY_COLORS["attack_damage"] = "#343EC9"
 RPCItems.PROPERTY_COLORS["t1_rune"] = "#7DFF12"
 RPCItems.PROPERTY_COLORS["t2_rune"] = "#7DFF12"
+RPCItems.PROPERTY_COLORS["t3_rune"] = "#7DFF12"
+RPCItems.PROPERTY_COLORS["t4_rune"] = "#7DFF12"
 RPCItems.PROPERTY_COLORS["attack_speed"] = "#B02020"
 RPCItems.PROPERTY_COLORS["movespeed"] = "#B02020"
 RPCItems.PROPERTY_COLORS["aspect_health"] = "#343EC9"
 RPCItems.PROPERTY_COLORS["all_attributes"] = "#FFFFFF"
 RPCItems.PROPERTY_COLORS["all_elements"] = "#BED5E5"
+RPCItems.PROPERTY_COLORS["all_t1_runes"] = "#7DFF12"
+RPCItems.PROPERTY_COLORS["all_t2_runes"] = "#7DFF12"
+RPCItems.PROPERTY_COLORS["all_t3_runes"] = "#7DFF12"
+RPCItems.PROPERTY_COLORS["all_t4_runes"] = "#7DFF12"
 
 RPCItems.PROPERTY_COLORS["element_normal"] = RPC_ELEMENT_NORMAL_COLOR
 RPCItems.PROPERTY_COLORS["element_fire"] = RPC_ELEMENT_FIRE_COLOR

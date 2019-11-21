@@ -739,10 +739,10 @@
 		 "property_skulldigger3_description"				"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns in a small AOE for @special_property4 seconds. Max @special_property2 stacks."
 
 
-		"item_t1_runes"											"All T1 Runes"
-		"item_t2_runes"											"All T2 Runes"
-		"item_t3_runes"											"All T3 Runes"
-		"item_t4_runes"											"All T4 Runes"
+		"item_all_t1_runes"											"All T1 Runes"
+		"item_all_t2_runes"											"All T2 Runes"
+		"item_all_t3_runes"											"All T3 Runes"
+		"item_all_t4_runes"											"All T4 Runes"
 
 		//Seafortress Items:
 		//NOTE: From now on, item name will appear directly above its special property, as seen below:
@@ -12994,12 +12994,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
-		"item_rpc_captains_vest_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_captains_vest_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_captains_vest_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_captains_vest_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_captains_vest"						"Stalwart Champion"
-		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>. W1/2/3/4 Runes increase Intelligence by <font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>. E1/2/3/4 Runes increase Agility by <font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>. R1/2/3/4 Runes increase all attributes by <font color='#ccff66'>5</font>/<font color='#ccff66'>10</font>/<font color='#ccff66'>25</font>/<font color='#ccff66'>50</font>."
+			"item_property_captains_vest"						"Stalwart Champion"
+		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>. W1/2/3/4 Runes increase Intelligence by <font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>. E1/2/3/4 Runes increase Agility by <font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>. R1/2/3/4 Runes increase Spirit by <font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>."
+		"item_rpc_captains_vest_ruby1"		"Increases the Strength bonus provided by Stalwart Champion by @ruby_property1%"
+		"item_rpc_captains_vest_emerald1"		"Increases the Agility bonus provided by Stalwart Champion by @emerald_property1%"
+		"item_rpc_captains_vest_sapphire1"		"Increases the Intelligence bonus provided by Stalwart Champion by @sapphire_property1%"
+		"item_rpc_captains_vest_amethyst1"		"Increases the Spirit bonus provided by Stalwart Champion by @amethyst_property1%"
+
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"

@@ -2323,6 +2323,9 @@ function CustomAttributes:SetAttributes(hero)
 		if hero:HasModifier("modifier_captains_vest_int") then
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
+		if hero:HasModifier("modifier_captains_vest_spr") then
+			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_spr", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.ITEM_RPC_AQUA_LILY_INT_PER_R4)

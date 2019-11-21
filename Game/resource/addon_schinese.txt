@@ -12992,7 +12992,7 @@
 		"item_rpc_captains_vest_sapphire1"		"blah blah @sapphire_property1 gem"
 		"item_rpc_captains_vest_amethyst1"		"blah blah @amethyst_property1 gem"
 		"item_property_captains_vest"						"坚定的决心"
-		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>。 W1/2/3/4符文提高智力<font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>。 E1/2/3/4符文提高敏捷<font color='#ccff66'>15</font>/<font color='#ccff66'>30</font>/<font color='#ccff66'>75</font>/<font color='#ccff66'>150</font>。 R1/2/3/4符文提高全属性<font color='#ccff66'>5</font>/<font color='#ccff66'>10</font>/<font color='#ccff66'>25</font>/<font color='#ccff66'>50</font>。"
+		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 W1/2/3/4符文提高智力<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 E1/2/3/4符文提高敏捷<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 R1/2/3/4符文提高全属性<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"残破学徒装甲"

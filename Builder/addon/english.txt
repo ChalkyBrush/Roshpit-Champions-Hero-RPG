@@ -739,10 +739,10 @@
 		 "property_skulldigger3_description"				"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns in a small AOE for @special_property4 seconds. Max @special_property2 stacks."
 
 
-		"item_t1_runes"											"All T1 Runes"
-		"item_t2_runes"											"All T2 Runes"
-		"item_t3_runes"											"All T3 Runes"
-		"item_t4_runes"											"All T4 Runes"
+		"item_all_t1_runes"											"All T1 Runes"
+		"item_all_t2_runes"											"All T2 Runes"
+		"item_all_t3_runes"											"All T3 Runes"
+		"item_all_t4_runes"											"All T4 Runes"
 
 		//Seafortress Items:
 		//NOTE: From now on, item name will appear directly above its special property, as seen below:

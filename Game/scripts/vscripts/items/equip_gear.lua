@@ -111,23 +111,37 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	-- print("PROPERTY NAME: "..property_name)
 	if not hero.gear_bonuses[gear_slot][property_name] then
 		if string.match(property_name, "all_attributes") then
-			if not hero.gear_bonuses[gear_slot]["strength"] then
-				hero.gear_bonuses[gear_slot]["strength"] = 0
-			end
-			if not hero.gear_bonuses[gear_slot]["agility"] then
-				hero.gear_bonuses[gear_slot]["agility"] = 0
-			end
-			if not hero.gear_bonuses[gear_slot]["intelligence"] then
-				hero.gear_bonuses[gear_slot]["intelligence"] = 0
-			end
-			if not hero.gear_bonuses[gear_slot]["spirit"] then
-				hero.gear_bonuses[gear_slot]["spirit"] = 0
-			end
+			RPCItems:InitGearBonusProperty(hero, "strength", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "agility", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "intelligence", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "spirit", gear_slot)
+		elseif string.match(property_name, "all_t1_runes") then
+			RPCItems:InitGearBonusProperty(hero, "rune_q_1", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_w_1", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_e_1", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_r_1", gear_slot)
+		elseif string.match(property_name, "all_t2_runes") then
+			RPCItems:InitGearBonusProperty(hero, "rune_q_2", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_w_2", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_e_2", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_r_2", gear_slot)
+		elseif string.match(property_name, "all_t3_runes") then
+			RPCItems:InitGearBonusProperty(hero, "rune_q_3", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_w_3", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_e_3", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_r_3", gear_slot)
+		elseif string.match(property_name, "all_t4_runes") then
+			RPCItems:InitGearBonusProperty(hero, "rune_q_4", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_w_4", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_e_4", gear_slot)
+			RPCItems:InitGearBonusProperty(hero, "rune_r_4", gear_slot)
 		else
 			hero.gear_bonuses[gear_slot][property_name] = 0
 		end
 	end
+
 	print("--RECORDING PROPERTY--")
+
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	if string.match(property_name, "immortal_weapon") or string.match(property_name, "arcana") or string.match(property_name, "!immortal!") then
 		hero.gear_bonuses[gear_slot][property_name] = 1
@@ -136,8 +150,34 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 		hero.gear_bonuses[gear_slot]["agility"] = hero.gear_bonuses[gear_slot]["agility"] + property_value
 		hero.gear_bonuses[gear_slot]["intelligence"] = hero.gear_bonuses[gear_slot]["intelligence"] + property_value
 		hero.gear_bonuses[gear_slot]["spirit"] = hero.gear_bonuses[gear_slot]["spirit"] + property_value
+	elseif string.match(property_name, "all_t1_runes") then
+		hero.gear_bonuses[gear_slot]["rune_q_1"] = hero.gear_bonuses[gear_slot]["rune_q_1"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_w_1"] = hero.gear_bonuses[gear_slot]["rune_w_1"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_e_1"] = hero.gear_bonuses[gear_slot]["rune_e_1"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_r_1"] = hero.gear_bonuses[gear_slot]["rune_r_1"] + property_value
+	elseif string.match(property_name, "all_t2_runes") then
+		hero.gear_bonuses[gear_slot]["rune_q_2"] = hero.gear_bonuses[gear_slot]["rune_q_2"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_w_2"] = hero.gear_bonuses[gear_slot]["rune_w_2"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_e_2"] = hero.gear_bonuses[gear_slot]["rune_e_2"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_r_2"] = hero.gear_bonuses[gear_slot]["rune_r_2"] + property_value
+	elseif string.match(property_name, "all_t3_runes") then
+		hero.gear_bonuses[gear_slot]["rune_q_3"] = hero.gear_bonuses[gear_slot]["rune_q_3"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_w_3"] = hero.gear_bonuses[gear_slot]["rune_w_3"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_e_3"] = hero.gear_bonuses[gear_slot]["rune_e_3"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_r_3"] = hero.gear_bonuses[gear_slot]["rune_r_3"] + property_value
+	elseif string.match(property_name, "all_t4_runes") then
+		hero.gear_bonuses[gear_slot]["rune_q_4"] = hero.gear_bonuses[gear_slot]["rune_q_4"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_w_4"] = hero.gear_bonuses[gear_slot]["rune_w_4"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_e_4"] = hero.gear_bonuses[gear_slot]["rune_e_4"] + property_value
+		hero.gear_bonuses[gear_slot]["rune_r_4"] = hero.gear_bonuses[gear_slot]["rune_r_4"] + property_value
 	else
 		hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + property_value
+	end
+end
+
+function RPCItems:InitGearBonusProperty(hero, property_name, gear_slot)
+	if not hero.gear_bonuses[gear_slot][property_name] then
+		hero.gear_bonuses[gear_slot][property_name] = 0
 	end
 end
 
