@@ -2515,29 +2515,32 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 end
 
 function CustomAttributes:GetMaxHealth(hero, excludedModifier)
-	return CustomAttributes:GetBaseHealth(hero, excludedModifier) * CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier) - 1000 --1000 hp base hp, base hp cant be changed with Code thats why its substracted again
+	return CustomAttributes:GetBaseHealth(hero, excludedModifier) * CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier) - 100 --100 hp base hp, base hp cant be changed with Code thats why its substracted again
 end
 
 function CustomAttributes:GetBaseHealth(hero, excludedModifier)
-	local flatHealthBonus = 1000 --Each hero starts with 1000 hp, this is important so that its multiplied with helm of mountain giant for example
+	local flatHealthBonus = 100 --Each hero starts with 100 hp, this is important so that its multiplied with helm of mountain giant for example
 	flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR
 	if excludedModifier ~= "modifier_halcyon_soul_glove" and hero:HasModifier("modifier_halcyon_soul_glove") then
 		flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR * ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
 	end
-	if excludedModifier ~= "modifier_helm_max_health" and hero:HasModifier("modifier_helm_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_helm_max_health", 1)
+	if excludedModifier ~= "modifier_head_max_health" and hero:HasModifier("modifier_head_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_head_max_health", 1)
 	end
-	if excludedModifier ~= "modifier_hand_max_health" and hero:HasModifier("modifier_hand_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_hand_max_health", 1)
+	if excludedModifier ~= "modifier_hands_max_health" and hero:HasModifier("modifier_hands_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_hands_max_health", 1)
 	end
-	if excludedModifier ~= "modifier_foot_max_health" and hero:HasModifier("modifier_foot_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_foot_max_health", 1)
+	if excludedModifier ~= "modifier_feet_max_health" and hero:HasModifier("modifier_feet_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_feet_max_health", 1)
 	end
 	if excludedModifier ~= "modifier_body_max_health" and hero:HasModifier("modifier_body_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_body_max_health", 1)
 	end
 	if excludedModifier ~= "modifier_trinket_max_health" and hero:HasModifier("modifier_trinket_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trinket_max_health", 1)
+	end
+	if excludedModifier ~= "modifier_weapon_max_health" and hero:HasModifier("modifier_weapon_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_health", 1)
 	end
 	if excludedModifier ~= "modifier_venomort_e4_hero_bonus_invisible" and hero:HasModifier("modifier_venomort_e4_hero_bonus_invisible") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", VENOMORT_E4_HP_PER_ENEMY)

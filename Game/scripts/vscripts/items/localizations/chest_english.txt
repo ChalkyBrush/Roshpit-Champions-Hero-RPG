@@ -99,6 +99,15 @@
 		"item_rpc_blazing_fury_armor_sapphire1"								"<% ITEM_RPC_BLAZING_FURY_SAPPHIRE_CHANCE %>% chance on attack to gain @sapphire_property1 attack speed and @sapphire_property2% attack power for <% ITEM_RPC_BLAZING_FURY_SAPPHIRE_DURATION %> seconds"
 		"item_rpc_blazing_fury_armor_amethyst1"								"Increases Spirit by @amethyst_property1% of Agility"
 
+		"DOTA_Tooltip_ability_item_rpc_bluestar_armor"									"Bluestar Armor"
+		"item_property_bluestar_armor"				"Mana Burst"
+		"property_bluestar_armor_description"		"Whenever mana is reduced, heal for <% ITEM_RPC_BLUESTAR_ARMOR_HEAL_PCT_OF_MANA_LOST %>% of the mana lost. Checks mana and heals on a <% ITEM_RPC_BLUESTAR_ARMOR_THINK_INTERVAL %> second interval."
+
+		"item_rpc_bluestar_armor_ruby1"									"Increases Max Health by @ruby_property1"
+		"item_rpc_bluestar_armor_emerald1"									"Increases the heal by an additional @emerald_property1% of mana lost"
+		"item_rpc_bluestar_armor_sapphire1"									"Casting [W] makes you slide forward with a @sapphire_property1 burst of speed"
+		"item_rpc_bluestar_armor_amethyst1"									"Increases Mana Regen by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -289,15 +298,6 @@
 		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
 		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Gaining attack damage and Holy damage."
 		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_bluestar_armor"									"Bluestar Armor"
-		"item_rpc_bluestar_armor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_bluestar_armor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_bluestar_armor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_bluestar_armor_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_bluestar_armor"				"Mana Burst"
-		"property_bluestar_armor_description"		"Whenever you spend mana, heal health equal to the mana spent and quickly dash forward."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"

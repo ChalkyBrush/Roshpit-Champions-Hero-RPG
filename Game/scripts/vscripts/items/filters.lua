@@ -973,6 +973,9 @@ function Filters:ApplyWskills(caster)
         ability:EndCooldown()
         ability:StartCooldown(baseCd)
     end
+    if caster:HasModifier("modifier_bluestar_armor") then
+        Filters:BluestarCast(caster)
+    end
     if caster:HasModifier("modifier_buzukis_finger") then
         Filters:BuzukisFinger(caster)
     end
@@ -4924,4 +4927,20 @@ function Filters:WraithCrown(caster)
         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf", caster, 2)
     end
 
+end
+
+function Filters:BluestarCast(caster)
+    local hero = caster
+    local bluestar_armor = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    if bluestar_armor:GetGemValue("sapphire") > 0 then
+        hero.bluestarSlideVelocity = bluestar_armor:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLUESTAR_ARMOR_GEM_SAPPHIRE)
+        bluestar_armor:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_bluestar_slide", {duration = 1})
+
+        local particleName = "particles/items_fx/arcane_boots.vpcf"
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
+        ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+        Timers:CreateTimer(0.2, function()
+            ParticleManager:DestroyParticle(pfx, false)
+        end)
+    end
 end

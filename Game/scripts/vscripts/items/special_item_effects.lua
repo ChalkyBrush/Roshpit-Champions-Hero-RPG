@@ -2203,28 +2203,23 @@ function roknar_think(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		local heal = target:GetMaxHealth() * (ROKNAR_EMPEROR_HP_PCT/100 + ability:GetFinalGemPropertyValue("emerald", ROKNAR_EMERALD)/100)
-		Filters:ApplyHeal(target, target, heal, true)
+		Filters:ApplyHeal(target, target, heal, true, true)
 	end
 end
 
-function bluestar_spellcast(event)
-	local target = event.ability.hero
-	local executedAbility = event.event_ability
-	local manaSpent = executedAbility:GetManaCost(executedAbility:GetLevel() - 1)
-	if manaSpent > 0 then
-		target.bluestarSlideVelocity = 25
-		local heal = manaSpent
-		Filters:ApplyHeal(target, target, heal, true)
-		event.ability:ApplyDataDrivenModifier(event.caster, target, "modifier_bluestar_slide", {duration = 0.6})
-
-		local particleName = "particles/items_fx/arcane_boots.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		Timers:CreateTimer(0.2, function()
-			ParticleManager:DestroyParticle(pfx, false)
-		end)
-
+function bluestar_thinker(event)
+	local hero = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if not ability.last_mana then
+		ability.last_mana = hero:GetMana()
 	end
+	local mana_diff = ability.last_mana - hero:GetMana()
+	if mana_diff > 0 then
+		local healAmount = mana_diff * (ITEM_RPC_BLUESTAR_ARMOR_HEAL_PCT_OF_MANA_LOST + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUESTAR_ARMOR_GEM_EMERALD ))/100
+		Filters:ApplyHeal(hero, hero, healAmount, true, true)
+	end
+	ability.last_mana = hero:GetMana()
 end
 
 function bluestar_slide(event)
@@ -2239,6 +2234,9 @@ function bluestar_slide(event)
 		target:SetOrigin(newPosition)
 	end
 	target.bluestarSlideVelocity = target.bluestarSlideVelocity - 1.25
+	if target.bluestarSlideVelocity <= 1 then
+		target:RemoveModifierByName("modifier_bluestar_slide")
+	end
 end
 
 function findClearSpace(event)
@@ -3193,61 +3191,61 @@ function mordiggus_attack(event)
 	end
 end
 
-function wraith_hunter_think(event)
-	local caster = event.caster
-	local target = event.target
-	local ability = event.ability
-	if not ability.wraith_mana then
-		ability.wraith_mana = 0
-	end
-	if target:HasModifier("modifier_bahamut_sphere_of_divinity") then
-		local divinityAbility = target:FindAbilityByName("bahamut_arcana_orb")
-		local manaDrainPerSecond = divinityAbility:GetLevelSpecialValueFor("mana_drain_per_second", divinityAbility:GetLevel())
-		ability.wraith_mana = math.max(ability.wraith_mana - target:GetMaxMana() * manaDrainPerSecond * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/10000, 0)
-	end
-	target:SetMana(ability.wraith_mana)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_wraith_hunter_attack_increase", {})
-	target:SetModifierStackCount("modifier_wraith_hunter_attack_increase", ability, target:GetMana())
-end
+-- function wraith_hunter_think(event)
+-- 	local caster = event.caster
+-- 	local target = event.target
+-- 	local ability = event.ability
+-- 	if not ability.wraith_mana then
+-- 		ability.wraith_mana = 0
+-- 	end
+-- 	if target:HasModifier("modifier_bahamut_sphere_of_divinity") then
+-- 		local divinityAbility = target:FindAbilityByName("bahamut_arcana_orb")
+-- 		local manaDrainPerSecond = divinityAbility:GetLevelSpecialValueFor("mana_drain_per_second", divinityAbility:GetLevel())
+-- 		ability.wraith_mana = math.max(ability.wraith_mana - target:GetMaxMana() * manaDrainPerSecond * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/10000, 0)
+-- 	end
+-- 	target:SetMana(ability.wraith_mana)
+-- 	ability:ApplyDataDrivenModifier(caster, target, "modifier_wraith_hunter_attack_increase", {})
+-- 	target:SetModifierStackCount("modifier_wraith_hunter_attack_increase", ability, target:GetMana())
+-- end
 
-function wraith_hunter_take_damage(event)
-	local target = event.unit
-	local damage = event.attack_damage
-	local ability = event.ability
-	local manaRestore = math.max(math.floor(damage * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/100), 1)
-	ability.wraith_mana = math.min(ability.wraith_mana + manaRestore, target:GetMaxMana())
-	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active_bubbles.vpcf", target, 1)
-end
+-- function wraith_hunter_take_damage(event)
+-- 	local target = event.unit
+-- 	local damage = event.attack_damage
+-- 	local ability = event.ability
+-- 	local manaRestore = math.max(math.floor(damage * WRAITH_HUNTER_DAMAGE_CONVERSION_PCT/100), 1)
+-- 	ability.wraith_mana = math.min(ability.wraith_mana + manaRestore, target:GetMaxMana())
+-- 	CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active_bubbles.vpcf", target, 1)
+-- end
 
-function wraith_hunter_attack(event)
-	local attacker = event.attacker
-	local ability = event.ability
-	local manaSpent = math.min(attacker:GetMaxMana() * WRAITH_HUNTER_MANA_DRAIN_PCT/100, attacker:GetMana())
-	ability.wraith_mana = math.max(ability.wraith_mana - manaSpent, 0)
-	if attacker:HasModifier("modifier_bluestar_armor") then
-		local target = attacker
-		target.bluestarSlideVelocity = 25
-		local heal = manaSpent
-		Filters:ApplyHeal(target, target, heal, true)
+-- function wraith_hunter_attack(event)
+-- 	local attacker = event.attacker
+-- 	local ability = event.ability
+-- 	local manaSpent = math.min(attacker:GetMaxMana() * WRAITH_HUNTER_MANA_DRAIN_PCT/100, attacker:GetMana())
+-- 	ability.wraith_mana = math.max(ability.wraith_mana - manaSpent, 0)
+-- 	if attacker:HasModifier("modifier_bluestar_armor") then
+-- 		local target = attacker
+-- 		target.bluestarSlideVelocity = 25
+-- 		local heal = manaSpent
+-- 		Filters:ApplyHeal(target, target, heal, true)
 
-		target.body:ApplyDataDrivenModifier(target.InventoryUnit, target, "modifier_bluestar_slide", {duration = 0.6})
+-- 		target.body:ApplyDataDrivenModifier(target.InventoryUnit, target, "modifier_bluestar_slide", {duration = 0.6})
 
-		local particleName = "particles/items_fx/arcane_boots.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		Timers:CreateTimer(0.2, function()
-			ParticleManager:DestroyParticle(pfx, false)
-		end)
-	end
-end
+-- 		local particleName = "particles/items_fx/arcane_boots.vpcf"
+-- 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
+-- 		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+-- 		Timers:CreateTimer(0.2, function()
+-- 			ParticleManager:DestroyParticle(pfx, false)
+-- 		end)
+-- 	end
+-- end
 
-function wraith_hunter_spell_cast(event)
-	local target = event.unit
-	local ability = event.ability
-	local executedAbility = event.event_ability
-	local manaSpent = executedAbility:GetManaCost(executedAbility:GetLevel() - 1)
-	ability.wraith_mana = math.max(ability.wraith_mana - manaSpent, 0)
-end
+-- function wraith_hunter_spell_cast(event)
+-- 	local target = event.unit
+-- 	local ability = event.ability
+-- 	local executedAbility = event.event_ability
+-- 	local manaSpent = executedAbility:GetManaCost(executedAbility:GetLevel() - 1)
+-- 	ability.wraith_mana = math.max(ability.wraith_mana - manaSpent, 0)
+-- end
 
 function twig_think(event)
 	local target = event.target

@@ -85908,10 +85908,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
-				}
 			}
 			"modifier_head_max_mana"
 			{
@@ -86262,10 +86258,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
-				}
 			}
 			"modifier_weapon_max_mana"
 			{
@@ -86622,10 +86614,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
-				}
 			}
 			"modifier_hands_max_mana"
 			{
@@ -86976,10 +86964,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
-				}
 			}
 			"modifier_feet_max_mana"
 			{
@@ -87330,10 +87314,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
-				}
 			}
 			"modifier_body_max_mana"
 			{
@@ -87684,10 +87664,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
-				}
 			}
 			"modifier_amulet_max_mana"
 			{

@@ -108,7 +108,7 @@ function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 end
 
 function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
-	print("PROPERTY NAME: "..property_name)
+	-- print("PROPERTY NAME: "..property_name)
 	if not hero.gear_bonuses[gear_slot][property_name] then
 		if string.match(property_name, "all_attributes") then
 			if not hero.gear_bonuses[gear_slot]["strength"] then
@@ -163,6 +163,7 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 			if value > 0 then
 				local modifier_name = "modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key
 				local stacks = value
+				
 				ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 				hero:SetModifierStackCount(modifier_name, inventory_unit, stacks)
 			end
@@ -505,11 +506,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BLAZING_FURY_ARMOR_GEM_EMERALD1, hero, "agility", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BLAZING_FURY_ARMOR_GEM_EMERALD2, hero, "element_fire", RPC_GEAR_SLOT_BODY)
 		end
+	elseif item:GetAbilityName() == "item_rpc_bluestar_armor" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUESTAR_ARMOR_GEM_RUBY, hero, "max_health", RPC_GEAR_SLOT_BODY)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_BLUESTAR_ARMOR_GEM_AMETHYST, hero, "mana_regen", RPC_GEAR_SLOT_BODY)
+		end
 	end
 end
-
-STORMCRACK_AMETHYST1 = {15, 30, 45, 60, 75}
-STORMCRACK_AMETHYST2 = {20, 40, 60, 80, 100}
 
 function RPCItems:RecordSpecificGemBonusForImmortalItem(item, gem_name, value_table, hero, property_name, gear_slot)
 	local gem_value = item:GetGemValue(gem_name)
