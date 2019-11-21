@@ -559,6 +559,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BOREAL_GRANITE_VEST_GEM_SAPPHIRE, hero, "rune_q_3", RPC_GEAR_SLOT_BODY)
 		end
+	elseif item:GetAbilityName() == "item_rpc_champions_mail" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", CHAMPIONS_GEAR_RUBY, hero, "rune_r_1", RPC_GEAR_SLOT_BODY)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", CHAMPIONS_GEAR_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_BODY)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", CHAMPIONS_GEAR_SAPPHIRE, hero, "rune_r_2", RPC_GEAR_SLOT_BODY)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", CHAMPIONS_GEAR_AMETHYST, hero, "rune_r_4", RPC_GEAR_SLOT_BODY)
+		end	
 	end
 end
 

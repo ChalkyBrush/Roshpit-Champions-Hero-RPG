@@ -610,6 +610,10 @@
 		"item_rpc_captains_vest_sapphire1"		"Increases the Intelligence bonus provided by Stalwart Champion by @sapphire_property1%"
 		"item_rpc_captains_vest_amethyst1"		"Increases the Spirit bonus provided by Stalwart Champion by @amethyst_property1%"
 
+		"item_rpc_champions_mail_ruby1"	"Increases Rune [R1] by @ruby_property1"
+		"item_rpc_champions_mail_emerald1"	"Increases Rune [R3] by @emerald_property1"
+		"item_rpc_champions_mail_sapphire1" "Increases Rune [R2] by @sapphire_property1"
+		"item_rpc_champions_mail_amethyst1" "Increases Rune [R4] by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
