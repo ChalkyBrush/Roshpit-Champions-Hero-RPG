@@ -299,6 +299,10 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 	local spirit = self:GetSpirit()
 	local modifier = nil
 
+	modifier = self:FindModifierByName("modifier_blazing_fury_spirit")
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
 	return spirit
 end
 
@@ -2274,6 +2278,9 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_blazing_fury_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)
+		if hero:HasModifier("modifier_blazing_fury_spirit") then
+			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_spirit", 1)
+		end
 	end
 	if hero:HasModifier("modifier_legion_vestments") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_str", 1)

@@ -814,6 +814,39 @@ function blazing_fury_think(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_blazing_fury_effect", {})
 	end
 	target:SetModifierStackCount("modifier_blazing_fury_effect", ability, stacks)
+
+	if ability:GetGemValue("ruby") > 0 then
+		local as_stacks = (target:GetStrength() + target:GetIntellect())*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLAZING_FURY_ARMOR_GEM_RUBY)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_blazing_fury_ruby_as", {})
+		target:SetModifierStackCount("modifier_blazing_fury_ruby_as", caster, as_stacks)
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local spirit_stacks = math.floor(target:GetBaseAgility() * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLAZING_FURY_ARMOR_GEM_AMETHYST)/100, 0)
+		if not target:HasModifier("modifier_blazing_fury_spirit") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_blazing_fury_spirit", {})
+		end
+		target:SetModifierStackCount("modifier_blazing_fury_spirit", ability, spirit_stacks)
+	end
+end
+
+function blazing_fury_attack_land(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local attacker = event.attacker
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(attacker, ITEM_RPC_BLAZING_FURY_SAPPHIRE_CHANCE)
+		if proc then
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_blazing_fury_sapphire_effect", {duration = ITEM_RPC_BLAZING_FURY_SAPPHIRE_DURATION})
+			local as_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLAZING_FURY_ARMOR_GEM_SAPPHIRE1)
+			local ap_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLAZING_FURY_ARMOR_GEM_SAPPHIRE2)
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_blazing_fury_sapphire_as", {duration = ITEM_RPC_BLAZING_FURY_SAPPHIRE_DURATION})
+			attacker:SetModifierStackCount("modifier_blazing_fury_sapphire_as", caster, as_stacks)
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_blazing_fury_sapphire_ap", {duration = ITEM_RPC_BLAZING_FURY_SAPPHIRE_DURATION})
+			attacker:SetModifierStackCount("modifier_blazing_fury_sapphire_ap", caster, ap_stacks)
+			EmitSoundOn("RPCItems.BlazingFury.SapphireActivate", attacker)
+		end
+	end
 end
 
 function scarecrow_gloves_think(event)

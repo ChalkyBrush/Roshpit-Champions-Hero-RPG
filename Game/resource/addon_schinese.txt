@@ -12915,7 +12915,7 @@
 		"item_rpc_blazing_fury_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blazing_fury_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blazing_fury_armor"						"炽炎之怒"
-		"property_blazing_fury_description"						"提高力量值和智力值，提高值为 <font color='#ccff66'>45</font>% 的敏捷值。"
+		"property_blazing_fury_description"						"提高力量值和智力值，提高值为 <font color='#ccff66'>40</font>% 的敏捷值。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"外陆石之甲"

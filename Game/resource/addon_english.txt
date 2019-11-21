@@ -12478,6 +12478,18 @@
 		"item_rpc_bladestorm_vest_sapphire1"									"Each Bladestorm stack increases Spell Pierce by @sapphire_property1 and Agility by @sapphire_property2"
 		"item_rpc_bladestorm_vest_amethyst1"									"@amethyst_property1% chance on casting a spell to not lose a Bladestorm stack"
 
+		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
+		"item_property_blazing_fury_armor"						"Blazing Fury"
+		"property_blazing_fury_description"						"Increases Strength and Intelligence by <font color='#ccff66'>40</font>% of Agility."
+		
+		"DOTA_Tooltip_modifier_blazing_fury_sapphire_effect"	"Blazing Fury Sapphire"
+		"DOTA_Tooltip_modifier_blazing_fury_sapphire_effect_Description"	"Increased Attack Speed and Attack Power"
+
+		"item_rpc_blazing_fury_armor_ruby1"								"Each point of Strength and Intelligence increase attack speed by @ruby_property1"
+		"item_rpc_blazing_fury_armor_emerald1"								"Increases Agility by @emerald_property1 and <font color=\"#EF4126\">Fire</font> elemental damage by @emerald_property2%"
+		"item_rpc_blazing_fury_armor_sapphire1"								"<font color='#ccff66'>15</font>% chance on attack to gain @sapphire_property1 attack speed and @sapphire_property2% attack power for <font color='#ccff66'>3</font> seconds"
+		"item_rpc_blazing_fury_armor_amethyst1"								"Increases Spirit by @amethyst_property1% of Agility"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12919,15 +12931,6 @@
 		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
 		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <font color='#ccff66'>900</font>."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"Blazing Fury Armor"
-		"item_rpc_blazing_fury_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_blazing_fury_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_blazing_fury_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_blazing_fury_armor_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_blazing_fury_armor"						"Blazing Fury"
-		"property_blazing_fury_description"						"Increases Strength and Intelligence by <font color='#ccff66'>45</font>% of Agility."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"

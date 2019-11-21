@@ -2722,7 +2722,7 @@ function fire_temple_spirit_boss_die_begin(event)
 
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollBlazingFuryArmor(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_blazing_fury_armor")
 		elseif luck == 2 then
 			RPCItems:RollDemonfireGauntlet(bossOrigin)
 		elseif luck == 3 then
