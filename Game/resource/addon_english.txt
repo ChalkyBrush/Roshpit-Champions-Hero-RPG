@@ -12520,6 +12520,16 @@
 		"item_rpc_dark_arts_vestments_sapphire1"								"Each point of Intelligence increases Magic Armor by @sapphire_property1"
 		"item_rpc_dark_arts_vestments_amethyst1"								"@amethyst_property1% of health lost restores mana."
 
+		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
+
+		"item_property_depth_crest"						"Crush"
+		 "property_depth_crest_description"					"<font color='#ccff66'>15</font>% chance when attacked to stun all nearby enemies in <font color='#ccff66'>280</font> radius for <font color='#ccff66'>0.1</font> seconds and deal damage based on <font color='#ccff66'>1</font>x your armor."
+
+		 "item_rpc_depth_crest_armor_ruby1"								"Increase Crush's damage by @ruby_property1x Strength and increases Crush's radius by @ruby_property2"
+		"item_rpc_depth_crest_armor_emerald1"								"Increases Crush's stun duration by @emerald_property1 seconds and increases Crush's radius by @emerald_property2"
+		"item_rpc_depth_crest_armor_sapphire1"								"@sapphire_property1% chance to trigger Crush when casting [Q]"
+		"item_rpc_depth_crest_armor_amethyst1"								"Increases Item Damage by @amethyst_property1%"
+		
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12814,14 +12824,6 @@
 		"DOTA_Tooltip_modifier_infused_mageplate_stack"			"Armored Magus"
 		"DOTA_Tooltip_modifier_infused_mageplate_stack_Description"	"Gaining ability damage and Intelligence when taking damage."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
-		"item_rpc_depth_crest_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_depth_crest_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_depth_crest_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_depth_crest_armor_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"<font color='#ccff66'>30</font>% chance when attacked to stun all nearby enemies for <font color='#ccff66'>0.1</font> seconds and deal <font color='#ccff66'>120</font>x your Strength + <font color='#ccff66'>8000</font>x your armor. All damage dealt directly by items is enhanced by <font color='#ccff66'>0.4</font>% for each <font color='#ccff66'>10</font> points of Strength while enemies are stunned."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"

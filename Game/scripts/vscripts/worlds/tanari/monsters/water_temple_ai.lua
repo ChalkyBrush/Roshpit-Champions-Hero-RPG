@@ -1536,7 +1536,7 @@ function water_temple_boss_die_begin(event)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 3)
 		if luck == 3 then
-			RPCItems:RollDepthCrestArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_depth_crest_armor")
 		end
 	end)
 	caster:BossDrops(13)

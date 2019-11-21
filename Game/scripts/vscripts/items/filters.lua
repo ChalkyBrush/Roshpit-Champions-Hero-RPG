@@ -850,6 +850,11 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_death_whisper_helm") then
         Filters:DeathWhisperSapphire(caster)
     end
+    if caster:HasModifier("modifier_depth_crest_armor") then
+        local depth_crest = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+        local chance = depth_crest:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_SAPPHIRE)
+        Filters:DepthCrestArmor(caster, depth_crest, chance)
+    end
     if caster:HasModifier("modifier_secret_temple") then
         Filters:SecretTempleQ(caster)
     end
@@ -4945,5 +4950,27 @@ function Filters:BluestarCast(caster)
         Timers:CreateTimer(0.2, function()
             ParticleManager:DestroyParticle(pfx, false)
         end)
+    end
+end
+
+function Filters:DepthCrestArmor(caster, ability, chance)
+    local proc = Filters:GetProc(caster, chance)
+    if proc then
+        StartAnimation(caster, {duration = 0.4, activity = ACT_DOTA_SPAWN, rate = 2.0})
+        local radius = ITEM_RPC_DEPTH_CREST_ARMOR_STUN_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_RUBY2) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_EMERALD2)
+        local stun_duration = ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_EMERALD1)
+        EmitSoundOn("Items.DepthCrest", caster)
+        local particleName = "particles/roshpit/items/depth_crest_armor.vpcf"
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+        ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 20))
+        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        if #enemies > 0 then
+            local damage = caster:GetRoshpitArmor() * ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_RUBY1)*caster:GetStrength()
+            for _, enemy in pairs(enemies) do
+                Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
+                Filters:ApplyStun(caster, ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION, enemy)
+            end
+        end
     end
 end

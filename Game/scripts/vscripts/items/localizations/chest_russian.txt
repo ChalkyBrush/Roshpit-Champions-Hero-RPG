@@ -368,12 +368,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"Depth Crest Armor"
-		"item_rpc_depth_crest_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_depth_crest_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_depth_crest_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_depth_crest_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_depth_crest"						"Crush"
-		 "property_depth_crest_description"					"При получении урона, с <% ITEM_RPC_DEPTH_CREST_ARMOR_CHANCE %>% шансом все ближайшие враги будут оглушены на <% ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION %> сек. и получат урон, равный сумме <% ITEM_RPC_DEPTH_CREST_ARMOR_STR_TO_DMG %>х Силы и <% ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>х брони героя.<br>Пока враги оглушены, весь урон, который они получат от предметов увеличен на <% ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP %>% за каждые 10 чков Силы.<br>(Это усиление применяется в конце всех вычислений)"
+		 "property_depth_crest_description"					"<% ITEM_RPC_DEPTH_CREST_ARMOR_CHANCE %>% chance when attacked to stun all nearby enemies in <% ITEM_RPC_DEPTH_CREST_ARMOR_STUN_RADIUS %> radius for <% ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION %> seconds and deal damage based on <% ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>x your armor."
+
+		 "item_rpc_depth_crest_armor_ruby1"								"Increase Crush's damage by @ruby_property1x Strength and increases Crush's radius by @ruby_property2"
+		"item_rpc_depth_crest_armor_emerald1"								"Increases Crush's stun duration by @emerald_property1 seconds and increases Crush's radius by @emerald_property2"
+		"item_rpc_depth_crest_armor_sapphire1"								"@sapphire_property1% chance to trigger Crush when casting [Q]"
+		"item_rpc_depth_crest_armor_amethyst1"								"Increases Item Damage by @amethyst_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"

@@ -6,9 +6,11 @@ function RPCItems:RollRuneType(letters, tiersTable)
     local luck = RandomInt(1,100)
     local letter = letters[RandomInt(1, #letters)]
     rune_tier = "1"
-    for key, chance in pairs(tiersTable) do
-        if luck <= chance then
-            rune_tier = string.gsub(tostring(key), "tier", "")
+    for i = 1, 4, 1 do
+        local tier_key = "tier"..i
+        if tiersTable[tier_key] and luck <= tiersTable[tier_key] then
+            rune_tier = i
+            break
         end
     end
     rune_roll = "rune_"..letter.."_"..rune_tier
@@ -2254,31 +2256,6 @@ function RPCItems:RollIceQuillCarapace(item_level)
     item.newItemTable.property3 = value
     item.newItemTable.property3name = "armor"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_armor", "#D1D1D1", 3)
-
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollDepthCrestArmor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_depth_crest_armor", "immortal", "Depth Crest Armor", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "depth_crest"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_depth_crest", "#6877E8", 1, "#property_depth_crest_description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 4)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.floor(value * 2)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
 
     RPCItems:RollBodyProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
@@ -4668,6 +4645,33 @@ function RPCItems:RollDarkArtsVestments(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollDepthCrestArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_depth_crest_armor", "immortal", "Depth Crest Armor", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_depth_crest_armor"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_depth_crest", "#6877E8", 1, "#property_depth_crest_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 3 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
