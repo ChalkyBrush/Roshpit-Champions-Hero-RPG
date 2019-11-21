@@ -2416,28 +2416,6 @@ function RPCItems:RollSkyforgeFlurryPlate(item_level)
     return item
 end
 
-function RPCItems:RollDarkArtsVestments(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_dark_arts_vestments", "immortal", "Vestments of the Dark Arts", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "dark_arts"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dark_arts", "#7A3B63", 1, "#property_dark_arts_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = value * 2
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSapphireDragonScaleArmor(item_level)
     local item = RPCItems:CreateVariant("item_rpc_sapphire_dragon_scale_armor", "immortal", "Sapphire Dragon Scale Armor", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4663,6 +4641,33 @@ function RPCItems:RollChampionsGearMail(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollDarkArtsVestments(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_dark_arts_vestments", "immortal", "Vestments of the Dark Arts", "body", true, "Slot: Body")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_dark_arts_vestments"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dark_arts", "#7A3B63", 1, "#property_dark_arts_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -8775,7 +8780,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_veil_of_the_cerulean_high_guard", "item_rpc_white_mage_hat", "item_rpc_wolfir_druids_spirit_helm", "item_rpc_wraith_crown",
         "item_rpc_wraith_hunters_steel_helm"}
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
-        itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor"}
+        itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments"}
     end
     return itemsList
 end

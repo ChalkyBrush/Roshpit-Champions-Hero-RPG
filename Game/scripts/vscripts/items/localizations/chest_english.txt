@@ -120,6 +120,15 @@
 		"DOTA_Tooltip_modifier_boreal_granite_stack"	"Boreal Granite Stack"
 		"DOTA_Tooltip_modifier_boreal_granite_stack_Description"	"Increases the chance of triggering Diametric Force"
 
+		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
+		"item_property_dark_arts"					"Dark Mastery"
+		"property_dark_arts_description"			"Increases your Agility by <% ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI * 100 %>% of your Intelligence."
+
+		"item_rpc_dark_arts_vestments_ruby1"								"Gain @ruby_property1 base attack damage for for each point of current mana"
+		"item_rpc_dark_arts_vestments_emerald1"								"Each point of Agility increases Spell Pierce by @emerald_property1"
+		"item_rpc_dark_arts_vestments_sapphire1"								"Each point of Intelligence increases Magic Armor by @sapphire_property1"
+		"item_rpc_dark_arts_vestments_amethyst1"								"@amethyst_property1% of health lost restores mana."
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -247,15 +256,6 @@
 		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vampiric_breastplate"		"Vampiric Core"
 		"property_varmpiric_breastplate_description" "Heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% of all damage dealt by @Ability1."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
-		"item_rpc_dark_arts_vestments_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_dark_arts_vestments_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_dark_arts_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_dark_arts_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_dark_arts"					"Dark Mastery"
-		"property_dark_arts_description"			"Increases your Agility by <% ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI * 100 %>% of your Intelligence."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"

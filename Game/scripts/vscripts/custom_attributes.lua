@@ -1019,6 +1019,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
 		magic_armor = magic_armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_magic_armor", 1)
 	end
+	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
+	end
 	Util.Modifier:SimpleEvent(unit, 'GetBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
 			magic_armor = magic_armor + result
@@ -1453,6 +1456,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		armor_pierce = armor_pierce + unit:GetAgility()*CustomAttributes.ARMOR_PIERCE_PER_AGI
 		armor_pierce = armor_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor_pierce", 1)
 	end
+
 	local armor_pierce_modify = 0
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitArmorPierceBonus', { MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS }, { }, 
 		function(result, data)
@@ -1627,6 +1631,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:IsRealHero() then
 		spell_pierce = spell_pierce + unit:GetIntellect()*CustomAttributes.SPELL_PIERCE_PER_INT
 		spell_pierce = spell_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_spell_pierce", 1)
+	end
+	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_EMERALD)*unit:GetAgility()
 	end
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
 		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
