@@ -344,14 +344,16 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
-		"item_rpc_bladestorm_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_bladestorm_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_bladestorm_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_bladestorm_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_bladestorm_vest"							"Bladestorm"
-		"property_bladestorm_vest_description"					"Атакуя противника <% ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS %> раз подряд, герой получит заряд Bladestorm. Каждый заряд увеличивает Бонусный урон атаки героя на <% ITEM_RPC_BLADESTORM_VEST_BONUS_ATTACK_DMG %>% и весь пост-резистный урон <% ITEM_RPC_BLADESTORM_VEST_POST_MITI %>%. Прочтение любого заклинания потратит один заряд. Максимум <% ITEM_RPC_BLADESTORM_VEST_MAX_STACKS %> заряда."
+		"property_bladestorm_vest_description"					"Performing <% ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS %> attacks adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by <% ITEM_RPC_BLADESTORM_VEST_BONUS_ATTACK_DMG %>%. Casting any spell consumes a stack. Maximum <% ITEM_RPC_BLADESTORM_VEST_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
-		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Базовый урон и урон умений увеличен"
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Attack Damage"
+		"DOTA_Tooltip_modifier_bladestorm_attack_stacking"		"Bladestorm Buildup"
+		
+		"item_rpc_bladestorm_vest_ruby1"									"It only takes @ruby_property1 attacks to acquire a Bladestorm stack"
+		"item_rpc_bladestorm_vest_emerald1"									"Each Bladestorm stack increases Base Ability Damage by @emerald_property1% and Armor Pierce by @emerald_property2"
+		"item_rpc_bladestorm_vest_sapphire1"									"Each Bladestorm stack increases Spell Pierce by @sapphire_property1 and Agility by @sapphire_property2"
+		"item_rpc_bladestorm_vest_amethyst1"									"@amethyst_property1% chance on casting a spell to not lose a Bladestorm stack"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"Infused Mageplate"

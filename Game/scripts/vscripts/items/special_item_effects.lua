@@ -1707,39 +1707,45 @@ function bladestorm_vest_initialize(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	target.bladeTable = {}
-	target.bladeHits = 0
+	ability.bladeTable = {}
 end
 
 function bladestorm_vest_end(event)
 	local target = event.target
-	for i = 1, #target.bladeTable, 1 do
-		UTIL_Remove(target.bladeTable[i])
+	local ability = event.ability
+	for i = 1, #ability.bladeTable, 1 do
+		UTIL_Remove(ability.bladeTable[i])
 	end
 	target:RemoveModifierByName("modifier_bladestorm_vest_buff")
-	target.bladeTable = false
+	ability.bladeTable = false
 end
 
 function bladestorm_vest_attack_hit(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	local caster = event.caster
-	if attacker.bladeHits then
-		attacker.bladeHits = attacker.bladeHits + 1
-		if attacker.bladeHits == ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS then
-			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_bladestorm_vest_buff", {})
-			local currentStacks = #attacker.bladeTable
-			local stacks = math.min(currentStacks + 1, ITEM_RPC_BLADESTORM_VEST_MAX_STACKS)
-			attacker:SetModifierStackCount("modifier_bladestorm_vest_buff", caster, stacks)
-			attacker.bladeHits = 0
-
-			if currentStacks < ITEM_RPC_BLADESTORM_VEST_MAX_STACKS then
-				Filters:ModifyBladestormVestSwordCount(attacker, stacks, ability, caster)
-			end
-		end
-	else
-		attacker.bladeHits = 0
+	local new_stacks = 0
+	if attacker:GetModifierStackCount("modifier_bladestorm_vest_buff", caster) < ITEM_RPC_BLADESTORM_VEST_MAX_STACKS then
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_bladestorm_attack_stacking", {})
+		new_stacks = attacker:GetModifierStackCount("modifier_bladestorm_attack_stacking", caster) + 1
+		attacker:SetModifierStackCount("modifier_bladestorm_attack_stacking", caster, new_stacks)
 	end
+	local attacks_required = ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS
+	if ability:GetGemValue("ruby") > 0 then
+		attacks_required = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLADESTORM_VEST_GEM_RUBY)
+	end
+	if new_stacks >= attacks_required then
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_bladestorm_vest_buff", {})
+		local currentStacks = #ability.bladeTable
+		local stacks = math.min(currentStacks + 1, ITEM_RPC_BLADESTORM_VEST_MAX_STACKS)
+		attacker:SetModifierStackCount("modifier_bladestorm_vest_buff", caster, stacks)
+		attacker:RemoveModifierByName("modifier_bladestorm_attack_stacking")
+
+		if currentStacks < ITEM_RPC_BLADESTORM_VEST_MAX_STACKS then
+			Filters:ModifyBladestormVestSwordCount(attacker, stacks, ability, caster, 1)
+		end
+	end
+
 end
 
 function undertaker_attack(event)
@@ -4520,7 +4526,7 @@ function avalanche_end(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, nil, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
 				Filters:ApplyStun(caster, stun_duration, enemy)
 			end
 		end
@@ -4612,7 +4618,7 @@ function baron_storm_arc(target, caster, ability, damage, targetNumber, maxTarge
 					local paralyze_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BARONS_STORM_ARMOR_GEM_SAPPHIRE)
 					ability:ApplyDataDrivenModifier(caster, newTarget, "modifier_baron_storm_link", {duration = paralyze_duration})
 				end
-				Filters:ApplyItemDamage(newTarget, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
+				Filters:ApplyItemDamage(newTarget, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 				EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
 				local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
 				local targetPos = target:GetAbsOrigin()

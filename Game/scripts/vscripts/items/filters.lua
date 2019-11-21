@@ -693,10 +693,16 @@ function Filters:CastSkillArguments(slot, caster)
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
     if caster:HasModifier("modifier_bladestorm_vest_buff") then
-        local bladestormStacks = caster:GetModifierStackCount("modifier_bladestorm_vest_buff", caster.body)
-        local newStacks = math.max(bladestormStacks - 1, 0)
-        caster:SetModifierStackCount("modifier_bladestorm_vest_buff", caster.body, newStacks)
-        Filters:ModifyBladestormVestSwordCount(caster, newStacks, caster.body, caster.InventoryUnit)
+        local proc = false
+        if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
+            proc = Filters:GetProc(caster, caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLADESTORM_VEST_GEM_AMETHYST))
+        end
+        if not proc then
+            local bladestormStacks = caster:GetModifierStackCount("modifier_bladestorm_vest_buff", caster.body)
+            local newStacks = math.max(bladestormStacks - 1, 0)
+            caster:SetModifierStackCount("modifier_bladestorm_vest_buff", caster.body, newStacks)
+            Filters:ModifyBladestormVestSwordCount(caster, newStacks, caster.equipped_gear[RPC_GEAR_SLOT_BODY], caster.InventoryUnit, -1)
+        end
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         local beginningHealth = caster:GetHealth()
@@ -1312,6 +1318,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_mask_of_mugato") and attacker:IsSilenced() then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MUGATO_SAPPHIRE2)/100
+        end
+        if attacker:HasModifier("modifier_bladestorm_vest_buff") then
+            damageMult = damageMult + attacker:GetModifierStackCount("modifier_bladestorm_vest_buff", attacker.InventoryUnit)*attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD1)/100
         end
         if attacker:HasModifier("modifier_watcher_two") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD/100
@@ -3610,11 +3619,12 @@ function Filters:HeavensShieldTakeDamage(target, damage)
     return 0
 end
 
-function Filters:ModifyBladestormVestSwordCount(attacker, numSwords, ability, caster)
-    for j = 1, #attacker.bladeTable, 1 do
-        UTIL_Remove(attacker.bladeTable[j])
+function Filters:ModifyBladestormVestSwordCount(attacker, numSwords, ability, caster, iReduce)
+    local blade_vest = attacker.equipped_gear[RPC_GEAR_SLOT_BODY]
+    for j = 1, #blade_vest.bladeTable, 1 do
+        UTIL_Remove(blade_vest.bladeTable[j])
     end
-    attacker.bladeTable = {}
+    blade_vest.bladeTable = {}
     if numSwords == 0 then
         attacker:RemoveModifierByName("modifier_bladestorm_vest_buff")
     else
@@ -3626,8 +3636,8 @@ function Filters:ModifyBladestormVestSwordCount(attacker, numSwords, ability, ca
             sword.state = 0
             sword:SetModel("models/props_gameplay/status_disarm.vmdl")
             sword:SetOriginalModel("models/props_gameplay/status_disarm.vmdl")
-            sword:SetModelScale(2.0)
-            table.insert(attacker.bladeTable, sword)
+            sword:SetModelScale(1.6)
+            table.insert(blade_vest.bladeTable, sword)
             ability:ApplyDataDrivenModifier(caster, sword, "modifier_bladestorm_vest_weapon_effect", {})
             sword.index = i
             local offsetRadians = (2 * math.pi / 3) * (i - 1)

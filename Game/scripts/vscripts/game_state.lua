@@ -2501,10 +2501,6 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_bladestorm_vest_buff") then
-		local bladestormStacks = math.min(attacker:GetModifierStackCount("modifier_bladestorm_vest_buff", attacker.body) + 1, 3)
-		mult = mult + bladestormStacks * ITEM_RPC_BLADESTORM_VEST_POST_MITI/100
-	end
 	if victim:HasModifier("modifier_duskbringer_rune_e_2_effect") then
 		filterTable["damage"] = 0
 		Filters:GhostArmor(victim, attacker)

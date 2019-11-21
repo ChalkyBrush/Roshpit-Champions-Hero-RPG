@@ -12466,6 +12466,18 @@
 		"item_rpc_barons_storm_armor_sapphire1"								"Enemies hit by the chain lightning are paralyzed for @sapphire_property1 seconds"
 		"item_rpc_barons_storm_armor_amethyst1"								"Increases the damage of Storm Arc by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
+		"item_property_bladestorm_vest"							"Bladestorm"
+		"property_bladestorm_vest_description"					"Performing <font color='#ccff66'>10</font> attacks adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by <font color='#ccff66'>40</font>%. Casting any spell consumes a stack. Maximum <font color='#ccff66'>3</font> stacks."
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Attack Damage"
+		"DOTA_Tooltip_modifier_bladestorm_attack_stacking"		"Bladestorm Buildup"
+		
+		"item_rpc_bladestorm_vest_ruby1"									"It only takes @ruby_property1 attacks to acquire a Bladestorm stack"
+		"item_rpc_bladestorm_vest_emerald1"									"Each Bladestorm stack increases Base Ability Damage by @emerald_property1% and Armor Pierce by @emerald_property2"
+		"item_rpc_bladestorm_vest_sapphire1"									"Each Bladestorm stack increases Spell Pierce by @sapphire_property1 and Agility by @sapphire_property2"
+		"item_rpc_bladestorm_vest_amethyst1"									"@amethyst_property1% chance on casting a spell to not lose a Bladestorm stack"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12766,16 +12778,6 @@
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"<font color='#ccff66'>30</font>%% reduced damage output"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"
-		"item_rpc_bladestorm_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_bladestorm_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_bladestorm_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_bladestorm_vest_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_bladestorm_vest"							"Bladestorm"
-		"property_bladestorm_vest_description"					"Attacking an enemy <font color='#ccff66'>10</font> times adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by <font color='#ccff66'>100</font>% and post-mitigation damage amp by <font color='#ccff66'>200</font>%. Casting any spell consumes a stack. Maximum <font color='#ccff66'>3</font> stacks."
-		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
-		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Post-Mitigation Damage and Base Ability damage."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"Infused Mageplate"

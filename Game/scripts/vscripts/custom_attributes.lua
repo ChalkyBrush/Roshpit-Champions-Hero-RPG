@@ -1590,6 +1590,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
 		armor_pierce_modify = armor_pierce_modify + MUGATO_PIERCES + helm:GetFinalGemPropertyValue("emerald", MUGATO_EMERALD)
 	end
+	if unit:HasModifier("modifier_bladestorm_vest_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD2)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -1809,6 +1812,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local wraith_hunter_helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
 		local wraith_hunter_spell_pierce = unit:GetRoshpitArmorPierce()*(WRAITH_HUNTER_ARMOR_PIERCE_TO_SPELL_PIERCE_PCT/100) + unit:GetAgility()*wraith_hunter_helm:GetFinalGemPropertyValue("emerald", WRAITH_HUNTER_EMERALD) + unit:GetSpirit()*wraith_hunter_helm:GetFinalGemPropertyValue("amethyst", WRAITH_HUNTER_AMETHYST)
 		spell_pierce_modify = spell_pierce_modify + wraith_hunter_spell_pierce
+	end
+	if unit:HasModifier("modifier_bladestorm_vest_buff") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADESTORM_VEST_GEM_SAPPHIRE1)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -2250,7 +2256,9 @@ function CustomAttributes:SetAttributes(hero)
 	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_spirit", 1)
 
 	-- SPECIAL ITEMS STATS --
-
+	if hero:HasModifier("modifier_bladestorm_vest_buff") then
+		agi_bonus = agi_bonus + hero:GetModifierStackCount("modifier_bladestorm_vest_buff", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADESTORM_VEST_GEM_SAPPHIRE2)
+	end
 	if hero:HasModifier("modifier_empyreal_sunrise_robe") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_agi", 1)
