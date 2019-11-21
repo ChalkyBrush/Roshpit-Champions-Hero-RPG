@@ -5564,13 +5564,16 @@ function boreal_granite_vest_take_damage(event)
 	if hero:GetEntityIndex() == target:GetEntityIndex() then
 		return false
 	end
+	local boreal_vest = event.ability
 	local ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-	local proc = Filters:GetProc(hero, ITEM_RPC_BOREAL_GRANITE_VEST_CHANCE)
+	local proc_chance = ITEM_RPC_BOREAL_GRANITE_VEST_CHANCE + boreal_vest:GetFinalGemPropertyValue("ruby", ITEM_RPC_BOREAL_GRANITE_VEST_GEM_RUBY)*hero:GetModifierStackCount("modifier_boreal_granite_stack", hero.InventoryUnit)
+	local proc = Filters:GetProc(hero, proc_chance)
 	local cd = ability:GetCooldownTimeRemaining()
 	local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), target:GetAbsOrigin())
 	local behavior = ability:GetBehavior()
 	if proc then
 		if distance <= ability:GetCastRange() or (bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET and distance < 2000) then
+			hero:RemoveModifierByName("modifier_boreal_granite_stack")
 			ability:EndCooldown()
 			local manaRestore = ability:GetManaCost(ability:GetLevel())
 			if manaRestore > 0 then
@@ -5614,6 +5617,17 @@ function boreal_granite_vest_take_damage(event)
 				ExecuteOrderFromTable(order)
 			end
 		end
+	end
+end
+
+function boreal_granite_think(event)
+	local hero = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_boreal_granite_stack", {})
+		local new_stacks = math.min(hero:GetModifierStackCount("modifier_boreal_granite_stack", caster) + 1, 5)
+		hero:SetModifierStackCount("modifier_boreal_granite_stack", caster, new_stacks)
 	end
 end
 

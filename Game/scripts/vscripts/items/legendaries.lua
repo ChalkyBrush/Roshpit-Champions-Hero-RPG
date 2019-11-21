@@ -1832,59 +1832,6 @@ function RPCItems:RollCaptainsVest(item_level)
     return item
 end
 
-function RPCItems:RollBorealGraniteVest(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_boreal_granite_vest", "immortal", "Boreal Granite Vest", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "boreal_granite"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_boreal_granite", "#9EE0FF", 1, "#property_boreal_granite_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    local luck = RandomInt(1, 4 + (GameState:GetDifficultyFactor() * 2))
-    if luck <= 3 then
-        value = math.floor(value * 1.2)
-        propertyName = "rune_q_1"
-    elseif luck <= 6 then
-        value = math.floor(value * 1.2)
-        propertyName = "rune_q_2"
-    elseif luck <= 9 then
-        value = math.floor(value * 0.8)
-        propertyName = "rune_q_3"
-    elseif luck == 10 then
-        value = math.min(math.floor(value * 0.3), 10)
-        propertyName = "rune_q_4"
-    end
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    local luck = RandomInt(1, 4 + (GameState:GetDifficultyFactor() * 2))
-    if luck <= 3 then
-        value = math.floor(value * 1.3)
-        propertyName = "rune_q_1"
-    elseif luck <= 6 then
-        value = math.floor(value * 1.3)
-        propertyName = "rune_q_2"
-    elseif luck <= 9 then
-        value = math.floor(value * 0.9)
-        propertyName = "rune_q_3"
-    elseif luck == 10 then
-        value = math.min(math.floor(value * 0.5), 15)
-        propertyName = "rune_q_4"
-    end
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollTwilightVestments(item_level)
     local item = RPCItems:CreateVariant("item_rpc_twilight_vestments", "immortal", "Twilight Vestments", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4680,6 +4627,28 @@ function RPCItems:RollBluestarArmor(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollBorealGraniteVest(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_boreal_granite_vest", "immortal", "Boreal Granite Vest", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_boreal_granite_vest"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_boreal_granite", "#9EE0FF", 1, "#property_boreal_granite_description")
+
+    local rune_type = RPCItems:RollRuneType({"q"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.8)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -8691,11 +8660,11 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         Events.DifficultyFactor = 3
         Events.SpiritRealm = true
     end
-    RPCItems.LevelRoll = itemLevel
+    local item_level = itemLevel
     if item.isLuaItem then
         newItem = item:CreateLuaItem(item_level)
     else
-        newItem = RPCItems:RollImmortalByName(itemName, deathLocation)
+        newItem = RPCItems:RollImmortalByName(item_level)
     end
     --print(newItem)
     if newItem then

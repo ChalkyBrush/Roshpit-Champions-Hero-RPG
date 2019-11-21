@@ -108,6 +108,18 @@
 		"item_rpc_bluestar_armor_sapphire1"									"Casting [W] makes you slide forward with a @sapphire_property1 burst of speed"
 		"item_rpc_bluestar_armor_amethyst1"									"Increases Mana Regen by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
+		"item_property_boreal_granite"						"Diametric Force"
+		"property_boreal_granite_description"				"When taking damage from an enemy, there is a <% ITEM_RPC_BOREAL_GRANITE_VEST_CHANCE %>% chance to cast @Ability1 for free immediately if the damage source is within the ability's cast range. @Ability1's cooldown is refreshed when this occurs. Targeted abilities are cast at the attacker or their location, if they are within the cast range."
+		
+		"item_rpc_boreal_granite_vest_ruby1"			"Every 1 second gain a Boreal Granite stack up to 5 stacks. Each Boreal Granite stack increases the proc chance of Diametric Force by an additional @ruby_property1%"
+		"item_rpc_boreal_granite_vest_emerald1"			"Increases Rune [Q1] and Rune [Q2] by @emerald_property1"
+		"item_rpc_boreal_granite_vest_sapphire1"		"Increases Rune [Q3] by @sapphire_property1"
+		"item_rpc_boreal_granite_vest_amethyst1"		"Increases [Q] Base Ability Damage by @amethyst_property1%"
+
+		"DOTA_Tooltip_modifier_boreal_granite_stack"	"Boreal Granite Stack"
+		"DOTA_Tooltip_modifier_boreal_granite_stack_Description"	"Increases the chance of triggering Diametric Force"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -588,14 +600,6 @@
 		"property_sea_giant_plate"												"Titanic Fortitude"
 		"property_sea_giant_plate_Description"									"All damage taken is reduced by <% ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>% while stunned."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"
-		"item_rpc_boreal_granite_vest_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_boreal_granite_vest_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_boreal_granite_vest_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_boreal_granite_vest_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_boreal_granite"						"Diametric Force"
-		"property_boreal_granite_description"				"When taking damage from an enemy, there is a <% ITEM_RPC_BOREAL_GRANITE_VEST_CHANCE %>% chance to cast @Ability1 for free immediately if the damage source is within the ability's cast range. @Ability1's cooldown is refreshed when this occurs. Targeted abilities are cast at the attacker or their location, if they are within the cast range."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"

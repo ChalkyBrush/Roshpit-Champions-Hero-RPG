@@ -69,7 +69,7 @@ function RPCItems:CombineItems(msg)
 			newItem.pickedUp = true
 			newItem.expiryTime = nil
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, newItem)
-			EmitSoundOn("item.newItemTable.SynthesisComplete", hero)
+			EmitSoundOn("Item.SynthesisComplete", hero)
 			CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", hero, 5)
 		else
 			Notifications:Top(playerID, {text = "Synthesis Fail", duration = 5, style = {color = "#EE2211"}, continue = true})
@@ -232,18 +232,32 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			or (item2:GetAbilityName() == "item_rpc_boreal_granite_chunk" and item1.newItemTable.item_slot and item1.newItemTable.item_slot == "body" and item1.newItemTable.rarity == "immortal") then
 			local new_min_level = 0
 			local newValidator = nil
-			if item2.newItemTable.item_slot then
-				new_min_level = RPCItems:GetLogarithmicVarianceValue(item2.newItemTable.minLevel, 0, 0, 0, 0)
+			local add_sockets = 0
+			if item2.newItemTable.gear_slot then
+				new_min_level = item2.newItemTable.minLevel
 				newValidator = item2.newItemTable.validator
-			elseif item1.newItemTable.item_slot then
-				new_min_level = RPCItems:GetLogarithmicVarianceValue(item1.newItemTable.minLevel, 0, 0, 0, 0)
+				if item2.newItemTable.socket1 and item2.newItemTable.socket1 ~= "none" then
+					add_sockets = add_sockets + 1
+				end
+				if item2.newItemTable.socket2 and item2.newItemTable.socket2 ~= "none" then
+					add_sockets = add_sockets + 1
+				end
+			elseif item1.newItemTable.gear_slot then
+				new_min_level = item1.newItemTable.minLevel
 				newValidator = item1.newItemTable.validator
+				if item1.newItemTable.socket1 and item1.newItemTable.socket1 ~= "none" then
+					add_sockets = add_sockets + 1
+				end
+				if item1.newItemTable.socket2 and item1.newItemTable.socket2 ~= "none" then
+					add_sockets = add_sockets + 1
+				end
 			end
-			new_min_level = math.max(math.min(new_min_level, 100), 3)
-			RPCItems.LevelRoll = new_min_level
-			local newItem = RPCItems:RollBorealGraniteVest(position)
-			RPCItems.LevelRoll = nil
+			new_min_level = math.max(math.min(new_min_level, 120), 1)
+			local newItem = RPCItems:RollBorealGraniteVest(new_min_level)
 			if newItem and IsValidEntity(newItem) then
+				for i = 1, add_sockets, 1 do
+					Gems:AddSocket(newItem)
+				end
 				newItem.pickedUp = true
 				newItem.newItemTable.minLevel = new_min_level
 				local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))

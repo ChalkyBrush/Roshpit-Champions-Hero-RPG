@@ -1460,6 +1460,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_armor_of_violet_guard") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_AMETHYST)/100
         end
+        if attacker:HasModifier("modifier_boreal_granite_vest") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOREAL_GRANITE_VEST_GEM_AMETHYST)/100
+        end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD/100
         end

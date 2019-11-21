@@ -12983,7 +12983,7 @@
 		"item_rpc_boreal_granite_vest_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_boreal_granite_vest_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_boreal_granite"						"合抱之力"
-		"property_boreal_granite_description"				"受到一个敌人攻击时，有 <font color='#ccff66'>10</font>% 的几率立刻释放 @Ability1 （需要敌人在施法距离之内）。 @Ability1的冷却时间会立刻重置。 技能的施法目标为攻击的目标或者位置。"
+		"property_boreal_granite_description"				"受到一个敌人攻击时，有 <font color='#ccff66'>8</font>% 的几率立刻释放 @Ability1 （需要敌人在施法距离之内）。 @Ability1的冷却时间会立刻重置。 技能的施法目标为攻击的目标或者位置。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"船长背心"
