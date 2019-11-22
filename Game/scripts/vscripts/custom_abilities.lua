@@ -471,9 +471,10 @@ function CustomAbilities:HitShipyardShield(victim, attacker)
 		victim:RemoveModifierByName("modifier_shipyard_veil_shield")
 	end
 	local unit = victim
-	local ability = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+	local ability = unit:FindModifierByName("modifier_shipyard_veil_shield"):GetAbility()
 	ability.hero = unit
-	if ability:GetGemValue("emerald") > 0 then
+	local emerald_value = ability:GetGemValue("emerald")
+	if emerald_value > 0 then
 		local info =
 		{
 			Target = attacker,
