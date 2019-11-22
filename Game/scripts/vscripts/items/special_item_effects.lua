@@ -690,62 +690,6 @@ function gryffin_think(event)
 	end
 end
 
-function ceremony_beast_think(event)
-	local caster = event.caster
-	local hero = caster.hero
-	local ability = event.ability
-	caster:MoveToPosition(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
-	local position = caster:GetAbsOrigin()
-	local radius = ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_RADIUS
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	local count = 0
-	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			local info =
-			{
-				Target = enemy,
-				Source = caster,
-				Ability = ability,
-				EffectName = "particles/units/heroes/hero_lina/lina_base_attack.vpcf",
-				StartPosition = "attach_hitloc",
-				bDrawsOnMinimap = false,
-				bDodgeable = true,
-				bIsAttack = false,
-				bVisibleToEnemies = true,
-				bReplaceExisting = false,
-				flExpireTime = GameRules:GetGameTime() + 4,
-				bProvidesVision = true,
-				iVisionRadius = 0,
-				iMoveSpeed = 400,
-			iVisionTeamNumber = caster:GetTeamNumber()}
-			projectile = ProjectileManager:CreateTrackingProjectile(info)
-			count = count + 1
-			if count > ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_NUMBER_OF_ENEMIES then
-				break
-			end
-		end
-	end
-end
-
-function ceremony_beast_projectile_strike(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local hero = caster.hero
-	local primeAttribute = hero:GetPrimaryAttribute()
-	local damage = 0
-	if primeAttribute == 0 then
-		damage = hero:GetStrength() * ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_PRIMARY_ATT_TO_DMG
-	elseif primeAttribute == 1 then
-		damage = hero:GetAgility() * ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_PRIMARY_ATT_TO_DMG
-	elseif primeAttribute == 2 then
-		damage = hero:GetIntellect() * ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_PRIMARY_ATT_TO_DMG
-	end
-	--print(target)
-	--print(hero)
-	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-end
-
 function midas_think(event)
 	local target = event.target
 
@@ -7217,5 +7161,173 @@ function doomplate_think(event)
 		end
 	else
 		target:RemoveModifierByName("modifier_doomplate_doom_enemy_debuff")
+	end
+end
+
+function dragon_ceremony_init(event)
+	local caster = event.caster
+	local hero = event.target
+	local ability = event.ability
+	local player = hero:GetPlayerOwnerID()
+	ability.dragon_table = {}
+	if ability:GetGemValue("ruby") > 0 then
+		local modelScale = 0.35 + ability:GetGemValue("ruby")*0.01
+		local dragon = CreateUnitByName("beast_of_ceremony", hero:GetAbsOrigin(), true, nil, nil, hero:GetTeamNumber())
+		dragon.owner = hero:GetPlayerOwnerID()
+		dragon:SetOwner(hero)
+		dragon:SetControllableByPlayer(player, true)
+		dragon:AddAbility("dragon_ceremony_ability"):SetLevel(1)
+		table.insert(ability.dragon_table, dragon)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf", dragon, 3)
+		dragon:SetModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetOriginalModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetModelScale(modelScale)
+		dragon:SetSkin(1)
+		dragon.type = "ruby"
+		dragon.hero = hero
+		StartAnimation(hero, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		local modelScale = 0.35 + ability:GetGemValue("emerald")*0.01
+		local dragon = CreateUnitByName("beast_of_ceremony", hero:GetAbsOrigin(), true, nil, nil, hero:GetTeamNumber())
+		dragon.owner = hero:GetPlayerOwnerID()
+		dragon:SetOwner(hero)
+		dragon:SetControllableByPlayer(player, true)
+		dragon:AddAbility("dragon_ceremony_ability"):SetLevel(1)
+		table.insert(ability.dragon_table, dragon)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf", dragon, 3)
+		dragon:SetModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetOriginalModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetModelScale(modelScale)
+		dragon:SetSkin(0)
+		dragon.type = "emerald"
+		dragon.hero = hero
+		StartAnimation(hero, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		local modelScale = 0.35 + ability:GetGemValue("sapphire")*0.01
+		local dragon = CreateUnitByName("beast_of_ceremony", hero:GetAbsOrigin(), true, nil, nil, hero:GetTeamNumber())
+		dragon.owner = hero:GetPlayerOwnerID()
+		dragon:SetOwner(hero)
+		dragon:SetControllableByPlayer(player, true)
+		dragon:AddAbility("dragon_ceremony_ability"):SetLevel(1)
+		table.insert(ability.dragon_table, dragon)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf", dragon, 3)
+		dragon:SetModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetOriginalModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetModelScale(modelScale)
+		dragon:SetSkin(2)
+		dragon.type = "sapphire"
+		dragon.hero = hero
+		StartAnimation(hero, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local modelScale = 0.35 + ability:GetGemValue("amethyst")*0.01
+		local dragon = CreateUnitByName("beast_of_ceremony", hero:GetAbsOrigin(), true, nil, nil, hero:GetTeamNumber())
+		dragon.owner = hero:GetPlayerOwnerID()
+		dragon:SetOwner(hero)
+		dragon:SetControllableByPlayer(player, true)
+		dragon:AddAbility("dragon_ceremony_ability"):SetLevel(1)
+		table.insert(ability.dragon_table, dragon)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf", dragon, 3)
+		dragon:SetModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetOriginalModel("models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl")
+		dragon:SetModelScale(modelScale)
+		dragon:SetSkin(3)
+		dragon.type = "amethyst"
+		dragon.hero = hero
+		StartAnimation(hero, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
+	end
+end
+
+function dragon_ceremony_end(event)
+	local caster = event.caster
+	local hero = event.target
+	local ability = event.ability
+	for i = 1, #ability.dragon_table, 1 do
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf", ability.dragon_table[i], 3)
+		UTIL_Remove(ability.dragon_table[i])
+	end
+end
+
+function ceremony_dragon_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	caster:MoveToPosition(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
+	local position = caster:GetAbsOrigin()
+	local radius = ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_ATTACK_RADIUS
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local count = 0
+	local max_targets = 6
+	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK, rate = 1.2})
+	local particle_name = "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+	if caster.type == "ruby" then
+		particle_name = "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		max_targets = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_RUBY1)
+	elseif caster.type == "emerald" then
+		particle_name = "particles/roshpit/items/dragon_ceremony/dragon_ceremony_emerald.vpcf"
+		max_targets = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_EMERALD1)
+	elseif caster.type == "sapphire" then
+		particle_name = "particles/roshpit/items/dragon_ceremony/dragon_ceremony_sapphire.vpcf"
+		max_targets = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_SAPPHIRE1)
+	elseif caster.type == "amethyst" then
+		particle_name = "particles/roshpit/items/dragon_ceremony/dragon_ceremony_amethyst.vpcf"
+		max_targets = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_AMETHYST1)
+	end
+	if #enemies > 0 then
+		EmitSoundOn("RPCItems.DragonCeremony.AttackSound", caster)
+		for _, enemy in pairs(enemies) do
+			local info =
+			{
+				Target = enemy,
+				Source = caster,
+				Ability = ability,
+				EffectName = particle_name,
+				StartPosition = "attach_hitloc",
+				bDrawsOnMinimap = false,
+				bDodgeable = true,
+				bIsAttack = false,
+				bVisibleToEnemies = true,
+				bReplaceExisting = false,
+				flExpireTime = GameRules:GetGameTime() + 4,
+				bProvidesVision = true,
+				iVisionRadius = 0,
+				iMoveSpeed = 600,
+			iVisionTeamNumber = caster:GetTeamNumber()}
+			projectile = ProjectileManager:CreateTrackingProjectile(info)
+			count = count + 1
+			if count > max_targets then
+				break
+			end
+		end
+	end
+end
+
+function ceremony_dragon_projectile_strike(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	local damage = 1
+	if caster.type == "ruby" then
+		damage = hero:GetStrength()*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_RUBY2)
+	elseif caster.type == "emerald" then
+		damage = hero:GetAgility()*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_EMERALD2)
+	elseif caster.type == "sapphire" then
+		damage = hero:GetIntellect()*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_SAPPHIRE2)
+	elseif caster.type == "amethyst" then
+		damage = hero:GetSpirit()*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_AMETHYST2)
+	end
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_DRAGON)
+end
+
+function dragon_ceremony_take_damage(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local attacker = event.attacker
+	for i = 1, #ability.dragon_table, 1 do
+		ability.dragon_table[i]:MoveToPosition(attacker:GetAbsOrigin())
 	end
 end

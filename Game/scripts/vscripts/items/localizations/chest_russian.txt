@@ -143,12 +143,11 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
-		"item_rpc_dragon_ceremony_vestments_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_dragon_ceremony"				"Beast of Ceremony"
-		"property_dragon_ceremony_description"		"Церемониальный зверь постоянно следует за вами - атакует до <% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_NUMBER_OF_ENEMIES %> противников каждые <% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_INTERVAL %> секунды, при этом нанося урон равный <% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_PRIMARY_ATT_TO_DMG %>х основного атрибута."
+
+		"item_rpc_dragon_ceremony_vestments_ruby1"						"Summon an uncontrollable Red Whelpling ally that follows you around. The whelpling attacks @ruby_property1 enemies on a 1 second interval, dealing damage based on @ruby_property2x his master's Strength"
+		"item_rpc_dragon_ceremony_vestments_emerald1"						"Summon an uncontrollable Green Whelpling ally that follows you around. The whelpling attacks @emerald_property1 enemies on a 1 second interval, dealing damage based on @emerald_property2x his master's Agility"
+		"item_rpc_dragon_ceremony_vestments_sapphire1"						"Summon an uncontrollable Blue Whelpling ally that follows you around. The whelpling attacks @sapphire_property1 enemies on a 1 second interval, dealing damage based on @sapphire_property2x his master's Intelligence"
+		"item_rpc_dragon_ceremony_vestments_amethyst1"						"Summon an uncontrollable Purple Whelpling ally that follows you around. The whelpling attacks @amethyst_property1 enemies on a 1 second interval, dealing damage based on @amethyst_property2x his master's Spirit"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"Armor of the Secret Temple"

@@ -1,3 +1,131 @@
+	"item_rpc_dragon_ceremony_vestments"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/dragon_ceremony_vestments" //"dragon_ceremony_vestments"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"model"	"models/items/dragon_knight/ti9_cache_dk_scorching_amber_dragoon_form/ti9_cache_dk_scorching_amber_dragoon_form.vmdl"
+			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf"
+			"particle"	"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+			"particle"	"particles/roshpit/items/dragon_ceremony/dragon_ceremony_emerald.vpcf"
+			"particle"	"particles/roshpit/items/dragon_ceremony/dragon_ceremony_sapphire.vpcf"
+			"particle"	"particles/roshpit/items/dragon_ceremony/dragon_ceremony_amethyst.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_FIRE %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_DRAGON %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_RUBY1 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_EMERALD1 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_SAPPHIRE1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_AMETHYST1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_RUBY2 %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_EMERALD2 %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_SAPPHIRE2 %>"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dragon_ceremony_vestments"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"dragon_ceremony_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"dragon_ceremony_end"
+						"target"		"TARGET"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"dragon_ceremony_take_damage"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_doomplate"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -23,12 +151,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_one"			"2"
+				"element_one"			"<% RPC_ELEMENT_DEMON %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"element_two"			"15"
+				"element_two"			"<% RPC_ELEMENT_FIRE %>"
 			}
 			"03"
 			{
@@ -69,7 +197,7 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_doomplate_doom_self_debuff"
 			{
@@ -3631,64 +3759,6 @@
 			"modifier_vampiric_particle"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_dragon_ceremony_vestments"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/dragon_ceremony_vestments" //"dragon_ceremony_vestments"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_AMETHYST %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
 			}
 		}
 	}

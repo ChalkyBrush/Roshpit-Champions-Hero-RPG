@@ -12548,12 +12548,11 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"龙仪外衣"
-		"item_rpc_dragon_ceremony_vestments_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_dragon_ceremony"				"礼仪兽"
-		"property_dragon_ceremony_description"		"一个礼仪兽将一直跟随你，每<font color='#ccff66'>0.8</font>秒发动一次攻击，对最多<font color='#ccff66'>12</font>个敌人造成<font color='#ccff66'>12</font>倍主属性的伤害。"
+
+		"item_rpc_dragon_ceremony_vestments_ruby1"						"Summon an uncontrollable Red Whelpling ally that follows you around. The whelpling attacks @ruby_property1 enemies on a 1 second interval, dealing damage based on @ruby_property2x his master's Strength"
+		"item_rpc_dragon_ceremony_vestments_emerald1"						"Summon an uncontrollable Green Whelpling ally that follows you around. The whelpling attacks @emerald_property1 enemies on a 1 second interval, dealing damage based on @emerald_property2x his master's Agility"
+		"item_rpc_dragon_ceremony_vestments_sapphire1"						"Summon an uncontrollable Blue Whelpling ally that follows you around. The whelpling attacks @sapphire_property1 enemies on a 1 second interval, dealing damage based on @sapphire_property2x his master's Intelligence"
+		"item_rpc_dragon_ceremony_vestments_amethyst1"						"Summon an uncontrollable Purple Whelpling ally that follows you around. The whelpling attacks @amethyst_property1 enemies on a 1 second interval, dealing damage based on @amethyst_property2x his master's Spirit"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"神秘寺庙袈裟"

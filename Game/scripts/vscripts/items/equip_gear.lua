@@ -37,6 +37,7 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	if item.newItemTable.socket2 then
 		RPCItems:RecordGemBonusesBySlot(item, hero, 2, item.newItemTable.socket2, item.newItemTable.socket2value, gear_slot)
 	end
+	RPCItems:SpecialGearInitialization(item, hero, gear_slot)
 
 	hero:ApplyGearBonusesByGearSlot(gear_slot)
 	if item.isLuaItem then
@@ -590,5 +591,11 @@ function RPCItems:RecordSpecificGemBonusForImmortalItem(item, gem_name, value_ta
 		if property_value > 0 then
 			RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
 		end
+	end
+end
+
+function RPCItems:SpecialGearInitialization(item, hero, gear_slot)
+	if item:GetAbilityName() == "item_rpc_dragon_ceremony_vestments" then
+		hero.gear_bonuses[gear_slot]["!immortal!_modifier_dragon_ceremony_vestments"] = 1
 	end
 end

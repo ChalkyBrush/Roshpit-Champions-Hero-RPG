@@ -90845,7 +90845,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "0.8"
+				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -90854,6 +90854,10 @@
 						"Function"		"ceremony_beast_think"
 						"target"		"TARGET"
 					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "160"
 				}
 			}
 		}
@@ -90869,20 +90873,47 @@
 		}
 	}
 
-
-	//SEINARU
-
-	//Elemental Warlord
-
-
-
-
-
-	//mystic_assassin
-
-
-
-
+	"dragon_ceremony_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_ceremony_beast"
+			{
+				"IsHidden" 	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ceremony_dragon_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"ceremony_dragon_projectile_strike"
+				"target"		"TARGET"
+			}
+		}
+	}
 
 
 	"creep_jump"

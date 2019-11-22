@@ -12556,6 +12556,13 @@
 		"item_rpc_doomplate_sapphire1"										"Doomed enemies have a <font color='#ccff66'>40</font>% chance to be disarmed for @sapphire_property1 seconds after each damage interval"
 		"item_rpc_doomplate_amethyst1"										"Doomed enemies deal @amethyst_property1% reduced damage to you"
 
+		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
+
+		"item_rpc_dragon_ceremony_vestments_ruby1"						"Summon an uncontrollable Red Whelpling ally that follows you around. The whelpling attacks @ruby_property1 enemies on a 1 second interval, dealing damage based on @ruby_property2x his master's Strength"
+		"item_rpc_dragon_ceremony_vestments_emerald1"						"Summon an uncontrollable Green Whelpling ally that follows you around. The whelpling attacks @emerald_property1 enemies on a 1 second interval, dealing damage based on @emerald_property2x his master's Agility"
+		"item_rpc_dragon_ceremony_vestments_sapphire1"						"Summon an uncontrollable Blue Whelpling ally that follows you around. The whelpling attacks @sapphire_property1 enemies on a 1 second interval, dealing damage based on @sapphire_property2x his master's Intelligence"
+		"item_rpc_dragon_ceremony_vestments_amethyst1"						"Summon an uncontrollable Purple Whelpling ally that follows you around. The whelpling attacks @amethyst_property1 enemies on a 1 second interval, dealing damage based on @amethyst_property2x his master's Spirit"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12652,15 +12659,6 @@
 		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <font color='#ccff66'>6</font>% of their max health each <font color='#ccff66'>0.5</font> second interval while also reducing all Magic and Pure damage taken by <font color='#ccff66'>30</font>%. The gryphon also has its own flying vision."
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by <font color='#ccff66'>30</font>%%"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"Vestments of the Dragon Ceremony"
-		"item_rpc_dragon_ceremony_vestments_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_dragon_ceremony_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_dragon_ceremony"				"Beast of Ceremony"
-		"property_dragon_ceremony_description"		"A wyrmling follows you always, launching an attack every <font color='#ccff66'>0.8</font> seconds on up to <font color='#ccff66'>12</font> nearby enemies that deals damage equal to <font color='#ccff66'>12</font>x your primary attribute."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
