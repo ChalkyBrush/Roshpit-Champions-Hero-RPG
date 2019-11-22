@@ -7275,30 +7275,32 @@ function ceremony_dragon_think(event)
 		particle_name = "particles/roshpit/items/dragon_ceremony/dragon_ceremony_amethyst.vpcf"
 		max_targets = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue(caster.type, ITEM_RPC_DRAGON_CEREMONY_VESTMENTS_GEM_AMETHYST1)
 	end
-	if #enemies > 0 then
-		EmitSoundOn("RPCItems.DragonCeremony.AttackSound", caster)
-		for _, enemy in pairs(enemies) do
-			local info =
-			{
-				Target = enemy,
-				Source = caster,
-				Ability = ability,
-				EffectName = particle_name,
-				StartPosition = "attach_hitloc",
-				bDrawsOnMinimap = false,
-				bDodgeable = true,
-				bIsAttack = false,
-				bVisibleToEnemies = true,
-				bReplaceExisting = false,
-				flExpireTime = GameRules:GetGameTime() + 4,
-				bProvidesVision = true,
-				iVisionRadius = 0,
-				iMoveSpeed = 600,
-			iVisionTeamNumber = caster:GetTeamNumber()}
-			projectile = ProjectileManager:CreateTrackingProjectile(info)
-			count = count + 1
-			if count > max_targets then
-				break
+	if hero:IsAlive() then
+		if #enemies > 0 then
+			EmitSoundOn("RPCItems.DragonCeremony.AttackSound", caster)
+			for _, enemy in pairs(enemies) do
+				local info =
+				{
+					Target = enemy,
+					Source = caster,
+					Ability = ability,
+					EffectName = particle_name,
+					StartPosition = "attach_hitloc",
+					bDrawsOnMinimap = false,
+					bDodgeable = true,
+					bIsAttack = false,
+					bVisibleToEnemies = true,
+					bReplaceExisting = false,
+					flExpireTime = GameRules:GetGameTime() + 4,
+					bProvidesVision = true,
+					iVisionRadius = 0,
+					iMoveSpeed = 600,
+				iVisionTeamNumber = caster:GetTeamNumber()}
+				projectile = ProjectileManager:CreateTrackingProjectile(info)
+				count = count + 1
+				if count > max_targets then
+					break
+				end
 			end
 		end
 	end
@@ -7328,6 +7330,6 @@ function dragon_ceremony_take_damage(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	for i = 1, #ability.dragon_table, 1 do
-		ability.dragon_table[i]:MoveToPosition(attacker:GetAbsOrigin())
+		ability.dragon_table[i]:MoveToPosition(attacker:GetAbsOrigin() + RandomVector(RandomInt(0, 200)))
 	end
 end

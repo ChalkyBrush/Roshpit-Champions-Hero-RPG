@@ -4643,11 +4643,24 @@ function RPCItems:RollDragonCeremonyVestments(item_level)
 
     local item = RPCItems:CreateVariant("item_rpc_dragon_ceremony_vestments", "immortal", "Vestments of the Dragon Ceremony", "body", true, "Slot: Body")
 
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, rune_type, 1)
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, rune_type, 1)
+    else
+        local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+        local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+        RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, attr_roll, 1.5)
+    end
 
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    else
+        local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+        local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1.5)
+    end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
