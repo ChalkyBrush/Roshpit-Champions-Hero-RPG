@@ -12540,6 +12540,22 @@
 		"item_rpc_direwolf_bulwark_sapphire1"								"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_direwolf_bulwark_amethyst1"								"Your attacks deal an additional instance of magical damage equal to @amethyst_property1% of the target's Magic Armor"
 
+		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
+
+		"item_property_doomplate"					"Doom"
+		"property_doomplate_description"			"Casting @Ability4 silences and disarms you for <font color='#ccff66'>7</font> seconds. Enemies hit by @Ability4 are Doomed, making them take <font color='#ccff66'>0.2</font>x all of your attributes as damage every <font color='#ccff66'>1</font> second for <font color='#ccff66'>45</font> seconds."
+		"doomplate_doom"							"Doom"
+		"DOTA_Tooltip_modifier_doomplate_doom_self_debuff"	"Doom"
+		"DOTA_Tooltip_modifier_doomplate_doom_self_debuff_Description"	"Disarmed and silenced"
+		"DOTA_Tooltip_modifier_doomplate_doom_enemy_debuff"	"Doom"
+		"DOTA_Tooltip_modifier_doomplate_doom_enemy_debuff_Description"	"Taking damage on <font color='#ccff66'>1</font> second interval."
+		"DOTA_Tooltip_modifier_doomplate_disarm"    "Doomplate Disarm"
+
+		"item_rpc_doomplate_ruby1"										"Increases Doom interval damage by @ruby_property1"
+		"item_rpc_doomplate_emerald1"										"Enemies who are doomed have @emerald_property1 reduced armor and magic armor"
+		"item_rpc_doomplate_sapphire1"										"Doomed enemies have a <font color='#ccff66'>40</font>% chance to be disarmed for @sapphire_property1 seconds after each damage interval"
+		"item_rpc_doomplate_amethyst1"										"Doomed enemies deal @amethyst_property1% reduced damage to you"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12614,19 +12630,6 @@
 		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <font color='#ccff66'>35</font>% of its mana cost on use and its Base Ability Damage is increased by <font color='#ccff66'>100</font>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
-		"item_rpc_doomplate_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_doomplate_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_doomplate_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_doomplate_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_doomplate"					"Summon Doom"
-		"property_doomplate_description"			"Casting @Ability4 summons Doombringer. He immediately Dooms you on summon, silencing and disarming you, and then proceeds to combat enemies with pyroblasts that deal 1x Doombringer's attack damage, which is @special_property1x the caster's.<br> Lasts 30 seconds and has a 30 second cooldown. Armor and health increases with caster's."
-		"doomplate_doom"							"Doom"
-		"DOTA_Tooltip_modifier_doomplate_cooldown"	"Doomplate Cooldown"
-		"DOTA_Tooltip_modifier_doomplate_doom_debuff"	"Doom"
-		"DOTA_Tooltip_modifier_doomplate_doom_debuff_Description"	"Disarmed and silenced"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"

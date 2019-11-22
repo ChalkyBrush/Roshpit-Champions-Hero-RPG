@@ -1528,6 +1528,12 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			end
 		end
 	end
+	if attacker:HasModifier("modifier_doomplate_doom_enemy_debuff") then
+		if victim:HasModifier("modifier_doomplate") then
+			local doomplate = victim:FindModifierByName("modifier_doomplate"):GetAbility()
+			damage = damage * (1 - doomplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DOOMPLATE_GEM_AMETHYST)/100)
+		end
+	end
 	if victim:HasModifier("modifier_maiden_armor") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 			damage = damage * (1 - victim:GetModifierStackCount("modifier_maiden_armor", victim) * 0.01)

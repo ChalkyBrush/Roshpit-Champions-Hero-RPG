@@ -3729,3 +3729,12 @@ function cerberus_die(event)
 	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_direwolf_bulwark")
 	EmitSoundOn("Arena.Cerberus.Die", caster)
 end
+
+function doom_mob_die(event)
+	local caster = event.caster
+	local luck = RandomInt(1, 8)
+	if luck == 1 then
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_doomplate")
+	end
+	EmitSoundOn("Arena.DoomUnit.Die", caster)
+end

@@ -7199,3 +7199,23 @@ function tanari_wind_armor_aura_create(event)
 		target:SetModifierStackCount("modifier_wind_aura_slow_dynamic_blind", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_GEM_AMETHYST))
 	end
 end
+
+function doomplate_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if ability and IsValidEntity(ability) then
+		local hero = caster.hero
+
+		local damage = (hero:GetStrength() + hero:GetAgility() + hero:GetIntellect() + hero:GetSpirit())*ITEM_RPC_DOOMPLATE_DAMAGE_PER_ATTRIBUTES + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DOOMPLATE_GEM_RUBY)
+		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
+
+		local proc = Filters:GetProc(hero, ITEM_RPC_DOOMPLATE_SAPPHIRE_DISARM_CHANCE)
+		if proc then
+			local duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DOOMPLATE_GEM_SAPPHIRE)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_doomplate_disarm", {duration = duration})
+		end
+	else
+		target:RemoveModifierByName("modifier_doomplate_doom_enemy_debuff")
+	end
+end

@@ -1148,6 +1148,9 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_secret_temple") then
         Filters:SecretTemple(caster)
     end
+    if caster:HasModifier("modifier_doomplate") then
+        Filters:DoomplateCast(caster)
+    end
     if caster:HasModifier("modifier_spirit_glove") then
         Filters:SpiritGlove(caster)
     end
@@ -1162,9 +1165,6 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_autumn_sleeper_mask") then
         Filters:AutumnSleeperMask(caster)
-    end
-    if caster:HasModifier("modifier_doomplate") then
-        Filters:DoomplateSummon(caster)
     end
     if caster:HasModifier("modifier_alien_armor") then
         Filters:AlienArmor(caster)
@@ -1665,6 +1665,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local damageIncrease = (attacker.ocean_tempest.manaDrained / ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_THRESHOLD) * ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_MANA_THRESHOLD/100
             damageMult = damageMult + damageIncrease
         end
+
 
         damage = damage * (1 + damageMult)
 
@@ -2656,11 +2657,16 @@ function Filters:SpellslingerCoat(caster)
     PopupMana(caster, manaRestore)
 end
 
+function Filters:DoomplateCast(caster)
+    local inventoryUnit = caster.InventoryUnit
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_doomplate_doom_self_debuff", {duration = ITEM_RPC_DOOMPLATE_SELF_DEBUFF_DURATION})   
+end
+
 function Filters:DoomplateApply(attacker, victim)
     local inventoryUnit = attacker.InventoryUnit
-    local ability = inventoryUnit:FindAbilityByName("body_slot")
-    victim.doomplateCaster = attacker
-    ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_doomplate_effect", {duration = 4})
+    local ability = attacker.equipped_gear[RPC_GEAR_SLOT_BODY]
+    ability:ApplyDataDrivenModifier(inventoryUnit, victim, "modifier_doomplate_doom_enemy_debuff", {duration = ITEM_RPC_DOOMPLATE_ENEMY_DEBUFF_DURATION})
 end
 
 function Filters:WhiteMageHat(caster)

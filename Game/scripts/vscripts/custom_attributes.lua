@@ -931,6 +931,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_violet_guard_armor_loss_visible")
 		armor_modify = armor_modify + modifier:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_RUBY)
 	end
+	if unit:HasModifier("modifier_doomplate_doom_enemy_debuff") then
+		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
+		armor_modify = armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 
@@ -1398,6 +1402,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_wraith_hunters_steel_helm") then
 		local wraith_hunter_helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
 		magic_armor_modify = magic_armor_modify + unit:GetRoshpitArmor()*(wraith_hunter_helm:GetFinalGemPropertyValue("ruby", WRAITH_HUNTER_RUBY)/100)
+	end
+	if unit:HasModifier("modifier_doomplate_doom_enemy_debuff") then
+		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
+		magic_armor_modify = magic_armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
 	end
 
 	-- FINAL STEP DEFILER

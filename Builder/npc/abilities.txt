@@ -50276,6 +50276,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"doom_bringer_doom"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -50319,12 +50320,20 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 3000 14000"
+				"damage"			"300 800 4000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"duration"		"8 10 12"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+				"Function"		"doom_mob_die"
 			}
 		}
 		"Modifiers"
