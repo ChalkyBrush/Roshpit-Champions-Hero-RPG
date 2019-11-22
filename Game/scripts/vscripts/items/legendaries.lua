@@ -1978,26 +1978,6 @@ function RPCItems:RollSoulVest(item_level)
     return item
 end
 
-function RPCItems:RollEmpyrealSunriseRobe(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_empyreal_sunrise_robe", "immortal", "Empyreal Sunrise Robe", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "sunrise"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_tropical_sunrise", "#F7E37E", 1, "#property_tropical_sunrise_Description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 4, 16, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollMageplate(item_level)
     local item = RPCItems:CreateVariant("item_rpc_infused_mageplate", "immortal", "Infused Mageplate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4665,6 +4645,27 @@ function RPCItems:RollDragonCeremonyVestments(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollEmpyrealSunriseRobe(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_empyreal_sunrise_robe", "immortal", "Empyreal Sunrise Robe", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_empyreal_sunrise_robe"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_tropical_sunrise", "#F7E37E", 1, "#property_tropical_sunrise_Description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)

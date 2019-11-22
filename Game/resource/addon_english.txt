@@ -12563,6 +12563,16 @@
 		"item_rpc_dragon_ceremony_vestments_sapphire1"						"Summon an uncontrollable Blue Whelpling ally that follows you around. The whelpling attacks @sapphire_property1 enemies on a 1 second interval, dealing damage based on @sapphire_property2x his master's Intelligence"
 		"item_rpc_dragon_ceremony_vestments_amethyst1"						"Summon an uncontrollable Purple Whelpling ally that follows you around. The whelpling attacks @amethyst_property1 enemies on a 1 second interval, dealing damage based on @amethyst_property2x his master's Spirit"
 
+		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"Empyreal Sunrise Robe"	
+	
+		"property_tropical_sunrise"												"Diffusal Wake"
+		"property_tropical_sunrise_Description"									"Your lowest Attribute is increased by <font color='#ccff66'>150</font>%"
+
+		"item_rpc_empyreal_sunrise_robe_ruby1"					"Increases your lowest attribute by @ruby_property1"
+		"item_rpc_empyreal_sunrise_robe_emerald1"					"Increases your Attack Damage by @emerald_property1x your lowest attribute"
+		"item_rpc_empyreal_sunrise_robe_sapphire1"					"Increases your Spell Pierce by @sapphire_property1x your lowest attribute"
+		"item_rpc_empyreal_sunrise_robe_amethyst1"					"Increases your Magic Armor by @amethyst_property1 your lowest attribute"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12977,15 +12987,6 @@
 		"property_light_seer_Description"									"Heal <font color='#ccff66'>20</font>% of max health every <font color='#ccff66'>0.15</font> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <font color='#ccff66'>20</font> stacks. After channeling is finished, one shield stack fades every second."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"Empyreal Sunrise Robe"	
-		"item_rpc_empyreal_sunrise_robe_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_empyreal_sunrise_robe_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_empyreal_sunrise_robe_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_empyreal_sunrise_robe_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_tropical_sunrise"												"Diffusal Wake"
-		"property_tropical_sunrise_Description"									"Your lowest Attribute is increased by <font color='#ccff66'>160</font>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	

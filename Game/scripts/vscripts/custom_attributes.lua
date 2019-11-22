@@ -303,6 +303,12 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 	if modifier then
 		spirit = spirit - modifier:GetStackCount()
 	end
+	modifier = self:FindModifierByName('modifier_empyreal_spr')
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+
+
 	return spirit
 end
 
@@ -1407,6 +1413,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
 		magic_armor_modify = magic_armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_empyreal_magic_armor") then
+		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_empyreal_magic_armor"):GetStackCount()
+	end
 
 	-- FINAL STEP DEFILER
 
@@ -1834,6 +1843,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_bladestorm_vest_buff") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADESTORM_VEST_GEM_SAPPHIRE1)
+	end
+	if unit:HasModifier("modifier_empyreal_spell_pierce") then
+		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_empyreal_spell_pierce"):GetStackCount()
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -2282,6 +2294,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_int", 1)
+		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_spr", 1)
 	end
 	if hero:HasModifier("modifier_eye_of_seasons_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_eye_of_seasons_stats", 1)

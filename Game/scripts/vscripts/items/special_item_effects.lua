@@ -4927,22 +4927,80 @@ function sunrise_robe_think(event)
 	local heroStr = target:GetBaseStrength()
 	local heroAgi = target:GetBaseAgility()
 	local heroInt = target:GetBaseIntellect()
+	local heroSpr = target:GetBaseSpirit()
 
-	if heroStr <= heroAgi and heroStr <= heroInt then
+	if heroStr <= heroAgi and heroStr <= heroInt and heroStr <= heroSpr then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_str", {})
-		target:SetModifierStackCount("modifier_empyreal_str", caster, heroStr * ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP)
+		target:SetModifierStackCount("modifier_empyreal_str", caster, heroStr * ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_RUBY))
 		target:RemoveModifierByName("modifier_empyreal_agi")
 		target:RemoveModifierByName("modifier_empyreal_int")
-	elseif heroAgi <= heroStr and heroAgi <= heroInt then
+		target:RemoveModifierByName("modifier_empyreal_spr")
+		if ability:GetGemValue("emerald") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_bad", {})
+			target:SetModifierStackCount("modifier_empyreal_bad", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_EMERALD)*target:GetStrength())
+		end
+		if ability:GetGemValue("sapphire") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_spell_pierce", {})
+			target:SetModifierStackCount("modifier_empyreal_spell_pierce", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_SAPPHIRE)*target:GetStrength())
+		end
+		if ability:GetGemValue("amethyst") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_magic_armor", {})
+			target:SetModifierStackCount("modifier_empyreal_magic_armor", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_AMETHYST)*target:GetStrength())
+		end
+	elseif heroAgi <= heroStr and heroAgi <= heroInt and heroAgi <= heroSpr then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_agi", {})
-		target:SetModifierStackCount("modifier_empyreal_agi", caster, heroAgi * ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP)
+		target:SetModifierStackCount("modifier_empyreal_agi", caster, heroAgi * ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_RUBY))
 		target:RemoveModifierByName("modifier_empyreal_str")
 		target:RemoveModifierByName("modifier_empyreal_int")
-	elseif heroInt <= heroStr and heroInt <= heroAgi then
+		target:RemoveModifierByName("modifier_empyreal_spr")
+		if ability:GetGemValue("emerald") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_bad", {})
+			target:SetModifierStackCount("modifier_empyreal_bad", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_EMERALD)*target:GetAgility())
+		end
+		if ability:GetGemValue("sapphire") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_spell_pierce", {})
+			target:SetModifierStackCount("modifier_empyreal_spell_pierce", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_SAPPHIRE)*target:GetAgility())
+		end
+		if ability:GetGemValue("amethyst") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_magic_armor", {})
+			target:SetModifierStackCount("modifier_empyreal_magic_armor", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_AMETHYST)*target:GetAgility())
+		end
+	elseif heroInt <= heroStr and heroInt <= heroAgi and heroInt <= heroSpr then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_int", {})
-		target:SetModifierStackCount("modifier_empyreal_int", caster, heroInt * ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP)
+		target:SetModifierStackCount("modifier_empyreal_int", caster, heroInt * ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_RUBY))
 		target:RemoveModifierByName("modifier_empyreal_str")
 		target:RemoveModifierByName("modifier_empyreal_agi")
+		target:RemoveModifierByName("modifier_empyreal_spr")
+		if ability:GetGemValue("emerald") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_bad", {})
+			target:SetModifierStackCount("modifier_empyreal_bad", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_EMERALD)*target:GetIntellect())
+		end
+		if ability:GetGemValue("sapphire") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_spell_pierce", {})
+			target:SetModifierStackCount("modifier_empyreal_spell_pierce", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_SAPPHIRE)*target:GetIntellect())
+		end
+		if ability:GetGemValue("amethyst") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_magic_armor", {})
+			target:SetModifierStackCount("modifier_empyreal_magic_armor", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_AMETHYST)*target:GetIntellect())
+		end
+	elseif heroSpr <= heroAgi and heroSpr <= heroStr and heroSpr <= heroInt then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_spr", {})
+		target:SetModifierStackCount("modifier_empyreal_spr", caster, heroSpr * ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_RUBY))
+		target:RemoveModifierByName("modifier_empyreal_str")
+		target:RemoveModifierByName("modifier_empyreal_agi")
+		target:RemoveModifierByName("modifier_empyreal_int")
+		if ability:GetGemValue("emerald") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_bad", {})
+			target:SetModifierStackCount("modifier_empyreal_bad", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_EMERALD)*target:GetSpirit())
+		end
+		if ability:GetGemValue("sapphire") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_spell_pierce", {})
+			target:SetModifierStackCount("modifier_empyreal_spell_pierce", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_SAPPHIRE)*target:GetSpirit())
+		end
+		if ability:GetGemValue("amethyst") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_empyreal_magic_armor", {})
+			target:SetModifierStackCount("modifier_empyreal_magic_armor", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMPYREAL_SUNRISE_ROBE_GEM_AMETHYST)*target:GetSpirit())
+		end
 	end
 end
 

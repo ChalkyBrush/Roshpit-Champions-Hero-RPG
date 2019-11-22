@@ -12808,7 +12808,7 @@
 		"item_rpc_empyreal_sunrise_robe_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_empyreal_sunrise_robe_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_tropical_sunrise"												"Diffusal Wake"
-		"property_tropical_sunrise_Description"									"Увеличивает значение самого слабого атрибута на <font color='#ccff66'>160</font>%"
+		"property_tropical_sunrise_Description"									"Увеличивает значение самого слабого атрибута на <font color='#ccff66'>150</font>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
