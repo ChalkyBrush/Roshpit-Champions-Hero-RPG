@@ -12934,7 +12934,7 @@
 		"item_rpc_direwolf_bulwark_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_direwolf_bulwark_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_direwolf"						"地狱看门犬"
-		"property_direwolf_description"					"每 <font color='#ccff66'>10</font> 点主属性提高基础攻击力 <font color='#ccff66'>20</font>，护甲值 <font color='#ccff66'>1</font>，基础技能伤害 <font color='#ccff66'>0.1</font>%。该装备无法重铸。"
+		"property_direwolf_description"					"每 <font color='#ccff66'>0</font> 点主属性提高基础攻击力 <font color='#ccff66'>0</font>，护甲值 <font color='#ccff66'>0</font>，基础技能伤害 <font color='#ccff66'>0</font>%。该装备无法重铸。"
 		
 		
 		 "DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"                       "亚特兰帝斯之甲"

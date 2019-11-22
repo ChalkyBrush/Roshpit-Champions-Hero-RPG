@@ -2599,45 +2599,6 @@ function RPCItems:RollStormshieldCloak(item_level)
     return item
 end
 
-function RPCItems:RollDirewolfBulkwark(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_direwolf_bulwark", "immortal", "Direwolf Bulwark", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "direwolf"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_direwolf", "#502AA3", 1, "#property_direwolf_description")
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 17)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "strength"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    elseif luck == 2 then
-        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 17)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "agility"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-    elseif luck == 3 then
-        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 17)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    end
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.floor(value * 1.2)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-
-end
-
 function RPCItems:RollInfernalPrison(item_level)
     local item = RPCItems:CreateVariant("item_rpc_the_infernal_prison", "immortal", "The Infernal Prison", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4676,6 +4637,29 @@ function RPCItems:RollDepthCrestArmor(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollDirewolfBulwark(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_direwolf_bulwark", "immortal", "Direwolf Bulwark", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_direwolf_bulwark"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_direwolf", "#502AA3", 1, "#property_direwolf_description")
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit", "armor_pierce"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 --FEET
 
@@ -8083,6 +8067,8 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = _G[itemName]:CreateLuaItem(item_level)
     elseif itemName == "item_rpc_magebane_gloves" then
         newItem = RPCItems:RollMageBaneGloves(item_level)
+    elseif itemName == "item_rpc_direwolf_bulwark" then
+        newItem = RPCItems:RollDirewolfBulwark(item_level)
     elseif itemName == "item_rpc_berserker_gloves" then
         newItem = RPCItems:RollBerserkerGloves(item_level)
     elseif itemName == "item_rpc_shadow_armlet" then

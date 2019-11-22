@@ -12776,7 +12776,7 @@
 		"item_rpc_direwolf_bulwark_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_direwolf_bulwark_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_direwolf"						"Cerberus Core"
-		"property_direwolf_description"					"Каждые <font color='#ccff66'>10</font> очков основного атрибута увеличивают базовый урон на <font color='#ccff66'>20</font>, броню на <font color='#ccff66'>1</font>, а базовый урон способностей на <font color='#ccff66'>0.1</font>%. Предмет невозможно перековать у Кузнеца."
+		"property_direwolf_description"					"Каждые <font color='#ccff66'>0</font> очков основного атрибута увеличивают базовый урон на <font color='#ccff66'>0</font>, броню на <font color='#ccff66'>0</font>, а базовый урон способностей на <font color='#ccff66'>0</font>%. Предмет невозможно перековать у Кузнеца."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"			"Armor of Atlantis"	

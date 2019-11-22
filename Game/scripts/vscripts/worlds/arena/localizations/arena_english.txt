@@ -885,3 +885,8 @@
 		"item_rpc_grimloks_soul_vessel_desc"						"Use anywhere in Sea Fortress to release the Beast Tyrant's ghost."
 
 		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"
+
+		"DOTA_Tooltip_ability_pit_of_trials_cerberus_passive"							"Crunch"
+		"DOTA_Tooltip_ability_pit_of_trials_cerberus_passive_Description"				"Attacks do extra damage based on target's armor"
+
+		"pit_of_trials_descent_cerberus"						"Cerberus"

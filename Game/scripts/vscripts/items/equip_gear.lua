@@ -573,8 +573,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_BODY)
 		end
+	elseif item:GetAbilityName() == "item_rpc_direwolf_bulwark" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_DIREWOLF_BULWARK_GEM_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_BODY)
+		end
 	end
 end
+
+
 
 function RPCItems:RecordSpecificGemBonusForImmortalItem(item, gem_name, value_table, hero, property_name, gear_slot)
 	local gem_value = item:GetGemValue(gem_name)

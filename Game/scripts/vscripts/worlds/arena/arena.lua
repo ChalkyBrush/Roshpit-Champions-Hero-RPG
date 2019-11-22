@@ -31,6 +31,8 @@ function Arena:Debug()
 	local drop = CreateItemOnPositionSync(Vector(-3136, -11200), item)
 	local position = Vector(-3136, -11200)
 	RPCItems:DropItem(item, Vector(-3136, -11200))
+	-- Arena.PitLevel = 5
+	-- Arena:SpawnCerberus(Vector(-3136, -11200), Vector(1,0))
 	--    MAIN_HERO_TABLE[1].ChampionsLeague = {}
 	--    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
 

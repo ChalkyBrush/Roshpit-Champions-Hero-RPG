@@ -39499,7 +39499,38 @@
 		}
 	}
 
+	"pit_of_trials_cerberus_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"lycan_howl"
+		"MaxLevel"	"5"
 
+		"Modifiers"
+		{
+			"modifier_direwolf_bulwark"
+			{
+				"Passive"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"pit_of_trials_cerberus_init"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"cerberus_die"
+					}
+				}
+			}
+
+		}
+	}
 
 	"wolfir_druid_passive"
 	{

@@ -2284,7 +2284,11 @@ function widow_die(event)
 			end)
 		end)
 	end)
-	--SOUL FERRIER
+	local luck = RandomInt(1, 5)
+	if luck == 5 then
+		local cerberus = Arena:SpawnCerberus(Vector(14208, -8128), Vector(1,0))
+		Arena:AddPatrolArguments(cerberus, 0, 4, 20, {cerberus:GetAbsOrigin(), Vector(7552, -4032)})
+	end
 end
 
 function pit_tombstone_think(event)
@@ -3709,4 +3713,19 @@ function soul_ferrier_die(event)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 3)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.SecretHorrorPianoEnd", Events.GameMaster)
 	RPCItems:CreateBasicConsumable(caster:GetAbsOrigin(), "item_rpc_grimloks_soul_vessel", "Grimlok's Soul Vessel", "immortal", true)
+end
+
+function pit_of_trials_cerberus_init(event)
+	local ability = event.ability
+	ability.newItemTable = {}
+	ability.newItemTable.socket1 = "ruby"
+	ability.newItemTable.socket1value = 5
+	ability.newItemTable.socket2 = "amethyst"
+	ability.newItemTable.socket2value = "amethyst"
+end
+
+function cerberus_die(event)
+	local caster = event.caster
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_direwolf_bulwark")
+	EmitSoundOn("Arena.Cerberus.Die", caster)
 end

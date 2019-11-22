@@ -12529,7 +12529,17 @@
 		"item_rpc_depth_crest_armor_emerald1"								"Increases Crush's stun duration by @emerald_property1 seconds and increases Crush's radius by @emerald_property2"
 		"item_rpc_depth_crest_armor_sapphire1"								"@sapphire_property1% chance to trigger Crush when casting [Q]"
 		"item_rpc_depth_crest_armor_amethyst1"								"Increases Item Damage by @amethyst_property1%"
-		
+
+		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
+
+		"item_property_direwolf"						"Crunch"
+		"property_direwolf_description"					"Your basic attacks deal extra damage equal to <font color='#ccff66'>50</font>% of the target's armor."
+
+		"item_rpc_direwolf_bulwark_ruby1"								"Enemy attacks against you have their damage reduced by @ruby_property1% of your Armor Pierce"
+		"item_rpc_direwolf_bulwark_emerald1"								"Increases Crunch's damage by an additional @emerald_property1% of the target's armor"
+		"item_rpc_direwolf_bulwark_sapphire1"								"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_direwolf_bulwark_amethyst1"								"Your attacks deal an additional instance of magical damage equal to @amethyst_property1% of the target's Magic Armor"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12955,14 +12965,6 @@
 		"item_property_outland_stone"							"Blast Fusion"
 		"property_outland_stone_description"					"Increases the Base Ability Damage of @Ability1 by <font color='#ccff66'>2700</font>%, but stuns self for <font color='#ccff66'>1.5</font> seconds on cast."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"
-		"item_rpc_direwolf_bulwark_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_direwolf_bulwark_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_direwolf_bulwark_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_direwolf_bulwark_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_direwolf"						"Cerberus Core"
-		"property_direwolf_description"					"Each <font color='#ccff66'>10</font> points of your primary attribute increases Base Attack damage by <font color='#ccff66'>20</font>, Armor by <font color='#ccff66'>1</font>, and Base Ability Damage by <font color='#ccff66'>0.1</font>%. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
@@ -15754,6 +15756,10 @@
 
 		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"
 
+		"DOTA_Tooltip_ability_pit_of_trials_cerberus_passive"							"Crunch"
+		"DOTA_Tooltip_ability_pit_of_trials_cerberus_passive_Description"				"Attacks do extra damage based on target's armor"
+
+		"pit_of_trials_descent_cerberus"						"Cerberus"
 
 		"zone_redfall"											"Redfall Ridge"
 
