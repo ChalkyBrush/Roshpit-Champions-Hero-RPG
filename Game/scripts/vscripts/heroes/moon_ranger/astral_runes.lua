@@ -56,6 +56,7 @@ function c_d_think(event)
 	end
 	phoenix:MoveToPosition(orig_caster:GetAbsOrigin() + RandomVector(200))
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), phoenix:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local counter = 0
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			local info =
@@ -76,7 +77,10 @@ function c_d_think(event)
 				iMoveSpeed = 900,
 			iVisionTeamNumber = phoenix:GetTeamNumber()}
 			ProjectileManager:CreateTrackingProjectile(info)
-
+			counter = counter + 1
+			if counter >= ASTRAL_RANGER_R3_MAX_TARGETS then
+				break
+			end
 		end
 	end
 end

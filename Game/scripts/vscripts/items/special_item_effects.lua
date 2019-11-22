@@ -7245,8 +7245,13 @@ function dragon_ceremony_end(event)
 	local hero = event.target
 	local ability = event.ability
 	for i = 1, #ability.dragon_table, 1 do
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf", ability.dragon_table[i], 3)
-		UTIL_Remove(ability.dragon_table[i])
+		local dragon = ability.dragon_table[i]
+		dragon:RemoveModifierByName("modifier_ceremony_beast")
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf", dragon, 3)
+		Events:smoothSizeChange(dragon, 0.35, 0.01, 10)
+		Timers:CreateTimer(0.4, function()
+			UTIL_Remove(dragon)
+		end)
 	end
 end
 
@@ -7330,6 +7335,13 @@ function dragon_ceremony_take_damage(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	for i = 1, #ability.dragon_table, 1 do
-		ability.dragon_table[i]:MoveToPosition(attacker:GetAbsOrigin() + RandomVector(RandomInt(0, 200)))
+		if not ability.dragon_table[i].moveLock then
+			local dragon = ability.dragon_table[i]
+			dragon:MoveToPosition(attacker:GetAbsOrigin() + RandomVector(RandomInt(0, 200)))
+			dragon.moveLock = true
+			Timers:CreateTimer(1, function()
+				dragon.moveLock = false
+			end)
+		end
 	end
 end

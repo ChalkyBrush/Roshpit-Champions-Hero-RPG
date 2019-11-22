@@ -2548,7 +2548,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1600</font> around her. These attacks deal damage based on the Ranger's total attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1000</font> around her. These attacks deal damage based on the Ranger's total attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Phoenix Damage"
