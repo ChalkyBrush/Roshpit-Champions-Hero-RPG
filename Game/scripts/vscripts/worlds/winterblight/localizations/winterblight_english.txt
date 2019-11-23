@@ -61,7 +61,7 @@
 
 		"DOTA_Tooltip_ability_winterblight_wolf_ability"			"Pack Leader"
 		"DOTA_Tooltip_ability_winterblight_wolf_ability_Description"	"Provides increased attack damage % to nearby allies."
-		"DOTA_Tooltip_ability_winterblight_wolf_ability_attacK_damage_increase"				"ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_winterblight_wolf_ability_attack_damage_increase"				"ATTACK DAMAGE %:"
 
 		"DOTA_Tooltip_ability_winterblight_ice_magic_immune_ability"	"Shimmering Ice"
 		"DOTA_Tooltip_ability_winterblight_ice_magic_immune_ability_Description"	"Gain Magic Immunity on an interval."

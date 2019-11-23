@@ -1118,9 +1118,9 @@
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_Description"			"Мгновенно перемещается за спину цели и наносит дополнительный магический урон."
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"ДОП.МАГ.УРОН:"
 
-		"DOTA_Tooltip_ability_normal_steadfast"							"Стойкость"
-		"DOTA_Tooltip_ability_normal_steadfast_Description"				"Любой полученный урон не может нанести больше, чем определенный % от макс. здоровья."
-		"DOTA_Tooltip_ability_normal_steadfast_max_damage"				"МАКСИМАЛЬНЫЙ УРОН НЕ БОЛЕЕ % ОТ МАКС ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_normal_steadfast"							"Steadfast"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"Весь получаемый урон снижен."
+		"DOTA_Tooltip_ability_normal_steadfast_damage_reduce"				"% СНИЖЕНИЕ УРОНА:"
 
 		"DOTA_Tooltip_ability_fire_temple_frenzy"								"Безумие"
 		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"Каждая успешная атака по цели добавляет заряд способности. Каждый заряд увеличивает скорость атаки и передвижения."	
@@ -1364,8 +1364,8 @@
 		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"			"ДОП. УКЛОНЕНИЕ:"
 
 		"DOTA_Tooltip_ability_ancient_god_steadfast"							"Ancient Steadfast"
-		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"				"Любой входящий урон не превышает определённый % от макс. здоровья."
-		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"				"МАКС. УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"				"Весь получаемый урон значительно снижен."
+		"DOTA_Tooltip_ability_ancient_god_steadfast_damage_reduce"				"% СНИЖЕНИЕ УРОНА:"
 
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave"					"Fire Wave"
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"		"Обжигающий дракон летит вперёд, нанося урон всем задетым врагам."

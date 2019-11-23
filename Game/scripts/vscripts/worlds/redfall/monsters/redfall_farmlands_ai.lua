@@ -638,12 +638,13 @@ function recruiter_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
+	local max_stacks = 30
 	-- CustomAbilities:QuickAttachParticle("particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death.vpcf", target, 3)
 	ability:ApplyDataDrivenModifier(attacker, target, "modifier_crimsyth_recruiter_armor_loss", {duration = 7})
 	ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_crimsyth_recruiter_attack_gain", {duration = 7})
 	local armorStacks = target:GetModifierStackCount("modifier_crimsyth_recruiter_armor_loss", attacker) + 1
 	target:SetModifierStackCount("modifier_crimsyth_recruiter_armor_loss", attacker, armorStacks)
-	local attackStacks = attacker:GetModifierStackCount("modifier_crimsyth_recruiter_attack_gain", attacker) + 1
+	local attackStacks = math.min(attacker:GetModifierStackCount("modifier_crimsyth_recruiter_attack_gain", attacker) + 1, max_stacks)
 	attacker:SetModifierStackCount("modifier_crimsyth_recruiter_attack_gain", attacker, attackStacks)
 	target:CalculateAndSaveRoshpitAttributes()
 	attacker:CalculateAndSaveRoshpitAttributes()

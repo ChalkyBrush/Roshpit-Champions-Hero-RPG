@@ -15,7 +15,7 @@ function ritual_healing(event)
 	local target = event.target
 	local caster = event.caster
 	EmitSoundOn("Tanari.RitualHeal", target)
-	local healMult = 0.015
+	local healMult = 0.04
 	if target.paragon then
 		healMult = 0.005
 	end

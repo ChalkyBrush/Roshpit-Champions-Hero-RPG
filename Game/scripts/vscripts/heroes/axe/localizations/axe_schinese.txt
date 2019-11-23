@@ -275,7 +275,7 @@
         "item_rpc_axe_glyph_3_2_description"                "在与 BOSS 战斗时，狂暴之怒每次攻击将叠加 <% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %> 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "红色龙卷雕文"
-        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>%。"
+        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT * 100 %>%。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "牛仔雕文"
         "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> 秒内，@Ability2 的伤害将提高 <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>% 。"

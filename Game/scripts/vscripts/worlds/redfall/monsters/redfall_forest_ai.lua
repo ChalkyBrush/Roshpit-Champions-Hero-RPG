@@ -722,15 +722,18 @@ function forest_ranger_attack_land(event)
 
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
-		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_forest_ranger_bleed", {duration = 6})
-		Timers:CreateTimer(4, function()
-			ParticleManager:DestroyParticle(pfx, false)
+		local key = 'forest_ranger_attack_land_pfx'
+			Util.Common:LimitPerTimeAndPlace(1, 1, target:GetAbsOrigin(), 400, key, function()
+			local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+			EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_forest_ranger_bleed", {duration = 6})
+			Timers:CreateTimer(4, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
 		end)
 	end
 end
@@ -1792,7 +1795,7 @@ function begin_splitshot(event)
 	ability.damage = damage
 
 	EmitSoundOn("Astral.AstralVolleyBig", caster)
-	local projectileParticle = "particles/frostivus_herofx/drow_linear_arrow.vpcf"
+	local projectileParticle = "particles/roshpit/redfall/red_powershot.vpcf"
 
 	local minArrows = -4
 	local maxArrows = 4

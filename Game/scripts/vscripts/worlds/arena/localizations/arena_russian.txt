@@ -746,7 +746,7 @@
 		"arena_descent_boss"													"Мерзкий зомби"
 
 		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
-		"DOTA_Tooltip_modifier_steadfast_Description"										"Входящий урон не может быть больше, чем %% от макс. здоровья существа."
+		"DOTA_Tooltip_modifier_steadfast_Description"										"Весь получаемый урон снижен."
 
 		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
 		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Призывает Забытых монстров из глубин"
