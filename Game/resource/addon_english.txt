@@ -3054,34 +3054,7 @@
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"SPLASH DAMAGE:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"BUFF DURATION:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"STUN DURATION:"
-
-
-
-
-
-
-
-
-
-	"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
-        "DOTA_Tooltip_ability_stun_attack_Description"                  "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Skull Basher and Berserker Rage durations are refreshed and paused while leaping. Max jump distance: 1200."
-        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
-        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "ATTACK SPEED BONUS:"
-        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "SPLASH DAMAGE:"
-        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "BUFF DURATION:"
-        "DOTA_Tooltip_ability_stun_attack_duration"                     "STUN DURATION:"
- 
-        "DOTA_Tooltip_modifier_stun_attack"                             "Skull Basher"
-        "DOTA_Tooltip_modifier_stun_attack_Description"                 "Attack stun enemies and deal damage in an area"
- 
-        "DOTA_Tooltip_ability_red_general_skull_basher"                             "Skull Basher"
-        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Berserker Rage duration is paused while leaping."
-        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
-        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "ATTACK SPEED BONUS:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "SPLASH DAMAGE:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "BUFF DURATION:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "STUN DURATION:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "MAX JUMP RANGE:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_aoe"				"SPLASH BASE RADIUS:"
 		
 	"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Increases the base damage of Skull Basher by a % of attack damage."
@@ -3332,10 +3305,10 @@
         "item_rpc_axe_glyph_1_2_description"                "Enemy units struck by @Ability2 are ministunned for <font color='#ccff66'>0.08</font> seconds."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "Glyph of Ruptured Steel"
-        "item_rpc_axe_glyph_2_2_description"                "Enemies hit by @Ability1 have their armor reduced by <font color='#ccff66'>-750</font>."
+        "item_rpc_axe_glyph_2_2_description"                "Enemies hit by @Ability1 have their armor reduced by <font color='#ccff66'>-750</font> for <font color='#ccff66'>15</font> seconds."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
-        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Reduced Armor"	
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Armor reduced for <font color='#ccff66'>15</font> seconds."	
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "Glyph of Adamantium Rage"
         "item_rpc_axe_glyph_3_2_description"                "Berserker Rage gains <font color='#ccff66'>4</font> stacks instead of 1 whenever you attack a boss status enemy."
@@ -3350,7 +3323,7 @@
         "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E4] to <font color='#ccff66'>80</font>%, but decreases the chance of generating a stack to just <font color='#ccff66'>75</font>% per rune level instead of <font color='#ccff66'>150</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "Glyph of Rage"
-        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to <font color='#ccff66'>75</font>, and you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by <font color='#ccff66'>3</font>."
+        "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to <font color='#ccff66'>50</font>, and you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by <font color='#ccff66'>2</font>."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by <font color='#ccff66'>50</font>%."
@@ -5842,14 +5815,10 @@
     	"DOTA_Tooltip_modifier_warlord_stone_form_Description"			"Magic Immunity and reduced movespeed"	
     	
     	"DOTA_Tooltip_ability_warlord_ice_shell"						"Ice Shell"
-    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Warlord applies a frosty shield that absorbs instances of magic and pure damage."
+    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Warlord applies a frosty shield that absorbs instances of pure damage."
     	"DOTA_Tooltip_ability_warlord_ice_shell_duration"				"DURATION:"
-    	"DOTA_Tooltip_ability_warlord_ice_shell_magic_instances_absorbed"	"MAGIC DAMAGE INSTANCES ABSORBED:"
-		"DOTA_Tooltip_ability_warlord_ice_shell_pure_instances_absorbed"	" PURE DAMAGE INSTANCES ABSORBED:"
+		"DOTA_Tooltip_ability_warlord_ice_shell_pure_instances_absorbed"	"PURE DAMAGE INSTANCES ABSORBED:"
 		
-
-    	"DOTA_Tooltip_modifier_warlord_ice_shell"						"Ice Shell"
-    	"DOTA_Tooltip_modifier_warlord_ice_shell_Description"			"Absorbing magic damage"
 		"DOTA_Tooltip_modifier_warlord_ice_shell_pure"						"Ice Shell"
     	"DOTA_Tooltip_modifier_warlord_ice_shell_pure_Description"			"Absorbing pure damage"
 
@@ -15637,7 +15606,7 @@
 		"arena_descent_boss"													"Pit Abomination"
 
 		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
-		"DOTA_Tooltip_modifier_steadfast_Description"										"Incoming damage is capped at a %% of max health"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"All Damage taken is reduced."
 
 		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
 		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Forsaken monster of the depths"
@@ -15897,6 +15866,7 @@
 		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"Fury Swipes"
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Successive attacks deal increased damage."
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"DAMAGE PER STACK:"
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_max_stacks" 		"MAX STACKS:"
 
 		"DOTA_Tooltip_modifier_fury_swipes_target_datadriven"				"Fury Swipes"
 		"DOTA_Tooltip_modifier_fury_swipes_target_datadriven_Description"	"Taking increased physical damage with each stack"
@@ -16287,7 +16257,10 @@
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"Attacks leave a stacking armor debuff on the target, while increasing the attack speed and attack damage of the owner."
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"ARMOR REDUCTION PER HIT:"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"ATTACK SPEED PER HIT:"
-		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ATTACK DAMAGE PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ATTACK DAMAGE % PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_max_stacks"				"MAX STACKS:"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"Armor Loss"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_attack_gain"						"Bonus attack damage and attack speed gain"
 
 		"DOTA_Tooltip_ability_shipyard_plasma_field"					"Energy Conductor"
 		"DOTA_Tooltip_ability_shipyard_plasma_field_Description"		"Deals damage in an expanding circle. Deals much less damage closer to the center."
@@ -16516,6 +16489,7 @@
 
 		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive"		"Domination"
 		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_Description"	"Links up with the target, reducing their movespeed and vision radius and allowing the Sadist to pull himself closer. Tether breaks at 2000 distance."
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_burn_damage"	"DAMAGE:"
 		
 		"DOTA_Tooltip_ability_sadist_blood_bath"						"Blood Bath"
 		"DOTA_Tooltip_ability_sadist_blood_bath_Description"			"Creates a ritualistic circle of blood that pops after a 2 second delay. Anyone within the radius as it explodes is silenced and takes magic damage."
@@ -16596,7 +16570,11 @@
 
 		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive"				"Tormented Fervor"
 		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_Description"	"Attacks leave a stacking armor debuff, and the attacker increases his attack speed with each successive strike."
-
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_armor_reduce_per_hit"	"ARMOR REDUCTION PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_attack_speed_per_hit"	"ATTACK SPEED PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_attack_damage_per_hit"	"ATTACK DAMAGE % PER HIT:"
+		
+		
 		"redfall_crimsyth_mage"											"Crimsyth Mage"
 		"redfall_crimsyth_mage_elite"									"Crimsyth Mage Elite"	
 
@@ -16700,7 +16678,7 @@
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"CHARGES:"
 
 		"DOTA_Tooltip_ability_mega_steadfast"							"Mega Steadfast"
-		"DOTA_Tooltip_ability_mega_steadfast_Description"				"All Damage taken is reduced."
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"Reduces all damage taken."
 		"DOTA_Tooltip_ability_mega_steadfast_damage_reduce"				"% DAMAGE REDUCTION:"
 		"DOTA_Tooltip_modifier_mega_steadfast"									"Mega Steadfast"
 		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"Taking reduced damage."
@@ -20009,7 +19987,7 @@
 
 		"DOTA_Tooltip_ability_winterblight_wolf_ability"			"Pack Leader"
 		"DOTA_Tooltip_ability_winterblight_wolf_ability_Description"	"Provides increased attack damage % to nearby allies."
-		"DOTA_Tooltip_ability_winterblight_wolf_ability_attacK_damage_increase"				"ATTACK DAMAGE %:"
+		"DOTA_Tooltip_ability_winterblight_wolf_ability_attack_damage_increase"				"ATTACK DAMAGE %:"
 
 		"DOTA_Tooltip_ability_winterblight_ice_magic_immune_ability"	"Shimmering Ice"
 		"DOTA_Tooltip_ability_winterblight_ice_magic_immune_ability_Description"	"Gain Magic Immunity on an interval."
