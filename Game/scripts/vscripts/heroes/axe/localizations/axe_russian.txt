@@ -1,22 +1,11 @@
-		"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
-        "DOTA_Tooltip_ability_stun_attack_Description"                  "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным взрывом. Также на время действия повышается скорость атаки."
-        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
-        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "ДОП. СКОРОСТЬ АТАКИ:"
-        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "УРОН ОТ ВЗРЫВА:"
-        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "ДЛИТЕЛЬНОСТЬ:"
-        "DOTA_Tooltip_ability_stun_attack_duration"                     "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
- 
-        "DOTA_Tooltip_modifier_stun_attack"                             "Skull Basher"
-        "DOTA_Tooltip_modifier_stun_attack_Description"                 "Все базовые атаки наносят урон и оглушают врагов в области действия."
- 
-        "DOTA_Tooltip_ability_red_general_skull_basher"                             "Skull Basher"
-        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным взрывом. Также на время действия повышается скорость атаки. Во время прыжка время действия [Q2] Berserker Rage приостанавливается."
-        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
-        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "ДОП. СКОРОСТЬ АТАКИ:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "УРОН ОТ ВЗРЫВА:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "ДЛИТЕЛЬНОСТЬ:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "МАКС. ДАЛЬНОСТЬ ПРЫЖКА:"
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"Skull Basher"
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"Стихия: <font color=\"#DDDDDD\">Нормальный</font><br>Герой прыгает в указанную точку. С каждой атакой Red General оглушает врагов мощным ударом по области. Также на время действия повышается скорость атаки. Во время прыжка время действия [Q2] Berserker Rage приостанавливается."
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Lore"					""
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_attack_speed"			"ДОП. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"УРОН ОТ УДАРА:"
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_aoe"				"БАЗОВЫЙ РАДИУС ЭФФЕКТА:"
 		
 		"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Увеличивает урон от умения @Ability1 на % от урона героя."
@@ -54,7 +43,7 @@
         "DOTA_Tooltip_ability_red_general_ability_base_w_backshock_speed"                          "СКОРОСТЬ ВОЛНЫ:"
 		
 		"DOTA_Tooltip_ability_axe_rune_w_1"                             "[W1] Aftershock"
-        "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "Враги, задетые бороздой от умения @Ability2 получают дополнительный урон каждые 0.3 секуны в течении 3 секунд."
+        "DOTA_Tooltip_ability_axe_rune_w_1_Description"                 "Враги, задетые бороздой от умения @Ability2 получают дополнительный урон каждые 0.3 секунды в течении 3 секунд."
         "DOTA_Tooltip_ability_axe_rune_w_1_property_one"                "Урон за тик"
         "DOTA_Tooltip_ability_axe_rune_w_1_suffix"                      "% от урона Spur Shock"
 		"DOTA_Tooltip_modifier_axe_rune_w_1_visible"					"Aftershock"
@@ -258,7 +247,7 @@
         "item_rpc_axe_glyph_1_2_description"                "Враги, задетые умением (W) @Ability2 будут кратковременно оглушены на <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> секунды."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "(T2-2) Glyph of Ruptured Steel"
-        "item_rpc_axe_glyph_2_2_description"                "Руна [Q4] дополнительно снижает вражескую броню на -<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> за заряд."
+        "item_rpc_axe_glyph_2_2_description"                "@Ability1 дополнительно снижает вражескую броню на <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %>."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Снижена броня"	
@@ -267,7 +256,7 @@
         "item_rpc_axe_glyph_3_2_description"                "Руна [Q2] даёт герою <% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %> заряда(ов) вместо 1, если целью атаки является босс."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "(T4-2) Glyph of the Red Cyclone"
-        "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>%."
+        "item_rpc_axe_glyph_4_2_description"                "Во время действия умения (E) @Ability3, весь входящий урон снижается на <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT * 100 %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "(T5-2) Glyph of Stampede"
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> секунд урон умения (W) @Ability2 будет увеличен на <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"

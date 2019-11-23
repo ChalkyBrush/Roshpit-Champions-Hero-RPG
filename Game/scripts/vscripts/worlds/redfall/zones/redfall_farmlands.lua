@@ -357,14 +357,6 @@ function Redfall:SpawnCrimsythBandit(position, fv)
 	ancient.targetRadius = 950
 	ancient.minRadius = 0
 	ancient.targetAbilityCD = 1
-	local damage = 800
-	if GameState:GetDifficultyFactor() == 2 then
-		damage = 8000
-	elseif GameState:GetDifficultyFactor() == 3 then
-		damage = 85000
-	end
-	ancient:SetBaseDamageMin(damage)
-	ancient:SetBaseDamageMax(damage)
 	ancient.targetFindOrder = FIND_ANY_ORDER
 	ancient.dominion = true
 	return ancient

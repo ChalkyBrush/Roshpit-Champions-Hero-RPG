@@ -178,9 +178,12 @@ function red_general_rune_base_e_3_damageEnemies(caster, enemies)
         for _, enemy in pairs(enemies) do
             local damageWithWeapon = damage * ImmortalWeapon2.getAmp(caster, enemy)
             Filters:TakeArgumentsAndApplyDamage(enemy, caster, damageWithWeapon, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-            EmitSoundOn("RedGeneral.HitSpin", enemy)
-            CustomAbilities:QuickParticleAtPoint("particles/roshpit/solunia/boomerang_impact.vpcf", enemy:GetAbsOrigin() + Vector(0, 0, 100), 0.5)
+			local key = 'red_general_e_3_particle'
+			Util.Common:LimitPerTimeAndPlace(10, 0.7, enemy:GetAbsOrigin(), 400, key, function()
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/solunia/boomerang_impact.vpcf", enemy:GetAbsOrigin() + Vector(0, 0, 100), 0.5)
+			end)         
         end
+		EmitSoundOn("RedGeneral.HitSpin", enemy)
     end
 end
 

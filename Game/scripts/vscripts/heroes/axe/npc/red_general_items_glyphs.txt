@@ -507,7 +507,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT * 100 %>"
 			}
 		}
 	}

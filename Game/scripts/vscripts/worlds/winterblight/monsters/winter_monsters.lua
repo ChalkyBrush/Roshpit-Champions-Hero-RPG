@@ -168,7 +168,6 @@ function raxxus_attack_land(event)
 	local damage = event.damage
 	local icePoint = victim:GetAbsOrigin()
 	local radius = 240
-	EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
 	local key = victim:GetEntityIndex() .. '_raxxus_attack_land'
 	Util.Common:LimitPerTime(1, 1, key .. '_particles',function()
 		EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
@@ -179,6 +178,7 @@ function raxxus_attack_land(event)
 		Timers:CreateTimer(2.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
+		EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", caster)
 	end)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then

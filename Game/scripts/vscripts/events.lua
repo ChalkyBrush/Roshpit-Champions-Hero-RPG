@@ -592,6 +592,18 @@ function GameMode:OnPlayerChat(keys)
 			Gems:AddSocket(item)
 			RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
 		end
+	elseif string.match(text, "-myth40") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 40, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-myth80") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 80, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
 	elseif string.match(text, "-gems") then
 		if Beacons.cheats then
 			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())

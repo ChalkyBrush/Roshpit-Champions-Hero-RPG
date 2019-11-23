@@ -125,6 +125,7 @@
 		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"Fury Swipes"
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Каждая успешная атака увеличивает урон."
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"ДОП. УРОН ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_max_stacks" 		"МАКСИМУМ ЗАРЯДОВ:"
 
 		"DOTA_Tooltip_ability_redfall_poison_sting"				"Poison Sting"
 		"DOTA_Tooltip_ability_redfall_poison_sting_Description"	"Отравляет цель складывающимся эффектом яда."
@@ -500,7 +501,10 @@
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"С каждой атакой снижает броню цели, одновременно увеличивая свои урон и скорость атаки."
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"СНИЖЕНИЕ БРОНИ ЗА УДАР:"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"ДОП. СКОРОСТЬ АТАКИ ЗА УДАР:"
-		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ДОП. УРОН ЗА УДАР:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ДОП. УРОН % ЗА УДАР:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_max_stacks"				"МАКСИМУМ СТАКОВ:"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"Снижение Брони"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_attack_gain"						"Бонус Урона Атаки и Скорости Атаки"
 
 		"DOTA_Tooltip_ability_shipyard_plasma_field"					"Energy Conductor"
 		"DOTA_Tooltip_ability_shipyard_plasma_field_Description"		"Наносит урон расширяющимся кругом. Круг наносит меньше урона в центре."
@@ -722,7 +726,8 @@
 		"DOTA_Tooltip_modifier_erakor_burning"							"Burning"
 
 		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive"		"Domination"
-		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_Description"	"Связывает себя с целью, снижая её скорость атаки и радиус обзора. Дополнительно позволяет Садисту Эракору быстро сократить дистанцию. Связь разорвётся на расстоянии более 2000."
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_Description"	"Связывает себя с целью, снижая её скорость атаки и радиус обзора. Дополнительно позволяет Садисту Эракору быстро сократить дистанцию. Связь разорвётся на расстоянии более 2000. Источает пламя, наносящее урон, во все стороны."
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_burn_damage"	"УРОН:"
 		
 		"DOTA_Tooltip_ability_sadist_blood_bath"						"Blood Bath"
 		"DOTA_Tooltip_ability_sadist_blood_bath_Description"			"Создаёт ритуальный круг крови, который через две секунды взорвётся. Все враги, оказавшиеся в круге в момент взрыва будут обезмолвлены и получат магический урон."
@@ -803,7 +808,10 @@
 
 		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive"				"Tormented Fervor"
 		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_Description"	"С каждой успешной атакой снижает броню цели, увеличивает свою скорость атаки."
-
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_armor_reduce_per_hit"	"СНИЖЕНИЕ БРОНИ ЗА УДАР:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_attack_speed_per_hit"	"ДОП. СКОРОСТЬ АТАКИ ЗА УДАР:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_attack_damage_per_hit"	"ДОП. УРОН % ЗА УДАР:"
+		
 		"redfall_crimsyth_mage"											"Маг Кримсит"
 		"redfall_crimsyth_mage_elite"									"Элитный маг Кримсит"	
 

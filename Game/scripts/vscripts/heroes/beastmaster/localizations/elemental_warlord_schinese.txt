@@ -22,8 +22,8 @@
     	"DOTA_Tooltip_ability_warlord_ice_shell_duration"				"持续时间："
     	"DOTA_Tooltip_ability_warlord_ice_shell_magic_instances_absorbed"	"伤害吸收次数："
 
-    	"DOTA_Tooltip_modifier_warlord_ice_shell"						"寒冰护盾"
-    	"DOTA_Tooltip_modifier_warlord_ice_shell_Description"			"吸收魔法伤害"
+    	"DOTA_Tooltip_modifier_warlord_ice_shell_pure"						"寒冰护盾"
+    	"DOTA_Tooltip_modifier_warlord_ice_shell_pure_Description"			"吸收魔法伤害"
 
     	"DOTA_Tooltip_ability_warlord_flame_rush"						"烈火奔腾"
     	"DOTA_Tooltip_ability_warlord_flame_rush_Description"			"内心的火焰激发了督军的斗志，提高其攻击力、移动速度和攻击速度。"
