@@ -261,14 +261,17 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
-		"item_rpc_enchanted_solar_cape_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_enchanted_solar_cape_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_enchanted_solar_cape_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_enchanted_solar_cape_amethyst1"							"blah blah @amethyst_property1 gem"
+
 		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"При получении магического или чистого урона, усиливает Базовый Урон Способностей и урон всех Элементов на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_DURATION %> секунд."
+		"property_enchanted_solar_description"		"Every <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> seconds, gain a Sunlight stack. Upon reaching <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> stacks, gain the Solar Flare buff for <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> seconds. During Solar Flare, all cooldown are reduced by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %> and cast rate is increased by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%. Cannot gain Sunlight stacks during Solar Flare."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"Урон всех Базовых Умений и всех Элементов увеличен на 400%%"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %>%% reduced cooldowns and <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% increased cast rate."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+
+		"item_rpc_enchanted_solar_cape_ruby1"							"Casting [R] while Solar Flare is inactive adds @ruby_property1 Sunlight Stacks"
+		"item_rpc_enchanted_solar_cape_emerald1"							"Reduces the required number of Sunlight stacks to trigger Solar Flare by @emerald_property1"
+		"item_rpc_enchanted_solar_cape_sapphire1"							"Increases Base Ability and Item Damage by @sapphire_property1% during Solar Flare"
+		"item_rpc_enchanted_solar_cape_amethyst1"							"Increases Spell Pierce and Magic Armor by @amethyst_property1 during Solar Flare"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"

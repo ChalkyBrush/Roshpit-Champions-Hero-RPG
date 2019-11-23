@@ -12666,14 +12666,16 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"魔日披肩"
-		"item_rpc_enchanted_solar_cape_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_enchanted_solar_cape_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_enchanted_solar_cape_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_enchanted_solar_cape_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_enchanted_solar"				"耀斑"
-		"property_enchanted_solar_description"		"受到任何魔法或纯粹伤害提高玩家基础技能伤害和元素伤害 <font color='#ccff66'>0</font>% ，持续<font color='#ccff66'>0</font>秒。"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"耀斑"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高<font color='#ccff66'>0</font>%"
+		"property_enchanted_solar_description"		"Every <font color='#ccff66'>0.5</font> seconds, gain a Sunlight stack. Upon reaching <font color='#ccff66'>24</font> stacks, gain the Solar Flare buff for <font color='#ccff66'>12</font> seconds. During Solar Flare, all cooldown are reduced by <font color='#ccff66'>66</font> and cast rate is increased by <font color='#ccff66'>60</font>%. Cannot gain Sunlight stacks during Solar Flare."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<font color='#ccff66'>66</font>%% reduced cooldowns and <font color='#ccff66'>60</font>%% increased cast rate."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+
+		"item_rpc_enchanted_solar_cape_ruby1"							"Casting [R] while Solar Flare is inactive adds @ruby_property1 Sunlight Stacks"
+		"item_rpc_enchanted_solar_cape_emerald1"							"Reduces the required number of Sunlight stacks to trigger Solar Flare by @emerald_property1"
+		"item_rpc_enchanted_solar_cape_sapphire1"							"Increases Base Ability and Item Damage by @sapphire_property1% during Solar Flare"
+		"item_rpc_enchanted_solar_cape_amethyst1"							"Increases Spell Pierce and Magic Armor by @amethyst_property1 during Solar Flare"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"海洋风暴披肩"
