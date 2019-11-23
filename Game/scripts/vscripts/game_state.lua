@@ -2490,11 +2490,6 @@ function GameState:FilterDamage(filterTable)
 			mult = mult + amp
 		end
 	end
-	if victim:HasModifier("modifier_enchanted_solar_cape") then
-		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			victim.body:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_DURATION})
-		end
-	end
 	if victim:HasModifier("modifier_arcane_shell") then
 		filterTable["damage"] = 0
 		Filters:ShatterArcaneShell(victim, attacker)

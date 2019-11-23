@@ -1416,6 +1416,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_empyreal_magic_armor") then
 		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_empyreal_magic_armor"):GetStackCount()
 	end
+    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
+        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
+        magic_armor_modify = magic_armor_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
+    end
 
 	-- FINAL STEP DEFILER
 
@@ -1847,6 +1851,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_empyreal_spell_pierce") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_empyreal_spell_pierce"):GetStackCount()
 	end
+    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
+        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
+        spell_pierce_modify = spell_pierce_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
+    end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

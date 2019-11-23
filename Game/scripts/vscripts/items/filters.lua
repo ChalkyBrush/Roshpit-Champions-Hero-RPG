@@ -205,7 +205,10 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:IsHero() then
         mult = mult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_head_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_weapon_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_hands_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_feet_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_body_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_amulet_item_damage", 1))
     end
-
+    if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
+        local solar_cape = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+        mult = mult + solar_cape:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_SAPPHIRE)/100
+    end
     if casterName == "npc_dota_hero_spirit_breaker" and caster:HasAbility("whirling_flail") then
         local q_2_level = caster:GetRuneValue("q", 2)
         mult = mult + DUSKBRINGER_Q2_ITEM_PCT * q_2_level
@@ -666,6 +669,18 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
     end
 end
 
+function Filters:SkillArgumentSlotToHeroAbility(hero, slot)
+    if slot == BASE_ABILITY_Q then
+        return hero:GetAbilityByIndex(DOTA_Q_SLOT)
+    elseif slot == BASE_ABILITY_W then
+        return hero:GetAbilityByIndex(DOTA_W_SLOT)
+    elseif slot == BASE_ABILITY_E then
+        return hero:GetAbilityByIndex(DOTA_E_SLOT)
+    elseif slot == BASE_ABILITY_R then
+        return hero:GetAbilityByIndex(DOTA_R_SLOT)
+    end
+end
+
 function Filters:CastSkillArguments(slot, caster)
     if caster:GetUnitName() == "npc_dota_hero_beastmaster" then
         caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "warlord")
@@ -692,6 +707,11 @@ function Filters:CastSkillArguments(slot, caster)
     end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
+    if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
+        local cd_reduc_ability = Filters:SkillArgumentSlotToHeroAbility(caster, slot)
+        local percentageReduction = ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT/100
+        Filters:ReduceCDByPercentage(caster, cd_reduc_ability, percentageReduction)
+    end
     if caster:HasModifier("modifier_bladestorm_vest_buff") then
         local proc = false
         if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
@@ -1134,7 +1154,12 @@ function Filters:ApplyEskills(caster)
 end
 
 function Filters:ApplyRskills(caster)
-
+    if caster:HasModifier("modifier_enchanted_solar_cape") then
+        local solar_cape = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+        if solar_cape:GetGemValue("ruby") > 0 then
+            Filters:AddSolarCapeStacks(caster, caster.InventoryUnit, solar_cape, solar_cape:GetFinalGemPropertyValue("ruby", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_RUBY))
+        end
+    end
     if caster:HasModifier("modifier_hurricane_vest") then
         --print(caster.InventoryUnit:GetUnitName())
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_hurricane_vest_start", {duration = 0.3})
@@ -1354,9 +1379,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_torch_of_gengar_effect") then
             damageMult = damageMult + ITEM_RPC_TORCH_OF_GENGAR_BAD/100
         end
-        if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
-            damageMult = damageMult + ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
-        end
         if attacker:HasModifier("modifier_boots_of_old_wisdom_active") then
             damageMult = damageMult + ITEM_RPC_BOOTS_OF_OLD_WISDOM_BAD/100
         end
@@ -1408,6 +1430,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
+            local solar_cape = attacker.equipped_gear[RPC_GEAR_SLOT_BODY]
+            damageMult = damageMult + solar_cape:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_SAPPHIRE)/100
         end
         if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
             local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")
@@ -1834,9 +1860,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_neutral_glyph_2_3") then
             mult = mult + 3
-        end
-        if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
-            mult = mult + ITEM_RPC_ENCHANTED_SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP/100
         end
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
@@ -4977,6 +5000,19 @@ function Filters:DepthCrestArmor(caster, ability, chance)
                 Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NORMAL)
                 Filters:ApplyStun(caster, ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION, enemy)
             end
+        end
+    end
+end
+
+function Filters:AddSolarCapeStacks(hero, caster, ability, stacks_count)
+    if not hero:HasModifier("modifier_enchanted_solar_cape_effect") then
+        local new_stacks = hero:GetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster) + stacks_count
+        ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_sunlight", {})
+        hero:SetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster, new_stacks)
+        local stacks_for_flare = ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_EMERALD)
+        if new_stacks >= ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS then
+            ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION})
+            hero:RemoveModifierByName("modifier_enchanted_solar_cape_sunlight")
         end
     end
 end

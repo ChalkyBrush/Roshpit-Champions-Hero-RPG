@@ -12573,6 +12573,19 @@
 		"item_rpc_empyreal_sunrise_robe_sapphire1"					"Increases your Spell Pierce by @sapphire_property1x your lowest attribute"
 		"item_rpc_empyreal_sunrise_robe_amethyst1"					"Increases your Magic Armor by @amethyst_property1 your lowest attribute"
 
+		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
+
+		"item_property_enchanted_solar"				"Solar Flare"
+		"property_enchanted_solar_description"		"Every <font color='#ccff66'>0.5</font> seconds, gain a Sunlight stack. Upon reaching <font color='#ccff66'>24</font> stacks, gain the Solar Flare buff for <font color='#ccff66'>12</font> seconds. During Solar Flare, all cooldown are reduced by <font color='#ccff66'>66</font> and cast rate is increased by <font color='#ccff66'>60</font>%. Cannot gain Sunlight stacks during Solar Flare."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<font color='#ccff66'>66</font>%% reduced cooldowns and <font color='#ccff66'>60</font>%% increased cast rate."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+
+		"item_rpc_enchanted_solar_cape_ruby1"							"Casting [R] while Solar Flare is inactive adds @ruby_property1 Sunlight Stacks"
+		"item_rpc_enchanted_solar_cape_emerald1"							"Reduces the required number of Sunlight stacks to trigger Solar Flare by @emerald_property1"
+		"item_rpc_enchanted_solar_cape_sapphire1"							"Increases Base Ability and Item Damage by @sapphire_property1% during Solar Flare"
+		"item_rpc_enchanted_solar_cape_amethyst1"							"Increases Spell Pierce and Magic Armor by @amethyst_property1 during Solar Flare"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12751,16 +12764,6 @@
 		"item_property_infernal_prison"				"Immolation"
 		"property_infernal_prison_description"		"Enemies who attack you are engulfed in flames, losing 110 attack speed and taking 50x your armor as magic damage every 0.5 seconds. Nearby enemies lose 260 attack speed and take<br>100% attack power as magic damage every 0.5 seconds."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
-		"item_rpc_enchanted_solar_cape_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_enchanted_solar_cape_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_enchanted_solar_cape_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_enchanted_solar_cape_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Taking any Magical or Pure damage increases both Base Ability Damage and all Elemental Damage bonuses by <font color='#ccff66'>400</font>% for <font color='#ccff66'>15</font> seconds."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"All Base Ability damage and Elemental damage increased by <font color='#ccff66'>400</font>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"Ocean Tempest Pallium"
