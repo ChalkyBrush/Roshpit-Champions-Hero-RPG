@@ -142,7 +142,7 @@
     	"DOTA_Tooltip_ability_trapper_backstab_damage_mult"			"МНОЖИТЕЛЬ УРОНА:"
 		
 		"DOTA_Tooltip_ability_trapper_rune_r_1"						"[R1] Chrysanthemum"
-    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Применение (R) Backstab разделяет атаку Trapper, позволяя задеть несколько целей рядом с основной. Разделённые атаки нанесут лишь часть урона от (R) Backstab, игнорирует Стойкость."
+    	"DOTA_Tooltip_ability_trapper_rune_r_1_Description"			"Применение (R) Backstab разделяет атаку Trapper, позволяя задеть несколько целей рядом с основной. Разделённые атаки нанесут лишь часть урона от (R) Backstab."
     	"DOTA_Tooltip_ability_trapper_rune_r_1_property_one"		"Урон"
     	"DOTA_Tooltip_ability_trapper_rune_r_1_suffix"				"%"	
 		

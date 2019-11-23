@@ -366,7 +366,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CONJUROR_W2_BONUS_DMG_PCT %>"
 			}
 			"01"
@@ -695,7 +695,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-<% CONJUROR_R2_ARMOR_SHRED %>"
+				"property_two"			"<% CONJUROR_R2_ARMOR_SHRED %>"
 			}
 		}
 	}

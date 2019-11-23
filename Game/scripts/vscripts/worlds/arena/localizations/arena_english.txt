@@ -758,7 +758,7 @@
 		"arena_descent_boss"													"Pit Abomination"
 
 		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
-		"DOTA_Tooltip_modifier_steadfast_Description"										"Incoming damage is capped at a %% of max health"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"All Damage taken is reduced."
 
 		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
 		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Forsaken monster of the depths"

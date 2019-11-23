@@ -99,7 +99,7 @@ function earth_aspect(event)
 	if caster:HasModifier("modifier_conjuror_glyph_2_1") then
 		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
-	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
+	local q_1_level = caster:GetRuneValue("q", 1)
 	aspectHealth = aspectHealth * (1 + q_1_level * CONJUROR_Q1_ASPECT_HP_BONUS_PCT/100)
 	Timers:CreateTimer(0.05, function()
 		caster.earthAspect:SetMaxHealth(aspectHealth)
@@ -112,7 +112,7 @@ function earth_aspect(event)
 		caster.earthAspect:CalculateAndSaveRoshpitAttributes()
 		common_aspect_effects(caster, ability, caster.earthAspect)
 	end)
-	if has_rune_q_1(ability, caster) then
+	if q_1_level > 0 then
 		local runeUnit = caster.runeUnit
 		local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_1")
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_earth_guardian", {})

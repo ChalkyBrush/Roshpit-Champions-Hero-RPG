@@ -5,34 +5,7 @@
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"SPLASH DAMAGE:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"BUFF DURATION:"
 	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"STUN DURATION:"
-
-
-
-
-
-
-
-
-
-	"DOTA_Tooltip_ability_stun_attack"                              "Skull Basher"
-        "DOTA_Tooltip_ability_stun_attack_Description"                  "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Skull Basher and Berserker Rage durations are refreshed and paused while leaping. Max jump distance: 1200."
-        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
-        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "ATTACK SPEED BONUS:"
-        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "SPLASH DAMAGE:"
-        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "BUFF DURATION:"
-        "DOTA_Tooltip_ability_stun_attack_duration"                     "STUN DURATION:"
- 
-        "DOTA_Tooltip_modifier_stun_attack"                             "Skull Basher"
-        "DOTA_Tooltip_modifier_stun_attack_Description"                 "Attack stun enemies and deal damage in an area"
- 
-        "DOTA_Tooltip_ability_red_general_skull_basher"                             "Skull Basher"
-        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "Element: <font color=\"#DDDDDD\">Normal</font><br>Leap to the targeted point, and gain a buff offering massive stunning blows and increased attack speed for the duration.  Berserker Rage duration is paused while leaping."
-        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
-        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "ATTACK SPEED BONUS:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "SPLASH DAMAGE:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "BUFF DURATION:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "STUN DURATION:"
-        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "MAX JUMP RANGE:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_aoe"				"SPLASH BASE RADIUS:"
 		
 	"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] Massive Impact"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "Increases the base damage of Skull Basher by a % of attack damage."
@@ -283,16 +256,16 @@
         "item_rpc_axe_glyph_1_2_description"                "Enemy units struck by @Ability2 are ministunned for <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> seconds."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "Glyph of Ruptured Steel"
-        "item_rpc_axe_glyph_2_2_description"                "Enemies hit by @Ability1 have their armor reduced by <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %>."
+        "item_rpc_axe_glyph_2_2_description"                "Enemies hit by @Ability1 have their armor reduced by <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> for <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE_DURATION %> seconds."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
-        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Reduced Armor"	
+        "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Armor reduced for <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE_DURATION %> seconds."	
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "Glyph of Adamantium Rage"
         "item_rpc_axe_glyph_3_2_description"                "Berserker Rage gains <% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %> stacks instead of 1 whenever you attack a boss status enemy."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "Glyph of the Red Cyclone"
-        "item_rpc_axe_glyph_4_2_description"                "During @Ability3, all incoming damage is reduced by <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT %>%."
+        "item_rpc_axe_glyph_4_2_description"                "During @Ability3, all incoming damage is reduced by <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT * 100 %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "Glyph of Stampede"
         "item_rpc_axe_glyph_5_2_description"                "For <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> seconds after successfully casting @Ability4, the damage of @Ability2 is increased by <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"

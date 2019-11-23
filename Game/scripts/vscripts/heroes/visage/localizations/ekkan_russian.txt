@@ -177,7 +177,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_r_1_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_r_2"								"[R2] Scourge Swarm"
-    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"@Ability4 можно применить на врага. Враг получает чистый урон, основанный на сумме урона всей подчинённой армии. Этот урон игнорирует 'Стойкость'."
+    	"DOTA_Tooltip_ability_ekkan_rune_r_2_Description"					"@Ability4 можно применить на врага. Враг получает чистый урон, основанный на сумме урона всей подчинённой армии."
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_property_one"					"Урон"
     	"DOTA_Tooltip_ability_ekkan_rune_r_2_suffix"						"% от общего урона всех подчинённых юнитов."
 
@@ -199,7 +199,7 @@
     	"property_ekkan_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Aphotic Dominion."
 
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion"								"Aphotic Dominion"
-    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_Description"					"Стихия: <font color=\"#5C776E\">Нежить</font> / <font color=\"#5B648C\">Демон</font><br>Ekkan проклинает душу выбранного существа. Цель каждые 0.5 секунды получает урон, зависящий от собственного урона и замедляется. Если жертва проклятья погибает во время действия этого умения, юнит присоединяется к армии Ekkan до своей последней смерти. Подчинённые юниты всегда получают бонусную способность 'Стойкость'."
+    	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_Description"					"Стихия: <font color=\"#5C776E\">Нежить</font> / <font color=\"#5B648C\">Демон</font><br>Ekkan проклинает душу выбранного существа. Цель каждые 0.5 секунды получает урон, зависящий от собственного урона и замедляется. Если жертва проклятья погибает во время действия этого умения, юнит присоединяется к армии Ekkan до своей последней смерти. Подчинённые юниты всегда получают бонусную способность 'Steadfast', которая снижает получаемый урон."
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_max_summons"					"МАКСИМУМ ПОДЧИНЁННЫХ ЮНИТОВ:"
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_move_slow"						"ЗАМЕДЛЕНИЕ, %:"
     	"DOTA_Tooltip_ability_ekkan_arcana_black_dominion_debuff_duration"				"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"

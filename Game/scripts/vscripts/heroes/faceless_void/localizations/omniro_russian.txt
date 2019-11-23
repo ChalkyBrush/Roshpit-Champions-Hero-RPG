@@ -182,7 +182,7 @@
 		"omniro_water_orb_description"										"Водный поток подбрасывает и оглушает противников в радиусе <% OMNIRO_WATER_ORB_AOE %>."
 		"omniro_water_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
 
-		"omniro_demon_orb_description"										"Наносит урон от силы атаки, игнорирующий Стойкость."
+		"omniro_demon_orb_description"										"Наносит большой урон."
 		"omniro_demon_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
 
 		"omniro_nature_orb_description"										"Применяет на героя щит, поглощающий урон. Базовое количество щитов <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %>, увеличивается с уровнем рун. Длится <% OMNIRO_NATURE_SHIELD_DURATION %> секунд."
