@@ -12611,6 +12611,16 @@
 		"item_rpc_gilded_soul_cage_sapphire1"								"Each collected soul increases Base Ability Damage and Item Damage by @sapphire_property1%"
 		"item_rpc_gilded_soul_cage_amethyst1"								"When a soul is collected, gain @amethyst_property1 seconds of magic immunity"
 
+		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
+
+		"item_property_gold_war_plate"						"Heroic Valor"
+		"property_gold_war_plate_description"				"Your Armor Pierce is increased by <font color='#ccff66'>50</font>% of your Armor."
+
+		"item_rpc_golden_war_plate_ruby1"								"Increases Strength by @ruby_property1"
+		"item_rpc_golden_war_plate_emerald1"								"Increases Armor by @emerald_property1"
+		"item_rpc_golden_war_plate_sapphire1"								"Increases Armor Pierce by an additional @sapphire_property1% of Armor"
+		"item_rpc_golden_war_plate_amethyst1"								"Reduces Spell Pierce and Increases Armor Pierce by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12871,15 +12881,6 @@
 		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of <font color='#ccff66'>7</font>x your attack damage and <font color='#ccff66'>30</font>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <font color='#ccff66'>50</font>%, and while slowed they take <font color='#ccff66'>100</font>% increased Post-Mitigation damage from the caster."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
-		"item_rpc_golden_war_plate_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_golden_war_plate_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_golden_war_plate_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_golden_war_plate_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_gold_war_plate"						"Heroic Valor"
-		"property_gold_war_plate_description"				"Increases Post-Mitigation Physical damage output by <font color='#ccff66'>700</font>%. Magical damage output reduced by <font color='#ccff66'>65</font>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"

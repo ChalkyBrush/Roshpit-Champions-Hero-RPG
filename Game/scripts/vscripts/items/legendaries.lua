@@ -2002,26 +2002,6 @@ function RPCItems:RollMageplate(item_level)
     return item
 end
 
-function RPCItems:RollGoldenWarPlate(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_golden_war_plate", "immortal", "Golden War Plate", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "golden_war_plate"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_war_plate", "#E8E83C", 1, "#property_gold_war_plate_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 1, 14, 0, 0, item.newItemTable.rarity, false, maxFactor * 8)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollWaterMageRobes(item_level)
     local item = RPCItems:CreateVariant("item_rpc_water_mage_robes", "immortal", "Water Mage Robes", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4648,9 +4628,6 @@ function RPCItems:RollFeatherwhiteArmor(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
@@ -4680,8 +4657,8 @@ function RPCItems:RollGildedSoulCage(item_level)
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spirit", 1.5)
     end
 
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.5)
@@ -4689,6 +4666,27 @@ function RPCItems:RollGildedSoulCage(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollGoldenWarPlate(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_golden_war_plate", "immortal", "Golden War Plate", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_golden_war_plate"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_war_plate", "#E8E83C", 1, "#property_gold_war_plate_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level,  "armor", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 --FEET
 
@@ -8800,7 +8798,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_wraith_hunters_steel_helm"}
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
-        "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage"}
+        "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate"}
     end
     return itemsList
 end

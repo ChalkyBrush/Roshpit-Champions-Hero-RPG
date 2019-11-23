@@ -2130,9 +2130,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_power_ranger") then
 			mult = mult + ITEM_RPC_POWER_RANGER_GLOVES_PHYS_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_golden_war_plate") then
-			mult = mult + ITEM_RPC_GOLDEN_WAR_PLATE_PHYS_POST_MITI_AMP/100
-		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
@@ -2473,11 +2470,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 			local shieldCaster = victim:FindModifierByName("modifier_omniro_nature_shield"):GetCaster()
 			CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_omniro_nature_shield")
-		end
-	end
-	if attacker:HasModifier("modifier_golden_war_plate") then
-		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_GOLDEN_WAR_PLATE_MAGIC_OUTPUT_REDUCTION)/100
 		end
 	end
 	if victim:HasModifier("moon_tech_aura") then

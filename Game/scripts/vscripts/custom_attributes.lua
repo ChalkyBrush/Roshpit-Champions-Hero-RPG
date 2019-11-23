@@ -1623,6 +1623,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD2)
 	end
 
+	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
+	if unit:HasModifier("modifier_golden_war_plate") then
+		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + unit:GetRoshpitArmor()*((ITEM_RPC_GOLDEN_WAR_PLATE_ARMOR_TO_ARMOR_PIERCE + warplate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_SAPPHIRE))/100)
+		armor_pierce_modify = armor_pierce_modify + warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
+	end
+
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
@@ -1854,6 +1861,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
     if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
         local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
         spell_pierce_modify = spell_pierce_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
+    end
+    if unit:HasModifier("modifier_golden_war_plate") then
+    	local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify - warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
     end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

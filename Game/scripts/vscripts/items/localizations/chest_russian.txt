@@ -224,15 +224,17 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
-		"item_rpc_gilded_soul_cage_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_gilded_soul_cage_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_gilded_soul_cage_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_gilded_soul_cage_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_gilded_soul"					"Siphon Soul"
-		"property_gilded_soul_description"			"При убийстве врага происходит яркая вспышка света, которая исцеляет вас и ближайших союзников на 15% от макс. здоровья поверженных противников.<br>Каждое успешное убийство даёт 1 заряд предмета.<br>Каждый заряд увеличивает ваш Бонусный Урон Атаки на @special_property1% и урон стихии <font color=\"#F6FFB5\">Света</font> на @special_property3%.<br>Заряды длятся 8 секунд и исчезают по одному, максимум 100 зарядов.<br>Когда вражеская душа будет поглощена, герой получит иммунитет к магии на @special_property2 сек."
+		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies within <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_RADIUS %> range for <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_PCT %>% of their max health. Enemies who die within <% ITEM_RPC_GILDED_SOUL_RADIUS %> release their soul and have it collected by the Soul Cage. Each collected soul increases <font color=\"#F6FFB5\">Holy</font> elemental damage by <% ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>%. Can collect up to <% ITEM_RPC_GILDED_SOUL_CAGE_MAX_SOULS %> souls that last for <% ITEM_RPC_GILDED_SOUL_CAGE_SOUL_DURATION%> seconds. When the duration expires, only 1 soul is lost."
 		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
-		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Увеличивает урон и урон стихии Света."
-		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Иммунитет к магии"
+		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Collected purified souls"
+		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"
+
+		"item_rpc_gilded_soul_cage_ruby1"								"Each collected soul increases Attack Power by @ruby_property1%"
+		"item_rpc_gilded_soul_cage_emerald1"								"Elite enemies within <% ITEM_RPC_GILDED_SOUL_RADIUS %> range give up a portion of their soul every @emerald_property1 seconds, and Bosses give up a portion of their soul every @emerald_property2 seconds"
+		"item_rpc_gilded_soul_cage_sapphire1"								"Each collected soul increases Base Ability Damage and Item Damage by @sapphire_property1%"
+		"item_rpc_gilded_soul_cage_amethyst1"								"When a soul is collected, gain @amethyst_property1 seconds of magic immunity"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bluestar_armor"									"Bluestar Armor"
@@ -400,14 +402,15 @@
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Скорость передвижения снижена"
 		 
-		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
-		"item_rpc_golden_war_plate_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_golden_war_plate_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_golden_war_plate_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_golden_war_plate_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_gold_war_plate"						"Heroic Valor"
-		"property_gold_war_plate_description"				"Увеличивает весь пост-резистный физический урон на <% ITEM_RPC_GOLDEN_WAR_PLATE_PHYS_POST_MITI_AMP %>%. Уменьшает исходящий магический урон на <% ITEM_RPC_GOLDEN_WAR_PLATE_MAGIC_OUTPUT_REDUCTION %>%."
+		"property_gold_war_plate_description"				"Your Armor Pierce is increased by <% ITEM_RPC_GOLDEN_WAR_PLATE_ARMOR_TO_ARMOR_PIERCE %>% of your Armor."
+
+		"item_rpc_golden_war_plate_ruby1"								"Increases Strength by @ruby_property1"
+		"item_rpc_golden_war_plate_emerald1"								"Increases Armor by @emerald_property1"
+		"item_rpc_golden_war_plate_sapphire1"								"Increases Armor Pierce by an additional @sapphire_property1% of Armor"
+		"item_rpc_golden_war_plate_amethyst1"								"Reduces Spell Pierce and Increases Armor Pierce by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
