@@ -473,6 +473,9 @@ end
 
 function CDOTABaseAbility:GetGemValue(gem_type)
 	local item = self
+	if not item.newItemTable then
+		return 0
+	end
 	local value = 0
 	if item.newItemTable.socket1 then
 		if item.newItemTable.socket1 == gem_type then
