@@ -1897,6 +1897,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
     	local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
 		spell_pierce_modify = spell_pierce_modify - warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
     end
+    if unit:HasModifier("modifier_ice_quill_carapace_stack") then
+    	local ice_quill_stacks_modifier = unit:FindModifierByName("modifier_ice_quill_carapace_stack")
+    	local ice_quill = ice_quill_stacks_modifier:GetAbility()
+    	spell_pierce_modify = spell_pierce_modify + ice_quill:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_AMETHYST)*ice_quill_stacks_modifier:GetStackCount()
+    end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

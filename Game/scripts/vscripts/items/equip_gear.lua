@@ -615,6 +615,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HEROIC_CONQUEROR_VESTMENTS_GEM_AMETHYST, hero, "rune_r_3", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HEROIC_CONQUEROR_VESTMENTS_GEM_AMETHYST, hero, "rune_r_4", RPC_GEAR_SLOT_BODY)
 		end
+	elseif item:GetAbilityName() == "item_rpc_ice_quill_carapace" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_EMERALD2, hero, "max_mana", RPC_GEAR_SLOT_BODY)
+		end		
 	end
 end
 

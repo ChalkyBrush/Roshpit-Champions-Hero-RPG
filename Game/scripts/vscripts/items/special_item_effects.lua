@@ -629,6 +629,7 @@ function ice_quill_think(event)
 			target.ice_quill_mana_loss = target.ice_quill_mana_loss % threshold
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_quill_carapace_stack", {})
 			local newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) + addedStacks
+			newStacks = math.min(newstacks, ITEM_RPC_ICE_QUILL_CARAPACE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_EMERALD1))
 			target:SetModifierStackCount("modifier_ice_quill_carapace_stack", caster, newstacks)
 		end
 	end
@@ -642,9 +643,10 @@ function ice_quill_spell_cast(event)
 	local hero = event.unit
 	local ability = event.ability
 	if not hero:HasModifier("modifier_ice_quill_unloading") then
-		if hero:HasModifier("modifier_ice_quill_carapace_stack") then
+		local minimum_stacks = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY1)
+		if hero:HasModifier("modifier_ice_quill_carapace_stack") and hero:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) > minimum_stacks then
 			local stacks = hero:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster)
-			local unload_duration = (stacks * ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL) - 0.5
+			local unload_duration = (stacks * ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_ice_quill_unloading", {duration = unload_duration})
 			hero:RemoveModifierByName("modifier_ice_quill_carapace_stack")
 		end
@@ -660,16 +662,18 @@ function ice_quill_unloading_think(event)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", hero, 3)
 	EmitSoundOn("RPC.IceQuill", hero)
 	local radius = ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG/100 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY2)
 	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
 		end
 	end
-	local manaRestore = hero:GetMaxMana() * ITEM_RPC_ICE_QUILL_CARAPACE_MANA_RESTORE_PCT/100
-	hero:GiveMana(manaRestore)
-	PopupMana(hero, manaRestore)
+	if ability:GetGemValue("sapphire") > 0 then
+		local manaRestore = hero:GetMaxMana() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_SAPPHIRE)/100
+		hero:GiveMana(manaRestore)
+		PopupMana(hero, manaRestore)
+	end
 end
 
 function midas_think(event)

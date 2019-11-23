@@ -12644,6 +12644,19 @@
 		"item_rpc_hurricane_vest_amethyst1"									"Casting [E] releases @amethyst_property1 whirlwinds"
 
 		
+		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
+
+		"item_property_ice_quill"					"Ice Quills"
+		"property_ice_quill_description"			"When you spend <font color='#ccff66'>100</font> mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on <font color='#ccff66'>0.2</font>-second intervals, dealing <font color='#ccff66'>6</font>% of your attack power in a <font color='#ccff66'>460</font> radius with each burst. Maximum of <font color='#ccff66'>25</font> stacks and they will not trigger if a previous explosion of icicles is still resolving."
+		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
+		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
+
+		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage is increased by an additional @ruby_property2 flat damage"
+		"item_rpc_ice_quill_carapace_emerald1"								"Increases maximum Ice Quill stacks by @emerald_property1 and Max Mana by @emerald_property2"
+		"item_rpc_ice_quill_carapace_sapphire1"								"Restore @sapphire_property1% of Max Mana with each burst of Ice Quills"
+		"item_rpc_ice_quill_carapace_amethyst1"								"Each stored up Ice Quill stack increases Spell Pierce by @amethyst_property1"
+
+		
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
@@ -12705,18 +12718,6 @@
 		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <font color='#ccff66'>35</font>% of its mana cost on use and its Base Ability Damage is increased by <font color='#ccff66'>100</font>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"Ice Quill Carapace"
-		"item_rpc_ice_quill_carapace_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_ice_quill_carapace_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_ice_quill_carapace_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_ice_quill_carapace_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_ice_quill"					"Ice Quills"
-		"property_ice_quill_description"			"When you spend <font color='#ccff66'>600</font> mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on <font color='#ccff66'>0.1</font>-second intervals, restoring <font color='#ccff66'>1</font>% of max mana and dealing <font color='#ccff66'>4</font>x your total attack power in a <font color='#ccff66'>460</font> radius with each blast. Will not trigger if a previous explosion of icicles is still resolving."
-		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
-		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
-		
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
