@@ -1997,24 +1997,7 @@ function gilded_soul_kill(event)
 	local caster = event.caster
 	local particlePos = dyingUnit:GetAbsOrigin()
 	ability.caster = caster
-	local info =
-	{
-		Target = hero,
-		Source = dyingUnit,
-		Ability = ability,
-		EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf",
-		vSourceLoc = particlePos,
-		bDrawsOnMinimap = false,
-		bDodgeable = false,
-		bIsAttack = false,
-		bVisibleToEnemies = true,
-		bReplaceExisting = false,
-		flExpireTime = GameRules:GetGameTime() + 2,
-		bProvidesVision = false,
-		iVisionRadius = 0,
-		iMoveSpeed = 1500,
-	iVisionTeamNumber = hero:GetTeamNumber()}
-	projectile = ProjectileManager:CreateTrackingProjectile(info)
+
 
 	local particleName = "particles/units/heroes/hero_elder_titan/gilded_soul_cage.vpcf"
 	local position = dyingUnit:GetAbsOrigin()
@@ -2029,20 +2012,66 @@ function gilded_soul_kill(event)
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
 			local heal = math.floor(ally:GetMaxHealth() * ITEM_RPC_GILDED_SOUL_CAGE_HEAL_PCT/100)
-			Filters:ApplyHeal(hero, ally, heal, true)
+			Filters:ApplyHeal(hero, ally, heal, true, true)
 		end
 	end
+end
+
+function gilded_soul_range_death(event)
+	local dyingUnit = event.unit
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+
+	local sourceLoc = event.unit:GetAbsOrigin()
+	local info =
+	{
+		Target = hero,
+		Source = dyingUnit,
+		Ability = ability,
+		EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf",
+		vSourceLoc = sourceLoc,
+		bDrawsOnMinimap = false,
+		bDodgeable = false,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 6,
+		bProvidesVision = false,
+		iVisionRadius = 0,
+		iMoveSpeed = 800,
+	iVisionTeamNumber = hero:GetTeamNumber()}
+	projectile = ProjectileManager:CreateTrackingProjectile(info)
+
+
 end
 
 function gilded_soul_projectile_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = ability.caster
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = ITEM_RPC_GILDED_SOUL_CAGE_BUFF_DURATION})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_gilded_soul_buff", ability) + 1, ITEM_RPC_GILDED_SOUL_CAGE_MAX_STACKS)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = ITEM_RPC_GILDED_SOUL_CAGE_SOUL_DURATION})
+	local newStacks = math.min(target:GetModifierStackCount("modifier_gilded_soul_buff", ability) + 1, ITEM_RPC_GILDED_SOUL_CAGE_MAX_SOULS)
 	target:SetModifierStackCount("modifier_gilded_soul_buff", ability, newStacks)
 	ability.soulStacks = newStacks
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_immunity", {duration = ITEM_RPC_GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE})
+	
+
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_cage_atk_damage", {})
+		target:SetModifierStackCount("modifier_gilded_soul_cage_atk_damage", caster, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GILDED_SOUL_CAGE_GEM_RUBY)*ability.soulStacks)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_sapphire_bad", {})
+		target:SetModifierStackCount("modifier_gilded_soul_sapphire_bad", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GILDED_SOUL_CAGE_GEM_SAPPHIRE)*ability.soulStacks)	
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local magic_immune_duration = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GILDED_SOUL_CAGE_GEM_AMETHYST)
+		if not target:HasModifier("modifier_gilded_soul_immunity") then
+			EmitSoundOn("RPCItems.GildedSoul.MagicImmunity", target)
+		end
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_immunity", {duration = magic_immune_duration})
+
+	end
 end
 
 function gilded_soul_buff_duration_end(event)
@@ -2052,8 +2081,56 @@ function gilded_soul_buff_duration_end(event)
 	ability.soulStacks = ability.soulStacks - 1
 	if target:IsAlive() then
 		if ability.soulStacks > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = ITEM_RPC_GILDED_SOUL_CAGE_BUFF_DURATION})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_buff", {duration = ITEM_RPC_GILDED_SOUL_CAGE_SOUL_DURATION})
 			target:SetModifierStackCount("modifier_gilded_soul_buff", ability, ability.soulStacks)
+			if ability:GetGemValue("ruby") > 0 then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_cage_atk_damage", {})
+				target:SetModifierStackCount("modifier_gilded_soul_cage_atk_damage", caster, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GILDED_SOUL_CAGE_GEM_RUBY)*ability.soulStacks)
+			end
+			if ability:GetGemValue("sapphire") > 0 then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_gilded_soul_sapphire_bad", {})
+				target:SetModifierStackCount("modifier_gilded_soul_sapphire_bad", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GILDED_SOUL_CAGE_GEM_SAPPHIRE)*ability.soulStacks)	
+			end
+		end
+	end
+end
+
+function gilded_soul_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	if ability:GetGemValue("emerald") > 0 then
+		if not ability.interval then
+			ability.interval = 0
+		end
+		ability.interval = ability.interval + 1
+		if ability.interval % ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GILDED_SOUL_CAGE_GEM_EMERALD1) == 0 then
+			local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_GILDED_SOUL_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					if enemy:GetEnemyTier() == ENEMY_TYPE_ELITE_CREEP then
+						local eventTable = {}
+						eventTable.caster = caster
+						eventTable.ability = ability
+						eventTable.unit = enemy
+						gilded_soul_range_death(eventTable)
+					end
+				end
+			end
+		end
+		if ability.interval % ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GILDED_SOUL_CAGE_GEM_EMERALD2) == 0 then
+			local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_GILDED_SOUL_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					if enemy:GetEnemyTier() > ENEMY_TYPE_ELITE_CREEP then
+						local eventTable = {}
+						eventTable.caster = caster
+						eventTable.ability = ability
+						eventTable.unit = enemy
+						gilded_soul_range_death(eventTable)
+					end
+				end
+			end
 		end
 	end
 end

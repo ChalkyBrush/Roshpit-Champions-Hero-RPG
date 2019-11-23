@@ -156,6 +156,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_mask_of_mugato") and caster:IsSilenced() then
         mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MUGATO_AMETHYST2)/100
     end
+    if caster:HasModifier("modifier_gilded_soul_sapphire_bad") then
+        mult = mult + caster:FindModifierByName("modifier_gilded_soul_sapphire_bad"):GetStackCount()/100
+    end
     if caster:HasModifier("modifier_neutral_glyph_2_1") then
         mult = mult + 2
     end
@@ -1427,6 +1430,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_infused_mageplate_stack") then
             local mageplateStacks = attacker:GetModifierStackCount("modifier_infused_mageplate_stack", attacker.body)
             damageMult = damageMult + mageplateStacks * 0.05
+        end
+        if attacker:HasModifier("modifier_gilded_soul_sapphire_bad") then
+            damageMult = damageMult + attacker:FindModifierByName("modifier_gilded_soul_sapphire_bad"):GetStackCount()/100
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))

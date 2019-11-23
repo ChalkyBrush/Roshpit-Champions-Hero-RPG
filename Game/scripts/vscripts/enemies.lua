@@ -465,3 +465,15 @@ function CDOTA_BaseNPC:ShouldHaveStunResistance()
 		return false
 	end
 end
+
+function CDOTA_BaseNPC:GetEnemyTier()
+	local unit = self
+	if not unit.roshpit_attributes then
+		return false
+	end
+	if unit.roshpit_attributes.enemy_tier then
+		return unit.roshpit_attributes.enemy_tier
+	else
+		return 0
+	end
+end

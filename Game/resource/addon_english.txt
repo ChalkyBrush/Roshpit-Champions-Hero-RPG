@@ -12598,6 +12598,19 @@
 		"item_rpc_featherwhite_armor_sapphire1"								"Enemies within the healing area take Pure damage based on @sapphire_property1% of the total amount of health restored on that heal interval"
 		"item_rpc_featherwhite_armor_amethyst1"								"Increases the heal by an additional @amethyst_property1x its master's Spirit"
 
+		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
+
+		"item_property_gilded_soul"					"Siphon Soul"
+		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies within <font color='#ccff66'>240</font> range for <font color='#ccff66'>5</font>% of their max health. Enemies who die within <font color='#ccff66'>1500</font> release their soul and have it collected by the Soul Cage. Each collected soul increases <font color=\"#F6FFB5\">Holy</font> elemental damage by <font color='#ccff66'>6</font>%. Can collect up to <font color='#ccff66'>10</font> souls that last for <font color='#ccff66'>8</font> seconds. When the duration expires, only 1 soul is lost."
+		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
+		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Collected purified souls"
+		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"
+
+		"item_rpc_gilded_soul_cage_ruby1"								"Each collected soul increases Attack Power by @ruby_property1%"
+		"item_rpc_gilded_soul_cage_emerald1"								"Elite enemies within <font color='#ccff66'>1500</font> range give up a portion of their soul every @emerald_property1 seconds, and Bosses give up a portion of their soul every @emerald_property2 seconds"
+		"item_rpc_gilded_soul_cage_sapphire1"								"Each collected soul increases Base Ability Damage and Item Damage by @sapphire_property1%"
+		"item_rpc_gilded_soul_cage_amethyst1"								"When a soul is collected, gain @amethyst_property1 seconds of magic immunity"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12735,18 +12748,6 @@
 		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormshield"					"Storm Shield"
 		"property_stormshield_description"			"Reduces all Physical damage taken by <font color='#ccff66'>50</font>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
-		"item_rpc_gilded_soul_cage_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_gilded_soul_cage_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_gilded_soul_cage_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_gilded_soul_cage_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_gilded_soul"					"Siphon Soul"
-		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies for <font color='#ccff66'>15</font>% of their max health. They also increase your attack damage by <font color='#ccff66'>4</font>% and <font color=\"#F6FFB5\">Holy</font> damage by <font color='#ccff66'>10</font>% for <font color='#ccff66'>8</font> seconds, stacking up to <font color='#ccff66'>100</font> times. Stacks only lower by 1 at a time.<br>When an enemy's soul is collected, gain <font color='#ccff66'>4</font> seconds Spell Immunity."
-		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
-		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Gaining attack damage and Holy damage."
-		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"

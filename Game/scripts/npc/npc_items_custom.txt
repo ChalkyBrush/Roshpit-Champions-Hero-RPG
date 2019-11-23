@@ -39293,6 +39293,178 @@
 
 
 
+	"item_rpc_gilded_soul_cage"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/gilded_soul_cage" //"gilded_soul_cage"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"1 2 3 4 5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"16 14 12 10 8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"8 7 6 5 4"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"1.5 3.0 4.5 6.0 7.5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"0.6 1.2 1.8 2.4 3.0"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/items_fx/black_king_bar_avatar.vpcf"
+			"particle"	"particles/units/heroes/hero_elder_titan/gilded_soul_cage.vpcf"
+			"particle"	"particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_gilded_soul_cage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gilded_soul_kill"
+					}
+				}
+				"Aura"          	"modifier_in_range_of_gilded_soul_cage"
+				"Aura_Radius"   	"1500"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_gilded_soul_cage_atk_damage"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_gilded_soul_buff"
+						"Target" 		"TARGET"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gilded_soul_thinker"
+					}
+				}
+			}
+			"modifier_gilded_soul_buff"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName" "itemicons/gilded_soul_buff"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gilded_soul_buff_duration_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_gilded_soul_immunity"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName" "itemicons/gilded_soul_buff"
+				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_in_range_of_gilded_soul_cage"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gilded_soul_range_death"
+					}
+				}
+			}
+			"modifier_gilded_soul_cage_atk_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
+			}
+			"modifier_gilded_soul_sapphire_bad"
+			{
+				"IsHidden"	"1"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"gilded_soul_projectile_hit"
+				"target"        "TARGET"
+			}
+		}
+	}
+
 	"item_rpc_featherwhite_armor"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -43249,139 +43421,6 @@
 			"modifier_vampiric_particle"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_gilded_soul_cage"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/gilded_soul_cage" //"gilded_soul_cage"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"4"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"10"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"precache"
-		{
-			"particle"  "particles/items_fx/black_king_bar_avatar.vpcf"
-			"particle"	"particles/units/heroes/hero_elder_titan/gilded_soul_cage.vpcf"
-			"particle"	"particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_gilded_soul_cage"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"gilded_soul_kill"
-					}
-				}
-			}
-			"modifier_gilded_soul_buff"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName" "itemicons/gilded_soul_buff"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%property_one"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"gilded_soul_buff_duration_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_gilded_soul_immunity"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName" "itemicons/gilded_soul_buff"
-				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-			"RunScript"
-			{
-				"ScriptFile"	"items/special_item_effects.lua"
-				"Function"		"gilded_soul_projectile_hit"
-				"target"        "TARGET"
 			}
 		}
 	}

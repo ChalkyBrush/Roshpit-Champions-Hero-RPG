@@ -128,14 +128,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"白羽袍"
-		"item_rpc_featherwhite_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_featherwhite_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_featherwhite_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_featherwhite_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_featherwhite_armor"			"狮鹫牙"
-		"property_featherwhite_armor_description"	"一个狮鹫将一直跟随你，每秒为你和附近友军回复 <% ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP %>% 最大生命值，并且在光环内玩家和友军所受到的魔法和纯粹伤害将被减免 <% ITEM_RPC_FEATHERWHITE_ARMOR_MAGIC_AND_PURE_REDUCTION %>%。狮鹫拥有高空视野。"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"狮鹫牙光环"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"所受到的魔法和纯粹伤害减免 <% ITEM_RPC_FEATHERWHITE_ARMOR_MAGIC_AND_PURE_REDUCTION %>%%"
+		"property_featherwhite_armor_description"	"Gain a permanent uncontrollable Gryffon companion who cannot be damaged. All allies within the Gryffon's radius of <% ITEM_RPC_FEATHERWHITE_ARMOR_RADIUS %> are healed by <% ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP %>% of their max health each <% ITEM_RPC_FEATHERWHITE_ARMOR_INTERVAL %> second interval. Gain flying vision within the aura radius."
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Restoring Health"
+
+		"item_rpc_featherwhite_armor_ruby1"								"Allies within the Gryffon's aura take @ruby_property1% reduced Magic and Pure damage."
+		"item_rpc_featherwhite_armor_emerald1"								"Increases the Gryffon's radius by @emerald_property1"
+		"item_rpc_featherwhite_armor_sapphire1"								"Enemies within the healing area take Pure damage based on @sapphire_property1% of the total amount of health restored on that heal interval"
+		"item_rpc_featherwhite_armor_amethyst1"								"Increases the heal by an additional @amethyst_property1x its master's Spirit"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"龙仪外衣"
