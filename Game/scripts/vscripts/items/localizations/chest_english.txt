@@ -278,7 +278,7 @@
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Slowed"
 
-		"item_rpc_hurricane_vest_ruby1"									"Increases the base number of whirlwinds by @ruby_property1"
+		"item_rpc_hurricane_vest_ruby1"									"Increases the base number of whirlwinds by @ruby_property1 and adds an additional @ruby_property2% of attack power to whirlwind damage"
 		"item_rpc_hurricane_vest_emerald1"									"Hurricane damage is increased by @emerald_property1x Agility and the whirlwinds travel @emerald_property2 farther distance"
 		"item_rpc_hurricane_vest_sapphire1"									"Tornados slow enemy attack speed and movespeed by @sapphire_property1 and Hurricane damage is increased by @sapphire_property2"
 		"item_rpc_hurricane_vest_amethyst1"									"Casting [E] releases @amethyst_property1 whirlwinds"

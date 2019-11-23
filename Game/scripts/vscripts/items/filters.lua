@@ -1173,7 +1173,7 @@ function Filters:ApplyRskills(caster)
         end
     end
     if caster:HasModifier("modifier_hurricane_vest") then
-        local tornado_count = ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY)
+        local tornado_count = ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY1)
         Filters:HurricaneVest(caster, tornado_count)
     end
     if caster:HasModifier("modifier_body_flooding") then

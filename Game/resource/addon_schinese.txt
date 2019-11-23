@@ -12410,7 +12410,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_hurricane"					"飓风"
-		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>7</font> whirlwinds travel outward from you in all directions, dealing damage based on <font color='#ccff66'>25</font>% of Attack Power"
+		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>7</font> whirlwinds travel outward from you in all directions, dealing damage based on <font color='#ccff66'>20</font>% of Attack Power"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Buffeted by strong winds"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"

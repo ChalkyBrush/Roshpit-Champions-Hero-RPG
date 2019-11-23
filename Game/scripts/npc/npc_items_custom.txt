@@ -39299,24 +39299,29 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.5 1.0 1.5 2.0 2.5"
+				"ruby2"				"(1.5 3 4.5 6 7.5)"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"100 200 300 400 500"
+				"emerald1"			"0.5 1.0 1.5 2.0 2.5"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"25 50 75 100 125"
+				"emerald2"			"100 200 300 400 500"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"120 240 360 480 600"
+				"sapphire1"			"25 50 75 100 125"
 			}
 			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"120 240 360 480 600"
+			}
+			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"2 3 4 5 6"

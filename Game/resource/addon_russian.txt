@@ -12232,7 +12232,7 @@
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 
 		"item_property_hurricane"					"Hurricane"
-		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>7</font> whirlwinds travel outward from you in all directions, dealing damage based on <font color='#ccff66'>25</font>% of Attack Power"
+		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>7</font> whirlwinds travel outward from you in all directions, dealing damage based on <font color='#ccff66'>20</font>% of Attack Power"
 		"item_rpc_hurricane_vest_ruby1"									"Increases the base number of whirlwinds by @ruby_property1"
 		"item_rpc_hurricane_vest_emerald1"									"Hurricane damage is increased by @emerald_property1x Agility"
 		"item_rpc_hurricane_vest_sapphire1"									"Tornados slow enemy attack speed and movespeed by @sapphire_property1 and Hurricane damage is increased by @sapphire_property2"
