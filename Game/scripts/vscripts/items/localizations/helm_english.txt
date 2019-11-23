@@ -1,5 +1,6 @@
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
+		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage."
 
 		"item_rpc_adamantine_samurai_helmet_ruby1"	"Increases strength by @ruby_property1"
 		"item_rpc_adamantine_samurai_helmet_emerald1" "Increases agility by @emerald_property1"
@@ -13,9 +14,7 @@
 		"item_rpc_arcane_cascade_hat_ruby1"	"Increases all <font color=\"#E1A2E8\">Arcane</font> damage by @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "Increases Max Mana by @emerald_property1"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"Increases the Mana Drain by an additional @sapphire_property1%"
-		"item_rpc_arcane_cascade_hat_amethyst1" "Enemies in the damage AOE have @amethyst_property1 reduced Magic Armor"
-
-		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage."
+		"item_rpc_arcane_cascade_hat_amethyst1" "Enemies in the damage AOE have @amethyst_property1 reduced Magic Armor"	
 
 		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
 		"item_property_autumn_sleeper"						"Wild Overgrowth"
@@ -24,9 +23,9 @@
 		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Rooted"
 
 		"item_rpc_autumn_sleeper_mask_ruby1"	"Casting [R] roots all enemies in a <% AUTUMN_SLEEPER_RUBY_RADIUS %> radius for @ruby_property1 seconds"
-		"item_rpc_autumn_sleeper_mask_emerald1" "Rooted enemies take damage equal to @emerald_property1% of attack power every <% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> seconds"
+		"item_rpc_autumn_sleeper_mask_emerald1" "Enemies rooted by Wild Overgrowth take damage equal to @emerald_property1% of attack power every <% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> seconds"
 		"item_rpc_autumn_sleeper_mask_sapphire1"	"When Wild Overgrowth root ends, the escaped enemy has <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> movespeed for @sapphire_property1 seconds"
-		"item_rpc_autumn_sleeper_mask_amethyst1" "Rooted enemies have @amethyst_property1 reduced Armor"
+		"item_rpc_autumn_sleeper_mask_amethyst1" "Enemies rooted by Wild Overgrowth have @amethyst_property1 reduced Armor"
 
 		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow"		"Wild Overgrowth Slow"
 		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow_Description"	"Movement Slowed"
@@ -56,7 +55,7 @@
 		"item_rpc_blackfeather_crown_sapphire1"	"The Stormcrow applies a @sapphire_property1 Armor loss debuff for <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %> seconds"
 		"item_rpc_blackfeather_crown_amethyst1" "Increases Attack Speed by @amethyst_property1"
 		
-		"twilight_crow_summon"		"Crow Aspect"
+		"twilight_crow_summon"		"Stormcrow Spirit"
 
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
 		"item_property_glint_of_onu"				"Flicker Strike"
@@ -106,13 +105,13 @@
 		"item_property_carbuncle"								"Ruby Shell"
 		"property_carbuncle_description"						"When you cast @Ability2, gain a magic reflecting shell for <% CARBUNCLE_SHIELD_DURATION %> seconds that negates an instance of Magic or Pure damage and applies it to the inflictor instead with <font color=\"#EF4126\">Fire</font>/<font color=\"#E1A2E8\">Arcane</font> element. The shell is broken upon reflecting a spell. Reflection shell has a <% CARBUNCLE_SHIELD_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical damage taken reduced to 0 and reflected back at the source"
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Magical or Pure damage taken reduced to 0 and reflected back at the source"
 
 		"DOTA_Tooltip_modifier_carbuncle_cooldown"					"Ruby Shell Cooldown"
 
 		"item_rpc_carbuncles_helm_of_reflection_ruby1"	"The reflected damage is increased by @ruby_property1%"
 		"item_rpc_carbuncles_helm_of_reflection_emerald1" "@emerald_property1% chance for the shell to persist after reflecting a spell, and have its duration refreshed"
-		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Casting [R] applies the Magic Reflection shell for @sapphire_property1 seconds regardless of cooldown status and without activating the cooldown"
+		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Casting [R] applies the Ruby Shell for @sapphire_property1 seconds regardless of cooldown status and without activating the cooldown"
 		"item_rpc_carbuncles_helm_of_reflection_amethyst1" "When an enemy is hit by the reflected damage, they are stunned for @amethyst_property1 seconds"	
 
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
@@ -132,7 +131,7 @@
 		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
 		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Increased Combat Capability"
 
-		"item_rpc_chains_of_orthok_ruby1"	"Each Zeal stack increaes Base Attack Damage by @ruby_property1"
+		"item_rpc_chains_of_orthok_ruby1"	"Each Zeal stack increases Base Attack Damage by @ruby_property1"
 		"item_rpc_chains_of_orthok_emerald1"	"Each Zeal stack increases Armor Pierce and Spell Pierce by @emerald_property1"
 		"item_rpc_chains_of_orthok_sapphire1" "Each zeal stack further increases Base Ability Damage by @sapphire_property1%"
 		"item_rpc_chains_of_orthok_amethyst1" "Each Zeal stack increases Attack Power by @amethyst_property1%"
@@ -145,7 +144,7 @@
 
 		"item_rpc_crest_of_the_umbral_sentinel_ruby1"	"Each stack of Illusory Fog reduces enemy attack speed by @ruby_property1"
 		"item_rpc_crest_of_the_umbral_sentinel_emerald1"	"Increases Rune [W4] by @emerald_property1"
-		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "Each stack of Illusory Fog reduces enemy attack power by by @sapphire_property1%"
+		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "Each stack of Illusory Fog reduces enemy attack power by @sapphire_property1%"
 		"item_rpc_crest_of_the_umbral_sentinel_amethyst1" "Increases all attributes by @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
@@ -162,7 +161,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
 		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"The wearer has a permanent Ruby Dragon companion with a Flame Breath ability. The dragon has <% RUBY_DRAGON_HP_PER_HERO_LEVEL %>HP per level and <% RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL %> base attack damage per level. All damage dealt by the dragon is attributed to its master."
+		"property_ruby_dragon_description"			"The wearer has a permanent Ruby Dragon companion with a Flame Breath ability. The dragon has <% RUBY_DRAGON_HP_PER_HERO_LEVEL %>HP per hero level and <% RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL %> base attack damage per hero level. All damage dealt by the dragon is attributed to its master."
 
 		"ruby_dragon_3"							"Ruby Dragon"
 
@@ -235,7 +234,7 @@
 		"item_property_emerald_douli"				"Mana Shield"
 		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% of damage taken is removed from mana before health. 1 point of mana can absorb <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> damage."		
 
-		"item_rpc_emerald_douli_ruby1"	"Increases the amount of damage taken from mana instead of health by an addition @ruby_property1"
+		"item_rpc_emerald_douli_ruby1"	"Increases the amount of damage taken from mana instead of health by an additional @ruby_property1%"
 		"item_rpc_emerald_douli_emerald1"	"Each point of mana can absorb an additional @emerald_property1 damage"
 		"item_rpc_emerald_douli_sapphire1" "Increases Mana Regen by @sapphire_property1"
 		"item_rpc_emerald_douli_amethyst1" "Each point of missing mana increases Spell Pierce by @amethyst_property1"
@@ -310,7 +309,7 @@
 		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Increased movespeed"
 
 		"item_rpc_helm_of_the_knight_hawk_ruby1"	"Increases Movespeed Cap by an addition @ruby_property1"
-		"item_rpc_helm_of_the_knight_hawk_emerald1"	"Increases the damage reduction while above 550 movespeed by an addition @emerald_property1"
+		"item_rpc_helm_of_the_knight_hawk_emerald1"	"Increases the damage reduction while above 550 movespeed by an additional @emerald_property1%"
 		"item_rpc_helm_of_the_knight_hawk_sapphire1" "Increases the threshold to get a speed burst by @sapphire_property1"
 		"item_rpc_helm_of_the_knight_hawk_amethyst1" "The speed burst when falling below the threshold is increased by @amethyst_property1"
 
@@ -348,10 +347,10 @@
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased Combat Capability"
 
-		"item_rpc_hood_of_defiler_ruby1"	"Each enemy hit by [W] adds a stack of Corruption to the caster, increasing attack power by @ruby_property1%. Max <% HOOD_OF_DEFILER_RUBY_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
-		"item_rpc_hood_of_defiler_emerald1"	"Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Armor Pierce by @emerald_property1. Max <% HOOD_OF_DEFILER_RUBY_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
-		"item_rpc_hood_of_defiler_sapphire1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing base attack damage by @sapphire_property1. Max <% HOOD_OF_DEFILER_RUBY_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
-		"item_rpc_hood_of_defiler_amethyst1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Spell Pierce by @amethyst_property1. Max <% HOOD_OF_DEFILER_RUBY_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
+		"item_rpc_hood_of_defiler_ruby1"	"Each enemy hit by [W] adds a stack of Corruption to the caster, increasing attack power by @ruby_property1%. Max <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
+		"item_rpc_hood_of_defiler_emerald1"	"Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Armor Pierce by @emerald_property1. Max <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
+		"item_rpc_hood_of_defiler_sapphire1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing base attack damage by @sapphire_property1. Max <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
+		"item_rpc_hood_of_defiler_amethyst1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Spell Pierce by @amethyst_property1. Max <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
 
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
 		"item_property_lords"									"Commanding Sight"
@@ -398,7 +397,7 @@
 		"item_property_igneous_canine"							"Lava Splash"
 		"property_igneous_canine_description"					"Casting @Ability2 stuns all nearby enemies for <% IGNEOUS_CANINE_STUN_DURATION %> seconds, and leaves a pool of lava that slows movespeed by <% IGNEOUS_CANINE_MOVESPEED_SLOW %>% and attack speed by <% IGNEOUS_CANINE_AS_SLOW %>. Enemies in the lava take <% IGNEOUS_CANINE_ATTACK_TO_DMG %>% of your attack damage each <% IGNEOUS_CANINE_LAVA_INTERVAL %> seconds. Max <% IGNEOUS_CANINE_MAX_LAVA_POOLS %> concurrent lava pools."
 
-		"item_rpc_igneous_canine_helm_ruby1"	"Increases the lava pool damage by @ruby_property1x strength each tick"
+		"item_rpc_igneous_canine_helm_ruby1"	"Increases the lava pool damage by @ruby_property1x Strength each tick"
 		"item_rpc_igneous_canine_helm_emerald1"	"Increases the maximum number of concurrent pools by @emerald_property1"
 		"item_rpc_igneous_canine_helm_sapphire1" "Increases the stun duration by @sapphire_property1 seconds"
 		"item_rpc_igneous_canine_helm_amethyst1" "Enemies standing in a lava pool have @amethyst_property1 reduced armor"
@@ -461,10 +460,10 @@
 		"item_property_tyrius"						"Might of Tyrius"
 		"property_tyrius_description"				"Each point of Strength additionally increases max health by <% TYRIUS_HP_PER_STR %> and max mana by <% TYRIUS_MANA_PER_STR %>."
 
-		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per strength by an additional @ruby_property1"
-		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per strength by @emerald_property1"
-		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per spirit by @sapphire_property1"
-		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per spirit by @amethyst_property1"
+		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per Strength by an additional @ruby_property1"
+		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per Strength by @emerald_property1"
+		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per Spirit by @sapphire_property1"
+		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per Spirit by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
 		"item_rpc_ocean_helm_of_valdun_ruby1"	"Increases Rune [Q3] and Rune [W3] by @ruby_property1"
@@ -608,7 +607,7 @@
 
 		"item_rpc_undertakers_hood_ruby1"	"Each point of Intelligence increases attack speed by @ruby_property1"
 		"item_rpc_undertakers_hood_emerald1"	"Increases the hand's travel speed by @emerald_property1"
-		"item_rpc_undertakers_hood_sapphire1" "Death Strikes apply a stacking @sapphire_property1 Magic Armor loss debuff for <% UNDERTAKER_SAPPHIRE_DURATION %>, up to <% UNDERTAKER_SAPPHIRE_MAX_STACKS %> stacks"
+		"item_rpc_undertakers_hood_sapphire1" "Death Strikes apply a stacking @sapphire_property1 Magic Armor loss debuff for <% UNDERTAKER_SAPPHIRE_DURATION %> seconds, up to <% UNDERTAKER_SAPPHIRE_MAX_STACKS %> stacks"
 		"item_rpc_undertakers_hood_amethyst1" "On Attack, @amethyst_property1% chance to throw an additional hand"
 
 		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss"	"Death Strike"
@@ -681,7 +680,7 @@
 		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
 
 		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
-		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invlnerable."
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invulnerable."
 
 		"item_rpc_wraith_crown_ruby1"		"Reduces the Ethereal form Mana Drain by @ruby_property1%"
 		"item_rpc_wraith_crown_emerald1"	"Increases Ethereal Form's duration by @emerald_property1"
@@ -696,14 +695,3 @@
 		"item_rpc_wraith_hunters_steel_helm_emerald1"	"Each point of Agility increases Spell Pierce by @emerald_property1"
 		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Each point of Spirit increases Spell Pierce by @emerald_property1"	
-		
-		
-
-		
-		
-		
-		
-		
-	
-
-
