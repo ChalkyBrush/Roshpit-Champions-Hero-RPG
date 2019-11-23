@@ -961,6 +961,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
 		armor_modify = armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_hermit_spike_shell_quills") then
+		local quill_modifier = unit:FindModifierByName("modifier_hermit_spike_shell_quills")
+		local hermit_shell = quill_modifier:GetAbility()
+		armor_modify = armor_modify + hermit_shell:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_AMETHYST)*quill_modifier:GetStackCount()
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 
@@ -1641,6 +1646,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_bladestorm_vest_buff") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_hermit_spike_shell") then
+		local spike_shell = unit:FindModifierByName("modifier_hermit_spike_shell"):GetAbility()
+		if spike_shell:GetGemValue("sapphire") > 0 then
+			armor_pierce_modify = armor_pierce_modify + (100-unit:GetHealthPercent())*spike_shell:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_SAPPHIRE)
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

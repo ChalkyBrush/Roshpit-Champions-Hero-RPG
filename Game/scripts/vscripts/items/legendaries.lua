@@ -1916,26 +1916,6 @@ function RPCItems:RollSacredTrialsArmor(item_level)
     return item
 end
 
-function RPCItems:RollHermitSpikeShell(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_hermits_spike_shell", "immortal", "Hermit's Spike Shell", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "spike_shell"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hermit_spike_shell", "#CDD17B", 1, "#property_hermit_spike_shell_description")
-
-    local value = RandomInt(maxFactor * 12, maxFactor * 360)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "attack_damage"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSoulVest(item_level)
     local item = RPCItems:CreateVariant("item_rpc_seraphic_soulvest", "immortal", "Seraphic Soulvest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4671,6 +4651,28 @@ function RPCItems:RollGuardOfFeronia(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollHermitSpikeShell(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_hermits_spike_shell", "immortal", "Hermit's Spike Shell", "body", true, "Slot: Body")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_hermit_spike_shell"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hermit_spike_shell", "#CDD17B", 1, "#property_hermit_spike_shell_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -8786,7 +8788,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_wraith_hunters_steel_helm"}
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
-        "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon"}
+        "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell"}
     end
     return itemsList
 end

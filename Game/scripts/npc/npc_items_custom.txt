@@ -39259,6 +39259,104 @@
 
 
 
+	"item_rpc_hermits_spike_shell"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/hermits_spike_shell" //"hermits_spike_shell"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_bristleback/bristleback_quill_spray_quills.vpcf"
+			"particle"	"particles/units/heroes/hero_bristleback/bristleback_quill_spray_hit_creep.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"1"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"2 4 6 8 10"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"1 2 3 4 5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"7 14 21 28 35"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"-90 -180 -270 -360 -450"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hermit_spike_shell"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"hermit_spike_damage_taken"
+						"damage"        "%attack_damage"
+					}
+				}
+			}
+			"modifier_hermit_spike_shell_quills"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_bristleback/bristleback_quill_spray_hit_creep.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_guard_of_feronia"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -43615,83 +43713,6 @@
 			"modifier_vampiric_particle"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_hermits_spike_shell"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/hermits_spike_shell" //"hermits_spike_shell"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_hermit_spikes"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"hermit_spike_damage_taken"
-						"damage"        "%attack_damage"
-					}
-				}
 			}
 		}
 	}

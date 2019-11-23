@@ -12650,13 +12650,16 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"隐士披风"
-		"item_rpc_hermits_spike_shell_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_hermits_spike_shell_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_hermits_spike_shell_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_hermits_spike_shell_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_hermit_spike_shell"			"飞舞羽毛"
-		"property_hermit_spike_shell_description"	"当玩家累计受到伤害达到 <font color='#ccff66'>15</font>% 最大生命值时，发射羽毛对周围所有敌人造成 <font color='#ccff66'>30</font>倍 所受累计伤害值的物理伤害。"
+		"property_hermit_spike_shell_description"	"When you take a total of <font color='#ccff66'>15</font>% of your max health as damage, release quills that deal <font color='#ccff66'>20</font>% of your Attack Power to all surrounding enemies. Can trigger a maximum of <font color='#ccff66'>3</font> times at once."
 		
+		"DOTA_Tooltip_modifier_hermit_spike_shell_quills"	"Quill Spray"
+		"DOTA_Tooltip_modifier_hermit_spike_shell_quills_Description"	"Reduced Armor"
+
+		"item_rpc_hermits_spike_shell_ruby1"								"Increases Quill Spray damage by @ruby_property1% of Max Health"
+		"item_rpc_hermits_spike_shell_emerald1"								"When Quill Spray triggers, restore @emerald_property1% of max health"
+		"item_rpc_hermits_spike_shell_sapphire1"								"Each 1% of missing health increases Armor Pierce by @sapphire_property1"
+		"item_rpc_hermits_spike_shell_amethyst1"								"Quill Spray reduces enemy Armor by @amethyst_property1 for <font color='#ccff66'>10</font> seconds. Stacks up to <font color='#ccff66'>5</font> times"
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"地狱牢笼"
 		"item_rpc_the_infernal_prison_ruby1"								"blah blah @ruby_property1 gem"

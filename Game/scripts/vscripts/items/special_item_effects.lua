@@ -2357,8 +2357,8 @@ function hermit_spike_damage_taken(event)
 	local spineThreshold = target:GetMaxHealth() * ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD/100
 	ability.spineDamage = ability.spineDamage + attack_damage
 	if ability.spineDamage > spineThreshold then
-		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Bristleback.QuillSpray.Cast", target)
-		local spineShots = math.min(math.floor(ability.spineDamage / spineThreshold), 7)
+		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItems.HermitSpikeShell", target)
+		local spineShots = math.min(math.floor(ability.spineDamage / spineThreshold), ITEM_RPC_HERMITS_SPIKE_SHELL_MAX_TRIGGERS_PER_DMG)
 		for i = 1, spineShots, 1 do
 			Timers:CreateTimer((i - 1) * 0.2, function()
 				local spikeParticle = "particles/units/heroes/hero_bristleback/bristleback_quill_spray_quills.vpcf"
@@ -2369,14 +2369,27 @@ function hermit_spike_damage_taken(event)
 					ParticleManager:DestroyParticle(pfx, false)
 				end)
 				local radius = ITEM_RPC_HERMITS_SPIKE_SHELL_RADIUS
-				local damage = spineThreshold * ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_OF_DAMAGE_TAKEN
+				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_PCT_ATTACK_POWER/100) + (ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_RUBY)*target:GetMaxHealth()/100)
 				local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
 						Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+						if ability:GetGemValue("amethyst") > 0 then
+							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hermit_spike_shell_quills", {duration = ITEM_RPC_HERMITS_SPIKE_SHELL_AMETHYST_DURATION})
+							local current_stacks = enemy:GetModifierStackCount("modifier_hermit_spike_shell_quills", caster)
+							local new_stacks = math.min(current_stacks + 1, ITEM_RPC_HERMITS_SPIKE_SHELL_AMETHYST_MAX_STACKS)
+							enemy:SetModifierStackCount("modifier_hermit_spike_shell_quills", caster, new_stacks)
+							enemy:CalculateAndSaveRoshpitAttributes()
+						end
 					end
 				end
+
 			end)
+			if ability:GetGemValue("emerald") > 0 then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf", target, 1)
+				local heal = target:GetMaxHealth()*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_EMERALD)/100)
+				Filters:ApplyHeal(target, target, heal, true, true)
+			end
 		end
 		ability.spineDamage = 0
 	end

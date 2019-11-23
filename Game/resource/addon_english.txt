@@ -12608,8 +12608,21 @@
 
 		"item_rpc_guard_of_feronia_ruby1"								"Inreases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
 		"item_rpc_guard_of_feronia_emerald1"								"Casting [Q] applies Shield of Dawn for @emerald_property1 seconds"
-		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <font color='#ccff66'>1</font> seconds. Max <font color='#ccff66'>2</font> procs per second"
+		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <font color='#ccff66'>1</font> seconds. Max <font color='#ccff66'>1</font> procs per second"
 		"item_rpc_guard_of_feronia_amethyst1"								"When the Shield of Dawn expires, drop a star on all nearby enemies in a <font color='#ccff66'>550</font> radius that deals @amethyst_property1% of attack power. If only 1 enemy is nearby, drop <font color='#ccff66'>3</font> stars on it"
+
+		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
+		"item_property_hermit_spike_shell"			"Quill Spray"
+		"property_hermit_spike_shell_description"	"When you take a total of <font color='#ccff66'>15</font>% of your max health as damage, release quills that deal <font color='#ccff66'>20</font>% of your Attack Power to all surrounding enemies. Can trigger a maximum of <font color='#ccff66'>3</font> times at once."
+		
+		"DOTA_Tooltip_modifier_hermit_spike_shell_quills"	"Quill Spray"
+		"DOTA_Tooltip_modifier_hermit_spike_shell_quills_Description"	"Reduced Armor"
+
+		"item_rpc_hermits_spike_shell_ruby1"								"Increases Quill Spray damage by @ruby_property1% of Max Health"
+		"item_rpc_hermits_spike_shell_emerald1"								"When Quill Spray triggers, restore @emerald_property1% of max health"
+		"item_rpc_hermits_spike_shell_sapphire1"								"Each 1% of missing health increases Armor Pierce by @sapphire_property1"
+		"item_rpc_hermits_spike_shell_amethyst1"								"Quill Spray reduces enemy Armor by @amethyst_property1 for <font color='#ccff66'>10</font> seconds. Stacks up to <font color='#ccff66'>5</font> times"
+
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -12748,15 +12761,6 @@
 		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormshield"					"Storm Shield"
 		"property_stormshield_description"			"Reduces all Physical damage taken by <font color='#ccff66'>50</font>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"Hermit's Spike Shell"
-		"item_rpc_hermits_spike_shell_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_hermits_spike_shell_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_hermits_spike_shell_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_hermits_spike_shell_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_hermit_spike_shell"			"Quill Spray"
-		"property_hermit_spike_shell_description"	"When you take a total of <font color='#ccff66'>15</font>% of your max health as damage, release quills that deal <font color='#ccff66'>30</font> x the damage taken as Physical to all surrounding enemies."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
