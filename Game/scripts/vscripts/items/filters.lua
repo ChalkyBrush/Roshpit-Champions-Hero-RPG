@@ -2929,30 +2929,36 @@ function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, 
 end
 
 function Filters:GetPrimaryAttributeMultiple(hero, multiple)
-    local primeAttribute = hero:GetPrimaryAttribute()
+    local primeAttribute = hero:GetRoshpitPrimaryAttribute()
     local damage = 0
-    if primeAttribute == 0 then
+    if primeAttribute == ROSHPIT_ATTRIBUTE_STRENGTH then
         damage = hero:GetStrength() * multiple
-    elseif primeAttribute == 1 then
+    elseif primeAttribute == ROSHPIT_ATTRIBUTE_AGILITY then
         damage = hero:GetAgility() * multiple
-    elseif primeAttribute == 2 then
+    elseif primeAttribute == ROSHPIT_ATTRIBUTE_INTELLIGENCE then
         damage = hero:GetIntellect() * multiple
+    elseif primeAttribute == ROSHPIT_ATTRIBUTE_SPIRIT then
+        damage = hero:GetSpirit() * multiple
     end
     return math.ceil(damage)
 end
 
 function Filters:IsPrimaryAttribute(hero, attr)
-    local primeAttribute = hero:GetPrimaryAttribute()
-    if primeAttribute == 0 then
+    local primeAttribute = hero:GetRoshpitPrimaryAttribute()
+    if primeAttribute == ROSHPIT_ATTRIBUTE_STRENGTH then
         if attr == "str" then
             return true
         end
-    elseif primeAttribute == 1 then
+    elseif primeAttribute == ROSHPIT_ATTRIBUTE_AGILITY then
         if attr == "agi" then
             return true
         end
-    elseif primeAttribute == 2 then
+    elseif primeAttribute == ROSHPIT_ATTRIBUTE_INTELLIGENCE then
         if attr == "int" then
+            return true
+        end
+    elseif primeAttribute == ROSHPIT_ATTRIBUTE_SPIRIT then
+        if attr == "spr" then
             return true
         end
     else
@@ -3523,7 +3529,7 @@ function Filters:FarSeerGloves(attacker, damage, inflictor)
     -- end
     attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_effect", {duration = ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_DURATION})
     local maximum = 0
-    local primeAttribute = attacker:GetPrimaryAttribute()
+    local primeAttribute = attacker:GetRoshpitPrimaryAttribute()
     if primeAttribute == 0 then
         maximum = attacker:GetStrength() * ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRIMARY_ATT_CAP
     elseif primeAttribute == 1 then

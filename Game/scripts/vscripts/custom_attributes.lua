@@ -335,6 +335,7 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitMagicArmor(0)
 		unit:SetBaseRoshpitArmorPierce(0)
 		unit:SetBaseRoshpitSpellPierce(0)
+		unit:SetRoshpitPrimaryAttribute(unit:GetKeyValue("RoshpitPrimaryAttribute", false))
 		CustomAttributes:SetAttributes(unit)
 	else
 		unit:SetEnemyType()
@@ -349,6 +350,14 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		end
 	end
 	unit:CalculateAndSaveRoshpitAttributes()
+end
+
+function CDOTA_BaseNPC_Hero:SetRoshpitPrimaryAttribute(attribute)
+	self.roshpit_attributes.primary_attribute = attribute
+end
+
+function CDOTA_BaseNPC_Hero:GetRoshpitPrimaryAttribute()
+	return self.roshpit_attributes.primary_attribute
 end
 
 function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, armor_mult, magic_armor_mult, armor_pierce_mult, spell_pierce_mult)

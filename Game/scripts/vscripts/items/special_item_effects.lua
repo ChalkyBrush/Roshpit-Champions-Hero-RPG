@@ -366,7 +366,7 @@ function BodyProjectileStrike(event)
 	local ability = event.ability
 	local caster = ability.caster
 	local target = event.target
-	local primeAttribute = caster:GetPrimaryAttribute()
+	local primeAttribute = caster:GetRoshpitPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
 		damage = caster:GetStrength() * 5
@@ -381,7 +381,7 @@ end
 function doomplate_damage(event)
 	local target = event.target
 	local caster = target.doomplateCaster
-	local primeAttribute = caster:GetPrimaryAttribute()
+	local primeAttribute = caster:GetRoshpitPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
 		damage = caster:GetStrength() * 15
@@ -528,7 +528,7 @@ function wild_nature_entangle_think(event)
 	local ability = event.ability
 	local inventory_unit = target:FindModifierByName("modifier_wild_nature_entangle_effect"):GetCaster()
 	local caster = inventory_unit.hero
-	local primeAttribute = caster:GetPrimaryAttribute()
+	local primeAttribute = caster:GetRoshpitPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
 		damage = caster:GetStrength() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
@@ -3557,7 +3557,7 @@ function leon_think(event)
 	local ability = event.ability
 	local caster = event.caster
 
-	local primeAttribute = target:GetPrimaryAttribute()
+	local primeAttribute = target:GetRoshpitPrimaryAttribute()
 	if primeAttribute == 0 then
 		local strStacks = math.floor(target:GetBaseStrength() * ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})

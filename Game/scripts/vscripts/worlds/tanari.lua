@@ -477,7 +477,7 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility_augmented", "#FFFFFF", 1, "#property_nobility_augmented_description")
 
     item.property2 = 150
-    local primaryAttribute = hero:GetPrimaryAttribute()
+    local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
     if primaryAttribute == 0 then
         item.property2name = "strength"
         RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000", 2)

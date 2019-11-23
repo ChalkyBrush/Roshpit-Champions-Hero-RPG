@@ -248,7 +248,7 @@ function RPCItems:RollSteelbarkPlate(hero)
     item.newItemTable.property1name = "steelbark"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_steelbark", "#ADFF5C", 1, "#property_steelbark_description")
 
-    local primaryAttribute = hero:GetPrimaryAttribute()
+    local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
     item.newItemTable.property2 = RandomInt(80, 120)
     if primaryAttribute == 0 then
         item.newItemTable.property2name = "strength"
@@ -274,7 +274,7 @@ function RPCItems:RollBadgeOfHonor(hero)
     item.newItemTable.property1name = "health_regen"
     RPCItems:SetPropertyValues(item, value, "#item_health_regen", "#6AA364", 1)
 
-    local primaryAttribute = hero:GetPrimaryAttribute()
+    local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
     item.newItemTable.property2 = RandomInt(20, 40)
     if primaryAttribute == 0 then
         item.newItemTable.property2name = "strength"
@@ -7382,7 +7382,7 @@ function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
     item.newItemTable.property2name = ability.newItemTable.property2name
     item.newItemTable.property2color = ability.newItemTable.property2color
     item.newItemTable.property2tooltip = ability.newItemTable.property2tooltip
-    -- local primaryAttribute = hero:GetPrimaryAttribute()
+    -- local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
     -- if primaryAttribute == 0 then
     --     item.newItemTable.property2name = "strength"
     --     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000",  2)
