@@ -12630,16 +12630,18 @@
 		"item_rpc_heroic_conqueror_vestments_amethyst1"						"Increases all [R] runes by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
-		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_hurricane_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_hurricane_vest_amethyst1"									"blah blah @amethyst_property1 gem"
+
 		"item_property_hurricane"					"Hurricane"
-		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>16</font> whirlwinds travel outward from you in all directions, slowing enemies' attack speed by <font color='#ccff66'>150</font> and movespeed by <font color='#ccff66'>150</font> for <font color='#ccff66'>5</font> seconds. Each whirlwind also deals damage equal to <font color='#ccff66'>10</font> * (Hero Level / 120) * (<font color='#ccff66'>1800</font> - distance between caster and target))^<font color='#ccff66'>3</font>; the winds lose strength as they travel."
+		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>7</font> whirlwinds travel outward from you in all directions, dealing damage based on <font color='#ccff66'>25</font>% of Attack Power"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Buffeted by strong winds"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Slowed"
+
+		"item_rpc_hurricane_vest_ruby1"									"Increases the base number of whirlwinds by @ruby_property1"
+		"item_rpc_hurricane_vest_emerald1"									"Hurricane damage is increased by @emerald_property1x Agility and the whirlwinds travel @emerald_property2 farther distance"
+		"item_rpc_hurricane_vest_sapphire1"									"Tornados slow enemy attack speed and movespeed by @sapphire_property1 and Hurricane damage is increased by @sapphire_property2"
+		"item_rpc_hurricane_vest_amethyst1"									"Casting [E] releases @amethyst_property1 whirlwinds"
 
 		
 		

@@ -4400,66 +4400,23 @@ function igneous_canine_damage(event)
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
 
-function hurricane_vest_create(event)
 
-	local caster = event.caster.hero
-	local ability = event.ability
-	local fv = caster:GetForwardVector()
-	ability.pushFV = fv
-	local hurricaneStartPosition = caster:GetAbsOrigin()
-	local range = ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE
-	local start_radius = 220
-	local end_radius = 220
-	local speed = ITEM_RPC_HURRICANE_VEST_HURRICANE_SPEED
-	local projectileParticle = "particles/roshpit/items/hurricane_vest.vpcf"
-	EmitSoundOn("RPCItem.HurricaneVestNew", caster)
-	if not ability.cast_number then
-		ability.cast_number = 0
-	end
-	ability.cast_number = ability.cast_number + 1
-	ability.caster = caster
-	for i = 1, ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT do
-		local shotVector = WallPhysics:rotateVector(fv, (2 * math.pi / ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT) * i)
-		local info =
-		{
-			Ability = caster.body,
-			EffectName = projectileParticle,
-			vSpawnOrigin = hurricaneStartPosition,
-			fDistance = range,
-			fStartRadius = start_radius,
-			fEndRadius = end_radius,
-			Source = event.caster,
-			StartPosition = "attach_origin",
-			bHasFrontalCone = true,
-			bReplaceExisting = false,
-			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			fExpireTime = GameRules:GetGameTime() + 5.0,
-			bDeleteOnHit = false,
-			vVelocity = shotVector * speed,
-			bProvidesVision = false,
-		}
-		ProjectileManager:CreateLinearProjectile(info)
-	end
-end
 
 function hurricane_vest_hit(event)
 	local target = event.target
 	local ability = event.ability
-	local caster = ability.caster
-	if not caster then
-	end
-	if not target.hurricane_cast_number then
-		target.hurricane_cast_number = 0
-	end
-	if ability.cast_number ~= target.hurricane_cast_number then
-		target.hurricane_cast_number = ability.cast_number
-		local damage = ITEM_RPC_HURRICANE_VEST_DMG_AMP * (caster:GetLevel() / 120 * (ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()))) ^ ITEM_RPC_HURRICANE_VEST_DMG_EXP_SCALE
-		Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, caster.body, RPC_ELEMENT_WIND, RPC_ELEMENT_ICE)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = ITEM_RPC_HURRICANE_VEST_SLOW_DUR})
+	local hero = ability.caster
+	local caster = hero.InventoryUnit
 
+	local damage = ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT*OverflowProtectedGetAverageTrueAttackDamage(hero) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HURRICANE_VEST_GEM_EMERALD1)*hero:GetAgility() + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HURRICANE_VEST_GEM_SAPPHIRE2)
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = ITEM_RPC_HURRICANE_VEST_SAPPHIRE_SLOW_DURATION})
+		target:SetModifierStackCount("modifier_hurricane_vest_slow", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HURRICANE_VEST_GEM_SAPPHIRE1))
 	end
+
+
 end
 
 function new_ruby_dragon_think(event)

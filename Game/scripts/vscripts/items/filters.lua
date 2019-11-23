@@ -1124,6 +1124,12 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_temporal_warp_boots") then
         Filters:TimeWarp(caster)
     end
+    if caster:HasModifier("modifier_hurricane_vest") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
+            local tornado_count = caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HURRICANE_VEST_GEM_AMETHYST)
+            Filters:HurricaneVest(caster, tornado_count)
+        end
+    end
     if caster:HasModifier("modifier_avernus_e_nerf") then
         ability:EndCooldown()
         baseCd = baseCd + 15
@@ -1167,8 +1173,8 @@ function Filters:ApplyRskills(caster)
         end
     end
     if caster:HasModifier("modifier_hurricane_vest") then
-        --print(caster.InventoryUnit:GetUnitName())
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_hurricane_vest_start", {duration = 0.3})
+        local tornado_count = ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY)
+        Filters:HurricaneVest(caster, tornado_count)
     end
     if caster:HasModifier("modifier_body_flooding") then
         Filters:FloodRobe(caster)
@@ -5049,5 +5055,44 @@ function Filters:ApplyFeronia(caster, slot, bReapply)
         else
             feronia:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = duration})
         end
+    end
+end
+
+function Filters:HurricaneVest(caster, tornado_count)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local fv = caster:GetForwardVector()
+    ability.pushFV = fv
+    local hurricaneStartPosition = caster:GetAbsOrigin()
+    local range = ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HURRICANE_VEST_GEM_EMERALD2)
+    local start_radius = 220
+    local end_radius = 220
+    local speed = ITEM_RPC_HURRICANE_VEST_HURRICANE_SPEED
+    local projectileParticle = "particles/roshpit/items/hurricane_vest.vpcf"
+    EmitSoundOn("RPCItem.HurricaneVestNew", caster)
+
+    ability.caster = caster
+    for i = 1, tornado_count do
+        local shotVector = WallPhysics:rotateVector(fv, (2 * math.pi / tornado_count) * i)
+        local info =
+        {
+            Ability = ability,
+            EffectName = projectileParticle,
+            vSpawnOrigin = hurricaneStartPosition,
+            fDistance = range,
+            fStartRadius = start_radius,
+            fEndRadius = end_radius,
+            Source = caster.InventoryUnit,
+            StartPosition = "attach_origin",
+            bHasFrontalCone = true,
+            bReplaceExisting = false,
+            iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+            iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            fExpireTime = GameRules:GetGameTime() + 5.0,
+            bDeleteOnHit = false,
+            vVelocity = shotVector * speed,
+            bProvidesVision = false,
+        }
+        ProjectileManager:CreateLinearProjectile(info)
     end
 end

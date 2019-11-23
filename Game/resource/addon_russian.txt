@@ -12230,12 +12230,13 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
-		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_hurricane_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_hurricane_vest_amethyst1"									"blah blah @amethyst_property1 gem"
+
 		"item_property_hurricane"					"Hurricane"
-		"property_hurricane_description"			"При прочтении @Ability4, буря из <font color='#ccff66'>16</font> ураганов распространяется во все стороны от героя, замедляя скорость атаки врагов на <font color='#ccff66'>150</font> и скорость передвижения на <font color='#ccff66'>150</font> в течение <font color='#ccff66'>5</font> секунд. Урон, наносимый каждым ураганом равен <font color='#ccff66'>10</font> * (Уровень Героя / 120) * (<font color='#ccff66'>1800</font> - расстояние между героем и целью))^<font color='#ccff66'>3</font>; сила ветра снижается по мере удаления от центра."
+		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <font color='#ccff66'>7</font> whirlwinds travel outward from you in all directions, dealing damage based on <font color='#ccff66'>25</font>% of Attack Power"
+		"item_rpc_hurricane_vest_ruby1"									"Increases the base number of whirlwinds by @ruby_property1"
+		"item_rpc_hurricane_vest_emerald1"									"Hurricane damage is increased by @emerald_property1x Agility"
+		"item_rpc_hurricane_vest_sapphire1"									"Tornados slow enemy attack speed and movespeed by @sapphire_property1 and Hurricane damage is increased by @sapphire_property2"
+		"item_rpc_hurricane_vest_amethyst1"									"Casting [E] releases @amethyst_property1 whirlwinds"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Преследуется сильными ветрами"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
