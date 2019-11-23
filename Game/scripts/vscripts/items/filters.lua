@@ -3499,7 +3499,7 @@ function Filters:DefilerHit(attacker, victim)
 
     if ability:GetGemValue("ruby") > 0 or ability:GetGemValue("emerald") > 0 or ability:GetGemValue("amethyst") > 0 or ability:GetGemValue("sapphire") > 0 then
         local casterStacks = attacker:GetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit)
-        local newCasterStacks = math.min(casterStacks + 1, HOOD_OF_DEFILER_RUBY_MAX_STACKS)
+        local newCasterStacks = math.min(casterStacks + 1, HOOD_OF_DEFILER_GEMS_MAX_STACKS)
         ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_hood_of_defiler_buff", {duration = HOOD_OF_DEFILER_DURATION})
         attacker:SetModifierStackCount("modifier_hood_of_defiler_buff", attacker.InventoryUnit, newCasterStacks)
 
