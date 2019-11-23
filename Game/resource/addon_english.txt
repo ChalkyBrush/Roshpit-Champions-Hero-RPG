@@ -12590,6 +12590,15 @@
 		"item_rpc_golden_war_plate_sapphire1"								"Increases Armor Pierce by an additional @sapphire_property1% of Armor"
 		"item_rpc_golden_war_plate_amethyst1"								"Reduces Spell Pierce and Increases Armor Pierce by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
+		"item_property_gold_plate_of_leon"						"Gallant Hero"
+		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by <font color='#ccff66'>50</font>%"
+
+		"item_rpc_gold_plate_of_leon_ruby1"								"Your primary attribute is always Strength. Increases Strength by @ruby_property1."
+		"item_rpc_gold_plate_of_leon_emerald1"								"Increases all attributes by @emerald_property1"
+		"item_rpc_gold_plate_of_leon_sapphire1"								"Increases your base attack damage by an additional @sapphire_property1x your primary attribute"
+		"item_rpc_gold_plate_of_leon_amethyst1"								"Increases your primary attribute by an additional @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12851,14 +12860,6 @@
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
 		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"Gold Plate of Leon"
-		"item_rpc_gold_plate_of_leon_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_gold_plate_of_leon_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_gold_plate_of_leon_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_gold_plate_of_leon_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_gold_plate_of_leon"						"Gallant Hero"
-		"property_gold_plate_of_leon_description"				"Increases your Primary Attribute by <font color='#ccff66'>50</font>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"

@@ -255,7 +255,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_bonus"			"40 60 100 160 180 200 240"
+				"agility_bonus"			"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
@@ -465,7 +465,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strength_bonus"			"40 60 100 160 180 200 240"
+				"strength_bonus"			"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
@@ -665,7 +665,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_bonus"			"40 60 100 160 180 200 240"
+				"int_bonus"			"30 60 90 120 150 180 210"
 			}
 			"02"
 			{

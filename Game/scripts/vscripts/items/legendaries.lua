@@ -2407,40 +2407,6 @@ function RPCItems:RollNightmareRiderMantle(item_level)
     return item
 end
 
-function RPCItems:RollGoldPlateOfLeon(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_gold_plate_of_leon", "immortal", "Gold Plate of Leon", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "gold_leon"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_plate_of_leon", "#E6E617", 1, "#property_gold_plate_of_leon_description")
-
-    local luck = RandomInt(1, 3)
-	if luck == 1 then
-        value, nameLevel = RPCItems:RollAttribute(0, 5, 25, 0, 0, item.newItemTable.rarity, false, maxFactor * 30)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "strength"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    elseif luck == 2 then
-        value, nameLevel = RPCItems:RollAttribute(0, 5, 25, 0, 0, item.newItemTable.rarity, false, maxFactor * 30)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "agility"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-    elseif luck == 3 then
-        value, nameLevel = RPCItems:RollAttribute(0, 5, 25, 0, 0, item.newItemTable.rarity, false, maxFactor * 30)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    end
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSpaceTechVest(item_level)
     local item = RPCItems:CreateVariant("item_rpc_space_tech_vest", "immortal", "Space Tech Vest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4687,6 +4653,29 @@ function RPCItems:RollGoldenWarPlate(item_level)
     return item
 end
 
+function RPCItems:RollGoldPlateOfLeon(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_gold_plate_of_leon", "immortal", "Gold Plate of Leon", "body", true, "Slot: Body")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_gold_plate_of_leon"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_plate_of_leon", "#E6E617", 1, "#property_gold_plate_of_leon_description")
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 --FEET
 
@@ -8798,7 +8787,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_wraith_hunters_steel_helm"}
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
-        "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate"}
+        "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon"}
     end
     return itemsList
 end

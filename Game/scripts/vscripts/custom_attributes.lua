@@ -307,6 +307,10 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 	if modifier then
 		spirit = spirit - modifier:GetStackCount()
 	end
+	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_spr')
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
 
 
 	return spirit
@@ -357,7 +361,13 @@ function CDOTA_BaseNPC_Hero:SetRoshpitPrimaryAttribute(attribute)
 end
 
 function CDOTA_BaseNPC_Hero:GetRoshpitPrimaryAttribute()
-	return self.roshpit_attributes.primary_attribute
+	local prime_attr = self.roshpit_attributes.primary_attribute
+	if self:HasModifier("modifier_gold_plate_of_leon") then
+		if self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("ruby") > 0 then
+			prime_attr = ROSHPIT_ATTRIBUTE_STRENGTH
+		end
+	end
+	return prime_attr
 end
 
 function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, armor_mult, magic_armor_mult, armor_pierce_mult, spell_pierce_mult)
@@ -2348,6 +2358,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_int", 1)
+		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_spr", 1)
 	end
 	if hero:HasModifier("modifier_mageplate_intelligence") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mageplate_intelligence", 1)

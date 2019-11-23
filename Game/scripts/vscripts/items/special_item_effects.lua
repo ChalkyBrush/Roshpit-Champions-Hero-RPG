@@ -3558,24 +3558,40 @@ function leon_think(event)
 	local caster = event.caster
 
 	local primeAttribute = target:GetRoshpitPrimaryAttribute()
-	if primeAttribute == 0 then
-		local strStacks = math.floor(target:GetBaseStrength() * ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100, 0)
+	local prime_mult = ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_EMERALD)/100
+	if primeAttribute == ROSHPIT_ATTRIBUTE_STRENGTH then
+		local strStacks = math.floor(target:GetBaseStrength() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})
 		target:SetModifierStackCount("modifier_gold_plate_of_leon_str", ability, strStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
-	elseif primeAttribute == 1 then
-		local agiStacks = math.floor(target:GetBaseAgility() * ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100, 0)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_spr")
+	elseif primeAttribute == ROSHPIT_ATTRIBUTE_AGILITY then
+		local agiStacks = math.floor(target:GetBaseAgility() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_agi", {})
 		target:SetModifierStackCount("modifier_gold_plate_of_leon_agi", ability, agiStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
-	elseif primeAttribute == 2 then
-		local intStacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100, 0)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_spr")
+	elseif primeAttribute == ROSHPIT_ATTRIBUTE_INTELLIGENCE then
+		local intStacks = math.floor(target:GetBaseIntellect() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_int", {})
 		target:SetModifierStackCount("modifier_gold_plate_of_leon_int", ability, intStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_spr")
+	elseif primeAttribute == ROSHPIT_ATTRIBUTE_SPIRIT then
+		local sprStacks = math.floor(target:GetBaseSpirit() * prime_mult, 0)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_spr", {})
+		target:SetModifierStackCount("modifier_gold_plate_of_leon_spr", ability, sprStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_leon_extra_atk", {})
+		local stacks = Filters:GetPrimaryAttributeMultiple(target, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_SAPPHIRE))
+		target:SetModifierStackCount("modifier_leon_extra_atk", caster, stacks)
 	end
 end
 
