@@ -915,8 +915,8 @@
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"ЗАРЯДОВ:"
 
 		"DOTA_Tooltip_ability_mega_steadfast"							"Mega Steadfast"
-		"DOTA_Tooltip_ability_mega_steadfast_Description"				"Любой входящий урон не отнимет более определённого процента от максимального запаса здоровья."
-		"DOTA_Tooltip_ability_mega_steadfast_max_damage"				"МАКС. УРОН, % ОТ МАКС. ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"Весь получаемый урон снижен."
+		"DOTA_Tooltip_ability_mega_steadfast_damage_reduce"				"% СНИЖЕНИЕ УРОНА:"
 
 		"redfall_crimsyth_castle_grounds_guardian"						"Страж сада замка"
 

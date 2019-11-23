@@ -794,9 +794,13 @@ function colossus_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster:HasModifier("modifier_colossus_restore") then
+		if caster:GetHealth() == caster:GetMaxHealth() then
+			caster:RemoveModifierByName("modifier_colossus_restore")
+		else
 		return false
+		end
 	end
-	if caster:GetHealth() < 2000 then
+	if caster:GetHealth() < caster:GetMaxHealth() * 0.1 and caster:HasModifier("modifier_frostiok_immunity_stacks") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_colossus_restore", {duration = 7})
 		EmitSoundOn("Winterblight.Restore", caster)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_borealis.vpcf", caster, 3)
@@ -1545,7 +1549,7 @@ function ice_specter_attack_land(event)
 			ability.particleLock = false
 		end)
 	end
-	local burnDamage = math.min(target:GetMana(), mana_burn) * 10
+	local burnDamage = math.min(target:GetMana(), mana_burn)
 	target:ReduceMana(mana_burn)
 	ApplyDamage({victim = target, attacker = caster, damage = burnDamage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 end
@@ -1554,7 +1558,7 @@ function ice_specter_die(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local mana_burn = event.mana_burn * 10
+	local mana_burn = event.mana_burn
 	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_emp.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 65))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(380, 5, 380))

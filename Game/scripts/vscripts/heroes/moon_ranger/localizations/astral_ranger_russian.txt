@@ -236,7 +236,7 @@
     	"property_astral_arcana3_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Crystal Arrow."
 
     	"DOTA_Tooltip_ability_crystal_arrow"						"Crystal Arrow"
-    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Стихия: <font color=\"#87D9FF\">Лед</font> / <font color=\"#C25DFC\">Космос</font><br>Astral Ranger выхватывает из колчана ледяную стрелу и целится в небо. По завершении прочтения, выпускает благославленную Азалией стрелу в указанную точку, нанося урон в небольшой области, который игнорирует свойство монстров 'Стойкость'."
+    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"Стихия: <font color=\"#87D9FF\">Лед</font> / <font color=\"#C25DFC\">Космос</font><br>Astral Ranger выхватывает из колчана ледяную стрелу и целится в небо. По завершении прочтения, выпускает благославленную Азалией стрелу в указанную точку, нанося урон в небольшой области."
     	"DOTA_Tooltip_ability_crystal_arrow_damage"					"УРОН:"
 
     	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3"						"[R1] Azalea's Window"

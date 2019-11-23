@@ -496,27 +496,27 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_resist"			"90"
+				"damage_resist"			"60"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"60 100 200"
+				"damage"			"30 90 150"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun_duration"			"0.5"
+				"stun_duration"			"0.3"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"instances_count"			"3 4 5"
+				"instances_count"			"1 2 3"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"min_distance"		"300"
+				"min_distance"		"450"
 			}
 		}
 		"Modifiers"
@@ -1885,7 +1885,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attacK_damage_increase"				"50 240 500"
+				"attack_damage_increase"				"50 70 90"
 			}
 		}
 		"Modifiers"
@@ -1910,7 +1910,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attacK_damage_increase"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_increase"
 				}
 			}
 		}
@@ -2379,7 +2379,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"15"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"20"
 				}
 			}
 			"modifier_frostiok_immunity_stacks"
@@ -2522,7 +2522,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"80 400 2000"
+				"damage"			"2 10 80"
 			}
 		}
 
@@ -3022,7 +3022,7 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastRange"				"2500"
+		"AbilityCastRange"				"1500"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		// Precache
@@ -3037,7 +3037,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"3.5"
+		"AbilityCooldown"				"4.5"
 
 		// Cost
 		//-------------------------------------------------------
@@ -3055,7 +3055,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"650 8000 150000"
+				"damage"			"200 800 1400"
 			}
 		}
 		"OnSpellStart"
@@ -3580,7 +3580,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_burn"			"4 20 100"
+				"mana_burn"			"10 80 180"
 			}
 		}
 		"Modifiers"
@@ -3699,7 +3699,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"5000 250000 1500000"
+				"damage"			"400 2000 4000"
 			}
 			"02"
 			{
@@ -4880,12 +4880,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"30 300 5000"
+				"burn_damage"			"5 30 50"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 200000"
+				"damage"			"100 800 1500"
 			}
 		}
 		"OnOwnerDied"
@@ -5503,7 +5503,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"97"
+				"damage_reduc"			"80"
 			}
 		}
 		"Modifiers"
@@ -7766,7 +7766,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_bonus"				"200 800 1400"
+				"as_bonus"				"60 90 150"
 			}
 			"02"
 			{
@@ -7776,7 +7776,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_power_bonus"			"30 125 400"
+				"attack_power_bonus"			"20 40 60"
 			}
 			"04"
 			{
@@ -8353,7 +8353,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"comet_damage"		"1000 30000 1250000"
+				"comet_damage"		"400 1000 2000"
 			}
 		}
 		"Modifiers"
@@ -11187,7 +11187,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"97"
+				"damage_block"			"80"
 			}
 		}
 		"Modifiers"
@@ -11708,7 +11708,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"10000 100000 400000"
+				"damage"				"100 700 2000"
 			}	
 			"02"
 			{

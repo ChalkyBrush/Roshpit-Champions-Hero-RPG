@@ -4463,7 +4463,7 @@
         "RoshpitArmorPierce"    "34"
         "RoshpitSpellPierce"    "94"
         "RoshpitMagicArmor"     "125"
-        "RoshpitLevel"          "9"
+        "RoshpitLevel"          "14"
         "RoshpitDominion"       "1"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
@@ -7703,7 +7703,7 @@
         "RoshpitArmorPierce"    "125"
         "RoshpitSpellPierce"    "40"
         "RoshpitMagicArmor"     "145"
-        "RoshpitLevel"          "14"
+        "RoshpitLevel"          "22"
         "RoshpitDominion"       "0"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
@@ -8328,7 +8328,7 @@
         "RoshpitArmorPierce"    "176"
         "RoshpitSpellPierce"    "77"
         "RoshpitMagicArmor"     "105"
-        "RoshpitLevel"          "17"
+        "RoshpitLevel"          "22"
         "RoshpitDominion"       "1"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
