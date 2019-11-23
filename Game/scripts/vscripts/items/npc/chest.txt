@@ -1,3 +1,92 @@
+	"item_rpc_featherwhite_armor"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"	"rpc/featherwhite_armor" //"featherwhite_armor"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_AMETHYST %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_one"			"<% RPC_ELEMENT_HOLY %>"
+			}
+		}
+		"precache"
+		{
+            "model"      "models/items/courier/royal_griffin_cub/royal_griffin_cub_flying.vmdl"
+            "particle"   "particles/units/heroes/hero_witchdoctor/ivory_gryffin_heal.vpcf"
+            "particle"	 "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_featherwhite_armor"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"ivory_griffin_init"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"ivory_griffin_end"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_enchanted_solar_cape"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -59,6 +148,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"EffectAttachType"	"follow_origin"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"ThinkInterval"  "<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %>"
 				"OnIntervalThink"
 				{
@@ -2270,62 +2360,7 @@
 			}
 		}
 	}
-	"item_rpc_featherwhite_armor"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/featherwhite_armor" //"featherwhite_armor"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_FEATHERWHITE_ARMOR_GEM_AMETHYST %>"
-			}
-		}
-		"precache"
-		{
-            "model"      "models/items/courier/royal_griffin_cub/royal_griffin_cub_flying.vmdl"
-            "particle"   "particles/units/heroes/hero_witchdoctor/ivory_gryffin_heal.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-	}
+
 	"item_rpc_guard_of_feronia"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

@@ -672,24 +672,6 @@ function ice_quill_unloading_think(event)
 	PopupMana(hero, manaRestore)
 end
 
-function gryffin_think(event)
-	local caster = event.caster
-	local hero = caster.hero
-	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), hero:GetAbsOrigin())
-	if distance > 3400 then
-		caster:SetAbsOrigin(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
-	elseif distance > 320 then
-		caster:MoveToPosition(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
-	end
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_FEATHERWHITE_ARMOR_AURA_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	if #allies > 0 then
-		for _, ally in pairs(allies) do
-			local healAmount = math.floor(ally:GetMaxHealth() * ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP/100)
-			Filters:ApplyHeal(hero, ally, healAmount, true)
-		end
-	end
-end
-
 function midas_think(event)
 	local target = event.target
 
@@ -7410,4 +7392,100 @@ function enchanted_solar_cape_think(event)
 	local caster = event.caster
 	local hero = caster.hero
 	Filters:AddSolarCapeStacks(hero, caster, ability, 1)
+end
+
+function ivory_griffin_init(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	local summon = CreateUnitByName("ivory_gryffin", hero:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
+	summon.owner = hero:GetPlayerOwnerID()
+	summon.summoner = hero
+	summon:SetOwner(hero)
+	summon:SetControllableByPlayer(hero:GetPlayerID(), true)
+	summon.hero = hero
+	ability.gryphon = summon
+	summon.aoe = ITEM_RPC_FEATHERWHITE_ARMOR_RADIUS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FEATHERWHITE_ARMOR_GEM_EMERALD)
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/ivory_gryffin_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, summon)
+	ParticleManager:SetParticleControlEnt(pfx, 0, summon, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", summon:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(summon.aoe, summon.aoe, summon.aoe))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(1, 1, 1))
+	summon.pfx = pfx
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf", summon, 2)
+	EmitSoundOn("RPCItems.Featherwhite.Init", summon)
+	summon:SetDayTimeVisionRange(summon.aoe)
+	summon:SetNightTimeVisionRange(summon.aoe)
+end
+
+function ivory_griffin_end(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	ability.gryphon.disable = true
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf", ability.gryphon, 2)
+	local unit_to_remove = ability.gryphon
+	ParticleManager:DestroyParticle(ability.gryphon.pfx, false)
+	Timers:CreateTimer(0.4, function()
+		UTIL_Remove(unit_to_remove)
+	end)
+	EmitSoundOn("RPCItems.Featherwhite.Init", unit_to_remove)
+end
+
+function gryffin_think(event)
+	local caster = event.caster
+	if caster.disable then
+		return false
+	end
+	local hero = caster.hero
+	local ability = event.ability
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), hero:GetAbsOrigin())
+	if distance > 3400 then
+		caster:SetAbsOrigin(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf", caster, 2)
+		EmitSoundOn("RPCItems.Featherwhite.Init", caster)
+	elseif distance > 240 then
+		caster:MoveToPosition(hero:GetAbsOrigin() + RandomVector(RandomInt(50, 200)))
+	end
+	local total_heal = 0
+	local spirit_heal = math.floor(hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FEATHERWHITE_ARMOR_GEM_AMETHYST)*hero:GetSpirit())
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster.aoe, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #allies > 0 then
+		for _, ally in pairs(allies) do
+			local healAmount = math.floor(ally:GetMaxHealth() * ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP/100) + spirit_heal
+			Filters:ApplyHeal(hero, ally, healAmount, true, true)
+			total_heal = total_heal + healAmount
+			ability:ApplyDataDrivenModifier(caster, ally, "modifier_ivory_gryffin_aura_effect", {})
+		end
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("sapphire") > 0 then
+		local damage = total_heal*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FEATHERWHITE_ARMOR_GEM_SAPPHIRE)/100
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), caster:GetAbsOrigin(), nil, caster.aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PURE, hero.equipped_gear[RPC_GEAR_SLOT_BODY], RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			end
+		end
+	end
+end
+
+function gryffin_aura_think(event)
+	local caster = event.caster
+	local target = event.target
+	if not IsValidEntity(caster) then
+		target:RemoveModifierByName("modifier_ivory_gryffin_aura_effect")
+		return false
+	end
+	if not caster then
+		target:RemoveModifierByName("modifier_ivory_gryffin_aura_effect")
+		return false
+	end
+	if caster.disable then
+		target:RemoveModifierByName("modifier_ivory_gryffin_aura_effect")
+	end
+	local hero = caster.hero
+	
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
+	if distance > caster.aoe then
+		target:RemoveModifierByName("modifier_ivory_gryffin_aura_effect")
+	end
 end

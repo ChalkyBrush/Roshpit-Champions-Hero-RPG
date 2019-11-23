@@ -12576,7 +12576,7 @@
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 
 		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Every <font color='#ccff66'>0.5</font> seconds, gain a Sunlight stack. Upon reaching <font color='#ccff66'>24</font> stacks, gain the Solar Flare buff for <font color='#ccff66'>12</font> seconds. During Solar Flare, all cooldown are reduced by <font color='#ccff66'>66</font> and cast rate is increased by <font color='#ccff66'>60</font>%. Cannot gain Sunlight stacks during Solar Flare."
+		"property_enchanted_solar_description"		"Every <font color='#ccff66'>0.5</font> seconds, gain a Sunlight stack. Upon reaching <font color='#ccff66'>24</font> stacks, gain the Solar Flare buff for <font color='#ccff66'>12</font> seconds. During Solar Flare, all cooldowns are reduced by <font color='#ccff66'>66</font>% and cast rate is increased by <font color='#ccff66'>60</font>%. Cannot gain Sunlight stacks during Solar Flare."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<font color='#ccff66'>66</font>%% reduced cooldowns and <font color='#ccff66'>60</font>%% increased cast rate."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
@@ -12585,6 +12585,18 @@
 		"item_rpc_enchanted_solar_cape_emerald1"							"Reduces the required number of Sunlight stacks to trigger Solar Flare by @emerald_property1"
 		"item_rpc_enchanted_solar_cape_sapphire1"							"Increases Base Ability and Item Damage by @sapphire_property1% during Solar Flare"
 		"item_rpc_enchanted_solar_cape_amethyst1"							"Increases Spell Pierce and Magic Armor by @amethyst_property1 during Solar Flare"
+
+		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
+
+		"item_property_featherwhite_armor"			"Ivory Gryffon"
+		"property_featherwhite_armor_description"	"Gain a permanent uncontrollable Gryffon companion who cannot be damaged. All allies within the Gryffon's radius of <font color='#ccff66'>450</font> are healed by <font color='#ccff66'>2</font>% of their max health each <font color='#ccff66'>0.5</font> second interval. Gain flying vision within the aura radius."
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Restoring Health"
+
+		"item_rpc_featherwhite_armor_ruby1"								"Allies within the Gryffon's aura take @ruby_property1% reduced Magic and Pure damage."
+		"item_rpc_featherwhite_armor_emerald1"								"Increases the Gryffon's radius by @emerald_property1"
+		"item_rpc_featherwhite_armor_sapphire1"								"Enemies within the healing area take Pure damage based on @sapphire_property1% of the total amount of health restored on that heal interval"
+		"item_rpc_featherwhite_armor_amethyst1"								"Increases the heal by an additional @amethyst_property1x its master's Spirit"
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -12672,16 +12684,6 @@
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
 		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"Featherwhite Armor"
-		"item_rpc_featherwhite_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_featherwhite_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_featherwhite_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_featherwhite_armor_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_featherwhite_armor"			"Ivory Gryffon"
-		"property_featherwhite_armor_description"	"A gryphon follows you always, healing you and all surrounding units for <font color='#ccff66'>6</font>% of their max health each <font color='#ccff66'>0.5</font> second interval while also reducing all Magic and Pure damage taken by <font color='#ccff66'>30</font>%. The gryphon also has its own flying vision."
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Magic and Pure damage reduced by <font color='#ccff66'>30</font>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"

@@ -1505,7 +1505,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 			damage = damage * (1-DJANGHOR_WOLF_MAG_PURE_RED)
 		end
 		if victim:HasModifier("modifier_ivory_gryffin_aura_effect") then
-			damage = damage * (100-ITEM_RPC_FEATHERWHITE_ARMOR_MAGIC_AND_PURE_REDUCTION)/100
+			local gryphon = victim:FindModifierByName("modifier_ivory_gryffin_aura_effect"):GetCaster()
+			local featherwhite_armor = gryphon.hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+			damage = damage * (100 - featherwhite_armor:GetFinalGemPropertyValue("ruby", ITEM_RPC_FEATHERWHITE_ARMOR_GEM_RUBY))/100
 		end
 	end
 	if victim:HasModifier("modifier_azalea_zealot_ai") then

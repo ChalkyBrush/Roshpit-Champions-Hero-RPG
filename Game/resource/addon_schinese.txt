@@ -12542,9 +12542,9 @@
 		"item_rpc_featherwhite_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_featherwhite_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_featherwhite_armor"			"狮鹫牙"
-		"property_featherwhite_armor_description"	"一个狮鹫将一直跟随你，每秒为你和附近友军回复 <font color='#ccff66'>6</font>% 最大生命值，并且在光环内玩家和友军所受到的魔法和纯粹伤害将被减免 <font color='#ccff66'>30</font>%。狮鹫拥有高空视野。"
+		"property_featherwhite_armor_description"	"一个狮鹫将一直跟随你，每秒为你和附近友军回复 <font color='#ccff66'>2</font>% 最大生命值，并且在光环内玩家和友军所受到的魔法和纯粹伤害将被减免 <font color='#ccff66'>0</font>%。狮鹫拥有高空视野。"
 		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"狮鹫牙光环"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"所受到的魔法和纯粹伤害减免 <font color='#ccff66'>30</font>%%"
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"所受到的魔法和纯粹伤害减免 <font color='#ccff66'>0</font>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"龙仪外衣"
