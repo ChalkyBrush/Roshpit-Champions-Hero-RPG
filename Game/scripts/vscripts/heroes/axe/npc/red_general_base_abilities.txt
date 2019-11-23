@@ -217,6 +217,12 @@
 				"IsDebuff"		"1"
 				"IsStunDebuff"	"1"
 			}
+			"modifier_axe_glyph_2_2_visible"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"		"1"
+				"TextureName"            "slardar_amplify_damage"
+			}
 		}
 	}
 

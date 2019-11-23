@@ -183,11 +183,14 @@ function red_general_rune_base_q_1_attackLand(event)
 	local dealDamage = not caster:HasModifier("modifier_axe_glyph_7_1")
 	for i = 1, #enemies do
 		Filters:ApplyStun(caster, stun_duration, enemies[i])
+		if caster:HasModifier("modifier_axe_glyph_2_2") then
+			ability:ApplyDataDrivenModifier(caster, enemies[i], "modifier_axe_glyph_2_2_visible", {duration = RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE_DURATION})
+		end
 		if dealDamage then
 			Filters:TakeArgumentsAndApplyDamage(enemies[i], caster, aoe_damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 		end
-
 	end
+	
 	EmitSoundOn("Hero_ElderTitan.EchoStomp", targetUnit)
 end
 

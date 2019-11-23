@@ -888,6 +888,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + modifier:GetStackCount()*RED_GENERAL_ARCANA1_R3_ARMOR_LOSS
 	end
 	if unit:HasModifier("modifier_axe_glyph_2_2_visible") then
+		local modifier = unit:FindModifierByName("modifier_axe_glyph_2_2_visible")
 		armor_modify = armor_modify + RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE
 	end
 	if unit:HasModifier("modifier_autumn_sleeper_root") then
