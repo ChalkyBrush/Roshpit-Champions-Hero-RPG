@@ -12623,6 +12623,11 @@
 		"item_rpc_hermits_spike_shell_sapphire1"								"Each 1% of missing health increases Armor Pierce by @sapphire_property1"
 		"item_rpc_hermits_spike_shell_amethyst1"								"Quill Spray reduces enemy Armor by @amethyst_property1 for <font color='#ccff66'>10</font> seconds. Stacks up to <font color='#ccff66'>5</font> times"
 
+		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"Heroic Conqueror Vestments"
+		"item_rpc_heroic_conqueror_vestments_ruby1"						"Increases all [Q] runes by @ruby_property1"
+		"item_rpc_heroic_conqueror_vestments_emerald1"						"Increases all [E] runes by @emerald_property1"
+		"item_rpc_heroic_conqueror_vestments_sapphire1"						"Increases all [W] runes by @sapphire_property1"
+		"item_rpc_heroic_conqueror_vestments_amethyst1"						"Increases all [R] runes by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
@@ -12923,13 +12928,6 @@
 		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal <font color='#ccff66'>1000</font>% bonus Magical damage in an area."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals <font color='#ccff66'>1000</font>%% Magical damage in a small area"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"Heroic Conqueror Vestments"
-		"item_rpc_heroic_conqueror_vestments_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_heroic_conqueror_vestments_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_heroic_conqueror_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_heroic_conqueror_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"

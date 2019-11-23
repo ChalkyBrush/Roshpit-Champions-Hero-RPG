@@ -4678,6 +4678,24 @@ function RPCItems:RollHermitSpikeShell(item_level)
     return item
 end
 
+function RPCItems:RollHeroicConquerorVestments(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_heroic_conqueror_vestments", "immortal", "heroic conqueror", "body", true, "Slot: Body")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_q_4", 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_e_4", 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "rune_e_4", 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "rune_r_4", 1.25)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 --FEET
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -8040,42 +8058,6 @@ function RPCItems:RollChampionsGearBoots(item_level)
     return item
 end
 
-function RPCItems:RollHeroicConquerorVestments(deathLocation, pitLevel)
-    local item = RPCItems:CreateVariant("item_rpc_heroic_conqueror_vestments", "immortal", "heroic conqueror", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.hasRunePoints = true
-
-    local runeName = "rune_q_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(11 + pitLevel, 0, 0, 0, 0)
-    item.newItemTable.property1name = runeName
-    item.newItemTable.property1 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
-
-    local runeName = "rune_w_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(11 + pitLevel, 0, 0, 0, 0)
-    item.newItemTable.property2name = runeName
-    item.newItemTable.property2 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local runeName = "rune_e_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(11 + pitLevel, 0, 0, 0, 0)
-    item.newItemTable.property3name = runeName
-    item.newItemTable.property3 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local runeName = "rune_r_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(11 + pitLevel, 0, 0, 0, 0)
-    item.newItemTable.property4name = runeName
-    item.newItemTable.property4 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollImmortalByName(itemName, item_level)
     local deathLocation = Vector(0,0)
     local newItem = nil
@@ -8442,7 +8424,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollEpsilonsEyeglass(item_level)
     elseif itemName == "item_rpc_heroic_conqueror_vestments" then
         --print("GIMME DAT")
-        newItem = RPCItems:RollHeroicConquerorVestments(deathLocation, 1)
+        newItem = RPCItems:RollHeroicConquerorVestments(item_level)
     elseif itemName == "item_rpc_autumn_sleeper_mask" then
         newItem = RPCItems:RollAutumnSleeperMask(item_level)
     elseif itemName == "item_rpc_eye_of_seasons" then

@@ -3463,7 +3463,7 @@ function pit_boss_final_death(caster, ability)
 	local luck = RandomInt(1,4)
 	if luck == 1 then
 		Timers:CreateTimer(RandomInt(2,5), function()
-			RPCItems:RollHeroicConquerorVestments(bossOrigin, Arena.PitLevel)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_heroic_conqueror_vestments")
 		end)
 	end
 	Arena:UpdatePitLevels()
