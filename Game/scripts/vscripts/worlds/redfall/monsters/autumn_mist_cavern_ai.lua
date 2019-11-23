@@ -1197,7 +1197,7 @@ end
 
 function redfall_canyon_feronia_die(event)
 	local unit = event.unit
-	RPCItems:RollGuardOfFeronia(unit:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(unit, "item_rpc_guard_of_feronia")
 end
 
 function ghost_mace_apply(event)

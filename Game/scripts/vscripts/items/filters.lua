@@ -920,6 +920,9 @@ function Filters:ApplyQskills(caster)
             Filters:ReduceCooldownGeneric(caster, qAbility, DJANGHOR_GLYPH_5_1_Q_CD_RED)
         end
     end
+    if caster:HasModifier("modifier_guard_of_feronia") then
+        Filters:ApplyFeronia(caster, BASE_ABILITY_Q, false)
+    end
     if caster:HasModifier("modifier_royal_wristguards") then
         local current_stack = caster:GetModifierStackCount("modifier_royal_wristguards_stack_effect", caster.handItem)
         local qAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
@@ -1148,7 +1151,7 @@ function Filters:ApplyEskills(caster)
         Filters:MoonTechRunners(caster)
     end
     if caster:HasModifier("modifier_guard_of_feronia") then
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E})
+        Filters:ApplyFeronia(caster, BASE_ABILITY_E, false)
     end
     if caster:HasModifier("modifier_wind_deity_crown") then
         caster:RemoveModifierByName("modifier_wind_deity_damage_buff")
@@ -1198,7 +1201,7 @@ function Filters:ApplyRskills(caster)
         Filters:AlienArmor(caster)
     end
     if caster:HasModifier("modifier_guard_of_feronia") then
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R})
+        Filters:ApplyFeronia(caster, BASE_ABILITY_R, false)
     end
     if caster:HasModifier("modifier_carbuncles_helm_of_reflection") then
         Filters:CarbuncleApply(caster, caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", CARBUNCLE_SAPPHIRE), false)
@@ -5017,6 +5020,34 @@ function Filters:AddSolarCapeStacks(hero, caster, ability, stacks_count)
         if new_stacks >= ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS then
             ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION})
             hero:RemoveModifierByName("modifier_enchanted_solar_cape_sunlight")
+        end
+    end
+end
+
+function Filters:ApplyFeronia(caster, slot, bReapply)
+    local duration = 0
+    local feronia = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    if slot == BASE_ABILITY_E then
+        duration = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E
+    elseif slot == BASE_ABILITY_R then
+        duration = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R
+    elseif slot == BASE_ABILITY_Q then
+        if feronia:GetGemValue("emerald") > 0 then
+            duration = feronia:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARD_OF_FERONIA_GEM_EMERALD)
+        end
+    elseif slot == -10 then
+        if caster:HasModifier("modifier_guard_of_feronia_shield") then
+            duration = caster:FindModifierByName("modifier_guard_of_feronia_shield"):GetRemainingTime() + ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD
+        else
+            duration = ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD
+        end
+    end
+    if duration > 0 then
+        if bReapply then
+            caster:RemoveModifierByName("modifier_guard_of_feronia_shield")
+            feronia:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = duration})
+        else
+            feronia:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_guard_of_feronia_shield", {duration = duration})
         end
     end
 end

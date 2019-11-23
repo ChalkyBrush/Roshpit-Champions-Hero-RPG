@@ -7582,3 +7582,55 @@ function gryffin_aura_think(event)
 		target:RemoveModifierByName("modifier_ivory_gryffin_aura_effect")
 	end
 end
+
+function feronia_attack_land(event)
+	local hero = event.attacker
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GUARD_OF_FERONIA_GEM_SAPPHIRE))
+		local limitKey = caster:GetPlayerOwnerID() .. '_guard_of_feronia'
+		if proc then
+			Util.Common:LimitPerTime(ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND, 1, limitKey, function()
+				Filters:ApplyFeronia(hero, -10, true)
+			end)
+		end
+	end
+end
+
+function feronia_shield_expire(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+
+	if ability:GetGemValue("amethyst") > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARD_OF_FERONIA_GEM_AMETHYST)/100
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			EmitSoundOn("RPCItems.Feronia.StarfallStart", hero)
+		end
+		if #enemies > 1 then
+			for i = 1, #enemies, 1 do
+				local enemy = enemies[i]
+				Timers:CreateTimer((i-1)*0.05, function()
+					CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_mage_starfall_attack.vpcf", enemy, 1)
+					Timers:CreateTimer(0.5, function()
+						Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+						EmitSoundOn("RPCItems.Feronia.StarfallHit", enemy)
+					end)
+				end)
+			end
+		elseif #enemies == 1 then
+			for i = 1, ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS, 1 do
+				local enemy = enemies[1]
+				Timers:CreateTimer((i-1)*0.2, function()
+					CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_mage_starfall_attack.vpcf", enemy, 1)
+					Timers:CreateTimer(0.5, function()
+						Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+						EmitSoundOn("RPCItems.Feronia.StarfallHit", enemy)
+					end)
+				end)
+			end
+		end	
+	end
+end

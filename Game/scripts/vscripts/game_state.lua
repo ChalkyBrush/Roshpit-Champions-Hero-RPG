@@ -1598,7 +1598,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (1 - ability:GetFinalGemPropertyValue("ruby", SWAMP_DOCTOR_RUBY)/100)
 	end
 	if victim:HasModifier("modifier_guard_of_feronia_shield") then
-		damage = damage * (100-ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION)/100
+		local feronia = victim:FindModifierByName("modifier_guard_of_feronia_shield"):GetAbility()
+		local reduction = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION + feronia:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY)
+		damage = damage * (100-reduction)/100
 	end
 	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", MOUNTAIN_GIANT_EMERALD)/100)) then
 		damage = damage * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MOUNTAIN_GIANT_SAPPHIRE))/100

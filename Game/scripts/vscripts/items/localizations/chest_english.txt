@@ -239,6 +239,18 @@
 		"item_rpc_gold_plate_of_leon_sapphire1"								"Increases your base attack damage by an additional @sapphire_property1x your primary attribute"
 		"item_rpc_gold_plate_of_leon_amethyst1"								"Increases your primary attribute by an additional @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
+
+		"item_property_guard_of_feronia"						"Shield of Dawn"
+		"property_guard_of_feronia_description"				"Applies a Shield for <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %> seconds when casting @Ability3, or <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %> seconds when casting @Ability4, that reduces all damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
+
+		"item_rpc_guard_of_feronia_ruby1"								"Inreases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_emerald1"								"Casting [Q] applies Shield of Dawn for @emerald_property1 seconds"
+		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD %> seconds. Max <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND %> procs per second"
+		"item_rpc_guard_of_feronia_amethyst1"								"When the Shield of Dawn expires, drop a star on all nearby enemies in a <% ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS %> radius that deals @amethyst_property1% of attack power. If only 1 enemy is nearby, drop <% ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS %> stars on it"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -554,17 +566,6 @@
 		"item_rpc_heroic_conqueror_vestments_emerald1"						"blah blah @emerald_property1 gem"
 		"item_rpc_heroic_conqueror_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_heroic_conqueror_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
-		"item_rpc_guard_of_feronia_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_guard_of_feronia_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_guard_of_feronia_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_guard_of_feronia_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Applies a Shield for <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %> seconds when casting @Ability3, or <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %> seconds when casting @Ability4, that reduces all damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%."
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"

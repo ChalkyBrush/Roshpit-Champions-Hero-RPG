@@ -12599,6 +12599,18 @@
 		"item_rpc_gold_plate_of_leon_sapphire1"								"Increases your base attack damage by an additional @sapphire_property1x your primary attribute"
 		"item_rpc_gold_plate_of_leon_amethyst1"								"Increases your primary attribute by an additional @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
+
+		"item_property_guard_of_feronia"						"Shield of Dawn"
+		"property_guard_of_feronia_description"				"Applies a Shield for <font color='#ccff66'>2</font> seconds when casting @Ability3, or <font color='#ccff66'>4</font> seconds when casting @Ability4, that reduces all damage taken by <font color='#ccff66'>40</font>%."
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <font color='#ccff66'>40</font>%"
+
+		"item_rpc_guard_of_feronia_ruby1"								"Inreases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_emerald1"								"Casting [Q] applies Shield of Dawn for @emerald_property1 seconds"
+		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <font color='#ccff66'>1</font> seconds. Max <font color='#ccff66'>2</font> procs per second"
+		"item_rpc_guard_of_feronia_amethyst1"								"When the Shield of Dawn expires, drop a star on all nearby enemies in a <font color='#ccff66'>550</font> radius that deals @amethyst_property1% of attack power. If only 1 enemy is nearby, drop <font color='#ccff66'>3</font> stars on it"
+
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"Hurricane Vest"
 		"item_rpc_hurricane_vest_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hurricane_vest_emerald1"									"blah blah @emerald_property1 gem"
@@ -12914,17 +12926,6 @@
 		"item_rpc_heroic_conqueror_vestments_emerald1"						"blah blah @emerald_property1 gem"
 		"item_rpc_heroic_conqueror_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_heroic_conqueror_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"Guard of Feronia"
-		"item_rpc_guard_of_feronia_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_guard_of_feronia_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_guard_of_feronia_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_guard_of_feronia_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Applies a Shield for <font color='#ccff66'>1.5</font> seconds when casting @Ability3, or <font color='#ccff66'>4.5</font> seconds when casting @Ability4, that reduces all damage taken by <font color='#ccff66'>95</font>%."
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <font color='#ccff66'>95</font>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
@@ -13787,7 +13788,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"Enemies damaged by @Ability1 have a <font color='#ccff66'>15</font>% chance to trigger an infernal spark, dealing <font color='#ccff66'>15</font>% of the ability's damage in a <font color='#ccff66'>450</font> area around the target. Maximum <font color='#ccff66'>4</font> procs per second."
+		"property_demon_description"				"Enemies damaged by @Ability1 have a <font color='#ccff66'>15</font>% chance to trigger an infernal spark, dealing <font color='#ccff66'>20</font>% of the ability's damage in a <font color='#ccff66'>450</font> area around the target. Maximum <font color='#ccff66'>4</font> procs per second."
 
 
 		"item_rpc_demon_mask_ruby1"	"Underworld Tear damage increased by an additional @ruby_property1% of [Q] damage"

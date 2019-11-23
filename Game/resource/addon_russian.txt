@@ -12712,9 +12712,9 @@
 		"item_rpc_guard_of_feronia_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_guard_of_feronia_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_guard_of_feronia"						"Shield of Dawn"
-		"property_guard_of_feronia_description"				"Прочтение (E) @Ability3 или (R) @Ability4 наделяет героя особым щитом на <font color='#ccff66'>1.5</font> или <font color='#ccff66'>4.5</font> секунды соответственно, который поглощает весь входящий урон на <font color='#ccff66'>95</font>%"
+		"property_guard_of_feronia_description"				"Прочтение (E) @Ability3 или (R) @Ability4 наделяет героя особым щитом на <font color='#ccff66'>2</font> или <font color='#ccff66'>4</font> секунды соответственно, который поглощает весь входящий урон на <font color='#ccff66'>40</font>%"
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
-		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description"	"Снижает входящий урон на <font color='#ccff66'>95</font>%"
+		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description"	"Снижает входящий урон на <font color='#ccff66'>40</font>%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
@@ -13669,7 +13669,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <font color='#ccff66'>15</font>% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет <font color='#ccff66'>15</font>x урона в большой области вокруг атакованной цели."
+		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <font color='#ccff66'>15</font>% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет <font color='#ccff66'>20</font>x урона в большой области вокруг атакованной цели."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"

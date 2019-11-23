@@ -2216,28 +2216,6 @@ function RPCItems:RollVampiricBreastplate(item_level)
     return item
 end
 
-function RPCItems:RollGuardOfFeronia(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_guard_of_feronia", "immortal", "Guard of Feronia", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "feronia"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_guard_of_feronia", "#D67CC9", 1, "#property_guard_of_feronia_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.ceil(value * 1.3)
-    item.newItemTable.property2name = "rune_q_3"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollMysticManaWall(item_level)
     local item = RPCItems:CreateVariant("item_rpc_mystic_mana_wall", "immortal", "Mystic Mana Wall", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4672,6 +4650,27 @@ function RPCItems:RollGoldPlateOfLeon(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 3)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollGuardOfFeronia(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_guard_of_feronia", "immortal", "Guard of Feronia", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_guard_of_feronia"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_guard_of_feronia", "#D67CC9", 1, "#property_guard_of_feronia_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_q_3", 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
