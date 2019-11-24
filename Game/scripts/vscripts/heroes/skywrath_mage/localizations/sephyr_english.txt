@@ -180,31 +180,31 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"Glyph of Flurry"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"[T1-1] Glyph of Flurry"
 		"item_rpc_sephyr_glyph_1_1_description" 				"Increases the maximum number of concurrent Flurry Pucks by @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"Glyph of Evasive Winds"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"[T2-1] Glyph of Evasive Winds"
 		"item_rpc_sephyr_glyph_2_1_description" 				"Increases physical attack evasion by @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"Glyph of Nefali"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"[T3-1] Glyph of Nefali"
 		"item_rpc_sephyr_glyph_3_1_description" 				"Increases the Radius of @Ability4 by @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"Glyph of Piercing Reach"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"[T4-1] Glyph of Piercing Reach"
 		"item_rpc_sephyr_glyph_4_1_description" 				"Increases reach of @Ability2 by @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"Glyph of Blinding Light"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"[T5-1] Glyph of Blinding Light"
 		"item_rpc_sephyr_glyph_5_1_description" 				"@Ability1 freezes enemies for @glyph_property1 seconds. The base ability's stun is applied after the freeze."
 
 		"DOTA_Tooltip_modifier_lightbomb_freeze"				"Blinding Light"
 		"DOTA_Tooltip_modifier_lightbomb_freeze_Description"	"Frozen"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"Glyph of the Wind Goddess"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"[T6-1] Glyph of the Wind Goddess"
 		"item_rpc_sephyr_glyph_6_1_description" 				"@glyph_property1% chance to negate damage taken."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"Glyph of Aerial Immunity"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"[T7-1] Glyph of Aerial Immunity"
 		"item_rpc_sephyr_glyph_7_1_description" 				"Magic immune while @glyph_property1 distance or more from the ground."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"Glyph of the Divine Winds"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"[T5-a] Glyph of the Divine Winds"
 		"item_rpc_sephyr_glyph_5_a_description" 				"Damage reduction within @Ability4 is increased to @glyph_property1%."
 		
 		//Weapons

@@ -38,6 +38,7 @@ require("/items/constants/chest")
 require("/items/constants/gloves")
 require("/items/constants/helm")
 require("/items/constants/trinket")
+require("/items/constants/glyph")
 
 require("/worlds/winterblight/constants/enemies_abilities")
 require("/worlds/redfall/constants/mithril")
@@ -1443,6 +1444,12 @@ end
 function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsumeShields, damagetype)
 	local BASE_VALUE_FOR_CALCULATE = 1000000
 	local damage = BASE_VALUE_FOR_CALCULATE
+
+    Util.Modifier:SimpleEvent(victim, 'GetDamageReduction', { damagetype }, { }, 
+        function(result, data)
+            damage = damage * (1 - result)
+        end
+    )
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_stormshield_cloak") then
 			damage = damage * ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION
@@ -1590,9 +1597,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
 	end
-	if victim:HasModifier("modifier_neutral_glyph_5_1") then
-		damage = damage * 0.65
-	end
 	if victim:HasModifier("modifier_inside_swamp_doctor") then
 		local ability = victim:FindModifierByName("modifier_inside_swamp_doctor"):GetAbility()
 		damage = damage * (1 - ability:GetFinalGemPropertyValue("ruby", SWAMP_DOCTOR_RUBY)/100)
@@ -1737,10 +1741,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:GetUnitName() == "npc_dota_hero_spirit_breaker" and attacker:IsRooted() and victim:HasAbility("ghost_hallow") then
 		local w_4_level = victim:GetRuneValue("w", 4)
 		damage = damage * math.max((1 - w_4_level * DUSKBRINGER_W4_ROOTED_DAMAGE_BLOCK_PCT), 0.05)
-	end
-
-	if victim:HasModifier("modifier_neutral_glyph_5_2") then
-		damage = damage * 2
 	end
 
 	if victim:HasModifier("modifier_raven_idol") then
@@ -2149,9 +2149,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_sorcerers_regalia") then
 			mult = mult + ITEM_RPC_SORCERERS_REGALIA_MAGIC_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_neutral_glyph_6_3") then
-			mult = mult + 0.25
-		end
 		if attacker:HasModifier("modifier_far_seers_gloves") then
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
 		end
@@ -2318,14 +2315,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
 		local stacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", attacker.InventoryUnit)
 		filterTable["damage"] = filterTable["damage"] * (1 + (stacks * ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PRE_MITI_DAMAGE_AMP_PER_STACK))
-	end
-	if attacker:HasModifier("modifier_neutral_glyph_5_3") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			filterTable["damage"] = filterTable["damage"] * 1.5
-		end
-		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * 0.5
-		end
 	end
 
 	if victim:HasModifier("modifier_firelord_ability_ai") then
@@ -2537,12 +2526,6 @@ function GameState:FilterDamage(filterTable)
 
 	if attacker:HasModifier("modifier_flurry_aura_debuff") then
 		filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION)/100
-	end
-	if attacker:HasModifier("modifier_neutral_glyph_5_1") then
-		filterTable["damage"] = filterTable["damage"] * 0.5
-	end
-	if attacker:HasModifier("modifier_neutral_glyph_5_2") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		filterTable["damage"] = filterTable["damage"] * 1.35
 	end
 
 	if victim:HasModifier("modifier_emerald_douli") then
@@ -2874,9 +2857,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if not victim:HasModifier("modifier_steadfast") and not victim:HasModifier("modifier_mega_steadfast") and attacker:HasModifier("modifier_neutral_glyph_4_2") then
-		filterTable["damage"] = filterTable["damage"] * 0.8
-	end
 	if victim:HasModifier("modifier_water_jailer_ai") or victim:HasModifier("modifier_bovel_ai") then
 		if filterTable["damage"] > (victim:GetMaxHealth() * 0.01) then
 			filterTable["damage"] = victim:GetMaxHealth() * 0.01

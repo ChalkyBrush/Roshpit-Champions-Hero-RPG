@@ -367,31 +367,31 @@
 	"property_jex_immortal_weapon3_description"                      "所有<font color=\"#C25DFC\">宇宙</font>元素的科技技能获得 @special_property1 科技等级. 双 <font color=\"#C25DFC\">宇宙</font> 技能获得 @special_property2 级额外科技等级."
 
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"生命合成雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_1_1"		"[T1-1] 生命合成雕文"
 	"item_rpc_jex_glyph_1_1_description" 				"植物在杰克斯周围的 @glyph_property1 码半径内自动收获."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"传输雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_2_1"		"[T2-1] 传输雕文"
 	"item_rpc_jex_glyph_2_1_description" 				"随从可以使用大地之门。"
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"百兆震击雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_3_1"		"[T3-1] 百兆震击雕文"
 	"item_rpc_jex_glyph_3_1_description" 				"被雷霆之怒击中的敌人减速 @glyph_property1 ， @glyph_property2 秒."
 
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow"	"百兆震级雕文"
 	"DOTA_Tooltip_modifier_jex_thunder_wrath_glyph_slow_Description"	"减速"
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"光伏菌群雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_4_1"		"[T4-1] 光伏菌群雕文"
 	"item_rpc_jex_glyph_4_1_description" 				"充能之芽与雷霆之花的攻击速度提高 @glyph_property1."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"根须缠绕雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_1"		"[T5-1] 根须缠绕雕文"
 	"item_rpc_jex_glyph_5_1_description" 				"被缠绕编制者缠绕的敌人造成的伤害降低 @glyph_property1% "
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"脉冲星雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_6_1"		"[T6-1] 脉冲星雕文"
 	"item_rpc_jex_glyph_6_1_description" 				"群星镭射无视魔法免疫."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"熵雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_7_1"		"[T7-1] 熵雕文"
 	"item_rpc_jex_glyph_7_1_description" 				"宇宙暗流激活时，每 0.8 秒一次对周围的敌人造成 @glyph_property1% 攻击力的纯粹伤害，半径 @glyph_property2 码."
 
-	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"至高科技雕文"
+	"DOTA_Tooltip_ability_item_rpc_jex_glyph_5_a"		"[T5-a] 至高科技雕文"
 	"item_rpc_jex_glyph_5_a_description" 				"提高杰克斯所有技能的科技水平 @glyph_property1 级."
 	//FIRE ARCANA
     "DOTA_Tooltip_ability_item_rpc_jex_arcana1"						"神经机械：火烈鸟"

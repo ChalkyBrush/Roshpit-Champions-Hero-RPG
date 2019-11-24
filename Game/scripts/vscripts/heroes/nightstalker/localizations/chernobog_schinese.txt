@@ -266,28 +266,28 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"            " 秒"
         
         //Glyphs
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "梦魇雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "[T1-1] 梦魇雕文"
         "item_rpc_chernobog_glyph_1_1_description"              "当你使用任意的来自于@Ability3的闪烁时，暗夜魔王的暗影将会被释放，攻击所有在起点和终点附近区域内的敌人。这个区域范围为, 传送距离 * <% CHERNOBOG_T11_PART_OF_DISTANCE %>，并且这个区域持续 <% CHERNOBOG_T11_DURATION %> 秒。"
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "午夜雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] 午夜雕文"
         "item_rpc_chernobog_glyph_2_1_description"              "所有与暗影有关的产生的区域或者光环的效果范围增加 <% CHERNOBOG_T21_RADIUS_AMP %>，该效果也会影响 [R2]。"
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "噩梦雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "[T3-1] 噩梦雕文"
         "item_rpc_chernobog_glyph_3_1_description"              "被卡戎之爪击中的敌人能使暗夜游行的冷却时间减少 @glyph_property1 秒。此外在结束@Ability4的持续施法后自动释放一次@Ability1。"
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"     "撕裂雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"     "[T4-1] 撕裂雕文"
         "item_rpc_chernobog_glyph_4_1_description"              "[Q2] 对所有被影响的敌人周围 <% CHERNOBOG_T41_RADIUS %> 范围内的敌人造成伤害。"
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"     "夜行者雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"     "[T5-1] 夜行者雕文"
         "item_rpc_chernobog_glyph_5_1_description"              "生命值低于50%时，暗影追捕不再扣除生命值和魔法值。"
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "黑色裂痕雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "[T6-1] 黑色裂痕雕文"
         "item_rpc_chernobog_glyph_6_1_description"              "突击对目标500范围内的敌人都施加伤害加深buff。"
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "不屈不挠雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] 不屈不挠雕文"
         "item_rpc_chernobog_glyph_7_1_description"              "每0.2秒清除一次眩晕效果。在清除一次眩晕后，暗夜魔王将会获得额外的 <% CHERNOBOG_T71_POSTMIT * 100 %>%税后伤害加成，持续<% CHERNOBOG_T71_POSTMIT_DUR %> 秒。"
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "暗夜猎手雕文"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] 暗夜猎手雕文"
         "item_rpc_chernobog_glyph_5_a_description"              "暗夜魔王享受 @Ability2 的所有符文的所有加成效果无论 W 技能开启或是关闭。但是 @Ability2 开启时，仍然禁止治疗。"
         
         //Weapons

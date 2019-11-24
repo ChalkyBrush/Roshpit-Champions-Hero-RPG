@@ -208,49 +208,49 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"快速调制雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"[T1-1] 快速调制雕文"
 		"item_rpc_venomort_glyph_1_1_description" 				"降低 @Ability1 的冷却时间至 @glyph_property1 秒。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"过敏雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"[T2-1] 过敏雕文"
 		"item_rpc_venomort_glyph_2_1_description" 				"剧毒巫师的各种计算敌人数目的效果得到强化，精英怪按 @glyph_property2 只计算，boss按 @glyph_property1 只计算."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"幽灵裹尸布雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"[T3-1] 幽灵裹尸布雕文"
 		"item_rpc_venomort_glyph_3_1_description" 				"在 @Ability3 的隐形期间, 剧毒巫师的生命回复速度提高为 @glyph_property1% 的最大生命值/每秒。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"忧郁雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"[T4-1] 忧郁雕文"
 		"item_rpc_venomort_glyph_4_1_description" 				"[E1] 还能同时提高 <font color=\"#9ACCD1\">鬼</font>, <font color=\"#5C776E\">亡灵</font>, 和 <font color=\"#7F4F84\">暗</font> 元素伤害。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"疯狂食尸鬼雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"[T5-1] 疯狂食尸鬼雕文"
 		"item_rpc_venomort_glyph_5_1_description" 				"[W3] 的效果提高为 @glyph_property1 倍."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"衰弱雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"[T6-1] 衰弱雕文"
 		"item_rpc_venomort_glyph_6_1_description" 				"受到剧毒巫师的各种持续性伤害的敌人，对剧毒巫师造成的魔法和纯粹伤害降低 @glyph_property1% 。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"耍蛇人雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"[T7-1] 耍蛇人雕文"
 		"item_rpc_venomort_glyph_7_1_description" 				"剧毒巫师的基础技能或符文召唤出来的生物（不包含装备），持续时间提高 @glyph_property1 秒, 同时提高基础攻击速度 @glyph_property2."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"药神"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] 药神"
 		"item_rpc_venomort_glyph_5_a_description" 				"剧毒巫师造成的所有持续性毒伤，都会平均的分成物理、魔法和纯粹三种伤害类型。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"谵妄雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"[T1-2] 谵妄雕文"
 		"item_rpc_venomort_glyph_1_2_description" 				"[W2] 的持续时间增加 @glyph_property2%. 另外，被 @Ability1 击中的敌人也有 @glyph_property1% 概率受到该恐惧效果."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_2"		"酸液飞溅雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_2"		"[T2-2] 酸液飞溅雕文"
 		"item_rpc_venomort_glyph_2_2_description" 				"[E2] 将在主目标为中心的 @glyph_property1 码范围内造成伤害。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"腐坏之血雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"[T3-2] 腐坏之血雕文"
 		"item_rpc_venomort_glyph_3_2_description" 				"每当剧毒巫师的当前生命值降低到越过了 @glyph_property1% 最大生命值的血线, 那么他的下一次 [E2] 就会造成 @glyph_property2 x 的伤害。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"无病呻吟雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] 无病呻吟雕文"
 		"item_rpc_venomort_glyph_4_2_description" 				"[E4] 效果的持续时间从1.5秒提高至@glyph_property1秒。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"死灵潜能雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"[T5-2] 死灵潜能雕文"
 		"item_rpc_venomort_glyph_5_2_description" 				"提高 @Ability2 的距离 @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"抗生素雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"[T6-2] 抗生素雕文"
 		"item_rpc_venomort_glyph_6_2_description" 				"剧毒巫师的召唤物将拥有坚定，不包括装备的。"
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"猝死雕文"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"[T7-2] 猝死雕文"
 		"item_rpc_venomort_glyph_7_2_description" 				"剧毒巫师对超过 @glyph_property1% 生命值的敌人拥有 @glyph_property2% 的税后增伤。"
 		
 		//Weapons

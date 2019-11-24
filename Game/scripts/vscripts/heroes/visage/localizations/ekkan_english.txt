@@ -253,28 +253,28 @@
     	"DOTA_Tooltip_modifier_black_dominion_shield_Description"				"Absorbing Damage."
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"Glyph of Undead Army"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_1_1"		"[T1-1] Glyph of Undead Army"
 		"item_rpc_ekkan_glyph_1_1_description" 				"Increases the max number of concurrent skeleton summons by <% EKKAN_GLYPH_1_1_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"Glyph of Corpses"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_2_1"		"[T2-1] Glyph of Corpses"
 		"item_rpc_ekkan_glyph_2_1_description" 				"Acheron's portal creates <% EKKAN_GLYPH_2_1_E_SPAWN_CORPSES %> corpses around the cast point."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"Glyph of Reanimation"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_3_1"		"[T3-1] Glyph of Reanimation"
 		"item_rpc_ekkan_glyph_3_1_description" 				"Skeleton life duration is increased by <% EKKAN_GLYPH_3_1_SKELETON_DURATION_INCREASE_PCT %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"Glyph of Supercharge"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_4_1"		"[T4-1] Glyph of Supercharge"
 		"item_rpc_ekkan_glyph_4_1_description" 				"Soul charge increases attack speed by an additional <% EKKAN_GLYPH_4_1_R_AS_INCREASE %> and increases movespeed by <% EKKAN_GLYPH_4_1_R_MS_INCREASE %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"Glyph of Domination"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"[T5-1] Glyph of Domination"
 		"item_rpc_ekkan_glyph_5_1_description" 				"Increases the max number of concurrent Dark Dominion units by <% EKKAN_GLYPH_5_1_Q_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"Glyph of Gargoyles"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"[T6-1] Glyph of Gargoyles"
 		"item_rpc_ekkan_glyph_6_1_description" 				"Increases max concurrent familiars by <% EKKAN_GLYPH_6_1_E_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"Glyph of Super Skeleton"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"[T7-1] Glyph of Super Skeleton"
 		"item_rpc_ekkan_glyph_7_1_description" 				"Reanimated Skeleton King zaps <% EKKAN_GLYPH_7_1_R3_MORE_TARGETS %> additional enemies at a time."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"Glyph of Black Scourge"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_a"		"[T5-a] Glyph of Black Scourge"
 		"item_rpc_ekkan_glyph_5_a_description" 				"Increases leash range on minions by <% EKKAN_GLYPH_5_A_LEASH_RANGE_INCREASE %>."
 		
 		

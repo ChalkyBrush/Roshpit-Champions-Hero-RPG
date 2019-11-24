@@ -220,49 +220,49 @@
         "DOTA_Tooltip_ability_trapper_rune_w_4_suffix"              "%"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "Glyph of Sneaking"
+		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "[T1-1] Glyph of Sneaking"
         "item_rpc_trapper_glyph_1_1_description"                "Reduces enemies' stealth detection radius by @glyph_property1%. Additionally, casting Action Leap creates a [E2]."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "Glyph of First Aid"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_1"       "[T2-1] Glyph of First Aid"
         "item_rpc_trapper_glyph_2_1_description"                "While vanished, restore @glyph_property1% of your max health every 0.1 seconds."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "Glyph of Tinkering"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "[T3-1] Glyph of Tinkering"
         "item_rpc_trapper_glyph_3_1_description"                "Increases the radius of @Ability2 by <% TRAPPER_GLYPH_3_1_ADD_RADIUS %>, and adds <% TRAPPER_GLYPH_3_1_ADD_BOMBS %> more Explosive Bomb per cast."
 
-		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "Glyph of Death Strike"
+		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_1"       "[T4-1] Glyph of Death Strike"
         "item_rpc_trapper_glyph_4_1_description"                "Backstab deals @glyph_property1x damage to Paragon creatures."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "Glyph of the Mad Bomber"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_1"       "[T5-1] Glyph of the Mad Bomber"
         "item_rpc_trapper_glyph_5_1_description"                "Attempt to cast @Ability2 for free every time you move <% TRAPPER_GLYPH_5_1_DISTANCE %> distance. Smoke Bombs last <% TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY %> times longer and have <% TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY %>x radius."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "Glyph of Craftsmanship"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "[T6-1] Glyph of Craftsmanship"
         "item_rpc_trapper_glyph_6_1_description"                "Increases all <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font> damage by <% TRAPPER_GLYPH_6_1_NORMAL_AMP * 100 %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "Glyph of Trapping"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "[T7-1] Glyph of Trapping"
         "item_rpc_trapper_glyph_7_1_description"                "You can have 2 traps of each type active at a time."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "Glyph of Blueprints"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "[T5-a] Glyph of Blueprints"
         "item_rpc_trapper_glyph_5_a_description"                "Upgrades @Ability1. Fulminating Trap deals <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% more damage. Poison Trap maximum stack count increased to <% TRAPPER_GLYPH_5_A_POISON_STACKS %>. Net Trap has <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %>x root duration. Torrent Trap needs only <% TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL %> seconds to erupt at a target."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "Glyph of the Pyre Lord"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "[T1-2] Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "The effect of [Q3] is increased by <% TRAPPER_GLYPH_1_2_Q3_PCT_AMP * 100 %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "Glyph of Talons"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "[T2-2] Glyph of Talons"
         "item_rpc_trapper_glyph_2_2_description"                "The damage from [E3] is applied to the primary target of your attacks."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "Glyph of Disorientation"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "[T3-2] Glyph of Disorientation"
         "item_rpc_trapper_glyph_3_2_description"                "Enemies inside Smoke Bomb becomed disoriented, making them walk in random directions for short distances."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "Glyph of the Orchid"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "[T4-2] Glyph of the Orchid"
         "item_rpc_trapper_glyph_4_2_description"                "Enemies affected by Net Trap are additionally silenced and disarmed."
 
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "Glyph of the Prowler"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "[T5-2] Glyph of the Prowler"
         "item_rpc_trapper_glyph_5_2_description"                "Increase the maximum number of Ambush stacks by @glyph_property1."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "Glyph of Hair Trigger"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "[T6-2] Glyph of Hair Trigger"
         "item_rpc_trapper_glyph_6_2_description"                "Decoy is now destroyed in just @glyph_property1 attack, but deals @glyph_property2% more damage."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "Glyph of Killer Instinct"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "[T7-2] Glyph of Killer Instinct"
         "item_rpc_trapper_glyph_7_2_description"                "Jinada [R3] becomes passive while invisible."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Trapper Glyph Book"

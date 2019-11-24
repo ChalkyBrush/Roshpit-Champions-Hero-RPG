@@ -237,28 +237,28 @@
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"Glyph of Bladethirst"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"[T1-1] Glyph of Bladethirst"
 		"item_rpc_seinaru_glyph_1_1_description" 				"Grants @glyph_property1% lifesteal. Any overheal from this effect applies as a [W3] shield, up to the rune's maximum capacity based on Agility."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"Glyph of the Windstrider"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"[T2-1] Glyph of the Windstrider"
 		"item_rpc_seinaru_glyph_2_1_description" 				"Every point in [Q2] increases movespeed cap by <% SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2 %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"Glyph of Resonance"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"[T3-1] Glyph of Resonance"
 		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage and applies [R1] to all other enemies in a <% SEINARU_GLYPH3_R3_RADIUS %> radius around the primary target."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"Glyph of Yin"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"[T4-1] Glyph of Yin"
 		"item_rpc_seinaru_glyph_4_1_description" 				"Increases movespeed by <% SEINARU_GLYPH_4_1_MS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"Glyph of Bushido"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"[T5-1] Glyph of Bushido"
 		"item_rpc_seinaru_glyph_5_1_description" 				"[W2] deals <% SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED %>x damage against enemies blinded by @Ability1."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"Glyph of Honor"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"[T6-1] Glyph of Honor"
 		"item_rpc_seinaru_glyph_6_1_description" 				"[R2] reduces incoming damage by <% SEINARU_GLYPH6_R2_DMG_RED * 100%>% instead of <% SEINARU_R2_DMG_RED * 100%>%"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"Glyph of the Ogre"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"[T7-1] Glyph of the Ogre"
 		"item_rpc_seinaru_glyph_7_1_description" 				"Seinaru's Strength increases Armor Pierce and Magic Armor by <% SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"Glyph of the Arena"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"[T5-a] Glyph of the Arena"
 		"item_rpc_seinaru_glyph_5_a_description" 				"[R2]s now move with Seinaru."
 
 		//Weapons
