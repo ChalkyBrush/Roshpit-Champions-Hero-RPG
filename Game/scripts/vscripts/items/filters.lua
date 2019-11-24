@@ -142,14 +142,14 @@ function Filters:CleanseSilences(unit)
 end
 
 function Filters:AdjustItemDamage(caster, damage, victim)
-    -- if GameState:GetDifficultyFactor() == 2 then
-    --     damage = damage*3
-    -- elseif GameState:GetDifficultyFactor() == 3 then
-    --     damage = damage*10
-    -- end
-
     local casterName = caster:GetUnitName()
     local mult = 1
+    
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitItemDmgBonus', { MODIFIER_ROSHPIT_ITEM_DMG_BONUS }, { }, 
+        function(result, data)
+            mult = mult + result
+        end
+    )
     if caster:HasModifier("modifier_ancient_waterstone") then
         mult = mult + ITEM_RPC_ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
     end
@@ -166,9 +166,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     end
     if caster:HasModifier("modifier_gilded_soul_sapphire_bad") then
         mult = mult + caster:FindModifierByName("modifier_gilded_soul_sapphire_bad"):GetStackCount()/100
-    end
-    if caster:HasModifier("modifier_neutral_glyph_2_1") then
-        mult = mult + 2
     end
     if caster:HasModifier("modifier_auriun_glyph_2_1") then
         mult = mult + AURIUN_GLYPH_2_1_ITEM_DAMAGE/100
@@ -418,11 +415,13 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
             return
         end
     end
+    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_E_FLAT_CD_RED }, { }, 
+        function(result, data)
+            CDreduce = CDreduce + result
+        end
+    )
     if caster:HasModifier("modifier_dunetread_boots") then
         CDreduce = CDreduce + ITEM_RPC_DUNETREAD_BOOTS_CD_RED
-    end
-    if caster:HasModifier("modifier_neutral_glyph_3_3") then
-        CDreduce = CDreduce + 1
     end
     if caster:HasModifier('modifier_venomort_glyph_3_1') then
         CDreduce = CDreduce + VENOMORT_GLYPH_3_1_E_CD_RED
@@ -1391,6 +1390,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
 
     if Util.BaseType:IsAbilityBaseType(slot) then
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitBaseAbilityDmgBonus', { MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS }, { }, 
+            function(result, data)
+                damageMult = damageMult + result
+            end
+        )
+
         damageMult = damageMult + heroes.venomort.getBad(attacker)
         if attacker:IsRealHero() then
             damageMult = damageMult + attacker:GetSpirit()*(CustomAttributes.BAD_PER_SPIRIT/100)
@@ -1492,9 +1497,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
             local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")
             damageMult = damageMult + (fireAbility:GetSpecialValueFor("base_ability_damage_per_flame_tech") / 100) * attacker:GetModifierStackCount("modifier_jex_orbital_flame_effect", attacker) * fireAbility.tech_level
-        end
-        if attacker:HasModifier("modifier_neutral_glyph_2_2") then
-            damageMult = damageMult + 2.5
         end
         if attacker:HasModifier("modifier_spiritual_empowerment_stack") then
             local current_stack = attacker:GetModifierStackCount("modifier_spiritual_empowerment_stack", attacker.InventoryUnit)
@@ -1757,6 +1759,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:ApplyRdamage(victim, attacker, damage, damage_type)
         end
     end
+
     if not ignore_effects then
         if Util.BaseType:IsAbilityBaseType(slot)
         or slot == BASE_AUTO_ATTACK then
@@ -1916,9 +1919,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + omniro_elemental_bonus(element1, element2, attacker)
     end
     if element1 > 1 or element2 > 1 then
-        if attacker:HasModifier("modifier_neutral_glyph_2_3") then
-            mult = mult + 3
-        end
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
             mult = mult + stacks * ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT/100
@@ -1936,6 +1936,20 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 element1 = RPC_ELEMENT_ICE
                 element2 = RPC_ELEMENT_FIRE
             end
+        end
+        if element1 > 0 then
+            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', { element1 }, { }, 
+                function(result, data)
+                    mult = mult + result
+                end
+            )
+        end
+        if element2 > 0 then
+            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', { element2 }, { }, 
+                function(result, data)
+                    mult = mult + result
+                end
+            )
         end
         if victim:HasModifier("modifier_elemental_resistance") then
             damage = damage * 0.01
@@ -2016,9 +2030,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     end
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
         local normalMult = 0
-        if attacker:HasModifier("modifier_neutral_glyph_6_2") then
-            normalMult = normalMult + 0.5
-        end
         if attacker:HasModifier("modifier_trapper_arcana1") then
             local w_2_level = attacker:GetRuneValue("w", 2)
             normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W_W2_NORMAL_PCT

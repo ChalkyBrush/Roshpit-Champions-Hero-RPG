@@ -255,28 +255,28 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"            " сек"
         
         //Glyphs
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "(T1) Glyph of Gloom"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "[T1-1] Glyph of Gloom"
         "item_rpc_chernobog_glyph_1_1_description"              "При использовании любой телепортации от @Ability3 противники поблизости от точек старта и назначения будут атакованы Тенями. Радиус зоны атаки теней равен дистанции * <% CHERNOBOG_T11_PART_OF_DISTANCE %>, а продолжительность - <% CHERNOBOG_T11_DURATION %> сек."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "(T2) Glyph of Midnight"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] Glyph of Midnight"
         "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <% CHERNOBOG_T21_RADIUS_AMP %>. Также работает и на [R2]."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "(T3) Glyph of Nightmare's Grasp"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"     "[T3-1] Glyph of Nightmare's Grasp"
         "item_rpc_chernobog_glyph_3_1_description"              "Каждый противник, задетый @Ability1 снижает перезарядку @Ability4 на <% CHERNOBOG_T31_CD_DEC %> сек. Дополнительно, @Ability1 самостоятельно создается после каста @Ability4."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"     "(T4) Glyph of Murk"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"     "[T4-1] Glyph of Murk"
         "item_rpc_chernobog_glyph_4_1_description"              "[Q2] наносит урон по всем противникам в радиусе <% CHERNOBOG_T41_RADIUS %> от каждого пораженного юнита."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"     "(T5) Glyph of the Shadow Hunter"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"     "[T5-1] Glyph of the Shadow Hunter"
         "item_rpc_chernobog_glyph_5_1_description"              "Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% от максимума, и не снижает ману, если ее показатель равен или меньше <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>%."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "(T6) Glyph of Black Rifts"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "[T6-1] Glyph of Black Rifts"
         "item_rpc_chernobog_glyph_6_1_description"              "[E3] duration is increased by <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %>."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "(T7) Glyph of Indomitability"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] Glyph of Indomitability"
         "item_rpc_chernobog_glyph_7_1_description"              "Снимает эффекты оглушения каждые 0.2 секунды, а после срабатывания увеличивает исходящий пост-резистный урон на <% CHERNOBOG_T71_POSTMIT * 100 %>% в течение <% CHERNOBOG_T71_POSTMIT_DUR %> сек."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "(Immortal) Glyph of the Apex Predator"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] Glyph of the Apex Predator"
         "item_rpc_chernobog_glyph_5_a_description"              "Все бонусы рун от умения (W) @Ability2 работают при любом состоянии основного умения. Исцеление героя по прежнему невозможно, пока умение (W) @Ability2 активно."
         
         //Weapons

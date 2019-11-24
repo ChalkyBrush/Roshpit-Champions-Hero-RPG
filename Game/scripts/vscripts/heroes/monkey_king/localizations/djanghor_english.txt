@@ -312,37 +312,37 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"Glyph of Forestry"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"[T1-1] Glyph of Forestry"
 		"item_rpc_djanghor_glyph_1_1_description" 				"Hitting an enemy with a large hit from Jin'bo refreshes the cooldown of Monkey Leap."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"Glyph of Hunting"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"[T2-1] Glyph of Hunting"
 		"item_rpc_djanghor_glyph_2_1_description" 				"In wolf form attacks have a <% DJANGHOR_GLYPH_2_1_CHANCE %>% chance of having +<% DJANGHOR_GLYPH_2_1_BONUS_DAMAGE_PCT %>% bonus attack damage. Effects persists for <% DJANGHOR_GLYPH_2_1_EFFECT_LINGERING %> seconds after shifting out."
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"Wolf Critical Strike"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"Attacks have a chance to deal additional damage."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"Glyph of Elusion"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"[T3-1] Glyph of Elusion"
 		"item_rpc_djanghor_glyph_3_1_description" 				"<% DJANGHOR_GLYPH_3_1_WOLF_EVASION %>% evasion in Wolf form, <% DJANGHOR_GLYPH_3_1_MONKEY_EVASION %>% evasion in Monkey form."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"Glyph of Protective Shapeshifter"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"[T4-1] Glyph of Protective Shapeshifter"
 		"item_rpc_djanghor_glyph_4_1_description" 				"Finishing a Shapeshift applies a shield that absorbs <% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %> instances of damage. Lasts <% DJANGHOR_GLYPH_4_1_DURATION %> seconds."
 
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"Shapeshifter's Shield"
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"Each stack absorbs an instance of damage"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"Glyph of Animal Acoustics"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"[T5-1] Glyph of Animal Acoustics"
 		"item_rpc_djanghor_glyph_5_1_description" 				"Reduces the cooldown of @Ability1 by <% DJANGHOR_GLYPH_5_1_Q_CD_RED %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"Glyph of Forest Blessing"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"[T6-1] Glyph of Forest Blessing"
 		"item_rpc_djanghor_glyph_6_1_description" 				"Every <% DJANGHOR_GLYPH_6_1_CLEANCE_INTERVAL %> seconds, Djanghor cleanses 1 enemy debuff from himself. Any of Djanghor's animal form spells that make him charge to a location will apply [E3] when cast."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"Glyph of Mauling"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"[T7-1] Glyph of Mauling"
 		"item_rpc_djanghor_glyph_7_1_description" 				"Attacks during Bear form have a <% DJANGHOR_GLYPH_7_1_BASH_CHANCE %>% chance to bash the target, dealing <% DJANGHOR_GLYPH_7_1_BASH_BONUS_DAMAGE_PCT %>% increased damage and stunning for <% DJANGHOR_GLYPH_7_1_BASH_DURATION %> seconds. Additionally, War Stomp now reduces the Armor of affected targets by the same value as Wolf form's Rend for <% DJANGHOR_GLYPH_7_1_ARMOR_LOSS_DURATION %> seconds."
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Chance on attack to stun and deal additional damage."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"Glyph of Natural Disaster"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"[T5-a] Glyph of Natural Disaster"
 		"item_rpc_djanghor_glyph_5_a_description" 				"All damage with element <font color=\"#DDDDDD\">Normal</font> has its other element converted to <font color=\"#69BC71\">Nature</font>."
 		
 	

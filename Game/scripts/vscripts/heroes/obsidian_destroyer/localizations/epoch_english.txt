@@ -207,7 +207,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix_two"				""
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"Glyph of Crumbling Bonds"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] Glyph of Crumbling Bonds"
 		"item_rpc_epoch_glyph_1_1_description" 				"Enemies affected by @Ability1 and [Q1] take @glyph_property1% increased damage from all sources."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
@@ -215,14 +215,14 @@
 
 		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% farther and <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>% faster. Additionally, the duration of [E1] is doubled."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"Glyph of Cracking"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] Glyph of Cracking"
 		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on <% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% of current mana times the ability's level."
 
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"Glyph of Ages"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] Glyph of Ages"
 		"item_rpc_epoch_glyph_4_1_description" 				"Attacking no longer consumes stacks of the [W3] buff (the Intelligence bonus is mantained while restoring health on every attack)."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"Glyph of Substituted Time"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"[T5-1] Glyph of Substituted Time"
 		"item_rpc_epoch_glyph_5_1_description" 				"Attacking an enemy unit applies the [W2] debuff to it."
 
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
@@ -233,10 +233,10 @@
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Reduced Attack Damage"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"Glyph of Shifting Dimensions"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"[T7-1] Glyph of Shifting Dimensions"
 		"item_rpc_epoch_glyph_7_1_description" 				"While @Ability3 is travelling Epoch Guardian is phased out of this dimension, disabling him and disjointing all oncoming projectiles."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"Glyph of Time Travel"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] Glyph of Time Travel"
 		"item_rpc_epoch_glyph_5_a_description" 				"Allow you to survive on lethal damage, refreshes health, mana, abilities. <% EPOCH_GLYPH_5_A_SECOND_LIFE_CD %> second cooldown."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"

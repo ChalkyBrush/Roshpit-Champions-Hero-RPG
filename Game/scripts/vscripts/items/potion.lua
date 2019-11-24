@@ -31,16 +31,18 @@ end
 function action(propertyName, propertyValue, caster)
 	if propertyName == "heal" then
 		heal(propertyValue, caster)
-	-- elseif propertyName == "strength" then
-	-- 	add_strength(propertyValue, caster)
-	-- elseif propertyName == "agility" then
-	-- 	add_agility(propertyValue, caster)
-	-- elseif propertyName == "intelligence" then
-	-- 	add_intelligence(propertyValue, caster)
+		if caster:HasModifier("modifier_neutral_glyph_4_3") then
+			local modifier = caster:FindModifierByName("modifier_neutral_glyph_4_3")
+			local ability = modifier:GetAbility()
+			caster:AddNewModifier(caster, ability, "modifier_neutral_glyph_4_3_heal", { healAmount = propertyValue, duration = ITEM_RPC_NEUTRAL_GLYPH_4_3_DURATION })
+		end
 	elseif propertyName == "mana_heal" then
 		restore_mana(propertyValue, caster)
-	-- elseif propertyName == "exp" then
-	-- 	add_exp(propertyValue, caster)
+		if caster:HasModifier("modifier_neutral_glyph_4_3") then
+			local modifier = caster:FindModifierByName("modifier_neutral_glyph_4_3")
+			local ability = modifier:GetAbility()
+			caster:AddNewModifier(caster, ability, "modifier_neutral_glyph_4_3_mana", { manaAmount = propertyValue, duration = ITEM_RPC_NEUTRAL_GLYPH_4_3_DURATION })
+		end
 	end
 end
 

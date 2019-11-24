@@ -2913,7 +2913,7 @@ function RPCItems:RollFireDeityCrown(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_fire_deity_crown"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_deity", "#E85A4A", 1, "#property_fire_deity_description")
 
-    local rune_type = RPCItems:RollRuneType({"w"}, {tier3 = 80, tier4 = 20})
+    local rune_type = RPCItems:RollRuneType({"w"}, {tier3 = 80, tier4 = 100})
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
     local luck = RandomInt(1, 4)
@@ -7940,7 +7940,7 @@ function RPCItems:RollWindDeityCrown(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_wind_deity_crown"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wind_deity", "#92E8A6", 1, "#property_wind_deity_description")
 
-    local rune_type = RPCItems:RollRuneType({"e"}, {tier3 = 80, tier4 = 20})
+    local rune_type = RPCItems:RollRuneType({"e"}, {tier3 = 80, tier4 = 100})
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
     local luck = RandomInt(1, 4)
@@ -7967,7 +7967,7 @@ function RPCItems:RollWaterDeityCrown(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_water_deity_crown"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_water_deity", "#5D9AF0", 1, "#property_water_deity_description")
 
-    local rune_type = RPCItems:RollRuneType({"r"}, {tier3 = 80, tier4 = 20})
+    local rune_type = RPCItems:RollRuneType({"r"}, {tier3 = 80, tier4 = 100})
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
     local luck = RandomInt(1, 4)

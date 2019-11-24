@@ -1,3 +1,4 @@
+require('heroes/dragon_knight/flamewaker_constants')
 modifier_movespeed_cap_heat_wave = class({})
 
 function modifier_movespeed_cap_heat_wave:DeclareFunctions()
@@ -8,9 +9,8 @@ function modifier_movespeed_cap_heat_wave:DeclareFunctions()
 	return funcs
 end
 
-function modifier_movespeed_cap_heat_wave:GetModifierMoveSpeed_Max(params)
-	local cap = 640
-	return cap
+function modifier_movespeed_cap_heat_wave:GetModifierMoveSpeed_Max_Increase(params)
+	return FLAMEWAKER_E_MS_CAP_BONUS
 end
 
 function modifier_movespeed_cap_heat_wave:IsHidden()
