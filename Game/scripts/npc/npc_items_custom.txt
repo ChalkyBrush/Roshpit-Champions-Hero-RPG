@@ -39295,7 +39295,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"10 20 30 40 50"
+				"emerald2"			"3 6 9 12 15"
 			}
 			"04"
 			{

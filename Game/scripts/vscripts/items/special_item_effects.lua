@@ -2838,7 +2838,7 @@ function ocean_tempest_falling_end(event)
 	local caster = event.caster
 	local hero = caster.hero
 	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
-	local damage = hero:GetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster)*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD2)/100)
+	local damage = hero:GetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster)*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD2))
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_WIND)
 end
 
