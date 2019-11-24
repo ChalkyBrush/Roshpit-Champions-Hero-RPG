@@ -437,12 +437,12 @@
         "AttackDamageMin"   "1"
         "AttackDamageMax"   "1"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackRate"    "0.5"
+        "AttackRate"    "<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SAPPHIRE_INTERVAL %>"
         "AttackAnimationPoint"  "0"
         "AttackAcquisitionRange"    "600"
         "AttackRange"   "600"
         "ProjectileModel"   "particles/units/heroes/hero_bane/bane_projectile.vpcf"
-        "ProjectileSpeed"   "600"
+        "ProjectileSpeed"   "700"
         "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
         "AttributeBaseStrength" "0"
         "AttributeStrengthGain" "0"
@@ -469,6 +469,7 @@
         "VisionDaytimeRange"    "0"
         "VisionNighttimeRange"  "0"
         "PathfindingSearchDepthScale" "0.2"
+        "MovementTurnRate"  "0"
     }
 
     "npc_flying_dummy_vision"

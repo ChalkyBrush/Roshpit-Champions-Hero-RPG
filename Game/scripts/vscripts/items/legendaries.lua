@@ -2012,26 +2012,6 @@ function RPCItems:RollSpellslingerCoat(item_level)
     return item
 end
 
-function RPCItems:RollOceanTempestPallium(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_ocean_tempest_pallium", "immortal", "Ocean Tempest Pallium", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "ocean_tempest"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ocean_tempest", "#4C74A8", 1, "#property_ocean_tempest_description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 120, 500, 0, 1, item.newItemTable.rarity, false, maxFactor * 300)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_mana"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_mana", "#343EC9", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSavagePlateOfOgthun(item_level)
     local item = RPCItems:CreateVariant("item_rpc_savage_plate_of_ogthun", "immortal", "Savage Plate of Og'Thun", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -2158,27 +2138,6 @@ function RPCItems:RollRubyDragonScaleArmor(item_level)
     item.newItemTable.property3name = "magic_resist"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_magic_resist", "#AC47DE", 3)
 
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollNightmareRiderMantle(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_nightmare_rider_mantle", "immortal", "Nightmare Rider Mantle", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "nightmare_rider"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nightmare_rider", "#423670", 1, "#property_nightmare_rider_description")
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        RPCItems:RollBodyProperty2(item, 0)
-    else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_SHADOW, 2.1, 1, 30, 2)
-    end
-    RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
 
     local drop = CreateItemOnPositionSync(deathLocation, item)
@@ -4676,6 +4635,56 @@ function RPCItems:NethergraspPalisade(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollNightmareRiderMantle(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_nightmare_rider_mantle", "immortal", "Nightmare Rider Mantle", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_nightmare_rider"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nightmare_rider", "#423670", 1, "#property_nightmare_rider_description")
+
+    local luck = RandomInt(1, 3)
+    if luck < 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_shadow", 2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollOceanTempestPallium(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_ocean_tempest_pallium", "immortal", "Ocean Tempest Pallium", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_ocean_tempest_pallium"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ocean_tempest", "#4C74A8", 1, "#property_ocean_tempest_description")
+
+    local luck = RandomInt(1, 3)
+    if luck < 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    else
+        local rune_type = RPCItems:RollRuneType({"r"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    end
+
+    RPCItems:RollBodyProperty3(item, 1.25)
+    RPCItems:RollBodyProperty4(item, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 --FEET
 
@@ -8752,7 +8761,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell", "item_rpc_hurricane_vest",
-        "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall"}
+        "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall", "item_rpc_nightmare_rider_mantle", "item_rpc_ocean_tempest_pallium"}
     end
     return itemsList
 end

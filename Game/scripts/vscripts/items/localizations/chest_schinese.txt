@@ -191,16 +191,17 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"梦魇骑士护肩"
-		"item_rpc_nightmare_rider_mantle_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_nightmare_rider_mantle_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_nightmare_rider_mantle_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_nightmare_rider_mantle_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_nightmare_rider"				"暗影融合"
-		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SLOW %>%、当前护甲值<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION %>%、同时加深敌人所受到受到的伤害 <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_POST_MITIGATION_DEBUFF %>% （伤害加深计算在减伤之后），持续<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_DEBUFF_DURATION %>秒。<br>每次攻击时获得一层buff，提高暗影融合的范围<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_RADIUS_INCREASE %>码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ELEMENT_SHADOW_INCREASE %>%。"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"夜魇层数"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围100，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ELEMENT_SHADOW_INCREASE %>%%。"
-		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"暗影融合"
-		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"移动速度和护甲值降低，并且伤害加深提高。"
+		"property_nightmare_rider_description"		"Casting @Ability1 releases a burst of shadow that slows all nearby enemies' movespeed by <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SLOW %>% and reduces their armor by <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION %>% for <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_DEBUFF_DURATION %> seconds. Attacking builds Nightmare stacks which increase the radius by <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_RADIUS_INCREASE %> when triggered. Max <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt."
+		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
+		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Losing movespeed and Armor"
+
+		"item_rpc_nightmare_rider_mantle_ruby1"							"Enemies hit by Shadow Melt have their Magic Armor reduced by @ruby_property1% and take @ruby_property2 magic damage"
+		"item_rpc_nightmare_rider_mantle_emerald1"							"Casting [R] adds @emerald_property1 Nightmare Stacks and increases max Nightmare Stacks by @emerald_property2"
+		"item_rpc_nightmare_rider_mantle_sapphire1"							"3 Nightmare orbs encircle you and deal damage to a nearby target every <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SAPPHIRE_INTERVAL %> seconds for @sapphire_property1% of your attack power"
+		"item_rpc_nightmare_rider_mantle_amethyst1"							"Each active Nightmare Stack increases <font color=\"#7F4F84\">Shadow</font> elemental damage by @amethyst_property1% and Base Ability Damage and Item damage by @amethyst_property2%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"宇航服"

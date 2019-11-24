@@ -1560,27 +1560,35 @@ function nightmare_rider_initialize(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	target.orbTable = {}
-	for i = 1, 3, 1 do
-		local orb = CreateUnitByName("nightmare_rider_orb", target:GetAbsOrigin(), true, nil, nil, target:GetTeamNumber())
-		orb.hero = target
-		orb.owner = target:GetPlayerOwnerID()
-		orb.interval = 0
-		orb.state = 0
-		orb:SetModel("models/props_gameplay/rune_arcane.vmdl")
-		orb:SetOriginalModel("models/props_gameplay/rune_arcane.vmdl")
-		orb:SetModelScale(0.5)
-		table.insert(target.orbTable, orb)
-		ability:ApplyDataDrivenModifier(caster, orb, "modifier_nightmare_rider_orb_buff", {})
-		orb.index = i
-		local offsetRadians = (2 * math.pi / 3) * (i - 1)
-		orb.offsetVector = WallPhysics:rotateVector(Vector(1, 1), offsetRadians)
-		orb:SetOwner(target)
-		orb:SetControllableByPlayer(target:GetPlayerID(), true)
+	if ability:GetGemValue("sapphire") > 0 then
+		ability.orbTable = {}
+		for i = 1, 3, 1 do
+			local orb = CreateUnitByName("nightmare_rider_orb", target:GetAbsOrigin(), true, nil, nil, target:GetTeamNumber())
+			orb.hero = target
+			orb.owner = target:GetPlayerOwnerID()
+			orb.interval = 0
+			orb.state = 0
+			orb:SetModel("models/props_gameplay/rune_arcane.vmdl")
+			orb:SetOriginalModel("models/props_gameplay/rune_arcane.vmdl")
+			orb:SetModelScale(0.01)
+			table.insert(ability.orbTable, orb)
+			ability:ApplyDataDrivenModifier(caster, orb, "modifier_nightmare_rider_orb_buff", {})
+			orb.index = i
+			local offsetRadians = (2 * math.pi / 3) * (i - 1)
+			orb.offsetVector = WallPhysics:rotateVector(Vector(1, 1), offsetRadians)
+			orb:SetOwner(target)
+			orb:SetControllableByPlayer(target:GetPlayerID(), true)
+			orb:SetBaseDamageMin(0)
+			orb:SetBaseDamageMax(0)
+		end
 	end
 end
 
-function nightmare_rider_think(event)
+function nightmare_orb_attack_land(event)
+	local hero = event.caster.hero
+	local target = event.target
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_SAPPHIRE)/100
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, nil, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 end
 
 function nightmare_rider_orb_think(event)
@@ -1588,18 +1596,17 @@ function nightmare_rider_orb_think(event)
 	local hero = orb.hero
 	orb.offsetVector = WallPhysics:rotateVector(orb.offsetVector, math.pi / 40)
 	orb:SetAbsOrigin(hero:GetAbsOrigin() + orb.offsetVector * 120)
-	local damage = (hero:GetStrength() + hero:GetAgility() + hero:GetIntellect()) * 4
-	damage = Filters:AdjustItemDamage(hero, damage, nil)
-	orb:SetBaseDamageMin(damage)
-	orb:SetBaseDamageMax(damage)
 end
 
 function nightmare_rider_end(event)
 	local target = event.target
-	for i = 1, #target.orbTable, 1 do
-		UTIL_Remove(target.orbTable[i])
+	local ability = event.ability
+	if ability.orbTable then
+		for i = 1, #ability.orbTable, 1 do
+			UTIL_Remove(ability.orbTable[i])
+		end
+		ability.orbTable = false
 	end
-	target.orbTable = false
 end
 
 function space_tech_channel_think(event)
@@ -3553,9 +3560,8 @@ function nightmare_rider_attackland(event)
 	local caster = event.caster
 	local attacker = event.attacker
 	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_nightmare_rider_stacks", {})
-	local newStacks = math.min(attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", caster) + 1, ITEM_RPC_NIGHTMARE_RIDER_MANTLE_MAX_STACKS)
-	attacker:SetModifierStackCount("modifier_nightmare_rider_stacks", caster, newStacks)
+	Filters:NightmareRiderStacksGain(attacker, 1)
+
 end
 
 function leon_think(event)

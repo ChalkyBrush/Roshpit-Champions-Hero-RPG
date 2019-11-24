@@ -977,11 +977,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + unit:FindModifierByName("modifier_mystic_mana_wall_armor"):GetStackCount()
 	end
 
-	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
+	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		armor_modify = armor_modify - (armor + armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
+		armor_modify = armor_modify - (armor + armor_modify)*(ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION/100)
 	end
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
@@ -1460,11 +1463,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
 	end
 
-	-- FINAL STEP DEFILER
+	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
-		magic_armor_modify = magic_armor_modify  - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
+		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
+		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(mantle:GetFinalGemPropertyValue("ruby", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_RUBY1)/100)
 	end
 
 	-- WRAITH CROWN ETHERAL FORM - 0 MAGIC ARMOR

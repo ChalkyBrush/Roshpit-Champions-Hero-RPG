@@ -153,6 +153,10 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_ancient_waterstone") then
         mult = mult + ITEM_RPC_ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
     end
+    if caster:HasModifier("modifier_nightmare_rider_stacks") then
+        local stacks = caster:GetModifierStackCount("modifier_nightmare_rider_stacks", caster.InventoryUnit)
+        mult = mult + (stacks * caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_AMETHYST2)) / 100
+    end
     if caster:HasModifier("modifier_mask_of_mugato") and caster:IsSilenced() then
         mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MUGATO_AMETHYST2)/100
     end
@@ -1176,6 +1180,10 @@ function Filters:ApplyRskills(caster)
         local tornado_count = ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY1)
         Filters:HurricaneVest(caster, tornado_count)
     end
+    if caster:HasModifier("modifier_nightmare_rider") then
+        local stacks = caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_EMERALD1)
+        Filters:NightmareRiderStacksGain(caster, stacks)
+    end
     if caster:HasModifier("modifier_body_flooding") then
         Filters:FloodRobe(caster)
     end
@@ -1445,6 +1453,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_nightmare_rider_stacks") then
+            local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)
+            damageMult = damageMult + (stacks * attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_AMETHYST2)) / 100
         end
         if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
             local solar_cape = attacker.equipped_gear[RPC_GEAR_SLOT_BODY]
@@ -2385,7 +2397,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
         if attacker:HasModifier("modifier_nightmare_rider_stacks") then
             local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)
-            mult = mult + (stacks * ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ELEMENT_SHADOW_INCREASE) / 100
+            mult = mult + (stacks * attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_AMETHYST1)) / 100
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_shadow", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_shadow", 1))/100
     end
@@ -4007,15 +4019,16 @@ function Filters:NightmareRider(caster)
     Timers:CreateTimer(3, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    local ability = caster.body
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local damage = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_RUBY2)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), origin, nil, shadowRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
-            enemy:RemoveModifierByName("modifier_nightmare_rider_invisible")
+            
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_effect_visible", {duration = ITEM_RPC_NIGHTMARE_RIDER_MANTLE_DEBUFF_DURATION})
-            local armorLossStacks = enemy:GetPhysicalArmorValue(false) * ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION/100
-            ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_invisible", {duration = ITEM_RPC_NIGHTMARE_RIDER_MANTLE_DEBUFF_DURATION})
-            enemy:SetModifierStackCount("modifier_nightmare_rider_invisible", caster.InventoryUnit, armorLossStacks)
+            if damage > 0 then
+                Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+            end
         end
     end
     local iceSound = "Item.NightmareRider1"
@@ -4025,6 +4038,18 @@ function Filters:NightmareRider(caster)
         iceSound = "Item.NightmareRider2"
     end
     EmitSoundOn(iceSound, caster)
+end
+
+function Filters:NightmareRiderStacksGain(hero, stacks)
+    if stacks < 1 then
+        return false
+    end
+    local ability = hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local caster = hero.InventoryUnit
+    ability:ApplyDataDrivenModifier(caster, hero, "modifier_nightmare_rider_stacks", {})
+    local max_stacks = ITEM_RPC_NIGHTMARE_RIDER_MANTLE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_EMERALD2)
+    local newStacks = math.min(hero:GetModifierStackCount("modifier_nightmare_rider_stacks", caster) + stacks, max_stacks)
+    hero:SetModifierStackCount("modifier_nightmare_rider_stacks", caster, newStacks)
 end
 
 function Filters:AuriunImmortalWeapon1(damage, victim)
