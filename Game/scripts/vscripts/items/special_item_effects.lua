@@ -2722,34 +2722,129 @@ end
 
 function ocean_tempest_initialize(event)
 	local ability = event.ability
-	ability.manaDrained = 0
-	ability.interval = 0
+	local caster = event.caster
+	local hero = caster.hero
+	hero:RemoveModifierByName("modifier_ocean_templest_tidal_storm_stacks")
+	StartSoundEvent("RPCItems.OceanTempest.Event", hero)
+	-- ability.manaDrained = 0
+	-- ability.interval = 0
 end
 
 function ocean_tempest_think(event)
 	local target = event.target
 	local ability = event.ability
+	local caster = event.caster
 
-	local manaDrain = target:GetMaxMana() * ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_PER_SECOND / 100 / 10
-	if manaDrain > target:GetMana() then
-		manaDrain = target:GetMana()
-	end
+    local total_ticks = ability.channel_time/0.1
+	local manaDrain = math.min(target:GetMaxMana() * (ability.total_mana_drain_pct/total_ticks)/100, target:GetMana())
 	manaDrain = math.floor(manaDrain)
-	ability.manaDrained = ability.manaDrained + manaDrain
 	target:ReduceMana(manaDrain)
 	PopupLoseMana(target, manaDrain)
+
+	local tideStacksGained = math.ceil(manaDrain/ITEM_RPC_OCEAN_TEMPEST_PALLIUM_DIVISOR)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_templest_tidal_storm_stacks", {duration = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_TIDAL_STORM_STACK_DURATION})
+	local new_stacks = target:GetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster) + tideStacksGained
+	target:SetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster, new_stacks)
+
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_tempest_ruby_attack_power", {duration = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_TIDAL_STORM_STACK_DURATION})
+		local attack_power_stacks = new_stacks*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_RUBY)/0.01
+		target:SetModifierStackCount("modifier_ocean_tempest_ruby_attack_power", caster, attack_power_stacks)
+	end
 	ability.interval = ability.interval + 1
 	if ability.interval % 3 == 0 then
-		local particleName = "particles/units/heroes/hero_tidehunter/tidehunter_gush_splash.vpcf"
+		local position = target:GetAbsOrigin() + RandomVector(RandomInt(0, 160))
+		local particleName = "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(300, 1, 1))
 		Timers:CreateTimer(0.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
+		EmitSoundOn("RPCItems.OceanTempest.Splash", target)
 	end
+	if ability:GetGemValue("emerald") > 0 then
+		local remaining_duration = target:FindModifierByName("modifier_ocean_tempest_pallium_channeling"):GetRemainingTime()
+		local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_OCEAN_TEMPEST_PALLIUM_EMERALD_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				if not enemy:HasModifier("modifier_ocean_tempest_typhoon") then
+					local proc = Filters:GetProc(target, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD1))
+					if proc then
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_tempest_typhoon", {duration = remaining_duration})
+						if enemy.ocean_tempest_pfx then
+							ParticleManager:DestroyParticle(enemy.ocean_tempest_pfx, false)
+						end
+						enemy.ocean_tempest_pfx = ParticleManager:CreateParticle("particles/econ/events/ti7/cyclone_ti7.vpcf", PATTACH_ABSORIGIN, enemy)
+						ParticleManager:SetParticleControl(enemy.ocean_tempest_pfx, 0, enemy:GetAbsOrigin())
+					end
+				end
+			end
+		end
+	end
+end
+
+function ocean_tempest_typhoon_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local newFV = WallPhysics:rotateVector(target:GetForwardVector(), 2*math.pi/20)
+	target:SetForwardVector(newFV)
+	if not target.ocean_tempest_lift_speed then
+		target.ocean_tempest_lift_speed = 3
+	end
+	local distanceFromGround = target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target)
+	if not target.jumpLock then
+		if distanceFromGround < 240 then
+			target.ocean_tempest_lift_speed = target.ocean_tempest_lift_speed + 0.4
+			target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.ocean_tempest_lift_speed))
+		else
+			target.ocean_tempest_lift_speed = target.ocean_tempest_lift_speed - 0.4
+			target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.ocean_tempest_lift_speed))		
+		end
+	end
+end
+
+function ocean_tempest_typhoon_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	target.ocean_tempest_lift_speed = nil
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_tempest_falling", {duration = 3})
+	ParticleManager:DestroyParticle(target.ocean_tempest_pfx, false)
+	target.ocean_tempest_pfx = nil
+end
+
+function ocean_tempest_falling_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local newFV = WallPhysics:rotateVector(target:GetForwardVector(), 2*math.pi/20)
+	target:SetForwardVector(newFV)
+	local distanceFromGround = target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target)
+	if distanceFromGround > 10 then
+		target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0,0,30))
+	else
+		target:RemoveModifierByName("modifier_ocean_tempest_falling")
+	end
+end
+
+function ocean_tempest_falling_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	local damage = hero:GetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster)*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD2)/100)
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_WIND)
+end
+
+function ocean_tempest_channel_end(event)
+	local hero = event.caster.hero
+	StopSoundEvent("RPCItems.OceanTempest.Event", hero)
 end
 
 function raven_idol_think(event)

@@ -153,6 +153,10 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_ancient_waterstone") then
         mult = mult + ITEM_RPC_ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
     end
+    if caster:HasModifier("modifier_ocean_templest_tidal_storm_stacks") then
+        local stacks = caster:FindModifierByName("modifier_ocean_templest_tidal_storm_stacks"):GetStackCount()
+        mult = mult + (ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_TIDE_STACK/100)*stacks
+    end
     if caster:HasModifier("modifier_nightmare_rider_stacks") then
         local stacks = caster:GetModifierStackCount("modifier_nightmare_rider_stacks", caster.InventoryUnit)
         mult = mult + (stacks * caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_AMETHYST2)) / 100
@@ -815,7 +819,11 @@ function Filters:BeginRChannel(caster)
         caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_water_mage_channeling", {duration = 8.0})
     end
     if caster:HasModifier("modifier_ocean_tempest_pallium") then
-        caster.ocean_tempest:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = 8.0})
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].manaDrained = 0
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].interval = 0
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].channel_time = ability:GetChannelTime()
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].total_mana_drain_pct = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_OF_MAX + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_AMETHYST)
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = ability:GetChannelTime()})
     end
     if caster:HasModifier("modifier_space_tech") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
@@ -1372,6 +1380,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_mask_of_mugato") and attacker:IsSilenced() then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MUGATO_SAPPHIRE2)/100
         end
+        if attacker:HasModifier("modifier_ocean_templest_tidal_storm_stacks") then
+            local stacks = attacker:FindModifierByName("modifier_ocean_templest_tidal_storm_stacks"):GetStackCount()
+            damageMult = damageMult + (ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_TIDE_STACK/100)*stacks
+        end
         if attacker:HasModifier("modifier_bladestorm_vest_buff") then
             damageMult = damageMult + attacker:GetModifierStackCount("modifier_bladestorm_vest_buff", attacker.InventoryUnit)*attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD1)/100
         end
@@ -1712,11 +1724,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_brazen_kabuto") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KABUTO_EMERALD)/100
-        end
-        if attacker:HasModifier("modifier_ocean_tempest_pallium") and attacker.ocean_tempest and attacker.ocean_tempest.manaDrained then
-            --TO DO check for bugs
-            local damageIncrease = (attacker.ocean_tempest.manaDrained / ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_THRESHOLD) * ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_MANA_THRESHOLD/100
-            damageMult = damageMult + damageIncrease
         end
 
 
@@ -4024,8 +4031,8 @@ function Filters:NightmareRider(caster)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), origin, nil, shadowRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
-            
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_nightmare_rider_effect_visible", {duration = ITEM_RPC_NIGHTMARE_RIDER_MANTLE_DEBUFF_DURATION})
+            enemy:CalculateAndSaveRoshpitAttributes()
             if damage > 0 then
                 Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
             end

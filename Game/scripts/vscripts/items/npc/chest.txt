@@ -17,6 +17,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilitySpecial"
 		{
@@ -28,22 +29,38 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD %>"
+				"emerald1"			"<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD1 %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_SAPPHIRE %>"
+				"emerald2"			"<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD2 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_AMETHYST %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_one"			"<% RPC_ELEMENT_WATER %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_two"			"<% RPC_ELEMENT_WIND %>"
 			}
 		}
 		"precache"
 		{
 			"particle"	"particles/units/heroes/hero_tidehunter/tidehunter_gush_splash.vpcf"
+			"particle"	"particles/econ/events/ti7/cyclone_ti7.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -61,11 +78,24 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_ocean_tempest_pallium_channeling"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_ocean_templest_tidal_storm_stacks"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_ocean_tempest_pallium_channeling"
 			{
 				"Passive"	"0"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"IsBuff"	"1"
 				"TextureName"	"itemicons/ocean_tempest_pallium"
 				"OnCreated"
@@ -84,6 +114,101 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"ocean_tempest_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ocean_tempest_channel_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_ocean_templest_tidal_storm_stacks"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"itemicons/ocean_tempest_pallium"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_ocean_tempest_ruby_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_ocean_tempest_ruby_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.01"
+				}
+			}
+			"modifier_ocean_tempest_typhoon"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/ocean_tempest_pallium"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ocean_tempest_typhoon_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ocean_tempest_typhoon_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_ocean_tempest_falling"
+			{
+				"IsHidden"	"1"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ocean_tempest_falling_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ocean_tempest_falling_end"
 						"target"		"TARGET"
 					}
 				}
@@ -229,6 +354,15 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-<% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SLOW %>"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_nightmare_rider_invisible"

@@ -623,7 +623,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_INFUSED_MAGEPLATE_GEM_AMETHYST, hero, "strength", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_INFUSED_MAGEPLATE_GEM_AMETHYST, hero, "intelligence", RPC_GEAR_SLOT_BODY)
-		end			
+		end		
+	elseif item:GetAbilityName() == "item_rpc_ocean_tempest_pallium" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_SAPPHIRE, hero, "element_water", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_SAPPHIRE, hero, "element_wind", RPC_GEAR_SLOT_BODY)
+		end		
 	end
 end
 
