@@ -12725,6 +12725,17 @@
 
 		"DOTA_Tooltip_modifier_ocean_templest_tidal_storm_stacks"			"Tidal Storm Stacks"
 
+		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
+		"item_property_outland_stone"							"Blast Fusion"
+		"property_outland_stone_description"					"Increases the Base Ability Damage of @Ability1 by <font color='#ccff66'>300</font>%, but stuns self for <font color='#ccff66'>1.5</font> seconds on cast."
+		"item_rpc_outland_stone_cuirass_ruby1"							"Increases the stun duration when casting [Q] by @ruby_property1 seconds and increases [Q] Base Ability Damage by @ruby_property2%"
+		"item_rpc_outland_stone_cuirass_emerald1"							"While stunned, turn to stone and gain @emerald_property1 Armor and Magic Armor"
+		"item_rpc_outland_stone_cuirass_sapphire1"							"Casting [W] stuns self for @sapphire_property1 seconds, and [W] Base Ability Damage is increased by @sapphire_property2%"
+		"item_rpc_outland_stone_cuirass_amethyst1"							"Reduces all stun durations applied to you by self or enemies by @amethyst_property1%"
+
+		"DOTA_Tooltip_modifier_outland_stone_cuirass_emerald"	"Outland Stone Cuirass (Emerald)"
+		"DOTA_Tooltip_modifier_outland_stone_cuirass_emerald_Description"	"Greatly increased Armor and Magic Armor"
+
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
@@ -12964,18 +12975,7 @@
 		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
 		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <font color='#ccff66'>900</font>."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"Outland Stone Cuirass"
-		"item_rpc_outland_stone_cuirass_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_outland_stone_cuirass_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_outland_stone_cuirass_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_outland_stone_cuirass_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_outland_stone"							"Blast Fusion"
-		"property_outland_stone_description"					"Increases the Base Ability Damage of @Ability1 by <font color='#ccff66'>2700</font>%, but stuns self for <font color='#ccff66'>1.5</font> seconds on cast."
-		
-		
-		
+			
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
 		"item_rpc_templar_light_seers_robe_ruby1"			"blah blah @ruby_property1 gem"
 		"item_rpc_templar_light_seers_robe_emerald1"			"blah blah @emerald_property1 gem"

@@ -12770,7 +12770,7 @@
 		"item_rpc_outland_stone_cuirass_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_outland_stone_cuirass_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_outland_stone"							"Blast Fusion"
-		"property_outland_stone_description"					"Увеличивает Базовый Урон Способности от (Q) @Ability1 на <font color='#ccff66'>2700</font>%, но оглушает владельца предмета на <font color='#ccff66'>1.5</font> сек. при прочтении."
+		"property_outland_stone_description"					"Увеличивает Базовый Урон Способности от (Q) @Ability1 на <font color='#ccff66'>300</font>%, но оглушает владельца предмета на <font color='#ccff66'>1.5</font> сек. при прочтении."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"Direwolf Bulwark"

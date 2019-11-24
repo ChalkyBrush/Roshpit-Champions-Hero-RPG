@@ -949,7 +949,9 @@ function Filters:ApplyQskills(caster)
     end
     if caster:HasModifier("modifier_outland_stone_cuirass") then
         CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", caster, 4)
-        caster:AddNewModifier(caster, nil, "modifier_stunned", {duration = ITEM_RPC_OUTLAND_STONE_CUIRASS_SELF_STUN})
+        local self_stun = ITEM_RPC_OUTLAND_STONE_CUIRASS_SELF_STUN + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_RUBY1)
+        caster:AddNewModifier(caster, nil, "modifier_stunned", {duration = self_stun})
+        EmitSoundOn("RPCItem.StoneCuirass.Trigger", caster)
     end
     if caster:HasModifier("modifier_dark_emissary_glove") then
         Filters:DarkEmissary(caster)
@@ -1018,6 +1020,14 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_bluestar_armor") then
         Filters:BluestarCast(caster)
+    end
+    if caster:HasModifier("modifier_outland_stone_cuirass") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("sapphire") > 0 then
+            CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", caster, 4)
+            local self_stun = caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_SAPPHIRE1)
+            caster:AddNewModifier(caster, nil, "modifier_stunned", {duration = self_stun})
+            EmitSoundOn("RPCItem.StoneCuirass.Trigger", caster)
+        end
     end
     if caster:HasModifier("modifier_buzukis_finger") then
         Filters:BuzukisFinger(caster)
@@ -1534,7 +1544,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOREAL_GRANITE_VEST_GEM_AMETHYST)/100
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
-            damageMult = damageMult + ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD/100
+            damageMult = damageMult + (ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_RUBY2))/100
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD/100
@@ -1585,6 +1595,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == BASE_ABILITY_W then
         if attacker:HasModifier("modifier_magistrates_hood") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MAGISTRATE_AMETHYST)/100
+        end
+        if attacker:HasModifier("modifier_outland_stone_cuirass") then
+            damageMult = damageMult + (attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_SAPPHIRE2))/100
         end
         if attacker:HasModifier("modifier_watcher_three") then
             damageMult = damageMult + 0.35

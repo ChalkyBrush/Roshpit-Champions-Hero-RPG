@@ -593,6 +593,13 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			end
 			duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CENTAUR_HORNS_AMETHYST)
 		end
+		if target:HasModifier("modifier_outland_stone_cuirass") then
+			if target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
+				if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
+					modifierGainedTable["duration"] = modifierGainedTable["duration"] * (1 - target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_AMETHYST)/100)
+				end
+			end
+		end
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
 			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
 		end

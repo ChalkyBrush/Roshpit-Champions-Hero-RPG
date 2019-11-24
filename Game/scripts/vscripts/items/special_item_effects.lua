@@ -7711,3 +7711,16 @@ function feronia_shield_expire(event)
 		end	
 	end
 end
+
+function outland_cuirass_thinker(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("emerald") > 0 then
+		if hero:IsStunned() then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_outland_stone_cuirass_emerald", {})
+		else
+			hero:RemoveModifierByName("modifier_outland_stone_cuirass_emerald")
+		end
+	end
+end
