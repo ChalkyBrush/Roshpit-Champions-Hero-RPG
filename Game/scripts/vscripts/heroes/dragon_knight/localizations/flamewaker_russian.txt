@@ -264,7 +264,7 @@
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] Glyph of Flaming Sea"
 		"item_rpc_flamewaker_glyph_7_1_description" 			"Оставляемый огненный след от руны [E1] шире в @glyph_property1 раз(а) и наносит в <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %> раз(а) больше урона."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] (Immortal) Glyph of Dragon Skin"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] Glyph of Dragon Skin"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Любой входящий урон не отнимет более <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP * 100 %>% от макс. здоровья. Если уровень здоровья ниже <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH * 100 %>%, входящий урон не отнимет более <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP * 100 %>% от макс. здоровья."
 
 		//Weapons

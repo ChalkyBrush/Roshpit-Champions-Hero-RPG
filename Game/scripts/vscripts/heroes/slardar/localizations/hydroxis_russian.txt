@@ -263,7 +263,7 @@
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"[T7-1] Glyph of the Sea God"
 		"item_rpc_hydroxis_glyph_7_1_description" 				"Увеличивает длительность Poseidon's Fury на <% HYDROXIS_GLYPH_7_1_R3_DURATION_INCREASE %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"[T5-a] (Immortal) Glyph of the Sparkling Sea"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"[T5-a] Glyph of the Sparkling Sea"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"Каждый заряд [Q2] способен поглотить любой входящий магический или чистый урон."
 		
 		//Weapons

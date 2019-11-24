@@ -267,7 +267,7 @@
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] (T7-2) Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, а количество получаемых зарядов увеличено до <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>. Половина зарядов активна постоянно."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "[T5-a] (Immortal) Glyph of the Marshall"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "[T5-a] Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Увеличивает урон, наносимый умением (R) @Ability4 и всеми соответствующими умению рунами на <% RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Книга Глифов Red General"

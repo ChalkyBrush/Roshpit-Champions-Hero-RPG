@@ -276,7 +276,7 @@
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] Glyph of Indomitability"
         "item_rpc_chernobog_glyph_7_1_description"              "Снимает эффекты оглушения каждые 0.2 секунды, а после срабатывания увеличивает исходящий пост-резистный урон на <% CHERNOBOG_T71_POSTMIT * 100 %>% в течение <% CHERNOBOG_T71_POSTMIT_DUR %> сек."
 
-        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] (Immortal) Glyph of the Apex Predator"
+        "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] Glyph of the Apex Predator"
         "item_rpc_chernobog_glyph_5_a_description"              "Все бонусы рун от умения (W) @Ability2 работают при любом состоянии основного умения. Исцеление героя по прежнему невозможно, пока умение (W) @Ability2 активно."
         
         //Weapons

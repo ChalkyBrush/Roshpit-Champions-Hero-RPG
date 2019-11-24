@@ -204,7 +204,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"[T7-1] Glyph of Aerial Immunity"
 		"item_rpc_sephyr_glyph_7_1_description" 				"Наделяет героя иммунитетом к магии, пока он находится на отметке @glyph_property1 или выше от земли."
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"[T5-a] (Immortal) Glyph of the Divine Winds"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"[T5-a] Glyph of the Divine Winds"
 		"item_rpc_sephyr_glyph_5_a_description" 				"Снижаемый урон от (R) @Ability4 увеличивается на @glyph_property1%."
 		
 		//Weapons

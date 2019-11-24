@@ -291,7 +291,7 @@
 		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_7_1"		"[T7-1] Glyph of Soul Weapons"
 		"item_rpc_spirit_warrior_glyph_7_1_description" 				"Увеличивает время действия умения (R) @Ability4 на <% SPIRIT_WARRIOR_GLYPH_7_1_ADDITIONAL_DURATION %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"[T5-a] (Immortal) Glyph of Storm Helix"
+		"DOTA_Tooltip_ability_item_rpc_spirit_warrior_glyph_5_a"		"[T5-a] Glyph of Storm Helix"
 		"item_rpc_spirit_warrior_glyph_5_a_description" 				"Находясь рядом с бурей от [E3] герой каждые <% SPIRIT_WARRIOR_GLYPH_5_A_STACK_INTERVAL %> секунды получает заряды, которые увеличивают его скорость атаки на <% SPIRIT_WARRIOR_GLYPH_5_A_AS_PER_STACK %>, урон на <% SPIRIT_WARRIOR_GLYPH_5_A_BONUS_DMG_PER_STACK_PCT %>% и дальность атаки на <% SPIRIT_WARRIOR_GLYPH_5_A_ATTACK_RANGE_PER_STACK %>."
 
 		"DOTA_Tooltip_modifier_spirit_warrior_glyph_5_a_effect"			"Storm Helix"

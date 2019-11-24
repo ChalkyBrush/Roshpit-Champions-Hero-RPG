@@ -283,7 +283,7 @@
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"[T7-1] Glyph of Zeal"
 		"item_rpc_paladin_glyph_7_1_description" 				"С каждой атакой есть шанс @glyph_property1%, что герой без задержки атакует соседнюю цель."
 
-		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"[T5-a] (Immortal) Глиф святого гнева"
+		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"[T5-a] Глиф святого гнева"
 		"item_rpc_paladin_glyph_5_a_description" 				"Удар молнии от [R4] Knight's Disciple's поражает врагов в радиусе @glyph_property1, а основная цель будет атакована дважды."
 		
 		//Column2Glyphs
