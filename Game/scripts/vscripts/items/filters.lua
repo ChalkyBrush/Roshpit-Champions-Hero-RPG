@@ -916,8 +916,8 @@ function Filters:ApplyQskills(caster)
         end
         ability:EndCooldown()
     end
-    if caster:HasModifier("modifier_watcher_one") then
-        Filters:WatcherOne(caster)
+    if caster:HasModifier("modifier_plate_of_the_watcher1") then
+        Filters:WatcherCast(caster, BASE_ABILITY_Q)
     end
     if caster:HasModifier("modifier_antique_mana_relic") then
         if caster:GetMana() >= caster:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN/100 then
@@ -1035,7 +1035,9 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_igneous_canine_helm") then
         Filters:IgneousCanine(caster)
     end
-
+    if caster:HasModifier("modifier_plate_of_the_watcher2") then
+        Filters:WatcherCast(caster, BASE_ABILITY_W)
+    end
     if caster:HasModifier("modifier_rpc_wraith_crown") then
         Filters:WraithCrown(caster)
     end
@@ -1137,6 +1139,9 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_sonic_boots") then
         Filters:SonicBoot(caster)
     end
+    if caster:HasModifier("modifier_plate_of_the_watcher3") then
+        Filters:WatcherCast(caster, BASE_ABILITY_E)
+    end
     if caster:HasModifier("modifier_falcon_boots") then
         Filters:FalconBoot(caster)
     end
@@ -1204,6 +1209,9 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_body_flooding") then
         Filters:FloodRobe(caster)
+    end
+    if caster:HasModifier("modifier_plate_of_the_watcher4") then
+        Filters:WatcherCast(caster, BASE_ABILITY_R)
     end
     if caster:HasModifier("modifier_avalanche_plate") then
         Filters:AvalanchePlate(caster)
@@ -1397,9 +1405,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_bladestorm_vest_buff") then
             damageMult = damageMult + attacker:GetModifierStackCount("modifier_bladestorm_vest_buff", attacker.InventoryUnit)*attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD1)/100
         end
-        if attacker:HasModifier("modifier_watcher_two") then
-            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD/100
-        end
         if attacker:HasModifier("modifier_eye_of_avernus") then
             damageMult = damageMult + ITEM_RPC_EYE_OF_AVERNUS_BAD/100
         end
@@ -1549,6 +1554,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD/100
         end
+        if attacker:HasModifier("modifier_plate_of_the_watcher1") then
+            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_RUBY2)/100
+        end
         if attacker:HasModifier("modifier_death_whisper_helm") then
             if not ignore_effects then
                 Filters:DeathWhisperApply(attacker, victim)
@@ -1599,9 +1607,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + (attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_SAPPHIRE2))/100
         end
-        if attacker:HasModifier("modifier_watcher_three") then
-            damageMult = damageMult + 0.35
-        end
         if attacker:HasModifier("modifier_spellslinger_coat") then
             damageMult = damageMult + ITEM_RPC_SPELLSLINGER_COAT_BAD/100
         end
@@ -1615,6 +1620,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_arkimus_immortal_weapon_1") then
             damageMult = damageMult + ARKIMUS_IMMORTAL_WEAPON_1_W_MULT
+        end
+        if attacker:HasModifier("modifier_plate_of_the_watcher2") then
+            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_SAPPHIRE2)/100
         end
         if attacker:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
             damageMult = damageMult + PHANTOM_SORCERER_BAD/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY1)/100
@@ -1681,6 +1689,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_boots_of_ashara") and attacker:GetHealth() / attacker:GetMaxHealth() <= ITEM_RPC_BOOTS_OF_ASHARA_HP_THRESHOLD/100 then
             damageMult = damageMult + ITEM_RPC_BOOTS_OF_ASHARA_BAD_E
         end
+        if attacker:HasModifier("modifier_plate_of_the_watcher3") then
+            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_EMERALD2)/100
+        end
 		if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
 			local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
 			local multIncrease = stacks * ZHONIK_E3_ARCANA_E_BAD_PCT / 100
@@ -1725,11 +1736,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + ITEM_RPC_MASTER_GLOVES_BAD/100
         end
-        if attacker:HasModifier("modifier_watcher_four") then
-            damageMult = damageMult + 0.35
-        end
         if attacker:HasModifier("modifier_doomplate") then
             Filters:DoomplateApply(attacker, victim)
+        end
+        if attacker:HasModifier("modifier_plate_of_the_watcher4") then
+            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_AMETHYST2)/100
         end
         if attacker:HasModifier("modifier_axe_arcana2") then
             local r_1_level = attacker:GetRuneValue("r", 1)
@@ -2694,14 +2705,6 @@ function Filters:SeraphicVest(caster)
             iMoveSpeed = 650,
         iVisionTeamNumber = caster:GetTeamNumber()}
         projectile = ProjectileManager:CreateTrackingProjectile(info)
-    end
-end
-
-function Filters:WatcherOne(caster)
-    local proc = Filters:GetProc(caster, ITEM_RPC_PLATE_OF_THE_WATCHER_I_REFRESH_CHANCE)
-    if proc then
-        local ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-        ability:EndCooldown()
     end
 end
 
@@ -5147,4 +5150,21 @@ function Filters:HurricaneVest(caster, tornado_count)
         }
         ProjectileManager:CreateLinearProjectile(info)
     end
+end
+
+function Filters:WatcherCast(caster, base_ability_slot)
+    local ability = Filters:SkillArgumentSlotToHeroAbility(caster, base_ability_slot)
+    local watcher_plate = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local percentage_increase = 0
+    if base_ability_slot == BASE_ABILITY_Q then
+        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q/100 - watcher_plate:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_RUBY1)/100
+    elseif base_ability_slot == BASE_ABILITY_W then
+        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W/100 - watcher_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_SAPPHIRE1)/100
+    elseif base_ability_slot == BASE_ABILITY_E then
+        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E/100 - watcher_plate:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_EMERALD1)/100
+    elseif base_ability_slot == BASE_ABILITY_R then
+        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R/100 - watcher_plate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_AMETHYST1)/100
+    end
+
+    Filters:ReduceCDByPercentage(caster, ability, percentage_increase)
 end

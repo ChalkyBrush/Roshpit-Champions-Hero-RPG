@@ -12306,18 +12306,20 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
-		"item_rpc_plate_of_the_watcher_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_plate_of_the_watcher_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_plate_of_the_watcher_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_plate_of_the_watcher_amethyst1"							"blah blah @amethyst_property1 gem"
+
 		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Каждое прочтение (Q) @Ability1 даёт вам <font color='#ccff66'>25</font>% шанс сбросить время перезарядки (R) @Ability4."
+		"property_watcher_one_description"			"Increases cooldown of @Ability1 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
 		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Увеличивает Базовый Урон Способностей на <font color='#ccff66'>150</font>%."
+		"property_watcher_two_description"			"Increases cooldown of @Ability2 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
 		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Увеличивает Базовый Урон Способности (W) @Ability2 на 35%."
+		"property_watcher_three_description"		"Increases cooldown of @Ability3 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
 		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Увеличивает Базовый Урон Способности (R) @Ability4 на 35%."
+		"property_watcher_four_description"			"Increases cooldown of @Ability4 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
+
+		"item_rpc_plate_of_the_watcher_ruby1"							"Increases cooldown of [Q] by an additional @ruby_property1% and increases its Base Ability Damage by an additional @ruby_property2%"
+		"item_rpc_plate_of_the_watcher_emerald1"							"Increases cooldown of [E] by an additional @emerald_property1% and increases its Base Ability Damage by an additional @emerald_property2%"
+		"item_rpc_plate_of_the_watcher_sapphire1"							"Increases cooldown of [W] by an additional @sapphire_property1% and increases its Base Ability Damage by an additional  @sapphire_property2%"
+		"item_rpc_plate_of_the_watcher_amethyst1"							"Increases cooldown of [R] by an additional @amethyst_property1% and increases its Base Ability Damage by an additional @amethyst_property2%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"

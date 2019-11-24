@@ -376,6 +376,22 @@
 		"DOTA_Tooltip_modifier_outland_stone_cuirass_emerald"	"Outland Stone Cuirass (Emerald)"
 		"DOTA_Tooltip_modifier_outland_stone_cuirass_emerald_Description"	"Greatly increased Armor and Magic Armor"
 
+		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
+
+		"item_property_watcher_one"					"Watcher I"
+		"property_watcher_one_description"			"Increases cooldown of @Ability1 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
+		"item_property_watcher_two"					"Watcher II"
+		"property_watcher_two_description"			"Increases cooldown of @Ability2 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
+		"item_property_watcher_three"				"Watcher III"
+		"property_watcher_three_description"		"Increases cooldown of @Ability3 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
+		"item_property_watcher_four"				"Watcher IV"
+		"property_watcher_four_description"			"Increases cooldown of @Ability4 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
+
+		"item_rpc_plate_of_the_watcher_ruby1"							"Increases cooldown of [Q] by an additional @ruby_property1% and increases its Base Ability Damage by an additional @ruby_property2%"
+		"item_rpc_plate_of_the_watcher_emerald1"							"Increases cooldown of [E] by an additional @emerald_property1% and increases its Base Ability Damage by an additional @emerald_property2%"
+		"item_rpc_plate_of_the_watcher_sapphire1"							"Increases cooldown of [W] by an additional @sapphire_property1% and increases its Base Ability Damage by an additional  @sapphire_property2%"
+		"item_rpc_plate_of_the_watcher_amethyst1"							"Increases cooldown of [R] by an additional @amethyst_property1% and increases its Base Ability Damage by an additional @amethyst_property2%"
+
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
@@ -403,21 +419,6 @@
 		"item_rpc_seraphic_soulvest_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_seraphic_soulvest"			"Seraphic Lance"
 		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a large radius, dealing <% ITEM_RPC_SERAPHIC_SOULVEST_ATTACK_TO_DMG %>% of your attack damage times @Ability2 level as Pure damage."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
-		"item_rpc_plate_of_the_watcher_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_plate_of_the_watcher_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_plate_of_the_watcher_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_plate_of_the_watcher_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Every cast of @Ability has a <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_REFRESH_CHANCE %>% chance to instantly refresh the cooldown of @Ability4."
-		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Increases the damage of all Base Abilities by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD %>%."
-		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Increases the Base Ability Damage of @Ability2 by 35%."
-		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Increases the Base Ability Damage of @Ability4 by 35%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"

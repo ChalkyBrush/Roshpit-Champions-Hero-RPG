@@ -1905,51 +1905,6 @@ function RPCItems:RollWaterMageRobes(item_level)
     return item
 end
 
-function RPCItems:RollWatcherPlate(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_plate_of_the_watcher", "immortal", "Plate of the Watcher", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property1 = 1
-        item.newItemTable.property1name = "watcher1"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_one", "#64A4CC", 1, "#property_watcher_one_description")
-    else
-        RPCItems:RollBodyProperty1(item, 0)
-    end
-
-    luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property2 = 1
-        item.newItemTable.property2name = "watcher2"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_two", "#64A4CC", 2, "#property_watcher_two_description")
-    else
-        RPCItems:RollBodyProperty2(item, 0)
-    end
-
-    luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property3 = 1
-        item.newItemTable.property3name = "watcher3"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_three", "#64A4CC", 3, "#property_watcher_three_description")
-    else
-        RPCItems:RollBodyProperty3(item, 0)
-    end
-
-    luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property4 = 1
-        item.newItemTable.property4name = "watcher4"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_four", "#64A4CC", 4, "#property_watcher_four_description")
-    else
-        RPCItems:RollBodyProperty4(item, 0)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSorcererRegalia(item_level)
     local item = RPCItems:CreateVariant("item_rpc_sorcerers_regalia", "immortal", "Sorcerer's Regalia", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4693,7 +4648,53 @@ function RPCItems:RollOutlandStoneCuirass(item_level)
     return item
 end
 
+function RPCItems:RollWatcherPlate(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
+    local item = RPCItems:CreateVariant("item_rpc_plate_of_the_watcher", "immortal", "Plate of the Watcher", "body", true, "Slot: Body")
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        item.newItemTable.property1 = 1
+        item.newItemTable.property1name = "!immortal!_modifier_plate_of_the_watcher1"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_one", "#64A4CC", 1, "#property_watcher_one_description")
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, nil, 1.35)
+    end
+
+    luck = RandomInt(1, 2)
+    if luck == 1 then
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_plate_of_the_watcher2"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_two", "#64A4CC", 2, "#property_watcher_two_description")
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.35)
+    end
+
+    luck = RandomInt(1, 2)
+    if luck == 1 then
+        item.newItemTable.property3 = 1
+        item.newItemTable.property3name = "!immortal!_modifier_plate_of_the_watcher3"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_three", "#64A4CC", 3, "#property_watcher_three_description")
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.35)
+    end
+
+    luck = RandomInt(1, 2)
+    if luck == 1 then
+        item.newItemTable.property4 = 1
+        item.newItemTable.property4name = "!immortal!_modifier_plate_of_the_watcher4"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_four", "#64A4CC", 4, "#property_watcher_four_description")
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.35)
+    end
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 --FEET
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -8769,7 +8770,8 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell", "item_rpc_hurricane_vest",
-        "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall", "item_rpc_nightmare_rider_mantle", "item_rpc_ocean_tempest_pallium", "item_rpc_outland_stone_cuirass"}
+        "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall", "item_rpc_nightmare_rider_mantle", "item_rpc_ocean_tempest_pallium", "item_rpc_outland_stone_cuirass",
+        "item_rpc_plate_of_the_watcher"}
     end
     return itemsList
 end

@@ -76,18 +76,21 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
-		"item_rpc_plate_of_the_watcher_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_plate_of_the_watcher_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_plate_of_the_watcher_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_plate_of_the_watcher_amethyst1"							"blah blah @amethyst_property1 gem"
+		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
+
 		"item_property_watcher_one"					"守望者 I"
-		"property_watcher_one_description"			"每次施放 @Ability1 有<% ITEM_RPC_PLATE_OF_THE_WATCHER_I_REFRESH_CHANCE %>%几率刷新 @Ability4 的冷却时间。"
+		"property_watcher_one_description"			"Increases cooldown of @Ability1 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
 		"item_property_watcher_two"					"守望者 II"
-		"property_watcher_two_description"			"提高所有基础技能伤害<% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD %>%。"
+		"property_watcher_two_description"			"Increases cooldown of @Ability2 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
 		"item_property_watcher_three"				"守望者 III"
-		"property_watcher_three_description"		"提高 @Ability2 伤害35%。"
+		"property_watcher_three_description"		"Increases cooldown of @Ability3 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
 		"item_property_watcher_four"				"守望者 IV"
-		"property_watcher_four_description"			"提高 @Ability4 伤害35%。"
+		"property_watcher_four_description"			"Increases cooldown of @Ability4 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
+
+		"item_rpc_plate_of_the_watcher_ruby1"							"Increases cooldown of [Q] by an additional @ruby_property1% and increases its Base Ability Damage by an additional @ruby_property2%"
+		"item_rpc_plate_of_the_watcher_emerald1"							"Increases cooldown of [E] by an additional @emerald_property1% and increases its Base Ability Damage by an additional @emerald_property2%"
+		"item_rpc_plate_of_the_watcher_sapphire1"							"Increases cooldown of [W] by an additional @sapphire_property1% and increases its Base Ability Damage by an additional  @sapphire_property2%"
+		"item_rpc_plate_of_the_watcher_amethyst1"							"Increases cooldown of [R] by an additional @amethyst_property1% and increases its Base Ability Damage by an additional @amethyst_property2%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"巫师法袍"
