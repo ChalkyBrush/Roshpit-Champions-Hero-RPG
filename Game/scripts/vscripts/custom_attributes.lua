@@ -188,11 +188,6 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier.stat_bonus
 	end
 
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_1')
-	if modifier then
-		strength = strength - modifier:GetStackCount()
-	end
-
 	modifier = self:FindModifierByName("modifier_w_4_str_decrease")
 	if modifier then
 		strength = strength + modifier:GetStackCount()
@@ -240,11 +235,6 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier.stat_bonus
 	end
 
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_2')
-	if modifier then
-		agility = agility - modifier:GetStackCount()
-	end
-
 	modifier = self:FindModifierByName("modifier_w_4_agi_increase")
 	if modifier then
 		agility = agility - modifier:GetStackCount()
@@ -256,7 +246,6 @@ end
 function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	local intellect = self:GetIntellect()
 	local modifier = nil
-
 	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_int')
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
@@ -280,11 +269,6 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	modifier = self:FindModifierByName('modifier_blue_divinex_amulet')
 	if modifier and modifier.stat_bonus then
 		intellect = intellect - modifier.stat_bonus
-	end
-
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_3')
-	if modifier then
-		intellect = intellect - modifier:GetStackCount()
 	end
 
 	modifier = self:FindModifierByName("modifier_w_4_int_increase")
@@ -1073,14 +1057,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("item_rpc_dark_arts_vestments") then
 		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
 	end
-	Util.Modifier:SimpleEvent(unit, 'GetBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
 			magic_armor = magic_armor + result
 		end
 	)
 
 	local magic_armor_modify = 0
-	Util.Modifier:SimpleEvent(unit, 'GetMagicArmorBonus', { MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS }, { }, 
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitMagicArmorBonus', { MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
 			magic_armor_modify = magic_armor_modify + result
 		end
@@ -2029,6 +2013,27 @@ function CustomAttributes:SetAttributes(hero)
 	local agi_bonus = 0
 	local int_bonus = 0
 	local spr_bonus = 0
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitStrengthBonus', { MODIFIER_ROSHPIT_STRENGTH_BONUS }, { }, 
+		function(result, data)
+			str_bonus = str_bonus + result
+		end
+	)	
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitAgilityBonus', { MODIFIER_ROSHPIT_AGILITY_BONUS }, { }, 
+		function(result, data)
+			agi_bonus = agi_bonus + result
+		end
+	)	
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitIntelligenceBonus', { MODIFIER_ROSHPIT_INTELLIGENCE_BONUS }, { }, 
+		function(result, data)
+			int_bonus = int_bonus + result
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitSpiritBonus', { MODIFIER_ROSHPIT_SPIRIT_BONUS }, { }, 
+		function(result, data)
+			spr_bonus = spr_bonus + result
+		end
+	)
+
 	local heroName = hero:GetUnitName()
 	if hero:HasModifier("modifier_flamewaker_rune_r_3") then
 		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
@@ -2460,24 +2465,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_seinaru_immo_weapon_3_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", CustomAttributes.SEINARU_WEAPON_3_STR)
 	end
-	if hero:HasModifier("modifier_neutral_glyph_1_1") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_1", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_1") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_1", 1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_2") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_2", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_2") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_2", 1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_3") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_3", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_3") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_3", 1)
-	end
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
@@ -2836,8 +2823,6 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
 	modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
 	modifier_movespeed_cap = 1400,
-	modifier_movespeed_cap_glyph = 620,
-	modifier_movespeed_cap_heat_wave = 640,
 	modifier_movespeed_cap_sonic = 750,
 	modifier_movespeed_cap_super = 5200,
 	modifier_movespeed_cap_shadow_walk_1 = 640,

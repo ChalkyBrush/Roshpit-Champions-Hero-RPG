@@ -244,28 +244,28 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_r_4_arcana2_suffix_two"			""
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"Glyph of Tectonics"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_1_1"		"[T1-1] Glyph of Tectonics"
 		"item_rpc_hydroxis_glyph_1_1_description" 				"After casting @Ability4, cast it again automatically after <% HYDROXIS_GLYPH_1_1_R_REPEAT_DELAY %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"Glyph of Gushing"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_2_1"		"[T2-1] Glyph of Gushing"
 		"item_rpc_hydroxis_glyph_2_1_description" 				"Undertow throws water bombs <% HYDROXIS_GLYPH_2_1_E1_INTERVAL_RED_PCT %>% faster during Slipstream"
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"Glyph of Healing Waters"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_3_1"		"[T3-1] Glyph of Healing Waters"
 		"item_rpc_hydroxis_glyph_3_1_description" 				"The heal from Mystic Water Shield ticks <% HYDROXIS_GLYPH_3_1_Q2_TICKRATE_MULT %>x faster."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"Glyph of Jetsam"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_4_1"		"[T4-1] Glyph of Jetsam"
 		"item_rpc_hydroxis_glyph_4_1_description" 				"Flood Slide damage increased <% HYDROXIS_GLYPH_4_1_E2_DMG_AMP %>x."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"Glyph of Vapor"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"[T5-1] Glyph of Vapor"
 		"item_rpc_hydroxis_glyph_5_1_description" 				"Attacks have a <% HYDROXIS_GLYPH_5_1_CHANCE %>% chance for Crescent Wave to deal an additional Water damage instance equal to <% HYDROXIS_GLYPH_5_1_W1_MAGIC_AMP * 100 %>% of attack power as magic damage."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"Glyph of Submergence"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"[T6-1] Glyph of Submergence"
 		"item_rpc_hydroxis_glyph_6_1_description" 				"Removes the cast time of Ocean Quake, and increases the radius of Drowning Pool by <% HYDROXIS_GLYPH_6_1_R4_RADIUS_INCREASE %>."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"Glyph of the Sea God"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_7_1"		"[T7-1] Glyph of the Sea God"
 		"item_rpc_hydroxis_glyph_7_1_description" 				"Increases the duration of Poseidon's Fury by <% HYDROXIS_GLYPH_7_1_R3_DURATION_INCREASE %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"Glyph of the Sparkling Sea"
+		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_a"		"[T5-a] Glyph of the Sparkling Sea"
 		"item_rpc_hydroxis_glyph_5_a_description" 				"Mystic Water Shield absorbs instances of magic or pure damage at the cost of 1 stack."
 		
 		//Weapons

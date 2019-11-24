@@ -78,7 +78,7 @@
 		"DOTA_Tooltip_ability_heat_wave"										"Heat Wave"
 		"DOTA_Tooltip_ability_heat_wave_Description"							"Element: <font color=\"#EF4126\">Fire</font><br>Flamewaker activates an intense heat energy, gaining movespeed, attack damage, cliff walking, and increased max movespeed. Enemies close to flamewaker during heatwave have reduced armor."
 		"DOTA_Tooltip_ability_heat_wave_Lore"									"Base Ability: E"
-    	"DOTA_Tooltip_ability_heat_wave_max_ms"									"MOVESPEED CAP:"
+    	"DOTA_Tooltip_ability_heat_wave_ms_cap_bonus"							"MS-CAP BONUS:"
     	"DOTA_Tooltip_ability_heat_wave_base_dmg"								"ATTACK DAMAGE:"
     	"DOTA_Tooltip_ability_heat_wave_movespeed"								"MOVESPEED:"
     	"DOTA_Tooltip_ability_heat_wave_duration"								"DURATION:"
@@ -241,31 +241,31 @@
 
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"Glyph of Diamond Skin"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_1_1"	"[T1-1] Glyph of Diamond Skin"
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% chance to be stunned for <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> second."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"Glyph of Cratering"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
 		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <% FLAMEWAKER_GLYPH_2_1_Q_CD %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"Glyph of Upheaval"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"Glyph of Blue Flame"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] Glyph of Blue Flame"
 		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to <% FLAMEWAKER_GLYPH_4_1_ATTIRIBUTES_TO_W_DAMAGE_PER_LVL %>x of the sum of all your attributes. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by <% FLAMEWAKER_GLYPH_4_1_MS_SLOW %>/<% FLAMEWAKER_GLYPH_4_1_AS_SLOW %> for <% FLAMEWAKER_GLYPH_4_1_SLOW_DURATION %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"Glyph of Charred Hearts"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] Glyph of Charred Hearts"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <% FLAMEWAKER_GLYPH_5_1_R2_DUR_MULTIPLY %>x."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"Glyph of Mountain's Core"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_6_1"	"[T6-1] Glyph of Mountain's Core"
 		"item_rpc_flamewaker_glyph_6_1_description" 			"Increases attack damage by <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>% for <% FLAMEWAKER_GLYPH_6_1_DURATION %> seconds after casting @Ability4."
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"Mountain's Core"
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"Gaining <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>%% increased attack damage."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"Glyph of Flaming Sea"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] Glyph of Flaming Sea"
 		"item_rpc_flamewaker_glyph_7_1_description" 			"Blazing Trail has @glyph_property1x width and deals <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %>x damage."
 
-		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"Glyph of Dragon Skin"
+		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_a"	"[T5-a] Glyph of Dragon Skin"
 		"item_rpc_flamewaker_glyph_5_a_description" 			"Damage instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP * 100 %>% of max health. If below <% FLAMEWAKER_GLYPH_5_A_LOW_HP_THRESH * 100 %>% health, instances are capped at <% FLAMEWAKER_GLYPH_5_A_DAMAGE_CAP_LOW_HP * 100 %>%."
 
 		//Weapons

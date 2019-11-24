@@ -222,28 +222,28 @@
 
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"折射率雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"[T1-1] 折射率雕文"
 		"item_rpc_zonik_glyph_1_1_description" 				"当钟尼克自己携带超光速粒子盾时，粒子盾的伤害范围提高 @glyph_property1%。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"晶体管雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"[T2-1] 晶体管雕文"
 		"item_rpc_zonik_glyph_2_1_description" 				"敌人如果携带超光速粒子盾，将提高所受到的伤害 @glyph_property1%。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"北极星雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"[T3-1] 北极星雕文"
 		"item_rpc_zonik_glyph_3_1_description" 				"有 @glyph_property1% 的几率在施放马赫速度之拳后再次施放一次马赫速度之拳。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"极地冲击雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"[T4-1] 极地冲击雕文"
 		"item_rpc_zonik_glyph_4_1_description" 				"提高音爆的范围 @glyph_property1%。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"加速度雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"[T5-1] 加速度雕文"
 		"item_rpc_zonik_glyph_5_1_description" 				"当拥有光速移动buff时，提高 @glyph_property1 移动速度和移动速度上限。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"钻石粉尘雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"[T6-1] 钻石粉尘雕文"
 		"item_rpc_zonik_glyph_6_1_description" 				"在光速冲撞中，残影制造速速提高 @glyph_property1%，立刻爆炸并且伤害提高 @glyph_property2% 。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"声呐雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"[T7-1] 声呐雕文"
 		"item_rpc_zonik_glyph_7_1_description" 				"每层时间能量充能都将提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害 @glyph_property1%。每制造一次 <font color=\"#B5FFB7\">时</font> 元素伤害，消耗一层充能。"
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"慌乱拳击雕文"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"[T5-a] 慌乱拳击雕文"
 		"item_rpc_zonik_glyph_5_a_description" 				"每<% ZHONIK_GLYPH_5_A_INTERVAL %>秒向周围随机一个敌人释放一次 @Ability2 。"
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"圣人之瞳"

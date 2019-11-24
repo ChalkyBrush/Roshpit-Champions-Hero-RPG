@@ -471,7 +471,12 @@ function Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
 		if glyph.glyphIndex > 0 then
 			glyph = EntIndexToHScript(glyph.glyphIndex)
 			local glyphModifierName = glyph.newItemTable.property1
-			glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
+			local glyphName = glyph.newItemTable.item_variant
+			if _G[glyphName] then
+				_G[glyphName]:AddSpecialModifiers(heroEntity)
+			else
+				glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
+			end
 		end
 	end
 end
@@ -716,7 +721,12 @@ function Glyphs:DebugRollHeroGlyphs(heroName, position)
 	for j = 1, maxTiers, 1 do
 		for i = 1, 7, 1 do
 			local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
-			Glyphs:RollGlyphAll(variantName, position, 0)
+			if _G[variantName] then
+				newItem = _G[variantName]:CreateLuaItem(item_level)
+				RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), newItem)
+			else
+				Glyphs:RollGlyphAll(variantName, position, 0)
+			end
 		end
 	end
 

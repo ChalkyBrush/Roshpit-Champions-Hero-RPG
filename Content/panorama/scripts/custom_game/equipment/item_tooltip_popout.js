@@ -313,9 +313,9 @@ function manageTooltipGems(item, item_table)
 
 function updateSkillInTooltipHandler(tooltip, itemValues, queryUnit){
 	if (!(itemValues.requiredHero === undefined)){
-		if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
+		if (Entities.GetUnitName(queryUnit) == itemValues.requiredHero || itemValues.requiredHero == "tooltip_neutral"){
 			tooltip = updateSkillInTooltip(tooltip, queryUnit)
-			tooltip = replaceRuneTooltip(tooltip, queryUnit, itemValues.requiredHero)
+			tooltip = replaceRuneTooltip(tooltip, queryUnit, Entities.GetUnitName(queryUnit))
 		}else{
 			tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
 			tooltip = replaceRuneTooltip(tooltip, -1, itemValues.requiredHero)

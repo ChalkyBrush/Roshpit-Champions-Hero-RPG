@@ -595,7 +595,7 @@
 			"13"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"max_ms"			"640"
+				"ms_cap_bonus"			"<% FLAMEWAKER_E_MS_CAP_BONUS %>"
 			}
 			"14"
 			{

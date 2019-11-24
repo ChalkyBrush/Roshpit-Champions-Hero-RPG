@@ -923,69 +923,7 @@
 
 		"dialogue_glyph_shop_one"	"I can turn your Arcane Crystals into material enhancements."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"Glyph of Lesser Strength"
-		"item_rpc_neutral_glyph_1_1_description" 			"Increases Strength by @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"Glyph of Items"
-		"item_rpc_neutral_glyph_2_1_description" 			"Increases damage dealt directly by items by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"Glyph of Flight"
-		"item_rpc_neutral_glyph_3_1_description"			"Increases your Movement Speed Cap to @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"Glyph of Renewal"
-		"item_rpc_neutral_glyph_4_1_description" 			"Respawn time set to 10 seconds, and you will respawn at the location of your death. If you die again within @glyph_property2 seconds, however, you will respawn at your Respawn Flag or at the map's default location."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"Glyph of Walling"
-		"item_rpc_neutral_glyph_5_1_description" 			"Decreases all damage taken by @glyph_property1% and reduces all outgoing damage by @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"Glyph of War"
-		"item_rpc_neutral_glyph_6_1_description" 			"Increase attack damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"Glyph of Grand Strength"
-		"item_rpc_neutral_glyph_7_1_description" 			"Increases Strength by either @glyph_property2% or @glyph_property1, whichever provides a greater bonus."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"Glyph of Lesser Agility"
-		"item_rpc_neutral_glyph_1_2_description" 			"Increases Agility by @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"Glyph of Ability"
-		"item_rpc_neutral_glyph_2_2_description" 			"Increases base ability damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"Glyph of Avoidance"
-		"item_rpc_neutral_glyph_3_2_description" 			"Increases Evasion by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"Glyph of the Giant Slayer"
-		"item_rpc_neutral_glyph_4_2_description" 			"Your damage against enemies with the Steadfast or Mega Steadfast properties is bolstered. The threshold for Steadfast is reduced to @glyph_property1% of their maximum health (from 3%), and @glyph_property2% for Mega Steadfast (from 0.5%). Any post-mitigation amplification effects are reduced against these enemies, down to @glyph_property3% of the total bonus against Steadfast and @glyph_property4% vs. Mega Steadfast. (Ancient Steadfast is unaffected.) In exchange, your damage output against targets without Steadfast properties is reduced by @glyph_property5%."
-
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"Glyph of Berserking"
-		"item_rpc_neutral_glyph_5_2_description" 			"Increases all damage taken by @glyph_property1% and increases all outgoing damage by @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"Glyph of Aptitude"
-		"item_rpc_neutral_glyph_6_2_description" 			"Increase Normal damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"Glyph of Grand Agility"
-		"item_rpc_neutral_glyph_7_2_description" 			"Increases Agility by either @glyph_property2% or @glyph_property1, whichever provides a greater bonus."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"Glyph of Lesser Intelligence"
-		"item_rpc_neutral_glyph_1_3_description" 			"Increases Intelligence by @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"Glyph of Elements"
-		"item_rpc_neutral_glyph_2_3_description" 			"Increases all elemental damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"Glyph of Fleeting"
-		"item_rpc_neutral_glyph_3_3_description" 			"Reduces cooldown of @Ability3 by @glyph_property1 seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"Glyph of the Gourmand"
-		"item_rpc_neutral_glyph_4_3_description" 			 "All effects of consumed Potions are increased by @glyph_property1%. Additionally, automatically consume any potions within 400 range every 0.5 seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"Glyph of Barbarism"
-		"item_rpc_neutral_glyph_5_3_description" 			"Increases ALL physical damage output by @glyph_property1% and decreases all magic damage output by @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"Glyph of Sorcery"
-		"item_rpc_neutral_glyph_6_3_description" 			"Increases Post-Mitigation magic damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"Glyph of Grand Intelligence"
-		"item_rpc_neutral_glyph_7_3_description" 			"Increases Intelligence by either @glyph_property2% or @glyph_property1, whichever provides a greater bonus."
 
 		//FLAMEWAKER
 
@@ -2160,6 +2098,7 @@
     	##GLOVES_ENGLISH##
     	##HELM_ENGLISH##
     	##TRINKET_ENGLISH##
+		##NEUTRAL_GLYPHS_ENGLISH##
 
         ##ARENA_ENGLISH##
         ##REDFALL_ENGLISH##

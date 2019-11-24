@@ -231,52 +231,52 @@
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
 	//Glyphs
-	"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "Glyph of Combat"
+	"DOTA_Tooltip_ability_item_rpc_axe_glyph_1_1"       "[T1-1] Glyph of Combat"
         "item_rpc_axe_glyph_1_1_description"                "Reduces all damage taken by <% RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "Glyph of Shock Expansion"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_1"       "[T2-1] Glyph of Shock Expansion"
         "item_rpc_axe_glyph_2_1_description"                "Spur Shock fires 9 shockwaves in all directions."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "Glyph of the Dervish"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_1"       "[T3-1] Glyph of the Dervish"
         "item_rpc_axe_glyph_3_1_description"                "The interval between @Ability3's strikes is reduced by <% RED_GENERAL_GLYPH_3_1_E_INTERVAL_REDUCTION * 100 %>%, occurring every 0.09 seconds."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "Glyph of the Helix"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_1"       "[T4-1] Glyph of the Helix"
         "item_rpc_axe_glyph_4_1_description"                "The Red General also performs a Helix Attack when casting @Ability2, dealing <% RED_GENERAL_GLYPH_4_1_DAMAGE_PROCENT %>% of his attack damage as Physical to all surrounding enemies. Damage is further multiplied by @Ability2's spell level."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "Glyph of Impact" // lower pitch base sound high pitch strike sound
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_1"       "[T5-1] Glyph of Impact" // lower pitch base sound high pitch strike sound
         "item_rpc_axe_glyph_5_1_description"                "@Ability1's stun becomes a <% RED_GENERAL_GLYPH_5_1_Q_STUN %> second ministun but gains <% RED_GENERAL_GLYPH_5_1_Q_DAMAGE_AMP %>x increased damage."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "Glyph of Multi-Dunk"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_1"       "[T6-1] Glyph of Multi-Dunk"
         "item_rpc_axe_glyph_6_1_description"                "@Ability4 now strikes <% RED_GENERAL_GLYPH_6_1_DUNKS_COUNT %> times, instead of just once."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "Glyph of Heroic Warfare"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_1"       "[T7-1] Glyph of Heroic Warfare"
         "item_rpc_axe_glyph_7_1_description"                "Removes the attack buff from @Ability1, but the cooldown of @Ability1 is reduced to <% RED_GENERAL_GLYPH_7_1_Q_CD %> seconds."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "Glyph of Heel Stomp"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_1_2"       "[T1-2] Glyph of Heel Stomp"
         "item_rpc_axe_glyph_1_2_description"                "Enemy units struck by @Ability2 are ministunned for <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> seconds."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "Glyph of Ruptured Steel"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "[T2-2] Glyph of Ruptured Steel"
         "item_rpc_axe_glyph_2_2_description"                "Enemies hit by @Ability1 have their armor reduced by <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> for <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE_DURATION %> seconds."
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"Ruptured Steel"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"Armor reduced for <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE_DURATION %> seconds."	
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "Glyph of Adamantium Rage"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_3_2"       "[T3-2] Glyph of Adamantium Rage"
         "item_rpc_axe_glyph_3_2_description"                "Berserker Rage gains <% RED_GENERAL_GLYPH_3_2_STACKS_GAIN %> stacks instead of 1 whenever you attack a boss status enemy."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "Glyph of the Red Cyclone"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "[T4-2] Glyph of the Red Cyclone"
         "item_rpc_axe_glyph_4_2_description"                "During @Ability3, all incoming damage is reduced by <% RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT * 100 %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "Glyph of Stampede"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "[T5-2] Glyph of Stampede"
         "item_rpc_axe_glyph_5_2_description"                "For <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> seconds after successfully casting @Ability4, the damage of @Ability2 is increased by <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "Glyph of Reduction"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "[T6-2] Glyph of Reduction"
         "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E4] to <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%, but decreases the chance of generating a stack to just <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% per rune level instead of <% RED_GENERAL_E4_PROC_CHANCE %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "Glyph of Rage"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, and you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>."
  
-        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "Glyph of the Marshall"
+        "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_a"       "[T5-a] Glyph of the Marshall"
         "item_rpc_axe_glyph_5_a_description"                "Increases all damage dealt by @Ability4, and all of its runes, by <% RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT %>%."
 
 	"DOTA_Tooltip_ability_item_rpc_axe_glyph_book"		"Red General Glyph Book"

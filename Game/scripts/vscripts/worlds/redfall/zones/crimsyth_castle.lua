@@ -37,7 +37,6 @@ function Redfall:InitiateDebugRedfall()
   -- local slotText = "Glyph"
   -- local useDescription = variantName.."_description"
   -- local minLevel = 15
-  -- Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, MAIN_HERO_TABLE[1]:GetAbsOrigin(), "tooltip_neutral", minLevel, "modifier_neutral_glyph_3_3", 0)
   -- Glyphs:RollGlyphAll("item_rpc_duskbringer_glyph_7_1", MAIN_HERO_TABLE[1]:GetAbsOrigin(), 0)
   -- Redfall:CastleSpawnBackHallway()
   -- Redfall:InitCastleGroundsRoom()
