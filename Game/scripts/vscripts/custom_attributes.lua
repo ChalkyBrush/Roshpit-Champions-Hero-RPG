@@ -973,6 +973,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_infused_mageplate") then
 		armor_modify = armor_modify + ITEM_RPC_INFUSED_MAGEPLATE_ARMOR_PER_INT*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_mystic_mana_wall_armor") then
+		armor_modify = armor_modify + unit:FindModifierByName("modifier_mystic_mana_wall_armor"):GetStackCount()
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 

@@ -243,10 +243,10 @@
 		"item_property_excavator"							"Enhance Gear"
 		"property_excavator_description"					"Damage dealt directly by items is increased by the average of your Base Ability Damage amplifications."
 
-		"item_rpc_excavators_focus_cap_ruby1"	"Increases Rune [Q3] by @ruby_property1%"
-		"item_rpc_excavators_focus_cap_emerald1"	"Increases Rune [W3] by @emerald_property1%"
-		"item_rpc_excavators_focus_cap_sapphire1" "Increases Rune [E3] by @sapphire_property1%"
-		"item_rpc_excavators_focus_cap_amethyst1" "Increases Rune [R3] by @amethyst_property1%"
+		"item_rpc_excavators_focus_cap_ruby1"	"Increases Rune [Q3] by @ruby_property1"
+		"item_rpc_excavators_focus_cap_emerald1"	"Increases Rune [W3] by @emerald_property1"
+		"item_rpc_excavators_focus_cap_sapphire1" "Increases Rune [E3] by @sapphire_property1"
+		"item_rpc_excavators_focus_cap_amethyst1" "Increases Rune [R3] by @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"

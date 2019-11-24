@@ -3865,11 +3865,22 @@ function mana_wall_think(event)
 	local target = event.target
 	local ability = event.ability
 	local currentmana = target:GetMana()
-	if currentmana > ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR then
+	if currentmana > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_mana_wall_armor", {})
-		target:SetModifierStackCount("modifier_mystic_mana_wall_armor", caster, currentmana * ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_DIVISOR / ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR)
+		target:SetModifierStackCount("modifier_mystic_mana_wall_armor", caster, currentmana * ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_PER_MANA)
 	else
 		target:RemoveModifierByName("modifier_mystic_mana_wall_armor")
+	end
+	local max_mana_stacks = 0
+	max_mana_stacks = max_mana_stacks + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_MYSTIC_MANA_WALL_GEM_RUBY)*target:GetStrength()
+	max_mana_stacks = max_mana_stacks + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MYSTIC_MANA_WALL_GEM_EMERALD)*target:GetAgility()
+	max_mana_stacks = max_mana_stacks + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MYSTIC_MANA_WALL_GEM_AMETHYST)*target:GetSpirit()
+	if max_mana_stacks > 0 then
+		if not target:HasModifier("modifier_mystic_mana_wall_max_mana") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_mana_wall_max_mana", {})
+		end
+		target:SetModifierStackCount("modifier_mystic_mana_wall_max_mana", caster, max_mana_stacks)
+	else
 	end
 end
 

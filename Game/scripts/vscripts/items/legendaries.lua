@@ -2106,27 +2106,6 @@ function RPCItems:RollVampiricBreastplate(item_level)
     return item
 end
 
-function RPCItems:RollMysticManaWall(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_mystic_mana_wall", "immortal", "Mystic Mana Wall", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "mystic_mana"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mystic_mana_wall", "#5FCFF5", 1, "#property_mystic_mana_wall_description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 100, 500, 0, 1, item.newItemTable.rarity, false, maxFactor * 200)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_mana"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_mana", "#343EC9", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSkyforgeFlurryPlate(item_level)
     local item = RPCItems:CreateVariant("item_rpc_skyforge_flurry_plate", "immortal", "Skyforge Flurry Plate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4670,6 +4649,27 @@ function RPCItems:RollLegionVestments(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, attr_roll, 2.0)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollMysticManaWall(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_mystic_mana_wall", "immortal", "Mystic Mana Wall", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_mystic_mana_wall"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mystic_mana_wall", "#5FCFF5", 1, "#property_mystic_mana_wall_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_mana", 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
@@ -8751,7 +8751,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell", "item_rpc_hurricane_vest",
-        "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments"}
+        "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall"}
     end
     return itemsList
 end

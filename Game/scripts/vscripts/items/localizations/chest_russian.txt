@@ -495,12 +495,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
-		"item_rpc_mystic_mana_wall_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_mystic_mana_wall_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_mystic_mana_wall_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_mystic_mana_wall_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mystic_mana_wall"						"Magic Block"
-		"property_mystic_mana_wall_description"				"Весь получаемый чистый или магический урон сокращается на <% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>%, а вместо здоровья тратится мана, если таковая имеется в достаточном количестве. Каждые <% ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR %> очков маны увеличивают значение брони на <% ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_DIVISOR %>."
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>% and taken from mana instead of health, if there is enough mana. Every point of current mana points adds <% ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_PER_MANA %> Armor."
+
+		"item_rpc_mystic_mana_wall_ruby1"								"Each point of Strength increases Max Mana by @ruby_property1"
+		"item_rpc_mystic_mana_wall_emerald1"								"Each point of Agility increases Max Mana by @emerald_property1"
+		"item_rpc_mystic_mana_wall_sapphire1"								"Reduces the Magic and Pure damage taken by an additional @sapphire_property1%"
+		"item_rpc_mystic_mana_wall_amethyst1"								"Each point of Spirit increases Max Mana by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"

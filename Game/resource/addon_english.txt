@@ -12678,7 +12678,15 @@
 		"item_rpc_legion_vestments_emerald1"								"Increases Agility by an additional @emerald_property1%"
 		"item_rpc_legion_vestments_sapphire1"								"Increases Intelligence by an additional @sapphire_property1%"
 		"item_rpc_legion_vestments_amethyst1"								"Increases Spirit by an additional @amethyst_property1%"
-		
+
+		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
+		"item_property_mystic_mana_wall"						"Magic Block"
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <font color='#ccff66'>35</font>% and taken from mana instead of health, if there is enough mana. Every point of current mana points adds <font color='#ccff66'>1</font> Armor."
+
+		"item_rpc_mystic_mana_wall_ruby1"								"Each point of Strength increases Max Mana by @ruby_property1"
+		"item_rpc_mystic_mana_wall_emerald1"								"Each point of Agility increases Max Mana by @emerald_property1"
+		"item_rpc_mystic_mana_wall_sapphire1"								"Reduces the Magic and Pure damage taken by an additional @sapphire_property1%"
+		"item_rpc_mystic_mana_wall_amethyst1"								"Each point of Spirit increases Max Mana by @amethyst_property1"
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
@@ -12932,15 +12940,6 @@
 		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal <font color='#ccff66'>1000</font>% bonus Magical damage in an area."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals <font color='#ccff66'>1000</font>%% Magical damage in a small area"
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
-		"item_rpc_mystic_mana_wall_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_mystic_mana_wall_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_mystic_mana_wall_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_mystic_mana_wall_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_mystic_mana_wall"						"Magic Block"
-		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <font color='#ccff66'>75</font>% and taken from mana instead of health, if there is enough mana. Every <font color='#ccff66'>30</font> current mana points adds <font color='#ccff66'>1</font> Armor."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
@@ -13814,10 +13813,10 @@
 		"item_property_excavator"							"Enhance Gear"
 		"property_excavator_description"					"Damage dealt directly by items is increased by the average of your Base Ability Damage amplifications."
 
-		"item_rpc_excavators_focus_cap_ruby1"	"Increases Rune [Q3] by @ruby_property1%"
-		"item_rpc_excavators_focus_cap_emerald1"	"Increases Rune [W3] by @emerald_property1%"
-		"item_rpc_excavators_focus_cap_sapphire1" "Increases Rune [E3] by @sapphire_property1%"
-		"item_rpc_excavators_focus_cap_amethyst1" "Increases Rune [R3] by @amethyst_property1%"
+		"item_rpc_excavators_focus_cap_ruby1"	"Increases Rune [Q3] by @ruby_property1"
+		"item_rpc_excavators_focus_cap_emerald1"	"Increases Rune [W3] by @emerald_property1"
+		"item_rpc_excavators_focus_cap_sapphire1" "Increases Rune [E3] by @sapphire_property1"
+		"item_rpc_excavators_focus_cap_amethyst1" "Increases Rune [R3] by @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"

@@ -4058,7 +4058,9 @@ function Filters:AutumnSleeperMask(caster)
 end
 
 function Filters:ManawallDamageTaken(victim, damage)
-    local reducedDamage = damage * 0.25
+    local mana_wall = victim.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local damage_reduction = (1 - (ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION + mana_wall:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MYSTIC_MANA_WALL_GEM_SAPPHIRE))/100)
+    local reducedDamage = damage * damage_reduction
     local currentMana = victim:GetMana()
     if currentMana >= reducedDamage then
         victim:ReduceMana(reducedDamage)
@@ -4066,7 +4068,7 @@ function Filters:ManawallDamageTaken(victim, damage)
     else
         local newDamage = reducedDamage - currentMana
         victim:ReduceMana(currentMana)
-        return newDamage * 4
+        return math.floor(newDamage/damage_reduction)
     end
 end
 

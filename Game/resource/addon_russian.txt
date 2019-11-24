@@ -12725,12 +12725,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"Mystic Mana Wall"
-		"item_rpc_mystic_mana_wall_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_mystic_mana_wall_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_mystic_mana_wall_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_mystic_mana_wall_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mystic_mana_wall"						"Magic Block"
-		"property_mystic_mana_wall_description"				"Весь получаемый чистый или магический урон сокращается на <font color='#ccff66'>75</font>%, а вместо здоровья тратится мана, если таковая имеется в достаточном количестве. Каждые <font color='#ccff66'>30</font> очков маны увеличивают значение брони на <font color='#ccff66'>1</font>."
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <font color='#ccff66'>35</font>% and taken from mana instead of health, if there is enough mana. Every point of current mana points adds <font color='#ccff66'>1</font> Armor."
+
+		"item_rpc_mystic_mana_wall_ruby1"								"Each point of Strength increases Max Mana by @ruby_property1"
+		"item_rpc_mystic_mana_wall_emerald1"								"Each point of Agility increases Max Mana by @emerald_property1"
+		"item_rpc_mystic_mana_wall_sapphire1"								"Reduces the Magic and Pure damage taken by an additional @sapphire_property1%"
+		"item_rpc_mystic_mana_wall_amethyst1"								"Each point of Spirit increases Max Mana by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
@@ -13664,10 +13665,10 @@
 		"item_property_excavator"							"Enhance Gear"
 		"property_excavator_description"					"Урон Предметов увеличен на среднее значение усиления Базового Урона всех Способностей."
 
-		"item_rpc_excavators_focus_cap_ruby1"	"Показатель [Q3] увеличен на @ruby_property1%"
-		"item_rpc_excavators_focus_cap_emerald1"	"Показатель [W3] увеличен на @emerald_property1%"
-		"item_rpc_excavators_focus_cap_sapphire1" "Показатель [E3] увеличен на @sapphire_property1%"
-		"item_rpc_excavators_focus_cap_amethyst1" "Показатель [R3] увеличен на @amethyst_property1%"
+		"item_rpc_excavators_focus_cap_ruby1"	"Показатель [Q3] увеличен на @ruby_property1"
+		"item_rpc_excavators_focus_cap_emerald1"	"Показатель [W3] увеличен на @emerald_property1"
+		"item_rpc_excavators_focus_cap_sapphire1" "Показатель [E3] увеличен на @sapphire_property1"
+		"item_rpc_excavators_focus_cap_amethyst1" "Показатель [R3] увеличен на @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
 		 "item_property_eye_of_seasons"						"Crimson Solstice"

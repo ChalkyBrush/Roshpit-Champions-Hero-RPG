@@ -487,12 +487,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"神秘的魔法墙"
-		"item_rpc_mystic_mana_wall_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_mystic_mana_wall_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_mystic_mana_wall_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_mystic_mana_wall_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mystic_mana_wall"						"魔法防御"
-		"property_mystic_mana_wall_description"				"所有魔法或纯粹的伤害减少<% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>%，并且从魔法值减少而不是生命值。如果有足够的魔法值，每<% ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR %>点魔法值增加一点护甲。"
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>% and taken from mana instead of health, if there is enough mana. Every point of current mana points adds <% ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_PER_MANA %> Armor."
+
+		"item_rpc_mystic_mana_wall_ruby1"								"Each point of Strength increases Max Mana by @ruby_property1"
+		"item_rpc_mystic_mana_wall_emerald1"								"Each point of Agility increases Max Mana by @emerald_property1"
+		"item_rpc_mystic_mana_wall_sapphire1"								"Reduces the Magic and Pure damage taken by an additional @sapphire_property1%"
+		"item_rpc_mystic_mana_wall_amethyst1"								"Each point of Spirit increases Max Mana by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"硃砂色的梦幻长袍"
