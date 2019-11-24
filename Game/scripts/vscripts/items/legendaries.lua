@@ -1915,29 +1915,6 @@ function RPCItems:RollSoulVest(item_level)
     return item
 end
 
-function RPCItems:RollMageplate(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_infused_mageplate", "immortal", "Infused Mageplate", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "mageplate"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mageplate", "#B05CFF", 1, "#property_mageplate_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 9, 16, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "intelligence"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-
-    value, nameLevel = RPCItems:RollAttribute(0, 1, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 7)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_armor", "#D1D1D1", 3)
-
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollWaterMageRobes(item_level)
     local item = RPCItems:CreateVariant("item_rpc_water_mage_robes", "immortal", "Water Mage Robes", "body", true, "Slot: Body")
@@ -2235,40 +2212,6 @@ function RPCItems:RollRubyDragonScaleArmor(item_level)
     item.newItemTable.property3name = "magic_resist"
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_magic_resist", "#AC47DE", 3)
 
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollLegionVestments(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_legion_vestments", "immortal", "Legion Vestments", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "legion_vest"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_legion_vestments", "#D45757", 1, "#property_legion_vestments_description")
-
-	local luck = RandomInt(1, 3)
-	if luck == 1 then
-        value, nameLevel = RPCItems:RollAttribute(0, 3, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "strength"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    elseif luck == 2 then
-        value, nameLevel = RPCItems:RollAttribute(0, 3, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "agility"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-    elseif luck == 3 then
-        value, nameLevel = RPCItems:RollAttribute(0, 3, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    end
-
-    RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
 
     local drop = CreateItemOnPositionSync(deathLocation, item)
@@ -4677,6 +4620,49 @@ function RPCItems:RollIceQuillCarapace(item_level)
     end
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollMageplate(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_infused_mageplate", "immortal", "Infused Mageplate", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_infused_mageplate"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mageplate", "#B05CFF", 1, "#property_mageplate_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollLegionVestments(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_legion_vestments", "immortal", "Legion Vestments", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "legion_vest"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_legion_vestments", "#D45757", 1, "#property_legion_vestments_description")
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
@@ -8759,7 +8745,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell", "item_rpc_hurricane_vest",
-        "item_rpc_ice_quill_carapace"}
+        "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate"}
     end
     return itemsList
 end

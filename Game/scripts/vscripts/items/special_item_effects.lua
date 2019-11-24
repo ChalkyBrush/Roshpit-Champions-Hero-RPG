@@ -3121,9 +3121,11 @@ function mageplate_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local armorBonus = (target:GetIntellect() / 10) * 1
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_mageplate_armor", {})
-	target:SetModifierStackCount("modifier_mageplate_armor", ability, armorBonus)
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_infused_mageplate_shield", {})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_infused_mageplate_shield", caster) + 1, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_INFUSED_MAGEPLATE_GEM_EMERALD))
+		target:SetModifierStackCount("modifier_infused_mageplate_shield", caster, newStacks)
+	end
 end
 
 function mageplate_take_damage(event)
@@ -3131,44 +3133,25 @@ function mageplate_take_damage(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = event.damage
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_infused_mageplate_stack", {duration = 15})
-	local current_stack = target:GetModifierStackCount("modifier_infused_mageplate_stack", ability)
-	local newStack = math.min(current_stack + 1, 100)
-	target:SetModifierStackCount("modifier_infused_mageplate_stack", ability, newStack)
-	local manaRestore = damage * 0.05
-	target:GiveMana(manaRestore)
-	if not ability.particles then
-		ability.particles = 0
-	end
-	if ability.particles < 6 then
-		CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", target, 1)
-		ability.particles = ability.particles + 1
-		Timers:CreateTimer(1, function()
-			ability.particles = ability.particles - 1
-		end)
-	end
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_mageplate_intelligence", {duration = 15})
-	local intBonus = target:GetLevel() * 1.2 * newStack
-	target:SetModifierStackCount("modifier_mageplate_intelligence", caster, intBonus)
+	local manaRestore = target:GetMaxMana()*(ITEM_RPC_INFUSED_MAGEPLATE_MANA_RESTORE_PCT/100)
+	target:GiveMana(manaRestore)
+	local limitKey = target:GetPlayerOwnerID() .. '_mageplate_particles'
+	Util.Common:LimitPerTime(6, 1, limitKey, function()
+		CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", target, 1)
+		PopupMana(target, manaRestore)
+	end)
 end
 
 function mageplate_buff_end(event)
 	local caster = event.caster
 	local target = event.target
-	local manaPercentage = target:GetMana() / target:GetMaxMana()
-	local ability = event.ability
-	ability.manaPercentage = manaPercentage
 end
 
 function mageplate_buff_end_int(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	Timers:CreateTimer(0.03, function()
-		local manaSet = ability.manaPercentage * target:GetMaxMana()
-		target:SetMana(manaSet)
-	end)
 end
 
 function nobility_think(event)

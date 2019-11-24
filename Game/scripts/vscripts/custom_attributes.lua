@@ -966,6 +966,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local hermit_shell = quill_modifier:GetAbility()
 		armor_modify = armor_modify + hermit_shell:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_AMETHYST)*quill_modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_infused_mageplate") then
+		armor_modify = armor_modify + ITEM_RPC_INFUSED_MAGEPLATE_ARMOR_PER_INT*unit:GetIntellect()
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
 
@@ -1445,6 +1448,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
         local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
         magic_armor_modify = magic_armor_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
     end
+	if unit:HasModifier("modifier_infused_mageplate") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY)*unit:GetStrength()
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
+	end
 
 	-- FINAL STEP DEFILER
 

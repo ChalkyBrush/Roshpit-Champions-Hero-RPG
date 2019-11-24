@@ -1,3 +1,103 @@
+	"item_rpc_infused_mageplate"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/infused_mageplate" //"ocean_tempest_pallium"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"property_one"			"1.2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_AMETHYST %>"
+			}
+		}
+		"precache"
+		{
+			"particle"	"particles/roshpit/items/mageplate_shield.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_infused_mageplate"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"mageplate_take_damage"
+						"target"		"TARGET"
+						"damage"		"%attack_damage"
+					}
+				}
+				"ThinkInterval"  "<% ITEM_RPC_INFUSED_MAGEPLATE_EMERALD_SHIELD_INTERVAL %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"mageplate_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_infused_mageplate_shield"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			
+				"EffectName"		"particles/roshpit/items/mageplate_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+	}
+
 	"item_rpc_ice_quill_carapace"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -4729,141 +4829,6 @@
 			"modifier_vampiric_particle"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_infused_mageplate"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/infused_mageplate" //"ocean_tempest_pallium"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"1.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_EMERALD %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_INFUSED_MAGEPLATE_GEM_AMETHYST %>"
-			}
-		}
-		"precache"
-		{
-			"particle"	"particles/units/heroes/hero_tidehunter/tidehunter_gush_splash.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_infused_mageplate"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"mageplate_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"mageplate_take_damage"
-						"target"		"TARGET"
-						"damage"		"%attack_damage"
-					}
-				}
-			}
-			"modifier_infused_mageplate_stack"
-			{
-				"Passive"	"0"
-				"IsBuff"	"1"
-				"IsHidden"	"0"
-				"TextureName"	"antimage_blink"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"mageplate_buff_end"
-						"target"		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_mageplate_intelligence"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mageplate_intelligence"
-			{
-				"IsHidden"	"1"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"mageplate_buff_end_int"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_mageplate_armor"
-			{
-				"Passive"	"0"
-				"IsBuff"	"1"
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
-				}
 			}
 		}
 	}

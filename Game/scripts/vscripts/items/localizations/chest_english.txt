@@ -296,6 +296,19 @@
 		"item_rpc_ice_quill_carapace_sapphire1"								"Restore @sapphire_property1% of Max Mana with each burst of Ice Quills"
 		"item_rpc_ice_quill_carapace_amethyst1"								"Each stored up Ice Quill stack increases Spell Pierce by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"Infused Mageplate"
+		"item_property_mageplate"								"Armored Magus"
+		"property_mageplate_description"						"Each point of Intelligence increases Armor by <% ITEM_RPC_INFUSED_MAGEPLATE_ARMOR_PER_INT %>, and taking damage restores <% ITEM_RPC_INFUSED_MAGEPLATE_MANA_RESTORE_PCT %>% of max mana"
+		"DOTA_Tooltip_modifier_infused_mageplate_stack"			"Armored Magus"
+		"DOTA_Tooltip_modifier_infused_mageplate_stack_Description"	"Gaining ability damage and Intelligence when taking damage."
+
+		"item_rpc_infused_mageplate_ruby1"								"Each point of Strength increases Magic Armor by @ruby_property1"
+		"item_rpc_infused_mageplate_emerald1"								"Every <% ITEM_RPC_INFUSED_MAGEPLATE_EMERALD_SHIELD_INTERVAL %> seconds receive a stack of a shield that absorbs an instance of damage, up to @emerald_property1 stacks"
+		"item_rpc_infused_mageplate_sapphire1"								"Each point of Intelligence increases Magic Armor by @sapphire_property1"
+		"item_rpc_infused_mageplate_amethyst1"								"Increases Strength and Intelligence by @amethyst_property1"
+
+		"DOTA_Tooltip_modifier_infused_mageplate_shield"			"Infused Mageplate Shield (Emerald)"
+		"DOTA_Tooltip_modifier_infused_mageplate_shield_Description"	"Absorbs incoming damage"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
@@ -490,18 +503,6 @@
 		"property_skyforge_description"						"Reduces all nearby enemies' damage output by <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION %>%."
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"<% ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION %>%% reduced damage output"
-		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"Infused Mageplate"
-		"item_rpc_infused_mageplate_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_infused_mageplate_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_infused_mageplate_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_infused_mageplate_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_mageplate"								"Armored Magus"
-		"property_mageplate_description"						"Each 10 points of Intelligence increases Armor by 1. 5% of damage taken restores mana. Taking damage adds a stack of 5% Base Ability damage and @special_property1x your hero level of Intelligence for 15 seconds, up to a maximum of 100 stacks."
-		"DOTA_Tooltip_modifier_infused_mageplate_stack"			"Armored Magus"
-		"DOTA_Tooltip_modifier_infused_mageplate_stack_Description"	"Gaining ability damage and Intelligence when taking damage."
 		
 		 
 		 

@@ -2439,6 +2439,13 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if victim:HasModifier("modifier_infused_mageplate_shield") then
+		filterTable["damage"] = 0
+		if applyEffects then
+			local shieldCaster = victim:FindModifierByName("modifier_infused_mageplate_shield"):GetCaster()
+			CustomAbilities:HitShieldGeneric(victim, attacker, shieldCaster, "modifier_infused_mageplate_shield")
+		end
+	end
 	if victim:HasModifier("modifier_icewind_shield") then
 		filterTable["damage"] = 0
 		if applyEffects then
