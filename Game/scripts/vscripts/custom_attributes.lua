@@ -1452,6 +1452,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = unit:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			magic_armor_modify = magic_armor_modify + radiant_leather:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_AMETHYST)
+			if unit:HasModifier("modifier_radiant_ruins_leather") then
+				magic_armor_modify = magic_armor_modify + (radiant_leather:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_AMETHYST) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -1662,6 +1671,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local spike_shell = unit:FindModifierByName("modifier_hermit_spike_shell"):GetAbility()
 		if spike_shell:GetGemValue("sapphire") > 0 then
 			armor_pierce_modify = armor_pierce_modify + (100-unit:GetHealthPercent())*spike_shell:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_SAPPHIRE)
+		end
+	end
+	if unit:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = unit:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			armor_pierce_modify = armor_pierce_modify + radiant_leather:GetFinalGemPropertyValue("ruby", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_RUBY)
+			if unit:HasModifier("modifier_radiant_ruins_leather") then
+				armor_pierce_modify = armor_pierce_modify + (radiant_leather:GetFinalGemPropertyValue("ruby", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_RUBY) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
 		end
 	end
 
@@ -2376,6 +2394,15 @@ function CustomAttributes:SetAttributes(hero)
 	-- SPECIAL ITEMS STATS --
 	if hero:HasModifier("modifier_bladestorm_vest_buff") then
 		agi_bonus = agi_bonus + hero:GetModifierStackCount("modifier_bladestorm_vest_buff", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADESTORM_VEST_GEM_SAPPHIRE2)
+	end
+	if hero:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = hero:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			agi_bonus = agi_bonus + radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD)
+			if hero:HasModifier("modifier_radiant_ruins_leather") then
+				agi_bonus = agi_bonus + (radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
 	end
 	if hero:HasModifier("modifier_empyreal_sunrise_robe") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_str", 1)

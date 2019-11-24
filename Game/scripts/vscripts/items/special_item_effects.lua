@@ -7724,3 +7724,18 @@ function outland_cuirass_thinker(event)
 		end
 	end
 end
+
+function ruins_leather_init(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		local as_stacks = ITEM_RPC_RADIANT_RUINS_LEATHER_AS*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100
+		local ms_stacks = ITEM_RPC_RADIANT_RUINS_LEATHER_MS*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100
+
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_radiant_leather_sapphire_as", {})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_radiant_leather_sapphire_ms", {})
+		hero:SetModifierStackCount("modifier_radiant_leather_sapphire_as", caster, as_stacks)
+		hero:SetModifierStackCount("modifier_radiant_leather_sapphire_ms", caster, ms_stacks)
+	end
+end

@@ -12471,7 +12471,7 @@
 		"item_rpc_radiant_ruins_leather_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_radiant_ruins_leather_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_radiant_ruins"				"Endurance Aura"
-		"property_radiant_ruins_description"		"Герой распространяет ауру на себя и всех дружественных юнитов, которая увеличивает скорость атаки на <font color='#ccff66'>220</font> и скорость передвижения на <font color='#ccff66'>120</font>."
+		"property_radiant_ruins_description"		"Герой распространяет ауру на себя и всех дружественных юнитов, которая увеличивает скорость атаки на <font color='#ccff66'>120</font> и скорость передвижения на <font color='#ccff66'>100</font>."
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Скорость атаки увеличена на 120, скорость передвижения увеличена на 70."
 		

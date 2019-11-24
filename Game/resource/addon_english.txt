@@ -12690,6 +12690,19 @@
 		"item_rpc_plate_of_the_watcher_sapphire1"							"Increases cooldown of [W] by an additional @sapphire_property1% and increases its Base Ability Damage by an additional  @sapphire_property2%"
 		"item_rpc_plate_of_the_watcher_amethyst1"							"Increases cooldown of [R] by an additional @amethyst_property1% and increases its Base Ability Damage by an additional @amethyst_property2%"
 
+		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"Radiant Ruins Leather"
+
+		"item_property_radiant_ruins"				"Endurance Aura"
+		"property_radiant_ruins_description"		"Grants <font color='#ccff66'>120</font> attack speed and <font color='#ccff66'>100</font> movespeed to all allied units in a <font color='#ccff66'>1200</font> radius."
+		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
+		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Gaining attack and movement speed"
+
+		"item_rpc_radiant_ruins_leather_ruby1"							"Endurance Aura grants @ruby_property1 Armor Pierce"
+		"item_rpc_radiant_ruins_leather_emerald1"							"Endurance Aura grants @emerald_property1 agility"
+		"item_rpc_radiant_ruins_leather_sapphire1"							"Increases Endurance Aura's effect on the wearer by @sapphire_property1%"
+		"item_rpc_radiant_ruins_leather_amethyst1"							"Endurance Aura grants @amethyst_property1 magic armor"
+
+
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
@@ -12774,17 +12787,6 @@
 		"item_rpc_the_infernal_prison_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_infernal_prison"				"Immolation"
 		"property_infernal_prison_description"		"Enemies who attack you are engulfed in flames, losing 110 attack speed and taking 50x your armor as magic damage every 0.5 seconds. Nearby enemies lose 260 attack speed and take<br>100% attack power as magic damage every 0.5 seconds."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"Radiant Ruins Leather"
-		"item_rpc_radiant_ruins_leather_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_radiant_ruins_leather_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_radiant_ruins_leather_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_radiant_ruins_leather_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_radiant_ruins"				"Endurance Aura"
-		"property_radiant_ruins_description"		"Grants <font color='#ccff66'>220</font> attack speed and <font color='#ccff66'>120</font> movespeed to all nearby allied units."
-		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "Endurance Aura"
-		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"Gaining attack and movement speed"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
