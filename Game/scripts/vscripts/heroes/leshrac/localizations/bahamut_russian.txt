@@ -270,7 +270,7 @@
 		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_7_1"		"[T7-1] Glyph of Surging"
 		"item_rpc_bahamut_glyph_7_1_description" 				"Увеличивает радиус [E3] на <% BAHAMUT_GLYPH_7_1_E3_RADIUS_INCREASE_PCT %>%"
 
-		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"[T5-a] (Immortal) Glyph of Multiwall"
+		"DOTA_Tooltip_ability_item_rpc_bahamut_glyph_5_a"		"[T5-a] Glyph of Multiwall"
 		"item_rpc_bahamut_glyph_5_a_description" 				"Каждые <% BAHAMUT_GLYPH_5_A_FREE_Q_INTERVAL %> сек. герой получает заряд, позволяющий установить дополнительную стену от (Q) Wall of Impunity."
 
 		"DOTA_Tooltip_ability_modifier_bahamut_5_a_cooldown"	"Перезарядка дополнительного использования умения (Q)"

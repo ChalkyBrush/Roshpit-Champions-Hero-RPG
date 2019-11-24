@@ -319,7 +319,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"[T7-1] Glyph of Chaotic Magic"
 		"item_rpc_sorceress_glyph_7_1_description" 				"Усиливает мощь умения (R) @Ability4 в <% SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER %> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"[T5-a] (Immortal) Glyph of Frostbite"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"[T5-a] Glyph of Frostbite"
 		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до <% SORCERESS_GLYPH_5_A_MULTIPLY %>x."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"[T1-2] (T1-2) Glyph of Crystallization"

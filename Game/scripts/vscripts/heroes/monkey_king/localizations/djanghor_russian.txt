@@ -330,7 +330,7 @@
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"Maul"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"Шанс оглушить цель при атаке и нанести дополнительный урон."
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"[T5-a] (Immortal) Глиф природной катастрофы"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"[T5-a] Глиф природной катастрофы"
 		"item_rpc_djanghor_glyph_5_a_description" 				"Ко всему урону, имеющему <font color=\"#DDDDDD\">Нормальную</font> основную стихию добавляется вторая стихия <font color=\"#69BC71\">Природы</font>."
 		
 	

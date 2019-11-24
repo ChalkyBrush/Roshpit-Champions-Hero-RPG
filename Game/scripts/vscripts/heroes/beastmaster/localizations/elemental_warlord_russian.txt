@@ -392,7 +392,7 @@
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
 		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %>. Считается Уроном Предметов."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] (Immortal) Glyph of Thermogenesis"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Получаемый урон конвертируется в <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> Заряд(а) Огня. Каждый Заряд Льда увеличивает Пробитие Магической Брони на <% WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE %>."
 
 		//Weapons

@@ -230,7 +230,7 @@
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"[T7-1] Glyph of Arcane Electrocution"
 		"item_rpc_arkimus_glyph_7_1_description" 				"Увеличивает весь стихийный урон <font color=\"#5CCDF9\">Молнии</font> на <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"[T5-a] (Immortal) Glyph of Zonal Separation"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"[T5-a] Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Активные энергосферы могут поглотить входящий магический или чистый урон. В случае поглощения энергосфера разрушается."
 
 

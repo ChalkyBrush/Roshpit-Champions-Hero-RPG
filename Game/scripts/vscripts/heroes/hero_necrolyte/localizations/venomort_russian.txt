@@ -246,7 +246,7 @@
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"[T7-1] (Т7) Glyph of the Snake Charmer"
 		"item_rpc_venomort_glyph_7_1_description" 				"Увеличивает длительность жизни существ, призванных с помощью способностей и рун Venomort (но не из остальных источников) на @glyph_property1 секунд, и увеличивает их скорость атаки на @glyph_property2."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] (Immortal) Glyph of Insidious Toxins"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] Glyph of Insidious Toxins"
 		"item_rpc_venomort_glyph_5_a_description" 				"Все порции урона, нанесенные ядами Venomort разделены на 3 равные порции Физического, Магического и Чистого урона."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"[T1-2] (T1-2) Glyph of Delirium"

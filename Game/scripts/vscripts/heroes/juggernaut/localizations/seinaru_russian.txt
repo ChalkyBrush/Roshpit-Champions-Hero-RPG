@@ -260,7 +260,7 @@
         "DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"       "[T7-1] Glyph of the Ogre"
         "item_rpc_seinaru_glyph_7_1_description"                "Каждое очко Силы увеличивает показатели Пробития Брони и Магической Брони на <% SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"[T5-a] (Immortal) Glyph of the Arena"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"[T5-a] Glyph of the Arena"
 		"item_rpc_seinaru_glyph_5_a_description" 				"Кольцо от [R2] следует за героем."
 		
 		//Weapons

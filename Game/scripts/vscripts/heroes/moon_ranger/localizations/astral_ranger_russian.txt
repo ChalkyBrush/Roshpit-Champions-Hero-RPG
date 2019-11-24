@@ -303,7 +303,7 @@
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"Silver Stars"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
-		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"[T5-a] (Immortal) Glyph of Parallax Arrows"
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"[T5-a] Glyph of Parallax Arrows"
 		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на <% ASTRAL_RANGER_GLYPH_5_A_BASE_DAMAGE %>."
 		
 		//Weapons

@@ -190,7 +190,7 @@
 		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_7_1"		"[T7-1] Glyph of the Mana Dragon"
 		"item_rpc_dinath_glyph_7_1_description" 				"Урон @Ability2 увеличен на <% DINATH_GLYPH_7_1_CURR_MANA_TO_W_DAMAGE %>x от текущей маны, и атаки восстанавливают <% DINATH_GLYPH_7_1_MANA_RESTORED_PER_ATTACK_PCT %>% от максимальной маны."
 
-		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"[T5-a] (Immortal) Glyph of Golden Scales"
+		"DOTA_Tooltip_ability_item_rpc_dinath_glyph_5_a"		"[T5-a] Glyph of Golden Scales"
 		"item_rpc_dinath_glyph_5_a_description" 				"Полученный магический либо чистый урон дает иммунитет к заклинаниям на <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_DURATION %> секунды. Перезарядка <% DINATH_GLYPH_5_A_MAGIC_IMMUNITY_CD %> секунд."
 		
 		//Weapons

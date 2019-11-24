@@ -352,7 +352,7 @@
 		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_7_1"		"[T7-1] Glyph of Light Years"
 		"item_rpc_solunia_glyph_7_1_description" 				"Увеличивает максимальное количество возможных прыжков (E) Warp Flares на <% SOLUNIA_GLYPH_7_1_E_CASTS_ADDED %>."
 
-		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"[T5-a] (Immortal) Glyph of Protostar"
+		"DOTA_Tooltip_ability_item_rpc_solunia_glyph_5_a"		"[T5-a] Glyph of Protostar"
 		"item_rpc_solunia_glyph_5_a_description" 				"При получении смертельного урона герой поднимается в воздух, при этом сбрасывается время перезарядки (R) Supernova или (R) Eclipse и герой произносит умение (R). Перезаряжается <% SOLUNIA_GLYPH_5_A_CD %> сек."
 
 		"DOTA_Tooltip_modifier_solunia_glyph_5_a_cooldown"		"Protostar Cooldown"
