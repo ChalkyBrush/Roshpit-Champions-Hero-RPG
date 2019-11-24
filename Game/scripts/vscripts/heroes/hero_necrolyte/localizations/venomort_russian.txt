@@ -261,7 +261,7 @@
 		"item_rpc_venomort_glyph_3_2_description" 				"Каждый раз когда здоровье Venomort снижается на любой @glyph_property1% порог от его максимального здоровья, следующий урон от [E2] нанесет @glyph_property2x урон."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"(Т4-2) Glyph of Malingering"
-		"item_rpc_venomort_glyph_4_2_description" 				"Увеличивает длительность зарядов [E4] с 1.5 секунд до @glyph_property1 секунд."
+		"item_rpc_venomort_glyph_4_2_description" 				"Увеличивает длительность зарядов [E4] с <% VENOMORT_E4_DURATION %> секунд до @glyph_property1 секунд."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"(Т5-2) Glyph of Necropotence"
 		"item_rpc_venomort_glyph_5_2_description" 				"Максимальная дальность @Ability2 увеличена на @glyph_property1%."

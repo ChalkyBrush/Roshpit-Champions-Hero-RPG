@@ -692,6 +692,19 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_viper_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 
 		"AbilitySpecial"

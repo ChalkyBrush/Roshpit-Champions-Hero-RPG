@@ -527,6 +527,10 @@
 		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"DAMAGE AT EDGE:"
 
 		"shipyard_pirate_archer"										"Shipyard Pirate Archer"
+		
+		"redfall_shipyard_gatekeeper"									"Gatekeeper"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion"			"Skull Explosion"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion_Description"	"Explodes and emits 11 skulls covered by ethereal flame. Skulls deal damage on contact and make another explosion, dealing damage in area."
 
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "Skulldigger"
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "Builds charges every 2.2 seconds. Each time damage is taken with a charge active, launch a wraithfire blast at the attacker."

@@ -60,6 +60,7 @@ function cast(event)
     end
     EmitSoundOn("Venomort.Viper.CastVO", caster)
     local viper = CreateUnitByName("venomort_viper_summon", caster:GetAbsOrigin() + caster:GetForwardVector() * 120, true, caster, caster, caster:GetTeamNumber())
+	ability:ApplyDataDrivenModifier(caster, viper, "modifier_viper_invulnerable", {duration = 1})
     viper.creator = caster
     viper.dieTime = lifetime
     viper.owner = caster

@@ -37545,7 +37545,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stacks"			"5 15 30"
+				"stacks"			"4 5 6"
 			}
 		}
 		"Modifiers"
@@ -47682,7 +47682,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 1400 6000"
+				"damage"				"700 1200 3000"
 			}
 			"02"
 			{
@@ -47794,7 +47794,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 2400 4000"
+				"damage"				"700 1200 3000"
 			}
 			"02"
 			{

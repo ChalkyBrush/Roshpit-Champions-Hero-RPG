@@ -77,7 +77,7 @@ end
 function fire_breathing_strike(event)
 	local target = event.target
 	local caster = event.caster
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*5
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)	
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end
