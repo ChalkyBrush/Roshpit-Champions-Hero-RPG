@@ -749,7 +749,7 @@ function winterblight_boss_final_death_animation(caster)
 		elseif dead_boss == "winterblight_cavern_gigarraun" then
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				RPCItems:NethergraspPalisade(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_nethergrasp_palisade")
 			elseif immortal_luck == 2 then
 				RPCItems:RollGalvanizedRazorBand(position, false)
 			end

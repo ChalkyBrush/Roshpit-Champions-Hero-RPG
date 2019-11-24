@@ -4696,20 +4696,24 @@ function Filters:IsNonExtendableBuff(modifier)
 end
 
 function Filters:NetergraspPalisade(hero, target)
-    local ability = hero.body
+    local ability = hero.equipped_gear[RPC_GEAR_SLOT_BODY]
     local caster = hero.InventoryUnit
     if target:HasModifier("modifier_nethergrasp_linked") then
         return false
     end
     local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), target:GetAbsOrigin())
-    if distance > ITEM_RPC_NETHERGRASP_PALISADE_LINK_RANGE then
+    local link_range = ITEM_RPC_NETHERGRASP_PALISADE_LINK_RANGE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NETHERGRASP_PALISADE_GEM_RUBY1)
+    if distance > link_range then
         return false
     end
     if target.dummy then
         return false
     end
     ability:ApplyDataDrivenModifier(caster, target, "modifier_nethergrasp_linked", {duration = 30})
-
+    if ability:GetGemValue("amethyst") > 0 then
+        ability:ApplyDataDrivenModifier(caster, target, "modifier_nethergrasp_attack_speed_loss", {duration = 30})
+        target:SetModifierStackCount("modifier_nethergrasp_attack_speed_loss", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NETHERGRASP_PALISADE_GEM_AMETHYST))
+    end
     local nethergrasp = {}
     nethergrasp.entindex = target:GetEntityIndex()
     nethergrasp.pfx = ParticleManager:CreateParticle("particles/roshpit/items/nethergrasp_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster)
@@ -4720,7 +4724,8 @@ function Filters:NetergraspPalisade(hero, target)
     table.insert(ability.nethergrasp_table, nethergrasp)
     EmitSoundOn("Items.Nethergrip.Link", target)
     nethergrasp.active = true
-    if #ability.nethergrasp_table > ITEM_RPC_NETHERGRASP_PALISADE_MAX_LINKS then
+    local max_links = ITEM_RPC_NETHERGRASP_PALISADE_MAX_LINKS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NETHERGRASP_PALISADE_GEM_RUBY2)
+    if #ability.nethergrasp_table > max_links then
         local new_nethergrasp_table = {}
         for i = 1, #ability.nethergrasp_table, 1 do
             local nether = ability.nethergrasp_table[i]

@@ -6410,7 +6410,8 @@ function nethergrasp_thinker(event)
 			       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
 			       		end
 			       	end
-			        if distance > ITEM_RPC_NETHERGRASP_PALISADE_BREAK_DISTANCE then
+			       	local break_distance = ITEM_RPC_NETHERGRASP_PALISADE_BREAK_DISTANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NETHERGRASP_PALISADE_GEM_RUBY1)
+			        if distance > break_distance then
 			        	table.insert(grasp_break_table, nether.entindex)
 			        end
 			        if not target:IsAlive() then
@@ -6492,13 +6493,13 @@ function nethergrasp_grip_thinker(event)
 			return false
 		end
 		local range = hero:Script_GetAttackRange()
-
+		local pullSpeedBonus = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NETHERGRASP_PALISADE_GEM_SAPPHIRE2)
 		if nether.distance > range then
-			local pullSpeed = math.min(15, GameRules:GetGameTime() - nether.create_time + 5)
-			pullSpeed = math.max(pullSpeed, 5)
-			if target.type and target.type == ENEMY_TYPE_MINI_BOSS then
+			local pullSpeed = math.min(18 + pullSpeedBonus, GameRules:GetGameTime() - nether.create_time + 5 + pullSpeedBonus)
+			pullSpeed = math.max(pullSpeed, 5 + pullSpeedBonus)
+			if target:GetEnemyTier() == ENEMY_TYPE_MINI_BOSS then
 				pullSpeed = pullSpeed*0.6
-			elseif target.type and target.type == ENEMY_TYPE_BOSS then
+			elseif target:GetEnemyTier() == ENEMY_TYPE_BOSS then
 				pullSpeed = pullSpeed*0.3
 			end
 			local pullDirection = (hero:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()

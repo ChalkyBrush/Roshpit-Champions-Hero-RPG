@@ -10,6 +10,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 	if not Events.GameMasterAttackAbility then return end
 	local parent = self:GetParent()
 	local elements = { RPC_ELEMENT_NORMAL }
+	local damageType = DAMAGE_TYPE_PHYSICAL
 	if event.attacker == parent then
 		-- SPECIAL AUTO ATTACK TRANSLATES -- REFACTOR ??
 		if parent:HasModifier("modifier_samurai_helmet") then
@@ -115,6 +116,13 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			local direwolf = event.target:FindModifierByName("modifier_direwolf_bulwark"):GetAbility()
 			event.damage = math.max(event.damage - event.target:GetRoshpitArmorPierce()*(direwolf:GetFinalGemPropertyValue("ruby", ITEM_RPC_DIREWOLF_BULWARK_GEM_RUBY)/100), 1)	
 		end
+		if parent:HasModifier("modifier_nethergrasp_palisade") then
+			if event.target:HasModifier("modifier_nethergrasp_linked") then
+				elements = { RPC_ELEMENT_TIME }
+				damageType = DAMAGE_TYPE_PURE
+				event.damage = event.damage * parent.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NETHERGRASP_PALISADE_GEM_EMERALD)/100
+			end
+		end
 
 		-- BASIC APPLY AUTO ATTACK DAMAGE
 		Damage:Apply({
@@ -123,7 +131,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			attacker = parent,
 			victim = event.target,
 			damage = event.damage,
-			damageType = DAMAGE_TYPE_PHYSICAL,
+			damageType = damageType,
 			elements = elements
 		})
 	end

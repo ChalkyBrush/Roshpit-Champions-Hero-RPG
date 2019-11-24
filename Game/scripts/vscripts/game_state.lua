@@ -753,7 +753,7 @@ function GameState:OrderFilter(orderTable)
 			if orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 				if orderTable.entindex_target then
 					local target = EntIndexToHScript(orderTable.entindex_target)
-					if target:GetClassname() ~= "dota_item_drop" then
+					if target:GetClassname() ~= "dota_item_drop" and target:GetTeamNumber() ~= unit:GetTeamNumber() then
 						Filters:NetergraspPalisade(unit, target)
 					end
 				end
@@ -1601,6 +1601,15 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local feronia = victim:FindModifierByName("modifier_guard_of_feronia_shield"):GetAbility()
 		local reduction = ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION + feronia:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARD_OF_FERONIA_GEM_RUBY)
 		damage = damage * (100-reduction)/100
+	end
+	if victim:HasModifier("modifier_nethergrasp_palisade") then
+		local palisade = victim.equipped_gear[RPC_GEAR_SLOT_BODY]
+		if palisade:GetGemValue("sapphire") > 0 then
+			local distance = WallPhysics:GetDistance2d(victim:GetAbsOrigin(), attacker:GetAbsOrigin())
+			if distance < victim:Script_GetAttackRange() then
+				damage = damage * (1 - palisade:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NETHERGRASP_PALISADE_GEM_SAPPHIRE1)/100)
+			end
+		end
 	end
 	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", MOUNTAIN_GIANT_EMERALD)/100)) then
 		damage = damage * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MOUNTAIN_GIANT_SAPPHIRE))/100

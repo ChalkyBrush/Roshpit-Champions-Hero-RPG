@@ -12884,7 +12884,7 @@
 		"item_rpc_nethergrasp_palisade_sapphire1"		"blah blah @sapphire_property1 gem"
 		"item_rpc_nethergrasp_palisade_amethyst1"		"blah blah @amethyst_property1 gem"
 		"item_property_nethergrasp"							"Outworld Grip"
-		"property_nethergrasp_description"				"Приказ атаки по вражескому юниту создает потустороннюю цепь между целью и героем. Пораженные цели атакуются с интервалом в <font color='#ccff66'>0.15</font> сек. Противники вне радиуса атаки будут притягиваться ближе к герою. Можно создать до <font color='#ccff66'>5</font> цепей на противниках одновременно, но атаки будут равномерно разделены между всеми целями. Цепи можно создавать на дистанции <font color='#ccff66'>1200</font>, а разрываются они, если дистанция превысит <font color='#ccff66'>1600</font>."
+		"property_nethergrasp_description"				"Приказ атаки по вражескому юниту создает потустороннюю цепь между целью и героем. Пораженные цели атакуются с интервалом в <font color='#ccff66'>0.15</font> сек. Противники вне радиуса атаки будут притягиваться ближе к герою. Можно создать до <font color='#ccff66'>5</font> цепей на противниках одновременно, но атаки будут равномерно разделены между всеми целями. Цепи можно создавать на дистанции <font color='#ccff66'>1000</font>, а разрываются они, если дистанция превысит <font color='#ccff66'>1500</font>."
 
 		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
 		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Привязан к герою и получает дополнительные атаки"	

@@ -12687,6 +12687,18 @@
 		"item_rpc_mystic_mana_wall_emerald1"								"Each point of Agility increases Max Mana by @emerald_property1"
 		"item_rpc_mystic_mana_wall_sapphire1"								"Reduces the Magic and Pure damage taken by an additional @sapphire_property1%"
 		"item_rpc_mystic_mana_wall_amethyst1"								"Each point of Spirit increases Max Mana by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
+		"item_property_nethergrasp"							"Outworld Grip"
+		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an Outworld Grip link between the two of you. Gripped enemies are automatically attacked by the caster on <font color='#ccff66'>0.15</font>-second intervals. Enemies who are outside the caster's attack range are pulled back sharply towards you. Up to <font color='#ccff66'>5</font> links can exist at a time, but free Grip attacks will be divided equally amongst all linked targets. Must be within <font color='#ccff66'>1000</font> range of the target to create a link, and links break if the distance between you ever exceeds <font color='#ccff66'>1500</font>."
+
+		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
+		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	
+
+		"item_rpc_nethergrasp_palisade_ruby1"		"Increases Max Grip range and Grip leash range by @ruby_property1 and increases maximum number of concurrent grips by @ruby_property2"
+		"item_rpc_nethergrasp_palisade_emerald1"		"Attacks against gripped enemies deal @emerald_property1% of the original damage as <font color=\"#B5FFB7\">Temporal</font> Pure damage. Effect overrides basic attacks"
+		"item_rpc_nethergrasp_palisade_sapphire1"		"Enemies within attack range deal @sapphire_property1% reduced damage to you, and pull speed is increased by @sapphire_property2"
+		"item_rpc_nethergrasp_palisade_amethyst1"		"Gripped enemies have @amethyst_property1 reduced attack speed and can't heal"
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
@@ -13027,17 +13039,6 @@
 		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
 		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the Apprentice's copied abilities, replacing them with Spell Steal."
 
-
-		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"Nethergrasp Palisade"
-		"item_rpc_nethergrasp_palisade_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_nethergrasp_palisade_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_nethergrasp_palisade_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_nethergrasp_palisade_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_nethergrasp"							"Outworld Grip"
-		"property_nethergrasp_description"				"Issuing an attack order on an enemy creates an Outworld Grip link between the two of you. Gripped enemies are automatically attacked by the caster on <font color='#ccff66'>0.15</font>-second intervals. Enemies who are outside the caster's attack range are pulled back sharply towards you. Up to <font color='#ccff66'>5</font> links can exist at a time, but free Grip attacks will be divided equally amongst all linked targets. Must be within <font color='#ccff66'>1200</font> range of the target to create a link, and links break if the distance between you ever exceeds <font color='#ccff66'>1600</font>."
-
-		"DOTA_Tooltip_modifier_nethergrasp_linked"		"Outworld Grip"
-		"DOTA_Tooltip_modifier_nethergrasp_linked_Description"	"Drawn to the caster for extra attacks"	
 
 
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
