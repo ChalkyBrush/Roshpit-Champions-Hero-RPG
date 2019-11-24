@@ -12669,6 +12669,15 @@
 
 		"DOTA_Tooltip_modifier_infused_mageplate_shield"			"Infused Mageplate Shield (Emerald)"
 		"DOTA_Tooltip_modifier_infused_mageplate_shield_Description"	"Absorbs incoming damage"
+
+		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
+		"item_property_legion_vestments"			"Legion Command"
+		"property_legion_vestments_description"		"Increases All Attributes by <font color='#ccff66'>25</font>%."
+
+		"item_rpc_legion_vestments_ruby1"								"Increases Strength by an additional @ruby_property1%"
+		"item_rpc_legion_vestments_emerald1"								"Increases Agility by an additional @emerald_property1%"
+		"item_rpc_legion_vestments_sapphire1"								"Increases Intelligence by an additional @sapphire_property1%"
+		"item_rpc_legion_vestments_amethyst1"								"Increases Spirit by an additional @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
@@ -12740,15 +12749,6 @@
 		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vampiric_breastplate"		"Vampiric Core"
 		"property_varmpiric_breastplate_description" "Heal for <font color='#ccff66'>30</font>% of all damage dealt by @Ability1."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"Legion Vestments"
-		"item_rpc_legion_vestments_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_legion_vestments_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_legion_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_legion_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Increases All Attributes by <font color='#ccff66'>30</font>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"

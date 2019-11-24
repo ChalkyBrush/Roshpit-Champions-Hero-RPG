@@ -12420,7 +12420,7 @@
 		"item_rpc_legion_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_legion_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_legion_vestments"			"Legion Command"
-		"property_legion_vestments_description"		"Увеличивает Силу, Ловкость и Интеллект на <font color='#ccff66'>30</font>%"
+		"property_legion_vestments_description"		"Увеличивает Силу, Ловкость и Интеллект на <font color='#ccff66'>25</font>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"Nightmare Rider Mantle"
