@@ -32,6 +32,7 @@ function cast(event)
     local ability = event.ability
     local health = event.health
     local damage = event.damage
+	local armor_pierce = 0
     Filters:CastSkillArguments(4, caster)
 
     local r4_level = caster:GetRuneValue("r", 4)
@@ -39,6 +40,7 @@ function cast(event)
     if r4_level > 0 then
         health = health + r4_level * VENOMORT_R4_ADD_HP
         damage = damage + r4_level * VENOMORT_R4_ADD_DAMAGE
+		armor_pierce = armor_pierce + r4_level * VENOMORT_R4_VIPER_ARMOR_PIERCE
     end
 
     local r2_level = caster:GetRuneValue("r", 2)
@@ -48,6 +50,7 @@ function cast(event)
     end
 
     local armor = caster:GetRoshpitArmor()
+	local magic_armor = caster:GetRoshpitMagicArmor()
     local lifetime = VENOMORT_R_DURATION
     local attackspeed = 100
 
@@ -92,6 +95,8 @@ function cast(event)
     viper:SetBaseDamageMin(damage * multiplier)
     viper:SetBaseDamageMax(damage * multiplier)
     viper:SetBaseRoshpitArmor(armor * multiplier)
+	viper:SetBaseRoshpitMagicArmor(magic_armor * multiplier)
+	viper:SetBaseRoshpitArmorPierce(armor_pierce * multiplier)
 end
 function attack_land(event)
     local caster

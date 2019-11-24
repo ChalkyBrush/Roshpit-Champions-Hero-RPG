@@ -143,7 +143,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_suffix"						"% of Viper's attack damage"
 
     	"DOTA_Tooltip_ability_venomort_rune_r_2"							"[R2] Molting"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Improves Vipers, increasing their attack damage, maximum health, and attack speed, as well as their total Armor value."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Improves Vipers, increasing their attack damage, maximum health, armor, magic armor, armor pierce and attack speed."
     	"DOTA_Tooltip_ability_venomort_rune_r_2_property_one"				"Additional Stats"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_suffix"						"% of base stats"
 		
@@ -159,8 +159,10 @@
         "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "Increases the base health and damage of Vile Familiars."
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_one"               "Bonus Maximum Health"
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_two"               "Bonus Base Damage"
+		"DOTA_Tooltip_ability_venomort_rune_r_4_property_three"				"Bonus Armor Pierce"
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
+		"DOTA_Tooltip_ability_venomort_rune_r_4_suffix_three" 				""
 
     	"DOTA_Tooltip_modifier_q_1_nova"										"Poison Nova"
     	"DOTA_Tooltip_modifier_q_1_nova_Description"							"Venomort's old Q1 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."

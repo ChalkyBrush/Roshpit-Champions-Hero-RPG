@@ -211,7 +211,7 @@ function frost_nova_activate(event)
 	end)
 	local ability = event.ability
 	EmitSoundOn("Ability.FrostNova", caster)
-	local damage = caster:GetAttackDamage()*4
+	local damage = caster:GetAttackDamage()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local freezeDuration = 2.5
 	if #enemies > 0 then
