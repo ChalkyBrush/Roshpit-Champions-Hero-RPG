@@ -11090,7 +11090,7 @@
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "300"
         "AttackDamageMax"   "300"
-        "AttackRate"    "1.2"
+        "AttackRate"    "1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "1800"
         "ProjectileSpeed"           "1400"
@@ -11121,31 +11121,7 @@
             {
                 "Wearable1"
                 {
-                    "ItemDef"   "7560"
-                }
-                "Wearable2"
-                {
-                    "ItemDef"   "574"
-                }
-                "Wearable3"
-                {
-                    "ItemDef"   "4403"
-                }
-                "Wearable4"
-                {
-                    "ItemDef"   "4422"
-                }
-                "Wearable5"
-                {
                     "ItemDef"   "507"
-                }
-                "Wearable6"
-                {
-                    "ItemDef"   "7687"
-                }
-                "Wearable7"
-                {
-                    "ItemDef"   "5358"
                 }
             }
             "States"

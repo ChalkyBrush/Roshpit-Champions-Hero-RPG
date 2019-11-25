@@ -100,7 +100,14 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			return false
 		elseif parent:HasModifier("modifier_apprentice_ai") or parent:HasModifier("modifier_alien_armor_illusion") then
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
-			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL,parent.hero.equipped_gear[RPC_GEAR_SLOT_BODY], RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL,parent.hero.equipped_gear[RPC_GEAR_SLOT_BODY], RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+			return false
+		elseif parent:GetUnitName() == "water_elemental_flood_3" then
+			local damage = event.damage
+			local flood_robe = parent.hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+			Filters:FloodElementalAttack(parent, parent.hero, flood_robe, event.target, damage)
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, flood_robe, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 			return false
 		end
 		if parent:HasModifier("modifier_direwolf_bulwark") then

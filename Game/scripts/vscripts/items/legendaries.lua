@@ -1662,40 +1662,6 @@ end
 
 --BODY
 
-function RPCItems:RollFloodRobe(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_robe_of_flooding", "immortal", "Robe of Flooding", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "flooding"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_flooding_3", "#57CFFF", 1, "#property_flooding_description_3")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 6, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
-    item.newItemTable.property2 = math.ceil(value * 1.5)
-    item.newItemTable.property2name = "intelligence"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    --pre patch lv values
-    if type(item.newItemTable.property2) == "number" then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-    end
-    if type(item.newItemTable.property3) == "number" then
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-    end
-    if type(item.newItemTable.property4) == "number" then
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollSeaGiantsPlate(item_level)
     local item = RPCItems:CreateVariant("item_rpc_sea_giants_plate", "immortal", "Sea Giant's Plate", "body", true, "Slot: Body")
@@ -4699,6 +4665,33 @@ function RPCItems:RollRadiantRuinsLeather(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollFloodRobe(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_robe_of_flooding", "immortal", "Robe of Flooding", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 0
+    item.newItemTable.property1name = "!immortal!_modifier_robe_of_flooding"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_flooding", "#57CFFF", 1, "#property_flooding_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -8780,7 +8773,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell", "item_rpc_hurricane_vest",
         "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall", "item_rpc_nightmare_rider_mantle", "item_rpc_ocean_tempest_pallium", "item_rpc_outland_stone_cuirass",
-        "item_rpc_plate_of_the_watcher"}
+        "item_rpc_plate_of_the_watcher", "item_rpc_robe_of_flooding"}
     end
     return itemsList
 end

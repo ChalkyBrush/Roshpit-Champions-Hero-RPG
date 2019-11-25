@@ -1206,7 +1206,7 @@ function Filters:ApplyRskills(caster)
         local stacks = caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_EMERALD1)
         Filters:NightmareRiderStacksGain(caster, stacks)
     end
-    if caster:HasModifier("modifier_body_flooding") then
+    if caster:HasModifier("modifier_robe_of_flooding") then
         Filters:FloodRobe(caster)
     end
     if caster:HasModifier("modifier_plate_of_the_watcher4") then
@@ -2623,38 +2623,6 @@ function Filters:MoonTechRunners(caster)
     CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
 end
 
-function Filters:FloodRobe(caster)
-    local damageMult = ITEM_RPC_ROBE_OF_FLOODING_AOE_INT_TO_DMG
-    local eleName = "water_elemental_flood_3"
-    local renderVector = Vector(175, 175, 255)
-    local bAddAbility = true
-
-    local elemental = CreateUnitByName(eleName, caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
-    elemental:SetRenderColor(renderVector.x, renderVector.y, renderVector.z)
-    elemental.owner = caster:GetPlayerOwnerID()
-    if bAddAbility then
-        elemental:AddAbility("water_flood_nuke"):SetLevel(1)
-    end
-    elemental.summoner = caster
-    elemental:SetOwner(caster)
-    elemental:SetControllableByPlayer(caster:GetPlayerID(), true)
-    elemental.dieTime = ITEM_RPC_ROBE_OF_FLOODING_DURATION
-    elemental:AddAbility("ability_die_after_time_generic"):SetLevel(1)
-    local summonAbil = elemental:AddAbility("ability_summoned_unit")
-
-    summonAbil:SetLevel(1)
-    summonAbil:ApplyDataDrivenModifier(elemental, elemental, "modifier_summoned_unit_damage_increase", {duration = 30})
-    local eleDamage = Filters:AdjustItemDamage(caster, caster:GetIntellect() * damageMult, nil)
-
-    skeleHealth = Filters:AdjustItemDamage(caster, caster:GetMaxHealth(), nil)
-    elemental:SetMaxHealth(skeleHealth)
-    elemental:SetBaseMaxHealth(skeleHealth)
-    elemental:SetHealth(skeleHealth)
-
-    elemental:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, 100, nil))
-
-    Filters:SetAttackDamage(elemental, eleDamage)
-end
 
 function Filters:AvalanchePlate(caster)
     -- local radius = 400
@@ -5178,4 +5146,100 @@ function Filters:WatcherCast(caster, base_ability_slot)
     end
 
     Filters:ReduceCDByPercentage(caster, ability, percentage_increase)
+end
+
+function Filters:FloodRobe(caster)
+    local robes = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    if not robes.elemental_table then
+        robes.elemental_table = {}
+    end
+    local new_elemental_table = {}
+    for i = 1, #robes.elemental_table, 1 do
+        if robes.elemental_table[i] and IsValidEntity(robes.elemental_table[i]) and robes.elemental_table[i]:IsAlive() then
+            table.insert(new_elemental_table, robes.elemental_table[i])
+        end
+    end
+    robes.elemental_table = new_elemental_table
+    if #robes.elemental_table < 1 then
+        local eleName = "water_elemental_flood_3"
+        local renderVector = Vector(175, 175, 255)
+
+        local elemental = CreateUnitByName(eleName, caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
+        elemental:SetRenderColor(renderVector.x, renderVector.y, renderVector.z)
+        elemental.owner = caster:GetPlayerOwnerID()
+
+        elemental.summoner = caster
+        elemental:SetOwner(caster)
+        elemental:SetControllableByPlayer(caster:GetPlayerID(), true)
+        elemental:AdjustSummon(caster, true, ITEM_RPC_ROBE_OF_FLOODING_HEALTH_MULT, ITEM_RPC_ROBE_OF_FLOODING_ATTACK_MULT, 1, 1, 1, 1)
+        elemental.hero = caster
+        if robes:GetGemValue("sapphire") > 0 then
+            local newHealth = elemental:GetMaxHealth() + caster:GetIntellect()*robes:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROBE_OF_FLOODING_GEM_SAPPHIRE)
+            elemental:SetMaxHPandHealToFull(newHealth)
+
+            local newDamage = elemental:GetAttackDamage() + caster:GetIntellect()*robes:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROBE_OF_FLOODING_GEM_SAPPHIRE)
+            Filters:SetAttackDamage(elemental, newDamage)
+        end
+        elemental:AddAbility("flood_water_elemental_ai"):SetLevel(1)
+        elemental:FindAbilityByName("flood_water_elemental_ai"):ToggleAbility()
+
+        table.insert(robes.elemental_table, elemental)
+
+        local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
+        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, elemental)
+        local origin = elemental:GetAbsOrigin()
+        ParticleManager:SetParticleControl(particle1, 0, origin)
+        ParticleManager:SetParticleControl(particle1, 1, Vector(300, 2, 160))
+        Timers:CreateTimer(3, function()
+            ParticleManager:DestroyParticle(particle1, false)
+        end)
+        EmitSoundOn("RPCItems.OceanTempest.Splash", elemental)
+        if robes:GetGemValue("emerald") > 0 then
+            robes:ApplyDataDrivenModifier(caster.InventoryUnit, elemental, "modifier_robe_of_flooding_as", {})
+            elemental:SetModifierStackCount("modifier_robe_of_flooding_as", caster.InventoryUnit, robes:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROBE_OF_FLOODING_GEM_EMERALD1))
+            elemental:AddAbility("water_flood_nuke"):SetLevel(1)
+        end
+        if robes:GetGemValue("amethyst") > 0 then
+            robes:ApplyDataDrivenModifier(caster.InventoryUnit, elemental, "modifier_robe_of_flooding_ms", {})
+            elemental:SetModifierStackCount("modifier_robe_of_flooding_ms", caster.InventoryUnit, robes:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROBE_OF_FLOODING_GEM_AMETHYST1))
+        end
+    end
+
+end
+
+function Filters:FloodElementalAttack(elemental, hero, flood_robe, target, damage)
+    if flood_robe:GetGemValue("amethyst") > 0 then
+        local particleName = "particles/items3_fx/mango_active.vpcf"
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
+        ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+        Timers:CreateTimer(1, function()
+            ParticleManager:DestroyParticle(pfx, false)
+        end)
+        local manaRestore = math.floor(hero:GetMaxMana() * flood_robe:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROBE_OF_FLOODING_GEM_AMETHYST2)/100)
+        hero:GiveMana(manaRestore)
+        PopupMana(hero, manaRestore)
+    end
+    if flood_robe:GetGemValue("ruby") > 0 then
+        local radius = ITEM_RPC_ROBE_OF_FLOODING_RUBY_AOE
+
+        local particleName = "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+        local origin = target:GetAbsOrigin()
+        ParticleManager:SetParticleControl(particle1, 0, origin)
+        ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 1, 1))
+        Timers:CreateTimer(3, function()
+            ParticleManager:DestroyParticle(particle1, false)
+        end)
+        local elemental_ability = elemental:FindAbilityByName("water_elemental_ability")
+        local aoe_damage = damage * flood_robe:GetFinalGemPropertyValue("ruby", ITEM_RPC_ROBE_OF_FLOODING_GEM_RUBY1)/100
+        local enemies = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        local slow_amount = flood_robe:GetFinalGemPropertyValue("ruby", ITEM_RPC_ROBE_OF_FLOODING_GEM_RUBY2)
+        if #enemies > 0 then
+            for _, enemy in pairs(enemies) do
+                Filters:ApplyItemDamage(enemy, hero, aoe_damage, DAMAGE_TYPE_MAGICAL, flood_robe, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+                elemental_ability:ApplyDataDrivenModifier(elemental, enemy, "modifier_water_elemental_slow", {duration = ITEM_RPC_ROBE_OF_FLOODING_RUBY_SLOW_DURATION})
+                enemy:SetModifierStackCount("modifier_water_elemental_slow", elemental, slow_amount)
+            end
+        end
+    end
 end

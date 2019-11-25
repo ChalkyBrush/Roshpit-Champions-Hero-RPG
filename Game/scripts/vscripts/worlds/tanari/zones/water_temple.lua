@@ -1632,16 +1632,16 @@ end
 
 function Tanari:FloodRobeCheck()
 	Tanari.FloodRobeBattle = false
-	if GameState:GetDifficultyFactor() == 3 then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local body = MAIN_HERO_TABLE[i].body
-			if body then
-				if body:GetAbilityName() == "item_rpc_robe_of_flooding_2" then
-					Tanari.FloodRobeBattle = true
-				end
-			end
-		end
-	end
+	-- if GameState:GetDifficultyFactor() == 3 then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local body = MAIN_HERO_TABLE[i].body
+	-- 		if body then
+	-- 			if body:GetAbilityName() == "item_rpc_robe_of_flooding_2" then
+	-- 				Tanari.FloodRobeBattle = true
+	-- 			end
+	-- 		end
+	-- 	end
+	-- end
 end
 
 function Tanari:UpgradeFloodRobes(bossPosition)

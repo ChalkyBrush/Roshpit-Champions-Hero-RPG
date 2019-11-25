@@ -36,12 +36,21 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
-		"item_rpc_robe_of_flooding_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_robe_of_flooding_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_robe_of_flooding_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_robe_of_flooding_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_flooding_3"					"Water Elemental"
-		"property_flooding_description_3"			"По завершении прочтения (R) @Ability4 - на сторону героя призывается водный элементаль, который живёт <% ITEM_RPC_ROBE_OF_FLOODING_DURATION %> секунд и восстанавливает владельцу <% ITEM_RPC_ROBE_OF_FLOODING_MANA_RESTORE_PCT %>% от макс. маны с каждой своей атакой. Атаки наносят урон в небольшой области в размере <% ITEM_RPC_ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x Интеллекта героя.<br>Дополнительно с каждой атакой выпускает волну, которая наносит магический урон, равный <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG %>x общего урона героя.<br>Весь наносимый урон может быть увеличен за счёт всех усилений, действующих на базовую способность (R) @Ability4."
+
+		"item_property_flooding"					"Water Elemental"
+		"property_flooding_description"			"When you finish casting @Ability4, summon a Water Elemental companion with <% ITEM_RPC_ROBE_OF_FLOODING_HEALTH_MULT %>x its master's health and <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_MULT %> its master's attack damage at the time of summoning. Only 1 elemental can be active at a time and all of its damage is attributed to its master."
+		"water_elemental_flood_3"				"Water Elemental"
+
+		"DOTA_Tooltip_ability_flood_water_elemental_ai"		"Water Elemental AI"
+		"DOTA_Tooltip_ability_flood_water_elemental_ai_Description"	"Toggle On for default behavior"	
+
+		"DOTA_Tooltip_ability_water_flood_nuke"	"Water Elemental Emerald"
+		"DOTA_Tooltip_ability_water_flood_nuke_Description"	"Throws a water projectile toward the target location that deals damage based on attack power."
+
+		"item_rpc_robe_of_flooding_ruby1"								"The Water Elemental's attacks deal @ruby_property1% of its damage in a <% ITEM_RPC_ROBE_OF_FLOODING_RUBY_AOE %> radius and slow all affected enemies' movespeed by @ruby_property2 for <% ITEM_RPC_ROBE_OF_FLOODING_RUBY_SLOW_DURATION %>"
+		"item_rpc_robe_of_flooding_emerald1"								"The Water Elemental has @emerald_property1 increased attack speed and a wave projectile ability that deals damage based on @emerald_property2% of its attack power."
+		"item_rpc_robe_of_flooding_sapphire1"								"Increases the Water Elemental's Max Health and Attack Damage by @sapphire_property1x its master's Intelligence."
+		"item_rpc_robe_of_flooding_amethyst1"								"The Water Elemental has @amethyst_property1 increased movespeed and restores @amethyst_property2% of its master's max mana when landing an attack"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"

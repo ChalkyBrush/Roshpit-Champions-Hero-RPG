@@ -12702,6 +12702,23 @@
 		"item_rpc_radiant_ruins_leather_sapphire1"							"Increases Endurance Aura's effect on the wearer by @sapphire_property1%"
 		"item_rpc_radiant_ruins_leather_amethyst1"							"Endurance Aura grants @amethyst_property1 magic armor"
 
+		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
+
+		"item_property_flooding"					"Water Elemental"
+		"property_flooding_description"			"When you finish casting @Ability4, summon a Water Elemental companion with <font color='#ccff66'>2</font>x its master's health and <font color='#ccff66'>2</font> its master's attack damage at the time of summoning. Only 1 elemental can be active at a time and all of its damage is attributed to its master."
+		"water_elemental_flood_3"				"Water Elemental"
+
+		"DOTA_Tooltip_ability_flood_water_elemental_ai"		"Water Elemental AI"
+		"DOTA_Tooltip_ability_flood_water_elemental_ai_Description"	"Toggle On for default behavior"	
+
+		"DOTA_Tooltip_ability_water_flood_nuke"	"Water Elemental Emerald"
+		"DOTA_Tooltip_ability_water_flood_nuke_Description"	"Throws a water projectile toward the target location that deals damage based on attack power."
+
+		"item_rpc_robe_of_flooding_ruby1"								"The Water Elemental's attacks deal @ruby_property1% of its damage in a <font color='#ccff66'>320</font> radius and slow all affected enemies' movespeed by @ruby_property2 for <font color='#ccff66'>4</font>"
+		"item_rpc_robe_of_flooding_emerald1"								"The Water Elemental has @emerald_property1 increased attack speed and a wave projectile ability that deals damage based on @emerald_property2% of its attack power."
+		"item_rpc_robe_of_flooding_sapphire1"								"Increases the Water Elemental's Max Health and Attack Damage by @sapphire_property1x its master's Intelligence."
+		"item_rpc_robe_of_flooding_amethyst1"								"The Water Elemental has @amethyst_property1 increased movespeed and restores @amethyst_property2% of its master's max mana when landing an attack"
+
 
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
@@ -12711,15 +12728,6 @@
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
 		"item_property_steelbark"			"Steelbark Protection"
 		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
-		"item_rpc_robe_of_flooding_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_robe_of_flooding_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_robe_of_flooding_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_robe_of_flooding_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_flooding_3"					"Water Elemental"
-		"property_flooding_description_3"			"When you finish casting @Ability4, summon a Water Elemental that restores <font color='#ccff66'>5</font>% of your max mana on attack for <font color='#ccff66'>12</font> seconds. Its attacks deal AOE Magical damage equal to <font color='#ccff66'>35</font>x your Intelligence.<br>Also has a wave projectile spell that deals <font color='#ccff66'>1</font>x your attack power as Magical damage.<br>All damage dealt is considered Base Ability damage for @Ability4."
 		
 		
 		

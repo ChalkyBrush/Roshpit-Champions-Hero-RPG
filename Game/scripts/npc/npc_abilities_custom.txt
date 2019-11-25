@@ -91610,7 +91610,7 @@
 
 	"water_elemental_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"morphling_waveform"
 		"MaxLevel"	"1"
@@ -91626,24 +91626,100 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"flood_water_elemental_always_think"
+					}
+				}
+			}
+			"modifier_water_elemental_slow"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_slardar_crush.vpcf" 	   
+				"StatusEffectPriority"  "10"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+		}
+
+	}
+
+	"flood_water_elemental_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"morphling_waveform"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"flood_water_elemental_think"
 					}
 				}
 				"OnCreated"
 				{
-					"AttachEffect"
+					"RunScript"
 					{
-						"EffectName"        "particles/units/heroes/hero_morphling/morphling_ambient_swirl_new.vpcf"
-						"EffectAttachType"  "follow_overhead"
-						"Target"            "TARGET"
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"flood_robe_ai_on"
 					}
 				}
-				"OnAttackLanded"
+				"OnDestroy"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"flood_water_elemental_attack"
+						"Function"		"flood_robe_ai_off"
 					}
 				}
 			}
@@ -91658,7 +91734,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"morphling_adaptive_strike"
+		"AbilityTextureName"			"morphling_adaptive_strike_agi"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -91675,7 +91751,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -91683,19 +91759,6 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 150000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.5"
-			}
-		}
 		"OnSpellStart"
 		{
 			"FireSound"

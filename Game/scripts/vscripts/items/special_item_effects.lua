@@ -267,101 +267,6 @@ function marauder_attack_land(event)
 	end
 end
 
-function flood_water_elemental_attack(event)
-	--print("flood attack")
-	local ability = event.ability
-	local target = event.target
-	local attacker = event.attacker
-	if attacker.summoner then
-		local caster = attacker.summoner
-		if IsValidEntity(caster) then
-			local particleName = "particles/items3_fx/mango_active.vpcf"
-			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
-			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-			Timers:CreateTimer(1, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-			local manaRestore = caster:GetMaxMana() * 0.05
-			manaRestore = WallPhysics:round(manaRestore, 0)
-			caster:GiveMana(manaRestore)
-			PopupMana(caster, manaRestore)
-		end
-	end
-	local radius = ITEM_RPC_ROBE_OF_FLOODING_AOE_RADIUS
-
-	local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
-	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-	local origin = target:GetAbsOrigin()
-	ParticleManager:SetParticleControl(particle1, 0, origin)
-	ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 2, 160))
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(particle1, false)
-	end)
-
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
-	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	local bElemental3 = false
-	if attacker:GetUnitName() == "water_elemental_flood_3" then
-		bElemental3 = true
-	end
-	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			if bElemental3 then
-				Filters:TakeArgumentsAndApplyDamage(enemy, attacker.summoner, damage, DAMAGE_TYPE_MAGICAL, 4)
-			else
-				ApplyDamage({victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
-			end
-		end
-	end
-end
-
-function flood_water_elemental_think(event)
-	local ability = event.ability
-	local caster = event.caster
-	--print("ELEMENTAL THINK?")
-	--print(caster:HasAbility("water_flood_nuke"))
-	if caster:HasAbility("water_flood_nuke") then
-		--print("AER WE HERE??")
-		local nukeAbility = caster:FindAbilityByName("water_flood_nuke")
-		if nukeAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_ROBE_OF_FLOODING_ENEMY_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			if #enemies > 0 then
-				local castPoint = enemies[1]:GetAbsOrigin()
-				local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = nukeAbility:entindex(),
-					Position = castPoint
-				}
-				ExecuteOrderFromTable(newOrder)
-				return
-			end
-		end
-	end
-	local summoner = caster.summoner
-	if IsValidEntity(summoner) then
-		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), summoner:GetAbsOrigin())
-		if distance > 1500 then
-			caster:MoveToPositionAggressive(summoner:GetAbsOrigin() + RandomVector(240))
-		end
-	end
-end
-
-function flood_elemental_wave_hit(event)
-	local target = event.target
-	local caster = event.caster
-	local summoner = caster.summoner
-	if IsValidEntity(summoner) then
-		local ability = caster.summoner.body
-		local damage = Filters:AdjustItemDamage(summoner, OverflowProtectedGetAverageTrueAttackDamage(summoner)*ITEM_RPC_ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG, nil)
-		if caster:GetUnitName() == "water_elemental_flood_2" then
-			ApplyDamage({victim = target, attacker = summoner, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
-		elseif caster:GetUnitName() == "water_elemental_flood_3" then
-			Filters:TakeArgumentsAndApplyDamage(target, summoner, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_ICE)
-		end
-	end
-end
-
 function BodyProjectileStrike(event)
 	local ability = event.ability
 	local caster = ability.caster
@@ -2769,14 +2674,16 @@ function ocean_tempest_think(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				if not enemy:HasModifier("modifier_ocean_tempest_typhoon") then
-					local proc = Filters:GetProc(target, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD1))
-					if proc then
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_tempest_typhoon", {duration = remaining_duration})
-						if enemy.ocean_tempest_pfx then
-							ParticleManager:DestroyParticle(enemy.ocean_tempest_pfx, false)
+					if not enemy.jumpLock then
+						local proc = Filters:GetProc(target, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD1))
+						if proc then
+							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_tempest_typhoon", {duration = remaining_duration})
+							if enemy.ocean_tempest_pfx then
+								ParticleManager:DestroyParticle(enemy.ocean_tempest_pfx, false)
+							end
+							enemy.ocean_tempest_pfx = ParticleManager:CreateParticle("particles/econ/events/ti7/cyclone_ti7.vpcf", PATTACH_ABSORIGIN, enemy)
+							ParticleManager:SetParticleControl(enemy.ocean_tempest_pfx, 0, enemy:GetAbsOrigin())
 						end
-						enemy.ocean_tempest_pfx = ParticleManager:CreateParticle("particles/econ/events/ti7/cyclone_ti7.vpcf", PATTACH_ABSORIGIN, enemy)
-						ParticleManager:SetParticleControl(enemy.ocean_tempest_pfx, 0, enemy:GetAbsOrigin())
 					end
 				end
 			end
@@ -7737,5 +7644,144 @@ function ruins_leather_init(event)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_radiant_leather_sapphire_ms", {})
 		hero:SetModifierStackCount("modifier_radiant_leather_sapphire_as", caster, as_stacks)
 		hero:SetModifierStackCount("modifier_radiant_leather_sapphire_ms", caster, ms_stacks)
+	end
+end
+
+
+function flood_robe_ai_on(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(900)
+end
+
+function flood_robe_ai_off(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(0)
+end
+
+function flood_robe_ai_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
+	local fire_breath_ability = caster:FindAbilityByName("ruby_dragon_flame_breath")
+	if fire_breath_ability:IsFullyCastable() then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*500, nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local newOrder = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = fire_breath_ability:entindex(),
+			}
+			ExecuteOrderFromTable(newOrder)
+			return			
+		end
+	end
+end
+
+function flood_water_elemental_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
+	if caster:HasAbility("water_flood_nuke") then
+		local nukeAbility = caster:FindAbilityByName("water_flood_nuke")
+		if nukeAbility:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = nukeAbility:entindex(),
+					Position = castPoint
+				}
+				ExecuteOrderFromTable(newOrder)
+				return
+			end
+		end
+	end
+end
+
+function flood_elemental_wave_hit(event)
+	local target = event.target
+	local caster = event.caster
+	local hero = caster.hero
+	if IsValidEntity(hero) then
+		local ability = caster.hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROBE_OF_FLOODING_GEM_EMERALD2)/100
+		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	end
+end
+
+function flood_robe_end(event)
+	local ability = event.ability
+	if ability.elemental_table then
+		for i = 1, #ability.elemental_table, 1 do
+			if ability.elemental_table[i] and IsValidEntity(ability.elemental_table[i]) then
+		        local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
+		        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ability.elemental_table[i])
+		        local origin = ability.elemental_table[i]:GetAbsOrigin()
+		        ParticleManager:SetParticleControl(particle1, 0, origin)
+		        ParticleManager:SetParticleControl(particle1, 1, Vector(300, 2, 160))
+		        Timers:CreateTimer(3, function()
+		            ParticleManager:DestroyParticle(particle1, false)
+		        end)
+		        EmitSoundOn("RPCItems.OceanTempest.Splash", ability.elemental_table[i])
+				UTIL_Remove(ability.elemental_table[i])
+			end
+		end
+	end
+end
+
+function flood_water_elemental_always_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), hero:GetAbsOrigin())
+	if distance > 2500 then
+        local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
+        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+        local origin = caster:GetAbsOrigin()
+        ParticleManager:SetParticleControl(particle1, 0, origin)
+        ParticleManager:SetParticleControl(particle1, 1, Vector(300, 2, 160))
+        Timers:CreateTimer(3, function()
+            ParticleManager:DestroyParticle(particle1, false)
+        end)
+        EmitSoundOn("RPCItems.OceanTempest.Splash", caster)
+		FindClearSpaceForUnit(caster, hero:GetAbsOrigin()+RandomVector(200), false)
+        local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
+        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+        local origin = caster:GetAbsOrigin()
+        ParticleManager:SetParticleControl(particle1, 0, origin)
+        ParticleManager:SetParticleControl(particle1, 1, Vector(300, 2, 160))
+        Timers:CreateTimer(3, function()
+            ParticleManager:DestroyParticle(particle1, false)
+        end)
+        EmitSoundOn("RPCItems.OceanTempest.Splash", caster)
 	end
 end
