@@ -167,13 +167,8 @@ function paladin_w_1_damage_think(event)
 	local ability = event.ability
 	local damage = ability.w_1_damage
 	local stacks = target:GetModifierStackCount("modifier_paladin_rune_w_1", caster)
-	stacks = math.max(1, stacks)
-	if stacks == 1 then
-	elseif stacks > 1 then
-		for i = 1, stacks - 1, 1 do
-			damage = damage + ability.w_1_damage * (1 + i * PALADIN_W4_DMG_PER_STACK_PCT / 100)
-		end
-	end
+	stacks = math.max(1, stacks)	
+	damage = damage * (1 + (PALADIN_W4_DMG_PER_STACK_PCT / 100) * (stacks-1))
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_FIRE)
 end
 --DESIRED OUTPUT: 100, 210, 331, 463
@@ -188,12 +183,10 @@ end
 function rune_w_3(caster, ability)
 	local runeUnit = caster.runeUnit3
 	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_3")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
-	local totalLevel = abilityLevel + bonusLevel
-	if totalLevel > 0 then
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
 		local radius = 550
-		local damage = totalLevel * 5 * caster:GetIntellect()
+		local damage = w_3_level * PALADIN_W3_DMG_PER_INT * caster:GetIntellect()
 		damage = math.floor(damage)
 
 		EmitSoundOn("Paladin.HolyNova", caster)

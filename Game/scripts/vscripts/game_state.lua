@@ -1851,7 +1851,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_knights_disciple_heal") then
-		damage = damage * (1 - PALADIN_BASE_Q_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL)
+		damage = damage * (1 - PALADIN_BASE_R_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL)
 	end
 	if victim:HasModifier("modifier_astral_c_c_visible") then
 		damage = damage * (1 - (ASTRAL_RANGER_E3_DAMAGE_REDUCTION/100))
@@ -1989,8 +1989,10 @@ function GameState:FilterDamage(filterTable)
 			armor = 0
 		end
 		if attacker:GetUnitName() == "paladin_disciple" then
-			Filters:TakeArgumentsAndApplyDamage(victim, attacker.paladin, Filters:OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin) * PALADIN_GLYPH_5_2_ATTACK_MULT, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
-			return false
+			local damage = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin) * PALADIN_GLYPH_5_2_ATTACK_MULT)
+			filterTable["damage"] = damage
+			filterTable["damagetype_const"] = DAMAGE_TYPE_PURE
+			attacker.element1 = RPC_ELEMENT_HOLY
 		end
 		if attacker:GetUnitName() == "ekkan_skeleton_archer" and attacker.w_1_level then
 			local luck = RandomInt(1, 10)
