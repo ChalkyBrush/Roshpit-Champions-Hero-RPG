@@ -225,28 +225,28 @@
 
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"Glyph of Albedo"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_1_1"		"[T1-1] Glyph of Albedo"
 		"item_rpc_zonik_glyph_1_1_description" 				"Tachyon Shell when carried by Zonik has its radius increased by @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"Glyph of the Transistor"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_2_1"		"[T2-1] Glyph of the Transistor"
 		"item_rpc_zonik_glyph_2_1_description" 				"Enemies who carry Tachyon Shell also take the damage at an enhanced rate of @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"Glyph of the North Star"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_3_1"		"[T3-1] Glyph of the North Star"
 		"item_rpc_zonik_glyph_3_1_description" 				"@glyph_property1% chance to punch twice when casting Mach Punch."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"Glyph of Auric Blast"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_4_1"		"[T4-1] Glyph of Auric Blast"
 		"item_rpc_zonik_glyph_4_1_description" 				"Increases the radius of [W1] by @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"Glyph of Acceleration"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_1"		"[T5-1] Glyph of Acceleration"
 		"item_rpc_zonik_glyph_5_1_description" 				"Gain @glyph_property1 movespeed and movespeed cap when Lightspeed is active."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"Glyph of Diamond Dust"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_6_1"		"[T6-1] Glyph of Diamond Dust"
 		"item_rpc_zonik_glyph_6_1_description" 				"During a Speedball Charge, Green Streak remnants drop @glyph_property1% faster, explode immediately and deal @glyph_property2% increased damage."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"Glyph of Sonar Crack"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_7_1"		"[T7-1] Glyph of Sonar Crack"
 		"item_rpc_zonik_glyph_7_1_description" 				"Temporal Discharge stacks increase all <font color=\"#B5FFB7\">Temporal</font> damage by @glyph_property1%. When <font color=\"#B5FFB7\">Temporal</font> damage is dealt, 1 stack is consumed."
 
-		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"Glyph of Flurry Punches"
+		"DOTA_Tooltip_ability_item_rpc_zonik_glyph_5_a"		"[T5-a] Glyph of Flurry Punches"
 		"item_rpc_zonik_glyph_5_a_description" 				"Immediately cast @Ability2 on a random nearby enemy every <% ZHONIK_GLYPH_5_A_INTERVAL %> seconds."
 
 		"DOTA_Tooltip_modifier_sages_eyes"					"Sage's Eyes"

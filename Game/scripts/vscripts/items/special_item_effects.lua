@@ -267,106 +267,11 @@ function marauder_attack_land(event)
 	end
 end
 
-function flood_water_elemental_attack(event)
-	--print("flood attack")
-	local ability = event.ability
-	local target = event.target
-	local attacker = event.attacker
-	if attacker.summoner then
-		local caster = attacker.summoner
-		if IsValidEntity(caster) then
-			local particleName = "particles/items3_fx/mango_active.vpcf"
-			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
-			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-			Timers:CreateTimer(1, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-			local manaRestore = caster:GetMaxMana() * 0.05
-			manaRestore = WallPhysics:round(manaRestore, 0)
-			caster:GiveMana(manaRestore)
-			PopupMana(caster, manaRestore)
-		end
-	end
-	local radius = ITEM_RPC_ROBE_OF_FLOODING_AOE_RADIUS
-
-	local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
-	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-	local origin = target:GetAbsOrigin()
-	ParticleManager:SetParticleControl(particle1, 0, origin)
-	ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 2, 160))
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(particle1, false)
-	end)
-
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
-	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	local bElemental3 = false
-	if attacker:GetUnitName() == "water_elemental_flood_3" then
-		bElemental3 = true
-	end
-	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			if bElemental3 then
-				Filters:TakeArgumentsAndApplyDamage(enemy, attacker.summoner, damage, DAMAGE_TYPE_MAGICAL, 4)
-			else
-				ApplyDamage({victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
-			end
-		end
-	end
-end
-
-function flood_water_elemental_think(event)
-	local ability = event.ability
-	local caster = event.caster
-	--print("ELEMENTAL THINK?")
-	--print(caster:HasAbility("water_flood_nuke"))
-	if caster:HasAbility("water_flood_nuke") then
-		--print("AER WE HERE??")
-		local nukeAbility = caster:FindAbilityByName("water_flood_nuke")
-		if nukeAbility:IsFullyCastable() then
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_ROBE_OF_FLOODING_ENEMY_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			if #enemies > 0 then
-				local castPoint = enemies[1]:GetAbsOrigin()
-				local newOrder = {
-					UnitIndex = caster:entindex(),
-					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-					AbilityIndex = nukeAbility:entindex(),
-					Position = castPoint
-				}
-				ExecuteOrderFromTable(newOrder)
-				return
-			end
-		end
-	end
-	local summoner = caster.summoner
-	if IsValidEntity(summoner) then
-		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), summoner:GetAbsOrigin())
-		if distance > 1500 then
-			caster:MoveToPositionAggressive(summoner:GetAbsOrigin() + RandomVector(240))
-		end
-	end
-end
-
-function flood_elemental_wave_hit(event)
-	local target = event.target
-	local caster = event.caster
-	local summoner = caster.summoner
-	if IsValidEntity(summoner) then
-		local ability = caster.summoner.body
-		local damage = Filters:AdjustItemDamage(summoner, OverflowProtectedGetAverageTrueAttackDamage(summoner)*ITEM_RPC_ROBE_OF_FLOODING_ATTACK_TO_WAVE_DMG, nil)
-		if caster:GetUnitName() == "water_elemental_flood_2" then
-			ApplyDamage({victim = target, attacker = summoner, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
-		elseif caster:GetUnitName() == "water_elemental_flood_3" then
-			Filters:TakeArgumentsAndApplyDamage(target, summoner, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_ICE)
-		end
-	end
-end
-
 function BodyProjectileStrike(event)
 	local ability = event.ability
 	local caster = ability.caster
 	local target = event.target
-	local primeAttribute = caster:GetPrimaryAttribute()
+	local primeAttribute = caster:GetRoshpitPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
 		damage = caster:GetStrength() * 5
@@ -381,7 +286,7 @@ end
 function doomplate_damage(event)
 	local target = event.target
 	local caster = target.doomplateCaster
-	local primeAttribute = caster:GetPrimaryAttribute()
+	local primeAttribute = caster:GetRoshpitPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
 		damage = caster:GetStrength() * 15
@@ -528,7 +433,7 @@ function wild_nature_entangle_think(event)
 	local ability = event.ability
 	local inventory_unit = target:FindModifierByName("modifier_wild_nature_entangle_effect"):GetCaster()
 	local caster = inventory_unit.hero
-	local primeAttribute = caster:GetPrimaryAttribute()
+	local primeAttribute = caster:GetRoshpitPrimaryAttribute()
 	local damage = 0
 	if primeAttribute == 0 then
 		damage = caster:GetStrength() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
@@ -629,6 +534,7 @@ function ice_quill_think(event)
 			target.ice_quill_mana_loss = target.ice_quill_mana_loss % threshold
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_ice_quill_carapace_stack", {})
 			local newstacks = target:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) + addedStacks
+			newStacks = math.min(newstacks, ITEM_RPC_ICE_QUILL_CARAPACE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_EMERALD1))
 			target:SetModifierStackCount("modifier_ice_quill_carapace_stack", caster, newstacks)
 		end
 	end
@@ -642,9 +548,10 @@ function ice_quill_spell_cast(event)
 	local hero = event.unit
 	local ability = event.ability
 	if not hero:HasModifier("modifier_ice_quill_unloading") then
-		if hero:HasModifier("modifier_ice_quill_carapace_stack") then
+		local minimum_stacks = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY1)
+		if hero:HasModifier("modifier_ice_quill_carapace_stack") and hero:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster) > minimum_stacks then
 			local stacks = hero:GetModifierStackCount("modifier_ice_quill_carapace_stack", caster)
-			local unload_duration = (stacks * ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL) - 0.5
+			local unload_duration = (stacks * ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_ice_quill_unloading", {duration = unload_duration})
 			hero:RemoveModifierByName("modifier_ice_quill_carapace_stack")
 		end
@@ -660,16 +567,18 @@ function ice_quill_unloading_think(event)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/items/ice_quill_explosion.vpcf", hero, 3)
 	EmitSoundOn("RPC.IceQuill", hero)
 	local radius = ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG/100 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_RUBY2)
 	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_NORMAL)
 		end
 	end
-	local manaRestore = hero:GetMaxMana() * ITEM_RPC_ICE_QUILL_CARAPACE_MANA_RESTORE_PCT/100
-	hero:GiveMana(manaRestore)
-	PopupMana(hero, manaRestore)
+	if ability:GetGemValue("sapphire") > 0 then
+		local manaRestore = hero:GetMaxMana() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_SAPPHIRE)/100
+		hero:GiveMana(manaRestore)
+		PopupMana(hero, manaRestore)
+	end
 end
 
 function midas_think(event)
@@ -814,9 +723,10 @@ function legion_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local intStacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
-	local agiStacks = math.floor(target:GetBaseAgility() * ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
-	local strStacks = math.floor(target:GetBaseStrength() * ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE)
+	local intStacks = math.floor(target:GetBaseIntellect() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_LEGION_VESTMENTS_GEM_RUBY)/100))
+	local agiStacks = math.floor(target:GetBaseAgility() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_LEGION_VESTMENTS_GEM_EMERALD)/100))
+	local strStacks = math.floor(target:GetBaseStrength() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LEGION_VESTMENTS_GEM_SAPPHIRE)/100))
+	local sprStacks = math.floor(target:GetBaseSpirit() * (ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_LEGION_VESTMENTS_GEM_AMETHYST)/100))
 	if not target:HasModifier("modifier_legion_vestments_effect_str") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_str", {})
 	end
@@ -831,6 +741,11 @@ function legion_think(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_agi", {})
 	end
 	target:SetModifierStackCount("modifier_legion_vestments_effect_agi", ability, agiStacks)
+
+	if not target:HasModifier("modifier_legion_vestments_effect_spr") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_legion_vestments_effect_spr", {})
+	end
+	target:SetModifierStackCount("modifier_legion_vestments_effect_spr", ability, sprStacks)
 end
 
 function living_gauntlet_think(event)
@@ -1550,27 +1465,35 @@ function nightmare_rider_initialize(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	target.orbTable = {}
-	for i = 1, 3, 1 do
-		local orb = CreateUnitByName("nightmare_rider_orb", target:GetAbsOrigin(), true, nil, nil, target:GetTeamNumber())
-		orb.hero = target
-		orb.owner = target:GetPlayerOwnerID()
-		orb.interval = 0
-		orb.state = 0
-		orb:SetModel("models/props_gameplay/rune_arcane.vmdl")
-		orb:SetOriginalModel("models/props_gameplay/rune_arcane.vmdl")
-		orb:SetModelScale(0.5)
-		table.insert(target.orbTable, orb)
-		ability:ApplyDataDrivenModifier(caster, orb, "modifier_nightmare_rider_orb_buff", {})
-		orb.index = i
-		local offsetRadians = (2 * math.pi / 3) * (i - 1)
-		orb.offsetVector = WallPhysics:rotateVector(Vector(1, 1), offsetRadians)
-		orb:SetOwner(target)
-		orb:SetControllableByPlayer(target:GetPlayerID(), true)
+	if ability:GetGemValue("sapphire") > 0 then
+		ability.orbTable = {}
+		for i = 1, 3, 1 do
+			local orb = CreateUnitByName("nightmare_rider_orb", target:GetAbsOrigin(), true, nil, nil, target:GetTeamNumber())
+			orb.hero = target
+			orb.owner = target:GetPlayerOwnerID()
+			orb.interval = 0
+			orb.state = 0
+			orb:SetModel("models/props_gameplay/rune_arcane.vmdl")
+			orb:SetOriginalModel("models/props_gameplay/rune_arcane.vmdl")
+			orb:SetModelScale(0.01)
+			table.insert(ability.orbTable, orb)
+			ability:ApplyDataDrivenModifier(caster, orb, "modifier_nightmare_rider_orb_buff", {})
+			orb.index = i
+			local offsetRadians = (2 * math.pi / 3) * (i - 1)
+			orb.offsetVector = WallPhysics:rotateVector(Vector(1, 1), offsetRadians)
+			orb:SetOwner(target)
+			orb:SetControllableByPlayer(target:GetPlayerID(), true)
+			orb:SetBaseDamageMin(0)
+			orb:SetBaseDamageMax(0)
+		end
 	end
 end
 
-function nightmare_rider_think(event)
+function nightmare_orb_attack_land(event)
+	local hero = event.caster.hero
+	local target = event.target
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_SAPPHIRE)/100
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, nil, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 end
 
 function nightmare_rider_orb_think(event)
@@ -1578,18 +1501,17 @@ function nightmare_rider_orb_think(event)
 	local hero = orb.hero
 	orb.offsetVector = WallPhysics:rotateVector(orb.offsetVector, math.pi / 40)
 	orb:SetAbsOrigin(hero:GetAbsOrigin() + orb.offsetVector * 120)
-	local damage = (hero:GetStrength() + hero:GetAgility() + hero:GetIntellect()) * 4
-	damage = Filters:AdjustItemDamage(hero, damage, nil)
-	orb:SetBaseDamageMin(damage)
-	orb:SetBaseDamageMax(damage)
 end
 
 function nightmare_rider_end(event)
 	local target = event.target
-	for i = 1, #target.orbTable, 1 do
-		UTIL_Remove(target.orbTable[i])
+	local ability = event.ability
+	if ability.orbTable then
+		for i = 1, #ability.orbTable, 1 do
+			UTIL_Remove(ability.orbTable[i])
+		end
+		ability.orbTable = false
 	end
-	target.orbTable = false
 end
 
 function space_tech_channel_think(event)
@@ -2357,8 +2279,8 @@ function hermit_spike_damage_taken(event)
 	local spineThreshold = target:GetMaxHealth() * ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD/100
 	ability.spineDamage = ability.spineDamage + attack_damage
 	if ability.spineDamage > spineThreshold then
-		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Bristleback.QuillSpray.Cast", target)
-		local spineShots = math.min(math.floor(ability.spineDamage / spineThreshold), 7)
+		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItems.HermitSpikeShell", target)
+		local spineShots = math.min(math.floor(ability.spineDamage / spineThreshold), ITEM_RPC_HERMITS_SPIKE_SHELL_MAX_TRIGGERS_PER_DMG)
 		for i = 1, spineShots, 1 do
 			Timers:CreateTimer((i - 1) * 0.2, function()
 				local spikeParticle = "particles/units/heroes/hero_bristleback/bristleback_quill_spray_quills.vpcf"
@@ -2369,14 +2291,27 @@ function hermit_spike_damage_taken(event)
 					ParticleManager:DestroyParticle(pfx, false)
 				end)
 				local radius = ITEM_RPC_HERMITS_SPIKE_SHELL_RADIUS
-				local damage = spineThreshold * ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_OF_DAMAGE_TAKEN
+				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_PCT_ATTACK_POWER/100) + (ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_RUBY)*target:GetMaxHealth()/100)
 				local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
 						Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+						if ability:GetGemValue("amethyst") > 0 then
+							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_hermit_spike_shell_quills", {duration = ITEM_RPC_HERMITS_SPIKE_SHELL_AMETHYST_DURATION})
+							local current_stacks = enemy:GetModifierStackCount("modifier_hermit_spike_shell_quills", caster)
+							local new_stacks = math.min(current_stacks + 1, ITEM_RPC_HERMITS_SPIKE_SHELL_AMETHYST_MAX_STACKS)
+							enemy:SetModifierStackCount("modifier_hermit_spike_shell_quills", caster, new_stacks)
+							enemy:CalculateAndSaveRoshpitAttributes()
+						end
 					end
 				end
+
 			end)
+			if ability:GetGemValue("emerald") > 0 then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf", target, 1)
+				local heal = target:GetMaxHealth()*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_EMERALD)/100)
+				Filters:ApplyHeal(target, target, heal, true, true)
+			end
 		end
 		ability.spineDamage = 0
 	end
@@ -2692,34 +2627,131 @@ end
 
 function ocean_tempest_initialize(event)
 	local ability = event.ability
-	ability.manaDrained = 0
-	ability.interval = 0
+	local caster = event.caster
+	local hero = caster.hero
+	hero:RemoveModifierByName("modifier_ocean_templest_tidal_storm_stacks")
+	StartSoundEvent("RPCItems.OceanTempest.Event", hero)
+	-- ability.manaDrained = 0
+	-- ability.interval = 0
 end
 
 function ocean_tempest_think(event)
 	local target = event.target
 	local ability = event.ability
+	local caster = event.caster
 
-	local manaDrain = target:GetMaxMana() * ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_PER_SECOND / 100 / 10
-	if manaDrain > target:GetMana() then
-		manaDrain = target:GetMana()
-	end
+    local total_ticks = ability.channel_time/0.1
+	local manaDrain = math.min(target:GetMaxMana() * (ability.total_mana_drain_pct/total_ticks)/100, target:GetMana())
 	manaDrain = math.floor(manaDrain)
-	ability.manaDrained = ability.manaDrained + manaDrain
 	target:ReduceMana(manaDrain)
 	PopupLoseMana(target, manaDrain)
+
+	local tideStacksGained = math.ceil(manaDrain/ITEM_RPC_OCEAN_TEMPEST_PALLIUM_DIVISOR)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_templest_tidal_storm_stacks", {duration = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_TIDAL_STORM_STACK_DURATION})
+	local new_stacks = target:GetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster) + tideStacksGained
+	target:SetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster, new_stacks)
+
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_tempest_ruby_attack_power", {duration = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_TIDAL_STORM_STACK_DURATION})
+		local attack_power_stacks = new_stacks*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_RUBY)/0.01
+		target:SetModifierStackCount("modifier_ocean_tempest_ruby_attack_power", caster, attack_power_stacks)
+	end
 	ability.interval = ability.interval + 1
 	if ability.interval % 3 == 0 then
-		local particleName = "particles/units/heroes/hero_tidehunter/tidehunter_gush_splash.vpcf"
+		local position = target:GetAbsOrigin() + RandomVector(RandomInt(0, 160))
+		local particleName = "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(300, 1, 1))
 		Timers:CreateTimer(0.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
+		EmitSoundOn("RPCItems.OceanTempest.Splash", target)
 	end
+	if ability:GetGemValue("emerald") > 0 then
+		local remaining_duration = target:FindModifierByName("modifier_ocean_tempest_pallium_channeling"):GetRemainingTime()
+		local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_OCEAN_TEMPEST_PALLIUM_EMERALD_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				if not enemy:HasModifier("modifier_ocean_tempest_typhoon") then
+					if not enemy.jumpLock then
+						local proc = Filters:GetProc(target, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD1))
+						if proc then
+							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ocean_tempest_typhoon", {duration = remaining_duration})
+							if enemy.ocean_tempest_pfx then
+								ParticleManager:DestroyParticle(enemy.ocean_tempest_pfx, false)
+							end
+							enemy.ocean_tempest_pfx = ParticleManager:CreateParticle("particles/econ/events/ti7/cyclone_ti7.vpcf", PATTACH_ABSORIGIN, enemy)
+							ParticleManager:SetParticleControl(enemy.ocean_tempest_pfx, 0, enemy:GetAbsOrigin())
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function ocean_tempest_typhoon_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local newFV = WallPhysics:rotateVector(target:GetForwardVector(), 2*math.pi/20)
+	target:SetForwardVector(newFV)
+	if not target.ocean_tempest_lift_speed then
+		target.ocean_tempest_lift_speed = 3
+	end
+	local distanceFromGround = target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target)
+	if not target.jumpLock then
+		if distanceFromGround < 240 then
+			target.ocean_tempest_lift_speed = target.ocean_tempest_lift_speed + 0.4
+			target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.ocean_tempest_lift_speed))
+		else
+			target.ocean_tempest_lift_speed = target.ocean_tempest_lift_speed - 0.4
+			target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.ocean_tempest_lift_speed))		
+		end
+	end
+end
+
+function ocean_tempest_typhoon_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	target.ocean_tempest_lift_speed = nil
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_tempest_falling", {duration = 3})
+	ParticleManager:DestroyParticle(target.ocean_tempest_pfx, false)
+	target.ocean_tempest_pfx = nil
+end
+
+function ocean_tempest_falling_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local newFV = WallPhysics:rotateVector(target:GetForwardVector(), 2*math.pi/20)
+	target:SetForwardVector(newFV)
+	local distanceFromGround = target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target)
+	if distanceFromGround > 10 then
+		target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0,0,30))
+	else
+		target:RemoveModifierByName("modifier_ocean_tempest_falling")
+	end
+end
+
+function ocean_tempest_falling_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	local damage = hero:GetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster)*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_EMERALD2))
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_WIND)
+end
+
+function ocean_tempest_channel_end(event)
+	local hero = event.caster.hero
+	StopSoundEvent("RPCItems.OceanTempest.Event", hero)
 end
 
 function raven_idol_think(event)
@@ -3104,9 +3136,11 @@ function mageplate_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local armorBonus = (target:GetIntellect() / 10) * 1
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_mageplate_armor", {})
-	target:SetModifierStackCount("modifier_mageplate_armor", ability, armorBonus)
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_infused_mageplate_shield", {})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_infused_mageplate_shield", caster) + 1, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_INFUSED_MAGEPLATE_GEM_EMERALD))
+		target:SetModifierStackCount("modifier_infused_mageplate_shield", caster, newStacks)
+	end
 end
 
 function mageplate_take_damage(event)
@@ -3114,44 +3148,25 @@ function mageplate_take_damage(event)
 	local ability = event.ability
 	local caster = event.caster
 	local damage = event.damage
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_infused_mageplate_stack", {duration = 15})
-	local current_stack = target:GetModifierStackCount("modifier_infused_mageplate_stack", ability)
-	local newStack = math.min(current_stack + 1, 100)
-	target:SetModifierStackCount("modifier_infused_mageplate_stack", ability, newStack)
-	local manaRestore = damage * 0.05
-	target:GiveMana(manaRestore)
-	if not ability.particles then
-		ability.particles = 0
-	end
-	if ability.particles < 6 then
-		CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", target, 1)
-		ability.particles = ability.particles + 1
-		Timers:CreateTimer(1, function()
-			ability.particles = ability.particles - 1
-		end)
-	end
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_mageplate_intelligence", {duration = 15})
-	local intBonus = target:GetLevel() * 1.2 * newStack
-	target:SetModifierStackCount("modifier_mageplate_intelligence", caster, intBonus)
+	local manaRestore = target:GetMaxMana()*(ITEM_RPC_INFUSED_MAGEPLATE_MANA_RESTORE_PCT/100)
+	target:GiveMana(manaRestore)
+	local limitKey = target:GetPlayerOwnerID() .. '_mageplate_particles'
+	Util.Common:LimitPerTime(6, 1, limitKey, function()
+		CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", target, 1)
+		PopupMana(target, manaRestore)
+	end)
 end
 
 function mageplate_buff_end(event)
 	local caster = event.caster
 	local target = event.target
-	local manaPercentage = target:GetMana() / target:GetMaxMana()
-	local ability = event.ability
-	ability.manaPercentage = manaPercentage
 end
 
 function mageplate_buff_end_int(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	Timers:CreateTimer(0.03, function()
-		local manaSet = ability.manaPercentage * target:GetMaxMana()
-		target:SetMana(manaSet)
-	end)
 end
 
 function nobility_think(event)
@@ -3547,9 +3562,8 @@ function nightmare_rider_attackland(event)
 	local caster = event.caster
 	local attacker = event.attacker
 	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_nightmare_rider_stacks", {})
-	local newStacks = math.min(attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", caster) + 1, ITEM_RPC_NIGHTMARE_RIDER_MANTLE_MAX_STACKS)
-	attacker:SetModifierStackCount("modifier_nightmare_rider_stacks", caster, newStacks)
+	Filters:NightmareRiderStacksGain(attacker, 1)
+
 end
 
 function leon_think(event)
@@ -3557,25 +3571,41 @@ function leon_think(event)
 	local ability = event.ability
 	local caster = event.caster
 
-	local primeAttribute = target:GetPrimaryAttribute()
-	if primeAttribute == 0 then
-		local strStacks = math.floor(target:GetBaseStrength() * ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100, 0)
+	local primeAttribute = target:GetRoshpitPrimaryAttribute()
+	local prime_mult = ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_EMERALD)/100
+	if primeAttribute == ROSHPIT_ATTRIBUTE_STRENGTH then
+		local strStacks = math.floor(target:GetBaseStrength() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})
 		target:SetModifierStackCount("modifier_gold_plate_of_leon_str", ability, strStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
-	elseif primeAttribute == 1 then
-		local agiStacks = math.floor(target:GetBaseAgility() * ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100, 0)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_spr")
+	elseif primeAttribute == ROSHPIT_ATTRIBUTE_AGILITY then
+		local agiStacks = math.floor(target:GetBaseAgility() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_agi", {})
 		target:SetModifierStackCount("modifier_gold_plate_of_leon_agi", ability, agiStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
-	elseif primeAttribute == 2 then
-		local intStacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100, 0)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_spr")
+	elseif primeAttribute == ROSHPIT_ATTRIBUTE_INTELLIGENCE then
+		local intStacks = math.floor(target:GetBaseIntellect() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_int", {})
 		target:SetModifierStackCount("modifier_gold_plate_of_leon_int", ability, intStacks)
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
 		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_spr")
+	elseif primeAttribute == ROSHPIT_ATTRIBUTE_SPIRIT then
+		local sprStacks = math.floor(target:GetBaseSpirit() * prime_mult, 0)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_spr", {})
+		target:SetModifierStackCount("modifier_gold_plate_of_leon_spr", ability, sprStacks)
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_agi")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_str")
+		target:RemoveModifierByName("modifier_gold_plate_of_leon_int")
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_leon_extra_atk", {})
+		local stacks = Filters:GetPrimaryAttributeMultiple(target, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_SAPPHIRE))
+		target:SetModifierStackCount("modifier_leon_extra_atk", caster, stacks)
 	end
 end
 
@@ -3620,20 +3650,21 @@ end
 
 function dragon_scale_armor_think(event)
 	local target = event.target
+	local ability = event.ability
 	local gem = event.gem
-	local stats = 0
+	local attack_damage = 0
 	if gem == "sapphire" then
-		stats = target:GetIntellect()
+		attack_damage = (ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))*target:GetIntellect()
 	elseif gem == "ruby" then
-		stats = target:GetStrength()
+		attack_damage = (ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_RUBY))*target:GetStrength()
 	elseif gem == "topaz" then
-		stats = target:GetAgility()
+		attack_damage = (ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_EMERALD))*target:GetAgility()
 	end
 	local ability = event.ability
 	local caster = event.caster
 	local modifier_name = "modifier_"..gem.."_dragon_scale_effect"
 	ability:ApplyDataDrivenModifier(caster, target, modifier_name, {})
-	target:SetModifierStackCount(modifier_name, caster, stats)
+	target:SetModifierStackCount(modifier_name, caster, attack_damage)
 end
 
 function giant_hunter_think(event)
@@ -3660,9 +3691,10 @@ function trials_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
+	damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_SAPPHIRE2))/100
+	damage = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, target, DAMAGE_TYPE_PHYSICAL, damage, ability:GetEntityIndex())
 	EmitSoundOn("Item.SacredTrial", target)
-	local radius = ITEM_RPC_SACRED_TRIALS_ARMOR_AOE_RADIUS
+	local radius = ITEM_RPC_SACRED_TRIALS_ARMOR_AOE_RADIUS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_EMERALD2)
 	local particleName = "particles/roshpit/items/sacred_trial.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
@@ -3673,7 +3705,7 @@ function trials_attack(event)
 	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyItemDamage(enemy, attacker, damage * ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG/100, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end
 
@@ -3687,6 +3719,30 @@ function trials_attack(event)
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
 	attacker:RemoveModifierByName("modifier_sacred_trials_attack_bonus")
+end
+
+function sacred_trials_think(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_RUBY1))
+		if proc then
+	        Filters:SacredTrialActivate(hero)
+		end
+	end
+end
+
+function sacred_trials_attack_land(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_SAPPHIRE1))
+		if proc then
+	        Filters:SacredTrialActivate(hero)
+		end
+	end
 end
 
 function gravekeeper_attack(event)
@@ -3843,11 +3899,22 @@ function mana_wall_think(event)
 	local target = event.target
 	local ability = event.ability
 	local currentmana = target:GetMana()
-	if currentmana > ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR then
+	if currentmana > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_mana_wall_armor", {})
-		target:SetModifierStackCount("modifier_mystic_mana_wall_armor", caster, currentmana * ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_DIVISOR / ITEM_RPC_MYSTIC_MANA_WALL_MANA_TO_ARMOR)
+		target:SetModifierStackCount("modifier_mystic_mana_wall_armor", caster, currentmana * ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_PER_MANA)
 	else
 		target:RemoveModifierByName("modifier_mystic_mana_wall_armor")
+	end
+	local max_mana_stacks = 0
+	max_mana_stacks = max_mana_stacks + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_MYSTIC_MANA_WALL_GEM_RUBY)*target:GetStrength()
+	max_mana_stacks = max_mana_stacks + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MYSTIC_MANA_WALL_GEM_EMERALD)*target:GetAgility()
+	max_mana_stacks = max_mana_stacks + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MYSTIC_MANA_WALL_GEM_AMETHYST)*target:GetSpirit()
+	if max_mana_stacks > 0 then
+		if not target:HasModifier("modifier_mystic_mana_wall_max_mana") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_mystic_mana_wall_max_mana", {})
+		end
+		target:SetModifierStackCount("modifier_mystic_mana_wall_max_mana", caster, max_mana_stacks)
+	else
 	end
 end
 
@@ -4371,66 +4438,24 @@ function igneous_canine_damage(event)
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
 
-function hurricane_vest_create(event)
 
-	local caster = event.caster.hero
-	local ability = event.ability
-	local fv = caster:GetForwardVector()
-	ability.pushFV = fv
-	local hurricaneStartPosition = caster:GetAbsOrigin()
-	local range = ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE
-	local start_radius = 220
-	local end_radius = 220
-	local speed = ITEM_RPC_HURRICANE_VEST_HURRICANE_SPEED
-	local projectileParticle = "particles/roshpit/items/hurricane_vest.vpcf"
-	EmitSoundOn("RPCItem.HurricaneVestNew", caster)
-	if not ability.cast_number then
-		ability.cast_number = 0
-	end
-	ability.cast_number = ability.cast_number + 1
-	ability.caster = caster
-	for i = 1, ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT do
-		local shotVector = WallPhysics:rotateVector(fv, (2 * math.pi / ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT) * i)
-		local info =
-		{
-			Ability = caster.body,
-			EffectName = projectileParticle,
-			vSpawnOrigin = hurricaneStartPosition,
-			fDistance = range,
-			fStartRadius = start_radius,
-			fEndRadius = end_radius,
-			Source = event.caster,
-			StartPosition = "attach_origin",
-			bHasFrontalCone = true,
-			bReplaceExisting = false,
-			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			fExpireTime = GameRules:GetGameTime() + 5.0,
-			bDeleteOnHit = false,
-			vVelocity = shotVector * speed,
-			bProvidesVision = false,
-		}
-		ProjectileManager:CreateLinearProjectile(info)
-	end
-end
 
 function hurricane_vest_hit(event)
 	local target = event.target
 	local ability = event.ability
-	local caster = ability.caster
-	if not caster then
-	end
-	if not target.hurricane_cast_number then
-		target.hurricane_cast_number = 0
-	end
-	if ability.cast_number ~= target.hurricane_cast_number then
-		target.hurricane_cast_number = ability.cast_number
-		local damage = ITEM_RPC_HURRICANE_VEST_DMG_AMP * (caster:GetLevel() / 120 * (ITEM_RPC_HURRICANE_VEST_MAX_DISTANCE - WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin()))) ^ ITEM_RPC_HURRICANE_VEST_DMG_EXP_SCALE
-		Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, caster.body, RPC_ELEMENT_WIND, RPC_ELEMENT_ICE)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = ITEM_RPC_HURRICANE_VEST_SLOW_DUR})
+	local hero = ability.caster
+	local caster = hero.InventoryUnit
 
+	local atk_damage_mult = (ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_RUBY2))/100
+	local damage = atk_damage_mult*OverflowProtectedGetAverageTrueAttackDamage(hero) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HURRICANE_VEST_GEM_EMERALD1)*hero:GetAgility() + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HURRICANE_VEST_GEM_SAPPHIRE2)
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
+
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hurricane_vest_slow", {duration = ITEM_RPC_HURRICANE_VEST_SAPPHIRE_SLOW_DURATION})
+		target:SetModifierStackCount("modifier_hurricane_vest_slow", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HURRICANE_VEST_GEM_SAPPHIRE1))
 	end
+
+
 end
 
 function new_ruby_dragon_think(event)
@@ -6143,16 +6168,19 @@ function erudite_teacher_start(event)
 		ability.rubick_apprentice:SetControllableByPlayer(hero:GetPlayerID(), true)
 	    ability.rubick_apprentice.hero = hero
 
-		local apprentice_hp = Filters:AdjustItemDamage(hero, hero:GetMaxHealth()*ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_HEALTH_MULT, nil)
-		local attack_damage = OverflowProtectedGetAverageTrueAttackDamage(hero)
-		local apprentice_damage = Filters:AdjustItemDamage(hero, attack_damage*ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ATTACK_MULT, nil)
-		local apprentice_armor = Filters:AdjustItemDamage(hero, hero:GetPhysicalArmorValue(false)*ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ARMOR_MULT, nil)
-		ability.rubick_apprentice:SetMaxHealth(apprentice_hp)
-		ability.rubick_apprentice:SetBaseMaxHealth(apprentice_hp)
-		ability.rubick_apprentice:SetHealth(apprentice_hp)
+
 		ability.rubick_apprentice.robes = ability
-		ability.rubick_apprentice:SetPhysicalArmorBaseValue(apprentice_armor)
-		Filters:SetAttackDamage(ability.rubick_apprentice, apprentice_damage)
+
+		ability.rubick_apprentice:AdjustSummon(hero, true, ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_HEALTH_MULT, ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ATTACK_MULT, 1, 1, 1, 1)
+
+        if ability:GetGemValue("ruby") > 0 then
+            local newHealth = ability.rubick_apprentice:GetMaxHealth() + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_GEM_RUBY)
+            ability.rubick_apprentice:SetMaxHPandHealToFull(newHealth)
+        end
+        if ability:GetGemValue("sapphire") > 0 then
+            local newDamage = ability.rubick_apprentice:GetAttackDamage() + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_GEM_SAPPHIRE)
+            Filters:SetAttackDamage(ability.rubick_apprentice, newDamage)
+        end
 
 		ability:ApplyDataDrivenModifier(caster, ability.rubick_apprentice, "modifier_apprentice_ai", {})
 		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force.vpcf", ability.rubick_apprentice, 3)
@@ -6327,21 +6355,6 @@ function dead_apprentice(event)
 	ability.rubick_apprentice = nil
 	ability.apprentice_abilities_table = apprentice_abilities_table
 	ability.apprentice_death_time = GameRules:GetGameTime()
-	-- Timers:CreateTimer(10, function()
-	-- 	if hero:HasModifier("modifier_erudite_teacher") then
-	-- 		print("IN TIMER :)")
-	-- 		if IsValidEntity(ability) then
-	-- 			print("SUMMON ANOTHER")
-	-- 			local eventTable = {}
-	-- 			eventTable.ability = ability
-	-- 			eventTable.caster = hero.InventoryUnit
-	-- 			eventTable.target = hero
-	-- 			eventTable.abilities_table = apprentice_abilities_table
-	-- 			erudite_teacher_start(eventTable)
-
-	-- 		end
-	-- 	end
-	-- end)
 end
 
 function erudite_teacher_robes_think(event)
@@ -6349,7 +6362,8 @@ function erudite_teacher_robes_think(event)
 	local caster = event.caster
 	local hero = event.target
 	if ability.apprentice_abilities_table and ability.apprentice_death_time then
-		if GameRules:GetGameTime() - ability.apprentice_death_time > 10 then
+		local respawn_time = 10 - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_GEM_EMERALD)
+		if GameRules:GetGameTime() - ability.apprentice_death_time > respawn_time then
 			local abilities_table = ability.apprentice_abilities_table
 
 			local eventTable = {}
@@ -6359,7 +6373,6 @@ function erudite_teacher_robes_think(event)
 			eventTable.abilities_table = ability.apprentice_abilities_table
 			erudite_teacher_start(eventTable)
 
-			-- ability.apprentice_abilities_table = nil
 		end
 	end
 end
@@ -6419,7 +6432,8 @@ function nethergrasp_thinker(event)
 			       			StartAnimation(hero, {duration = 0.2, activity = ACT_DOTA_ATTACK, rate = 2.0})
 			       		end
 			       	end
-			        if distance > ITEM_RPC_NETHERGRASP_PALISADE_BREAK_DISTANCE then
+			       	local break_distance = ITEM_RPC_NETHERGRASP_PALISADE_BREAK_DISTANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NETHERGRASP_PALISADE_GEM_RUBY1)
+			        if distance > break_distance then
 			        	table.insert(grasp_break_table, nether.entindex)
 			        end
 			        if not target:IsAlive() then
@@ -6501,13 +6515,13 @@ function nethergrasp_grip_thinker(event)
 			return false
 		end
 		local range = hero:Script_GetAttackRange()
-
+		local pullSpeedBonus = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NETHERGRASP_PALISADE_GEM_SAPPHIRE2)
 		if nether.distance > range then
-			local pullSpeed = math.min(15, GameRules:GetGameTime() - nether.create_time + 5)
-			pullSpeed = math.max(pullSpeed, 5)
-			if target.type and target.type == ENEMY_TYPE_MINI_BOSS then
+			local pullSpeed = math.min(18 + pullSpeedBonus, GameRules:GetGameTime() - nether.create_time + 5 + pullSpeedBonus)
+			pullSpeed = math.max(pullSpeed, 5 + pullSpeedBonus)
+			if target:GetEnemyTier() == ENEMY_TYPE_MINI_BOSS then
 				pullSpeed = pullSpeed*0.6
-			elseif target.type and target.type == ENEMY_TYPE_BOSS then
+			elseif target:GetEnemyTier() == ENEMY_TYPE_BOSS then
 				pullSpeed = pullSpeed*0.3
 			end
 			local pullDirection = (hero:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()
@@ -7564,5 +7578,224 @@ function gryffin_aura_think(event)
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
 	if distance > caster.aoe then
 		target:RemoveModifierByName("modifier_ivory_gryffin_aura_effect")
+	end
+end
+
+function feronia_attack_land(event)
+	local hero = event.attacker
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GUARD_OF_FERONIA_GEM_SAPPHIRE))
+		local limitKey = caster:GetPlayerOwnerID() .. '_guard_of_feronia'
+		if proc then
+			Util.Common:LimitPerTime(ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND, 1, limitKey, function()
+				Filters:ApplyFeronia(hero, -10, true)
+			end)
+		end
+	end
+end
+
+function feronia_shield_expire(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+
+	if ability:GetGemValue("amethyst") > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARD_OF_FERONIA_GEM_AMETHYST)/100
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			EmitSoundOn("RPCItems.Feronia.StarfallStart", hero)
+		end
+		if #enemies > 1 then
+			for i = 1, #enemies, 1 do
+				local enemy = enemies[i]
+				Timers:CreateTimer((i-1)*0.05, function()
+					CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_mage_starfall_attack.vpcf", enemy, 1)
+					Timers:CreateTimer(0.5, function()
+						Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+						EmitSoundOn("RPCItems.Feronia.StarfallHit", enemy)
+					end)
+				end)
+			end
+		elseif #enemies == 1 then
+			for i = 1, ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS, 1 do
+				local enemy = enemies[1]
+				Timers:CreateTimer((i-1)*0.2, function()
+					CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_mage_starfall_attack.vpcf", enemy, 1)
+					Timers:CreateTimer(0.5, function()
+						Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+						EmitSoundOn("RPCItems.Feronia.StarfallHit", enemy)
+					end)
+				end)
+			end
+		end	
+	end
+end
+
+function outland_cuirass_thinker(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("emerald") > 0 then
+		if hero:IsStunned() then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_outland_stone_cuirass_emerald", {})
+		else
+			hero:RemoveModifierByName("modifier_outland_stone_cuirass_emerald")
+		end
+	end
+end
+
+function ruins_leather_init(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		local as_stacks = ITEM_RPC_RADIANT_RUINS_LEATHER_AS*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100
+		local ms_stacks = ITEM_RPC_RADIANT_RUINS_LEATHER_MS*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100
+
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_radiant_leather_sapphire_as", {})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_radiant_leather_sapphire_ms", {})
+		hero:SetModifierStackCount("modifier_radiant_leather_sapphire_as", caster, as_stacks)
+		hero:SetModifierStackCount("modifier_radiant_leather_sapphire_ms", caster, ms_stacks)
+	end
+end
+
+
+function flood_robe_ai_on(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(900)
+end
+
+function flood_robe_ai_off(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(0)
+end
+
+function flood_robe_ai_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
+	local fire_breath_ability = caster:FindAbilityByName("ruby_dragon_flame_breath")
+	if fire_breath_ability:IsFullyCastable() then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*500, nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local newOrder = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = fire_breath_ability:entindex(),
+			}
+			ExecuteOrderFromTable(newOrder)
+			return			
+		end
+	end
+end
+
+function flood_water_elemental_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
+	if caster:HasAbility("water_flood_nuke") then
+		local nukeAbility = caster:FindAbilityByName("water_flood_nuke")
+		if nukeAbility:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = nukeAbility:entindex(),
+					Position = castPoint
+				}
+				ExecuteOrderFromTable(newOrder)
+				return
+			end
+		end
+	end
+end
+
+function flood_elemental_wave_hit(event)
+	local target = event.target
+	local caster = event.caster
+	local hero = caster.hero
+	if IsValidEntity(hero) then
+		local ability = caster.hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROBE_OF_FLOODING_GEM_EMERALD2)/100
+		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+	end
+end
+
+function flood_robe_end(event)
+	local ability = event.ability
+	if ability.elemental_table then
+		for i = 1, #ability.elemental_table, 1 do
+			if ability.elemental_table[i] and IsValidEntity(ability.elemental_table[i]) then
+		        local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
+		        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ability.elemental_table[i])
+		        local origin = ability.elemental_table[i]:GetAbsOrigin()
+		        ParticleManager:SetParticleControl(particle1, 0, origin)
+		        ParticleManager:SetParticleControl(particle1, 1, Vector(300, 2, 160))
+		        Timers:CreateTimer(3, function()
+		            ParticleManager:DestroyParticle(particle1, false)
+		        end)
+		        EmitSoundOn("RPCItems.OceanTempest.Splash", ability.elemental_table[i])
+				UTIL_Remove(ability.elemental_table[i])
+			end
+		end
+	end
+end
+
+function flood_water_elemental_always_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), hero:GetAbsOrigin())
+	if distance > 2500 then
+        local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
+        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+        local origin = caster:GetAbsOrigin()
+        ParticleManager:SetParticleControl(particle1, 0, origin)
+        ParticleManager:SetParticleControl(particle1, 1, Vector(300, 2, 160))
+        Timers:CreateTimer(3, function()
+            ParticleManager:DestroyParticle(particle1, false)
+        end)
+        EmitSoundOn("RPCItems.OceanTempest.Splash", caster)
+		FindClearSpaceForUnit(caster, hero:GetAbsOrigin()+RandomVector(200), false)
+        local particleName = "particles/units/heroes/hero_slardar/slardar_crush_water.vpcf"
+        local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+        local origin = caster:GetAbsOrigin()
+        ParticleManager:SetParticleControl(particle1, 0, origin)
+        ParticleManager:SetParticleControl(particle1, 1, Vector(300, 2, 160))
+        Timers:CreateTimer(3, function()
+            ParticleManager:DestroyParticle(particle1, false)
+        end)
+        EmitSoundOn("RPCItems.OceanTempest.Splash", caster)
 	end
 end

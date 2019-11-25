@@ -258,31 +258,31 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"(T1) Glyph of Rattling"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_1_1"		"[T1-1] Glyph of Rattling"
 		"item_rpc_mountain_protector_glyph_1_1_description" 				"Противники не могут восполнять здоровье во время оглушения от Mountain Protector."
 		
 		"DOTA_Tooltip_modifier_mountain_protector_glyph_1_1_cant_heal"      "Glyph of Rattling"
         "DOTA_Tooltip_modifier_mountain_protector_glyph_1_1_cant_heal_Description"  "Противники не могут восполнять здоровье во время оглушения от Mountain Protector."
 		
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"(T2) Glyph of Guardians"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_2_1"		"[T2-1] Glyph of Guardians"
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"Весь входящий урон дополнительно снижается на <% MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION %>% во время активного умения (W) @Ability2."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"(T3) Glyph of Catastrophe"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"[T3-1] Glyph of Catastrophe"
 		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 пробивает иммунитет к магии и наносит чистый урон."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"(T4) Glyph of Mountain Force"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"[T4-1] Glyph of Mountain Force"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"С шансом в <% MOUNTAIN_PROTECTOR_GLYPH_4_1_Q_MULTICAST_CHANCE %>% с прочтением (Q) @Ability1 герой выпустит две волны."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_1"		"(T5) Glyph of Emberstones"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_1"		"[T5-1] Glyph of Emberstones"
 		"item_rpc_mountain_protector_glyph_5_1_description" 				"С шансом в <% MOUNTAIN_PROTECTOR_GLYPH_5_1_E_REFRESH_CHANCE %>% время перезарядки умения (E) @Ability3 будет сброшено."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_6_1"		"(T6) Glyph of Aeon Schism"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_6_1"		"[T6-1] Glyph of Aeon Schism"
 		"item_rpc_mountain_protector_glyph_6_1_description" 				"Снижает время перезарядки способности (R) @Ability4 на <% MOUNTAIN_PROTECTOR_GLYPH_6_1_R_CD_REDUCTION %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_7_1"		"(T7) Glyph of Mountain's Revenge"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_7_1"		"[T7-1] Glyph of Mountain's Revenge"
 		"item_rpc_mountain_protector_glyph_7_1_description" 				"Пока активно умение (W) @Ability2 все атакующие героя враги с шансом в <% MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN_CHANCE %>% будут оглушены на <% MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN %> секунду."
 
-		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"(Immortal) Glyph of Mountain's Peak"
+		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_5_a"		"[T5-a] Glyph of Mountain's Peak"
 		"item_rpc_mountain_protector_glyph_5_a_description" 				"Эпицентр (R) @Ability4 следует за героем. Дополнительно увеличивает силу на <% MOUNTAIN_PROTECTOR_GLYPH_5_A_STR %>."
 		
 		//Weapons

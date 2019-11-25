@@ -6,7 +6,7 @@ function general_hero_think(event)
 	local agility = math.floor(target:GetAgility())
 	local intelligence = math.floor(target:GetIntellect())
 	local spirit = math.floor(target:GetSpirit())
-	local primaryAttribute = target:GetPrimaryAttribute()
+	local primaryAttribute = target:GetRoshpitPrimaryAttribute()
 	local healthRegen = target:GetHealthRegen()
 	local manaRegen = (target:GetBaseManaRegen() + target:GetBonusManaRegen())
 	-- magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100

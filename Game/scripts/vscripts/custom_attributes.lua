@@ -188,11 +188,6 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 		strength = strength - modifier.stat_bonus
 	end
 
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_1')
-	if modifier then
-		strength = strength - modifier:GetStackCount()
-	end
-
 	modifier = self:FindModifierByName("modifier_w_4_str_decrease")
 	if modifier then
 		strength = strength + modifier:GetStackCount()
@@ -240,11 +235,6 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier.stat_bonus
 	end
 
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_2')
-	if modifier then
-		agility = agility - modifier:GetStackCount()
-	end
-
 	modifier = self:FindModifierByName("modifier_w_4_agi_increase")
 	if modifier then
 		agility = agility - modifier:GetStackCount()
@@ -256,7 +246,6 @@ end
 function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	local intellect = self:GetIntellect()
 	local modifier = nil
-
 	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_int')
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
@@ -282,11 +271,6 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 		intellect = intellect - modifier.stat_bonus
 	end
 
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_3')
-	if modifier then
-		intellect = intellect - modifier:GetStackCount()
-	end
-
 	modifier = self:FindModifierByName("modifier_w_4_int_increase")
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
@@ -304,6 +288,14 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 		spirit = spirit - modifier:GetStackCount()
 	end
 	modifier = self:FindModifierByName('modifier_empyreal_spr')
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_spr')
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+	modifier = self:FindModifierByName('modifier_legion_vestments_effect_spr')
 	if modifier then
 		spirit = spirit - modifier:GetStackCount()
 	end
@@ -335,6 +327,7 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitMagicArmor(0)
 		unit:SetBaseRoshpitArmorPierce(0)
 		unit:SetBaseRoshpitSpellPierce(0)
+		unit:SetRoshpitPrimaryAttribute(unit:GetKeyValue("RoshpitPrimaryAttribute", false))
 		CustomAttributes:SetAttributes(unit)
 	else
 		unit:SetEnemyType()
@@ -349,6 +342,26 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		end
 	end
 	unit:CalculateAndSaveRoshpitAttributes()
+end
+
+function CDOTA_BaseNPC_Hero:SetRoshpitPrimaryAttribute(attribute)
+	self.roshpit_attributes.primary_attribute = attribute
+end
+
+function CDOTA_BaseNPC_Hero:GetRoshpitPrimaryAttribute()
+	local prime_attr = self.roshpit_attributes.primary_attribute
+	if self:HasModifier("modifier_gold_plate_of_leon") then
+		if self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("ruby") > 0 then
+			prime_attr = ROSHPIT_ATTRIBUTE_STRENGTH
+		end
+	elseif self:HasModifier("modifier_ruby_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_STRENGTH
+	elseif self:HasModifier("modifier_topaz_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_AGILITY
+	elseif self:HasModifier("modifier_sapphire_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_INTELLIGENCE
+	end
+	return prime_attr
 end
 
 function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, armor_mult, magic_armor_mult, armor_pierce_mult, spell_pierce_mult)
@@ -942,12 +955,37 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
 		armor_modify = armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
 	end
-
-	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE
+	if unit:HasModifier("modifier_hermit_spike_shell_quills") then
+		local quill_modifier = unit:FindModifierByName("modifier_hermit_spike_shell_quills")
+		local hermit_shell = quill_modifier:GetAbility()
+		armor_modify = armor_modify + hermit_shell:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_AMETHYST)*quill_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_infused_mageplate") then
+		armor_modify = armor_modify + ITEM_RPC_INFUSED_MAGEPLATE_ARMOR_PER_INT*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_mystic_mana_wall_armor") then
+		armor_modify = armor_modify + unit:FindModifierByName("modifier_mystic_mana_wall_armor"):GetStackCount()
+	end
+	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR)
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_RUBY))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_RUBY))
+	end
+	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		armor_modify = armor_modify - (armor + armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
+		armor_modify = armor_modify - (armor + armor_modify)*(ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION/100)
 	end
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
@@ -1033,14 +1071,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("item_rpc_dark_arts_vestments") then
 		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
 	end
-	Util.Modifier:SimpleEvent(unit, 'GetBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
 			magic_armor = magic_armor + result
 		end
 	)
 
 	local magic_armor_modify = 0
-	Util.Modifier:SimpleEvent(unit, 'GetMagicArmorBonus', { MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS }, { }, 
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitMagicArmorBonus', { MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
 			magic_armor_modify = magic_armor_modify + result
 		end
@@ -1421,12 +1459,41 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
         local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
         magic_armor_modify = magic_armor_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
     end
+	if unit:HasModifier("modifier_infused_mageplate") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY)*unit:GetStrength()
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = unit:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			magic_armor_modify = magic_armor_modify + radiant_leather:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_AMETHYST)
+			if unit:HasModifier("modifier_radiant_ruins_leather") then
+				magic_armor_modify = magic_armor_modify + (radiant_leather:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_AMETHYST) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
+	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
 
-	-- FINAL STEP DEFILER
+	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
-		magic_armor_modify = magic_armor_modify  - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
+		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
+		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(mantle:GetFinalGemPropertyValue("ruby", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_RUBY1)/100)
 	end
 
 	-- WRAITH CROWN ETHERAL FORM - 0 MAGIC ARMOR
@@ -1622,6 +1689,37 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_bladestorm_vest_buff") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_hermit_spike_shell") then
+		local spike_shell = unit:FindModifierByName("modifier_hermit_spike_shell"):GetAbility()
+		if spike_shell:GetGemValue("sapphire") > 0 then
+			armor_pierce_modify = armor_pierce_modify + (100-unit:GetHealthPercent())*spike_shell:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_SAPPHIRE)
+		end
+	end
+	if unit:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = unit:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			armor_pierce_modify = armor_pierce_modify + radiant_leather:GetFinalGemPropertyValue("ruby", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_RUBY)
+			if unit:HasModifier("modifier_radiant_ruins_leather") then
+				armor_pierce_modify = armor_pierce_modify + (radiant_leather:GetFinalGemPropertyValue("ruby", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_RUBY) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
+	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_EMERALD))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI)
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_EMERALD))
+	end
+
+	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
+	if unit:HasModifier("modifier_golden_war_plate") then
+		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + unit:GetRoshpitArmor()*((ITEM_RPC_GOLDEN_WAR_PLATE_ARMOR_TO_ARMOR_PIERCE + warplate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_SAPPHIRE))/100)
+		armor_pierce_modify = armor_pierce_modify + warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -1856,6 +1954,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
         local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
         spell_pierce_modify = spell_pierce_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
     end
+    if unit:HasModifier("modifier_golden_war_plate") then
+    	local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify - warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
+    end
+    if unit:HasModifier("modifier_ice_quill_carapace_stack") then
+    	local ice_quill_stacks_modifier = unit:FindModifierByName("modifier_ice_quill_carapace_stack")
+    	local ice_quill = ice_quill_stacks_modifier:GetAbility()
+    	spell_pierce_modify = spell_pierce_modify + ice_quill:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_AMETHYST)*ice_quill_stacks_modifier:GetStackCount()
+    end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -1955,7 +2071,28 @@ function CustomAttributes:SetAttributes(hero)
 	local str_bonus = 0
 	local agi_bonus = 0
 	local int_bonus = 0
-	local spirit_bonus = 0
+	local spr_bonus = 0
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitStrengthBonus', { MODIFIER_ROSHPIT_STRENGTH_BONUS }, { }, 
+		function(result, data)
+			str_bonus = str_bonus + result
+		end
+	)	
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitAgilityBonus', { MODIFIER_ROSHPIT_AGILITY_BONUS }, { }, 
+		function(result, data)
+			agi_bonus = agi_bonus + result
+		end
+	)	
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitIntelligenceBonus', { MODIFIER_ROSHPIT_INTELLIGENCE_BONUS }, { }, 
+		function(result, data)
+			int_bonus = int_bonus + result
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitSpiritBonus', { MODIFIER_ROSHPIT_SPIRIT_BONUS }, { }, 
+		function(result, data)
+			spr_bonus = spr_bonus + result
+		end
+	)
+
 	local heroName = hero:GetUnitName()
 	if hero:HasModifier("modifier_flamewaker_rune_r_3") then
 		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
@@ -1973,18 +2110,18 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks
 		agi_bonus = agi_bonus + stacks
 		int_bonus = int_bonus + stacks
-		spirit_bonus = spirit_bonus + stacks
+		spr_bonus = spr_bonus + stacks
 	end
 	if hero:HasModifier("modifier_apollo_stats_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_apollo_stats_invisible", hero)
 		str_bonus = str_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 		agi_bonus = agi_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
-		spirit_bonus = spirit_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
+		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 	end
 	if hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if hero:HasAbility("seinaru_hands_of_hikari") and hero.w_4_level then
-			spirit_bonus = spirit_bonus + hero.w_4_level*SEINARU_W4_SPIRIT
+			spr_bonus = spr_bonus + hero.w_4_level*SEINARU_W4_SPIRIT
 		end
 		if hero:HasAbility("seinaru_odachi_leap") and hero.e_4_level then
 			agi_bonus = agi_bonus + hero.e_4_level*SEINARU_E4_AGILITY
@@ -1993,11 +2130,11 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:GetUnitName() == "npc_dota_hero_huskar" then
 		local e_4_level = hero:GetRuneValue("e", 4)
 		int_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
-		spirit_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
+		spr_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
 	end
 	if hero:HasModifier("modifier_auriun_rune_q_4_effect") then
 		local modifier = hero:FindModifierByName("modifier_auriun_rune_q_4_effect")
-		spirit_bonus = spirit_bonus + modifier:GetStackCount()*AURIUN_Q4_SPIRIT
+		spr_bonus = spr_bonus + modifier:GetStackCount()*AURIUN_Q4_SPIRIT
 	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
@@ -2070,13 +2207,13 @@ function CustomAttributes:SetAttributes(hero)
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
-			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 		end
 		if hero:HasModifier("modifier_shapeshift_yearbeast_d_d") then
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
-			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 		end
 	end
 	if hero:HasModifier("modifier_warlord_arcana2") then
@@ -2084,7 +2221,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		agi_bonus = agi_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		int_bonus = int_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
-		spirit_bonus = spirit_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+		spr_bonus = spr_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 	end
 	if hero:HasModifier("modifier_mask_of_mugato") and hero:IsSilenced() then
 		local helm = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
@@ -2092,7 +2229,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stat_bonus
 		agi_bonus = agi_bonus + stat_bonus
 		int_bonus = int_bonus + stat_bonus
-		spirit_bonus = spirit_bonus + stat_bonus
+		spr_bonus = spr_bonus + stat_bonus
 	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", SEINARU_ARCANA_Q3_AGI)
@@ -2105,14 +2242,14 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks * CustomAttributes.AXE_E1_STATS
 		agi_bonus = agi_bonus + stacks * CustomAttributes.AXE_E1_STATS
 		int_bonus = int_bonus + stacks * CustomAttributes.AXE_E1_STATS
-		spirit_bonus = spirit_bonus + stacks * CustomAttributes.AXE_E1_STATS
+		spr_bonus = spr_bonus + stacks * CustomAttributes.AXE_E1_STATS
 	end
 	if hero:HasModifier("modifier_astral_d_c_visible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_astral_d_c_visible")
 		str_bonus = str_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 		agi_bonus = agi_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
-		spirit_bonus = spirit_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
+		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 	end
 	-- if hero:HasModifier("modifier_arcane_intellect_visible") then
 	-- int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
@@ -2138,7 +2275,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 	end
 	if hero:HasModifier("modifier_auriun_rune_e_2") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_2", CustomAttributes.AURIUN_E2_INT)
@@ -2147,7 +2284,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 	end
 	if hero:HasModifier("modifier_auriun_rune_r_3_effect_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_r_3_effect_agility", 1)
@@ -2178,7 +2315,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_conjuror_arcana2") then
 		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
@@ -2219,37 +2356,37 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 	end
 	if hero:HasModifier("modifier_demon_farmer_aura_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_str", -1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_agi", -1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_int", -1)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_spi", -1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_spi", -1)
 	end
 	if hero:HasModifier("modifier_meta_slark_debuff") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
 	end
 	if hero:HasModifier("modifier_prison_shank_effect_sea") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
 	end
 	if hero:HasModifier("modifier_water_medusa_stat_loss") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
 	end
 	if hero:HasModifier("modifier_sea_oracle_stats_debuff") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_str", -1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_agi", -1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_int", -1)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_spi", -1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_spi", -1)
 	end
 	if hero:HasModifier("modifier_secret_keeper_agi_loss") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_secret_keeper_agi_loss", -1)
@@ -2268,42 +2405,51 @@ function CustomAttributes:SetAttributes(hero)
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_intelligence", 1)
-	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_spirit", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_intelligence", 1)
-	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_spirit", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_intelligence", 1)
-	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_spirit", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_intelligence", 1)
-	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_spirit", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_intelligence", 1)
-	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_spirit", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_intelligence", 1)
-	spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_spirit", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_spirit", 1)
 
 	-- SPECIAL ITEMS STATS --
 	if hero:HasModifier("modifier_bladestorm_vest_buff") then
 		agi_bonus = agi_bonus + hero:GetModifierStackCount("modifier_bladestorm_vest_buff", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADESTORM_VEST_GEM_SAPPHIRE2)
 	end
+	if hero:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = hero:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			agi_bonus = agi_bonus + radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD)
+			if hero:HasModifier("modifier_radiant_ruins_leather") then
+				agi_bonus = agi_bonus + (radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
+	end
 	if hero:HasModifier("modifier_empyreal_sunrise_robe") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_int", 1)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_spr", 1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_spr", 1)
 	end
 	if hero:HasModifier("modifier_eye_of_seasons_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_eye_of_seasons_stats", 1)
@@ -2316,18 +2462,20 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)
 		if hero:HasModifier("modifier_blazing_fury_spirit") then
-			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_spirit", 1)
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_spirit", 1)
 		end
 	end
 	if hero:HasModifier("modifier_legion_vestments") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_int", 1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_spr", 1)
 	end
 	if hero:HasModifier("modifier_gold_plate_of_leon") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_int", 1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_spr", 1)
 	end
 	if hero:HasModifier("modifier_mageplate_intelligence") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mageplate_intelligence", 1)
@@ -2361,7 +2509,7 @@ function CustomAttributes:SetAttributes(hero)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_spr") then
-			spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_spr", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_spr", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
@@ -2374,7 +2522,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_arcane_intellect_visible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INT)
@@ -2384,24 +2532,6 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_seinaru_immo_weapon_3_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", CustomAttributes.SEINARU_WEAPON_3_STR)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_1") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_1", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_1") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_1", 1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_2") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_2", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_2") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_2", 1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_3") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_3", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_3") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_3", 1)
 	end
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
@@ -2432,11 +2562,11 @@ function CustomAttributes:SetAttributes(hero)
 	strength = math.max(strength + str_bonus, 0)
 	agility = math.max(agility + agi_bonus, 0)
 	intelligence = math.max(intelligence + int_bonus, 0)
-	spirit = math.max(spirit + spirit_bonus, 0)
+	spirit = math.max(spirit + spr_bonus, 0)
 	hero.str_bonus = str_bonus
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus
-	hero.spirit_bonus = spirit_bonus
+	hero.spirit_bonus = spr_bonus
 	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), spirit = tostring(spirit)})
 end
 
@@ -2761,8 +2891,6 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
 	modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
 	modifier_movespeed_cap = 1400,
-	modifier_movespeed_cap_glyph = 620,
-	modifier_movespeed_cap_heat_wave = 640,
 	modifier_movespeed_cap_sonic = 750,
 	modifier_movespeed_cap_super = 5200,
 	modifier_movespeed_cap_shadow_walk_1 = 640,

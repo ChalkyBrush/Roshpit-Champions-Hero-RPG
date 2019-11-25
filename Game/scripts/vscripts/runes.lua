@@ -231,12 +231,6 @@ function setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
 	runeUnit4.foot.r_4 = 0
 end
 
-function Runes:RunesOnRespawn(hero)
-	if hero:HasModifier("modifier_neutral_glyph_3_1") then
-		hero:AddNewModifier(hero, nil, 'modifier_movespeed_cap_glyph', nil)
-	end
-end
-
 function Runes:GetMaxRuneLevel(rune_ability, hero)
 	if rune_ability:GetCaster() == hero.runeUnit then
 		return Runes.MAX_LEVEL_T1

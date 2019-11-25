@@ -221,28 +221,28 @@
         "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"                      "s"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"Glyph of Energy Focus"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"[T1-1] Glyph of Energy Focus"
 		"item_rpc_arkimus_glyph_1_1_description" 				"Energy Field's cells initiate at the smallest possible radius."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"Glyph of Mana Tide"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"[T2-1] Glyph of Mana Tide"
 		"item_rpc_arkimus_glyph_2_1_description" 				"Increases mana regen by <% ARKIMUS_GLYPH_2_1_MANA_REGEN %>."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"Glyph of Energy Cells"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"[T3-1] Glyph of Energy Cells"
 		"item_rpc_arkimus_glyph_3_1_description" 				"Energy field has an extra <% ARKIMUS_GLYPH_3_1_R_EXTRA_CELLS %> cells."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"Glyph of Acrobatics"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"[T4-1] Glyph of Acrobatics"
 		"item_rpc_arkimus_glyph_4_1_description" 				"Increases the maximum number of Orbital Leap Free Casts by <% ARKIMUS_GLYPH_4_1_E_FREE_CAST %>."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"Glyph of Mana Shield"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"[T5-1] Glyph of Mana Shield"
 		"item_rpc_arkimus_glyph_5_1_description" 				"<% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_PART_PCT %>% of damage taken drains from Mana instead of health, and the mana-damage is reduced by <% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"Glyph of Coil Warping"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"[T6-1] Glyph of Coil Warping"
 		"item_rpc_arkimus_glyph_6_1_description" 				"Increases the maximum number of Dimension Coil Free Casts by <% ARKIMUS_GLYPH_6_1_Q_FREE_CAST %>."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"Glyph of Arcane Electrocution"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"[T7-1] Glyph of Arcane Electrocution"
 		"item_rpc_arkimus_glyph_7_1_description" 				"Increases all <font color=\"#5CCDF9\">Lightning</font> damage by <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"Glyph of Zonal Separation"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"[T5-a] Glyph of Zonal Separation"
 		"item_rpc_arkimus_glyph_5_a_description" 				"Active Energy Cells absorb 1 instance of Magic or Pure damage and are subsequently destroyed."
 
 

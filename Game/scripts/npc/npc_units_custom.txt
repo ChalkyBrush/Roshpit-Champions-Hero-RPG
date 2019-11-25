@@ -2748,7 +2748,7 @@
         "AttackAcquisitionRange"    "600"
         "AttackRange"   "600"
         "ProjectileModel"   "particles/units/heroes/hero_bane/bane_projectile.vpcf"
-        "ProjectileSpeed"   "600"
+        "ProjectileSpeed"   "700"
         "AttributePrimary"  "DOTA_ATTRIBUTE_STRENGTH"
         "AttributeBaseStrength" "0"
         "AttributeStrengthGain" "0"
@@ -2775,6 +2775,7 @@
         "VisionDaytimeRange"    "0"
         "VisionNighttimeRange"  "0"
         "PathfindingSearchDepthScale" "0.2"
+        "MovementTurnRate"  "0"
     }
 
     "npc_flying_dummy_vision"
@@ -13395,7 +13396,7 @@
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "300"
         "AttackDamageMax"   "300"
-        "AttackRate"    "1.2"
+        "AttackRate"    "1"
         "AttackAnimationPoint"  "0.4"
         "AttackAcquisitionRange"    "1800"
         "ProjectileSpeed"           "1400"
@@ -13426,31 +13427,7 @@
             {
                 "Wearable1"
                 {
-                    "ItemDef"   "7560"
-                }
-                "Wearable2"
-                {
-                    "ItemDef"   "574"
-                }
-                "Wearable3"
-                {
-                    "ItemDef"   "4403"
-                }
-                "Wearable4"
-                {
-                    "ItemDef"   "4422"
-                }
-                "Wearable5"
-                {
                     "ItemDef"   "507"
-                }
-                "Wearable6"
-                {
-                    "ItemDef"   "7687"
-                }
-                "Wearable7"
-                {
-                    "ItemDef"   "5358"
                 }
             }
             "States"
@@ -24034,7 +24011,7 @@
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "800"
-        "AttackDamageMax"   "800"
+        "AttackDamageMax"   "1000"
         "AttackRate"    "1.5"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
@@ -24048,7 +24025,7 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed" "240"
         "MovementTurnRate"  "0.2"
-        "StatusHealth"  "78000"
+        "StatusHealth"  "50000"
         "StatusHealthRegen" "0.25"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
@@ -63402,8 +63379,8 @@
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"   "442"
-        "AttackDamageMax"   "452"
+        "AttackDamageMin"   "800"
+        "AttackDamageMax"   "1200"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackRate"    "1.4"
         "AttackAnimationPoint"  "0.353"
@@ -92594,7 +92571,7 @@
         "RoshpitArmorPierce"    "34"
         "RoshpitSpellPierce"    "94"
         "RoshpitMagicArmor"     "125"
-        "RoshpitLevel"          "9"
+        "RoshpitLevel"          "14"
         "RoshpitDominion"       "1"
         "EnemyTier"             "1"
     }
@@ -95834,7 +95811,7 @@
         "RoshpitArmorPierce"    "125"
         "RoshpitSpellPierce"    "40"
         "RoshpitMagicArmor"     "145"
-        "RoshpitLevel"          "14"
+        "RoshpitLevel"          "22"
         "RoshpitDominion"       "0"
         "EnemyTier"             "1"
     }
@@ -96459,7 +96436,7 @@
         "RoshpitArmorPierce"    "176"
         "RoshpitSpellPierce"    "77"
         "RoshpitMagicArmor"     "105"
-        "RoshpitLevel"          "17"
+        "RoshpitLevel"          "22"
         "RoshpitDominion"       "1"
         "EnemyTier"             "1"
     }

@@ -137,6 +137,18 @@ function initializeTooltip(func){
 			$('#attribute_given_bonus_str_4_right').text = ""
 			$('#attribute_given_bonus_spr_4_left').text = ""
 			$('#attribute_given_bonus_spr_4_right').text = ""	
+		}else if(primaryAttribute == 3){
+			var atkBonus = parseInt(heroAttributes.spirit*ATK_DMG_PER_PRIMARY*halcyonMult)
+			$('#attribute_given_bonus_spr_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
+			$('#attribute_given_bonus_spr_4_right').text = "+"+numberWithCommas(atkBonus)
+			$('#attribute_image_spr').AddClass('primary_attribute')	
+			$('#attribute_given_bonus_agi_4_left').text = ""
+			$('#attribute_given_bonus_agi_4_right').text = ""
+
+			$('#attribute_given_bonus_str_4_left').text = ""
+			$('#attribute_given_bonus_str_4_right').text = ""
+			$('#attribute_given_bonus_int_4_left').text = ""
+			$('#attribute_given_bonus_int_4_right').text = ""	
 		}
 	}
 

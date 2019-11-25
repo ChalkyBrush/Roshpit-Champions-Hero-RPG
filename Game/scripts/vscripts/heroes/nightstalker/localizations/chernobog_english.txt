@@ -269,28 +269,28 @@
     	"DOTA_Tooltip_ability_chernobog_rune_e_4_arcana2_suffix_two"			" seconds"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"Glyph of Gloom"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"		"[T1-1] Glyph of Gloom"
 		"item_rpc_chernobog_glyph_1_1_description" 				"When you use any blink or teleport effect from @Ability3, Chernobog's shadows will lash out and attack all targets in zones created at the starting point and at the destination. The radius of these zones is equal to the total distance moved * <% CHERNOBOG_T11_PART_OF_DISTANCE %>, and the zone lasts <% CHERNOBOG_T11_DURATION %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"Glyph of Midnight"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"		"[T2-1] Glyph of Midnight"
 		"item_rpc_chernobog_glyph_2_1_description" 				"All effects that create zones or auras wherein enemies are attacked by Chernobog's shadows have their radius multiplied by <% CHERNOBOG_T21_RADIUS_AMP %>. This also applies to the radius of [R2]."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"Glyph of Nightmare's Grasp"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_3_1"		"[T3-1] Glyph of Nightmare's Grasp"
 		"item_rpc_chernobog_glyph_3_1_description" 				"Each enemy hit by @Ability1 reduces the cooldown of @Ability4 by <% CHERNOBOG_T31_CD_DEC %> seconds. Additionally, @Ability1 is cast for free after channeling @Ability4."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"Glyph of Murk"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_4_1"		"[T4-1] Glyph of Murk"
 		"item_rpc_chernobog_glyph_4_1_description" 				"[Q2] deals its damage to all enemies within <% CHERNOBOG_T41_RADIUS %> range of each target struck."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"Glyph of the Shadow Hunter"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"		"[T5-1] Glyph of the Shadow Hunter"
 		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt stops draining health while at or below <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% of max health, and stops draining mana while at or below <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% of max mana."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"Glyph of Black Rifts"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Black Rifts"
 		"item_rpc_chernobog_glyph_6_1_description" 				"[E3] duration is increased by <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %>."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"Glyph of Indomitability"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] Glyph of Indomitability"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Stuns are cleansed every <% CHERNOBOG_T71_CD_CLEANSE %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"		"Glyph of the Apex Predator"
+		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"		"[T5-a] Glyph of the Apex Predator"
 		"item_rpc_chernobog_glyph_5_a_description" 				"All of @Ability2's runes have both bonuses active in both states. Healing from Demon's Grip is still disabled while @Ability2 is active."
 		
 		//Weapons

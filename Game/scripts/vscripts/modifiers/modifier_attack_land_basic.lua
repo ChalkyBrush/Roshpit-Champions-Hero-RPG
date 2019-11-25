@@ -10,6 +10,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 	if not Events.GameMasterAttackAbility then return end
 	local parent = self:GetParent()
 	local elements = { RPC_ELEMENT_NORMAL }
+	local damageType = DAMAGE_TYPE_PHYSICAL
 	if event.attacker == parent then
 		-- SPECIAL AUTO ATTACK TRANSLATES -- REFACTOR ??
 		if parent:HasModifier("modifier_samurai_helmet") then
@@ -99,7 +100,14 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			return false
 		elseif parent:HasModifier("modifier_apprentice_ai") or parent:HasModifier("modifier_alien_armor_illusion") then
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
-			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL,parent.hero.equipped_gear[RPC_GEAR_SLOT_BODY], RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL,parent.hero.equipped_gear[RPC_GEAR_SLOT_BODY], RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+			return false
+		elseif parent:GetUnitName() == "water_elemental_flood_3" then
+			local damage = event.damage
+			local flood_robe = parent.hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+			Filters:FloodElementalAttack(parent, parent.hero, flood_robe, event.target, damage)
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, flood_robe, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 			return false
 		end
 		if parent:HasModifier("modifier_direwolf_bulwark") then
@@ -115,6 +123,13 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			local direwolf = event.target:FindModifierByName("modifier_direwolf_bulwark"):GetAbility()
 			event.damage = math.max(event.damage - event.target:GetRoshpitArmorPierce()*(direwolf:GetFinalGemPropertyValue("ruby", ITEM_RPC_DIREWOLF_BULWARK_GEM_RUBY)/100), 1)	
 		end
+		if parent:HasModifier("modifier_nethergrasp_palisade") then
+			if event.target:HasModifier("modifier_nethergrasp_linked") then
+				elements = { RPC_ELEMENT_TIME }
+				damageType = DAMAGE_TYPE_PURE
+				event.damage = event.damage * parent.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NETHERGRASP_PALISADE_GEM_EMERALD)/100
+			end
+		end
 
 		-- BASIC APPLY AUTO ATTACK DAMAGE
 		Damage:Apply({
@@ -123,7 +138,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			attacker = parent,
 			victim = event.target,
 			damage = event.damage,
-			damageType = DAMAGE_TYPE_PHYSICAL,
+			damageType = damageType,
 			elements = elements
 		})
 	end

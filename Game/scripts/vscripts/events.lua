@@ -37,7 +37,7 @@ STARS_INCREASE_MITHRIL = false
 STARS_INCREASE_MITHRIL_ADDITIVE = false
 MITHRIL_INCREASE_PER_STAR_PCT = 0.08
 
-ROSHPIT_URL = "https://roshpit.herokuapp.com"
+ROSHPIT_URL = "https://roshpit-test.herokuapp.com/"
 ROSHPIT_VERSION = '3.8A'
 
 SPAWN_POINT_OPEN_1 = Vector(-7232, -6464)
@@ -239,9 +239,7 @@ function GameMode:CorrectRespawn(npc)
 			npc:SetOrigin(Dungeons.entryPoint)
 		end
 	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() or GameState:IsTutorial() then
-		if npc:HasModifier("modifier_neutral_glyph_4_1") and (not npc.prelastDeathTime or (npc.lastDeathTime - npc.prelastDeathTime > 30)) then
-			npc:SetOrigin(npc.deathPosition)
-		elseif npc.respawnFlag then
+		if npc.respawnFlag then
 			Events:RespawnFlag(npc)
 		else
 			if Dungeons.respawnPoint then
@@ -629,7 +627,18 @@ function GameMode:OnPlayerChat(keys)
 			local name = string.gsub(text, "-gly ", "")
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
+			if _G[name] then
+				newItem = _G[name]:CreateLuaItem(item_level)
+				RPCItems:BasicDropItem(hero:GetAbsOrigin(), newItem)
+			else
+				Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
+			end
+		end
+	elseif string.match(text, "-potion") then
+		if Beacons.cheats then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		    local potion = RPCItems:RollRandomPotion(1)
+    		RPCItems:BasicDropItem(hero:GetAbsOrigin(), potion)
 		end
 	elseif string.match(text, "-allglyph") then
 		if Beacons.cheats then
@@ -1578,15 +1587,6 @@ function GameMode:OnEntityKilled(keys)
 				local respawnTime = 5
 				if MAIN_HERO_TABLE and GameState:GetDifficultyFactor() > 1 then
 					respawnTime = respawnTime + #MAIN_HERO_TABLE * 5
-				end
-				-- if killedUnit:HasModifier("modifier_duskbringer_glyph_2_1") then
-				--   respawnTime = 20
-				-- end
-				if killedUnit:HasModifier("modifier_neutral_glyph_4_1") then
-					respawnTime = 10
-					killedUnit.deathPosition = killedUnit:GetAbsOrigin()
-					killedUnit.prelastDeathTime = killedUnit.lastDeathTime
-					killedUnit.lastDeathTime = GameRules:GetGameTime()
 				end
 				respawnTime = math.min(killedUnit:GetTimeUntilRespawn(), respawnTime)
 				if killedUnit:HasModifier("modifier_slipfinn_immortal_weapon_1") then

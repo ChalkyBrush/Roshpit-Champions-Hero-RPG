@@ -59,22 +59,23 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_empyreal_sunrise_robe")
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_sacred_trials_armor")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_gilded_soul_cage")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_sacred_trials_armor")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_gilded_soul_cage")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_sacred_trials_armor")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
+
 
     -- local body = item_rpc_armor_of_atlantis:CreateLuaItem(1)
     -- body = Gems:AddSocket(body)
@@ -477,7 +478,7 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility_augmented", "#FFFFFF", 1, "#property_nobility_augmented_description")
 
     item.property2 = 150
-    local primaryAttribute = hero:GetPrimaryAttribute()
+    local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
     if primaryAttribute == 0 then
         item.property2name = "strength"
         RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000", 2)

@@ -28,7 +28,7 @@ function wave_unit_die(event)
 		if luck == 3000 then
 			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_swamp_doctors_tribal_mask")
 		elseif luck == 2999 then
-			RPCItems:RollRadiantRuinsLeather(deathLocation)
+			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_radiant_ruins_leather")
 		elseif luck == 2998 then
 			RPCItems:RollTwilightVestments(deathLocation)
 		elseif luck == 2997 then

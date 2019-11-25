@@ -25,7 +25,7 @@ function generic_pit_enemy_die(event)
 	end
 	local luck2 = RandomInt(1, 3000-(500*premiumCount))
 	if luck2 == 1 then
-		RPCItems:RollSacredTrialsArmor(event.unit:GetAbsOrigin()) 
+		RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_sacred_trials_armor")
 	end
 	local paragonAdjust = 0
 	if event.unit.paragon then
@@ -3050,11 +3050,11 @@ function pit_guardian_die(event)
 	local luck = RandomInt(1,5)
 	if luck == 1 then
 		if Arena.PitColor == "red" then
-			RPCItems:RollRubyDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ruby_dragon_scale_armor")
 		elseif Arena.PitColor == "blue" then
-			RPCItems:RollSapphireDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_sapphire_dragon_scale_armor")
 		elseif Arena.PitColor == "yellow" then
-			RPCItems:RollTopazDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_topaz_dragon_scale_armor")
 		end
 	end
 end
@@ -3463,7 +3463,7 @@ function pit_boss_final_death(caster, ability)
 	local luck = RandomInt(1,4)
 	if luck == 1 then
 		Timers:CreateTimer(RandomInt(2,5), function()
-			RPCItems:RollHeroicConquerorVestments(bossOrigin, Arena.PitLevel)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_heroic_conqueror_vestments")
 		end)
 	end
 	Arena:UpdatePitLevels()

@@ -267,49 +267,49 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"Glyph of Nimble Poison"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"[T1-1] Glyph of Nimble Poison"
 		"item_rpc_venomort_glyph_1_1_description" 				"Reduces the cooldown of @Ability1 to @glyph_property1 seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"Glyph of Immunodeficiency"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"[T2-1] Glyph of Immunodeficiency"
 		"item_rpc_venomort_glyph_2_1_description" 				"For each of Venomort's effects that gains power based on the number of affected targets, Paragon enemies count as @glyph_property2 units, while bosses count as @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"Glyph of Ghost Shroud"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_1"		"[T3-1] Glyph of Ghost Shroud"
 		"item_rpc_venomort_glyph_3_1_description" 				"While invisible from @Ability3, Venomort's health regeneration is increased by @glyph_property1% of maximum health. Additionally reduces @Ability3's cooldown by <% VENOMORT_GLYPH_3_1_E_CD_RED %> seconds and multiplies its cast range by <% VENOMORT_GLYPH_3_1_E_CAST_RANGE_AMP %>."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"Glyph of Melancholy"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_1"		"[T4-1] Glyph of Melancholy"
 		"item_rpc_venomort_glyph_4_1_description" 				"[E1] additionally increases <font color=\"#9ACCD1\">Ghost</font>, <font color=\"#5C776E\">Undead</font>, and <font color=\"#7F4F84\">Shadow</font> damage."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"Glyph of Ghoul Frenzy"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_1"		"[T5-1] Glyph of Ghoul Frenzy"
 		"item_rpc_venomort_glyph_5_1_description" 				"Multiplies the effectiveness of [W3] by @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"Glyph of Enfeeblement"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_1"		"[T6-1] Glyph of Enfeeblement"
 		"item_rpc_venomort_glyph_6_1_description" 				"Enemies suffering from any of Venomort's various poisons deal @glyph_property1% reduced damage to Venomort for <% VENOMORT_GLYPH_6_1_DURATION %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"Glyph of the Snake Charmer"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_1"		"[T7-1] Glyph of the Snake Charmer"
 		"item_rpc_venomort_glyph_7_1_description" 				"Increases the duration of all units summoned by any of Venomort's spells or runes (but not from other sources) by @glyph_property1 seconds, and increases their base attack speed by @glyph_property2."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"Glyph of Insidious Toxins"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] Glyph of Insidious Toxins"
 		"item_rpc_venomort_glyph_5_a_description" 				"All instances of DoT damage dealt by Venomort's various poisons are divided by 3 and separated into equal instances of Physical, Magical, and Pure damage."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"Glyph of Delirium"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"[T1-2] Glyph of Delirium"
 		"item_rpc_venomort_glyph_1_2_description" 				"Increases the duration of [W2] by @glyph_property2%. Additionally, enemies caught in the area of each @Ability1 cast have a @glyph_property1% chance to be afflicted with it."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_2"		"Glyph of Acid Splash"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_2"		"[T2-2] Glyph of Acid Splash"
 		"item_rpc_venomort_glyph_2_2_description" 				"When activated, [E2] will soak additional enemy units within @glyph_property1 range of the primary target."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"Glyph of Corrosive Blood"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_3_2"		"[T3-2] Glyph of Corrosive Blood"
 		"item_rpc_venomort_glyph_3_2_description" 				"Each time Venomort's current health dips below another @glyph_property1% threshold of his maximum, his next application of [E2] will deal @glyph_property2x damage."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"Glyph of Malingering"
-		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from <% VENOMORT_E4_DURATION %> seconds to @glyph_property1 seconds."
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] Glyph of Malingering"
+		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from 1.5 seconds to @glyph_property1 seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"Glyph of Necropotence"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"[T5-2] Glyph of Necropotence"
 		"item_rpc_venomort_glyph_5_2_description" 				"Increases the maximum range of @Ability2 by @glyph_property1%."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"Glyph of Antibiotics"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"[T6-2] Glyph of Antibiotics"
 		"item_rpc_venomort_glyph_6_2_description" 				"All units summoned by any of Venomort's spells or runes (but not from other sources) have the Steadfast property."
 
-		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"Glyph of Sudden Death"
+		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"[T7-2] Glyph of Sudden Death"
 		"item_rpc_venomort_glyph_7_2_description" 				"Venomort deals @glyph_property2% increased damage to units whose current health is over @glyph_property1% of their maximum."
 		
         "DOTA_Tooltip_ability_item_rpc_venomort_glyph_book"                     "Venomort Glyph Book"

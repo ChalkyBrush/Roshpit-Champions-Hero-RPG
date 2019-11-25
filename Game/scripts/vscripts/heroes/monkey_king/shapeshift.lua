@@ -120,7 +120,7 @@ function shapeshift_start_cat(event)
 		caster:FindModifierByName("modifier_shapeshift_cat_d_d"):SetDuration(-1, true)
 	end
 	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
-	caster:SetPrimaryAttribute(1)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_AGILITY)
 	all_shift_after(caster)
 end
 
@@ -181,7 +181,7 @@ function shapeshift_start_bear(event)
 		caster:FindModifierByName("modifier_shapeshift_bear_d_d"):SetDuration(-1, true)
 	end
 	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
-	caster:SetPrimaryAttribute(0)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_STRENGTH)
 	all_shift_after(caster)
 end
 
@@ -233,7 +233,7 @@ function shapeshift_start_crow(event)
 		caster:FindModifierByName("modifier_shapeshift_crow_d_d"):SetDuration(-1, true)
 	end
 	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
-	caster:SetPrimaryAttribute(2)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_INTELLIGENCE)
 	all_shift_after(caster)
 end
 
@@ -414,7 +414,7 @@ function monkey_form(event)
 		end)
 
 	end)
-	caster:SetPrimaryAttribute(1)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_SPIRIT)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_monkey_r1_thinker", {})
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftOut.Sound", caster)
 

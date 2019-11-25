@@ -364,33 +364,33 @@
 
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"Glyph of Versatility"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"[T1-1] Glyph of Versatility"
 		"item_rpc_warlord_glyph_1_1_description" 				"Earth Slam, Arctic Sprint, and Firedrop switch Warlord's element."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"Glyph of Chromatic Axes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"[T2-1] Glyph of Chromatic Axes"
 		"item_rpc_warlord_glyph_2_1_description" 				"When landing an attack gain an additional Ice, Fire and Earth charge."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"Glyph of Roaming Stone"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"[T3-1] Glyph of Roaming Stone"
 		"item_rpc_warlord_glyph_3_1_description" 				"Removes the movespeed penalty from Stoneform."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"Glyph of Ambush"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"[T4-1] Glyph of Ambush"
 		"item_rpc_warlord_glyph_4_1_description" 				"Striking an Enemy with a throwing axe causes the Warlord to leap towards the target and deliver a @glyph_property1x-damage crit. @glyph_property2 second cooldown."
 
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"Ambush Cooldown"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"Glyph of Savage Combat"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"[T5-1] Glyph of Savage Combat"
 		"item_rpc_warlord_glyph_5_1_description" 				"Each enemy slain increases attack damage by <% WARLORD_GLYPH_5_1_BONUS_ATTACK_DMG_PER_KILL %>%, stacking up to <% WARLORD_GLYPH_5_1_MAX_STACKS %> times. Lasts <% WARLORD_GLYPH_5_1_DURATION %> seconds and refreshes on kill."
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"Savage Combat"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"Increased Attack Damage when slaying enemies"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"Glyph of Elemental Capacity"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"[T6-1] Glyph of Elemental Capacity"
 		"item_rpc_warlord_glyph_6_1_description" 				"Increases the maximum Fire, Ice, and Earth charges by <% WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES %>."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"Glyph of Warfare"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
 		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %> AOE around main target. Damage is considered as item damage."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"Glyph of Thermogenesis"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> Fire Charges. Each active Ice Charge increases Spell Pierce <% WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE %>."
 
 		//Weapons
