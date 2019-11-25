@@ -3691,9 +3691,10 @@ function trials_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	damage = GameState:GetPostReductionPhysicalDamage(damage, target:GetPhysicalArmorValue(false))
+	damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*(ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_SAPPHIRE2))/100
+	damage = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, target, DAMAGE_TYPE_PHYSICAL, damage, ability:GetEntityIndex())
 	EmitSoundOn("Item.SacredTrial", target)
-	local radius = ITEM_RPC_SACRED_TRIALS_ARMOR_AOE_RADIUS
+	local radius = ITEM_RPC_SACRED_TRIALS_ARMOR_AOE_RADIUS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_EMERALD2)
 	local particleName = "particles/roshpit/items/sacred_trial.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
@@ -3704,7 +3705,7 @@ function trials_attack(event)
 	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyItemDamage(enemy, attacker, damage * ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG/100, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		end
 	end
 
@@ -3718,6 +3719,30 @@ function trials_attack(event)
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
 	attacker:RemoveModifierByName("modifier_sacred_trials_attack_bonus")
+end
+
+function sacred_trials_think(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_RUBY1))
+		if proc then
+	        Filters:SacredTrialActivate(hero)
+		end
+	end
+end
+
+function sacred_trials_attack_land(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_SAPPHIRE1))
+		if proc then
+	        Filters:SacredTrialActivate(hero)
+		end
+	end
 end
 
 function gravekeeper_attack(event)

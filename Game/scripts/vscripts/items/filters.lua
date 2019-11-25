@@ -1065,7 +1065,7 @@ function Filters:ApplyWskills(caster)
         Filters:CarbuncleApply(caster, CARBUNCLE_SHIELD_DURATION, true)
     end
     if caster:HasModifier("modifier_sacred_trials_armor") then
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sacred_trials_attack_bonus", {duration = 12})
+        Filters:SacredTrialActivate(caster)
     end
     if caster:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
@@ -5241,5 +5241,20 @@ function Filters:FloodElementalAttack(elemental, hero, flood_robe, target, damag
                 enemy:SetModifierStackCount("modifier_water_elemental_slow", elemental, slow_amount)
             end
         end
+    end
+end
+
+function Filters:SacredTrialActivate(caster)
+    local trials_armor = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local duration = ITEM_RPC_SACRED_TRIALS_ARMOR_DURATION + trials_armor:GetFinalGemPropertyValue("ruby", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_RUBY2)
+    trials_armor:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sacred_trials_attack_bonus", {duration = duration})
+    CustomAbilities:QuickAttachParticle("particles/econ/items/dazzle/dazzle_ti6_gold/dazzle_ti6_shallow_grave_gold_ground_ray.vpcf", caster, 1)
+    if trials_armor:GetGemValue("emerald") > 0 then
+        trials_armor:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sacred_trials_as", {duration = duration})
+        caster:SetModifierStackCount("modifier_sacred_trials_as", caster.InventoryUnit, trials_armor:GetFinalGemPropertyValue("emerald", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_EMERALD1))
+    end
+    if trials_armor:GetGemValue("amethyst") > 0 then
+        trials_armor:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sacred_trials_attack_power", {duration = duration})
+        caster:SetModifierStackCount("modifier_sacred_trials_attack_power", caster.InventoryUnit, trials_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_AMETHYST))
     end
 end

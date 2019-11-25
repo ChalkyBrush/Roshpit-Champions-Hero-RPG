@@ -1765,26 +1765,6 @@ function RPCItems:RollTwilightVestments(item_level)
     return item
 end
 
-function RPCItems:RollSacredTrialsArmor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_sacred_trials_armor", "immortal", "Sacred Trials Armor", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "sacred_trials"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sacred_trials", "#EDC02D", 1, "#property_sacred_trials_description")
-
-    local value = RandomInt(maxFactor * 12, maxFactor * 360)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "attack_damage"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSoulVest(item_level)
     local item = RPCItems:CreateVariant("item_rpc_seraphic_soulvest", "immortal", "Seraphic Soulvest", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4673,6 +4653,25 @@ function RPCItems:RollSapphireDragonScaleArmor(item_level)
     return item
 end
 
+function RPCItems:RollSacredTrialsArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_sacred_trials_armor", "immortal", "Sacred Trials Armor", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_sacred_trials_armor"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sacred_trials", "#EDC02D", 1, "#property_sacred_trials_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 --FEET
 

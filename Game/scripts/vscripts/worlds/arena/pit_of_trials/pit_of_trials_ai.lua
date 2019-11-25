@@ -25,7 +25,7 @@ function generic_pit_enemy_die(event)
 	end
 	local luck2 = RandomInt(1, 3000-(500*premiumCount))
 	if luck2 == 1 then
-		RPCItems:RollSacredTrialsArmor(event.unit:GetAbsOrigin()) 
+		RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_sacred_trials_armor")
 	end
 	local paragonAdjust = 0
 	if event.unit.paragon then

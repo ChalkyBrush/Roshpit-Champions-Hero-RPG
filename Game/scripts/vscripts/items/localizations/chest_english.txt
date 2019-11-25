@@ -120,6 +120,19 @@
 		"DOTA_Tooltip_modifier_boreal_granite_stack"	"Boreal Granite Stack"
 		"DOTA_Tooltip_modifier_boreal_granite_stack_Description"	"Increases the chance of triggering Diametric Force"
 
+		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
+		"item_property_captains_vest"						"Stalwart Champion"
+		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <% ITEM_RPC_CAPTAINS_VEST_Q1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. W1/2/3/4 Runes increase Intelligence by <% ITEM_RPC_CAPTAINS_VEST_W1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. E1/2/3/4 Runes increase Agility by <% ITEM_RPC_CAPTAINS_VEST_E1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. R1/2/3/4 Runes increase Spirit by <% ITEM_RPC_CAPTAINS_VEST_R1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>."
+		"item_rpc_captains_vest_ruby1"		"Increases the Strength bonus provided by Stalwart Champion by @ruby_property1%"
+		"item_rpc_captains_vest_emerald1"		"Increases the Agility bonus provided by Stalwart Champion by @emerald_property1%"
+		"item_rpc_captains_vest_sapphire1"		"Increases the Intelligence bonus provided by Stalwart Champion by @sapphire_property1%"
+		"item_rpc_captains_vest_amethyst1"		"Increases the Spirit bonus provided by Stalwart Champion by @amethyst_property1%"
+
+		"item_rpc_champions_mail_ruby1"	"Increases Rune [R1] by @ruby_property1"
+		"item_rpc_champions_mail_emerald1"	"Increases Rune [R3] by @emerald_property1"
+		"item_rpc_champions_mail_sapphire1" "Increases Rune [R2] by @sapphire_property1"
+		"item_rpc_champions_mail_amethyst1" "Increases Rune [R4] by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
 		"item_property_dark_arts"					"Dark Mastery"
 		"property_dark_arts_description"			"Increases your Agility by <% ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI * 100 %>% of your Intelligence."
@@ -463,7 +476,6 @@
 		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"Each point of Agility increases Spell Pierce by @sapphire_property1"
 		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"Each point of Agility increases Magic Armor by @amethyst_property1"
 
-
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
@@ -474,17 +486,16 @@
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"Each point of Intelligence increases Base Attack Damage by @sapphire_property1"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"Each point of Intelligence increases Magic Armor by @amethyst_property1"
 
-
-		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
-		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_steelbark_guard_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_steelbark_guard_amethyst1"									"blah blah @amethyst_property1 gem"
-		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
-		"item_property_steelbark"			"Steelbark Protection"
-		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."
+		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
+		"item_property_sacred_trials"						"Combat Trial"
+		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack within <% ITEM_RPC_SACRED_TRIALS_ARMOR_DURATION %> seconds deal <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% bonus Magical damage in a <% ITEM_RPC_SACRED_TRIALS_ARMOR_AOE_RADIUS %> radius."
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% Magical damage in a small area"
 		
-		
+		"item_rpc_sacred_trials_armor_ruby1"								"Combat Trial has a @ruby_property1% chance to activate automatically every second, and its duration is increased by @ruby_property2 seconds"
+		"item_rpc_sacred_trials_armor_emerald1"								"Gain @emerald_property1 attack speed while Combat Trial is active and increase its radius by @emerald_property2"
+		"item_rpc_sacred_trials_armor_sapphire1"								"Landing an attack has a @sapphire_property1% chance to apply Combat Trial, and its damage is increased by an additional @sapphire_property2%"
+		"item_rpc_sacred_trials_armor_amethyst1"								"Attack Power is increased by @amethyst_property1% while Combat Trial is active"
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
 		"item_rpc_seraphic_soulvest_ruby1"								"blah blah @ruby_property1 gem"
@@ -634,17 +645,6 @@
 		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%, and stun durations are considered <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>% shorter when added to an enemy's stun immunity counter."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"
-		"item_rpc_sacred_trials_armor_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_sacred_trials_armor_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_sacred_trials_armor_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_sacred_trials_armor_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_sacred_trials"						"Combat Trial"
-		"property_sacred_trials_description"				"Casting @Ability2 applies a buff that makes your next attack deal <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% bonus Magical damage in an area."
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Next attack deals <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% Magical damage in a small area"
-		 
-		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
 		"item_rpc_vermillion_dream_robes_ruby1"							"blah blah @ruby_property1 gem"
 		"item_rpc_vermillion_dream_robes_emerald1"							"blah blah @emerald_property1 gem"
@@ -673,21 +673,6 @@
 		"property_sea_giant_plate_Description"									"All damage taken is reduced by <% ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>% while stunned."
 		
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"Captain's Vest"
-			"item_property_captains_vest"						"Stalwart Champion"
-		"property_captains_vest_description"				"Q1/2/3/4 Runes increase Strength by <% ITEM_RPC_CAPTAINS_VEST_Q1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. W1/2/3/4 Runes increase Intelligence by <% ITEM_RPC_CAPTAINS_VEST_W1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. E1/2/3/4 Runes increase Agility by <% ITEM_RPC_CAPTAINS_VEST_E1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>. R1/2/3/4 Runes increase Spirit by <% ITEM_RPC_CAPTAINS_VEST_R1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>."
-		"item_rpc_captains_vest_ruby1"		"Increases the Strength bonus provided by Stalwart Champion by @ruby_property1%"
-		"item_rpc_captains_vest_emerald1"		"Increases the Agility bonus provided by Stalwart Champion by @emerald_property1%"
-		"item_rpc_captains_vest_sapphire1"		"Increases the Intelligence bonus provided by Stalwart Champion by @sapphire_property1%"
-		"item_rpc_captains_vest_amethyst1"		"Increases the Spirit bonus provided by Stalwart Champion by @amethyst_property1%"
-
-		"item_rpc_champions_mail_ruby1"	"Increases Rune [R1] by @ruby_property1"
-		"item_rpc_champions_mail_emerald1"	"Increases Rune [R3] by @emerald_property1"
-		"item_rpc_champions_mail_sapphire1" "Increases Rune [R2] by @sapphire_property1"
-		"item_rpc_champions_mail_amethyst1" "Increases Rune [R4] by @amethyst_property1"
-		
-		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
 		"item_rpc_tattered_novice_armor_ruby1"		"blah blah @ruby_property1 gem"
 		"item_rpc_tattered_novice_armor_emerald1"		"blah blah @emerald_property1 gem"
@@ -698,3 +683,12 @@
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
+
+		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
+		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_steelbark_guard_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_steelbark_guard_amethyst1"									"blah blah @amethyst_property1 gem"
+		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
+		"item_property_steelbark"			"Steelbark Protection"
+		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."

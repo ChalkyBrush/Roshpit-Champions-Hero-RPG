@@ -12656,7 +12656,7 @@
 		"item_rpc_sacred_trials_armor_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_sacred_trials_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sacred_trials"						"Combat Trial"
-		"property_sacred_trials_description"				"После прочтения (W) @Ability2 следующая базовая атака героя нанесёт <font color='#ccff66'>1000</font>% магического урона по области."
+		"property_sacred_trials_description"				"После прочтения (W) @Ability2 следующая базовая атака героя нанесёт <font color='#ccff66'>150</font>% магического урона по области."
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"Combat Trial"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"Следующая базовая атака героя нанесёт %property_one%%% магического урона по области."
 		
