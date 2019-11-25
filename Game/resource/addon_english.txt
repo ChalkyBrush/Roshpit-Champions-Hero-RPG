@@ -12794,6 +12794,19 @@
 		"item_rpc_sacred_trials_armor_emerald1"								"Gain @emerald_property1 attack speed while Combat Trial is active and increase its radius by @emerald_property2"
 		"item_rpc_sacred_trials_armor_sapphire1"								"Landing an attack has a @sapphire_property1% chance to apply Combat Trial, and its damage is increased by an additional @sapphire_property2%"
 		"item_rpc_sacred_trials_armor_amethyst1"								"Attack Power is increased by @amethyst_property1% while Combat Trial is active"
+
+		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"Savage Plate of Og'Thun"
+
+		"item_property_ogthun"						"Savagery"
+		"property_ogthun_description"				"Slaying an enemy restores <font color='#ccff66'>0</font>% of your health."
+		"DOTA_Tooltip_modifier_ogthun_visible" 				"Savagery"
+		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"Increased Max Health and Base Ability Damage"
+
+
+		"item_rpc_savage_plate_of_ogthun_ruby1"							"Reduces all damage taken by @ruby_property1% while below <font color='#ccff66'>0</font>% health"
+		"item_rpc_savage_plate_of_ogthun_emerald1"							"@emerald_property1% chance when attacked to immediately perform a counter attack if they are within attack range"			
+		"item_rpc_savage_plate_of_ogthun_sapphire1"							"Attacking an enemy increases attack power by @sapphire_property1% and Armor Pierce by @sapphire_property2 for <font color='#ccff66'>0</font> seconds."
+		"item_rpc_savage_plate_of_ogthun_amethyst1"							"Increases <font color=\"#DDDDDD\">Normal</font> damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
 		"item_rpc_seraphic_soulvest_ruby1"								"blah blah @ruby_property1 gem"
@@ -12887,18 +12900,6 @@
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
 		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <font color='#ccff66'>50</font>% evasion and <font color='#ccff66'>100</font> movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
-		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"Savage Plate of Og'Thun"
-		"item_rpc_savage_plate_of_ogthun_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_savage_plate_of_ogthun_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_savage_plate_of_ogthun_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_savage_plate_of_ogthun_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_ogthun"						"Savagery"
-		"property_ogthun_description"				"Slaying an enemy increases your max health by 40% of your Strength and Base Ability damage by 2%. Stacks up to 100 times. Each stack lasts 9 seconds."
-		"DOTA_Tooltip_modifier_ogthun_visible" 				"Savagery"
-		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"Increased Max Health and Base Ability Damage"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
