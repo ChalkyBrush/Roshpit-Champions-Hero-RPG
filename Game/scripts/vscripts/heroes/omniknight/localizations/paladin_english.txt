@@ -135,7 +135,7 @@
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Increased Magic Armor"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by <% PALADIN_BASE_Q_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL %>%."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by <% PALADIN_BASE_R_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL * 100 %>%."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
     	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"% MAX LIFE RESTORED EVERY 0.2 SECONDS:"
@@ -144,7 +144,7 @@
 		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Movespeed."
 
 		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
-		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by <% PALADIN_BASE_Q_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL*100 %>%"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by <% PALADIN_BASE_R_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL * 100 %>%%"
 		
 		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Knight's Disciple has a 1000 AOE armor enhancing aura."
@@ -173,7 +173,15 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"Knight's Disciple gains the ability to fire a projectile that freezes the target, and then splits and hits nearby enemies also freezing them."	
     	"DOTA_Tooltip_ability_paladin_rune_r_4_property_one"			"Freeze Duration"
     	"DOTA_Tooltip_ability_paladin_rune_r_4_suffix"					" seconds"
-
+		
+		"paladin_disciple"													"Knight's Disciple"
+		"DOTA_Tooltip_ability_knights_disciple_heal"						"Empowering Light"
+		"DOTA_Tooltip_ability_knights_disciple_heal_Description"			"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds, max number of stacks is 30."
+		"DOTA_Tooltip_ability_knights_disciple_bolt"						"Holy Bolt"
+		"DOTA_Tooltip_ability_knights_disciple_bolt_Description"			"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. 5 second cooldown."
+		"DOTA_Tooltip_ability_knights_disciple_purifying_spark"				"Purifying Spark"
+		"DOTA_Tooltip_ability_knights_disciple_purifying_spark_Description"	"Knight's Disciple gains the ability to fire a projectile that freezes the target, and then splits and hits nearby enemies also freezing them."
+		
     	"DOTA_Tooltip_modifier_disciple_purifying_spark"					"Purifying Spark"
     	"DOTA_Tooltip_modifier_disciple_purifying_spark_Description"		"Frozen."	
 

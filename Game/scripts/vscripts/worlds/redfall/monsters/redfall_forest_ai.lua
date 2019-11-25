@@ -1795,7 +1795,6 @@ function begin_splitshot(event)
 	ability.damage = damage
 
 	EmitSoundOn("Astral.AstralVolleyBig", caster)
-	local projectileParticle = "particles/roshpit/redfall/red_powershot.vpcf"
 
 	local minArrows = -4
 	local maxArrows = 4
@@ -1822,6 +1821,7 @@ function create_shot2(ability, caster, fv, arrowOrigin)
 	local start_radius = 60
 	local end_radius = 60
 	local speed = 1100
+	local projectileParticle = "particles/frostivus_gameplay/astral_rune_c_b_linear_frost_arrow.vpcf"
 	--print(fv)
 	--print(arrowOrigin)
 	--print(caster:GetUnitName())
@@ -1830,7 +1830,7 @@ function create_shot2(ability, caster, fv, arrowOrigin)
 	local info =
 	{
 		Ability = ability,
-		EffectName = "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf",
+		EffectName = projectileParticle,
 		vSpawnOrigin = arrowOrigin,
 		fDistance = 1200,
 		fStartRadius = start_radius,

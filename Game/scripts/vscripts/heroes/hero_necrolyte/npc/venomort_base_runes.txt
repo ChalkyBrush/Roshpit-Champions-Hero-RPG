@@ -368,6 +368,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"<% VENOMORT_R4_ADD_DAMAGE %>"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"			"<% VENOMORT_R4_VIPER_ARMOR_PIERCE %>"
+			}			
 		}
 	}
 

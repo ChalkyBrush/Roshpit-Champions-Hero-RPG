@@ -512,6 +512,10 @@
 		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"УРОН НА ГРАНИЦЕ:"
 
 		"shipyard_pirate_archer"										"Пират - Лучник"
+		
+		"redfall_shipyard_gatekeeper"									"Gatekeeper"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion"			"Skull Explosion"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion_Description"	"Взрывается и выпускает 11 горящих черепов во все стороны, которые также взорвуться при контакте с целью и нанесут урон по области."
 
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "Skulldigger"
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "Каждые 2.2 секунды получает заряд. Пока есть заряды, выпускает поток энергии в атакующих, теряя заряд."

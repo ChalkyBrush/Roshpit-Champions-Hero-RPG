@@ -123,7 +123,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_suffix"						"% от урона Viper"
 
     	"DOTA_Tooltip_ability_venomort_rune_r_2"							"[R2] Molting"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Усиливает @Ability4, влияя на показатели их урона, здоровья, скорости атаки и уровень брони."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Усиливает @Ability4, влияя на показатели их урона, здоровья, скорости атаки, брони, магической защиты и пробития брони."
     	"DOTA_Tooltip_ability_venomort_rune_r_2_property_one"				"Усиление показателей"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_suffix"						"% от базовых показателей"
 		
@@ -136,11 +136,13 @@
     	"DOTA_Tooltip_modifier_venomort_c_d_poison_Description"				"Наносит сниженный урон по Venomort."
     	
 		"DOTA_Tooltip_ability_venomort_rune_r_4"                            "[R4] Morticulture"
-        "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "Увеличивает базовые уровни здоровья и урона @Ability4."
+        "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "Увеличивает базовые уровни здоровья, базового урона атаки и пробития брони @Ability4."
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_one"               "Бонус здоровья"
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_two"               "Усиление урона"
+		"DOTA_Tooltip_ability_venomort_rune_r_4_property_three"				"Усиление Пробития Брони"
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
+		"DOTA_Tooltip_ability_venomort_rune_r_4_suffix_three" 				""
 		
 		//Arcanas
 
