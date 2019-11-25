@@ -3010,53 +3010,6 @@ function egg_end(event)
 	UTIL_Remove(target)
 end
 
-function savage_ogthun_kill(event)
-	local dyingUnit = event.unit
-	local hero = event.attacker
-	local ability = event.ability
-	local caster = event.caster
-	if not ability.ogthunStacks then
-		ability.ogthunStacks = 0
-	end
-	ability:ApplyDataDrivenModifier(caster, hero, "modifier_ogthun_visible", {duration = 9})
-	local current_stack = hero:GetModifierStackCount("modifier_ogthun_visible", ability)
-	ability.ogthunStacks = math.min(ability.ogthunStacks + 1, 100)
-	local newStack = math.min(ability.ogthunStacks, 100)
-
-	hero:SetModifierStackCount("modifier_ogthun_visible", ability, newStack)
-
-	local healthBonus = hero:GetStrength() * 0.4 * newStack
-	local healthBonusStacks = healthBonus / 10
-
-	ability:ApplyDataDrivenModifier(caster, hero, "modifier_ogthun_health", {duration = 9})
-	hero:SetModifierStackCount("modifier_ogthun_health", ability, healthBonusStacks)
-	hero:CalculateStatBonus()
-	local particleName = "particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
-	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
-
-	Timers:CreateTimer(1, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-end
-
-function ogthun_destroy(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	ability.ogthunStacks = ability.ogthunStacks - 1
-	if ability.ogthunStacks > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_ogthun_visible", {duration = 9})
-		target:SetModifierStackCount("modifier_ogthun_visible", ability, ability.ogthunStacks)
-
-		local healthBonus = target:GetStrength() * ability.ogthunStacks * 0.4
-		local healthBonusStacks = healthBonus / 10
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_ogthun_health", {duration = 9})
-		target:SetModifierStackCount("modifier_ogthun_health", ability, healthBonusStacks)
-		target:CalculateStatBonus()
-	end
-end
-
 function silverspring_think(event)
 	local target = event.target
 	local ability = event.ability
@@ -7797,5 +7750,55 @@ function flood_water_elemental_always_think(event)
             ParticleManager:DestroyParticle(particle1, false)
         end)
         EmitSoundOn("RPCItems.OceanTempest.Splash", caster)
+	end
+end
+
+function savage_ogthun_kill(event)
+	local dyingUnit = event.unit
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+
+	local heal = hero:GetMaxHealth()*(ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_HEALTH_RESTORE_PCT/100)
+	Filters:ApplyHeal(hero, hero, heal, true)
+
+	local limitKey = hero:GetPlayerOwnerID() .. '_ogthun_particles'
+	Util.Common:LimitPerTime(8, 1, limitKey, function()
+		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, dyingUnit)
+		ParticleManager:SetParticleControlEnt(pfx, 0, dyingUnit, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", dyingUnit:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, dyingUnit, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", dyingUnit:GetForwardVector(), true)
+		EmitSoundOn("RPCItem.Ogthun.Kill", dyingUnit)
+	end)
+end
+
+function savage_ogthun_attacked(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+	local attacker = event.attacker
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_RUBY))
+		if proc then
+			local distance = WallPhysics:GetDistance2d(attacker:GetAbsOrigin(), hero:GetAbsOrigin())
+			if distance <= hero:Script_GetAttackRange() then
+				local fv = ((attacker:GetAbsOrigin() - hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				hero:SetForwardVector(fv)
+				Filters:PerformAttackSpecial(hero, attacker, true, true, true, false, true, false, false)
+				StartAnimation(hero, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2.2})
+			end
+		end
+	end
+end
+
+function savage_ogthun_attack_land(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+	local attacker = event.attacker
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_ogthun_sapphire_buff", {duration = ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_SAPPHIRE_DURATION})
+		local attack_power = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_SAPPHIRE1)
+		hero:SetModifierStackCount("modifier_ogthun_sapphire_buff", caster, attack_power)
 	end
 end

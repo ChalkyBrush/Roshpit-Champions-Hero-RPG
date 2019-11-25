@@ -24743,7 +24743,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24766,7 +24766,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "20 35 55 80 95 115 135"
+				"damage"			    "20 55 150 220 300 450 600"
 			}
 			"04"
 			{
@@ -25201,7 +25201,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "5"
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "12"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.15"
 				}
             }
@@ -25356,6 +25356,19 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_viper_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 
 		"AbilitySpecial"
@@ -25363,17 +25376,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "50 100 150 200 250 300 350"
+				"damage"			    "80 150 320 500 700 850 1000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health"			    "340 500 700 900 1200 1500 2000"
+				"health"			    "340 500 700 900 1200 1500 2500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"100"
+				"attack_speed"			"120"
 			}
 			"04"
 			{
@@ -25597,7 +25610,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"6"
 			}
             "02"
             {
@@ -25649,7 +25662,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -25677,7 +25690,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"8"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -25749,13 +25762,18 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"250"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"75"
+				"property_two"			"100"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_three"			"80"
+			}			
 		}
 	}
 
@@ -68797,7 +68815,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"50 75 95 125 155 185 215"
+				"damage"					"70 110 160 220 300 420 500"
 			}
 			"03"
 			{
@@ -69437,7 +69455,7 @@
 
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.01"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.02"
 				}
 			}
 			"modifier_paladin_rune_r_2_hidden_block"
@@ -69616,7 +69634,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -69969,7 +69987,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -70033,7 +70051,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -70102,7 +70120,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"0.02"
 			}
 			"02"
 			{
@@ -70126,7 +70144,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -125369,7 +125387,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stacks"			"5 15 30"
+				"stacks"			"4 5 6"
 			}
 		}
 		"Modifiers"
@@ -135506,7 +135524,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 1400 6000"
+				"damage"				"700 1200 3000"
 			}
 			"02"
 			{
@@ -135618,7 +135636,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 2400 4000"
+				"damage"				"700 1200 3000"
 			}
 			"02"
 			{

@@ -501,13 +501,13 @@
 
 		"item_property_ogthun"						"Savagery"
 		"property_ogthun_description"				"Slaying an enemy restores <% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_HEALTH_RESTORE_PCT %>% of your health."
-		"DOTA_Tooltip_modifier_ogthun_visible" 				"Savagery"
-		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"Increased Max Health and Base Ability Damage"
+		"DOTA_Tooltip_modifier_ogthun_sapphire_buff" 				"Savagery (Sapphire)"
+		"DOTA_Tooltip_modifier_ogthun_sapphire_buff_Description"	"Increased Attack Power and Armor Pierce"
 
 
-		"item_rpc_savage_plate_of_ogthun_ruby1"							"Reduces all damage taken by @ruby_property1% while below <% ITEM_RPC_SAVE_PLATE_OF_OGTHUN_RUBY_THRESHOLD %>% health"
-		"item_rpc_savage_plate_of_ogthun_emerald1"							"@emerald_property1% chance when attacked to immediately perform a counter attack if they are within attack range"			
-		"item_rpc_savage_plate_of_ogthun_sapphire1"							"Attacking an enemy increases attack power by @sapphire_property1% and Armor Pierce by @sapphire_property2 for <% ITEM_RPC_SAVE_PLATE_OF_OGTHUN_SAPPHIRE_DURATION %> seconds."
+		"item_rpc_savage_plate_of_ogthun_ruby1"							"@ruby_property1% chance when attacked to immediately perform a counter attack if they are within attack range"	
+		"item_rpc_savage_plate_of_ogthun_emerald1"							"Reduces all damage taken by @emerald_property1% while below <% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_RUBY_THRESHOLD %>% health"		
+		"item_rpc_savage_plate_of_ogthun_sapphire1"							"Attacking an enemy increases attack power by @sapphire_property1% and Armor Pierce by @sapphire_property2 for <% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_SAPPHIRE_DURATION %> seconds."
 		"item_rpc_savage_plate_of_ogthun_amethyst1"							"Increases <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font> damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"

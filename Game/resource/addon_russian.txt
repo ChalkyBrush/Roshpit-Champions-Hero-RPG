@@ -7719,9 +7719,9 @@
 		"DOTA_Tooltip_modifier_paladin_rune_q_1_description" 			"Ваши атаки выпускают святые искры, поражая врагов."
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_2"							"[Q2] Radiance"
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все противники в радиусе 900 получают урон, основанный на базовом уроне героя."
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_Description"				"Пока активно умение (Q) Heroic Fury, все противники в радиусе 900 получают урон, основанный на уроне Атаки героя."
     	"DOTA_Tooltip_ability_paladin_rune_q_2_property_one"			"Урон в сек."
-    	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					" % от базового"
+    	"DOTA_Tooltip_ability_paladin_rune_q_2_suffix"					"% от Урона Атаки"
 
     	"DOTA_Tooltip_modifier_paladin_q_2_radiance"					"Radiance"
     	"DOTA_Tooltip_modifier_paladin_q_2_radiance_Description"		"Ближайшие враги получают урон."
@@ -7774,7 +7774,7 @@
     	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"Обезоружен"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"[W1] Holy Fire складывается с каждым следующим попаданием умением (W) Justice Overwhelming. С каждым зарядом наносимый урон увеличивается на <font color='#ccff66'>1</font>% от предыдущего значения."
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"[W1] Holy Fire складывается с каждым следующим попаданием умением (W) Justice Overwhelming. С каждым зарядом наносимый урон увеличивается на <font color='#ccff66'>12</font>% от предыдущего значения."
     	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"Максимум зарядов [W1] Holy Fire"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
 
@@ -7830,7 +7830,7 @@
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Получает увеличенный урон от Паладина"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Призывает Knight's Disciple в бой. Disciple имеет исцеляющую способность, которую он будет применять на цель с наименьшим уровнем здоровья. Пока действует эффект исцеления, цель получает на <font color='#ccff66'>0.1</font>% меньше урона из всех источников."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Призывает Knight's Disciple в бой. Disciple имеет исцеляющую способность, которую он будет применять на цель с наименьшим уровнем здоровья. Пока действует эффект исцеления, цель получает на <font color='#ccff66'>10</font>% меньше урона из всех источников."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"ДЛИТЕЛЬНОСТЬ ПРИЗЫВА:"
     	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"ЛЕЧЕНИЕ/ТИК:"
@@ -7839,7 +7839,7 @@
 		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Восстановление здоровья и дополнительно 200 скорость передвижения."
 
 		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
-		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Регенерация здоровья каждые 0.2 секунды. Входящий урон снижен на <font color='#ccff66'>0.1</font>%%"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Регенерация здоровья каждые 0.2 секунды. Входящий урон снижен на <font color='#ccff66'>10</font>%%"
 		
 		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Небесный Адепт дополнительно распространяет ауру повышения брони в радиусе 1000."
@@ -7865,9 +7865,18 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_3_suffix"					"% от урона героя"
 
     	"DOTA_Tooltip_ability_paladin_rune_r_4"							"[R4] Purifying Spark"
-    	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"(R) Небесный Адепт получает способность выпускать снаряд, способный замораживать цель, дополнительно замораживая всех ближайших к цели противников."	
+    	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"(R) Knight's Disciple получает способность выпускать снаряд, способный замораживать цель, дополнительно замораживая всех ближайших к цели противников."	
     	"DOTA_Tooltip_ability_paladin_rune_r_4_property_one"			"Длительность заморозки"
     	"DOTA_Tooltip_ability_paladin_rune_r_4_suffix"					" сек."
+		
+		"paladin_disciple"													"Knight's Disciple"
+		"DOTA_Tooltip_ability_knights_disciple_heal"						"Empowering Light"
+		"DOTA_Tooltip_ability_knights_disciple_heal_Description"			"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд, максимальное количество зарядов - 30."
+		"DOTA_Tooltip_ability_knights_disciple_bolt"						"Holy Bolt"
+		"DOTA_Tooltip_ability_knights_disciple_bolt_Description"			"(R) Knight's Disciple наделяется способностью ударить врага, нанося чистый урон на основании общего урона Паладина и оглушая цель на 0.1 секунды. Перезаряжается 5 секунд."
+		"DOTA_Tooltip_ability_knights_disciple_purifying_spark"				"Purifying Spark"
+		"DOTA_Tooltip_ability_knights_disciple_purifying_spark_Description"	"(R) Knight's Disciple получает способность выпускать снаряд, способный замораживать цель, дополнительно замораживая всех ближайших к цели противников."	
+    	"DOTA_Tooltip_ability_paladin_rune_r_4_property_one"			"Длительность заморозки"
 
     	"DOTA_Tooltip_modifier_disciple_purifying_spark"					"Purifying Spark"
     	"DOTA_Tooltip_modifier_disciple_purifying_spark_Description"		"Заморожен."	
@@ -10335,7 +10344,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_e_3_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Каждый противник под действием любого яда Venomort увеличивает запас его здоровья и шанс уклонения. Монстры Парагона считаются за <font color='#ccff66'>5</font> юнитов, боссы считаются за <font color='#ccff66'>20</font>. Базовая длительность - <font color='#ccff66'>1.5</font> секунды, длительность каждого стака независимая, количество стаков <font color='#ccff66'>50</font> максимально."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Каждый противник под действием любого яда Venomort увеличивает запас его здоровья и шанс уклонения. Монстры Парагона считаются за <font color='#ccff66'>5</font> юнитов, боссы считаются за <font color='#ccff66'>20</font>. Базовая длительность - <font color='#ccff66'>3</font> секунды, длительность каждого стака независимая, количество стаков <font color='#ccff66'>50</font> максимально."
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Бонус здоровья"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" за противника"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Шанс уклонения"
@@ -10359,7 +10368,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_suffix"						"% от урона Viper"
 
     	"DOTA_Tooltip_ability_venomort_rune_r_2"							"[R2] Molting"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Усиливает @Ability4, влияя на показатели их урона, здоровья, скорости атаки и уровень брони."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Усиливает @Ability4, влияя на показатели их урона, здоровья, скорости атаки, брони, магической защиты и пробития брони."
     	"DOTA_Tooltip_ability_venomort_rune_r_2_property_one"				"Усиление показателей"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_suffix"						"% от базовых показателей"
 		
@@ -10372,11 +10381,13 @@
     	"DOTA_Tooltip_modifier_venomort_c_d_poison_Description"				"Наносит сниженный урон по Venomort."
     	
 		"DOTA_Tooltip_ability_venomort_rune_r_4"                            "[R4] Morticulture"
-        "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "Увеличивает базовые уровни здоровья и урона @Ability4."
+        "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "Увеличивает базовые уровни здоровья, базового урона атаки и пробития брони @Ability4."
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_one"               "Бонус здоровья"
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_two"               "Усиление урона"
+		"DOTA_Tooltip_ability_venomort_rune_r_4_property_three"				"Усиление Пробития Брони"
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
+		"DOTA_Tooltip_ability_venomort_rune_r_4_suffix_three" 				""
 		
 		//Arcanas
 
@@ -16102,6 +16113,10 @@
 		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"УРОН НА ГРАНИЦЕ:"
 
 		"shipyard_pirate_archer"										"Пират - Лучник"
+		
+		"redfall_shipyard_gatekeeper"									"Gatekeeper"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion"			"Skull Explosion"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion_Description"	"Взрывается и выпускает 11 горящих черепов во все стороны, которые также взорвуться при контакте с целью и нанесут урон по области."
 
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "Skulldigger"
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "Каждые 2.2 секунды получает заряд. Пока есть заряды, выпускает поток энергии в атакующих, теряя заряд."

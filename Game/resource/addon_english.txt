@@ -8402,7 +8402,7 @@
     	"DOTA_Tooltip_modifier_paladin_c_b_disarm_Description"			"Disarmed"
 		
 		"DOTA_Tooltip_ability_paladin_rune_w_4"							"[W4] Intensifying Fire"
-    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"Holy Fire can stack with successive strikes from Justice Overwhelming. Each stack deals <font color='#ccff66'>1</font>% more damage than the previous."
+    	"DOTA_Tooltip_ability_paladin_rune_w_4_Description"				"Holy Fire can stack with successive strikes from Justice Overwhelming. Each stack deals <font color='#ccff66'>12</font>% more damage than the previous."
     	"DOTA_Tooltip_ability_paladin_rune_w_4_property_one"			"Max Stacks"
     	"DOTA_Tooltip_ability_paladin_rune_w_4_suffix"					""
 
@@ -8458,7 +8458,7 @@
     	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"Increased Magic Armor"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"Knight's Disciple"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by <font color='#ccff66'>0.1</font>%."
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"Summons a Disciple of Heaven to fight with you. The Disciple has a healing spell that will target the lowest HP nearby ally and heal it for a % of his max life. The healing spell reduces damage taken by <font color='#ccff66'>10</font>%."
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"SUMMON DURATION:"
     	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"% MAX LIFE RESTORED EVERY 0.2 SECONDS:"
@@ -8467,7 +8467,7 @@
 		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"Immune to physical damage, restoring HP and 200 bonus Movespeed."
 
 		"DOTA_Tooltip_modifier_knights_disciple_heal"					"Knight's Disciple"
-		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by <font color='#ccff66'>10</font>%"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"Healing every 0.2 seconds. Damage taken reduced by <font color='#ccff66'>10</font>%%"
 		
 		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] Guardian of Heaven"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"Knight's Disciple has a 1000 AOE armor enhancing aura."
@@ -8496,7 +8496,15 @@
     	"DOTA_Tooltip_ability_paladin_rune_r_4_Description"				"Knight's Disciple gains the ability to fire a projectile that freezes the target, and then splits and hits nearby enemies also freezing them."	
     	"DOTA_Tooltip_ability_paladin_rune_r_4_property_one"			"Freeze Duration"
     	"DOTA_Tooltip_ability_paladin_rune_r_4_suffix"					" seconds"
-
+		
+		"paladin_disciple"													"Knight's Disciple"
+		"DOTA_Tooltip_ability_knights_disciple_heal"						"Empowering Light"
+		"DOTA_Tooltip_ability_knights_disciple_heal_Description"			"Allies who are healed by Knight's Disciple gain attack damage and armor with each heal tick. The buff lasts 16 seconds, max number of stacks is 30."
+		"DOTA_Tooltip_ability_knights_disciple_bolt"						"Holy Bolt"
+		"DOTA_Tooltip_ability_knights_disciple_bolt_Description"			"Knight's Disciple gains the ability to smite a target dealing pure damage based on Paladin's attack power and applies a 0.1 second stun. 5 second cooldown."
+		"DOTA_Tooltip_ability_knights_disciple_purifying_spark"				"Purifying Spark"
+		"DOTA_Tooltip_ability_knights_disciple_purifying_spark_Description"	"Knight's Disciple gains the ability to fire a projectile that freezes the target, and then splits and hits nearby enemies also freezing them."
+		
     	"DOTA_Tooltip_modifier_disciple_purifying_spark"					"Purifying Spark"
     	"DOTA_Tooltip_modifier_disciple_purifying_spark_Description"		"Frozen."	
 
@@ -8626,7 +8634,7 @@
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
-        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to <font color='#ccff66'>1</font>x Paladin's attack power."
+        "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to <font color='#ccff66'>0.5</font>x Paladin's attack power."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] Glyph of Magic Protection"
         "item_rpc_paladin_glyph_6_2_description"                "Magic Armor is increased by <font color='#ccff66'>100</font>%."
@@ -10988,7 +10996,7 @@
     	"DOTA_Tooltip_modifier_venomort_bonus_attack_damage_ally_Description"	"Gaining bonus attack damage"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_4"							"[E4] Sadism"
-    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as <font color='#ccff66'>5</font> units, while bosses count as <font color='#ccff66'>20</font>. Maximum <font color='#ccff66'>50</font> stacks, and each stack expires independently after <font color='#ccff66'>1.5</font> seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_e_4_Description"				"Each enemy unit currently suffering from any of Venomort's various poisons grants him a stack of increased health and evasion. Paragon enemies count as <font color='#ccff66'>5</font> units, while bosses count as <font color='#ccff66'>20</font>. Maximum <font color='#ccff66'>50</font> stacks, and each stack expires independently after <font color='#ccff66'>3</font> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_one"				"Bonus Max Health"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_suffix"						" per enemy"
     	"DOTA_Tooltip_ability_venomort_rune_e_4_property_two"				"Bonus Evasion"
@@ -11015,12 +11023,12 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_suffix"						"% of Viper's attack damage"
 
     	"DOTA_Tooltip_ability_venomort_rune_r_2"							"[R2] Molting"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Improves Vipers, increasing their attack damage, maximum health, and attack speed, as well as their total Armor value."
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"Improves Vipers, increasing their attack damage, maximum health, armor, magic armor, armor pierce and attack speed."
     	"DOTA_Tooltip_ability_venomort_rune_r_2_property_one"				"Additional Stats"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_suffix"						"% of base stats"
 		
 		"DOTA_Tooltip_ability_venomort_rune_r_3"							"[R3] Numbing Agent"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_Description"				"Enemies damaged by a Vile Familiar receive a stacking debuff that causes them to deal less total damage to Venomort himself. Each stack further reduces damage dealt down to 97% of its previous value. Debuff lasts <font color='#ccff66'>5</font> seconds before expiring."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_Description"				"Enemies damaged by a Vile Familiar receive a stacking debuff that causes them to deal less total damage to Venomort himself. Each stack further reduces damage dealt down to 97% of its previous value. Debuff lasts <font color='#ccff66'>10</font> seconds before expiring."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_property_one"				"Maximum Stack Count"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_suffix"						""
 
@@ -11031,8 +11039,10 @@
         "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "Increases the base health and damage of Vile Familiars."
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_one"               "Bonus Maximum Health"
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_two"               "Bonus Base Damage"
+		"DOTA_Tooltip_ability_venomort_rune_r_4_property_three"				"Bonus Armor Pierce"
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
+		"DOTA_Tooltip_ability_venomort_rune_r_4_suffix_three" 				""
 
     	"DOTA_Tooltip_modifier_q_1_nova"										"Poison Nova"
     	"DOTA_Tooltip_modifier_q_1_nova_Description"							"Venomort's old Q1 applied this debuff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
@@ -12798,14 +12808,14 @@
 		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"Savage Plate of Og'Thun"
 
 		"item_property_ogthun"						"Savagery"
-		"property_ogthun_description"				"Slaying an enemy restores <font color='#ccff66'>0</font>% of your health."
-		"DOTA_Tooltip_modifier_ogthun_visible" 				"Savagery"
-		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"Increased Max Health and Base Ability Damage"
+		"property_ogthun_description"				"Slaying an enemy restores <font color='#ccff66'>6</font>% of your health."
+		"DOTA_Tooltip_modifier_ogthun_sapphire_buff" 				"Savagery (Sapphire)"
+		"DOTA_Tooltip_modifier_ogthun_sapphire_buff_Description"	"Increased Attack Power and Armor Pierce"
 
 
-		"item_rpc_savage_plate_of_ogthun_ruby1"							"Reduces all damage taken by @ruby_property1% while below <font color='#ccff66'>0</font>% health"
-		"item_rpc_savage_plate_of_ogthun_emerald1"							"@emerald_property1% chance when attacked to immediately perform a counter attack if they are within attack range"			
-		"item_rpc_savage_plate_of_ogthun_sapphire1"							"Attacking an enemy increases attack power by @sapphire_property1% and Armor Pierce by @sapphire_property2 for <font color='#ccff66'>0</font> seconds."
+		"item_rpc_savage_plate_of_ogthun_ruby1"							"@ruby_property1% chance when attacked to immediately perform a counter attack if they are within attack range"	
+		"item_rpc_savage_plate_of_ogthun_emerald1"							"Reduces all damage taken by @emerald_property1% while below <font color='#ccff66'>40</font>% health"		
+		"item_rpc_savage_plate_of_ogthun_sapphire1"							"Attacking an enemy increases attack power by @sapphire_property1% and Armor Pierce by @sapphire_property2 for <font color='#ccff66'>1.2</font> seconds."
 		"item_rpc_savage_plate_of_ogthun_amethyst1"							"Increases <font color=\"#DDDDDD\">Normal</font> damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
@@ -16291,6 +16301,10 @@
 		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"DAMAGE AT EDGE:"
 
 		"shipyard_pirate_archer"										"Shipyard Pirate Archer"
+		
+		"redfall_shipyard_gatekeeper"									"Gatekeeper"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion"			"Skull Explosion"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion_Description"	"Explodes and emits 11 skulls covered by ethereal flame. Skulls deal damage on contact and make another explosion, dealing damage in area."
 
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "Skulldigger"
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "Builds charges every 2.2 seconds. Each time damage is taken with a charge active, launch a wraithfire blast at the attacker."

@@ -32,9 +32,14 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_SAPPHIRE %>"
+				"sapphire1"			"<% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_SAPPHIRE1 %>"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_SAPPHIRE2 %>"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_AMETHYST %>"
@@ -44,6 +49,7 @@
 		{
 			"particle"  "particles/econ/items/riki/riki_haze_atrocity/riki_versuta_red_eye_r_parent.vpcf"
 			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -69,8 +75,26 @@
 						"Function"		"savage_ogthun_kill"
 					}
 				}
+				"OnAttacked"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"savage_ogthun_attacked"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"savage_ogthun_attack_land"
+					}
+				}
 			}
-			"modifier_ogthun_visible"
+			"modifier_ogthun_sapphire_buff"
 			{
 				"IsBuff"	"1"
 				"Passive"	"0"
@@ -78,14 +102,9 @@
 				"TextureName"	"itemicons/ogthun"
 				"EffectName"	"particles/econ/items/riki/riki_haze_atrocity/riki_versuta_red_eye_r_parent.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"OnDestroy"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"ogthun_destroy"
-						"target"		"TARGET"
-					}
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
 			"modifier_ogthun_health"

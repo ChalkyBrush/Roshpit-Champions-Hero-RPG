@@ -1753,7 +1753,12 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_raven_idol") then
 		damage = damage * (1 - ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT / 100)
 	end
-
+	if victim:HasModifier("modifier_savage_plate_of_ogthun") then
+		local savage_plate = victim.equipped_gear[RPC_GEAR_SLOT_BODY]
+		if victim:GetHealthPercent() <= ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_RUBY_THRESHOLD then
+			damage = damage * (1 - savage_plate:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_EMERALD)/100)
+		end
+	end
 	if victim:HasModifier("modifier_axe_immortal_weapon_1") then
 		damage = damage * (1-RED_GENERAL_IMMORTAL_WEAPON_DMG_REDUCTION)
 	end

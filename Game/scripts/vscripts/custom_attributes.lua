@@ -1714,6 +1714,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_EMERALD))
 	end
+	if unit:HasModifier("modifier_ogthun_sapphire_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_SAPPHIRE2)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then

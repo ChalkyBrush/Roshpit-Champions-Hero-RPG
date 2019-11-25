@@ -9946,7 +9946,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "15"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "20"
 				}
 			}
 		}
@@ -9955,7 +9955,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -39283,19 +39283,24 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
+				"ruby1"				"20 40 60 80 100"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
+				"emerald1"			"8 16 24 32 40"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
+				"sapphire1"			"20 40 60 80 100"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"400 800 1200 1600 2000"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"10 20 30 40 50"
@@ -39305,6 +39310,7 @@
 		{
 			"particle"  "particles/econ/items/riki/riki_haze_atrocity/riki_versuta_red_eye_r_parent.vpcf"
 			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_spotlight.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -39330,8 +39336,26 @@
 						"Function"		"savage_ogthun_kill"
 					}
 				}
+				"OnAttacked"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"savage_ogthun_attacked"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"savage_ogthun_attack_land"
+					}
+				}
 			}
-			"modifier_ogthun_visible"
+			"modifier_ogthun_sapphire_buff"
 			{
 				"IsBuff"	"1"
 				"Passive"	"0"
@@ -39339,14 +39363,9 @@
 				"TextureName"	"itemicons/ogthun"
 				"EffectName"	"particles/econ/items/riki/riki_haze_atrocity/riki_versuta_red_eye_r_parent.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"OnDestroy"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"ogthun_destroy"
-						"target"		"TARGET"
-					}
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
 			"modifier_ogthun_health"
