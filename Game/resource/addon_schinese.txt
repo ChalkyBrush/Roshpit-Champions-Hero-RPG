@@ -12981,7 +12981,7 @@
 
 		"item_property_robe_of_the_erudite_teacher"						"拉比克学徒"
 
-		"property_robe_of_the_erudite_teacher_description"				"当你装备该装备时，一个拉比克学徒将会跟随着你。这个学徒能够学习敌人的技能，最多能学习3个。他的生命值为你的<font color='#ccff66'>5</font>x ，攻击力为你的 <font color='#ccff66'>10</font>x ，护甲为你的 <font color='#ccff66'>10</font>x ，以及2000魔法值。如果学徒死亡了，他会在10秒后复活并且仍然具有死前拥有的技能，这个学徒造成的任何伤害均视为英雄的物品伤害。"
+		"property_robe_of_the_erudite_teacher_description"				"当你装备该装备时，一个拉比克学徒将会跟随着你。这个学徒能够学习敌人的技能，最多能学习3个。他的生命值为你的<font color='#ccff66'>1</font>x ，攻击力为你的 <font color='#ccff66'>1</font>x ，以及2000魔法值。如果学徒死亡了，他会在10秒后复活并且仍然具有死前拥有的技能，这个学徒造成的任何伤害均视为英雄的物品伤害。"
 
 
 

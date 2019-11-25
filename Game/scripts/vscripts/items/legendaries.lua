@@ -2200,46 +2200,6 @@ function RPCItems:VermillionDreamRobes(item_level)
     return item
 end
 
-function RPCItems:RollRobesOfEruditeTeacher(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_robe_of_the_erudite_teacher", "immortal", "Robes of the Erudite Teacher", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "erudite_teacher"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_robe_of_the_erudite_teacher", "#32a852", 1, "#property_robe_of_the_erudite_teacher_description")
-    local luck = RandomInt(1, 4)
-    if luck == 3 and maxFactor > 160 then
-        local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_"..letter.."_3"
-        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 20, 0, 0, 0, 0)
-
-        item.newItemTable.property2name = runeName
-        item.newItemTable.property2 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)        
-    elseif luck == 4 and maxFactor >= 240 then
-        local letter = RPCItems:GetRandomRuneLetter(1, 4)
-        runeName = "rune_"..letter.."_4"
-        runeValue = RPCItems:GetLogarithmicVarianceValue(maxFactor / 30, 0, 0, 0, 0)
-
-        item.newItemTable.property2name = runeName
-        item.newItemTable.property2 = math.floor(runeValue)
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property2 = math.ceil(value * 1.15)
-        item.newItemTable.property2name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-    end
-    item.newItemTable.hasRunePoints = true
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 
 function RPCItems:RollLightSeersRobes(item_level)
     local item = RPCItems:CreateVariant("item_rpc_templar_light_seers_robe", "immortal", "Templar Light Seer's Robe", "body", true, "Slot: Body")
@@ -4686,6 +4646,28 @@ function RPCItems:RollFloodRobe(item_level)
     else
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
     end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollRobesOfEruditeTeacher(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+    local item = RPCItems:CreateVariant("item_rpc_robe_of_the_erudite_teacher", "immortal", "Robes of the Erudite Teacher", "body", true, "Slot: Body")
+
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_erudite_teacher"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_robe_of_the_erudite_teacher", "#32a852", 1, "#property_robe_of_the_erudite_teacher_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)

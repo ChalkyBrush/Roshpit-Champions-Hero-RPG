@@ -12801,12 +12801,14 @@
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Умение (Q) применяется без перезарядки"
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
-		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"blah blah @amethyst_property1 gem"
+
 		"item_property_robe_of_the_erudite_teacher"						"Rubick Apprentice"
-		"property_robe_of_the_erudite_teacher_description"				"Вызывает Рубика-подмастерье, который может заимствовать до 3 заклинаний у вражеских существ. Он призывается с показателями <font color='#ccff66'>5</font>x здоровья призывателя, <font color='#ccff66'>10</font>x атаки призывателя, <font color='#ccff66'>10</font>x брони призывателя и 2000 маны. Если он умирает, новый подмастерье появляется через 10 секунд, сохраняя заимствованные заклинания. Весь исходящий урон от него учитывается как урон Предметов героя-призывателя."
+		"property_robe_of_the_erudite_teacher_description"				"When equipped, a curious Rubick Apprentice adventures with you. The Apprentice can copy up to 3 spells from enemy creatures. It spawns with <font color='#ccff66'>1</font>x the wearer's maximum health and <font color='#ccff66'>1</font>x the wearer's total attack power, and 2000 mana. If the Apprentice dies, it respawns after 10 seconds, keeping all the same abilities it had before death. All damage dealt by the Apprentice is considered item damage from your hero."
+
+		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"Increases the Apprentice's Max Health by an additional @ruby_property1"
+		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Reduces the apprentice's respawn time by @emerald_property1 seconds"
+		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"Increases the Apprentice's attack damage by an additional @sapphire_property1"
+		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"Increases Item Damage by @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Копирует случайное заклинание у вражеского юнита. Заклинания не будут копированы, если у подмастерья уже имеется такое, или если юнит имеет защиту от воздействия (если нельзя приручить или захватить)."
