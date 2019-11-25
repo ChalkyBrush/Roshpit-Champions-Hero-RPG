@@ -451,7 +451,7 @@
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_dragon"					"蓝龙"
-		"property_sapphire_dragon_description"				"每点智力值增加 <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %> 攻击力和 <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %> 护甲值。"
+		"property_sapphire_dragon_description"				"每点智力值增加 <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %>。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"红宝石龙鳞铠甲"
@@ -460,7 +460,7 @@
 		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ruby_dragon_armor"					"红龙"
-		"property_ruby_dragon_armor_description"			"每点力量值增加 <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %> 攻击力和 <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_PER_STR %> 护甲值。"
+		"property_ruby_dragon_armor_description"			"每点力量值增加 <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %>。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"黄玉龙鳞铠甲"
@@ -469,7 +469,7 @@
 		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_topaz_dragon"						"黄龙"
-		"property_topaz_dragon_description"				"每点敏捷值增加 <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %> 攻击力和 <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %> 护甲值。"
+		"property_topaz_dragon_description"				"每点敏捷值增加 <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %>。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"神圣审判护甲"

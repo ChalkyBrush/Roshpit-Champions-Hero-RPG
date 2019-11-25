@@ -452,31 +452,36 @@
 		"property_knight_crusher_description"				"Время оглушений от способностей и предметов увеличено на <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%. Добавляет на <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>% меньше времени к иммунитету врагов к оглушению."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
-		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Каждое очко Интеллекта увеличивает урон на <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %> и броню на <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %>"
-		 
-		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
-		"item_rpc_ruby_dragon_scale_armor_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_ruby_dragon_scale_armor_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"blah blah @amethyst_property1 gem"
+
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Каждое очко Силы увеличивает урон на <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %> и броню на <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_PER_STR %>"
-		 
-		 
+		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <% ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR %>."
+
+		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Each point of Strength increases Base Attack Damage by @ruby_property1"
+		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Each point of Strength increases Armor Pierce by @emerald_property1"
+		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"Each point of Strength increases Spell Pierce by @sapphire_property1"
+		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"Each point of Strength increases Magic Armor by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
-		"item_rpc_topaz_dragon_scale_armor_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_topaz_dragon_scale_armor_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
+
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Каждое очко Ловкости увеличивает урон на <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %> и броню на <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %>"
+		"property_topaz_dragon_description"				"Primary attribute is always Agilit. Each point of Agilit increases attack damage by an additional <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI %>."
+
+		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Each point of Agility increases Armor by @ruby_property1"
+		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Each point of Agility increases Base Attack Damage by @emerald_property1"
+		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"Each point of Agility increases Spell Pierce by @sapphire_property1"
+		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"Each point of Agility increases Magic Armor by @amethyst_property1"
+
+
+		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
+
+		"item_property_sapphire_dragon"					"Blue Scale"
+		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT %>."
+
+		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Each point of Intelligence increases Armor by @ruby_property1"
+		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @ruby_property1"
+		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"Each point of Intelligence increases Base Attack Damage by @sapphire_property1"
+		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"Each point of Intelligence increases Magic Armor by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"

@@ -354,6 +354,12 @@ function CDOTA_BaseNPC_Hero:GetRoshpitPrimaryAttribute()
 		if self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("ruby") > 0 then
 			prime_attr = ROSHPIT_ATTRIBUTE_STRENGTH
 		end
+	elseif self:HasModifier("modifier_ruby_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_STRENGTH
+	elseif self:HasModifier("modifier_topaz_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_AGILITY
+	elseif self:HasModifier("modifier_sapphire_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_INTELLIGENCE
 	end
 	return prime_attr
 end
@@ -963,7 +969,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)
 	end
-
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR)
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_RUBY))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_RUBY))
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1461,6 +1475,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			end
 		end
 	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -1681,6 +1704,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 				armor_pierce_modify = armor_pierce_modify + (radiant_leather:GetFinalGemPropertyValue("ruby", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_RUBY) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
 			end
 		end
+	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_EMERALD))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI)
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_EMERALD))
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -1931,6 +1963,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
     	local ice_quill = ice_quill_stacks_modifier:GetAbility()
     	spell_pierce_modify = spell_pierce_modify + ice_quill:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_AMETHYST)*ice_quill_stacks_modifier:GetStackCount()
     end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

@@ -12728,7 +12728,7 @@
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Reduces the apprentice's respawn time by @emerald_property1 seconds"
 		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"Increases the Apprentice's attack damage by an additional @sapphire_property1"
 		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"Increases Item Damage by @amethyst_property1%"
-		
+
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."
 
@@ -12740,6 +12740,37 @@
 
 		"DOTA_Tooltip_ability_rubick_apprentice_reset"					"Reset"
 		"DOTA_Tooltip_ability_rubick_apprentice_reset_Description"		"Removes all of the Apprentice's copied abilities, replacing them with Spell Steal."
+
+		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
+
+		"item_property_ruby_dragon_armor"					"Red Scale"
+		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+
+		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Each point of Strength increases Base Attack Damage by @ruby_property1"
+		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Each point of Strength increases Armor Pierce by @emerald_property1"
+		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"Each point of Strength increases Spell Pierce by @sapphire_property1"
+		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"Each point of Strength increases Magic Armor by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
+
+		"item_property_topaz_dragon"						"Yellow Scale"
+		"property_topaz_dragon_description"				"Primary attribute is always Agilit. Each point of Agilit increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+
+		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Each point of Agility increases Armor by @ruby_property1"
+		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Each point of Agility increases Base Attack Damage by @emerald_property1"
+		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"Each point of Agility increases Spell Pierce by @sapphire_property1"
+		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"Each point of Agility increases Magic Armor by @amethyst_property1"
+
+
+		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
+
+		"item_property_sapphire_dragon"					"Blue Scale"
+		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+
+		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Each point of Intelligence increases Armor by @ruby_property1"
+		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @ruby_property1"
+		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"Each point of Intelligence increases Base Attack Damage by @sapphire_property1"
+		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"Each point of Intelligence increases Magic Armor by @amethyst_property1"
 
 
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
@@ -12899,33 +12930,6 @@
 		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_knight_crusher"						"Overpower"
 		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <font color='#ccff66'>50</font>%, and stun durations are considered <font color='#ccff66'>50</font>% shorter when added to an enemy's stun immunity counter."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
-		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Each point of Intelligence increases attack damage by <font color='#ccff66'>20</font> and Armor by <font color='#ccff66'>0.4</font>"
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
-		"item_rpc_ruby_dragon_scale_armor_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_ruby_dragon_scale_armor_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Each point of Strength increases attack damage by <font color='#ccff66'>20</font> and Armor by <font color='#ccff66'>0.4</font>"
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
-		"item_rpc_topaz_dragon_scale_armor_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_topaz_dragon_scale_armor_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Each point of Agility increases attack damage by <font color='#ccff66'>20</font> and Armor by <font color='#ccff66'>0.4</font>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"Sacred Trials Armor"

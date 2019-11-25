@@ -59,7 +59,7 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_heroic_conqueror_vestments")
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_ruby_dragon_scale_armor")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
@@ -71,10 +71,13 @@ function Tanari:Debug()
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_robe_of_the_erudite_teacher")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_ruby_dragon_scale_armor")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_topaz_dragon_scale_armor")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_sapphire_dragon_scale_armor")
 
     -- local body = item_rpc_armor_of_atlantis:CreateLuaItem(1)
     -- body = Gems:AddSocket(body)

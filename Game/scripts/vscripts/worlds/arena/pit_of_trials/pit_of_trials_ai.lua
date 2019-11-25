@@ -3050,11 +3050,11 @@ function pit_guardian_die(event)
 	local luck = RandomInt(1,5)
 	if luck == 1 then
 		if Arena.PitColor == "red" then
-			RPCItems:RollRubyDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ruby_dragon_scale_armor")
 		elseif Arena.PitColor == "blue" then
-			RPCItems:RollSapphireDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_sapphire_dragon_scale_armor")
 		elseif Arena.PitColor == "yellow" then
-			RPCItems:RollTopazDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_topaz_dragon_scale_armor")
 		end
 	end
 end

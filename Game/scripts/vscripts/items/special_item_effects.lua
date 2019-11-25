@@ -3650,20 +3650,21 @@ end
 
 function dragon_scale_armor_think(event)
 	local target = event.target
+	local ability = event.ability
 	local gem = event.gem
-	local stats = 0
+	local attack_damage = 0
 	if gem == "sapphire" then
-		stats = target:GetIntellect()
+		attack_damage = (ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))*target:GetIntellect()
 	elseif gem == "ruby" then
-		stats = target:GetStrength()
+		attack_damage = (ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_RUBY))*target:GetStrength()
 	elseif gem == "topaz" then
-		stats = target:GetAgility()
+		attack_damage = (ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_EMERALD))*target:GetAgility()
 	end
 	local ability = event.ability
 	local caster = event.caster
 	local modifier_name = "modifier_"..gem.."_dragon_scale_effect"
 	ability:ApplyDataDrivenModifier(caster, target, modifier_name, {})
-	target:SetModifierStackCount(modifier_name, caster, stats)
+	target:SetModifierStackCount(modifier_name, caster, attack_damage)
 end
 
 function giant_hunter_think(event)
