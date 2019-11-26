@@ -521,13 +521,13 @@
 
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
-		"item_rpc_seraphic_soulvest_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_seraphic_soulvest_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_seraphic_soulvest_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_seraphic_soulvest_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_seraphic_soulvest"			"Seraphic Lance"
-		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a large radius, dealing <% ITEM_RPC_SERAPHIC_SOULVEST_ATTACK_TO_DMG %>% of your attack damage times @Ability2 level as Pure damage."
-		
+		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a <% ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH %> radius, dealing <% ITEM_RPC_SERAPHIC_SOULVEST_ALL_ATTRS_PCT %>% the sum of your attributes (Strength/Agility/Intelligence/Spirit) as Pure damage. @Ability2 costs an additional <% ITEM_RPC_SERAPHIC_SOULVEST_MANA_COST_PCT %>% of Max Mana."
+
+		"item_rpc_seraphic_soulvest_ruby1"								"Increases Seraphic Lance's travel speed by @ruby_property1 and all attributes by @ruby_property2"
+		"item_rpc_seraphic_soulvest_emerald1"								"Each cast of [W] has a @emerald_property1% chance to fire an additional Seraphic Lance"
+		"item_rpc_seraphic_soulvest_sapphire1"								"Seraphic Lances explode and deal @sapphire_property1% of their damage in a @sapphire_property2 radius on impact"
+		"item_rpc_seraphic_soulvest_amethyst1"								"Casting [R] fires @amethyst_property1 Seraphic Lances at random targets in <% ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH %> range. All lances will fire as long as at least 1 enemy is within range"
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"
 		"item_rpc_sorcerers_regalia_ruby1"								"blah blah @ruby_property1 gem"

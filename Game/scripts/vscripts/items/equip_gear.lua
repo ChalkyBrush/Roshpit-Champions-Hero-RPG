@@ -636,7 +636,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_savage_plate_of_ogthun" then
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_AMETHYST, hero, "element_normal", RPC_GEAR_SLOT_BODY)
-		end			
+		end	
+	elseif item:GetAbilityName() == "item_rpc_seraphic_soulvest" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY2, hero, "strength", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY2, hero, "agility", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY2, hero, "intelligence", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY2, hero, "spirit", RPC_GEAR_SLOT_BODY)
+		end		
 	end
 end
 

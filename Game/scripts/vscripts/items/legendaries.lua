@@ -1744,48 +1744,6 @@ function RPCItems:RollTwilightVestments(item_level)
     return item
 end
 
-function RPCItems:RollSoulVest(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_seraphic_soulvest", "immortal", "Seraphic Soulvest", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "seraphic"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_seraphic_soulvest", "#C5E7FC", 1, "#property_seraphic_soulvest_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 4, 12, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_all_attributes", "#FFFFFF", 3)
-    -- local luck = RandomInt(1, 3)
-    -- if luck == 1 then
-    --     value, nameLevel = RPCItems:RollAttribute(50, 1, 35, 0, 0, item.newItemTable.rarity, false, maxFactor*18)
-    --     item.newItemTable.property3 = value
-    --     item.newItemTable.property3name = "strength"
-    --     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_strength", "#CC0000",  3)
-    -- elseif luck == 2 then
-    --     value, nameLevel = RPCItems:RollAttribute(50, 1, 35, 0, 0, item.newItemTable.rarity, false, maxFactor*18)
-    --     item.newItemTable.property3 = value
-    --     item.newItemTable.property3name = "agility"
-    --     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_agility", "#2EB82E",  3)
-    -- else
-    --     value, nameLevel = RPCItems:RollAttribute(50, 1, 35, 0, 0, item.newItemTable.rarity, false, maxFactor*18)
-    --     item.newItemTable.property3 = value
-    --     item.newItemTable.property3name = "intelligence"
-    --     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_intelligence", "#33CCFF",  3)
-    -- end
-
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 
 function RPCItems:RollWaterMageRobes(item_level)
     local item = RPCItems:CreateVariant("item_rpc_water_mage_robes", "immortal", "Water Mage Robes", "body", true, "Slot: Body")
@@ -4673,6 +4631,28 @@ function RPCItems:RollSeaGiantsPlate(item_level)
     return item
 end
 
+function RPCItems:RollSoulVest(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_seraphic_soulvest", "immortal", "Seraphic Soulvest", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_seraphic_soulvest"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_seraphic_soulvest", "#C5E7FC", 1, "#property_seraphic_soulvest_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_attributes", 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 --FEET
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -8749,7 +8729,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell", "item_rpc_hurricane_vest",
         "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall", "item_rpc_nightmare_rider_mantle", "item_rpc_ocean_tempest_pallium", "item_rpc_outland_stone_cuirass",
-        "item_rpc_plate_of_the_watcher", "item_rpc_robe_of_flooding", "item_rpc_savage_plate_of_ogthun"}
+        "item_rpc_plate_of_the_watcher", "item_rpc_robe_of_flooding", "item_rpc_savage_plate_of_ogthun", "item_rpc_seraphic_soulvest"}
     end
     return itemsList
 end

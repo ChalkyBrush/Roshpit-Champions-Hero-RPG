@@ -4581,11 +4581,29 @@ function seraphic_soul_hit(event)
 	local hero = ability.hero
 
 	local target = event.target
-	local abilityLevel = hero:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
+
+	local damage = (hero:GetStrength() + hero:GetAgility() + hero:GetIntellect() + hero:GetSpirit()) * ITEM_RPC_SERAPHIC_SOULVEST_ALL_ATTRS_PCT/100
 	if target:IsAlive() then
 		EmitSoundOn("RPCItem.SoulVestImpact", target)
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_SERAPHIC_SOULVEST_ATTACK_TO_DMG/100 * abilityLevel
 		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		local aoe_damage = damage * (ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SERAPHIC_SOULVEST_GEM_SAPPHIRE1)/100)
+		local radius = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SERAPHIC_SOULVEST_GEM_SAPPHIRE2)
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:ApplyItemDamage(enemy, hero, aoe_damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+			end
+		end
+		local particle = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_WORLDORIGIN, target)
+		ParticleManager:SetParticleControl(particle, 0, event.target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
+		ParticleManager:SetParticleControl(particle, 2, Vector(1.2, 1.2, 1.2))
+		ParticleManager:SetParticleControl(particle, 4, Vector(215, 215, 215))
+		Timers:CreateTimer(1.5, function()
+			ParticleManager:DestroyParticle(particle, false)
+		end)
 	end
 end
 

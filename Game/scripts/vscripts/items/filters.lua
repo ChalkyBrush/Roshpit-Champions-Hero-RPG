@@ -1040,8 +1040,8 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_rpc_wraith_crown") then
         Filters:WraithCrown(caster)
     end
-    if caster:HasModifier("modifier_body_seraphic") then
-        Filters:SeraphicVest(caster)
+    if caster:HasModifier("modifier_seraphic_soulvest") then
+        Filters:SeraphicVest(caster, BASE_ABILITY_W)
     end
     if caster:HasModifier("modifier_spellslinger_coat") then
         Filters:SpellslingerCoat(caster)
@@ -1220,6 +1220,9 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_doomplate") then
         Filters:DoomplateCast(caster)
+    end
+    if caster:HasModifier("modifier_seraphic_soulvest") then
+        Filters:SeraphicVest(caster, BASE_ABILITY_R)
     end
     if caster:HasModifier("modifier_spirit_glove") then
         Filters:SpiritGlove(caster)
@@ -2663,27 +2666,55 @@ function Filters:AvalanchePlate(caster)
     print("AVALANCHE TRIGGER")
 end
 
-function Filters:SeraphicVest(caster)
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+function Filters:SeraphicVest(caster, ability_slot)
+    local soul_vest = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    soul_vest.hero = caster
+    local projectile_speed = 650 + soul_vest:GetFinalGemPropertyValue("ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY1)
+    local projectile_count = 0
+    if ability_slot == BASE_ABILITY_W then
+        projectile_count = 1
+        local proc = Filters:GetProc(caster, soul_vest:GetFinalGemPropertyValue("emerald", ITEM_RPC_SERAPHIC_SOULVEST_GEM_EMERALD))
+        if proc then
+            projectile_count = 2
+        end
+        local mana_drain = caster:GetMaxMana() * ITEM_RPC_SERAPHIC_SOULVEST_MANA_COST_PCT/100
+        caster:ReduceMana(mana_drain)
+    elseif ability_slot == BASE_ABILITY_R then
+        EmitSoundOn("RPCItem.Seraphic.Amethyst", caster)
+        projectile_count = soul_vest:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SERAPHIC_SOULVEST_GEM_AMETHYST)
+    end
+    print(projectile_count)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
     if #enemies > 0 then
-        local info =
-        {
-            Target = enemies[1],
-            Source = caster,
-            Ability = caster.body,
-            EffectName = "particles/units/heroes/hero_visage/visage_soul_assumption_bolt2.vpcf",
-            StartPosition = "attach_hitloc",
-            bDrawsOnMinimap = false,
-            bDodgeable = true,
-            bIsAttack = false,
-            bVisibleToEnemies = true,
-            bReplaceExisting = false,
-            flExpireTime = GameRules:GetGameTime() + 8,
-            bProvidesVision = true,
-            iVisionRadius = 0,
-            iMoveSpeed = 650,
-        iVisionTeamNumber = caster:GetTeamNumber()}
-        projectile = ProjectileManager:CreateTrackingProjectile(info)
+        local cycles = math.ceil(projectile_count/#enemies)
+        for i = 1, cycles,  1 do
+            Timers:CreateTimer((i-1)*0.2, function()
+                local projectiles_so_far = (i-1)*#enemies
+                for j = 1, #enemies, 1 do
+                    if projectiles_so_far < projectile_count then
+                        projectiles_so_far = projectiles_so_far + 1
+                        local info =
+                            {
+                                Target = enemies[j],
+                                Source = caster,
+                                Ability = soul_vest,
+                                EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf",
+                                StartPosition = "attach_hitloc",
+                                bDrawsOnMinimap = false,
+                                bDodgeable = true,
+                                bIsAttack = false,
+                                bVisibleToEnemies = true,
+                                bReplaceExisting = false,
+                                flExpireTime = GameRules:GetGameTime() + 8,
+                                bProvidesVision = true,
+                                iVisionRadius = 0,
+                                iMoveSpeed = projectile_speed,
+                            iVisionTeamNumber = caster:GetTeamNumber()}
+                        projectile = ProjectileManager:CreateTrackingProjectile(info)
+                    end
+                end
+            end)
+        end
     end
 end
 
