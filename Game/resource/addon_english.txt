@@ -12830,7 +12830,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
 		"item_property_seraphic_soulvest"			"Seraphic Lance"
-		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a <font color='#ccff66'>1600</font> radius, dealing <font color='#ccff66'>15</font>% the sum of your attributes (Strength/Agility/Intelligence/Spirit) as Pure damage. @Ability2 costs an additional <font color='#ccff66'>8</font>% of Max Mana."
+		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a <font color='#ccff66'>1600</font> radius, dealing <font color='#ccff66'>15</font>% the sum of your attributes (Strength/Agility/Intelligence/Spirit) as Pure damage. @Ability2 costs an additional <font color='#ccff66'>4</font>% of Max Mana."
 
 		"item_rpc_seraphic_soulvest_ruby1"								"Increases Seraphic Lance's travel speed by @ruby_property1 and all attributes by @ruby_property2"
 		"item_rpc_seraphic_soulvest_emerald1"								"Each cast of [W] has a @emerald_property1% chance to fire an additional Seraphic Lance"
