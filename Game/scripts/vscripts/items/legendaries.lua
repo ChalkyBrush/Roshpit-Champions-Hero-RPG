@@ -1767,35 +1767,6 @@ function RPCItems:RollWaterMageRobes(item_level)
     return item
 end
 
-function RPCItems:RollSpellslingerCoat(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_spellslinger_coat", "immortal", "Spellslinger's Coat", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "spellslinger"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spellslinger_coat", "#3FEBC5", 1, "#property_spellslinger_coat_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.ceil(value * 1.4)
-    local luck = RandomInt(1, 5)
-    if luck <= 2 then
-        propertyName = "rune_w_1"
-    elseif luck <= 4 then
-        propertyName = "rune_w_2"
-    elseif luck == 5 then
-        propertyName = "rune_w_3"
-    end
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollVampiricBreastplate(item_level)
     local item = RPCItems:CreateVariant("item_rpc_vampiric_breastplate", "immortal", "Vampiric Breastplate", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4656,6 +4627,28 @@ function RPCItems:RollSpaceTechVest(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollSpellslingerCoat(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_spellslinger_coat", "immortal", "Spellslinger's Coat", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "spellslinger"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spellslinger_coat", "#3FEBC5", 1, "#property_spellslinger_coat_description")
+
+    local rune_type = RPCItems:RollRuneType({"w"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

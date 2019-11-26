@@ -554,24 +554,25 @@
 		"item_rpc_sorcerers_regalia_amethyst1"								"Increases Spirit by @amethyst_property1% of Intelligence"
 
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
-		"item_rpc_space_tech_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_space_tech_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %>%. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain <% ITEM_RPC_SPACE_TECH_VEST_BONUS_ATTACK_DMG_PER_STACK %>% Bonus Attack damage every <% ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL %> seconds. These stacks are lost when beginning to channel the spell again."
-		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased attack damage."
 
-		
+		"item_property_space_tech"					"Gravity Bend"
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %> with each pulse, stacking up to <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> times. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. 
+		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability damage."
+
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
+		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
-		"item_rpc_spellslinger_coat_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_spellslinger_coat_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% of its mana cost on use and its Base Ability Damage is increased by <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%."
+
+		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
+		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION %> seconds, stacking up to <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS %> times"
+		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
+		"item_rpc_spellslinger_coat_amethyst1"								"When attacked, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
