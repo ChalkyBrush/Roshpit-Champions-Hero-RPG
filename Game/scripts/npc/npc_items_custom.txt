@@ -39277,6 +39277,8 @@
 		{
 			"particle" "particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
 			"particle"	"particles/units/heroes/hero_faceless_void/faceless_void_timedialate.vpcf"
+			"particle"	"particles/units/heroes/hero_void_spirit/void_spirit_warp_travel.vpcf"
+			"particle"	"particles/units/heroes/hero_void_spirit/astral_step/void_spirit_astral_step_debuff.vpcf"
 		}
 		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -39288,7 +39290,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
+				"ruby1"				"25 50 75 100 125"
 			}
 			"02"
 			{
@@ -39298,12 +39300,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
+				"sapphire1"			"1 2 3 4 5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
+				"amethyst1"			"20 40 60 80 100"
 			}
 		}
 		"OnSpellStart"
@@ -39327,6 +39329,8 @@
 				"IsBuff"		"1"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
+				"EffectName"	"particles/units/heroes/hero_void_spirit/void_spirit_warp_travel.vpcf"
+				"EffectAttachType"	"attach_origin"
 				"ThinkInterval"  "0.3"
 				"OnIntervalThink"
 				{
@@ -39343,24 +39347,45 @@
 				"IsBuff"		"0"
 				"IsPurgable"	"0"
 				"IsHidden"		"1"
+				"TextureName"	"itemicons/space_tech"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-180"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
 				}
-				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
+				"EffectName"		"particles/units/heroes/hero_void_spirit/astral_step/void_spirit_astral_step_debuff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
 			}
-			"modifier_space_tech_buff"
+			"modifier_space_tech_buff_visible"
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
 				"TextureName"	"itemicons/space_tech"
 				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "35"
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_space_tech_buff_invisible"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_space_tech_buff_invisible"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_space_tech_frozen"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/space_tech"
+				"EffectName"		"particles/units/heroes/hero_faceless_void/faceless_void_dialatedebuf.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

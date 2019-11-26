@@ -1515,23 +1515,48 @@ function nightmare_rider_end(event)
 end
 
 function space_tech_channel_think(event)
-	local caster = event.target
+	local inventory_unit = event.caster
+	local hero = inventory_unit.hero
 	local ability = event.ability
-	local position = caster:GetAbsOrigin()
+	local position = hero:GetAbsOrigin()
 	local particleName = "particles/units/heroes/hero_faceless_void/faceless_void_timedialate.vpcf"
-	local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	local particle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
 	local radius = ITEM_RPC_SPACE_TECH_VEST_RADIUS
 	ParticleManager:SetParticleControl(particle, 0, position)
 	ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
 
-	ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_space_tech_buff", {duration = ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION})
-	local stackCount = caster:GetModifierStackCount("modifier_space_tech_buff", event.caster)
-	caster:SetModifierStackCount("modifier_space_tech_buff", event.caster, stackCount + 1)
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_space_tech_buff_visible", {duration = ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION})
+		local stackCount = hero:GetModifierStackCount("modifier_space_tech_buff_visible", inventory_unit)
+		local new_stacks = math.min(stackCount + 1, ability.ruby_ticks)
+		hero:SetModifierStackCount("modifier_space_tech_buff_visible", inventory_unit, new_stacks)
 
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		-- "modifier_space_tech_buff_invisible" - each stack represents 1 BAD and 1 item damage %
+		local total_bad = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPACE_TECH_VEST_GEM_RUBY)
+		local bad_per_stack = total_bad/ability.ruby_ticks
+		ability:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_space_tech_buff_invisible", {duration = ITEM_RPC_SPACE_TECH_VEST_DURATION})
+		hero:SetModifierStackCount("modifier_space_tech_buff_invisible", inventory_unit, math.ceil(bad_per_stack*new_stacks))
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		local cd_reduction_per_tick = (ability.r_cooldown * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPACE_TECH_VEST_GEM_EMERALD)/100)/ability.ruby_ticks
+		local ult = hero:GetAbilityByIndex(DOTA_R_SLOT)
+		Filters:ReduceCooldownGeneric(hero, ult, cd_reduction_per_tick)
+	end
+
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ability:ApplyDataDrivenModifier(event.caster, enemy, "modifier_space_tech_slow", {duration = ITEM_RPC_SPACE_TECH_VEST_DURATION})
+			ability:ApplyDataDrivenModifier(inventory_unit, enemy, "modifier_space_tech_slow", {duration = ITEM_RPC_SPACE_TECH_VEST_DURATION})
+			local stacks = enemy:GetModifierStackCount("modifier_space_tech_slow", inventory_unit)
+			local new_stacks = math.min(stacks + 1, ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS)
+			enemy:SetModifierStackCount("modifier_space_tech_slow", inventory_unit, new_stacks)
+			if ability:GetGemValue("sapphire") > 0 and new_stacks == ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS then
+				if not enemy:HasModifier("modifier_space_tech_frozen") then
+					local sapphire_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SPACE_TECH_VEST_GEM_SAPPHIRE)
+					ability:ApplyDataDrivenModifier(inventory_unit, enemy, "modifier_space_tech_frozen", {duration = sapphire_duration})
+				end
+			end
+
 		end
 	end
 end

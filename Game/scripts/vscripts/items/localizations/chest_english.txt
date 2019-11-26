@@ -556,11 +556,15 @@
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
 
 		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %> with each pulse, stacking up to <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> times. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. 
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you in a <% ITEM_RPC_SPACE_TECH_VEST_RADIUS %> radius. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %> with each pulse, stacking up to <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> times. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. "
 		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability damage."
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability and item damage."
+		"DOTA_Tooltip_modifier_space_tech_slow"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_space_tech_frozen"				"Space Tech Vest (Emerald)"
+		"DOTA_Tooltip_modifier_space_tech_frozen_Description"	"Timelocked"
 
-		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <% ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION %> seconds or is reset when beginning to channel the ability again."
 		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
 		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
 		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"

@@ -213,6 +213,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:IsHero() then
         mult = mult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_head_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_weapon_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_hands_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_feet_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_body_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_amulet_item_damage", 1))
     end
+    if caster:HasModifier("modifier_space_tech_buff_invisible") then
+        mult = mult + 0.01 * caster:GetModifierStackCount("modifier_space_tech_buff_invisible", caster.InventoryUnit)
+    end
     if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
         local solar_cape = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
         mult = mult + solar_cape:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_SAPPHIRE)/100
@@ -826,7 +829,9 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_space_tech_vest") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
-        caster.space_tech:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = ITEM_RPC_SPACE_TECH_VEST_DURATION})
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = ability:GetChannelTime()})
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].ruby_ticks = ability:GetChannelTime()/ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].r_cooldown = baseCd
     end
     if caster:HasModifier("modifier_druid_spirit_helm") then
         caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_druid_channel", {duration = ability:GetChannelTime()})
@@ -1488,6 +1493,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_space_tech_buff_invisible") then
+            damageMult = damageMult + 0.01 * attacker:GetModifierStackCount("modifier_space_tech_buff_invisible", attacker.InventoryUnit)
         end
         if attacker:HasModifier("modifier_nightmare_rider_stacks") then
             local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)

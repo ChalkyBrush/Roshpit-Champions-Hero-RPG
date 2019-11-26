@@ -12565,14 +12565,19 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"宇航服"
-		"item_rpc_space_tech_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_space_tech_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_space_tech"					"重力扭曲"
-		"property_space_tech_description"			"当你引导 @Ability4 时，周围敌人的攻击速度减少<font color='#ccff66'>180</font>，移动速度减少<font color='#ccff66'>50</font>%，持续<font color='#ccff66'>8</font>秒。同时每<font color='#ccff66'>0.3</font>秒增加<font color='#ccff66'>35</font>%的攻击力。"
-		"DOTA_Tooltip_modifier_space_tech_buff"					"重力扭曲"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"攻击力提高"
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you in a <font color='#ccff66'>800</font> radius. All surrounding enemies have their attack speed slowed by <font color='#ccff66'>40</font>, and movespeed slowed by <font color='#ccff66'>40</font> with each pulse, stacking up to <font color='#ccff66'>5</font> times. The slow effects stick for <font color='#ccff66'>8</font> seconds after leaving the disruption field. "
+		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability and item damage."
+		"DOTA_Tooltip_modifier_space_tech_slow"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_space_tech_frozen"				"Space Tech Vest (Emerald)"
+		"DOTA_Tooltip_modifier_space_tech_frozen_Description"	"Timelocked"
+
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <font color='#ccff66'>10</font> seconds or is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
+		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <font color='#ccff66'>5</font> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"风暴披风"

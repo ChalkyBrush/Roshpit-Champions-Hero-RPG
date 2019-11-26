@@ -12862,24 +12862,29 @@
 		"item_rpc_sorcerers_regalia_amethyst1"								"Increases Spirit by @amethyst_property1% of Intelligence"
 
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
-		"item_rpc_space_tech_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_space_tech_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by <font color='#ccff66'>180</font>, and movespeed slowed by <font color='#ccff66'>50</font>%. The slow effects stick for <font color='#ccff66'>8</font> seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain <font color='#ccff66'>35</font>% Bonus Attack damage every <font color='#ccff66'>0.3</font> seconds. These stacks are lost when beginning to channel the spell again."
-		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased attack damage."
 
-		
+		"item_property_space_tech"					"Gravity Bend"
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you in a <font color='#ccff66'>800</font> radius. All surrounding enemies have their attack speed slowed by <font color='#ccff66'>40</font>, and movespeed slowed by <font color='#ccff66'>40</font> with each pulse, stacking up to <font color='#ccff66'>5</font> times. The slow effects stick for <font color='#ccff66'>8</font> seconds after leaving the disruption field. "
+		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability and item damage."
+		"DOTA_Tooltip_modifier_space_tech_slow"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_space_tech_frozen"				"Space Tech Vest (Emerald)"
+		"DOTA_Tooltip_modifier_space_tech_frozen_Description"	"Timelocked"
+
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <font color='#ccff66'>10</font> seconds or is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
+		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <font color='#ccff66'>5</font> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
-		"item_rpc_spellslinger_coat_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_spellslinger_coat_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <font color='#ccff66'>35</font>% of its mana cost on use and its Base Ability Damage is increased by <font color='#ccff66'>100</font>%."
+
+		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
+		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <font color='#ccff66'>0</font> seconds, stacking up to <font color='#ccff66'>0</font> times"
+		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
+		"item_rpc_spellslinger_coat_amethyst1"								"When attacked, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
