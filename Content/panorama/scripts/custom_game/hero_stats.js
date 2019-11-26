@@ -1,5 +1,5 @@
 mQueryUnit = 0
-mAttributesHash = {modifier_roshpit_level: null, modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_positive_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_positive_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null}
+mAttributesHash = {modifier_roshpit_level: null, modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_positive_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_positive_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null, modifier_negative_roshpit_armor_pierce: null, modifier_negative_roshpit_spell_pierce: null}
 
 function InitializeHeroStatsOnce(){
 	$.Schedule( 3, InitializeHeroStats );

@@ -12538,14 +12538,18 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
-		"item_rpc_skyforge_flurry_plate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_skyforge_flurry_plate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_skyforge_flurry_plate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_skyforge_flurry_plate_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Снижает весь исходящий урон всех ближайших врагов на <font color='#ccff66'>30</font>%."
+		"item_property_skyforge"							"Flurry Shield"
+		"property_skyforge_description"						"Every <font color='#ccff66'>0.33</font> seconds gain a shield that absorbs 1 instance of damage."
+
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield"			"Flurry Shield"
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield_Description"	"Absorbs the next instance of damage"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Урон снижен на <font color='#ccff66'>30</font>%%"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Reduced Armor Pierce and Spell Pierce"
+		
+		"item_rpc_skyforge_flurry_plate_ruby1"							"@ruby_property1% chance for Flurry Shield to persist after blocking damage"
+		"item_rpc_skyforge_flurry_plate_emerald1"							"Increases Agility by @emerald_property1% of Strength"
+		"item_rpc_skyforge_flurry_plate_sapphire1"							"Enemies in <font color='#ccff66'>1000</font> radius have their Armor Pierce and Spell Pierce reduced by @sapphire_property1"
+		"item_rpc_skyforge_flurry_plate_amethyst1"							"Each point of Spirit increases movespeed and attack speed by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"Bladestorm Vest"

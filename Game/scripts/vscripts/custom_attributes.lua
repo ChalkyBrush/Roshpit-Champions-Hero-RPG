@@ -240,6 +240,11 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier:GetStackCount()
 	end
 
+	modifier = self:FindModifierByName("modifier_skyforge_agility")
+	if modifier then
+		agility = agility - modifier:GetStackCount()
+	end
+
 	return agility
 end
 
@@ -1721,6 +1726,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_ogthun_sapphire_buff") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_SAPPHIRE2)
 	end
+	if unit:HasModifier("modifier_flurry_aura_debuff") then
+		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -1979,6 +1988,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT)
 	end
+	if unit:HasModifier("modifier_flurry_aura_debuff") then
+		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -2150,6 +2163,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_sea_giant_spirit") then
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sea_giant_spirit", 1)
+	end
+	if hero:HasModifier("modifier_skyforge_agility") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_skyforge_agility", 1)
 	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)

@@ -2463,6 +2463,16 @@ function GameState:FilterDamage(filterTable)
 			CustomAbilities:HitShieldGeneric(victim, attacker, shieldCaster, "modifier_infused_mageplate_shield")
 		end
 	end
+	if victim:HasModifier("modifier_skyforge_flurry_shield") then
+		filterTable["damage"] = 0
+		if applyEffects then
+			local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_RUBY))
+			if not proc then
+				local shieldCaster = victim:FindModifierByName("modifier_skyforge_flurry_shield"):GetCaster()
+				CustomAbilities:HitShieldGeneric(victim, attacker, shieldCaster, "modifier_skyforge_flurry_shield")
+			end
+		end
+	end
 	if victim:HasModifier("modifier_icewind_shield") then
 		filterTable["damage"] = 0
 		if applyEffects then

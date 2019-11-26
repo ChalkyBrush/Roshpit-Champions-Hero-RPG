@@ -528,7 +528,22 @@
 		"item_rpc_seraphic_soulvest_emerald1"								"Each cast of [W] has a @emerald_property1% chance to fire an additional Seraphic Lance"
 		"item_rpc_seraphic_soulvest_sapphire1"								"Seraphic Lances explode and deal @sapphire_property1% of their damage in a @sapphire_property2 radius on impact"
 		"item_rpc_seraphic_soulvest_amethyst1"								"Casting [R] fires @amethyst_property1 Seraphic Lances at random targets in <% ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH %> range. All lances will fire as long as at least 1 enemy is within range"
+
+		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
+		"item_property_skyforge"							"Flurry Shield"
+		"property_skyforge_description"						"Every <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_SHIELD_INTERVAL %> seconds gain a shield that absorbs 1 instance of damage."
+
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield"			"Flurry Shield"
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield_Description"	"Absorbs the next instance of damage"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Reduced Armor Pierce and Spell Pierce"
 		
+		"item_rpc_skyforge_flurry_plate_ruby1"							"@ruby_property1% chance for Flurry Shield to persist after blocking damage"
+		"item_rpc_skyforge_flurry_plate_emerald1"							"Increases Agility by @emerald_property1% of Strength"
+		"item_rpc_skyforge_flurry_plate_sapphire1"							"Enemies in <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_SAPPHIRE_RADIUS %> radius have their Armor Pierce and Spell Pierce reduced by @sapphire_property1"
+		"item_rpc_skyforge_flurry_plate_amethyst1"							"Each point of Spirit increases movespeed and attack speed by @amethyst_property1"
+
+
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"Sorcerer's Regalia"
 		"item_rpc_sorcerers_regalia_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_sorcerers_regalia_emerald1"								"blah blah @emerald_property1 gem"
@@ -613,16 +628,7 @@
 		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% evasion and <% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %> movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"Skyforge Flurry Plate"
-		"item_rpc_skyforge_flurry_plate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_skyforge_flurry_plate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_skyforge_flurry_plate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_skyforge_flurry_plate_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_skyforge"							"Flurry Aura"
-		"property_skyforge_description"						"Reduces all nearby enemies' damage output by <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION %>%."
-		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"Flurry Aura"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"<% ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION %>%% reduced damage output"
+
 		
 		 
 		 

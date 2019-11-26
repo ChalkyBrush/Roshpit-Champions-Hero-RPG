@@ -7869,3 +7869,28 @@ function sea_giant_attack_land(event)
 		end
 	end
 end
+
+function skyforge_think(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_skyforge_flurry_shield", {})
+
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_skyforge_agility", {})
+		local agi_stacks = hero:GetStrength()*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_EMERALD)/100
+		hero:SetModifierStackCount("modifier_skyforge_agility", caster, agi_stacks)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		if not hero:HasModifier("modifier_skyforge_flurry_plate_sapphire_aura") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_skyforge_flurry_plate_sapphire_aura", {})
+		end
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_skyforge_speed", {})
+		local speed_stacks = hero:GetSpirit()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_AMETHYST)
+		hero:SetModifierStackCount("modifier_skyforge_speed", caster, speed_stacks)		
+	end
+end

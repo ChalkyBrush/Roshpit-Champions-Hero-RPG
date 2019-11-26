@@ -12422,12 +12422,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"天使之袍"
-		"item_rpc_seraphic_soulvest_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_seraphic_soulvest_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_seraphic_soulvest_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_seraphic_soulvest_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_seraphic_soulvest"			"天使之矛"
-		"property_seraphic_soulvest_description"	"每次施放 @Ability2 时将发射一支光矛，对1400码随机一个目标发射光矛。<br>光矛造成 @Ability2 技能等级*<font color='#ccff66'>0</font>%倍当前攻击力的伤害。"
+		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a <font color='#ccff66'>1600</font> radius, dealing <font color='#ccff66'>15</font>% the sum of your attributes (Strength/Agility/Intelligence/Spirit) as Pure damage. @Ability2 costs an additional <font color='#ccff66'>4</font>% of Max Mana."
+
+		"item_rpc_seraphic_soulvest_ruby1"								"Increases Seraphic Lance's travel speed by @ruby_property1 and all attributes by @ruby_property2"
+		"item_rpc_seraphic_soulvest_emerald1"								"Each cast of [W] has a @emerald_property1% chance to fire an additional Seraphic Lance"
+		"item_rpc_seraphic_soulvest_sapphire1"								"Seraphic Lances explode and deal @sapphire_property1% of their damage in a @sapphire_property2 radius on impact"
+		"item_rpc_seraphic_soulvest_amethyst1"								"Casting [R] fires @amethyst_property1 Seraphic Lances at random targets in <font color='#ccff66'>1600</font> range. All lances will fire as long as at least 1 enemy is within range"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
@@ -12701,14 +12702,18 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"熔炉板甲"
-		"item_rpc_skyforge_flurry_plate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_skyforge_flurry_plate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_skyforge_flurry_plate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_skyforge_flurry_plate_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_skyforge"							"迷乱光环"
-		"property_skyforge_description"						"降低附近所有敌人的伤害输出 <font color='#ccff66'>30</font>% 。"
+		"item_property_skyforge"							"Flurry Shield"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"迷乱光环"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"伤害输出降低30%%"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Reduced Armor Pierce and Spell Pierce"
+		"property_skyforge_description"						"Every <font color='#ccff66'>0.33</font> seconds gain a shield that absorbs 1 instance of damage."
+
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield"			"Flurry Shield"
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield_Description"	"Absorbs the next instance of damage"
+		
+		"item_rpc_skyforge_flurry_plate_ruby1"							"@ruby_property1% chance for Flurry Shield to persist after blocking damage"
+		"item_rpc_skyforge_flurry_plate_emerald1"							"Increases Agility by @emerald_property1% of Strength"
+		"item_rpc_skyforge_flurry_plate_sapphire1"							"Enemies in <font color='#ccff66'>1000</font> radius have their Armor Pierce and Spell Pierce reduced by @sapphire_property1"
+		"item_rpc_skyforge_flurry_plate_amethyst1"							"Each point of Spirit increases movespeed and attack speed by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"剑刃风暴背心"
