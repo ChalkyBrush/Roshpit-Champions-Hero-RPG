@@ -509,6 +509,16 @@
 		"item_rpc_savage_plate_of_ogthun_emerald1"							"Reduces all damage taken by @emerald_property1% while below <% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_RUBY_THRESHOLD %>% health"		
 		"item_rpc_savage_plate_of_ogthun_sapphire1"							"Attacking an enemy increases attack power by @sapphire_property1% and Armor Pierce by @sapphire_property2 for <% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_SAPPHIRE_DURATION %> seconds."
 		"item_rpc_savage_plate_of_ogthun_amethyst1"							"Increases <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font> damage by @amethyst_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
+		"property_sea_giant_plate"												"Titanic Fortitude"
+		"property_sea_giant_plate_Description"									"Increases Status Resistance by <% ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST %>%."
+		
+		"item_rpc_sea_giants_plate_ruby1"					"Each point of Strength adds an additional @ruby_property1 Max Health"
+		"item_rpc_sea_giants_plate_emerald1"					"Increases Strength and reduces Agility by @emerald_property1"
+		"item_rpc_sea_giants_plate_sapphire1"					"On attack, <% ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_CHANCE %>% chance to stun enemies in <% ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_RADIUS %> radius for @sapphire_property1 seconds and deal damage based on @sapphire_property2x Strength"
+		"item_rpc_sea_giants_plate_amethyst1"					"Increases Spirit by @amethyst_property1% of Strength"
+
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"Seraphic Soulvest"
 		"item_rpc_seraphic_soulvest_ruby1"								"blah blah @ruby_property1 gem"
@@ -663,15 +673,6 @@
 		"property_light_seer_Description"									"Heal <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK %>% of max health every <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
-		"item_rpc_sea_giants_plate_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sea_giants_plate_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sea_giants_plate_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sea_giants_plate_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_sea_giant_plate"												"Titanic Fortitude"
-		"property_sea_giant_plate_Description"									"All damage taken is reduced by <% ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>% while stunned."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"

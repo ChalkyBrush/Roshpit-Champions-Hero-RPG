@@ -7802,3 +7802,52 @@ function savage_ogthun_attack_land(event)
 		hero:SetModifierStackCount("modifier_ogthun_sapphire_buff", caster, attack_power)
 	end
 end
+
+function sea_giant_think(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_sea_giant_health_bonus", {})
+		local health_bonus = hero:GetStrength()*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SEA_GIANTS_PLATE_GEM_RUBY)
+		hero:SetModifierStackCount("modifier_sea_giant_health_bonus", caster, health_bonus)
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		if not hero:HasModifier("modifier_sea_giant_str_bonus_minus_agi") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_sea_giant_str_bonus_minus_agi", {})
+		end
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_sea_giant_spirit", {})
+		local spirit_bonus = hero:GetStrength()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SEA_GIANTS_PLATE_GEM_AMETHYST)/100
+		hero:SetModifierStackCount("modifier_sea_giant_spirit", caster, spirit_bonus)
+	end
+end
+
+function sea_giant_attack_land(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(hero, ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_CHANCE)
+		if proc then
+			local damage = hero:GetStrength()*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SEA_GIANTS_PLATE_GEM_SAPPHIRE2)
+			local stun_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SEA_GIANTS_PLATE_GEM_SAPPHIRE1)
+			local position = target:GetAbsOrigin()
+			local radius = ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_RADIUS
+			local splitEarthParticle = "particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf"
+			local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, position)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+			EmitSoundOn("RPCItem.SeaGiantPlate.Quake", target)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_EARTH, RPC_ELEMENT_WATER)
+					Filters:ApplyStun(hero, stun_duration, enemy)
+				end
+			end
+		end
+	end
+end

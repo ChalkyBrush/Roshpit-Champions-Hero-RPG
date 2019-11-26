@@ -597,12 +597,21 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 		if target:HasModifier("modifier_outland_stone_cuirass") then
 			if target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
 				if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
-					modifierGainedTable["duration"] = modifierGainedTable["duration"] * (1 - target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_AMETHYST)/100)
+					duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_AMETHYST)/100
 				end
 			end
 		end
+		if target:HasModifier("modifier_sea_giants_plate") then
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
+			end
+		end
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
-			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+			if duration_modifier > 100 then
+				return false
+			else
+				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
+			end
 		end
 	end
 	if target:HasModifier("modifier_death_whisper_debuff") then

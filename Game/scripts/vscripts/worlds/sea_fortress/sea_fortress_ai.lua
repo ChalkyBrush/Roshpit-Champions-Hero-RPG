@@ -5201,7 +5201,7 @@ function tri_boss_die(caster)
 		Statistics.dispatch("sea_fortress:kill:sea_giant");
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollSeaGiantsPlate(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_sea_giants_plate")
 		end
 	end
 	Timers:CreateTimer(0.2, function()

@@ -299,6 +299,10 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 	if modifier then
 		spirit = spirit - modifier:GetStackCount()
 	end
+	modifier = self:FindModifierByName("modifier_sea_giant_spirit")
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
 
 
 	return spirit
@@ -2139,6 +2143,14 @@ function CustomAttributes:SetAttributes(hero)
 		local modifier = hero:FindModifierByName("modifier_auriun_rune_q_4_effect")
 		spr_bonus = spr_bonus + modifier:GetStackCount()*AURIUN_Q4_SPIRIT
 	end
+	if hero:HasModifier("modifier_sea_giant_str_bonus_minus_agi") then
+		local amount = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SEA_GIANTS_PLATE_GEM_EMERALD)
+		str_bonus = str_bonus + amount
+		agi_bonus = agi_bonus - amount
+	end
+	if hero:HasModifier("modifier_sea_giant_spirit") then
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sea_giant_spirit", 1)
+	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
 	end
@@ -2733,8 +2745,8 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 			flatHealthBonus = flatHealthBonus + hero:GetSpirit()*grithault:GetFinalGemPropertyValue("amethyst", GRITHAULT_AMETHYST)
 		end
 	end
-	if excludedModifier ~= "modifier_ogthun_health" and hero:HasModifier("modifier_ogthun_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ogthun_health", CustomAttributes.OGTHUN_HEALTH)
+	if excludedModifier ~= "modifier_sea_giant_health_bonus" and hero:HasModifier("modifier_sea_giant_health_bonus") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_sea_giant_health_bonus", 1)
 	end
 	if excludedModifier ~= "modifier_rpc_sange_buff" and hero:HasModifier("modifier_rpc_sange_buff") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_rpc_sange_buff", CustomAttributes.SANGE_HEALTH)

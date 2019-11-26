@@ -12779,12 +12779,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"Sea Giant's Plate"	
-		"item_rpc_sea_giants_plate_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sea_giants_plate_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sea_giants_plate_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sea_giants_plate_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sea_giant_plate"												"Titanic Fortitude"
-		"property_sea_giant_plate_Description"									"Пока герой оглушен, весь входящий по нему урон сокращается на <font color='#ccff66'>96</font>%."
+		"property_sea_giant_plate_Description"									"Increases Status Resistance by <font color='#ccff66'>40</font>%."
+		
+		"item_rpc_sea_giants_plate_ruby1"					"Each point of Strength adds an additional @ruby_property1 Max Health"
+		"item_rpc_sea_giants_plate_emerald1"					"Increases Strength and reduces Agility by @emerald_property1"
+		"item_rpc_sea_giants_plate_sapphire1"					"On attack, <font color='#ccff66'>20</font> chance to stun enemies in <font color='#ccff66'>360</font> radius for @sapphire_property1 seconds and deal damage based on @sappire_property2x Strength"
+		"item_rpc_sea_giants_plate_amethyst1"					"Increases Spirit by @amethyst_property1% of Strength"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"Boreal Granite Vest"

@@ -588,12 +588,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"海巨人之甲"	
-		"item_rpc_sea_giants_plate_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sea_giants_plate_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sea_giants_plate_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sea_giants_plate_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sea_giant_plate"												"刚毅泰坦"
-		"property_sea_giant_plate_Description"									"被眩晕时，伤害减免 <% ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>%。"
+		"property_sea_giant_plate_Description"									"Increases Status Resistance by <% ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST %>%."
+		
+		"item_rpc_sea_giants_plate_ruby1"					"Each point of Strength adds an additional @ruby_property1 Max Health"
+		"item_rpc_sea_giants_plate_emerald1"					"Increases Strength and reduces Agility by @emerald_property1"
+		"item_rpc_sea_giants_plate_sapphire1"					"On attack, <% ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_CHANCE %> chance to stun enemies in <% ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_RADIUS %> radius for @sapphire_property1 seconds and deal damage based on @sappire_property2x Strength"
+		"item_rpc_sea_giants_plate_amethyst1"					"Increases Spirit by @amethyst_property1% of Strength"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"北地花岗岩胸甲"
