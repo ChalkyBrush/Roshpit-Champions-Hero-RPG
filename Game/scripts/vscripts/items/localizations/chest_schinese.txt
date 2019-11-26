@@ -102,12 +102,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"巫师法袍"
-		"item_rpc_sorcerers_regalia_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_sorcerers_regalia_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_sorcerers_regalia_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_sorcerers_regalia_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sorcerers_regalia"			"束缚"
-		"property_sorcerers_regalia_description"	"提高玩家所有的魔法输出<% ITEM_RPC_SORCERERS_REGALIA_MAGIC_POST_MITI %>%。"
+		"property_sorcerers_regalia_description"	"Intelligence and Spirit both increase Spell Pierce by <% ITEM_RPC_SORCERERS_REGALIA_SPELL_PIERCE_PER_INT_SPR %>."
+		
+		"item_rpc_sorcerers_regalia_ruby1"								"Increases all Tier 1 runes by @ruby_property1"
+		"item_rpc_sorcerers_regalia_emerald1"								"Increases all Tier 2 runes by @emerald_property1"
+		"item_rpc_sorcerers_regalia_sapphire1"								"Increases Intelligence by @sapphire_property1 and Spell Pierce by @sapphire_property2"
+		"item_rpc_sorcerers_regalia_amethyst1"								"Increases Spirit by @amethyst_property1% of Intelligence"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"射咒者大衣"

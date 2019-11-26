@@ -308,6 +308,11 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 	if modifier then
 		spirit = spirit - modifier:GetStackCount()
 	end
+	modifier = self:FindModifierByName("modifier_sorcerers_regalia_spirit")
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+
 
 
 	return spirit
@@ -1992,6 +1997,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
 		spell_pierce_modify = spell_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_sorcerers_regalia") then
+		spell_pierce_modify = spell_pierce_modify + (unit:GetIntellect() + unit:GetSpirit())*ITEM_RPC_SORCERERS_REGALIA_SPELL_PIERCE_PER_INT_SPR
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -2166,6 +2174,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_skyforge_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_skyforge_agility", 1)
+	end
+	if hero:HasModifier("modifier_sorcerers_regalia_spirit") then
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sorcerers_regalia_spirit", 1)
 	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)

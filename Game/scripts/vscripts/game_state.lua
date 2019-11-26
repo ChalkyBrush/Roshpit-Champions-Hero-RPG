@@ -2169,9 +2169,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
 			mult = mult + ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI/100
 		end
-		if attacker:HasModifier("modifier_sorcerers_regalia") then
-			mult = mult + ITEM_RPC_SORCERERS_REGALIA_MAGIC_POST_MITI/100
-		end
 		if attacker:HasModifier("modifier_far_seers_gloves") then
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
 		end

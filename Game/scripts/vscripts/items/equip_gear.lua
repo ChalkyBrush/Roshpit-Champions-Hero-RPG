@@ -643,7 +643,22 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY2, hero, "agility", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY2, hero, "intelligence", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SERAPHIC_SOULVEST_GEM_RUBY2, hero, "spirit", RPC_GEAR_SLOT_BODY)
-		end		
+		end	
+	elseif item:GetAbilityName() == "item_rpc_sorcerers_regalia" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SORCERERS_REGALIA_GEM_RUBY, hero, "rune_q_1", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SORCERERS_REGALIA_GEM_RUBY, hero, "rune_w_1", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SORCERERS_REGALIA_GEM_RUBY, hero, "rune_e_1", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SORCERERS_REGALIA_GEM_RUBY, hero, "rune_r_1", RPC_GEAR_SLOT_BODY)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SORCERERS_REGALIA_GEM_EMERALD, hero, "rune_q_2", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SORCERERS_REGALIA_GEM_EMERALD, hero, "rune_w_2", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SORCERERS_REGALIA_GEM_EMERALD, hero, "rune_e_2", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SORCERERS_REGALIA_GEM_EMERALD, hero, "rune_r_2", RPC_GEAR_SLOT_BODY)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SORCERERS_REGALIA_GEM_SAPPHIRE1, hero, "intelligence", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SORCERERS_REGALIA_GEM_SAPPHIRE2, hero, "spell_pierce", RPC_GEAR_SLOT_BODY)
+		end	
 	end
 end
 

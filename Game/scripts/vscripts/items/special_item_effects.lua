@@ -7894,3 +7894,15 @@ function skyforge_think(event)
 		hero:SetModifierStackCount("modifier_skyforge_speed", caster, speed_stacks)		
 	end
 end
+
+function sorceres_regalia_think(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_sorcerers_regalia_spirit", {})
+		local spr_stacks = hero:GetStrength()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SORCERERS_REGALIA_GEM_AMETHYST)/100
+		hero:SetModifierStackCount("modifier_sorcerers_regalia_spirit", caster, spr_stacks)
+	end	
+end
