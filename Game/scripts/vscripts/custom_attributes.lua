@@ -438,28 +438,44 @@ end
 function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	local hero = self
 	local strength = hero:GetKeyValue("RoshpitStrength", nil)
-	strength = strength + self:GetLevel()*hero:GetKeyValue("RoshpitStrengthGain", nil)
+	local strength_per_level = hero:GetKeyValue("RoshpitStrengthGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		strength_per_level = strength_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	strength = strength + self:GetLevel()*strength_per_level
 	hero.strength_custom = math.floor(strength)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 	local hero = self
 	local agility = hero:GetKeyValue("RoshpitAgility", nil)
-	agility = agility + self:GetLevel()*hero:GetKeyValue("RoshpitAgilityGain", nil)
+	local agility_per_level = hero:GetKeyValue("RoshpitAgilityGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		agility_per_level = agility_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	agility = agility + self:GetLevel()*agility_per_level
 	hero.agility_custom = math.floor(agility)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 	local hero = self
 	local intellect = hero:GetKeyValue("RoshpitIntelligence", nil)
-	intellect = intellect + self:GetLevel()*hero:GetKeyValue("RoshpitIntelligenceGain", nil)
+	local intelligence_per_level = hero:GetKeyValue("RoshpitIntelligenceGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		intelligence_per_level = intelligence_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	intellect = intellect + self:GetLevel()*intelligence_per_level
 	hero.intellect_custom = math.floor(intellect)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
 	local hero = self
 	local spirit = hero:GetKeyValue("RoshpitSpirit", nil)
-	spirit = spirit + self:GetLevel()*hero:GetKeyValue("RoshpitSpiritGain", nil)
+	local spirit_per_level = hero:GetKeyValue("RoshpitSpiritGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		spirit_per_level = spirit_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	spirit = spirit + self:GetLevel()*spirit_per_level
 	hero.spirit_custom = math.floor(spirit)
 end
 

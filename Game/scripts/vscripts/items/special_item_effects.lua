@@ -8088,10 +8088,28 @@ function tattered_novice_init(event)
 	local caster = event.caster
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero)
+	hero:SetStatsForLevel()
 end
 
 function tattered_novice_end(event)
 	local caster = event.caster
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero)
+	hero:SetStatsForLevel()
+end
+
+function tattered_novice_enemy_death(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local unit = event.unit
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_RUBY))
+		if proc then
+			local potion = RPCItems:RollRandomPotion(unit:GetRoshpitLevel())
+			if potion then
+				RPCItems:BasicDropItem(unit:GetAbsOrigin(), potion)
+			end
+		end
+	end
 end
