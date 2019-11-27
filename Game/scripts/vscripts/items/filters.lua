@@ -520,9 +520,6 @@ function Filters:ApplyStun(caster, duration, target)
         mult = mult + ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE/100
     end
 
-    if target:IsHero() then
-        mult = mult * (100-ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE)/100
-    end
     if caster:HasModifier("modifier_steelforge_passive") then
         caster.w_2_level = caster:GetRuneValue("w", 2)
     end
@@ -552,11 +549,14 @@ function Filters:ApplyStun(caster, duration, target)
         end
         if currentResistanceStacks <= resistThresh then
             Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_stun_resistance", {duration = 7 + duration})
-            local resistDivisor = 1
-            if caster:HasModifier("modifier_knight_crusher_armor") or caster:HasModifier("modifier_sorceress_glyph_5_2") then
-                resistDivisor = resistDivisor * (1 - SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION)
+            local resist_mult = 1
+            if caster:HasModifier("modifier_knight_crusher_armor") then
+                resist_mult = resist_mult * (1 - ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE/100)
             end
-            local newResistanceStacks = currentResistanceStacks + math.ceil((duration * 10) / resistDivisor)
+            if caster:HasModifier("modifier_sorceress_glyph_5_2") then
+                resist_mult = resist_mult * (1 - SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION)
+            end
+            local newResistanceStacks = currentResistanceStacks + math.ceil((duration * 10) * resist_mult)
             target:SetModifierStackCount("modifier_stun_resistance", Events.GameMaster, newResistanceStacks)
         else
             duration = 0
@@ -572,6 +572,15 @@ function Filters:ApplyStun(caster, duration, target)
     if caster:HasModifier("modifier_steelforge_passive") then
         local ability = caster:FindModifierByName("modifier_steelforge_passive"):GetAbility()
         ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_arcana1_w_2_slow", {duration = duration*MOUNTAIN_PROTECTOR_ARCANA1_W2_DURATION_MULT})
+    end
+    if caster:HasModifier("modifier_knight_crusher_armor") and duration > 0 then
+        local crusher_armor = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+        if crusher_armor:GetGemValue("ruby") > 0 then
+            crusher_armor:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_knight_crusher_armor_loss", {duration = duration})
+        end
+        if crusher_armor:GetGemValue("emerald") > 0 then
+            crusher_armor:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_knight_crusher_armor_pierce", {duration = duration})
+        end
     end
     if duration > 0 then
         target:AddNewModifier(caster, nil, "modifier_stunned", {duration = duration})

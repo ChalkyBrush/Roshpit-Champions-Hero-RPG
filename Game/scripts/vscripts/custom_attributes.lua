@@ -992,6 +992,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
 		armor_modify = armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_RUBY))
 	end
+	if unit:HasModifier("modifier_knight_crusher_armor_loss") then
+		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_loss"):GetAbility()
+		armor_modify = armor_modify + crusher_armor:GetFinalGemPropertyValue("ruby", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_RUBY)
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1735,7 +1739,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
 		armor_pierce_modify = armor_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
 	end
-
+	if unit:HasModifier("modifier_knight_crusher_armor_pierce") then
+		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_pierce"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + crusher_armor:GetFinalGemPropertyValue("emerald", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_EMERALD)
+	end
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
 		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()

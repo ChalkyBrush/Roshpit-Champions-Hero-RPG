@@ -580,7 +580,22 @@
 		
 		"DOTA_Tooltip_modifier_spellslinger_emerald"			"Spellslinger (Emerald)"
 		"DOTA_Tooltip_modifier_spellslinger_emerald_Description"	"Increased Spell Pierce"
-		
+
+		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
+
+		"item_property_knight_crusher"						"Overpower"
+		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%, and stun durations are considered <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>% shorter when added to an enemy's stun immunity counter."
+		"item_rpc_staggering_knight_crusher_armor_ruby1"					"When you stun an enemy, reduce their Armor by @ruby_property1 for the duration of the stun"
+		"item_rpc_staggering_knight_crusher_armor_emerald1"					"When you stun an enemy, gain @emerald_property1 Armor Pierce for the duration of the stun"
+		"item_rpc_staggering_knight_crusher_armor_sapphire1"					"Enemies who attack you have a <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_SAPPHIRE_CHANCE %>% chance to be stunned for @sapphire_property1 seconds. Passively increases armor by @sapphire_property2"
+		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"Enemies who cast an ability within a <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_AMETHYST_RADIUS %> radius of you are stunned for @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_knight_crusher_armor_loss"		"Overpower (Ruby)"
+		"DOTA_Tooltip_modifier_knight_crusher_armor_loss_Description"	"Reduced Armor"
+
+		"DOTA_Tooltip_modifier_knight_crusher_armor_pierce"		"Overpower (Emerald)"
+		"DOTA_Tooltip_modifier_knight_crusher_armor_pierce_Description"	"Increased Armor Pierce"
+
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
 		"item_rpc_vampiric_breastplate_emerald1"							"blah blah @emerald_property1 gem"
@@ -661,15 +676,6 @@
 		 
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
-		"item_rpc_staggering_knight_crusher_armor_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_staggering_knight_crusher_armor_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_staggering_knight_crusher_armor_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"blah blah @amethyst_property1 gem"
-		"item_property_knight_crusher"						"Overpower"
-		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%, and stun durations are considered <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>% shorter when added to an enemy's stun immunity counter."
-		 
-		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
 		"item_rpc_vermillion_dream_robes_ruby1"							"blah blah @ruby_property1 gem"
 		"item_rpc_vermillion_dream_robes_emerald1"							"blah blah @emerald_property1 gem"
@@ -701,10 +707,10 @@
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
-		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_steelbark_guard_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_steelbark_guard_amethyst1"									"blah blah @amethyst_property1 gem"
+		"item_rpc_steelbark_guard_ruby1"									"No Effect"
+		"item_rpc_steelbark_guard_emerald1"									"No Effect"
+		"item_rpc_steelbark_guard_sapphire1"									"No Effect"
+		"item_rpc_steelbark_guard_amethyst1"									"No Effect"
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
 		"item_property_steelbark"			"Steelbark Protection"
 		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."

@@ -667,6 +667,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SPELLSLINGER_COAT_GEM_SAPPHIRE, hero, "mana_regen", RPC_GEAR_SLOT_BODY)
 		end
+	elseif item:GetAbilityName() == "item_rpc_staggering_knight_crusher_armor" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_SAPPHIRE2, hero, "armor", RPC_GEAR_SLOT_BODY)
+		end		
 	end
 end
 

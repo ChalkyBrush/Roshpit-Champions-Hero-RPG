@@ -7950,3 +7950,58 @@ function spellslinger_take_damage(event)
 		end
 	end
 end
+
+function ArmorBreakParticle(event)
+	local target = event.target
+	local location = target:GetAbsOrigin()
+	local particleName = event.particle_name
+	if target.AmpDamageParticle then
+		ParticleManager:DestroyParticle(target.AmpDamageParticle, false)
+	end
+	-- Particle. Need to wait one frame for the older particle to be destroyed
+	Timers:CreateTimer(0.01, function()
+		target.AmpDamageParticle = ParticleManager:CreateParticle(particleName, PATTACH_OVERHEAD_FOLLOW, target)
+		ParticleManager:SetParticleControl(target.AmpDamageParticle, 0, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(target.AmpDamageParticle, 1, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(target.AmpDamageParticle, 2, target:GetAbsOrigin())
+
+		ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 1, target, PATTACH_OVERHEAD_FOLLOW, "attach_overhead", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 2, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	end)
+
+end
+
+-- Destroys the particle when the modifier is destroyed
+function EndArmorBreakParticle(event)
+	local target = event.target
+	if target.AmpDamageParticle then
+		ParticleManager:DestroyParticle(target.AmpDamageParticle, false)
+		target.AmpDamageParticle = nil
+	end
+	target:CalculateAndSaveRoshpitAttributes()
+end
+
+function knight_crusher_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	local attacker = event.attacker
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(hero, ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_SAPPHIRE_CHANCE)
+		if proc then
+			local stun_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_SAPPHIRE1)
+			Filters:ApplyStun(hero, stun_duration, attacker)
+		end
+	end
+end
+
+function cast_spell_near_knight_crusher(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.unit
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		local stun_duration = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_AMETHYST)
+		Filters:ApplyStun(hero, stun_duration, target)		
+	end
+end
