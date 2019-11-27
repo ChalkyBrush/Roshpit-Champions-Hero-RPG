@@ -12824,7 +12824,7 @@
 		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
 		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
 		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Каждые <font color='#ccff66'>12</font> сек, герой получает заряд этого предмета. Каждый заряд позволяет применять (Q) @Ability1 без перезарядки. Максимум <font color='#ccff66'>2</font> заряда(ов)."
+		"property_tattered_novice_armor_description"				"Каждые <font color='#ccff66'>0</font> сек, герой получает заряд этого предмета. Каждый заряд позволяет применять (Q) @Ability1 без перезарядки. Максимум <font color='#ccff66'>0</font> заряда(ов)."
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Умение (Q) применяется без перезарядки"

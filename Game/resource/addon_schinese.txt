@@ -12980,7 +12980,7 @@
 		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
 		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
 		"item_property_tattered_novice_armor"						"初心者的决意"
-		"property_tattered_novice_armor_description"				"每 <font color='#ccff66'>12</font> 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 <font color='#ccff66'>2</font> 层。"
+		"property_tattered_novice_armor_description"				"每 <font color='#ccff66'>0</font> 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 <font color='#ccff66'>0</font> 层。"
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"初心者的决意"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q技能不进入冷却"
