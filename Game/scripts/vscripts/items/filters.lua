@@ -889,6 +889,9 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_death_whisper_helm") then
         Filters:DeathWhisperSapphire(caster)
     end
+    if caster:HasModifier("modifier_spellslinger_coat") then
+        Filters:SpellslingerCoatQ(caster)
+    end
     if caster:HasModifier("modifier_depth_crest_armor") then
         local depth_crest = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
         local chance = depth_crest:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_SAPPHIRE)
@@ -2743,12 +2746,29 @@ function Filters:SorcerersRegalia(caster)
 end
 
 function Filters:SpellslingerCoat(caster)
+    local coat = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     local manaCost = ability:GetManaCost(-1)
     local manaRestore = manaCost * ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE/100
     manaRestore = WallPhysics:round(manaRestore, 0)
     caster:GiveMana(manaRestore)
     PopupMana(caster, manaRestore)
+    if coat:GetGemValue("emerald") > 0 then
+        coat:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_spellslinger_emerald", {duration = ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION})
+        local new_stacks = math.min(caster:GetModifierStackCount("modifier_spellslinger_emerald", caster.InventoryUnit) + 1, ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS)
+        caster:SetModifierStackCount("modifier_spellslinger_emerald", caster.InventoryUnit, new_stacks)
+    end
+end
+
+function Filters:SpellslingerCoatQ(caster)
+    local coat = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+    if coat:GetGemValue("ruby") > 0 then
+        local proc = Filters:GetProc(caster, coat:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLSLINGER_COAT_GEM_RUBY))
+        if proc then
+            local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+            q_ability:EndCooldown()
+        end
+    end
 end
 
 function Filters:DoomplateCast(caster)

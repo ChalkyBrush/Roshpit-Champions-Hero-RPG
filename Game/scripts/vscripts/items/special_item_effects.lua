@@ -7931,3 +7931,22 @@ function sorceres_regalia_think(event)
 		hero:SetModifierStackCount("modifier_sorcerers_regalia_spirit", caster, spr_stacks)
 	end	
 end
+
+function spellslinger_take_damage(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	local caster = event.caster
+	local attacker = event.attacker
+	if ability:GetGemValue("amethyst") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPELLSLINGER_COAT_GEM_AMETHYST))
+		if proc then
+			local limitKey = hero:GetPlayerOwnerID() .. '_spellslinger_amethyst'
+			Util.Common:LimitPerTime(ITEM_RPC_SPELLSLINGER_COAT_MAX_AMETHYST_PROCS_PER_SECOND, 1, limitKey, function()
+				local event_table = {}
+				event_table.attacker = hero
+				event_table.target = attacker
+				energy_whip_glove_attack_land(event_table)
+			end)			
+		end
+	end
+end

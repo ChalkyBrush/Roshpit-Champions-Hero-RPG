@@ -12465,7 +12465,7 @@
 		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"射咒者"
-		"property_spellslinger_coat_description"	"施放 @Ability2 回复 <font color='#ccff66'>35</font>% 该技能的耗蓝量，并且提高 @Ability2 基础技能伤害 <font color='#ccff66'>100</font>%。"
+		"property_spellslinger_coat_description"	"施放 @Ability2 回复 <font color='#ccff66'>35</font>% 该技能的耗蓝量，并且提高 @Ability2 基础技能伤害 <font color='#ccff66'>120</font>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"末日板甲"

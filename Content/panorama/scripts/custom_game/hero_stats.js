@@ -7,6 +7,7 @@ function InitializeHeroStatsOnce(){
 
 function InitializeHeroStats(){
 	UnitStats40()
+	WorldTooltip()
 	$.Schedule( 0.2, InitializeHeroStats );
 	// $.Schedule(0.2, function(){
 	// 	InitializeHeroStats()
@@ -17,6 +18,17 @@ function InitializeHeroStats(){
 function recalculate_attributes(){
 	mQueryUnit = 0
 	UnitStats40()
+}
+
+function WorldTooltip(){
+	// var ability_tooltip = GameUI.AbilityTooltip
+	// if (ability_tooltip.BHasClass("IsItem")){
+	// 	ability_tooltip.FindChildTraverse("AbilitySubHeader").style.visibility = "collapse"
+	// 	// ability_tooltip.FindChildTraverse("AbilityName").style.marginTop = "16px"
+	// }else{
+	// 	// ability_tooltip.FindChildTraverse("AbilitySubHeader").style.visibility = "visible"
+	// 	// ability_tooltip.FindChildTraverse("AbilityName").style.marginTop = "2px"
+	// }
 }
 
 function get_attributes_for_query_unit(queryUnit){

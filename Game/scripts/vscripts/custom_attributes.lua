@@ -2000,6 +2000,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_sorcerers_regalia") then
 		spell_pierce_modify = spell_pierce_modify + (unit:GetIntellect() + unit:GetSpirit())*ITEM_RPC_SORCERERS_REGALIA_SPELL_PIERCE_PER_INT_SPR
 	end
+	if unit:HasModifier("modifier_spellslinger_emerald") then
+		local modifier = unit:FindModifierByName("modifier_spellslinger_emerald")
+		local coat = modifier:GetAbility()
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*coat:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLSLINGER_COAT_GEM_EMERALD)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

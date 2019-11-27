@@ -576,8 +576,10 @@
 		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
 		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION %> seconds, stacking up to <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS %> times"
 		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
-		"item_rpc_spellslinger_coat_amethyst1"								"When attacked, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point"
+		"item_rpc_spellslinger_coat_amethyst1"								"When an enemy damages you, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point. Max <% ITEM_RPC_SPELLSLINGER_COAT_MAX_AMETHYST_PROCS_PER_SECOND %> procs per second."
 		
+		"DOTA_Tooltip_modifier_spellslinger_emerald"			"Spellslinger (Emerald)"
+		"DOTA_Tooltip_modifier_spellslinger_emerald_Description"	"Increased Spell Pierce"
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"

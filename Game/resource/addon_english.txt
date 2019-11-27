@@ -12879,13 +12879,15 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
 		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"@Ability2 restores <font color='#ccff66'>35</font>% of its mana cost on use and its Base Ability Damage is increased by <font color='#ccff66'>100</font>%."
+		"property_spellslinger_coat_description"	"@Ability2 restores <font color='#ccff66'>35</font>% of its mana cost on use and its Base Ability Damage is increased by <font color='#ccff66'>120</font>%."
 
 		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
-		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <font color='#ccff66'>0</font> seconds, stacking up to <font color='#ccff66'>0</font> times"
+		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <font color='#ccff66'>5</font> seconds, stacking up to <font color='#ccff66'>10</font> times"
 		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
-		"item_rpc_spellslinger_coat_amethyst1"								"When attacked, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point"
+		"item_rpc_spellslinger_coat_amethyst1"								"When an enemy damages you, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point. Max <font color='#ccff66'>5</font> procs per second."
 		
+		"DOTA_Tooltip_modifier_spellslinger_emerald"			"Spellslinger (Emerald)"
+		"DOTA_Tooltip_modifier_spellslinger_emerald_Description"	"Increased Spell Pierce"
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
