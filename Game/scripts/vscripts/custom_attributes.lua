@@ -996,6 +996,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_loss"):GetAbility()
 		armor_modify = armor_modify + crusher_armor:GetFinalGemPropertyValue("ruby", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_RUBY)
 	end
+	if unit:HasModifier("modifier_stormshield_active_shields") then
+		local shields_count = unit:GetModifierStackCount("modifier_stormshield_active_shields", unit.InventoryUnit)
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_STORMSHIELD_CLOAK_GEM_RUBY)*shields_count
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then

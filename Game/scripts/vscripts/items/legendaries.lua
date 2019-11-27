@@ -1765,33 +1765,6 @@ function RPCItems:RollVampiricBreastplate(item_level)
     return item
 end
 
-function RPCItems:RollStormshieldCloak(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_stormshield_cloak", "immortal", "Stormshield Cloak", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "stormshield"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormshield", "#BAD5DE", 1, "#property_stormshield_description")
-
-    local value = RandomInt(maxFactor * 5, maxFactor * 10)
-    value = RPCItems:GetLogarithmicVarianceValue(value, 0, 0, 0, 0)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-
-    value = RandomInt(maxFactor * 5, maxFactor * 10)
-    value = RPCItems:GetLogarithmicVarianceValue(value, 0, 0, 0, 0)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_armor", "#D1D1D1", 3)
-
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollInfernalPrison(item_level)
     local item = RPCItems:CreateVariant("item_rpc_the_infernal_prison", "immortal", "The Infernal Prison", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -1807,37 +1780,6 @@ function RPCItems:RollInfernalPrison(item_level)
 
     RPCItems:RollBodyProperty3(item, 0)
 
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollTatteredNoviceArmor(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_tattered_novice_armor", "immortal", "Tattered Novice Armor", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "tattered_novice"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tattered_novice_armor", "#61C695", 1, "#property_tattered_novice_armor_description")
-
-    item.newItemTable.hasRunePoints = true
-    local t1_rune_value = RPCItems:RollSlithicusRingProperty()
-    local luck = RandomInt(1, 4)
-    if luck == 1 then
-        item.newItemTable.property2name = "rune_q_1"
-    elseif luck == 2 then
-        item.newItemTable.property2name = "rune_w_1"
-    elseif luck == 3 then
-        item.newItemTable.property2name = "rune_e_1"
-    else
-        item.newItemTable.property2name = "rune_r_1"
-    end
-    item.newItemTable.property2 = t1_rune_value
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
     RPCItems:RollBodyProperty4(item, 0)
 
     local drop = CreateItemOnPositionSync(deathLocation, item)
@@ -4652,6 +4594,45 @@ function RPCItems:RollKnightCrusherArmor(item_level)
     return item
 end
 
+function RPCItems:RollStormshieldCloak(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_stormshield_cloak", "immortal", "Stormshield Cloak", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_stormshield_cloak"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormshield", "#BAD5DE", 1, "#property_stormshield_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 2.25)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 4)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollTatteredNoviceArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_tattered_novice_armor", "immortal", "Tattered Novice Armor", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "tattered_novice"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tattered_novice_armor", "#61C695", 1, "#property_tattered_novice_armor_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+end
 --FEET
 
 function RPCItems:RollDunetreadBoots(item_level)

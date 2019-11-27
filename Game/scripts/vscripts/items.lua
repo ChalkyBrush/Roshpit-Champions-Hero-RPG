@@ -1079,7 +1079,7 @@ function RPCItems:ItemSwapInput(msg)
 		local player = hero:GetPlayerOwner()
 		local heroId = hero:GetClassname()
 		if newGear then
-			hero:EquipItem(newGear)
+			hero:EquipItem(newGear, true)
 		end
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
 		if input == 3 then
@@ -1160,7 +1160,7 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 			
 			local hero = heroEntity
 			local inventory_unit = heroEntity.InventoryUnit
-			hero:EquipItem(itemEntity)
+			hero:EquipItem(itemEntity, true)
 		end
 	end
 	Statistics.dispatch('items:equip')
@@ -1362,7 +1362,7 @@ function RPCItems:AcceptNewItem(keys)
 	local heroId = hero:GetClassname()
 	if newItem then
 		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newItem:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newItem.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newItem.newItemTable.rarity)})
-		hero:EquipItem(newItem)
+		hero:EquipItem(newItem, true)
 	end
 	if slot == 1 then
 		hero.weapon = newItem

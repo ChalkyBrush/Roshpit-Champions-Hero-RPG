@@ -1,4 +1,4 @@
-function CDOTA_BaseNPC_Hero:EquipItem(item)
+function CDOTA_BaseNPC_Hero:EquipItem(item, bDoPopup)
 	local hero = self
 	local playerID = hero:GetPlayerOwnerID()
 	Events:TutorialServerEvent(hero, "3_1", 0)
@@ -45,8 +45,10 @@ function CDOTA_BaseNPC_Hero:EquipItem(item)
 	end
 	
 	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(gear_slot), {itemIndex = item:GetEntityIndex()})
-	CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = item:GetEntityIndex(), heroId = hero:GetClassname(), playerId = playerID, pickup = "equip", rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
-	EmitGlobalSound("RPC.EquipItem")
+	if bDoPopup then
+		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = item:GetEntityIndex(), heroId = hero:GetClassname(), playerId = playerID, pickup = "equip", rarity = item.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(item.newItemTable.rarity)})
+		EmitGlobalSound("RPC.EquipItem")
+	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
 

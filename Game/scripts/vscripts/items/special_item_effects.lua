@@ -1568,8 +1568,10 @@ function stormshield_cloak_initialize(event)
 	if target.shieldTable then
 		return
 	end
-	target.shieldTable = {}
-	for i = 1, 3, 1 do
+	ability.shieldTable = {}
+	ability.attacks_taken = 0
+	local shield_count = 3 + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STORMSHIELD_CLOAK_GEM_AMETHYST)
+	for i = 1, shield_count, 1 do
 		local shield = CreateUnitByName("tracer_unit", target:GetAbsOrigin(), true, nil, nil, target:GetTeamNumber())
 		shield.hero = target
 		shield.owner = target:GetPlayerOwnerID()
@@ -1578,16 +1580,91 @@ function stormshield_cloak_initialize(event)
 		shield:SetModel("models/props_gameplay/status_shield.vmdl")
 		shield:SetOriginalModel("models/props_gameplay/status_shield.vmdl")
 		shield:SetModelScale(2.0)
-		table.insert(target.shieldTable, shield)
+		table.insert(ability.shieldTable, shield)
 		ability:ApplyDataDrivenModifier(caster, shield, "modifier_stormshield_cloak_shield_buff", {})
 		shield.index = i
-		local offsetRadians = (2 * math.pi / 3) * (i - 1)
+		local offsetRadians = (2 * math.pi / shield_count) * (i - 1)
 		shield.offsetVector = WallPhysics:rotateVector(Vector(1, 1), offsetRadians)
 		shield:SetOwner(target)
-		-- if target:GetPlayerID() then
-		--  shield:SetControllableByPlayer(target:GetPlayerID(), true)
-		--  end
 	end
+	stormshield_cloak_update_active_shield_count(target, ability)
+end
+
+function stormshield_cloak_attacked(event)
+	local target = event.target
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if hero:GetModifierStackCount("modifier_stormshield_active_shields", hero.InventoryUnit) > 0 then
+		ability.attacks_taken = ability.attacks_taken + 1
+		if ability.attacks_taken >= ITEM_RPC_STORMSHIELD_CLOAK_ATTACKS_TO_BREAK then
+			ability.attacks_taken = 0
+			local regen_time = ITEM_RPC_STORMSHIELD_CLOAK_RESTORE_TIME - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_STORMSHIELD_CLOAK_GEM_EMERALD)
+			for i = 1, #ability.shieldTable, 1 do
+				if not ability.shieldTable[i]:HasModifier("modifier_stormshield_inactive") then
+					ability:ApplyDataDrivenModifier(hero.InventoryUnit, ability.shieldTable[i], "modifier_stormshield_inactive", {duration = regen_time})
+					stormshield_shield_explode(ability.shieldTable[i]:GetAbsOrigin(), hero, ability)
+					ability.shieldTable[i]:AddNoDraw()
+					break
+				end
+			end
+			stormshield_cloak_update_active_shield_count(target, ability)
+		end
+	end
+
+end
+
+function stormshield_shield_explode(shield_position, hero, ability)
+	if ability:GetGemValue("sapphire") > 0 then
+		local position = shield_position
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/stormshield_cloak_explode.vpcf", position+Vector(0,0,60), 4)
+		local damage = hero:GetRoshpitArmor()*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STORMSHIELD_CLOAK_GEM_SAPPHIRE1)
+		local stun_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STORMSHIELD_CLOAK_GEM_SAPPHIRE2)
+	    local enemies = FindUnitsInRadius(hero:GetTeamNumber(), position, nil, ITEM_RPC_STORMSHIELD_CLOAK_SAPPHIRE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	    if #enemies > 0 then
+	        for _, enemy in pairs(enemies) do
+	            Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+	            Filters:ApplyStun(hero, stun_duration, enemy)
+			end
+		end	
+		EmitSoundOn("RPCItem.Stormshield.Explode", hero)
+		local particle = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_WORLDORIGIN, nil)
+		ParticleManager:SetParticleControl(particle, 0, shield_position+Vector(0,0,60))
+		ParticleManager:SetParticleControl(particle, 1, Vector(ITEM_RPC_STORMSHIELD_CLOAK_SAPPHIRE_RADIUS, ITEM_RPC_STORMSHIELD_CLOAK_SAPPHIRE_RADIUS, ITEM_RPC_STORMSHIELD_CLOAK_SAPPHIRE_RADIUS))
+		ParticleManager:SetParticleControl(particle, 2, Vector(0.6, 0.6, 0.6))
+		ParticleManager:SetParticleControl(particle, 4, Vector(90, 90, 90))
+		Timers:CreateTimer(1.5, function()
+			ParticleManager:DestroyParticle(particle, false)
+		end)
+	end
+end
+
+function stormshield_broken_shield_restore(event)
+	local shield = event.target
+	local hero = shield.hero
+	local ability = event.ability
+	local caster = event.caster
+	shield:RemoveNoDraw()
+	stormshield_cloak_update_active_shield_count(hero, ability)
+	local particle = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(particle, 0, shield:GetAbsOrigin()+Vector(0,0,100))
+	ParticleManager:SetParticleControl(particle, 1, Vector(100, 100, 100))
+	ParticleManager:SetParticleControl(particle, 2, Vector(0.7, 0.7, 0.7))
+	ParticleManager:SetParticleControl(particle, 4, Vector(90, 90, 90))
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(particle, false)
+	end)
+end
+
+function stormshield_cloak_update_active_shield_count(hero, ability)
+	local count = 0
+	for i = 1, #ability.shieldTable, 1 do
+		if not ability.shieldTable[i]:HasModifier("modifier_stormshield_inactive") then
+			count = count + 1
+		end
+	end
+	ability:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_stormshield_active_shields", {})
+	hero:SetModifierStackCount("modifier_stormshield_active_shields", hero.InventoryUnit, count)
 end
 
 function stormshield_main_think(event)
@@ -1624,13 +1701,14 @@ function stormshield_cloak_shield_think(event)
 	end
 end
 
-function stormshield_cloak_shield_end(event)
+function stormshield_cloak_end(event)
 	--print("SHIELD END")
+	local ability = event.ability
 	local target = event.target
-	for i = 1, #target.shieldTable, 1 do
-		UTIL_Remove(target.shieldTable[i])
+	for i = 1, #ability.shieldTable, 1 do
+		UTIL_Remove(ability.shieldTable[i])
 	end
-	target.shieldTable = false
+	ability.shieldTable = false
 end
 
 function bladestorm_vest_initialize(event)

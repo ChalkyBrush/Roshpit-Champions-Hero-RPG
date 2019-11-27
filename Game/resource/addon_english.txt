@@ -12904,6 +12904,28 @@
 		"DOTA_Tooltip_modifier_knight_crusher_armor_pierce"		"Overpower (Emerald)"
 		"DOTA_Tooltip_modifier_knight_crusher_armor_pierce_Description"	"Increased Armor Pierce"
 
+		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
+
+		"item_property_stormshield"					"Iron Shields"
+		"property_stormshield_description"			"3 shields encircle you, each one reducing all Physical damage taken by <font color='#ccff66'>15</font>%. After being attacked <font color='#ccff66'>12</font> times an Iron Shield breaks, but it will return after <font color='#ccff66'>12</font> seconds."
+
+		"DOTA_Tooltip_modifier_stormshield_active_shields"	"Active Iron Shields"
+
+		"item_rpc_stormshield_cloak_ruby1"								"Each active Iron Shield increases Armor by @ruby_property1"
+		"item_rpc_stormshield_cloak_emerald1"								"Reduces Iron Shield replenish time by @emerald_property1 seconds"
+		"item_rpc_stormshield_cloak_sapphire1"								"When an Iron Shield is destroyed, deal damage in a <font color='#ccff66'>360</font> radius based on @sapphire_property1 x your Armor and stun for @sapphire_property2 seconds"
+		"item_rpc_stormshield_cloak_amethyst1"								"Adds @amethyst_property1 maximum Iron Shields"
+
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
+		"item_property_tattered_novice_armor"						"Questing Adventurer"
+		"property_tattered_novice_armor_description"				"Every <font color='#ccff66'>0</font> levels, gain an extra <font color='#ccff66'>0</font> Rune Points. If you have overallocated rune points upon unequipping, random runes will have their levels deducted."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <font color='#ccff66'>0</font> range have a @ruby_property% chance to drop an additional potion"
+		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
+		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
+		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
+
+
+
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
 		"item_rpc_vampiric_breastplate_emerald1"							"blah blah @emerald_property1 gem"
@@ -12911,16 +12933,6 @@
 		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vampiric_breastplate"		"Vampiric Core"
 		"property_varmpiric_breastplate_description" "Heal for <font color='#ccff66'>30</font>% of all damage dealt by @Ability1."
-		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
-		"item_rpc_stormshield_cloak_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_stormshield_cloak_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_stormshield_cloak_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_stormshield"					"Storm Shield"
-		"property_stormshield_description"			"Reduces all Physical damage taken by <font color='#ccff66'>50</font>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
@@ -13002,14 +13014,6 @@
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
-		"item_rpc_tattered_novice_armor_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_tattered_novice_armor_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Every <font color='#ccff66'>12</font> seconds gain a Resolution stack. Each stack removes the cooldown on @Ability1. Max <font color='#ccff66'>2</font> stacks."
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
 		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
