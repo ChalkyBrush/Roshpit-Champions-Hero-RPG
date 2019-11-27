@@ -12918,8 +12918,8 @@
 
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
 		"item_property_tattered_novice_armor"						"Questing Adventurer"
-		"property_tattered_novice_armor_description"				"Every <font color='#ccff66'>5</font> levels, gain an extra <font color='#ccff66'>3</font> Rune Points. If you have overallocated rune points upon unequipping, random runes will have their levels deducted."
-		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <font color='#ccff66'>1000</font> range have a @ruby_property% chance to drop an additional potion"
+		"property_tattered_novice_armor_description"				"Every <font color='#ccff66'>5</font> levels, gain an extra <font color='#ccff66'>3</font> Rune Points. The extra runepoints are added retroactively when equipped, and any bonus rune points are lost when unequipped."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <font color='#ccff66'>1000</font> range have a @ruby_property1% chance to drop an additional potion"
 		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
 		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
 		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"

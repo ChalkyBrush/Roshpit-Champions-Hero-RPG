@@ -8089,7 +8089,21 @@ function tattered_novice_init(event)
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero)
 	hero:SetStatsForLevel()
-	hero:ReequipAllGear()
+	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	end
 end
 
 function tattered_novice_end(event)
@@ -8097,7 +8111,22 @@ function tattered_novice_end(event)
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero)
 	hero:SetStatsForLevel()
-	hero:ReequipAllGear()
+	
+	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	end
 end
 
 function tattered_novice_enemy_death(event)

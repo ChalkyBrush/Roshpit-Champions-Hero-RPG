@@ -4628,10 +4628,11 @@ function RPCItems:RollTatteredNoviceArmor(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
 end
 --FEET
 

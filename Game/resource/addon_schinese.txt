@@ -12974,16 +12974,13 @@
 		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 W1/2/3/4符文提高智力<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 E1/2/3/4符文提高敏捷<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。 R1/2/3/4符文提高全属性<font color='#ccff66'>2</font>/<font color='#ccff66'>2</font>/<font color='#ccff66'>4</font>/<font color='#ccff66'>8</font>。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"残破学徒装甲"
-		"item_rpc_tattered_novice_armor_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_tattered_novice_armor_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_tattered_novice_armor"						"初心者的决意"
-		"property_tattered_novice_armor_description"				"每 <font color='#ccff66'>0</font> 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 <font color='#ccff66'>0</font> 层。"
-	
-		"DOTA_Tooltip_modifier_tattered_novice_stack"				"初心者的决意"
-		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q技能不进入冷却"
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
+		"item_property_tattered_novice_armor"						"Questing Adventurer"
+		"property_tattered_novice_armor_description"				"Every <font color='#ccff66'>5</font> levels, gain an extra <font color='#ccff66'>3</font> Rune Points. The extra runepoints are added retroactively when equipped, and any bonus rune points are lost when unequipped."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <font color='#ccff66'>1000</font> range have a @ruby_property1% chance to drop an additional potion"
+		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
+		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
+		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
 
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"博学尊师长袍"
 		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"blah blah @ruby_property1 gem"

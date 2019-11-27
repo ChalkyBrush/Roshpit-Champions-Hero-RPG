@@ -642,15 +642,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
-		"item_rpc_tattered_novice_armor_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_tattered_novice_armor_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Каждые <% ITEM_RPC_TATTERED_NOVICE_ARMOR_INTERVAL %> сек, герой получает заряд этого предмета. Каждый заряд позволяет применять (Q) @Ability1 без перезарядки. Максимум <% ITEM_RPC_TATTERED_NOVICE_ARMOR_MAX_STACKS %> заряда(ов)."
-	
-		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
-		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Умение (Q) применяется без перезарядки"
+		"item_property_tattered_novice_armor"						"Questing Adventurer"
+		"property_tattered_novice_armor_description"				"Every <% ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS %> levels, gain an extra <% ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS %> Rune Points. The extra runepoints are added retroactively when equipped, and any bonus rune points are lost when unequipped."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <% ITEM_RPC_TATTERED_NOVICE_ARMOR_RUBY_RADIUS %> range have a @ruby_property1% chance to drop an additional potion"
+		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
+		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
+		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
 

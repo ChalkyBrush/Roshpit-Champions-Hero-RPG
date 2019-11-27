@@ -29,7 +29,7 @@ function winterblight_unit_die(event)
 		elseif luck == 2 then
 			RPCItems:RollSwiftspikeBracer(unit:GetAbsOrigin())
 		elseif luck == 3 then
-			RPCItems:RollTatteredNoviceArmor(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_tattered_novice_armor")
 		elseif luck == 4 then
 			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_frostmaw_hunters_hood")
 		end

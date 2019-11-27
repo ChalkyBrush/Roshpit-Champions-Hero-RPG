@@ -21,12 +21,13 @@ function Runes:UpdateHeroSkillAndRunePoints(hero)
 	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	local player = hero:GetPlayerOwner()
 	local PlayerID = hero:GetPlayerOwnerID()
-	Runes:SetRuneUnitModifiersForUI(hero)
-	CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = points.ability_points, runePoints = points.rune_points})
-	Timers:CreateTimer(0.03, function()
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_abilities_and_runes_ui", {playerId = PlayerID})
-	end)
-
+	if points then
+		Runes:SetRuneUnitModifiersForUI(hero)
+		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = points.ability_points, runePoints = points.rune_points})
+		Timers:CreateTimer(0.03, function()
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_abilities_and_runes_ui", {playerId = PlayerID})
+		end)
+	end
 end
 
 function CDOTABaseAbility:GetBaseRuneLevel()
@@ -36,7 +37,7 @@ end
 function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	local number_of_rune_points_hero_should_have = (hero:GetLevel()-1)*Runes.RUNE_POINTS_PER_LEVEL + Runes.STARTING_RUNE_POINTS
 	if hero:HasModifier("modifier_tattered_novice_armor") then
-		number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have + math.floor(hero:GetLevel/ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS)*ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
+		number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have + math.floor(hero:GetLevel()/ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS)*ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
 	end
 	local t1_total = hero:GetBaseRuneValue("q", 1) + hero:GetBaseRuneValue("w", 1) + hero:GetBaseRuneValue("e", 1) + hero:GetBaseRuneValue("r", 1)
 	local t2_total = hero:GetBaseRuneValue("q", 2) + hero:GetBaseRuneValue("w", 2) + hero:GetBaseRuneValue("e", 2) + hero:GetBaseRuneValue("r", 2)
