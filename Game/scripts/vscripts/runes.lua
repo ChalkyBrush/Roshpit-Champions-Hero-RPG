@@ -70,7 +70,7 @@ function Runes:RandomlyRemoveRuneLevels(hero, amount_to_remove)
 		for t = 0, 3, 1 do
 			local ability = hero.runeUnit:GetAbilityByIndex(t)
 			if ability then
-				local amount_to_remove = RandomInt(1,3)
+				local amount_to_remove = 1
 				if ability.rune_level >= amount_to_remove then
 					ability.rune_level = ability.rune_level - amount_to_remove
 					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T1
@@ -80,7 +80,7 @@ function Runes:RandomlyRemoveRuneLevels(hero, amount_to_remove)
 		for t = 0, 3, 1 do
 			local ability = hero.runeUnit2:GetAbilityByIndex(t)
 			if ability then
-				local amount_to_remove = RandomInt(1,3)
+				local amount_to_remove = 1
 				if ability.rune_level >= amount_to_remove then
 					ability.rune_level = ability.rune_level - amount_to_remove
 					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T2
@@ -90,7 +90,7 @@ function Runes:RandomlyRemoveRuneLevels(hero, amount_to_remove)
 		for t = 0, 3, 1 do
 			local ability = hero.runeUnit3:GetAbilityByIndex(t)
 			if ability then
-				local amount_to_remove = RandomInt(1,3)
+				local amount_to_remove = 1
 				if ability.rune_level >= amount_to_remove then
 					ability.rune_level = ability.rune_level - amount_to_remove
 					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T3
@@ -100,7 +100,7 @@ function Runes:RandomlyRemoveRuneLevels(hero, amount_to_remove)
 		for t = 0, 3, 1 do
 			local ability = hero.runeUnit4:GetAbilityByIndex(t)
 			if ability then
-				local amount_to_remove = RandomInt(1,3)
+				local amount_to_remove = 1
 				if ability.rune_level >= amount_to_remove then
 					ability.rune_level = ability.rune_level - amount_to_remove
 					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T4
