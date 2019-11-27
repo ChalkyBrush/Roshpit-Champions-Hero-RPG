@@ -2489,7 +2489,7 @@ function GameState:FilterDamage(filterTable)
 		if filterTable["damage"] > 0 then
 			filterTable["damage"] = 0
 			local shieldCaster = victim:FindModifierByName("modifier_light_seer_shield"):GetCaster()
-			CustomAbilities:HitShieldGeneric(victim, attacker, victim.InventoryUnit, "modifier_light_seer_shield")
+			CustomAbilities:HitShieldGeneric(victim, attacker, shieldCaster.InventoryUnit, "modifier_light_seer_shield")
 		end
 	end
 	if victim:HasModifier("modifier_djanghor_4_1_shield") then

@@ -5239,18 +5239,35 @@ function light_seer_channeling(event)
 	local ability = event.ability
 	local target = event.target
 
-	local healAmount = target:GetMaxHealth() * ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK/100
-	Filters:ApplyHeal(target, target, healAmount, true)
-	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/flash_healheal.vpcf", target, 1)
+	local healAmount = target:GetMaxHealth() * ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK/100 + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_GEM_AMETHYST)*target:GetSpirit()
+	local max_stacks = ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_GEM_EMERALD)
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_light_seer_shield", {duration = 60})
+	local targets_to_apply = {target}
+	if ability:GetGemValue("sapphire") > 0 then
+		local radius = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_GEM_SAPPHIRE)
+		local allies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+		if #allies > 0 then
+			for _, ally in pairs(allies) do
+				if ally ~= target then
+					table.insert(targets_to_apply, ally)
+				end
+			end
+		end
+	end
+	for _, ally in pairs(targets_to_apply) do
+		Filters:ApplyHeal(target, ally, healAmount, true)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/flash_healheal.vpcf", ally, 1)
 
-	local stacks = target:GetModifierStackCount("modifier_light_seer_shield", caster) + 1
-	stacks = math.min(stacks, ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS)
-	target:SetModifierStackCount("modifier_light_seer_shield", caster, stacks)
+		ability:ApplyDataDrivenModifier(caster, ally, "modifier_light_seer_shield", {duration = 60})
+
+		
+		local stacks = ally:GetModifierStackCount("modifier_light_seer_shield", caster) + 1
+		stacks = math.min(stacks, max_stacks)
+		ally:SetModifierStackCount("modifier_light_seer_shield", caster, stacks)
+	end
 end
 
-function main_light_seer_think(event)
+function templar_light_seer_shield_think(event)
 	local caster = event.caster
 	local attacker = event.attacker
 	local ability = event.ability
@@ -8111,7 +8128,7 @@ function tattered_novice_end(event)
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero)
 	hero:SetStatsForLevel()
-	
+
 	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
 		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
 	end

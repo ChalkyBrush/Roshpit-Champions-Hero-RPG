@@ -1843,39 +1843,6 @@ function RPCItems:VermillionDreamRobes(item_level)
     return item
 end
 
-
-function RPCItems:RollLightSeersRobes(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_templar_light_seers_robe", "immortal", "Templar Light Seer's Robe", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "light_seer"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_light_seer", "#F4E155", 1, "#property_light_seer_Description")
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property2 = math.ceil(value * 1.5)
-        item.newItemTable.property2name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-        item.newItemTable.hasRunePoints = true
-    elseif luck == 2 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_HOLY, 3, 2, 22, 2)
-    else
-        value, nameLevel = RPCItems:RollAttribute(100, 20, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 18)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    end
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 --HATS
 
 function RPCItems:RollAutumnSleeperMask(item_level)
@@ -4630,6 +4597,36 @@ function RPCItems:RollTatteredNoviceArmor(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollLightSeersRobes(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_templar_light_seers_robe", "immortal", "Templar Light Seer's Robe", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_templar_light_seers_robe"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_light_seer", "#F4E155", 1, "#property_light_seer_Description")
+    
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_holy", 2)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spirit", 2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

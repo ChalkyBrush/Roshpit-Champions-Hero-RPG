@@ -616,7 +616,17 @@
 		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
 		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
 
+		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
 
+		"property_light_seer"												"Light of Delphi"
+		"property_light_seer_Description"									"Heal <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK %>% of max health every <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
+		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
+		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
+
+		"item_rpc_templar_light_seers_robe_ruby1"			"Increases Strength and Spirit by @ruby_property1"
+		"item_rpc_templar_light_seers_robe_emerald1"			"Increases the maximum shield stacks by @emerald_property1"
+		"item_rpc_templar_light_seers_robe_sapphire1"			"Templar's effect also applies to allies in a @sapphire_property1 radius"
+		"item_rpc_templar_light_seers_robe_amethyst1"			"Increases the heal per tick by @amethyst_property1x Spirit"
 
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
@@ -695,16 +705,7 @@
 		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
 		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <% ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE %>."
-			
-		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
-		"item_rpc_templar_light_seers_robe_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_templar_light_seers_robe_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
-		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Heal <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK %>% of max health every <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
-		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
-		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
+		
 		
 	
 		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"

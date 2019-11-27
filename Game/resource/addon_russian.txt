@@ -12776,7 +12776,7 @@
 		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Во время прочтения (R) @Ability4 герой исцеляется на <font color='#ccff66'>20</font>% от макс. здоровья каждые <font color='#ccff66'>0.15</font> секунды. С каждым тиком герой получает заряды щита, способного полностью поглотить любой урон. Накопленные заряды исчезают по одному каждую секунду."
+		"property_light_seer_Description"									"Во время прочтения (R) @Ability4 герой исцеляется на <font color='#ccff66'>5</font>% от макс. здоровья каждые <font color='#ccff66'>0.2</font> секунды. С каждым тиком герой получает заряды щита, способного полностью поглотить любой урон. Накопленные заряды исчезают по одному каждую секунду."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Каждый заряд полностью поглощает любой входящий урон"
 		

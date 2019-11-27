@@ -22796,10 +22796,7 @@
 		"precache"
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray_beam_friend.vpcf"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray_debuff.vpcf"
+			"particle"					"particles/roshpit/flamewaker/heat_wave.vpcf"
 			"particle"					"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
 			"particle"					"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
 			"model"						"models/heroes/dragon_knight/dragon_knight_dragon.vmdl"

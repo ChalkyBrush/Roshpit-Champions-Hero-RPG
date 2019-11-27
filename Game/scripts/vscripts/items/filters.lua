@@ -864,7 +864,7 @@ function Filters:BeginRChannel(caster)
     end
     if caster:HasModifier("modifier_templar_light_seers_robe") then
         caster:RemoveModifierByName("modifier_light_seer_shield")
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_templar_channeling", {duration = 8.0})
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_templar_channeling", {duration = ability:GetChannelTime()})
     end
 end
 
