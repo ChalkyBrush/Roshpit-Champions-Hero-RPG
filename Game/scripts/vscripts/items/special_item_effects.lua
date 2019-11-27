@@ -8083,3 +8083,15 @@ function cast_spell_near_knight_crusher(event)
 		Filters:ApplyStun(hero, stun_duration, target)		
 	end
 end
+
+function tattered_novice_init(event)
+	local caster = event.caster
+	local hero = caster.hero
+	Runes:UpdateHeroSkillAndRunePoints(hero)
+end
+
+function tattered_novice_end(event)
+	local caster = event.caster
+	local hero = caster.hero
+	Runes:UpdateHeroSkillAndRunePoints(hero)
+end

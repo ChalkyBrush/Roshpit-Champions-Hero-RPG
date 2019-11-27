@@ -35,7 +35,9 @@ end
 
 function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	local number_of_rune_points_hero_should_have = (hero:GetLevel()-1)*Runes.RUNE_POINTS_PER_LEVEL + Runes.STARTING_RUNE_POINTS
-
+	if hero:HasModifier("modifier_tattered_novice_armor") then
+		number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have + math.floor(hero:GetLevel/ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS)*ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
+	end
 	local t1_total = hero:GetBaseRuneValue("q", 1) + hero:GetBaseRuneValue("w", 1) + hero:GetBaseRuneValue("e", 1) + hero:GetBaseRuneValue("r", 1)
 	local t2_total = hero:GetBaseRuneValue("q", 2) + hero:GetBaseRuneValue("w", 2) + hero:GetBaseRuneValue("e", 2) + hero:GetBaseRuneValue("r", 2)
 	local t3_total = hero:GetBaseRuneValue("q", 3) + hero:GetBaseRuneValue("w", 3) + hero:GetBaseRuneValue("e", 3) + hero:GetBaseRuneValue("r", 3)
@@ -48,7 +50,10 @@ function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	rune_points_spent = rune_points_spent + t4_total*Runes.COST_TO_LEVEL_T4
 
 	number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have - rune_points_spent
-
+	if number_of_rune_points_hero_should_have < 0 then
+		Runes:RandomlyRemoveRuneLevels(hero, number_of_rune_points_hero_should_have*-1)
+		return false
+	end
 	local ability_points_hero_should_have = math.floor(hero:GetLevel()/5)
 	local ability_points_spent = (hero:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()-1) + (hero:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()-1) + (hero:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()-1) + (hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()-1)
 	ability_points_hero_should_have = ability_points_hero_should_have - ability_points_spent
@@ -57,6 +62,53 @@ function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	return_value.rune_points = number_of_rune_points_hero_should_have
 	return_value.ability_points = ability_points_hero_should_have
 	return return_value
+end
+
+function Runes:RandomlyRemoveRuneLevels(hero, amount_to_remove)
+	amount_removed = 0
+	while amount_removed < amount_to_remove do
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = RandomInt(1,3)
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T1
+				end
+			end
+		end
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit2:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = RandomInt(1,3)
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T2
+				end
+			end
+		end
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit3:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = RandomInt(1,3)
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T3
+				end
+			end
+		end
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit4:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = RandomInt(1,3)
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T4
+				end
+			end
+		end	
+	end
+	Runes:UpdateHeroSkillAndRunePoints(hero)
 end
 
 function Runes:SetRuneUnitModifiersForUI(hero)
