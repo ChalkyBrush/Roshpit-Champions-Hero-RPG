@@ -8089,6 +8089,7 @@ function tattered_novice_init(event)
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero)
 	hero:SetStatsForLevel()
+	hero:ReequipAllGear()
 end
 
 function tattered_novice_end(event)
@@ -8096,6 +8097,7 @@ function tattered_novice_end(event)
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero)
 	hero:SetStatsForLevel()
+	hero:ReequipAllGear()
 end
 
 function tattered_novice_enemy_death(event)

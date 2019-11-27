@@ -144,7 +144,15 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	end
 
 	print("--RECORDING PROPERTY--")
-
+	-- HANDLE SPECIAL GEAR BOOST MODIFIERS IN HERE
+	-- TATTERED NOVICE ARMOR AMETHYST:
+	if hero:HasModifier("modifier_tattered_novice_armor") then
+		if item.newItemTable.rarityFactor < RPC_ITEMS_RARITY_IMMORTAL then
+			novice_armor = hero:FindModifierByName("modifier_tattered_novice_armor"):GetAbility()
+			property_value = property_value * (1 + novice_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_AMETHYST)/100)
+		end
+	end
+	-- 
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	if string.match(property_name, "immortal_weapon") or string.match(property_name, "arcana") or string.match(property_name, "!immortal!") then
 		hero.gear_bonuses[gear_slot][property_name] = 1
@@ -692,5 +700,26 @@ end
 function RPCItems:SpecialGearInitialization(item, hero, gear_slot)
 	if item:GetAbilityName() == "item_rpc_dragon_ceremony_vestments" then
 		hero.gear_bonuses[gear_slot]["!immortal!_modifier_dragon_ceremony_vestments"] = 1
+	end
+end
+
+function CDOTA_BaseNPC_Hero:ReequipAllGear()
+	if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	end
+	if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
+		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false)
+	end
+	if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
+	if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	end
+	if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	end
+	if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
 	end
 end
